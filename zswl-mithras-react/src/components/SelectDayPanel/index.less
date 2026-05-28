@@ -1,0 +1,35 @@
+.date-picker {
+  position: relative;
+  display: inline-block;
+  z-index: 1050;
+  width: 100%;
+}
+
+.date-panel {
+  width: 280px;
+  padding: 16px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+  z-index: 1050;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  > .date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    cursor: pointer;
+    &.selected {
+      background-color: #1890ff;
+      color: #fff;
+    }
+  }
+}
+.icon {
+  color: rgba(183, 183, 183);
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.report.mapper.fullsnap.CrOverdueRecordFullSnapMapper">
+
+    <insert id="copyFromEffect">
+        INSERT INTO cr_overdue_record_full_snap(business_key, create_time, update_time, contract_id, payment_id, gen_date, payment_apply_code, overdue_principal, overdue_day, overdue_total, overdue_change_date, batch_id, batch_no)
+        SELECT business_key, create_time, update_time, contract_id, payment_id, gen_date, payment_apply_code, overdue_principal, overdue_day, overdue_total, overdue_change_date, #{batchId}, #{batchNo} FROM cr_overdue_record
+    </insert>
+
+</mapper>

@@ -1,0 +1,35 @@
+.componyWrap {
+  display: flex;
+  width: 100%;
+  background: linear-gradient(180deg, #fffaf0 0%, rgba(255, 250, 240, 0.5) 100%);
+  padding: 22px 0;
+  cursor: pointer;
+  .item {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #dedfe2;
+    &:last-child {
+      border: 0;
+    }
+    .num {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .label {
+      color: #53555b;
+      font-size: 12px;
+    }
+  }
+}
+
+.title {
+  color: #17181a;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  .icon {
+    font-size: 24px;
+    margin-right: 5px;
+  }
+}

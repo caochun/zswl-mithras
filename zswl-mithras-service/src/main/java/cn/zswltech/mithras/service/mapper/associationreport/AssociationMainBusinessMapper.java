@@ -1,0 +1,12 @@
+package cn.zswltech.mithras.service.mapper.associationreport;
+
+import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationMainBusiness;
+import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+
+/**
+ * @author dingqi
+ * @date 2025/4/18
+ * @description
+ */
+public interface AssociationMainBusinessMapper extends CustomBaseMapper<AssociationMainBusiness> {
+}

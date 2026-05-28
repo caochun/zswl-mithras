@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.ftp.FtpIncomeDetailRecordMapper">
+    <select id="countByDate" resultType="cn.zswltech.mithras.service.mapper.model.ftp.FtpIncomeDetailRecord">
+        select a.ftp_income_id, sum(a.ftp_income) as ftp_income from ftp_income_detail_record a
+        <where>
+            <if test="from != null">
+                AND a.interest_date >= #{from}
+            </if>
+            <if test="to != null">
+                AND #{to} >= a.interest_date
+            </if>
+
+            <if test="ftpIncomeIds != null and ftpIncomeIds.size() > 0">
+                AND a.ftp_income_id IN
+                <foreach item="item" collection="ftpIncomeIds" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+         group by a.ftp_income_id
+    </select>
+</mapper>

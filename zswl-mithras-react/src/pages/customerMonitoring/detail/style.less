@@ -1,0 +1,290 @@
+.customer-detail {
+  // background: linear-gradient(180deg, #edf4ff 0%, #f0f6ff 21.61%, #ffffff 50%, #edf4ff 100%);
+  // overflow: hidden;
+  height: 100%;
+  // background: linear-gradient(
+  //   135.99deg,
+  //   rgba(234, 247, 255, 0.8) 17.21%,
+  //   rgba(246, 250, 255, 0.8) 38.44%,
+  //   rgba(206, 225, 255, 0.8) 73.84%
+  // );
+  background-color: #daeaff;
+}
+
+/* 顶部企业信息 */
+.company-header {
+  background-size: contain;
+  height: 200px;
+  padding: 0 24px;
+  overflow: hidden;
+  // background: linear-gradient(
+  //   90deg,
+  //   #daeaff 0%,
+  //   #e2f1fd 26.5%,
+  //   #e2f1fd 53%,
+  //   rgba(218, 234, 255, 0) 100%
+  // );
+  background: url('/public/assets/risk/customerView/kfBackground.png') no-repeat right center;
+  background-size: auto 100%;
+}
+
+.company-name {
+  font-size: 20px;
+  // margin-top: 52px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.status {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 2px 8px;
+  background: #e6f7ff;
+  color: #1890ff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.business-type {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 2px 8px;
+  background: #f6f6f6;
+  color: #666;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.company-desc {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 顶部指标卡片 */
+.indicator-cards {
+  position: relative;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 19px 80px 39px 150px;
+  border-radius: 12px;
+  border: 1.2px solid #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 5.39%,
+    rgba(250, 252, 255, 0.8) 42%,
+    rgba(245, 248, 255, 0.8) 96.95%
+  );
+  box-shadow: 4px 0px 8px 0px rgba(190, 218, 255, 0.25);
+  backdrop-filter: blur(2px);
+  margin: 0 24px 24px;
+  .indicator-cards-title {
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 126px;
+    height: 100px;
+    padding: 12px 20px 10px 0px;
+    text-align: center;
+    background: url('/public/assets/risk/customerView/blackListBackground.png');
+  }
+}
+
+.indicator-item {
+  text-align: center;
+}
+
+.indicator-value {
+  text-align: center;
+  font-family: D-DIN;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.indicator-label {
+  color: #333;
+  text-align: center;
+  font-family: 'PingFang SC';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.main-content {
+  min-height: 500px;
+  margin: 0 24px;
+}
+
+/* 适配 Antd Tabs 样式 */
+:global(.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab) {
+  padding: 12px 24px;
+}
+
+:global(.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active) {
+  background: #fff;
+  border-bottom-color: #fff;
+}
+
+:global(.ant-card-body) {
+  padding: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .indicator-cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+
+  :global(.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab) {
+    padding: 8px 16px;
+  }
+}
+
+.header {
+  position: absolute;
+  margin-bottom: 24px;
+  padding: 6px 24px 24px 24px;
+  width: 484px;
+  height: 140px;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+
+  width: 368px;
+  height: 80px;
+  top: 200px;
+  left: 20px;
+  gap: 0px;
+  border-radius: 4px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+
+  background: linear-gradient(
+    171.26deg,
+    rgba(255, 247, 247, 0.8) -0.33%,
+    rgba(255, 253, 253, 0.8) 34.98%,
+    rgba(255, 218, 218, 0.8) 93.86%
+  );
+
+  .card {
+    position: absolute;
+    top: 0;
+    left: 385px;
+  }
+  .ratingDetail {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    cursor: pointer;
+  }
+  .ratingInfo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .rating {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      width: 50%;
+      flex-shrink: 0;
+
+      .grade,
+      .score {
+        display: flex;
+        flex-direction: column;
+        margin-left: 16px;
+
+        span {
+          font-family: D-DIN;
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 22px;
+
+          span {
+            margin-left: 3px;
+            font-size: 12px;
+            color: #c4c6cf;
+          }
+        }
+
+        div {
+          margin-top: 4px;
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.65);
+          line-height: 1;
+        }
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff99;
+        width: 48px;
+        height: 48px;
+        border: 0.4px solid;
+        border-image-source: linear-gradient(
+          271.01deg,
+          rgba(255, 255, 255, 0.5) 4.06%,
+          #ffffff 94.44%
+        );
+
+        img {
+          width: 32px;
+          height: 28px;
+        }
+      }
+    }
+    .toopl {
+      position: absolute;
+      top: 0;
+      right: -265px;
+    }
+  }
+
+  .ratingDetail {
+    color: #1890ff;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.company-tabs {
+  padding: 20px;
+  background: linear-gradient(180deg, #edf4ff 0%, #f0f6ff 21.61%, #ffffff 50%, #edf4ff 100%);
+
+  .bomCustomer {
+    background: linear-gradient(
+      179.63deg,
+      rgba(196, 218, 255, 0.3) 2.5%,
+      rgba(239, 248, 255, 0.8) 36.11%,
+      #ffffff 72.96%
+    );
+    margin-top: 45px;
+    height: 552px;
+    gap: 0px;
+    border-radius: 8px 0px 0px 0px;
+    border: 1px 0px 0px 0px;
+    border: 1px solid;
+    backdrop-filter: blur(4px);
+
+    border-image-source: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    .title {
+      margin: 16px 0 0 16px;
+      font-family: PingFang SC;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 22px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: #101c2c;
+    }
+  }
+}

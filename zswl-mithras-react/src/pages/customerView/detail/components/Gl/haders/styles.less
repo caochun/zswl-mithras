@@ -1,0 +1,262 @@
+.hader {
+  display: flex;
+  background: linear-gradient(90deg, rgba(236, 242, 255, 0.2) 0%, rgba(222, 232, 255, 0.2) 100%);
+
+  height: 232px;
+  top: 438px;
+  left: 404px;
+  gap: 0px;
+  border-radius: 8px 0px 0px 0px;
+  padding: 12px;
+  justify-content: space-around;
+}
+.title {
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #101c2c;
+}
+.class-summary-container{
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+
+  width: 474px;
+  height: 208px;
+
+  gap: 0px;
+}
+.credit-summary-container {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+
+  width: 474px;
+  height: 208px;
+
+  gap: 0px;
+}
+.class-summary-detail{
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  user-select: none;
+  color: #2552e6;
+}
+/* 顶部信息 */
+.credit-summary-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .credit-summary-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1890ff, #87d7ff);
+    // border-radius: 50%;
+    background-image: url(/public//assets/risk/客户统一视图概览/totalCreditLine.png);
+    margin-right: 15px;
+  }
+
+  .credit-summary-info {
+    flex: 1;
+
+    .credit-summary-row {
+      display: flex;
+      align-items: center;
+    }
+
+    .class-summary-row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 60%;
+    }
+
+    .credit-summary-label {
+      font-size: 14px;
+      color: #666;
+      .left {
+        margin-left: 10px;
+      }
+    }
+    .credit-summary-value {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      margin-left: 10px;
+    }
+
+    .credit-summary-amount {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      margin-left: 10px;
+    }
+
+    .credit-summary-date {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 5px;
+    }
+  }
+}
+
+/* 分割线 */
+.credit-summary-divider {
+  height: 1px;
+  background-color: #e6e6e6;
+  margin: 10px 0;
+}
+
+.class-summary-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .progress-container {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .data-container {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12px;
+
+    .data-item {
+      display: flex;
+      flex-direction: column;
+
+      .data-label {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #666;
+
+        .dot-used,
+        .dot-unused {
+          width: 8px;
+          height: 8px;
+          margin-right: 5px;
+        }
+
+        .dot-used {
+          background-color: #1890ff;
+        }
+
+        .dot-unused {
+          background-color: #d9d9d9;
+        }
+      }
+
+      .data-value {
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+/* 环形进度条 + 数据 */
+.credit-summary-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .progress-container {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .data-container {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+
+    .data-item {
+      display: flex;
+      flex-direction: column;
+
+      .data-label {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #666;
+
+        .dot-used,
+        .dot-unused {
+          width: 8px;
+          height: 8px;
+          margin-right: 5px;
+        }
+
+        .dot-used {
+          background-color: #1890ff;
+        }
+
+        .dot-unused {
+          background-color: #d9d9d9;
+        }
+      }
+
+      .data-value {
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+// 历史授信
+
+.history-chart-container {
+  flex: 1;
+  margin-left: 16px;
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 474px;
+  height: 208px;
+  gap: 0px;
+  border-radius: 8px;
+
+  .chart-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .chart-content {
+    width: 100%;
+    // height: 139px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+

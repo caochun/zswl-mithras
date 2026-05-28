@@ -1,0 +1,17 @@
+package cn.zswltech.mithras.service.service.contract;
+
+import cn.zswltech.mithras.service.mapper.model.contract.ContractSettlePlan;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+ * @author dingqi
+ * @date 2022/8/24
+ * @description
+ */
+public interface ContractSettlePlanService extends IService<ContractSettlePlan> {
+    void removeByContractId(Long contractId);
+
+    ContractSettlePlan getLatestContractSettlePlan(Long contractId);
+
+    Long saveOrUpdatePlan(ContractSettlePlan contractSettlePlan);
+}

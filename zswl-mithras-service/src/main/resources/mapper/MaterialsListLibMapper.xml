@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.MaterialsListLibMapper">
+
+
+    <select id="newestMaterials" resultType="cn.zswltech.mithras.service.mapper.model.MaterialsListLib">
+        SELECT p.* FROM materials_list_lib p
+        INNER JOIN
+        (SELECT main_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = #{dto.businessType} AND t1.version_type = 1 AND t1.main_id IN
+        <foreach collection="dto.belongIds" item="belongId" open="(" separator="," close=")">
+            #{belongId}
+        </foreach>
+        GROUP BY main_id) m
+        ON p.belong_id = m.main_id AND p.version = m.version
+        <where>
+            <if test="dto.materialsTypes != null and dto.materialsTypes.size() > 0">
+                AND p.materials_type IN
+                <foreach collection="dto.materialsTypes" item="materialsType" open="(" separator="," close=")">
+                    #{materialsType}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

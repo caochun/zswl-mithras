@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.others.service.mapper.FixDataMapper">
+
+
+    <update id="fixProcessInstanceName">
+        UPDATE act_hi_procinst SET name_ = #{processInstanceName} WHERE 1 = 1
+        AND BUSINESS_KEY_ = #{businessKey}
+        AND PROC_DEF_ID_ IN
+        <foreach collection="procDefIdList" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </update>
+
+</mapper>

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.flowable.org/processdef" exporter="Flowable Open Source Modeler" exporterVersion="6.7.2">
+  <process id="FinalPlanEventFlow" name="投放计划收集-财务" isExecutable="true">
+    <extensionElements>
+      <flowable:formData />
+    </extensionElements>
+    <startEvent id="startNode1" name="开始"   values="[object Object],[object Object],[object Object],[object Object]">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:startEvent />
+      </extensionElements>
+    </startEvent>
+    <userTask id="userTask_financeManager" name="财务主管" flowable:skipExpression="${userTask_financeManager_skip}"   values="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:taskListener delegateExpression="${taskCreateListener}" event="create" />
+        <flowable:taskListener delegateExpression="${taskCompleteListener}" event="complete" />
+        <flowable:taskListener delegateExpression="${taskDeleteListener}" event="delete" />
+        <flowable:taskListener delegateExpression="${taskAssignmentListener}" event="assignment" />
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler">false</modeler:initiator-can-complete>
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="approverType" name="审批者类型"><![CDATA[10]]></flowable:value>
+          <flowable:value id="jobCode" name="岗位"><![CDATA[financialofficer]]></flowable:value>
+          <flowable:value id="userDefineVarName" name="变量名"><![CDATA[[]]]></flowable:value>
+          <flowable:value id="parallelApprovalMethed" name="审批方式"><![CDATA[1]]></flowable:value>
+          <flowable:value id="skipFirst" name="首次是否跳过"><![CDATA[false]]></flowable:value>
+          <flowable:value id="buttonList" name="按钮列表"><![CDATA[["SUBMIT"]]]></flowable:value>
+        </flowable:formData>
+        <flowable:userTask />
+      </extensionElements>
+      <multiInstanceLoopCharacteristics flowable:collection="userTask_financeManager_assignApproverList" flowable:elementVariable="userTask_financeManager_assignee">
+        <extensionElements />
+        <completionCondition>${userTask_financeManager_moreComplete}</completionCondition>
+      </multiInstanceLoopCharacteristics>
+      <flowable:assignee>${userTask_financeManager_assignee}</flowable:assignee>
+    </userTask>
+    <endEvent id="Event_01syh16" name="结束">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </endEvent>
+    <sequenceFlow id="Flow_05mjobk" sourceRef="startNode1" targetRef="userTask_startUser">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </sequenceFlow>
+    <userTask id="userTask_startUser" name="发起人" flowable:skipExpression="${userTask_startUser_skip}"   values="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:taskListener delegateExpression="${taskCreateListener}" event="create" />
+        <flowable:taskListener delegateExpression="${taskCompleteListener}" event="complete" />
+        <flowable:taskListener delegateExpression="${taskDeleteListener}" event="delete" />
+        <flowable:taskListener delegateExpression="${taskAssignmentListener}" event="assignment" />
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler">false</modeler:initiator-can-complete>
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="approverType" name="审批者类型"><![CDATA[6]]></flowable:value>
+          <flowable:value id="userDefineVarName" name="变量名"><![CDATA[[]]]></flowable:value>
+          <flowable:value id="parallelApprovalMethed" name="审批方式"><![CDATA[1]]></flowable:value>
+          <flowable:value id="skipFirst" name="首次是否跳过"><![CDATA[true]]></flowable:value>
+          <flowable:value id="buttonList" name="按钮列表"><![CDATA[["SUBMIT","WITHDRAW_TASK"]]]></flowable:value>
+        </flowable:formData>
+        <flowable:userTask />
+      </extensionElements>
+      <multiInstanceLoopCharacteristics flowable:collection="userTask_startUser_assignApproverList" flowable:elementVariable="userTask_startUser_assignee">
+        <extensionElements />
+        <completionCondition>${userTask_startUser_moreComplete}</completionCondition>
+      </multiInstanceLoopCharacteristics>
+      <flowable:assignee>${userTask_startUser_assignee}</flowable:assignee>
+    </userTask>
+    <userTask id="userTask_headofyyglb" name="运营负责人" flowable:skipExpression="${userTask_headofyyglb_skip}"   values="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:taskListener delegateExpression="${taskCreateListener}" event="create" />
+        <flowable:taskListener delegateExpression="${taskCompleteListener}" event="complete" />
+        <flowable:taskListener delegateExpression="${taskDeleteListener}" event="delete" />
+        <flowable:taskListener delegateExpression="${taskAssignmentListener}" event="assignment" />
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler">false</modeler:initiator-can-complete>
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="approverType" name="审批者类型"><![CDATA[10]]></flowable:value>
+          <flowable:value id="jobCode" name="岗位"><![CDATA[headofyyglb]]></flowable:value>
+          <flowable:value id="userDefineVarName" name="变量名"><![CDATA[[]]]></flowable:value>
+          <flowable:value id="parallelApprovalMethed" name="审批方式"><![CDATA[1]]></flowable:value>
+          <flowable:value id="skipFirst" name="首次是否跳过"><![CDATA[false]]></flowable:value>
+          <flowable:value id="buttonList" name="按钮列表"><![CDATA[["AGREE","BACK_TO_START_USER","COLLABORATE"]]]></flowable:value>
+        </flowable:formData>
+        <flowable:userTask />
+      </extensionElements>
+      <multiInstanceLoopCharacteristics flowable:collection="userTask_headofyyglb_assignApproverList" flowable:elementVariable="userTask_headofyyglb_assignee">
+        <extensionElements />
+        <completionCondition>${userTask_headofyyglb_moreComplete}</completionCondition>
+      </multiInstanceLoopCharacteristics>
+      <flowable:assignee>${userTask_headofyyglb_assignee}</flowable:assignee>
+    </userTask>
+    <userTask id="userTask_headofzj" name="资金负责人" flowable:skipExpression="${userTask_headofzj_skip}"   values="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:taskListener delegateExpression="${taskCreateListener}" event="create" />
+        <flowable:taskListener delegateExpression="${taskCompleteListener}" event="complete" />
+        <flowable:taskListener delegateExpression="${taskDeleteListener}" event="delete" />
+        <flowable:taskListener delegateExpression="${taskAssignmentListener}" event="assignment" />
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler">false</modeler:initiator-can-complete>
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="approverType" name="审批者类型"><![CDATA[10]]></flowable:value>
+          <flowable:value id="jobCode" name="岗位"><![CDATA[moneymanagerhead]]></flowable:value>
+          <flowable:value id="userDefineVarName" name="变量名"><![CDATA[[]]]></flowable:value>
+          <flowable:value id="parallelApprovalMethed" name="审批方式"><![CDATA[1]]></flowable:value>
+          <flowable:value id="skipFirst" name="首次是否跳过"><![CDATA[false]]></flowable:value>
+          <flowable:value id="buttonList" name="按钮列表"><![CDATA[["AGREE","BACK_TO_START_USER","COLLABORATE"]]]></flowable:value>
+        </flowable:formData>
+        <flowable:userTask />
+      </extensionElements>
+      <multiInstanceLoopCharacteristics flowable:collection="userTask_headofzj_assignApproverList" flowable:elementVariable="userTask_headofzj_assignee">
+        <extensionElements />
+        <completionCondition>${userTask_headofzj_moreComplete}</completionCondition>
+      </multiInstanceLoopCharacteristics>
+      <flowable:assignee>${userTask_headofzj_assignee}</flowable:assignee>
+    </userTask>
+    <sequenceFlow id="Flow_09novzt" sourceRef="userTask_startUser" targetRef="userTask_financeManager">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </sequenceFlow>
+    <exclusiveGateway id="Gateway_0gpmcf6" name="是否为月度考核">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </exclusiveGateway>
+    <sequenceFlow id="Flow_0942f3f" name="是" sourceRef="Gateway_0gpmcf6" targetRef="userTask_headofyyglb">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="conditionExpression" name="执行条件"><![CDATA[${isMonthFlag==true}]]></flowable:value>
+        </flowable:formData>
+      </extensionElements>
+      <conditionExpression xsi:type="tFormalExpression">${isMonthFlag==true}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_05hd42u" sourceRef="userTask_financeManager" targetRef="Gateway_0gpmcf6">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0dgngkz" name="否" sourceRef="Gateway_0gpmcf6" targetRef="Event_01syh16">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="conditionExpression" name="执行条件"><![CDATA[${isMonthFlag==false}]]></flowable:value>
+        </flowable:formData>
+      </extensionElements>
+      <conditionExpression xsi:type="tFormalExpression">${isMonthFlag==false}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0m736hu" sourceRef="userTask_headofyyglb" targetRef="userTask_fundManager">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0cnxaas" sourceRef="userTask_fundManager" targetRef="userTask_headofzj">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </sequenceFlow>
+    <userTask id="userTask_fundManager" name="资金经理" flowable:skipExpression="${userTask_fundManager_skip}"   values="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:taskListener delegateExpression="${taskCreateListener}" event="create" />
+        <flowable:taskListener delegateExpression="${taskCompleteListener}" event="complete" />
+        <flowable:taskListener delegateExpression="${taskDeleteListener}" event="delete" />
+        <flowable:taskListener delegateExpression="${taskAssignmentListener}" event="assignment" />
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler">false</modeler:initiator-can-complete>
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="approverType" name="审批者类型"><![CDATA[10]]></flowable:value>
+          <flowable:value id="jobCode" name="岗位"><![CDATA[moneymanager]]></flowable:value>
+          <flowable:value id="userDefineVarName" name="变量名"><![CDATA[[]]]></flowable:value>
+          <flowable:value id="parallelApprovalMethed" name="审批方式"><![CDATA[1]]></flowable:value>
+          <flowable:value id="skipFirst" name="首次是否跳过"><![CDATA[false]]></flowable:value>
+          <flowable:value id="buttonList" name="按钮列表"><![CDATA[["AGREE","BACK_TO_START_USER","COLLABORATE"]]]></flowable:value>
+        </flowable:formData>
+        <flowable:userTask />
+      </extensionElements>
+      <multiInstanceLoopCharacteristics flowable:collection="userTask_fundManager_assignApproverList" flowable:elementVariable="userTask_fundManager_assignee">
+        <extensionElements />
+        <completionCondition>${userTask_fundManager_moreComplete}</completionCondition>
+      </multiInstanceLoopCharacteristics>
+      <flowable:assignee>${userTask_fundManager_assignee}</flowable:assignee>
+    </userTask>
+    <sequenceFlow id="Flow_0w1xejr" sourceRef="userTask_headofzj" targetRef="userTask_leaderincharge">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1e85ouo" sourceRef="userTask_leaderincharge" targetRef="userTask_generalManager">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1ft3nlc" sourceRef="userTask_generalManager" targetRef="Event_01syh16">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+      </extensionElements>
+    </sequenceFlow>
+    <userTask id="userTask_leaderincharge" name="分管领导" flowable:skipExpression="${userTask_leaderincharge_skip}"   values="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:taskListener delegateExpression="${taskCreateListener}" event="create" />
+        <flowable:taskListener delegateExpression="${taskCompleteListener}" event="complete" />
+        <flowable:taskListener delegateExpression="${taskDeleteListener}" event="delete" />
+        <flowable:taskListener delegateExpression="${taskAssignmentListener}" event="assignment" />
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler">false</modeler:initiator-can-complete>
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="approverType" name="审批者类型"><![CDATA[7]]></flowable:value>
+          <flowable:value id="userDefineVarName" name="变量名"><![CDATA[leaderincharge]]></flowable:value>
+          <flowable:value id="parallelApprovalMethed" name="审批方式"><![CDATA[1]]></flowable:value>
+          <flowable:value id="skipFirst" name="首次是否跳过"><![CDATA[false]]></flowable:value>
+          <flowable:value id="buttonList" name="按钮列表"><![CDATA[["AGREE","BACK_TO_START_USER"]]]></flowable:value>
+        </flowable:formData>
+        <flowable:userTask />
+      </extensionElements>
+      <multiInstanceLoopCharacteristics flowable:collection="userTask_leaderincharge_assignApproverList" flowable:elementVariable="userTask_leaderincharge_assignee">
+        <extensionElements />
+        <completionCondition>${userTask_leaderincharge_moreComplete}</completionCondition>
+      </multiInstanceLoopCharacteristics>
+      <flowable:assignee>${userTask_leaderincharge_assignee}</flowable:assignee>
+    </userTask>
+    <userTask id="userTask_generalManager" name="总经理" flowable:skipExpression="${userTask_generalManager_skip}"   values="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+      <extensionElements>
+        <flowable:executionListener delegateExpression="${nodeStartListener}" event="start" />
+        <flowable:executionListener delegateExpression="${nodeEndListener}" event="end" />
+        <flowable:executionListener delegateExpression="${nodeTakeListener}" event="take" />
+        <flowable:taskListener delegateExpression="${taskCreateListener}" event="create" />
+        <flowable:taskListener delegateExpression="${taskCompleteListener}" event="complete" />
+        <flowable:taskListener delegateExpression="${taskDeleteListener}" event="delete" />
+        <flowable:taskListener delegateExpression="${taskAssignmentListener}" event="assignment" />
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler">false</modeler:initiator-can-complete>
+        <flowable:formData xmlns:flowable="http://flowable.org/bpmn">
+          <flowable:value id="approverType" name="审批者类型"><![CDATA[10]]></flowable:value>
+          <flowable:value id="jobCode" name="岗位"><![CDATA[generalmanager]]></flowable:value>
+          <flowable:value id="userDefineVarName" name="变量名"><![CDATA[[]]]></flowable:value>
+          <flowable:value id="parallelApprovalMethed" name="审批方式"><![CDATA[1]]></flowable:value>
+          <flowable:value id="skipFirst" name="首次是否跳过"><![CDATA[false]]></flowable:value>
+          <flowable:value id="buttonList" name="按钮列表"><![CDATA[["AGREE","BACK_TO_START_USER"]]]></flowable:value>
+        </flowable:formData>
+        <flowable:userTask />
+      </extensionElements>
+      <multiInstanceLoopCharacteristics flowable:collection="userTask_generalManager_assignApproverList" flowable:elementVariable="userTask_generalManager_assignee">
+        <extensionElements />
+        <completionCondition>${userTask_generalManager_moreComplete}</completionCondition>
+      </multiInstanceLoopCharacteristics>
+      <flowable:assignee>${userTask_generalManager_assignee}</flowable:assignee>
+    </userTask>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_FinalPlanEventFlow">
+    <bpmndi:BPMNPlane id="BPMNPlane_FinalPlanEventFlow" bpmnElement="FinalPlanEventFlow">
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_1ft3nlc" bpmnElement="Flow_1ft3nlc" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="18.0" flowable:targetDockerY="18.0">
+        <omgdi:waypoint x="410" y="729.9499999999999" />
+        <omgdi:waypoint x="410" y="772" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_1e85ouo" bpmnElement="Flow_1e85ouo" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="410" y="609.9499999999999" />
+        <omgdi:waypoint x="410" y="650" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_0w1xejr" bpmnElement="Flow_0w1xejr" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="410" y="489.95000000000005" />
+        <omgdi:waypoint x="410" y="530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_0cnxaas" bpmnElement="Flow_0cnxaas" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="410" y="369.95000000000005" />
+        <omgdi:waypoint x="410" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_0m736hu" bpmnElement="Flow_0m736hu" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="319.9499999999063" y="330" />
+        <omgdi:waypoint x="360" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_0dgngkz" bpmnElement="Flow_0dgngkz" flowable:sourceDockerX="25.0" flowable:sourceDockerY="25.0" flowable:targetDockerX="18.0" flowable:targetDockerY="18.0">
+        <omgdi:waypoint x="130" y="354.9472886329059" />
+        <omgdi:waypoint x="130" y="790" />
+        <omgdi:waypoint x="392" y="790" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_05hd42u" bpmnElement="Flow_05hd42u" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="25.0" flowable:targetDockerY="25.0">
+        <omgdi:waypoint x="130" y="259.95000000000005" />
+        <omgdi:waypoint x="130" y="305" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_0942f3f" bpmnElement="Flow_0942f3f" flowable:sourceDockerX="25.0" flowable:sourceDockerY="25.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="154.94109564596715" y="330" />
+        <omgdi:waypoint x="220" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_09novzt" bpmnElement="Flow_09novzt" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="130" y="139.95" />
+        <omgdi:waypoint x="130" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_Flow_05mjobk" bpmnElement="Flow_05mjobk" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="130" y="34.94999714614514" />
+        <omgdi:waypoint x="130" y="60" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_startNode1" bpmnElement="startNode1">
+        <omgdc:Bounds x="115" y="5" width="30" height="30" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="119" y="35" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_userTask_financeManager" bpmnElement="userTask_financeManager">
+        <omgdc:Bounds x="80" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Event_01syh16" bpmnElement="Event_01syh16">
+        <omgdc:Bounds x="392" y="772" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_userTask_startUser" bpmnElement="userTask_startUser">
+        <omgdc:Bounds x="80" y="60" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_userTask_headofyyglb" bpmnElement="userTask_headofyyglb">
+        <omgdc:Bounds x="220" y="290" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_userTask_headofzj" bpmnElement="userTask_headofzj">
+        <omgdc:Bounds x="360" y="410" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Gateway_0gpmcf6" bpmnElement="Gateway_0gpmcf6" isMarkerVisible="true">
+        <omgdc:Bounds x="105" y="305" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_userTask_fundManager" bpmnElement="userTask_fundManager">
+        <omgdc:Bounds x="360" y="290" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_userTask_leaderincharge" bpmnElement="userTask_leaderincharge">
+        <omgdc:Bounds x="360" y="530" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_userTask_generalManager" bpmnElement="userTask_generalManager">
+        <omgdc:Bounds x="360" y="650" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

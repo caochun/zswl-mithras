@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{20} - [%X{traceId}] %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{20} - [%X{traceId}] %msg%n
+            </pattern>
+        </encoder>
+        <file>${LOG_PATH}/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/app.log.%i</fileNamePattern>
+            <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
+            <maxHistory>90</maxHistory>
+            <totalSizeCap>${LOG_FILE_TOTAL_SIZE_CAP:-0}</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    <appender name="errorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Append>true</Append>
+        <file>${LOG_PATH}/app-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/app-error.log.%i</fileNamePattern>
+            <maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
+            <maxHistory>90</maxHistory>
+            <totalSizeCap>${LOG_FILE_TOTAL_SIZE_CAP:-0}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                <!-- [%d{yyyy-MM-dd HH:mm:ss.SSSZ} ] - %X{method} %X{requestURIWithQueryString} [ip=%X{remoteAddr}, ref=%X{referrer}, ua=%X{userAgent}, sid=%X{cookie.JSESSIONID}]%n  %-5level %logger{35} - %m%n] -->
+                <![CDATA[[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%X{requestURIWithQueryString}] %-5level %logger{20} - %msg%n]]>
+            </pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <appender name="requestAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] %n%msg</pattern>
+        </encoder>
+        <file>${LOG_PATH}/app-request.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/app-request.log.%i</fileNamePattern>
+            <maxFileSize>${LOG_FILE_MAX_SIZE:-50MB}</maxFileSize>
+            <maxHistory>90</maxHistory>
+            <totalSizeCap>${LOG_FILE_TOTAL_SIZE_CAP:-0}</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+
+    <!-- 异步输出 -->
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>20</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>512</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="FILE"/>
+    </appender>
+
+    <springProfile name="default">
+        <root>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+    <springProfile name="local">
+        <root>
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+    <springProfile name="dev,test,qa">
+        <root>
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ASYNC_FILE"/>
+            <appender-ref ref="errorLog"/>
+        </root>
+    </springProfile>
+    <springProfile name="poc">
+        <root>
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ASYNC_FILE"/>
+            <appender-ref ref="errorLog"/>
+        </root>
+    </springProfile>
+
+
+    <springProfile name="sit,pre,pre_new,prod,prod_new,protest,uat">
+        <root>
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ASYNC_FILE"/>
+            <appender-ref ref="errorLog"/>
+        </root>
+    </springProfile>
+
+    <logger name="reqLogger" additivity="false" level="INFO">
+        <appender-ref ref="requestAppender"/>
+    </logger>
+</configuration>

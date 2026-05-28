@@ -1,0 +1,59 @@
+package cn.zswltech.mithras.service.mapper.model.kpi;
+
+import cn.zswltech.mithras.service.enums.kpi.KpiProjectWeightTypeEnum;
+import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ * @author dingqi
+ * @date 2023/6/14
+ * @description 绩效考核-项目分配表（新）-分配比重信息
+ */
+@EqualsAndHashCode(callSuper = true)
+@Data
+@TableName("kpi_project_distribution_weight")
+public class KpiProjectDistributionWeight extends BaseModel implements IEntity {
+    /**
+     * 主键id
+     */
+    @TableId(type = IdType.AUTO)
+    @TableField(value = "id")
+    private Long id;
+
+    /**
+     * 项目分配表id
+     */
+    @TableField(value = "project_distribution_id")
+    private Long projectDistributionId;
+
+    /**
+     * 分配比重类型 {@link KpiProjectWeightTypeEnum#name()}
+     */
+    @TableField(value = "weight_type")
+    private String weightType;
+
+    /**
+     * 分配比重归属目标
+     */
+    @TableField(value = "weight_target", updateStrategy = FieldStrategy.IGNORED)
+    private String weightTarget;
+
+    /**
+     * 分配比重数值
+     */
+    @TableField(value = "wight_value", updateStrategy = FieldStrategy.IGNORED)
+    private Integer weightValue;
+
+    @Override
+    public void setMainId(Long id) {
+        this.projectDistributionId = id;
+    }
+
+    @Override
+    public Long getMainId() {
+        return this.projectDistributionId;
+    }
+}

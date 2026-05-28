@@ -1,0 +1,2 @@
+alter table proj_review_base_info add column enterprise_nature VARCHAR(20) default null comment '企业性质';
+alter table proj_review_base_info_lib add column enterprise_nature VARCHAR(20) default null comment '企业性质';

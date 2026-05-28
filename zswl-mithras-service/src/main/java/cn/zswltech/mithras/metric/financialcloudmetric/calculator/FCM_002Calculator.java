@@ -1,0 +1,66 @@
+package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
+
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.collection.CollUtil;
+import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
+import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
+import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
+import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
+import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;
+import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.service.util.LongUtil;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+/**
+ * @description: 业务类型为ABS时所有融资期限类型  的期末融资融资余额加总 （亿）
+ * @author: zhaozhengkang
+ * @date: 2023/4/13 09:57
+ */
+@Component
+public class FCM_002Calculator implements FinancialCloudMetricCalculator {
+
+    @Resource
+    private FundDirectFinancingBaseInfoService fundDirectFinancingBaseInfoService;
+
+    @Resource
+    private FundDirectFinancingRepayActualService fundDirectFinancingRepayActualService;
+
+    @Override
+
+    public String metricCode() {
+        return "FCM_002";
+    }
+
+    @Override
+    public BigDecimal calculate(LocalDate dateTime) {
+        List<FundDirectFinancingBaseInfo> directFinancingBaseInfoList = fundDirectFinancingBaseInfoService.list(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
+                .in(FundDirectFinancingBaseInfo::getDirectFinancingType, DirectFinancingType.ABS.name(), DirectFinancingType.ABN.name()));
+        if (ObjectUtil.isEmpty(directFinancingBaseInfoList)) {
+            return BigDecimal.ZERO;
+        }
+        Set<Long> absFinancingIds = directFinancingBaseInfoList.stream().map(FundDirectFinancingBaseInfo::getId).collect(Collectors.toSet());
+        List<FundDirectFinancingRepayActual> list = fundDirectFinancingRepayActualService.list(Wrappers.<FundDirectFinancingRepayActual>lambdaQuery()
+                .in(FundDirectFinancingRepayActual::getFinancingId, absFinancingIds)
+                .le(FundDirectFinancingRepayActual::getRepayDate, dateTime.with(TemporalAdjusters.lastDayOfMonth()))
+                .orderByDesc(FundDirectFinancingRepayActual::getPhase));
+        if (list.isEmpty()) {
+            return BigDecimal.ZERO;
+        }
+        Map<Long, List<FundDirectFinancingRepayActual>> collect = list.stream().collect(Collectors.groupingBy(FundDirectFinancingRepayActual::getFinancingId));
+
+        return collect.values().stream()
+                .map(v -> v.get(0).getRemainingPrincipleAmount())
+                .map(LongUtil::null2zero).map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+}

@@ -1,0 +1,35 @@
+.img {
+  width: 80px;
+  height: 80px;
+  background: url(/public/assets/image/assistant.png) no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+.backImg {
+  width: 80px;
+  height: 80px;
+  background: url(/public/assets/image/assistantAnimation.png) no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: donut-spin 2.5s linear infinite;
+}
+
+.flexBox {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes donut-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

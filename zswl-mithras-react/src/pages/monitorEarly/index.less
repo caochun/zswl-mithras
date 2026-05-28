@@ -1,0 +1,111 @@
+.page {
+  padding: 24px;
+  height: 100%;
+  background-image: url('/public/assets/risk/customerView/bg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  .container {
+    display: flex;
+    flex-direction: column;
+    // overflow: hidden;
+    .top {
+      display: flex;
+    }
+
+    .content {
+      margin-top: 20px;
+      flex: 1;
+      padding: 10px;
+      // background-color: red;
+      background: linear-gradient(
+        179.63deg,
+        rgba(184, 210, 255, 0.3) 2.5%,
+        rgba(239, 248, 255, 0.8) 8.96%,
+        #ffffff 44.29%
+      );
+      border: 1px solid;
+      border-image-source: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+      backdrop-filter: blur(4px);
+    }
+
+    :global {
+      .newTableWarningList {
+        .z-search-bar {
+          background: none;
+        }
+      }
+      .ant-tabs-nav {
+        border-bottom: solid 1px #cccccc;
+      }
+
+      // .z-table-body {
+      //   background-color: #ffffff;
+      //   gap: 0px;
+      //   border-radius: 16px 16px 8px 8px;
+      //
+      //   background: #ffffff;
+      //   padding: 20px;
+      // }
+    }
+
+    .tableWrapper {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+
+      .filterRow {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+
+        :global {
+          .ant-input,
+          .ant-select {
+            width: 180px; // 根据原型适当调整
+            height: 32px; // 根据UI要求调整
+          }
+
+          .ant-btn {
+            height: 32px;
+            line-height: 32px;
+          }
+        }
+      }
+
+      .checkboxRow {
+        margin-bottom: 16px;
+        font-size: 14px;
+
+        span {
+          color: #666;
+        }
+
+        label {
+          margin-left: 16px;
+          color: #333;
+
+          input {
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.blueText {
+  color: #1890ff;
+  cursor: pointer;
+}
+.redText,
+.yellowText {
+  display: flex;
+  align-items: center;
+}
+.redText {
+  color: #ff4d4f;
+}
+
+.yellowText {
+  color: #faad14;
+}

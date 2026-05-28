@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  gap: 16px;
+}
+.title {
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #101c2c;
+}
+/* 左侧区域 */
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.leftSection .mainCard {
+  width: 320px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: url('/public/assets/risk/客户统一视图概览/totalLeft.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.leftSection .mainCard .icon {
+  font-size: 36px;
+  margin-right: 10px;
+}
+.leftSection .mainCard .content .count {
+  font-size: 24px;
+  font-weight: bold;
+}
+.leftSection .mainCard .content .title {
+  font-size: 14px;
+  color: #555;
+}
+.leftSection .card {
+  width: 200px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(132.9deg, rgba(244, 250, 255, 0.64) 37.77%, rgba(235, 244, 255, 0.8) 75.29%);
+  border-radius: 8px;
+}
+.leftSection .card .icon {
+  font-size: 28px;
+  margin-right: 8px;
+}
+.leftSection .card .content .count {
+  font-size: 18px;
+  font-weight: bold;
+}
+.leftSection .card .content .title {
+  font-size: 12px;
+  color: #555;
+}
+.leftSection .cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.leftSection .cardsContainer .card {
+  width: 200px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(132.9deg, rgba(244, 250, 255, 0.64) 37.77%, rgba(235, 244, 255, 0.8) 75.29%);
+  border-radius: 8px;
+}
+.leftSection .cardsContainer .card .icon {
+  font-size: 28px;
+  margin-right: 8px;
+}
+.leftSection .cardsContainer .card .content .count {
+  font-size: 18px;
+  font-weight: bold;
+}
+.leftSection .cardsContainer .card .content .title {
+  font-size: 12px;
+  color: #555;
+}
+/* 右侧区域 */
+.rightSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: url('/public/assets/risk/客户统一视图概览/tableBackground.png') no-repeat center center;
+  background-size: cover;
+  padding: 16px 0 16px !important;
+  background: linear-gradient(90deg, rgba(236, 242, 255, 0.4) 0%, rgba(222, 232, 255, 0.4) 100%);
+}
+.rightSection :global .ant-table {
+  background: none;
+}
+.rightSection :global .ant-table-thead > tr > th {
+  background: #e6edf8;
+  font-family: PingFang SC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #666666;
+}
+.rightSection :global .newTableWarningList {
+  overflow: hidden;
+  overflow-x: auto;
+}
+.rightSection :global .newTableWarningList .z-search-bar {
+  background: none;
+}
+.rightSection :global .ant-tabs-nav {
+  border-bottom: solid 1px #cccccc;
+}
+.rightSection :global .z-table-body {
+  background-color: none;
+  gap: 0px;
+  border-radius: 16px 16px 8px 8px;
+  background: none;
+}
+.rightSection .ant-tabs-nav {
+  margin-bottom: 10px;
+}
+.rightSection .table {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+}

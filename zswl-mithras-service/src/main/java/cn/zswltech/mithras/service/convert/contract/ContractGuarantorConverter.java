@@ -1,0 +1,29 @@
+package cn.zswltech.mithras.service.convert.contract;
+
+import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorAddREQ;
+import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorListRSP;
+import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorModifyREQ;
+import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantor;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+public interface ContractGuarantorConverter {
+
+
+    @Mapping(source = "relatContracts", target = "relatContracts", qualifiedByName = "toJsonString")
+    @Mapping(source = "guarantorIds", target = "guarantorIds", qualifiedByName = "toJsonString")
+    ContractGuarantor reqToEntity(ContractGuarantorAddREQ req);
+
+    @Mapping(source = "relatContracts", target = "relatContracts", qualifiedByName = "toJsonString")
+    @Mapping(source = "guarantorIds", target = "guarantorIds", qualifiedByName = "toJsonString")
+    ContractGuarantor modifyToEntity(ContractGuarantorModifyREQ req);
+
+    @Mapping(source = "guarantorIds", target = "guarantorIds", qualifiedByName = "jsonStringToLongList")
+    @Mapping(source = "resolutionFileId", target = "resolutionFileId", qualifiedByName = "jsonStringToLongList")
+    @Mapping(source = "relatContracts", target = "relatContracts", qualifiedByName = "jsonStringToStringList")
+    ContractGuarantorListRSP entityToRSP(ContractGuarantor entity);
+
+
+}

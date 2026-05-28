@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.liquiditymanage.FundFinancingAccountSettingMapper">
+
+    <select id="queryList" resultType="cn.zswltech.mithras.service.mapper.model.liquiditymanage.dto.AccountSettingListResultDTO">
+
+
+        select
+        a.id as id,
+        'INDIRECT' as financing_Type,
+        base.id as financing_id,
+        base.financing_code as financing_code,
+        IFNULL(plan.financing_amount, 0) as financing_amount,
+        a.account_id as account_id,
+        a.account_origin_id as account_origin_id,
+        a.account_category as account_category,
+        a.account_bank as account_bank,
+        a.account_number as account_number,
+        a.account_type as account_type,
+        a.simulate_settle as simulate_settle,
+        a.settle_time as settle_time,
+        a.settle_amount as settle_amount,
+        base.fund_manager_id as fund_manager,
+        bu.user_name as fund_manager_name,
+        null as product_name
+        from fund_financing_account_setting a
+        left join fund_financing_base_info base on base.id = a.financing_id and a.financing_type is null
+        left join fund_financing_plan plan on plan.financing_id = base.id
+        left join bifrost_user bu ON base.fund_manager_id = bu.id
+        where 1 = 1
+        and base.financing_status = 'CARRY_INTEREST'
+        and a.deleted = 0
+        <if test="financingCode != null">
+            and base.financing_code like concat('%', #{financingCode}, '%')
+        </if>
+        <if test="organizationName != null and organizationName != ''">
+            AND base.id in (
+            select financing_id from fund_financing_credit_ref where organization_id in (select id from fund_organization where organization_name like CONCAT('%', #{organizationName}, '%'))
+            )
+        </if>
+        <if test="simulateSettle != null">
+            and a.simulate_settle = #{simulateSettle}
+        </if>
+        <if test="accountBank != null">
+            and a.account_bank like concat('%', #{accountBank}, '%')
+        </if>
+        <if test="accountNumber != null">
+            and a.account_number like concat('%', #{accountNumber}, '%')
+        </if>
+
+        union all(
+
+        select
+        a.id as id,
+        'DIRECT' as financing_Type,
+        base.id as financing_id,
+        base.financing_code as financing_code,
+        IFNULL(base.financing_amount, 0) * 10000 as financing_amount,
+        a.account_id as account_id,
+        a.account_origin_id as account_origin_id,
+        a.account_category as account_category,
+        a.account_bank as account_bank,
+        a.account_number as account_number,
+        a.account_type as account_type,
+        a.simulate_settle as simulate_settle,
+        a.settle_time as settle_time,
+        a.settle_amount as settle_amount,
+        base.fund_manager_id as fund_manager,
+        bu.user_name as fund_manager_name,
+        base.product_name as product_name
+        from fund_financing_account_setting a
+        left join fund_direct_financing_base_info base on base.id = a.financing_id and a.financing_type = 'DIRECT'
+        left join bifrost_user bu ON base.fund_manager_id = bu.id
+        where 1 = 1
+        and base.financing_status = 'CARRY_INTEREST'
+        and a.deleted = 0
+        <if test="financingCode != null">
+            and base.financing_code like concat('%', #{financingCode}, '%')
+        </if>
+        <if test="organizationName != null and organizationName != ''">
+            and base.product_name like concat('%', #{organizationName}, '%')
+        </if>
+        <if test="simulateSettle != null">
+            and a.simulate_settle = #{simulateSettle}
+        </if>
+        <if test="accountBank != null">
+            and a.account_bank like concat('%', #{accountBank}, '%')
+        </if>
+        <if test="accountNumber != null">
+            and a.account_number like concat('%', #{accountNumber}, '%')
+        </if>
+
+
+        )
+
+
+
+
+
+    </select>
+</mapper>

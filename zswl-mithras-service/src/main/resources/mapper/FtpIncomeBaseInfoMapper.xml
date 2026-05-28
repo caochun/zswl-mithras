@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.ftp.FtpIncomeBaseInfoMapper">
+    <select id="getFundFinancingIds" resultType="cn.zswltech.mithras.service.mapper.model.ftp.FtpIncomeBaseInfo">
+        select distinct (a.fund_financing_id) as fund_financing_id from ftp_income_base_info a
+        <where>
+
+            <if test="req.financingCode != null and req.financingCode != ''">
+                AND a.financing_code like concat('%', #{req.financingCode},'%')
+            </if>
+            <if test="req.fundManagerId != null and req.fundManagerId != ''">
+                AND a.fund_manager_id = #{req.fundManagerId}
+            </if>
+
+            <if test="req.financingIds != null and req.financingIds.size() > 0">
+            and financing_type = 'INDIRECT'
+                AND a.fund_financing_id IN
+                <foreach item="item" collection="req.financingIds" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+    <select id="listFtpIncome" resultType="cn.zswltech.mithras.service.mapper.model.ftp.FtpIncomeBaseInfo">
+        select * from ftp_income_base_info a
+        <where>
+
+            <if test="req.financingCode != null and req.financingCode != ''">
+                AND a.financing_code like concat('%', #{req.financingCode},'%')
+            </if>
+            <if test="req.fundManagerId != null and req.fundManagerId != ''">
+                AND a.fund_manager_id = #{req.fundManagerId}
+            </if>
+
+            <if test="req.financingIds != null and req.financingIds.size() > 0">
+                and financing_type = 'INDIRECT'
+                AND a.fund_financing_id IN
+                <foreach item="item" collection="req.financingIds" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+    <select id="countFinancingAmountByDate" resultType="java.lang.Long">
+        select  sum(a.financing_amount) as financing_amount from ftp_income_base_info a
+        <where>
+
+            <if test="req.financingCode != null and req.financingCode != ''">
+                AND a.financing_code like concat('%', #{req.financingCode},'%')
+            </if>
+            <if test="req.fundManagerId != null and req.fundManagerId != ''">
+                AND a.fund_manager_id = #{req.fundManagerId}
+            </if>
+
+            <if test="req.financingIds != null and req.financingIds.size() > 0">
+                and financing_type = 'INDIRECT'
+                AND a.fund_financing_id IN
+                <foreach item="item" collection="req.financingIds" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

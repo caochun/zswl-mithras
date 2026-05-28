@@ -1,0 +1,46 @@
+.wrap {
+  position: relative;
+  .editWrap {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  .des {
+    :global {
+      .ant-descriptions-item-label {
+        width: 176px;
+      }
+      .ant-descriptions-item-content {
+        width: 350px;
+        max-width: 350px;
+      }
+      .ant-descriptions-view {
+        border-top: 1px solid #2558e6;
+      }
+      .ant-form-item {
+        margin: 0;
+      }
+    }
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    color: #2558e6;
+    font-size: 16px;
+    height: 32px;
+    list-style: 32px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  :global {
+    .ant-row {
+      margin-bottom: 0;
+    }
+    .ant-input-number {
+      width: 100%;
+    }
+  }
+}

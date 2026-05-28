@@ -1,0 +1,126 @@
+-- 公交车类
+INSERT INTO new_after_lease_check_report_field_config (report_type, field_name, field_type, field_option, field_remark)
+VALUES ('BUS', 'B_C_1_01', 'textArea', null, '检查内容@承租人经营情况分析'),
+       ('BUS', 'B_C_2_01', 'table', null, '检查内容@承租人主要财务数据'),
+
+       ('BUS', 'B_C_3_01_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@承租人基本情况@承租人本期是否出现变更股东、注册资本、经营范围、法定代表人等情况'),
+       ('BUS', 'B_C_3_01_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+       ('BUS', 'B_C_3_02_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@承租人基本情况@承租人本期是否出现住所、通讯地址、联系人、联系方式变更'),
+       ('BUS', 'B_C_3_02_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+       ('BUS', 'B_C_3_03_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@承租人基本情况@承租人主要职能定位及经营业务是否发生重大变化'),
+       ('BUS', 'B_C_3_03_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+       ('BUS', 'B_C_3_04_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@承租人基本情况@承租人融资渠道是否通畅'),
+       ('BUS', 'B_C_3_04_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+       ('BUS', 'B_C_3_05_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@承租人基本情况@是否存在被关闭或划转兼并的明确安排'),
+       ('BUS', 'B_C_3_05_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+
+       ('BUS', 'B_C_4_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@承租人舆情信息@是否存在重大负面舆情'),
+       ('BUS', 'B_C_4_02', 'textArea', null, '检查内容@承租人舆情信息@具体分析'),
+
+       ('BUS', 'B_C_5_03', 'textArea', null, '检查内容@担保人经营情况@担保人经营情况分析'),
+       ('BUS', 'B_C_5_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@企业担保情况@涉及企业担保'),
+       ('BUS', 'B_C_5_02', 'text', null, '检查内容@担保人经营情况@企业担保人名称'),
+
+       ('BUS', 'B_C_6_01_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人基本情况@担保人本期是否出现变更股东、注册资本、经营范围、法定代表人等情况'),
+       ('BUS', 'B_C_6_01_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+       ('BUS', 'B_C_6_02_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人基本情况@担保人本期是否出现住所、通讯地址、联系人、联系方式变更'),
+       ('BUS', 'B_C_6_02_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+       ('BUS', 'B_C_6_03_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人基本情况@担保人主要职能定位及经营业务是否发生重大变化'),
+       ('BUS', 'B_C_6_03_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+       ('BUS', 'B_C_6_04_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人融资渠道是否通畅'),
+       ('BUS', 'B_C_6_04_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+       ('BUS', 'B_C_6_05_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人基本情况@是否存在被关闭或划转兼并的明确安排'),
+       ('BUS', 'B_C_6_05_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+
+       ('BUS', 'B_C_7_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人舆情信息@是否存在重大负面舆情'),
+       ('BUS', 'B_C_7_02', 'textArea', null, '检查内容@担保人舆情信息@具体分析'),
+
+       ('BUS', 'B_C_8_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@自然人担保情况@涉及自然人担保'),
+       ('BUS', 'B_C_8_02', 'text', null, '检查内容@担保人经营情况@自然人担保人名称'),
+       ('BUS', 'B_C_8_03_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@自然人担保人分析@是否存在相关负面消息'),
+       ('BUS', 'B_C_8_03_02', 'textArea', null, '检查内容@担保人经营情况@自然人担保人分析@负面信息及对担保能力的影响'),
+
+       ('BUS', 'B_C_9_01_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@区域经济情况@承租人所在区域GDP、一般公共预算收入是否较上一年度下滑超过20%'),
+       ('BUS', 'B_C_9_01_02', 'textArea', null, '检查内容@区域经济情况@情况说明'),
+       ('BUS', 'B_C_9_02_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@区域经济情况@承租人所在区域内是否有融资主体出现违约行为'),
+       ('BUS', 'B_C_9_02_02', 'textArea', null, '检查内容@区域经济情况@情况说明'),
+       ('BUS', 'B_C_9_03', 'textArea', null, '检查内容@区域经济情况@区域经济情况补充说明'),
+
+       ('BUS', 'B_C_10_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行再次销售、转让'),
+       ('BUS', 'B_C_10_02', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行了转租'),
+       ('BUS', 'B_C_10_03', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行再次抵押、质押'),
+       ('BUS', 'B_C_10_04', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行了投资入股、抵偿债务'),
+       ('BUS', 'B_C_10_05', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行诉讼担保、是否对租赁物进行了保全担保等处置行为'),
+       ('BUS', 'B_C_10_06', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否以其他任何方式进行了侵害出租人对租赁设备的所有权的行为'),
+       ('BUS', 'B_C_10_07', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@租赁物是否能够正常使用'),
+       ('BUS', 'B_C_10_08', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@租赁物是否发生过升级换代、改造'),
+       ('BUS', 'B_C_10_09', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@租赁物的位置是否出现非正常移动'),
+       ('BUS', 'B_C_10_10', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@租赁物是否发生过重大停产停运、重大故障、维修情况'),
+       ('BUS', 'B_C_10_11', 'textArea', null, '检查内容@租赁物@租赁物情况补充说明'),
+
+       ('BUS', 'B_S_1_01', 'textArea', null, '检查总结@以上检查事项风险事项披露及异常说明'),
+       ('BUS', 'B_S_1_02', 'textArea', null, '检查总结@有权机构审批意见未落实事项'),
+       ('BUS', 'B_S_1_03', 'textArea', null, '检查总结@检查结论');
+
+-- 国有资产类模板
+INSERT INTO new_after_lease_check_report_field_config (report_type, field_name, field_type, field_option, field_remark)
+VALUES ('STATE_OWNED_ASSET', 'SOA_C_1_01', 'textArea', null, '检查内容@承租人经营情况分析'),
+       ('STATE_OWNED_ASSET', 'SOA_C_2_01', 'table', null, '检查内容@承租人主要财务数据'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_01_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@担保人融资渠道是否通畅'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_01_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_02_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@担保人主要职能定位及经营业务是否发生重大变化'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_02_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_03_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@担保人本期是否出现住所、通讯地址、联系人、联系方式变更'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_03_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_04_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@担保人本期是否出现变更股东、注册资本、经营范围、法定代表人等情况'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_04_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_05_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@是否存在被关闭或划转兼并的明确安排'),
+       ('STATE_OWNED_ASSET', 'SOA_C_3_05_02', 'textArea', null, '检查内容@承租人基本情况@情况说明'),
+
+       ('STATE_OWNED_ASSET', 'SOA_C_4_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@承租人舆情信息@是否存在重大负面舆情'),
+       ('STATE_OWNED_ASSET', 'SOA_C_4_02', 'textArea', null, '检查内容@承租人舆情信息@具体分析'),
+
+       ('STATE_OWNED_ASSET', 'SOA_C_5_03', 'textArea', null, '检查内容@担保人经营情况@担保人经营情况分析'),
+       ('STATE_OWNED_ASSET', 'SOA_C_5_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@企业担保情况@涉及企业担保'),
+       ('STATE_OWNED_ASSET', 'SOA_C_5_02', 'text', null, '检查内容@担保人经营情况@企业担保人名称'),
+
+       ('STATE_OWNED_ASSET', 'SOA_C_6_01_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人基本情况@担担保人本期是否出现变更股东、注册资本、经营范围、法定代表人等情况'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_01_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_02_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人基本情况@担保人本期是否出现住所、通讯地址、联系人、联系方式变更'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_02_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_03_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人基本情况@担保人主要职能定位及经营业务是否发生重大变化'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_03_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_04_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人融资渠道是否通畅'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_04_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_05_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人基本情况@是否存在被关闭或划转兼并的明确安排'),
+       ('STATE_OWNED_ASSET', 'SOA_C_6_05_02', 'textArea', null, '检查内容@担保人经营情况@情况说明'),
+
+       ('STATE_OWNED_ASSET', 'SOA_C_7_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人舆情信息@是否存在重大负面舆情'),
+       ('STATE_OWNED_ASSET', 'SOA_C_7_02', 'textArea', null, '检查内容@担保人舆情信息@具体分析'),
+
+       ('STATE_OWNED_ASSET', 'SOA_C_8_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@自然人担保情况@涉及自然人担保'),
+       ('STATE_OWNED_ASSET', 'SOA_C_8_02', 'text', null, '检查内容@担保人经营情况@自然人担保人名称'),
+       ('STATE_OWNED_ASSET', 'SOA_C_8_03_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@担保人经营情况@自然人担保人分析@是否存在相关负面消息'),
+       ('STATE_OWNED_ASSET', 'SOA_C_8_03_02', 'textArea', null, '检查内容@担保人经营情况@自然人担保人分析@负面信息及对担保能力的影响'),
+
+       ('STATE_OWNED_ASSET', 'SOA_C_9_01_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@区域经济情况@承租人所在区域GDP、一般公共预算收入是否较上一年度下滑超过20%'),
+       ('STATE_OWNED_ASSET', 'SOA_C_9_01_02', 'textArea', null, '检查内容@区域经济情况@具体分析'),
+       ('STATE_OWNED_ASSET', 'SOA_C_9_02_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"}]', '检查内容@区域经济情况@承租人所在区域内是否有融资主体出现违约行为'),
+       ('STATE_OWNED_ASSET', 'SOA_C_9_02_02', 'textArea', null, '检查内容@区域经济情况@具体分析'),
+       ('STATE_OWNED_ASSET', 'SOA_C_9_03', 'textArea', null, '检查内容@区域经济情况@区域经济情况补充说明'),
+
+       ('STATE_OWNED_ASSET', 'SOA_C_10_01', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行再次销售、转让'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_02', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行了转租'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_03', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行再次抵押、质押'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_04', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行了投资入股、抵偿债务'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_05', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否将租赁物进行诉讼担保、是否对租赁物进行了保全担保等处置行为'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_06', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@承租人是否以其他任何方式进行了侵害出租人对租赁设备的所有权的行为'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_07', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@租赁物是否能够正常使用'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_08', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@租赁物是否发生过升级换代、改造'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_10', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@租赁物的位置是否出现非正常移动'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_09', 'radio', '[{"label":"是","value":"1"},{"label":"否","value":"0"},{"label":"不适用","value":"-1"}]', '检查内容@租赁物@租赁物是否发生过重大停产停运、重大故障、维修情况'),
+       ('STATE_OWNED_ASSET', 'SOA_C_10_11', 'textArea', null, '检查内容@租赁物@租赁物情况补充说明'),
+
+       ('STATE_OWNED_ASSET', 'SOA_S_1_01', 'textArea', null, '检查总结@以上检查事项风险事项披露及异常说明'),
+       ('STATE_OWNED_ASSET', 'SOA_S_1_02', 'textArea', null, '检查总结@有权机构审批意见未落实事项'),
+       ('STATE_OWNED_ASSET', 'SOA_S_1_03', 'textArea', null, '检查总结@检查结论');

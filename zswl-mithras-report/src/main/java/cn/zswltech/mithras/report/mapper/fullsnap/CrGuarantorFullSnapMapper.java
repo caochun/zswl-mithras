@@ -1,0 +1,15 @@
+package cn.zswltech.mithras.report.mapper.fullsnap;
+import cn.zswltech.mithras.report.mapper.fullsnap.model.CrGuarantorFullSnap;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+/**
+* @description 征信报送-保证表
+* @author wang
+* @date 2022-10-08
+*/
+public interface CrGuarantorFullSnapMapper extends BaseMapper<CrGuarantorFullSnap> {
+
+    void copyFromEffect(@Param("batchId") Long batchId, @Param("batchNo") String batchNo);
+
+}

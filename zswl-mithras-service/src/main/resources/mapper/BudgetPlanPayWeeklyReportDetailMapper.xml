@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.budget.BudgetPlanPayWeeklyReportDetailMapper">
+    <select id="calculateTotalNewPay" resultType="long">
+        select
+            sum(ifnull(plan_pay_amount,0))
+        from budget_plan_pay_weekly_report_detail
+        where 1=1
+            and budget_plan_pay_id = #{budgetPlanPayId}
+            and plan_pay_date &gt;= #{budgetDateFrom}
+            and plan_pay_date &lt;= #{budgetDateTo}
+            <if test="bizDeptId != null">
+                and belong_dept_id = #{bizDeptId})
+            </if>
+    </select>
+</mapper>

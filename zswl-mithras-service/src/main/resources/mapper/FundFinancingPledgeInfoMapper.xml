@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingPledgeInfoMapper">
+
+    <select id="getFundSupervisedBo"
+            resultType="cn.zswltech.mithras.service.service.capital.write_off.bo.FundPledgeSupervisedBO">
+        SELECT ffp.contract_id AS contractId,
+        ffp.contract_code AS contractCode,
+        ffp.account_name AS accountName,
+        ffp.account_number AS accountNumber,
+        ffp.account_bank AS accountBank,
+        ffp.is_pledge AS isPledge,
+        ffp.is_supervise AS isSupervise
+        FROM fund_financing_pledge_info ffp
+        INNER JOIN fund_financing_base_info ffbi ON ffp.financing_id = ffbi.id
+        WHERE ffp.contract_id IN
+        <foreach collection="contractIds" item="contractId" open="(" separator="," close=")">
+            #{contractId}
+        </foreach>
+        AND ffp.is_supervise = 1
+        AND ffbi.financing_status IN ('CARRY_INTEREST', 'NEW', 'EFFECT')
+        UNION
+        SELECT fdfp.contract_id AS contractId,
+        fdfp.contract_code AS contractCode,
+        fdfp.account_name AS accountName,
+        fdfp.account_number AS accountNumber,
+        fdfp.account_bank AS accountBank,
+        fdfp.is_pledge AS isPledge,
+        fdfp.is_supervise AS isSupervise
+        FROM fund_direct_financing_pledge_info fdfp
+        INNER JOIN fund_direct_financing_base_info fdfbi ON fdfp.financing_id = fdfbi.id
+        WHERE fdfp.contract_id IN
+        <foreach collection="contractIds" item="contractId" open="(" separator="," close=")">
+            #{contractId}
+        </foreach>
+        AND fdfp.is_supervise = 1
+        AND fdfbi.obsolete = 0
+        AND fdfbi.financing_status IN ('CARRY_INTEREST', 'NEW')
+    </select>
+</mapper>

@@ -1,0 +1,59 @@
+package cn.zswltech.mithras.service.overdue.infrastructure.service;
+
+import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.gruul.common.util.AccountUtil;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.service.overdue.application.assembler.LitigationAssembler;
+import cn.zswltech.mithras.service.overdue.application.dto.LitigationListDto;
+import cn.zswltech.mithras.service.overdue.application.query.LitigationPageQuery;
+import cn.zswltech.mithras.service.overdue.application.service.LitigationQueryService;
+import cn.zswltech.mithras.service.overdue.infrastructure.dao.LitigationRegistrationDao;
+import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.LitigationRegistration;
+import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.service.service.SysUserService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+/**
+ * @description:
+ * @author: zhaozhengkang
+ * @date: 2024/10/22 17:04
+ */
+@Service
+public class LitigationQueryServiceImpl implements LitigationQueryService {
+
+    @Resource
+    private LitigationRegistrationDao litigationRegistrationDao;
+    @Resource
+    private LitigationAssembler litigationAssembler;
+    @Resource
+    private Id2NameService id2NameService;
+
+    @Resource
+    private SysUserService sysUserService;
+
+    @Override
+    public PageR<LitigationListDto> page(LitigationPageQuery query) {
+        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        boolean isBizUser = null != canViewDeptIds;
+        query.setIsBizUser(isBizUser);
+        if (ObjectUtil.isEmpty(canViewDeptIds)) {
+            query.setDeptIdList(Collections.singletonList(0L));
+        } else {
+            query.setDeptIdList(canViewDeptIds);
+        }
+        query.setCurrentUserId(AccountUtil.getLoginInfo().getId());
+        Page<LitigationRegistration> page = litigationRegistrationDao.advancedList(query);
+        
+        List<LitigationListDto> rspList = litigationAssembler.po2ListDto(page.getRecords());
+        Map<Long, String> userNames = id2NameService.sysUserId2Name(rspList.stream().map(LitigationListDto::getCreateBy).collect(Collectors.toSet()));
+        rspList.forEach(item -> item.setCreateByName(userNames.get(item.getCreateBy())));
+        return PageR.of(page, rspList);
+    }
+}

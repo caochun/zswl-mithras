@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zswltech.mithras.service.mapper.contract.ContractReceiptMapper">
+    <select id="listNewTenId" resultType="java.lang.Long">
+        SELECT receipt.id
+        FROM contract_receipt receipt
+                 LEFT JOIN contract_base_info base ON receipt.contract_id = base.id
+        WHERE base.contract_status IN ("START_RENT", "SETTLE")
+        ORDER BY receipt.create_time DESC
+    </select>
+
+
+    <select id="queryReceiptCondition" resultType="cn.zswltech.mithras.dto.incomeSharing.ReceiptConditionResult">
+        SELECT
+        a.id AS receiptId,
+        IFNULL(d.overdueType,'NOT_OVERDUE') AS overdueType,
+        a.receipt_code,
+        c.client_name,
+        b.proj_name,
+        b.contract_code,
+        b.contract_status,
+        b.income_confirm_type,
+        b.risk_control_industry_classify AS riskControlIndustryClassify,
+        b.proj_sponsor_user_id AS sponsorUserId,
+        bu.user_name AS sponsorUserName,
+        b.biz_dept_id AS belongDeptId,
+        bo.name AS belongDeptName,
+        d.overdueStartTime AS overdueStartTime,
+        a.receipt_start_date AS startRentTime
+        FROM
+        contract_receipt a
+        LEFT JOIN contract_base_info b ON b.id = a.contract_id
+        LEFT JOIN client c ON c.id = b.client_id
+        LEFT JOIN bifrost_user bu ON b.proj_sponsor_user_id = bu.id
+        LEFT JOIN bifrost_org bo ON b.biz_dept_id = bo.id
+        LEFT JOIN (
+        SELECT receipt_id,
+        'OVERDUE' AS overdueType,
+        min(plan_collection_date) AS overdueStartTime
+        FROM collection_base_info
+        WHERE cash_flow_item = 'RENT'
+        AND phase > 0
+        AND plan_collection_date &lt; NOW()
+        AND plan_collection_amount > collection_amount
+        GROUP BY receipt_id
+        ) d ON d.receipt_id = a.id
+        JOIN (
+        SELECT receipt_id FROM contract_income_sharing
+        WHERE deleted = 0
+        GROUP BY receipt_id
+        ) s ON a.id = s.receipt_id
+        <where>
+            b.contract_status IN ('START_RENT', 'SETTLE')
+            <if test="query.clientId != null">
+                AND c.id = #{query.clientId}
+            </if>
+            <if test="query.projName != null and query.projName != ''">
+                AND b.proj_name LIKE CONCAT('%', #{query.projName} ,'%')
+            </if>
+            <if test="query.contractCode != null and query.contractCode != ''">
+                AND b.contract_code LIKE CONCAT('%', #{query.contractCode}, '%')
+            </if>
+            <if test="query.receiptCode != null and query.receiptCode != ''">
+                AND a.receipt_code LIKE CONCAT('%', #{query.receiptCode} ,'%')
+            </if>
+            <if test="query.contractStatus != null and query.contractStatus != ''">
+                AND b.contract_status = #{query.contractStatus}
+            </if>
+            <if test="query.overdueType != null">
+                <if test="query.overdueType == 'OVERDUE'">
+                    AND d.overdueType is not null
+                </if>
+                <if test="query.overdueType == 'NOT_OVERDUE'">
+                    AND d.overdueType is null
+                </if>
+            </if>
+        </where>
+        ORDER BY a.create_time DESC
+    </select>
+    <select id="queryNewestReceiptIrr"
+            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractReceiptLib">
+        SELECT c.* FROM contract_receipt_lib c
+        INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+        GROUP BY main_id) m ON c.contract_id = m.contract_id AND c.version = m.version
+        <where>
+            <if test="receiptIds != null and receiptIds.size() >0">
+                AND c.id IN
+                <foreach collection="receiptIds" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

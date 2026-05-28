@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.kpi.PerformanceRecordInfoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.service.mapper.model.kpi.PerformanceRecordInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="performanceId" column="performance_id" jdbcType="BIGINT"/>
+            <result property="month" column="month" jdbcType="INTEGER"/>
+            <result property="targetAmount" column="target_amount" jdbcType="BIGINT"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,performance_id,month,
+        target_amount,deleted,create_by,
+        create_time,update_by,update_time
+    </sql>
+
+    <select id="queryTargetAmount" resultType="cn.zswltech.mithras.service.mapper.model.kpi.dto.PerformanceTargetResult">
+        SELECT
+        sum( record.target_amount ) AS target_amount,
+        base.belong_dept_id AS biz_dept_id
+        FROM
+        performance_record_info record
+        JOIN (
+        SELECT
+        id,
+        belong_dept_id,
+        `year`
+        FROM
+        performance_base_info
+        WHERE
+        deleted = 0
+        AND business_type = #{businessType}
+        AND belong_type = #{belongType}
+        ) AS base ON base.id = record.performance_id
+        WHERE
+        base.belong_dept_id IS NOT NULL
+        <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+            AND base.belong_dept_id in
+            <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        AND record.deleted = 0
+        AND
+        <foreach collection="map" item="months" index="year" open="" separator=" OR " close="">
+            (YEAR = #{year} AND MONTH IN
+            <foreach collection="months" item="month" open="(" separator="," close=")">
+                #{month}
+            </foreach>
+            )
+        </foreach>
+        GROUP BY
+        base.belong_dept_id
+
+
+
+
+    </select>
+</mapper>

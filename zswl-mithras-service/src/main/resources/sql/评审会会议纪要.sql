@@ -1,0 +1,257 @@
+CREATE TABLE `proj_review_meet_minute_base_info`
+(
+    `id`                               bigint(20) NOT NULL AUTO_INCREMENT,
+    `proj_review_id`                   bigint(20) DEFAULT NULL COMMENT '关联的评审ID',
+    `proj_review_type`                 varchar(50) DEFAULT NULL COMMENT '关联的评审类型',
+    `proj_name`                        varchar(200)  DEFAULT NULL COMMENT '项目名称',
+    `proj_flow_id`                     varchar(200)  DEFAULT NULL COMMENT '关联项目流程',
+    `meet_minute_code`                 varchar(200)  DEFAULT NULL COMMENT '会议纪要编号',
+    `meet_minute_sequence`             varchar(50)  DEFAULT NULL COMMENT '会议纪要序号',
+    `meet_minute_status`               varchar(20)   DEFAULT NULL COMMENT '会议纪要状态',
+    `lease_type`                       varchar(100)  DEFAULT NULL COMMENT '租赁类型',
+    `lessee_info`                      json          DEFAULT NULL COMMENT '承租人列表',
+    `supplier_info`                    varchar(200)          DEFAULT NULL COMMENT '供应商列表',
+    `lease_require`                    text DEFAULT NULL COMMENT '租赁物要求',
+    `fixed_value_basis`                varchar(200)  DEFAULT NULL COMMENT '定值依据 ProjectFixedValueBasisEnum#name',
+    `fixed_value_basis_value`          varchar(200)  DEFAULT NULL COMMENT '定值依据名称 ProjectFixedValueBasisEnum#disply',
+    `insurance_purchaser`              varchar(200)  DEFAULT NULL COMMENT '保险安排-购买方 ProjectInsurancePurchaserEnum',
+    `policy_type`                      varchar(50)   DEFAULT NULL COMMENT '险种 ProjectPolicyTypeEnum#name',
+    `policy_type_value`                varchar(50)   DEFAULT NULL COMMENT '险种值 ProjectPolicyTypeEnum#disply',
+    `policy_require`                   varchar(50)   DEFAULT NULL COMMENT '保险要求 ProjectPolicyRequireEnum#name',
+    `policy_require_value`             varchar(50)   DEFAULT NULL COMMENT '保险要求值 ProjectPolicyRequireEnum#disply',
+    `project_approval_amount`          BIGINT(20) DEFAULT NULL COMMENT '项目批复金额',
+    `financing_ratio`                  varchar(50)   DEFAULT NULL COMMENT '融资比例 ProjectFinancingRatioEnum#name',
+    `financing_ratio_value`            varchar(50)   DEFAULT NULL COMMENT '融资比例值 ProjectFinancingRatioEnum#name',
+    `financing_require`                    text DEFAULT NULL COMMENT '融资要求',
+    `fund_special_requirements`                    text DEFAULT NULL COMMENT '融资比例特殊要求',
+    `lease_term`                       int(11) DEFAULT NULL COMMENT '租赁期限',
+    `pre_lease_period_flag`            tinyint(1) DEFAULT NULL COMMENT '是否含租前期 0 不含 1 含',
+    `pre_lease_period`                 int(11) DEFAULT NULL COMMENT '租前期',
+    `down_payment`                     bigint(20) DEFAULT NULL COMMENT '首期租金',
+    `earnest_money_flag`               tinyint(1) DEFAULT NULL COMMENT '保证金标识 0 无，1有',
+    `earnest_money_ratio`              int(11) DEFAULT NULL COMMENT '保证金比例',
+    `earnest_money_amount`             bigint(20) DEFAULT NULL COMMENT '保证金金额',
+    `earnest_money_collect_type`       varchar(50)   DEFAULT NULL COMMENT '保证金收取方式 EarnestMoneyCollectTypeEnum#name',
+    `earnest_money_collect_type_value` varchar(50)   DEFAULT NULL COMMENT '保证金收取方式名称 EarnestMoneyCollectTypeEnum#disply',
+    `rent_payment_method_rate`         varchar(50)   DEFAULT NULL COMMENT '租金支付频率 RentPaymentMethodRateEnum#name',
+    `rent_payment_method_type`         varchar(50)   DEFAULT NULL COMMENT '租金支付方式 RentPaymentMethodTypeEnum#name',
+    `financing_fund_method_type`       varchar(50)   DEFAULT NULL COMMENT '融资款支付方式 FinancingFundMethodTypeEnum#name',
+    `funds_purpose`                    varchar(200) null comment '资金用途',
+    `rental_start_method`              varchar(50)   DEFAULT NULL COMMENT '起租方式 RentalStartMethodEnum#name',
+    `rental_start_condition`           text DEFAULT NULL COMMENT '起租条件',
+    `nominal_price`                    bigint(20) DEFAULT NULL COMMENT '名义价款',
+    `resolution_info`                  json          DEFAULT NULL COMMENT '决议批准文件信息 ResolutionTypeRateEnum',
+    `guarantee_measures`               json          DEFAULT NULL COMMENT '担保措施 GuaranteeMeasuresTypeEnum',
+    `pledge_measures`                  json          DEFAULT NULL COMMENT '质押措施 PledgeMeasuresTypeEnum',
+    `other_risk_mitigation_measures`   text DEFAULT NULL COMMENT '其他风险缓释措施',
+    `special_contract_terms`           text DEFAULT NULL COMMENT '特殊合同条款',
+    `conditions_before_disbursement`   text DEFAULT NULL COMMENT '放款前须落实条件',
+    `management_requirement`           text DEFAULT NULL COMMENT '管理要求-其他要求',
+    `report_issuance_time`             date          DEFAULT NULL COMMENT '报告出具时间',
+    `report_issuance_year`             int(11) DEFAULT NULL COMMENT '报告出具年份',
+    `report_number_voters`             int(11) DEFAULT NULL COMMENT '报告表决人数',
+    `report_number_agree`              int(11) DEFAULT NULL COMMENT '报告同意人数',
+    `report_number_conditional_agree`              int(11) DEFAULT NULL COMMENT '报告有条件同意人数',
+    `report_number_against`            int(11) DEFAULT NULL COMMENT '报告反对人数',
+    `voting_committee`                      json          DEFAULT NULL COMMENT '表决委员',
+    `voting_result`       varchar(50)   DEFAULT NULL COMMENT '表决结果 VotingResultTypeEnum',
+    `voting_period_validity`       varchar(50)   DEFAULT NULL COMMENT '表决有效期VotingPeriodValidityEnum',
+    `create_by`                        bigint(20) DEFAULT NULL COMMENT '创建人、发起人',
+    `create_time`                      datetime      DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_by`                        bigint(20) DEFAULT NULL COMMENT '最后更新人id',
+    `update_time`                      datetime      DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`) USING BTREE,
+    KEY                                `idx_proj_review_id` (`proj_review_id`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  DEFAULT CHARSET = utf8mb4
+  ROW_FORMAT = DYNAMIC COMMENT ='项目评审会议纪要表';
+
+
+
+CREATE TABLE `proj_review_cash_flow_quotation_proposal`
+(
+    `id`                  bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '现金流量明细表id',
+    `project_id`          bigint(20) NOT NULL COMMENT '所属项目评审记录ID',
+    `cash_flow_date`      date     DEFAULT NULL COMMENT '日期',
+    `cash_flow_phase`     int(10) DEFAULT NULL COMMENT '期项',
+    `cash_flow_amount`    bigint(20) DEFAULT NULL COMMENT '现金流金额',
+    `rent`                bigint(20) DEFAULT NULL COMMENT '租金',
+    `principal`           bigint(20) DEFAULT NULL COMMENT '本金',
+    `interest`            bigint(20) DEFAULT NULL COMMENT '利息',
+    `remaining_principal` bigint(20) DEFAULT NULL COMMENT '剩余本金',
+    `create_by`           bigint(20) DEFAULT NULL COMMENT '创建人id、发起人id	',
+    `create_time`         datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间。默认当前时间',
+    `update_by`           bigint(20) DEFAULT NULL COMMENT '最后更新人id	',
+    `update_time`         datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间；每次记录变化，自动更新为当前时间	',
+    PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='项目评审-报价方案-现金流计划表';
+
+CREATE TABLE `proj_review_cash_flow_quotation_proposal_lib`
+(
+    `id`                  bigint(20) NOT NULL AUTO_INCREMENT COMMENT '现金流量明细表id',
+    `project_id`          bigint(20) NOT NULL COMMENT '所属项目评审记录ID',
+    `cash_flow_date`      date     DEFAULT NULL COMMENT '日期',
+    `cash_flow_phase`     int(10) DEFAULT NULL COMMENT '期项',
+    `cash_flow_amount`    bigint(20) DEFAULT NULL COMMENT '现金流金额',
+    `rent`                bigint(20) DEFAULT NULL COMMENT '租金',
+    `principal`           bigint(20) DEFAULT NULL COMMENT '本金',
+    `interest`            bigint(20) DEFAULT NULL COMMENT '利息',
+    `remaining_principal` bigint(20) DEFAULT NULL COMMENT '剩余本金',
+    `create_by`           bigint(20) DEFAULT NULL COMMENT '创建人id、发起人id	',
+    `create_time`         datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间。默认当前时间',
+    `update_by`           bigint(20) DEFAULT NULL COMMENT '最后更新人id	',
+    `update_time`         datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间；每次记录变化，自动更新为当前时间	',
+    `version`             varchar(40) NOT NULL COMMENT '版本号',
+    `origin_id`           bigint(20) NOT NULL COMMENT '临时数据表id 需要用来比对数据 或者 流程拒绝时全量回写',
+    `data_create_time`    datetime DEFAULT NULL,
+    `data_create_by`      bigint(20) DEFAULT NULL,
+    `data_update_time`    datetime DEFAULT NULL,
+    `data_update_by`      bigint(20) DEFAULT NULL,
+    `version_type`        tinyint(4) DEFAULT '1' COMMENT '版本标志，0无效，1有效...业务自扩展',
+    PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='项目评审-报价方案-现金流计划表版本表';
+
+
+insert into proj_review_cash_flow_quotation_proposal select * from proj_review_cash_flow_plan;
+
+insert into proj_review_cash_flow_quotation_proposal_lib select * from proj_review_cash_flow_plan_lib;
+
+
+alter table track_event_info add column proj_review_meet_minute_id bigint(20) DEFAULT NULL COMMENT '项目评审会议纪要ID';
+
+alter table proj_review_cash_flow_plan add column proj_review_meet_minute_id bigint(20) DEFAULT NULL COMMENT '项目评审会议纪要ID';
+
+alter table proj_review_cash_flow_plan_lib add column proj_review_meet_minute_id bigint(20) DEFAULT NULL COMMENT '项目评审会议纪要ID';
+
+
+alter table proj_pricing_base_info add column proj_review_id bigint(20) DEFAULT NULL COMMENT '项目评审ID';
+alter table proj_pricing_base_info_lib add column proj_review_id bigint(20) DEFAULT NULL COMMENT '项目评审ID';
+
+alter table proj_pricing_factoring_price add column project_approval_amount bigint(20) DEFAULT NULL COMMENT '项目批复金额';
+alter table proj_pricing_factoring_price_lib add column project_approval_amount bigint(20) DEFAULT NULL COMMENT '项目批复金额';
+
+alter table proj_pricing_lease_price add column project_approval_amount bigint(20) DEFAULT NULL COMMENT '项目批复金额';
+alter table proj_pricing_lease_price_lib add column project_approval_amount bigint(20) DEFAULT NULL COMMENT '项目批复金额';
+
+alter table proj_pricing_aoc_price add column project_approval_amount bigint(20) DEFAULT NULL COMMENT '项目批复金额';
+alter table proj_pricing_aoc_price_lib add column project_approval_amount bigint(20) DEFAULT NULL COMMENT '项目批复金额';
+
+alter table proj_review_meet_minute_base_info add column process_end_time date DEFAULT NULL COMMENT '审批通过时间';
+
+alter table proj_review_meet_minute_base_info add column report_issuance_number int(11) DEFAULT NULL COMMENT '审批通过时间';
+alter table proj_review_meet_minute_base_info add column `supple_remark`   text DEFAULT NULL COMMENT '补充说明';
+alter table proj_review_meet_minute_base_info add column `financing_fund_supple_remark`   text DEFAULT NULL COMMENT '融资款支付方式补充说明';
+
+alter table proj_review_base_info
+    add column `supplier_info` varchar(250) DEFAULT NULL COMMENT '供应商列表';
+alter table proj_review_base_info_lib
+    add column `supplier_info` varchar(250) DEFAULT NULL COMMENT '供应商列表';
+alter table proj_establish_base_info
+    add column `supplier_info` varchar(250) DEFAULT NULL COMMENT '供应商列表';
+alter table proj_establish_base_info_lib
+    add column `supplier_info` varchar(250) DEFAULT NULL COMMENT '供应商列表';
+alter table proj_pricing_base_info
+    add column `supplier_info` varchar(250) DEFAULT NULL COMMENT '供应商列表';
+alter table proj_pricing_base_info_lib
+    add column `supplier_info` varchar(250) DEFAULT NULL COMMENT '供应商列表';
+
+--  会议纪要线上化权限
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES
+('projReviewMeetMinuteBaseInfoDetail', '项目评审会议纪要表详情', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/meet/minute/base/info/detail', 2, NULL),
+('projReviewMeetMinuteBaseInfoModify', '修改项目评审会议纪要表-保存', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/meet/minute/base/info/modify', 2, NULL),
+('projReviewMeetMinuteBaseInfoSubmit', '修改项目评审会议纪要表-提交', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/meet/minute/base/info/submit', 2, NULL),
+('projReviewMeetMinuteGetRelatedCustomers', '项目评审会议纪要-获取交易结构用户', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/meet/minute/get/related/customers', 2, NULL);
+
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES
+('projReviewQuotationProposalCashflowplanUpload', '项目评审-评审会会议纪要-上传现金流计划表', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/quotation/proposal/cashflowplan/upload', 2,NULL),
+('projReviewQuotationProposalCashflowplanList', '项目评审-评审会会议纪要-获取现金流计划表', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/quotation/proposal/cashflowplan/list', 2,NULL),
+('projReviewQuotationProposalCashflowplanRentExport', '项目评审-评审会会议纪要-导出租金表', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/quotation/proposal/cashflowplan/rent/export', 2,NULL),
+('projPricingCashflowplanMeetMinuteCompare', '获取现金流计划表与评审会纪要比对', 0, 12, NULL, NULL, NULL, 'POST', '/proj/pricing/cashflowplan/meet/minute/compare', 2,NULL),
+('projReviewQuotationProposalCashflowplanCashflowExport', '项目评审-评审会会议纪要-导出现金流表', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/quotation/proposal/cashflowplan/cashflow/export', 2,NULL);
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES
+('projReviewMeetMinuteTrackEventList', '项目评审会议纪要表-跟踪事项列表', 0, 12, NULL, NULL, NULL, 'POST', '/proj/review/meet/minute/trackEvent/list', 2, NULL);
+
+
+INSERT INTO bifrost_function (code, name, menu_id, method, path, type)
+VALUES ('projReviewMeetMinuteFileList', '项目评审会议纪要表--文件', 12, 'POST',
+        '/file/list', '2'),
+       ('projReviewMeetMinuteFileUpload', '项目评审会议纪要表--文件上传', 12, 'POST',
+        '/file/upload', '2'),
+       ('projReviewMeetMinuteFileBatchRemove', '项目评审会议纪要表--文件删除', 12, 'POST',
+        '/file/batch/remove', '2'),
+       ('projReviewMeetMinuteFileDownload', '项目评审会议纪要表--文件下载', 12, 'GET',
+        '/file/download', '2');
+
+INSERT INTO bifrost_function (code, name, menu_id, method, path, type)
+VALUES ('projReviewQueryEffect', '评审生效模糊查询', 12, 'POST','/proj/review/query/effect', '2');
+
+
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES ('groupCreditReviewMeetMinuteBaseInfoDetail', '授信评审会议纪要表详情', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL,
+        NULL, 'POST', '/proj/review/meet/minute/base/info/detail', 2, NULL),
+       ('groupCreditReviewMeetMinuteBaseInfoModify', '修改授信评审会议纪要表-保存', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL,
+        NULL, 'POST', '/proj/review/meet/minute/base/info/modify', 2, NULL),
+       ('groupCreditReviewMeetMinuteBaseInfoSubmit', '修改授信评审会议纪要表-提交', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL,
+        NULL, 'POST', '/proj/review/meet/minute/base/info/submit', 2, NULL),
+       ('groupCreditReviewMeetMinuteGetRelatedCustomers', '授信评审会议纪要-获取交易结构用户', 0, (select id from bifrost_menu where code = 'groupCreditReview'),
+        NULL, NULL, NULL, 'POST', '/proj/review/meet/minute/get/related/customers', 2, NULL);
+
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES ('groupCreditReviewQuotationProposalCashflowplanUpload', '授信评审-评审会会议纪要-上传现金流计划表', 0,
+        (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL, NULL, 'POST',
+        '/proj/review/quotation/proposal/cashflowplan/upload', 2, NULL),
+       ('groupCreditReviewQuotationProposalCashflowplanList', '授信评审-评审会会议纪要-获取现金流计划表', 0,
+        (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL, NULL, 'POST', '/proj/review/quotation/proposal/cashflowplan/list',
+        2, NULL),
+       ('groupCreditReviewQuotationProposalCashflowplanRentExport', '授信评审-评审会会议纪要-导出租金表', 0,
+        (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL, NULL, 'POST',
+        '/proj/review/quotation/proposal/cashflowplan/rent/export', 2, NULL),
+       ('groupCreditReviewQuotationProposalCashflowplanCashflowExport', '授信评审-评审会会议纪要-导出现金流表', 0,
+        (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL, NULL, 'POST',
+        '/proj/review/quotation/proposal/cashflowplan/cashflow/export', 2, NULL);
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES ('groupCreditReviewMeetMinuteTrackEventList', '授信评审会议纪要表-跟踪事项列表', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL,
+        NULL, NULL, 'POST', '/proj/review/meet/minute/trackEvent/list', 2, NULL);
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES
+('projReviewTrackEventClose', '项目评审会议纪要表-跟踪事项关闭', 0, 12, NULL, NULL, NULL, 'POST', '/trackEvent/close', 2, NULL);
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES ('groupCreditReviewTrackEventClose', '授信评审会议纪要表-跟踪事项关闭', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL,
+        NULL, NULL, 'POST', '/trackEvent/close', 2, NULL);
+
+
+
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
+VALUES ('paymentMeetMinuteCreditDateCheck', '授信评审会议纪要表-授信到期日判断', 0, (select id from bifrost_menu where code = 'QX0114'), NULL,
+        NULL, NULL, 'POST', '/proj/review/meet/minute/credit/date/check', 2, NULL);
+-- 评审会纪要线上化优化需求
+
+update proj_review_meet_minute_base_info set special_contract_terms = CONCAT('["', special_contract_terms, '"]') where special_contract_terms is
+    not null;
+update proj_review_meet_minute_base_info set special_contract_terms = '[]' where special_contract_terms is
+    null;
+
+update proj_review_meet_minute_base_info set conditions_before_disbursement = CONCAT('["', conditions_before_disbursement, '"]') where special_contract_terms is
+    not null;
+update proj_review_meet_minute_base_info set conditions_before_disbursement = '[]' where conditions_before_disbursement is
+    null;
+
+alter table proj_review_meet_minute_base_info modify special_contract_terms json default null comment '特殊合同条款';
+alter table proj_review_meet_minute_base_info modify conditions_before_disbursement json default null comment '放款前须落实条件';
+
+alter table proj_review_meet_minute_base_info add column approval_conditions_project_change text default null comment '项目变更批复条件';
+
+
+

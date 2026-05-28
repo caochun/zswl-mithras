@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.report.mapper.draft.CrRepayPlanDraftMapper">
+
+    <select id="selectAccountMaxPhaseList"
+            resultType="cn.zswltech.mithras.report.mapper.draft.model.CrRepayPlanDraft">
+        SELECT *
+        FROM cr_repay_plan_draft a
+        WHERE (SELECT COUNT(*) FROM cr_repay_plan_draft WHERE payment_apply_code = a.payment_apply_code AND a.phase &lt; phase) &lt; 1
+        ORDER BY a.payment_apply_code, a.phase DESC;
+    </select>
+</mapper>

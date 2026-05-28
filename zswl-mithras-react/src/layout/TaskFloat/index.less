@@ -1,0 +1,91 @@
+.task-float-wrapper {
+  .ocr {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.task-float-popover {
+  .ant-popover-content {
+    padding: 0;
+  }
+
+  .ant-popover-inner {
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.task-float-content {
+  width: 320px;
+  max-width: 90vw;
+
+  .task-float-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+    border-radius: 8px 8px 0 0;
+
+    span:first-child {
+      margin-right: 8px;
+    }
+  }
+
+  .task-float-empty {
+    padding: 40px 16px;
+    text-align: center;
+  }
+
+  .ant-list {
+    padding: 8px 0;
+
+    .ant-list-item {
+      padding: 12px 16px;
+      border-bottom: 1px solid #f5f5f5;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: #fafafa;
+      }
+    }
+  }
+
+  .ant-progress {
+    margin: 4px 0;
+
+    .ant-progress-line {
+      margin-right: 0;
+    }
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .task-float-wrapper {
+    bottom: 60px;
+    right: 20px;
+
+    .task-float-button {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  .task-float-content {
+    width: 280px;
+  }
+}

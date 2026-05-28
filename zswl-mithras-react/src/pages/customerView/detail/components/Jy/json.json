@@ -1,0 +1,105 @@
+{
+  "bizException": {
+    "cur_count": 0,
+    "total_count": 0,
+    "exception_list": [
+      {
+        "exception_result_in": "",
+        "exception_result_out": "",
+        "exception_date_in": "",
+        "exception_date_out": "",
+        "exception_organ_in": "",
+        "exception_organ_out": "",
+        "create_time": "@datetime"
+      }
+    ]
+  },
+  "case_info_list": {
+    "cur_count": 0,
+    "total_count": 0,
+    "case_info_list": [
+      {
+        "penalty_date": "",
+        "penalty_authority": "",
+        "enterprise_info": "",
+        "enterprise_name": "",
+        "province": "",
+        "result_date": "",
+        "penalty_document_no": "",
+        "illegal_situation": "",
+        "penalty_result": "",
+        "decision_sign_date": "",
+        "legal_repr": "",
+        "remarks": ""
+      }
+    ]
+  },
+  "illegal_list": {
+    "cur_count": 0,
+    "total_count": 0,
+    "illegal_list": [
+      {
+        "exception_result_in": "",
+        "exception_date_in": "",
+        "exception_organ_in": "",
+        "exception_result_out": "",
+        "exception_date_out": "",
+        "exception_organ_out": ""
+      }
+    ]
+  },
+  "major_illegal_list": [
+    {
+      "id": 0,
+      "IllegalFact": "",
+      "CaseNature": "",
+      "OccurDate": "@datetime",
+      "UpdateTime": "@datetime"
+    }
+  ],
+  "mortgage_list": {
+    "cur_count": 0,
+    "total_count": 0,
+    "mortgage_list": [
+      {
+        "basic_info": {
+          "mortgage_publ_date": "",
+          "overview_amount": "",
+          "rage": "",
+          "remarks": "",
+          "overview_type": "",
+          "type": "",
+          "cancel_reason": "",
+          "overview_scope": "",
+          "id": "",
+          "overview_remark": "",
+          "overview_term": "",
+          "pefper_to": "",
+          "province": "",
+          "cancel_date": "",
+          "secured_principal_claims_balance": "",
+          "impawn_reg_number": "",
+          "mortgage_reg_date": "",
+          "reg_org": "",
+          "mortgage_status": ""
+        }
+      }
+    ]
+  },
+  "guarant_event_list": {
+    "cur_count": 0,
+    "total_count": 0,
+    "guarant_info_list": [
+      {
+        "eventObjectName": "",
+        "objectAssociation": "",
+        "guarantBusiType": "",
+        "guaranteeBehavior": "",
+        "latestGuaranteeLimit": "",
+        "ifOverdue": "",
+        "updateTime": "",
+        "endDate": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+.haderLeft {
+  width: 640px;
+  height: 277px;
+  background-image: url('/public/assets/risk/monitoringAlertList/monitoringAlertListTopLeft.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  .top {
+    display: flex;
+    justify-content: center;
+
+    .wrepper {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      .wrepperLeftImg {
+        width: 56px;
+        height: 56px;
+        top: 159px;
+        left: 430px;
+        gap: 0px;
+        border: 1px 0px 0px 0px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, #f3f9ff 100%);
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 50%;
+      }
+      .wrepperRight {
+        margin-left: 12px;
+        :nth-child(1) {
+          font-family: D-DIN;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 20px;
+          text-align: left;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+        }
+        :nth-child(2) {
+          font-family: PingFang SC;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 18px;
+          text-align: left;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+          margin-top: 12px;
+        }
+      }
+    }
+
+    .wreppertow {
+      margin-left: 40px;
+    }
+  }
+  .contentCardList {
+    margin-top: 36px;
+    display: flex;
+    .card {
+      width: 200px;
+      height: 138px;
+      margin-left: 10px;
+      gap: 0px;
+      display: flex;
+      background: linear-gradient(
+        176.6deg,
+        rgba(255, 255, 255, 0.6) 2.81%,
+        rgba(255, 255, 255, 0.9) 94.61%
+      );
+      border: 1.2px solid;
+      border-image-source: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+
+      .cardLeft {
+        flex: 1;
+        .topImg {
+          margin-top: 15px;
+          text-align: center;
+        }
+        .wrepperRight {
+          overflow: hidden;
+          text-align: center;
+          .cardRightBock {
+            // margin-top: 12px;
+            font-family: D-DIN;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 20px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+          }
+          :nth-child(2) {
+            margin-top: 8px;
+            font-family: PingFang SC;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: rgba(102, 102, 102, 1);
+          }
+        }
+      }
+      .cardRight {
+        width: 100px;
+        .cardRightBock {
+          text-align: center;
+          margin-top: 5px;
+          width: 100px;
+          height: 63px;
+          background: rgba(237, 242, 255, 1);
+
+          overflow: hidden;
+          .zb {
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 20px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+          }
+          :nth-child(2) {
+            margin-top: 5px;
+            font-family: PingFang SC;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: rgba(102, 102, 102, 1);
+          }
+        }
+      }
+    }
+  }
+}

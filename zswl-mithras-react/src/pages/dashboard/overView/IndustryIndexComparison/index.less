@@ -1,0 +1,122 @@
+.container {
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+
+  .header {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.85);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+
+      :global {
+        .ant-select-suffix {
+          color: rgba(0, 0, 0, 0.45);
+        }
+      }
+    }
+  }
+
+  .content {
+    .charts {
+      display: flex;
+      gap: 24px;
+
+      .radarChart {
+        width: 300px;
+        height: 400px;
+      }
+      .barChart {
+        flex: 1;
+        height: 400px;
+      }
+    }
+  }
+}
+
+// DetailTable 样式
+.drawer {
+  :global {
+    .ant-drawer-body {
+      padding: 24px;
+    }
+  }
+
+  .header {
+    margin-bottom: 24px;
+
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .filterItem {
+        display: flex;
+        align-items: center;
+
+        .label {
+          margin-right: 8px;
+          color: rgba(0, 0, 0, 0.85);
+        }
+      }
+    }
+  }
+}
+
+// CompanyConfig 样式
+.configContainer {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .content {
+    max-height: 400px;
+    overflow-y: auto;
+
+    .checkboxItem {
+      margin: 8px 0;
+      padding: 8px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+
+    .warning {
+      margin-top: 16px;
+      padding: 8px;
+      color: #ff4d4f;
+      background-color: #fff2f0;
+      border: 1px solid #ffccc7;
+      border-radius: 4px;
+    }
+  }
+}
+
+.tip {
+  color: rgb(52, 101, 225);
+}
+
+.summary {
+  background-color: #fffeb4;
+  :global {
+    .ant-table-cell-fix-left {
+      background-color: #fffeb4;
+    }
+  }
+}

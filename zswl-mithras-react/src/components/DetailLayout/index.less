@@ -1,0 +1,96 @@
+:global {
+  .ant-affix {
+    height: auto !important;
+  }
+}
+.wrap {
+  .nav {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    padding-bottom: 16px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ecedf0;
+    .title {
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.85);
+      line-height: 24px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .btnWrap {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .title {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .contentWrap {
+    position: relative;
+    height: 100%;
+    display: flex;
+
+    .anchorWrap {
+      flex: 0 0 130px;
+      width: 130px;
+      border-right: 1px solid #ecedf0;
+      transition: all 0.3s;
+      &.collapsed {
+        // width: 0;
+        display: none;
+        flex: 0;
+        opacity: 0;
+      }
+      .anchor {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+    }
+    .content {
+      flex: 1 1;
+      padding: 16px;
+      overflow-x: auto;
+      transition: all 0.3s;
+      & > div {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  :global {
+    .ant-table-wrapper {
+      border-top: 1px solid #2558e6;
+      margin-bottom: 20px;
+    }
+    .no-tableClass .ant-table-wrapper {
+      border-top: 0px solid #2558e6;
+      margin-bottom: 0px;
+    }
+  }
+}
+.show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.5s ease-in;
+}
+.hide {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.5s ease-in;
+}
+
+.fold {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px;
+  &:hover {
+    color: #2558e6;
+  }
+}

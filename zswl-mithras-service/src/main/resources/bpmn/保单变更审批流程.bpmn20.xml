@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+    <process id="PolicyModifyFlow" name="保单变更审批流程" isExecutable="true">
+        <startEvent id="startEvent1"></startEvent>
+        <userTask id="userTask_startUser" name="发起人"></userTask>
+        <sequenceFlow id="sid-66C7D40F-63D3-4956-A62A-DC5A7032478F" sourceRef="startEvent1" targetRef="userTask_startUser"></sequenceFlow>
+        <userTask id="userTask_assetmanagement" name="资产管理岗审批"></userTask>
+        <sequenceFlow id="sid-DE9B43CA-2C46-4A0A-B7F2-0615345EC2AA" sourceRef="userTask_startUser" targetRef="userTask_assetmanagement"></sequenceFlow>
+        <endEvent id="sid-E2A20EA3-5ACA-43EE-A213-D4B717C9A37B"></endEvent>
+        <sequenceFlow id="sid-2304DA76-E9D8-43D7-8A55-38418316980F" sourceRef="userTask_assetmanagement" targetRef="sid-E2A20EA3-5ACA-43EE-A213-D4B717C9A37B"></sequenceFlow>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_PolicyModifyFlow">
+        <bpmndi:BPMNPlane bpmnElement="PolicyModifyFlow" id="BPMNPlane_PolicyModifyFlow">
+            <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+                <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="userTask_startUser" id="BPMNShape_userTask_startUser">
+                <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="135.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="userTask_assetmanagement" id="BPMNShape_userTask_assetmanagement">
+                <omgdc:Bounds height="80.0" width="100.0" x="315.0" y="135.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="sid-E2A20EA3-5ACA-43EE-A213-D4B717C9A37B" id="BPMNShape_sid-E2A20EA3-5ACA-43EE-A213-D4B717C9A37B">
+                <omgdc:Bounds height="28.0" width="28.0" x="465.0" y="161.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="sid-DE9B43CA-2C46-4A0A-B7F2-0615345EC2AA" id="BPMNEdge_sid-DE9B43CA-2C46-4A0A-B7F2-0615345EC2AA">
+                <omgdi:waypoint x="264.9499999999581" y="175.0"></omgdi:waypoint>
+                <omgdi:waypoint x="315.0" y="175.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-2304DA76-E9D8-43D7-8A55-38418316980F" id="BPMNEdge_sid-2304DA76-E9D8-43D7-8A55-38418316980F">
+                <omgdi:waypoint x="414.95000000000005" y="175.0"></omgdi:waypoint>
+                <omgdi:waypoint x="465.0" y="175.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-66C7D40F-63D3-4956-A62A-DC5A7032478F" id="BPMNEdge_sid-66C7D40F-63D3-4956-A62A-DC5A7032478F">
+                <omgdi:waypoint x="129.94340692927761" y="177.55019845363262"></omgdi:waypoint>
+                <omgdi:waypoint x="164.99999999999906" y="176.4985"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

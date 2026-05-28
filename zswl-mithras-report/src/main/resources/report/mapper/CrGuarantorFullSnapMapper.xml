@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.report.mapper.fullsnap.CrGuarantorFullSnapMapper">
+
+    <insert id="copyFromEffect">
+        INSERT INTO cr_guarantor_full_snap(business_key, create_time, update_time, contract_id, payment_id, client_id, payment_apply_code, client_type, client_name, guarantor_id_type, guarantor_id, client_class, repay_liability_amount, joint_guarantor_flag, guarante_contract_code, guarante_contract_code_2, batch_id, batch_no)
+        SELECT business_key, create_time, update_time, contract_id, payment_id, client_id, payment_apply_code, client_type, client_name, guarantor_id_type, guarantor_id, client_class, repay_liability_amount, joint_guarantor_flag, guarante_contract_code, guarante_contract_code_2, #{batchId}, #{batchNo} FROM cr_guarantor
+    </insert>
+
+</mapper>

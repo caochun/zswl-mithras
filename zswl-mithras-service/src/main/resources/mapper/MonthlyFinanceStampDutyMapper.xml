@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.monthly.MonthlyFinanceStampDutyMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.service.mapper.model.monthly.MonthlyFinanceStampDuty">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="mainId" column="main_id" jdbcType="BIGINT"/>
+            <result property="financingId" column="financing_id" jdbcType="BIGINT"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="organizationName" column="organization_name" jdbcType="VARCHAR"/>
+            <result property="financingCode" column="financing_code" jdbcType="VARCHAR"/>
+            <result property="stampDuty" column="stamp_duty" jdbcType="BIGINT"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,main_id,financing_id,
+        type,organization_name,financing_code,
+        stamp_duty,deleted,create_by,
+        create_time,update_by,update_time
+    </sql>
+</mapper>

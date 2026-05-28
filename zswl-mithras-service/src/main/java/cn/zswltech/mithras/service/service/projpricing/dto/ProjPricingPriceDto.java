@@ -1,0 +1,17 @@
+package cn.zswltech.mithras.service.service.projpricing.dto;
+
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+import java.util.Set;
+
+/**
+ * @description:
+ * @author: zhaozhengkang
+ * @date: 2023/3/17 18:24
+ */
+@Data
+@Accessors(chain = true)
+public class ProjPricingPriceDto {
+    private Set<Long> projPricingIds;
+}

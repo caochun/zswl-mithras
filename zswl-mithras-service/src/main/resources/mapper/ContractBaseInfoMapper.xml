@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper">
+
+    <select id="listContractPrincipal" resultType="cn.zswltech.mithras.service.service.bo.ContractPrincipalBO">
+        select
+        b.contract_id as contractId,
+        sum(b.principal) as planPrincipal,
+        sum(c.collection_principal) as actualPrincipal
+        from contract_base_info_lib a
+        inner join contract_rent_actual_lib b on a.origin_id = b.contract_id and a.version = b.version
+        left join collection_base_info c on b.origin_id = c.rent_actual_id
+        <where>
+            a.id in (
+                select max(id)
+                from contract_base_info_lib
+                where version_type = 1
+                group by origin_id
+            )
+            and b.cash_flow_code is not null and cash_flow_code != ''
+            <if test="query.contractIds != null and query.contractIds.size() > 0">
+                and b.contract_id in
+                <foreach collection="query.contractIds" item="contractId" separator="," open="(" close=")">
+                    #{contractId}
+                </foreach>
+            </if>
+        </where>
+        group by b.contract_id
+    </select>
+
+    <select id="myList" resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo">
+        select a.*
+        from contract_base_info a
+        <where>
+            <if test="dto.clientId!=null">and a.client_id=#{dto.clientId}</if>
+            <if test="dto.projName!=null and dto.projName!=''">and a.proj_name like CONCAT('%',#{dto.projName},'%')</if>
+            <if test="dto.contractCode!=null and dto.contractCode!=''">and a.contract_code like
+                CONCAT('%',#{dto.contractCode}, '%')
+            </if>
+            <if test="dto.bizType!=null and dto.bizType!=''">and a.biz_type = #{dto.bizType}</if>
+            <if test="dto.bizDeptId!=null">and a.biz_dept_id=#{dto.bizDeptId}</if>
+            <if test="dto.projSponsorUserId!=null">and a.proj_sponsor_user_id=#{dto.projSponsorUserId}</if>
+            <if test="dto.projCosponsorUserId!=null">
+                and json_contains(a.proj_cosponsor_user_ids, CONVERT(#{dto.projCosponsorUserId},CHAR))
+            </if>
+            <if test="dto.contractStatus!=null">and a.contract_status=#{dto.contractStatus}</if>
+            <if test="dto.contractStatuses!=null and dto.contractStatuses.size()>0">
+                and a.contract_status IN
+                <foreach collection="dto.contractStatuses" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.contractProcessStatus!=null">and a.contract_process_status=#{dto.contractProcessStatus}</if>
+            <if test="dto.planedPaidAmountFrom!=null">and a.payment_plan_amount &gt;= #{dto.planedPaidAmountFrom}</if>
+            <if test="dto.planedPaidAmountTo!=null">and a.payment_plan_amount &lt;= #{dto.planedPaidAmountTo}</if>
+            <if test="dto.planedPaidDateFrom!=null">and a.payment_plan_date &gt;= #{dto.planedPaidDateFrom}</if>
+            <if test="dto.planedPaidDateTo!=null">and a.payment_plan_date &lt;= #{dto.planedPaidDateTo}</if>
+            <if test="dto.createFrom!=null">and a.create_time &gt;= #{dto.createFrom}</if>
+            <if test="dto.createTo!=null">and a.create_time &lt;= #{dto.createTo}</if>
+            <if test="dto.updateFrom!=null">and a.update_time &gt;= #{dto.updateFrom}</if>
+            <if test="dto.updateTo!=null">and a.update_time &lt;= #{dto.updateTo}</if>
+            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+        </where>
+        order by update_time desc
+    </select>
+    <select id="selectIds" resultType="cn.zswltech.mithras.dto.contract.ContractInfo">
+        select a.id, a.contract_code from contract_base_info a where a.id in
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="fuzzyList" resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo">
+        select a.*
+        from contract_base_info a
+        <where>
+            <if test="dto.clientId!=null">and a.client_id=#{dto.clientId}</if>
+            <if test="dto.projName!=null and dto.projName!=''">and a.proj_name like CONCAT('%',#{dto.projName},'%')</if>
+            <if test="dto.contractCode!=null and dto.contractCode!=''">and a.contract_code like
+                CONCAT('%',#{dto.contractCode}, '%')
+            </if>
+            <if test="dto.bizType!=null and dto.bizType!=''">and a.biz_type = #{dto.bizType}</if>
+            <if test="dto.bizDeptId!=null">and a.biz_dept_id=#{dto.bizDeptId}</if>
+            --
+            <if test="dto.projSponsorUserId!=null">and a.proj_sponsor_user_id=#{dto.projSponsorUserId}</if>
+            <if test="dto.projCosponsorUserId!=null">
+                and json_contains(a.proj_cosponsor_user_ids, CONVERT(#{dto.projCosponsorUserId},CHAR))
+            </if>
+            <if test="dto.contractStatus!=null">and a.contract_status=#{dto.contractStatus}</if>
+            <if test="dto.contractStatuses!=null and dto.contractStatuses.size()>0">
+                and a.contract_status IN
+                <foreach collection="dto.contractStatuses" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.contractProcessStatus!=null">and a.contract_process_status=#{dto.contractProcessStatus}</if>
+            <if test="dto.planedPaidAmountFrom!=null">and a.payment_plan_amount &gt;= #{dto.planedPaidAmountFrom}</if>
+            <if test="dto.planedPaidAmountTo!=null">and a.payment_plan_amount &lt;= #{dto.planedPaidAmountTo}</if>
+            <if test="dto.planedPaidDateFrom!=null">and a.payment_plan_date &gt;= #{dto.planedPaidDateFrom}</if>
+            <if test="dto.planedPaidDateTo!=null">and a.payment_plan_date &lt;= #{dto.planedPaidDateTo}</if>
+            <if test="dto.createFrom!=null">and a.create_time &gt;= #{dto.createFrom}</if>
+            <if test="dto.createTo!=null">and a.create_time &lt;= #{dto.createTo}</if>
+            <if test="dto.updateFrom!=null">and a.update_time &gt;= #{dto.updateFrom}</if>
+            <if test="dto.updateTo!=null">and a.update_time &lt;= #{dto.updateTo}</if>
+            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+            <if test="dto.projCosponsorUserIdList!=null and dto.projCosponsorUserIdList.size()>0">
+                and a.proj_sponsor_user_id IN
+                <foreach collection="dto.projCosponsorUserIdList" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+    <update id="updateApplyCreditAmount">
+        update contract_base_info set apply_credit_amount = #{applyCreditAmount}
+           where id = #{id}
+    </update>
+
+    <select id="ContractRentLastDate" resultType="cn.zswltech.mithras.dto.liquidityrisk.ContractLastDate">
+
+        select
+        a.contract_id,
+        max(b.cash_flow_date) cashFlowDate
+        from
+        (
+        select
+        contract_id ,
+        receipt_id,
+        max(cash_flow_phase) phase
+        from
+        (SELECT p.* FROM contract_rent_actual_lib p
+        INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+        GROUP BY main_id) m ON p.contract_id = m.contract_id AND p.version = m.version) c
+        where
+        contract_id in
+        <foreach collection="dto.contractIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        group by
+        contract_id,receipt_id ) a
+        left join (SELECT p.* FROM contract_rent_actual_lib p
+        INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+        GROUP BY main_id) m ON p.contract_id = m.contract_id AND p.version = m.version) b on
+        a.contract_id = b.contract_id
+        and a.receipt_id = b.receipt_id
+        and a.phase = b.cash_flow_phase
+        where cash_flow_date <![CDATA[ >= ]]> #{dto.timeFrom}
+        and cash_flow_date <![CDATA[ <= ]]> #{dto.timeTo}
+        and a.receipt_id in
+        <foreach collection="dto.receiptIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        group by a.contract_id
+
+    </select>
+
+
+    <select id="ContractRentActualMaxDate" resultType="cn.zswltech.mithras.dto.liquidityrisk.ContractLastDate">
+        select
+        contract_id ,
+        max(cash_flow_date) cashFlowDate
+        from
+        (SELECT p.* FROM contract_rent_actual_lib p
+        INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+        GROUP BY main_id) m ON p.contract_id = m.contract_id AND p.version = m.version) c
+        where
+        contract_id in
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        group by
+        contract_id
+
+    </select>
+
+    <select id="clientMaxLeaseMonth" resultType="cn.zswltech.mithras.service.mapper.dto.ClientMaxLeaseMonthDTO">
+        SELECT
+        a.client_id,
+        max( a.lease_month_count ) AS lease_month_count
+        FROM
+        (
+        SELECT
+        b.client_id,
+        IFNULL(( SELECT lease_month_count FROM contract_lease_price WHERE contract_id = b.id ), 0 ) AS lease_month_count
+        FROM
+        contract_base_info b
+        WHERE
+        b.id IN
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+        #{item}
+        </foreach>
+     UNION ALL
+        SELECT
+        b.client_id,
+        IFNULL(( SELECT aoc_credit_term FROM contract_aoc_price WHERE contract_id = b.id ), 0 ) AS lease_month_count
+        FROM
+        contract_base_info b
+        WHERE
+        b.id IN
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        UNION ALL
+        SELECT
+        b.client_id,
+        IFNULL(( SELECT factoring_credit_term FROM contract_factoring_price b WHERE contract_id = b.id  ), 0 ) AS lease_month_count
+        FROM contract_base_info b WHERE b.id IN
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        ) a
+        GROUP BY
+        a.client_id
+    </select>
+
+    <select id="getContractExpirationDateByRent" resultType="cn.zswltech.mithras.service.mapper.dto.ContractRentLastTimeDTO">
+        select
+        contract_id,
+        max(cash_flow_date) endTime
+        from contract_rent_actual
+        where
+        contract_id in
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        group by
+        contract_id
+    </select>
+    <select id="queryPriceDtoList"
+            resultType="cn.zswltech.mithras.service.service.dashboard.dto.DashboardQueryPriceDto">
+        SELECT b.actual_irr AS irr,
+        a.id AS contractId
+        FROM contract_base_info AS a
+        LEFT JOIN payment_base_info AS c ON a.id = c.contract_id
+        INNER JOIN contract_receipt AS b ON a.id = b.contract_id AND b.id = c.receipt_id_final
+        WHERE a.id IN
+        <foreach collection="contractIds" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="getOverdueCollection"
+            resultType="cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollection">
+        select c.client_id            as clientId,
+               cl.client_name         as clientName,
+               cl.belong_sponsor_id as projectSponsor,
+               user.user_name         as projectSponsorName,
+               cl.belong_dept_id    as bizDept,
+               org.name               as bizDeptName
+        from contract_base_info c
+                 left join client cl on cl.id = c.client_id
+                 left join bifrost_org org on org.id = cl.belong_dept_id
+                 left join bifrost_user user
+        on user.id = cl.belong_sponsor_id
+        where contract_status = 'START_RENT'
+        <if test="clientIds != null and clientIds.size() > 0">
+            and c.client_id in
+            <foreach collection="clientIds" item="clientId" open="(" close=")" separator=",">
+                #{clientId}
+            </foreach>
+        </if>
+        group by clientId, clientName, projectSponsor, projectSponsorName, bizDept, bizDeptName
+    </select>
+
+
+    <select id="ocContractList" resultType="cn.zswltech.mithras.service.mapper.dto.OcContractListDto">
+        select a.id,
+               a.contract_status as contractStatus,
+               a.contract_code as contractCode,
+               a.proj_name as projName,
+               a.biz_type as bizType,
+               a.apply_credit_amount as contractAmount,
+               b.overdueDays,
+               b.overdueRent,
+               c.lateCharge,
+               org.name as bizDeptName,
+               user.user_name as projSponsorName
+        from contract_base_info a
+                 left join (select contract_id as contractId,
+                                   client_id             as clientId,
+                                   max(a.overdue_days)   as overdueDays,
+                                   sum(a.overdue_amount) as overdueRent
+                            from (select id,
+                                         client_id,
+                                         contract_id,
+                                         phase,
+                                         (if(isnull(plan_collection_amount), 0, plan_collection_amount) -
+                                          if(isnull(collection_amount), 0,
+                                             collection_amount))                                    as overdue_amount,
+                                         if (ifnull(plan_collection_amount,0) > ifnull(collection_amount,0), TIMESTAMPDIFF(DAY,plan_collection_date, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%S')), 0) as overdue_days
+                                  from collection_base_info
+                                  where ((ifnull(principal,0) > ifnull(collection_principal,0)) or (ifnull(interest,0) > ifnull(collection_interest,0))) and cash_flow_item = 'RENT' AND plan_collection_date &lt; CURRENT_DATE) a
+                            group by contractId) b on b.contractId = a.id
+                 left join (
+                    select
+                        contract_id,
+                        sum(ifnull(penalty_interest, 0)) - sum(ifnull(collection_penalty_interest, 0)) as lateCharge
+                    from collection_base_info
+                    group by contract_id
+                ) as c on a.id = c.contract_id
+                 left join bifrost_org org on org.id = a.biz_dept_id
+                 left join bifrost_user user on user.id = a.proj_sponsor_user_id
+        where a.client_id = #{clientId} and a.contract_status != 'INVALID';
+    </select>
+    <select id="ocContractListByClientId" resultType="cn.zswltech.mithras.service.mapper.dto.OcContractDto">
+        select
+            id,
+            client_id as clientId,
+            contract_id as contractId,
+            contract_code as contractCode,
+            phase,
+            (if(isnull(plan_collection_amount),0,plan_collection_amount) -if(isnull(collection_amount),0,collection_amount)) as overdueAmount,
+            if (ifnull(plan_collection_amount, 0) > ifnull(collection_amount, 0),TIMESTAMPDIFF(day,plan_collection_date,DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%S')),0) as overdueDays
+        from
+        collection_base_info
+        where 1=1
+        and cash_flow_item = 'RENT'
+        and plan_collection_date &lt; CURRENT_DATE
+        and client_id = #{clientId}
+    </select>
+
+    <select id="getContractLessees"
+            resultType="cn.zswltech.mithras.service.overdue.domain.acl.ContractLesseeInfo">
+        select a.id,
+               a.contract_code as contractCode,
+               b.lessee_id as lesseeId,
+               b.lessee_name as lesseeName,
+               b.lessee_type as lesseeType,
+               c.detail as address,
+        d.lateCharge,
+               d.overdueAmount as overdueAmount,
+               d.overdueDays as overdueDays,
+               d.phases as phases,
+               u.user_name as projectSponsorName,
+               u.phone as projectSponsorPhone
+        from contract_base_info a
+                 left join contract_tenantry b on a.id = b.contract_id
+                 left join corp_address_info c on c.address_type = 'WORK_ADDRESS' and b.lessee_id = c.client_id
+                 left join (select contract_id as contractId,
+                                client_id as clientId,
+        max(a.overdue_days) as overdueDays,
+        sum(a.overdue_amount) as overdueAmount,
+        sum(a.lateCharge) as lateCharge,
+        group_concat(',',a.phase) as phases
+        from (
+        select id,
+        client_id,
+        contract_id,
+        if (ifnull(plan_collection_amount,0) > ifnull(collection_amount,0), phase, null) as phase,
+        (if(isnull(plan_collection_amount), 0, plan_collection_amount) - if(isnull(collection_amount), 0,
+        collection_amount)) as overdue_amount,
+        (if(isnull(penalty_interest), 0, penalty_interest) - if(isnull(collection_penalty_interest), 0,
+        collection_penalty_interest)) as lateCharge,
+        if (ifnull(plan_collection_amount,0) > ifnull(collection_amount,0), TIMESTAMPDIFF(DAY,plan_collection_date, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%S')), 0) as overdue_days
+        from collection_base_info
+        where write_off_status != 'WRITE_OFF_COMPLETED' and cash_flow_item = 'RENT' AND plan_collection_date &lt;
+        CURRENT_DATE
+        ) a group by contractId) d on d.contractId = a.id
+                 left join bifrost_user u on u.id = a.proj_sponsor_user_id
+        where a.id in
+            <foreach collection="contractIds" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        order by id, b.lessee_type desc
+    </select>
+    <!-- 适用一个合同下有多个借据，多批还款请款，在发送逾期催收通知书时使用 -->
+    <select id="getContractLessees1"
+            resultType="cn.zswltech.mithras.service.overdue.domain.acl.ContractLesseeInfo">
+        select a.id,
+        a.contract_code as contractCode,
+        b.lessee_id as lesseeId,
+        b.lessee_name as lesseeName,
+        b.lessee_type as lesseeType,
+        c.detail as address,
+        d.lateCharge,
+        d.overdueAmount as overdueAmount,
+        d.overdueDays as overdueDays,
+        d.phases as phases,
+        u.user_name as projectSponsorName,
+        u.phone as projectSponsorPhone,
+        d.collectionId as collectionId
+        from contract_base_info a
+        left join contract_tenantry b on a.id = b.contract_id
+        left join corp_address_info c on c.address_type = 'WORK_ADDRESS' and b.lessee_id = c.client_id
+        left join (select contract_id as contractId,
+        client_id as clientId,
+        max(a.overdue_days) as overdueDays,
+        sum(a.overdue_amount) as overdueAmount,
+        sum(a.lateCharge) as lateCharge,
+        group_concat(',',a.phase) as phases,
+        a.id as collectionId
+        from (
+        select id,
+        client_id,
+        contract_id,
+        if (ifnull(plan_collection_amount,0) > ifnull(collection_amount,0), phase, null) as phase,
+        (if(isnull(plan_collection_amount), 0, plan_collection_amount) - if(isnull(collection_amount), 0,
+        collection_amount)) as overdue_amount,
+        (if(isnull(penalty_interest), 0, penalty_interest) - if(isnull(collection_penalty_interest), 0,
+        collection_penalty_interest)) as lateCharge,
+        if (ifnull(plan_collection_amount,0) > ifnull(collection_amount,0), TIMESTAMPDIFF(DAY,plan_collection_date, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%S')), 0) as overdue_days
+        from collection_base_info
+        where write_off_status != 'WRITE_OFF_COMPLETED' and cash_flow_item = 'RENT' AND plan_collection_date &lt;
+        CURRENT_DATE
+        ) a group by contractId,id) d on d.contractId = a.id
+        left join bifrost_user u on u.id = a.proj_sponsor_user_id
+        where a.id in
+        <foreach collection="contractIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        order by id, b.lessee_type desc
+    </select>
+
+    <select id="getContractGuarantors"
+            resultType="cn.zswltech.mithras.service.overdue.domain.acl.ContractGuarantorInfo">
+        select a.id,
+               a.contract_code as contractCode,
+               b.guarantor_ids as guarantorIds,
+               b.guarantor_contract_code as guarantorContractCode,
+               b.guarantor_type as guarantorType,
+               c.lessee_names as lesseeNames,
+        d.lateCharge,
+               d.overdueAmount as overdueAmount,
+               d.overdueDays as overdueDays,
+               d.phases as phases
+        from contract_base_info a
+                 left join contract_guarantor b on a.id = b.contract_id
+                 left join (select contract_id,group_concat(lessee_name) as lessee_names from contract_tenantry group by contract_id) c on c.contract_id = a.id
+                 left join (select contract_id as contractId,
+                                client_id as clientId,
+        max(a.overdue_days) as overdueDays,
+        sum(a.overdue_amount) as overdueAmount,
+        sum(a.lateCharge) as lateCharge,
+        group_concat(',',a.phase) as phases
+        from (
+        select id,
+        client_id,
+        contract_id,
+        if (ifnull(plan_collection_amount,0) > ifnull(collection_amount,0), phase, null) as phase,
+        (if(isnull(plan_collection_amount), 0, plan_collection_amount) - if(isnull(collection_amount), 0,
+        collection_amount)) as overdue_amount,
+        (if(isnull(penalty_interest), 0, penalty_interest) - if(isnull(collection_penalty_interest), 0,
+        collection_penalty_interest)) as lateCharge,
+        if (ifnull(plan_collection_amount,0) > ifnull(collection_amount,0), TIMESTAMPDIFF(DAY,plan_collection_date, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%S')), 0) as overdue_days
+        from collection_base_info
+        where write_off_status != 'WRITE_OFF_COMPLETED' and cash_flow_item = 'RENT' AND plan_collection_date &lt;
+        CURRENT_DATE
+        ) a group by contractId) d on d.contractId = a.id
+        where a.id in
+        <foreach collection="contractIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="clientOverdueInfo" resultType="cn.zswltech.mithras.service.overdue.domain.acl.ClientOverdueInfoDto">
+        select b.id          as clientId,
+               b.client_name as clientName,
+               a.overdueDays,
+               a.overdueAmount
+        from client b
+                 left join
+             (select contract_id           as contractId,
+                     client_id             as clientId,
+                     max(a.overdue_days)   as overdueDays,
+                     sum(a.overdue_amount) as overdueAmount
+              from (select id,
+                           client_id,
+                           contract_id,
+                           (if(isnull(plan_collection_amount), 0, plan_collection_amount) -
+                            if(isnull(collection_amount), 0, collection_amount)) as overdue_amount,
+                           if (ifnull(plan_collection_amount,0) > ifnull(collection_amount,0), TIMESTAMPDIFF(DAY,plan_collection_date, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%S')), 0) as overdue_days
+                    from collection_base_info
+                    where write_off_status != 'WRITE_OFF_COMPLETED' and cash_flow_item = 'RENT' AND plan_collection_date &lt; CURRENT_DATE) a
+              where client_id = #{clientId}
+              group by client_id) a
+             on b.id = clientId
+        where b.id = #{clientId}
+    </select>
+
+
+    <select id="listByClientIds"
+            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo">
+        select
+            a.id,a.contract_code
+        from contract_base_info a
+        right join
+             (SELECT p.contract_id, 'guarantor' as role FROM contract_guarantor_lib p
+             INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
+             WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+             GROUP BY main_id) m ON p.contract_id = m.contract_id AND p.version = m.version
+              where guarantor_ids like concat('%',#{clientId},'%')
+              union all
+              SELECT p.contract_id,'lessee' as role FROM contract_tenantry_lib p
+             INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
+             WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+             GROUP BY main_id) m ON p.contract_id = m.contract_id AND p.version = m.version
+              where lessee_id = #{clientId}) b
+        on a.id = b.contract_id;
+    </select>
+
+    <select id="listClientsByContractId"
+            resultType="cn.zswltech.mithras.service.overdue.domain.acl.ClientRole">
+        SELECT p.contract_id as contractId,p.guarantor_ids as clientId, 'guarantor' as role FROM contract_guarantor_lib p
+         INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
+                     WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+                     GROUP BY main_id) m ON p.contract_id = m.contract_id AND p.version = m.version
+        where p.contract_id in
+        <foreach collection="contractIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        union all
+        SELECT p.contract_id as contractId,p.lessee_id as clientId,'lessee' as role FROM contract_tenantry_lib p
+         INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
+                     WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+                     GROUP BY main_id) m ON p.contract_id = m.contract_id AND p.version = m.version
+        where p.contract_id in
+        <foreach collection="contractIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="contractSearchList" resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo">
+        select *
+        from contract_base_info cbi
+        where cbi.contract_status in ('TAKE_EFFECT', 'START_RENT')
+        and cbi.id not in (select contract_id
+        from (SELECT contract_id,
+        MAX(is_pledge)    AS is_pledge, -- 取每组is_pledge的最大值
+        MAX(is_supervise) AS is_supervise
+        from (select *
+        from (SELECT contract_id,
+        MAX(is_pledge)    AS is_pledge,   -- 取每组is_pledge的最大值
+        MAX(is_supervise) AS is_supervise -- 取每组is_supervise的最大值
+        FROM fund_direct_financing_pledge_info fdfpi
+        JOIN fund_direct_financing_base_info ffbi ON fdfpi.financing_id = ffbi.id
+        WHERE financing_status IN ('NEW', 'EFFECT', 'CARRY_INTEREST')
+        GROUP BY contract_id -- 按contract_id分组
+        ) a
+        union all
+        select *
+        from (SELECT contract_id,
+        MAX(is_pledge)    AS is_pledge,   -- 取每组is_pledge的最大值
+        MAX(is_supervise) AS is_supervise -- 取每组is_supervise的最大值
+        FROM fund_financing_pledge_info fdfpi
+        JOIN fund_financing_base_info ffbi ON fdfpi.financing_id = ffbi.id
+        WHERE financing_status IN ('NEW', 'EFFECT', 'CARRY_INTEREST')
+        GROUP BY contract_id -- 按contract_id分组
+        ) b) pledge
+        GROUP BY contract_id) result
+        where result.is_pledge = 1
+        and result.is_supervise = 1)
+        <if test="contractCode!=null"> and contract_code like concat('%', #{contractCode},'%') </if>
+    </select>
+</mapper>

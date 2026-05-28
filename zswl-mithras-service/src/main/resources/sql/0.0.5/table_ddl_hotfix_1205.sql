@@ -1,0 +1,2 @@
+alter table proj_review_base_info add approval_pass_irr int(11) DEFAULT NULL COMMENT  '最近一次定价审批流程通过的IRR';
+alter table proj_review_base_info_lib add approval_pass_irr int(11) DEFAULT NULL COMMENT  '最近一次定价审批流程通过的IRR';

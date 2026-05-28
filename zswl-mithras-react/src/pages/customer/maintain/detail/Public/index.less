@@ -1,0 +1,48 @@
+.public {
+  position: relative;
+  margin-top: -16px;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .navigation {
+    width: 120px;
+    float: left;
+  }
+  .operation {
+    position: absolute;
+    right: 10px;
+    top: -39px;
+  }
+  .contentRight {
+    float: right;
+    width: calc(100% - 120px);
+    border-left: 1px solid #ecedf0;
+    padding: 16px;
+  }
+  .tableWrap {
+    position: relative;
+    margin-bottom: 30px;
+    :global(.ant-table-wrapper) {
+      border-top: 1px solid #2558e6;
+    }
+    :global(.ant-table-thead > tr > th) {
+      background-color: #f2f3f5;
+    }
+    :global(.ant-descriptions-view) {
+      border-top: 1px solid #2558e6;
+    }
+  }
+  .reason,
+  .judgeResult {
+    width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  :global(.ant-anchor-wrapper) {
+    padding-top: 10px;
+  }
+}

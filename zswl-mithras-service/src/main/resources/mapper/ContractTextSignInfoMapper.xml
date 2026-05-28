@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.contract.ContractTextSignInfoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.service.mapper.model.contract.ContractTextSignInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="mainId" column="main_id" jdbcType="BIGINT"/>
+            <result property="sourceFileId" column="source_file_id" jdbcType="BIGINT"/>
+            <result property="textSignWay" column="text_sign_way" jdbcType="VARCHAR"/>
+            <result property="textSignStatus" column="text_sign_status" jdbcType="VARCHAR"/>
+            <result property="pushTime" column="push_time" jdbcType="TIMESTAMP"/>
+            <result property="signedFilePath" column="signed_file_path" jdbcType="VARCHAR"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,main_id,source_file_id,
+        text_sign_way,text_sign_status,push_time,
+        signed_file_path,create_by,update_by,
+        deleted,create_time,update_time
+    </sql>
+</mapper>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.dashboard.DashboardOperationPayMapper">
+
+
+    <select id="payList" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardOperationPayResult">
+        SELECT
+        sum(ifnull( b.total_pay_amount, 0 )) AS actualPayAmountLong,
+        a.biz_dept_id AS bizDeptId
+        FROM
+        contract_base_info AS a
+        INNER JOIN (
+            SELECT
+            contract_id,
+            min( paid_in_date ) AS min_paid_in_date,
+            sum( paid_in_amount ) AS total_pay_amount
+            FROM
+            payment_actual_detail
+            GROUP BY
+            contract_id
+        ) AS b ON b.contract_id = a.id
+        LEFT JOIN corp_commerce_info corp ON corp.client_id = a.client_id
+        <where>
+            b.total_pay_amount > 0
+            <if test="queryDateFrom != null">
+                AND b.min_paid_in_date &gt;= #{queryDateFrom}
+            </if>
+            <if test="queryDateTo != null">
+                AND b.min_paid_in_date &lt;= #{queryDateTo}
+            </if>
+            <if test="riskControlList != null and riskControlList.size() > 0">
+                AND corp.risk_control_industry_classify in
+                <foreach collection="riskControlList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.biz_dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+
+        </where>
+        GROUP BY
+        a.biz_dept_id
+
+
+    </select>
+    <select id="capacityList" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardOperationCapacityResult">
+        <if test="projStage == 'PROJECT_STAGE_ESTABLISH'">
+            (
+            SELECT
+            a.origin_id as id,
+            'CURRENCY' as type,
+            a.biz_dept_id as bizDeptId,
+            c.risk_control_industry_classify as riskControl,
+            case a.biz_type when 'ZR' then IFNULL(f.apply_credit_amount,0)  when 'BL' then IFNULL(e.apply_credit_amount,0) else IFNULL(d.apply_credit_amount,0) end as amountLong
+            FROM
+            proj_establish_base_info_lib a
+            join (
+            select origin_id,max(create_time) max_create_time from proj_establish_base_info_lib
+            group by origin_id
+            ) el2 on a.create_time = el2.max_create_time and a.origin_id = el2.origin_id
+            left join (
+            select
+            b1.client_id,
+            b1.risk_control_industry_classify
+            from corp_commerce_info_lib b1
+            join (
+            select client_id,max(version) max_version from corp_commerce_info_lib
+            where version_type = 1
+            GROUP BY client_id
+            ) b2 on b2.client_id = b1.client_id and b2.max_version = b1.version
+            ) c on a.client_id = c.client_id
+            left join proj_establish_lease_price as d on a.origin_id = d.proj_establish_id
+            left join proj_establish_factoring_price as e on a.origin_id = e.proj_establish_id
+            left join proj_establish_aoc_price as f on a.origin_id = f.proj_establish_id
+            WHERE
+            a.proj_establish_process_status = 'NEW_APPROVAL_PASS'
+            <if test="riskControlList != null and riskControlList.size() > 0">
+                and c.risk_control_industry_classify in
+                <foreach collection="riskControlList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="queryDateFrom != null">
+                and a.create_time &gt;= #{queryDateFrom}
+            </if>
+            <if test="queryDateTo != null">
+                and a.create_time &lt;= #{queryDateTo}
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.biz_dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            )
+            union ALL
+            (
+            SELECT
+            a.origin_id as id,
+            'LAST' as type,
+            a.biz_dept_id as bizDeptId,
+            c.risk_control_industry_classify as riskControl,
+            case a.biz_type when 'ZR' then IFNULL(f.apply_credit_amount,0)  when 'BL' then IFNULL(e.apply_credit_amount,0) else IFNULL(d.apply_credit_amount,0) end as amountLong
+            FROM
+            proj_establish_base_info_lib a
+            join (
+            select origin_id,max(create_time) max_create_time from proj_establish_base_info_lib
+            group by origin_id
+            ) el2 on a.create_time = el2.max_create_time and a.origin_id = el2.origin_id
+            left join (
+            select
+            b1.client_id,
+            b1.risk_control_industry_classify
+            from corp_commerce_info_lib b1
+            join (
+            select client_id,max(version) max_version from corp_commerce_info_lib
+            where version_type = 1
+            GROUP BY client_id
+            ) b2 on b2.client_id = b1.client_id and b2.max_version = b1.version
+            ) c on a.client_id = c.client_id
+            left join proj_establish_lease_price as d on a.origin_id = d.proj_establish_id
+            left join proj_establish_factoring_price as e on a.origin_id = e.proj_establish_id
+            left join proj_establish_aoc_price as f on a.origin_id = f.proj_establish_id
+            WHERE
+            a.proj_establish_process_status = 'NEW_APPROVAL_PASS'
+            <if test="riskControlList != null and riskControlList.size() > 0">
+                and c.risk_control_industry_classify in
+                <foreach collection="riskControlList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="queryDateLastFrom != null">
+                and a.create_time &gt;= #{queryDateLastFrom}
+            </if>
+            <if test="queryDateLastTo != null">
+                and a.create_time &lt;= #{queryDateLastTo}
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.biz_dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            )
+        </if>
+
+        <if test="projStage == 'PROJECT_STAGE_REVIEW'">
+            (
+            SELECT
+            a.origin_id as id,
+            'CURRENCY' as type,
+            a.biz_dept_id as bizDeptId,
+            c.risk_control_industry_classify as riskControl,
+            case a.biz_type when 'ZR' then IFNULL(f.apply_credit_amount,0)  when 'BL' then IFNULL(e.apply_credit_amount,0) else IFNULL(d.apply_credit_amount,0) end as amountLong
+            FROM
+            proj_review_base_info_lib a
+            join (
+            select origin_id,max(create_time) max_create_time from proj_review_base_info_lib
+            group by origin_id
+            ) el2 on a.create_time = el2.max_create_time and a.origin_id = el2.origin_id
+            left join (
+            select
+            b1.client_id,
+            b1.risk_control_industry_classify
+            from corp_commerce_info_lib b1
+            join (
+            select client_id,max(version) max_version from corp_commerce_info_lib
+            where version_type = 1
+            GROUP BY client_id
+            ) b2 on b2.client_id = b1.client_id and b2.max_version = b1.version
+            ) c on a.client_id = c.client_id
+            left join proj_review_lease_price as d on a.origin_id = d.project_id
+            left join proj_review_factoring_price as e on a.origin_id = e.project_id
+            left join proj_review_aoc_price as f on a.origin_id = f.project_id
+            WHERE
+            a.proj_review_process_status = 'NEW_APPROVAL_PASS'
+            <if test="riskControlList != null and riskControlList.size() > 0">
+                and c.risk_control_industry_classify in
+                <foreach collection="riskControlList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="queryDateFrom != null">
+                and a.create_time &gt;= #{queryDateFrom}
+            </if>
+            <if test="queryDateTo != null">
+                and a.create_time &lt;= #{queryDateTo}
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.biz_dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            )
+            union all
+            (
+            SELECT
+            a.origin_id as id,
+            'LAST' as type,
+            a.biz_dept_id as bizDeptId,
+            c.risk_control_industry_classify as riskControl,
+            case a.biz_type when 'ZR' then IFNULL(f.apply_credit_amount,0)  when 'BL' then IFNULL(e.apply_credit_amount,0) else IFNULL(d.apply_credit_amount,0) end as amountLong
+            FROM
+            proj_review_base_info_lib a
+            join (
+            select origin_id,max(create_time) max_create_time from proj_review_base_info_lib
+            group by origin_id
+            ) el2 on a.create_time = el2.max_create_time and a.origin_id = el2.origin_id
+            left join (
+            select
+            b1.client_id,
+            b1.risk_control_industry_classify
+            from corp_commerce_info_lib b1
+            join (
+            select client_id,max(version) max_version from corp_commerce_info_lib
+            where version_type = 1
+            GROUP BY client_id
+            ) b2 on b2.client_id = b1.client_id and b2.max_version = b1.version
+            ) c on a.client_id = c.client_id
+            left join proj_review_lease_price as d on a.origin_id = d.project_id
+            left join proj_review_factoring_price as e on a.origin_id = e.project_id
+            left join proj_review_aoc_price as f on a.origin_id = f.project_id
+            WHERE
+            a.proj_review_process_status = 'NEW_APPROVAL_PASS'
+            <if test="riskControlList != null and riskControlList.size() > 0">
+                and c.risk_control_industry_classify in
+                <foreach collection="riskControlList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="queryDateLastFrom != null">
+                and a.create_time &gt;= #{queryDateLastFrom}
+            </if>
+            <if test="queryDateLastTo != null">
+                and a.create_time &lt;= #{queryDateLastTo}
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.biz_dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            )
+
+        </if>
+
+        <if test="projStage == 'PROJECT_STAGE_DUE_DILIGENCE'">
+            (
+            SELECT
+            a.id as id,
+            'CURRENCY' as type,
+            a.dept_id AS bizDeptId,
+            c.risk_control_industry_classify as riskControl,
+            ifnull( a.amount, 0 ) AS amountLong
+            from
+            dashboard_due_diligence_info a
+            left join proj_establish_base_info b on a.proj_code = b.proj_code
+            left join group_credit_establish_base_info jtb on a.proj_code = jtb.proj_code
+            left join (
+            select
+            b1.client_id,
+            b1.risk_control_industry_classify
+            from corp_commerce_info_lib b1
+            join (
+            select client_id,max(version) max_version from corp_commerce_info_lib
+            where version_type = 1
+            GROUP BY client_id
+            ) b2 on b2.client_id = b1.client_id and b2.max_version = b1.version
+            ) c on b.client_id = c.client_id or jtb.client_id = c.client_id
+            WHERE
+            a.amount > 0
+            <if test="type != null">
+                and a.business_group = '${type}'
+            </if>
+            <if test="queryDateFrom != null">
+                and a.due_diligence_time &gt;= #{queryDateFrom}
+            </if>
+            <if test="queryDateTo != null">
+                and a.due_diligence_time &lt;= #{queryDateTo}
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            )
+            union all
+            (
+            SELECT
+            a.id as id,
+            'LAST' as type,
+            a.dept_id AS bizDeptId,
+            c.risk_control_industry_classify as riskControl,
+            ifnull( a.amount, 0 ) AS amountLong
+            from
+            dashboard_due_diligence_info a
+            left join proj_establish_base_info b on a.proj_code = b.proj_code
+            left join group_credit_establish_base_info jtb on a.proj_code = jtb.proj_code
+            left join (
+            select
+            b1.client_id,
+            b1.risk_control_industry_classify
+            from corp_commerce_info_lib b1
+            join (
+            select client_id,max(version) max_version from corp_commerce_info_lib
+            where version_type = 1
+            GROUP BY client_id
+            ) b2 on b2.client_id = b1.client_id and b2.max_version = b1.version
+            ) c on b.client_id = c.client_id or jtb.client_id = c.client_id
+            WHERE
+            a.amount > 0
+            <if test="type != null">
+                and a.business_group = '${type}'
+            </if>
+            <if test="queryDateLastFrom != null">
+                and a.due_diligence_time &gt;= #{queryDateLastFrom}
+            </if>
+            <if test="queryDateLastTo != null">
+                and a.due_diligence_time &lt;= #{queryDateLastTo}
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            )
+        </if>
+
+        <if test="projStage == 'PROJECT_STAGE_PUT'">
+            (
+            SELECT
+            a.id as id,
+            'CURRENCY' as type,
+            a.biz_dept_id AS bizDeptId,
+            c.risk_control_industry_classify as riskControl,
+            ifnull( b.total_pay_amount, 0 ) AS amountLong
+            FROM
+            contract_base_info AS a
+            INNER JOIN (
+            SELECT
+            contract_id,
+            min( paid_in_date ) AS min_paid_in_date,
+            sum( paid_in_amount ) AS total_pay_amount
+            FROM
+            payment_actual_detail
+            GROUP BY
+            contract_id
+            ) AS b ON b.contract_id = a.id
+            left join (
+            select
+            b1.client_id,
+            b1.risk_control_industry_classify
+            from corp_commerce_info_lib b1
+            join (
+            select client_id,max(version) max_version from corp_commerce_info_lib
+            where version_type = 1
+            GROUP BY client_id
+            ) b2 on b2.client_id = b1.client_id and b2.max_version = b1.version
+            ) c on a.client_id = c.client_id
+            WHERE
+            b.total_pay_amount > 0
+            <if test="riskControlList != null and riskControlList.size() > 0">
+                and c.risk_control_industry_classify in
+                <foreach collection="riskControlList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="queryDateFrom != null">
+                and b.min_paid_in_date &gt;= #{queryDateFrom}
+            </if>
+            <if test="queryDateTo != null">
+                and b.min_paid_in_date &lt;= #{queryDateTo}
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.biz_dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+
+            )
+            union all
+            (
+            SELECT
+            a.id as id,
+            'LAST' as type,
+            a.biz_dept_id AS bizDeptId,
+            c.risk_control_industry_classify as riskControl,
+            ifnull( b.total_pay_amount, 0 ) AS amountLong
+            FROM
+            contract_base_info AS a
+            INNER JOIN (
+            SELECT
+            contract_id,
+            min( paid_in_date ) AS min_paid_in_date,
+            sum( paid_in_amount ) AS total_pay_amount
+            FROM
+            payment_actual_detail
+            GROUP BY
+            contract_id
+            ) AS b ON b.contract_id = a.id
+            left join (
+            select
+            b1.client_id,
+            b1.risk_control_industry_classify
+            from corp_commerce_info_lib b1
+            join (
+            select client_id,max(version) max_version from corp_commerce_info_lib
+            where version_type = 1
+            GROUP BY client_id
+            ) b2 on b2.client_id = b1.client_id and b2.max_version = b1.version
+            ) c on a.client_id = c.client_id
+            WHERE
+            b.total_pay_amount > 0
+            <if test="riskControlList != null and riskControlList.size() > 0">
+                and c.risk_control_industry_classify in
+                <foreach collection="riskControlList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="queryDateLastFrom != null">
+                and b.min_paid_in_date &gt;= #{queryDateLastFrom}
+            </if>
+            <if test="queryDateLastTo != null">
+                and b.min_paid_in_date &lt;= #{queryDateLastTo}
+            </if>
+            <if test="bizDeptIdList != null and bizDeptIdList.size() > 0">
+                AND a.biz_dept_id in
+                <foreach collection="bizDeptIdList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            )
+
+        </if>
+
+
+
+
+    </select>
+</mapper>

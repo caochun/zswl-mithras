@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="ArchivesFlow" name="档案审批流程" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="userTask_startUser" name="发起人"></userTask>
+    <sequenceFlow id="sid-66C7D40F-63D3-4956-A62A-DC5A7032478F" sourceRef="startEvent1" targetRef="userTask_startUser"></sequenceFlow>
+    <userTask id="userTask_archivesmanage" name="档案管理员审批"></userTask>
+    <endEvent id="sid-E2A20EA3-5ACA-43EE-A213-D4B717C9A37B"></endEvent>
+    <sequenceFlow id="sid-2304DA76-E9D8-43D7-8A55-38418316980F" sourceRef="userTask_archivesmanage" targetRef="sid-E2A20EA3-5ACA-43EE-A213-D4B717C9A37B"></sequenceFlow>
+    <userTask id="userTask_deptMaster" name="业务部门负责人"></userTask>
+    <sequenceFlow id="sid-A619B1F9-C177-42BC-BA70-B715B957BF74" sourceRef="userTask_startUser" targetRef="userTask_deptMaster"></sequenceFlow>
+    <sequenceFlow id="sid-E12C241A-F265-4D11-BAD2-741F0BD35AF8" sourceRef="userTask_deptMaster" targetRef="userTask_archivesmanage"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ArchivesFlow">
+    <bpmndi:BPMNPlane bpmnElement="ArchivesFlow" id="BPMNPlane_ArchivesFlow">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_startUser" id="BPMNShape_userTask_startUser">
+        <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_archivesmanage" id="BPMNShape_userTask_archivesmanage">
+        <omgdc:Bounds height="80.0" width="100.0" x="465.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-E2A20EA3-5ACA-43EE-A213-D4B717C9A37B" id="BPMNShape_sid-E2A20EA3-5ACA-43EE-A213-D4B717C9A37B">
+        <omgdc:Bounds height="28.0" width="28.0" x="645.0" y="161.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_deptMaster" id="BPMNShape_userTask_deptMaster">
+        <omgdc:Bounds height="80.0" width="100.0" x="315.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-E12C241A-F265-4D11-BAD2-741F0BD35AF8" id="BPMNEdge_sid-E12C241A-F265-4D11-BAD2-741F0BD35AF8">
+        <omgdi:waypoint x="414.9499999999581" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-2304DA76-E9D8-43D7-8A55-38418316980F" id="BPMNEdge_sid-2304DA76-E9D8-43D7-8A55-38418316980F">
+        <omgdi:waypoint x="564.9499999999827" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="645.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-66C7D40F-63D3-4956-A62A-DC5A7032478F" id="BPMNEdge_sid-66C7D40F-63D3-4956-A62A-DC5A7032478F">
+        <omgdi:waypoint x="129.94340692927761" y="177.55019845363262"></omgdi:waypoint>
+        <omgdi:waypoint x="164.99999999999906" y="176.4985"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-A619B1F9-C177-42BC-BA70-B715B957BF74" id="BPMNEdge_sid-A619B1F9-C177-42BC-BA70-B715B957BF74">
+        <omgdi:waypoint x="264.9499999999581" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="315.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

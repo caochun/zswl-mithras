@@ -1,0 +1,86 @@
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  padding-bottom: 16px;
+  justify-content: space-between;
+  border-bottom: 1px solid #ecedf0;
+
+  .title {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 24px;
+    font-weight: bold;
+
+    .subTitle {
+      color: #ff4d4f;
+      margin-left: 10px;
+    }
+  }
+
+  .btnWrap {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.titleWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+
+  .btnWrap {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.contentWrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+
+  .anchorWrap {
+    width: 120px;
+    border-right: 1px solid #ecedf0;
+    flex: none;
+
+    .anchor {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+  }
+
+  .content {
+    flex: auto;
+    padding: 16px;
+    overflow-x: auto;
+
+    &>div {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.block {
+  overflow: hidden;
+
+  .title {
+    margin-top: 3px;
+    float: left;
+  }
+
+  .btn {
+    color: #2558E6;
+    float: right;
+  }
+}
+
+.icon {
+  color: #2558E6;
+  font-size: 16px !important;
+  margin-top: 6px;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.metric.mapper.RiskMetricValueMapper">
+
+    <select id="list" resultType="cn.zswltech.mithras.metric.mapper.model.RiskMetricValue">
+        select
+        a.metric_name, a.unit, a.frequency,
+        ifnull(metric_value,ifnull(metric_value_adjusted, -100)) vv,
+        b.*
+        from risk_metric a, risk_metric_value b
+        <where>
+            b.risk_metric_id = a.id
+            <if test="conditions.metricName!=null">and a.metric_name like concat('%',#{conditions.metricName},'%')</if>
+            <if test="conditions.metricCode!=null">and b.metric_code like concat('%',#{conditions.metricCode},'%')</if>
+            <if test="conditions.needReport!=null">and b.need_report = #{conditions.needReport}</if>
+            <if test="conditions.dataTime!=null">and b.data_time=#{conditions.dataTime}</if>
+        </where>
+        order by vv asc
+    </select>
+</mapper>

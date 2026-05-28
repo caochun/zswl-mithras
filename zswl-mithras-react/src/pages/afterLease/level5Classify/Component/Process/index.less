@@ -1,0 +1,66 @@
+.content {
+  :global {
+    .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+      background-color: #00b87a;
+    }
+    .ant-steps-dot .ant-steps-item-icon,
+    .ant-steps-dot.ant-steps-small .ant-steps-item-icon {
+      width: 12px;
+      height: 12px;
+    }
+    .ant-steps-dot .ant-steps-item-tail,
+    .ant-steps-dot.ant-steps-small .ant-steps-item-tail {
+      top: 4px;
+    }
+    .ant-steps-dot .ant-steps-item-tail::after,
+    .ant-steps-dot.ant-steps-small .ant-steps-item-tail::after {
+      height: 2px;
+    }
+    .ant-steps-item-process
+      > .ant-steps-item-container
+      > .ant-steps-item-content
+      > .ant-steps-item-title {
+      color: #2552e6;
+    }
+  }
+  background-color: #fff;
+  padding: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    .title {
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #000000;
+      line-height: 24px;
+      font-weight: 500;
+    }
+  }
+  .btn {
+    margin-top: 8px;
+  }
+  .spin {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .step {
+    flex: 1;
+    .blank {
+      height: 25px;
+    }
+  }
+  .workDay {
+    width: 130px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #58595c;
+    text-align: center;
+    line-height: 22px;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBaseInfoMapper">
+    <select id="richInfoPageList" resultType="cn.zswltech.mithras.service.mapper.dto.FundReceiptBaseRichDTO">
+        select
+        a.id,
+        case a.financing_type when 'DIRECT' then c.product_name else b.organization_name end as financingName,
+        case a.financing_type when 'DIRECT' then c.financing_amount else b.financing_amount end as financingAmount,
+        case a.financing_type when 'DIRECT' then c.financing_code else b.financing_code end as financingCode,
+        a.financing_id as financingId
+        from fund_receipt_repay_base_info as a
+        left join fund_financing_base_info as b on a.financing_id = b.id and a.financing_type is null
+        left join fund_direct_financing_base_info as c on a.financing_id = c.id and a.financing_type = 'DIRECT'
+        where 1 = 1
+        <if test="query.name">
+            financingName like concat('%', #{name}, '%')
+        </if>
+    </select>
+
+    <select id="collectPageList" resultType="cn.zswltech.mithras.service.mapper.dto.FundPlanFlowResultDTO">
+        select
+               t.is_direct,
+               t.identifier as identifier,
+               t.financing_amount as financingAmount, 
+               t.id as receiptRepayBaseId,
+               t.write_off_state as writeOffState,
+               t.cash_flow_item as cashFlowItem,
+               t.plan_cash_flow_date as planCashFlowDate,
+               t.plan_cash_flow_amount as planCashFlowAmount,
+               t.cash_flow_code as cashFlowCode,
+               t.financing_code as financingCode,
+               t.fund_channel as fundChannel,
+               t.biz_type as bizType,
+               t.financing_id as financingId
+        from (
+            <include refid="collectPageList-InnerQuery"></include>
+             ) as t
+        where 1 = 1
+        <include refid="collectPageList-Condition"></include>
+        order by t.plan_cash_flow_date
+    </select>
+
+    <select id="paymentPageList" resultType="cn.zswltech.mithras.service.mapper.dto.FundPlanFlowResultDTO">
+        select
+            t.is_direct,
+            t.identifier as identifier,
+            t.financing_amount as financingAmount,
+            t.id as receiptRepayBaseId,
+            t.write_off_state as writeOffState,
+            t.cash_flow_item as cashFlowItem,
+            t.plan_cash_flow_date as planCashFlowDate,
+            t.plan_cash_flow_amount as planCashFlowAmount,
+            t.plan_principal_amount as planPrincipalAmount,
+            t.plan_interest_amount as planInterestAmount,
+            t.cash_flow_code as cashFlowCode,
+            t.financing_code as financingCode,
+            t.fund_channel as fundChannel,
+            t.biz_type as bizType,
+            t.financing_id as financingId,
+            t.phase as phase
+        from (
+        <include refid="paymentPageList-InnerQuery"></include>
+        ) as t
+        where 1 = 1
+        <include refid="paymentPageList-Condition"></include>
+        order by t.plan_cash_flow_date
+    </select>
+
+    <sql id="paymentPageList-Condition">
+        <if test="query.fundChannel != null">
+            and t.fund_channel like concat('%', #{query.fundChannel}, '%')
+        </if>
+        <if test="query.writeOffStateList != null and query.writeOffStateList.size() > 0">
+            and t.write_off_state in
+            <foreach collection="query.writeOffStateList" item="writeOffState" separator="," open="(" close=")">
+                #{writeOffState}
+            </foreach>
+        </if>
+        <if test="query.planCashFlowDateFrom != null">
+            and t.plan_cash_flow_date &gt;= #{query.planCashFlowDateFrom}
+        </if>
+        <if test="query.planCashFlowDateTo != null">
+            and t.plan_cash_flow_date &lt;= #{query.planCashFlowDateTo}
+        </if>
+        <if test="query.cashFlowItem != null">
+            and t.cash_flow_item = #{query.cashFlowItem}
+        </if>
+        <if test="query.financingCode != null">
+            and t.financing_code = #{query.financingCode}
+        </if>
+    </sql>
+
+    <sql id="paymentPageList-InnerQuery">
+        select
+            0 as is_direct,
+            concat('INDIRECT@REPAY@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            'REPAY' as cash_flow_item,
+            a.cash_flow_code,
+            a.repay_amount as plan_cash_flow_amount,
+            a.principle_amount as plan_principal_amount,
+            a.interest_amount as plan_interest_amount,
+            a.phase,
+            a.repay_date as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            org.organization_name as fund_channel,
+            c.business_type as biz_type
+        from
+            fund_receipt_repay_cash_flow as a
+                inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type is null
+                inner join fund_financing_base_info as c on b.financing_id = c.id
+                left join (
+                    select a.financing_id,a.organization_id as organization_id from fund_financing_credit_ref a
+                    join (select min(id) min_id,financing_id from fund_financing_credit_ref group by financing_id) as minTable on minTable.min_id = a.id
+                ) as ref on c.id = ref.financing_id
+                left join fund_organization org on org.id = ref.organization_id
+
+        union
+        select
+            1 as is_direct,
+            concat('DIRECT@REPAY@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            'REPAY' as cash_flow_item,
+            a.cash_flow_code,
+            a.repay_amount as plan_cash_flow_amount,
+            a.principle_amount as plan_principal_amount,
+            a.interest_amount as plan_interest_amount,
+            a.phase,
+            a.repay_date as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            c.product_name as fund_channel,
+            c.direct_financing_type as biz_type
+        from
+            fund_receipt_repay_cash_flow as a
+                inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type = 'DIRECT'
+                inner join fund_direct_financing_base_info as c on b.financing_id = c.id
+        union
+        select
+            0 as is_direct,
+            concat('INDIRECT@DEPOSIT_PAYMENT@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            'DEPOSIT_PAYMENT' as cash_flow_item,
+            a.cash_flow_code,
+            a.amount as plan_cash_flow_amount,
+            null,
+            null,
+            null,
+            c.actual_loan_date as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            org.organization_name as fund_channel,
+            c.business_type as biz_type
+        from
+            fund_receipt_repay_cash_deposit as a
+                inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type is null
+                inner join fund_financing_base_info as c on b.financing_id = c.id
+                left join (
+                    select a.financing_id,a.organization_id as organization_id from fund_financing_credit_ref a
+                    join (select min(id) min_id,financing_id from fund_financing_credit_ref group by financing_id) as minTable on minTable.min_id = a.id
+                ) as ref on c.id = ref.financing_id
+                left join fund_organization org on org.id = ref.organization_id
+        where a.deposit_cash_flow_type = 'DEPOSIT_PAYMENT'
+        union
+        select
+            1 as is_direct,
+            concat('DIRECT@DEPOSIT_PAYMENT@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            'DEPOSIT_PAYMENT' as cash_flow_item,
+            a.cash_flow_code,
+            a.amount as plan_cash_flow_amount,
+            null,
+            null,
+            null,
+            c.duration_from as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            c.product_name as fund_channel,
+            c.direct_financing_type as biz_type
+        from
+            fund_receipt_repay_cash_deposit as a
+                inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type = 'DIRECT'
+                inner join fund_direct_financing_base_info as c on b.financing_id = c.id
+        where a.deposit_cash_flow_type = 'DEPOSIT_PAYMENT'
+        union
+        select
+            0 as is_direct,
+            concat('INDIRECT@', a.expense_type, '@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            a.expense_type as cash_flow_item,
+            a.cash_flow_code,
+            a.total_amount as plan_cash_flow_amount,
+            null,
+            null,
+            null,
+            ifnull(fee.pay_date, c.actual_loan_date) as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            org.organization_name as fund_channel,
+            c.business_type as biz_type
+        from
+            fund_receipt_repay_expense as a
+                inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type is null
+                inner join fund_financing_base_info as c on b.financing_id = c.id
+                left join (
+                    select a.financing_id,a.organization_id as organization_id from fund_financing_credit_ref a
+                    join (select min(id) min_id,financing_id from fund_financing_credit_ref group by financing_id) as minTable on minTable.min_id = a.id
+                ) as ref on c.id = ref.financing_id
+                left join fund_organization org on org.id = ref.organization_id
+                left join fund_financing_fee_detail fee on fee.id = a.fee_id
+        union
+        select
+            1 as is_direct,
+            concat('DIRECT@', a.expense_type, '@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            a.expense_type as cash_flow_item,
+            a.cash_flow_code,
+            a.total_amount as plan_cash_flow_amount,
+            null,
+            null,
+            null,
+            ifnull(fee.pay_date, c.duration_from) as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            c.product_name as fund_channel,
+            c.direct_financing_type as biz_type
+        from
+            fund_receipt_repay_expense as a
+                inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type = 'DIRECT'
+                inner join fund_direct_financing_base_info as c on b.financing_id = c.id
+                left join fund_direct_financing_fee_detail fee on fee.id = a.direct_fee_id
+
+    </sql>
+
+    <sql id="collectPageList-Condition">
+        <if test="query.fundChannel != null">
+            and t.fund_channel like concat('%', #{query.fundChannel}, '%')
+        </if>
+        <if test="query.writeOffStateList != null and query.writeOffStateList.size() > 0">
+            and t.write_off_state in
+            <foreach collection="query.writeOffStateList" item="writeOffState" separator="," open="(" close=")">
+                #{writeOffState}
+            </foreach>
+        </if>
+        <if test="query.planCashFlowDateFrom != null">
+            and t.plan_cash_flow_date &gt;= #{query.planCashFlowDateFrom}
+        </if>
+        <if test="query.planCashFlowDateTo != null">
+            and t.plan_cash_flow_date &lt;= #{query.planCashFlowDateTo}
+        </if>
+        <if test="query.cashFlowItem != null">
+            and t.cash_flow_item = #{query.cashFlowItem}
+        </if>
+        <if test="query.financingCode != null">
+            and t.financing_code = #{query.financingCode}
+        </if>
+    </sql>
+
+    <sql id="collectPageList-InnerQuery">
+        select
+            0 as is_direct,
+            concat('INDIRECT@BORROW@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            'FINANCE_FUND' as cash_flow_item,
+            a.cash_flow_code,
+            a.principal as plan_cash_flow_amount,
+            a.actual_loan_date as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            org.organization_name as fund_channel,
+            c.business_type as biz_type
+        from fund_receipt_repay_borrowing as a
+                 inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type is null
+                 inner join fund_financing_base_info as c on b.financing_id = c.id
+                 left join (
+                    select a.financing_id,a.organization_id as organization_id from fund_financing_credit_ref a
+                    join (select min(id) min_id,financing_id from fund_financing_credit_ref group by financing_id) as minTable on minTable.min_id = a.id
+                 ) as ref on c.id = ref.financing_id
+                 left join fund_organization org on org.id = ref.organization_id
+        union
+        select
+            1 as is_direct,
+            concat('DIRECT@BORROW@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            'FINANCE_FUND' as cash_flow_item,
+            a.cash_flow_code,
+            a.principal as plan_cash_flow_amount,
+            a.actual_loan_date as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            c.product_name as fund_channel,
+            c.direct_financing_type as biz_type
+        from fund_receipt_repay_borrowing as a
+                 inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type = 'DIRECT'
+                 inner join fund_direct_financing_base_info as c on b.financing_id = c.id
+        union
+        select
+            0 as is_direct,
+            concat('INDIRECT@DEPOSIT_RETURN@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            'DEPOSIT_RETURN' as cash_flow_item,
+            a.cash_flow_code,
+            a.amount as plan_cash_flow_amount,
+            c.actual_expire_date as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            org.organization_name as fund_channel,
+            c.business_type as biz_type
+        from fund_receipt_repay_cash_deposit as a
+                 inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type is null
+                 inner join fund_financing_base_info as c on b.financing_id = c.id
+                 left join (
+                    select a.financing_id,a.organization_id as organization_id from fund_financing_credit_ref a
+                    join (select min(id) min_id,financing_id from fund_financing_credit_ref group by financing_id) as minTable on minTable.min_id = a.id
+                 ) as ref on c.id = ref.financing_id
+                 left join fund_organization org on org.id = ref.organization_id
+        where a.deposit_cash_flow_type = 'DEPOSIT_RETURN'
+        union
+        select
+            1 as is_direct,
+            concat('DIRECT@DEPOSIT_RETURN@', b.id, '@', a.id) as identifier,
+            b.id,
+            b.financing_amount,
+            a.write_off_state,
+            case a.write_off_state when 'NO_WRITE_OFF' then 10 when 'WRITE_OFF_ING' then 20 when 'PART_WRITE_OFF' then 30 when 'WRITTEN_OFF' then 40 else 100 end as flow_sort_no,
+            'DEPOSIT_RETURN' as cash_flow_item,
+            a.cash_flow_code,
+            a.amount as plan_cash_flow_amount,
+            c.duration_to as plan_cash_flow_date,
+            c.id as financing_id,
+            c.financing_code as financing_code,
+            c.product_name as fund_channel,
+            c.direct_financing_type as biz_type
+        from fund_receipt_repay_cash_deposit as a
+                 inner join fund_receipt_repay_base_info as b on a.receipt_repay_id = b.id and b.financing_type = 'DIRECT'
+                 inner join fund_direct_financing_base_info as c on b.financing_id = c.id
+        where a.deposit_cash_flow_type = 'DEPOSIT_RETURN'
+    </sql>
+
+    <select id="advancedList"
+            resultType="cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo">
+        select * from fund_receipt_repay_base_info
+        <where>
+            <if test="dto.financingOrgId != null">and financing_org_id = #{dto.financingOrgId}</if>
+            <if test="dto.receiptRepayCode != null">and receipt_repay_code like
+                CONCAT('%',#{dto.receiptRepayCode},'%')
+            </if>
+            <if test="dto.fundManager != null">and fund_manager = #{dto.fundManager}</if>
+            <if test="dto.receiptRepayState != null and dto.receiptRepayState!=''">
+                and receipt_repay_state = #{dto.receiptRepayState}
+            </if>
+            <if test="dto.financingBizType != null and dto.financingBizType.size()>0">
+                and financing_biz_type IN
+                <foreach collection="dto.financingBizType" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.financingAmountFrom != null">and financing_amount &gt;= #{dto.financingAmountFrom}</if>
+            <if test="dto.financingAmountTo != null">and financing_amount &lt;= #{dto.financingAmountTo}</if>
+            <if test="dto.dateFrom != null">and next_repay_date &gt;= #{dto.dateFrom}</if>
+            <if test="dto.dateTo != null">and next_repay_date &lt;= #{dto.dateTo}</if>
+            <if test="dto.createTimeFrom != null">and create_time &gt;= #{dto.createTimeFrom}</if>
+            <if test="dto.createTimeTo != null">and create_time &lt;= #{dto.createTimeTo}</if>
+            <if test="dto.updateTimeFrom != null">and update_time &gt;= #{dto.updateTimeFrom}</if>
+        </where>
+        order by create_time desc
+    </select>
+</mapper>

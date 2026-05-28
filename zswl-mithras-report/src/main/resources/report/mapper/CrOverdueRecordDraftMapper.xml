@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.report.mapper.draft.CrOverdueRecordDraftMapper">
+
+    <sql id="Base_Column_List">
+        id, business_key, contract_id, create_time, update_time, gen_date, payment_id, payment_apply_code, overdue_principal, overdue_day, overdue_total, overdue_change_date, proc_business_key, report_state, approval_status
+    </sql>
+
+    <select id="queryNotFinishHistoryList" resultType="cn.zswltech.mithras.report.mapper.draft.model.CrOverdueRecordDraft">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM cr_overdue_record_draft a
+        INNER JOIN (SELECT MAX(t1.id) AS groupMaxId  FROM cr_overdue_record_draft t1 GROUP BY t1.payment_id) b ON a.id = b.groupMaxId
+        WHERE 1 = 1 AND a.overdue_day != 0
+    </select>
+
+</mapper>

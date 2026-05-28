@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.lib.fund.financing.FundFinancingPlanLibMapper">
+
+
+    <select id="queryLastestVersionLibs"
+            resultType="cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPlanLib">
+        SELECT p.* FROM fund_financing_plan_lib p
+        INNER JOIN (SELECT main_id AS financing_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'FUND_FINANCING' AND t1.version_type = 1
+        GROUP BY main_id) m ON p.financing_id = m.financing_id AND p.version = m.version
+        <where>
+            <if test="financingIds!=null and financingIds.size()>0">
+                AND p.financing_id IN
+                <foreach collection="financingIds" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

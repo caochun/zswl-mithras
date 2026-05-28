@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseTaskMapper">
+    <select id="queryForAudit" resultType="cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseTaskApprovalTaskRSP">
+        select i.id, i.task_num, i.time_point, i.org_code, i.task_type, i.deadline, i.gmt_update,
+        a.audit_status, a.biz_type, a.latest_msg, a.id as audit_task_id, a.current_operator, a.pre_operator, a.gmt_create, a.gmt_update
+        from (select * from audit_task where biz_type = 'BLACK_GRAY_WAREHOUSE_TASK') a inner join black_gray_warehouse_task i on i.id = a.biz_id
+        <where>
+            <if test="param.currentOperator != null">
+                and a.current_operator like concat('%',#{param.currentOperator},'%')
+            </if>
+            <if test="param.id != null">
+                and i.id = #{param.id}
+            </if>
+            <if test="param.taskNum != null">
+                and i.task_num like concat('%',#{param.taskNum},'%')
+            </if>
+            <if test="param.timePoint != null">
+                and i.time_point = #{param.timePoint}
+            </if>
+            <if test="param.auditStatus != null">
+                and i.audit_status = #{param.auditStatus}
+            </if>
+            <if test="param.orgCode != null">
+                and i.org_Code = #{param.orgCode}
+            </if>
+            <if test="param.businessSource != null">
+                and i.business_source = #{param.businessSource}
+            </if>
+        </where>
+        order by i.gmt_update desc, i.id desc
+    </select>
+
+    <select id="queryByTaskNum"
+            resultType="cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask">
+        select * from black_gray_warehouse_task where task_num = #{taskNum}
+    </select>
+
+    <update id="blackGrayCheckTaskTimeoutJob">
+        UPDATE black_gray_warehouse_task
+        SET overtime_flag = 1
+        WHERE
+        task_type = 'TIMED'
+        AND audit_status != 4
+        AND now() > deadline
+    </update>
+    <update id="updateIsSupplyGroupInfoInt">
+        update black_gray_warehouse_task set is_supply_group_info = #{isSupplyGroupInfo} where id = #{id}
+    </update>
+</mapper>

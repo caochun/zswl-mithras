@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>img_nodata</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#E4E6E9" offset="0%"></stop>
+            <stop stop-color="#E4E6E9" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#DFE2ED" offset="0%"></stop>
+            <stop stop-color="#F1F3F8" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="img_nodata" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形" fill="url(#linearGradient-1)" fill-rule="nonzero" transform="translate(537.600000, 512.000000) rotate(10.000000) translate(-537.600000, -512.000000) " x="230.4" y="140.8" width="614.4" height="742.4" rx="12.3708961"></rect>
+        <rect id="矩形" fill="#F7F8FA" fill-rule="nonzero" x="179.2" y="153.6" width="640" height="768" rx="12.8"></rect>
+        <path d="M281.6,371.2 L716.8,371.2 L716.8,409.6 L281.6,409.6 L281.6,371.2 Z M281.6,486.4 L563.2,486.4 L563.2,524.8 L281.6,524.8 L281.6,486.4 Z M614.4,486.4 L716.8,486.4 L716.8,524.8 L614.4,524.8 L614.4,486.4 Z M281.6,601.6 L563.2,601.6 L563.2,640 L281.6,640 L281.6,601.6 Z M614.4,601.6 L716.8,601.6 L716.8,640 L614.4,640 L614.4,601.6 Z" id="形状结合" fill="url(#linearGradient-2)" fill-rule="nonzero"></path>
+    </g>
+</svg>

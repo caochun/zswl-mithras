@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.overdue.infrastructure.dao.mapper.OverdueCollectionMapper">
+
+    <select id="advancedList"
+            resultType="cn.zswltech.mithras.service.overdue.application.dto.CollectionListDto">
+        select a.id,b.action_id,a.client_id,a.client_name,a.risk_exposure,a.overdue_rent,a.cur_max_overdue_days,a.late_charge,a.project_sponsor_name,a.biz_dept_name,a.overdue,
+        b.user_name as process_person,b.`describe` as latest_progress,b.date as process_time from oc_overdue_collection
+        a
+        left join (SELECT t1.oc_id,t1.id as action_id,t1.describe,user.user_name,t1.date
+        FROM oc_overdue_collection_action t1
+        INNER JOIN (SELECT oc_id,max(`date`) as `date` FROM oc_overdue_collection_action GROUP BY oc_id) t2 ON t1.date =
+        t2.date and t1.oc_id = t2.oc_id
+        left join bifrost_user user on user.id = t1.create_by) b on a.id = b.oc_id
+        <where>
+            <if test="query.clientId != null">
+                and a.client_id = #{query.clientId}
+            </if>
+            <if test="query.bizDept != null">
+                and a.biz_dept = #{query.bizDept}
+            </if>
+            <if test="query.projectSponsor != null">
+                and a.project_sponsor = #{query.projectSponsor}
+            </if>
+            <if test="query.overdue != null">
+                and a.overdue = #{query.overdue}
+            </if>
+            <if test="query.isBizUser==true">
+                and
+                (biz_dept IN
+                <foreach collection="query.deptIdList" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+                OR project_sponsor = #{query.currentUserId}
+                )
+            </if>
+        </where>
+        order by latest_progress desc
+    </select>
+</mapper>

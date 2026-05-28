@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.dashboard.DashboardFundFinanceMapper">
+    <select id="listRepay" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundRepayResult">
+        SELECT
+        t.*
+        FROM (
+        SELECT
+        0 AS isDirect,
+        a.id AS id,
+        a.cash_flow_code as cashFlowCode,
+        a.write_off_state AS cashFlowWriteOffState,
+        c.id AS financingId,
+        CONCAT('INDIRECT_', c.id) AS idKey,
+        c.financing_code AS financingCode,
+        c.organization_name AS financingName,
+        c.financing_amount AS financingAmount,
+        a.repay_date AS repayDate,
+        a.repay_amount AS repayAmount,
+        a.principle_amount AS principalAmount,
+        a.interest_amount AS interestAmount,
+        f.account_type AS bankAccountType,
+        d.account_number AS bankAccountNumber,
+        e.contract_code AS contractCode,
+        e.proj_name AS projName,
+        g.min_cash_flow_date AS minPayDate,
+        g.repay_principle_amount AS totalPayPrincipalAmount,
+        g.total_amount AS totalPayAmount,
+        h.plan_collection_rent_date AS planCollectionRentDate,
+        h.total_plan_rent_amount AS totalPlanRentAmount,
+        IFNULL(c.financing_amount, 0) - IFNULL(g.repay_principle_amount, 0) AS remainingPrincipalAmount
+        FROM fund_receipt_repay_cash_flow AS a
+        INNER JOIN fund_receipt_repay_base_info AS b ON a.receipt_repay_id = b.id AND b.financing_type is null
+        LEFT JOIN fund_financing_base_info AS c ON b.financing_id = c.id
+        LEFT JOIN fund_financing_pledge_info AS d ON d.financing_id = b.financing_id AND d.is_pledge = 1
+        LEFT JOIN contract_base_info AS e ON d.contract_id = e.id
+        LEFT JOIN base_data_bank_account AS f ON d.account_number = f.account_number
+        LEFT JOIN (SELECT receipt_repay_id,
+        MIN(cash_flow_date)   AS min_cash_flow_date,
+        SUM(principal_amount) AS repay_principle_amount,
+        SUM(total_amount)     AS total_amount
+        FROM fund_receipt_flow_detail
+        WHERE deleted = 0
+        AND cash_flow_item = 'REPAY'
+        GROUP BY receipt_repay_id) AS g ON g.receipt_repay_id = a.receipt_repay_id
+        LEFT JOIN (
+        SELECT
+        contract_id,
+        sum(plan_collection_amount) AS total_plan_rent_amount,
+        plan_collection_date AS plan_collection_rent_date
+        FROM collection_base_info
+        GROUP BY contract_id
+        ) AS h ON h.contract_id = e.id
+        WHERE a.repay_date &gt;= #{repayDateFrom}
+        AND a.repay_date &lt;= #{repayDateTo}
+        AND c.financing_status = 'CARRY_INTEREST'
+        UNION
+        SELECT
+        1 AS isDirect,
+        a.id AS id,
+        a.cash_flow_code as cashFlowCode,
+        a.write_off_state AS cashFlowWriteOffState,
+        c.id AS financingId,
+        CONCAT('DIRECT_', c.id) AS idKey,
+        c.financing_code AS financingCode,
+        c.product_name AS financingName,
+        c.financing_amount * 10000 AS financingAmount,
+        a.repay_date AS repayDate,
+        a.repay_amount AS repayAmount,
+        a.principle_amount AS principalAmount,
+        a.interest_amount AS interestAmount,
+        f.account_type AS bankAccountType,
+        d.account_number AS bankAccountNumber,
+        e.contract_code AS contractCode,
+        e.proj_name AS projName,
+        g.min_cash_flow_date AS minPayDate,
+        g.total_principal_amount AS totalPayPrincipalAmount,
+        g.total_amount AS totalPayAmount,
+        h.plan_collection_rent_date AS planCollectionRentDate,
+        h.total_plan_rent_amount AS totalPlanRentAmount,
+        0 AS remainingPrincipalAmount
+        FROM fund_receipt_repay_cash_flow AS a
+        INNER JOIN fund_receipt_repay_base_info AS b ON a.receipt_repay_id = b.id AND b.financing_type = 'DIRECT'
+        LEFT JOIN fund_direct_financing_base_info AS c ON b.financing_id = c.id
+        LEFT JOIN fund_direct_financing_pledge_info AS d ON d.financing_id = b.financing_id AND d.is_pledge = 1
+        LEFT JOIN contract_base_info AS e ON d.contract_id = e.id
+        LEFT JOIN base_data_bank_account AS f ON d.account_number = f.account_number
+        LEFT JOIN (
+        SELECT
+        receipt_repay_id,
+        MIN(cash_flow_date) AS min_cash_flow_date,
+        SUM(principal_amount) AS total_principal_amount,
+        SUM(total_amount) AS total_amount
+        FROM fund_receipt_flow_detail
+        WHERE deleted = 0 AND cash_flow_item = 'REPAY'
+        GROUP BY receipt_repay_id
+        ) AS g ON g.receipt_repay_id = a.receipt_repay_id
+        LEFT JOIN (
+        SELECT
+        contract_id,
+        SUM(plan_collection_amount) AS total_plan_rent_amount,
+        plan_collection_date AS plan_collection_rent_date
+        FROM collection_base_info
+        WHERE plan_collection_date &gt;= #{repayDateFrom} AND plan_collection_date &lt;= #{repayDateTo}
+        GROUP BY contract_id
+        ) AS h ON h.contract_id = e.id
+        WHERE a.repay_date &gt;= #{repayDateFrom}
+        AND a.repay_date &lt;= #{repayDateTo}
+        AND c.financing_status = 'CARRY_INTEREST'
+        ) AS t
+        WHERE 1 = 1
+        <if test="writeOffState != null and writeOffState != ''">
+            AND t.cashFlowWriteOffState = #{writeOffState}
+        </if>
+        <if test="writeOffStateList != null and writeOffStateList.size() > 0">
+            AND t.cashFlowWriteOffState IN
+            <foreach collection="writeOffStateList" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="financingName != null and financingName != ''">
+            AND t.financingName LIKE concat('%', #{financingName}, '%')
+        </if>
+        <if test="financingCode != null and financingCode != ''">
+            AND t.financingCode LIKE concat('%', #{financingCode}, '%')
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            AND a.id IN
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        ORDER BY t.financingCode
+    </select>
+
+    <select id="listCredit" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundCreditResult">
+        SELECT
+        a.id,
+        a.credit_code AS creditCode,
+        b.organization_name AS organizationName,
+        d.business_type AS businessType,
+        a.total_credit_limit AS totalCreditLimit,
+        a.recyclable AS recyclable,
+        a.effective_date_to AS deadline
+        FROM fund_credit AS a
+        LEFT JOIN fund_organization AS b ON a.organization_id = b.id
+        LEFT JOIN fund_financing_credit_ref c ON a.id = c.credit_id
+        LEFT JOIN fund_financing_base_info d ON c.financing_id = d.id
+        WHERE a.effective = true AND a.effective_date_from &lt;= #{queryDate}
+        <if test="creditCode != null and creditCode != ''">
+            AND a.credit_code LIKE CONCAT('%', #{creditCode}, '%')
+        </if>
+        <if test="organizationName != null and organizationName != ''">
+            AND b.organization_name LIKE CONCAT('%', #{organizationName}, '%')
+        </if>
+        <if test="businessType != null and businessType != ''">
+            AND d.business_type = #{businessType}
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            AND a.id IN
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        GROUP BY a.id
+    </select>
+
+    <select id="listCost"
+            parameterType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundCostQuery"
+            resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundCostResult">
+        SELECT *
+        FROM (SELECT
+        base.id AS financing_id,
+        'INDIRECT' AS financingTypeCode,
+        base.financing_code AS financing_code,
+        base.financing_status AS financing_status,
+        base.actual_loan_date AS actual_loan_date,
+        base.actual_expire_date AS actual_expire_date,
+        IFNULL (plan.comprehensive_interest_rate, 0) AS comprehensive_interest_rate,
+        base.organization_name AS org_name,
+        IFNULL (base.financing_amount, 0) AS loan_amount,
+        IFNULL (base.financing_amount, 0) - IFNULL (flow.repay_principle_amount, 0) remaining_principle_amount,
+        plan.financing_month AS financing_month,
+        CONCAT(CASE plan.repay_way WHEN 'DEBJ' THEN '等额本金'
+        WHEN 'DEBX' THEN '等额本息'
+        WHEN 'LSBQ' THEN '利随本清'
+        WHEN 'XXHB' THEN '先息后本'
+        WHEN 'BGZHK' THEN '不规则还款' END,
+        ',' , CASE plan.repay_frequency WHEN 'MONTH' THEN '按月'
+        WHEN 'DOUBLE_MONTH' THEN '按双月'
+        WHEN 'QUARTER' THEN '按季'
+        WHEN 'HALF_YEAR' THEN '按半年'
+        WHEN 'YEAR' THEN '按年'
+        WHEN 'LRREGULAR' THEN '不规则分期'
+        WHEN 'NON_STAGES' THEN '非分期' END) AS repayWay
+        FROM fund_receipt_repay_base_info AS rbi
+        LEFT JOIN (
+        select
+        SUM(principal_amount) AS repay_principle_amount,
+        receipt_repay_id
+        FROM fund_receipt_flow_detail
+        WHERE cash_flow_item = 'REPAY'
+        AND deleted = 0
+        GROUP BY receipt_repay_id
+        ) AS flow ON rbi.id = flow.receipt_repay_id
+        LEFT JOIN fund_financing_base_info base ON base.id = rbi.financing_id
+        LEFT JOIN fund_financing_plan plan ON plan.financing_id = rbi.financing_id
+        WHERE rbi.financing_type IS NULL
+        and base.financing_status IN ('CARRY_INTEREST', 'SETTLE')
+        <if test="query.financingCode != null">
+            AND base.financing_code LIKE CONCAT('%', #{query.financingCode}, '%')
+        </if>
+        <if test="query.orgName != null and query.orgName != ''">
+            AND base.id IN (
+            SELECT financing_id FROM fund_financing_credit_ref WHERE organization_id IN (SELECT id FROM
+            fund_organization WHERE organization_name LIKE CONCAT('%', #{query.orgName}, '%'))
+            )
+        </if>
+        <if test="query.financingTypeCode != null">
+            AND 'INDIRECT' = #{query.financingTypeCode}
+        </if>
+        <if test="query.startDate != null">
+            AND base.actual_loan_date &gt;= #{query.startDate}
+        </if>
+        <if test="query.endDate != null">
+            AND base.actual_loan_date &lt;= #{query.endDate}
+        </if>
+        <if test="query.ids != null and query.ids.size() > 0">
+            AND base.id IN
+            <foreach collection="query.ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        UNION ALL(
+        SELECT
+        base.id AS financing_id,
+        'DIRECT' AS financingTypeCode,
+        base.financing_code AS financing_code,
+        base.financing_status AS financing_status,
+        base.carry_interest_time AS actual_loan_date,
+        base.duration_time AS actual_expire_date,
+        IFNULL (base.comprehensive_financing_cost, 0) AS comprehensive_interest_rate,
+        base.product_name AS org_name,
+        IFNULL (base.financing_amount * 10000, 0) AS loan_amount,
+        (base.financing_amount * 10000) - IFNULL (flow.repay_principle_amount, 0) AS remaining_principle_amount,
+        TIMESTAMPDIFF(MONTH, base.duration_from, base.duration_to) AS duration,
+        '按季，还本付息' AS repayWay
+        FROM fund_receipt_repay_base_info AS rbi
+        LEFT JOIN (
+        SELECT
+        SUM(principal_amount) AS repay_principle_amount,
+        receipt_repay_id
+        FROM fund_receipt_flow_detail
+        WHERE cash_flow_item = 'REPAY'
+        AND deleted = 0
+        GROUP BY receipt_repay_id
+        ) AS flow ON rbi.id = flow.receipt_repay_id
+        INNER JOIN fund_direct_financing_base_info base ON base.id = rbi.financing_id
+        WHERE rbi.financing_type = 'DIRECT'
+        and base.financing_status IN ('CARRY_INTEREST', 'SETTLE')
+        <if test="query.financingCode != null">
+            AND base.financing_code LIKE CONCAT('%', #{query.financingCode}, '%')
+        </if>
+        <if test="query.orgName != null">
+            AND base.product_name LIKE CONCAT('%', #{query.orgName}, '%')
+        </if>
+        <if test="query.startDate != null">
+            AND base.carry_interest_time &gt;= #{query.startDate}
+        </if>
+        <if test="query.endDate != null">
+            AND base.carry_interest_time &lt;= #{query.endDate}
+        </if>
+        <if test="query.financingTypeCode != null">
+            AND 'DIRECT' = #{query.financingTypeCode}
+        </if>
+        <if test="query.ids != null and query.ids.size() > 0">
+            AND base.id IN
+            <foreach collection="query.ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        )) AS total
+        ORDER BY actual_loan_date DESC
+    </select>
+    <select id="repayDateList" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundRepayDateResult">
+        select
+            id AS financing_id,
+            duration_FROM AS repay_date,
+            IFNULL(financing_amount,0) AS loan_amount,
+            IFNULL (average_coupon_rate,0) AS comprehensive_interest_rate
+        FROM fund_direct_financing_base_info
+
+
+        union all(
+
+            select
+                actual.financing_id AS financing_id,
+                actual.repay_date AS repay_date,
+                IFNULL(base.financing_amount,0) AS loan_amount,
+                IFNULL (plan.comprehensive_interest_rate,0) AS comprehensive_interest_rate
+
+            FROM fund_financing_repay_actual actual
+                     join (
+                select min(phase) min_phase,financing_id FROM fund_financing_repay_actual
+                group by financing_id
+            )actual2 ON actual.financing_id = actual2.financing_id and actual.phase = actual2.min_phase
+                     join fund_financing_base_info base ON actual.financing_id = base.id
+                     join fund_financing_plan plan ON plan.financing_id = base.id
+        )
+
+    </select>
+</mapper>

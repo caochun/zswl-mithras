@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.dashboard.DashboardProjectInfoMapper">
+    <select id="listSettleInThreeMonth" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectInfoSettleInThreeMonthResult">
+        select
+        a.id as mainId,
+        a.id as contractId,
+        a.proj_review_id as projReviewId,
+        a.proj_name as projName,
+        a.contract_code as contractCode,
+        f.collection_amount as earnestBalance,
+        d.total_pay as totalPay,
+        e.total_first_rent as totalFirstRent,
+        b.total_plan_principal as totalPlanPrincipal,
+        b.total_plan_interest as totalPlanInterest,
+        b.total_collection_principal as totalCollectionPrincipal,
+        b.total_collection_interest as totalCollectionInterest,
+        b.last_rent_plan_date as lastRentPlanDate,
+        a.client_id as clientId,
+        c.client_name as clientName,
+        a.biz_type as bizTypeCode,
+        a.lease_type as leaseTypeCode,
+        a.biz_dept_id as bizDeptId,
+        a.proj_sponsor_user_id as projSponsorUserId,
+        a.risk_control_manager_id as risk_control_manager_id,
+        a.proj_cosponsor_user_ids as projCoponsorUserIdsJson
+        from contract_base_info as a
+        inner join (
+            select
+            contract_id,
+            max(plan_collection_date) as last_rent_plan_date,
+            ifnull(sum(principal),0) as total_plan_principal,
+            ifnull(sum(interest),0) as total_plan_interest,
+            ifnull(sum(collection_principal),0) as total_collection_principal,
+            ifnull(sum(collection_interest),0) as total_collection_interest
+            from collection_base_info
+            where cash_flow_item = 'RENT'
+            group by contract_id
+        ) as b on a.id = b.contract_id
+        left join client as c on c.id = a.client_id
+        left join (
+            select
+            contract_id,
+            ifnull(sum(paid_in_amount),0) as total_pay
+            from payment_actual_detail
+            group by contract_id
+        ) as d on d.contract_id = a.id
+        left join (
+            select contract_id,
+            ifnull(sum(collection_amount),0) as total_first_rent
+            from collection_base_info
+            where cash_flow_item = 'FIRST_RENT'
+            group by contract_id
+        ) as e on e.contract_id = a.id
+        left join margin_base_info as f on f.contract_id = a.id
+        where 1 = 1
+        and a.contract_status = 'START_RENT'
+        and a.contract_process_status &lt;&gt; 'SETTLE_PASS'
+        and b.last_rent_plan_date &lt;= #{queryDateTo}
+        and b.last_rent_plan_date &gt;= #{queryDateFrom}
+        <if test="clientId != null">
+            and a.client_id = #{clientId}
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and a.contract_code like concat('%', #{contractCode},'%')
+        </if>
+        <if test="deadlineFrom != null">
+            and b.last_rent_plan_date &gt;= #{deadlineFrom}
+        </if>
+        <if test="deadlineTo != null">
+            and b.last_rent_plan_date &lt;= #{deadlineTo}
+        </if>
+        <if test="bizDeptId != null">
+            and a.biz_dept_id = #{bizDeptId}
+        </if>
+        <if test="projSponsorUserId != null">
+            and a.proj_sponsor_user_id = #{projSponsorUserId}
+        </if>
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and a.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and a.id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="accountVO != null and accountVO.id != null">
+            <if test="permissionType != null and permissionType == 'own'">
+                and a.risk_control_manager_id = #{accountVO.id}
+            </if>
+        </if>
+        order by a.proj_review_id, a.id
+        limit 0,5000
+    </select>
+
+    <select id="listOverdue" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectInfoOverdueResult">
+        select
+        a.id as mainId,
+        b.id as contractId,
+        b.proj_review_id as projReviewId,
+        b.proj_name as projName,
+        b.contract_code as contractCode,
+        a.code as cashFlowCode,
+        a.phase as phase,
+        a.plan_collection_date as planCollectionDate,
+        a.plan_collection_amount as planCollectionAmount,
+        a.collection_amount as collectionAmount,
+        c.default_interest_rate as defaultInterestRate,
+        a.penalty_interest as penaltyInterestAmount,
+        a.collection_penalty_interest as collectionPenaltyInterest,
+        a.penalty_interest_deduction_amount as penaltyInterestDeductionAmount,
+        b.client_id as clientId,
+        d.client_name as clientName,
+        b.biz_type as bizTypeCode,
+        b.lease_type as leaseTypeCode,
+        b.biz_dept_id as bizDeptId,
+        b.proj_sponsor_user_id as projSponsorUserId,
+        b.risk_control_manager_id as risk_control_manager_id,
+        b.proj_cosponsor_user_ids as projCosponsorUserIdsJson
+        from collection_base_info as a
+        inner join contract_base_info as b on b.id = a.contract_id
+        left join contract_lease_price as c on c.contract_id = b.id
+        left join client as d on d.id = b.client_id
+        where 1 = 1
+        and a.cash_flow_item = 'RENT'
+        and a.phase > 0
+        and a.plan_collection_date &lt; CURDATE()
+        and ifnull(a.collection_amount,0) &lt; ifnull(plan_collection_amount,0)
+        <if test="clientId != null">
+            and b.client_id = #{clientId}
+        </if>
+        <if test="projName != null and projName != ''">
+            and b.proj_name like concat('%', #{projName},'%')
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and b.contract_code like concat('%', #{contractCode},'%')
+        </if>
+        <if test="bizDeptId != null">
+            and b.biz_dept_id = #{bizDeptId}
+        </if>
+        <if test="projSponsorUserId != null">
+            and b.proj_sponsor_user_id = #{projSponsorUserId}
+        </if>
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and b.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and b.client_id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            b.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(b.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="accountVO != null and accountVO.id != null">
+            <if test="permissionType != null and permissionType == 'own'">
+                and b.risk_control_manager_id = #{accountVO.id}
+            </if>
+        </if>
+        order by b.proj_review_id, b.id
+        limit 0,5000
+    </select>
+
+    <select id="listRentThisMonth" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectInfoRentThisMonthResult">
+        select
+        b.proj_name as projName,
+        b.proj_review_id as projReviewId,
+        a.id as mainId,
+        b.id as contractId,
+        b.contract_code as contractCode,
+        d.total_pay as totalPay,
+        a.code as cashFlowCode,
+        a.phase as phase,
+        a.plan_collection_date as planCollectionDate,
+        a.collection_date as collectionDate,
+        a.plan_collection_amount as planCollectionAmount,
+        a.principal as principal,
+        a.interest as interest,
+        a.collection_amount as collectionAmount,
+        a.collection_principal as collectionPrincipal,
+        a.collection_interest as collectionInterest,
+        b.client_id as clientId,
+        c.client_name as clientName,
+        b.biz_type as bizTypeCode,
+        b.lease_type as leaseTypeCode,
+        b.biz_dept_id as bizDeptId,
+        b.proj_sponsor_user_id as projSponsorUserId,
+        b.risk_control_manager_id as risk_control_manager_id,
+        b.proj_cosponsor_user_ids as projCosponsorUserIdsJson
+        from collection_base_info as a
+        inner join contract_base_info as b on a.contract_id = b.id
+        left join client c on c.id = b.client_id
+        left join (select contract_id, sum(paid_in_amount) as total_pay from payment_actual_detail group by contract_id) as d on d.contract_id = b.id
+        where 1 = 1
+        and a.cash_flow_item = 'RENT'
+        and a.phase > 0
+        and a.plan_collection_date &gt;= DATE_FORMAT(NOW(),'%Y-%m-01')
+        and a.plan_collection_date &lt;= LAST_DAY(NOW())
+        <if test="projName != null and projName != ''">
+            and b.proj_name like concat('%', #{projName},'%')
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and b.contract_code like concat('%', #{contractCode},'%')
+        </if>
+        <if test="planCollectionDateFrom != null">
+            and a.plan_collection_date &gt;= #{planCollectionDateFrom}
+        </if>
+        <if test="planCollectionDateTo != null">
+            and a.plan_collection_date &lt;= #{planCollectionDateTo}
+        </if>
+        <if test="bizDeptId != null">
+            and b.biz_dept_id = #{bizDeptId}
+        </if>
+        <if test="projSponsorUserId != null">
+            and b.proj_sponsor_user_id = #{projSponsorUserId}
+        </if>
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and b.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and a.id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            b.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(b.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="accountVO != null and accountVO.id != null">
+            <if test="permissionType != null and permissionType == 'own'">
+                and b.risk_control_manager_id = #{accountVO.id}
+            </if>
+        </if>
+        order by b.proj_review_id, b.id
+        limit 0,5000
+    </select>
+
+    <select id="listPayInfo"
+            resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPayInfoResult">
+        SELECT bi.id AS paymentId,
+        bi.payment_code AS paymentCode,
+        c.id AS receiptId,
+        c.receipt_code AS receiptCode,
+        a.client_id AS clientId,
+        h.client_name AS clientName,
+        a.id AS contractId,
+        a.id AS mainId,
+        a.proj_name AS projName,
+        a.contract_code AS contractCode,
+        b.paid_in_date AS actualPayDate,
+        b.paid_in_amount AS actualPayAmount,
+        c.actual_irr AS irr,
+        IFNULL(pci.commission, 0) AS paymentCommission,
+        CASE a.biz_type
+        WHEN 'ZR' THEN f.rate_type
+        WHEN 'BL' THEN e.rate_type
+        ELSE d.rate_type END AS rateType,
+        CASE a.biz_type
+        WHEN 'ZR' THEN f.aoc_credit_term
+        WHEN 'BL' THEN e.factoring_credit_term
+        ELSE d.lease_month_count END AS duration,
+        CASE a.biz_type
+        WHEN 'ZR' THEN (IFNULL(f.lpr_percent, 0) + IFNULL(f.lpr_add_percent, 0))
+        WHEN 'BL' THEN (IFNULL(e.lpr_percent, 0) + IFNULL(e.lpr_add_percent, 0))
+        ELSE (IFNULL(d.lpr_percent, 0) + IFNULL(d.lpr_add_percent, 0)) END AS lpr,
+        IFNULL(pci.consulting_fee, 0) AS paymentConsultingFee,
+        IFNULL(pci.commission, 0) AS paymentCommission,
+        IFNULL(pci.earnest_money, 0) AS paymentEarnestMoney,
+        CASE a.biz_type
+        WHEN 'ZR' THEN f.consulting_fee
+        WHEN 'BL' THEN e.consulting_fee
+        ELSE d.consulting_fee END AS consultingFee,
+        CASE a.biz_type WHEN 'ZR' THEN 0 WHEN 'BL' THEN 0 ELSE d.commissiON END AS commission,
+        CASE a.biz_type
+        WHEN 'ZR' THEN f.earnest_money
+        WHEN 'BL' THEN e.earnest_money
+        ELSE d.earnest_money END AS earnestMoney,
+        CASE a.biz_type
+        WHEN 'ZR' THEN f.contract_amount
+        WHEN 'BL' THEN e.contract_amount
+        ELSE d.apply_credit_amount END AS contractAmount,
+        g.regional_project_classify AS regionalProjectClassify,
+        a.biz_dept_id AS bizDeptId,
+        a.proj_sponsor_user_id AS projSponsorUserId,
+        a.proj_cosponsor_user_ids AS projCosponsorUserIds,
+        a.biz_type AS bizTypeCode,
+        cci.risk_control_industry_classify AS riskControlIndustryClassifyCode,
+        it.code AS industryCode,
+        it.display AS industryDisplay
+        FROM payment_actual_detail AS b
+        LEFT JOIN contract_base_info AS a ON b.contract_id = a.id
+        LEFT JOIN payment_base_info AS bi ON bi.contract_id = a.id AND bi.id = b.payment_id
+        LEFT JOIN contract_receipt AS c ON c.contract_id = a.id AND bi.receipt_id_final = c.id
+        LEFT JOIN contract_lease_price AS d ON a.id = d.contract_id
+        LEFT JOIN contract_factoring_price AS e ON a.id = e.contract_id
+        LEFT JOIN contract_aoc_price AS f ON a.id = f.contract_id
+        LEFT JOIN proj_review_base_info AS g ON g.id = a.proj_review_id
+        LEFT JOIN payment_collection_info AS pci ON pci.payment_id = b.payment_id
+        LEFT JOIN client AS h ON h.id = a.client_id
+        LEFT JOIN corp_commerce_info AS cci ON h.id = cci.client_id
+        LEFT JOIN industry_type AS it ON SUBSTR(cci.industry_type, 1, 1) = it.code AND it.level = 1
+        WHERE  bi.payment_status IN ('TAKE_EFFECT', 'FINISHED')
+        AND b.deleted = 0
+        <if test="queryDateFrom != null">
+            AND b.paid_in_date &gt;= #{queryDateFrom}
+        </if>
+        <if test="queryDateTo != null">
+            AND b.paid_in_date &lt;= #{queryDateTo}
+        </if>
+        <if test="actualPayDateFrom != null">
+            AND b.paid_in_date &gt;= #{actualPayDateFrom}
+        </if>
+        <if test="actualPayDateTo != null">
+            AND b.paid_in_date &lt;= #{actualPayDateTo}
+        </if>
+        <if test="clientId != null">
+            AND a.client_id = #{clientId}
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            AND a.contract_code LIKE concat('%', #{contractCode}, '%')
+        </if>
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            AND a.biz_dept_id IN
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            AND (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            OR
+            JSON_CONTAINS(a.proj_cosponsor_user_ids, CAST( #{authCurrentUserId} AS json) )
+            )
+        </if>
+        LIMIT 0, 5000
+    </select>
+
+<!--    <select id="listPayInfo" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPayInfoResult">-->
+<!--        select-->
+<!--        a.client_id as clientId,-->
+<!--        h.client_name as clientName,-->
+<!--        a.id as contractId,-->
+<!--        a.id as mainId,-->
+<!--        a.proj_name as projName,-->
+<!--        a.contract_code as contractCode,-->
+<!--        b.min_paid_in_date as actualPayDate,-->
+<!--        b.total_pay_amount as actualPayAmount,-->
+<!--        case a.biz_type when 'ZR' then f.irr_percent when 'BL' then e.irr_percent else d.irr_percent end as irr,-->
+<!--        case a.biz_type when 'ZR' then f.rate_type when 'BL' then e.rate_type else d.rate_type end as rateType,-->
+<!--        case a.biz_type when 'ZR' then f.aoc_credit_term when 'BL' then e.factoring_credit_term else d.lease_month_count end as duration,-->
+<!--        case a.biz_type when 'ZR' then (ifnull(f.lpr_percent,0)+ifnull(f.lpr_add_percent,0)) when 'BL' then (ifnull(e.lpr_percent,0)+ifnull(e.lpr_add_percent,0)) else (ifnull(d.lpr_percent,0)+ifnull(d.lpr_add_percent,0)) end as lpr,-->
+<!--        case a.biz_type when 'ZR' then f.consulting_fee when 'BL' then e.consulting_fee else d.consulting_fee end as consultingFee,-->
+<!--        case a.biz_type when 'ZR' then 0 when 'BL' then 0 else d.commission end as commission,-->
+<!--        case a.biz_type when 'ZR' then f.earnest_money when 'BL' then e.earnest_money else d.earnest_money end as earnestMoney,-->
+<!--        case a.biz_type when 'ZR' then f.contract_amount when 'BL' then e.contract_amount else d.apply_credit_amount end as contractAmount,-->
+<!--        g.regional_project_classify as regionalProjectClassify,-->
+<!--        a.biz_dept_id as bizDeptId,-->
+<!--        a.proj_sponsor_user_id as projSponsorUserId,-->
+<!--        a.proj_cosponsor_user_ids as projCosponsorUserIds,-->
+<!--        a.biz_type as bizTypeCode,-->
+<!--        cci.risk_control_industry_classify as riskControlIndustryClassifyCode,-->
+<!--        it.code as industryCode,-->
+<!--        it.display as industryDisplay-->
+<!--        from contract_base_info as a-->
+<!--        inner join (-->
+<!--            select-->
+<!--            contract_id,-->
+<!--            min(paid_in_date) as min_paid_in_date,-->
+<!--            sum(paid_in_amount) as total_pay_amount-->
+<!--            from payment_actual_detail-->
+<!--            group by contract_id-->
+<!--        ) as b on b.contract_id = a.id-->
+<!--        left join contract_lease_price as d on a.id = d.contract_id-->
+<!--        left join contract_factoring_price as e on a.id = e.contract_id-->
+<!--        left join contract_aoc_price as f on a.id = f.contract_id-->
+<!--        left join proj_review_base_info as g on g.id = a.proj_review_id-->
+<!--        left join client as h on h.id = a.client_id-->
+<!--        left join corp_commerce_info as cci on h.id = cci.client_id-->
+<!--        left join industry_type as it on substr(cci.industry_type,1,1) = it.code and it.level = 1-->
+<!--        where b.total_pay_amount &gt; 0-->
+<!--        <if test="queryDateFrom != null">-->
+<!--            and b.min_paid_in_date &gt;= #{queryDateFrom}-->
+<!--        </if>-->
+<!--        <if test="queryDateFrom != null">-->
+<!--            and b.min_paid_in_date &lt;= #{queryDateTo}-->
+<!--        </if>-->
+<!--        <if test="actualPayDateFrom != null">-->
+<!--            and b.min_paid_in_date &gt;= #{actualPayDateFrom}-->
+<!--        </if>-->
+<!--        <if test="actualPayDateTo != null">-->
+<!--            and b.min_paid_in_date &lt;= #{actualPayDateTo}-->
+<!--        </if>-->
+<!--        <if test="clientId != null">-->
+<!--            and a.client_id = #{clientId}-->
+<!--        </if>-->
+<!--        <if test="contractCode != null and contractCode != ''">-->
+<!--            and a.contract_code like concat('%', #{contractCode}, '%')-->
+<!--        </if>-->
+<!--        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">-->
+<!--            and a.biz_dept_id in-->
+<!--            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">-->
+<!--                #{item}-->
+<!--            </foreach>-->
+<!--        </if>-->
+<!--        <if test="authCurrentUserId != null">-->
+<!--            and (-->
+<!--            a.proj_sponsor_user_id = #{authCurrentUserId}-->
+<!--            or-->
+<!--            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )-->
+<!--            )-->
+<!--        </if>-->
+<!--        order by a.id-->
+<!--        limit 0,5000-->
+<!--    </select>-->
+
+    <select id="listPayNoSettle" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPayNoSettleResult">
+        select
+        a.proj_review_id as projReviewId,
+        a.proj_name as projName,
+        a.client_id as clientId,
+        g.client_name as clientName,
+        a.id as contractId,
+        a.id as mainId,
+        a.contract_code as contractCode,
+        b.min_pay_date as minPayDate,
+        b.total_pay_amount as totalPayAmount,
+        c.deadline as deadline,
+        c.plan_rent_amount as planRentAmount,
+        c.plan_principal_amount as planPrincipalAmount,
+        c.plan_interest_amount as planInterestAmount,
+        c.actual_rent_amount as actualRentAmount,
+        c.actual_principal_amount as actualPrincipalAmount,
+        c.actual_interest_amount as actualInterestAmount,
+        m.plan_first_rent_amount as planFirstRentAmount,
+        m.actual_first_rent_amount as actualFirstRentAmount,
+        it.code as industryCode,
+        it.display as industryDisplay,
+        prbi.regional_project_classify as regionalProjectClassify,
+        a.biz_dept_id as bizDeptId,
+        a.proj_sponsor_user_id as projSponsorUserId,
+        a.proj_cosponsor_user_ids as projCosponsorUserIdsJson,
+        a.actual_lease_date as actualLeaseDate,
+        a.lease_type as leaseTypeCode,
+        h.risk_control_industry_classify as riskControlIndustryClassifyCode,
+        case a.biz_type when 'ZR' then f.earnest_money when 'BL' then e.earnest_money else d.earnest_money end as earnestMoney,
+        case a.biz_type when 'ZR' then f.aoc_credit_term when 'BL' then e.factoring_credit_term else d.lease_month_count end as duration,
+        case a.biz_type when 'ZR' then f.irr_percent when 'BL' then e.irr_percent else d.irr_percent end as estimateIrr,
+        a.biz_type as bizTypeCode,
+        h.is_related as isRelated
+        from contract_base_info as a
+        inner join (
+            select
+            contract_id,
+            sum(paid_in_amount) as total_pay_amount,
+            min(paid_in_date) as min_pay_date
+            from payment_actual_detail
+            group by contract_id
+            having total_pay_amount > 0
+        ) as b on a.id = b.contract_id
+        left join (
+            select
+            contract_id,
+            max(plan_collection_date) as deadline,
+            sum(plan_collection_amount) as plan_rent_amount,
+            sum(principal) as plan_principal_amount,
+            sum(interest) as plan_interest_amount,
+            sum(collection_amount) as actual_rent_amount,
+            sum(collection_principal) as actual_principal_amount,
+            sum(collection_interest) as actual_interest_amount
+            from collection_base_info
+            where cash_flow_item = 'RENT' and phase > 0
+            group by contract_id
+        ) as c on c.contract_id = a.id
+        left join (
+            select
+            contract_id,
+            sum(plan_collection_amount) as plan_first_rent_amount,
+            sum(collection_amount) as actual_first_rent_amount
+            from collection_base_info
+            where cash_flow_item = 'FIRST_RENT'
+            group by contract_id
+        ) as m on a.id = m.contract_id
+        left join contract_lease_price as d on a.id = d.contract_id
+        left join contract_factoring_price as e on a.id = e.contract_id
+        left join contract_aoc_price as f on a.id = f.contract_id
+        left join client as g on g.id = a.client_id
+        left join corp_commerce_info as h on a.client_id = h.client_id
+        left join industry_type as it on substr(h.industry_type,1,1) = it.code and it.level = 1
+        left join proj_review_base_info as prbi on a.proj_review_id = prbi.id
+        where 1 = 1
+        and a.contract_status in ('TAKE_EFFECT','START_RENT')
+        and a.contract_process_status not in ('SETTLE_PASS')
+        <if test="projName != null and projName != ''">
+            and a.proj_name like concat('%', #{projName}, '%')
+        </if>
+        <if test="clientId != null">
+            and a.client_id = #{clientId}
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and a.contract_code like concat('%', #{contractCode}, '%')
+        </if>
+        <if test="bizDeptId != null">
+            and a.biz_dept_id = #{bizDeptId}
+        </if>
+        <if test="regionalProjectClassifyCode != null and regionalProjectClassifyCode != ''">
+            and prbi.regional_project_classify = #{regionalProjectClassifyCode}
+        </if>
+        <if test="projSponsorUserId != null">
+            and a.proj_sponsor_user_id = #{projSponsorUserId}
+        </if>
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and a.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and a.id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        order by a.proj_review_id, a.contract_code
+        limit 0,5000
+    </select>
+
+    <select id="listProvision" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProvisionResult">
+        select
+        c.id as clientId,
+        c.client_name as clientName,
+        b.id as contractId,
+        b.contract_code as contractCode,
+        case a.biz_type when 'ZR' then f.contract_amount when 'BL' then e.contract_amount else d.apply_credit_amount end as contractAmount,
+        a.remaining_principal as remainingPrincipal,
+        a.earnest_balance as earnestBalance,
+        a.exposure as exposure,
+        a.profit_current as provisionBalance,
+        a.proj_classify as projClassify,
+        b.biz_type as bizTypeCode,
+        b.lease_type as leaseTypeCode,
+        b.biz_dept_id as bizDeptId,
+        g.name as bizDeptName,
+        a.end_date as deadline,
+        a.provision_date as provisionDate,
+        a.risk_level as riskLevel,
+        a.withdrawal_ratio as withdrawalRatio
+        from kpi_provision_detail as a
+        left join contract_base_info as b on a.contract_id = b.id
+        left join client as c on c.id = a.client_id
+        left join contract_lease_price as d on b.id = d.contract_id
+        left join contract_factoring_price as e on b.id = e.contract_id
+        left join contract_aoc_price as f on b.id = f.contract_id
+        left join bifrost_org as g on g.id = b.biz_dept_id
+        where 1 = 1
+        and a.provision_id in (select max(id) from kpi_provision_base_info where provision_status = 'EFFECT')
+        <if test="clientId != null">
+            and b.client_id = #{clientId}
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and b.contract_code like concat('%', #{contractCode}, '%')
+        </if>
+        <if test="bizDeptId != null">
+            and b.biz_dept_id = #{bizDeptId}
+        </if>
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and b.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and b.id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            b.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(b.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+    </select>
+    <select id="listProjPledge" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPledgeResult">
+        select
+        f.id as financing_id,
+        'DK' as type,
+        ifnull(p.is_pledge,0) as is_pledge ,
+        ifnull(p.is_supervise,0) as is_supervise,
+        a.proj_name,
+        a.id as contract_id,
+        a.contract_code,
+        f.business_type,
+        o.organization_name as org_name,
+        f.financing_code,
+        f.financing_status,
+        actual.total_pay_amount as total_pay_amount,
+        collection.plan_collection_amount as plan_collection_amount,
+        collection.collection_amount as collection_amount,
+        collection.principal as principal,
+        collection.collection_principal as collection_principal,
+        p.account_name as accountName,
+        p.account_number as accountNumber,
+        p.account_bank as accountBank
+        from
+        contract_base_info a
+        JOIN fund_financing_pledge_info p ON a.id = p.contract_id
+        JOIN fund_financing_base_info f ON f.id = p.financing_id
+        JOIN fund_financing_credit_ref r ON f.id = r.financing_id
+        JOIN fund_organization o ON r.organization_id = o.id
+        inner join (
+        select
+        contract_id,
+        sum(paid_in_amount) as total_pay_amount,
+        min(paid_in_date) as min_pay_date
+        from payment_actual_detail
+        group by contract_id
+        having total_pay_amount > 0
+        ) as actual on a.id = actual.contract_id
+        inner join (
+        select
+        contract_id,
+        IFNULL(sum(plan_collection_amount),0) as plan_collection_amount,
+        IFNULL(sum(collection_amount),0) as collection_amount,
+        IFNULL(sum(principal),0) as principal,
+        IFNULL(sum(collection_principal),0) as collection_principal
+        from collection_base_info
+        where cash_flow_item = 'RENT'
+        AND phase > 0
+        group by contract_id
+        ) as collection on a.id = collection.contract_id
+        where  a.contract_status in ('TAKE_EFFECT','START_RENT')
+        and a.contract_process_status not in ('SETTLE_PASS')
+        and financing_status IN ('CARRY_INTEREST', 'NEW', 'EFFECT')
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and a.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and a.contract_code like concat('%', #{contractCode},'%')
+        </if>
+        <if test="projName != null and projName != ''">
+            and a.proj_name like concat('%', #{projName},'%')
+        </if>
+        <if test="financingStatus != null and financingStatus != ''">
+            and f.financing_status = #{financingStatus}
+        </if>
+        <if test="financingCode != null and financingCode != ''">
+            and f.financing_code = #{financingCode}
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and a.id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="pledgeStatus != null and pledgeStatus != ''">
+            <if test="pledgeStatus == 'PLEDGE'">
+                and p.is_pledge = 1 and p.is_supervise = 0
+            </if>
+            <if test="pledgeStatus == 'SUPERVISE'">
+                and p.is_supervise = 1 and p.is_pledge = 0
+            </if>
+            <if test="pledgeStatus == 'PLEDGE_SUPERVISE'">
+                and p.is_pledge = 1 and p.is_supervise = 1
+            </if>
+            <if test="pledgeStatus == 'NEITHER'">
+                and (p.is_pledge = 0 or p.is_pledge is null) and (p.is_supervise = 0 or p.is_supervise is null)
+            </if>
+        </if>
+
+        <if test="pledgeStatus == null or pledgeStatus == 'NEITHER'">
+        <if test="financingStatus == null or financingStatus == ''">
+        union all
+        select
+        f.id as financing_id,
+        'DK' as type,
+        0 as is_pledge ,
+        0 as is_supervise,
+        a.proj_name,
+        a.id as contract_id,
+        a.contract_code,
+        f.business_type,
+        null as org_name,
+        null as financing_code,
+        null as financing_status,
+        actual.total_pay_amount as total_pay_amount,
+        collection.plan_collection_amount as plan_collection_amount,
+        collection.collection_amount as collection_amount,
+        collection.principal as principal,
+        collection.collection_principal as collection_principal,
+        p.account_name as accountName,
+        p.account_number as accountNumber,
+        p.account_bank as accountBank
+        from
+        contract_base_info a
+        JOIN fund_financing_pledge_info p ON a.id = p.contract_id
+        JOIN fund_financing_base_info f ON f.id = p.financing_id
+        JOIN fund_financing_credit_ref r ON f.id = r.financing_id
+        JOIN fund_organization o ON r.organization_id = o.id
+        inner join (
+        select
+        contract_id,
+        sum(paid_in_amount) as total_pay_amount,
+        min(paid_in_date) as min_pay_date
+        from payment_actual_detail
+        group by contract_id
+        having total_pay_amount > 0
+        ) as actual on a.id = actual.contract_id
+        inner join (
+        select
+        contract_id,
+        IFNULL(sum(plan_collection_amount),0) as plan_collection_amount,
+        IFNULL(sum(collection_amount),0) as collection_amount,
+        IFNULL(sum(principal),0) as principal,
+        IFNULL(sum(collection_principal),0) as collection_principal
+        from collection_base_info
+        where cash_flow_item = 'RENT'
+        AND phase > 0
+        group by contract_id
+        ) as collection on a.id = collection.contract_id
+        where  a.contract_status in ('TAKE_EFFECT','START_RENT')
+        and a.contract_process_status not in ('SETTLE_PASS')
+        and financing_status IN ('CLOSE', 'SETTLE')
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and a.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and a.contract_code like concat('%', #{contractCode},'%')
+        </if>
+        <if test="projName != null and projName != ''">
+            and a.proj_name like concat('%', #{projName},'%')
+        </if>
+        <if test="financingStatus != null and financingStatus != ''">
+            and f.financing_status = #{financingStatus}
+        </if>
+        <if test="financingCode != null and financingCode != ''">
+            and f.financing_code = #{financingCode}
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and a.id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+            </if>
+        </if>
+
+        union all
+
+        select
+        f.id financing_id,
+        'ZR' as type,
+        ifnull(p.is_pledge,0) as is_pledge ,
+        ifnull(p.is_supervise,0) as is_supervise,
+        a.proj_name,
+        a.id as contract_id,
+        a.contract_code,
+        NULL,
+        f.product_name as org_name,
+        f.financing_code,
+        f.financing_status,
+        actual.total_pay_amount as total_pay_amount,
+        collection.plan_collection_amount as plan_collection_amount,
+        collection.collection_amount as collection_amount,
+        collection.principal as principal,
+        collection.collection_principal as collection_principal,
+        p.account_name as accountName,
+        p.account_number as accountNumber,
+        p.account_bank as accountBank
+        FROM
+        contract_base_info a
+        JOIN fund_direct_financing_pledge_info p ON a.id = p.contract_id
+        JOIN fund_direct_financing_base_info f ON f.id = p.financing_id
+        inner join (
+        select
+        contract_id,
+        sum(paid_in_amount) as total_pay_amount,
+        min(paid_in_date) as min_pay_date
+        from payment_actual_detail
+        group by contract_id
+        having total_pay_amount > 0
+        ) as actual on a.id = actual.contract_id
+        inner join (
+        select
+        contract_id,
+        IFNULL(sum(plan_collection_amount),0) as plan_collection_amount,
+        IFNULL(sum(collection_amount),0) as collection_amount,
+        IFNULL(sum(principal),0) as principal,
+        IFNULL(sum(collection_principal),0) as collection_principal
+        from collection_base_info
+        where cash_flow_item = 'RENT'
+        AND phase > 0
+        group by contract_id
+        ) as collection on a.id = collection.contract_id
+        where  a.contract_status in ('TAKE_EFFECT','START_RENT')
+        and a.contract_process_status not in ('SETTLE_PASS')
+        and financing_status IN ('CARRY_INTEREST', 'NEW', 'EFFECT')
+        and f.duration_from &lt;= NOW() and f.duration_to &gt;= NOW()
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and a.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and a.contract_code like concat('%', #{contractCode},'%')
+        </if>
+        <if test="projName != null and projName != ''">
+            and a.proj_name like concat('%', #{projName},'%')
+        </if>
+        <if test="financingStatus != null and financingStatus != ''">
+            and f.financing_status = #{financingStatus}
+        </if>
+        <if test="financingCode != null and financingCode != ''">
+            and f.financing_code = #{financingCode}
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and a.id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="pledgeStatus != null and pledgeStatus != ''">
+            <if test="pledgeStatus == 'PLEDGE'">
+                and p.is_pledge = 1 and p.is_supervise = 0
+            </if>
+            <if test="pledgeStatus == 'SUPERVISE'">
+                and p.is_supervise = 1 and p.is_pledge = 0
+            </if>
+            <if test="pledgeStatus == 'PLEDGE_SUPERVISE'">
+                and p.is_pledge = 1 and p.is_supervise = 1
+            </if>
+            <if test="pledgeStatus == 'NEITHER'">
+                and (p.is_pledge = 0 or p.is_pledge is null) and (p.is_supervise = 0 or p.is_supervise is null)
+            </if>
+        </if>
+
+
+
+        <if test="pledgeStatus == null or pledgeStatus == 'NEITHER'">
+        <if test="financingStatus == null or financingStatus == ''">
+            union all
+        select
+        f.id financing_id,
+        'ZR' as type,
+        0 as is_pledge ,
+        0 as is_supervise,
+        a.proj_name,
+        a.id as contract_id,
+        a.contract_code,
+        NULL,
+        null as org_name,
+        null as financing_code,
+        null as financing_status,
+        actual.total_pay_amount as total_pay_amount,
+        collection.plan_collection_amount as plan_collection_amount,
+        collection.collection_amount as collection_amount,
+        collection.principal as principal,
+        collection.collection_principal as collection_principal,
+        p.account_name as accountName,
+        p.account_number as accountNumber,
+        p.account_bank as accountBank
+        FROM
+        contract_base_info a
+        JOIN fund_direct_financing_pledge_info p ON a.id = p.contract_id
+        JOIN fund_direct_financing_base_info f ON f.id = p.financing_id
+        inner join (
+        select
+        contract_id,
+        sum(paid_in_amount) as total_pay_amount,
+        min(paid_in_date) as min_pay_date
+        from payment_actual_detail
+        group by contract_id
+        having total_pay_amount > 0
+        ) as actual on a.id = actual.contract_id
+        inner join (
+        select
+        contract_id,
+        IFNULL(sum(plan_collection_amount),0) as plan_collection_amount,
+        IFNULL(sum(collection_amount),0) as collection_amount,
+        IFNULL(sum(principal),0) as principal,
+        IFNULL(sum(collection_principal),0) as collection_principal
+        from collection_base_info
+        where cash_flow_item = 'RENT'
+        AND phase > 0
+        group by contract_id
+        ) as collection on a.id = collection.contract_id
+        where  a.contract_status in ('TAKE_EFFECT','START_RENT')
+        and a.contract_process_status not in ('SETTLE_PASS')
+        and financing_status IN ('CLOSE', 'SETTLE')
+        and f.duration_from &lt;= NOW() and f.duration_to &gt;= NOW()
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and a.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="contractCode != null and contractCode != ''">
+            and a.contract_code like concat('%', #{contractCode},'%')
+        </if>
+        <if test="projName != null and projName != ''">
+            and a.proj_name like concat('%', #{projName},'%')
+        </if>
+        <if test="financingStatus != null and financingStatus != ''">
+            and f.financing_status = #{financingStatus}
+        </if>
+        <if test="financingCode != null and financingCode != ''">
+            and f.financing_code = #{financingCode}
+        </if>
+        <if test="ids != null and ids.size() > 0">
+            and a.id in
+            <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        </if>
+        </if>
+
+        <if test="pledgeStatus == null or pledgeStatus == 'NEITHER'">
+            <if test="financingStatus == null or financingStatus == ''">
+                <if test="financingCode == null or financingCode == ''">
+            union all
+
+            select
+            null as financing_id,
+            null as type,
+            0 as is_pledge ,
+            0 as is_supervise,
+            a.proj_name,
+            a.id as contract_id,
+            a.contract_code,
+            NULL,
+            null as org_name,
+            null,
+            null,
+            actual.total_pay_amount as total_pay_amount,
+            collection.plan_collection_amount as plan_collection_amount,
+            collection.collection_amount as collection_amount,
+            collection.principal as principal,
+            collection.collection_principal as collection_principal,
+            null as accountName,
+            null as accountNumber,
+            null as accountBank
+            FROM
+            contract_base_info a
+            inner join (
+            select
+            contract_id,
+            sum(paid_in_amount) as total_pay_amount,
+            min(paid_in_date) as min_pay_date
+            from payment_actual_detail
+            group by contract_id
+            having total_pay_amount > 0
+            ) as actual on a.id = actual.contract_id
+            inner join (
+            select
+            contract_id,
+            IFNULL(sum(plan_collection_amount),0) as plan_collection_amount,
+            IFNULL(sum(collection_amount),0) as collection_amount,
+            IFNULL(sum(principal),0) as principal,
+            IFNULL(sum(collection_principal),0) as collection_principal
+            from collection_base_info
+            where cash_flow_item = 'RENT'
+            AND phase > 0
+            group by contract_id
+            ) as collection on a.id = collection.contract_id
+            where  a.contract_status in ('TAKE_EFFECT','START_RENT')
+            and a.contract_process_status not in ('SETTLE_PASS')
+            and a.id not in (
+                SELECT a.id FROM contract_base_info a
+                INNER JOIN fund_financing_pledge_info p ON a.id = p.contract_id
+                INNER JOIN fund_financing_base_info f ON f.id = p.financing_id
+                where financing_status IN ('CARRY_INTEREST', 'NEW', 'EFFECT', 'CLOSE', 'SETTLE')
+
+                UNION
+
+                SELECT a.id FROM contract_base_info a
+                INNER JOIN fund_direct_financing_pledge_info p ON a.id = p.contract_id
+                INNER JOIN fund_direct_financing_base_info f ON f.id = p.financing_id
+                where f.duration_from &lt;= NOW() and f.duration_to &gt;= NOW()
+            )
+            <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+                and a.biz_dept_id in
+                <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="authCurrentUserId != null">
+                and (
+                a.proj_sponsor_user_id = #{authCurrentUserId}
+                or
+                json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+                )
+            </if>
+            <if test="contractCode != null and contractCode != ''">
+                and a.contract_code like concat('%', #{contractCode},'%')
+            </if>
+            <if test="projName != null and projName != ''">
+                and a.proj_name like concat('%', #{projName},'%')
+            </if>
+            <if test="ids != null and ids.size() > 0">
+                and a.id in
+                <foreach collection="ids" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            </if>
+            </if>
+        </if>
+
+
+    </select>
+
+
+    <!--<select id="listPlanInfo" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPlanInfoResult">
+
+    SELECT
+        a.id AS contractId,
+        a.biz_type as bizType,
+        a.proj_name as projName,
+        a.contract_code AS contractCode,
+        ifnull(b.total_pay_amount,0) AS actualPayAmountLong,
+        b.min_paid_in_date AS actualPayDate,
+        a.biz_dept_id AS bizDeptId,
+        org.`name` as bizDeptName,
+        p.province as province,
+        p.city as city,
+        p.district as district,
+        info1.display as provinceDisplay,
+        info2.display as cityDisplay,
+        info3.display as districtDisplay,
+        a.client_id as clientId,
+        client.client_name as clientName,
+        a.proj_sponsor_user_id as projSponsorUserId,
+        u.user_name as projSponsorUserName,
+        kp.proj_classify as projClassify,
+        case a.biz_type when 'ZR' then a.zr_type when 'BL' then a.factoring_type when 'ZL' then a.lease_type end as leaseType,
+        case a.biz_type when 'ZR' then f.contract_amount when 'BL' then e.contract_amount else d.apply_credit_amount end as contractAmountLong,
+        case a.biz_type when 'ZR' then f.irr_percent when 'BL' then e.irr_percent else d.irr_percent end as irrInt,
+        case a.biz_type when 'ZR' then 0 when 'BL' then 0 else d.commission end as commissionLong,
+        case a.biz_type when 'ZR' then f.earnest_money when 'BL' then e.earnest_money else d.earnest_money end as earnestMoneyLong,
+        case a.biz_type when 'ZR' then f.aoc_credit_term when 'BL' then e.factoring_credit_term else d.lease_month_count end as contractLimit
+    FROM
+        contract_base_info AS a
+            INNER JOIN (
+            SELECT
+                contract_id,
+                min( paid_in_date ) AS min_paid_in_date,
+                sum( paid_in_amount ) AS total_pay_amount
+            FROM
+                payment_actual_detail
+            GROUP BY
+                contract_id
+        ) AS b ON b.contract_id = a.id
+            left join proj_review_base_info p on a.proj_review_id = p.id
+            left join contract_lease_price as d on a.id = d.contract_id
+            left join contract_factoring_price as e on a.id = e.contract_id
+            left join contract_aoc_price as f on a.id = f.contract_id
+            left join client as client on client.id = a.client_id
+            left join bifrost_org org on org.id = a.biz_dept_id
+            left join address_dictionary info1 on info1.id = p.province
+            left join address_dictionary info2 on info2.id = p.city
+            left join address_dictionary info3 on info3.id = p.district
+            left join bifrost_user u on u.id = a.proj_sponsor_user_id
+            left join (select proj_classify,contract_id from kpi_provision_detail
+            group by contract_id
+            ) as kp on kp.contract_id = a.id
+    WHERE
+        b.total_pay_amount > 0
+        <if test="queryDateFrom != null">
+            and b.min_paid_in_date &gt;= #{queryDateFrom}
+        </if>
+        <if test="queryDateTo != null">
+            and b.min_paid_in_date &lt;= #{queryDateTo}
+        </if>
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and a.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="bizDeptId != null">
+            and a.biz_dept_id = #{bizDeptId}
+        </if>
+        <if test="projName != null">
+            and a.proj_name like concat('%' , #{projName} , '%')
+        </if>
+        <if test="contractCode != null">
+            and a.contract_code like concat('%' , #{contractCode} , '%')
+        </if>
+
+
+    </select>-->
+
+
+    <select id="listPlanInfo" resultType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPlanInfoResult">
+
+        SELECT
+        a.id AS contractId,
+        bi.id AS paymentId,
+        a.biz_type as bizType,
+        a.proj_name as projName,
+        c.actual_irr AS irr,
+        a.contract_code AS contractCode,
+        b.paid_in_amount AS actualPayAmountLong,
+        b.paid_in_date AS actualPayDate,
+        a.biz_dept_id AS bizDeptId,
+        org.`name` as bizDeptName,
+        p.province as province,
+        p.city as city,
+        p.district as district,
+        info1.display as provinceDisplay,
+        info2.display as cityDisplay,
+        info3.display as districtDisplay,
+        a.client_id as clientId,
+        client.client_name as clientName,
+        a.proj_sponsor_user_id as projSponsorUserId,
+        u.user_name as projSponsorUserName,
+        kp.proj_classify as projClassify,
+        case a.biz_type when 'ZR' then a.zr_type when 'BL' then a.factoring_type when 'ZL' then a.lease_type end as leaseType,
+        case a.biz_type when 'ZR' then f.contract_amount when 'BL' then e.contract_amount else d.apply_credit_amount end as contractAmountLong,
+        case a.biz_type when 'ZR' then f.irr_percent when 'BL' then e.irr_percent else d.irr_percent end as irrInt,
+        case a.biz_type when 'ZR' then 0 when 'BL' then 0 else d.commission end as commissionLong,
+        case a.biz_type when 'ZR' then f.earnest_money when 'BL' then e.earnest_money else d.earnest_money end as earnestMoneyLong,
+        case a.biz_type when 'ZR' then f.aoc_credit_term when 'BL' then e.factoring_credit_term else d.lease_month_count end as contractLimit
+        FROM
+        payment_actual_detail AS b
+        LEFT JOIN contract_base_info AS a ON b.contract_id = a.id
+        LEFT JOIN payment_base_info AS bi ON bi.contract_id = a.id AND bi.id = b.payment_id
+        LEFT JOIN contract_receipt AS c ON c.contract_id = a.id AND bi.receipt_id_final = c.id
+        left join proj_review_base_info p on a.proj_review_id = p.id
+        left join contract_lease_price as d on a.id = d.contract_id
+        left join contract_factoring_price as e on a.id = e.contract_id
+        left join contract_aoc_price as f on a.id = f.contract_id
+        left join client as client on client.id = a.client_id
+        left join bifrost_org org on org.id = a.biz_dept_id
+        left join address_dictionary info1 on info1.id = p.province
+        left join address_dictionary info2 on info2.id = p.city
+        left join address_dictionary info3 on info3.id = p.district
+        left join bifrost_user u on u.id = a.proj_sponsor_user_id
+        left join (select proj_classify,contract_id from kpi_provision_detail group by contract_id
+        ) as kp on kp.contract_id = a.id
+        WHERE
+        bi.payment_status IN ('TAKE_EFFECT', 'FINISHED')
+        AND b.deleted = 0
+        <if test="queryDateFrom != null">
+            and b.paid_in_date &gt;= #{queryDateFrom}
+        </if>
+        <if test="queryDateTo != null">
+            and b.paid_in_date &lt;= #{queryDateTo}
+        </if>
+        <if test="authBizDeptIds != null and authBizDeptIds.size() > 0">
+            and a.biz_dept_id in
+            <foreach collection="authBizDeptIds" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="authCurrentUserId != null">
+            and (
+            a.proj_sponsor_user_id = #{authCurrentUserId}
+            or
+            json_contains(a.proj_cosponsor_user_ids, cast( #{authCurrentUserId} as json) )
+            )
+        </if>
+        <if test="bizDeptId != null">
+            and a.biz_dept_id = #{bizDeptId}
+        </if>
+        <if test="projName != null">
+            and a.proj_name like concat('%' , #{projName} , '%')
+        </if>
+        <if test="contractCode != null">
+            and a.contract_code like concat('%' , #{contractCode} , '%')
+        </if>
+
+
+    </select>
+
+</mapper>

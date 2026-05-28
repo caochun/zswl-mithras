@@ -1,0 +1,94 @@
+/* prettier-ignore-start */
+import * as Types from './interface/dataList'
+import { http } from '@zswl/admin'
+
+const mock = false
+// const mock = { mode: 2 }
+export default {
+  // 立项资料清单-批量下载
+  postProjDownload: (params: Types.ProjDownloadRequest): Promise<Types.ProjDownloadResponse> =>
+    http('/materials/proj/download', {
+      params,
+      mock,
+      type: 'download',
+      timeout: 0,
+    }),
+  // 资料清单-下载
+  postMaterialsDownload: (
+    params: Types.MaterialsDownloadRequest,
+    functionCode: string
+  ): Promise<Types.MaterialsDownloadResponse> =>
+    http('/materials/download', {
+      params,
+      mock,
+      type: 'download',
+      timeout: 0,
+      headers: {
+        functionCode,
+      },
+    }),
+  // 付款申请-资料清单列表
+  postPaymentListOther: (
+    data: Types.PaymentListOtherRequest
+  ): Promise<Types.PaymentListOtherResponse> =>
+    http.post('/materials/payment/listOther', data, { mock }),
+
+  // 合同管理-资料清单列表
+  postContractList: (data: Types.ContractListRequest): Promise<Types.ContractListResponse> =>
+    http.post('/materials/contract/list', data, { mock }),
+
+  // 资料清单-上传
+  postMaterialsUpload: (
+    data: Types.MaterialsUploadRequest,
+    functionCode: string
+  ): Promise<Types.MaterialsUploadResponse> =>
+    http.post('/materials/upload', data, {
+      mock,
+      type: 'upload',
+      transformResult: (res) => res.data,
+      headers: {
+        functionCode,
+      },
+      timeout: 0,
+    }),
+
+  // 资料清单-列表
+  postMaterialsList: (data: Types.MaterialsListRequest): Promise<Types.MaterialsListResponse> =>
+    http.post('/materials/list', data, { mock }),
+
+  // 资料清单-删除
+  postMaterialsRemove: (
+    data: Types.MaterialsRemoveRequest,
+    functionCode: string
+  ): Promise<Types.MaterialsRemoveResponse> =>
+    http.post('/materials/remove', data, {
+      mock,
+      headers: {
+        functionCode,
+      },
+      transformResult: (res) => res.data,
+    }),
+
+  // 资料清单预览判断接口
+  postMaterialsPreview: (
+    data: Types.MaterialsPreviewRequest
+  ): Promise<Types.MaterialsPreviewResponse> => http.post('/materials/preview', data, { mock }),
+
+  // 集团授信立项资料清单-列表
+  postEstablishList: (data: Types.EstablishListRequest): Promise<Types.EstablishListResponse> =>
+    http.post('/materials/group/credit/establish/list', data, { mock }),
+
+  // 集团授信评审资料清单-列表
+  postReviewList: (data: Types.ReviewListRequest): Promise<Types.ReviewListResponse> =>
+    http.post('/materials/group/credit/review/list', data, { mock }),
+
+  // // 项目评审资料清单-列表
+  // postReviewList: (data: Types.ReviewListRequest): Promise<Types.ReviewListResponse> =>
+  //   http.post('/materials/proj/review/list', data, { mock }),
+
+  // 项目资料清单-列表
+  postProjList: (data: Types.ProjListRequest): Promise<Types.ProjListResponse> =>
+    http.post('/materials/proj/list', data, { mock }),
+}
+
+/* prettier-ignore-end */

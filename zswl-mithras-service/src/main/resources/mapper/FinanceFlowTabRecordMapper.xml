@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.third.FinanceFlowTabRecordMapper">
+
+    <select id="findWithLogicDelete"
+            resultType="cn.zswltech.mithras.service.mapper.model.third.FinanceFlowTabRecord">
+        SELECT *
+        FROM finance_flow_tab_record
+        WHERE deleted IN (0, 1)
+        <if test="tabIdList != null">
+            AND main_id IN
+            <foreach collection="tabIdList" item="tabId" open="(" separator="," close=")">
+                #{tabId}
+            </foreach>
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.blackgray.mapper.BlackGrayLibraryMapper">
+  <resultMap id="BaseResultMap" type="cn.zswltech.mithras.blackgray.model.BlackGrayLibrary">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="enterprise_name" jdbcType="VARCHAR" property="enterpriseName" />
+    <result column="unified_social_credit_code" jdbcType="VARCHAR" property="unifiedSocialCreditCode" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+    <result column="data_digest" jdbcType="VARCHAR" property="dataDigest" />
+    <result column="period_under_observation" jdbcType="VARCHAR" property="periodUnderObservation" />
+    <result column="risk_scale" jdbcType="DECIMAL" property="riskScale" />
+    <result column="membership_group" jdbcType="VARCHAR" property="membershipGroup" />
+    <result column="group_credit_code" jdbcType="VARCHAR" property="groupCreditCode" />
+    <result column="group_leader_flag" jdbcType="TINYINT" property="groupLeaderFlag" />
+    <result column="blacklist_status" jdbcType="BIT" property="blacklistStatus" />
+    <result column="apply_reason_type" jdbcType="VARCHAR" property="applyReasonType" />
+    <result column="apply_reason" jdbcType="VARCHAR" property="applyReason" />
+    <result column="black_gray_type" jdbcType="VARCHAR" property="blackGrayType" />
+    <result column="black_gray_type_num" jdbcType="INTEGER" property="blackGrayTypeNum" />
+    <result column="group_black_gray_type" jdbcType="VARCHAR" property="groupBlackGrayType" />
+    <result column="apply_time" jdbcType="DATE" property="applyTime" />
+    <result column="apply_organization" jdbcType="VARCHAR" property="applyOrganization" />
+    <result column="apply_dept" jdbcType="VARCHAR" property="applyDept" />
+    <result column="warehouse_time" jdbcType="DATE" property="warehouseTime" />
+    <result column="plan_outbound_time" jdbcType="DATE" property="planOutboundTime" />
+    <result column="record_id" jdbcType="BIGINT" property="recordId" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="warehouse_file_keys" jdbcType="LONGVARCHAR" property="warehouseFileKeys" />
+    <result column="rectify_file_keys" jdbcType="LONGVARCHAR" property="rectifyFileKeys" />
+  </resultMap>
+
+    <select id="selectBlackGrayCount" resultType="java.util.HashMap">
+        select
+            if(sum(if(black_gray_type = 'BLACK_LIST', 1, 0)) is null ,0, sum(if(black_gray_type = 'BLACK_LIST', 1, 0))) as black,
+            if(sum(if(black_gray_type = 'GRAY_LIST', 1, 0)) is null ,0, sum(if(black_gray_type = 'GRAY_LIST', 1, 0))) as gray
+        from black_gray_library bgl
+        <where>
+            1 = 1
+            and bgl.warehouse_time &lt;= curdate() and bgl.plan_outbound_time &gt;= curdate()
+            <if test="timePoint != null and timePoint != ''">
+                -- 处理列表根据机构隔离决定是否可见
+                and bgl.apply_time &lt;= #{timePoint}
+            </if>
+            <if test="enterpriseName != null and enterpriseName.size() > 0">
+                -- 处理列表根据机构隔离决定是否可见
+                and bgl.enterprise_name in
+                <foreach collection="enterpriseName" item="item" open="(" close=")"
+                         separator=",">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <select id="selectBlackGrayCountZl" resultType="java.util.HashMap">
+        select if(sum(if(black_gray_type = 'BLACK_LIST', 1, 0)) is null ,0, sum(if(black_gray_type = 'BLACK_LIST', 1, 0)))
+        as black,if(sum(if(black_gray_type = 'GRAY_LIST', 1, 0)) is null ,0, sum(if(black_gray_type = 'GRAY_LIST', 1, 0)))
+        as gray from black_gray_library bgl
+        <where>
+            1 = 1 and business_type = 'INFORMATION_RELATED'
+            and bgl.warehouse_time &lt;= curdate() and bgl.plan_outbound_time &gt;= curdate()
+            <if test="timePoint != null and timePoint != ''">
+                -- 处理列表根据机构隔离决定是否可见
+                and bgl.apply_time &lt;= #{timePoint}
+            </if>
+            <if test="enterpriseName != null and enterpriseName.size() > 0">
+                -- 处理列表根据机构隔离决定是否可见
+                and bgl.enterprise_name in
+                <foreach collection="enterpriseName" item="item" open="(" close=")"
+                         separator=",">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+  <select id="selectTop5Black" resultType="java.util.HashMap">
+    select b.industry_name,count(*) as number from
+    (select REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(name,'[0-9]',''),'回租',''),'直租',''),'租赁','') AS name,
+            industry_name from concentration_report where time_point = #{timePoint}) b
+    inner join
+    (select * from black_gray_library bgl
+    <where>
+      1 = 1 and black_gray_type = 'BLACK_LIST'
+        and bgl.warehouse_time &lt;= curdate() and bgl.plan_outbound_time &gt;= curdate()
+      <if test="enterpriseName != null and enterpriseName.size() > 0">
+        -- 处理列表根据机构隔离决定是否可见
+        and bgl.enterprise_name in
+        <foreach collection="enterpriseName" item="item" open="(" close=")"
+                 separator=",">
+          #{item}
+        </foreach>
+      </if>
+    </where>
+    ) a
+    on a.enterprise_name = b.name
+    where b.industry_name is not null
+    group by b.industry_name
+    order by number desc
+  </select>
+
+    <select id="selectTop5BlackZl" resultType="java.util.HashMap">
+        select b.industry_name,count(*) as number from
+        (select distinct REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(name,'[0-9]',''),'回租',''),'直租',''),'租赁','') AS name,industry_name from concentration_report where time_point = #{timePoint}) b
+        inner join
+        (select * from black_gray_library bgl
+        <where>
+            1 = 1 and black_gray_type = 'BLACK_LIST' and business_type = 'INFORMATION_RELATED'
+            and bgl.warehouse_time &lt;= curdate() and bgl.plan_outbound_time &gt;= curdate()
+            <if test="enterpriseName != null and enterpriseName.size() > 0">
+                -- 处理列表根据机构隔离决定是否可见
+                and bgl.enterprise_name in
+                <foreach collection="enterpriseName" item="item" open="(" close=")"
+                         separator=",">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        ) a
+        on a.enterprise_name = b.name
+        where b.industry_name is not null
+        group by b.industry_name
+        order by number desc
+    </select>
+
+  <select id="selectTop5White" resultType="java.util.HashMap">
+    select b.industry_name,count(*) as number from
+    (select REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(name,'[0-9]',''),'回租',''),'直租',''),'租赁','') AS name,industry_name from concentration_report where time_point = #{timePoint}) b
+    inner join
+    (select * from black_gray_library bgl
+    <where>
+      1 = 1 and black_gray_type = 'GRAY_LIST'
+        and bgl.warehouse_time &lt;= curdate() and bgl.plan_outbound_time &gt;= curdate()
+      <if test="enterpriseName != null and enterpriseName.size() > 0">
+        -- 处理列表根据机构隔离决定是否可见
+        and bgl.enterprise_name in
+        <foreach collection="enterpriseName" item="item" open="(" close=")"
+                 separator=",">
+          #{item}
+        </foreach>
+      </if>
+    </where>
+    ) a
+    on a.enterprise_name = b.name
+    where b.industry_name is not null
+    group by b.industry_name
+    order by number desc
+  </select>
+
+    <select id="selectTop5WhiteZl" resultType="java.util.HashMap">
+        select b.industry_name,count(*) as number from
+        (select REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(name,'[0-9]',''),'回租',''),'直租',''),'租赁','') AS name,industry_name from concentration_report where time_point = #{timePoint}) b
+        inner join
+        (select * from black_gray_library bgl
+        <where>
+            1 = 1 and black_gray_type = 'GRAY_LIST' and business_type = 'INFORMATION_RELATED'
+            and bgl.warehouse_time &lt;= curdate() and bgl.plan_outbound_time &gt;= curdate()
+            <if test="enterpriseName != null and enterpriseName.size() > 0">
+                -- 处理列表根据机构隔离决定是否可见
+                and bgl.enterprise_name in
+                <foreach collection="enterpriseName" item="item" open="(" close=")"
+                         separator=",">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        ) a
+        on a.enterprise_name = b.name
+        where b.industry_name is not null
+        group by b.industry_name
+        order by number desc
+    </select>
+
+    <select id="blackGrayCountByApplyOrg" resultType="cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibCountDTO">
+        # 企业维度
+        select t2.*, bo.`name` as orgName
+        from (
+            SELECT
+                apply_organization as orgCode,
+                SUM(IF(black_gray_type_num=2,1,0)) as blackCount,
+                SUM(IF(black_gray_type_num=1,1,0)) as grayCount
+            FROM (
+                SELECT MAX(black_gray_type_num) AS black_gray_type_num,
+                apply_organization
+                FROM black_gray_library
+                WHERE stock_status = 0
+                  and (source = 'EXTERNAL_UPLOAD' or (source !='EXTERNAL_UPLOAD' AND share_type = 0))
+                <if test="businessType != null and businessType != ''">
+                    AND business_type = #{businessType}
+                </if>
+                GROUP BY apply_organization, enterprise_name
+            ) AS t1
+            WHERE black_gray_type_num IN ( 1, 2 )
+            GROUP BY apply_organization
+        ) as t2
+        inner join bifrost_org bo on bo.`code` = t2.orgCode
+    </select>
+
+    <select id="countAll" resultType="cn.zswltech.mithras.blackgray.vo.BlackGrayLibAllCountVo">
+        SELECT CASE black_gray_type_num
+                   WHEN 2 THEN 'BLACK_LIST'
+                   WHEN 1 THEN 'GRAY_LIST' END AS black_gray_type, COUNT(1) AS cnt
+        FROM (
+                 SELECT MAX(black_gray_type_num) AS black_gray_type_num
+                 FROM black_gray_library
+                 WHERE stock_status = 0
+                    and (source = 'EXTERNAL_UPLOAD' or (source !='EXTERNAL_UPLOAD' AND share_type = 0))
+                <if test="businessType != null and businessType != ''">
+                    AND business_type = #{businessType}
+                </if>
+                 GROUP BY enterprise_name
+             ) AS t2
+        WHERE black_gray_type_num IN ( 1, 2 )
+        GROUP BY black_gray_type_num
+    </select>
+
+    <select id="singleEntList" resultType="cn.zswltech.mithras.blackgray.model.BlackGrayLibrary">
+        select bgl.id, bgl.unified_social_credit_code, bgl.enterprise_name,
+        IF(MAX(bgl.black_gray_type_num)=2, 'BLACK_LIST', 'GRAY_LIST') as black_gray_type
+        from black_gray_library bgl
+        where stock_status = 0
+          and (source = 'EXTERNAL_UPLOAD' or (source !='EXTERNAL_UPLOAD' AND share_type = 0))
+        <!-- 导入勾选id -->
+        <if test="req.idList != null and req.idList.size()>0">
+            and bgl.id in
+            <foreach collection="req.idList" separator="," item="item" index="index" open="(" close=")">
+                {item}
+            </foreach>
+        </if>
+        <if test="req.unifiedSocialCreditCode != null and req.unifiedSocialCreditCode!=''">
+            and bgl.unified_social_credit_code = #{req.unifiedSocialCreditCode}
+        </if>
+        <if test="req.enterpriseName != null and req.enterpriseName!=''">
+            and bgl.enterprise_name = #{req.enterpriseName}
+        </if>
+        <if test="req.businessType != null and req.businessType!=''">
+            and bgl.business_type = #{req.businessType}
+        </if>
+        <if test="!queryAllOrg">
+            and bgl.apply_organization in
+            <foreach collection="orgCodes" index="index" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+        group by bgl.enterprise_name
+        order by bgl.update_time desc, bgl.id desc
+    </select>
+
+    <select id="groupList" resultType="cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayGroupListRSP">
+        select t.*, IF(t.black_gray_type_num=2,'BLACK_LIST','GRAY_LIST') as black_gray_type
+        from (
+         select id,membership_group as groupName, group_credit_code,
+                max(Update_Time) as update_time, MAX(black_gray_type_num) as black_gray_type_num
+         from black_gray_library
+         where group_leader_flag = 1
+           and stock_status = 0
+           and (source = 'EXTERNAL_UPLOAD' or (source !='EXTERNAL_UPLOAD' AND share_type = 0))
+           <if test="req.exportGroupNames != null and req.exportGroupNames.size() > 0">
+            and membership_group in
+            <foreach collection="req.exportGroupNames" index="index" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+           </if>
+           <if test="req.groupNameCreditCode != null and req.groupNameCreditCode != ''">
+               and (membership_group = #{req.groupNameCreditCode} or group_credit_code = #{req.groupNameCreditCode})
+           </if>
+           <if test="req.businessType != null and req.businessType != ''">
+               and business_type = #{req.businessType}
+           </if>
+         GROUP BY membership_group
+
+             )t
+        order by t.update_time desc
+
+    </select>
+    <select id="groupCompanyInStockCount" resultType="cn.zswltech.mithras.blackgray.vo.GroupCompanyInStockCountVo">
+        select membership_group, count(DISTINCT enterprise_name) as entCount
+        from black_gray_library
+        where membership_group is not null
+          and membership_group in
+            <foreach collection="groupNames" separator="," open="(" close=")" item="item">
+                #{item}
+            </foreach>
+          and stock_status = 0
+          and enterprise_name is not NULL
+          and group_leader_flag = 0
+          and (source = 'EXTERNAL_UPLOAD' or (source !='EXTERNAL_UPLOAD' AND share_type = 0))
+        <if test="businessType != null and businessType != ''">
+            and business_type = #{businessType}
+        </if>
+        GROUP BY membership_group
+    </select>
+
+    <select id="groupCompanyStockList" resultType="cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibraryDistinctListRSP">
+        SELECT
+            bgl.id, bgl.unified_social_credit_code, bgl.enterprise_name,
+            IF (MAX(bgl.black_gray_type_num)= 2,'BLACK_LIST','GRAY_LIST') AS black_gray_type
+        FROM black_gray_library bgl
+        WHERE stock_status = 0
+          AND bgl.membership_group = #{groupName}
+          AND bgl.group_leader_flag = 0
+          AND bgl.business_type = #{businessType}
+          AND (bgl.source = 'EXTERNAL_UPLOAD' or (bgl.source !='EXTERNAL_UPLOAD' AND bgl.share_type = 0))
+        GROUP BY bgl.enterprise_name
+        ORDER BY bgl.update_time desc
+    </select>
+    <select id="selectAllList" resultType="cn.zswltech.mithras.blackgray.model.BlackGrayLibrary">
+
+        select enterprise_name,unified_social_credit_code,black_gray_type,apply_organization from black_gray_library
+        where warehouse_time &lt;= curdate() and plan_outbound_time &gt;= curdate() order by black_gray_type desc;
+
+    </select>
+    <select id="selectSpcificClient" resultType="java.lang.String">
+        select black_gray_type
+        from black_gray_library
+        where
+            unified_social_credit_code = #{getEnterpriseCode}
+            <if test="orgCode!=null and orgCode!=''">
+                and apply_organization = #{orgCode}
+            </if>
+        and warehouse_time &lt;= curdate() and plan_outbound_time &gt;= curdate() order by black_gray_type limit 1;
+    </select>
+    <update id="completeWarehouseOut">
+        update black_gray_library
+        set stock_status = 1,
+            plan_outbound_time = now()
+        where stock_status = 0
+          and json_contains(apply_reason_type, concat('"',#{applyReasonType},'"'))
+    </update>
+</mapper>

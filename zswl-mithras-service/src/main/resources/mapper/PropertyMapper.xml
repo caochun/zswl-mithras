@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.lib.PropertyMapper">
+
+    <select id="getPropertyListByFinancingCode" resultType="cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyRSP">
+        select padu.financing_code as financingCode ,cbi.id as contractId ,cbi.contract_code as contractCode ,
+        cbi.client_id as clientId ,c.client_name as clientName ,cbi.proj_code as projCode ,cbi.proj_name as projName ,
+        cbi.biz_type as bizType ,cbi.apply_credit_amount as contractAmount, pad.our_account_name as accountName ,
+        pad.our_account_number as accountNumber ,pad.our_account_bank as accountBank ,pad.paid_in_amount as putoutAmount ,
+        pad.paid_in_date as putoutDate
+        from payment_actual_detail_unconfirmed padu
+        inner join payment_base_info pbi on padu.payment_id = pbi.id
+        inner join payment_actual_detail pad on padu.id = pad.un_confirmed_id
+        left join contract_base_info cbi on pbi.contract_id = cbi.id
+        left join client c on cbi.client_id = c.id
+        <where>
+            padu.financing_code is not null and pbi.write_off_status = 'WRITTEN_OFF' and padu.capital_source = 'BANK_LOAN'
+            and pad.write_off_status = 'WRITTEN_OFF' and padu.financing_code = #{financingCode}
+        </where>
+    </select>
+
+    <select id="getPropertyList" resultType="cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyRSP">
+        select fdfbi.id as directId, ffbi.id as finanId ,padu.financing_code as financingCode ,cbi.id as contractId ,cbi.contract_code as contractCode ,
+        cbi.client_id as clientId ,c.client_name as clientName ,cbi.proj_code as projCode ,cbi.proj_name as projName ,
+        cbi.biz_type as bizType ,cbi.apply_credit_amount as contractAmount, pad.our_account_name as accountName ,
+        pad.our_account_number as accountNumber ,pad.our_account_bank as accountBank ,pad.paid_in_amount as putoutAmount ,
+        pad.paid_in_date as putoutDate
+        from payment_actual_detail_unconfirmed padu
+        inner join payment_base_info pbi on padu.payment_id = pbi.id
+        inner join payment_actual_detail pad on padu.id = pad.un_confirmed_id
+        left join contract_base_info cbi on pbi.contract_id = cbi.id
+        left join client c on cbi.client_id = c.id
+        left join fund_direct_financing_base_info fdfbi on padu.financing_code = fdfbi.financing_code
+        left join fund_financing_base_info ffbi on padu.financing_code = ffbi.financing_code
+        <where>
+            padu.financing_code is not null
+            and pbi.write_off_status = 'WRITTEN_OFF'
+            and pad.write_off_status = 'WRITTEN_OFF'
+            and padu.capital_source = 'BANK_LOAN'
+            <if test="query.financingCode != null and query.financingCode != ''">
+                and padu.financing_code like CONCAT('%',#{query.financingCode},'%')
+            </if>
+            <if test="query.contractCode != null and query.contractCode != ''">
+                and cbi.contract_code like CONCAT('%',#{query.contractCode},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

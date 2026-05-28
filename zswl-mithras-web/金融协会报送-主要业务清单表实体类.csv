@@ -1,0 +1,3 @@
+id,onum,agmtName,agmtNo,agmtSignDate,agmtMatuDate,agmtTypeCode,lasdType,projIndtClasCode,custName,custCertNum,custScalCode,fnlRels,wthdPrin,rentBal,cmphFinCost,udpnSituCode,udpn,ovduRent,ovduDaysCode,ovduDspsProg,npFlag,npBal,custVol
+1,1,测试合同名称,测试合同编号,2025-04-19,2026-04-19,02,汽车,2C,xxx汽车贸易公司,32435645756867,01,10000.00000000,12356.89000000,3435646.49000000,0.04760000,07,母公司,0E-8,01,,,0E-8,1
+2,,测试合同名称,测试合同编号,2025-04-19,2026-04-19,02,汽车,2C,xxx汽车贸易公司,32435645756867,01,10000.00000000,12356.89000000,3435646.49000000,0.46000000,07,母公司,0E-8,01,,否,0E-8,1

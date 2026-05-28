@@ -1,0 +1,85 @@
+.wrap {
+  position: relative;
+  border: 1px solid #8a8b8e;
+  .legendWrap {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    .legendItem {
+      display: flex;
+      align-items: center;
+      margin-left: 15px;
+      .legend {
+        border: 2px solid #8a8b8e;
+        width: 16px;
+        height: 12px;
+        border-radius: 4px;
+        margin-right: 3px;
+      }
+      .title {
+        font-size: 14px;
+        line-height: 1;
+      }
+    }
+  }
+  .reset {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    z-index: 1;
+    cursor: pointer;
+  }
+}
+.container {
+  :global {
+    .nodeSuccess {
+      .djs-visual > rect:first-child {
+        stroke: #00a870 !important;
+      }
+      .djs-visual > path:first-child {
+        stroke: #00a870 !important;
+      }
+      .djs-visual > circle:first-child {
+        stroke: #00a870 !important;
+      }
+    }
+    .nodeProcessing {
+      .djs-visual > rect:first-child {
+        stroke: #2558e6 !important;
+      }
+    }
+    .nodeReturn {
+      .djs-visual > rect:first-child {
+        stroke: red !important;
+      }
+    }
+    .nodeChoose {
+      .djs-visual > rect:first-child {
+        stroke-width: 2px;
+        stroke: red !important;
+        stroke-dasharray: 5, 5; /* 设置虚线 */
+      }
+    }
+    // .nodeOther {
+    //   .djs-visual > rect:first-child {
+    //     stroke: purple !important;
+    //   }
+    // }
+    .nodeOther {
+      .djs-visual > rect:first-child {
+        stroke: purple !important;
+      }
+    }
+
+    .bjs-powered-by {
+      display: none;
+    }
+  }
+}
+.selected {
+  border: 2px solid #f00;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}

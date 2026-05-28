@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.filingmaterials.FilingMaterialsMapper">
+
+    <select id="queryFilingMaterialsConfig" resultType="cn.zswltech.mithras.dto.filingmaterials.FilingMaterialsConfigDTO">
+        select
+        fmc.business_type,
+        fflc.dir_name ,
+        fflc.dir_code,
+        fflc.sort_code,
+        fcc.condition_key
+        from
+        filing_materials_config fmc
+        inner join filing_first_level_config fflc on
+        fmc.id = fflc.filing_materials_config_id
+        left join filing_condition_config fcc on
+        fflc.condition_key = fcc.condition_key
+        and fcc.enable_flag = '1'
+        where
+        fmc.enable_flag = '1'
+        and fflc.enable_flag = '1'
+        and fmc.filing_type =
+        #{filingType}
+    </select>
+
+    <select id="queryDocxFilingMaterialsConfig" resultType="cn.zswltech.mithras.dto.filingmaterials.FilingMaterialsConfigDTO">
+        select
+        fmc.business_type,
+        fflc.dir_name ,
+        fflc.dir_code,
+        fflc.sort_code,
+        fcc.condition_key
+        from
+        filing_materials_config fmc
+        inner join filing_first_level_config fflc on
+        fmc.id = fflc.filing_materials_config_id
+        left join filing_condition_config fcc on
+        fflc.condition_key = fcc.condition_key
+        and fcc.enable_flag = '1'
+        where
+        fmc.enable_flag = '1'
+        and fflc.docx_enable_flag = '1'
+        and fmc.filing_type =
+        #{filingType}
+    </select>
+
+    <select id="queryRequireFilingMaterialsConfig" resultType="cn.zswltech.mithras.dto.filingmaterials.FilingMaterialsConfigDTO">
+        select
+        fmc.business_type,
+        fflc.dir_name ,
+        fflc.dir_code,
+        fflc.sort_code
+        from
+        filing_materials_config fmc
+        inner join filing_first_level_config fflc on
+        fmc.id = fflc.filing_materials_config_id
+        where
+        fmc.enable_flag = '1'
+        and fflc.enable_flag = '1'
+        and fflc.require_flag = '1'
+        and fmc.filing_type =
+        #{filingType}
+    </select>
+
+    <select id="otherPageList" resultType="cn.zswltech.mithras.service.mapper.model.filingmaterials.FilingMaterials">
+        select a.*
+        from filing_materials a inner join proj_review_base_info b on a.object_id = b.id
+        <where>
+            and a.approve_status != 'ABOLISH'
+            <if test="dto.ids!=null and dto.ids.size()>0">
+                and a.id IN
+                <foreach collection="dto.ids" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.filingType!=null">and a.filing_type=#{dto.filingType}</if>
+            <if test="dto.objectType!=null">and a.object_type=#{dto.objectType}</if>
+            <if test="dto.clientId!=null">and a.client_id=#{dto.clientId}</if>
+            <if test="dto.projName!=null and dto.projName!=''">and b.proj_name like CONCAT('%',#{dto.projName},'%')</if>
+            <if test="dto.projCode!=null and dto.projCode!=''">and b.proj_code like
+                CONCAT('%',#{dto.projCode}, '%')
+            </if>
+            <if test="dto.materialsDesc!=null and dto.materialsDesc!=''">and a.materials_desc like CONCAT('%',#{dto.materialsDesc}, '%')</if>
+            <if test="dto.bizDeptId!=null">and a.dept_id=#{dto.bizDeptId}</if>
+            <if test="dto.createById!=null">and a.user_id=#{dto.createById}</if>
+            <if test="dto.approveStatus!=null">and a.approve_status=#{dto.approveStatus}</if>
+            <if test="dto.approveStatusList!=null and dto.approveStatusList.size()>0">
+                and a.approve_status IN
+                <foreach collection="dto.approveStatusList" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+            </if>
+
+            <if test="dto.startDateFrom!=null">and a.first_commit_date &gt;= #{dto.startDateFrom}</if>
+            <if test="dto.startDateTo!=null">and a.first_commit_date &lt;= #{dto.startDateTo}</if>
+            <if test="dto.endDateFrom!=null">and a.approve_date &gt;= #{dto.endDateFrom}</if>
+            <if test="dto.endDateTo!=null">and a.approve_date &lt;= #{dto.endDateTo}</if>
+            <if test="dto.isBizUser==true">
+                and
+                (dept_id IN
+                <foreach collection="dto.deptIdList" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+                or a.user_id = #{dto.currentUserId}
+                )
+            </if>
+        </where>
+        order by a.id desc
+    </select>
+
+    <select id="queryFundDirectFinancingFilingMaterials"
+            resultType="cn.zswltech.mithras.service.mapper.model.filingmaterials.FundDirectFinancingFilingMaterialsResult">
+        SELECT DISTINCT
+        fm.id as filingMaterialsId,
+        fm.filing_type as filingType,
+        fdf.financing_code as financingCode,
+        fdf.direct_financing_type as projClassify,
+        fdf.product_name as productName,
+        fdf.financing_status as financingStatus,
+        fdf.carry_interest_time as carryInterestTime,
+        fdf.duration_time as endDate,
+        fdf.fund_manager_id as fundManagerId,
+        fm.approve_status as approveStatus,
+        fm.approve_date as archiveDate
+        from filing_materials fm
+        inner join fund_direct_financing_base_info fdf on
+        fm.object_id = fdf.id
+        WHERE fm.object_type = 'FUND'
+        <if test="req.financingCode != null and req.financingCode != ''">
+            and fdf.financing_code like CONCAT('%',#{req.financingCode}, '%')
+        </if>
+        <if test="req.filingType != null and req.filingType != ''">
+            and fm.filing_type = #{req.filingType}
+        </if>
+        <if test="req.projClassify != null and req.projClassify != ''">
+            and fdf.direct_financing_type = #{req.projClassify}
+        </if>
+        <if test="req.productName != null and req.productName != ''">
+            and fdf.product_name like CONCAT('%',#{req.productName}, '%')
+        </if>
+        <if test="req.financingStatus != null and req.financingStatus != ''">
+            and fdf.financing_status = #{req.financingStatus}
+        </if>
+        <if test="req.fundManagerId != null">
+            and fdf.fund_manager_id = #{req.fundManagerId}
+        </if>
+        <if test="req.archiveFlag != null">
+            <choose>
+                <when test="req.archiveFlag == true">
+                    and fm.approve_status = 'APPROVAL_PASS'
+                </when>
+                <otherwise>
+                    and (fm.approve_status IS NULL OR fm.approve_status != 'APPROVAL_PASS')
+                </otherwise>
+            </choose>
+        </if>
+        <if test="req.carryInterestTimeFrom != null">
+            and <![CDATA[fdf.carry_interest_time >= #{req.carryInterestTimeFrom}]]>
+        </if>
+        <if test="req.carryInterestTimeTo != null">
+            and <![CDATA[fdf.carry_interest_time <= #{req.carryInterestTimeTo}]]>
+        </if>
+        <if test="req.endDateFrom != null">
+            and <![CDATA[fdf.duration_time >= #{req.endDateFrom}]]>
+        </if>
+        <if test="req.endDateTo != null">
+            and <![CDATA[fdf.duration_time <= #{req.endDateTo}]]>
+        </if>
+        <if test="req.archiveDateFrom != null">
+            and <![CDATA[fm.approve_date >= #{req.archiveDateFrom}]]>
+        </if>
+        <if test="req.archiveDateTo != null">
+            and <![CDATA[fm.approve_date <= #{req.archiveDateTo}]]>
+        </if>
+        ORDER BY fdf.carry_interest_time DESC
+        <if test="
+            (req.financingCode == null or req.financingCode == '') and
+            (req.filingType == null or req.filingType == '') and
+            (req.projClassify == null or req.projClassify == '') and
+            (req.productName == null or req.productName == '') and
+            (req.financingStatus == null or req.financingStatus == '') and
+            (req.fundManagerId == null) and
+            (req.archiveFlag == null or req.archiveFlag == '') and
+            (req.carryInterestTimeFrom == null) and
+            (req.carryInterestTimeTo == null) and
+            (req.endDateFrom == null) and
+            (req.endDateTo == null) and
+            (req.archiveDateFrom == null) and
+            (req.archiveDateTo == null)">
+            LIMIT 200
+        </if>
+    </select>
+    <select id="queryFundFinancingFilingMaterials"
+            resultType="cn.zswltech.mithras.service.mapper.model.filingmaterials.FundFinancingFilingMaterialsResult">
+        SELECT DISTINCT
+        fm.id as filingMaterialsId,
+        fm.filing_type as filingType,
+        ffb.financing_code as financingCode,
+        ffb.business_type as bizType,
+        ffc.organization_id as organizationId,
+        ffb.financing_status as financingStatus,
+        ffb.actual_loan_date as carryInterestTime,
+        ffb.actual_expire_date as endDate,
+        ffb.fund_manager_id as fundManagerId,
+        fm.approve_status as approveStatus,
+        fm.approve_date as archiveDate
+        from filing_materials fm
+        inner join fund_financing_base_info ffb on fm.object_id = ffb.id
+        inner join fund_financing_credit_ref ffc on ffc.financing_id = ffb.id
+        WHERE fm.object_type = 'FUND'
+        <if test="req.financingCode != null and req.financingCode != ''">
+            and ffb.financing_code like CONCAT('%',#{req.financingCode}, '%')
+        </if>
+        <if test="req.filingType != null and req.filingType != ''">
+            and fm.filing_type = #{req.filingType}
+        </if>
+        <if test="req.bizType != null and req.bizType != ''">
+            and ffb.business_type = #{req.bizType}
+        </if>
+        <if test="req.organizationId != null and req.organizationId != ''">
+            and ffc.organization_id = #{req.organizationId}
+        </if>
+        <if test="req.financingStatus != null and req.financingStatus != ''">
+            and ffb.financing_status = #{req.financingStatus}
+        </if>
+        <if test="req.fundManagerId != null">
+            and ffb.fund_manager_id = #{req.fundManagerId}
+        </if>
+        <if test="req.archiveFlag != null">
+            <choose>
+                <when test="req.archiveFlag == true">
+                    and fm.approve_status = 'APPROVAL_PASS'
+                </when>
+                <otherwise>
+                    and (fm.approve_status IS NULL OR fm.approve_status != 'APPROVAL_PASS')
+                </otherwise>
+            </choose>
+        </if>
+        <if test="req.carryInterestTimeFrom != null">
+            and <![CDATA[ffb.actual_loan_date >= #{req.carryInterestTimeFrom}]]>
+        </if>
+        <if test="req.carryInterestTimeTo != null">
+            and <![CDATA[ffb.actual_loan_date <= #{req.carryInterestTimeTo}]]>
+        </if>
+        <if test="req.endDateFrom != null">
+            and <![CDATA[ffb.actual_expire_date >= #{req.endDateFrom}]]>
+        </if>
+        <if test="req.endDateTo != null">
+            and <![CDATA[ffb.actual_expire_date <= #{req.endDateTo}]]>
+        </if>
+        <if test="req.archiveDateFrom != null">
+            and <![CDATA[fm.approve_date >= #{req.archiveDateFrom}]]>
+        </if>
+        <if test="req.archiveDateTo != null">
+            and <![CDATA[fm.approve_date <= #{req.archiveDateTo}]]>
+        </if>
+        ORDER BY ffb.actual_loan_date DESC
+        <if test="
+            (req.financingCode == null or req.financingCode == '') and
+            (req.filingType == null or req.filingType == '') and
+            (req.bizType == null or req.bizType == '') and
+            (req.organizationId == null) and
+            (req.financingStatus == null or req.financingStatus == '') and
+            (req.fundManagerId == null) and
+            (req.archiveFlag == null or req.archiveFlag == '') and
+            (req.carryInterestTimeFrom == null) and
+            (req.carryInterestTimeTo == null) and
+            (req.endDateFrom == null) and
+            (req.endDateTo == null) and
+            (req.archiveDateFrom == null) and
+            (req.archiveDateTo == null)">
+            LIMIT 200
+        </if>
+    </select>
+
+    <select id="queryProjFilingMaterials"
+            resultType="cn.zswltech.mithras.service.mapper.model.filingmaterials.ProjFilingMaterialsResult">
+        SELECT DISTINCT
+        cbi.biz_dept_id AS bizDeptId,
+        fm.client_id AS clientId,
+        fm.proj_code AS projCode,
+        cbi.proj_name AS projName,
+        cbi.contract_code AS contractCode,
+        cbi.risk_control_industry_classify AS riskControlIndustryClassify,
+        cbi.proj_sponsor_user_id AS sponsorUserId,
+        COALESCE(
+        task.ASSIGNEE_,
+        (SELECT GROUP_CONCAT(DISTINCT il.USER_ID_)
+        FROM act_hi_identitylink il
+        WHERE il.TASK_ID_ = act.TASK_ID_ AND il.TYPE_ IN ('participant', 'assignee')),
+        '未知审批人'
+        ) AS materialsReReviewUserId, -- 最后审批人
+        fm.flow_id AS processInstanceId,
+        fm.start_date AS createTime,
+        fm.approve_date AS endTime,
+        fm.filing_overdue as archiveOverDueFlag,
+        fm.supplement_filing_overdue as supplementDocOverdueFlag,
+        fm.duration as duration,
+        fm.materials_manager_review_duration as materialsManagerReviewDuration,
+        fm.materials_manager_re_review_duration as materialsManagerReReviewDuration,
+        fm.first_commit_date AS projectHostSubmitTime,
+        fm.archive_pre_review_last_submit_time as archiveReviewSubmitTime,
+        fm.archive_review_last_submit_time as archiveReReviewSubmitTime,
+        fm.archive_pre_review_reject_count as archiveReviewRejectCount,
+        fm.archive_review_reject_count as archiveReReviewRejectCount,
+        fm.archive_pre_review_reject_reason_sum as archiveReviewRejectReason,
+        fm.archive_review_reject_reason_sum as archiveReReviewRejectReason
+        FROM filing_materials fm
+        INNER JOIN contract_base_info cbi ON fm.contract_id = cbi.id
+        INNER JOIN act_hi_actinst act ON fm.flow_id = act.PROC_INST_ID_
+        LEFT JOIN act_hi_taskinst task ON act.TASK_ID_ = task.ID_
+        INNER JOIN (
+        SELECT
+        PROC_INST_ID_,
+        MAX(END_TIME_) AS max_end_time
+        FROM act_hi_actinst
+        WHERE ACT_ID_ = 'userTask_review'
+        AND DELETE_REASON_ is null
+        GROUP BY PROC_INST_ID_
+        ) act_max ON act.PROC_INST_ID_ = act_max.PROC_INST_ID_ AND act.END_TIME_ = act_max.max_end_time
+        WHERE fm.approve_status = 'APPROVAL_PASS'
+        AND fm.object_type = 'PROJECT'
+        AND fm.filing_type = 'BUSINESS_MATERIALS'
+        AND act.ACT_ID_ = 'userTask_review'
+        <if test="req.clientId != null">
+            AND fm.client_id = #{req.clientId}
+        </if>
+        <if test="req.projCode != null and req.projCode != ''">
+            AND fm.proj_code like CONCAT('%', #{req.projCode}, '%')
+        </if>
+        <if test="req.projName != null and req.projName != ''">
+            AND cbi.proj_name LIKE CONCAT('%', #{req.projName}, '%')
+        </if>
+        <if test="req.contractCode != null and req.contractCode != ''">
+            AND cbi.contract_code like CONCAT('%', #{req.contractCode}, '%')
+        </if>
+        <if test="req.bizDeptId != null">
+            AND cbi.biz_dept_id = #{req.bizDeptId}
+        </if>
+        <if test="req.riskControlIndustryClassify != null and req.riskControlIndustryClassify != ''">
+            AND cbi.risk_control_industry_classify = #{req.riskControlIndustryClassify}
+        </if>
+        <if test="req.sponsorUserId != null">
+            AND cbi.proj_sponsor_user_id = #{req.sponsorUserId}
+        </if>
+        <if test="req.materialsReReviewUserId != null">
+            AND act.ASSIGNEE_ = #{req.materialsReReviewUserId}
+        </if>
+        <if test="req.processInstanceId != null and req.processInstanceId != ''">
+            AND fm.flow_id like CONCAT('%', #{req.processInstanceId}, '%')
+        </if>
+        <if test="req.archiveOverDueFlag != null and req.archiveOverDueFlag != ''">
+            AND fm.filing_overdue = #{req.archiveOverDueFlag}
+        </if>
+        <if test="req.supplementDocOverdueFlag != null and req.supplementDocOverdueFlag != ''">
+            AND fm.supplement_filing_overdue = #{req.supplementDocOverdueFlag}
+        </if>
+        <if test="req.createTimeFrom != null">
+            AND <![CDATA[fm.start_date >= #{req.createTimeFrom}]]>
+        </if>
+        <if test="req.createTimeTo != null">
+            AND <![CDATA[fm.start_date <= #{req.createTimeTo}]]>
+        </if>
+        <if test="req.endTimeFrom != null">
+            AND <![CDATA[fm.approve_date >= #{req.endTimeFrom}]]>
+        </if>
+        <if test="req.endTimeTo != null">
+            AND <![CDATA[fm.approve_date <= #{req.endTimeTo}]]>
+        </if>
+        ORDER BY fm.approve_date DESC
+    </select>
+</mapper>

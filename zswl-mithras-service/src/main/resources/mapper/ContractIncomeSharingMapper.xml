@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.contract.ContractIncomeSharingMapper">
+
+    <select id="queryMonthlyData" resultType="cn.zswltech.mithras.dto.monthly.MonthlyQueryResult">
+        SELECT *,
+        sum(union_table.income)  AS incomeSum,
+        sum(union_table.income_without_tax) AS incomeWithoutTaxSum
+        FROM (
+        SELECT
+        income.id as id,
+        income.receipt_id AS receiptId,
+        client.id AS clientId,
+        receipt.receipt_code AS receiptCode,
+        income.contract_id AS contractId,
+        income.income_date AS incomeDate,
+        base.proj_name AS projName,
+        base.contract_code AS contractCode,
+        base.actual_lease_date AS actualLeaseDate,
+        client.client_name AS clientName,
+        base.lease_type AS leaseType,
+        base.biz_type AS bizType,
+        income.income,
+        income.income_without_tax
+        FROM contract_income_sharing income LEFT JOIN contract_base_info base ON base.id = income.contract_id
+        LEFT JOIN client ON client.id = base.client_id
+        LEFT JOIN contract_receipt receipt ON income.receipt_id = receipt.id
+        WHERE income.income_without_tax != 0
+        AND income.deleted = false
+        <if test="req.batchNumber != null">
+            AND income.confirm_batch = #{req.batchNumber}
+        </if>
+        <if test="req.contractIdList != null and req.contractIdList.size() >0">
+            AND income.contract_id IN
+            <foreach collection="req.contractIdList" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="req.endMonth != null">
+            AND income.income_date &lt;= #{req.endMonth}
+        </if>
+        <if test="req.beginMonth != null">
+            AND income.income_date &gt;= #{req.beginMonth}
+        </if>
+        <if test="req.receiptId != null">
+            AND income.receipt_id = #{req.receiptId}
+        </if>
+        UNION
+        SELECT
+        income.id as id,
+        income.receipt_id AS receiptId,
+        client.id AS clientId,
+        receipt.receipt_code AS receiptCode,
+        income.contract_id AS contractId,
+        income.income_date AS incomeDate,
+        base.proj_name AS projName,
+        base.contract_code AS contractCode,
+        base.actual_lease_date AS actualLeaseDate,
+        client.client_name AS clientName,
+        base.lease_type AS leaseType,
+        base.biz_type AS bizType,
+        income.income,
+        income.income_without_tax
+        FROM contract_income_sharing income LEFT JOIN contract_base_info base ON base.id = income.contract_id
+        LEFT JOIN client ON client.id = base.client_id
+        LEFT JOIN contract_receipt receipt ON income.receipt_id = receipt.id
+        WHERE income.income_without_tax != 0
+        AND income.deleted = false
+        AND income.is_confirmed = 0
+        <if test="req.batchNumber != null">
+            AND income.confirm_batch = #{req.batchNumber}
+        </if>
+        <if test="req.contractIdList != null and req.contractIdList.size() >0">
+            AND income.contract_id IN
+            <foreach collection="req.contractIdList" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="req.beginMonth != null">
+            AND income.income_date &lt; #{req.beginMonth}
+        </if>
+        <if test="req.receiptId != null">
+            AND income.receipt_id = #{req.receiptId}
+        </if>
+        ) AS union_table
+        GROUP BY receiptId
+        ORDER BY clientName,contractCode,actualLeaseDate
+    </select>
+
+    <resultMap id="queryListResultMap" type="cn.zswltech.mithras.dto.incomeSharing.IncomeSharingListBO">
+        <result column="receipt_id" property="receiptId"/>
+        <result column="receipt_code" property="receiptCode"/>
+        <result column="client_name" property="clientName"/>
+        <result column="proj_name" property="projName"/>
+        <result column="contract_code" property="contractCode"/>
+        <result column="contract_status" property="contractStatus"/>
+        <result column="income_date" property="incomeDate"/>
+        <result column="income_confirm_type" property="incomeConfirmType"/>
+        <result column="income" property="income"/>
+        <result column="income_without_tax" property="incomeWithoutTax"/>
+        <result column="is_confirmed" property="isConfirmed"/>
+        <result column="confirm_time" property="confirmTime"/>
+    </resultMap>
+    <select id="queryList" resultMap="queryListResultMap"
+            parameterType="cn.zswltech.mithras.dto.incomeSharing.IncomeSharingListREQ">
+        SELECT
+        income.receipt_id,
+        receipt.receipt_code,
+        income.income_date,
+        client.client_name,
+        base.proj_name,
+        base.contract_code,
+        base.contract_status,
+        base.income_confirm_type,
+        income.income,
+        income.income_without_tax,
+        income.is_confirmed,
+        income.confirm_time
+        FROM contract_income_sharing income
+        LEFT JOIN contract_base_info base ON base.id = income.contract_id
+        LEFT JOIN client ON client.id = base.client_id
+        LEFT JOIN contract_receipt receipt ON income.receipt_id = receipt.id
+        WHERE income.deleted = FALSE
+        AND income.receipt_id IN (
+            <foreach item="id" index="index" collection="receiptIdList" separator=",">
+                #{id}
+            </foreach>
+        )
+        <if test="req.clientId != null">
+            AND client.id = #{req.clientId}
+        </if>
+        <if test="req.projName != null and req.projName != ''">
+            AND base.proj_name LIKE CONCAT('%', #{req.projName} ,'%')
+        </if>
+        <if test="req.contractCode != null and req.contractCode != ''">
+            AND base.contract_code LIKE CONCAT('%', #{req.contractCode}, '%')
+        </if>
+        <if test="req.receiptCode != null and req.receiptCode != ''">
+            AND receipt.receipt_code LIKE CONCAT('%', #{req.receiptCode} ,'%')
+        </if>
+        <if test="req.contractStatus != null and req.contractStatus != ''">
+            AND base.contract_status LIKE CONCAT('%', #{req.contractStatus} ,'%')
+        </if>
+    </select>
+
+    <resultMap id="detailResultMap" type="cn.zswltech.mithras.dto.incomeSharing.IncomeSharingRSP">
+        <result column="receipt_code" property="receiptCode"/>
+        <result column="contract_code" property="contractCode"/>
+        <result column="income_date" property="incomeDate"/>
+        <result column="begin_of_term_balance" property="beginOfTermBalance"/>
+        <result column="end_of_term_balance" property="endOfTermBalance"/>
+        <result column="tax" property="tax"/>
+        <result column="rent" property="rent"/>
+        <result column="income" property="income"/>
+        <result column="income_without_tax" property="incomeWithoutTax"/>
+        <result column="daily_discount_rate" property="dailyDiscountRate"/>
+        <result column="is_confirmed" property="isConfirmed"/>
+    </resultMap>
+    <select id="queryDetail" resultMap="detailResultMap"
+            parameterType="cn.zswltech.mithras.dto.incomeSharing.IncomeSharingDetailREQ">
+        SELECT receipt.receipt_code,
+               base.contract_code,
+               income.income_date,
+               income.begin_of_term_balance,
+               income.end_of_term_balance,
+               income.tax,
+               income.rent,
+               income.income,
+               income.income_without_tax,
+               income.daily_discount_rate,
+               income.is_confirmed
+        FROM contract_income_sharing income
+                 LEFT JOIN contract_base_info base ON base.id = income.contract_id
+                 LEFT JOIN client ON client.id = base.client_id
+                 LEFT JOIN contract_receipt receipt ON income.receipt_id = receipt.id
+        WHERE income.deleted = FALSE
+          AND income.receipt_id = #{req.receiptId}
+          <if test="req.incomeDateFrom != null">
+          AND income.income_date &gt;= #{req.incomeDateFrom}
+        </if>
+        <if test="req.incomeDateTo != null">
+          AND income.income_date &lt;= #{req.incomeDateTo}
+        </if>
+    </select>
+</mapper>

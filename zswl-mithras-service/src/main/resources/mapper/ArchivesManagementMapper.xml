@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.archives.ArchivesManagementMapper">
+
+    <select id="pageList" resultType="cn.zswltech.mithras.service.mapper.dto.ArchivesManagementDTO">
+        select
+        a.id,
+        a.proj_id projId,
+        b.proj_name projName,
+        b.proj_sponsor_user_id projSponsorUserId,
+        b.biz_dept_id bizDeptId,
+        b.client_id clientId,
+        a.template_id templateId,
+        b.biz_type bizType,
+        a.status,
+        a.flow_status flowStatus,
+        a.type,
+        a.archives_code archivesCode,
+        a.create_time createTime,
+        a.update_time updateTime
+        from archives_management a  left join proj_establish_base_info b
+        on a.proj_id = b.id
+        <where>
+            <if test="dto.clientId!=null">and b.client_id = #{dto.clientId}</if>
+            <if test="dto.projName!=null">and b.proj_name LIKE concat('%', #{dto.projName},'%')</if>
+            <if test="dto.bizType!=null">and b.biz_type = #{dto.bizType}</if>
+            <if test="dto.bizDeptId!=null">and b.biz_dept_id = #{dto.bizDeptId}</if>
+            <if test="dto.projSponsorUserId!=null">and b.proj_sponsor_user_id = #{dto.projSponsorUserId}</if>
+            <if test="dto.createTimeFrom!=null">and a.create_time <![CDATA[ >= ]]> #{dto.createTimeFrom}</if>
+            <if test="dto.createTimeTo!=null">and a.create_time <![CDATA[ <= ]]> #{dto.createTimeTo}</if>
+            <if test="dto.updateTimeFrom!=null">and a.update_time <![CDATA[ >= ]]> #{dto.updateTimeFrom}</if>
+            <if test="dto.updateTimeTo!=null">and a.update_time <![CDATA[ <= ]]> #{dto.updateTimeTo}</if>
+            <if test="dto.fileType!=null">and a.flow_status in("APPROVAL_PASS","SYS_APPROVAL_PASS")</if>
+            <if test="dto.archivesId!=null">and a.id in
+                <foreach collection="dto.archivesId" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach></if>
+            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+        </where>
+        order by a.update_time desc
+    </select>
+
+</mapper>

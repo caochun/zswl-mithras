@@ -1,0 +1,62 @@
+.topBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+.content {
+  padding: 16px 10px;
+  height: 100%;
+  .buttonClamp {
+    display: flex;
+    align-items: center;
+    width: 130px;
+    height: 50px;
+    line-height: 20px;
+    padding: 5px 16px;
+    text-overflow: ellipsis;
+    border-radius: 8px;
+
+    > span {
+      display: flex;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+.tableBox {
+  position: relative;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  padding: 16px;
+  .anchorWrap {
+    width: 120px;
+    border-right: 1px solid #ecedf0;
+    flex: none;
+    .anchor {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+  }
+  .content {
+    flex: auto;
+    padding: 16px;
+    overflow-x: auto;
+    & > div {
+      margin-bottom: 20px;
+    }
+  }
+}
+.modalButton {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+  height: 48px;
+  width: 300px;
+}

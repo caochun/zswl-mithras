@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_transfer</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#2558E6" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#2558E6" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#2558E6" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#2558E6" stop-opacity="0.25" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="客户管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="客户移交" transform="translate(-780.000000, -280.000000)">
+            <g id="icon_transfer" transform="translate(780.000000, 280.000000)">
+                <circle id="椭圆形" fill="url(#linearGradient-1)" cx="48" cy="48" r="48"></circle>
+                <g id="编组-4" transform="translate(28.000000, 29.000000)">
+                    <rect id="矩形" stroke="#2558E6" stroke-width="3" x="1.5" y="1.5" width="37" height="29"></rect>
+                    <rect id="矩形" fill="url(#linearGradient-2)" x="5" y="5" width="32" height="24"></rect>
+                    <rect id="矩形" fill="#2558E6" x="8" y="35" width="24" height="3"></rect>
+                    <polygon id="路径" fill="#2558E6" fill-rule="nonzero" transform="translate(21.000000, 14.000000) scale(-1, 1) translate(-21.000000, -14.000000) " points="12.1666667 18 8 18 11.3333333 14.96 16.5 10 18.5 11.92 15.3333333 14.96 34 14.96 34 18"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

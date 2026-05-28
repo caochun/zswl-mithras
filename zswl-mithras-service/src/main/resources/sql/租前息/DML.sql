@@ -1,0 +1,27 @@
+-- -- 付款表处理历史数据
+-- update `payment_base_info` a set `receipt_id` = (select `id` from `contract_receipt` b where a.`payment_code` = b.`payment_apply_code` limit 1);
+-- update `payment_base_info` a set `receipt_code` = (select `receipt_code` from `contract_receipt` b where a.`payment_code` = b.`payment_apply_code` limit 1);
+-- update `payment_base_info` a set `receipt_id_final` = (select `origin_id` from `contract_receipt_lib` b where a.`payment_code` = b.`payment_apply_code` and b.`version_type` = 1 limit 1);
+-- update `payment_base_info_lib` a set `receipt_id` = (select `id` from `contract_receipt` b where a.`payment_code` = b.`payment_apply_code` limit 1);
+-- update `payment_base_info_lib` a set `receipt_code` = (select `receipt_code` from `contract_receipt` b where a.`payment_code` = b.`payment_apply_code` limit 1);
+-- update `payment_base_info_lib` a set `receipt_id_final` = (select `origin_id` from `contract_receipt_lib` b where a.`payment_code` = b.`payment_apply_code` and b.`version_type` = 1 limit 1);
+--
+-- -- 收款表处理历史数据
+-- update collection_base_info set receipt_code = payment_code where  payment_code IN
+--   (
+-- select payment_apply_code from contract_receipt a where payment_apply_code is not null and  payment_apply_code !='');
+--
+-- update collection_base_info a , contract_receipt b set a.receipt_id = b.id where a.receipt_code = b.payment_apply_code;
+--
+-- update collection_base_info
+-- set receipt_code = payment_code
+-- where payment_code IN (
+--     (
+--         select payment_apply_code
+--         from contract_receipt a
+--         where payment_apply_code is not null and payment_apply_code != ''
+--         ));
+--
+-- update collection_base_info a , contract_receipt b
+-- set a.receipt_id = b.id
+-- where a.receipt_code = b.payment_apply_code;

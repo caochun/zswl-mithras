@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.finance.FinanceProjectProfitDetailMapper">
+    <select id="myPageList" resultType="cn.zswltech.mithras.service.service.bo.FinanceProjectProfitDetailBO">
+        select
+        a.id as id,
+        a.project_profit_id as projectProfitId,
+        b.biz_dept_id as bizDeptId,
+        c.name as bizDeptName,
+        b.proj_sponsor_user_id as sponsorUserId,
+        d.user_name as sponsorUserName,
+        b.proj_name as projName,
+        b.biz_type as bizType,
+        b.lease_type as leaseType,
+        b.factoring_type as factoringType,
+        b.client_id as clientId,
+        a.year as year,
+        a.month as month,
+        a.contract_id as contractId,
+        b.contract_code as contractCode,
+        a.contract_start_date as contractStartDate,
+        a.total_income_this_year as totalIncomeThisYear,
+        a.total_cost_this_year as totalCostThisYear,
+        a.total_risk_this_year as totalRiskThisYear,
+        a.total_additional_tax_this_year as totalAdditionalTaxThisYear,
+        a.total_stamp_tax_this_year as totalStampTaxThisYear,
+        a.total_profit_this_year as totalProfitThisYear,
+        a.income_this_month as incomeThisMonth,
+        a.cost_this_month as costThisMonth,
+        a.risk_this_month as riskThisMonth,
+        a.profit_this_month as profitThisMonth,
+        a.assess_dept_id as assessDeptId,
+        a.total_gross_profit_this_year as totalGrossProfitThisYear,
+        a.gross_profit_this_month as grossProfitThisMonth,
+        a.revenue_this_month as revenueThisMonth,
+        a.assess_dept_id as assessDeptId,
+        a.expense_radio as expenseRadio,
+        a.total_profit_this_year_before as totalProfitThisYearBefore,
+        a.total_risk_balance_this_year as totalRiskBalanceThisYear,
+        a.risk_balance_begin_year as riskBalanceBeginYear
+        from finance_project_profit_detail as a
+        left join contract_base_info as b on a.contract_id = b.id
+        left join bifrost_org as c on b.biz_dept_id = c.id
+        left join bifrost_user as d on b.proj_sponsor_user_id = d.id
+        <include refid="myPageListWhere"></include>
+        limit #{query.start}, #{query.size}
+    </select>
+
+    <select id="myPageListCount" resultType="int">
+        select
+        count(*)
+        from finance_project_profit_detail as a
+        left join contract_base_info as b on a.contract_id = b.id
+        left join bifrost_org as c on b.biz_dept_id = c.id
+        left join bifrost_user as d on b.proj_sponsor_user_id = d.id
+        <include refid="myPageListWhere"></include>
+    </select>
+
+    <sql id="myPageListWhere">
+        <where>
+            <if test="query.projectProfitId != null">
+                and a.project_profit_id = #{query.projectProfitId}
+            </if>
+            <if test="query.deptId != null">
+                and b.biz_dept_id = #{query.deptId}
+            </if>
+            <if test="query.contractCode != null">
+                and b.contract_code like concat('%', #{query.contractCode}, '%')
+            </if>
+            <if test="query.sponsorUserId != null">
+                and b.proj_sponsor_user_id = #{query.sponsorUserId}
+            </if>
+        </where>
+    </sql>
+</mapper>

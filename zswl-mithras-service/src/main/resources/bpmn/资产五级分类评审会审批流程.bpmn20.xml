@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="AssetClassifyReviewMeetingFlow" name="资产五级分类评审会审批流程" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="userTask_startUser" name="发起人"></userTask>
+    <sequenceFlow id="sid-5803D45D-FCBC-4AB0-8366-71F764F2282F" sourceRef="startEvent1" targetRef="userTask_startUser"></sequenceFlow>
+    <userTask id="userTask_reviewMeeting" name="评审会"></userTask>
+    <sequenceFlow id="sid-34F84B00-B137-40BE-BB82-0CC42E4F6ED7" sourceRef="userTask_startUser" targetRef="userTask_reviewMeeting"></sequenceFlow>
+    <userTask id="userTask_secretary" name="秘书汇总"></userTask>
+    <sequenceFlow id="sid-D99D793B-5C5E-4179-8F30-7AB6C883410E" sourceRef="userTask_reviewMeeting" targetRef="userTask_secretary"></sequenceFlow>
+    <endEvent id="sid-229AFFA9-69A6-4A28-9C69-D5B32291D9E8"></endEvent>
+    <sequenceFlow id="sid-F6D327D6-020E-43C9-BDB3-21C64441D755" sourceRef="userTask_secretary" targetRef="sid-229AFFA9-69A6-4A28-9C69-D5B32291D9E8"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_AssetClassifyReviewMeetingFlow">
+    <bpmndi:BPMNPlane bpmnElement="AssetClassifyReviewMeetingFlow" id="BPMNPlane_AssetClassifyReviewMeetingFlow">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_startUser" id="BPMNShape_userTask_startUser">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_reviewMeeting" id="BPMNShape_userTask_reviewMeeting">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_secretary" id="BPMNShape_userTask_secretary">
+        <omgdc:Bounds height="80.0" width="100.0" x="465.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-229AFFA9-69A6-4A28-9C69-D5B32291D9E8" id="BPMNShape_sid-229AFFA9-69A6-4A28-9C69-D5B32291D9E8">
+        <omgdc:Bounds height="28.0" width="28.0" x="610.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-5803D45D-FCBC-4AB0-8366-71F764F2282F" id="BPMNEdge_sid-5803D45D-FCBC-4AB0-8366-71F764F2282F">
+        <omgdi:waypoint x="129.9499984899576" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="174.9999999999917" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-D99D793B-5C5E-4179-8F30-7AB6C883410E" id="BPMNEdge_sid-D99D793B-5C5E-4179-8F30-7AB6C883410E">
+        <omgdi:waypoint x="419.94999999999067" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="464.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-34F84B00-B137-40BE-BB82-0CC42E4F6ED7" id="BPMNEdge_sid-34F84B00-B137-40BE-BB82-0CC42E4F6ED7">
+        <omgdi:waypoint x="274.9499999999907" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="319.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-F6D327D6-020E-43C9-BDB3-21C64441D755" id="BPMNEdge_sid-F6D327D6-020E-43C9-BDB3-21C64441D755">
+        <omgdi:waypoint x="564.95" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="610.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

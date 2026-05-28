@@ -1,0 +1,38 @@
+import { useMemo } from 'react'
+import { observer } from '@zswl/admin'
+import Leave5Type from '@/pages/afterLease/level5Classify'
+
+const Index = (props) => {
+  const { canEditFlag, subModule, id, businessVersion, modelKey, curTaskActivityIds, taskStatus } =
+    props
+  const renderContractType = useMemo(() => {
+    if (
+      [
+        'AssetClassifyReviewFlow',
+        'AssetClassifyReviewMeetingFlow',
+        'AssetClassifyRiskMeetingFlow',
+        'AssetClassifyBoardMeetingFlow',
+      ].includes(modelKey)
+    ) {
+      return (
+        <div>
+          <Leave5Type
+            params={{ id }}
+            query={{
+              curTaskActivityIds,
+              modelKey,
+              businessVersion,
+              taskStatus,
+              canEditFlags: canEditFlag ? 'true' : 'false',
+            }}
+          />
+        </div>
+      )
+    }
+
+    return null
+  }, [subModule, businessVersion, id, canEditFlag, modelKey])
+
+  return renderContractType
+}
+export default observer(Index)

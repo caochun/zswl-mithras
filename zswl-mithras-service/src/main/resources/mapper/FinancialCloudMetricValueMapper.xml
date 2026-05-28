@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.metric.financialcloudmetric.mapper.FinancialCloudMetricValueMapper">
+
+    <select id="advanceList"
+            resultType="cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue">
+        SELECT * FROM financial_cloud_metric_value
+        WHERE (data_time = #{query.dataTime} OR (data_time = #{query.firstMonth} AND frequency = 'YEAR'))
+        <!--AND id NOT IN (SELECT id FROM financial_cloud_metric_value
+        WHERE one_level_type IN('按行业','按地域','按部门') AND (metric_value = '0' OR metric_value IS NULL )-->
+        AND data_time = #{query.dataTime}<!--)-->
+        <if test="query.metricName!=null and query.metricName!=''">
+            and metric_name like concat('%',#{query.metricName},'%')
+        </if>
+        <if test="query.metricFirstType!=null and query.metricFirstType!=''">
+            and metric_first_type = #{query.metricFirstType}
+        </if>
+        <if test="query.metricSecondType!=null and query.metricSecondType!=''">
+            and metric_second_type = #{query.metricSecondType}
+        </if>
+        <if test="query.frequency!=null and query.frequency!=''">
+            and frequency = #{query.frequency}
+        </if>
+        ORDER BY frequency, sort_no
+    </select>
+
+    <select id="reportList"
+            resultType="cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue">
+        SELECT * FROM financial_cloud_metric_value
+        WHERE data_time = #{query.dataTime} OR (data_time = #{query.firstMonth} AND metric_id IN
+        <foreach collection="query.metricIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        )
+    </select>
+</mapper>

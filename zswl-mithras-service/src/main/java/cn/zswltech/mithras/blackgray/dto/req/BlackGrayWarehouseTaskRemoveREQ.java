@@ -1,0 +1,23 @@
+package cn.zswltech.mithras.blackgray.dto.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
+/**
+ * @description 黑灰名单任务表
+ * @author 
+ * @date 2024-01-16
+ */
+@Data
+@ApiModel("黑灰名单任务表删除-请求体")
+public class BlackGrayWarehouseTaskRemoveREQ {
+
+    @NotNull
+    @ApiModelProperty("ids")
+    private List<Long> ids;
+
+}

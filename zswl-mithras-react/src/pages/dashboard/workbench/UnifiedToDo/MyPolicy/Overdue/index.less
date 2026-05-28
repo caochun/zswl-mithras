@@ -1,0 +1,34 @@
+.type {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #8a8b8e;
+  text-align: left;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+
+  &.isRead::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #eb2222;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+}
+.title {
+  max-width: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.content {
+  display: inline-block;
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.overtime {
+  color: red;
+}

@@ -1,0 +1,2 @@
+ALTER table contract_base_info ADD `is_save_register` tinyint(4) DEFAULT '0' COMMENT '是否中登初始登记保存';
+ALTER table contract_base_info_lib ADD `is_save_register` tinyint(4) DEFAULT '0' COMMENT '是否中登初始登记保存';

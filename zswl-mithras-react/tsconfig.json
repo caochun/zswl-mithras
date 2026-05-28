@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "noImplicitAny": false,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "mock",
+    "dist",
+    "bundle_dist",
+    "zswl-mithras-react"
+  ]
+}

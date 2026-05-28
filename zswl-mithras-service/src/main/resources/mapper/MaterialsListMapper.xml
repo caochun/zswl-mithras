@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.MaterialsListMapper">
+
+    <sql id="allColumns">
+        ml.id, ml.belong_id, ml.materials_type, ml.materials_sub_type, ml.business_type,
+        ml.oss_filename, ml.suffix, ml.filename, ml.file_path, ml.create_time, ml.create_by,
+        ml.update_time, ml.update_by, ml.system_generate, ml.fix_flag;
+    </sql>
+    <select id="queryNeedSignFile" resultType="cn.zswltech.mithras.service.mapper.model.MaterialsList">
+        SELECT
+        <include refid="allColumns"/>
+        FROM materials_list ml
+        WHERE ml.belong_id = #{contractId}
+        AND ml.business_type = 'CONTRACT'
+        AND ml.materials_type = 'MAIN_CONTRACT'
+        AND ml.materials_sub_type IS NULL
+        OR ml.materials_sub_type IN ('LEASE_ITEM',
+                                     'ZL_ZZ_LEASE_ITEM',
+                                     'COLLECTION_CONFIRM',
+                                     'LEASE_ITEM_QUALIFIED_CONFIRM',
+                                     'ASSETS_OWNER_CONFIRM',
+                                     'ZL_ZZ_ACTUAL_PAY',
+                                     'ZL_ZZ_ESTIMATE_PAY',
+                                     'ACTUAL_RENT',
+                                     'ESTIMATE_RENT',
+                                     'ZL_ZZ_OWNER_CHANGE',
+                                     'ZL_ZZ_SUPPLE_EARNEST',
+                                     'ZL_ZZ_RENT_BEFOREINTEREST_PAY',
+                                     'ZL_ZZ_START_RENT',
+                                     'ZL_ZZ_LEASE_ITEM_ACCEPT',
+                                     'ZL_ZZ_BEFOREINTEREST_ADJUST',
+                                     'ZL_ZZ_DEAL',
+                                     'ZL_ZZ_TERMINATE_AGREEMENT')
+        UNION
+        SELECT
+        <include refid="allColumns"/>
+        FROM materials_list ml
+        WHERE ml.belong_id = #{contractId}
+        AND ml.business_type = 'CONTRACT' AND ml.materials_type IN ('CONSULTING_CONTRACT', 'GUARANTEE_CONTRACT')
+    </select>
+</mapper>

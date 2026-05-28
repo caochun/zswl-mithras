@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="AssetClassifyRiskMeetingFlow" name="资产五级分类风委会审批流程" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="userTask_startUser" name="发起人"></userTask>
+    <sequenceFlow id="sid-399FC783-6240-4C93-9716-43507F765769" sourceRef="startEvent1" targetRef="userTask_startUser"></sequenceFlow>
+    <userTask id="userTask_riskMeeting" name="风委会"></userTask>
+    <sequenceFlow id="sid-46DDE34A-AF4D-4629-B7EE-AF9C6F8F3F81" sourceRef="userTask_startUser" targetRef="userTask_riskMeeting"></sequenceFlow>
+    <userTask id="userTask_secretary" name="秘书汇总"></userTask>
+    <sequenceFlow id="sid-B6FADD7B-F6E9-485D-BD26-629B2B97BFDF" sourceRef="userTask_riskMeeting" targetRef="userTask_secretary"></sequenceFlow>
+    <endEvent id="sid-E3B45D77-62A7-4CB2-908E-FAB7FF2F7AA8"></endEvent>
+    <sequenceFlow id="sid-A0BFA1E9-3F65-4192-9CB2-FA9FCE0AF7F1" sourceRef="userTask_secretary" targetRef="sid-E3B45D77-62A7-4CB2-908E-FAB7FF2F7AA8"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_AssetClassifyRiskMeetingFlow">
+    <bpmndi:BPMNPlane bpmnElement="AssetClassifyRiskMeetingFlow" id="BPMNPlane_AssetClassifyRiskMeetingFlow">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_startUser" id="BPMNShape_userTask_startUser">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_riskMeeting" id="BPMNShape_userTask_riskMeeting">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_secretary" id="BPMNShape_userTask_secretary">
+        <omgdc:Bounds height="80.0" width="100.0" x="465.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-E3B45D77-62A7-4CB2-908E-FAB7FF2F7AA8" id="BPMNShape_sid-E3B45D77-62A7-4CB2-908E-FAB7FF2F7AA8">
+        <omgdc:Bounds height="28.0" width="28.0" x="610.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-B6FADD7B-F6E9-485D-BD26-629B2B97BFDF" id="BPMNEdge_sid-B6FADD7B-F6E9-485D-BD26-629B2B97BFDF">
+        <omgdi:waypoint x="419.94999999999067" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="464.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-A0BFA1E9-3F65-4192-9CB2-FA9FCE0AF7F1" id="BPMNEdge_sid-A0BFA1E9-3F65-4192-9CB2-FA9FCE0AF7F1">
+        <omgdi:waypoint x="564.95" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="610.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-46DDE34A-AF4D-4629-B7EE-AF9C6F8F3F81" id="BPMNEdge_sid-46DDE34A-AF4D-4629-B7EE-AF9C6F8F3F81">
+        <omgdi:waypoint x="274.9499999999907" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="319.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-399FC783-6240-4C93-9716-43507F765769" id="BPMNEdge_sid-399FC783-6240-4C93-9716-43507F765769">
+        <omgdi:waypoint x="129.9499984899576" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="174.9999999999917" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

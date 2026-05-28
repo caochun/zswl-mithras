@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.third.FinanceFlowTabMainInfoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.service.mapper.model.third.FinanceFlowTabMainInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="batchNumber" column="batch_number" jdbcType="VARCHAR"/>
+            <result property="businessModel" column="business_model" jdbcType="VARCHAR"/>
+            <result property="accountType" column="account_type" jdbcType="VARCHAR"/>
+            <result property="bankAccountName" column="bank_account_name" jdbcType="VARCHAR"/>
+            <result property="bankAccountNumber" column="bank_account_number" jdbcType="VARCHAR"/>
+            <result property="superviseAccountName" column="supervise_account_name" jdbcType="VARCHAR"/>
+            <result property="superviseAccountNumber" column="supervise_account_number" jdbcType="VARCHAR"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,batch_number,business_model,
+        account_type,bank_account_name,bank_account_number,
+        supervise_account_name,supervise_account_number,deleted,
+        create_by,create_time,update_by,
+        update_time
+    </sql>
+    <select id="findWithLogicDelete"
+            resultType="cn.zswltech.mithras.service.mapper.model.third.FinanceFlowTabMainInfo">
+        SELECT *
+        FROM finance_flow_tab_main_info
+        WHERE is_expired = 0
+        <if test="batchNumber != null and batchNumber != ''">
+            AND batch_number = #{batchNumber}
+        </if>
+        AND deleted IN (0, 1)
+    </select>
+</mapper>

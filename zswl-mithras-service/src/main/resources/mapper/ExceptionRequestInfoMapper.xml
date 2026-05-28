@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.ExceptionRequestInfoMapper">
+
+    <select id="listLastRequest" resultType="cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo">
+        select *
+        from exception_request_info
+        where id in (select max(id)
+        from exception_request_info
+        where platform = #{platform}
+        and business_id in
+        <foreach collection="businessIds" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        GROUP BY business_id)
+    </select>
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="NewAfterLeaseCheckReportFlow" name="租后检查项目检查报告审批流程" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="userTask_startUser" name="发起人"></userTask>
+    <sequenceFlow id="sid-1F00BB91-CF65-4E22-B0CA-56F86F328BA0" sourceRef="startEvent1" targetRef="userTask_startUser"></sequenceFlow>
+    <userTask id="userTask_riskManager" name="协办风控经理"></userTask>
+    <sequenceFlow id="sid-38D6FBEC-C430-4806-9BCD-445D03316346" sourceRef="userTask_startUser" targetRef="userTask_riskManager"></sequenceFlow>
+    <userTask id="userTask_deptMaster" name="部门负责人"></userTask>
+    <sequenceFlow id="sid-83E81881-E873-43E6-99EF-BBED0B23A679" sourceRef="userTask_riskManager" targetRef="userTask_deptMaster"></sequenceFlow>
+    <userTask id="userTask_bizDivisionLeader" name="分管领导"></userTask>
+    <sequenceFlow id="sid-CACA5905-B1D0-4A20-B048-67A809683F34" sourceRef="userTask_deptMaster" targetRef="userTask_bizDivisionLeader"></sequenceFlow>
+    <userTask id="userTask_assetManager" name="资产管理岗"></userTask>
+    <sequenceFlow id="sid-386867C9-2FFF-4205-A92F-FC9AB6A158C4" sourceRef="userTask_bizDivisionLeader" targetRef="userTask_assetManager"></sequenceFlow>
+    <userTask id="userTask_riskDeptMaster" name="风控部负责人"></userTask>
+    <sequenceFlow id="sid-B8B9240A-1476-40F7-BFC3-9809C62929E3" sourceRef="userTask_assetManager" targetRef="userTask_riskDeptMaster"></sequenceFlow>
+    <endEvent id="sid-837F62EA-D80F-4EAE-B670-6787760FBFBD"></endEvent>
+    <sequenceFlow id="sid-76F3199F-5CB5-4C40-82AC-5E4CC960C3D6" sourceRef="userTask_riskDeptMaster" targetRef="sid-837F62EA-D80F-4EAE-B670-6787760FBFBD"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_NewAfterLeaseCheckReportFlow">
+    <bpmndi:BPMNPlane bpmnElement="NewAfterLeaseCheckReportFlow" id="BPMNPlane_NewAfterLeaseCheckReportFlow">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_startUser" id="BPMNShape_userTask_startUser">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_riskManager" id="BPMNShape_userTask_riskManager">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_deptMaster" id="BPMNShape_userTask_deptMaster">
+        <omgdc:Bounds height="80.0" width="100.0" x="465.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_bizDivisionLeader" id="BPMNShape_userTask_bizDivisionLeader">
+        <omgdc:Bounds height="80.0" width="100.0" x="610.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_assetManager" id="BPMNShape_userTask_assetManager">
+        <omgdc:Bounds height="80.0" width="100.0" x="755.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_riskDeptMaster" id="BPMNShape_userTask_riskDeptMaster">
+        <omgdc:Bounds height="80.0" width="100.0" x="900.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-837F62EA-D80F-4EAE-B670-6787760FBFBD" id="BPMNShape_sid-837F62EA-D80F-4EAE-B670-6787760FBFBD">
+        <omgdc:Bounds height="28.0" width="28.0" x="1045.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-B8B9240A-1476-40F7-BFC3-9809C62929E3" id="BPMNEdge_sid-B8B9240A-1476-40F7-BFC3-9809C62929E3">
+        <omgdi:waypoint x="854.9499999999907" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="899.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-83E81881-E873-43E6-99EF-BBED0B23A679" id="BPMNEdge_sid-83E81881-E873-43E6-99EF-BBED0B23A679">
+        <omgdi:waypoint x="419.94999999999067" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="464.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-CACA5905-B1D0-4A20-B048-67A809683F34" id="BPMNEdge_sid-CACA5905-B1D0-4A20-B048-67A809683F34">
+        <omgdi:waypoint x="564.9499999999907" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="609.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-38D6FBEC-C430-4806-9BCD-445D03316346" id="BPMNEdge_sid-38D6FBEC-C430-4806-9BCD-445D03316346">
+        <omgdi:waypoint x="274.9499999999907" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="319.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-386867C9-2FFF-4205-A92F-FC9AB6A158C4" id="BPMNEdge_sid-386867C9-2FFF-4205-A92F-FC9AB6A158C4">
+        <omgdi:waypoint x="709.9499999999907" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="754.9999999999807" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-76F3199F-5CB5-4C40-82AC-5E4CC960C3D6" id="BPMNEdge_sid-76F3199F-5CB5-4C40-82AC-5E4CC960C3D6">
+        <omgdi:waypoint x="999.949999999996" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1045.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-1F00BB91-CF65-4E22-B0CA-56F86F328BA0" id="BPMNEdge_sid-1F00BB91-CF65-4E22-B0CA-56F86F328BA0">
+        <omgdi:waypoint x="129.9499984899576" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="174.9999999999917" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

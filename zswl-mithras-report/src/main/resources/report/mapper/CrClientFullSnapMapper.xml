@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.report.mapper.fullsnap.CrClientFullSnapMapper">
+
+    <insert id="copyFromEffect">
+        INSERT INTO cr_client_full_snap(business_key, create_time, update_time, contract_id, client_id, client_code, client_name, zhong_zheng_code, continuous_status, org_type, register_address, region_code, establish_date, biz_license_end_date, biz_scope,
+                                        industry_type, economy_type, org_scale, register_currency_type, register_capital, corp_represent, corp_cert_type, corp_cert_code, effect_date, batch_id, batch_no)
+        SELECT business_key, create_time, update_time, contract_id, client_id, client_code, client_name, zhong_zheng_code, continuous_status, org_type, register_address, region_code, establish_date, biz_license_end_date, biz_scope,
+               industry_type, economy_type, org_scale, register_currency_type, register_capital, corp_represent, corp_cert_type, corp_cert_code, effect_date, #{batchId}, #{batchNo} FROM cr_client
+    </insert>
+
+</mapper>

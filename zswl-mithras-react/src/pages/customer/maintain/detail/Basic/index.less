@@ -1,0 +1,158 @@
+.customer-detail {
+  border: 0 !important;
+}
+.basic {
+  position: relative;
+  margin-top: -16px;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .operation {
+    position: absolute;
+    right: 10px;
+    top: -50px;
+  }
+  .navigation {
+    width: 120px;
+    float: left;
+    // position: fixed;
+  }
+  .control {
+    display: flex;
+    align-items: center;
+    .item {
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #2558e6;
+      // line-height: 40px;
+      font-weight: 400;
+      margin: 0 6px;
+      cursor: pointer;
+    }
+  }
+  .contentRight {
+    float: right;
+    width: calc(100% - 120px);
+    border-left: 1px solid #ecedf0;
+    padding: 16px;
+  }
+  .basicWrap {
+    position: relative;
+    .basicBtn {
+      position: absolute;
+      right: 10px;
+    }
+  }
+  .downListWrap {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+
+    color: #2558e6;
+    line-height: 40px;
+    font-weight: 400;
+    cursor: pointer;
+    padding-right: 10px;
+    .downListName {
+      padding-right: 6px;
+    }
+  }
+  .tableWrap {
+    position: relative;
+    margin-bottom: 34px;
+    .operationBtn {
+      position: absolute;
+      right: 10px;
+      top: 1px;
+      display: flex;
+    }
+    .title {
+      position: absolute;
+    }
+    :global(.ant-table-wrapper) {
+      border-top: 1px solid #2558e6;
+    }
+    :global(.ant-table-thead > tr > th) {
+      background-color: #f2f3f5;
+    }
+    :global(.ant-descriptions-view) {
+      border-top: 1px solid #2558e6;
+    }
+  }
+  .colorsWrap {
+    position: relative;
+    .colors {
+      color: #eb2222;
+      padding: 4px;
+      position: absolute;
+      left: -13px;
+    }
+  }
+  .des {
+    :global(.ant-form-item) {
+      margin-bottom: 0px;
+    }
+  }
+
+  .bizScope {
+    // width: 200px;
+    // height: 30px;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+  }
+  .yewu {
+    min-height: 98px;
+    max-height: 440px;
+    overflow-y: auto;
+  }
+  :global(.ant-anchor-wrapper) {
+    padding-top: 10px;
+  }
+  .materialList {
+    width: 90%;
+    overflow-x: auto;
+  }
+}
+.tbModal {
+  :global(.ant-pagination) {
+    display: none;
+    // border-top: 2px solid #2558e6;
+  }
+  .commerceTitle,
+  .commerceInfo {
+    border-bottom: 1px solid #ecedf0;
+    height: 56px;
+  }
+  .commerceTitleChild {
+    display: inline-block;
+    width: 17%;
+    padding-left: 10px;
+    height: 56px;
+    line-height: 56px;
+  }
+  .commerceInfoChild {
+    display: inline-block;
+    width: 17%;
+    height: 56px;
+    line-height: 56px;
+    padding-left: 1%;
+  }
+  .commerceTitleChild:nth-child(2) {
+    width: 60%;
+  }
+  .commerceInfoChild:nth-child(2) {
+    width: 60%;
+    height: 56px;
+  }
+}
+
+.industrialForm {
+  :global {
+    .ant-descriptions-item-content {
+      max-width: 350px !important;
+    }
+  }
+}

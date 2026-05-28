@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="ContractModifyFlow" name="合同变更审批流程" isExecutable="true">
+    <documentation>合同变更审批流程</documentation>
+    <startEvent id="startNoneEvent_1"></startEvent>
+    <userTask id="userTask_deptMaster" name="业务部负责人审批"></userTask>
+    <userTask id="userTask_bizDivisionLeader" name="业务分管领导审批"></userTask>
+    <userTask id="userTask_financeOfficer" name="财务主管审批"></userTask>
+    <userTask id="userTask_lawManager_2" name="法务经理审批"></userTask>
+    <userTask id="userTask_riskDeptMaster" name="风控负责人审批"></userTask>
+    <userTask id="userTask_chiefFinancialOfficer" name="财务总监审批"></userTask>
+    <userTask id="userTask_chiefRiskOfficer" name="首席风险官审批"></userTask>
+    <exclusiveGateway id="exclusiveGateway_1"></exclusiveGateway>
+    <endEvent id="endNoneEvent_1" name="结束"></endEvent>
+    <userTask id="userTask_chairman" name="董事长审批"></userTask>
+    <userTask id="userTask_startUser" name="发起人"></userTask>
+    <userTask id="userTask_generalManager" name="总经理审批"></userTask>
+    <sequenceFlow id="sequenceflow_XyDsGh6jHez2eQRx" sourceRef="userTask_generalManager" targetRef="exclusiveGateway_1"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_BEWfVjrrFq5jeEC4" sourceRef="userTask_chiefRiskOfficer" targetRef="userTask_generalManager"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_8vPdu6EQ7DkFoAbO" sourceRef="userTask_chiefFinancialOfficer" targetRef="userTask_chiefRiskOfficer"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_BnCQaXi8xmf4UoUx" sourceRef="userTask_riskDeptMaster" targetRef="userTask_chiefFinancialOfficer"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_5BE5ArO6zZij7mgB" sourceRef="userTask_lawManager_2" targetRef="userTask_riskDeptMaster"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_Z282vMRsOX26DiRI" sourceRef="userTask_bizDivisionLeader" targetRef="userTask_financeOfficer"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_v22HlGPD5EyH8UfG" sourceRef="startNoneEvent_1" targetRef="userTask_startUser"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_sZF123uker7Y5aAX" sourceRef="userTask_chairman" targetRef="endNoneEvent_1"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_jx0B7fidfhnVoHCK" sourceRef="userTask_financeOfficer" targetRef="userTask_lawManager_2"></sequenceFlow>
+    <userTask id="userTask_lawManager" name="法务经理确认"></userTask>
+    <userTask id="userTask_startUser_2" name="发起人确认"></userTask>
+    <sequenceFlow id="sequenceflow_Vg567CgDQUrlZ41P" sourceRef="userTask_startUser_2" targetRef="userTask_deptMaster"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_Vg7U9123QUrlZ41P" sourceRef="userTask_lawManager" targetRef="userTask_startUser_2"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_Vg7U9CgDQUrlZ41P" sourceRef="userTask_startUser" targetRef="userTask_lawManager"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_SDRIGrB8bJwo2S1a" sourceRef="userTask_deptMaster" targetRef="userTask_bizDivisionLeader"></sequenceFlow>
+    <sequenceFlow id="sequenceflow_Hfwf4NLT2rMemuel" name="项目评审需要董事会审批" sourceRef="exclusiveGateway_1" targetRef="userTask_chairman">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${projReviewNeedBoradApprove}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sequenceflow_pzVFQ2U2SbJsCXRa" name="项目评审无需董事会审批" sourceRef="exclusiveGateway_1" targetRef="endNoneEvent_1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${!projReviewNeedBoradApprove}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ContractModifyFlow">
+    <bpmndi:BPMNPlane bpmnElement="ContractModifyFlow" id="BPMNPlane_ContractModifyFlow">
+      <bpmndi:BPMNShape bpmnElement="startNoneEvent_1" id="BPMNShape_startNoneEvent_1">
+        <omgdc:Bounds height="30.0" width="30.0" x="545.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_deptMaster" id="BPMNShape_userTask_deptMaster">
+        <omgdc:Bounds height="80.0" width="100.0" x="510.0" y="338.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_bizDivisionLeader" id="BPMNShape_userTask_bizDivisionLeader">
+        <omgdc:Bounds height="80.0" width="100.0" x="690.0" y="338.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_financeOfficer" id="BPMNShape_userTask_financeOfficer">
+        <omgdc:Bounds height="80.0" width="100.0" x="870.0" y="338.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_lawManager_2" id="BPMNShape_userTask_lawManager_2">
+        <omgdc:Bounds height="80.0" width="100.0" x="1050.0" y="338.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_riskDeptMaster" id="BPMNShape_userTask_riskDeptMaster">
+        <omgdc:Bounds height="80.0" width="100.0" x="1050.0" y="485.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_chiefFinancialOfficer" id="BPMNShape_userTask_chiefFinancialOfficer">
+        <omgdc:Bounds height="80.0" width="100.0" x="870.0" y="485.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_chiefRiskOfficer" id="BPMNShape_userTask_chiefRiskOfficer">
+        <omgdc:Bounds height="80.0" width="100.0" x="690.0" y="485.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusiveGateway_1" id="BPMNShape_exclusiveGateway_1">
+        <omgdc:Bounds height="40.0" width="40.0" x="540.0" y="637.1017351204091"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endNoneEvent_1" id="BPMNShape_endNoneEvent_1">
+        <omgdc:Bounds height="28.0" width="28.0" x="780.370367808488" y="911.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_chairman" id="BPMNShape_userTask_chairman">
+        <omgdc:Bounds height="80.0" width="100.0" x="510.0" y="885.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_startUser" id="BPMNShape_userTask_startUser">
+        <omgdc:Bounds height="80.0" width="100.0" x="509.95202430714403" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_generalManager" id="BPMNShape_userTask_generalManager">
+        <omgdc:Bounds height="80.0" width="100.0" x="509.95202430714403" y="485.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_lawManager" id="BPMNShape_userTask_lawManager">
+        <omgdc:Bounds height="80.0" width="100.0" x="690.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="userTask_startUser_2" id="BPMNShape_userTask_startUser_2">
+        <omgdc:Bounds height="80.0" width="100.0" x="870.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_XyDsGh6jHez2eQRx" id="BPMNEdge_sequenceflow_XyDsGh6jHez2eQRx">
+        <omgdi:waypoint x="559.966533041097" y="564.95"></omgdi:waypoint>
+        <omgdi:waypoint x="559.9927391906406" y="637.1017351204091"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_v22HlGPD5EyH8UfG" id="BPMNEdge_sequenceflow_v22HlGPD5EyH8UfG">
+        <omgdi:waypoint x="559.9950369975566" y="89.94999919923875"></omgdi:waypoint>
+        <omgdi:waypoint x="559.965242437693" y="180.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_Hfwf4NLT2rMemuel" id="BPMNEdge_sequenceflow_Hfwf4NLT2rMemuel">
+        <omgdi:waypoint x="560.4644059132257" y="676.5836735302104"></omgdi:waypoint>
+        <omgdi:waypoint x="560.0747013074636" y="885.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_Vg7U9CgDQUrlZ41P" id="BPMNEdge_sequenceflow_Vg7U9CgDQUrlZ41P">
+        <omgdi:waypoint x="609.9020243070992" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="690.0" y="220.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_Vg7U9123QUrlZ41P" id="BPMNEdge_sequenceflow_Vg7U9123QUrlZ41P">
+        <omgdi:waypoint x="789.9499999999999" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="870.0" y="220.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_Z282vMRsOX26DiRI" id="BPMNEdge_sequenceflow_Z282vMRsOX26DiRI">
+        <omgdi:waypoint x="789.9499999999431" y="378.0"></omgdi:waypoint>
+        <omgdi:waypoint x="869.9999999998699" y="378.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_pzVFQ2U2SbJsCXRa" id="BPMNEdge_sequenceflow_pzVFQ2U2SbJsCXRa">
+        <omgdi:waypoint x="572.1544767916162" y="664.8970388658182"></omgdi:waypoint>
+        <omgdi:waypoint x="785.2763347008719" y="914.3520170854072"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_sZF123uker7Y5aAX" id="BPMNEdge_sequenceflow_sZF123uker7Y5aAX">
+        <omgdi:waypoint x="609.9499999994923" y="925.0"></omgdi:waypoint>
+        <omgdi:waypoint x="780.370367808488" y="925.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_BnCQaXi8xmf4UoUx" id="BPMNEdge_sequenceflow_BnCQaXi8xmf4UoUx">
+        <omgdi:waypoint x="1049.9999999999561" y="525.0"></omgdi:waypoint>
+        <omgdi:waypoint x="969.9499999999999" y="525.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_BEWfVjrrFq5jeEC4" id="BPMNEdge_sequenceflow_BEWfVjrrFq5jeEC4">
+        <omgdi:waypoint x="689.9999999999791" y="525.0"></omgdi:waypoint>
+        <omgdi:waypoint x="609.9020243071441" y="525.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_8vPdu6EQ7DkFoAbO" id="BPMNEdge_sequenceflow_8vPdu6EQ7DkFoAbO">
+        <omgdi:waypoint x="869.9999999999562" y="525.0"></omgdi:waypoint>
+        <omgdi:waypoint x="789.9499999999999" y="525.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_jx0B7fidfhnVoHCK" id="BPMNEdge_sequenceflow_jx0B7fidfhnVoHCK">
+        <omgdi:waypoint x="969.9499999999431" y="378.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1049.99999999987" y="378.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_Vg567CgDQUrlZ41P" id="BPMNEdge_sequenceflow_Vg567CgDQUrlZ41P">
+        <omgdi:waypoint x="969.949999999991" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1040.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1040.0" y="300.0"></omgdi:waypoint>
+        <omgdi:waypoint x="560.0" y="300.0"></omgdi:waypoint>
+        <omgdi:waypoint x="560.0" y="338.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_SDRIGrB8bJwo2S1a" id="BPMNEdge_sequenceflow_SDRIGrB8bJwo2S1a">
+        <omgdi:waypoint x="609.9499999999431" y="378.0"></omgdi:waypoint>
+        <omgdi:waypoint x="689.9999999998699" y="378.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sequenceflow_5BE5ArO6zZij7mgB" id="BPMNEdge_sequenceflow_5BE5ArO6zZij7mgB">
+        <omgdi:waypoint x="1100.0" y="417.95000000000005"></omgdi:waypoint>
+        <omgdi:waypoint x="1100.0" y="485.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

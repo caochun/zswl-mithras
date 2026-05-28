@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.afterlease.RentCollectionIndexMapper">
+
+    <select id="indexList" resultType="cn.zswltech.mithras.service.mapper.dto.RentCollectionIndexListDTO">
+        SELECT *, GROUP_CONCAT(DISTINCT t2.collectionId) AS collectionIds FROM(
+        SELECT p.receipt_id_final AS receiptId,
+        c.id AS contractId,
+        co.id AS collectionId,
+        p.client_id AS clientId,
+        p.receipt_code AS receiptCode,
+        c.contract_code AS contractCode,
+        c.biz_type AS bizType,
+        c.contract_status AS contractStatus,
+        c.proj_sponsor_user_id AS projSponsorUserId,
+        c.biz_dept_id AS bizDeptId
+        FROM
+        payment_base_info p
+        INNER JOIN contract_base_info c ON p.contract_id = c.id
+        INNER JOIN collection_base_info co ON co.cash_flow_item = 'RENT' AND co.contract_id = c.id AND co.receipt_id = p.receipt_id_final
+        WHERE 1 = 1
+        <if test="dto.clientId!=null">AND p.client_id = #{dto.clientId}</if>
+        <if test="dto.planCollectionDateFrom!=null">AND co.plan_collection_date &gt;= #{dto.planCollectionDateFrom}</if>
+        <if test="dto.planCollectionDateTo!=null">AND co.plan_collection_date &lt;= #{dto.planCollectionDateTo}</if>
+        <if test="dto.bizType!=null and dto.bizType!=''">AND c.biz_type = #{dto.bizType}</if>
+        <if test="dto.contractCode!=null and dto.contractCode!=''">AND c.contract_code LIKE CONCAT('%',#{dto.contractCode},'%')</if>
+        <if test="dto.contractIds != null">
+            AND c.id in
+            <foreach collection="dto.contractIds" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        </if>
+        <if test="dto.contractStatus!=null and dto.contractStatus!=''">AND c.contract_status = #{dto.contractStatus}</if>
+        <if test="dto.bizDeptId!=null">AND c.biz_dept_id=#{dto.bizDeptId}</if>
+        <if test="dto.projSponsorUserId!=null">AND c.proj_sponsor_user_id=#{dto.projSponsorUserId}</if>
+        <if test="dto.filterFinishFlag==true">AND co.write_off_status != 'WRITE_OFF_COMPLETED'</if>
+        <if test="dto.overdueFlag==true">AND co.write_off_status != 'WRITE_OFF_COMPLETED' AND co.plan_collection_date &lt; SUBDATE(CURDATE(),3)</if>
+        <if test="dto.notNoticeYetFlag==true">AND co.write_off_status != 'WRITE_OFF_COMPLETED' AND co.email_notice_count = 0 AND co.plan_collection_date &lt;= date_add(CURDATE(), INTERVAL 7 DAY) AND co.plan_collection_date >= CURDATE()</if>
+        <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+        ) t2
+        GROUP BY t2.receiptId
+
+    </select>
+
+</mapper>

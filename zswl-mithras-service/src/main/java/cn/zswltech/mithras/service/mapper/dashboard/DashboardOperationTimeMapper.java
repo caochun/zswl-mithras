@@ -1,0 +1,19 @@
+package cn.zswltech.mithras.service.mapper.dashboard;
+
+import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardOperationCapacityQuery;
+import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardOperationCapacityResult;
+import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardOperationPayQuery;
+import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardOperationPayResult;
+import cn.zswltech.mithras.service.service.dashboard.dto.DashboardCorpCommerceInfoLibDto;
+import cn.zswltech.mithras.service.service.riskcontrol.dto.CorpCommerceInfoLibDto;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+@Mapper
+public interface DashboardOperationTimeMapper {
+
+    List<CorpCommerceInfoLib> listNewestCommerceInfo(@Param("dto") DashboardCorpCommerceInfoLibDto dto);
+}

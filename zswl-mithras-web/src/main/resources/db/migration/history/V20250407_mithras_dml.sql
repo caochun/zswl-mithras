@@ -1,0 +1,1 @@
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`) VALUES ('paymentAutoRegister', '中登自动登记', 0, 15, NULL, NULL, NULL, 'POST', '/payment/auto/register', 2, NULL);

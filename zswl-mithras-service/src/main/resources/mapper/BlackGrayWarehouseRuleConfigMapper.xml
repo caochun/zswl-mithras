@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseRuleConfigMapper">
+
+  <select id="myList" resultType="cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRuleConfig">
+    select a.* from black_gray_warehouse_rule_config a
+    <where>
+      <if test="param.ruleName != null">
+        and a.rule_name like concat('%',#{param.ruleName},'%')
+      </if>
+      <if test="param.blackGrayType != null">
+        and a.black_gray_type = #{param.blackGrayType}
+      </if>
+      <if test="param.status != null">
+        and a.status = #{param.status}
+      </if>
+      <if test="param.source != null">
+        and a.source = #{param.source}
+      </if>
+      <if test="param.suitOrg != null">
+        and json_contains(a.suit_org -> '$',json_array(#{param.suitOrg}), '$')
+      </if>
+      <if test="param.suitBusiness != null">
+        and json_contains(a.suit_business -> '$',json_array(#{param.suitBusiness}), '$')
+      </if>
+
+    </where>
+    order by a.update_time desc
+  </select>
+
+</mapper>

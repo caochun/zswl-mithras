@@ -1,0 +1,18 @@
+package cn.zswltech.mithras.service.service.lib.client;
+
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListREQ;
+import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListRSP;
+import cn.zswltech.mithras.dto.client.contactinfo.NewCorpContactInfoListRSP;
+import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfoLib;
+import cn.zswltech.mithras.service.mapper.model.client.NewCorpContactInfoLib;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+ *
+ * @author wangchuanhao
+ * @date 2022/6/22 4:11 PM
+ */
+public interface NewCorpContactInfoLibService extends IService<NewCorpContactInfoLib> {
+    PageR<NewCorpContactInfoListRSP> list(CorpContactInfoListREQ req);
+}

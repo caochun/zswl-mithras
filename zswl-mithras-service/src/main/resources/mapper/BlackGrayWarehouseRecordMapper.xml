@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseRecordMapper">
+  <resultMap id="BaseResultMap" type="cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="enterprise_name" jdbcType="VARCHAR" property="enterpriseName" />
+    <result column="unified_social_credit_code" jdbcType="VARCHAR" property="unifiedSocialCreditCode" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+    <result column="period_under_observation" jdbcType="VARCHAR" property="periodUnderObservation" />
+    <result column="risk_scale" jdbcType="DECIMAL" property="riskScale" />
+    <result column="membership_group" jdbcType="VARCHAR" property="membershipGroup" />
+    <result column="group_credit_code" jdbcType="VARCHAR" property="groupCreditCode" />
+    <result column="group_leader_flag" jdbcType="TINYINT" property="groupLeaderFlag" />
+    <result column="blacklist_status" jdbcType="BIT" property="blacklistStatus" />
+    <result column="apply_reason_type" jdbcType="VARCHAR" property="applyReasonType" />
+    <result column="apply_reason" jdbcType="VARCHAR" property="applyReason" />
+    <result column="black_gray_type" jdbcType="VARCHAR" property="blackGrayType" />
+    <result column="group_black_gray_type" jdbcType="VARCHAR" property="groupBlackGrayType" />
+    <result column="apply_time" jdbcType="DATE" property="applyTime" />
+    <result column="apply_organization" jdbcType="VARCHAR" property="applyOrganization" />
+    <result column="apply_dept" jdbcType="VARCHAR" property="applyDept" />
+    <result column="warehouse_time" jdbcType="DATE" property="warehouseTime" />
+    <result column="plan_outbound_time" jdbcType="DATE" property="planOutboundTime" />
+    <result column="audit_status" jdbcType="VARCHAR" property="auditStatus" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="warehouse_file_keys" jdbcType="LONGVARCHAR" property="warehouseFileKeys" />
+    <result column="rectify_file_keys" jdbcType="LONGVARCHAR" property="rectifyFileKeys" />
+  </resultMap>
+
+  <select id="queryForAudit" resultType="cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseApprovalTaskRSP">
+    select i.*,
+    a.audit_status, a.biz_type, a.latest_msg, a.id as audit_task_id, a.current_operator, a.pre_operator, a.gmt_create, a.gmt_update
+    from (select * from audit_task where biz_type = 'BLACK_GRAY_WAREHOUSE') a inner join black_gray_warehouse_record i on i.id = a.biz_id
+    <where>
+      <if test="param.currentOperator != null">
+        and a.current_operator like concat('%',#{param.currentOperator},'%')
+      </if>
+      <if test="param.id != null">
+        and i.id = #{param.id}
+      </if>
+      <if test="param.enterpriseName != null">
+        and i.enterprise_name like concat('%',#{param.enterpriseName},'%')
+      </if>
+      <if test="param.unifiedSocialCreditCode != null">
+        and i.unified_social_credit_code = #{param.unifiedSocialCreditCode}
+      </if>
+      <if test="param.businessType != null">
+        and i.business_type = #{param.businessType}
+      </if>
+      <if test="param.auditStatus != null">
+        and i.audit_status = #{param.auditStatus}
+      </if>
+      <if test="param.applyOrganization != null">
+        and i.apply_organization = #{param.applyOrganization}
+      </if>
+      <if test="param.applyTimeFrom != null">
+        and i.apply_time between #{param.applyTimeFrom} and #{param.applyTimeTo}
+      </if>
+      <if test="param.blackGrayType != null">
+        and i.black_gray_type = #{param.blackGrayType}
+      </if>
+    </where>
+    order by i.update_time desc, i.id desc
+  </select>
+
+  <update id="updateAuditStatus">
+    update black_gray_warehouse_record set audit_status = #{auditStatus} where task_num = #{taskNum}
+  </update>
+
+  <select id="countByApplyReasonType" resultType="int">
+    select count(0) from black_gray_warehouse_record where apply_reason_type like concat('%',#{applyReasonType},'%')
+  </select>
+
+</mapper>

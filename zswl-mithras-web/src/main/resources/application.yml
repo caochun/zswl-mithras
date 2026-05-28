@@ -1,0 +1,92 @@
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    max-size: 512MB
+    max-history: 30
+    path: /tmp/${spring.application.name}
+    total-size-cap: 20GB
+  level:
+    root: info
+#    org.flowable.engine.impl.persistence.entity.*: debug
+#    org.flowable.task.service.impl.persistence.entity.*: debug
+#    cn.zswltech.operation.accounting.mapper: debug
+
+#二代征信逾期天数做成可配置
+report:
+  overdue:
+    days: 10
+
+#mybatis:
+#  mapper-locations: classpath*:flow/mapper/*.xml
+# 配置sql打印日志
+#mybatis-plus:
+#  mapper-locations: classpath*:flow/mapper/*.xml,classpath*:/mapper/**/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  global-config:
+#    db-config:
+#      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+#      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+#      logic-delete-field:  deleted
+spring:
+  application:
+    name: mithras
+  profiles:
+    active: pre
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+    date-format: 'yyyy-MM-dd HH:mm:ss'
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+#  flyway:
+#    baseline-on-migrate: true
+server:
+  port: 7003
+
+flowable:
+  database-schema-update: false
+flow:
+  useNumberId: true
+
+mithras:
+  subjectItem:
+    necessaries:
+      enterprise: 'G9111,G9129,G9130,G9143,G9151,G9152,G9158,G9159,H9170,H9180,H9184,H9186,I9202,I9207,I9208,I9214,I9219,I9220,I9224,I9228,I9229,I9231,I9233,I9252,I9261'
+      government: 'J9280,J9290,J9291,J9302,J9305,J9306,J9316,J9317,H9189,H9190,H9192,H9195,H9196,H9197,H9198,H9199,H9200,H9201,H9202,H9203,H9204,H9205,H9210,H9215,H9216,H9217,H9218,H9219,H9220,H9221,H9222,I9202,I9207,I9208,I9214,I9219,I9220,I9224,I9228,I9229,I9236,I9231'
+
+
+app:
+  payment:
+    questionnaire:
+      version: 1.0
+#primary:
+#  mybatis:
+#    config: mybatis/mybatis-mysql-config.xml
+#    mapper:
+#      path: classpath:/mybatis/mapper/mysql/*Mapper.xml
+#    type:
+#      aliaspackage: cn.zswltech.gruul.dao.dal.entity
+
+## 慢请求配置，默认3000ms
+#filter:
+#  slow:
+#    reqmillis: 1000
+
+jasypt:
+  encryptor:
+    password: Zswl@2022#$^ds
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+
+qlexpress:
+  trace: true
+
+company-address: 浙江省杭州市萧山区利一路188号天人大厦11-12楼
+
+#dashboard:
+#  sso:
+#    service: http://10.158.19.43/dashboard/sso

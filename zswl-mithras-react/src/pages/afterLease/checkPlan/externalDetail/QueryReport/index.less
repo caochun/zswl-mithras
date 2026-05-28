@@ -1,0 +1,79 @@
+.wrap {
+  width: 100%;
+  .nav {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    padding-bottom: 16px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ecedf0;
+    .title {
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.85);
+      line-height: 24px;
+      font-weight: 500;
+    }
+  }
+  .contentWrap {
+    position: relative;
+    height: 100%;
+    display: flex;
+    .anchorWrap {
+      width: 140px;
+      border-right: 1px solid #ecedf0;
+      flex: none;
+      .anchor {
+        position: absolute;
+        top: 20px;
+      }
+    }
+    .content {
+      flex: auto;
+      padding: 16px;
+      overflow-x: auto;
+      & > div {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  :global {
+    .ant-table-wrapper {
+      border-top: 1px solid #2558e6;
+      margin-bottom: 20px;
+    }
+    .ant-form-item {
+      margin: 0;
+    }
+  }
+}
+
+.moduleHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  .moduleTitle {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 24px;
+    font-weight: bold;
+  }
+}
+.modulesPart {
+  margin-bottom: 20px;
+}
+
+.des {
+  :global {
+    .ant-descriptions-item-label {
+      width: 185px;
+    }
+    .ant-descriptions-item-content {
+      width: 350px;
+    }
+    .ant-descriptions-view {
+      border-top: 1px solid #2558e6;
+    }
+  }
+}

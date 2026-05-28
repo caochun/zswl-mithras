@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.report.mapper.CrRepayMapper">
+
+
+    <sql id="dtoField">
+        a.business_key AS businessKey, a.id AS repayPlanId, b.id AS actualRepayId, a.payment_apply_code AS paymentApplyCode, a.phase, a.cash_flow_date AS cashFlowDate,
+        a.grace_period AS gracePeriod, a.rent, a.principal, b.pay_date AS payDate, b.collection_amount AS collectionAmount, b.collection_principal AS collectionPrincipal, account.client_name AS clientName
+    </sql>
+    <sql id="querySql">
+        <if test="query.paymentApplyCode!=null and query.paymentApplyCode!=''">
+            AND a.payment_apply_code LIKE CONCAT('%', #{query.paymentApplyCode}, '%')
+        </if>
+        <if test="query.paymentId != null">
+            AND a.payment_id = #{query.paymentId}
+        </if>
+    </sql>
+
+    <select id="draftList" resultType="cn.zswltech.mithras.report.mapper.dto.CrRepayDTO">
+        SELECT<include refid="dtoField"/>, a.approval_status AS approvalStatus, a.contract_id AS contractId, a.payment_id AS paymentId
+        FROM cr_repay_plan_draft a
+        LEFT JOIN (
+        SELECT id,
+        business_key,
+        create_time,
+        update_time,
+        contract_id,
+        proc_business_key,
+        report_state,
+        approval_status,
+        payment_id,
+        payment_apply_code,
+        phase,
+        collection_amount,
+        collection_principal,
+        pay_date
+        FROM cr_actual_repay_draft
+        <where>
+            <if test="query.reportState != null and query.reportState != ''">
+                AND report_state = #{query.reportState}
+            </if>
+            <if test="query.approvalStatus != null and query.approvalStatus != ''">
+                AND approval_status = #{query.approvalStatus}
+            </if>
+            <if test="query.filterAccountReportFlag != null and query.filterAccountReportFlag == 1">
+                AND payment_id IN (SELECT payment_id FROM cr_account_draft cad WHERE cad.report_flag = 1)
+            </if>
+            <if test="query.procBusinessKey != null and query.procBusinessKey != ''">
+                AND proc_business_key = #{query.procBusinessKey}
+            </if>
+        </where>
+        ) b ON a.payment_apply_code = b.payment_apply_code AND a.phase = b.phase
+        LEFT JOIN cr_account_draft account ON account.payment_apply_code = a.payment_apply_code
+        WHERE a.is_show = 1
+        <if test="query.reportState != null and query.reportState != ''">
+            AND a.report_state = #{query.reportState}
+        </if>
+        <include refid="querySql"/>
+        <if test="query.approvalStatus != null and query.approvalStatus != ''">
+            AND a.approval_status = #{query.approvalStatus}
+        </if>
+        <if test="query.filterAccountReportFlag != null and query.filterAccountReportFlag == 1">
+            AND a.payment_id IN (SELECT payment_id FROM cr_account_draft cad WHERE cad.report_flag = 1)
+        </if>
+        <if test="query.procBusinessKey != null and query.procBusinessKey != ''">
+            AND a.proc_business_key = #{query.procBusinessKey}
+        </if>
+    </select>
+
+    <select id="procSnapList" resultType="cn.zswltech.mithras.report.mapper.dto.CrRepayDTO">
+        SELECT <include refid="dtoField" /> , a.contract_id as contractId
+        FROM cr_repay_plan_proc_snap a
+        LEFT JOIN (
+        SELECT id,
+        business_key,
+        create_time,
+        update_time,
+        contract_id,
+        proc_business_key,
+        batch_id,
+        batch_no,
+        payment_id,
+        payment_apply_code,
+        phase,
+        collection_amount,
+        collection_principal,
+        pay_date
+        FROM cr_actual_repay_proc_snap
+        <where>
+            <if test="query.batchId != null">
+                AND batch_id = #{query.batchId}
+            </if>
+            <if test="query.procBusinessKey != null and query.procBusinessKey != ''">
+                AND proc_business_key = #{query.procBusinessKey}
+            </if>
+            <if test="query.paymentApplyCode!=null and query.paymentApplyCode!=''">
+                AND payment_apply_code LIKE CONCAT('%', #{query.paymentApplyCode}, '%')
+            </if>
+            <if test="query.paymentId != null">
+                AND payment_id = #{query.paymentId}
+            </if>
+        </where>
+        ) b ON a.payment_apply_code = b.payment_apply_code AND a.phase = b.phase
+        LEFT JOIN cr_account_draft account ON account.payment_apply_code = a.payment_apply_code
+        WHERE a.is_show = 1
+        <if test="query.batchId != null">
+            AND a.batch_id = #{query.batchId}
+        </if>
+        <include refid="querySql"/>
+        <if test="query.batchId != null">
+            AND a.batch_id = #{query.batchId}
+        </if>
+        <if test="query.procBusinessKey != null and query.procBusinessKey != ''">
+            AND a.proc_business_key = #{query.procBusinessKey}
+        </if>
+    </select>
+
+    <select id="effectList" resultType="cn.zswltech.mithras.report.mapper.dto.CrRepayDTO">
+        SELECT <include refid="dtoField" />, a.contract_id AS contractId
+        FROM cr_repay_plan a
+        LEFT JOIN cr_actual_repay b ON a.payment_apply_code = b.payment_apply_code AND a.phase = b.phase
+        LEFT JOIN cr_account_draft account ON account.payment_apply_code = a.payment_apply_code
+        WHERE 1 = 1
+        <include refid="querySql" />
+    </select>
+
+    <select id="fullSnapList" resultType="cn.zswltech.mithras.report.mapper.dto.CrRepayDTO">
+        SELECT <include refid="dtoField" />, a.contract_id AS contractId
+        FROM cr_repay_plan_full_snap a
+        LEFT JOIN cr_actual_repay_full_snap b ON a.payment_apply_code = b.payment_apply_code AND a.phase = b.phase
+        LEFT JOIN cr_account_draft account ON account.payment_apply_code = a.payment_apply_code
+        WHERE 1 = 1
+        <if test="query.batchId != null">
+            AND b.batch_id = #{query.batchId}
+        </if>
+        <include refid="querySql"/>
+        <if test="query.batchId != null">
+            AND a.batch_id = #{query.batchId}
+        </if>
+    </select>
+
+    <select id="countInProcessData" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM cr_repay_plan_draft a
+        LEFT JOIN cr_actual_repay_draft b ON a.payment_apply_code = b.payment_apply_code AND a.phase = b.phase AND b.report_state = 'TO_BE_REPORT' AND b.approval_status = 'UNDER_APPROVAL'
+        LEFT JOIN cr_account_draft account ON account.payment_apply_code = a.payment_apply_code
+        WHERE a.report_state = 'TO_BE_REPORT' AND a.approval_status = 'UNDER_APPROVAL'
+    </select>
+
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.CommonMapper">
+
+    <!--  列表权限控制  -->
+    <sql id="authSql">
+        <if test="dto.isBizUser==true">
+            and
+            (biz_dept_id IN
+            <foreach collection="dto.deptIdList" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+            OR proj_sponsor_user_id = #{dto.currentUserId}
+            OR JSON_CONTAINS(proj_cosponsor_user_ids, CONVERT (#{dto.currentUserId}, CHAR))
+            )
+        </if>
+    </sql>
+
+    <!--  列表权限控制，兼容特殊写法 租后外部查询 AfterLeaseCheckExternalQueryMapper -->
+    <sql id="authSqlSpecial1">
+        <if test="dto.isBizUser==true">
+            and
+            (b.belong_dept_id IN
+            <foreach collection="dto.deptIdList" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+            OR b.belong_sponsor_id = #{dto.currentUserId}
+            )
+        </if>
+    </sql>
+
+    <!--  列表权限控制，兼容特殊写法 立项 ProjEstablishBaseInfoMapper -->
+    <sql id="authSqlSpecial2">
+        <if test="dto.isBizUser==true">
+            <!-- 如果有评审，就取评审的协办主办，没有评审就取立项的协办主办 -->
+            and
+            (
+                (pr.id IS NULL AND
+                    (proj.biz_dept_id IN
+                    <foreach collection="dto.deptIdList" open="(" close=")" separator="," item="item">
+                    #{item}
+                    </foreach>
+                    OR proj.proj_sponsor_user_id = #{dto.currentUserId}
+                    OR JSON_CONTAINS(proj.proj_cosponsor_user_ids, CONVERT (#{dto.currentUserId}, CHAR)))
+                ) OR
+                (pr.id IS NOT NULL AND
+                    (pr.biz_dept_id IN
+                    <foreach collection="dto.deptIdList" open="(" close=")" separator="," item="item">
+                    #{item}
+                    </foreach>
+                    OR pr.proj_sponsor_user_id = #{dto.currentUserId}
+                    OR JSON_CONTAINS(pr.proj_cosponsor_user_ids, CONVERT (#{dto.currentUserId}, CHAR)))
+                )
+            )
+        </if>
+    </sql>
+
+    <!--  列表权限控制，兼容特殊写法 立项 ProjEstablishBaseInfoMapper -->
+    <sql id="authSqlSpecial3">
+        <if test="dto.isBizUser==true">
+            <!-- 如果有评审，就取评审的协办主办，没有评审就取立项的协办主办 -->
+            AND
+            (proj.bizDeptId IN
+            <foreach collection="dto.deptIdList" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+            OR proj.projSponsorUserId = #{dto.currentUserId}
+            OR JSON_CONTAINS(proj.projCosponsorUserIds, CONVERT (#{dto.currentUserId}, CHAR)))
+        </if>
+    </sql>
+
+</mapper>

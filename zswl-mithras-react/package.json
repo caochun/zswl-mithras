@@ -1,0 +1,60 @@
+{
+  "name": "admin",
+  "version": "1.0.7",
+  "description": "react-admin",
+  "main": "index.js",
+  "repository": "http://172.16.200.10:8081/zswl/admin-template.git",
+  "author": "zhangchao",
+  "license": "MIT",
+  "scripts": {
+    "start": "admin start",
+    "build": "admin build",
+    "buildAll": "node build.js",
+    "api": "admin api",
+    "page": "admin page",
+    "clearBranch": "node clearInvalidBranch"
+  },
+  "dependencies": {
+    "@ant-design/icons": "4.7.0",
+    "@types/lodash": "4.14.182",
+    "@types/numeral": "2.0.2",
+    "@zswl/admin": "1.3.4",
+    "@zswl/charts": "0.1.44",
+    "@zswl/components": "1.4.3",
+    "antd": "4.24.9",
+    "bpmn-js": "6.3.4",
+    "classnames": "2.3.1",
+    "echarts": "5.4.3",
+    "echarts-for-react": "3.0.2",
+    "exceljs": "4.4.0",
+    "file-saver": "2.0.5",
+    "html2canvas": "1.4.1",
+    "jsencrypt": "3.2.1",
+    "jszip": "3.10.1",
+    "lodash": "4.17.21",
+    "mathjs": "10.6.4",
+    "moment": "2.29.3",
+    "numeral": "2.0.6",
+    "nzh": "1.0.12",
+    "query-string": "7.1.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-sortable-hoc": "2.0.0",
+    "react-transition-group": "4.4.5"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "printWidth": 100
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "9.1.2",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "4.6.2",
+    "typescript": "5.9.3"
+  }
+}

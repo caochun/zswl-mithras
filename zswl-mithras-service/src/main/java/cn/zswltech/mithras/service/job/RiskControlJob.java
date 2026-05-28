@@ -1,0 +1,136 @@
+package cn.zswltech.mithras.service.job;
+
+import cn.hutool.core.date.LocalDateTimeUtil;
+import cn.hutool.core.date.StopWatch;
+import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.dto.riskcontrol.opinion.RiskControlOpinionNoticeReq;
+import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
+import cn.zswltech.mithras.service.enums.opinion.RiskControlOpinionHandleStatus;
+import cn.zswltech.mithras.service.mapper.model.datashare.DataShareManager;
+import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlOpinionMonitor;
+import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlWarnMonitor;
+import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitorService;
+import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
+import cn.zswltech.mithras.service.service.riskcontrol.RiskControlWarnMonitorService;
+import cn.zswltech.mithras.service.service.share.DataShareManagerService;
+import cn.zswltech.mithras.service.util.StringUtil;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.google.common.collect.Lists;
+import com.xxl.job.core.context.XxlJobHelper;
+import com.xxl.job.core.handler.annotation.XxlJob;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+@Component
+@Slf4j
+public class RiskControlJob {
+
+
+    @Resource
+    private DataShareManagerService dataShareManagerService;
+    @Resource
+    private RiskControlOpinionMonitorController riskControlOpinionMonitorController;
+    @Resource
+    private RiskControlOpinionMonitorService riskControlOpinionMonitorService;
+    @Resource
+    private RiskControlOpinionVersionService riskControlOpinionVersionService;
+    @Resource
+    private RiskControlWarnMonitorService riskControlWarnMonitorService;
+
+
+    private final static String MODULE_NAME = "risk_control_sync";
+    private final static int batchSize = 1000; // 每批1000条
+
+    /**
+     * 1、增量同步风险数据
+     */
+    @XxlJob("syncRiskControlHandler")
+    public void demoJobHandler() {
+        try {
+            log.info(">>>>>>>>>>>>>>syncRiskControlHandler began syncMerchants");
+            DataShareManager shareManager = dataShareManagerService.getOne(Wrappers.<DataShareManager>lambdaQuery()
+                    .eq(DataShareManager::getModelName, MODULE_NAME)
+                    .orderByDesc(DataShareManager::getId)
+                    .last(StringUtil.mysqlLimitOne()));
+            if(ObjectUtil.isEmpty(shareManager)){
+                shareManager = new DataShareManager();
+                shareManager.setModelName(MODULE_NAME);
+                shareManager.setPageSize(1000);
+                shareManager.setDataTotal(0);
+                shareManager.setPageNum(1);
+                dataShareManagerService.save(shareManager);
+            }
+            RiskControlOpinionNoticeReq req = new RiskControlOpinionNoticeReq();
+            req.setSize(shareManager.getPageSize());
+            req.setStartId(shareManager.getDataTotal());
+            riskControlOpinionMonitorController.notice(req);
+            RiskControlOpinionMonitor monitor = riskControlOpinionMonitorService.getOne(Wrappers.<RiskControlOpinionMonitor>lambdaQuery()
+                    .orderByDesc(RiskControlOpinionMonitor::getId)
+                    .last(StringUtil.mysqlLimitOne()));
+            if(ObjectUtil.isNotEmpty(monitor)){
+                shareManager.setDataTotal(Integer.parseInt(String.valueOf(monitor.getId())));
+            }
+            dataShareManagerService.updateById(shareManager);
+            log.info(">>>>>>>>>>>>>>syncRiskControlHandler over syncMerchants");
+        } catch (Exception e) {
+            log.error("syncRiskControlHandler error", e);
+        }
+
+    }
+
+    /**
+     * 1、发起预警流程job
+     */
+    @XxlJob("startWarnFlowJob")
+    public void startWarnFlowJob() {
+        try {
+            log.info(">>>>>>>>>>>>>>startWarnFlowJob began");
+            String param;
+            param = XxlJobHelper.getJobParam();
+            LocalDate now = LocalDate.now();
+            if(ObjectUtil.isNotEmpty(param)) {
+                now = LocalDateTimeUtil.parse(param, "yyyy-MM-dd").toLocalDate();
+            }
+            //riskControlWarnMonitorService.ignoreWarn();// 接通慧眼数据后，如果继续执行此任务，则需要去掉这行代码
+            List<RiskControlWarnMonitor> list = riskControlWarnMonitorService.list(Wrappers.<RiskControlWarnMonitor>lambdaQuery()
+                    .eq(RiskControlWarnMonitor::getHandleStatus, RiskControlOpinionHandleStatus.PEND_HANDLE.name())
+                    .ge(RiskControlWarnMonitor::getCreateTime, now));
+            if(ObjectUtil.isNotEmpty(list)) {
+                // 接通慧眼数据后,如果继续执行此任务,需要分批执行审批流程,以防慧眼预警数据过多,对数据库造成压力
+                List<List<RiskControlWarnMonitor>> batchList = Lists.partition(list, batchSize);
+                for (List<RiskControlWarnMonitor> batch : batchList) {
+                    riskControlOpinionVersionService.warnInitiateApproval(batch);
+                }
+            }
+            log.info(">>>>>>>>>>>>>>startWarnFlowJob over ");
+        } catch (Exception e) {
+            log.error("startWarnFlowJob error", e);
+        }
+
+    }
+
+    //舆情统一监测（已放款）流程超时提醒
+    @XxlJob("riskControlPaymentFlowJob")
+    @Transactional(rollbackFor = Throwable.class)
+    public void riskControlPaymentFlowJob() {
+        try {
+            log.info("riskControlPaymentFlowJob start");
+            StopWatch stopWatch = new StopWatch();
+            stopWatch.start();
+            String jobParam = XxlJobHelper.getJobParam();
+            // jobParam = "2067";
+            riskControlOpinionVersionService.riskRemind(jobParam);
+            stopWatch.stop();
+            log.info("riskControlPaymentFlowJob end!!! 耗时={}s", stopWatch.prettyPrint(TimeUnit.SECONDS));
+        } catch (Exception e) {
+            log.error("riskControlPaymentFlowJob 执行异常，e={}", e);
+        }
+    }
+
+}

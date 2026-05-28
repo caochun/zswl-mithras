@@ -1,0 +1,415 @@
+spring:
+  datasource:
+    mithras:
+      username: root
+      password: 12345687
+      max-active: 10
+      min-idle: 1
+      max-wait: 10000
+      initial-size: 2
+      validation-query: select 1
+      test-on-borrow: true
+      use-global-data-source-stat: true
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=3000;druid.stat.logSlowSql=true
+      url: jdbc:mysql://127.0.0.1:3306/mithras?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&tinyInt1isBit=false&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+      web-stat-filter:
+        enabled: true
+      filters: stat,wall
+    report:
+      username: root
+      password: 12345687
+      max-active: 50
+      min-idle: 1
+      max-wait: 10000
+      initial-size: 5
+      validation-query: select 1
+      test-on-borrow: true
+      use-global-data-source-stat: true
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=3000;druid.stat.logSlowSql=true
+      url: jdbc:mysql://127.0.0.1:3306/mithras_report?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&tinyInt1isBit=false&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+      web-stat-filter:
+        enabled: true
+      filters: stat,wall
+    factory:
+      username: root
+      password: 12345687
+      max-active: 50
+      min-idle: 1
+      max-wait: 10000
+      initial-size: 5
+      validation-query: select 1
+      test-on-borrow: true
+      use-global-data-source-stat: true
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=3000;druid.stat.logSlowSql=true
+      url: jdbc:mysql://127.0.0.1:3306/data_factory?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&tinyInt1isBit=false&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+      web-stat-filter:
+        enabled: true
+      filters: stat,wall
+    #  慧眼
+    xinsight:
+      username: finchina
+      password: finchina
+      max-active: 5
+      min-idle: 1
+      max-wait: 10000
+      initial-size: 2
+      validation-query: select 1
+      test-on-borrow: true
+      use-global-data-source-stat: true
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=3000;druid.stat.logSlowSql=true
+      url: jdbc:mysql://10.158.32.144:3306/FINCHINAXINSIGHT?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&tinyInt1isBit=false&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true&characterSetResults=UTF-8&connectionCollation=utf8mb4_unicode_ci
+      web-stat-filter:
+        enabled: true
+      filters: stat,wall
+
+  #redis  172.16.200.11
+  redis:
+    host: 172.16.200.11
+    port: 6379
+    password: ENC(5McxkzAkAlp/TYB1amdTfXb68RhAKIuK)
+    database: 2
+    timeout: 10s
+    #连接池最大连接数
+    lettuce:
+      pool:
+        max-active: 8
+        #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+        #连接池中的最大空闲连接
+        max-idle: 8
+        #连接池中的最小空闲连接
+        min-idle: 0
+#  flyway:
+#    enabled: false
+## 登录token有效时间 7天 7*24*3600*1000
+system:
+  token:
+    expiration: 604800000
+  request:
+    referer:
+      servers: http://192.168.0.76:3000/,http://172.16.200.21:3001/,http://mithras-test.zswl.cn:8888/,http://192.168.0.112:3000/,http://192.168.2.102:3000/,http://192.168.0.102:3000/
+
+
+oss:
+  minio:
+    enable: true
+    endpoint: http://minio.zswltec.com:9001
+    access-key: ENC(7ADzBAbEnB/lNmios8bxjYZD8gjOP1yx)
+    secret-key: ENC(7ADzBAbEnB/lNmios8bxjYZD8gjOP1yx)
+    bucket-name: zswl
+    base-path: mithras
+    chunk-bucket-name: chunk
+    down:
+      #86400s = 24h
+      expiry: 86400
+crypto:
+  sm2:
+    publickey: MFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAErykwa6rYVh85rjDfFZj6nTBGzgAhES+aUEERZGWZ9eR3N0gr5TJa4/5PIQtMTcruSuP+ffDOtpgzl+93oT8MGg==
+mithras:
+  login:
+    whitelist: '192.168.0.77,192.168.0.42,0:0:0:0:0:0:0:1,192.168.0.10,192.168.0.188,192.168.0.55,192.168.0.61,192.168.0.51,192.168.0.66,127.0.0.1,192.168.1.11'
+    timeout: 20 #登录效时间 单位分钟
+  tyc:
+    token: ENC(WC9jXou4928jdG4XgiFcOW2cCAkPgkcom7fweGMkjQUQW83NlK2YNJgbR20TPpoe)
+    mock: false
+    writeToMockDb: false
+  job:
+    projManager: projmanager
+    deptLeader: businesshead
+    divisionLeader: leaderincharge
+  org:
+    riskManagementCode: FXGLB_YWPS
+    generalManagementCode: ZHGLB
+  backendHost: http://mithras-service.zswl.cn:8888
+  remote:
+    pubKey: ${crypto.sm2.publickey}
+    authOrg: 10000396
+    hostAddr: 172.16.200.57:8188
+  corsWhiteList:
+
+
+onlyoffice:
+  callbackIp: http://172.16.200.21:7003
+  logoUrl: http://mithras-service.zswl.cn:8888/logo.png
+  indexHost: http://mithras-test.zswl.cn:8888
+
+gruul:
+  system:
+    intercept:
+      excludepath: /user/custom/config/*,/user/dashboard/ssoLogin,/user/portal/ssoLogin,/ledger/detail/init,/app/file/upload,/birdge/user/auth,/birdge/user/login,/user/portal/app/ssoLogin,/app/authority/detail,/onlyoffice/download,/onlyoffice/callback,/flow/process/mock/trace,/cico/**,/group/credit/review/backdoor/**,/system/switch/*,/actuator/prometheus,/file/batch/download,/risk/control/opinion/monitor/notice,/materials/pdf/preview,/managereport/**,/select/orgs,/gungnirApi/user/getAuthCode,/gungnirApi/user/login,/association/report/getAssociationDict,/qccApi/generateToken
+      open: true
+      whitelist:
+        path: /ledger/appraisal/queryCompany,/corp/commerce/valid,/utils/cashFlow/generation/*,/select/industry/all,/select/all,/select/country,/select/region/child,/select/industry/root,/select/industry/child,/onlyoffice*,/flow/*,/message/*,/zswl/message/*,/ocr/detectOnline,/materials/downloadCommon,/qlexpress/execute,/file/list/group/compare,/file/list/compare,/risk/control/opinion/monitor/notice,/file/list/group/compare/v2,/profitcalculate/*,/management/report/refresh,/workbench/announcement/*,/select/level/orgs
+
+data:
+  share:
+    baseUrl: http://10.100.1.168:9026
+    loginUrl: ${data.share.baseUrl}/opr-http/datashare/cicossoserver/login
+    merchantUrl: ${data.share.baseUrl}/opr-http/datashare/v1/queryClients
+    batchUserUrl: ${data.share.baseUrl}/opr-http/datashare/v1/getBatchUserInfo
+    register: ${data.share.baseUrl}/opr-http/crm/merchant/addMerchant
+    orgUrl: ${data.share.baseUrl}/opr-http/datashare/v1/getOrganization
+    #生产：zszlrzext_46994_prd Wn31wb04
+    #测试：zszlrzext_46994_test Wn31wb04
+    name: zszlrzext_46994_test
+    pwd: ENC(DErdhURmMbCMRFAnwgiOlweSt/aGecNQ)
+    clientId: com.cncico.esb.opr.zszl
+    orgId: 10000079
+    zlOrgId: 10000396
+    #调用开关，false走本地mock环境，true走线上接口
+    merchantSwitch: true
+
+datasharehost:
+  validate:
+    url: http://10.100.218.6/sso/proxyValidate
+dashboard:
+  sso:
+    service: http://10.158.19.47/dashboard/sso
+portalhost:
+  validate:
+    url: ${datasharehost.validate.url}
+
+xxl:
+  job:
+    accessToken:
+    admin:
+      addresses: http://172.16.200.11:8085/xxl-job-admin
+    executor:
+      address:
+      appname: xxl-job-mithras-api
+      ip:
+      logpath: /home/tdops/logs/xxlJob
+      logretentiondays: 30
+      port: 10001
+
+app:
+  payment:
+    questionnaire:
+      version: 1.0
+
+trade:
+  notice:
+    privateKey: 78ceb13a-84fe-4d52-af77-0e8a6d22607d
+
+common:
+  contractStartRentRemind: true
+  notice:
+    enable: true
+    mithras:
+      baseUrl: http://mithras-test.zswl.cn:8888
+      appBaseUrl: http:/192.168.1.60:7003
+remote:
+  enable:
+    # 是否通知oa false不通知，true通知
+    oa: false
+  publishNotice:
+    expire:
+      limit: 3
+    operationCode: com.cncico.esb.bpm.protal.ReceiveRequestInfoByJson.get
+    clientId: com.cncico.esb.opr.zszl
+    url: http://10.100.1.168:9023/bpm-http/portal/ofs/ReceiveRequestInfoByJson
+    supply: 1
+    sysCode: ztzl
+    #测试环境
+    authBase: http://10.100.218.6/mobilemode/apps/zjjt/toWorkflow.jsp
+    #生产环境
+    #authBase: https://mobile.cncico.com:9443/spa/custom/static/index.html#/main/cs/app/bae5a76d5f094e93bc14472537b203e7_page
+    authPcUrl: ${remote.publishNotice.authBase}?type=1&appid=1&syscode=${remote.publishNotice.sysCode}&url=
+    authAppUrl: ${remote.publishNotice.authBase}?type=2&appid=1&syscode=${remote.publishNotice.sysCode}&url=
+    esbUrl: http://10.100.1.168:9023
+
+# 契约锁OAuth2密钥
+qiyuesuo:
+  # 契约锁服务地址
+  server: http://10.100.234.64:8000
+  # 获取token的客户ID
+  clientId: zszl_business-W6NH5UJD
+  # 获取token的密钥
+  clientSecret: 103753b4-ba0c-489f-a15b-d1a85f258b21
+  # 用印流程ID
+  categoryId: 2688727307646734733
+  # 请求头参数，契约锁API必传
+  headers:
+    # 对应契约锁的 appToken
+    accessToken: aAhGpsacdk
+    # 对应契约锁的 appSecret
+    signature: 1d1c1af53c3915c119a16b417eb27349
+    # 时间戳
+    timestamp: 0
+  # 浙商租赁企业名称
+  tenantName: 浙江浙商融资租赁有限公司-测试
+  # 浙商租赁企业合同章id
+  companyContractSealId: 3304800925943353582
+  # 印章关键字配置
+  seal:
+    keyword:
+      contractSeal: "%《浙商租赁合同章》%" #合同专用章
+      contractSettleSeal: "浙江浙商融资租赁有限公司（盖章）" #合同专用章
+
+#苍穹财务共享
+cq:
+  enable: true
+  auth:
+    appid: ESB
+    appSecuret: 123456789
+    tenantid: ierp
+    accountId: 1502445445920587776
+    language: zh_CN
+    user: 13800000000
+    usertype: Mobile
+    appBaseUrl: http://10.100.218.12:81
+  overdue:
+    auth:
+      appid: ESB
+      appSecuret: 123456789
+      tenantid: cicotest
+      usertype: Mobile
+      clientNo: ID-000096
+      accountId: 1474638581082357760
+      user: 13456789012
+      appBaseUrl: http://10.100.3.147:81
+
+mail:
+  common:
+    host: smtp.163.com
+    user: mithrastest@163.com
+    from: mithrastest@163.com
+    # pass: WL@123456
+    pass: WOZAAFTIFXKSOBLJ
+    timeout: 30000
+    connectTimeout: 3000
+    useSsl: true
+  tianyi:
+    host: smtp.163.com
+    port: 465
+    user: mithrastest@163.com
+    pass: WOZAAFTIFXKSOBLJ
+    from: mithrastest@163.com
+    timeout: 20000
+    connectTimeout: 8000
+    useSsl: true
+
+management:
+  metrics:
+    tags:
+      application: mithras # prometheus采集时的应用名称，dashboard中可以根据application对采集的数据做过滤
+  endpoint:
+    prometheus:
+      enabled: true # 开启prometheus采集 默认值即为true
+    health:
+      show-details: always # 对所有用户展示详细健康信息
+  endpoints:
+    web:
+      exposure:
+        include: '*' # 开启所有监控端点
+
+ocr:
+  # ocr url
+  host: http://192.168.250.31:80
+  # 置信度标红阈值，低于该阈值标红
+  probLimit: 95
+  mock: true
+
+apphost:
+  # 解密pwd
+  password: n30ykz8u
+
+projreview:
+  # 现场进调照片
+  onSiteDueDiligence: false
+
+guanyuan:
+  private-key: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJxWG//i6L8B/W3Woq0oqH4SDV16SmsueZGASVvdy9uKlK+Nw4Hm0AWr5c2/66N6J9HQZ9B3jmkw4HNLTJco/CWtSvuMCtCtZIQeviUzXJw5RZFCNe+uAh78VrPZkY/SBUvkRYpFCJGc5Bo8BuUVl8js48MGK837T7YedYxmzKKnAgMBAAECgYB2NjpXw6j//S43Jqu9SVgWc+n9O+IXp32vApT1zQE/kUsab5Rcnj2/fBp4+FziMRT49p/5Jt3dNmMRaueQCSKW4Bbf5tIBHq1NNeRbbRQKg8THCIjSj9i0v+zYWBvgFDJJaSQ7FUePvlv+XcWgJUbwOvzOvKkxmQ7G/1b6cYetWQJBAMwPChYwFY38alnups5DQD9tmTA9g6712AMTgjqDB8iPNwTB8IWTvbHvEUnOsVXjdS/l/iN6hadkg35sL3Cf3dUCQQDEIV1CqPpMj24JA5SkfQSsAvIgsbWfnY/mBXQvZ0LhMMmCdg80PYKpnTRUzUrshiQBR7dfwtxraWME+DVCKnCLAkAJKqPJW1+cgTpFz/KuUVcRglrfT+Qad/C8MqQm/LvcxpIyJIQpe/mJhLPCHQbaVN1uyWYhMd/PJTTC+RkodgYBAkASRS1j3Uvbv+y3KD87h23c/DVD+Gn74XibK9zj4ZGoWpwa7BaEfkpitINAdxNIr0JBYEXjxMo1s06HEvwbGsr7AkEAiZC9vq20f3RAej0wHiYVPj2MDfP+xIl6jLp3ZXtDgRsMJttUWpANqBS5Pq9MxJa8RVCMDY8PmjPM+WHqVIvFdw==
+  public-key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcVhv/4ui/Af1t1qKtKKh+Eg1dekprLnmRgElb3cvbipSvjcOB5tAFq+XNv+ujeifR0GfQd45pMOBzS0yXKPwlrUr7jArQrWSEHr4lM1ycOUWRQjXvrgIe/Faz2ZGP0gVL5EWKRQiRnOQaPAblFZfI7OPDBivN+0+2HnWMZsyipwIDAQAB
+  # 设置观远host、token
+  host: ''
+  token:
+
+#风控地址
+risk:
+  control:
+    baseUrl: http://172.16.200.57:8088/
+
+
+financial:
+  cloud:
+    upload_url: http://localhost:7010/upload/save/api
+
+jk:
+  base-url: http://10.100.221.107:8925
+  access-key-id: AD_cP1LTTZW0FvDLcPnnSBtr7Xl54JDa
+  access-key-secret: xNCRHlUJDzR3HDvuJ9qJ+/E8LEAF8A==
+
+
+yunhu:
+  base-url:  http://10.100.235.93:10073
+  access-key-id: 462b215183fd4f14a2707e0cfcc8dec1
+  access-key-secret: b1a671670fe54d498ae3ccbed9531a76
+
+
+flowable:
+  database-schema-update: true
+
+#rocketmq
+rocketmq:
+  name-server: 10.158.11.233:9876;10.158.11.237:9876;10.158.11.209:9876
+  consumer:
+    ep-consumer:
+      enabled: false  # 只禁用这个监听器
+#设置mq消费者分组名称
+producer:
+  group: mithras-service-poc
+
+#恒生数据配置
+hengsheng:
+  service:
+    url: https://open.hscloud.cn
+    appKey: 4e831bfd-af1e-41a2-90b1-9fc56b6b6a2b
+    appSecret: 1b397937-cfc2-4509-82f1-fa3e1f456f53
+  companyInfoUrl: /rdm/v1/rdm-cloud-gildata/gildata_inst_new/query_new
+  entDownHolderUrl: /rdm/v1/rdm-cloud-gildata/investment/query
+
+youshu:
+  autoRegister:
+    saveUrl: http://10.158.33.114:8001/api/product-map/autoRegister/saveRegister
+
+#租赁协会报送地址
+association:
+  sftpHost: 223.4.78.431
+  sftpPort: 2022
+  sftpUser: u91430000329604053K
+  sftpPassword: qwe123!@#26
+  zlAccount: 91430000329604053K
+  realtimeMinusMonths: 1
+
+#浙商金控风控系统相关URL配置
+gungnir-url: http://pre-zhfk.zjzsfh.com
+
+#qcc
+qcc:
+  aes-key: jIMSui6A6zsTu2m00qHGEQ==
+  aes-iv: uis4z92axjnbdmsr
+  login-name: 13045527765
+  company-key: 370b18f0e94d11f0b1c0b8cef6b42328
+
+#信加征信解析前置系统
+xj:
+  report:
+    baseUrl: http://10.158.33.159:8080/creditQuery
+    password: Sugar@2015
+    account: query
+
+# 慧眼系统
+xinsight:
+  # 环境IP配置
+  ips:
+    primary: http://10.158.32.132:8080
+  # SFTP配置
+  sftp:
+    host: 116.228.91.52
+    port: 6090
+    user: zjzsrzzl_upload
+    password: zjzsrzzl_upload@2025
+    maxRow: 5000
+    fileNamePrefix: ZSZL_MONITORLIST_
+    pathPrefix: Upload

@@ -1,0 +1,108 @@
+.quarterWrap {
+  background-color: #fff;
+  padding: 16px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+  .title {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #000000;
+    line-height: 24px;
+    font-weight: 500;
+  }
+}
+.piePanel {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.spin {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.pieItem {
+  flex: 1;
+  margin-right: 20px;
+  width: calc((100% - 60px) / 4);
+  text-align: center;
+  height: 160px;
+  &:nth-of-type(4n + 0) {
+    margin-right: 0;
+  }
+}
+
+.cardWrap {
+  border: 1px solid #e2e3e6;
+  border-radius: 4px;
+  &.active {
+    border: 1px solid #2558e6;
+  }
+  .title {
+    text-align: left;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #26272a;
+    font-weight: 400;
+    background-color: #f0f2f5;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 17px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    box-sizing: border-box;
+  }
+  .example {
+    margin-left: 50px;
+    .item {
+      text-align: left;
+    }
+    .point {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: red;
+      margin-right: 5px;
+    }
+    .name {
+      display: inline-block;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #8a8b8e;
+      line-height: 20px;
+      font-weight: 400;
+      margin-right: 5px;
+    }
+    .value {
+      width: 30px;
+      display: inline-block;
+      font-family: SFPro-Regular;
+      font-size: 12px;
+      color: #26272a;
+      line-height: 20px;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+}
+.noData {
+  .text {
+    font-size: 14px;
+    color: #8a8b8e;
+  }
+  .img {
+    width: 80px;
+  }
+}

@@ -1,0 +1,32 @@
+package cn.zswltech.mithras.dto.fund.receiptrepay;
+import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+/**
+ * @description fund_receipt_repay_state
+ * @author zhaozhengkang
+ * @date 2023-02-20
+ */
+@Data
+@ApiModel("fund_receipt_repay_state列表-返回体")
+public class FundReceiptRepayStateListRSP {
+
+    /**
+    * 主键
+    */
+    @ApiModelProperty(value = "主键")
+    private Long id;
+
+    /**
+    * recepit_repay_id
+    */
+    @ApiModelProperty(value = "recepit_repay_id")
+    private Long recepitRepayId;
+
+    /**
+    * write_off_state
+    */
+    @ApiModelProperty(value = "write_off_state")
+    private String writeOffState;
+
+}

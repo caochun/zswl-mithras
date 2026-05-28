@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.blackgray.mapper.BlackGrayBusinessDictMapper">
+  <resultMap id="BaseResultMap" type="cn.zswltech.mithras.blackgray.model.BlackGrayBusinessDict">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="org_name" jdbcType="BIGINT" property="orgName" />
+    <result column="business_name" jdbcType="VARCHAR" property="businessName" />
+    <result column="business_desc" jdbcType="VARCHAR" property="businessDesc" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="main_id" jdbcType="BIGINT" property="mainId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+  <resultMap id="TreeMap" type="cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBusinessTypeRsp">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="business_name" jdbcType="VARCHAR" property="businessName" />
+    <result column="business_desc" jdbcType="VARCHAR" property="businessDesc" />
+    <result column="main_id" jdbcType="BIGINT" property="mainId" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <collection property="child" column="id" select="getByParentId"/>
+  </resultMap>
+  <select id="getByParentId" resultMap="TreeMap">
+    select * from black_gray_business_dict where parent_id = #{parentId};
+  </select>
+
+
+  <select id="getTree" resultMap="TreeMap">
+    select * from black_gray_business_dict where parent_id in
+    <foreach collection="zeroIds" item="item" separator="," open="(" close=")">
+      #{item}
+    </foreach>
+    <if test="orgId!=null">
+      and org_id = #{orgId}
+    </if>
+    <if test="businessType!=null">
+      and business_type = #{businessType}
+    </if>
+  </select>
+
+  <select id="getBaseDict" resultType="cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBusinessTypeRsp">
+    select * from black_gray_business_dict where level = 0 and business_type = #{businessType};
+  </select>
+
+</mapper>

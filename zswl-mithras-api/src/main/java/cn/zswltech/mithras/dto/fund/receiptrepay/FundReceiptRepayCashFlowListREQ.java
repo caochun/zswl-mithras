@@ -1,0 +1,20 @@
+package cn.zswltech.mithras.dto.fund.receiptrepay;
+
+import cn.zswltech.mithras.dto.PageReq;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+/**
+ * @author zhaozhengkang
+ * @description 本金利息一览表
+ * @date 2023-02-20
+ */
+@Data
+@ApiModel("本金利息一览表列表-请求体")
+public class FundReceiptRepayCashFlowListREQ extends PageReq {
+
+    @ApiModelProperty(value = "收付款id")
+    private Long receiptRepayId;
+
+}

@@ -1,0 +1,1 @@
+alter table proj_review_base_info add column due_diligence_report_issuance_time date default null COMMENT '尽调报告出具时间';

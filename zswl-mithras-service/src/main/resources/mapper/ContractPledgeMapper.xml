@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.contract.ContractPledgeMapper">
+    <select id="contractByClientList" resultType="java.lang.String">
+        select b.contract_code contractCode from contract_base_info b
+        where b.id in (select distinct contract_id from contract_pledge a where
+        <foreach collection="clientIds" open="(" close=")" separator="or" item="item">
+            json_contains(a.pledge_ids, CONVERT(#{item},CHAR))
+        </foreach>
+        )
+        and b.contract_status != "INVALID"
+        and b.contract_code is not null
+        <if test="contractId != null and contractId != ''">
+            and b.id != #{contractId}
+        </if>
+        <if test="code != null and code != ''">
+            and b.contract_code like CONCAT('%',#{code},'%')
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.CreditReportMapper">
+
+    <select id="countReportClient" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM (
+        SELECT a.biz_type,b.lessee_type,@rank := @rank + 1 rank_number FROM
+            (SELECT origin_id,biz_type,max(version) AS version FROM contract_base_info_lib cb GROUP BY origin_id) a
+            <!-- 主承租人或债权人 -->
+            INNER JOIN (SELECT contract_id,lessee_id,version,is_report,lessee_type FROM contract_tenantry_lib ct WHERE lessee_type = 'MAIN_LESSSEE' OR lessee_type = 'CREDITOR') b
+            INNER JOIN payment_base_info c
+            INNER JOIN (SELECT @rank := 0) rank_number
+            WHERE a.origin_id = b.contract_id
+                AND a.version = b.version
+                AND a.origin_id = c.contract_id
+                AND b.is_report = 1
+                AND c.write_off_status = 'WRITTEN_OFF'
+                AND b.lessee_id = #{clientId}
+                <!-- 租赁、转租赁的主承租人，保理的第一债权人 -->
+            ) d WHERE (((biz_type = 'ZL' OR biz_type = 'ZZ') AND lessee_type = 'MAIN_LESSSEE') OR (biz_type = 'BL' AND rank_number = 1))
+    </select>
+
+    <select id="countReportClientNew" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM (
+        SELECT a.biz_type,b.lessee_type,@rank := @rank + 1 rank_number FROM
+        (SELECT origin_id,biz_type,max(version) AS version FROM contract_base_info_lib cb GROUP BY origin_id) a
+        <!-- 主承租人或债权人 -->
+        INNER JOIN (SELECT contract_id,lessee_id,version,is_report,lessee_type FROM contract_tenantry_lib ct WHERE lessee_type = 'MAIN_LESSSEE' OR lessee_type = 'CREDITOR') b
+        INNER JOIN payment_base_info c
+        INNER JOIN (SELECT @rank := 0) rank_number
+        WHERE a.origin_id = b.contract_id
+        AND a.version = b.version
+        AND a.origin_id = c.contract_id
+        AND b.is_report = 1
+        AND c.write_off_status IN ('WRITTEN_OFF', 'PART_WRITTEN_OFF')
+        AND b.lessee_id = #{clientId}
+        <!-- 租赁、转租赁的主承租人，保理的第一债权人 -->
+        ) d WHERE (((biz_type = 'ZL' OR biz_type = 'ZZ') AND lessee_type = 'MAIN_LESSSEE') OR (biz_type = 'BL' AND rank_number = 1))
+    </select>
+</mapper>

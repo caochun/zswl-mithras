@@ -1,0 +1,31 @@
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 区域评级优化
+INSERT INTO `rating_client_area_indicator_config` (`id`, `category_code`, `category_name`, `indicator_code`, `indicator_name`, `indicator_unit`, `indicator_data_type`, `indicator_sort`, `deleted`, `create_by`, `create_time`, `update_by`, `update_time`)
+VALUES
+    (1, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'belong_city_score', '所属地级市评分', '', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:21'),
+    (2, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'gdp', 'GDP（单位：亿元）', '亿元', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:23'),
+    (3, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'secondary_industry_rt', 'GDP：第二产业占比(%)', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:23'),
+    (4, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'town_pcdi', '城镇居民人均可支配收入（单位：元）', '元', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:24'),
+    (5, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'resident_pop_yoy_ratio', '人口同比变化(%)', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:25'),
+    (6, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'house_avg_price_sc', '房屋平均单价(元/㎡)（年末，二手房）', '元/㎡', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:26'),
+    (7, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'government_fund_income', '政府性基金收入（单位：亿元）', '亿元', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:27'),
+    (8, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'gp_budget_revenue', '一般公共预算收入（单位：亿元）', '亿元', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:28'),
+    (9, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'tax_income_ratio', '税收收入占比(%)', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:29'),
+    (10, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'budget_balance', '财政平衡性', '', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:30'),
+    (11, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'debt_ratio', '负债率', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:31'),
+    (12, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'debt_rate', '债务率', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:32'),
+    (13, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'debt_large_rt', '广义城投债务倍数', '', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:34'),
+    (14, 'zxztqxj_dlzb', '政信主体区县级-定量指标', 'government_transparency', '政府透明度(%)', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:35'),
+    (15, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'gdp', 'GDP（单位：亿元）', '亿元', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:42'),
+    (16, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'secotertiary_industry_rt', 'GDP：二三产业占比(%)', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:43'),
+    (17, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'town_pcdi', '城镇居民人均可支配收入（单位：元）', '元', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:44'),
+    (18, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'house_avg_price_new', '房屋平均单价(元/㎡)（年末，新房）', '元/㎡', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:45'),
+    (19, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'government_fund_income', '政府性基金收入（单位：亿元）', '亿元', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:46'),
+    (20, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'land_sales_ratio', '财政收入占GDP比例', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:47'),
+    (21, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'gp_budget_revenue', '一般公共预算收入（单位：亿元）', '亿元', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:48'),
+    (22, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'tax_income_ratio', '税收收入占比(%)', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:49'),
+    (23, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'budget_balance', '财政平衡性', '', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:50'),
+    (24, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'debt_ratio', '负债率', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:51'),
+    (25, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'debt_rate', '债务率', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:52'),
+    (26, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'debt_large_rt', '广义城投债务倍数', '', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:53'),
+    (27, 'zxztdjs_dlzb', '政信主体地级市-定量指标', 'government_transparency', '政府透明度(%)', '%', 'NUMBER', 0, 0, NULL, '2025-03-18 20:41:06', NULL, '2025-03-19 00:04:54');
+-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 区域评级优化

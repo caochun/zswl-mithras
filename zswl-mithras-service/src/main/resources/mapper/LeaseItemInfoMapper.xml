@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.leaseholdproperty.LeaseItemInfoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="projReviewId" column="proj_review_id" jdbcType="BIGINT"/>
+            <result property="projName" column="proj_name" jdbcType="VARCHAR"/>
+            <result property="clientId" column="client_id" jdbcType="BIGINT"/>
+            <result property="projSponsorUserId" column="proj_sponsor_user_id" jdbcType="BIGINT"/>
+            <result property="projCosponsorUserIds" column="proj_cosponsor_user_ids" jdbcType="VARCHAR"/>
+            <result property="flowId" column="flow_id" jdbcType="VARCHAR"/>
+            <result property="duplicateCheckingDate" column="duplicate_checking_date" jdbcType="DATE"/>
+            <result property="leaseItemTypes" column="lease_item_types" jdbcType="VARCHAR"/>
+            <result property="ownershipFileTypes" column="ownership_file_types" jdbcType="VARCHAR"/>
+            <result property="valueIdentificationFiles" column="value_identification_files" jdbcType="VARCHAR"/>
+            <result property="totalAmountOfLeaseItem" column="total_amount_of_lease_item" jdbcType="BIGINT"/>
+            <result property="approvalStatus" column="approval_status" jdbcType="VARCHAR"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,proj_review_id,proj_name,
+        client_id,proj_sponsor_user_id,proj_cosponsor_user_ids,
+        flow_id,duplicate_checking_date,lease_item_types,
+        ownership_file_types,value_identification_files,total_amount_of_lease_item,
+        approval_status,create_by,create_time,
+        update_by,update_time
+    </sql>
+    <select id="queryLastestListByContractId"
+            resultType="cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemInfo">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM lease_item_info
+        WHERE proj_review_id = #{projReviewId}
+        AND approval_status = 'APPROVAL_PASS'
+        ORDER BY update_time DESC
+        LIMIT 1
+    </select>
+</mapper>

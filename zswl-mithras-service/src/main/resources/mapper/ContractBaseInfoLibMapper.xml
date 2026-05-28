@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.lib.contract.ContractBaseInfoLibMapper">
+
+    <select id="listNewestContractByPreviewIds"
+            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfoLib">
+
+        SELECT p.* FROM contract_base_info_lib p
+        INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+        GROUP BY main_id) m ON p.origin_id = m.id AND p.version = m.version
+        <where>
+            <if test="projReviewIds != null and projReviewIds.size() > 0">
+                AND p.proj_review_id IN
+                <foreach collection="projReviewIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+
+    <select id="listNewestContractByContractIds"
+            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfoLib">
+        SELECT p.* FROM contract_base_info_lib p
+        INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+        GROUP BY main_id) m ON p.origin_id = m.id AND p.version = m.version
+        <where>
+            <if test="contractIds != null and contractIds.size() > 0">
+                AND p.origin_id IN
+                <foreach collection="contractIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+    <select id="listNewestContractByClientIds"
+            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfoLib">
+        SELECT p.* FROM contract_base_info_lib p
+        INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
+        GROUP BY main_id) m ON p.origin_id = m.id AND p.version = m.version
+        <where>
+            contract_status = 'START_RENT'
+            <if test="clientIds != null and clientIds.size() > 0">
+                AND p.client_id IN
+                <foreach collection="clientIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

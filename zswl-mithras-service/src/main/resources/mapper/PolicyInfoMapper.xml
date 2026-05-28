@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.policy.PolicyInfoMapper">
+
+    <select id="myList" resultType="cn.zswltech.mithras.service.mapper.dto.PolicyListDTO">
+        select a.id,a.policy_code policyCode,a.proj_id projId,b.proj_name projName,b.client_id clientId,
+        a.insurance_start_date insuranceStartDate,a.insurance_end_date insuranceEndDate,
+        a.insurance_company insuranceCompany,b.proj_sponsor_user_id projSponsorUserId,
+        b.proj_cosponsor_user_ids projCosponsorUserIds,a.approval_status approvalStatus,
+        a.create_time createTime,a.update_time updateTime
+        from policy_info a,proj_review_base_info b
+        <where>
+            a.proj_id = b.id
+            <if test="req.clientId!=null">and b.client_id = #{req.clientId}</if>
+            <if test="req.insuranceCompany!=null">and a.insurance_company LIKE concat('%', #{req.insuranceCompany},'%')</if>
+            <if test="req.projName!=null">and b.proj_name LIKE concat('%', #{req.projName},'%')</if>
+            <if test="req.policyCode!=null">and a.policy_code LIKE concat('%', #{req.policyCode},'%')</if>
+            <if test="req.insuranceStartDateFrom!=null">and a.insurance_start_date <![CDATA[ >= ]]> #{req.insuranceStartDateFrom}</if>
+            <if test="req.insuranceStartDateTo!=null">and a.insurance_start_date <![CDATA[ <= ]]> #{req.insuranceStartDateTo}</if>
+            <if test="req.insuranceEndDateFrom!=null">and a.insurance_end_date <![CDATA[ >= ]]> #{req.insuranceEndDateFrom}</if>
+            <if test="req.insuranceEndDateTo!=null">and a.insurance_end_date <![CDATA[ <= ]]> #{req.insuranceEndDateTo}</if>
+            <if test="req.projSponsorUserId!=null">and b.proj_sponsor_user_id = #{req.projSponsorUserId}</if>
+            <if test="req.approvalStatus!=null">and a.approval_status = #{req.approvalStatus}</if>
+            <if test="req.projCosponsorUserId!=null">
+                and json_contains(b.proj_cosponsor_user_ids, CONVERT(#{req.projCosponsorUserId},CHAR))
+            </if>
+        </where>
+        order by a.update_time desc
+    </select>
+
+    <select id="ledgerList" resultType="cn.zswltech.mithras.service.mapper.dto.PolicyListDTO">
+        select * from
+        (select a.id,a.policy_code policyCode,a.proj_id projId,b.proj_name projName,b.client_id clientId,
+        a.insurance_start_date insuranceStartDate,a.insurance_end_date insuranceEndDate,
+        a.insurance_company insuranceCompany,b.proj_sponsor_user_id projSponsorUserId,
+        b.proj_cosponsor_user_ids projCosponsorUserIds,a.approval_status approvalStatus,
+        a.renew_insurance_flag renewInsuranceFlag, a.contract_code contractCode,
+        a.policy_status policyStatus,
+        'policy' as dataSource,a.create_time createTime,a.update_time updateTime,
+        b.biz_dept_id biz_dept_id,
+                a.identification_information identification_information,a.level renewalRelationship
+        from policy_info a,proj_review_base_info b
+        <where>
+            a.proj_id = b.id
+            <if test="req.approvalStatus!=null">and a.approval_status = #{req.approvalStatus}</if>
+            <if test="req.policyIds != null and req.policyIds.size() > 0">
+                AND a.id IN
+                <foreach collection="req.policyIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="req.dataStatus != null">and a.data_status = #{req.dataStatus}</if>
+        </where>
+        union all
+        select a.id,a.policy_code policyCode,b.id projId,b.proj_name projName,b.client_id clientId,
+        a.insurance_start_date insuranceStartDate,a.insurance_end_date insuranceEndDate,
+        a.insurance_company insuranceCompany,b.proj_sponsor_user_id projSponsorUserId,
+        b.proj_cosponsor_user_ids projCosponsorUserIds,d.payment_process_status approvalStatus,
+        a.renew_insurance_flag renewInsuranceFlag, d.contract_code contractCode,
+        "NEW_ADD" as policyStatus,
+        'payment' as dataSource,a.create_time createTime,d.update_time updateTime,
+        b.biz_dept_id biz_dept_id, a.identification_information identification_information,'' renewalRelationship
+        from payment_policy_info a,payment_base_info d,contract_base_info c,proj_review_base_info b
+        <where>
+            a.payment_id = d.id and d.contract_id = c.id and c.proj_review_id = b.id and d.payment_status = 'NEW'
+            <if test="req.paymentApprovalStatus!=null">and d.payment_process_status = #{req.paymentApprovalStatus}</if>
+            <if test="req.paymentPolicyIds != null and req.paymentPolicyIds.size() > 0">
+                AND a.id IN
+                <foreach collection="req.paymentPolicyIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        union all
+        select a.id,a.policy_code policyCode,b.id projId,b.proj_name projName,b.client_id clientId,
+        a.insurance_start_date insuranceStartDate,a.insurance_end_date insuranceEndDate,
+        a.insurance_company insuranceCompany,b.proj_sponsor_user_id projSponsorUserId,
+        b.proj_cosponsor_user_ids projCosponsorUserIds,"UN_SUBMIT" approvalStatus,
+        a.renew_insurance_flag renewInsuranceFlag, c.contract_code contractCode,
+        "NEW_ADD" as policyStatus,
+        'payment' as dataSource,a.create_time createTime,a.update_time updateTime,
+        b.biz_dept_id biz_dept_id, a.identification_information identification_information,'' renewalRelationship
+        from payment_policy_info a,contract_base_info c,proj_review_base_info b
+        <where>
+            a.contract_id = c.id and c.proj_review_id = b.id and a.contract_id is not null and a.payment_id is null
+            <if test="req.paymentApprovalStatus!=null">and 1=0 </if>
+            <if test="req.paymentPolicyIds != null and req.paymentPolicyIds.size() > 0">
+                AND a.id IN
+                <foreach collection="req.paymentPolicyIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        ) tmp
+        <where>
+            <if test="req.clientId!=null">and tmp.clientId = #{req.clientId}</if>
+            <if test="req.insuranceCompany!=null">and tmp.insuranceCompany LIKE concat('%', #{req.insuranceCompany},'%')</if>
+            <if test="req.projName!=null">and tmp.projName LIKE concat('%', #{req.projName},'%')</if>
+            <if test="req.contractCode!=null">and tmp.contractCode LIKE concat('%', #{req.contractCode},'%')</if>
+            <if test="req.policyCode!=null">and tmp.policyCode LIKE concat('%', #{req.policyCode},'%')</if>
+            <if test="req.insuranceStartDateFrom!=null">and tmp.insuranceStartDate <![CDATA[ >= ]]> #{req.insuranceStartDateFrom}</if>
+            <if test="req.insuranceStartDateTo!=null">and tmp.insuranceStartDate <![CDATA[ <= ]]> #{req.insuranceStartDateTo}</if>
+            <if test="req.insuranceEndDateFrom!=null">and tmp.insuranceEndDate <![CDATA[ >= ]]> #{req.insuranceEndDateFrom}</if>
+            <if test="req.insuranceEndDateTo!=null">and tmp.insuranceEndDate <![CDATA[ <= ]]> #{req.insuranceEndDateTo}</if>
+            <if test="req.projSponsorUserId!=null">and tmp.projSponsorUserId = #{req.projSponsorUserId}</if>
+            <if test="req.projCosponsorUserId!=null">
+                and json_contains(tmp.projCosponsorUserIds, CONVERT(#{req.projCosponsorUserId},CHAR))
+            </if>
+            <if test="req.paymentPolicyIds==null or req.paymentPolicyIds.size==0">
+                <if test="req.policyIds!=null and req.policyIds.size>0">
+                    and tmp.dataSource != 'payment'
+                </if>
+            </if>
+            <if test="req.policyIds==null or req.policyIds.size==0">
+                <if test="req.paymentPolicyIds!=null and req.paymentPolicyIds.size>0">
+                    and tmp.dataSource != 'policy'
+                </if>
+            </if>
+            <if test="req.renewInsuranceFlag!=null">and tmp.renewInsuranceFlag = #{req.renewInsuranceFlag}</if>
+            <if test="req.policyStatus!=null">and tmp.policyStatus = #{req.policyStatus}</if>
+            <if test="req.authId!=null">
+                and
+                (tmp.projSponsorUserId = #{req.authId}
+                OR JSON_CONTAINS(tmp.projCosponsorUserIds, CONVERT (#{req.authId}, CHAR))
+                )
+            </if>
+            <if test="req.authDeptIds!=null and req.authDeptIds.size>0">
+                and biz_dept_id in
+                <foreach collection="req.authDeptIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        order by tmp.createTime desc
+    </select>
+
+    <select id="nearPolicyEndTimeList" resultType="cn.zswltech.mithras.service.mapper.dto.NearPolicyEndTimeDTO">
+        select projId, max(insuranceEndDate) maxDate
+        from (select a.id,
+                     a.policy_code             policyCode,
+                     a.proj_id                 projId,
+                     b.proj_name               projName,
+                     b.client_id               clientId,
+                     a.insurance_start_date    insuranceStartDate,
+                     a.insurance_end_date      insuranceEndDate,
+                     a.insurance_company       insuranceCompany,
+                     b.proj_sponsor_user_id    projSponsorUserId,
+                     b.proj_cosponsor_user_ids projCosponsorUserIds,
+                     a.approval_status         approvalStatus,
+                     'policy' as               dataSource,
+                     a.create_time             createTime,
+                     a.update_time             updateTime
+              from policy_info a,
+                   proj_review_base_info b
+              where a.proj_id = b.id
+                and a.approval_status not in ("NEW_UNDER_APPROVAL", "CHANGING_UNDER_APPROVAL")
+              union all
+              select a.id,
+                     a.policy_code             policyCode,
+                     b.id                      projId,
+                     b.proj_name               projName,
+                     b.client_id               clientId,
+                     a.insurance_start_date    insuranceStartDate,
+                     a.insurance_end_date      insuranceEndDate,
+                     a.insurance_company       insuranceCompany,
+                     b.proj_sponsor_user_id    projSponsorUserId,
+                     b.proj_cosponsor_user_ids projCosponsorUserIds,
+                     d.payment_process_status  approvalStatus,
+                     'payment' as              dataSource,
+                     a.create_time             createTime,
+                     d.update_time             updateTime
+              from payment_policy_info a,
+                   payment_base_info d,
+                   contract_base_info c,
+                   proj_review_base_info b
+              where a.payment_id = d.id
+                and d.contract_id = c.id
+                and c.proj_review_id = b.id
+             ) tmp
+        group by projId
+        having maxDate <![CDATA[ <= ]]> #{minTime}
+    </select>
+
+    <select id="paymentMaxTimeList" resultType="cn.zswltech.mithras.service.mapper.dto.PaymentPolicyEndTimeDTO">
+        select b.id projId,MAX(a.insurance_end_date) maxDate,d.payment_code
+        from payment_policy_info a,payment_base_info d,contract_base_info c,proj_review_base_info b
+        <where>
+            a.payment_id = d.id and d.contract_id = c.id and c.proj_review_id = b.id
+            <if test="ids != null and ids.size() > 0">
+                AND b.id IN
+                <foreach collection="ids" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        group by b.id,d.payment_code
+    </select>
+
+
+    <select id="countPolicyCode" resultType="int">
+        select a.policy + b.policy
+        from (select count(1) policy from payment_policy_info p
+            INNER JOIN payment_base_info b on p.payment_id = b.id
+            where p.policy_code = #{policyCode}
+            and b.payment_status != 'CLOSED') a,
+             (select count(1) policy from policy_info where policy_code = #{policyCode}) b
+    </select>
+
+    <select id="countPolicyCodes" resultType="cn.zswltech.mithras.service.mapper.dto.PolicyCodeCountDTO">
+        select a.policy_code, sum(a.policy_num) policy_num from
+        (SELECT
+        policy_code,
+        count( 1 ) policy_num
+        FROM
+        payment_policy_info p
+        INNER JOIN payment_base_info b ON p.payment_id = b.id
+        WHERE
+        b.payment_status != 'CLOSED'
+        and p.policy_code in
+        <foreach collection="policyCodes" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        group by policy_code
+        union all
+        SELECT
+        policy_code,
+        count( 1 ) policy_num
+        FROM
+        policy_info
+        where policy_code in
+        <foreach collection="policyCodes" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        group by policy_code) a
+        group by a.policy_code
+    </select>
+
+    <select id="countPolicyCodeNum" resultType="cn.zswltech.mithras.service.mapper.dto.PolicyCodeDTO">
+        select tmp.policy_code policy_code, count(1) codeNum from (
+        select a.policy_code from policy_info a
+        where a.policy_code
+        IN
+        <foreach collection="list" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        union ALL
+        select b.policy_code from payment_policy_info b
+        where b.policy_code
+        IN
+        <foreach collection="list" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>) tmp
+        GROUP BY tmp.policy_code
+    </select>
+
+    <update id="updateNotice">
+        update policy_info set notice_flag = #{code}
+        where id IN
+        <foreach collection="ids" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <select id="listPaymentNeedRenewInsurance" resultType="cn.zswltech.mithras.service.mapper.dto.PolicyListDTO">
+        SELECT p.id id,
+               p.contract_id,
+               p.contract_code,
+               p.id payment_id,
+               c.client_id,
+               c.proj_name,
+               c.proj_sponsor_user_id,
+               'payment' as dataSource,
+               c.proj_cosponsor_user_ids
+        FROM payment_base_info p left join contract_base_info c on c.id = p.contract_id
+        <where>
+            p.policy_flag = 2 and p.payment_status = 'TAKE_EFFECT'
+            AND p.id NOT IN (SELECT payment_id FROM policy_info WHERE `level` = 0)
+            <if test="ids != null and ids.size() > 0">
+                AND p.id IN
+                <foreach collection="ids" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="contractCode != null">
+                and p.contract_code like CONCAT('%',#{contractCode},'%')
+            </if>
+            <if test="contractStatus != null">
+                and c.contract_status != #{contractStatus}
+            </if>
+        </where>
+    </select>
+</mapper>

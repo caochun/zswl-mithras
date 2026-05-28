@@ -1,0 +1,1 @@
+ALTER TABLE common_version ADD flow_type varchar(50) NULL COMMENT '流程类型';

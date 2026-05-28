@@ -1,0 +1,32 @@
+package cn.zswltech.mithras.service.service.lib.kpi.handler.impl;
+
+import cn.hutool.core.bean.BeanUtil;
+import cn.zswltech.mithras.dto.ListBaseRSP;
+import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfo;
+import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfoLib;
+import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.service.service.lib.kpi.handler.KpiProjectDistributionAbstractLibHandler;
+import org.springframework.stereotype.Component;
+
+/**
+ * @author dingqi
+ * @date 2023/6/14
+ * @description
+ */
+@Component
+public class KpiProjectDistributionBaseInfoLibHandler extends KpiProjectDistributionAbstractLibHandler<KpiProjectDistributionBaseInfoLib, KpiProjectDistributionBaseInfo, ListBaseRSP> {
+    @Override
+    protected KpiProjectDistributionBaseInfoLib entity2Lib(KpiProjectDistributionBaseInfo f) {
+        return BeanUtil.copyProperties(f, KpiProjectDistributionBaseInfoLib.class);
+    }
+
+    @Override
+    protected KpiProjectDistributionBaseInfo lib2Entity(KpiProjectDistributionBaseInfoLib t) {
+        return BeanUtil.copyProperties(t, KpiProjectDistributionBaseInfo.class);
+    }
+
+    @Override
+    protected ListBaseRSP lib2Rsp(KpiProjectDistributionBaseInfoLib f) {
+        throw new MithrasException("暂不支持的功能");
+    }
+}

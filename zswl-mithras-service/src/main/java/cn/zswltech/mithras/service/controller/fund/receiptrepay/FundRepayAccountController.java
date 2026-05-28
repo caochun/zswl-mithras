@@ -1,0 +1,55 @@
+package cn.zswltech.mithras.service.controller.fund.receiptrepay;
+
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.api.fund.receiptrepay.FundRepayAccountApi;
+import cn.zswltech.mithras.dto.fund.receiptrepay.*;
+import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
+import cn.zswltech.mithras.service.auth.checker.fund.FundReceiptRepayAddSubAuthChecker;
+import cn.zswltech.mithras.service.auth.checker.fund.FundReceiptRepayModifySubAuthChecker;
+import cn.zswltech.mithras.service.auth.checker.fund.FundReceiptRepayRemoveSubAuthChecker;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundRepayAccountMapper;
+import cn.zswltech.mithras.service.service.fund.receiptrepay.FundRepayAccountService;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+
+/**
+ * @author zhaozhengkang
+ * @description 资金管理-融资管理-我方付款账户
+ * @date 2023-02-22
+ */
+@RestController
+public class FundRepayAccountController implements FundRepayAccountApi {
+
+    @Resource
+    private FundRepayAccountService fundRepayAccountService;
+
+    @Override
+    @DataAuthCheck(keyFieldName = "receiptRepayId", checkerClass = FundReceiptRepayAddSubAuthChecker.class, businessModule = BusinessModuleEnum.FUND_RECEIPT_REPAY)
+    public R<Void> add(FundRepayAccountAddREQ req) {
+        fundRepayAccountService.add(req);
+        return R.ok();
+    }
+
+    @Override
+    @DataAuthCheck(keyFieldName = "id", checkerClass = FundReceiptRepayModifySubAuthChecker.class, businessModule = BusinessModuleEnum.FUND_RECEIPT_REPAY, mapperClass = FundRepayAccountMapper.class)
+    public R<Void> modify(FundRepayAccountModifyREQ req) {
+        fundRepayAccountService.modify(req);
+        return R.ok();
+    }
+
+    @Override
+    public R<PageR<FundRepayAccountListRSP>> list(FundRepayAccountListREQ req) {
+        return R.ok(fundRepayAccountService.list(req));
+    }
+
+    @Override
+    @DataAuthCheck(keyFieldName = "id", checkerClass = FundReceiptRepayRemoveSubAuthChecker.class, businessModule = BusinessModuleEnum.FUND_RECEIPT_REPAY, mapperClass = FundRepayAccountMapper.class)
+    public R<Void> remove(FundRepayAccountRemoveREQ req) {
+        fundRepayAccountService.remove(req);
+        return R.ok();
+    }
+
+}

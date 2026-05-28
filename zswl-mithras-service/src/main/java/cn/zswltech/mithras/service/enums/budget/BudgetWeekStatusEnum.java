@@ -1,0 +1,25 @@
+package cn.zswltech.mithras.service.enums.budget;
+
+import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+/**
+ * @author dingqi
+ * @date 2025/4/13
+ * @description
+ */
+@AllArgsConstructor
+@Getter
+public enum BudgetWeekStatusEnum implements PullDown {
+
+    TO_BE_CONFIRM("待确认"),
+    CONFIRM("已确认");
+
+    private final String display;
+
+    @Override
+    public String display() {
+        return this.display;
+    }
+}

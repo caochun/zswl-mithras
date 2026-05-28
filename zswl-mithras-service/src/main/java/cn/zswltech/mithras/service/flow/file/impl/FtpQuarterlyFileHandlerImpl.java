@@ -1,0 +1,47 @@
+package cn.zswltech.mithras.service.flow.file.impl;
+
+import cn.zswltech.flow.core.domain.resp.ProcessResp;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.service.flow.file.IFileHandler;
+import cn.zswltech.mithras.service.mapper.model.MaterialsList;
+import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * @description:
+ * @author: zhaozhengkang
+ * @date: 2023/1/13 17:38
+ */
+@Component
+public class FtpQuarterlyFileHandlerImpl implements IFileHandler {
+    @Resource
+    private MaterialsListService materialsListService;
+    @Override
+    public void uploadCheck(ProcessResp processResp, String materialsType, String taskId) {
+        IFileHandler.super.uploadCheck(processResp, materialsType, taskId);
+    }
+
+    @Override
+    public void removeCheck(ProcessResp processResp, MaterialsList materialsList, String taskId) {
+        IFileHandler.super.removeCheck(processResp, materialsList, taskId);
+    }
+
+    @Override
+    public List<MaterialsList> listFile(ProcessResp processResp, List<String> materialsTypeList) {
+        return materialsListService.list(BusinessModuleEnum.FTP_QUARTERLY_GUIDANCE.name(), materialsTypeList, Collections.singletonList(Long.valueOf(processResp.getBusinessKey())));
+    }
+
+    @Override
+    public BusinessModuleEnum businessModule() {
+        return BusinessModuleEnum.FTP_QUARTERLY_GUIDANCE;
+    }
+
+    @Override
+    public String convertMaterialsType(String materialsType) {
+        return null;
+    }
+}

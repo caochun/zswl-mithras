@@ -1,0 +1,240 @@
+package hand.extract.contract.step2;
+
+import cn.hutool.core.date.LocalDateTimeUtil;
+import cn.hutool.core.lang.Pair;
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.poi.excel.ExcelReader;
+import cn.hutool.poi.excel.ExcelUtil;
+import cn.zswltech.mithras.service.others.Util;
+import lombok.Data;
+import lombok.experimental.Accessors;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.*;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
+import static cn.hutool.core.util.ObjectUtil.isNotNull;
+import static cn.hutool.core.util.ObjectUtil.isNull;
+
+/**
+ * @author yibin
+ */
+@Slf4j
+public class ContractActualRentImporter {
+
+    @Test
+    public void extract() {
+        ExcelReader reader = ExcelUtil.getReader(new File("/Users/luyi/Downloads/融资租赁业务合同情况总表20230331.xlsx"));
+        List<Sheet> sheets = reader.getSheets();
+        Sheet sheet1 = sheets.stream().filter(sheet -> sheet.getSheetName().equals("业务合同情况汇总表")).findFirst().get();
+        List<LineInfo> contracts = getContracts(sheet1);
+        Map<Pair<String, String>, List<RentRecord>> contractRentMap = new HashMap<>(contracts.size());
+        for (LineInfo info : contracts) {
+            try {
+                Sheet sheet = sheets.stream().filter(s -> s.getSheetName().equals(info.getTargetSheetName())).findFirst().orElse(null);
+                contractRentMap.put(Pair.of(info.getContractName(), info.getPayCode()), getRent(sheet));
+            } catch (Exception e) {
+                log.error("获取客户[{}],合同[{}]失败", info.getTargetSheetName(), info.getContractName(), e);
+            }
+        }
+        StringBuilder builder = new StringBuilder();
+        builder.append("insert into contract_rent_actual(contract_id, receipt_id,cash_flow_date,  cash_flow_phase, rent, principal, interest, remaining_principal,temp,paycode)\n" +
+                "values");
+        //覆盖现有的实际租金表
+        for (Map.Entry<Pair<String, String>, List<RentRecord>> entry : contractRentMap.entrySet()) {
+            String contractCode = entry.getKey().getKey();
+            String paycode = entry.getKey().getValue();
+            List<RentRecord> list = entry.getValue();
+            for (RentRecord r : list) {
+                String sql = String.format(
+                        "(0,0,%s,%s,%s,%s,%s,%s,%s,%s),\n",
+                        "'" + r.get还款日().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + "'", r.get期数(), Big2String(r.get租金()), Big2String(r.get本金()), Big2String(r.get利息()), Big2String(r.get剩余本金()), "'" + contractCode + "'", "'" + paycode + "'");
+                builder.append(sql);
+            }
+        }
+        System.out.println(builder.toString());
+
+    }
+
+    private String Big2String(BigDecimal b) {
+        if (isNull(b)) {
+            return null;
+        } else {
+            return "'" + Util.toMithrasUnit(b) + "'";
+        }
+
+    }
+
+    private List<RentRecord> getRent(Sheet sheet) {
+        List<RentRecord> result = new ArrayList<>();
+        if (null == sheet) {
+            return result;
+        }
+        int beginRow = 5;
+        int beginCol = beginCol(sheet);
+        for (int i = beginRow; i < sheet.getLastRowNum(); i++) {
+            RentRecord record = new RentRecord();
+            Row row = sheet.getRow(beginRow++);
+            Cell cell11 = row.getCell(beginCol);
+            if (!cell11.getCellType().equals(CellType.NUMERIC)) {
+                break;
+            }
+            if (isNotNull(cell11) && isNotBlank(cell11.toString())) {
+                record.set期数((int) cell11.getNumericCellValue());
+            }
+
+            Cell cell12 = row.getCell(beginCol + 1);
+            if (isNotNull(cell12) && isNotBlank(cell12.toString())) {
+                record.set还款日(LocalDateTimeUtil.of(cell12.getDateCellValue()).toLocalDate());
+            }
+
+            Cell cell13 = row.getCell(beginCol + 2);
+            if (isNotNull(cell13) && isNotBlank(cell13.toString())) {
+                record.set租金(new BigDecimal(String.valueOf(cell13.getNumericCellValue())));
+            }
+
+            Cell cell14 = row.getCell(beginCol + 3);
+            if (isNotNull(cell14) && isNotBlank(cell14.toString())) {
+                record.set利息(new BigDecimal(String.valueOf(cell14.getNumericCellValue())));
+            }
+
+            Cell cell15 = row.getCell(beginCol + 4);
+            if (isNotNull(cell15) && isNotBlank(cell15.toString())) {
+                record.set本金(new BigDecimal(String.valueOf(cell15.getNumericCellValue())));
+            }
+
+            Cell cell16 = row.getCell(beginCol + 5);
+            if (isNotNull(cell16) && isNotBlank(cell16.toString())) {
+                record.set剩余本金(new BigDecimal(String.valueOf(cell16.getNumericCellValue())));
+            }
+
+            Cell cell17 = row.getCell(beginCol + 6);
+            if (isNotNull(cell17) && isNotBlank(cell17.toString())) {
+                record.set现金流量(new BigDecimal(String.valueOf(cell17.getNumericCellValue())));
+            }
+
+            Cell cell18 = row.getCell(beginCol + 7);
+            if (isNotNull(cell18) && isNotBlank(cell18.toString())) {
+                record.set不含税会计收入(new BigDecimal(String.valueOf(cell18.getNumericCellValue())));
+            }
+
+            Cell cell19 = row.getCell(beginCol + 8);
+            if (isNotNull(cell19) && isNotBlank(cell19.toString())) {
+                record.set第一次支付日期(LocalDateTimeUtil.of(cell19.getDateCellValue()).toLocalDate());
+            }
+
+            Cell cell20 = row.getCell(beginCol + 9);
+            if (isNotNull(cell20) && isNotBlank(cell20.toString())) {
+                if (cell20.getCellType() == CellType.STRING) {
+                    record.set第一次支付金额(new BigDecimal(cell20.getStringCellValue().replace(",", "")));
+                } else {
+                    record.set第一次支付金额(new BigDecimal(String.valueOf(cell20.getNumericCellValue())));
+                }
+            }
+            result.add(record);
+        }
+        return result;
+    }
+
+
+    private List<LineInfo> getContracts(Sheet sheet1) {
+        List<LineInfo> result = new ArrayList<>();
+        int lastRowNum = sheet1.getLastRowNum();
+        for (int i = 2; i < lastRowNum; i++) {
+            String sheetName = "";
+            Cell cell = sheet1.getRow(i).getCell(5);
+            if (ObjectUtil.isNull(cell)) {
+                break;
+            }
+            Hyperlink hyperlink = cell.getHyperlink();
+            if (isNotNull(hyperlink)) {
+                String address = hyperlink.getAddress();
+                if (address.contains("'")) {
+                    //'中拓保理2302-中铁十五局'
+                    sheetName = address.substring(1, address.lastIndexOf("'"));
+                } else {
+                    //浙商中拓集团股份有限公司保理2209
+                    sheetName = address.substring(0, address.indexOf("!"));
+                }
+            } else {
+                try {
+                    sheetName = cell.getStringCellValue();
+                } catch (Exception ignored) {
+                }
+            }
+
+            String contractName = "";
+            cell = sheet1.getRow(i).getCell(6);
+            if (ObjectUtil.isNull(cell)) {
+                break;
+            }
+            try {
+                contractName = cell.getStringCellValue();
+            } catch (Exception ignored) {
+            }
+
+            String payCode = "";
+            cell = sheet1.getRow(i).getCell(69);
+            try {
+                payCode = cell.getStringCellValue();
+            } catch (Exception ignored) {
+            }
+
+            result.add(new LineInfo().setTargetSheetName(sheetName).setContractName(contractName).setPayCode(payCode));
+        }
+        return result;
+    }
+
+    private Integer beginCol(Sheet sheet) {
+        Row row = sheet.getRow(0);
+        for (int i = 0; i < row.getLastCellNum(); i++) {
+            Cell cell = row.getCell(i);
+            if (cell.getCellType() == CellType.STRING && cell.getStringCellValue().equals("项目金额")) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+
+    @Data
+    @Accessors(chain = true)
+    public static class LineInfo {
+        private String targetSheetName;
+        private String contractName;
+        private String payCode;
+    }
+
+
+    @Data
+    @Accessors(chain = true)
+    public static class ReceiptRecord {
+        private String paymentCode;
+        private List<String> rentList;
+    }
+
+    @Data
+    @Accessors(chain = true)
+    public static class RentRecord {
+        private Integer 期数;
+        private LocalDate 还款日;
+        private BigDecimal 租金;
+        private BigDecimal 利息;
+        private BigDecimal 本金;
+        private BigDecimal 剩余本金;
+        private BigDecimal 现金流量;
+        private BigDecimal 不含税会计收入;
+        private LocalDate 第一次支付日期;
+        private BigDecimal 第一次支付金额;
+    }
+
+}

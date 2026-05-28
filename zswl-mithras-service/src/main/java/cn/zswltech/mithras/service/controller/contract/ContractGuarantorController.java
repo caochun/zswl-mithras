@@ -1,0 +1,76 @@
+package cn.zswltech.mithras.service.controller.contract;
+import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.api.contract.ContractGuarantorApi;
+import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
+import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
+import cn.zswltech.mithras.dto.contract.guarantor.*;
+import cn.zswltech.mithras.dto.contract.ContractRelationREQ;
+import cn.zswltech.mithras.dto.contract.ContractRelationRSP;
+import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
+import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthChecker;
+import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifyMainAuthChecker;
+import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifySubAuthChecker;
+import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseRemoveSubAuthChecker;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.service.mapper.contract.ContractGuarantorMapper;
+import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
+import org.springframework.web.bind.annotation.RestController;
+import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.util.List;
+
+/**
+* @description 合同-担保措施
+* @author vico
+* @date 2022-08-12
+*/
+@RestController
+public class ContractGuarantorController implements ContractGuarantorApi {
+
+    @Resource
+    private ContractGuarantorService contractGuarantorService;
+
+    @Override
+    @ContractChangeOther
+    @DataAuthCheck(keyFieldName = "contractId", checkerClass = ContractBaseModifyMainAuthChecker.class, businessModule = BusinessModuleEnum.CONTRACT, mapperClass = ContractGuarantorMapper.class)
+    public R<Void> generateGuarantorContractCode(@Valid ContractSingleIdREQ contractSingleIdREQ) {
+        contractGuarantorService.generateGuarantorContractCode(contractSingleIdREQ.getContractId());
+        return R.ok();
+    }
+
+    @Override
+    @ContractChangeOther
+    @DataAuthCheck(keyFieldName = "contractId", checkerClass = ContractBaseAddSubAuthChecker.class, businessModule = BusinessModuleEnum.CONTRACT)
+    public R<Boolean> add(ContractGuarantorAddREQ req) {
+        return R.ok(contractGuarantorService.add(req));
+    }
+
+    @Override
+    @ContractChangeOther
+    @DataAuthCheck(keyFieldName = "id", checkerClass = ContractBaseModifySubAuthChecker.class, businessModule = BusinessModuleEnum.CONTRACT, mapperClass = ContractGuarantorMapper.class)
+    public R<Void> modify(ContractGuarantorModifyREQ req){
+        contractGuarantorService.modify(req);
+        return R.ok();
+    }
+
+    @Override
+    public R<List<ContractRelationRSP>> relation(@Valid ContractRelationREQ req) {
+        return R.ok(contractGuarantorService.contractByclient(req));
+    }
+
+    @Override
+    public R<List<ContractGuarantorListRSP>> list(ContractIdListREQ req){
+        return R.ok(contractGuarantorService.list(req));
+    }
+
+    @Override
+    @ContractChangeOther
+    @DataAuthCheck(keyFieldName = "id", checkerClass = ContractBaseRemoveSubAuthChecker.class, businessModule = BusinessModuleEnum.CONTRACT, mapperClass = ContractGuarantorMapper.class)
+    public R<Void> remove(ContractGuarantorRemoveREQ req){
+        contractGuarantorService.remove(req);
+        return R.ok();
+    }
+
+}

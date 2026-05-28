@@ -1,0 +1,58 @@
+package cn.zswltech.mithras.service.flow.listener.endhandler;
+
+import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
+import cn.zswltech.mithras.service.enums.projlifecycle.ProcessEventDescEnum;
+import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.service.mapper.model.projlifecycle.ProjLifecycleEvent;
+import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.service.service.payment.PaymentService;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.Optional;
+
+import static cn.hutool.core.text.CharSequenceUtil.equalsAny;
+import static cn.zswltech.mithras.service.enums.ProcessModelTypeEnum.PaymentCreateFlow;
+
+/**
+ * 付款模块流程结束
+ *
+ * @author wangchuanhao
+ * @date 2022/11/9 2:34 PM
+ */
+@Component
+public class PaymentProcessEndHandler extends AbstractProcessEndHandler implements ILifecycleProcessor {
+
+    @Resource
+    private PaymentService paymentService;
+    @Resource
+    private PaymentBaseInfoMapper paymentBaseInfoMapper;
+    @Resource
+    private ContractBaseInfoMapper contractBaseInfoMapper;
+    @Resource
+    private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
+
+    @Override
+    public boolean needHandle(ProcessEndContext endContext) {
+        return equalsAny(endContext.getModelKey(), PaymentCreateFlow.name());
+    }
+
+    @Override
+    public void handle(ProcessEndContext endContext) {
+        paymentService.processEnd(Long.valueOf(endContext.getBusinessKey()), endContext.getEndType(), Long.valueOf(endContext.getStartUserId()), endContext.getProcessInstanceId(), endContext.getModelKey());
+        processLifecycle(endContext);
+    }
+
+    @Override
+    public void customfillLifcycleEvent(ProjLifecycleEvent endEvent, ProcessEndContext endContext) {
+        PaymentBaseInfo paymentBaseInfo = paymentBaseInfoMapper.selectById(Long.valueOf(endContext.getBusinessKey()));
+        ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(paymentBaseInfo.getContractId());
+        ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoMapper.selectById(contractBaseInfo.getProjReviewId());
+        getProjIdAndProjType(endEvent, projReviewBaseInfo);
+        endEvent.setEvent(Optional.ofNullable(ProcessEventDescEnum.getByName(endContext.getModelKey())).map(ProcessEventDescEnum::getEvent).orElse("付款审批"));
+    }
+}

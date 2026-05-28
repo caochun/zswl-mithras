@@ -1,0 +1,20 @@
+import { Table, Page } from '@zswl/components'
+import { observer } from '@zswl/admin'
+import store from './store'
+import Api from '@/api/groupCredit/projectApprovalVersion'
+import { VersionTable } from '@/components'
+
+function Index({ params: { id } }) {
+  console.log('渲染了')
+  return (
+    <Page header={null}>
+      <VersionTable
+        params={{ mainId: id }}
+        getListApi={Api.postVersionList}
+        toDifferentInfo={store.toDifferentInfo}
+      />
+    </Page>
+  )
+}
+
+export default observer(Index)

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.lib.fund.financing.FundFinancingBaseInfoLibMapper">
+
+    <select id="queryLastestVersionLibIdList" resultType="java.lang.Long">
+        SELECT p.id FROM fund_financing_base_info_lib p
+        INNER JOIN (SELECT main_id AS financing_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'FUND_FINANCING' AND version_type = 1
+        GROUP BY main_id) m ON p.origin_id = m.financing_id AND p.version = m.version
+        WHERE 1 = 1
+        <if test="financingIdList!=null and financingIdList.size()>0">
+            AND p.origin_id IN
+            <foreach collection="financingIdList" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="queryLastestVersionLibList"
+            resultType="cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfoLib">
+        SELECT p.* FROM fund_financing_base_info_lib p
+        INNER JOIN (SELECT main_id AS financing_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'FUND_FINANCING' AND version_type = 1
+        GROUP BY main_id) m ON p.origin_id = m.financing_id AND p.version = m.version
+        WHERE 1 = 1
+        <if test="financingIdList!=null and financingIdList.size()>0">
+            AND p.origin_id IN
+            <foreach collection="financingIdList" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="queryLastestVersionLibs"
+            resultType="cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfoLib">
+        SELECT p.* FROM fund_financing_base_info_lib p
+        INNER JOIN (SELECT main_id AS financing_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'FUND_FINANCING' AND version_type = 1
+        GROUP BY main_id) m ON p.origin_id = m.financing_id AND p.version = m.version
+        WHERE 1 = 1
+        <if test="dto.timeLimitType!=null and dto.timeLimitType.size>0">
+            AND p.time_limit_type IN
+            <foreach collection="dto.timeLimitType" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        </if>
+        <if test="dto.businessType!=null and dto.businessType.size()>0">
+            AND p.business_type IN
+            <foreach collection="dto.businessType" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        </if>
+        <if test="dto.startDate!=null">
+            AND p.actual_loan_date >= #{dto.startDate}
+        </if>
+        <if test="dto.endDate!=null">
+            AND p.actual_loan_date &lt;= #{dto.endDate}
+        </if>
+        <if test="dto.actualLoanDateTo!=null">
+            AND p.actual_loan_date &lt;= #{dto.actualLoanDateTo}
+        </if>
+        <if test="dto.excludeSettle!=null">
+            AND p.financing_status != 'SETTLE'
+        </if>
+    </select>
+
+</mapper>

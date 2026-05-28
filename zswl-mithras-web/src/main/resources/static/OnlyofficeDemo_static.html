@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>OnlyOffice编辑测试</title>
+		<!-- 引入外部JavaScript文件 -->
+		<script type="text/javascript" src="http://mithras-onlyoffice.zswl.cn:8888/web-apps/apps/api/documents/api.js"></script>
+		<script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
+	</head>
+	<body onload="init()">
+        <div id="placeholder"></div>
+        <script language="javascript" type="text/javascript">
+			function getQueryVariable(variable)
+			{
+				var query = window.location.search.substring(1);
+				var vars = query.split("&");
+				for (var i=0;i<vars.length;i++) {
+					var pair = vars[i].split("=");
+					if(pair[0] == variable){return pair[1];}
+				}
+				return(null);
+			}
+			let conf = {
+				"documentType": "cell",
+				"type": "embedded",
+				"height": null,
+				"width": null,
+				"document": {
+					"fileType": "xlsx",
+					"key": "bjzl5d6ixtr6oar73mtlivigr7hqn2ft",
+					"title": "需求说明",
+					"url": "172.16.200.21:7003/onlyoffice/download?key=bjzl5d6ixtr6oar73mtlivigr7hqn2ft",
+					"permissions": {
+						"chat": null,
+						"comment": null,
+						"copy": null,
+						"download": null,
+						"edit": true,
+						"print": null
+					}
+				},
+				"editor": {
+					"callbackUrl": "172.16.200.21:7003/onlyoffice/callback",
+					"lang": "zh-CN",
+					"mode": null,
+					"region": "zh-CN",
+					"user": {
+						"id": "3",
+						"name": "admin"
+					},
+					"customization": {
+						"autosave": null,
+						"comments": false,
+						"compactToolbar": null,
+						"customer": null,
+						"help": false,
+						"hideRightMenu": null,
+						"macros": null,
+						"macrosMode": null,
+						"uiTheme": null
+					}
+				},
+				"editorConfig": {
+					"lang": "en",
+					"canCoAuthoring": true,
+					"customization": {
+						"about": true,
+						"feedback": false
+					}
+				},
+				"frameEditorId": "placeholder",
+				"parentOrigin": "http://localhost:7003"
+			}
+			var docEditor = new DocsAPI.DocEditor("placeholder", conf);
+			// function init() {
+			// 	let reqData = {
+			// 		'moduleType': `${getQueryVariable('moduleType')}`,
+			// 		'id': `${getQueryVariable('id')}`,
+			// 		'operate': `${getQueryVariable('operate')}`,
+			// 	}
+			// 	console.log(JSON.stringify(reqData));
+			// 	$.ajax({
+			// 		url:"/onlyoffice/docDetail",
+			// 		method: "post",
+			// 		contentType: "application/json; charset=utf-8",
+			// 		dataType: "json",
+			// 		data: JSON.stringify(reqData),
+			// 		success: function(result){
+			// 			console.log(result)
+			// 			var docEditor = new DocsAPI.DocEditor("placeholder", result.data);
+			// 		},
+			// 		error: function(data){
+			// 			alert("文件不存在或该文件类型无法预览")
+			// 		}
+			// 	});
+			// }
+        </script>
+	</body>
+</html>

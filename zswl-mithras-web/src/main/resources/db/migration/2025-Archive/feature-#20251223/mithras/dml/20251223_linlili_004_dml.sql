@@ -1,0 +1,4 @@
+update filing_first_level_config set dir_name ='抵质押物资料清单' where filing_materials_config_id = (select id from filing_materials_config where business_type = 'FILING_BUSINESS_COLLATERALIZATION') and dir_code ='BASIC_INFORMATION';
+update filing_first_level_config set dir_name ='租赁物资料清单' where filing_materials_config_id = (select id from filing_materials_config where business_type = 'FILING_BUSINESS_LEASEHOLD') and dir_code ='BASIC_INFORMATION';
+update filing_first_level_config set dir_name ='合同资料清单' where filing_materials_config_id = (select id from filing_materials_config where business_type = 'FILING_BUSINESS_PAYMENT') and dir_code ='BASIC_INFORMATION';
+update filing_first_level_config set dir_name ='内部操作资料清单' where filing_materials_config_id = (select id from filing_materials_config where business_type = 'FILING_BUSINESS_INNER_OPERATION') and dir_code ='BASIC_INFORMATION';

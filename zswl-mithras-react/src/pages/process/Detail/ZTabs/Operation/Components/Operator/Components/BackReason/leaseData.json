@@ -1,0 +1,106 @@
+[
+  {
+    "id": null,
+    "groupName": "退回原因",
+    "contentList": [
+      {
+        "id": 101,
+        "templateId": 1,
+        "templateTitle": "权属文件问题",
+        "templateContentInputLabel": "权属文件不完整",
+        "templateContentInputType": "textArea",
+        "templateOptionList": null,
+        "content": ""
+      },
+      {
+        "id": 102,
+        "templateId": 2,
+        "templateTitle": "权属文件问题",
+        "templateContentInputLabel": "权属文件要素缺失/有误/模糊",
+        "templateContentInputType": "textArea",
+        "templateOptionList": null,
+        "content": ""
+      },
+      {
+        "id": 103,
+        "templateId": 3,
+        "templateTitle": "权属文件问题",
+        "templateContentInputLabel": "权属文件无效力",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 104,
+        "templateId": 4,
+        "templateTitle": "权属文件问题",
+        "templateContentInputLabel": "权属文件其他",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 105,
+        "templateId": 5,
+        "templateTitle": "租赁物问题",
+        "templateContentInputLabel": "",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 106,
+        "templateId": 6,
+        "templateTitle": "适租性问题",
+        "templateContentInputLabel": "",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 107,
+        "templateId": 7,
+        "templateTitle": "查重问题",
+        "templateContentInputLabel": "未提供查重文件提供不完整",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 108,
+        "templateId": 8,
+        "templateTitle": "查重问题",
+        "templateContentInputLabel": "未说明排重分析过程及明确查重结论",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 109,
+        "templateId": 9,
+        "templateTitle": "查重问题",
+        "templateContentInputLabel": "查重文件不符合要求",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 110,
+        "templateId": 10,
+        "templateTitle": "查重问题",
+        "templateContentInputLabel": "涉及重复融资",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 111,
+        "templateId": 11,
+        "templateTitle": "查重问题",
+        "templateContentInputLabel": "其他",
+        "templateContentInputType": "textArea",
+        "content": ""
+      },
+      {
+        "id": 112,
+        "templateId": 12,
+        "templateTitle": "其他问题",
+        "templateContentInputLabel": "",
+        "templateContentInputType": "textArea",
+        "content": ""
+      }
+    ]
+  }
+]

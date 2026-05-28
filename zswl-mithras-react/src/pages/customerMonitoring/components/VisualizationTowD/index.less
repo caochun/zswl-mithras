@@ -1,0 +1,54 @@
+.haderRight {
+  margin-left: 16px;
+  width: 640px;
+  height: 186px;
+  background-image: url('/public/assets/risk/monitoringAlertList/monitoringAlertListTopRight.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  flex: 1;
+  .charts {
+    display: flex;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // gap: 16px;
+
+    .chartCard {
+      overflow: hidden;
+      flex: 1;
+      border-radius: 8px;
+      padding: 10px;
+      margin-left: 10;
+      .chartTitle {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.tabs {
+  display: inline-flex;
+  margin-left: 12px;
+
+  .tab {
+    padding: 2px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 2px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    &.active {
+      color: #1890ff;
+      background-color: rgba(24, 144, 255, 0.1);
+    }
+
+    & + .tab {
+      margin-left: 8px;
+    }
+  }
+}

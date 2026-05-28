@@ -1,0 +1,26 @@
+package cn.zswltech.mithras.dto.afterlease;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import javax.validation.constraints.NotNull;
+
+
+/**
+ * 租后-罚息减免基本表
+ * @author jackerhe
+ * @date 2022-11-19
+ */
+@Data
+@ApiModel("租后-罚息减免获取合同ID-请求体")
+public class CollectionRelationContractREQ {
+
+    /**
+    * 合同id
+    */
+    @ApiModelProperty(value = "罚息减免id")
+    @NotNull(message = "罚息减免id不能为空")
+    private Long reduceId;
+
+}

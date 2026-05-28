@@ -1,0 +1,45 @@
+{
+  "result": {
+    "total": 2,
+    "items": [
+      {
+        "cgid": "",
+        "capital": [
+          {
+            "amomon": "1335417.36万人民币",
+            "paymet": "货币",
+            "time": "2021-06-03",
+            "percent": "99.50%"
+          }
+        ],
+        "name": "李彦宏",
+        "capitalActl": [],
+        "logo": "https://imgh.tianyancha.com/logo/human/2c89a37665fe7374a23694bad46330ba_d200x200.png",
+        "alias": "李",
+        "id": 1984012283,
+        "type": 2,
+        "hcgid": "1984012283-c22822"
+      },
+      {
+        "cgid": "",
+        "capital": [
+          {
+            "amomon": "6710.64万人民币",
+            "paymet": "货币",
+            "time": "2021-06-03",
+            "percent": "0.50%"
+          }
+        ],
+        "name": "崔珊珊",
+        "capitalActl": [],
+        "logo": "https://imgh.tianyancha.com/logo/human/086164804ac49f1d8c8ba0a9179017f2_d200x200.png",
+        "alias": "崔",
+        "id": 1905070872,
+        "type": 2,
+        "hcgid": "1905070872-c22822"
+      }
+    ]
+  },
+  "reason": "ok",
+  "error_code": 0
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.report.mapper.fullsnap.CrAccountFullSnapMapper">
+
+
+    <insert id="copyFromEffect">
+        INSERT INTO cr_account_full_snap(business_key, contract_id, create_time, update_time, payment_apply_code, lending_date, biz_type, rental_calc_type, repay_rate, earnest_money,
+                                         proj_lease_month_count, payment_amount, client_code, client_name, closed_date, payment_id, client_id, batch_id, batch_no)
+        SELECT business_key, contract_id, create_time, update_time, payment_apply_code, lending_date, biz_type, rental_calc_type, repay_rate, earnest_money,
+               proj_lease_month_count, payment_amount, client_code, client_name, closed_date, payment_id, client_id, #{batchId}, #{batchNo} FROM cr_account
+    </insert>
+
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+    <process id="NewAfterLeaseCheckPlanPublishModifyFlow" name="租后检查计划发布变更流程" isExecutable="true">
+        <startEvent id="startEvent1"></startEvent>
+        <userTask id="userTask_startUser" name="发起人"></userTask>
+        <sequenceFlow id="sid-E2224FEE-A57B-477F-8B0C-0BD8EC6A1E57" sourceRef="startEvent1" targetRef="userTask_startUser"></sequenceFlow>
+        <userTask id="userTask_riskDeptMaster" name="风险部负责人"></userTask>
+        <sequenceFlow id="sid-E4DC1377-4B77-43C0-AE41-D7F2A303C7CD" sourceRef="userTask_startUser" targetRef="userTask_riskDeptMaster"></sequenceFlow>
+        <userTask id="userTask_chiefRiskOfficer" name="首席风险官"></userTask>
+        <sequenceFlow id="sid-74C2F3AE-A486-4291-8B42-DB95D4ADEA1B" sourceRef="userTask_riskDeptMaster" targetRef="userTask_chiefRiskOfficer"></sequenceFlow>
+        <endEvent id="sid-FAEE3450-7644-4BF9-BBB9-062E90F61053"></endEvent>
+        <sequenceFlow id="sid-43C9494A-30C8-4F2B-BA63-286BD7515A93" sourceRef="userTask_chiefRiskOfficer" targetRef="sid-FAEE3450-7644-4BF9-BBB9-062E90F61053"></sequenceFlow>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_NewAfterLeaseCheckPlanPublishModifyFlow">
+        <bpmndi:BPMNPlane bpmnElement="NewAfterLeaseCheckPlanPublishModifyFlow" id="BPMNPlane_NewAfterLeaseCheckPlanPublishModifyFlow">
+            <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+                <omgdc:Bounds height="30.0" width="30.0" x="165.0" y="163.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="userTask_startUser" id="BPMNShape_userTask_startUser">
+                <omgdc:Bounds height="80.0" width="100.0" x="240.0" y="140.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="userTask_riskDeptMaster" id="BPMNShape_userTask_riskDeptMaster">
+                <omgdc:Bounds height="80.0" width="100.0" x="385.0" y="140.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="userTask_chiefRiskOfficer" id="BPMNShape_userTask_chiefRiskOfficer">
+                <omgdc:Bounds height="80.0" width="100.0" x="530.0" y="140.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="sid-FAEE3450-7644-4BF9-BBB9-062E90F61053" id="BPMNShape_sid-FAEE3450-7644-4BF9-BBB9-062E90F61053">
+                <omgdc:Bounds height="28.0" width="28.0" x="675.0" y="166.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="sid-E2224FEE-A57B-477F-8B0C-0BD8EC6A1E57" id="BPMNEdge_sid-E2224FEE-A57B-477F-8B0C-0BD8EC6A1E57">
+                <omgdi:waypoint x="194.94745901839696" y="178.27177421885358"></omgdi:waypoint>
+                <omgdi:waypoint x="239.99999999999892" y="179.0909090909091"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-74C2F3AE-A486-4291-8B42-DB95D4ADEA1B" id="BPMNEdge_sid-74C2F3AE-A486-4291-8B42-DB95D4ADEA1B">
+                <omgdi:waypoint x="484.95000000000005" y="180.0"></omgdi:waypoint>
+                <omgdi:waypoint x="530.0" y="180.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-43C9494A-30C8-4F2B-BA63-286BD7515A93" id="BPMNEdge_sid-43C9494A-30C8-4F2B-BA63-286BD7515A93">
+                <omgdi:waypoint x="629.9499999999999" y="180.0"></omgdi:waypoint>
+                <omgdi:waypoint x="675.0" y="180.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-E4DC1377-4B77-43C0-AE41-D7F2A303C7CD" id="BPMNEdge_sid-E4DC1377-4B77-43C0-AE41-D7F2A303C7CD">
+                <omgdi:waypoint x="339.9499999999907" y="180.0"></omgdi:waypoint>
+                <omgdi:waypoint x="385.0" y="180.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

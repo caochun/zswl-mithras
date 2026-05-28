@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.third.FinanceFlowMatchResultMapper">
+    <select id="selectWithLogicDelete"
+            resultType="cn.zswltech.mithras.service.mapper.model.third.FinanceFlowMatchResult">
+        SELECT *
+        FROM finance_flow_match_result
+        WHERE deleted IN (0, 1)
+        AND main_id = #{mainId}
+    </select>
+</mapper>

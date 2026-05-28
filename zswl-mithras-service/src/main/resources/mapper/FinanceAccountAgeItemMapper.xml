@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.finance.FinanceAccountAgeItemMapper">
+    <select id="getLastAccountAgeItemByCollectionIds" resultType="cn.zswltech.mithras.service.mapper.model.finance.FinanceAccountAgeItem">
+        select *
+        from finance_account_age_item
+        where id in (
+        select max(id)
+        from finance_account_age_item
+        where account_age_id in (select id
+        from finance_account_age_base_info
+        where status = 'FINISH'
+        and deleted = 0)
+        group by collection_id)
+        <if test="collectionIds != null and collectionIds != ''">
+            AND collection_id IN
+            <foreach collection="collectionIds" item="collectionId" open="(" separator="," close=")">
+                #{collectionId}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="countAmount" resultType="cn.zswltech.mithras.service.mapper.model.finance.FinanceAccountAgeItem">
+        select sum(original_value_initial) as original_value_initial,
+        sum(original_value_increase) as original_value_increase,
+        sum(original_value_reduce) as original_value_reduce,
+        sum(original_value_final) as original_value_final
+        from finance_account_age_item
+        <where>
+            account_age_id = #{req.accountAgeId}
+        </where>
+    </select>
+
+</mapper>

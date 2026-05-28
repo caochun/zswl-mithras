@@ -1,0 +1,24 @@
+package cn.zswltech.mithras.service.service.project;
+
+import cn.zswltech.mithras.service.mapper.TmpClientProjectMapper;
+import cn.zswltech.mithras.service.mapper.temp.TmpClientProject;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+
+/**
+ * @author luyi
+ */
+@Service
+public class ProjectService {
+
+    @Resource
+    private TmpClientProjectMapper tmpClientProjectMapper;
+
+    public boolean existClientRelatedProjects(Long clientId) {
+        return tmpClientProjectMapper.selectCount(Wrappers.<TmpClientProject>lambdaQuery()
+                .eq(TmpClientProject::getClientId, clientId)
+                .eq(TmpClientProject::getStatus, 1)) > 0;
+    }
+}

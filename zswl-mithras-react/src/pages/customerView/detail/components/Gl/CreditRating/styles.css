@@ -1,0 +1,117 @@
+.title {
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #101c2c;
+}
+.container {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  gap: 10px;
+}
+.container .leftSection {
+  display: flex;
+  width: 486px;
+  height: 205px;
+  top: 1080px;
+  left: 404px;
+  gap: 0px;
+  background: linear-gradient(128.08deg, #e2eeff 7.34%, #f3f8ff 32.09%, rgba(255, 255, 255, 0) 57.12%);
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.container .leftSection .ratingContent {
+  text-align: center;
+  width: 130px;
+  top: 1200px;
+  left: 424px;
+  gap: 0px;
+}
+.container .leftSection .ratingContent .ratingIcon {
+  font-size: 48px;
+}
+.container .leftSection .ratingContent .ratingGrade {
+  text-align: center;
+  font-family: PingFang SC;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  gap: 0px;
+}
+.container .leftSection .ratingContent .ratingLabel {
+  margin-top: 4px;
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22.4px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #666666;
+  text-align: center;
+}
+.container .leftSection .ratingContent .updateDate {
+  font-family: PingFang SC;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16.8px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin-top: 32px;
+  color: #cccccc;
+}
+.container .leftSection .internalTable {
+  margin-left: 30px;
+  height: 152px;
+  width: 290px;
+}
+.container .leftSection .internalTable .tableTitle {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.container .rightSection {
+  width: 486px;
+  flex: 1;
+  margin-left: 5px;
+  background: linear-gradient(141.85deg, #ecffff 3.96%, #f5ffff 26.28%, rgba(255, 255, 255, 0) 59.52%);
+  border-radius: 8px;
+  padding: 16px 0 16px;
+  box-sizing: border-box;
+}
+.container .rightSection .tableTitle {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.container .ant-table {
+  border-radius: 8px;
+}
+:global .ant-table {
+  background: none;
+}
+:global .ant-table-thead > tr > th {
+  background: #e6edf8;
+  font-family: PingFang SC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #666666;
+}
+:global .newTableWarningList .z-search-bar {
+  background: none;
+}
+:global .ant-tabs-nav {
+  border-bottom: solid 1px #cccccc;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingPlanMapper">
+
+    <sql id="allColumns">
+        ffp.id, ffp.financing_id, ffp.financing_amount, ffp.interest_amount, ffp.financing_month, ffp.service_charge_amount,
+        ffp.repay_times, ffp.earnest_money_amount, ffp.repay_frequency, ffp.license_amount, ffp.repay_way, ffp.other_amount,
+        ffp.guarantee_amount_info, ffp.interest_rate_type, ffp.lpr_type, ffp.lpr_rate_percent, ffp.lpr_add_percent,
+        ffp.comprehensive_interest_rate, ffp.repay_day, ffp.create_time, ffp.create_by, ffp.update_time, ffp.update_by,
+        ffp.lpr_arrange_mode, ffp.lpr_adjustment_day, ffp.comprehensive_interest_rate_current, ffp.guarantee_info,
+        ffp.ftp_yield_rate
+    </sql>
+    <select id="queryEffectFloatPlan" resultType="cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPlan">
+        SELECT
+        <include refid="allColumns"/>
+        FROM fund_financing_plan ffp
+        WHERE ffp.interest_rate_type = 'FLOAT'
+        and exists (select 1 from fund_financing_base_info ffba where ffba.id = ffp.financing_id
+        and ffba.financing_status in ('EFFECT','CARRY_INTEREST') and ffba.approval_status != 'CHANGING_UNDER_APPROVAL'
+        <if test="financingCode != null">
+            AND ffba.financing_code = #{financingCode}
+        </if>
+        )
+    </select>
+</mapper>

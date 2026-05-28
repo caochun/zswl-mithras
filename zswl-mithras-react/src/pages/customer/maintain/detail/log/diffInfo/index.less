@@ -1,0 +1,53 @@
+.diffLog {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .operation {
+    position: absolute;
+    right: 10px;
+    top: -60px;
+  }
+  .navigation {
+    width: 6%;
+    float: left;
+    // position: fixed;
+  }
+  .contentRight {
+    float: right;
+    width: 91%;
+  }
+  .basicWrap {
+    position: relative;
+    .basicBtn {
+      position: absolute;
+      right: 10px;
+    }
+  }
+  .downListWrap {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+
+    color: #2558e6;
+    line-height: 40px;
+    font-weight: 400;
+    cursor: pointer;
+    padding-right: 10px;
+    .downListName {
+      padding-right: 6px;
+    }
+  }
+  .bizScope {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .yewufanwei {
+    min-height: 98px;
+    max-height: 440px;
+    overflow-y: auto;
+  }
+}

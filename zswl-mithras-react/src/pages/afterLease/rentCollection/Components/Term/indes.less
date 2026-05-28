@@ -1,0 +1,110 @@
+.termWrap {
+  width: 160px;
+  height: 88px;
+  margin: 12px;
+  flex: none;
+  border-radius: 2px;
+  // cursor: pointer;
+}
+.normal,
+.warning,
+.error,
+.no {
+  padding: 6px 12px;
+  .titleWrap {
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 8px;
+    .title {
+      font-family: PingFangSC-Medium;
+      font-size: 14px;
+      color: #26272a;
+      line-height: 24px;
+      font-weight: 500;
+    }
+    .tagList {
+      display: flex;
+      align-items: center;
+      .tag {
+        padding: 2px 8px;
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #00a870;
+        text-align: center;
+        line-height: 20px;
+        font-weight: 400;
+        border-radius: 3px;
+        &:not(:last-child) {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  .contentItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    .icon {
+      color: #bcbdc0;
+      font-size: 14px;
+      margin-right: 9px;
+    }
+    .label {
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #58595c;
+      text-align: center;
+      line-height: 22px;
+      font-weight: 400;
+    }
+  }
+}
+.normal {
+  background-image: linear-gradient(269deg, #ffffff 0%, #f6fff8 100%);
+  box-shadow: 0 2px 2px 0 #e6e6e6;
+  border-radius: 2px;
+  border-left: 2px solid #00b87a;
+  .titleWrap {
+    .tagList {
+      .tag {
+        color: #00a870;
+        background-color: #e8f8f2;
+      }
+    }
+  }
+}
+.warning {
+  background-image: linear-gradient(269deg, #ffffff 0%, #fff5ea 100%);
+  box-shadow: 0 2px 2px 0 #e6e6e6;
+  border-radius: 2px;
+  border-left: 2px solid #ffa640;
+  .titleWrap {
+    .tagList {
+      .tag {
+        color: #ed7b2f;
+        background-color: #fef3e6;
+      }
+    }
+  }
+}
+.error {
+  background-image: linear-gradient(270deg, #ffffff 0%, #ffeeec 99%);
+  box-shadow: 0 2px 1px 0 #e6e6e6;
+  border-radius: 2px;
+  border-left: 2px solid #eb2222;
+  .titleWrap {
+    .tagList {
+      .tag {
+        color: #eb2222;
+        background-color: rgba(235, 34, 34, 0.1);
+      }
+    }
+  }
+}
+
+.no {
+  background-image: linear-gradient(269deg, #ffffff 0%, #f4f4f4 100%);
+  box-shadow: 0 2px 2px 0 #e6e6e6;
+  border-radius: 2px;
+  border-left: 2px solid #8a8b8e;
+}

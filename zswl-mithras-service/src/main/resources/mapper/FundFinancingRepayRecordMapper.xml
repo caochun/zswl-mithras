@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.fund.FundFinancingRepayRecordMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.service.mapper.model.fund.FundFinancingRepayRecord">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="cashFlowItem" column="cash_flow_item" jdbcType="VARCHAR"/>
+            <result property="phase" column="phase" jdbcType="INTEGER"/>
+            <result property="payAmount" column="pay_amount" jdbcType="BIGINT"/>
+            <result property="payDate" column="pay_date" jdbcType="TIMESTAMP"/>
+            <result property="financeFlowId" column="finance_flow_id" jdbcType="BIGINT"/>
+            <result property="bankDetailNo" column="bank_detail_no" jdbcType="BIGINT"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cash_flow_item,phase,
+        pay_amount,pay_date,finance_flow_id,
+        bank_detail_no,create_by,update_by,
+        create_time,update_time,deleted
+    </sql>
+</mapper>

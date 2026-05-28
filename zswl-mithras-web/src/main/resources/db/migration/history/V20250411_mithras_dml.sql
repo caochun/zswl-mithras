@@ -1,0 +1,1 @@
+INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`) VALUES ('appfileupload', 'APP通用上传文件', 0, 783, NULL, NULL, NULL, 'POST', '/app/file/upload', 2, NULL);

@@ -1,0 +1,177 @@
+.haderLeft {
+  width: 582px;
+  height: 184px;
+  top: 123px;
+  left: 244px;
+  gap: 0px;
+  
+  background-image: url('/public/assets/risk/monitoringAlertList/monitoringAlertListTopLeft.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  .top {
+    width: 178px;
+    height: 184px;
+    top: 123px;
+    left: 244px;
+    gap: 0px;
+    background: linear-gradient(
+      214.16deg,
+      rgba(208, 219, 255, 0.8) 13.61%,
+      rgba(255, 255, 255, 0.9) 49.42%,
+      #e4ebff 85.24%
+    );
+    border: 2px solid;
+    border-image-source: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    backdrop-filter: blur(100px);
+
+    .wrepper {
+      margin-top: 31px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      .wrepperLeftImg {
+        width: 56px;
+        height: 56px;
+
+        gap: 0px;
+        border: 1px 0px 0px 0px;
+        
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, #f3f9ff 100%);
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 50%;
+      }
+      .wrepperRight {
+        margin-top: 16px;
+
+        // margin-left: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        :nth-child(1) {
+          font-family: D-DIN;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 20px;
+          text-align: left;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+        }
+        :nth-child(2) {
+          font-family: PingFang SC;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 18px;
+          text-align: left;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+  .contentCardList {
+    display: flex;
+    padding: 8px;
+
+    .card {
+      width: 192px;
+      height: 168px;
+      gap: 0px;
+      border-radius: 4px 0px 0px 0px;
+      
+      gap: 0px;
+      display: flex;
+      background: linear-gradient(
+        176.6deg,
+        rgba(255, 255, 255, 0.6) 2.81%,
+        rgba(255, 255, 255, 0.9) 94.61%
+      );
+
+      border: 1.2px solid;
+      border-image-source: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+      flex-direction: column;
+      .cardLeft {
+        overflow: hidden;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        height: 101px;
+        line-height: 101px;
+        margin-top: 28px;
+        width: 100%;
+        .topImg {
+          text-align: center;
+        }
+        .wrepperRight {
+          overflow: hidden;
+          text-align: center;
+          .cardRightBock {
+            // margin-top: 12px;
+            font-family: D-DIN;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 20px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+          }
+          :nth-child(2) {
+            margin-left: 8px;
+            margin-top: 8px;
+            font-family: PingFang SC;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: rgba(102, 102, 102, 1);
+          }
+        }
+      }
+
+      .cardRight {
+        display: flex;
+        justify-content: space-between;
+        .cardRightBock {
+          text-align: center;
+          height: 63px;
+          background: rgba(237, 242, 255, 1);
+          overflow: hidden;
+          width: 90px;
+          height: 63px;
+          gap: 8px;
+          
+          background: linear-gradient(
+            180deg,
+            rgba(226, 234, 255, 0.8) 0%,
+            rgba(248, 250, 255, 0.64) 100%
+          );
+          .zb {
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 20px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+          }
+          :nth-child(2) {
+            margin-top: 5px;
+            font-family: PingFang SC;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: rgba(102, 102, 102, 1);
+          }
+        }
+      }
+    }
+    .card:nth-child(2) {
+      margin-left: 8px;
+    }
+  }
+}

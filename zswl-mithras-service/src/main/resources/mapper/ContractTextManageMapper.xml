@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.contract.ContractTextManageMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.service.mapper.model.contract.ContractTextManage">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="contractId" column="contract_id" jdbcType="BIGINT"/>
+        <result property="signWay" column="sign_way" jdbcType="VARCHAR"/>
+        <result property="pushTime" column="push_time" jdbcType="TIMESTAMP"/>
+        <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+        <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+        <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,contract_id,sign_way,
+        push_time,create_by,update_by,
+        deleted,create_time,update_time
+    </sql>
+    <select id="list" resultType="cn.zswltech.mithras.service.service.bo.ContractTextManageBO"
+            parameterType="cn.zswltech.mithras.dto.contract.text.ContractTextManageListREQ">
+        SELECT ctm.id AS id,
+        cbi.id AS contractId,
+        cbi.contract_code AS contractCode,
+        ctm.sign_way AS signingWay,
+        ctm.push_time AS pushTime,
+        cbi.proj_name AS projectName,
+        c.id AS clientId,
+        c.client_name AS clientName,
+        bu.id AS projSponsorUserId,
+        bu.user_name AS projSponsorUserName
+        FROM contract_text_manage ctm
+        LEFT JOIN contract_base_info cbi ON ctm.contract_id = cbi.id
+        LEFT JOIN client c ON c.id = cbi.client_id
+        LEFT JOIN bifrost_user bu ON bu.id = cbi.proj_sponsor_user_id
+        WHERE ctm.deleted = 0
+        <if test="req.contractCode != null and req.contractCode != ''">
+            AND cbi.contract_code LIKE CONCAT('%', #{req.contractCode}, '%')
+        </if>
+        <if test="req.projectName != null and req.projectName != ''">
+            AND cbi.proj_name LIKE CONCAT('%', #{req.projectName}, '%')
+        </if>
+        <if test="req.clientId != null">
+            AND c.id = #{req.clientId}
+        </if>
+        <if test="req.projSponsorUserId != null">
+            AND bu.id = #{req.projSponsorUserId}
+        </if>
+        <if test="req.signingWay != null and req.signingWay != ''">
+            AND ctm.sign_way = #{req.signingWay}
+        </if>
+        <if test="req.pushTimeFrom != null and req.pushTimeFrom != ''">
+            AND ctm.push_time &gt;= #{req.pushTimeFrom}
+        </if>
+        <if test="req.pushTimeTo != null and req.pushTimeTo != ''">
+            AND ctm.push_time &lt;= #{req.pushTimeTo}
+        </if>
+        <if test="req.id != null">
+            AND ctm.id = #{req.id}
+        </if>
+        ORDER BY ctm.id DESC
+    </select>
+    <select id="selectByContractId"
+            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractTextManage">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM contract_text_manage
+        WHERE contract_id = #{contractId}
+        AND deleted = 0
+    </select>
+</mapper>

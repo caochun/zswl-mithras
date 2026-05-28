@@ -1,0 +1,85 @@
+projName 项目名称
+reportCreateDate 报告创建日期 （2022年7月23日）
+
+lesseeInfoWithOrder 承租人带序号 1）xxx 2）xxx
+businessType 业务类型
+creditAmount 授信金额 xxx万
+projectManager 项目经理
+businessDeptMaster 业务部分负责人
+businessDeptLeader 业务分管领导
+riskControlManager 风控经理
+
+projSource 项目来源
+projBackgroud 项目背景
+businessDept 业务部门
+projSponsorUser 项目主办
+projCosponsorUser 项目协办
+
+leaseMonthCount 租赁期限月数
+creditAmountLoop 额度是否可循环（是、否）
+lesseeInfoWithComma 承租人、分隔 xxx、xxx
+leaseTypesWithComma 租赁类型、分隔 xxx、xxx
+fundsPurpose 资金用途
+earnestMoney 保证金
+consultingFee 咨询费
+nominalPrice 名义货价
+rateType 租赁利率类型
+leaseRatePercent 租赁利率值
+repayTimesTotal 还款期数
+repayTimesYearly 年还款次数
+guaranteeInfoWithOrder 担保人 1.xxx； 2.xxx；
+rentalCalcType 租金计算方式
+pledgorMortgage 抵质押
+irrPercent 内部收益率
+downPayment 首期租金
+
+# 以下带-模块删除
+-publicInformationListSection 公开信息列表区块对
+-pi_cilentName 公开信息内 客户名称 1）xxx
+-pi_c_lawSuitTable 裁判文书网查询表格
+-pi_lawSuitText 裁判文书网表格为空时占位提示语
+-pi_zhixingTable 被执行人查询表格
+-pi_zhixingText 被执行人查询表格为空时占位提示语
+-pi_zhongdengTable 中登网查询表格
+-pi_zhongdengText 中登网描述
+-keyManagerTable 主要管理人员履历表
+
+clientAnalyzeListSection 客户分析列表区块对
+
+ca_corpSection 法人区块对
+ca_c_title 名称标题 承租人一名称 担保人一名称
+ca_c_clientName 客户名称
+ca_c_industryType 行业类型
+ca_c_orgScale 企业规模
+ca_c_establishDate 成立日期
+ca_c_bizLicenseCode 营业执照号
+ca_c_registerCapital 注册资本
+ca_c_realCapital 实收资本
+ca_c_registerAddress 注册地址
+ca_c_workAddress 实际经营地址
+ca_c_businessScope 经营范围
+ca_c_keyManagerTable 主要管理人员履历
+ca_c_shareholderTable 股东信息表格
+ca_c_relatedEnterpriseTable 关联企业表格
+ca_c_mortgageTable 动产抵押表格
+ca_c_equityTable 股权出质表格
+ca_c_punishmentTable 行政处罚表格
+ca_c_enviromentPenaltyTable 环保处罚表格
+ca_c_abnormalTable 经营异常表格
+ca_c_judicialTable 司法协助表格
+ca_c_consumptionRestrictionTable 限制消费令表格
+ca_c_zhixingTable 被执行人表格
+ca_c_dishonestTable 失信人表格
+ca_c_zhongdengTable 中登网表格
+
+ca_normalSection 自然人区块对
+ca_n_clientName 客户名称
+ca_n_certNumber 身份证号
+ca_n_gender 性别
+ca_n_marriageType 婚姻状况
+
+subjectListSection 财报数据列表区块对
+s_title 名称标题 附件1：xxx 合并报表
+s_subjectTableListSection 财报单表格列表section
+s_st_tableName 财报名称
+s_st_subjectTable 财报表格

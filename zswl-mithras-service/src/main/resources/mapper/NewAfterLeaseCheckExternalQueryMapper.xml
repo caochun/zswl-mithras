@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.afterlease.NewAfterLeaseCheckExternalQueryMapper">
+
+    <select id="myList" resultType="cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckExternalQuery">
+        select a.* from new_after_lease_check_external_query a
+        inner join client b on a.client_id = b.id
+        <where>
+            <if test="dto.inspectionMonth != null">
+                and a.inspection_month = #{dto.inspectionMonth}
+            </if>
+            <if test="dto.clientName != null and dto.clientName != ''">
+                and a.client_name like CONCAT('%',#{dto.clientName},'%')
+            </if>
+            <if test="dto.sponsorUserId != null">
+                and a.sponsor_user_id = #{dto.sponsorUserId}
+            </if>
+            <if test="dto.approvalStatus != null and dto.approvalStatus != ''">
+                and a.approval_status = #{dto.approvalStatus}
+            </if>
+            <include refid="cn.zswltech.mithras.CommonMapper.authSqlSpecial1" />
+        </where>
+    </select>
+
+    <select id="myListStatistics" resultType="java.lang.Integer">
+        select count(1) from new_after_lease_check_external_query a
+        inner join client b on a.client_id = b.id
+        <where>
+            <if test="dto.inspectionMonth != null">
+                and a.inspection_month = #{dto.inspectionMonth}
+            </if>
+            <if test="dto.approvalStatus != null">
+                and a.approval_status = #{dto.approvalStatus}
+            </if>
+            <include refid="cn.zswltech.mithras.CommonMapper.authSqlSpecial1" />
+        </where>
+    </select>
+</mapper>

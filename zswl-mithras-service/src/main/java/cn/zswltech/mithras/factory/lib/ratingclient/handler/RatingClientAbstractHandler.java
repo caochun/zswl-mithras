@@ -1,0 +1,70 @@
+package cn.zswltech.mithras.factory.lib.ratingclient.handler;
+
+import cn.zswltech.mithras.dto.ListBaseRSP;
+import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientDetailLibRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.service.mapper.tag.ILib;
+import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collections;
+import java.util.Set;
+
+
+public abstract class RatingClientAbstractHandler<LIB extends ILib, ENTITY extends IEntity, RSP extends ListBaseRSP>
+        extends LibAbstractHandler<LIB, ENTITY, RSP> {
+
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public void flushData(String version, Long ratingId, boolean needClearLast, Integer versionType) {
+        if (!needHandle(ratingId)) {
+            return;
+        }
+        super.flushData(version, ratingId, needClearLast, versionType);
+    }
+
+    /**
+     * 审批拒绝 把版本表最新的数据还原到 临时表
+     *
+     * @param ratingId
+     * @param version
+     */
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public void reset(Long ratingId, String version) {
+        if (!needHandle(ratingId)) {
+            return;
+        }
+        super.reset(ratingId, version);
+    }
+
+    @Override
+    public String libMainIdFieldName() {
+        return "rating_id";
+    }
+
+    @Override
+    public String entityMainIdFieldName() {
+        return "rating_id";
+    }
+
+    public void validateData(Client client) {
+    }
+
+    public abstract RatingClientDetailLibRSP getSubModule();
+
+    public abstract boolean needHandle(Long mainId);
+
+    @Override
+    public Set<String> compareIgnoreFieldNames() {
+        return Collections.EMPTY_SET;
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.RATING_CLIENT;
+    }
+
+}

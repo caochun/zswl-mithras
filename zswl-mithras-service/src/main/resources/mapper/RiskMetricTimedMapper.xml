@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.metric.mapper.RiskMetricTimedMapper">
+
+    <select id="stat" resultType="java.lang.Long">
+        select IFNULL( sum(a.left_capital),0) as s from risk_metric_timed a, corp_address_info b
+        where a.client_id = b.client_id and b.address_type = 'REGISTRY_ADDRESS'
+        <if test="conditions.provCodeList!=null and conditions.provCodeList.size()>0">
+            and b.province IN
+            <foreach collection="conditions.provCodeList" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="conditions.cityCodeList!=null and conditions.cityCodeList.size()>0">
+            and b.city IN
+            <foreach collection="conditions.cityCodeList" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="conditions.industryTypeList!=null and conditions.industryTypeList.size()>0">
+            and a.industry_type IN
+            <foreach collection="conditions.industryTypeList" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+
+
+    </select>
+</mapper>

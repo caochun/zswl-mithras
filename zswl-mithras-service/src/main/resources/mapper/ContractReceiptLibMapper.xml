@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.service.mapper.lib.contract.ContractReceiptLibMapper">
+    <select id="newsetContractReceiptLib"
+            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractReceiptLib">
+        SELECT p.*
+        FROM contract_receipt_lib p
+        INNER JOIN (SELECT main_id AS id, MAX(version) AS version
+        FROM common_version t1
+        WHERE t1.module = 'CONTRACT'
+        AND t1.version_type = 1
+        GROUP BY main_id) m ON p.contract_id = m.id AND p.version = m.version
+        <where>
+            <if test="contractIds != null and contractIds.size()>0">
+                AND p.contract_id in
+                <foreach collection="contractIds" item="contractId" open="(" separator="," close=")">
+                    #{contractId}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

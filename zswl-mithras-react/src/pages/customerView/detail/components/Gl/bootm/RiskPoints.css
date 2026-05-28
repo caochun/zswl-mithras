@@ -1,0 +1,362 @@
+.container {
+  padding: 12px;
+  height: 583px;
+  display: flex;
+}
+.container .dayRisk {
+  display: flex;
+  justify-content: space-between;
+}
+.container .dayRisk :nth-child(1) {
+  gap: 10px;
+  font-size: 18px;
+  align-items: center;
+}
+.container .dayRisk :nth-child(2) {
+  padding-right: 12px;
+  text-align: right;
+  color: #2558e6;
+  font-family: PingFang SC;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color, 0.2s;
+}
+.container .dayRisk :nth-child(2):hover {
+  color: rgba(37, 88, 230, 0.8);
+}
+.container .creditContent {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 200px;
+  padding-left: 40px;
+}
+.container .creditContent .SocreMxBox {
+  display: flex;
+  align-items: flex-end;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 30px;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxLeft .scoreTop {
+  display: flex;
+  flex-direction: column;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxLeft .scoreTop .veryDay {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxLeft .scoreTop .scoreBox {
+  font-size: 35px;
+  font-weight: 700;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxLeft .date {
+  font-weight: lighter;
+  white-space: nowrap;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxRight .iconScoreAlterAtion {
+  display: flex;
+  align-items: center;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxRight .iconScoreAlterAtion .scoreColor {
+  font-size: 30px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxRight .scoreChange {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxRight .scoreChange .details {
+  white-space: nowrap;
+  color: #2558e6;
+  user-select: none;
+  font-family: PingFang SC;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.container .creditContent .SocreMxBox .SocreMxBoxRight .scoreChange .details:hover {
+  color: rgba(37, 88, 230, 0.8);
+}
+.container .creditContent .left {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  justify-content: space-between;
+  width: 280px;
+  align-items: center;
+}
+.container .creditContent .left .scoreChange {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.container .creditContent .left .scoreChange .title {
+  color: #5c5f66;
+}
+.container .creditContent .left .scoreChange .numberBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 4em;
+}
+.container .creditContent .left .scoreChange .numberBox .num {
+  font-family: DIN Alternate;
+  font-size: 34px;
+  font-weight: 700;
+  user-select: none;
+}
+.container .creditContent .left .scoreChange .numberBox .detail {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: #2558e6;
+  user-select: none;
+  font-family: PingFang SC;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.container .creditContent .left .scoreChange .numberBox .detail:hover {
+  color: rgba(37, 88, 230, 0.8);
+}
+.container .creditContent .left .baseScore {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+.container .creditContent .left .baseScore .top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+.container .creditContent .left .baseScore .top .title {
+  color: #5c5f66;
+}
+.container .creditContent .left .baseScore .top .score {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  user-select: none;
+  font-family: DIN Alternate;
+  font-weight: 700;
+}
+.container .creditContent .left .baseScore .top .down {
+  cursor: pointer;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 5px #f2884d;
+  color: #f2884d;
+  background: linear-gradient(180deg, rgba(235, 34, 34, 0.0552885) 0%, #f2884d 100%);
+}
+.container .creditContent .left .baseScore .top .up {
+  cursor: pointer;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 5px #4ba574;
+  color: #00b97d;
+  background: linear-gradient(180deg, rgba(0, 184, 122, 0.0552885) 0%, rgba(0, 184, 122, 0.2) 100%);
+}
+.container .creditContent .left .baseScore .top .risk {
+  cursor: pointer;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 5px #eb2222;
+  color: #eb2222;
+  background: linear-gradient(180deg, rgba(0, 184, 122, 0.0552885) 0%, rgba(235, 34, 34, 0.2) 100%);
+}
+.container .creditContent .left .baseScore .bottom {
+  font-family: PingFang SC;
+  font-size: 12px;
+  color: #8d9099;
+}
+.container .creditContent .right {
+  flex: 1;
+  margin-top: 100px;
+}
+.scorex {
+  margin: 0 5px;
+}
+.list {
+  max-height: 800px;
+  overflow-y: auto;
+}
+.list .headerTitle {
+  font-size: 14px;
+  font-weight: 400;
+  font: PingFang SC;
+  color: #666666;
+  line-height: 12px;
+  margin-bottom: 10px;
+}
+.list .listTitle {
+  font-family: PingFang SC;
+  font-weight: 400;
+  text-align: left;
+  color: #666666;
+}
+.points {
+  display: flex;
+  gap: 16px;
+  height: 315px;
+  flex-direction: column;
+  flex: 1;
+}
+.points .left {
+  flex: 1 0;
+}
+.points .left .colors {
+  display: flex;
+  gap: 16px;
+  color: #5e6066;
+  font-family: PingFang SC;
+  font-size: 12px;
+  padding: 15px;
+}
+.points .left .colors .color {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.points .left .colors .color .colorPoint {
+  width: 10px;
+  height: 10px;
+}
+.points .left .riskContent {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 4px;
+  grid-template-areas: 'G H I J' 'A A B F' 'C C B F' 'D D E E';
+}
+.points .left .riskContent .item {
+  background: linear-gradient(180deg, #f7f7f9 34.5%, #e7e8eb 100%);
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: PingFang SC;
+  font-size: 12px;
+  user-select: none;
+  transition: all 0.2s;
+}
+.points .left .riskContent .selected {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.points .right {
+  flex: 1 0;
+  margin-left: 37px;
+}
+.points .right .colors {
+  display: flex;
+  gap: 16px;
+  color: #5e6066;
+  font-family: PingFang SC;
+  font-size: 12px;
+  padding: 15px;
+}
+.points .right .colors .color {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.points .right .colors .color .colorPoint {
+  width: 10px;
+  height: 10px;
+}
+.points .right .topDetail {
+  padding-right: 12px;
+  text-align: right;
+  color: #2558e6;
+  font-family: PingFang SC;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color, 0.2s;
+}
+.points .right .topDetail:hover {
+  color: rgba(37, 88, 230, 0.8);
+}
+.points .right .list {
+  height: 215px;
+  overflow-y: auto;
+}
+.points .right .list .showListItemMain {
+  background: linear-gradient(to right, #ffefed, #fcfcfc);
+  min-height: 90px;
+  margin: 5px 0px;
+  padding: 8px;
+  position: relative;
+}
+.points .right .list .showListItemMain .title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #f3464e;
+  line-height: 20px;
+  cursor: pointer;
+}
+.points .right .list .showListItemMain .desc {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #5e6066;
+}
+.points .right .list .showListItemMain .desc .descDot {
+  font-size: 16px;
+}
+.points .right .list .showListItemMain ::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background-color: #ffa650;
+}
+.points .right .list .showListItemOther {
+  min-height: 90px;
+  margin: 5px 0px;
+  background: linear-gradient(to right, #fff6ec, #fcfcfc);
+  padding: 8px;
+  position: relative;
+}
+.points .right .list .showListItemOther .title {
+  font-weight: 500;
+  color: #ffa650;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.points .right .list .showListItemOther .desc {
+  font-weight: 400;
+  font-size: 12px;
+  color: #5e6066;
+  line-height: 20px;
+}
+.points .right .list .showListItemOther .desc .descDot {
+  font-size: 16px;
+}
+.points .right .list .showListItemOther ::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background-color: #f3464e;
+}

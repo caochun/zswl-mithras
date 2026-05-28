@@ -1,0 +1,167 @@
+// .wrap {
+//   margin-top: -8px;
+//   box-sizing: border-box;
+//   width: 100%;
+// }
+// .nav {
+//   display: flex;
+//   align-items: center;
+//   padding: 0 16px;
+//   padding-bottom: 16px;
+//   justify-content: space-between;
+//   border-bottom: 1px solid #ecedf0;
+//   .title {
+//     font-family: PingFangSC-Medium;
+//     font-size: 16px;
+//     color: rgba(0, 0, 0, 0.85);
+//     line-height: 24px;
+//     font-weight: 500;
+//   }
+//   .btnWrap {
+//     display: flex;
+//     align-items: center;
+//   }
+// }
+
+.des {
+  :global {
+    .ant-descriptions-item-label {
+      width: 176px;
+    }
+    .ant-descriptions-item-content {
+      width: 350px;
+      max-width: 350px;
+    }
+    .ant-descriptions-view {
+      border-top: 1px solid #2558e6;
+    }
+  }
+}
+.desSmell {
+  margin-top: 20px;
+  :global {
+    .ant-descriptions-item-label {
+      width: 171px;
+    }
+    .ant-descriptions-item-content {
+      width: 220px;
+      max-width: 220px;
+    }
+    .ant-descriptions-view {
+      border-top: 1px solid #2558e6;
+    }
+  }
+}
+.btnList {
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+.baseContentWrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+  overflow: auto;
+  box-sizing: border-box;
+  width: 100%;
+
+  .anchorWrap {
+    width: 120px;
+    border-right: 1px solid #ecedf0;
+    flex: none;
+    .anchor {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+
+    // .content {
+    //   flex: auto;
+    //   padding: 16px;
+    //   overflow-x: auto;
+    //   & > div {
+    //     margin-bottom: 20px;
+    //   }
+    // }
+  }
+  .content {
+    flex: auto;
+    padding: 16px;
+    & > div {
+      margin-bottom: 20px;
+    }
+  }
+
+  :global {
+    .ant-row {
+      margin-bottom: 0;
+    }
+    .ant-input-number {
+      width: 100%;
+    }
+    .ant-picker {
+      width: 100%;
+    }
+    .editable-mode-editing {
+      display: flex !important;
+      align-items: center;
+    }
+  }
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .title {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .subTitle {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 22px;
+    font-weight: 400;
+    position: relative;
+    padding-left: 8px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 12px;
+      background-color: #2558e6;
+      margin-right: 4px;
+    }
+  }
+  .btnWrap {
+    display: flex;
+    align-items: center;
+  }
+}
+.control {
+  display: flex;
+  align-items: center;
+  .item {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #2558e6;
+    // line-height: 40px;
+    font-weight: 400;
+    margin: 0 6px;
+    cursor: pointer;
+  }
+}
+
+.uploadModal {
+  :global {
+    .ant-upload-list-item-card-actions {
+      display: none;
+    }
+  }
+}

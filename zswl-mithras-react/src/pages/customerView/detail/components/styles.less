@@ -1,0 +1,500 @@
+// 公共变量
+@primary-color: #1890ff;
+@text-color: #333;
+@border-radius: 8px;
+@card-padding: 24px;
+
+// 公共卡片样式
+.common-card {
+  background: white;
+  border-radius: @border-radius;
+  padding: @card-padding;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+// Overview 组件样式
+.overview-container {
+  .credit-info-section {
+    .common-card();
+
+    .credit-amount {
+      margin-bottom: 24px;
+
+      .total-amount {
+        font-size: 20px;
+        margin-bottom: 8px;
+
+        span:last-child {
+          color: @primary-color;
+          font-weight: bold;
+          margin-left: 12px;
+        }
+      }
+
+      .date-range {
+        color: #666;
+        font-size: 14px;
+      }
+    }
+
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+
+      .stat-item {
+        background: #f8f9ff;
+        padding: 20px;
+        border-radius: @border-radius;
+        text-align: center;
+
+        span:first-child {
+          display: block;
+          font-size: 24px;
+          font-weight: bold;
+          color: @primary-color;
+          margin-bottom: 8px;
+        }
+
+        span:last-child {
+          color: #666;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+// CompanyInfo 组件样式
+.company-info-container {
+  .common-card();
+
+  .info-section {
+    margin-bottom: 24px;
+
+    .section-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+// Relations 组件样式
+.relations-container {
+  .common-card();
+
+  .relation-chart {
+    min-height: 400px;
+  }
+}
+
+// CreditInfo 组件样式
+.credit-info-container {
+  .common-card();
+
+  .credit-rating-section {
+    h3 {
+      margin-bottom: 16px;
+    }
+
+    .ant-table-wrapper {
+      .ant-table-cell {
+        padding: 12px 16px;
+      }
+    }
+  }
+}
+
+// LawAssessment 组件样式
+.law-assessment-container {
+  .common-card();
+
+  .risk-score {
+    text-align: center;
+    margin-bottom: 24px;
+
+    .score {
+      font-size: 36px;
+      font-weight: bold;
+      color: @primary-color;
+      margin-left: 12px;
+    }
+  }
+}
+
+// BusinessRisk 组件样式
+.business-risk-container {
+  .common-card();
+
+  .risk-score-display {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .risk-details {
+    .detail-item {
+      margin-bottom: 16px;
+
+      span {
+        display: block;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+// PublicOpinion 组件样式
+.public-opinion-container {
+  .common-card();
+
+  .news-item {
+    h4 {
+      margin-bottom: 8px;
+      color: @text-color;
+    }
+
+    p {
+      margin-bottom: 4px;
+      color: #666;
+      font-size: 14px;
+    }
+  }
+}
+
+// FinancialReport 组件样式
+.financial-report-container {
+  .common-card();
+
+  .ant-table-wrapper {
+    .ant-table-cell {
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Feedback 组件样式
+.feedback-container {
+  .common-card();
+
+  .ant-form {
+    max-width: 600px;
+    margin: 0 auto;
+
+    .ant-form-item-label {
+      font-weight: bold;
+    }
+
+    .ant-btn-primary {
+      width: 120px;
+    }
+  }
+}
+
+// 响应式样式
+@media screen and (max-width: 768px) {
+  .common-card {
+    padding: 16px;
+  }
+
+  .project-stats {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+  }
+
+  .risk-score-display {
+    .ant-progress-circle {
+      width: 120px !important;
+      height: 120px !important;
+    }
+  }
+}
+
+// public
+
+.info_container {
+  flex: 1;
+  padding: 0 20px 0 20px;
+
+  > div {
+    margin-bottom: 24px;
+  }
+}
+
+.base {
+  display: flex;
+  flex-direction: column;
+
+  .baseAll {
+    display: flex;
+
+    .title {
+      flex: 0 0 80px;
+      height: 80px;
+      background: rgba(37, 88, 230, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      color: #2558e6;
+      margin-right: 10px;
+    }
+
+    .show {
+      .bottom {
+        width: 70vw;
+        font-family: PingFang SC;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+        color: #666666;
+      }
+
+      .header {
+        position: relative;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-top: 4px;
+
+        .name {
+          font-family: PingFang SC;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 20px;
+        }
+
+        .tag {
+          margin-left: 5px;
+        }
+
+        .star {
+          position: absolute;
+          top: 0px;
+          right: -7px;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .header {
+      position: relative;
+      margin-bottom: 12px;
+      display: flex;
+      // align-items: center;
+
+      .name {
+        font-size: 24px;
+        font-weight: 500;
+        margin-right: 8px;
+      }
+
+      .star {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .code {
+      margin-bottom: 12px;
+    }
+
+    .desc {
+      background: #f3f6fd;
+      border-radius: 4px;
+      padding: 18px;
+
+      :global {
+        .ant-descriptions-row > th,
+        .ant-descriptions-row > td {
+          padding-bottom: 12px;
+        }
+      }
+    }
+  }
+}
+
+.assets {
+  margin-top: 16px;
+
+  .split {
+    background: #f0f2f5;
+    height: 16px;
+  }
+
+  .top {
+    display: flex;
+
+    .chart {
+      flex: 0 0 400px;
+      margin-right: 20px;
+    }
+
+    .org {
+      flex: 1;
+    }
+  }
+
+  .list {
+    margin-top: 32px;
+  }
+}
+
+.gl_node {
+  position: relative;
+
+  .expand_icon {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1px gray solid;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .expand_icon_left {
+    left: -24px;
+  }
+
+  .expand_icon_right {
+    right: -24px;
+  }
+}
+
+.link {
+  display: flex;
+  border: #f0f0f0 1px solid;
+
+  :global {
+    .ant-anchor-link {
+      padding: 5px;
+    }
+  }
+}
+
+// zx 吸附
+.fixedBox {
+  text-align: center;
+  position: fixed;
+  z-index: 10; /* 确保在其他元素上方 */
+  width: 56px;
+  height: 56px;
+  top: 306px;
+  right: 18px;
+  border-radius: 2px 0px 0px 0px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #eef8ff 0%, #fbfdff 61.61%);
+  box-shadow: 0px 0px 8px 0px #34628f40;
+  cursor: pointer;
+  img {
+    margin-top: 7px;
+  }
+  div {
+    margin-top: -3px;
+    font-family: PingFang SC;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    text-underline-position: from-font;
+    color: #396cfa;
+  }
+  /* 这里的 left、top 值需要根据实际页面位置调整 */
+}
+
+.areaData {
+  padding: 20px;
+
+  .areaInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    .location {
+      span:last-child {
+        color: #1890ff;
+      }
+    }
+  }
+
+  .header {
+    margin-bottom: 24px;
+    padding: 14px 24px 24px 24px;
+    width: 484px;
+    height: 140px;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    background: linear-gradient(
+      184.66deg,
+      rgba(216, 231, 255, 0.9) 7.78%,
+      rgba(228, 243, 255, 0.6) 62.7%,
+      #f6faff 113.39%
+    );
+    .ratingDetail {
+      display: flex;
+      align-items: end;
+      justify-content: end;
+      cursor: pointer;
+    }
+    .ratingInfo {
+      display: flex;
+      .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        flex-shrink: 0;
+      }
+
+      .grade,
+      .score {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin-left: 6px;
+        span {
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        div {
+          // margin-top: 8px;
+          color: rgba(0, 0, 0, 0.65);
+        }
+      }
+    }
+
+    .ratingDetail {
+      color: #1890ff;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
