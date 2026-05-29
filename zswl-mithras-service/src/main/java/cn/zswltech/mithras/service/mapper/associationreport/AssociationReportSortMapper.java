@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.associationreport;
 
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReportSort;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @date 2025/4/21

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewFactoringPr
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewEditionAdvice;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewFactoringPriceLibService;
 import cn.zswltech.mithras.service.service.riskcontrol.dto.ProjReviewPriceDto;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;

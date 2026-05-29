@@ -17,7 +17,7 @@ import cn.zswltech.mithras.dto.IdPageREQ;
 import cn.zswltech.mithras.dto.IdREQ;
 import cn.zswltech.mithras.dto.process.prepare.*;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.job.NextMonthRentNotify;

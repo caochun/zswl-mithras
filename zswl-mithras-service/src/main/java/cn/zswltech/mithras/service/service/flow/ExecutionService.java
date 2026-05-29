@@ -22,7 +22,7 @@ import cn.zswltech.mithras.dto.flow.execution.*;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.service.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.service.constant.FlowConstants;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.flow.FlowExecutionConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;

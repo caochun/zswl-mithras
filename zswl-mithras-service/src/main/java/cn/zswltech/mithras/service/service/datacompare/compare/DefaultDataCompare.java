@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.datacompare.compare;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.common.model.IEntity;

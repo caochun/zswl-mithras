@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.message.MessageService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewService;
-import cn.zswltech.mithras.service.util.ThreadPoolUtil;
+import cn.zswltech.mithras.common.util.ThreadPoolUtil;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 

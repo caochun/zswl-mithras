@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.materialsdger;
 
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.service.util.StringUtils;
+import cn.zswltech.mithras.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.InitializingBean;

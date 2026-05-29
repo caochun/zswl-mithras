@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.service.constant.FilingMaterialsConstants;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.filingmaterials.BusinessMaterialsDocNameEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.overdue.domain.acl.ClientRole;
 import cn.zswltech.mithras.service.overdue.domain.acl.ContractGuarantorInfo;
 import cn.zswltech.mithras.service.overdue.domain.acl.ContractLesseeInfo;
 import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollection;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.service.bo.ContractPrincipalBO;
 import cn.zswltech.mithras.service.service.dashboard.dto.DashboardQueryPriceDto;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

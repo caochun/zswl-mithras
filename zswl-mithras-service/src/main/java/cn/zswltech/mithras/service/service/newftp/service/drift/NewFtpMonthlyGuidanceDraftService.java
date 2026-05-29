@@ -12,7 +12,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.newftp.FtpValue;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceDetaiRsp;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.CommonConvert;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.common.enums.RecordStatus;
@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpMonthlyGuida
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.service.util.FlowUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

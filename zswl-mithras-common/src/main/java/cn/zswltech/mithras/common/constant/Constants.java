@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.constant;
+package cn.zswltech.mithras.common.constant;
 
 /**
  * 通用常量信息

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.associationreport.service.AssociationBalanceSheetPart
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBalanceSheetPartial;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;

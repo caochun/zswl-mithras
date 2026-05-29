@@ -1,7 +1,7 @@
 
 package cn.zswltech.mithras.blackgray.config;
 
-import cn.zswltech.mithras.service.plugin.CustomSqlInjector;
+import cn.zswltech.mithras.common.plugin.CustomSqlInjector;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.MybatisXMLLanguageDriver;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;

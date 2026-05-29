@@ -60,7 +60,7 @@ import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemVatInvoice
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseVehicleRegistrationService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import cn.zswltech.mithras.service.util.WatermarkUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

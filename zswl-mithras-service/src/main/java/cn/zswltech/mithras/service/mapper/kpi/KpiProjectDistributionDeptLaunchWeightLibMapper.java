@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.kpi;
 
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptLaunchWeightLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
 * @description 绩效考核-部门-项目投放分配比重版本表

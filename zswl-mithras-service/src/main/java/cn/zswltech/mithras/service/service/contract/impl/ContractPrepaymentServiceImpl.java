@@ -40,7 +40,7 @@ import cn.zswltech.mithras.service.service.lib.contractcp.ContractCollectionPaym
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

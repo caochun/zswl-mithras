@@ -12,7 +12,7 @@
 //import cn.zswltech.mithras.service.service.liquiditymanage.cal.AbstractLiquidityCalculator;
 //import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityBoardCalculatorBo;
 //import cn.zswltech.mithras.service.util.LongUtil;
-//import cn.zswltech.mithras.service.util.StringUtil;
+//import cn.zswltech.mithras.common.util.StringUtil;
 //import org.springframework.stereotype.Component;
 //
 //import java.math.BigDecimal;

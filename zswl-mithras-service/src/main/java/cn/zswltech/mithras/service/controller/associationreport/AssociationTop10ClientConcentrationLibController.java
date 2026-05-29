@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationTop10ClientConcentra
 import cn.zswltech.mithras.associationreport.service.AssociationTop10ClientConcentrationLibService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationTop10ClientConcentrationLib;
 
-import java.util.List;
 
 /**
 * @description 金融协会报送-最大10家客户（含集团）集中度统计表(流程节点记录版本表)

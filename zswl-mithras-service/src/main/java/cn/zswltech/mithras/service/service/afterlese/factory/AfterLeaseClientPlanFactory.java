@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.afterlease.AfterLeaseClientPlanRSP;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckTermEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
-import cn.zswltech.mithras.service.util.BigDecimalUtil;
+import cn.zswltech.mithras.common.util.BigDecimalUtil;
 import org.testng.collections.Lists;
 
 import java.math.BigDecimal;

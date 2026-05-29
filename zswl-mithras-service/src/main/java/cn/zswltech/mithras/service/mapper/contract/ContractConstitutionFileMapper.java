@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.contract;
 
 import cn.zswltech.mithras.service.mapper.model.contract.ContractConstitutionFile;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author yupengfei

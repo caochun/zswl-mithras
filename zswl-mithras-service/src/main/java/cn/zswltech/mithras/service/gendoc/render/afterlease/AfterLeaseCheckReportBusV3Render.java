@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.gendoc.render.afterlease;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTemplateVersionEnum;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckReportDetail;

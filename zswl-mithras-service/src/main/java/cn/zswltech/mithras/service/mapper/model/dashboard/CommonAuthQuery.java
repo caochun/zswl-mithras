@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.mapper.model.dashboard;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.SysUserService;

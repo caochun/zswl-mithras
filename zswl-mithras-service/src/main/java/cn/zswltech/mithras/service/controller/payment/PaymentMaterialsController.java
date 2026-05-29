@@ -10,7 +10,7 @@ import cn.zswltech.mithras.api.payment.PaymentMaterialsApi;
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsListReq;
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsListRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsOperateReq;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.common.enums.RecordStatus;

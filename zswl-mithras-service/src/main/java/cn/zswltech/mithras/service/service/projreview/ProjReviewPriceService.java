@@ -11,8 +11,8 @@ import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailRSP;
 import cn.zswltech.mithras.dto.projreview.price.*;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.projreview.ProjReviewPriceConverter;
 import cn.zswltech.mithras.service.enums.CacheEnum;
 import cn.zswltech.mithras.common.enums.ProjectBizType;
@@ -50,7 +50,7 @@ import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 
 /**
  * @description:

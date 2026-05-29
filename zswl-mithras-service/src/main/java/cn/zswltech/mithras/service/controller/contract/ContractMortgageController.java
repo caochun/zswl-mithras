@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthC
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifyMainAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifySubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseRemoveSubAuthChecker;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.contract.ContractMortgageMapper;
 import cn.zswltech.mithras.service.others.MithrasException;

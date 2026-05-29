@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.contract;
 
 import cn.zswltech.mithras.service.mapper.model.contract.ContractSpecialTrade;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * 合同特定交易表（用于辅助征信报送）

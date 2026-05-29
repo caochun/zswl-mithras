@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.contract.impl;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -36,9 +37,9 @@ import cn.zswltech.mithras.dto.projpricing.price.ProjPricingLeasePriceRSP;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailRSP;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.IRRCalculateResultRSP;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.contract.ContractBaseInfoConverter;
 import cn.zswltech.mithras.service.convert.contract.ContractPriceConverter;
@@ -1410,7 +1411,7 @@ public class ContractBaseInfoServiceImpl extends ServiceImpl<ContractBaseInfoMap
         CollectionBaseInfo collectionBaseInfo = collectionBaseInfoMapper.selectOne(Wrappers.<CollectionBaseInfo>lambdaQuery()
                 .in(CollectionBaseInfo::getContractId, contractIds)
                 .orderByDesc(CollectionBaseInfo::getPlanCollectionDate)
-                .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                .last(cn.zswltech.mithras.common.util.StringUtil.mysqlLimitOne()));
         return ObjectUtil.isNull(collectionBaseInfo) ? null : collectionBaseInfo.getPlanCollectionDate();
     }
 
@@ -1432,7 +1433,7 @@ public class ContractBaseInfoServiceImpl extends ServiceImpl<ContractBaseInfoMap
         PaymentActualDetail paymentActualDetail = paymentActualDetailMapper.selectOne(Wrappers.<PaymentActualDetail>lambdaQuery()
                 .eq(PaymentActualDetail::getContractId, contractId)
                 .orderByAsc(PaymentActualDetail::getPaidInDate)
-                .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                .last(cn.zswltech.mithras.common.util.StringUtil.mysqlLimitOne()));
         return paymentActualDetail == null ? null : paymentActualDetail.getPaidInDate();
     }
 

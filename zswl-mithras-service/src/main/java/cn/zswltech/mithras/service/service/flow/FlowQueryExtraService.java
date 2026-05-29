@@ -47,7 +47,7 @@ import cn.zswltech.mithras.service.service.projpricing.ProjPricingBaseInfoServic
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitorService;
 import cn.zswltech.mithras.service.service.trackEvent.TrackEventService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

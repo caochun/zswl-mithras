@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.finance;
 
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfit;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

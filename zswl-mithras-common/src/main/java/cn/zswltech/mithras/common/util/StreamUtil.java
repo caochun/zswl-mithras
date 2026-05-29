@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.util;
+package cn.zswltech.mithras.common.util;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

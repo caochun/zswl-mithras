@@ -27,7 +27,7 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPers
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientProjDetailRSP;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.groupcreditestablish.GroupCreditEstablishBaseInfoConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
@@ -94,8 +94,8 @@ import static cn.hutool.core.util.NumberUtil.decimalFormat;
 import static cn.hutool.core.util.ObjectUtil.*;
 import static cn.hutool.core.util.RandomUtil.randomInt;
 import static cn.hutool.json.JSONUtil.toBean;
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
 import static cn.zswltech.mithras.common.enums.RecordStatus.*;
 
 /**

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.gendoc.render;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.service.gendoc.context.PaymentNoticeContext;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;

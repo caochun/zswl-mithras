@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.receiptrepay.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.fund.receiptrepay.FundReceiptAccountConverter;
 import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptAccountMapper;
 import cn.zswltech.mithras.service.mapper.lib.fund.receiptrepay.FundReceiptAccountLibMapper;

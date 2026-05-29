@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.gendoc.render.contractzlzz;
 
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractSubTypeEnum;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;

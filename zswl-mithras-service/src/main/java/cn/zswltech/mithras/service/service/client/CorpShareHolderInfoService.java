@@ -6,7 +6,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoAddREQ;
 import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoListREQ;
 import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.InfoModule;
 import cn.zswltech.mithras.service.mapper.client.ClientAuthorityMapper;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
@@ -34,7 +34,7 @@ import java.util.Optional;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.enums.OrderByType.ascend;
 
 /**

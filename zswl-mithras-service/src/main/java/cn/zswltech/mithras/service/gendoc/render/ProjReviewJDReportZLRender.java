@@ -15,7 +15,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListREQ;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.controller.client.CorpSubjectItemController;
 import cn.zswltech.mithras.service.enums.CorpAddressType;
 import cn.zswltech.mithras.service.enums.SubjectItemDisplayDimension;

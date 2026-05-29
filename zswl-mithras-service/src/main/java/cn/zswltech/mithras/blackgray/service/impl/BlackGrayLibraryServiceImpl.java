@@ -33,7 +33,7 @@ import cn.zswltech.mithras.blackgray.service.external.JKBlackGrayCollisionLibrar
 import cn.zswltech.mithras.blackgray.service.external.remote.JKBlackGrayCollisionLibraryREQ;
 import cn.zswltech.mithras.blackgray.service.external.remote.JKBlackGrayCollisionLibraryRSP;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;

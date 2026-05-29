@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
 import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

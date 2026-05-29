@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.corp;
 
 import cn.zswltech.mithras.service.mapper.model.client.EnvironmentPenalty;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * 环保处罚

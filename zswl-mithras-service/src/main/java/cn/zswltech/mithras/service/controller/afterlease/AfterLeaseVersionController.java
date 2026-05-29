@@ -1,4 +1,6 @@
 package cn.zswltech.mithras.service.controller.afterlease;
+import cn.zswltech.mithras.common.constant.MithrasConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
@@ -27,9 +29,9 @@ import java.util.List;
 import java.util.Objects;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.MithrasConstants.ERR_IN_TRANSFER;
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.MithrasConstants.ERR_IN_TRANSFER;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 
 /**

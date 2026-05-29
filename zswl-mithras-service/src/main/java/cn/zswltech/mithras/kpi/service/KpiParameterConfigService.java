@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.kpi.mapper.KpiParameterConfigMapper;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

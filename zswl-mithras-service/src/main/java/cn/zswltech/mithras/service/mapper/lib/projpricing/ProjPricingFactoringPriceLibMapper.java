@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.lib.projpricing;
 
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingFactoringPriceLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.service.projpricing.dto.ProjPricingPriceDto;
 import org.apache.ibatis.annotations.Param;
 

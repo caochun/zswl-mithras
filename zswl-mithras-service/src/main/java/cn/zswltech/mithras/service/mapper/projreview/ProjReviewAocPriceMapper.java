@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.projreview;
 
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewAocPrice;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

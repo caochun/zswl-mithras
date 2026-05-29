@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportL
 import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportListRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportRemoveREQ;
 import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportUploadREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
@@ -33,7 +33,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
 
 
 /**

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.plugin;
+package cn.zswltech.mithras.common.plugin;
 import cn.zswltech.mithras.common.annotation.IncludeNull;
 
 import cn.hutool.core.collection.CollectionUtil;

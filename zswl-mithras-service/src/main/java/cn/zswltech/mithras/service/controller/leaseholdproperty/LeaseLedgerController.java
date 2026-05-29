@@ -16,7 +16,7 @@ import cn.zswltech.mithras.dto.file.FileUploadRSP;
 import cn.zswltech.mithras.dto.file.template.FileTemplateListREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateListRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.service.mapper.leaseholdproperty.LeaseItemInfoMapper;
 import cn.zswltech.mithras.service.mapper.leaseholdproperty.LeaseItemListRowDataMapper;

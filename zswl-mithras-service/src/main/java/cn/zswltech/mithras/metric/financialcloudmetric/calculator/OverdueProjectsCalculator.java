@@ -12,7 +12,7 @@ import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetri
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
 import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricService;
 import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricValueService;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingCollectAc
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingCollectAccountListREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingCollectAccountListRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingCollectAccountModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.fund.direct.converter.FundDirectFinancingCollectAccountConverter;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingCollectAccount;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingCollectAccountMapper;

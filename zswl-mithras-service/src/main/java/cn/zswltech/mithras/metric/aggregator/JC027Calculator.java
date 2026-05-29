@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.metric.aggregator;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
@@ -17,7 +18,7 @@ import java.util.Map;
 
 import static cn.zswltech.mithras.metric.aggregator.AggConst.ENGINEERING_MACHINE_BROKER_INDUSTRY_CODE;
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.CAPITAL_BALANCE;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.common.util.StringUtil.mysqlLimit;
 
 /**
  * @author yibin

@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
 import cn.zswltech.mithras.dto.associationreport.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationDictionaryCategoryEnum;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationBasicSituationLibMapper;

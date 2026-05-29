@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetListRSP;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordAreaType;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordTryCalculateRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.riskcontrol.AreaStatusEnum;
 import cn.zswltech.mithras.service.enums.riskcontrol.AreaTypeEnum;
 import cn.zswltech.mithras.service.enums.riskcontrol.GradeEnum;

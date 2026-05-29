@@ -18,7 +18,7 @@ import cn.zswltech.mithras.dto.client.client.ClientApplyOccupyREQ;
 import cn.zswltech.mithras.dto.client.client.ClientApplyOccupyRSP;
 import cn.zswltech.mithras.dto.client.client.ClientApplyStatusREQ;
 import cn.zswltech.mithras.dto.client.client.ClientApplyStatusRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.ClientAuthEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
@@ -52,7 +52,7 @@ import javax.validation.constraints.NotNull;
 import java.util.*;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
 import static cn.zswltech.mithras.service.enums.JobEnum.businesshead;
 
 /**

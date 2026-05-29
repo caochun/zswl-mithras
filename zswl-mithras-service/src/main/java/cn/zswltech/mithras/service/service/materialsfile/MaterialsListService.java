@@ -22,7 +22,7 @@ import cn.zswltech.mithras.dto.materialsfile.MaterialsListListRSP;
 import cn.zswltech.mithras.dto.materialsfile.ProjMaterialsListListRSP;
 import cn.zswltech.mithras.service.CommonFileSortComparator;
 import cn.zswltech.mithras.service.config.enumscan.MaterialsTypeFactory;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.FileConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.client.ClientMaterialsDisplayEnum;
@@ -55,7 +55,7 @@ import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoSe
 import cn.zswltech.mithras.service.service.projpricing.ProjPricingService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewService;
 import cn.zswltech.mithras.service.util.FileUriUtil;
-import cn.zswltech.mithras.service.util.StreamUtil;
+import cn.zswltech.mithras.common.util.StreamUtil;
 import cn.zswltech.mithras.service.util.WatermarkUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

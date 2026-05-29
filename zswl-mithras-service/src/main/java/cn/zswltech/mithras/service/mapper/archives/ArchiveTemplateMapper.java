@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.mapper.dto.ArchivesMastFileCountDTO;
 import cn.zswltech.mithras.service.mapper.dto.ArchivesMastFileTypeCountDTO;
 import cn.zswltech.mithras.service.mapper.model.archives.ArchiveFileType;
 import cn.zswltech.mithras.service.mapper.model.archives.ArchiveTemplate;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

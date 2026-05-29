@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.mapper.model.client.CorpSubjectItem;
 import cn.zswltech.mithras.service.mapper.model.third.DmSubjectFieldMapping;
 import cn.zswltech.mithras.service.mapper.third.DmSubjectFieldMappingMapper;
 import cn.zswltech.mithras.service.service.client.CorpSubjectItemService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;

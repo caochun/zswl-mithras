@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.ContractRelationREQ;
 import cn.zswltech.mithras.dto.contract.ContractRelationRSP;
 import cn.zswltech.mithras.dto.contract.guarantor.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.contract.ContractGuarantorConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.TradeStructureRoleEnum;

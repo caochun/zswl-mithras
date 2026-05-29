@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.file.FileDownLoadREQ;
 import cn.zswltech.mithras.dto.file.FileDownLoadRSP;
 import cn.zswltech.mithras.dto.file.FileUploadREQ;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.controller.FileController;
 import cn.zswltech.mithras.service.controller.client.CorpAddressInfoController;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.service.materialsfile.filecheck.handler.RiskC
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlScoreCardAreaAndTargetService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlScoreCardBaseInfoService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlScoreCardService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.web.bind.annotation.RestController;
 

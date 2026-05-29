@@ -10,7 +10,6 @@ import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import lombok.Data;
 
 /**
  * 一年期shibor利率波动配置表

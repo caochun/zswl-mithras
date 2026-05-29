@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.projreview;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -119,8 +120,8 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
 import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
 import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;
 import static cn.zswltech.mithras.common.enums.RecordStatus.NEW;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.kpi;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.kpi.KpiProjectDistributionDeptWeightLibMapper;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptWe
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;

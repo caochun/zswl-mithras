@@ -10,7 +10,7 @@ import cn.zswltech.gruul.dao.dal.dao.UserOrgJobDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.entity.UserOrgJobDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.InfoModule;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;

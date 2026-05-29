@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.riskcontrol.RiskControlScoreCardTargetApi;
 import cn.zswltech.mithras.dto.riskcontrol.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlScoreCardTarget;
 import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlScoreCardTitle;

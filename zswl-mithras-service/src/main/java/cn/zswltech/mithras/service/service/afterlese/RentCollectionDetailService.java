@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.afterlease.rentcollection.*;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.afterlease.RentCollectionLevelEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.riskcontrol;
 
 import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlStrategySnapshot;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @description:

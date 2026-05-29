@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.mapper.SystemSwitchMapper;
 import cn.zswltech.mithras.service.mapper.model.SystemDatabaseRecord;
 import cn.zswltech.mithras.service.mapper.model.SystemSwitch;
 import cn.zswltech.mithras.service.service.Listener.SystemSwitchRefreshEvent;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

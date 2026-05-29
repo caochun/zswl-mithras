@@ -6,7 +6,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.BooleanUtil;
 import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountQueryREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.base.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingAccountTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;

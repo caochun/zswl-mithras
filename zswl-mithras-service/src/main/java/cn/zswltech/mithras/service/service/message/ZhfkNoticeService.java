@@ -14,7 +14,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.ZhfkNoticeMapper;
 import cn.zswltech.mithras.service.mapper.model.ZhfkNotice;
-import cn.zswltech.mithras.service.util.ThreadPoolUtil;
+import cn.zswltech.mithras.common.util.ThreadPoolUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

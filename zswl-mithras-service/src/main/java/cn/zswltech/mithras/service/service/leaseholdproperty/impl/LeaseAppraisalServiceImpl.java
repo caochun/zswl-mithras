@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.service.third.TycService;
 import cn.zswltech.mithras.service.service.third.model.MithrasBaseInfo;
 import cn.zswltech.mithras.service.service.third.model.MithrasCompanyInfo;
 import cn.zswltech.mithras.service.service.third.model.TycQueryCompanyReq;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.board.controller;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.board.service.ProjBoardService;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.others.MithrasException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.client;
 
 import cn.zswltech.mithras.service.mapper.model.client.ProjClientRole;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @description:

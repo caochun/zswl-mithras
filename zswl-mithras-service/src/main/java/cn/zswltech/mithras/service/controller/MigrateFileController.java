@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.io.FileUtil;
@@ -46,7 +47,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 
 /**
  * 调用接口后 迁移文件

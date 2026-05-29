@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.finance;
 
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueIntegration;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
 * @description 应收逾期集成表

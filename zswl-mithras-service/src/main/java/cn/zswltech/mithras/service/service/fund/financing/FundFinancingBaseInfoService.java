@@ -18,7 +18,7 @@ import cn.zswltech.mithras.dto.fund.financing.SingleFinancingIdREQ;
 import cn.zswltech.mithras.dto.fund.financing.baseinfo.FundFinancingBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.financing.baseinfo.FundFinancingBaseInfoModifyREQ;
 import cn.zswltech.mithras.dto.fund.financing.baseinfo.FundFinancingCalcRemainingGuaranteeAmountREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;

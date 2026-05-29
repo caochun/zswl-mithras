@@ -2,7 +2,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
 import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricValueService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

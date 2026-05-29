@@ -18,7 +18,7 @@ import cn.zswltech.mithras.dto.flow.form.ChooseApproveAuthDTO;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.projpricing.ProjPricingBaseInfoConverter;
 import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;

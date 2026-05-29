@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.ftp.FtpBatchIdsReq;
 import cn.zswltech.mithras.dto.ftp.FtpMaterialListRSP;
 import cn.zswltech.mithras.dto.ftp.FtpMaterialListReq;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.ftp.FtpMonthlyMaterialsEnum;
 import cn.zswltech.mithras.service.enums.ftp.FtpQuarterlyMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

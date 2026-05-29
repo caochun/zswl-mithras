@@ -10,8 +10,8 @@
 //import cn.zswltech.mithras.api.payment.dto.FtpPriceUpdateREQ;
 //import cn.zswltech.mithras.dto.flow.search.ProcessListREQ;
 //import cn.zswltech.mithras.dto.flow.search.ProcessListRSP;
-//import cn.zswltech.mithras.service.constant.ResultMsg;
-//import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+//import cn.zswltech.mithras.common.constant.ResultMsg;
+//import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 //import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 //import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 //import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
@@ -35,7 +35,7 @@
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestDetailRecordService;
 //import cn.zswltech.mithras.service.service.lib.contract.ContractReceiptLibService;
 //import cn.zswltech.mithras.service.service.lib.contract.ContractRentActualLibService;
-//import cn.zswltech.mithras.service.util.StringUtil;
+//import cn.zswltech.mithras.common.util.StringUtil;
 //import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 //import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 //import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

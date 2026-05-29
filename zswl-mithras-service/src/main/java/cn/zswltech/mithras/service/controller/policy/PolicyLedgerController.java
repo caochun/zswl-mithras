@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.policy.PolicyLedgerApi;
 import cn.zswltech.mithras.dto.policy.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.policy.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.service.enums.policy.PolicyTypeEnum;
 import cn.zswltech.mithras.service.excel.exporter.PolicyLedgerContractExcelExporter;

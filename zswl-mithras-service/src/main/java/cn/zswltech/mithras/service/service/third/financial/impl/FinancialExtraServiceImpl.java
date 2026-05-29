@@ -9,7 +9,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.common.ResultCode;
 import cn.zswltech.mithras.dto.third.financial.ThirdCollectionRecordREQ;
 import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;

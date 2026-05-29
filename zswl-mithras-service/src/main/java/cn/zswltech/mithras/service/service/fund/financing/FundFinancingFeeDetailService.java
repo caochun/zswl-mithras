@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailAddREQ;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailListREQ;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailModifyREQ;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.fund.financing.FundFinancingFeeDetailConverter;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingFeeDetailMapper;

@@ -7,7 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.util.UUIDUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.DepositCashFlowType;

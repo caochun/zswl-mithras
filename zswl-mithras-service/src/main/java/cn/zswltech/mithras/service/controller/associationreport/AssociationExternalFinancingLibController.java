@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationExternalFinancingLib
 import cn.zswltech.mithras.associationreport.service.AssociationExternalFinancingLibService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationExternalFinancingLib;
 
-import java.util.List;
 
 /**
 * @description 金融局报送-对外融资信息清单表(流程节点记录版本表)

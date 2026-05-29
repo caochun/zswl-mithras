@@ -18,7 +18,7 @@ import cn.zswltech.mithras.api.common.ResultCode;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
 import cn.zswltech.mithras.service.config.OcrConfigProperties;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.lease.LeaseItemVehicleRegistrationTypeEnum;
 import cn.zswltech.mithras.service.enums.lease.LeaseOperateEnum;

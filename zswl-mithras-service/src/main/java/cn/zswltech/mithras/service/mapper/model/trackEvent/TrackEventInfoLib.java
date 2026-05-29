@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.trackEvent;
 
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractAccount;
 import cn.zswltech.mithras.service.mapper.tag.ILib;

@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.budget.BudgetPlanPayDetailNotMonthCashFlowRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.excel.importer.CashFlowExcelImporter;
 import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.service.others.MithrasException;

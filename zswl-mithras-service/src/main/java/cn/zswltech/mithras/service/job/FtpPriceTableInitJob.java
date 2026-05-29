@@ -3,7 +3,7 @@
 //import cn.hutool.core.collection.CollUtil;
 //import cn.hutool.core.date.StopWatch;
 //import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-//import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+//import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 //import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
 //import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
 //import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActualLib;

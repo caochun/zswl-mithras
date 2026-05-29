@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.mapper.monthly;
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.service.mapper.model.ftp.FtpInterestDetailRecord;
 import cn.zswltech.mithras.service.mapper.model.monthly.FundsDailyCost;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import lombok.Data;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

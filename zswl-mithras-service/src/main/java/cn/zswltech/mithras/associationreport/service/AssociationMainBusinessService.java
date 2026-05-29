@@ -10,7 +10,7 @@ import cn.zswltech.mithras.associationreport.excel.AssociationMainBusinessModel;
 import cn.zswltech.mithras.associationreport.storedata.AbstractDataStore;
 import cn.zswltech.mithras.dto.associationreport.AssociationDetailMainBusinessRSP;
 import cn.zswltech.mithras.dto.associationreport.AssociationMainBusinessModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationDictionaryCategoryEnum;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationMainBusinessMapper;

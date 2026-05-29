@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.lib.fund.receiptrepay;
 
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBorrowingLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.service.liquiditymanage.FundFinancingAccountS
 import cn.zswltech.mithras.service.service.margin.MarginRecordService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

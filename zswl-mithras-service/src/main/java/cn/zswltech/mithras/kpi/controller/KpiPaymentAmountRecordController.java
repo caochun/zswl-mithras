@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.kpi.KpiPaymentAmountRecordRemoveREQ;
 import cn.zswltech.mithras.kpi.service.KpiPaymentAmountRecordService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiPaymentAmountRecord;
 
-import java.util.List;
 
 /**
 * @description 绩效考核-投放信息记录表

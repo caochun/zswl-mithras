@@ -5,7 +5,7 @@ import cn.zswltech.mithras.service.mapper.lib.contract.ContractPrepaymentLibMapp
 import cn.zswltech.mithras.service.mapper.model.contract.ContractPrepayment;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractPrepaymentLib;
 import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractPrepaymentLibHandler;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

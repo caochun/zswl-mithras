@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.others;
 
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.NumberUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.validation.ControllerMissParamException;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

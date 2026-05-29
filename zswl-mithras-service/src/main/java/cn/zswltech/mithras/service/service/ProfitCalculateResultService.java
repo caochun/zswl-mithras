@@ -10,7 +10,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.ProfitCalculateResultListREQ;
 import cn.zswltech.mithras.dto.ProfitCalculateResultListRSP;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.TaxRateConfig;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.kpi.KpiParameterConfigConvert;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.collection.BillTypeEnum;

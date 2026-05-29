@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.mapper.dto.CollectionContractSettleDTO;
 import cn.zswltech.mithras.service.mapper.dto.CollectionNextRentParam;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectInfoOverdueQuery;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.service.bo.DeptRemainingPrincipalBO;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

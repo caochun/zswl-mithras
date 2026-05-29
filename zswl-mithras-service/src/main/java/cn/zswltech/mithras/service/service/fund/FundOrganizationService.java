@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.fund;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Pair;
@@ -6,7 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.service.convert.fund.FundOrganizationConverter;
 import cn.zswltech.mithras.service.enums.fund.OrganizationType;
@@ -35,7 +36,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.common.util.StringUtil.mysqlLimit;
 
 /**
  * @author zhaozhengkang

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.associationreport.DeleteData;
 import cn.zswltech.mithras.associationreport.excel.AssociationMajorMattersEventReportModel;
 import cn.zswltech.mithras.associationreport.storedata.AbstractDataStore;
 import cn.zswltech.mithras.dto.associationreport.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationMajorMattersEventReportMapper;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationMajorMattersEventReport;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;

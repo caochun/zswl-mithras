@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.service.contract.ContractIncomeSharingService
 import cn.zswltech.mithras.service.service.kpi.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.service.service.kpi.KpiPerformanceMainInfoService;
 import cn.zswltech.mithras.service.service.kpi.KpiPerformanceRecordInfoService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

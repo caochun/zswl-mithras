@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.afterlease.CollectionPenaltyReductionInfoListREQ;
 import cn.zswltech.mithras.dto.afterlease.CollectionRelationContractREQ;
 import cn.zswltech.mithras.dto.afterlease.CollectionRelationContractRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.afterlease.CollectionPenaltyReductionInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.afterlease.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.service.others.MithrasException;

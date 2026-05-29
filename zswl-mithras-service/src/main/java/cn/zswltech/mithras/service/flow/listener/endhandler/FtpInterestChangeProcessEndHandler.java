@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpChangeApplyRecordService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
-import cn.zswltech.mithras.service.util.ThreadPoolUtil;
+import cn.zswltech.mithras.common.util.ThreadPoolUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionSynchronization;

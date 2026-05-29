@@ -8,7 +8,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.newftp.NewFtpCommonDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpGuaranteeCostPricingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpGuaranteeCostPricingModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.newftp.mapper.NewFtpBaseInfoMapper;
 import cn.zswltech.mithras.service.service.newftp.mapper.draft.NewFtpGuaranteeCostPricingDraftMapper;
@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpGuaranteeCo
 import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpGuaranteeCostPricingDraft;
 import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpGuaranteeCostPricingConfigService;
 import cn.zswltech.mithras.service.service.newftp.service.lib.NewFtpGuaranteeCostPricingLibService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccoun
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccountListREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccountListRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccountModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.fund.direct.converter.FundDirectFinancingPayAccountConverter;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPayAccount;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingPayAccountMapper;

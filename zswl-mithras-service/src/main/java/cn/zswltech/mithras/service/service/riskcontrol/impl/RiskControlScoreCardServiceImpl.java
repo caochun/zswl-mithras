@@ -5,7 +5,7 @@ import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetListRSP;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.riskcontrol.RiskControlCardTargetConverter;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.riskcontrol.AreaTypeEnum;
@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlScoreCard
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.riskcontrol.*;
 import cn.zswltech.mithras.service.service.riskcontrol.dto.TryCalculateDto;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

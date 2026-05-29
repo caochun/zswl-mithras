@@ -6,7 +6,7 @@ import cn.zswltech.mithras.associationreport.DeleteData;
 import cn.zswltech.mithras.associationreport.excel.AssociationBalanceSheetPartialModel;
 import cn.zswltech.mithras.associationreport.storedata.AbstractDataStore;
 import cn.zswltech.mithras.dto.associationreport.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationBalanceSheetPartialMapper;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBalanceSheetPartial;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;

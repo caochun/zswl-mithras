@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationLawInvolvedVisitRela
 import cn.zswltech.mithras.associationreport.service.AssociationLawInvolvedVisitRelatedInfoService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationLawInvolvedVisitRelatedInfo;
 
-import java.util.List;
 
 /**
 * @description 涉法涉讼涉访信息表

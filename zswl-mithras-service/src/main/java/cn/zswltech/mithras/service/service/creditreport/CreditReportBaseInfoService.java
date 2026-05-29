@@ -23,8 +23,8 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.creditreport.*;
 import cn.zswltech.mithras.service.constant.CreditReportConstants;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.creditsearch.CreditSearchConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
@@ -72,7 +72,7 @@ import cn.zswltech.mithras.service.service.projestablish.ProjEstablishTradeStruc
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewTradeStructureService;
 import cn.zswltech.mithras.service.util.DateUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
@@ -95,7 +95,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;
 import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.CLOSED;
 import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.INVALID;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.convert.projreview;
 
 import cn.hutool.core.util.NumberUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewCashFlowQuotationProposal;

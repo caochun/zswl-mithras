@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.fund.financing.repay.FundFinancingRepayActualList
 import cn.zswltech.mithras.dto.fund.financing.repay.FundFinancingRepayImportREQ;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingMainModifyAuthChecker;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingRepayActualService;

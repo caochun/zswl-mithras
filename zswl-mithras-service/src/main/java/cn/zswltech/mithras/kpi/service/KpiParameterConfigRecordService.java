@@ -11,7 +11,7 @@ import cn.zswltech.mithras.kpi.mapper.KpiParameterConfigRecordMapper;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfigRecord;
 import cn.zswltech.mithras.service.convert.kpi.KpiParameterConfigConvert;
 import cn.zswltech.mithras.service.enums.kpi.KpiParameterConfigCodeEnum;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.SneakyThrows;

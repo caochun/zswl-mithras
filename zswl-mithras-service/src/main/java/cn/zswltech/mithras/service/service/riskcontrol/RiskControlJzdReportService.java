@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.riskcontrol;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
@@ -65,7 +66,7 @@ import static cn.zswltech.mithras.service.enums.riskcontrol.jzd.report.JzdReport
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
 import static cn.zswltech.mithras.service.others.Util.mithrasLong2BigDecimal;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.common.util.StringUtil.mysqlLimit;
 
 /**
  * @author yibin

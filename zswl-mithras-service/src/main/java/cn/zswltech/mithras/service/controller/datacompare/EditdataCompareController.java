@@ -107,7 +107,7 @@ import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.dto.version.DiffFile;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.dto.version.DiffValueList;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.controller.kpi.KpiProjectDistributionWeightController;
 import cn.zswltech.mithras.service.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.service.enums.datacompare.CompareFactoryEnum;
@@ -132,7 +132,7 @@ import cn.zswltech.mithras.service.service.projpricing.ProjPricingBaseInfoServic
 import cn.zswltech.mithras.service.service.projpricing.ProjPricingPriceService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;

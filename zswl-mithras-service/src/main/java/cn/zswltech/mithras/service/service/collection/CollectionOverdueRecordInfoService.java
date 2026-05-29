@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.collection.CollectionBaseInfoDetailREQ;
 import cn.zswltech.mithras.dto.collection.CollectionPenaltyInterestREQ;
 import cn.zswltech.mithras.dto.collection.CollectionPenaltyInterestRSP;
 import cn.zswltech.mithras.dto.collection.PenaltyInterestListRSP;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;

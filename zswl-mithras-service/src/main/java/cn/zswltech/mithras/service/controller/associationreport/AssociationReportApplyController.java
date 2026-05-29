@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationReportApplyRemoveREQ
 import cn.zswltech.mithras.associationreport.service.AssociationReportApplyService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReportApply;
 
-import java.util.List;
 
 /**
 * @description 金融局报表申请表

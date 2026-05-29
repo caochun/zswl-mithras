@@ -30,8 +30,8 @@ public interface IEntity {
 
     void setUpdateBy(Long updateBy);
 
-    void setMainId(Long id);
+    default void setMainId(Long id) {}
 
-    Long getMainId();
+    default Long getMainId() { return null; }
 
 }

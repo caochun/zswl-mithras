@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
@@ -39,7 +40,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.text.CharSequenceUtil.*;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.service.constant.ResultMsg.*;
+import static cn.zswltech.mithras.common.constant.ResultMsg.*;
 import static cn.zswltech.mithras.service.enums.GovernmentSubjectItemType.GOV_CAPITAL_BALANCE;
 import static cn.zswltech.mithras.service.enums.GovernmentSubjectItemType.INCOME_EXPEND;
 import static cn.zswltech.mithras.service.enums.SubjectItemType.*;

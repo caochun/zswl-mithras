@@ -13,7 +13,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.flow.file.FlowFileListREQ;
 import cn.zswltech.mithras.dto.flow.file.FlowFileListRSP;
 import cn.zswltech.mithras.dto.flow.file.FlowFileRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.FilePolicyAdapterEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;

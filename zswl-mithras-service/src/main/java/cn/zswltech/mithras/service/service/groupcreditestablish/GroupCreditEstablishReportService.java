@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.groupcreditestablish.report.GroupCreditEstablishR
 import cn.zswltech.mithras.dto.groupcreditestablish.report.GroupCreditEstablishReportListRSP;
 import cn.zswltech.mithras.dto.groupcreditestablish.report.GroupCreditEstablishReportRemoveREQ;
 import cn.zswltech.mithras.dto.groupcreditestablish.report.GroupCreditEstablishReportUploadREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.groupcreditestablish.GroupCreditEstablishMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
@@ -33,7 +33,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
 
 /**
  * 立项报告文件

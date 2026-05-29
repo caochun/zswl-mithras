@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordCountRSP;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordListREQ;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.model.third.BrFlowRecord;
 import cn.zswltech.mithras.service.mapper.third.BrFlowRecordMapper;

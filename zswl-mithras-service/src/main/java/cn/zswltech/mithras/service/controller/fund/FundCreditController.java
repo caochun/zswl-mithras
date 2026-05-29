@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.dto.materialsfile.FundMaterialListRSP;
 import cn.zswltech.mithras.service.CreditLimitManagerService;
 import cn.zswltech.mithras.service.CreditLimitService;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CreditLimitBizTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.FundCreditMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

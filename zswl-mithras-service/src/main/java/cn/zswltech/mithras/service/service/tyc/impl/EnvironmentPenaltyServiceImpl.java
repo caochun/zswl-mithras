@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.tyc.impl;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.external.ExternalPageREQ;
@@ -18,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * 中登网

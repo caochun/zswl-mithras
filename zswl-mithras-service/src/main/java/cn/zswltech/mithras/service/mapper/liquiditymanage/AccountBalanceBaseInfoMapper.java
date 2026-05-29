@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.liquiditymanage;
 
 import cn.zswltech.mithras.service.mapper.model.liquiditymanage.AccountBalanceBaseInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * <p>

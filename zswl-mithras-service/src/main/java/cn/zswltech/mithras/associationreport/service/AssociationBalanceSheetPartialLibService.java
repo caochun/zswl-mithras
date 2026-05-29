@@ -3,7 +3,7 @@ package cn.zswltech.mithras.associationreport.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.associationreport.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationBalanceSheetPartialLibMapper;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBalanceSheetPartial;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBalanceSheetPartialLib;

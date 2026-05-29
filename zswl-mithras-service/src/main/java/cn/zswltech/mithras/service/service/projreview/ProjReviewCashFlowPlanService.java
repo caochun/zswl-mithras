@@ -8,7 +8,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.IRRCalculateResultRSP;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowMeetMinutePlanExportREQ;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.projreview.ProjReviewCashFlowPlanConverter;
 import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;

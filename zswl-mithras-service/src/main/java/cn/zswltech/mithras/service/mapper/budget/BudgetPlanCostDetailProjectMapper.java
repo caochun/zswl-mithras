@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.budget;
 
 import cn.zswltech.mithras.service.mapper.dto.BudgetPlanCostDetailProjectGroupMonthDTO;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanCostDetailProject;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

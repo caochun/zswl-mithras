@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.newftp.model.lib;
 
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpMonthlyGuidanceExtDraft;
 import com.baomidou.mybatisplus.annotation.TableField;

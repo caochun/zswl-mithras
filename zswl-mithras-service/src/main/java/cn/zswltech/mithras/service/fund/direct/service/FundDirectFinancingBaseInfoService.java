@@ -19,7 +19,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.dto.monthly.MonthlyCostREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.service.enums.JobEnum;

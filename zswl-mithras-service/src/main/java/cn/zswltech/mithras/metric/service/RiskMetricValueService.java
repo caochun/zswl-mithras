@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.metric.service;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -42,7 +43,7 @@ import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFrequency.valueOf;
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricStatus.PEND_REPORT;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.common.util.StringUtil.mysqlLimit;
 import static java.math.RoundingMode.HALF_UP;
 
 /**

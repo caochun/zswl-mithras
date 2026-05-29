@@ -11,7 +11,7 @@ import cn.zswltech.mithras.report.mapper.draft.model.CrRepayPlanDraft;
 import cn.zswltech.mithras.report.mapper.formal.model.CrRepayPlan;
 import cn.zswltech.mithras.report.service.draft.CrAccountDraftService;
 import cn.zswltech.mithras.report.service.draft.CrRepayPlanDraftService;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.common.enums.ProjectBizType;

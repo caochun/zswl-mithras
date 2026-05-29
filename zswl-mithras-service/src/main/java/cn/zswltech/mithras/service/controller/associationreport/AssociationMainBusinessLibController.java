@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationMainBusinessLibRemov
 import cn.zswltech.mithras.associationreport.service.AssociationMainBusinessLibService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationMainBusinessLib;
 
-import java.util.List;
 
 /**
 * @description 金融协会报送-主要业务清单表(流程节点记录版本表)

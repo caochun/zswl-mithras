@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessAddR
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessListREQ;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessModifyREQ;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationReportDataAccessMapper;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReportDataAccess;
 import cn.zswltech.mithras.service.others.MithrasException;

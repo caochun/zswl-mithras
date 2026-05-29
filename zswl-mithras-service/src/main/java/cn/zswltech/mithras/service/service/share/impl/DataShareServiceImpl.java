@@ -165,7 +165,7 @@ public class DataShareServiceImpl implements DataShareService {
         //获取管理信息信息
         DataShareManager dataShareManager = dataShareManagerService.getOne(Wrappers.<DataShareManager>lambdaQuery()
                 .eq(DataShareManager::getModelName, MERCHANT_MODEL)
-                .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                .last(cn.zswltech.mithras.common.util.StringUtil.mysqlLimitOne()));
         if (ObjectUtil.isEmpty(dataShareManager)) {
             //无记录，第一次查询，全量获取
             //重试三次
@@ -219,7 +219,7 @@ public class DataShareServiceImpl implements DataShareService {
         //获取管理信息信息
         DataShareManager dataShareManager = dataShareManagerService.getOne(Wrappers.<DataShareManager>lambdaQuery()
                 .eq(DataShareManager::getModelName, MAIN_CODE)
-                .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                .last(cn.zswltech.mithras.common.util.StringUtil.mysqlLimitOne()));
 
         if (ObjectUtil.isEmpty(dataShareManager)) {
             //无记录，第一次查询，全量获取
@@ -274,7 +274,7 @@ public class DataShareServiceImpl implements DataShareService {
         DataShareCodeDict codeDict = dataShareCodeDictService.getOne(Wrappers.<DataShareCodeDict>lambdaQuery()
                 .eq(DataShareCodeDict::getPhone, realPhone)
                 .orderByDesc(DataShareCodeDict::getUpdateTime)
-                .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                .last(cn.zswltech.mithras.common.util.StringUtil.mysqlLimitOne()));
         if (ObjectUtil.isNotNull(codeDict)) {
             userDO.setId(req.getUserId());
             userDO.setMainCode(codeDict.getUserId());

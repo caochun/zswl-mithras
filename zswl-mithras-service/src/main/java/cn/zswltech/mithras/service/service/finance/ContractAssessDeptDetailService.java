@@ -8,7 +8,7 @@ import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.mithras.dto.kpi.ContractAssessDeptConfigListREQ;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ContractAssessDeptConfigListRSP;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ContractAssessDeptDto;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.finance.ContractAssessDeptDetailMapper;
 import cn.zswltech.mithras.service.mapper.model.finance.ContractAssessDeptDetail;

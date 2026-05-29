@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
 import cn.zswltech.mithras.dto.client.commerceinfo.NewCorpCommerceInfoDetailRSP;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.lib.client.NewCorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.service.lib.client.NewCorpCommerceInfoLibServ
 import cn.zswltech.mithras.service.service.lib.client.handler.impl.CorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.service.service.lib.client.handler.impl.NewCorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.service.service.riskcontrol.dto.CorpCommerceInfoLibDto;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

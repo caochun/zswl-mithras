@@ -19,7 +19,7 @@ import cn.zswltech.mithras.report.flow.ProcHelper;
 import cn.zswltech.mithras.report.mapper.base.model.CrBaseModel;
 import cn.zswltech.mithras.report.mapper.draft.model.CrAccountDraft;
 import cn.zswltech.mithras.report.service.agg.CrAccountAggService;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.client;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
@@ -30,7 +31,7 @@ import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.service.util.StreamUtil;
+import cn.zswltech.mithras.common.util.StreamUtil;
 import cn.zswltech.mithras.service.validator.InstitutionCreditCodeValidator;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -46,7 +47,7 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ID_CARD_ERROR;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ID_CARD_ERROR;
 import static cn.zswltech.mithras.service.others.Const.CERT_ID_CARD_CODE;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 import static cn.zswltech.mithras.service.others.Util.checkIDCard;

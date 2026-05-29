@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.mapper.projestablish;
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.service.mapper.dto.*;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

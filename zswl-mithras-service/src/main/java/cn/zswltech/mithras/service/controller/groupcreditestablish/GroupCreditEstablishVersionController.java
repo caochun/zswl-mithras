@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.groupcreditestablish;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.api.common.PageR;
@@ -34,8 +35,8 @@ import java.util.Objects;
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.common.enums.RecordStatus.TAKE_EFFECT;
 
 /**

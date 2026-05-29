@@ -6,7 +6,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.auth.rule.DataAuthProcessRule;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.archives.ArchivesDownloadPermissionMapper;
 import cn.zswltech.mithras.service.mapper.archives.ArchivesManagementMapper;

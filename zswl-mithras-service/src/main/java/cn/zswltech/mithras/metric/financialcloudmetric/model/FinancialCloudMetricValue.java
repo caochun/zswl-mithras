@@ -2,7 +2,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.model;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.common.model.BaseModel;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

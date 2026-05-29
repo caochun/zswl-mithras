@@ -1,4 +1,6 @@
 package cn.zswltech.mithras.service.util;
+import cn.zswltech.mithras.common.util.StringUtils;
+import cn.zswltech.mithras.common.constant.Constants;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.extra.servlet.ServletUtil;
@@ -182,7 +184,7 @@ public class ServletUtils extends ServletUtil {
      */
     public static String urlEncode(String str) {
         try {
-            return URLEncoder.encode(str, cn.zswltech.mithras.constant.Constants.UTF8);
+            return URLEncoder.encode(str, cn.zswltech.mithras.common.constant.Constants.UTF8);
         } catch (UnsupportedEncodingException e) {
             return StringUtils.EMPTY;
         }
@@ -196,7 +198,7 @@ public class ServletUtils extends ServletUtil {
      */
     public static String urlDecode(String str) {
         try {
-            return URLDecoder.decode(str, cn.zswltech.mithras.constant.Constants.UTF8);
+            return URLDecoder.decode(str, cn.zswltech.mithras.common.constant.Constants.UTF8);
         } catch (UnsupportedEncodingException e) {
             return StringUtils.EMPTY;
         }

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.monthly;
 
 import cn.zswltech.mithras.service.mapper.model.monthly.FundsDailyCostMain;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

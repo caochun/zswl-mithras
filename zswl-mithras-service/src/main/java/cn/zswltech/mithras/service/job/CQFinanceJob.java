@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.job;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 
 import cn.hutool.core.date.DatePattern;
@@ -82,7 +83,7 @@ public class CQFinanceJob {
             //获取管理信息信息
             DataShareManager dataShareManager = dataShareManagerService.getOne(Wrappers.<DataShareManager>lambdaQuery()
                     .eq(DataShareManager::getModelName, BR_FLOW_FULL)
-                    .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                    .last(cn.zswltech.mithras.common.util.StringUtil.mysqlLimitOne()));
             LocalDateTime now = LocalDateTime.now();
             if (ObjectUtil.isEmpty(dataShareManager)) {
                 dataShareManager = new DataShareManager();

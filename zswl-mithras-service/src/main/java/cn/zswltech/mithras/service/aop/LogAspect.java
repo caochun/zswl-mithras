@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.event.OperLogEvent;
 import cn.zswltech.mithras.service.util.JsonUtils;
 import cn.zswltech.mithras.service.util.ServletUtils;
 import cn.zswltech.mithras.service.util.SpringUtils;
-import cn.zswltech.mithras.service.util.StringUtils;
+import cn.zswltech.mithras.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;

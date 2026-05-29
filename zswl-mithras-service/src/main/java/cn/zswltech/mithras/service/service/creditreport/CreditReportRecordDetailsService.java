@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.creditreport.CreditReportRecordDetailsAddREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportRecordDetailsListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportRecordDetailsModifyREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportRecordDetailsRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.creditreport.*;
 import cn.zswltech.mithras.service.mapper.creditreport.CreditReportRecordDetailsMapper;
 import cn.zswltech.mithras.service.mapper.dto.credit.*;

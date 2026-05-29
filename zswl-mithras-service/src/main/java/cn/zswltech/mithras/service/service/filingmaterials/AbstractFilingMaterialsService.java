@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.filingmaterials.FilingBasicRemoveREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FilingMaterialsConfigDTO;
 import cn.zswltech.mithras.dto.flow.search.ProcessHistoryRSP;
 import cn.zswltech.mithras.service.constant.FilingMaterialsConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.flow.FlowProcessConvert;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;

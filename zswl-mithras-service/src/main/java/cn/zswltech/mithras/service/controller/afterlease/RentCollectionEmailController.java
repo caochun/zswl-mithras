@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.afterlease;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.zswltech.mithras.api.afterlease.RentCollectionEmailApi;
 import cn.zswltech.mithras.api.common.R;
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 
 /**
  * 租金催收发送邮件

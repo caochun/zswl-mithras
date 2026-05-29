@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.service.client.ClientSandRecordService;
 import cn.zswltech.mithras.service.service.client.ClientVwSyncService;
 import cn.zswltech.mithras.service.service.client.ExternalCustomerService;
 import cn.zswltech.mithras.service.service.riskcontrol.dto.RiskClientListFileDTO;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;

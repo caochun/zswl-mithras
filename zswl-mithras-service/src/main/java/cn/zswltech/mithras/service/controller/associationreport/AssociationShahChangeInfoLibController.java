@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationShahChangeInfoLibRem
 import cn.zswltech.mithras.associationreport.service.AssociationShahChangeInfoLibService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationShahChangeInfoLib;
 
-import java.util.List;
 
 /**
 * @description 股东股权信息一览表-股东变更记录(流程节点记录版本表)

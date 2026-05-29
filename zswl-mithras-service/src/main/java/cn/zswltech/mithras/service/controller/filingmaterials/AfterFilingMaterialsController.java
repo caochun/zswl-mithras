@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.filingmaterials.FilingBaseREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FilingBasicRemoveREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FundFilingMaterialsBatchDownloadREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.filingmaterials.FilingMaterials;

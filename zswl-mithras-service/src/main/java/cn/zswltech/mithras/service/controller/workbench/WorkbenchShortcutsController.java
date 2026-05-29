@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchShortcutBaseI
 import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchShortcuts;
 import cn.zswltech.mithras.service.service.workbench.WorkbenchShortcutBaseInfoService;
 import cn.zswltech.mithras.service.service.workbench.WorkbenchShortcutsService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.web.bind.annotation.RestController;

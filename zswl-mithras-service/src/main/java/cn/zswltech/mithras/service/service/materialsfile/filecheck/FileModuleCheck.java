@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonRemoveMainAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthCheckerNew;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;

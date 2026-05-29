@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationBasicSituationRemove
 import cn.zswltech.mithras.associationreport.service.AssociationBasicSituationService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBasicSituation;
 
-import java.util.List;
 
 /**
 * @description 基本情况统计表

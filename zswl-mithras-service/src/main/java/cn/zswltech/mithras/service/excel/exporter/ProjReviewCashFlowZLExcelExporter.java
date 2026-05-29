@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.projreview.ProjReviewCashFlowPlanConverter;
 import cn.zswltech.mithras.service.enums.projestablish.PayType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;

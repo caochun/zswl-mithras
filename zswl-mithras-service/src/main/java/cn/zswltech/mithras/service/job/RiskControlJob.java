@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitor
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlWarnMonitorService;
 import cn.zswltech.mithras.service.service.share.DataShareManagerService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.google.common.collect.Lists;
 import com.xxl.job.core.context.XxlJobHelper;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.lib.kpi;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.lib.kpi.KpiProjectDistributionWeightLibMapper;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionWeight;

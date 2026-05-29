@@ -1,7 +1,7 @@
 /*
 package cn.zswltech.mithras.service.mapper.model.creditreport;
 
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

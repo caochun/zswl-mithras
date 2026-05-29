@@ -1,5 +1,5 @@
 package cn.zswltech.mithras.service.mapper.lib.contract;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractLeaseItemLib;
 import cn.zswltech.mithras.service.service.bo.ContractLeaseItemCountBO;
 import org.apache.ibatis.annotations.Param;

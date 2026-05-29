@@ -4,7 +4,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.mapper.afterlease.RentCollectionEmailRecordMapper;
 import cn.zswltech.mithras.service.mapper.basedata.BaseDataBankAccountMapper;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;

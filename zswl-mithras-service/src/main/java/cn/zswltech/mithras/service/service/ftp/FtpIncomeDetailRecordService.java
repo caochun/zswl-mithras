@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.ftp;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.ftp.FtpIncomeDetailRecordRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.ftp.FtpIncomeDetailRecordMapper;
 import cn.zswltech.mithras.service.mapper.model.ftp.FtpIncomeDetailRecord;
 import cn.zswltech.mithras.service.others.MithrasException;

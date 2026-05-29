@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionRecordRemoveREQ;
 import cn.zswltech.mithras.kpi.service.KpiProjectDistributionRecordService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionRecord;
 
-import java.util.List;
 
 /**
 * @description 绩效考核-项目分配记录表

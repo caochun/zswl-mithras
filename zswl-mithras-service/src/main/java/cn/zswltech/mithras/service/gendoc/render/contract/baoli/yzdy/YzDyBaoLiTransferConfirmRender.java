@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DatePattern;
@@ -28,7 +29,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.date.LocalDateTimeUtil.format;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne;
+import static cn.zswltech.mithras.common.util.StringUtil.mysqlLimitOne;
 
 /**
  * @author yibin

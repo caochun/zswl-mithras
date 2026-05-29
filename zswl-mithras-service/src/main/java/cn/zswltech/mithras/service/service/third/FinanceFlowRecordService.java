@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffServic
 import cn.zswltech.mithras.service.service.third.financial.req.CQ2FlowQueryReq;
 import cn.zswltech.mithras.service.service.third.financial.resp.CQ2FlowQueryRsp;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 
 /**
  * 征信报送定时任务

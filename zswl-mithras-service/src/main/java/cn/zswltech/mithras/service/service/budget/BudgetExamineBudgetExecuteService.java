@@ -8,7 +8,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.budget.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BudgetExamineBenefitEnum;
 import cn.zswltech.mithras.service.enums.BudgetExamineBudgetExecuteEnum;
 import cn.zswltech.mithras.service.enums.kpi.BelongTypeEnum;

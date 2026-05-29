@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.service.third.financial.req.CQ2AccountApplica
 import cn.zswltech.mithras.service.service.third.financial.req.CQ2CollectionReq;
 import cn.zswltech.mithras.service.service.third.financial.req.CQ2PaymentReq;
 import cn.zswltech.mithras.service.service.third.financial.req.CQ2PlanCollectionReq;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

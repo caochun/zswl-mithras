@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.trackEvent.TrackEventApi;
 import cn.zswltech.mithras.dto.OrgUserRSP;
 import cn.zswltech.mithras.dto.UserRSP;
 import cn.zswltech.mithras.dto.trackEvent.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.trackEvent.TrackEventService;
 import lombok.extern.slf4j.Slf4j;

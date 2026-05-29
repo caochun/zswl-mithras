@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.gendoc.render;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryClientInfoListRsp;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryDetailRsp;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.afterlease.ClientRole;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;

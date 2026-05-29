@@ -6,7 +6,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.api.capital.CapitalWriteOffApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.capital.write_off.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.capital.write_off.WriteOffBusinessModelEnum;
 import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowRecord;

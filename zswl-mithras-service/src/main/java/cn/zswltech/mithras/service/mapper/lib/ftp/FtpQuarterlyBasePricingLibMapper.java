@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.lib.ftp;
 
 import cn.zswltech.mithras.service.mapper.model.ftp.FtpQuarterlyBasePricingLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @description:

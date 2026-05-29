@@ -9,7 +9,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.fund.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.fund.FundGuaranteeAgencyConverter;
 import cn.zswltech.mithras.service.enums.CreditLimitBizTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;

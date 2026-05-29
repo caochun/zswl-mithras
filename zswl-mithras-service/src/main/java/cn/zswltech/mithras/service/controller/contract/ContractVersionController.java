@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.contract;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
@@ -48,7 +49,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.enums.BusinessModuleEnum.CONTRACT;
 import static cn.zswltech.mithras.service.enums.contract.ContractExtraFileTypeEnum.START_RENT;
 import static cn.zswltech.mithras.service.others.MithrasException.err;

@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.client;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.zswltech.mithras.api.client.NormalBaseInfoApi;
 import cn.zswltech.mithras.api.common.R;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.ID_CARD_ERROR;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ID_CARD_ERROR;
 import static cn.zswltech.mithras.service.others.Const.CERT_ID_CARD_CODE;
 import static cn.zswltech.mithras.service.others.Util.checkIDCard;
 

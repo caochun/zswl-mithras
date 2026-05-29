@@ -6,7 +6,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.financeoverdue.OverduePlanStatueEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

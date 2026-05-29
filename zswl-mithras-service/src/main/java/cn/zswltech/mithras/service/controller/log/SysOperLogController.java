@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.log.SysOperLogRemoveREQ;
 import cn.zswltech.mithras.service.service.log.SysOperLogService;
 import cn.zswltech.mithras.service.model.log.SysOperLog;
 
-import java.util.List;
 
 /**
 * @description 操作日志记录

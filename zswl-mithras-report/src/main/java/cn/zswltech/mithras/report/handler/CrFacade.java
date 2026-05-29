@@ -53,8 +53,8 @@ import cn.zswltech.mithras.report.service.draft.CrAccountDraftService;
 import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.config.redis.RedisHelper;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
@@ -68,7 +68,7 @@ import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.message.MessageService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.aliyuncs.ecs.model.v20140526.DescribeImageSharePermissionResponse;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -98,7 +98,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 
 /**
  * 征信报送处理器

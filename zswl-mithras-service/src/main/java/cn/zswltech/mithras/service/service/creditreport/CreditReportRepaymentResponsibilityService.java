@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.creditreport.CreditReportRepaymentResponsibilityListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportRepaymentResponsibilityModifyREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportRepaymentResponsibilityRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportRepaymentLiabilityEnum;
 import cn.zswltech.mithras.service.mapper.creditreport.CreditReportRepaymentResponsibilityMapper;
 import cn.zswltech.mithras.service.mapper.dto.credit.EB05A;

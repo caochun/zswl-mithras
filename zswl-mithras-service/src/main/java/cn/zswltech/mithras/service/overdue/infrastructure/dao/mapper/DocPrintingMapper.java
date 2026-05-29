@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.overdue.infrastructure.dao.mapper;
 
 import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.DocPrinting;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
 * @description 文书用印

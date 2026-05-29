@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanProfit;
 import cn.zswltech.mithras.service.service.budget.BudgetPlanCostService;
 import cn.zswltech.mithras.service.service.budget.BudgetPlanPayService;
 import cn.zswltech.mithras.service.service.budget.BudgetPlanProfitDetailService;
-import cn.zswltech.mithras.service.util.ThreadPoolUtil;
+import cn.zswltech.mithras.common.util.ThreadPoolUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;

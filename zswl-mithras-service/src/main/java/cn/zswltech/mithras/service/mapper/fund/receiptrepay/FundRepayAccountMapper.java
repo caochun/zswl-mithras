@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.fund.receiptrepay;
 
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundRepayAccount;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author zhaozhengkang

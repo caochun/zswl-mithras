@@ -10,7 +10,7 @@ import cn.zswltech.gruul.biz.service.SystemConfigService;
 import cn.zswltech.gruul.dao.dal.entity.SystemConfigDO;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.associationreport.service.AssociationRelationService;

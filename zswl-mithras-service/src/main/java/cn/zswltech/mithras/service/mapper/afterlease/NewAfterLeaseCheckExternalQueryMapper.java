@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.afterlease;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryDto;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckExternalQuery;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

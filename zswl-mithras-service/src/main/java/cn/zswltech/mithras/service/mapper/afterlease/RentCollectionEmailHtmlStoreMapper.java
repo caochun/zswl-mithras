@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.afterlease;
 
 import cn.zswltech.mithras.service.mapper.model.afterlease.RentCollectionEmailHtmlStore;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * 发送租金催收邮件html缓存

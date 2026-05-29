@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.auth.checker.fund.FundReceiptRepayAddSubAuthChecker;
 import cn.zswltech.mithras.service.auth.rule.fund.FundReceiptRepayAuthMoneyManagerRule;
 import cn.zswltech.mithras.service.auth.rule.fund.FundReceiptRepayAuthProcessRule;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

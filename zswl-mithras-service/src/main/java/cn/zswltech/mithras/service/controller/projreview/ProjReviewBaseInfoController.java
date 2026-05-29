@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonAddMainAuthChecker
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonDisableMainAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthCheckerNew;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.common.enums.RecordStatus;
@@ -58,7 +58,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.*;
+import static cn.zswltech.mithras.common.constant.ResultMsg.*;
 import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
 import static cn.zswltech.mithras.common.enums.RecordStatus.CLOSED;
 import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;

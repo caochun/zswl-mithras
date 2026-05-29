@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.contract;
+import cn.zswltech.mithras.common.constant.MithrasConstants;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -30,8 +31,8 @@ import cn.zswltech.mithras.dto.contract.*;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.common.enums.ProjectBizType;
@@ -99,7 +100,7 @@ import cn.zswltech.mithras.service.service.riskcontrol.eventbus.MetricComputeEve
 import cn.zswltech.mithras.service.service.third.financial.FinancialManagerService;
 import cn.zswltech.mithras.service.util.CreditReportUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -128,7 +129,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.constant.MithrasConstants.ERR_IN_TRANSFER;
+import static cn.zswltech.mithras.common.constant.MithrasConstants.ERR_IN_TRANSFER;
 import static cn.zswltech.mithras.service.enums.CashFlowItemEnum.*;
 import static cn.zswltech.mithras.service.enums.JobEnum.businesshead;
 import static cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED;

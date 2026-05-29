@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.riskcontrol;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -38,7 +39,7 @@ import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.enums.opinion.RiskControlOpinionHandleStatus.IGNORED;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 import static java.util.Objects.isNull;

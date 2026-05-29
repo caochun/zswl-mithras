@@ -6,7 +6,7 @@ import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.policy.PolicyMaintenanceREQ;
 import cn.zswltech.mithras.dto.policy.PolicyMaintenanceRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;

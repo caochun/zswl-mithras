@@ -20,7 +20,7 @@ import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.materialsfile.*;
 import cn.zswltech.mithras.service.CommonFileSortComparator;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.FileConvert;
 import cn.zswltech.mithras.service.convert.materialslist.MaterialsListConverter;
 import cn.zswltech.mithras.service.enums.*;

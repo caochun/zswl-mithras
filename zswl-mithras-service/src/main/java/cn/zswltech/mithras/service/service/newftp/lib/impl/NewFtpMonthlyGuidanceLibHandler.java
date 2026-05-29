@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpMonthlyGuida
 import cn.zswltech.mithras.service.service.newftp.model.lib.NewFtpMonthlyGuidanceLib;
 import cn.zswltech.mithras.service.service.newftp.service.lib.NewFtpMonthlyGuidanceLibService;
 import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpMonthlyGuidanceDraftService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

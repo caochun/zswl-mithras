@@ -7,7 +7,7 @@ import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.finance.accountage.*;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.third.FinancialAccountAgeRecordStatus;

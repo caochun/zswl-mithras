@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.lib.afterlease;
 import cn.zswltech.mithras.service.mapper.lib.afterlease.NewAfterLeaseCheckExternalQueryLibMapper;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckExternalQuery;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckExternalQueryLib;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

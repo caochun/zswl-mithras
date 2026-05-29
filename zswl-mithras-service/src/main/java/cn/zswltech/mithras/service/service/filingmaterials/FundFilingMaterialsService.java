@@ -19,7 +19,7 @@ import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.filingmaterials.*;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.constant.FilingMaterialsConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.flow.FlowProcessConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
@@ -54,7 +54,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 

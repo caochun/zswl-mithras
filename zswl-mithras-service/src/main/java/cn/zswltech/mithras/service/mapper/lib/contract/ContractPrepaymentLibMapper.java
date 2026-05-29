@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.lib.contract;
 
 import cn.zswltech.mithras.service.mapper.model.contract.ContractPrepaymentLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @ClassName ContractPrepaymentLibMapper

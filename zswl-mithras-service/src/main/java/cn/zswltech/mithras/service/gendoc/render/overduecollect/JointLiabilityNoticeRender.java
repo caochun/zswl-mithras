@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.gendoc.render.overduecollect;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.service.overdue.domain.acl.ContractGuarantorInfo;
 import cn.zswltech.mithras.service.service.Id2NameService;

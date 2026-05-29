@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.leaseholdproperty;
 
 import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemVatInvoiceProduct;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author yupengfei

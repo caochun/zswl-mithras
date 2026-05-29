@@ -9,7 +9,7 @@ import cn.zswltech.mithras.report.mapper.draft.model.CrActualRepayDraft;
 import cn.zswltech.mithras.report.mapper.draft.model.CrRepayPlanDraft;
 import cn.zswltech.mithras.report.mapper.formal.model.CrActualRepay;
 import cn.zswltech.mithras.report.service.draft.CrActualRepayDraftService;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;

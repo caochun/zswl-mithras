@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.fund.financing.SingleFinancingIdREQ;
 import cn.zswltech.mithras.dto.fund.financing.repay.FundFinancingRepayActualImportRSP;
 import cn.zswltech.mithras.dto.fund.financing.repay.FundFinancingRepayActualListRSP;
 import cn.zswltech.mithras.dto.fund.financing.repay.FundFinancingRepayEstimateListRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingChangeSubTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingProcessStatus;

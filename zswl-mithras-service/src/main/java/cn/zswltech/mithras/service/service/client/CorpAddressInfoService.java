@@ -6,7 +6,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoAddREQ;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListREQ;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CorpAddressType;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.enums.CorpAddressType.REGISTRY_ADDRESS;
 import static cn.zswltech.mithras.service.others.Const.ENUM_TYC_PROVINCE;
 

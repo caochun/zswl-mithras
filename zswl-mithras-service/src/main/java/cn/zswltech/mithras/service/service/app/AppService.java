@@ -31,7 +31,7 @@ import cn.zswltech.mithras.dto.groupcreditestablish.GroupCreditEstablishListRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.GroupCreditReviewListRSP;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoListRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.controller.client.ClientController;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;

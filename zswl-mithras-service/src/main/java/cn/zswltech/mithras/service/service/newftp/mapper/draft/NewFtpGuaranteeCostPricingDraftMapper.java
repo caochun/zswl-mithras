@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.newftp.mapper.draft;
 
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpGuaranteeCostPricingDraft;
 
 /**

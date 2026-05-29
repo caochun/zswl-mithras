@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.collection.CollectionFlowCenterBusinessPaymentLis
 import cn.zswltech.mithras.dto.collection.CollectionFlowCenterBusinessPaymentListRSP;
 import cn.zswltech.mithras.service.mapper.dto.PaymentListDto;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.service;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -50,7 +51,7 @@ import java.util.stream.Collectors;
 
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricDataSource.MANUAL;
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricStatus.PEND_REPORT;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.common.util.StringUtil.mysqlLimit;
 
 /**
  * @author zhaozhengkang

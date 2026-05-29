@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.payment;
 
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetailUnconfirmed;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

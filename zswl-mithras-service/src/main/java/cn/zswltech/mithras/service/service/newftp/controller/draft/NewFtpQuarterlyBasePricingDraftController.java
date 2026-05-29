@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.newftp.draft.NewFtpQuarterlyBasePricingDraftApi;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingDetailRsp;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.newftp.model.NewFtpBaseInfo;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;

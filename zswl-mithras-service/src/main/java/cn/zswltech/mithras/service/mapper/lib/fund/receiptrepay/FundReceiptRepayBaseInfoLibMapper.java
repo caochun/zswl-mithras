@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.lib.fund.receiptrepay;
 
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfoLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 /**

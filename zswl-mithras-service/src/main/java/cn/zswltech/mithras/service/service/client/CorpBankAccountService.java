@@ -7,8 +7,8 @@ import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountAddREQ;
 import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountListREQ;
 import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountModifyREQ;
 import cn.zswltech.mithras.dto.client.bankaccount.CorpVersionedBankAccountListREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpBankAccountMapper;
 import cn.zswltech.mithras.service.mapper.corp.NewCorpBankAccountMapper;
@@ -33,7 +33,7 @@ import java.util.Optional;
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author luyi

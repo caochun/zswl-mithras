@@ -5,7 +5,7 @@ import cn.hutool.core.lang.Pair;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.file.FileListRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.groupcreditestablish.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
 
 
 /**

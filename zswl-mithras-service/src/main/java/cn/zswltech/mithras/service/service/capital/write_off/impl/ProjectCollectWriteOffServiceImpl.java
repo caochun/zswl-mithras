@@ -42,7 +42,7 @@ import cn.zswltech.mithras.service.service.third.FinanceFlowTabMainInfoService;
 import cn.zswltech.mithras.service.service.third.FinanceFlowTabRecordService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialService;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.Triple;

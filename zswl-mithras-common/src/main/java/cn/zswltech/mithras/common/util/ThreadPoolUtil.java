@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.util;
+package cn.zswltech.mithras.common.util;
 
 import cn.hutool.core.thread.NamedThreadFactory;
 

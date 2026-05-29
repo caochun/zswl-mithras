@@ -14,7 +14,7 @@ import cn.zswltech.mithras.factory.model.ContractReceiptBottom;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.common.model.BaseModel;

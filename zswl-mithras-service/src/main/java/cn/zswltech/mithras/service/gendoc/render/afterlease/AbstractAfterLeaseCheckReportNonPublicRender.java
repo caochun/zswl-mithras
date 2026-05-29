@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.gendoc.render.afterlease;
 
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 
 /**
  * @author dingqi

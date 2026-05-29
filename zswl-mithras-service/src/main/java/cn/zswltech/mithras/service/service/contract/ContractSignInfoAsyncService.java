@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.text.ContractTextManageService;
 import cn.zswltech.mithras.service.service.contract.text.ContractTextSignInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.util.StringUtils;
+import cn.zswltech.mithras.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;

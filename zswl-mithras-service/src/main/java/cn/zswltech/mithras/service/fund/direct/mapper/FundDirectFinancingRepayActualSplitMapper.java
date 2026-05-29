@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.fund.direct.mapper;
 
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActualSplit;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

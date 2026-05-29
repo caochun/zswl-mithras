@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.financeprojectdistribution;
 
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistributionDeptLaunchWeight;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author lllin

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.riskcontrol;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlAssertEnum;
 import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlScoreCardBaseInfo;
 import cn.zswltech.mithras.service.mapper.riskcontrol.RiskControlScoreCardBaseInfoMapper;

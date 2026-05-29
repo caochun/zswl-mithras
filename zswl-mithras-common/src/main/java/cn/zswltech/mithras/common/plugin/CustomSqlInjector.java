@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.plugin;
+package cn.zswltech.mithras.common.plugin;
 
 import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.injector.DefaultSqlInjector;

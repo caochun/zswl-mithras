@@ -20,7 +20,7 @@ import cn.zswltech.mithras.report.service.draft.CrAccountDraftService;
 import cn.zswltech.mithras.report.service.draft.CrActualRepayDraftService;
 import cn.zswltech.mithras.report.service.draft.CrOverdueRecordDraftService;
 import cn.zswltech.mithras.report.service.draft.CrRepayPlanDraftService;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

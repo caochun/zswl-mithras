@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.lib.kpi;
 
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfoLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

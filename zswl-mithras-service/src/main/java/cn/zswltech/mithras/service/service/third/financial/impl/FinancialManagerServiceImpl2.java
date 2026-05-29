@@ -37,7 +37,7 @@ import cn.zswltech.mithras.service.service.third.financial.resp.FinancialBaseRSP
 import cn.zswltech.mithras.service.service.third.financial.resp.FinancialCommonRSP;
 import cn.zswltech.mithras.service.service.third.financial.vo.*;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

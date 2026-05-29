@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.metric.mapper;
 
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorMerge;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

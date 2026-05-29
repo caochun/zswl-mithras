@@ -7,7 +7,7 @@ import cn.hutool.core.util.RandomUtil;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionEmailDetailRSP;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionEmailSendREQ;
 import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountStatusEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;

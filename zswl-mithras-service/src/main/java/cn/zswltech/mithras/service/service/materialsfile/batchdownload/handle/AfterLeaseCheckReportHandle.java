@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.materialsfile.batchdownload.handle;
 
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.file.FileBatchDownLoadREQ;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckReportDownloadService;

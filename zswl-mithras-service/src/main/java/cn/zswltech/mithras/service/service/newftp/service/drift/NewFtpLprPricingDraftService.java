@@ -7,7 +7,7 @@ import cn.zswltech.gruul.common.util.spring.SpringContextUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.newftp.NewFtpCommonDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailLprPricingListRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.ftp.FtpFrequency;
 import cn.zswltech.mithras.service.mapper.basedata.BaseDataLprMapper;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataLpr;

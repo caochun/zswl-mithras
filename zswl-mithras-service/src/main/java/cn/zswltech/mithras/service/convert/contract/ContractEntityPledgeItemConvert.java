@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.convert.contract;
 
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.excel.model.ContractEntityPledgeItemExcelModel;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractPledgeItem;
 

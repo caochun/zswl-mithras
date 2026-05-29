@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.newftp.service.drift;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.util.spring.SpringContextUtil;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.newftp.mapper.NewFtpBaseInfoMapper;
 import cn.zswltech.mithras.service.service.newftp.mapper.config.NewFtpShiborInterestRatePricingConfigMapper;

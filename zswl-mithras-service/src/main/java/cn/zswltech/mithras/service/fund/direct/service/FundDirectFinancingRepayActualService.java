@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPool
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingRepayActualImportRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingRepayActualListREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingRepayActualListRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.InterestWayEnum;
 import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;

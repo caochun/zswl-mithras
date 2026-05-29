@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.ftp;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswl.oss.core.OssClient;
@@ -10,7 +11,7 @@ import cn.zswltech.mithras.dto.ftp.*;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.ftp.FtpQuarterlyGuidanceConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
@@ -35,7 +36,7 @@ import java.net.URLEncoder;
 import java.util.List;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author zhaozhengkang

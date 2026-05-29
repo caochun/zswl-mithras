@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.monthly.MonthlyFreshREQ;
 import cn.zswltech.mithras.dto.monthly.MonthlyStampDutyFinREQ;
 import cn.zswltech.mithras.dto.monthly.MonthlyStampDutyFinRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.service.enums.monthly.StampDutyTypeEnum;

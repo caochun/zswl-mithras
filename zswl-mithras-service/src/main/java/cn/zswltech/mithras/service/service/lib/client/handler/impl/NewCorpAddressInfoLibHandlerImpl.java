@@ -7,7 +7,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListRSP;
 import cn.zswltech.mithras.dto.client.addressinfo.NewCorpAddressInfoListRSP;
 import cn.zswltech.mithras.service.constant.LackDataMsg;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CorpAddressType;
 import cn.zswltech.mithras.service.enums.InfoModule;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;

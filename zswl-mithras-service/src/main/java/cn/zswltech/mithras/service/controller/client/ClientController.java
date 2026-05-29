@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.client;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -21,7 +22,7 @@ import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.client.ClientModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.client.ClientRemoveMainAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonAddMainAuthCheckerNew;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.client.*;
@@ -85,7 +86,7 @@ import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.bean.BeanUtil.copyToList;
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ID_CARD_ERROR;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ID_CARD_ERROR;
 import static cn.zswltech.mithras.service.enums.client.ClientProcessStatus.UNDER_APPROVAL;
 import static cn.zswltech.mithras.service.enums.client.ClientTransferStatus.timed_approved;
 import static cn.zswltech.mithras.service.enums.client.ClientTransferStatus.to_be_approved;

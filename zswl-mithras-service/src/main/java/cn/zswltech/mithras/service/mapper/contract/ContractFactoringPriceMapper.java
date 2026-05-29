@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.contract;
 
 import cn.zswltech.mithras.service.mapper.model.contract.ContractFactoringPrice;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewFactoringPrice;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.factory.feign.RatingManagementClient;
 import cn.zswltech.mithras.factory.lib.ratingclient.RatingClientLibService;
 import cn.zswltech.mithras.factory.model.RatingClientLib;
 import cn.zswltech.mithras.factory.service.DecisionService;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;

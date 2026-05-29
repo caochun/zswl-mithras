@@ -9,12 +9,6 @@ import cn.zswltech.mithras.service.mapper.model.filingmaterials.FundFinancingFil
 import cn.zswltech.mithras.service.mapper.model.filingmaterials.FundFinancingFilingMaterialsResult;
 import cn.zswltech.mithras.service.mapper.model.filingmaterials.ProjFilingMaterialsQuery;
 import cn.zswltech.mithras.service.mapper.model.filingmaterials.ProjFilingMaterialsResult;
-import cn.zswltech.mithras.service.mapper.model.filingmaterials.FundDirectFinancingFilingMaterialsQuery;
-import cn.zswltech.mithras.service.mapper.model.filingmaterials.FundDirectFinancingFilingMaterialsResult;
-import cn.zswltech.mithras.service.mapper.model.filingmaterials.FundFinancingFilingMaterialsQuery;
-import cn.zswltech.mithras.service.mapper.model.filingmaterials.FundFinancingFilingMaterialsResult;
-import cn.zswltech.mithras.service.mapper.model.filingmaterials.ProjFilingMaterialsQuery;
-import cn.zswltech.mithras.service.mapper.model.filingmaterials.ProjFilingMaterialsResult;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

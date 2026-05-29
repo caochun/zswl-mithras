@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.property.PutPopertyBaseInfoApi;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyListREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyRSP;
 import cn.zswltech.mithras.dto.property.PutPropertyBaseInfoListREQ;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPropertyService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import lombok.extern.slf4j.Slf4j;

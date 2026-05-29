@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.finance.FinanceOverdueVersionApi;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueIntegrationPushREQ;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueIntegrationPushRSP;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueVersionSubmitREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.financeoverdue.OverduePlanStatueEnum;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueReportBase;
 import cn.zswltech.mithras.service.others.MithrasException;

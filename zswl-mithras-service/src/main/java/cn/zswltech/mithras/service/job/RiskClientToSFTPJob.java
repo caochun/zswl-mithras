@@ -5,7 +5,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlClientListFileService;
 import cn.zswltech.mithras.service.service.riskcontrol.dto.RiskClientListFileDTO;
 import com.xxl.job.core.context.XxlJobHelper;

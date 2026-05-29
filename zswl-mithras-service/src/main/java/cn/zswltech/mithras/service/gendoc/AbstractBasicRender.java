@@ -8,7 +8,7 @@ import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.util.Page;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfo;
 import org.springframework.util.StringUtils;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static cn.hutool.core.util.NumberUtil.div;
-import static cn.zswltech.mithras.service.constant.GlobalConstants.MONEY_MULTIPLE;
+import static cn.zswltech.mithras.common.constant.GlobalConstants.MONEY_MULTIPLE;
 import static java.math.RoundingMode.HALF_UP;
 
 /**

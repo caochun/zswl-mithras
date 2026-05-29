@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.log.SysOperLogAddREQ;
 import cn.zswltech.mithras.dto.log.SysOperLogListREQ;
 import cn.zswltech.mithras.dto.log.SysOperLogModifyREQ;
 import cn.zswltech.mithras.dto.log.SysOperLogRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.event.OperLogEvent;
 import cn.zswltech.mithras.service.mapper.log.SysOperLogMapper;
 import cn.zswltech.mithras.service.model.log.SysOperLog;

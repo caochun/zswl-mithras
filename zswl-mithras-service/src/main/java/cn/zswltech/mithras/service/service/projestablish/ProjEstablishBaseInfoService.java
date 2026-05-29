@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.projestablish;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -109,7 +110,7 @@ import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.*;
 import static cn.hutool.json.JSONUtil.toBean;
 import static cn.hutool.json.JSONUtil.toJsonStr;
-import static cn.zswltech.mithras.service.constant.ResultMsg.*;
+import static cn.zswltech.mithras.common.constant.ResultMsg.*;
 import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
 import static cn.zswltech.mithras.common.enums.RecordStatus.*;
 import static cn.zswltech.mithras.service.others.Util.errMithras;

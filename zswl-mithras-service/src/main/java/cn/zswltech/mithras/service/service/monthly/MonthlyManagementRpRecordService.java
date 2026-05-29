@@ -5,7 +5,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.TaxRateConfig;
 import cn.zswltech.mithras.dto.monthly.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.OverdueTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.common.enums.ProjectBizType;

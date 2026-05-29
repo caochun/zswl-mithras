@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.constant;
+package cn.zswltech.mithras.common.constant;
 
 /**
  * 版本类型枚举 模块自实现可继承该接口

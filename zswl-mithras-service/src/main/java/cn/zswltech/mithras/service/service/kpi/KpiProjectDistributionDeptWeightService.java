@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightInfo;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightSaveREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionPrevREQ;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.kpi.KpiProjectDistributionDeptWeightMapper;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptWe
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceListREQ;
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceModifyREQ;
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishLeasePrice;
 import cn.zswltech.mithras.service.mapper.projestablish.ProjEstablishLeasePriceMapper;
 import cn.zswltech.mithras.service.others.MithrasException;

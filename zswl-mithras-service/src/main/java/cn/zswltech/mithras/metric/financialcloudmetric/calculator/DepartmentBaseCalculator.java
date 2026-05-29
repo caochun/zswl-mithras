@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.kpi.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.service.service.kpi.KpiPerformanceMainInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

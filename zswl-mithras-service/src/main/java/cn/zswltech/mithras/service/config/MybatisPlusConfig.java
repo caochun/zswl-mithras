@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.config;
 
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.service.plugin.AuditDataInterceptor;
-import cn.zswltech.mithras.service.plugin.CustomSqlInjector;
+import cn.zswltech.mithras.common.plugin.CustomSqlInjector;
 import cn.zswltech.mithras.service.plugin.DeleteLogInterceptor;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;

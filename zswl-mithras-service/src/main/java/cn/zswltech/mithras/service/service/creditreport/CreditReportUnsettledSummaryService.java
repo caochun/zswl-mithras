@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.creditreport.CreditReportUnsettledSummaryListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportUnsettledSummaryModifyREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportUnsettledSummaryRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportBusinessTypeEnum;
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportPaymentGuaranteeModuleEnum;
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportPaymentModuleEnum;

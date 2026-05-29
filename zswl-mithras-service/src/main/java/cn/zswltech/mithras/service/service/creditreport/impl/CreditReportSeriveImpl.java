@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.creditreport.impl;
+import cn.zswltech.mithras.common.util.StringUtils;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -16,9 +17,9 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.creditreport.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;

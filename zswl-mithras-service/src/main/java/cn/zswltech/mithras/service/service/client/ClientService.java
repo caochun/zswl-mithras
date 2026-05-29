@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.common.constant.MithrasConstants;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -47,8 +48,8 @@ import cn.zswltech.mithras.factory.model.RatingClient;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.constant.FlowConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.projreview.ProjReviewPriceConverter;
 import cn.zswltech.mithras.service.enums.*;
@@ -154,7 +155,7 @@ import cn.zswltech.mithras.service.service.third.model.MithrasRelatedEnterpriseI
 import cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -186,8 +187,8 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.service.constant.MithrasConstants.ERR_IN_TRANSFER;
-import static cn.zswltech.mithras.service.constant.ResultMsg.*;
+import static cn.zswltech.mithras.common.constant.MithrasConstants.ERR_IN_TRANSFER;
+import static cn.zswltech.mithras.common.constant.ResultMsg.*;
 import static cn.zswltech.mithras.service.enums.JobEnum.*;
 import static cn.zswltech.mithras.service.enums.client.ClientStatus.NEW;
 import static cn.zswltech.mithras.service.others.Const.*;

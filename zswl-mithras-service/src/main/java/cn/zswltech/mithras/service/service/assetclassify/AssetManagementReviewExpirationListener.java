@@ -8,7 +8,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.StringUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.delayed.RedisDelayedQueueListener;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import lombok.extern.slf4j.Slf4j;

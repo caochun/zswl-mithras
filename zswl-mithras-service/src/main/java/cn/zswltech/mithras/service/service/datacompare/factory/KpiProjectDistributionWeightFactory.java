@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.fund.financing.pledge.FundFinancingPledgeListREQ;
 import cn.zswltech.mithras.dto.fund.financing.pledge.FundFinancingPledgeListRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightInfo;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.lib.kpi.KpiProjectDistributionWeightLibMapper;

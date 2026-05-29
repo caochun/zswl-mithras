@@ -22,7 +22,7 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoDetai
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.controller.client.CorpSubjectItemController;
 import cn.zswltech.mithras.service.controller.client.EnvironmentPenaltyController;
 import cn.zswltech.mithras.service.controller.client.TycController;

@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountAddREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountListREQ;
@@ -14,7 +15,7 @@ import javax.annotation.Resource;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author junke

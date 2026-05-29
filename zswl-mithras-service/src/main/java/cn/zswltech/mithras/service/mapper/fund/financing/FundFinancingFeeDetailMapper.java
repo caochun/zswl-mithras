@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.fund.financing;
 
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingFeeDetail;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingFeeDetail;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

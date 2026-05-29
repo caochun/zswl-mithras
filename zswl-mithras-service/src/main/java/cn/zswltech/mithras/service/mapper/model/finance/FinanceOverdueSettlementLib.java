@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.finance;
 
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;

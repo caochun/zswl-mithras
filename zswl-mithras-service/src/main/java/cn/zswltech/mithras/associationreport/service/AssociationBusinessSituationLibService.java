@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
 import cn.zswltech.mithras.dto.associationreport.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationBusinessSituationLibMapper;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationMainBusinessMapper;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBusinessSituation;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.lib.assetclassify;
 
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyNodeRecordLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.archives;
 
 import cn.zswltech.mithras.service.mapper.model.archives.ArchivesDownloadPermission;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

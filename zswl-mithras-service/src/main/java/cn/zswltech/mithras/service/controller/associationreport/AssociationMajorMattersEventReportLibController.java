@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationMajorMattersEventRep
 import cn.zswltech.mithras.associationreport.service.AssociationMajorMattersEventReportLibService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationMajorMattersEventReportLib;
 
-import java.util.List;
 
 /**
 * @description 重大事项报告表-重大事项报告情况(流程节点记录版本表)

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.client.external.ExternalSyncREQ;
 import cn.zswltech.mithras.dto.client.external.tyc.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.client.ClientModifyMainAuthCheckerNew;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.tyc.*;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;

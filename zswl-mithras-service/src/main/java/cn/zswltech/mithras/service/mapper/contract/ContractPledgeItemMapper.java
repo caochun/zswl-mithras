@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.contract;
 
 import cn.zswltech.mithras.service.mapper.model.contract.ContractPledgeItem;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -17,7 +17,7 @@ import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorMerge;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorFileService;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.mapper.AccountBalanceCategoryDictionaryMapper;
 import cn.zswltech.mithras.service.mapper.model.AccountBalanceCategoryDictionary;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceBcmBalanceMf;

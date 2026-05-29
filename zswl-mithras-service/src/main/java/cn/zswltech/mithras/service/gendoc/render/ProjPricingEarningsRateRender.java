@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.gendoc.render;
+import cn.zswltech.mithras.common.util.StringUtils;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -10,7 +11,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum;
 import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;

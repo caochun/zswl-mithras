@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.client.commerceinfo.ClientCorpCommerceInfoValidRS
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoAddREQ;
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoModifyREQ;
 import cn.zswltech.mithras.dto.contract.ContractCompareBusinessRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.ClientAuthEnum;
 import cn.zswltech.mithras.service.enums.client.ClientStatus;
 import cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum;
@@ -50,7 +50,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.service.constant.ResultMsg.*;
+import static cn.zswltech.mithras.common.constant.ResultMsg.*;
 import static cn.zswltech.mithras.service.enums.CorpAddressType.REGISTRY_ADDRESS;
 import static cn.zswltech.mithras.service.others.Const.*;
 import static cn.zswltech.mithras.service.others.Util.extractKey;

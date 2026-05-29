@@ -49,7 +49,7 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListR
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoListRSP;
 import cn.zswltech.mithras.dto.stampduty.StampDutyListRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.controller.afterlease.AfterLeaseCheckClientController;
 import cn.zswltech.mithras.service.controller.afterlease.AfterLeaseCheckPlanBaseController;
 import cn.zswltech.mithras.service.controller.capital.BusinessFlowController;

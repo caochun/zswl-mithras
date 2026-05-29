@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.collection;
 
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @create: 2022-08-18

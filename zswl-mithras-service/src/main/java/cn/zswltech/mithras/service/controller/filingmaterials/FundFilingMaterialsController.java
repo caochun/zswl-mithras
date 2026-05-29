@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.filingmaterials.FilingBaseREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FilingFileDownloadREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FundFilingMaterialsBatchDownloadREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsFilingTypeEnum;
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsInitiationMethodEnum;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;

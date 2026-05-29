@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.util;
 
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.others.Util;
 
 import java.math.BigDecimal;

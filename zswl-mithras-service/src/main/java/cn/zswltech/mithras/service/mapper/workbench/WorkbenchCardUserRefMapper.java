@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.workbench;
 
 import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchCardUserRef;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @description:

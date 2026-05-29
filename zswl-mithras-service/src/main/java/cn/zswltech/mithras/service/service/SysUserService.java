@@ -31,7 +31,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.service.mapper.model.SystemConfig;
 import cn.zswltech.mithras.service.service.bo.UserOrgJobInfoBO;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.TypeReference;

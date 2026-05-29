@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.convert.NumberChineseFormatter;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.NumberUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractSubTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.config.TaxRateEnum;

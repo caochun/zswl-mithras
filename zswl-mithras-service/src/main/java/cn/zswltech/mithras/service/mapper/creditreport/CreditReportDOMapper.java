@@ -4,7 +4,7 @@ package cn.zswltech.mithras.service.mapper.creditreport;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListREQ;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportDO;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

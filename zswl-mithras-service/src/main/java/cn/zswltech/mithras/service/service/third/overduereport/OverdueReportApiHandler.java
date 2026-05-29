@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.repository.RequestModeEnum;
 import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
 import cn.zswltech.mithras.service.service.third.overduereport.rsp.OverdueReportBaseRSP;
 import cn.zswltech.mithras.service.util.HttpUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -8,7 +8,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.InterestWayEnum;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.gendoc.render;
 
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;

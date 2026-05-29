@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.projestablish;
 
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishFactoringPrice;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

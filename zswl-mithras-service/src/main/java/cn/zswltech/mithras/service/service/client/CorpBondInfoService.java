@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoAddREQ;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoListREQ;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoModifyREQ;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.client.ClientAuthorityMapper;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpBondInfoMapper;
@@ -32,7 +32,7 @@ import java.util.Optional;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author luyi

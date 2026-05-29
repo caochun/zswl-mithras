@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.archives;
 
 import cn.zswltech.mithras.service.mapper.model.archives.ArchivesDownloadPermissionReason;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @create: 2023-02-27

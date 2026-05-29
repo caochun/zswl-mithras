@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.riskcontrol;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -47,7 +48,7 @@ import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersion
 import cn.zswltech.mithras.service.service.third.opinion.req.RiskControlOpinionPullListREQ;
 import cn.zswltech.mithras.service.service.third.opinion.resp.RiskControlOpinionPullListRsp;
 import cn.zswltech.mithras.service.util.IdGeneratorUtils;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -68,7 +69,7 @@ import static cn.hutool.core.bean.BeanUtil.copyToList;
 import static cn.hutool.core.text.CharSequenceUtil.equalsAny;
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.CLOSED;
 import static cn.zswltech.mithras.service.enums.opinion.RiskControlOpinionHandleStatus.*;
 import static cn.zswltech.mithras.service.others.MithrasException.err;

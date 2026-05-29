@@ -7,7 +7,7 @@ import cn.zswltech.mithras.associationreport.excel.AssociationTop10ClientConcent
 import cn.zswltech.mithras.associationreport.storedata.AbstractDataStore;
 import cn.zswltech.mithras.dto.associationreport.AssociationDetailTop10ClientConcentrationRSP;
 import cn.zswltech.mithras.dto.associationreport.AssociationTop10ClientConcentrationModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationTop10ClientConcentrationMapper;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationTop10ClientConcentration;

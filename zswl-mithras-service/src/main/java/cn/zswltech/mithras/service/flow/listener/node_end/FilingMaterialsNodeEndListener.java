@@ -10,7 +10,7 @@ import cn.zswltech.flow.core.extension.event.context.NodeCommonContext;
 import cn.zswltech.gruul.biz.service.SystemConfigService;
 import cn.zswltech.gruul.dao.dal.entity.SystemConfigDO;
 import cn.zswltech.mithras.service.constant.FilingMaterialsConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsBusinessTypeEnum;

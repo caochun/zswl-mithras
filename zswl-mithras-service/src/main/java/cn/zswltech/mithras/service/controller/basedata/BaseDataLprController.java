@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.SingleFileREQ;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.basedata.BaseDataLprDetailRSP;
 import cn.zswltech.mithras.dto.basedata.BaseDataLprSaveREQ;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.CommonConvert;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataLpr;
 import cn.zswltech.mithras.service.others.MithrasException;

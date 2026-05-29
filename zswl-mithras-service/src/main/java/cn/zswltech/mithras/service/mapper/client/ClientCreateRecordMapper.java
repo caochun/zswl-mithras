@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.client;
 
 import cn.zswltech.mithras.service.mapper.model.client.ClientCreateRecord;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckRSP;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanBaseLib;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardClientAfterLeaseCheckQuery;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

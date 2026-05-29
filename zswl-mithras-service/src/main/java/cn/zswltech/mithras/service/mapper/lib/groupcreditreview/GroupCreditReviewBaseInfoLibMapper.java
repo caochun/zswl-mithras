@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.lib.groupcreditreview;
 
 import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfoLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 
 /**

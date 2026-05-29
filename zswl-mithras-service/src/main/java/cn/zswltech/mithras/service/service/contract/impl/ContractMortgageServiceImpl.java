@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageAddREQ;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageListRSP;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageModifyREQ;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.contract.ContractEntityMortgageItemConvert;
 import cn.zswltech.mithras.service.convert.contract.ContractMortgageConvert;
 import cn.zswltech.mithras.service.convert.contract.ContractMortgageConverter;

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
 import cn.zswltech.mithras.dto.projreview.report.ProjReviewReportListRSP;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.afterleasecheck.AfterLeaseCheckReportModifyMainChecker;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportMaterialsEnum;

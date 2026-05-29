@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.payment;
 
 import cn.zswltech.mithras.service.mapper.dto.ContractPayInfoDTO;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

@@ -13,7 +13,7 @@ import cn.zswltech.mithras.api.payment.dto.PaymentPoliceImportREQ;
 import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.policy.*;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.common.enums.RecordStatus;

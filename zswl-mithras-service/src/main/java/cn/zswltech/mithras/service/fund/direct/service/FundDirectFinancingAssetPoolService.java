@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.fund.direct.service;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolDetailRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.fund.direct.converter.FundDirectFinancingAssetPoolConverter;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingAssetPool;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingAssetPoolMapper;

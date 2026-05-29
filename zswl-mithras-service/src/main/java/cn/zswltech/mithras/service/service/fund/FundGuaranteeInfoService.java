@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.dto.materialsfile.FundMaterialListRSP;
 import cn.zswltech.mithras.service.CreditLimitManagerService;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.fund.FundGuaranteeInfoConverter;
 import cn.zswltech.mithras.service.enums.SpecialFileBusinessType;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.incomeSharing.IncomeSharingRSP;
 import cn.zswltech.mithras.dto.monthly.MonthlyQuery;
 import cn.zswltech.mithras.dto.monthly.MonthlyQueryResult;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractIncomeSharing;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

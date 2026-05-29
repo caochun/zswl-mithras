@@ -10,7 +10,7 @@ import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.dto.finance.overdue.*;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.financeoverdue.OverduePaymentNumberEnum;
 import cn.zswltech.mithras.service.enums.financeoverdue.OverdueRecordStatueEnum;

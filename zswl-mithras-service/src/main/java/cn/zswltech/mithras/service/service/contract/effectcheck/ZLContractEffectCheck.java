@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.service.contract.ContractAccountService;
 import cn.zswltech.mithras.service.service.contract.ContractLeaseItemService;
 import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

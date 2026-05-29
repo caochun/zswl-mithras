@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.job;
 
-import cn.zswltech.mithras.service.util.StringUtils;
+import cn.zswltech.mithras.common.util.StringUtils;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

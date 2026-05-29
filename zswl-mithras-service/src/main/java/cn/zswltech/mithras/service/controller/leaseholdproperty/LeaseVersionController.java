@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.leaseholdproperty;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.leaseholdproperty.LeaseVersionApi;
@@ -26,7 +27,7 @@ import javax.annotation.Resource;
 
 import java.util.Objects;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.enums.BusinessModuleEnum.CONTRACT;
 
 @RestController

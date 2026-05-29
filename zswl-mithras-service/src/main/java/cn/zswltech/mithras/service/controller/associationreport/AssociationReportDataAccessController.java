@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessRemo
 import cn.zswltech.mithras.associationreport.service.AssociationReportDataAccessService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReportDataAccess;
 
-import java.util.List;
 
 /**
 * @description 金融局报表数据权限

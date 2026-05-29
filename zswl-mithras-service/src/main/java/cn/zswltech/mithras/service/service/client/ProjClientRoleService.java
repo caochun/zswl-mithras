@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.client;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.common.enums.RecordStatus;

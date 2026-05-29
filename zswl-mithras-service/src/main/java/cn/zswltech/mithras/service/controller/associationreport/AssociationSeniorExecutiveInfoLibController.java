@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.associationreport.AssociationSeniorExecutiveInfoL
 import cn.zswltech.mithras.associationreport.service.AssociationSeniorExecutiveInfoLibService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationSeniorExecutiveInfoLib;
 
-import java.util.List;
 
 /**
 * @description 高管信息一览表(流程节点记录版本表)

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.kpi;
 
 import cn.zswltech.mithras.service.mapper.kpi.query.KpiProjectDistributionQuery;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionWeight;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

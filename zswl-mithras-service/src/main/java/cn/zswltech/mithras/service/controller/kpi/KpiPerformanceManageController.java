@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.kpi.KpiPerformanceManageApi;
 import cn.zswltech.mithras.dto.kpi.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.kpi.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.service.service.kpi.KpiPerformanceMainInfoService;

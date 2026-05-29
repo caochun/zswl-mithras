@@ -6,7 +6,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingExtDraftDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingExtDraftModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.newftp.ParamCategory;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.MithrasException;
@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpQuarterlyBas
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpParameterSettingConfigService;
 import cn.zswltech.mithras.service.util.FlowUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.model;
 import cn.zswltech.mithras.common.model.BaseModel;
 
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

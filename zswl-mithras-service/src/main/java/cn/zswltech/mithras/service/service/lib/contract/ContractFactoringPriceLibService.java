@@ -5,7 +5,7 @@ import cn.zswltech.mithras.service.mapper.lib.contract.ContractFactoringPriceLib
 import cn.zswltech.mithras.service.mapper.model.contract.ContractFactoringPrice;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractFactoringPriceLib;
 import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractFactoringPriceLibHandler;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

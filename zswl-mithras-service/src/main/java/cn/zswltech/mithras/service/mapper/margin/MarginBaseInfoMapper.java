@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.mapper.margin;
 import cn.zswltech.mithras.dto.margin.MarginBaseInfoListREQ;
 import cn.zswltech.mithras.service.mapper.model.margin.DepositCollectRefund;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

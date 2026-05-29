@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.mapper.policy;
 import cn.zswltech.mithras.dto.policy.PolicyInfoListREQ;
 import cn.zswltech.mithras.service.mapper.dto.*;
 import cn.zswltech.mithras.service.mapper.model.policy.PolicyInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

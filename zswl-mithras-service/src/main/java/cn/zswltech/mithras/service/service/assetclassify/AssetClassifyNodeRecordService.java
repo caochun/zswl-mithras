@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.assetclassify;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyNodeRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyBizNodeEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyStatusEnum;
 import cn.zswltech.mithras.service.mapper.assetclassify.AssetClassifyNodeRecordMapper;

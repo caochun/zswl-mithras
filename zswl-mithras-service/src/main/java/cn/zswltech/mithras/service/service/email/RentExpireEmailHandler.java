@@ -8,7 +8,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionBaseInfo;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.EmailType;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;

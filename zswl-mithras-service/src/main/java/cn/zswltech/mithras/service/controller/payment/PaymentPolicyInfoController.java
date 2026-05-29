@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.payment.lib.*;
 import cn.zswltech.mithras.dto.policy.PolicyInfoMaterialsListRSP;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.payment.PaymentModifyAuthChecker;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

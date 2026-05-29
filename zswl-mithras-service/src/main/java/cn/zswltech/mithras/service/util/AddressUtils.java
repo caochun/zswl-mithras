@@ -1,4 +1,6 @@
 package cn.zswltech.mithras.service.util;
+import cn.zswltech.mithras.common.util.StringUtils;
+import cn.zswltech.mithras.common.constant.Constants;
 
 import cn.hutool.core.lang.Dict;
 import cn.hutool.core.net.NetUtil;
@@ -36,7 +38,7 @@ public class AddressUtils {
         if (false) {//获取IP开关,需要连接外网
             try {
                 String rspStr = HttpUtil.createGet(IP_URL)
-                    .body("ip=" + ip + "&json=true", cn.zswltech.mithras.constant.Constants.GBK)
+                    .body("ip=" + ip + "&json=true", cn.zswltech.mithras.common.constant.Constants.GBK)
                     .execute()
                     .body();
                 if (StringUtils.isEmpty(rspStr)) {

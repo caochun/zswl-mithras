@@ -12,7 +12,7 @@ import cn.zswltech.mithras.report.mapper.draft.model.CrAccountDraft;
 import cn.zswltech.mithras.report.mapper.draft.model.CrFiveClassDraft;
 import cn.zswltech.mithras.report.mapper.formal.model.CrFiveClass;
 import cn.zswltech.mithras.report.service.draft.CrFiveClassDraftService;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyBizNodeEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;

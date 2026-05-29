@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.riskcontrol;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.riskcontrol.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.riskcontrol.RiskControlCardTargetConverter;
 import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlScoreCardTarget;
 import cn.zswltech.mithras.service.mapper.riskcontrol.RiskControlScoreCardTargetMapper;

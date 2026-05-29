@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.creditreport.CreditReportLimitListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportLimitModifyREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportLimitRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.creditreport.CreditReportLimitMapper;
 import cn.zswltech.mithras.service.mapper.dto.credit.EB04;
 import cn.zswltech.mithras.service.mapper.dto.credit.XJCreditReportJsonDTO;

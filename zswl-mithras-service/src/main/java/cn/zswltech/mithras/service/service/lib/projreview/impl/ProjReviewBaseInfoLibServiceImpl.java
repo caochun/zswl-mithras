@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.lib.projreview.impl;
 
 
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.lib.projreview.ProjReviewBaseInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfoLib
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewEditionAdvice;
 import cn.zswltech.mithras.service.service.lib.projreview.handler.impl.ProjReviewBaseInfoLibHandler;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;

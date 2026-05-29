@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.afterlease;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -43,7 +44,7 @@ import javax.validation.Valid;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
+import static cn.zswltech.mithras.common.constant.ResultMsg.CONCURRENT_OPERATION;
 
 /**
  * @author dingqi

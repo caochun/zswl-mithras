@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
 import cn.zswltech.mithras.service.service.creditreport.req.CreditReportBaseReq;
 import cn.zswltech.mithras.service.service.creditreport.resp.CreditReportBaseResp;
 import cn.zswltech.mithras.service.util.HttpUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;

@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.service.third.dataminer.req.QueryDmRegionScor
 import cn.zswltech.mithras.service.service.third.dataminer.rsp.DataMinerRsp;
 import cn.zswltech.mithras.service.service.third.dataminer.rsp.QueryDmIndicatorRsp;
 import cn.zswltech.mithras.service.service.third.dataminer.rsp.QueryDmRegionScoreRsp;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

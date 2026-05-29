@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.gendoc.render.contract.baoli.wz;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 
 import cn.hutool.core.date.DatePattern;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.date.LocalDateTimeUtil.format;
 import static cn.hutool.core.util.NumberUtil.div;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.constant.GlobalConstants.MONEY_MULTIPLE;
+import static cn.zswltech.mithras.common.constant.GlobalConstants.MONEY_MULTIPLE;
 import static java.math.RoundingMode.HALF_UP;
 
 /**

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.projpricing;
 
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingAocPrice;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * <p>

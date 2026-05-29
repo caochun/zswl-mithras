@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.mapper.lib.fund.receiptrepay.FundReceiptRepay
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBorrowing;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBorrowingLib;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

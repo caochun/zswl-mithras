@@ -5,7 +5,7 @@ import cn.zswltech.mithras.service.mapper.lib.assetclassify.AssetClassifyNodeRec
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyNodeRecord;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyNodeRecordLib;
 import cn.zswltech.mithras.service.service.lib.assetclassify.handler.impl.AssetClassifyNodeRecordLibHandler;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

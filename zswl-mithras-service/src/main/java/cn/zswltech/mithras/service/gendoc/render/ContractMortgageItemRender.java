@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.gendoc.render;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractSubTypeEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;

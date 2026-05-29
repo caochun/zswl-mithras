@@ -1,5 +1,5 @@
 package cn.zswltech.mithras.service.mapper.fund.receiptrepay;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBatch;
 

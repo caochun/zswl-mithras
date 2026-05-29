@@ -32,8 +32,8 @@ import cn.zswltech.mithras.dto.client.share.DataShareRegisterCustomREQ;
 import cn.zswltech.mithras.dto.file.*;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.service.auth.rule.DataAuthProcessRule;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.common.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.client.ClientLevelEnum;
@@ -68,7 +68,7 @@ import cn.zswltech.mithras.service.service.message.MessageService;
 import cn.zswltech.mithras.service.service.share.DataShareService;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import cn.zswltech.mithras.service.util.WatermarkUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -88,7 +88,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.zswltech.mithras.dto.MaterialsListIdType.VERSIONED;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
 import static cn.zswltech.mithras.service.enums.JobEnum.businesshead;
 import static cn.zswltech.mithras.service.enums.JobEnum.projmanager;
 

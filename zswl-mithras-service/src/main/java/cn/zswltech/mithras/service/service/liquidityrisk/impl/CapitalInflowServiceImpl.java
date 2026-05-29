@@ -38,7 +38,7 @@ import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCas
 import cn.zswltech.mithras.service.service.liquidityrisk.CapitalInflowService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.service.mapper.dto.FundPlanFlowResultDTO;
 import cn.zswltech.mithras.service.mapper.dto.FundReceiptBaseRichDTO;
 import cn.zswltech.mithras.service.mapper.dto.FundReceiptBaseRichQueryDTO;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayListQueryDto;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

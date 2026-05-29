@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.mapper.lib.projpricing.ProjPricingAocPriceLib
 import cn.zswltech.mithras.service.service.lib.projpricing.ProjPricingAocPriceLibService;
 import cn.zswltech.mithras.service.service.lib.projpricing.ProjPricingEditionAdvice;
 import cn.zswltech.mithras.service.service.projpricing.dto.ProjPricingPriceDto;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;

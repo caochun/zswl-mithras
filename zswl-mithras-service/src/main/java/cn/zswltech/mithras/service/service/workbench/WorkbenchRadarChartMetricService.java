@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.service.lib.contract.ContractAocPriceLibServi
 import cn.zswltech.mithras.service.service.lib.contract.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
-import cn.zswltech.mithras.service.util.BigDecimalUtil;
+import cn.zswltech.mithras.common.util.BigDecimalUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

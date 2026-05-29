@@ -7,7 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueReportBaseAddREQ;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueReportBaseListREQ;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueReportBaseRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.financeoverdue.OverduePlanStatueEnum;

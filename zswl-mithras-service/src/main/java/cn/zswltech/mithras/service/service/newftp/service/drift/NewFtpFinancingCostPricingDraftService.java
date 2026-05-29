@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.newftp.NewFtpCommonDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.newftp.TermRange;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.newftp.mapper.draft.NewFtpFinancingCostPricingDraftMapper;

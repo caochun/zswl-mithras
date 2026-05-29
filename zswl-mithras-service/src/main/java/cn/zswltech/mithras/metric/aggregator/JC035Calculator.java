@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.metric.aggregator;
+import cn.zswltech.mithras.common.util.StringUtil;
 
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricDict;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricTimed;
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cn.zswltech.mithras.metric.aggregator.AggConst.SMELT_INDUSTRY_CODE;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.common.util.StringUtil.mysqlLimit;
 
 /**
  * @author yibin

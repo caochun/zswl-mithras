@@ -26,7 +26,7 @@ import cn.zswltech.mithras.dto.groupcreditreview.*;
 import cn.zswltech.mithras.dto.groupcreditreview.baseinfo.*;
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientProjDetailRSP;
 import cn.zswltech.mithras.factory.service.RatingClientService;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.groupcreditreview.GroupCreditReviewBaseInfoConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
@@ -81,7 +81,7 @@ import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
 import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.hutool.json.JSONUtil.toBean;
-import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
+import static cn.zswltech.mithras.common.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
 import static cn.zswltech.mithras.common.enums.RecordStatus.*;
 
 /**

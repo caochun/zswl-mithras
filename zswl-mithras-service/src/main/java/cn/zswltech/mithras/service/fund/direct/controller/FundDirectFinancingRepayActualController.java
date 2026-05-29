@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.dto.fund.financing.SingleFinancingIdREQ;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinancingMainModifyAuthChecker;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualSplitService;

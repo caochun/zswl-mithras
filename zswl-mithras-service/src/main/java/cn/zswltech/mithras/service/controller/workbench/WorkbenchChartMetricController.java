@@ -24,7 +24,7 @@ import cn.zswltech.mithras.dto.workbench.*;
 import cn.zswltech.mithras.dto.workbench.chart.LineBarChartValueVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartBaseDataVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartDataVO;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;

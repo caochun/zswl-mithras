@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.normal;
 
 import cn.zswltech.mithras.service.mapper.model.client.NormalSpouse;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author junke

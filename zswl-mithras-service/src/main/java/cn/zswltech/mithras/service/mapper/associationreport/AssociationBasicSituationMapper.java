@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.associationreport;
 
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBasicSituation;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
 * @description 基本情况统计表

@@ -5,7 +5,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.financeprojectdistribution.*;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.financeprojectdistribution.FinanceProjectDistributionDeptLaunchWeightMapper;
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistributionDeptLaunchWeight;

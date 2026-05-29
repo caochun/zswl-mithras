@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.factory.mapper;
 
 import cn.zswltech.mithras.factory.model.AreaInfo;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

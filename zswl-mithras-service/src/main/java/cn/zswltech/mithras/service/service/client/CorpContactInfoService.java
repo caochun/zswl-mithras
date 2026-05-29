@@ -7,7 +7,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.client.contactinfo.CorpContactAddInfoREQ;
 import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListREQ;
 import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpContactInfoMapper;
 import cn.zswltech.mithras.service.mapper.corp.NewCorpContactInfoMapper;
@@ -31,7 +31,7 @@ import java.util.Optional;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.common.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author luyi

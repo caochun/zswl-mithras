@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.kpi.KpiProjGuessExportApi;
 import cn.zswltech.mithras.dto.kpi.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectSourceDistributionEnum;

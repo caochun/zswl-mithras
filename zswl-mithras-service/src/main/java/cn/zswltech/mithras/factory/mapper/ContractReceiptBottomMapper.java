@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.factory.mapper;
 
 import cn.zswltech.mithras.factory.model.ContractReceiptBottom;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

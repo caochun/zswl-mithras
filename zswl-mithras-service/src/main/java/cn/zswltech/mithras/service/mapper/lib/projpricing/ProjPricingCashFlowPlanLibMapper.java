@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.lib.projpricing;
 
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingCashFlowPlanLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
  * <p>

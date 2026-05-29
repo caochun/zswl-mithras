@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.margin.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewSubAuthCheckerNew;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;

@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractRentActualAuthChecker;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.contract.ContractRentConvert;
 import cn.zswltech.mithras.service.enums.BizDataSourceEnum;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;

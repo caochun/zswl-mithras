@@ -6,7 +6,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpAddREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpListREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.common.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.policy.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.service.enums.policy.PolicyTypeEnum;
 import cn.zswltech.mithras.service.excel.importer.PaymentPolicyExcelImporter;

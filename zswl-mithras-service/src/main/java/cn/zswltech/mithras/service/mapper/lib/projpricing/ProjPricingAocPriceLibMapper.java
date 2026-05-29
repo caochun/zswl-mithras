@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.lib.projpricing;
 
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingAocPriceLib;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewAocPriceLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.service.projpricing.dto.ProjPricingPriceDto;
 import cn.zswltech.mithras.service.service.riskcontrol.dto.ProjReviewPriceDto;
 import org.apache.ibatis.annotations.Param;

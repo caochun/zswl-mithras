@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.creditreport;
 
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportClientItem;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
 * @description 征信报告客户表

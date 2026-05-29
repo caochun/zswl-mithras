@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.payment;
 
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentPlanedDetail;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
 * @description 计划付款明细表（付款申请 1:n付款明细）

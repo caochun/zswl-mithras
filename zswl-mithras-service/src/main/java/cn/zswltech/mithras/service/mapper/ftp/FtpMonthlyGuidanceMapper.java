@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.ftp;
 
 import cn.zswltech.mithras.service.mapper.model.ftp.FtpMonthlyGuidance;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.common.plugin.CustomBaseMapper;
 
 /**
 * @description 月度指导

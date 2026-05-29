@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.mapper.model.datashare.DataShareFk;
 import cn.zswltech.mithras.service.mapper.model.datashare.DataShareManager;
 import cn.zswltech.mithras.service.service.share.DataShareFkService;
 import cn.zswltech.mithras.service.service.share.DataShareManagerService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

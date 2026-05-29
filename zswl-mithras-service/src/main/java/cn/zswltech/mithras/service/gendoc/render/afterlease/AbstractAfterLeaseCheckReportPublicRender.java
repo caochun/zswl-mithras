@@ -10,7 +10,7 @@ import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.hutool.poi.excel.StyleSet;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.common.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.GovernmentSubjectItemType;
 import cn.zswltech.mithras.service.enums.SubjectItemType;
 import cn.zswltech.mithras.service.excel.MyStyleUtil;

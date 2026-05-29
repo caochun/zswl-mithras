@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.dashboard;
 import cn.zswltech.mithras.service.enums.dashboard.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.service.mapper.dashboard.GuanYuanDSInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.dashboard.GuanyuanDsInfo;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.common.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
