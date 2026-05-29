@@ -5,7 +5,6 @@ import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.service.enums.monthly.StampDutyTypeEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
@@ -16,8 +15,7 @@ import cn.zswltech.mithras.service.mapper.monthly.MonthlyStampDutyMapper;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
-import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -50,11 +48,7 @@ public class MonthlyStampDutyService extends ServiceImpl<MonthlyStampDutyMapper,
     @Resource
     private Id2NameService id2NameService;
     @Resource
-    private FundFinancingBaseInfoService financingBaseInfoService;
-    @Resource
-    private FundDirectFinancingBaseInfoService directFinancingBaseInfoService;
-    @Resource
-    private FundOrganizationService organizationService;
+    private FundFacade fundFacade;
 
     /**
      * 项目端-印花税入库
@@ -107,7 +101,7 @@ public class MonthlyStampDutyService extends ServiceImpl<MonthlyStampDutyMapper,
         if(!Arrays.asList(FundFinancingBizTypeEnum.PROJECT_LOAN.name(), FundFinancingBizTypeEnum.WORKING_CAPITAL_LOAN.name()).contains(baseInfo.getBusinessType())){
             return;
         }
-        List<FundOrganization> organizationList = organizationService.getByFinancingId(baseInfo.getId());
+        List<FundOrganization> organizationList = fundFacade.getOrganizationsByFinancingId(baseInfo.getId());
         BigDecimal financingAmount = BigDecimal.valueOf(Optional.ofNullable(baseInfo.getFinancingAmount()).orElse(0L));
         MonthlyStampDuty monthlyStampDuty = new MonthlyStampDuty();
         monthlyStampDuty.setType(StampDutyTypeEnum.FIN_FIN.name())
