@@ -4,7 +4,7 @@ import cn.hutool.core.util.NumberUtil;
 import cn.zswltech.flow.core.util.ApplicationContextUtil;
 import cn.zswltech.mithras.dto.interestPay.InterestPayCalDetailModifyREQ;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;

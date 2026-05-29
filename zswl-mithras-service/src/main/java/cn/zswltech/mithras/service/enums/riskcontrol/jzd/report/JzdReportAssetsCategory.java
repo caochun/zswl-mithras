@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.riskcontrol.jzd.report;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.config.enumscan.PullDownExt;
 
 /**

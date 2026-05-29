@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.groupcreditestablish.GroupCreditEstablishProcessStatus;
 import cn.zswltech.mithras.service.mapper.groupcreditestablish.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.lib.groupcreditestablish.GroupCreditEstablishBaseInfoLibMapper;

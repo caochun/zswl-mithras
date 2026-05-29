@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceModifyREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.CommonConvert;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.ftp.FtpBusinessVersion;
 import cn.zswltech.mithras.service.enums.newftp.*;
 import cn.zswltech.mithras.service.others.AuthCheckException;

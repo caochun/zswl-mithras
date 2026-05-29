@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.service.mapper.model.client;
 
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
+import cn.zswltech.mithras.common.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.service.mapper.model.type.handler.ListLongTypeHandler;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.IEntity;
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

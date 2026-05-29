@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.contract.impl;
 
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.dto.contract.price.*;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.bo.ContractPriceHelperBO;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;

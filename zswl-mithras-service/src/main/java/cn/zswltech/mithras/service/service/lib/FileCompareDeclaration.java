@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.lib;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 
 import java.util.List;

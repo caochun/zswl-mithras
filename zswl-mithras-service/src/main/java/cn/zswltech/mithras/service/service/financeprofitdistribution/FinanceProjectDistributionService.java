@@ -21,7 +21,7 @@ import cn.zswltech.mithras.dto.utils.BeanCopyUtils;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.ProcessState;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;

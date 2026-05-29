@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.mapper.tag;
+package cn.zswltech.mithras.common.model;
 
 import java.time.LocalDateTime;
 

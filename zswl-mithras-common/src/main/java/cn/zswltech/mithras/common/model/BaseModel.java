@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.mapper.model;
+package cn.zswltech.mithras.common.model;
 
-import cn.zswltech.mithras.service.annotation.NotCompareColumn;
-import cn.zswltech.mithras.service.plugin.AutoAuditEntity;
+import cn.zswltech.mithras.common.annotation.NotCompareColumn;
+import cn.zswltech.mithras.common.annotation.AutoAuditEntity;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;

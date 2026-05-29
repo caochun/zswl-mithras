@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.enums.fund.liquidity;
 
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexDetailRSP;
 import cn.zswltech.mithras.factory.enums.RatingLevelEnum;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.others.MithrasException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

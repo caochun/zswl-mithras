@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.workbench.chart.PieChartValueVO;
 import cn.zswltech.mithras.dto.workbench.chart.RadarChartValueVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.PieDataVO;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTypeEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;

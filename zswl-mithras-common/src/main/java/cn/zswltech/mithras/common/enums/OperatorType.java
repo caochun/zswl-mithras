@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.enums.common;
+package cn.zswltech.mithras.common.enums;
 
 /**
  * 操作人类别

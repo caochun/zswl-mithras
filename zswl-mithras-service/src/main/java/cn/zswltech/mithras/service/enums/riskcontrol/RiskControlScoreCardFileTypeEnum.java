@@ -1,5 +1,5 @@
 package cn.zswltech.mithras.service.enums.riskcontrol;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 public enum RiskControlScoreCardFileTypeEnum implements PullDown {
     ECONOMIC_DATA("经济数据"),

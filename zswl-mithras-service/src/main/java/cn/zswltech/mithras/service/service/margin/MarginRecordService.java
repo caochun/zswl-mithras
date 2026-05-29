@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.capital.FinanceFlowDetailTableEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;

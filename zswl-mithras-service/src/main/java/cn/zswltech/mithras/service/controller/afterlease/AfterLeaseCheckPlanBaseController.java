@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.enums.afterlease.NewAfterLeaseCheckMaterialsE
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.mapper.message.MessageModel;
 import cn.zswltech.mithras.service.mapper.message.NoticeMessageBody;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;

@@ -12,7 +12,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.dashboard.*;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardPledgeTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;

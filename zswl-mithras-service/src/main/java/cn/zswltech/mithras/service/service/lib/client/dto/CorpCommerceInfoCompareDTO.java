@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.client.dto;
 
-import cn.zswltech.mithras.service.annotation.BirCompareColumn;
+import cn.zswltech.mithras.common.annotation.BirCompareColumn;
 import lombok.Data;
 
 import java.time.LocalDate;

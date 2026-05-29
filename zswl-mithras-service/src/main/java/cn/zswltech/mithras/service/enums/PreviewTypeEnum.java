@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 /**
  * @create: 2022-08-23

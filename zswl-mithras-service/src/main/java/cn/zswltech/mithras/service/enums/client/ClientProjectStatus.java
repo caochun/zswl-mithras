@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.client;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 /**
  * 流程状态

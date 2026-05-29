@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.interestPay.*;
 import cn.zswltech.mithras.dto.monthly.MonthlyCostInfo;
 import cn.zswltech.mithras.dto.monthly.MonthlyCostREQ;
 import cn.zswltech.mithras.dto.monthly.MonthlyCostRSP;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

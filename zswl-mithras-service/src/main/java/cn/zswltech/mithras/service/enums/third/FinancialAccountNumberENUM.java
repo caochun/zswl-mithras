@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.third;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import lombok.Getter;
 
 @Getter

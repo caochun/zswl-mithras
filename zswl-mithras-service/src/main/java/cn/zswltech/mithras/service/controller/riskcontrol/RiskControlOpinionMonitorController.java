@@ -16,7 +16,7 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPers
 import cn.zswltech.mithras.dto.riskcontrol.opinion.*;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;

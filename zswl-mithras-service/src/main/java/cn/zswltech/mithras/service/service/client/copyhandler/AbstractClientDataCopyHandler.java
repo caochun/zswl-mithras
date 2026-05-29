@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.client.copyhandler;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.service.mapper.model.client.ClientUserRef;

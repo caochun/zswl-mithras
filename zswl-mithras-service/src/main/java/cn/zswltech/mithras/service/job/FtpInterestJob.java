@@ -10,7 +10,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionRecordWriteOffStatus;
 import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;

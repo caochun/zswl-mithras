@@ -27,7 +27,7 @@ import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.text.*;
 import cn.zswltech.mithras.service.gendoc.render.ContractSettleOwnerChangeRender;
 import cn.zswltech.mithras.service.mapper.contract.ContractTextSignInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractSignInfo;

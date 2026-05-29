@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.model.afterlease;
 
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportAreaTypeEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

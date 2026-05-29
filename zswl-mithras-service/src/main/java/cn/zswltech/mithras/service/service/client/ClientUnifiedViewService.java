@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.service.mapper.dashboard.DashboardProjectStageMapper;
 import cn.zswltech.mithras.service.mapper.dto.OcContractDto;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;

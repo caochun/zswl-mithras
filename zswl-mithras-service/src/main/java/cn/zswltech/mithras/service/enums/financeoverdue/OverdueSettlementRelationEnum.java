@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.financeoverdue;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 public enum OverdueSettlementRelationEnum implements PullDown {
     REC_SETTLE("应收收款结算"),

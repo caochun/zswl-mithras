@@ -79,7 +79,7 @@ import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.client.ClientStatus;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.ProjItemStatus;

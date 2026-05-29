@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseAdjustEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseAdjustInfoService;

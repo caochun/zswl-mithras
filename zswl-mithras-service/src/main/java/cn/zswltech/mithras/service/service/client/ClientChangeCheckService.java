@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.client;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.mithras.service.annotation.BirCompareColumn;
+import cn.zswltech.mithras.common.annotation.BirCompareColumn;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;

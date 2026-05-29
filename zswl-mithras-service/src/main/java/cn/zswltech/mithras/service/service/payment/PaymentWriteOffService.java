@@ -24,7 +24,7 @@ import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.payment;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import com.google.common.base.Joiner;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

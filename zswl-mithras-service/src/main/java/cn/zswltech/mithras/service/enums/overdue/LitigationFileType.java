@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.overdue;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import lombok.Getter;
 

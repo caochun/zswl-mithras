@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.projestablish.pricefactoring.ProjEstablishFactori
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishPriceConverter;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.CreditorDebtorTypeEnum;
 import cn.zswltech.mithras.service.mapper.lib.projestablish.ProjEstablishAocPriceLibMapper;

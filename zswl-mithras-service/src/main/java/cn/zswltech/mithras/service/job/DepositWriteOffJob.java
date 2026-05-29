@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.afterlease.RentCollectionIndexPaymentState;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsProcessStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;

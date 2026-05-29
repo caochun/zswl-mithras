@@ -45,7 +45,7 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpAddressInfoMapper;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.metric.service.RiskMetricDictService;
 import cn.zswltech.mithras.metric.service.RiskMetricTimedService;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricDict;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricTimed;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpCommerceInfoMapper;

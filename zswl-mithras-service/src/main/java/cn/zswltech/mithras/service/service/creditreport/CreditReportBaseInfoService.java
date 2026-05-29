@@ -96,7 +96,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.EXPIRE;
+import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;
 import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.CLOSED;
 import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.INVALID;
 

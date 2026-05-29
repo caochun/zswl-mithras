@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.mapper.model;
+import cn.zswltech.mithras.common.model.BaseModel;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

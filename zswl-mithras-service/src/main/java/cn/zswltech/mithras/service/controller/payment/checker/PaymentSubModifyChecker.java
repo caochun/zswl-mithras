@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.auth.checker.IDataAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonModifySubAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

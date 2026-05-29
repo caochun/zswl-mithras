@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.client;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.type.handler.ListLongTypeHandler;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

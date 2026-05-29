@@ -57,8 +57,8 @@ import cn.zswltech.mithras.service.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.service.enums.client.ClientProcessStatus;
 import cn.zswltech.mithras.service.enums.client.ClientStatus;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
@@ -1753,7 +1753,7 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
         targetClientIds.add(-100L);
         Long currentUserId = AccountUtil.getLoginInfo().getId();
         // 自然人看自己创建的
-        List<Client> normalList = clientMapper.selectList(Wrappers.<Client>lambdaQuery().eq(Client::getClientType, ClientType.NORMAL.name()).eq(BaseModel::getCreateBy, currentUserId));
+        List<Client> normalList = clientMapper.selectList(Wrappers.<Client>lambdaQuery().eq(Client::getClientType, ClientType.NORMAL.name()).eq(Client::getCreateBy, currentUserId));
         if (CollectionUtil.isNotEmpty(normalList)) {
             targetClientIds.addAll(normalList.stream().map(Client::getId).collect(Collectors.toSet()));
         }

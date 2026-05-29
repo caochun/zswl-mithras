@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.report.enums.biz;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.config.enumscan.PullDownExt;
 import cn.zswltech.mithras.service.enums.projestablish.FactoringType;
 import com.alibaba.fastjson.JSONArray;

@@ -7,7 +7,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

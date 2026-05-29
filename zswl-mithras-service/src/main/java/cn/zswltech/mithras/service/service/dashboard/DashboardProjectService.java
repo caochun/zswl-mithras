@@ -8,7 +8,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.dashboard.DashboardProjectBasicRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantor;

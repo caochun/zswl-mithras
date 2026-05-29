@@ -29,7 +29,7 @@ import cn.zswltech.mithras.service.enums.ftp.FtpProcessStatus;
 import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.service.mapper.ftp.FtpMonthlyGuidanceMapper;
 import cn.zswltech.mithras.service.mapper.lib.ftp.FtpMonthlyGuidanceLibMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.ftp.FtpMonthlyGuidance;
 import cn.zswltech.mithras.service.mapper.model.ftp.FtpMonthlyGuidanceLib;
 import cn.zswltech.mithras.service.mapper.model.ftp.FtpMonthlyPricing;
@@ -64,8 +64,8 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.NEW;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.TAKE_EFFECT;
+import static cn.zswltech.mithras.common.enums.RecordStatus.NEW;
+import static cn.zswltech.mithras.common.enums.RecordStatus.TAKE_EFFECT;
 
 /**
  * @author zhaozhengkang

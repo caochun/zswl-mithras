@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
 import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractRemindRecord;

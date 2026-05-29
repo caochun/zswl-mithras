@@ -1,12 +1,12 @@
 package cn.zswltech.mithras.service.mapper.model.projpricing;
 
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.enums.projpricing.ProjectManageLevelEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.SponsorField;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.plugin.IncludeNull;
+import cn.zswltech.mithras.common.model.IEntity;
+import cn.zswltech.mithras.common.annotation.IncludeNull;
 import cn.zswltech.mithras.service.service.projfms.IStateMachineEntity;
 import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;

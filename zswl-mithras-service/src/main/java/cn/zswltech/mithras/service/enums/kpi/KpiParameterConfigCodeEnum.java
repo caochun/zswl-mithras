@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.kpi.parameterconfig.ProjectPaymentBonusRadioConfi
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ProjectRadioConfig;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ProjectScaleRadioConfig;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ProjectTypeRadioConfig;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

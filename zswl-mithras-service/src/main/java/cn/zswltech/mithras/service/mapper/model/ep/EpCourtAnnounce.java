@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.ep;
 
-import cn.zswltech.mithras.service.annotation.NotCompareColumn;
+import cn.zswltech.mithras.common.annotation.NotCompareColumn;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.experimental.Accessors;

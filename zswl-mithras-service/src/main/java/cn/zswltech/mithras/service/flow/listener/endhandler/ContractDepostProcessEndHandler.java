@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.third.financial.ThirdMarginRecordREQ;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentMethod;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;

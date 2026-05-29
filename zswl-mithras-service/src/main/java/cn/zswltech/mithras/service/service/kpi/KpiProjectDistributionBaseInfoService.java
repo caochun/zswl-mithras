@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectSourceDistributionEnum;
 import cn.zswltech.mithras.service.enums.projestablish.ProjSourceType;

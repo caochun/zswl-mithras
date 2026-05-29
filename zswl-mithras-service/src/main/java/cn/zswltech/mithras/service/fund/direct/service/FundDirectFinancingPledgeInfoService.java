@@ -15,7 +15,7 @@ import cn.zswltech.mithras.factory.model.RatingAmount;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.fund.direct.converter.FundDirectFinancingPledgeInfoConverter;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;

@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishBaseInfoCo
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
@@ -57,7 +57,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
-import static cn.zswltech.mithras.service.enums.common.ProjectBizType.*;
+import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
 import static cn.zswltech.mithras.service.others.Util.missRequiredParam;
 
 /**

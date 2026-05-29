@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.auth.rule.DataAuthProcessRule;
 import cn.zswltech.mithras.service.enums.AppraisalCompanyWhitelistMaterialEnum;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.lease.AppraisalCompanyWhitelistProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.lease.LeaseAppraisalFileTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

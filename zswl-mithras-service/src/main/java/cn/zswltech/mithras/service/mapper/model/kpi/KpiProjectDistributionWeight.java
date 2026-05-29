@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.mapper.model.kpi;
 
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectWeightTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.BaseModel;
+import cn.zswltech.mithras.common.model.IEntity;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

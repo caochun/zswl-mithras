@@ -44,7 +44,7 @@ import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.service.enums.afterlease.SaveStatusEnum;
 import cn.zswltech.mithras.service.enums.client.ClientLevelEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractTextTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;

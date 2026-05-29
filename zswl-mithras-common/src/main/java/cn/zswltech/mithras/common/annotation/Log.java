@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.annotation;
+package cn.zswltech.mithras.common.annotation;
 
 
 
@@ -6,8 +6,8 @@ package cn.zswltech.mithras.service.annotation;
 
 
 
-import cn.zswltech.mithras.service.enums.common.BusinessType;
-import cn.zswltech.mithras.service.enums.common.OperatorType;
+import cn.zswltech.mithras.common.enums.BusinessType;
+import cn.zswltech.mithras.common.enums.OperatorType;
 
 import java.lang.annotation.*;
 

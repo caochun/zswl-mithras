@@ -8,7 +8,7 @@ import cn.zswltech.gruul.common.util.UUIDUtil;
 import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.third.CQBusinessTypeENUM;

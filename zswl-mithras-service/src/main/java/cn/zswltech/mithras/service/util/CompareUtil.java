@@ -5,7 +5,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.service.annotation.NotCompareColumn;
+import cn.zswltech.mithras.common.annotation.NotCompareColumn;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import lombok.SneakyThrows;
 import org.apache.commons.collections4.CollectionUtils;

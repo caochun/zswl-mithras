@@ -18,7 +18,7 @@ import cn.zswltech.mithras.dto.fund.financing.pledge.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeInfo;

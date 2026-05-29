@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyMaterialsEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifySuggestEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassify;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;

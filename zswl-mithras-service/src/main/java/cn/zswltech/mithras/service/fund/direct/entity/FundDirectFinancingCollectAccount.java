@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.fund.direct.entity;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 

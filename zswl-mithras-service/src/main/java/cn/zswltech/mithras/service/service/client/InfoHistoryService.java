@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.client.infohistory.InfoHistoryListREQ;
 import cn.zswltech.mithras.service.enums.InfoModule;
 import cn.zswltech.mithras.service.enums.InfoOperation;
 import cn.zswltech.mithras.service.mapper.corp.InfoHistoryMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.client.InfoHistory;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

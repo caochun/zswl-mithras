@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.metric.emit.MetricEmitter;
 import cn.zswltech.mithras.metric.emit.model.req.concentration.ConcentrationAddReqBody;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
 import cn.zswltech.mithras.service.enums.riskcontrol.jzd.report.JzdReportAssetsCategory;

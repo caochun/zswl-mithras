@@ -12,7 +12,7 @@ import cn.zswltech.mithras.api.workbench.WorkbenchExportApi;
 import cn.zswltech.mithras.dto.workbench.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProjStageEnum;
 import cn.zswltech.mithras.service.others.MithrasException;

@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;
+import static cn.zswltech.mithras.common.enums.RecordStatus.CLOSED;
 
 
 /**

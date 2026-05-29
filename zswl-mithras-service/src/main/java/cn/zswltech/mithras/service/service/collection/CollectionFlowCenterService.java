@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.collection.BillTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
 import cn.zswltech.mithras.service.enums.payment.*;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

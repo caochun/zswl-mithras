@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.kpi.KpiParameterConfigConvert;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.collection.BillTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.kpi.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.service.enums.kpi.config.TaxRateEnum;

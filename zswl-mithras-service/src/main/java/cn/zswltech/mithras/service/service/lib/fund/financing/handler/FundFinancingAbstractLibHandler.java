@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.lib.fund.financing.handler;
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingLibModelEnum;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
 

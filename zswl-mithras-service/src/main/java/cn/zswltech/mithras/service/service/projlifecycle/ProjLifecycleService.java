@@ -7,7 +7,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.projlifecycle.ProjStageTotalRSP;
 import cn.zswltech.mithras.dto.projlifecycle.ProjectLifecycleListREQ;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractAocPrice;

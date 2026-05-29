@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCate
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.associationreport.service.AssociationMainBusinessService;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.MortgageTypeEnum;
 import cn.zswltech.mithras.service.enums.contract.PledgeTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

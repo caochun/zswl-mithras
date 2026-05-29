@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.service.convert.kpi.KpiProjectDistributionConvert;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectWeightTypeEnum;
 import cn.zswltech.mithras.service.mapper.kpi.KpiProjectDistributionWeightMapper;
 import cn.zswltech.mithras.service.mapper.kpi.query.KpiProjectDistributionQuery;

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.convert.fund.FundOrganizationConverter;
 import cn.zswltech.mithras.service.enums.fund.OrganizationType;
 import cn.zswltech.mithras.service.mapper.datashare.DataShareMerchantsMapper;
 import cn.zswltech.mithras.service.mapper.fund.FundOrganizationMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.datashare.DataShareMerchants;
 import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingCreditRef;

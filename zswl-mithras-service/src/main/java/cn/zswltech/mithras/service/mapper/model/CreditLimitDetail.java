@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.mapper.model;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 
 import cn.zswltech.mithras.service.enums.CreditLimitBizTypeEnum;
 import com.baomidou.mybatisplus.annotation.IdType;

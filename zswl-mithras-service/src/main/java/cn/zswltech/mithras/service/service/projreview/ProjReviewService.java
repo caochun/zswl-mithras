@@ -43,8 +43,8 @@ import cn.zswltech.mithras.service.enums.app.VisitRecordStatus;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.client.CorporationClientMaterialSubTypeEnum;
 import cn.zswltech.mithras.service.enums.client.NormalClientMaterialSubTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
@@ -115,8 +115,8 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
-import static cn.zswltech.mithras.service.enums.common.ProjectBizType.*;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.*;
+import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
+import static cn.zswltech.mithras.common.enums.RecordStatus.*;
 import static cn.zswltech.mithras.service.others.Util.missRequiredParam;
 
 /**

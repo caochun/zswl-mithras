@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.newftp.AssetIndustryClassify;
 import cn.zswltech.mithras.service.enums.newftp.CustomerEntityClassify;

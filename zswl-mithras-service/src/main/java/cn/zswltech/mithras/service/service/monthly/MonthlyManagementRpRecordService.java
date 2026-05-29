@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.monthly.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.OverdueTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.IncomeConfirmTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.service.enums.kpi.config.TaxRateEnum;

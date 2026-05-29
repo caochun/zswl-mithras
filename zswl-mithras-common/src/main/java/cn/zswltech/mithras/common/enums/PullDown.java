@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.config.enumscan;
+package cn.zswltech.mithras.common.enums;
 
 /**
  * @description:

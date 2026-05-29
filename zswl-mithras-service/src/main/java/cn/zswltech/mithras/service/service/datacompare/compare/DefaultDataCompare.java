@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;

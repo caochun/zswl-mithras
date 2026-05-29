@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.client;
 
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

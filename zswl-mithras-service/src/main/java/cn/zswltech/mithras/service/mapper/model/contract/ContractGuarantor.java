@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.service.mapper.model.contract;
 
 import cn.zswltech.mithras.service.enums.contract.JointGuaranteeMarkEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.plugin.IncludeNull;
+import cn.zswltech.mithras.common.model.BaseModel;
+import cn.zswltech.mithras.common.model.IEntity;
+import cn.zswltech.mithras.common.annotation.IncludeNull;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

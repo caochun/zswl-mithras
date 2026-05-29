@@ -27,7 +27,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.filingmaterials.OtherFilingConverter;
 import cn.zswltech.mithras.service.convert.flow.FlowProcessConvert;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.filingmaterials.BusinessMaterialsDocNameEnum;
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsFilingTypeEnum;
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsInitiationMethodEnum;

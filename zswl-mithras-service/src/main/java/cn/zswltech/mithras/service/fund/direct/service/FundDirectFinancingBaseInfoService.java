@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.fund.direct.converter.FundDirectFinancingBase
 import cn.zswltech.mithras.service.fund.direct.entity.*;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;

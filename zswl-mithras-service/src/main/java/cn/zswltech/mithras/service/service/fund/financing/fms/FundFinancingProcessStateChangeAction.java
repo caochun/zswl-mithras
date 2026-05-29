@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.fund.financing.fms;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingProcessStatus;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;

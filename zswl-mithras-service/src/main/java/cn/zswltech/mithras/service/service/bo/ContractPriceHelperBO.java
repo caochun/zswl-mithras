@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.bo;
 
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import lombok.Data;
 
 import java.time.LocalDate;

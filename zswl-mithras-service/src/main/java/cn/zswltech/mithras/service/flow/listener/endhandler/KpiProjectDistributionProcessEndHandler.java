@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;

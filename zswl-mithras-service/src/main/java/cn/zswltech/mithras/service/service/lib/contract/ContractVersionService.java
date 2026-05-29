@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.version.*;
 import cn.zswltech.mithras.service.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;

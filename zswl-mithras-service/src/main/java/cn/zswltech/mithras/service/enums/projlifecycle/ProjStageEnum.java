@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.projlifecycle;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 import java.util.Objects;
 

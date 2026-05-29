@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.projreview.report.ProjReviewReportUploadREQ;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.service.gendoc.render.ProjReviewEarningsRateRender;
 import cn.zswltech.mithras.service.gendoc.render.ProjReviewJDReportZLRender;
@@ -40,8 +40,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.util.*;
 
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.EXPIRE;
+import static cn.zswltech.mithras.common.enums.RecordStatus.CLOSED;
+import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;
 
 /**
  * @author dingqi

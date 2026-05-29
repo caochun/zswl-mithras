@@ -31,7 +31,7 @@ import cn.zswltech.mithras.service.mapper.assetclassify.AssetClassifyMapper;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.dto.ClientMaxLeaseMonthDTO;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassify;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;

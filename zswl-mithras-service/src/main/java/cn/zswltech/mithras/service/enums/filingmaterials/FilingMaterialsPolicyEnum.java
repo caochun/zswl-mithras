@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.filingmaterials;
 
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 /**
  * @description: 资料归档发起方式

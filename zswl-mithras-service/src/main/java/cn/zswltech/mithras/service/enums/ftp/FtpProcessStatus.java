@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.ftp;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
 

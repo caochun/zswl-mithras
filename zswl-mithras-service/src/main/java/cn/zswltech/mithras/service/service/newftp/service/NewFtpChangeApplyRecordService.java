@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpInterestChangeApplyRecordRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpInterestChangeApplySaveREQ;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;

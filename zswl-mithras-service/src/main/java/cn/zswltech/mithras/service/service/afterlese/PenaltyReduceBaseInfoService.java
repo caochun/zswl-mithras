@@ -21,7 +21,7 @@ import cn.zswltech.mithras.dto.afterlease.RentCollectionPenaltyReduceREQ;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.ProcessState;
 import cn.zswltech.mithras.service.flow.helper.CalBoardRuleHelper;
 import cn.zswltech.mithras.service.mapper.afterlease.PenaltyReduceBaseInfoMapper;

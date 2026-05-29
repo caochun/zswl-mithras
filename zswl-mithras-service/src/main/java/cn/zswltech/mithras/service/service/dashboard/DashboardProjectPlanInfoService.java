@@ -7,7 +7,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.dashboard.*;
 import cn.zswltech.mithras.service.constant.OrgConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.kpi.BelongTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.BusinessTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectClassifyEnum;

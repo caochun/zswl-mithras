@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.collection.CollectionwriteOffListREQ;
 import cn.zswltech.mithras.dto.collection.CollectionwriteOffListRSP;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.mapper.collection.CollectionWriteOffRecordMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionWriteOffRecord;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

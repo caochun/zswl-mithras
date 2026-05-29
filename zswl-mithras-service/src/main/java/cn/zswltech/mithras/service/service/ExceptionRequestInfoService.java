@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.third.financial.CqApiRecordRSP;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.third.ExceptionSourceENUM;
 import cn.zswltech.mithras.service.mapper.ExceptionRequestInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;

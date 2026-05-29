@@ -30,7 +30,7 @@ import cn.zswltech.mithras.service.enums.payment.pubinfo.PublicInfoClientTypeEnu
 import cn.zswltech.mithras.service.enums.payment.pubinfo.PublicInfoFileTypeEnum;
 import cn.zswltech.mithras.service.enums.payment.pubinfo.PublicInfoRowKeyEnum;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.contract.*;

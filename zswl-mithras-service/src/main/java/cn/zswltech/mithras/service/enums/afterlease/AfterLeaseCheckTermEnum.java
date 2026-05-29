@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.afterlease;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 public enum AfterLeaseCheckTermEnum implements PullDown {
     MONTH("月", 30, 1),

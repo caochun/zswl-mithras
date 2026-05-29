@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.groupcreditestablish;
 
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 /**
  * 集团授信立项流程状态

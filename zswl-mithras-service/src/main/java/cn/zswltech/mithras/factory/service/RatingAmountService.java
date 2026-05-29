@@ -32,7 +32,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.service.enums.projreview.ProjRegionalClassify;

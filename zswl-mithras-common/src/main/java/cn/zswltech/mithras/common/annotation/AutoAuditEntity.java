@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.plugin;
+package cn.zswltech.mithras.common.annotation;
 
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;

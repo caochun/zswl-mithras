@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.mapper.model.collection;
 
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.plugin.IncludeNull;
+import cn.zswltech.mithras.common.model.BaseModel;
+import cn.zswltech.mithras.common.annotation.IncludeNull;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

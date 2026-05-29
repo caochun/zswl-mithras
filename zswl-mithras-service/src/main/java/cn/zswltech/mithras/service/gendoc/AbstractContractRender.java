@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.enums.CorpAddressType;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.CreditorDebtorTypeEnum;
 import cn.zswltech.mithras.service.enums.contract.GuaranteeMethodEnum;
 import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;

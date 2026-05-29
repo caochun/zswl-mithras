@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.enums.third;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTypeEnum;
 import lombok.Getter;
 

@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.overdue.LetterType;
 import cn.zswltech.mithras.service.enums.overdue.OverdueCollectionType;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

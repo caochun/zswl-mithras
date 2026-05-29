@@ -2,8 +2,8 @@ package cn.zswltech.mithras.service.mapper.model.fund.financing;
 
 import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingAccountTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.BaseModel;
+import cn.zswltech.mithras.common.model.IEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

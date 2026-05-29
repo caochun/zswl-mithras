@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.constant.FlowConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
@@ -51,9 +51,9 @@ import java.util.*;
 
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
-import static cn.zswltech.mithras.service.enums.common.ProjectBizType.*;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.NEW;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.TAKE_EFFECT;
+import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
+import static cn.zswltech.mithras.common.enums.RecordStatus.NEW;
+import static cn.zswltech.mithras.common.enums.RecordStatus.TAKE_EFFECT;
 import static cn.zswltech.mithras.service.others.Util.missRequiredParam;
 
 /**

@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.client.CorporationClientMaterialSubTypeEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;

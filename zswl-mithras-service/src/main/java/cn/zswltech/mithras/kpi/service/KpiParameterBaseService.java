@@ -9,7 +9,7 @@ import cn.zswltech.mithras.kpi.mapper.KpiParameterBaseMapper;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterBase;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.kpi.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.util.StringUtil;

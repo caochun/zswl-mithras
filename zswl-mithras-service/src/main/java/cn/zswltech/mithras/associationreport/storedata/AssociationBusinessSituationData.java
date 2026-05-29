@@ -17,7 +17,7 @@ import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBusinessSituation;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;

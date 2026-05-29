@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.kpi.KpiParameterConfigListRSP;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ExpenseRadioConfig;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ProvisionRadioConfig;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.TaxRateConfig;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.kpi.KpiConfigValueTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectSourceEnum;

@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseCheckPlanConvert
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.afterlease.*;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;

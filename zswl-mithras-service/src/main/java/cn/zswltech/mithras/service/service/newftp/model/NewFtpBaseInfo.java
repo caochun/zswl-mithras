@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.service.service.newftp.model;
 
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.ftp.FtpBusinessVersion;
 import cn.zswltech.mithras.service.enums.newftp.NewFtpProcessStatus;
 import cn.zswltech.mithras.service.enums.newftp.PricingFrequencyEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.BaseModel;
+import cn.zswltech.mithras.common.model.IEntity;
 import cn.zswltech.mithras.service.service.projfms.IStateMachineEntity;
 import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
 import com.baomidou.mybatisplus.annotation.IdType;

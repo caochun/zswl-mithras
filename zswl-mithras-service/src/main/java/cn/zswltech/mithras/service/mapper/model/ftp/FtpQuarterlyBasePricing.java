@@ -1,5 +1,5 @@
 package cn.zswltech.mithras.service.mapper.model.ftp;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.IEntity;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.io.Serializable;
@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 
 /**
  * @description ftp_quarterly_base_pricing

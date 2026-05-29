@@ -4,7 +4,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.flow.file.IFileHandler;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.client.ClientTransferApply;
 import cn.zswltech.mithras.service.others.MithrasException;

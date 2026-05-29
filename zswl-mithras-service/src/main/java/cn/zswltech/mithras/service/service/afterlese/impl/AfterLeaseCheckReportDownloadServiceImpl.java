@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.service.enums.afterlease.NewAfterLeaseCheckMaterialsEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.gendoc.render.afterlease.AfterLeaseCheckReportRenderFactory;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;

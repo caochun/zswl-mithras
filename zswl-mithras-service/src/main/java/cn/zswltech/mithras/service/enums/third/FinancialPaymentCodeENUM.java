@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.third;
 
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

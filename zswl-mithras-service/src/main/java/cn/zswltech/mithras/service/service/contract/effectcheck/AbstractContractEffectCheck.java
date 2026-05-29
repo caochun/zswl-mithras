@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractConstitutionFileTypeEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.service.enums.contract.CreditorDebtorTypeEnum;

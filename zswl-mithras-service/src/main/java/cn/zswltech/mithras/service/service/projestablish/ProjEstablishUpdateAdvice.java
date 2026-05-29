@@ -5,7 +5,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.projestablish.ProjEstablishBaseInfoMapper;

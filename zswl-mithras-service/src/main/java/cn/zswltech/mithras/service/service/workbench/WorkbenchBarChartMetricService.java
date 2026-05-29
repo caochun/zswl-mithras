@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.workbench.chart.sub.ChartDataVO;
 import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
 import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricDeptScope;
 import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricTimeScope;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;

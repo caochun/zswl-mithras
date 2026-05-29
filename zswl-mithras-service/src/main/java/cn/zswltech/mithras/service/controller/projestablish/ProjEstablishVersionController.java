@@ -44,7 +44,7 @@ import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.zswltech.mithras.service.constant.MithrasConstants.ERR_IN_TRANSFER;
 import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.*;
+import static cn.zswltech.mithras.common.enums.RecordStatus.*;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 
 /**

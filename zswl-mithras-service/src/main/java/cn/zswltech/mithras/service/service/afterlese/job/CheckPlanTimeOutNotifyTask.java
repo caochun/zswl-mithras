@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckWayEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.mapper.message.MessageModel;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanBase;

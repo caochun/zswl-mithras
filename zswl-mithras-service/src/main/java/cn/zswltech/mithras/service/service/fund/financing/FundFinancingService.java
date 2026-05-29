@@ -39,7 +39,7 @@ import cn.zswltech.mithras.service.enums.monthly.StampDutyTypeEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBorrowingMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.ProcessModifyRemark;
 import cn.zswltech.mithras.service.mapper.model.fund.FundCredit;

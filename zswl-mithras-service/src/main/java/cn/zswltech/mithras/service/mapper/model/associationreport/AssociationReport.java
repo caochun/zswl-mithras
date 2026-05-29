@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.model.associationreport;
 
 import cn.zswltech.mithras.service.enums.associationreport.AssociationProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportStatusEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

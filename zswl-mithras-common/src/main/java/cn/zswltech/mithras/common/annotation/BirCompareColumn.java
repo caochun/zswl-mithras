@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.annotation;
+package cn.zswltech.mithras.common.annotation;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

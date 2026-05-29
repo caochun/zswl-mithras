@@ -44,7 +44,7 @@ import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.hutool.json.JSONUtil.toBean;
-import static cn.zswltech.mithras.service.enums.common.ProjectBizType.*;
+import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
 import static cn.zswltech.mithras.service.others.Util.missRequiredParam;
 
 /**

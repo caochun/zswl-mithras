@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.model.liquiditymanage;
 
 import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;

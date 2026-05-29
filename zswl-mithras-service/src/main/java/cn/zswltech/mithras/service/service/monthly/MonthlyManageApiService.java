@@ -5,7 +5,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.monthly.*;
 import cn.zswltech.mithras.service.enums.OverdueTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.monthly.MonthlyManagementStatusEnum;
 import cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

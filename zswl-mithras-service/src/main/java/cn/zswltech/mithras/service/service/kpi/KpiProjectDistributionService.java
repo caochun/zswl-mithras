@@ -32,7 +32,7 @@ import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.kpi.KpiProjectDistributionConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.client.ClientTransferStatus;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectSourceDistributionEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectWeightTypeEnum;

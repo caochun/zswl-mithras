@@ -48,7 +48,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CorpAddressType;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractAccountPayeeTypeEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;

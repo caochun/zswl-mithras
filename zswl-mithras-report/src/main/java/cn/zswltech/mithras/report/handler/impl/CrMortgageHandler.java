@@ -16,7 +16,7 @@ import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.report.util.ReportCompareUtil;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.MortgageItemTypeEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;

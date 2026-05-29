@@ -4,7 +4,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.factory.mapper.RatingAmountMapper;
 import cn.zswltech.mithras.factory.mapper.RatingClientMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiParameterConfigMapper;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.afterlease.*;
 import cn.zswltech.mithras.service.mapper.app.VisitRecordMapper;

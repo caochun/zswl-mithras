@@ -43,8 +43,8 @@ import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.zswltech.mithras.service.constant.ResultMsg.PROJECT_CLASSIFY_NULL;
 import static cn.zswltech.mithras.service.constant.ResultMsg.PROJ_CLOSED;
 import static cn.zswltech.mithras.service.controller.projreview.ProjReviewBaseInfoController.RISK_CONTROL_INDUSTRY_CLASSIFY_SET;
-import static cn.zswltech.mithras.service.enums.common.ProjectBizType.*;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;
+import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
+import static cn.zswltech.mithras.common.enums.RecordStatus.CLOSED;
 import static cn.zswltech.mithras.service.others.Util.missRequiredParam;
 
 

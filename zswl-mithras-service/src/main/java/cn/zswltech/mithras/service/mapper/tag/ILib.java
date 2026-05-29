@@ -1,5 +1,6 @@
 package cn.zswltech.mithras.service.mapper.tag;
 
+import cn.zswltech.mithras.common.model.IEntity;
 import java.time.LocalDateTime;
 
 /**

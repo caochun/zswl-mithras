@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.third;
 
-import cn.zswltech.mithras.service.annotation.NotCompareColumn;
+import cn.zswltech.mithras.common.annotation.NotCompareColumn;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.bo;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import lombok.Data;
 

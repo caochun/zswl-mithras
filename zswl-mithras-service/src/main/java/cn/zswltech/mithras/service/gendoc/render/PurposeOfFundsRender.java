@@ -6,7 +6,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.CreditorDebtorTypeEnum;
 import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

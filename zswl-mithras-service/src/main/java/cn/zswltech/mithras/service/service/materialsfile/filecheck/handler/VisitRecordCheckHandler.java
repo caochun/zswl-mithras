@@ -29,8 +29,8 @@ import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.EXPIRE;
+import static cn.zswltech.mithras.common.enums.RecordStatus.CLOSED;
+import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;
 
 
 /**

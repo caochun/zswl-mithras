@@ -43,8 +43,8 @@ import java.time.LocalDate;
 import java.util.*;
 
 import static cn.zswltech.mithras.service.enums.BusinessModuleEnum.NEW_FTP_GUIDANCE;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.NEW;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.TAKE_EFFECT;
+import static cn.zswltech.mithras.common.enums.RecordStatus.NEW;
+import static cn.zswltech.mithras.common.enums.RecordStatus.TAKE_EFFECT;
 
 /**
  * @description:

@@ -4,7 +4,7 @@ import cn.zswltech.mithras.service.enums.creditreport.CreditReportDistributionMe
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportFiveClassificationEnum;
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportLastRepaymentTypeEnum;
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportRecordBusinessTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

@@ -44,7 +44,7 @@ import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.dto.GroupCreditEstablishListSelectDTO;
 import cn.zswltech.mithras.service.mapper.groupcreditestablish.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.lib.groupcreditestablish.GroupCreditEstablishBaseInfoLibMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
@@ -96,7 +96,7 @@ import static cn.hutool.core.util.RandomUtil.randomInt;
 import static cn.hutool.json.JSONUtil.toBean;
 import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.*;
+import static cn.zswltech.mithras.common.enums.RecordStatus.*;
 
 /**
  * @author wangchuanhao

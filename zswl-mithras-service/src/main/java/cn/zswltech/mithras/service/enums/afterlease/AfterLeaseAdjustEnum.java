@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.afterlease;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 public enum AfterLeaseAdjustEnum implements PullDown {
     EXTEND("项目展期"),

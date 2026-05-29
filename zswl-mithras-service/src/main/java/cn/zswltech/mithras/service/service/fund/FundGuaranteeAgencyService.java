@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.mapper.fund.FundGuaranteeAgencyMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.fund.FundCredit;
 import cn.zswltech.mithras.service.mapper.model.fund.FundCreditGuaranteeDetail;
 import cn.zswltech.mithras.service.mapper.model.fund.FundGuaranteeAgency;

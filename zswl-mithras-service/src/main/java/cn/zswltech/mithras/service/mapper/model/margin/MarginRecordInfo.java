@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.margin;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

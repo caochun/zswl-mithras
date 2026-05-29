@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.client;
 
 import cn.hutool.core.util.IdUtil;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.mapper.client.ClientTransferApplyMapper;
 import cn.zswltech.mithras.service.mapper.model.client.ClientTransferApply;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

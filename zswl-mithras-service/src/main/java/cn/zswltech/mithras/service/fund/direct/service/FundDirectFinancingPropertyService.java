@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyListREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyRSP;
 import cn.zswltech.mithras.dto.property.PutPropertyBaseInfoListREQ;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.excel.exporter.PropertyExcelManagerExporter;
 import cn.zswltech.mithras.service.excel.model.PropertyExcelModel;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;

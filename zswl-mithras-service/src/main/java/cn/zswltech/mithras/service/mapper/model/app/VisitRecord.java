@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.app;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.service.mapper.model.SponsorField;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

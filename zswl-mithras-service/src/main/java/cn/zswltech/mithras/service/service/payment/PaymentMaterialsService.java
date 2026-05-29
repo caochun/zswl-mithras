@@ -15,8 +15,8 @@ import cn.zswltech.mithras.service.convert.payment.PaymentMaterialsListConverter
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.SpecialFileBusinessType;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -35,7 +35,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.util.*;
 
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.TAKE_EFFECT;
+import static cn.zswltech.mithras.common.enums.RecordStatus.TAKE_EFFECT;
 
 /**
  * @description:

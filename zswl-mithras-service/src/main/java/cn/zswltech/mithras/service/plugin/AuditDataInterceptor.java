@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.service.plugin;
+import cn.zswltech.mithras.common.annotation.AutoAuditEntity;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import lombok.extern.slf4j.Slf4j;

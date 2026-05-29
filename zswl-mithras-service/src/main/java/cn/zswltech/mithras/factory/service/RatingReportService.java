@@ -7,7 +7,7 @@ import cn.zswltech.mithras.factory.mapper.RatingReportMapper;
 import cn.zswltech.mithras.factory.model.RatingAmount;
 import cn.zswltech.mithras.factory.model.RatingClient;
 import cn.zswltech.mithras.factory.model.RatingReport;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

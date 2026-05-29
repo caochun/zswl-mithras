@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.enums.contract.text.SigningWayEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.mapper.contract.ContractTextManageMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;

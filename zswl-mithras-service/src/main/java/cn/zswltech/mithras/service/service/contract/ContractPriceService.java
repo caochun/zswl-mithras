@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceModifyREQ;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractPrice;
 

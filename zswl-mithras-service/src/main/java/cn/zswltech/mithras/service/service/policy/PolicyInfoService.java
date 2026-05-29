@@ -16,7 +16,7 @@ import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.policy.PolicyApprovalStatusEnum;
 import cn.zswltech.mithras.service.enums.policy.PolicyDataStatusEnum;

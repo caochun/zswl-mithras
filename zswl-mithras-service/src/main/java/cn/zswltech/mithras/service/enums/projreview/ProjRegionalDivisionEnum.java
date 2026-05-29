@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.projreview;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.enums.newftp.RegionalClassify;
 import com.fasterxml.jackson.annotation.JsonValue;
 

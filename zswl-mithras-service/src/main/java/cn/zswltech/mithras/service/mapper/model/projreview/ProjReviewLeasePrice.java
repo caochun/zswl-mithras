@@ -2,8 +2,8 @@ package cn.zswltech.mithras.service.mapper.model.projreview;
 
 import cn.zswltech.mithras.service.enums.InterestWayEnum;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.BaseModel;
+import cn.zswltech.mithras.common.model.IEntity;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

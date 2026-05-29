@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.assetclassify;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClientRiskFactorTemplate;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.annotation.IdType;

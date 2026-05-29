@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum;
 import cn.zswltech.mithras.service.enums.client.OwnershipTypeEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.enums.ftp.FtpBusinessVersion;
 import cn.zswltech.mithras.service.enums.newftp.*;

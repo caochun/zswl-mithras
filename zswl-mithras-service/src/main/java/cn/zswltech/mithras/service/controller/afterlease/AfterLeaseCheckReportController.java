@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportMaterialsEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.service.enums.afterlease.NewAfterLeaseCheckMaterialsEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckReportFinance;

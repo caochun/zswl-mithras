@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectWeightTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.client.ClientTransfer;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;

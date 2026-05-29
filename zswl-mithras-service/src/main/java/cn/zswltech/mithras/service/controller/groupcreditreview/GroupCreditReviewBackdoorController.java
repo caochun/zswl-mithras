@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.controller.groupcreditreview;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.groupcreditreview.GroupCreditReviewBackdoorApi;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;

@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.monthly.MonthlyCostREQ;
 import cn.zswltech.mithras.dto.monthly.MonthlyCostRSP;
 import cn.zswltech.mithras.dto.monthly.MonthlyFreshREQ;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTypeEnum;
 import cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum;

@@ -2,8 +2,8 @@ package cn.zswltech.mithras.service.flow.listener.endhandler;
 
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProcessEventDescEnum;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.convert.contractcp;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.dto.contractcp.ContractCollectionPaymentListRSP;
 import cn.zswltech.mithras.dto.contractcp.ContractRentActualInfoRSP;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.excel.model.ContractcpCashDetailExcelModel;
 import cn.zswltech.mithras.service.excel.model.ContractcpListExcelModel;

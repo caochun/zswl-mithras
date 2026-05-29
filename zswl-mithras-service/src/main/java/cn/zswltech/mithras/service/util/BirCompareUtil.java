@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.util;
 
-import cn.zswltech.mithras.service.annotation.BirCompareColumn;
+import cn.zswltech.mithras.common.annotation.BirCompareColumn;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import lombok.SneakyThrows;
 import org.springframework.util.ReflectionUtils;

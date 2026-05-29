@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonModifyMainAuthChec
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingCashFlowPlan;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingLeasePrice;

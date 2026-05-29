@@ -24,7 +24,7 @@ import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.newftp.*;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.enums.projreview.PricingApproveAuthEnum;

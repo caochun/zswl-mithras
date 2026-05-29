@@ -33,7 +33,7 @@ import cn.zswltech.mithras.service.enums.CacheEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewProcessStatus;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
@@ -101,8 +101,8 @@ import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
-import static cn.zswltech.mithras.service.enums.common.ProjectBizType.*;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.*;
+import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
+import static cn.zswltech.mithras.common.enums.RecordStatus.*;
 import static cn.zswltech.mithras.service.others.Util.errMithras;
 
 /**

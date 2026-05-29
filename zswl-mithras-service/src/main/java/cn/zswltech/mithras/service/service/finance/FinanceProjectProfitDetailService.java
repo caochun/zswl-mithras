@@ -17,7 +17,7 @@ import cn.zswltech.mithras.dto.finance.FinanceProjectProfitDetailRSP;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ExpenseRadioConfig;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.IncomeConfirmTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiParameterConfigCodeEnum;

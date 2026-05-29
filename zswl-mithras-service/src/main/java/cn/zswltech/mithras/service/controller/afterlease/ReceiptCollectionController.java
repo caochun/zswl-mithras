@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.MaterialsEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.mapper.model.afterlease.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;

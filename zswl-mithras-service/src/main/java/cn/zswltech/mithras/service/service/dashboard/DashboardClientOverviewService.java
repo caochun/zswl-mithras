@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.client.ClientStatus;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
 import cn.zswltech.mithras.service.enums.projestablish.FactoringType;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

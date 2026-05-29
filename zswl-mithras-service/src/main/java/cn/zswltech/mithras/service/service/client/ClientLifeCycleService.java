@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.dto.ClientListParam;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassify;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
 import cn.zswltech.mithras.service.mapper.model.client.Client;

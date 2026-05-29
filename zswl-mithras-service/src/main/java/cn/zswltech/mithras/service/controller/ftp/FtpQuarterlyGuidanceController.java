@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.ftp.FtpQuarterlyGuidanceConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.ftp.FtpProcessStatus;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.ftp.FtpQuarterlyGuidance;

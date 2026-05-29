@@ -9,7 +9,7 @@ import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.mapper.model.client.*;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.projestablish;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.PullDown;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.dashboard.BusinessGroupEnum;
 import lombok.Getter;
 

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;

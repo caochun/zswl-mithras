@@ -6,7 +6,7 @@ import cn.zswltech.mithras.metric.emit.model.req.relation.trade.RelatedClientLis
 import cn.zswltech.mithras.metric.emit.model.req.relation.trade.RelatedClientListRSP;
 import cn.zswltech.mithras.metric.emit.model.req.relation.trade.RelationTradeBody;
 import cn.zswltech.mithras.metric.emit.model.req.relation.trade.RelationTradeReqBody;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.riskcontrol.gljy.report.GljyReportCategoryOne;
 import cn.zswltech.mithras.service.enums.riskcontrol.gljy.report.GljyReportCategoryTwo;
 import cn.zswltech.mithras.service.enums.riskcontrol.gljy.report.GljyReportImportantReason;

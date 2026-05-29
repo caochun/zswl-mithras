@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseCheckReportConvert;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckPlanTypeEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.service.mapper.afterlease.NewAfterLeaseCheckReportBaseMapper;

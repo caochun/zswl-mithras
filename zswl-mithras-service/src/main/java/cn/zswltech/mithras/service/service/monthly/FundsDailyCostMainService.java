@@ -8,7 +8,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.interestPay.InterestPayListREQ;
 import cn.zswltech.mithras.dto.interestPay.InterestPayRSP;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.fund.OrganizationType;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

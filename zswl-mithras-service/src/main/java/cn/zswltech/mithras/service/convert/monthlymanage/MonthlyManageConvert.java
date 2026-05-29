@@ -8,7 +8,7 @@ import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.monthly.*;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.third.CQAccountApplicationTypeENUM;
 import cn.zswltech.mithras.service.enums.third.CQBusinessTypeENUM;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.projreview;
 
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 @Deprecated
 public enum ProjReviewProcessStatus implements PullDown {

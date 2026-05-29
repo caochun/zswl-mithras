@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.enums.fund.liquidity;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.LiquidityBoardDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.LiquidityIndexDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.LiquidityMismatchDetailRSP;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.mapper.model.liquiditymanage.AccountBalanceBaseInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

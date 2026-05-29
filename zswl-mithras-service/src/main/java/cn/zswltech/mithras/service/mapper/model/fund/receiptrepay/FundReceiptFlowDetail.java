@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.model.fund.receiptrepay;
 
 import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

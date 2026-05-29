@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.lease;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.enums.MaterialsType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

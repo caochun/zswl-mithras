@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckPlanTypeEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckProjectMaterialsEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.*;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.common.enums.ProcessStatus;
 import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.assetclassify.AssetClassifyClientMapper;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.enums.budget;
 
 import cn.zswltech.mithras.dto.budget.BudgetParameterConfigListRSP;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.projfms;
 
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 
 /**
  * @description:

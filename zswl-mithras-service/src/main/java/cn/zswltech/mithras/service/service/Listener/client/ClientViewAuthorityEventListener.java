@@ -7,7 +7,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.service.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.mapper.groupcreditestablish.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.client.ClientAuthority;

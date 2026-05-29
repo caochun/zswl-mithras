@@ -31,7 +31,7 @@ import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanPayFundPlanEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanTypeEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetStatusEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.newftp.RelatedTermRange;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

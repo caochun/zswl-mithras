@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.share.util;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 public enum HLYEnum implements PullDown {
 

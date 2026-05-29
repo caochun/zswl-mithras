@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.auth.rule.DataAuthSponsorUserRule;
 import cn.zswltech.mithras.service.constant.FlowConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;

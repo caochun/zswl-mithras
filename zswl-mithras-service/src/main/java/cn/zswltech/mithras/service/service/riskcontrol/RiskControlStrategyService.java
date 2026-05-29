@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.service.convert.riskcontrol.RiskControlStrategyConverter;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.service.mapper.lib.client.CorpCommerceInfoLibMapper;

@@ -39,7 +39,7 @@ import cn.zswltech.mithras.service.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.NewestMaterialsDto;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
@@ -85,8 +85,8 @@ import java.util.zip.ZipOutputStream;
 import static cn.hutool.core.text.CharSequenceUtil.isNotEmpty;
 import static cn.hutool.core.text.CharSequenceUtil.join;
 import static cn.zswltech.mithras.dto.MaterialsListIdType.VERSIONED;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.EXPIRE;
+import static cn.zswltech.mithras.common.enums.RecordStatus.CLOSED;
+import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;
 import static java.util.stream.Collectors.toList;
 
 

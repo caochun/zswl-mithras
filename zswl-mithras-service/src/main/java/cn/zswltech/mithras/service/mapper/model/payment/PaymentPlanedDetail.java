@@ -1,13 +1,13 @@
 package cn.zswltech.mithras.service.mapper.model.payment;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.plugin.IncludeNull;
+import cn.zswltech.mithras.common.model.IEntity;
+import cn.zswltech.mithras.common.annotation.IncludeNull;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 
 /**
  * @description 计划付款明细表（付款申请 1:n付款明细）

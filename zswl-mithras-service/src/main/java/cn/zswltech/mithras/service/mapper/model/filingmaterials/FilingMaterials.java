@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.model.filingmaterials;
 
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsProcessStatusEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.SponsorField;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

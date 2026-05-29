@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ProjItemStatus;
 import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewProcessStatus;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
@@ -37,8 +37,8 @@ import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
 import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.EXPIRE;
+import static cn.zswltech.mithras.common.enums.RecordStatus.CLOSED;
+import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;
 
 /**
  * @author wangchuanhao

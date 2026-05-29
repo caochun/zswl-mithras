@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.riskcontrol;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 
 /**
  * 慧眼数据枚举类

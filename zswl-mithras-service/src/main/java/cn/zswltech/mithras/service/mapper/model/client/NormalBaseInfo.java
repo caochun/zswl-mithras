@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.client;
 
-import cn.zswltech.mithras.service.plugin.IncludeNull;
+import cn.zswltech.mithras.common.annotation.IncludeNull;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

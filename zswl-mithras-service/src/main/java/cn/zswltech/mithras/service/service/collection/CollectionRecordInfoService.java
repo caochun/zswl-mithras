@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.enums.capital.FinanceFlowDetailTableEnum;
 import cn.zswltech.mithras.service.enums.collection.BillTypeEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionRecordWriteOffStatus;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.IncomeConfirmTypeEnum;
 import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;

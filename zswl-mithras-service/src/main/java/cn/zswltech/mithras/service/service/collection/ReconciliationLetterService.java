@@ -11,7 +11,7 @@ import cn.zswltech.gruul.common.result.Response;
 import cn.zswltech.mithras.dto.collection.CollectionReconciliationLetterREQ;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;

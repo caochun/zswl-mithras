@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.ftp;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.enums.RecordStatus;
+import cn.zswltech.mithras.common.model.IEntity;
 import cn.zswltech.mithras.service.enums.ftp.FtpProcessStatus;
 import cn.zswltech.mithras.service.service.projfms.IStateMachineEntity;
 import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 
 /**
  * @description 季度指导

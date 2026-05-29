@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.mapper.model.client.CorpBankAccount;
 import cn.zswltech.mithras.service.mapper.model.client.CorpBankAccountLib;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportDO;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportLibDO;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.common.model.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
 import cn.zswltech.mithras.service.service.lib.client.handler.ClientLibAbstractHandler;

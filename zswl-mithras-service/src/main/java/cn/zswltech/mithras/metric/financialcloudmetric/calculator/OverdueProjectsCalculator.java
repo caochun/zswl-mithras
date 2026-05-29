@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.collection.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.service.mapper.lib.assetclassify.AssetClassifyClientAuxiliaryLibMapper;

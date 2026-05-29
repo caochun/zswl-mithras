@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.workbench.WorkbenchAnnouncementConverter;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.workbench.AnnouncementMetricMaterialEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchAnnouncement;
 import cn.zswltech.mithras.service.mapper.workbench.WorkbenchAnnouncementMapper;

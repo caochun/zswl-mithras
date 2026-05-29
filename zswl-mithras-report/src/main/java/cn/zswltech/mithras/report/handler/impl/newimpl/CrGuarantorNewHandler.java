@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.lib.contract.ContractBaseInfoLibMapper;

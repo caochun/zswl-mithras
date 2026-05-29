@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.contract.effectcheck;
 
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 
 /**
  * @author dingqi

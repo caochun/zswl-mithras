@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.service.enums.client.ClientRemindContentEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;

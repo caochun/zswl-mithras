@@ -8,7 +8,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.lease.AppraisalCompanyWhitelistProcessStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.service.others.MithrasException;

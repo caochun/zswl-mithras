@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.mapper.model.budget;
 
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.service.util.FinancialUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

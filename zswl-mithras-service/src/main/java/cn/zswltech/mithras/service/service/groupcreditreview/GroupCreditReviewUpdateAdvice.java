@@ -5,7 +5,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewProcessStatus;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.service.mapper.groupcreditreview.GroupCreditReviewBaseInfoMapper;

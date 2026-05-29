@@ -30,7 +30,7 @@ import cn.zswltech.mithras.service.controller.client.ZhongdengInfoController;
 import cn.zswltech.mithras.service.controller.projestablish.ProjEstablishBaseInfoController;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.common.enums.ProjectBizType;
 import cn.zswltech.mithras.service.enums.projestablish.*;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.service.mapper.lib.client.*;

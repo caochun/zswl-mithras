@@ -2,8 +2,8 @@ package cn.zswltech.mithras.service.mapper.model.payment;
 
 import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
 import cn.zswltech.mithras.service.enums.payment.WriteOffTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
-import cn.zswltech.mithras.service.plugin.IncludeNull;
+import cn.zswltech.mithras.common.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.common.annotation.IncludeNull;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

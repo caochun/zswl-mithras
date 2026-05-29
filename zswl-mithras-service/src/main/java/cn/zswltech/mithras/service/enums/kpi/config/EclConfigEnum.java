@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums.kpi.config;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.common.enums.PullDown;
 import cn.zswltech.mithras.service.service.bo.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -28,7 +28,7 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthChecke
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.common.enums.RecordStatus;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialCommentsEnum;
 import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib;
@@ -59,9 +59,9 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.zswltech.mithras.service.constant.ResultMsg.*;
-import static cn.zswltech.mithras.service.enums.common.ProjectBizType.*;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.EXPIRE;
+import static cn.zswltech.mithras.common.enums.ProjectBizType.*;
+import static cn.zswltech.mithras.common.enums.RecordStatus.CLOSED;
+import static cn.zswltech.mithras.common.enums.RecordStatus.EXPIRE;
 import static cn.zswltech.mithras.service.others.Util.missRequiredParam;
 
 /**

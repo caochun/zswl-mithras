@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.enums.associationreport.AssociationReportPeri
 import cn.zswltech.mithras.associationreport.DeleteDataSelector;
 import cn.zswltech.mithras.associationreport.StoreDataSelector;
 import cn.zswltech.mithras.associationreport.service.AssociationReportService;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.common.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.service.mapper.model.associationreport.BasicAssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;
