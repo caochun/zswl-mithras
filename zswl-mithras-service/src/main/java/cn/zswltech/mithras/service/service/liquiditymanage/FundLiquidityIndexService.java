@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.service.liquiditymanage;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -20,7 +22,6 @@ import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingAccountTypeEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeInfo;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataSpecialDate;
@@ -39,7 +40,6 @@ import cn.zswltech.mithras.service.service.basedata.BaseDataSpecialDateService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
-import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityBoardCalculatorBo;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityDailyMaxBalanceCalculatorBo;
@@ -87,6 +87,8 @@ public class FundLiquidityIndexService {
     @Resource
     private DailyMaxAvailableBalanceCalculator dailyMaxAvailableBalanceCalculator;
     @Resource
+    private FundFacade fundFacade;
+    @Resource
     private LiquidityDataService liquidityDataService;
     @Resource
     private Id2NameService id2NameService;
@@ -103,15 +105,11 @@ public class FundLiquidityIndexService {
     @Resource
     private FundFinancingBaseInfoMapper fundFinancingBaseInfoMapper;
     @Resource
-    private FundOrganizationService fundOrganizationService;
-    @Resource
     private MonthlyManagementBaseInfoService monthlyManagementBaseInfoService;
     @Resource
     private ProjectLifecycleService projectLifecycleService;
     @Resource
     private BaseDataSpecialDateService baseDataSpecialDateService;
-    @Resource
-    private FundDirectFinancingBaseInfoService fundDirectFinancingBaseInfoService;
 
     public LiquidityIndexDetailRSP manageIndex(LiquidityIndexDetailREQ req) {
         liquidityDataService.dataQueryIndex(req);
@@ -506,7 +504,7 @@ public class FundLiquidityIndexService {
         List<Long> financingIdList = repayPrincipalInterestDtoPage.getRecords().stream().filter(e -> Objects.nonNull(e.getFinancingId()))
                 .filter(e -> FinancingTypeEnum.INDIRECT.name().equals(e.getType()))
                 .map(RepayPrincipalInterestDto::getFinancingId).collect(Collectors.toList());
-        Map<Long, List<FundOrganization>> organizationMap = fundOrganizationService.getBatchByFinancingId(financingIdList);
+        Map<Long, List<FundOrganization>> organizationMap = fundFacade.getOrganizationsBatchByFinancingIds(financingIdList);
         Map<String, List<FundFinancingAccountSetting>> fundFinancingAccountSettingMap = new HashMap<>();
         List<FundFinancingAccountSetting> fundFinancingAccountSettings = fundFinancingAccountSettingService.list(Wrappers.<FundFinancingAccountSetting>lambdaQuery()
                 .in(FundFinancingAccountSetting::getFinancingId, repayPrincipalInterestDtoPage.getRecords().stream().map(RepayPrincipalInterestDto::getFinancingId).collect(Collectors.toList())));
@@ -548,7 +546,7 @@ public class FundLiquidityIndexService {
                 }
             } else {
                 //融资机构信息改为取根据融资产品的融资编号到直融管理列表取对应的产品名称
-                directFinancingBaseInfo = fundDirectFinancingBaseInfoService.getById(e.getFinancingId());
+                directFinancingBaseInfo = fundFacade.getDirectFinancingById(e.getFinancingId());
                 if(directFinancingBaseInfo!=null){
                     rsp.setOrganizationName(Collections.singletonList(directFinancingBaseInfo.getProductName()));
                 }

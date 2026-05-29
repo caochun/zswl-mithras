@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.service.materialsfile.filecheck.handler;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.gruul.common.util.AccountUtil;
@@ -8,7 +10,6 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.fund.FundCredit;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.FileModuleCheck;
 import org.springframework.stereotype.Component;
 
@@ -23,8 +24,7 @@ public class FundCreditCheckHandler extends FileModuleCheck {
     private SysUserService sysUserService;
 
     @Resource
-    private FundCreditService fundCreditService;
-
+    private FundFacade fundFacade;
     @Override
     public String getModuleKey() {
         return BusinessModuleEnum.FUND_CREDIT.name();
@@ -33,7 +33,7 @@ public class FundCreditCheckHandler extends FileModuleCheck {
     @Override
     public void checkUpload(String moduleKey, Long mainId, String materialsType) {
         //权限检验
-        FundCredit credit = fundCreditService.getById(mainId);
+        FundCredit credit = fundFacade.getCreditById(mainId);
         Long curUserId = AccountUtil.getLoginInfo().getId();
         if (!credit.getCreateBy().equals(curUserId)) {
             throw new MithrasException("只有创建人可以上传资料！");

@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.service.monthly;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -19,13 +21,11 @@ import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTy
 import cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.monthly.*;
 import cn.zswltech.mithras.service.mapper.monthly.FundsDailyCostMapper;
 import cn.zswltech.mithras.service.mapper.monthly.MonthlyManagementCostRecordMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -58,17 +58,14 @@ public class MonthlyManagementCostRecordService extends ServiceImpl<MonthlyManag
 
     private static final String BEGINNING_ITEM_TEXT = "期初余额";
     @Resource
-    private FundFinancingBaseInfoService financingBaseInfoService;
-    @Resource
-    private FundDirectFinancingBaseInfoService fundDirectFinancingBaseInfoService;
-    @Resource
     private FundsDailyCostService fundsDailyCostService;
+    @Resource
+    private FundFacade fundFacade;
     @Resource
     private MonthlyManagementCostRecordService costRecordService;
     @Resource
     private MonthlyManagementBaseInfoService baseInfoService;
     @Autowired
-    private FundFinancingBaseInfoService fundFinancingBaseInfoService;
 
     @Transactional(rollbackFor = Throwable.class)
     public MonthlyManagementCostRecord freshCostList(MonthlyFreshREQ req) {
@@ -101,8 +98,8 @@ public class MonthlyManagementCostRecordService extends ServiceImpl<MonthlyManag
         // 找融资数据
         Set<Long> indirectIds = mainList.stream().filter(e -> StrUtil.equals(e.getFinancingType(), "DK")).map(FundsDailyCostMain::getFinancingId).collect(Collectors.toSet());
         Set<Long> directIds = mainList.stream().filter(e -> StrUtil.equals(e.getFinancingType(), "ZR")).map(FundsDailyCostMain::getFinancingId).collect(Collectors.toSet());
-        Map<Long, FundFinancingBaseInfo> fundFinancingId2Bean = fundFinancingBaseInfoService.listByIds(indirectIds).stream().collect(Collectors.toMap(FundFinancingBaseInfo::getId, e -> e));
-        Map<Long, FundDirectFinancingBaseInfo> fundDirectFinancingId2Bean = fundDirectFinancingBaseInfoService.listByIds(directIds).stream().collect(Collectors.toMap(FundDirectFinancingBaseInfo::getId, e -> e));
+        Map<Long, FundFinancingBaseInfo> fundFinancingId2Bean = fundFacade.listFinancingByIds(indirectIds).stream().collect(Collectors.toMap(FundFinancingBaseInfo::getId, e -> e));
+        Map<Long, FundDirectFinancingBaseInfo> fundDirectFinancingId2Bean = fundFacade.listDirectFinancingByIds(directIds).stream().collect(Collectors.toMap(FundDirectFinancingBaseInfo::getId, e -> e));
         // 找到当前月份已经存在的数据
         List<MonthlyManagementCostRecord> existCostList = costRecordService.list(Wrappers.<MonthlyManagementCostRecord>lambdaQuery()
                 .eq(MonthlyManagementCostRecord::getMainId, baseInfo.getMainId()));
@@ -212,7 +209,7 @@ public class MonthlyManagementCostRecordService extends ServiceImpl<MonthlyManag
         //查询直融
         LambdaQueryWrapper<FundDirectFinancingBaseInfo> directQuery = Wrappers.lambdaQuery();
         directQuery.eq(FundDirectFinancingBaseInfo::getObsolete, false);
-        List<FundDirectFinancingBaseInfo> fundDirectFinancingBaseInfoList = fundDirectFinancingBaseInfoService.list(directQuery);
+        List<FundDirectFinancingBaseInfo> fundDirectFinancingBaseInfoList = fundFacade.listDirectFinancing(directQuery);
         Set<Long> directFinancingFilterIds = new HashSet<>();
         List<FundDirectFinancingBaseInfo> directRes = new ArrayList<>();
         if (fundDirectFinancingBaseInfoList != null && !fundDirectFinancingBaseInfoList.isEmpty()) {
@@ -241,7 +238,7 @@ public class MonthlyManagementCostRecordService extends ServiceImpl<MonthlyManag
         //查询间融
         LambdaQueryWrapper<FundFinancingBaseInfo> query = Wrappers.lambdaQuery();
         query.eq(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name());
-        List<FundFinancingBaseInfo> fundFinancingBaseInfoList = financingBaseInfoService.list(query);
+        List<FundFinancingBaseInfo> fundFinancingBaseInfoList = fundFacade.listFinancing(query);
         Set<Long> financingFilterIds = new HashSet<>();
         List<FundFinancingBaseInfo> res = new ArrayList<>();
         if (fundFinancingBaseInfoList != null && !fundFinancingBaseInfoList.isEmpty()) {

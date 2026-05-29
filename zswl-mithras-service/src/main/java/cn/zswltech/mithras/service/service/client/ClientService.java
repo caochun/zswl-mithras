@@ -1,4 +1,6 @@
 package cn.zswltech.mithras.service.service.client;
+
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 import cn.zswltech.mithras.common.constant.MithrasConstants;
 
 import cn.hutool.core.bean.BeanUtil;
@@ -125,7 +127,6 @@ import cn.zswltech.mithras.service.service.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.service.service.contract.*;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import cn.zswltech.mithras.service.service.flow.FlowEndEventProcessor;
-import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
@@ -203,6 +204,8 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
 
     @Resource
     private ClientMapper clientMapper;
+    @Resource
+    private FundFacade fundFacade;
     @Resource
     private CorpCommerceInfoMapper commerceInfoMapper;
     @Resource
@@ -401,8 +404,6 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
     private FundReceiptRepayBaseInfoMapper repayBaseInfoMapper;
     @Resource
     private FundReceiptRepayCashFlowMapper receiptRepayCashFlowMapper;
-    @Resource
-    private FundOrganizationService organizationService;
     @Resource
     private ClientChangeCheckService clientChangeCheckService;
     @Resource
@@ -975,7 +976,7 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
         addRequest.setContent(fundReceiptRepayBaseInfo.getReceiptRepayCode());
         addRequest.setFlowid(IdUtil.getSnowflakeNextIdStr());
         addRequest.setNeedOa(false);
-        List<FundOrganization> organizationList = organizationService.getByFinancingId(fundFinancingBaseInfo.getId());
+        List<FundOrganization> organizationList = fundFacade.getOrganizationsByFinancingId(fundFinancingBaseInfo.getId());
         Long total = Optional.ofNullable(fundReceiptRepayCashFlow.getPrincipleAmount()).orElse(0L) + Optional.ofNullable(fundReceiptRepayCashFlow.getInterestAmount()).orElse(0L);
         addRequest.setRelation(String.format("%s第%s应还%s元需在%s还款，请关注",
                 CollectionUtil.isNotEmpty(organizationList) ? Optional.ofNullable(organizationList.get(0)).map(FundOrganization::getOrganizationName).orElse(null) : null, fundReceiptRepayCashFlow.getPhase(), total, fundReceiptRepayCashFlow.getRepayDate()));

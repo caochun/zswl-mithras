@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.service.liquiditymanage;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.lang.Pair;
@@ -23,7 +25,6 @@ import cn.zswltech.mithras.service.service.basedata.BaseDataSpecialDateService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
-import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.liquiditymanage.dto.RepayPrincipalInterestDto;
 import cn.zswltech.mithras.service.service.monthly.MonthlyManagementBaseInfoService;
 import cn.zswltech.mithras.service.service.projlifecycle.ProjectLifecycleService;
@@ -55,6 +56,8 @@ public class FundDayReportService {
     @Resource
     private Id2NameService id2NameService;
     @Resource
+    private FundFacade fundFacade;
+    @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
     private AccountBalanceBaseInfoService accountBalanceBaseInfoService;
@@ -68,8 +71,6 @@ public class FundDayReportService {
     private BaseDataBankAccountService baseDataBankAccountService;
     @Resource
     private FundFinancingBaseInfoMapper fundFinancingBaseInfoMapper;
-    @Resource
-    private FundOrganizationService fundOrganizationService;
     @Resource
     private MonthlyManagementBaseInfoService monthlyManagementBaseInfoService;
     @Resource
@@ -286,7 +287,7 @@ public class FundDayReportService {
         List<Long> financingIdList = page.getRecords().stream().filter(e -> Objects.nonNull(e.getFinancingId()))
                 .filter(e -> FinancingTypeEnum.INDIRECT.name().equals(e.getType()))
                 .map(RepayPrincipalInterestDto::getFinancingId).collect(Collectors.toList());
-        Map<Long, List<FundOrganization>> organizationMap = fundOrganizationService.getBatchByFinancingId(financingIdList);
+        Map<Long, List<FundOrganization>> organizationMap = fundFacade.getOrganizationsBatchByFinancingIds(financingIdList);
         List<RepayPrincipalInterestListRSP> rspList = page.getRecords().stream().map(e -> {
             RepayPrincipalInterestListRSP rsp = new RepayPrincipalInterestListRSP();
             rsp.setFinancingCode(e.getFinancingCode());

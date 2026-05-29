@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.job;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,7 +10,6 @@ import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptFlo
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowDetailService;
-import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -34,7 +35,7 @@ public class FtpIncomeJob {
     @Resource
     private FundReceiptFlowDetailService fundReceiptFlowDetailService;
     @Resource
-    private FundReceiptRepayBaseInfoService fundReceiptRepayBaseInfoService;
+    private FundFacade fundFacade;
     @Resource
     private FtpIncomeBaseInfoService ftpIncomeBaseInfoService;
 
@@ -56,7 +57,7 @@ public class FtpIncomeJob {
                 log.info("ftpIncomeMaintenanceJob 无需处理数据");
             }
             Map<Long, LocalDate>  receiptRepayId2Date = list.stream().collect(Collectors.toMap(FundReceiptFlowDetail::getReceiptRepayId, FundReceiptFlowDetail::getCashFlowDate, (a, b) -> a.isAfter(b) ? a : b));
-            List<FundReceiptRepayBaseInfo> receiptRepayBaseInfos = fundReceiptRepayBaseInfoService.listByIds(receiptRepayId2Date.keySet());
+            List<FundReceiptRepayBaseInfo> receiptRepayBaseInfos = fundFacade.listReceiptRepayByIds(receiptRepayId2Date.keySet());
             if (ObjectUtil.isEmpty(receiptRepayBaseInfos)) {
                 return;
             }

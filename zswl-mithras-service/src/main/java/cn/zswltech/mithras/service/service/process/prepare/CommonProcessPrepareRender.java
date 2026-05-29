@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.service.process.prepare;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.biz.service.UserService;
@@ -20,7 +22,6 @@ import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.RentCollectionMonthDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.capital.write_off.bo.FundPledgeSupervisedBO;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.util.FreeMarkerUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -51,6 +52,8 @@ import static cn.zswltech.mithras.service.genhtml.PaymentNoticeHtmlRender.TEMPLA
 public class CommonProcessPrepareRender {
     @Resource
     private CommonVersionMapper commonVersionMapper;
+    @Resource
+    private FundFacade fundFacade;
     @Autowired
     private ContractLeasePriceLibService leasePriceLibService;
     @Autowired

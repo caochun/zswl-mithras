@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.controller;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -60,7 +62,6 @@ import cn.zswltech.mithras.service.enums.projreview.ProjectType;
 import cn.zswltech.mithras.service.enums.riskcontrol.jzd.report.JzdReportCreateType;
 import cn.zswltech.mithras.service.enums.riskcontrol.jzd.report.JzdReportStatus;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.service.mapper.corp.GeneralDictionaryMapper;
@@ -73,7 +74,6 @@ import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBase
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.filingmaterials.AfterFilingMaterialsService;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;
@@ -98,6 +98,8 @@ public class AllSelectController implements AllSelectApi {
     @Resource
     private IndustryTypeMapper industryTypeMapper;
     @Resource
+    private FundFacade fundFacade;
+    @Resource
     private GeneralDictionaryMapper generalDictionaryMapper;
     @Resource
     private AddressDictionaryMapper addressDictionaryMapper;
@@ -112,9 +114,6 @@ public class AllSelectController implements AllSelectApi {
     @Resource
     private BusinessDataRepository businessDataRepository;
     @Resource
-    protected FundFinancingBaseInfoService financingBaseInfoService;
-    @Resource
-    private FundDirectFinancingBaseInfoService fundDirectFinancingBaseInfoService;
 
 //    private Map<String, List<SelectRSP>> pullDown;
 
@@ -297,7 +296,7 @@ public class AllSelectController implements AllSelectApi {
     //查询状态为起息、生效、新建的直融/间融产品编号
     public List<SelectRSP> getFinancingProduct(){
         //查询间融融资编号
-        List<SelectRSP> list = financingBaseInfoService.list(Wrappers.<FundFinancingBaseInfo>lambdaQuery()
+        List<SelectRSP> list = fundFacade.listFinancing(Wrappers.<FundFinancingBaseInfo>lambdaQuery()
                         .eq(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name())
                         .or()
                         .eq(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.EFFECT.name())
@@ -305,7 +304,7 @@ public class AllSelectController implements AllSelectApi {
                         .eq(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.NEW.name()))
                 .stream().map(e -> new SelectRSP(e.getFinancingCode(), e.getFinancingCode())).collect(Collectors.toList());
         //查询直融融资编号
-        List<SelectRSP> list1 = fundDirectFinancingBaseInfoService.list(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
+        List<SelectRSP> list1 = fundFacade.listDirectFinancing(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
                         .eq(FundDirectFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name())
                         .or()
                         .eq(FundDirectFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.EFFECT.name())

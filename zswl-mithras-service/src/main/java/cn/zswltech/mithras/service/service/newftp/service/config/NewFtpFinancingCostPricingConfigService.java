@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.service.newftp.service.config;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -12,7 +14,6 @@ import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.enums.newftp.TermRange;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.mapper.lib.fund.financing.FundFinancingBaseInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.lib.fund.financing.FundFinancingPlanLibMapper;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
@@ -54,13 +55,13 @@ public class NewFtpFinancingCostPricingConfigService extends ServiceImpl<NewFtpF
     @Resource
     private FundFinancingBaseInfoLibMapper fundFinancingBaseInfoLibMapper;
     @Resource
+    private FundFacade fundFacade;
+    @Resource
     private FundFinancingPlanLibMapper fundFinancingPlanLibMapper;
     @Resource
     private NewFtpBaseInfoService baseInfoService;
     @Resource
     private BaseDataLprService baseDataLprService;
-    @Resource
-    private FundDirectFinancingBaseInfoService directFinancingBaseInfoService;
 
     /**
      * 添加或者更新
@@ -164,7 +165,7 @@ public class NewFtpFinancingCostPricingConfigService extends ServiceImpl<NewFtpF
         }
 
         //查询直接融资模块
-        List<FundDirectFinancingBaseInfo> yearInfoList = directFinancingBaseInfoService.list(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
+        List<FundDirectFinancingBaseInfo> yearInfoList = fundFacade.listDirectFinancing(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
 //                .eq(FundDirectFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name())
                 .between(FundDirectFinancingBaseInfo::getDurationFrom, beginDate, endDate));
         yearInfoList = yearInfoList.stream().filter(a -> Objects.nonNull(a.getDurationFrom()))

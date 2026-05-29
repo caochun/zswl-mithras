@@ -1,5 +1,7 @@
 package cn.zswltech.mithras.service.service.newftp.service;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
@@ -45,7 +47,6 @@ import cn.zswltech.mithras.service.service.client.CorpAddressInfoService;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractTenantryLibService;
 import cn.zswltech.mithras.service.service.newftp.lib.impl.NewFtpQuarterlyBasePricingLibHandler;
@@ -90,6 +91,8 @@ public class FtpService {
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
+    private FundFacade fundFacade;
+    @Resource
     private ContractPriceService contractPriceService;
     @Resource
     private CorpCommerceInfoService corpCommerceInfoService;
@@ -107,8 +110,6 @@ public class FtpService {
     private NewFtpQuarterlyBasePricingDraftMapper newFtpQuarterlyBasePricingDraftMapper;
     @Resource
     private NewFtpQuarterlyBasePricingLibHandler newFtpQuarterlyBasePricingLibHandler;
-    @Resource
-    private FundFinancingPledgeInfoService fundFinancingPledgeInfoService;
     @Resource
     private FundDirectFinancingPledgeInfoService fundDirectFinancingPledgeInfoService;
     @Resource
@@ -639,7 +640,7 @@ public class FtpService {
             return false;
         }
         boolean isPledge = false;
-        List<FundFinancingPledgeInfo> fundFinancingPledgeInfoList = fundFinancingPledgeInfoService.list(Wrappers.<FundFinancingPledgeInfo>lambdaQuery().in(FundFinancingPledgeInfo::getContractId, contractIds));
+        List<FundFinancingPledgeInfo> fundFinancingPledgeInfoList = fundFacade.listPledgeInfo(Wrappers.<FundFinancingPledgeInfo>lambdaQuery().in(FundFinancingPledgeInfo::getContractId, contractIds));
         if (CollectionUtil.isEmpty(fundFinancingPledgeInfoList)) {
             return isPledge;
         }

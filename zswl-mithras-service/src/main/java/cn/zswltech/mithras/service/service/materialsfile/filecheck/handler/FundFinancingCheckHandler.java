@@ -1,12 +1,13 @@
 package cn.zswltech.mithras.service.service.materialsfile.filecheck.handler;
 
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
+
 
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.FileModuleCheck;
 import org.springframework.stereotype.Component;
 
@@ -21,8 +22,7 @@ public class FundFinancingCheckHandler extends FileModuleCheck {
     private SysUserService sysUserService;
 
     @Resource
-    private FundCreditService fundCreditService;
-
+    private FundFacade fundFacade;
     @Override
     public String getModuleKey() {
         return BusinessModuleEnum.FUND_FINANCING.name();
