@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.monthly;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -781,13 +782,13 @@ public class MonthlyManageService {
 //            Map<Long, List<FundDirectFinancingPledgeInfo>> zrPledgeMap = new HashMap<>();
 //            List<Long> contractIds = new ArrayList<>();
 //            if (ObjectUtil.isNotEmpty(dkFinancingIds)) {
-//                List<FundFinancingPledgeInfo> list = getBean(FundFinancingPledgeInfoService.class).list(Wrappers.<FundFinancingPledgeInfo>lambdaQuery()
+//                List<FundFinancingPledgeInfo> list = getBean(FundFacade.class).listPledgeInfo(Wrappers.<FundFinancingPledgeInfo>lambdaQuery()
 //                        .in(FundFinancingPledgeInfo::getFinancingId, dkFinancingIds));
 //                dkPledgeMap = list.stream().collect(Collectors.groupingBy(FundFinancingPledgeInfo::getFinancingId));
 //                contractIds.addAll(list.stream().map(FundFinancingPledgeInfo::getContractId).collect(Collectors.toList()));
 //            }
 //            if (ObjectUtil.isNotEmpty(zrFinancingIds)) {
-//                List<FundDirectFinancingPledgeInfo> list = getBean(FundDirectFinancingPledgeInfoService.class).list(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery()
+//                List<FundDirectFinancingPledgeInfo> list = getBean(FundFacade.class).listDirectPledgeInfo(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery()
 //                        .in(FundDirectFinancingPledgeInfo::getFinancingId, zrFinancingIds));
 //                zrPledgeMap = list.stream().collect(Collectors.groupingBy(FundDirectFinancingPledgeInfo::getFinancingId));
 //                contractIds.addAll(list.stream().map(FundDirectFinancingPledgeInfo::getContractId).collect(Collectors.toList()));
@@ -885,14 +886,14 @@ public class MonthlyManageService {
 //            List<Long> contractIds = new ArrayList<>();
 //            if (ObjectUtil.isNotEmpty(dkFinancingIds)) {
 //                fundFinancingId2Bean = financingBaseInfoService.listByIds(dkFinancingIds).stream().collect(Collectors.toMap(FundFinancingBaseInfo::getId, e -> e, (a, b) -> a));
-//                List<FundFinancingPledgeInfo> list = getBean(FundFinancingPledgeInfoService.class).list(Wrappers.<FundFinancingPledgeInfo>lambdaQuery()
+//                List<FundFinancingPledgeInfo> list = getBean(FundFacade.class).listPledgeInfo(Wrappers.<FundFinancingPledgeInfo>lambdaQuery()
 //                        .in(FundFinancingPledgeInfo::getFinancingId, dkFinancingIds));
 //                dkPledgeMap = list.stream().collect(Collectors.groupingBy(FundFinancingPledgeInfo::getFinancingId));
 //                contractIds.addAll(list.stream().map(FundFinancingPledgeInfo::getContractId).collect(Collectors.toList()));
 //            }
 //            if (ObjectUtil.isNotEmpty(zrFinancingIds)) {
 //                fundDirectFinancingId2Bean = fundDirectFinancingBaseInfoService.listByIds(zrFinancingIds).stream().collect(Collectors.toMap(FundDirectFinancingBaseInfo::getId, e -> e, (a, b) -> a));
-//                List<FundDirectFinancingPledgeInfo> list = getBean(FundDirectFinancingPledgeInfoService.class).list(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery()
+//                List<FundDirectFinancingPledgeInfo> list = getBean(FundFacade.class).listDirectPledgeInfo(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery()
 //                        .in(FundDirectFinancingPledgeInfo::getFinancingId, zrFinancingIds));
 //                zrPledgeMap = list.stream().collect(Collectors.groupingBy(FundDirectFinancingPledgeInfo::getFinancingId));
 //                contractIds.addAll(list.stream().map(FundDirectFinancingPledgeInfo::getContractId).collect(Collectors.toList()));

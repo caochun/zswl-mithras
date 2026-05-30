@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.filingmaterials;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -257,14 +258,14 @@ public class FundFilingMaterialsService extends AbstractFilingMaterialsService<F
         String fileName;
         if (Objects.equals(FilingMaterialsFilingTypeEnum.FUND_DIRECT_FINANCING.name(), filingMaterials.getFilingType())) {
             //直融：融资编号-产品名称
-            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = getBean(FundDirectFinancingBaseInfoService.class).getById(filingMaterials.getObjectId());
+            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = getBean(FundFacade.class).getDirectFinancingById(filingMaterials.getObjectId());
             Assert.notNull(fundDirectFinancingBaseInfo, () -> MithrasException.newException("查询资金直融信息失败"));
             fileName = fundDirectFinancingBaseInfo.getFinancingCode() + "-" + fundDirectFinancingBaseInfo.getProductName();
         } else {
             //间融：融资编号-机构简称
-            FundFinancingBaseInfo fundFinancingBaseInfo = getBean(FundFinancingBaseInfoService.class).getById(filingMaterials.getObjectId());
+            FundFinancingBaseInfo fundFinancingBaseInfo = getBean(FundFacade.class).getFinancingById(filingMaterials.getObjectId());
             Assert.notNull(fundFinancingBaseInfo, () -> MithrasException.newException("查询资金间融信息失败"));
-            List<FundOrganization> organizationList = getBean(FundOrganizationService.class).getByFinancingId(fundFinancingBaseInfo.getId());
+            List<FundOrganization> organizationList = getBean(FundFacade.class).getOrganizationsByFinancingId(fundFinancingBaseInfo.getId());
             String abbreviation = organizationList.stream().map(FundOrganization::getAbbreviation).collect(Collectors.joining("、"));
             fileName = fundFinancingBaseInfo.getFinancingCode() + "-" + abbreviation;
         }

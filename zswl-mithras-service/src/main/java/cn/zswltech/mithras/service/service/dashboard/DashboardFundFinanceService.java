@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.dashboard;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -254,7 +255,7 @@ public class DashboardFundFinanceService {
         Set<Long> creditIds = dbList.stream().map(DashboardFundCreditResult::getId).collect(Collectors.toSet());
         List<FundCredit> fundCreditList = null;
         if (CollUtil.isNotEmpty(creditIds)) {
-            fundCreditList = SpringUtil.getBean(FundCreditService.class).listByIds(creditIds);
+            fundCreditList = SpringUtil.getBean(FundFacade.class).listCreditsByIds(creditIds);
         }
         Map<Long, CreditLimitDetailBO> creditLimitDetailBoMap = getBean(FundCreditService.class).queryLimitDetailBatch(fundCreditList, false);
         if (CollectionUtil.isNotEmpty(dbList)) {
@@ -454,7 +455,7 @@ public class DashboardFundFinanceService {
             if (CollectionUtil.isNotEmpty(fundFinancingCreditRefList)) {
                 Map<Long, List<FundFinancingCreditRef>> creditRefMap = fundFinancingCreditRefList.stream().collect(Collectors.groupingBy(FundFinancingCreditRef::getFinancingId));
                 Set<Long> orgIds = fundFinancingCreditRefList.stream().map(FundFinancingCreditRef::getOrganizationId).collect(Collectors.toSet());
-                List<FundOrganization> fundOrganizationList = SpringUtil.getBean(FundOrganizationService.class).listByIds(orgIds);
+                List<FundOrganization> fundOrganizationList = SpringUtil.getBean(FundFacade.class).getOrganizationsByIds(orgIds);
                 Map<Long, FundOrganization> orgMap = fundOrganizationList.stream().collect(Collectors.toMap(FundOrganization::getId, e -> e));
                 for (Map.Entry<Long, List<FundFinancingCreditRef>> entry : creditRefMap.entrySet()) {
                     List<String> nameList = new LinkedList<>();
@@ -608,7 +609,7 @@ public class DashboardFundFinanceService {
         Set<Long> creditIds = dbList.stream().map(DashboardFundCreditResult::getId).collect(Collectors.toSet());
         List<FundCredit> fundCreditList = null;
         if (CollUtil.isNotEmpty(creditIds)) {
-            fundCreditList = SpringUtil.getBean(FundCreditService.class).listByIds(creditIds);
+            fundCreditList = SpringUtil.getBean(FundFacade.class).listCreditsByIds(creditIds);
         }
         Map<Long, CreditLimitDetailBO> creditLimitDetailBoMap = getBean(FundCreditService.class).queryLimitDetailBatch(fundCreditList, false);
         return dbList.stream().map(e -> {

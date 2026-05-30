@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.ftp;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -429,9 +430,9 @@ public class FtpInterestDetailRecordService extends ServiceImpl<FtpInterestDetai
 //        List<FundDirectFinancingPledgeInfo> result2 = directFinancingPledgeInfoService.findContractPledgeList(contractId);
 //        return CollectionUtil.isNotEmpty(result1) || CollectionUtil.isNotEmpty(result2);
         boolean pledge1 = false;
-        List<FundFinancingPledgeInfo> plist1 = SpringUtil.getBean(FundFinancingPledgeInfoService.class).list(Wrappers.<FundFinancingPledgeInfo>lambdaQuery().eq(FundFinancingPledgeInfo::getContractId, contractId));
+        List<FundFinancingPledgeInfo> plist1 = SpringUtil.getBean(FundFacade.class).listPledgeInfo(Wrappers.<FundFinancingPledgeInfo>lambdaQuery().eq(FundFinancingPledgeInfo::getContractId, contractId));
         if (CollectionUtil.isNotEmpty(plist1)) {
-            List<FundFinancingBaseInfo> flist1 = SpringUtil.getBean(FundFinancingBaseInfoService.class).list(Wrappers.<FundFinancingBaseInfo>lambdaQuery().in(FundFinancingBaseInfo::getId, plist1.stream().map(FundFinancingPledgeInfo::getFinancingId).collect(Collectors.toSet())).eq(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name()));
+            List<FundFinancingBaseInfo> flist1 = SpringUtil.getBean(FundFacade.class).listFinancing(Wrappers.<FundFinancingBaseInfo>lambdaQuery().in(FundFinancingBaseInfo::getId, plist1.stream().map(FundFinancingPledgeInfo::getFinancingId).collect(Collectors.toSet())).eq(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name()));
             if (CollectionUtil.isNotEmpty(flist1)) {
                 for (FundFinancingBaseInfo item : flist1) {
                     if (Objects.nonNull(item.getActualLoanDate()) && !interestDate.isBefore(item.getActualLoanDate())) {
@@ -442,9 +443,9 @@ public class FtpInterestDetailRecordService extends ServiceImpl<FtpInterestDetai
             }
         }
         boolean pledge2 = false;
-        List<FundDirectFinancingPledgeInfo> plist2 = SpringUtil.getBean(FundDirectFinancingPledgeInfoService.class).list(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery().eq(FundDirectFinancingPledgeInfo::getContractId, contractId));
+        List<FundDirectFinancingPledgeInfo> plist2 = SpringUtil.getBean(FundFacade.class).listDirectPledgeInfo(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery().eq(FundDirectFinancingPledgeInfo::getContractId, contractId));
         if (CollectionUtil.isNotEmpty(plist2)) {
-            List<FundDirectFinancingBaseInfo> flist2 = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).list(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery().in(FundDirectFinancingBaseInfo::getId, plist2.stream().map(FundDirectFinancingPledgeInfo::getFinancingId).collect(Collectors.toSet())).eq(FundDirectFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name()));
+            List<FundDirectFinancingBaseInfo> flist2 = SpringUtil.getBean(FundFacade.class).listDirectFinancing(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery().in(FundDirectFinancingBaseInfo::getId, plist2.stream().map(FundDirectFinancingPledgeInfo::getFinancingId).collect(Collectors.toSet())).eq(FundDirectFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name()));
             if (CollectionUtil.isNotEmpty(flist2)) {
                 for (FundDirectFinancingBaseInfo item : flist2) {
                     if (Objects.nonNull(item.getCarryInterestTime()) && !interestDate.isBefore(item.getCarryInterestTime())) {

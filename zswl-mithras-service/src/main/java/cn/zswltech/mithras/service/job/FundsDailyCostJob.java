@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.job;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -109,7 +110,7 @@ public class FundsDailyCostJob {
     }
 
     private void initMain() {
-        List<FundFinancingBaseInfo> indirectList = SpringUtil.getBean(FundFinancingBaseInfoService.class).list(
+        List<FundFinancingBaseInfo> indirectList = SpringUtil.getBean(FundFacade.class).listFinancing(
                 Wrappers.<FundFinancingBaseInfo>lambdaQuery()
                         .in(FundFinancingBaseInfo::getFinancingStatus, ListUtil.toList(FundFinancingStatusEnum.CARRY_INTEREST.name(), FundFinancingStatusEnum.SETTLE.name()))
         );
@@ -122,7 +123,7 @@ public class FundsDailyCostJob {
                 SpringUtil.getBean(FundsDailyCostMainService.class).createByIndirect(financingBaseInfo);
             }
         }
-        List<FundDirectFinancingBaseInfo> directList = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).list(
+        List<FundDirectFinancingBaseInfo> directList = SpringUtil.getBean(FundFacade.class).listDirectFinancing(
                 Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
                         .in(FundDirectFinancingBaseInfo::getFinancingStatus, ListUtil.toList(FundFinancingStatusEnum.CARRY_INTEREST.name(), FundFinancingStatusEnum.SETTLE.name()))
         );

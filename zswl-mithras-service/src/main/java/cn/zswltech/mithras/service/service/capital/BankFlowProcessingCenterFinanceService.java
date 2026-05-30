@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.capital;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -120,7 +121,7 @@ public class BankFlowProcessingCenterFinanceService {
         // 直融和间融分开
         if (Objects.equals(req.getIsDirect(), YesOrNoNumberEnum.YES.getCode())) {
             // id为产品id
-            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).getById(req.getId());
+            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundFacade.class).getDirectFinancingById(req.getId());
             if (Objects.isNull(fundDirectFinancingBaseInfo)) {
                 return Collections.emptyList();
             }
@@ -146,7 +147,7 @@ public class BankFlowProcessingCenterFinanceService {
             // id为机构id
             List<FundFinancingCreditRef> refList = financingCreditRefService.queryByOrgId(req.getId());
             List<Long> financingIdList = refList.stream().filter(Objects::nonNull).map(FundFinancingCreditRef::getFinancingId).collect(Collectors.toList());
-            List<FundFinancingBaseInfo> fundFinancingBaseInfoList = SpringUtil.getBean(FundFinancingBaseInfoService.class).list(
+            List<FundFinancingBaseInfo> fundFinancingBaseInfoList = SpringUtil.getBean(FundFacade.class).listFinancing(
                     Wrappers.<FundFinancingBaseInfo>lambdaQuery()
                             .in(FundFinancingBaseInfo::getId, CollectionUtil.isNotEmpty(financingIdList) ? financingIdList : Collections.singleton(-1))
                             .notIn(FundFinancingBaseInfo::getFinancingStatus, Arrays.asList(FundFinancingStatusEnum.CLOSE.name(), FundFinancingStatusEnum.NEW.name()))
@@ -155,7 +156,7 @@ public class BankFlowProcessingCenterFinanceService {
                 return Collections.emptyList();
             }
             Map<Long, FundFinancingBaseInfo> map = fundFinancingBaseInfoList.stream().collect(Collectors.toMap(FundFinancingBaseInfo::getId, e -> e));
-            List<FundReceiptRepayBaseInfo> receiptRepayBaseInfoList = SpringUtil.getBean(FundReceiptRepayBaseInfoService.class).list(
+            List<FundReceiptRepayBaseInfo> receiptRepayBaseInfoList = SpringUtil.getBean(FundFacade.class).listReceiptRepay(
                     Wrappers.<FundReceiptRepayBaseInfo>lambdaQuery().in(FundReceiptRepayBaseInfo::getFinancingId, map.keySet()).isNull(FundReceiptRepayBaseInfo::getFinancingType)
             );
             if (CollectionUtil.isEmpty(receiptRepayBaseInfoList)) {
@@ -441,7 +442,7 @@ public class BankFlowProcessingCenterFinanceService {
             return Collections.emptyList();
         }
         Set<Long> ids = list.stream().map(FundReceiptFlowDetail::getReceiptRepayId).collect(Collectors.toSet());
-        List<FundReceiptRepayCashFlow> fundReceiptRepayCashFlowList = SpringUtil.getBean(FundReceiptRepayCashFlowService.class).list(Wrappers.<FundReceiptRepayCashFlow>lambdaQuery().in(FundReceiptRepayCashFlow::getReceiptRepayId, ids));
+        List<FundReceiptRepayCashFlow> fundReceiptRepayCashFlowList = SpringUtil.getBean(FundFacade.class).listCashFlow(Wrappers.<FundReceiptRepayCashFlow>lambdaQuery().in(FundReceiptRepayCashFlow::getReceiptRepayId, ids));
         Map<String, FundReceiptRepayCashFlow> receiptRepayCashFlowMap = fundReceiptRepayCashFlowList.stream().collect(Collectors.toMap(FundReceiptRepayCashFlow::getCashFlowCode, e -> e));
         return list.stream().map(e -> {
             FinancingExtraInfo extraInfo = extraInfoMap.get(e.getReceiptRepayId());
@@ -463,7 +464,7 @@ public class BankFlowProcessingCenterFinanceService {
                 query.eq(FundReceiptFlowDetail::getReceiptRepayId, e.getReceiptRepayId());
                 query.eq(FundReceiptFlowDetail::getCashFlowCode, e.getCashFlowCode());
                 query.gt(FundReceiptFlowDetail::getPrincipalAmount, 0);
-                List<FundReceiptFlowDetail> principalList = SpringUtil.getBean(FundReceiptFlowDetailService.class).list(query);
+                List<FundReceiptFlowDetail> principalList = SpringUtil.getBean(FundFacade.class).listReceiptFlowDetail(query);
                 long actualAmount = Optional.ofNullable(principalList).map(item -> item.stream().mapToLong(FundReceiptFlowDetail::getPrincipalAmount).sum()).orElse(0L);
                 rsp.setNoPayAmount(Optional.ofNullable(rsp.getShouldPayAmount()).orElse(0L) - actualAmount);
             } else {
@@ -476,7 +477,7 @@ public class BankFlowProcessingCenterFinanceService {
                 query.eq(FundReceiptFlowDetail::getReceiptRepayId, e.getReceiptRepayId());
                 query.eq(FundReceiptFlowDetail::getCashFlowCode, e.getCashFlowCode());
                 query.gt(FundReceiptFlowDetail::getInterestAmount, 0);
-                List<FundReceiptFlowDetail> interestList = SpringUtil.getBean(FundReceiptFlowDetailService.class).list(query);
+                List<FundReceiptFlowDetail> interestList = SpringUtil.getBean(FundFacade.class).listReceiptFlowDetail(query);
                 long actualAmount = Optional.ofNullable(interestList).map(item -> item.stream().mapToLong(FundReceiptFlowDetail::getInterestAmount).sum()).orElse(0L);
                 rsp.setNoPayAmount(Optional.ofNullable(rsp.getShouldPayAmount()).orElse(0L) - actualAmount);
             }
@@ -564,7 +565,7 @@ public class BankFlowProcessingCenterFinanceService {
             if (StrUtil.isBlank(fundReceiptRepayBaseInfo.getFinancingType())) {
                 // 间融
                 List<FundOrganization> organizationList = orgMap.get(fundReceiptRepayBaseInfo.getFinancingId());
-                FundFinancingBaseInfo financingBaseInfo = SpringUtil.getBean(FundFinancingBaseInfoService.class).getById(fundReceiptRepayBaseInfo.getFinancingId());
+                FundFinancingBaseInfo financingBaseInfo = SpringUtil.getBean(FundFacade.class).getFinancingById(fundReceiptRepayBaseInfo.getFinancingId());
                 List<FundFinancingRepayActual> fundFinancingRepayActualList = SpringUtil.getBean(FundFinancingRepayActualService.class).listByFinancingId(fundReceiptRepayBaseInfo.getFinancingId());
                 financingExtraInfo.setFinancingCode(financingBaseInfo.getFinancingCode());
                 financingExtraInfo.setOrgIds(organizationList.stream().map(FundOrganization::getId).collect(Collectors.toList()));
@@ -577,7 +578,7 @@ public class BankFlowProcessingCenterFinanceService {
                 financingExtraInfo.setBusinessType(financingBaseInfo.getBusinessType());
             } else {
                 // 直融
-                FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).getById(fundReceiptRepayBaseInfo.getFinancingId());
+                FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundFacade.class).getDirectFinancingById(fundReceiptRepayBaseInfo.getFinancingId());
                 List<FundDirectFinancingRepayActual> fundDirectFinancingRepayActualList = SpringUtil.getBean(FundDirectFinancingRepayActualService.class).listByFinancingId(fundReceiptRepayBaseInfo.getFinancingId());
                 financingExtraInfo.setFinancingCode(fundDirectFinancingBaseInfo.getFinancingCode());
                 financingExtraInfo.setOrgIds(Collections.singletonList(fundDirectFinancingBaseInfo.getId()));
@@ -622,7 +623,7 @@ public class BankFlowProcessingCenterFinanceService {
         List<BankFlowProcessingCenterFinancePaymentCashFlowRSP> result = new ArrayList<>();
         List<FundReceiptRepayBaseInfo> fundReceiptRepayBaseInfos = SpringUtil.getBean(FundReceiptRepayBaseInfoService.class).listByIds(req.getReceiptRepayBaseIdList());
         //查找实际还款计划
-        List<FundReceiptRepayCashFlow> repayCashFlowList = SpringUtil.getBean(FundReceiptRepayCashFlowService.class).list(Wrappers.<FundReceiptRepayCashFlow>lambdaQuery()
+        List<FundReceiptRepayCashFlow> repayCashFlowList = SpringUtil.getBean(FundFacade.class).listCashFlow(Wrappers.<FundReceiptRepayCashFlow>lambdaQuery()
                 .ge(FundReceiptRepayCashFlow::getRepayDate, LocalDate.parse(req.getActualLoanDateFrom().replace("/", ""), DateTimeFormatter.ofPattern(DatePattern.PURE_DATE_PATTERN)))
                 .le(FundReceiptRepayCashFlow::getRepayDate, LocalDate.parse(req.getActualLoanDateTo().replace("/", ""), DateTimeFormatter.ofPattern(DatePattern.PURE_DATE_PATTERN)))
                 .in(FundReceiptRepayCashFlow::getReceiptRepayId, req.getReceiptRepayBaseIdList()));
@@ -705,7 +706,7 @@ public class BankFlowProcessingCenterFinanceService {
         Map<Long, FundFinancingBaseInfo> financingMap = new HashMap<>();
         Map<Long, FundFinancingFeeDetail> feeDetailMap = new HashMap<>();
         if (!CollectionUtils.isEmpty(financingIds)) {
-            List<FundFinancingBaseInfo> financingBaseInfos = SpringUtil.getBean(FundFinancingBaseInfoService.class).listByIds(financingIds);
+            List<FundFinancingBaseInfo> financingBaseInfos = SpringUtil.getBean(FundFacade.class).listFinancingByIds(financingIds);
             if (!CollectionUtils.isEmpty(financingBaseInfos)) {
                 financingMap = Optional.of(financingBaseInfos.stream().collect(Collectors.toMap(FundFinancingBaseInfo::getId, Function.identity(), (v1, v2) -> v1)))
                         .orElse(new HashMap<>());
@@ -719,7 +720,7 @@ public class BankFlowProcessingCenterFinanceService {
         List<FundReceiptRepayBaseInfo> directList = baseInfos.stream().filter(o -> Objects.equals(FinancingTypeEnum.DIRECT.name(), o.getFinancingType()))
                 .collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(directList)) {
-            List<FundDirectFinancingBaseInfo> fundDirectFinancingBaseInfos = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).list(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
+            List<FundDirectFinancingBaseInfo> fundDirectFinancingBaseInfos = SpringUtil.getBean(FundFacade.class).listDirectFinancing(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
                     .in(FundDirectFinancingBaseInfo::getId, directList.stream().map(FundReceiptRepayBaseInfo::getFinancingId).collect(Collectors.toList())));
             if (!CollectionUtils.isEmpty(directList)) {
                 directMap = fundDirectFinancingBaseInfos.stream().collect(Collectors.toMap(FundDirectFinancingBaseInfo::getId, Function.identity(), (a, b) -> a));
@@ -814,7 +815,7 @@ public class BankFlowProcessingCenterFinanceService {
         Map<Long, List<FundOrganization>> orgMap = organizationService.getBatchByFinancingId(financingIds);
         Map<Long, FundFinancingBaseInfo> financingMap = new HashMap<>();
         if (!CollectionUtils.isEmpty(financingIds)) {
-            List<FundFinancingBaseInfo> financingBaseInfos = SpringUtil.getBean(FundFinancingBaseInfoService.class).listByIds(financingIds);
+            List<FundFinancingBaseInfo> financingBaseInfos = SpringUtil.getBean(FundFacade.class).listFinancingByIds(financingIds);
             if (!CollectionUtils.isEmpty(financingBaseInfos)) {
                 financingMap = Optional.of(financingBaseInfos.stream().collect(Collectors.toMap(FundFinancingBaseInfo::getId, Function.identity(), (v1, v2) -> v1)))
                         .orElse(new HashMap<>());
@@ -868,7 +869,7 @@ public class BankFlowProcessingCenterFinanceService {
         List<FundReceiptRepayBaseInfo> inDirectList = fundReceiptRepayBaseInfos.stream().filter(o -> !Objects.equals(FinancingTypeEnum.DIRECT.name(), o.getFinancingType()))
                 .collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(inDirectList)) {
-            List<FundFinancingBaseInfo> financingBaseInfos = SpringUtil.getBean(FundFinancingBaseInfoService.class).list(Wrappers.<FundFinancingBaseInfo>lambdaQuery()
+            List<FundFinancingBaseInfo> financingBaseInfos = SpringUtil.getBean(FundFacade.class).listFinancing(Wrappers.<FundFinancingBaseInfo>lambdaQuery()
                     .in(FundFinancingBaseInfo::getId, inDirectList.stream().map(FundReceiptRepayBaseInfo::getFinancingId).collect(Collectors.toList())));
             if (!CollectionUtils.isEmpty(financingBaseInfos)) {
                 inDirectMap = financingBaseInfos.stream().collect(Collectors.toMap(FundFinancingBaseInfo::getId, Function.identity(), (a, b) -> a));
@@ -880,7 +881,7 @@ public class BankFlowProcessingCenterFinanceService {
         List<FundReceiptRepayBaseInfo> directList = fundReceiptRepayBaseInfos.stream().filter(o -> Objects.equals(FinancingTypeEnum.DIRECT.name(), o.getFinancingType()))
                 .collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(directList)) {
-            List<FundDirectFinancingBaseInfo> fundDirectFinancingBaseInfos = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).list(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
+            List<FundDirectFinancingBaseInfo> fundDirectFinancingBaseInfos = SpringUtil.getBean(FundFacade.class).listDirectFinancing(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
                     .in(FundDirectFinancingBaseInfo::getId, directList.stream().map(FundReceiptRepayBaseInfo::getFinancingId).collect(Collectors.toList())));
             if (!CollectionUtils.isEmpty(directList)) {
                 directMap = fundDirectFinancingBaseInfos.stream().collect(Collectors.toMap(FundDirectFinancingBaseInfo::getId, Function.identity(), (a, b) -> a));
@@ -896,7 +897,7 @@ public class BankFlowProcessingCenterFinanceService {
         List<BankFlowProcessingCenterFinancePaymentCashFlowRSP> rspList = new ArrayList<>();
         //找到实际的核销记录
         Map<String, List<FundReceiptFlowDetail>> writeOffDetailMap = new HashMap<>();
-        List<FundReceiptFlowDetail> receiptFlowDetails = SpringUtil.getBean(FundReceiptFlowDetailService.class).list(Wrappers.<FundReceiptFlowDetail>lambdaQuery()
+        List<FundReceiptFlowDetail> receiptFlowDetails = SpringUtil.getBean(FundFacade.class).listReceiptFlowDetail(Wrappers.<FundReceiptFlowDetail>lambdaQuery()
                 .in(FundReceiptFlowDetail::getCashFlowCode, repayCashFlowList.stream().map(FundReceiptRepayCashFlow::getCashFlowCode).collect(Collectors.toList())));
         if (!CollectionUtils.isEmpty(receiptFlowDetails)) {
             writeOffDetailMap = receiptFlowDetails.stream().collect(Collectors.groupingBy(FundReceiptFlowDetail::getCashFlowCode));

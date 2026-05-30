@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.liquidityrisk;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.NumberUtil;
@@ -194,7 +195,7 @@ public class CashInOutStatExporter {
         if (fundReceiptRepayBaseInfoMap.containsKey(id)) {
             return fundReceiptRepayBaseInfoMap.get(id);
         }
-        FundReceiptRepayBaseInfo baseInfo = getBean(FundReceiptRepayBaseInfoService.class).getById(id);
+        FundReceiptRepayBaseInfo baseInfo = getBean(FundFacade.class).getReceiptRepayById(id);
         fundReceiptRepayBaseInfoMap.put(id, baseInfo);
         return fundReceiptRepayBaseInfoMap.get(id);
     }
@@ -207,7 +208,7 @@ public class CashInOutStatExporter {
         if (fundFinnancingRepayBaseInfoMap.containsKey(id)) {
             return fundFinnancingRepayBaseInfoMap.get(id);
         }
-        FundFinancingBaseInfo baseInfo = getBean(FundFinancingBaseInfoService.class).getById(id);
+        FundFinancingBaseInfo baseInfo = getBean(FundFacade.class).getFinancingById(id);
         fundFinnancingRepayBaseInfoMap.put(id, baseInfo);
         return fundFinnancingRepayBaseInfoMap.get(id);
 

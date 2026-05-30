@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.liquidityrisk;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.api.common.R;
@@ -131,7 +132,7 @@ public class CapitalOutflowController implements CapitalOutflowAPI {
     private List<CashInOutStatRSP> inOutData(LocalDate start, LocalDate end) {
         List<CashInOutStatRSP> result = new ArrayList<>();
         //某月份的所有融资现金流
-        List<FundReceiptRepayCashFlow> cashFlowList = getBean(FundReceiptRepayCashFlowService.class).list(
+        List<FundReceiptRepayCashFlow> cashFlowList = getBean(FundFacade.class).listCashFlow(
                 Wrappers.<FundReceiptRepayCashFlow>lambdaQuery()
                         .ge(FundReceiptRepayCashFlow::getRepayDate, start)
                         .le(FundReceiptRepayCashFlow::getRepayDate, end));
@@ -139,10 +140,10 @@ public class CapitalOutflowController implements CapitalOutflowAPI {
             return result;
         }
         //质押数据一次查询，减少for循环查询
-        Map<Long, List<FundDirectFinancingPledgeInfo>> directMap = getBean(FundDirectFinancingPledgeInfoService.class).list(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery()
+        Map<Long, List<FundDirectFinancingPledgeInfo>> directMap = getBean(FundFacade.class).listDirectPledgeInfo(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery()
                         .in(FundDirectFinancingPledgeInfo::getFinancingId, cashFlowList.stream().map(FundReceiptRepayCashFlow::getFinancingId).collect(Collectors.toList())))
                 .stream().collect(Collectors.groupingBy(FundDirectFinancingPledgeInfo::getFinancingId));
-        Map<Long, List<FundFinancingPledgeInfo>> nonDirectMap = getBean(FundFinancingPledgeInfoService.class).list(Wrappers.<FundFinancingPledgeInfo>lambdaQuery()
+        Map<Long, List<FundFinancingPledgeInfo>> nonDirectMap = getBean(FundFacade.class).listPledgeInfo(Wrappers.<FundFinancingPledgeInfo>lambdaQuery()
                         .in(FundFinancingPledgeInfo::getFinancingId, cashFlowList.stream().map(FundReceiptRepayCashFlow::getFinancingId).collect(Collectors.toList())))
                 .stream().collect(Collectors.groupingBy(FundFinancingPledgeInfo::getFinancingId));
 
@@ -156,7 +157,7 @@ public class CapitalOutflowController implements CapitalOutflowAPI {
                 record.setFinancingType(financingType);
                 record.setFinancingId(cashFlow.getFinancingId());
                 if ("DIRECT".equals(financingType)) {//直融
-                    FundDirectFinancingBaseInfo info = getBean(FundDirectFinancingBaseInfoService.class).getById(cashFlow.getFinancingId());
+                    FundDirectFinancingBaseInfo info = getBean(FundFacade.class).getDirectFinancingById(cashFlow.getFinancingId());
                     record.setFinancialChannel(Collections.singletonList("直租-" + info.getProductName()));
                     record.setFinancialCode(info.getFinancingCode());
                     record.setFinancialAmount(info.getFinancingAmount());
@@ -266,7 +267,7 @@ public class CapitalOutflowController implements CapitalOutflowAPI {
         if (fundReceiptRepayBaseInfoMap.containsKey(id)) {
             return fundReceiptRepayBaseInfoMap.get(id);
         }
-        FundReceiptRepayBaseInfo baseInfo = getBean(FundReceiptRepayBaseInfoService.class).getById(id);
+        FundReceiptRepayBaseInfo baseInfo = getBean(FundFacade.class).getReceiptRepayById(id);
         fundReceiptRepayBaseInfoMap.put(id, baseInfo);
         return fundReceiptRepayBaseInfoMap.get(id);
     }
@@ -282,7 +283,7 @@ public class CapitalOutflowController implements CapitalOutflowAPI {
         if (fundFinnancingRepayBaseInfoMap.containsKey(id)) {
             return fundFinnancingRepayBaseInfoMap.get(id);
         }
-        FundFinancingBaseInfo baseInfo = getBean(FundFinancingBaseInfoService.class).getById(id);
+        FundFinancingBaseInfo baseInfo = getBean(FundFacade.class).getFinancingById(id);
         fundFinnancingRepayBaseInfoMap.put(id, baseInfo);
         return fundFinnancingRepayBaseInfoMap.get(id);
     }

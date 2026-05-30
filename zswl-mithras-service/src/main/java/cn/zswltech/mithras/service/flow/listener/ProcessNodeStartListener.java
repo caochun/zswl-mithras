@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.flow.listener;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.text.CharSequenceUtil;
@@ -55,7 +56,7 @@ public class ProcessNodeStartListener implements ApplicationListener<NodeStartEv
             CreditLimitDetailBO creditLimitDetailBO = SpringContextHolder.getBean(FundCreditService.class).queryLimitDetail(fundCredit, true);
             List<CreditLimitDetailBO.CreditLimitOccupyDetailBO> occupyDetailList = Optional.ofNullable(creditLimitDetailBO).map(CreditLimitDetailBO::getOccupyDetailList).orElse(null);
             if (CollectionUtil.isNotEmpty(occupyDetailList) && occupyDetailList.stream().filter(f -> Objects.equals(f.getBizTargetKey(), nodeCommonContext.getBusinessKey())).count() > 0) {
-                FundFinancingBaseInfo financingBaseInfo = SpringContextHolder.getBean(FundFinancingBaseInfoService.class).getById(financingId);
+                FundFinancingBaseInfo financingBaseInfo = SpringContextHolder.getBean(FundFacade.class).getFinancingById(financingId);
                 SpringContextHolder.getBean(FundCreditService.class).release(financingBaseInfo.getId(), financingBaseInfo.getFinancingAmount());
             }
         }

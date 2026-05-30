@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.budget;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -415,14 +416,14 @@ public class BudgetPlanCostService extends ServiceImpl<BudgetPlanCostMapper, Bud
         // 取借款日在预算区间开始日期之前的起息的融资
         List<FundReceiptRepayBaseInfo> targetList = new LinkedList<>();
         // 间融
-        List<FundFinancingBaseInfo> fundFinancingBaseInfoList = SpringUtil.getBean(FundFinancingBaseInfoService.class).list(
+        List<FundFinancingBaseInfo> fundFinancingBaseInfoList = SpringUtil.getBean(FundFacade.class).listFinancing(
                 Wrappers.<FundFinancingBaseInfo>lambdaQuery()
                         .eq(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name())
                         .lt(FundFinancingBaseInfo::getActualLoanDate, budgetPlanCost.getBudgetDateFrom())
         );
         Set<Long> indirectFinancingIds = fundFinancingBaseInfoList.stream().map(FundFinancingBaseInfo::getId).collect(Collectors.toSet());
         if (CollectionUtil.isNotEmpty(fundFinancingBaseInfoList)) {
-            List<FundReceiptRepayBaseInfo> receiptRepayBaseInfoList = SpringUtil.getBean(FundReceiptRepayBaseInfoService.class).list(
+            List<FundReceiptRepayBaseInfo> receiptRepayBaseInfoList = SpringUtil.getBean(FundFacade.class).listReceiptRepay(
                     Wrappers.<FundReceiptRepayBaseInfo>lambdaQuery()
                             .in(FundReceiptRepayBaseInfo::getFinancingId, indirectFinancingIds)
                             .isNull(FundReceiptRepayBaseInfo::getFinancingType)
@@ -432,14 +433,14 @@ public class BudgetPlanCostService extends ServiceImpl<BudgetPlanCostMapper, Bud
             }
         }
         // 直融
-        List<FundDirectFinancingBaseInfo> fundDirectFinancingBaseInfoList = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).list(
+        List<FundDirectFinancingBaseInfo> fundDirectFinancingBaseInfoList = SpringUtil.getBean(FundFacade.class).listDirectFinancing(
                 Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
                         .eq(FundDirectFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name())
                         .lt(FundDirectFinancingBaseInfo::getCarryInterestTime, budgetPlanCost.getBudgetDateFrom())
         );
         Set<Long> directFinancingIds = fundDirectFinancingBaseInfoList.stream().map(FundDirectFinancingBaseInfo::getId).collect(Collectors.toSet());
         if (CollectionUtil.isNotEmpty(fundDirectFinancingBaseInfoList)) {
-            List<FundReceiptRepayBaseInfo> receiptRepayBaseInfoList = SpringUtil.getBean(FundReceiptRepayBaseInfoService.class).list(
+            List<FundReceiptRepayBaseInfo> receiptRepayBaseInfoList = SpringUtil.getBean(FundFacade.class).listReceiptRepay(
                     Wrappers.<FundReceiptRepayBaseInfo>lambdaQuery()
                             .in(FundReceiptRepayBaseInfo::getFinancingId, directFinancingIds)
                             .eq(FundReceiptRepayBaseInfo::getFinancingType, "DIRECT")
@@ -468,7 +469,7 @@ public class BudgetPlanCostService extends ServiceImpl<BudgetPlanCostMapper, Bud
                         .gt(FundDirectFinancingRepayActual::getPhase, 0)
         );
         // 找核销明细
-        List<FundReceiptFlowDetail> actualList = SpringUtil.getBean(FundReceiptFlowDetailService.class).list(
+        List<FundReceiptFlowDetail> actualList = SpringUtil.getBean(FundFacade.class).listReceiptFlowDetail(
                 Wrappers.<FundReceiptFlowDetail>lambdaQuery()
                         .in(FundReceiptFlowDetail::getReceiptRepayId, receiptRepayIds)
                         .ge(FundReceiptFlowDetail::getCashFlowDate, budgetPlanCost.getBudgetDateFrom())

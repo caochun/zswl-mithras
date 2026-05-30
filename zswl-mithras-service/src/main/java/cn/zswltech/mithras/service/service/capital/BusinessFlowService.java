@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.capital;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -162,7 +163,7 @@ public class BusinessFlowService {
                 try {
                     List<CQ2PaymentVO> vos = new LinkedList<>();
                     //1
-                    vos.add(buildFromRepay(fundReceiptRepayCashFlow, SpringUtil.getBean(FundReceiptFlowDetailService.class).listByCashFlowCodes(Collections.singletonList(fundReceiptRepayCashFlow.getCashFlowCode()))));
+                    vos.add(buildFromRepay(fundReceiptRepayCashFlow, SpringUtil.getBean(FundFacade.class).listReceiptFlowDetailByCashFlowCodes(Collections.singletonList(fundReceiptRepayCashFlow.getCashFlowCode()))));
                     SpringUtil.getBean(FinancialManagerServiceImpl2.class).cq2PaymentExec(new SyncCqReqBizInfo(), vos);
                 } catch (Exception e) {
                     log.error("资金端-部分核销<还本付息>-手工确认通知苍穹发生异常[{}]", JSONUtil.toJsonStr(fundReceiptRepayCashFlow), e);
@@ -554,7 +555,7 @@ public class BusinessFlowService {
                         try {
                             List<CQ2PaymentVO> vos = new LinkedList<>();
                             //2
-                            vos.add(buildFromRepay(fundReceiptRepayCashFlow, SpringUtil.getBean(FundReceiptFlowDetailService.class).listByCashFlowCodes(Collections.singletonList(fundReceiptRepayCashFlow.getCashFlowCode()))));
+                            vos.add(buildFromRepay(fundReceiptRepayCashFlow, SpringUtil.getBean(FundFacade.class).listReceiptFlowDetailByCashFlowCodes(Collections.singletonList(fundReceiptRepayCashFlow.getCashFlowCode()))));
                             SpringUtil.getBean(FinancialManagerServiceImpl2.class).cq2PaymentExec(new SyncCqReqBizInfo(), vos);
                         } catch (Exception e) {
                             log.error("资金端-核销<还本付息>-通知苍穹发生异常[{}]", JSONUtil.toJsonStr(req), e);
@@ -734,7 +735,7 @@ public class BusinessFlowService {
         if (CollectionUtil.isEmpty(detailList) || ObjectUtil.isEmpty(detailList)) {
             throw new MithrasException("没有找到核销明细");
         }
-        FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo = SpringUtil.getBean(FundReceiptRepayBaseInfoService.class).getById(fundReceiptRepayCashFlow.getReceiptRepayId());
+        FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo = SpringUtil.getBean(FundFacade.class).getReceiptRepayById(fundReceiptRepayCashFlow.getReceiptRepayId());
         String orgName = this.ensureOrgName(fundReceiptRepayBaseInfo);
         //20251217付款核销推送-设置业务类型
         String leaseTypeCode = this.getBussnessType(fundReceiptRepayBaseInfo);
@@ -787,7 +788,7 @@ public class BusinessFlowService {
         if (CollectionUtil.isEmpty(detailList)) {
             throw new MithrasException("没有找到核销明细");
         }
-        FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo = SpringUtil.getBean(FundReceiptRepayBaseInfoService.class).getById(fundReceiptRepayExpense.getReceiptRepayId());
+        FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo = SpringUtil.getBean(FundFacade.class).getReceiptRepayById(fundReceiptRepayExpense.getReceiptRepayId());
         String orgName = this.ensureOrgName(fundReceiptRepayBaseInfo);
         //20251217付款核销推送-设置业务类型
         String leaseTypeCode = this.getBussnessType(fundReceiptRepayBaseInfo);
@@ -842,7 +843,7 @@ public class BusinessFlowService {
         if (CollectionUtil.isEmpty(detailList) || ObjectUtil.isEmpty(detailList)) {
             throw new MithrasException("没有找到核销明细");
         }
-        FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo = SpringUtil.getBean(FundReceiptRepayBaseInfoService.class).getById(fundReceiptRepayCashDeposit.getReceiptRepayId());
+        FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo = SpringUtil.getBean(FundFacade.class).getReceiptRepayById(fundReceiptRepayCashDeposit.getReceiptRepayId());
         String orgName = this.ensureOrgName(fundReceiptRepayBaseInfo);
         //20251217付款核销推送-设置业务类型
         String leaseTypeCode = this.getBussnessType(fundReceiptRepayBaseInfo);
@@ -950,12 +951,12 @@ public class BusinessFlowService {
 
     private CQCollectionTypeENUM ensureCollectionType(FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo) {
         if (StrUtil.isBlank(fundReceiptRepayBaseInfo.getFinancingType())) {
-            FundFinancingBaseInfo financingBaseInfo = SpringUtil.getBean(FundFinancingBaseInfoService.class).getById(fundReceiptRepayBaseInfo.getFinancingId());
+            FundFinancingBaseInfo financingBaseInfo = SpringUtil.getBean(FundFacade.class).getFinancingById(fundReceiptRepayBaseInfo.getFinancingId());
             FundFinancingTimeLimitTypeEnum fundFinancingTimeLimitTypeEnum = FundFinancingTimeLimitTypeEnum.find(financingBaseInfo.getTimeLimitType());
             if (Objects.isNull(fundFinancingTimeLimitTypeEnum)) {
                 throw new MithrasException("未定义的期限类型[间融]");
             }
-            List<FundOrganization> fundOrganizationList = SpringUtil.getBean(FundOrganizationService.class).getByFinancingId(financingBaseInfo.getId());
+            List<FundOrganization> fundOrganizationList = SpringUtil.getBean(FundFacade.class).getOrganizationsByFinancingId(financingBaseInfo.getId());
             FundOrganization fundOrganization = fundOrganizationList.get(0);
             if (fundFinancingTimeLimitTypeEnum == FundFinancingTimeLimitTypeEnum.LONG_TERM_LOAN) {
                 if (Objects.equals(fundOrganization.getOrganizationType(), OrganizationType.BANK.name())) {
@@ -970,7 +971,7 @@ public class BusinessFlowService {
                 return CQCollectionTypeENUM.SCENARIO6;
             }
         } else {
-            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).getById(fundReceiptRepayBaseInfo.getFinancingId());
+            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundFacade.class).getDirectFinancingById(fundReceiptRepayBaseInfo.getFinancingId());
             DirectFinancingType directFinancingType = DirectFinancingType.findByName(fundDirectFinancingBaseInfo.getDirectFinancingType());
             if (Objects.isNull(directFinancingType)) {
                 throw new MithrasException("未定义的业务类型[直融]");
@@ -1007,7 +1008,7 @@ public class BusinessFlowService {
         Long financingId = fundReceiptRepayBaseInfo.getFinancingId();
         //空就是间融
         if (StrUtil.isBlank(fundReceiptRepayBaseInfo.getFinancingType())) {
-           // FundFinancingBaseInfo financingBaseInfo = SpringUtil.getBean(FundFinancingBaseInfoService.class).getById(financingId);
+           // FundFinancingBaseInfo financingBaseInfo = SpringUtil.getBean(FundFacade.class).getFinancingById(financingId);
             //查询关联合同明细
             List<FundFinancingPledgeInfo> pledgeInfoList = SpringContextHolder.getBean(FundFinancingPledgeInfoService.class)
                     .list(Wrappers.<FundFinancingPledgeInfo>lambdaQuery()
@@ -1030,7 +1031,7 @@ public class BusinessFlowService {
             return CQBusinessTypeENUM.FINANCE_LEASING.getCode();
         }
         //直融处理
-        //FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).getById(financingId);
+        //FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundFacade.class).getDirectFinancingById(financingId);
         //查询关联合同明细
         List<FundDirectFinancingPledgeInfo> pledgeInfoList = SpringContextHolder.getBean(FundDirectFinancingPledgeInfoService.class)
                 .list(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery()
@@ -1076,17 +1077,17 @@ public class BusinessFlowService {
 
     private String ensureOrgName(FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo) {
         if (StrUtil.isBlank(fundReceiptRepayBaseInfo.getFinancingType())) {
-            List<FundOrganization> fundOrganizationList = SpringUtil.getBean(FundOrganizationService.class).getByFinancingId(fundReceiptRepayBaseInfo.getFinancingId());
+            List<FundOrganization> fundOrganizationList = SpringUtil.getBean(FundFacade.class).getOrganizationsByFinancingId(fundReceiptRepayBaseInfo.getFinancingId());
             return Optional.ofNullable(fundOrganizationList.get(0)).map(FundOrganization::getOrganizationName).orElse(null);
         } else {
-            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).getById(fundReceiptRepayBaseInfo.getFinancingId());
+            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundFacade.class).getDirectFinancingById(fundReceiptRepayBaseInfo.getFinancingId());
             return fundDirectFinancingBaseInfo.getProductName();
         }
     }
 
     private CQPaymentTypeENUM ensureCQPaymentType(FundReceiptRepayBaseInfo fundReceiptRepayBaseInfo, boolean isPrincipal) {
         if (StrUtil.isBlank(fundReceiptRepayBaseInfo.getFinancingType())) {
-            FundFinancingBaseInfo financingBaseInfo = SpringUtil.getBean(FundFinancingBaseInfoService.class).getById(fundReceiptRepayBaseInfo.getFinancingId());
+            FundFinancingBaseInfo financingBaseInfo = SpringUtil.getBean(FundFacade.class).getFinancingById(fundReceiptRepayBaseInfo.getFinancingId());
             FundFinancingTimeLimitTypeEnum fundFinancingTimeLimitTypeEnum = FundFinancingTimeLimitTypeEnum.find(financingBaseInfo.getTimeLimitType());
             if (Objects.isNull(fundFinancingTimeLimitTypeEnum)) {
                 throw new MithrasException("未定义的期限类型[间融]");
@@ -1117,7 +1118,7 @@ public class BusinessFlowService {
                 }
             }
         } else {
-            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundDirectFinancingBaseInfoService.class).getById(fundReceiptRepayBaseInfo.getFinancingId());
+            FundDirectFinancingBaseInfo fundDirectFinancingBaseInfo = SpringUtil.getBean(FundFacade.class).getDirectFinancingById(fundReceiptRepayBaseInfo.getFinancingId());
             DirectFinancingType directFinancingType = DirectFinancingType.findByName(fundDirectFinancingBaseInfo.getDirectFinancingType());
             if (Objects.isNull(directFinancingType)) {
                 throw new MithrasException("未定义的业务类型[直融]");
