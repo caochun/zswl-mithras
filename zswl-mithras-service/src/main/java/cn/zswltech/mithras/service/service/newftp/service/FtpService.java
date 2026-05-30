@@ -27,7 +27,6 @@ import cn.zswltech.mithras.service.enums.projpricing.ProjectManageLevelEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeInfo;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfo;
@@ -110,8 +109,6 @@ public class FtpService {
     private NewFtpQuarterlyBasePricingDraftMapper newFtpQuarterlyBasePricingDraftMapper;
     @Resource
     private NewFtpQuarterlyBasePricingLibHandler newFtpQuarterlyBasePricingLibHandler;
-    @Resource
-    private FundDirectFinancingPledgeInfoService fundDirectFinancingPledgeInfoService;
     @Resource
     private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
     @Resource
@@ -658,7 +655,7 @@ public class FtpService {
             return false;
         }
         boolean isDirectPledge = false;
-        List<FundDirectFinancingPledgeInfo> directFinancingPledgeInfoList = fundDirectFinancingPledgeInfoService.list(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery().in(FundDirectFinancingPledgeInfo::getContractId, contractIds));
+        List<FundDirectFinancingPledgeInfo> directFinancingPledgeInfoList = fundFacade.listDirectPledgeInfo(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery().in(FundDirectFinancingPledgeInfo::getContractId, contractIds));
         if (CollectionUtil.isEmpty(directFinancingPledgeInfoList)) {
             return isDirectPledge;
         }

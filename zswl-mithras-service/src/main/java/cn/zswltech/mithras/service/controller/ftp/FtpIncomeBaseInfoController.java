@@ -8,7 +8,7 @@ import cn.zswltech.mithras.api.ftp.FtpIncomeBaseInfoApi;
 import cn.zswltech.mithras.dto.ftp.*;
 import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
 import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
-import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +27,7 @@ public class FtpIncomeBaseInfoController implements FtpIncomeBaseInfoApi {
     @Resource
     private FtpIncomeBaseInfoService ftpIncomeBaseInfoService;
     @Resource
-    private FundOrganizationService fundOrganizationService;
+    private FundFacade fundFacade;
 
 
     @Override
@@ -51,7 +51,7 @@ public class FtpIncomeBaseInfoController implements FtpIncomeBaseInfoApi {
 
     @Override
     public R<List<FtpIncomeOrganizationListRSP>> organizationList(@Valid FtpIncomeOrganizationListREQ req) {
-        List<FundOrganization> fundOrganizations = fundOrganizationService.listByOrganizationName(req.getOrganizationName());
+        List<FundOrganization> fundOrganizations = fundFacade.getOrganizationsByName(req.getOrganizationName());
         List<FtpIncomeOrganizationListRSP> ftpIncomeOrganizationListRSPS = null;
         if(ObjectUtil.isNotEmpty(fundOrganizations)) {
             ftpIncomeOrganizationListRSPS = BeanUtil.copyToList(fundOrganizations, FtpIncomeOrganizationListRSP.class);

@@ -9,7 +9,6 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
-import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowDetailService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -33,8 +32,6 @@ import java.util.stream.Collectors;
 public class FtpIncomeJob {
 
     @Resource
-    private FundReceiptFlowDetailService fundReceiptFlowDetailService;
-    @Resource
     private FundFacade fundFacade;
     @Resource
     private FtpIncomeBaseInfoService ftpIncomeBaseInfoService;
@@ -51,7 +48,7 @@ public class FtpIncomeJob {
                 targetDateTime = LocalDate.now().minusDays(1);
             }
             //查询昨天核销数据
-            List<FundReceiptFlowDetail> list = fundReceiptFlowDetailService.list(Wrappers.<FundReceiptFlowDetail>lambdaQuery()
+            List<FundReceiptFlowDetail> list = fundFacade.listReceiptFlowDetail(Wrappers.<FundReceiptFlowDetail>lambdaQuery()
                     .ge(FundReceiptFlowDetail::getUpdateTime, targetDateTime));
             if (ObjectUtil.isEmpty(list)) {
                 log.info("ftpIncomeMaintenanceJob 无需处理数据");

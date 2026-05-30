@@ -37,6 +37,7 @@ public interface FundFacade {
     Map<Long, List<FundOrganization>> getOrganizationsBatchByFinancingIds(Collection<Long> financingIds);
     List<FundOrganization> listOrganizations(LambdaQueryWrapper<FundOrganization> wrapper);
     FundOrganization getOneOrganization(LambdaQueryWrapper<FundOrganization> wrapper);
+    List<FundOrganization> getOrganizationsByName(String name);
 
     // ========== FundFinancingBaseInfo ==========
 

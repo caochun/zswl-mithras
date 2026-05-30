@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRep
 import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchFundsLiquidityMetric;
 import cn.zswltech.mithras.service.mapper.workbench.WorkbenchFundsLiquidityMetricMapper;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 import cn.zswltech.mithras.service.util.DateUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -38,7 +38,7 @@ public class WorkbenchFundsLiquidityMetricService
     @Resource
     private CollectionBaseInfoService collectionBaseInfoService;
     @Resource
-    private FundReceiptRepayCashFlowService repayCashFlowService;
+    private FundFacade fundFacade;
 
     public LineBarChartValueVO fundsLiquidityChartRealTime(WorkbenchMetricReq req) {
         LocalDate thisMonth = LocalDate.now().with(TemporalAdjusters.firstDayOfMonth());
@@ -95,7 +95,7 @@ public class WorkbenchFundsLiquidityMetricService
         data.add(rentReceivableData);
         data.add(actualRepaymentData);
         //资金
-        List<FundReceiptRepayCashFlow> repayCashFlows = repayCashFlowService.list(
+        List<FundReceiptRepayCashFlow> repayCashFlows = fundFacade.listCashFlow(
                 Wrappers.<FundReceiptRepayCashFlow>lambdaQuery()
                         .le(FundReceiptRepayCashFlow::getRepayDate, end)
                         .ge(FundReceiptRepayCashFlow::getRepayDate, start));

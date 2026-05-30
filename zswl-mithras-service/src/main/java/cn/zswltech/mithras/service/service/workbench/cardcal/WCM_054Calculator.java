@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.workbench.cardcal;
 
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlow;
-import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -24,7 +24,7 @@ import java.util.List;
 @Component
 public class WCM_054Calculator implements CardCalculator {
     @Resource
-    private FundReceiptRepayCashFlowService receiptRepayCashFlowService;
+    private FundFacade fundFacade;
 
     @Override
     public String metricCode() {
@@ -36,7 +36,7 @@ public class WCM_054Calculator implements CardCalculator {
         LocalDate now = LocalDate.now();
         LocalDate start = now.with(TemporalAdjusters.firstDayOfMonth());
         LocalDate end = start.plusMonths(1).minusDays(1);
-        List<FundReceiptRepayCashFlow> cashFlows = receiptRepayCashFlowService.list(
+        List<FundReceiptRepayCashFlow> cashFlows = fundFacade.listCashFlow(
                 Wrappers.<FundReceiptRepayCashFlow>lambdaQuery()
                         .ge(FundReceiptRepayCashFlow::getRepayDate, start)
                         .le(FundReceiptRepayCashFlow::getRepayDate, end));

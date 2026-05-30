@@ -74,6 +74,9 @@ public class FundFacadeImpl implements FundFacade {
     @Override public FundOrganization getOneOrganization(LambdaQueryWrapper<FundOrganization> wrapper) {
         return fundOrganizationService.getOne(wrapper);
     }
+    @Override public List<FundOrganization> getOrganizationsByName(String name) {
+        return fundOrganizationService.listByOrganizationName(name);
+    }
 
     // ========== FundFinancingBaseInfo ==========
 
