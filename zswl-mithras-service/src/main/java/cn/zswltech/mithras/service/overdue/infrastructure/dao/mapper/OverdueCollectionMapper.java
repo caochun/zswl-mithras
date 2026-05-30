@@ -4,7 +4,6 @@ import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRep
 import cn.zswltech.mithras.service.overdue.application.dto.CollectionListDto;
 import cn.zswltech.mithras.service.overdue.application.query.CollectionPageQuery;
 import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollection;
-import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayListQueryDto;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

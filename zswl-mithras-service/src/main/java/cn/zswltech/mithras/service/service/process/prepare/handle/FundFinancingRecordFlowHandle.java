@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -36,7 +36,7 @@ import static java.lang.String.valueOf;
 public class FundFinancingRecordFlowHandle extends AbstractFlowCommitHandle {
 
     @Resource
-    private FundFinancingBaseInfoService financingBaseInfoService;
+    private FundFacade fundFacade;
     @Resource
     private MaterialsListService materialsListService;
 
@@ -47,7 +47,7 @@ public class FundFinancingRecordFlowHandle extends AbstractFlowCommitHandle {
 
     @Override
     public String commit(CommonProcessPrepare prepare) {
-        FundFinancingBaseInfo financingBaseInfo = financingBaseInfoService.getById(prepare.getBusinessId());
+        FundFinancingBaseInfo financingBaseInfo = fundFacade.getFinancingById(Long.valueOf(prepare.getBusinessId()));
         Assert.notNull(financingBaseInfo, () -> MithrasException.newException("融资数据不存在"));
 
         List<FundFinancingMaterialsEnum> materialsEnumList = FundFinancingMaterialsEnum.getMaterialTypeByFinancingType(financingBaseInfo.getBusinessType());

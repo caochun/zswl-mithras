@@ -11,12 +11,11 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundDirectFinancingMaterialsEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingMaterialsEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
+import cn.zswltech.mithras.service.facade.fund.FundFacade;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -37,7 +36,7 @@ import static java.lang.String.valueOf;
 public class FundDirectFinancingRecordFlowHandle extends AbstractFlowCommitHandle {
 
     @Resource
-    private FundDirectFinancingBaseInfoService directFinancingBaseInfoService;
+    private FundFacade fundFacade;
     @Resource
     private MaterialsListService materialsListService;
 
@@ -48,7 +47,7 @@ public class FundDirectFinancingRecordFlowHandle extends AbstractFlowCommitHandl
 
     @Override
     public String commit(CommonProcessPrepare prepare) {
-        FundDirectFinancingBaseInfo directFinancingBaseInfo = directFinancingBaseInfoService.getById(prepare.getBusinessId());
+        FundDirectFinancingBaseInfo directFinancingBaseInfo = fundFacade.getDirectFinancingById(Long.valueOf(prepare.getBusinessId()));
         Assert.notNull(directFinancingBaseInfo, () -> MithrasException.newException("直融数据不存在"));
 
         List<MaterialsList> materialsList = materialsListService.list(BusinessModuleEnum.FUND_DIRECT_FINANCING.name(),
