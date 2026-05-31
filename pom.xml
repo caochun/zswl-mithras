@@ -54,6 +54,7 @@
         <module>zswl-mithras-domain-third</module>
         <module>zswl-mithras-domain-message</module>
         <module>zswl-mithras-domain-dashboard</module>
+        <module>zswl-mithras-domain-workflow</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
