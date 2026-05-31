@@ -50,6 +50,7 @@
         <module>zswl-mithras-domain-contract</module>
         <module>zswl-mithras-domain-collection</module>
         <module>zswl-mithras-domain-riskcontrol</module>
+        <module>zswl-mithras-domain-workbench</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
