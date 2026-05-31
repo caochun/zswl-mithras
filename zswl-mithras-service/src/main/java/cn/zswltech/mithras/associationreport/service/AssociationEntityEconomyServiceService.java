@@ -37,7 +37,7 @@ public class AssociationEntityEconomyServiceService extends ServiceImpl<Associat
     private String zszlCreditCode;
 
     @Resource
-    protected AssociationReportService associationReportService;
+    protected AssociationReportQueryService associationReportQueryService;
 
     @Resource
     private AssociationEntityEconomyServiceMapper associationEntityEconomyServiceMapper;
@@ -66,7 +66,7 @@ public class AssociationEntityEconomyServiceService extends ServiceImpl<Associat
 
             LambdaQueryWrapper<AssociationReport> associationReportLambdaQueryWrapper = Wrappers.lambdaQuery();
             associationReportLambdaQueryWrapper.eq(AssociationReport::getReportInstanceId, reportInstanceId);
-            AssociationReport associationReport = associationReportService.getOne(associationReportLambdaQueryWrapper);
+            AssociationReport associationReport = associationReportQueryService.findByReportInstanceId(reportInstanceId);
             if (ObjectUtil.isNull(associationReport)) {
                 throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
             }

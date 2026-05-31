@@ -48,7 +48,7 @@ public class AssociationShahChangeInfoService extends ServiceImpl<AssociationSha
     private String zszlCreditCode;
 
     @Resource
-    protected AssociationReportService associationReportService;
+    protected AssociationReportQueryService associationReportQueryService;
 
     public List<AssociationDetailShahChangeInfoRSP> listByReportInstanceId(String reportInstanceId) {
         LambdaQueryWrapper<AssociationShahChangeInfo> query = Wrappers.lambdaQuery();
@@ -122,7 +122,7 @@ public class AssociationShahChangeInfoService extends ServiceImpl<AssociationSha
 
         LambdaQueryWrapper<AssociationReport> associationReportLambdaQueryWrapper = Wrappers.lambdaQuery();
         associationReportLambdaQueryWrapper.eq(AssociationReport::getReportInstanceId, reportInstanceId);
-        AssociationReport associationReport = associationReportService.getOne(associationReportLambdaQueryWrapper);
+        AssociationReport associationReport = associationReportQueryService.findByReportInstanceId(reportInstanceId);
         if (ObjectUtil.isNull(associationReport)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }

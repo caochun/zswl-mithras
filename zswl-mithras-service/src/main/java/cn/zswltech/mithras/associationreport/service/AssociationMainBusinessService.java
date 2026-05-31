@@ -50,7 +50,7 @@ public class AssociationMainBusinessService extends ServiceImpl<AssociationMainB
     private String zszlCreditCode;
 
     @Resource
-    protected AssociationReportService associationReportService;
+    protected AssociationReportQueryService associationReportQueryService;
     public List<AssociationDetailMainBusinessRSP> listByReportInstanceId(String reportInstanceId) {
         LambdaQueryWrapper<AssociationMainBusiness> query = Wrappers.lambdaQuery();
         query.eq(BasicAssociationReport::getReportInstanceId, reportInstanceId);
@@ -115,7 +115,7 @@ public class AssociationMainBusinessService extends ServiceImpl<AssociationMainB
 
         LambdaQueryWrapper<AssociationReport> associationReportLambdaQueryWrapper = Wrappers.lambdaQuery();
         associationReportLambdaQueryWrapper.eq(AssociationReport::getReportInstanceId, reportInstanceId);
-        AssociationReport associationReport = associationReportService.getOne(associationReportLambdaQueryWrapper);
+        AssociationReport associationReport = associationReportQueryService.findByReportInstanceId(reportInstanceId);
         if (ObjectUtil.isNull(associationReport)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }

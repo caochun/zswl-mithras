@@ -37,7 +37,7 @@ public class AssociationBalanceSheetPartialService extends ServiceImpl<Associati
     private String zszlCreditCode;
 
     @Resource
-    protected AssociationReportService associationReportService;
+    protected AssociationReportQueryService associationReportQueryService;
 
     @Resource
     private AssociationBalanceSheetPartialMapper associationBalanceSheetPartialMapper;
@@ -66,7 +66,7 @@ public class AssociationBalanceSheetPartialService extends ServiceImpl<Associati
 
             LambdaQueryWrapper<AssociationReport> associationReportLambdaQueryWrapper = Wrappers.lambdaQuery();
             associationReportLambdaQueryWrapper.eq(AssociationReport::getReportInstanceId, reportInstanceId);
-            AssociationReport associationReport = associationReportService.getOne(associationReportLambdaQueryWrapper);
+            AssociationReport associationReport = associationReportQueryService.findByReportInstanceId(reportInstanceId);
             if (ObjectUtil.isNull(associationReport)) {
                 throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
             }

@@ -41,7 +41,7 @@ public class AssociationTop10ClientConcentrationService extends ServiceImpl<Asso
     private String zszlCreditCode;
 
     @Resource
-    protected AssociationReportService associationReportService;
+    protected AssociationReportQueryService associationReportQueryService;
 
     public List<AssociationDetailTop10ClientConcentrationRSP> listByReportInstanceId(String reportInstanceId) {
         LambdaQueryWrapper<AssociationTop10ClientConcentration> query = Wrappers.lambdaQuery();
@@ -81,7 +81,7 @@ public class AssociationTop10ClientConcentrationService extends ServiceImpl<Asso
 
         LambdaQueryWrapper<AssociationReport> associationReportLambdaQueryWrapper = Wrappers.lambdaQuery();
         associationReportLambdaQueryWrapper.eq(AssociationReport::getReportInstanceId, reportInstanceId);
-        AssociationReport associationReport = associationReportService.getOne(associationReportLambdaQueryWrapper);
+        AssociationReport associationReport = associationReportQueryService.findByReportInstanceId(reportInstanceId);
         if (ObjectUtil.isNull(associationReport)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
