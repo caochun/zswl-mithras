@@ -64,7 +64,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
     private DashboardProjectFinanceStatisticsRSP rentInThisMonthStatisticsFinanceGroup(AccountVO accountVO) {
         DashboardProjectInfoRentThisMonthQuery query = new DashboardProjectInfoRentThisMonthQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         List<DashboardProjectInfoRentThisMonthResult> dbList = dashboardProjectInfoMapper.listRentThisMonth(query);
         DashboardProjectFinanceStatisticsRSP rsp = new DashboardProjectFinanceStatisticsRSP();
         rsp.setGroupCode(DashboardCardGroupEnum.PROJECT_VIEW_FINANCE_RENT_IN_MONTH.name());
@@ -87,7 +87,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
     private DashboardProjectFinanceStatisticsRSP overdueStatisticsFinanceGroup(AccountVO accountVO) {
         DashboardProjectInfoOverdueQuery query = new DashboardProjectInfoOverdueQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         List<DashboardProjectInfoOverdueResult> dbList = dashboardProjectInfoMapper.listOverdue(query);
         DashboardProjectFinanceStatisticsRSP rsp = new DashboardProjectFinanceStatisticsRSP();
         rsp.setGroupCode(DashboardCardGroupEnum.PROJECT_VIEW_FINANCE_OVERDUE.name());
@@ -104,7 +104,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
     private DashboardProjectFinanceStatisticsRSP provisionStatisticsFinanceGroup(AccountVO accountVO) {
         DashboardProvisionQuery query = new DashboardProvisionQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         List<DashboardProvisionResult> dbList = dashboardProjectInfoMapper.listProvision(query);
         DashboardProjectFinanceStatisticsRSP rsp = new DashboardProjectFinanceStatisticsRSP();
         rsp.setGroupCode(DashboardCardGroupEnum.PROJECT_VIEW_FINANCE_PROVISION.name());
@@ -126,7 +126,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
     private DashboardProjectFinanceStatisticsRSP noSettleStatisticsFinanceGroup(AccountVO accountVO) {
         DashboardProjectPayNoSettleQuery query = new DashboardProjectPayNoSettleQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         List<DashboardProjectPayNoSettleResult> dbList = dashboardProjectInfoMapper.listPayNoSettle(query);
         DashboardProjectFinanceStatisticsRSP rsp = new DashboardProjectFinanceStatisticsRSP();
         rsp.setGroupCode(DashboardCardGroupEnum.PROJECT_VIEW_FINANCE_NO_SETTLE.name());
@@ -148,7 +148,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
     private DashboardProjectFinanceStatisticsRSP pledgeStatisticsFinanceGroup(AccountVO accountVO) {
         DashboardProjectPledgeQuery query = new DashboardProjectPledgeQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         List<DashboardProjectPledgeResult> resultList = dashboardProjectInfoMapper.listProjPledge(query);
         this.replacePledgeBankInfo(resultList);
         DashboardProjectFinanceStatisticsRSP rsp = new DashboardProjectFinanceStatisticsRSP();
@@ -201,7 +201,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
         query.setQueryDateTo(query.getQueryDateFrom().plusDays(90));
         query.setAccountVO(accountVO);
         query.setPermissionType(req.getPermissionType());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         List<DashboardProjectInfoSettleInThreeMonthResult> dbList = dashboardProjectInfoMapper.listSettleInThreeMonth(query);
         Set<Long> projReviewIds = new HashSet<>();
         long totalAmount = 0L;
@@ -219,7 +219,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
     private DashboardProjectInfoStatisticsRSP overdueStatistics(AccountVO accountVO, DashboardProjectInfoStatisticsListREQ req) {
         DashboardProjectInfoOverdueQuery query = new DashboardProjectInfoOverdueQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setPermissionType(req.getPermissionType());
         List<DashboardProjectInfoOverdueResult> dbList = dashboardProjectInfoMapper.listOverdue(query);
         Set<Long> projReviewIds = new HashSet<>();
@@ -236,7 +236,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
     private DashboardProjectInfoStatisticsRSP rentInThisMonthStatistics(AccountVO accountVO, DashboardProjectInfoStatisticsListREQ req) {
         DashboardProjectInfoRentThisMonthQuery query = new DashboardProjectInfoRentThisMonthQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setPermissionType(req.getPermissionType());
         List<DashboardProjectInfoRentThisMonthResult> dbList = dashboardProjectInfoMapper.listRentThisMonth(query);
         Set<Long> projReviewIds = new HashSet<>();
@@ -263,7 +263,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
         query.setQueryDateFrom(LocalDate.now());
         query.setQueryDateTo(query.getQueryDateFrom().plusDays(90));
         query.setPermissionType(req.getPermissionType());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setIds(req.getIds());
         SettleInThreeMonSumRSP settleInThreeRsp = new SettleInThreeMonSumRSP();
         List<DashboardProjectInfoSettleInThreeMonthResult> dbList = dashboardProjectInfoMapper.listSettleInThreeMonth(query);
@@ -344,7 +344,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
         query.setBizDeptId(req.getBizDeptId());
         query.setProjSponsorUserId(req.getProjSponsorUserId());
         query.setPermissionType(req.getPermissionType());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setIds(req.getIds());
         List<DashboardProjectInfoOverdueResult> dbList = dashboardProjectInfoMapper.listOverdue(query);
         if (CollectionUtil.isEmpty(dbList)) {
@@ -404,7 +404,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
         query.setBizDeptId(req.getBizDeptId());
         query.setProjSponsorUserId(req.getProjSponsorUserId());
         query.setPermissionType(req.getPermissionType());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setIds(req.getIds());
         List<DashboardProjectInfoRentThisMonthResult> dbList = dashboardProjectInfoMapper.listRentThisMonth(query);
         if (CollectionUtil.isEmpty(dbList)) {
@@ -452,7 +452,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
         this.fillGuarantorInfo(rspList);
         //数量/金额 合计
         DashboardProjectInfoRentThisMonthQuery allQuery = new DashboardProjectInfoRentThisMonthQuery();
-        allQuery.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(allQuery);
         List<DashboardProjectInfoRentThisMonthResult> allList = dashboardProjectInfoMapper.listRentThisMonth(allQuery);
         List<DashboardProjectInfoRentThisMonthRSP> totalList = new ArrayList<>();
         if (CollectionUtil.isNotEmpty(allList)) {
@@ -510,7 +510,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
         query.setBizDeptId(req.getBizDeptId());
         query.setProjSponsorUserId(req.getProjSponsorUserId());
         query.setRegionalProjectClassifyCode(req.getRegionalProjectClassifyCode());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setIds(req.getIds());
         List<DashboardProjectPayNoSettleResult> dbList = dashboardProjectInfoMapper.listPayNoSettle(query);
         if (CollectionUtil.isEmpty(dbList)) {
@@ -563,7 +563,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
         query.setClientId(req.getClientId());
         query.setBizDeptId(req.getBizDeptId());
         query.setContractCode(req.getContractCode());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setIds(req.getIds());
         List<DashboardProvisionResult> dbList = dashboardProjectInfoMapper.listProvision(query);
         if (CollectionUtil.isEmpty(dbList)) {
@@ -616,7 +616,7 @@ public class DashboardProjectInfoService extends DashboardProjectService {
 
     public List<DashboardProjectPledgeRSP> listPledge(DashboardProjectPledgeREQ req) {
         DashboardProjectPledgeQuery query = BeanUtil.copyProperties(req, DashboardProjectPledgeQuery.class);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         List<DashboardProjectPledgeResult> tempList = dashboardProjectInfoMapper.listProjPledge(query);
         this.replacePledgeBankInfo(tempList);
         List<DashboardProjectPledgeResult> resultList = filterNoPledge(tempList);

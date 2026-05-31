@@ -84,7 +84,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
     private DashboardProjectStageStatisticsRSP establishStatistics(DashboardProjectStageStatisticsREQ req, DashboardCardGroupEnum dashboardCardGroupEnum, AccountVO accountVO) {
         DashboardProjectStageEstablishQuery query = new DashboardProjectStageEstablishQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         if (ObjectUtil.isNotEmpty(req)) {
             query.setClientId(req.getClientId());
             query.setPermissionType(req.getPermissionType());
@@ -109,7 +109,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
         DashboardProjectStageReviewQuery query = new DashboardProjectStageReviewQuery();
         query.setViewType(viewType);
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         if (ObjectUtil.isNotEmpty(req)) {
             query.setClientId(req.getClientId());
             query.setPermissionType(req.getPermissionType());
@@ -145,7 +145,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
     private DashboardProjectStageStatisticsRSP contractStatistics(DashboardProjectStageStatisticsREQ req, DashboardCardGroupEnum dashboardCardGroupEnum, AccountVO accountVO) {
         DashboardProjectStageContractQuery query = new DashboardProjectStageContractQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         if (ObjectUtil.isNotEmpty(req)) {
             query.setClientId(req.getClientId());
             query.setPermissionType(req.getPermissionType());
@@ -170,7 +170,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
         DashboardProjectStagePaymentQuery query = new DashboardProjectStagePaymentQuery();
         query.setViewType(viewType);
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         if (ObjectUtil.isNotEmpty(req)) {
             query.setClientId(req.getClientId());
             query.setPermissionType(req.getPermissionType());
@@ -201,7 +201,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
     private DashboardProjectStageStatisticsRSP repaymentStatistics(DashboardProjectStageStatisticsREQ req, DashboardCardGroupEnum dashboardCardGroupEnum, AccountVO accountVO) {
         DashboardProjectStageRepaymentQuery query = new DashboardProjectStageRepaymentQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         if (ObjectUtil.isNotEmpty(req)) {
             query.setClientId(req.getClientId());
             query.setPermissionType(req.getPermissionType());
@@ -286,7 +286,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
         query.setRentBalanceFrom(req.getTotalRentBalanceFrom());
         query.setRentBalanceTo(req.getTotalRentBalanceTo());
         query.setPermissionType(req.getPermissionType());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         return query;
     }
 
@@ -344,7 +344,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
     private DashboardProjectStagePaymentQuery buildQuery(DashboardProjectStagePaymentDetailREQ req) {
         DashboardProjectStagePaymentQuery query = new DashboardProjectStagePaymentQuery();
         query.setAccountVO(AccountUtil.getLoginInfo());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         query.setContractCode(req.getContractCode());
         query.setPaymentStatus(req.getPaymentStatusCode());
@@ -402,7 +402,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
     private DashboardProjectStageContractQuery buildQuery(DashboardProjectStageContractDetailREQ req) {
         DashboardProjectStageContractQuery query = new DashboardProjectStageContractQuery();
         query.setAccountVO(AccountUtil.getLoginInfo());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         query.setProjName(req.getProjName());
         query.setContractCode(req.getContractCode());
@@ -460,7 +460,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
     private DashboardProjectStageReviewQuery buildQuery(DashboardProjectStageReviewDetailREQ req) {
         DashboardProjectStageReviewQuery query = new DashboardProjectStageReviewQuery();
         query.setAccountVO(AccountUtil.getLoginInfo());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         query.setProjName(req.getProjName());
         query.setProjectReviewStatus(req.getProjReviewStatusCode());
@@ -505,7 +505,7 @@ public class DashboardProjectStageService extends DashboardProjectService {
     private DashboardProjectStageEstablishQuery buildQuery(DashboardProjectStageEstablishDetailREQ req) {
         DashboardProjectStageEstablishQuery query = new DashboardProjectStageEstablishQuery();
         query.setAccountVO(AccountUtil.getLoginInfo());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         query.setProjName(req.getProjName());
         query.setProjectEstablishStatus(req.getProjEstablishStatusCode());

@@ -29,7 +29,7 @@ import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.service.service.dashboard.dto.DashboardCorpCommerceInfoLibDto;
+import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardCorpCommerceInfoLibDto;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.util.DashboardOperationUtil;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;

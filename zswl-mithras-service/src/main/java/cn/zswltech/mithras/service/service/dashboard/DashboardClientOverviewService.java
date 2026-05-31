@@ -376,7 +376,7 @@ public class DashboardClientOverviewService {
         st.start("逾期客户");
         DashboardProjectInfoOverdueQuery query = BeanUtil.copyProperties(req, DashboardProjectInfoOverdueQuery.class);
         query.setAccountVO(BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         /*
         List<DashboardProjectInfoOverdueResult> dashboardProjectInfoOverdueResults = getBean(DashboardProjectInfoMapper.class).listOverdue(query);
         if (CollUtil.isEmpty(dashboardProjectInfoOverdueResults)) {

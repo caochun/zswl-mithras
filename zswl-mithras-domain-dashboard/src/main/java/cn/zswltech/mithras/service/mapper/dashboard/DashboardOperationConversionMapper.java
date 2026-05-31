@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.mapper.dashboard;
 
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.service.service.dashboard.dto.DashboardCorpCommerceInfoLibDto;
+import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardCorpCommerceInfoLibDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

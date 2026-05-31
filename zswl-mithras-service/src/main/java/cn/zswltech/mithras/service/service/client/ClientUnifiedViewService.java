@@ -59,6 +59,7 @@ import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientServ
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.contract.ContractService;
+import cn.zswltech.mithras.service.service.dashboard.DashboardAuthQueryHelper;
 import cn.zswltech.mithras.service.service.dashboard.DashboardClientOverviewService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
@@ -444,7 +445,7 @@ public class ClientUnifiedViewService {
     private List<ClientUnifiedProjListRSP> establishStatistics(ClientUnifiedApplyCreditREQ req, DashboardCardGroupEnum dashboardCardGroupEnum, AccountVO accountVO) {
         DashboardProjectStageEstablishQuery query = new DashboardProjectStageEstablishQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         List<DashboardProjectStageEstablishResult> list = dashboardProjectStageMapper.listProjectOverviewEstablishStage(query);
         if (ObjectUtil.isEmpty(list)) {
@@ -470,7 +471,7 @@ public class ClientUnifiedViewService {
         DashboardProjectStageReviewQuery query = new DashboardProjectStageReviewQuery();
         query.setViewType(viewType);
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         List<DashboardProjectStageReviewResult> list = dashboardProjectStageMapper.listProjectOverviewReviewStage(query);
         if (ObjectUtil.isEmpty(list)) {
@@ -495,7 +496,7 @@ public class ClientUnifiedViewService {
     private List<ClientUnifiedProjListRSP> contractStatistics(ClientUnifiedApplyCreditREQ req, DashboardCardGroupEnum dashboardCardGroupEnum, AccountVO accountVO) {
         DashboardProjectStageContractQuery query = new DashboardProjectStageContractQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         List<DashboardProjectStageContractResult> list = dashboardProjectStageMapper.listProjectOverviewContractStage(query);
         if (ObjectUtil.isEmpty(list)) {
@@ -535,7 +536,7 @@ public class ClientUnifiedViewService {
         DashboardProjectStagePaymentQuery query = new DashboardProjectStagePaymentQuery();
         query.setViewType(viewType);
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         List<DashboardProjectStagePaymentResult> list = dashboardProjectStageMapper.listProjectOverviewPaymentStage(query);
         if (ObjectUtil.isEmpty(list)) {
@@ -563,7 +564,7 @@ public class ClientUnifiedViewService {
     private List<ClientUnifiedProjListRSP> repaymentStatistics(ClientUnifiedApplyCreditREQ req, DashboardCardGroupEnum dashboardCardGroupEnum, AccountVO accountVO) {
         DashboardProjectStageRepaymentQuery query = new DashboardProjectStageRepaymentQuery();
         query.setAccountVO(accountVO);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         query.setClientId(req.getClientId());
         List<DashboardProjectStageRepaymentResult> allList = dashboardProjectStageMapper.listProjectOverviewRepaymentStage(query);
         if (ObjectUtil.isEmpty(allList)) {

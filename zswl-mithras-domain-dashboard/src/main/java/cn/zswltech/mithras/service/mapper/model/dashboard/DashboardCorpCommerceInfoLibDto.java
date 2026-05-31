@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.dashboard.dto;
+package cn.zswltech.mithras.service.mapper.model.dashboard;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
