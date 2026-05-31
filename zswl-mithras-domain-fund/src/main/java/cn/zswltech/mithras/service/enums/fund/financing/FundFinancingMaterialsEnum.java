@@ -2,10 +2,8 @@ package cn.zswltech.mithras.service.enums.fund.financing;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.apache.poi.ss.formula.atp.Switch;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -124,7 +122,7 @@ public enum FundFinancingMaterialsEnum implements PullDown, IMaterialsTypeConver
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.FUND_FINANCING.name();
+        return "FUND_FINANCING";
     }
 
     @Override

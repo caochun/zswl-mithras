@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.mapper.model.fund.receiptrepay;
 
-import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -47,7 +46,7 @@ public class FundReceiptFlowPlan extends BaseModelWithLogicDelete {
     private String cashFlowCode;
 
     /**
-     * 现金流类型 {@link FinanceCashFlowItemEnum#name()}
+     * 现金流类型
      */
     @TableField(value = "cash_flow_item")
     private String cashFlowItem;

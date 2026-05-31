@@ -1,10 +1,7 @@
 package cn.zswltech.mithras.service.mapper.model.fund.financing;
 
-import cn.zswltech.mithras.service.enums.contract.LPRTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.LprAdjustmentDayEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.LprArrangeModeEnum;
-import cn.zswltech.mithras.service.enums.projestablish.RateType;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.plugin.IncludeNull;
@@ -63,7 +60,7 @@ public class FundFinancingPlan extends BaseModel implements IEntity {
     @TableField("earnest_money_amount")
     private Long earnestMoneyAmount;
     /**
-     * 还款频率 {@link RepayRateEnum}
+     * 还款频率
      */
     @TableField("repay_frequency")
     private String repayFrequency;
@@ -104,12 +101,12 @@ public class FundFinancingPlan extends BaseModel implements IEntity {
     private Integer ftpYieldRate;
 
     /**
-     * 借款年利率类型 {@link RateType}
+     * 借款年利率类型
      */
     @TableField("interest_rate_type")
     private String interestRateType;
     /**
-     * LPR品种 {@link LPRTypeEnum}
+     * LPR品种
      */
     @TableField("lpr_type")
     private String lprType;

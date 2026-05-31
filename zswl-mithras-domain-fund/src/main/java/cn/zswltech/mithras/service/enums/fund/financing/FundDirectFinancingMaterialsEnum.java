@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.enums.fund.financing;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -46,7 +45,7 @@ public enum FundDirectFinancingMaterialsEnum implements PullDown, IMaterialsType
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.FUND_FINANCING.name();
+        return "FUND_FINANCING";
     }
 
     @Override
