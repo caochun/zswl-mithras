@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.mapper.dto;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.time.LocalDateTime;
