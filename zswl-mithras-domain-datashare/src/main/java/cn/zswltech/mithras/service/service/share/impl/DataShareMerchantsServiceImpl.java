@@ -26,6 +26,7 @@ import java.util.*;
 @Service
 public class DataShareMerchantsServiceImpl extends ServiceImpl<DataShareMerchantsMapper, DataShareMerchants> implements DataShareMerchantsService, InitializingBean {
 
+    private static final String BATCH_GET_SINGLE_USER_CODE = "com.cncico.esb.opr.datashare.getBatchUserInfo.api";
 
     private List<DataShareMerchants> dataList = new ArrayList<>();
 
@@ -49,7 +50,7 @@ public class DataShareMerchantsServiceImpl extends ServiceImpl<DataShareMerchant
     public String getMerchantsMock(MultiValueMap<String, String> paramMap){
         Map map = new HashMap();
         Map data = new HashMap();
-        if(DataShareServiceImpl.BATCH_GET_SINGLE_USER_CODE.equals(paramMap.get("code").get(0))){
+        if(BATCH_GET_SINGLE_USER_CODE.equals(paramMap.get("code").get(0))){
             String body = IoUtil.readUtf8(DataShareMerchantsService.class.getResourceAsStream("/mock/主数据.json"));
             JSONObject o = JSONObject.parseObject(body);
             return o.toJSONString();
