@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.mapper.model;
 
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -81,7 +80,7 @@ public class MaterialsList extends BaseModel implements Serializable, IEntity {
 
     /**
      * 是否被编辑
-     * {@link YesOrNoNumberEnum#getCode()}
+     * 0 否，1 是
      */
     @TableField("is_edit")
     private Integer isEdit;
