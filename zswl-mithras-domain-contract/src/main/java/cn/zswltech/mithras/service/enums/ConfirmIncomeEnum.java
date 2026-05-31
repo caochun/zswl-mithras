@@ -1,12 +1,11 @@
 package cn.zswltech.mithras.service.enums;
 
-import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import com.google.common.base.Joiner;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -34,7 +33,7 @@ public enum ConfirmIncomeEnum implements PullDown {
 
     private static Map<String, ConfirmIncomeEnum> map;
 
-    public static List<String> needPlanCollection = ListUtil.toList(FIRST_RENT.name(), FIRST_INSTALLMENT_INTEREST.name(), COMMISSION.name(), OTHERAMOUNT.name());
+    public static List<String> needPlanCollection = Arrays.asList(FIRST_RENT.name(), FIRST_INSTALLMENT_INTEREST.name(), COMMISSION.name(), OTHERAMOUNT.name());
 
     static {
         map = Stream.of(ConfirmIncomeEnum.values()).collect(Collectors.toMap(ConfirmIncomeEnum::name, e -> e, (k1,k2)->k1));
@@ -55,7 +54,7 @@ public enum ConfirmIncomeEnum implements PullDown {
         for (ConfirmIncomeEnum cashFlowItemEnum : cashFlowItemEnums) {
             allDisplay.add(cashFlowItemEnum.getDisplay());
         }
-        return Joiner.on("，").join(allDisplay);
+        return String.join("，", allDisplay);
     }
 
     public static ConfirmIncomeEnum of(String name) {
