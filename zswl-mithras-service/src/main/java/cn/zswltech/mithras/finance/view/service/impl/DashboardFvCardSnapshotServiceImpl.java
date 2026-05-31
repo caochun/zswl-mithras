@@ -72,7 +72,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
                 log.info("开始生成还本付息快照信息..........");
                 try {
                     DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_REPAY.name());
-                    Long mainId = thisService.generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_REPAY, dataTime, JSONUtil.toJsonStr(rsp));
+                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_REPAY, dataTime, JSONUtil.toJsonStr(rsp));
                     repayPrincipalInterestSnapshotService.generate(mainId, dataTime);
                     // 尝试删除老数据
                     DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_REPAY.name());
@@ -97,7 +97,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
                 log.info("生成授信信息快照信息开始..........");
                 try {
                     DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_CREDIT.name());
-                    Long mainId = thisService.generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_CREDIT, dataTime, JSONUtil.toJsonStr(rsp));
+                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_CREDIT, dataTime, JSONUtil.toJsonStr(rsp));
                     creditInfoSnapshotService.generate(mainId, dataTime);
                     // 尝试删除老数据
                     DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_CREDIT.name());
@@ -116,7 +116,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
                 log.info("生成资金成本快照信息开始..........");
                 try {
                     DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS.name());
-                    Long mainId = thisService.generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS, dataTime, JSONUtil.toJsonStr(rsp));
+                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS, dataTime, JSONUtil.toJsonStr(rsp));
                     financingCostSnapshotService.generate(mainId, dataTime);
                     // 尝试删除老数据
                     DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS.name());
@@ -134,7 +134,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
                 log.info("生成融资信息（存量）快照信息开始..........");
                 try {
                     DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN.name());
-                    Long mainId = thisService.generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN, dataTime, JSONUtil.toJsonStr(rsp));
+                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN, dataTime, JSONUtil.toJsonStr(rsp));
                     financeInfoSnapshotService.generateAll(mainId, dataTime);
                     // 尝试删除老数据
                     DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN.name());
@@ -152,7 +152,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
                 log.info("生成融资信息（当年）快照信息开始");
                 try {
                     DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR.name());
-                    Long mainId = thisService.generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR, dataTime, JSONUtil.toJsonStr(rsp));
+                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR, dataTime, JSONUtil.toJsonStr(rsp));
                     financeInfoSnapshotService.generateYear(mainId, dataTime);
                     // 尝试删除老数据
                     DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR.name());
@@ -169,7 +169,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
                 log.info("生成融资信息（当月）快照信息开始..........");
                 try {
                     DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH.name());
-                    Long mainId = thisService.generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH, dataTime, JSONUtil.toJsonStr(rsp));
+                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH, dataTime, JSONUtil.toJsonStr(rsp));
                     financeInfoSnapshotService.generateMonth(mainId, dataTime);
                     // 尝试删除老数据
                     DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH.name());
@@ -196,15 +196,22 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
         log.info("多线程生成融资视图快照信息完成.........  ");
     }
 
+    private Long generateDashboardFvCardSnapshot(DashboardCardGroupEnum cardGroup,
+                                                 LocalDate dataTime,
+                                                 Object data) {
+        return thisService.generateDashboardFvCardSnapshot(cardGroup.name(), cardGroup.getDisplay(), dataTime, data);
+    }
+
     @Override
     @Transactional(rollbackFor = Throwable.class)
-    public Long generateDashboardFvCardSnapshot(DashboardCardGroupEnum financeViewCardEnum,
+    public Long generateDashboardFvCardSnapshot(String cardCode,
+                                                String cardName,
                                                 LocalDate dataTime,
                                                 Object data) {
         DashboardFvCardSnapshot dashboardFvCardSnapshot = new DashboardFvCardSnapshot();
         dashboardFvCardSnapshot.setDataTime(dataTime);
-        dashboardFvCardSnapshot.setCardCode(financeViewCardEnum.name());
-        dashboardFvCardSnapshot.setCardName(financeViewCardEnum.getDisplay());
+        dashboardFvCardSnapshot.setCardCode(cardCode);
+        dashboardFvCardSnapshot.setCardName(cardName);
         dashboardFvCardSnapshot.setCardData(JSONUtil.toJsonStr(data));
         baseMapper.insert(dashboardFvCardSnapshot);
         return dashboardFvCardSnapshot.getId();
