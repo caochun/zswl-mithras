@@ -1,8 +1,6 @@
 package cn.zswltech.mithras.service.enums.projestablish;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.dashboard.BusinessGroupEnum;
 import lombok.Getter;
 
 import java.util.Map;
