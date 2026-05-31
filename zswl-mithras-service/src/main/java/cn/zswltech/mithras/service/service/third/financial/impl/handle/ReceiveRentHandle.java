@@ -114,7 +114,20 @@ public class ReceiveRentHandle extends FinancialApiHandler<List<CQReceiveRentREQ
             req.getEntry().forEach(paymentBody -> {
                 //新增保存
                 if (ObjectUtil.isNotEmpty(paymentBody) && ObjectUtil.equal(YesOrNoNumberEnum.NO.getCode(), paymentBody.getBilling()) && !syncSet.contains(paymentBody.getRentActualid())) {
-                    addList.add(new SyncCqRecord(paymentBody, req.getContractCode(), req.getSourcebillno()));
+                    addList.add(new SyncCqRecord()
+                            .setContractCode(req.getContractCode())
+                            .setSourcebillno(req.getSourcebillno())
+                            .setRecordId(paymentBody.getRentActualid())
+                            .setRentActualCode(paymentBody.getRentActualCode())
+                            .setLeaseRate(String.valueOf(paymentBody.getLeaseRate()))
+                            .setCico_isinvoice(paymentBody.getCico_isinvoice())
+                            .setDate(paymentBody.getDate())
+                            .setPhase(paymentBody.getPhase())
+                            .setRent(String.valueOf(paymentBody.getRent()))
+                            .setPrincipal(String.valueOf(paymentBody.getPrincipal()))
+                            .setInterest(String.valueOf(paymentBody.getInterest()))
+                            .setLastAmount(String.valueOf(paymentBody.getLastAmount().toString()))
+                            .setChangeState(String.valueOf(paymentBody.getChangeState())));
                 }
             });
         });

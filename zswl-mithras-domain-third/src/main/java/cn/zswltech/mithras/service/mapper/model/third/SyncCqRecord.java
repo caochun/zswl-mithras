@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.mapper.model.third;
 
-import cn.zswltech.mithras.service.service.third.financial.req.CQReceiveRentREQ;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -86,19 +85,4 @@ public class SyncCqRecord {
     public SyncCqRecord() {
     }
 
-    public SyncCqRecord(CQReceiveRentREQ.ReceiveRentBody body, String contractCode, String sourcebillno) {
-        this.setContractCode(contractCode);
-        this.setSourcebillno(sourcebillno);
-        this.setRecordId(body.getRentActualid());
-        this.setRentActualCode(body.getRentActualCode());
-        this.setLeaseRate(String.valueOf(body.getLeaseRate()));
-        this.setCico_isinvoice(body.getCico_isinvoice());
-        this.setDate(body.getDate());
-        this.setPhase(body.getPhase());
-        this.setRent(String.valueOf(body.getRent()));
-        this.setPrincipal(String.valueOf(body.getPrincipal()));
-        this.setInterest(String.valueOf(body.getInterest()));
-        this.setLastAmount(String.valueOf(body.getLastAmount().toString()));
-        this.setChangeState(String.valueOf(body.getChangeState()));
-    }
 }
