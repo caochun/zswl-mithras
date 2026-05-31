@@ -1,11 +1,10 @@
 package cn.zswltech.mithras.service.enums.capital;
 
-import cn.hutool.core.collection.ListUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -60,7 +59,7 @@ public enum FinanceCashFlowItemEnum {
 
     //获取收款类型
     public static List<FinanceCashFlowItemEnum> getCollection() {
-        return ListUtil.toList(FINANCE_FUND, DEPOSIT_RETURN);
+        return Arrays.asList(FINANCE_FUND, DEPOSIT_RETURN);
     }
 
     //获取收款类型
