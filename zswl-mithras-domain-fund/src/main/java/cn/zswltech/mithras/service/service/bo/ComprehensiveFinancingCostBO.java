@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.service.service.bo;
 
-import cn.zswltech.mithras.service.enums.CreditLimitBizTypeEnum;
-import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
 import cn.zswltech.mithras.service.enums.fund.OrganizationType;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import lombok.AllArgsConstructor;
@@ -9,9 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 
 /**
