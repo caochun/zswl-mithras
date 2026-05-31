@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.enums.projestablish;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -42,7 +41,7 @@ public enum ProjEstablishCorporationClientMaterialTypeEnum implements PullDown, 
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.PROJ_ESTABLISH_CLIENT.name();
+        return "PROJ_ESTABLISH_CLIENT";
     }
 
     @Override

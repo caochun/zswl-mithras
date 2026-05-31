@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.enums.projestablish;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.client.CorporationClientMaterialTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -77,7 +76,7 @@ public enum ProjEstablishCorporationClientMaterialSubTypeEnum implements IMateri
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.PROJ_ESTABLISH_CLIENT.name();
+        return "PROJ_ESTABLISH_CLIENT";
     }
 
     @Override
