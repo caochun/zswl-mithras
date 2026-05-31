@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.enums;
 
-import liquibase.pro.packaged.F;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
