@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.enums.financeoverdue;
 
-import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 
@@ -28,7 +27,7 @@ public enum OverduePaymentNumberEnum implements PullDown {
     }
 
     public static OverduePaymentNumberEnum switchCq(String code) {
-        if (ObjectUtil.isEmpty(code) || CashFlowItemEnum.EARNEST_MONEY.name().equals(code) || CashFlowItemEnum.RETENTION_MONEY.name().equals(code)) {
+        if (code == null || code.isEmpty() || CashFlowItemEnum.EARNEST_MONEY.name().equals(code) || CashFlowItemEnum.RETENTION_MONEY.name().equals(code)) {
             return KX09;
         }
         return KX08;
