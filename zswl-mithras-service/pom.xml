@@ -291,6 +291,11 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-domain-collection</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
             <artifactId>gruul-spring-boot-starter</artifactId>
             <version>3.5.2-mithras.RELEASE</version>
             <exclusions>

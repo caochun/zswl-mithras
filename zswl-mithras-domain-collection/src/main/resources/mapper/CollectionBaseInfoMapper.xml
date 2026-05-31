@@ -266,7 +266,6 @@
         ORDER BY sort asc, plan_collection_date desc
     </select>
     <select id="overduePageQuery"
-            parameterType="cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectInfoOverdueQuery"
             resultType="cn.zswltech.mithras.dto.dashboard.DashboardClientOverviewOverdueRSP">
         SELECT c1.client_name                                                                                           AS clientName,
         c1.id                                                                                                    AS clientId,

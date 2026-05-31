@@ -7,7 +7,6 @@ import cn.zswltech.mithras.dto.dashboard.DashboardClientOverviewOverdueRSP;
 import cn.zswltech.mithras.service.mapper.dto.CollectionContractSettleDTO;
 import cn.zswltech.mithras.service.mapper.dto.CollectionNextRentParam;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectInfoOverdueQuery;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.service.bo.DeptRemainingPrincipalBO;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -47,7 +46,7 @@ public interface CollectionBaseInfoMapper extends CustomBaseMapper<CollectionBas
 
     List<CollectionBaseInfo> overdueListWithoutGracePeriod();
 
-    Page<DashboardClientOverviewOverdueRSP> overduePageQuery(Page<DashboardClientOverviewOverdueRSP> overdueRspPage, @Param("query") DashboardProjectInfoOverdueQuery query, @Param("clientIds") Set<Long> clientIds);
+    Page<DashboardClientOverviewOverdueRSP> overduePageQuery(Page<DashboardClientOverviewOverdueRSP> overdueRspPage, @Param("query") Object query, @Param("clientIds") Set<Long> clientIds);
 
     List<CollectionBaseInfo> contractNextRentList(@Param("dto") CollectionNextRentParam req);
 

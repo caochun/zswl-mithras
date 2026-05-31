@@ -48,6 +48,7 @@
         <module>zswl-mithras-domain-budget</module>
         <module>zswl-mithras-domain-client</module>
         <module>zswl-mithras-domain-contract</module>
+        <module>zswl-mithras-domain-collection</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>

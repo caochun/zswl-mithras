@@ -1,9 +1,7 @@
 package cn.zswltech.mithras.service.mapper.model.collection;
 
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.plugin.IncludeNull;
-import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,6 +20,7 @@ import java.time.LocalDate;
 public class CollectionBaseInfo extends BaseModel implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
+    private static final String RENT_CASH_FLOW_ITEM = "RENT";
     /**
      * 收款明细id
      */
@@ -200,8 +199,8 @@ public class CollectionBaseInfo extends BaseModel implements Serializable {
      * @return
      */
     public Long getRemainingPrincipalInterest() {
-        Long planed = LongUtil.null2zero(this.principal) + LongUtil.null2zero(this.interest);
-        Long actual = LongUtil.null2zero(this.collectionPrincipal) + LongUtil.null2zero(this.collectionInterest);
+        Long planed = null2zero(this.principal) + null2zero(this.interest);
+        Long actual = null2zero(this.collectionPrincipal) + null2zero(this.collectionInterest);
         return planed - actual;
     }
 
@@ -246,9 +245,13 @@ public class CollectionBaseInfo extends BaseModel implements Serializable {
 
 
     public Long getReceipt() {
-        if (CashFlowItemEnum.RENT.name().equals(cashFlowItem)) {
-            return Math.min(LongUtil.null2zero(collectionPrincipal), LongUtil.null2zero(principal));
+        if (RENT_CASH_FLOW_ITEM.equals(cashFlowItem)) {
+            return Math.min(null2zero(collectionPrincipal), null2zero(principal));
         }
         return 0L;
+    }
+
+    private Long null2zero(Long num) {
+        return num == null ? 0L : num;
     }
 }
