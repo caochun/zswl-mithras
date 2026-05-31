@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.enums.overdue;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import lombok.Getter;
 
 /**
@@ -48,7 +47,7 @@ public enum LitigationFileType implements PullDown, IMaterialsTypeConvert {
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.LITIGATION_REGISTRATION.name();
+        return "LITIGATION_REGISTRATION";
     }
 
     @Override
