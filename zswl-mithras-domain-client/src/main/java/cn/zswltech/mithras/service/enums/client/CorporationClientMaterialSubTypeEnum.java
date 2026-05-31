@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.enums.client;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -76,7 +75,7 @@ public enum CorporationClientMaterialSubTypeEnum implements IMaterialsTypeConver
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.CLIENT.name();
+        return "CLIENT";
     }
 
     @Override

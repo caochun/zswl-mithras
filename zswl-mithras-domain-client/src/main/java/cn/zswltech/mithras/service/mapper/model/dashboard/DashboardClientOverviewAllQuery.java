@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.dashboard;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,13 +11,14 @@ import java.util.Set;
  * @date 2024/6/18
  * @description
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class DashboardClientOverviewAllQuery extends CommonAuthQuery {
+public class DashboardClientOverviewAllQuery {
     //客户名称
     private String clientName;
     private Long clientId;
     private Set<Long> limitClientIds;
+    private List<Long> authBizDeptIds;
+    private Long authCurrentUserId;
 
     //风控行业分类
     private String riskControlIndustryClassifyCode;

@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.mapper.model.client;
 
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -116,7 +115,7 @@ public class CorpCommerceInfo extends ClientBaseModel implements Serializable {
 
     /**
      * 风控行业分类
-     * {@link RiskControlIndustryClassify#name()}
+     * 风控行业分类枚举名
      **/
     @TableField(value = "risk_control_industry_classify")
     private String riskControlIndustryClassify;

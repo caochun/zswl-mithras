@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.client;
 
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.service.mapper.model.type.handler.ListLongTypeHandler;
