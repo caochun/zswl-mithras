@@ -1,14 +1,11 @@
 package cn.zswltech.mithras.service.mapper.model.riskcontrol;
 
 import cn.zswltech.mithras.service.enums.riskcontrol.AlertState;
-import cn.zswltech.mithras.service.service.riskcontrol.MetricCompartor;
-import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -21,7 +18,7 @@ import java.time.LocalDateTime;
  * @date 2023-02-09
  */
 @Data
-public class RiskControlStrategy implements Serializable, MetricCompartor {
+public class RiskControlStrategy implements Serializable {
 
     private static final long serialVersionUID = 1L;
     /**
@@ -154,13 +151,12 @@ public class RiskControlStrategy implements Serializable, MetricCompartor {
     @TableField("last_limit_waring_time")
     private LocalDate lastLimitWaringTime;
 
-    @Override
     public boolean industryClassifyCanPass(Long thisAmount) {
         boolean result = true;
         if (currentValueOne != null) {
             BigDecimal leftOperand = new BigDecimal(currentValueOne)
                     .multiply(new BigDecimal(100000000L))
-                    .add(new BigDecimal(LongUtil.null2zero(thisAmount)));
+                    .add(new BigDecimal(null2zero(thisAmount)));
             BigDecimal rightOperand = new BigDecimal(limitValueOne)
                     .multiply(new BigDecimal(100000000L));
             if (">=".equals(comparisonMethodOne)) {
@@ -173,7 +169,7 @@ public class RiskControlStrategy implements Serializable, MetricCompartor {
         if (currentValueTwo != null) {
             BigDecimal leftOperand = new BigDecimal(currentValueTwo)
                     .multiply(new BigDecimal(100000000L))
-                    .add(new BigDecimal(LongUtil.null2zero(thisAmount)));
+                    .add(new BigDecimal(null2zero(thisAmount)));
             BigDecimal rightOperand = new BigDecimal(limitValueTwo)
                     .multiply(new BigDecimal(100000000L));
             if (">=".equals(comparisonMethodTwo)) {
@@ -250,8 +246,7 @@ public class RiskControlStrategy implements Serializable, MetricCompartor {
         }
     }
 
-    @Override
-    public AlertState currentAlertState(Long currentValueOne, @Nullable Long currentValueTwo) {
+    public AlertState currentAlertState(Long currentValueOne, Long currentValueTwo) {
         if (limitValueOne == null) {
             return AlertState.NORMAL;
         }
@@ -332,5 +327,9 @@ public class RiskControlStrategy implements Serializable, MetricCompartor {
             earlyWarningValue = earlyWarningValue * 100000000L;
         }
         return earlyWarningValue;
+    }
+
+    private Long null2zero(Long value) {
+        return value == null ? 0L : value;
     }
 }

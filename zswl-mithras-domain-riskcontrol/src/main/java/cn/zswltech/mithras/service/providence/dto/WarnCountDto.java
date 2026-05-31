@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.providence.dto;
 
-import io.swagger.models.auth.In;
 import lombok.Data;
 
 /**
