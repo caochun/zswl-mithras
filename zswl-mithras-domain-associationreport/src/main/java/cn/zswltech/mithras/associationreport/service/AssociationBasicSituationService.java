@@ -5,6 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
+import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
 import cn.zswltech.mithras.associationreport.excel.AssociationBasicSituationModel;
 import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.*;
@@ -16,7 +17,6 @@ import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationBas
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.service.mapper.model.associationreport.BasicAssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -59,7 +59,7 @@ public class AssociationBasicSituationService extends ServiceImpl<AssociationBas
     public void modify(AssociationBasicSituationModifyREQ req) {
         req.setRowNum(1);
         AssociationBasicSituation info = BeanUtil.copyProperties(req, AssociationBasicSituation.class);
-        info.setSetpDate(DateUtil.parseDateTime(req.getSetpDate()));
+        info.setSetpDate(AssociationReportDateUtils.parseDateTime(req.getSetpDate()));
         if(StringUtils.isBlank(info.getUnifSociCredCode())) {//如果统一社会信用代码为空，则取默认配置文件中的统一社会信用代码
             info.setUnifSociCredCode(this.zszlCreditCode);
         }

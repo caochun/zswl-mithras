@@ -5,6 +5,7 @@ import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.factory.mapper.ContractReceiptBottomMapper;
 import cn.zswltech.mithras.factory.model.ContractReceiptBottom;
+import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
 import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportPeriodCategoryEnum;
@@ -15,7 +16,6 @@ import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.service.mapper.model.associationreport.BasicAssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
@@ -159,9 +159,9 @@ public abstract class AbstractDataStore<T extends BasicAssociationReport> implem
 
     protected LocalDate ensureMetricDate(AssociationReport current) {
         if (StrUtil.equals(current.getReportPeriodCategory(), AssociationReportPeriodCategoryEnum.MONTH.name())) {
-            return DateUtil.endOfMonth(LocalDate.of(current.getReportYear(), current.getReportPeriod(), 1));
+            return AssociationReportDateUtils.endOfMonth(LocalDate.of(current.getReportYear(), current.getReportPeriod(), 1));
         } else if (StrUtil.equals(current.getReportPeriodCategory(), AssociationReportPeriodCategoryEnum.QUARTER.name())) {
-            return DateUtil.ensureQuarterLastDay(current.getReportYear(), current.getReportPeriod());
+            return AssociationReportDateUtils.ensureQuarterLastDay(current.getReportYear(), current.getReportPeriod());
         } else {
             throw new MithrasException("该周期类型暂不支持");
         }

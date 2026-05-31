@@ -6,6 +6,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
+import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
 import cn.zswltech.mithras.associationreport.excel.AssociationShahChangeInfoModel;
 import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.*;
@@ -17,7 +18,6 @@ import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationRep
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationShahChangeInfo;
 import cn.zswltech.mithras.service.mapper.model.associationreport.BasicAssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.DateUtil;
 import cn.zswltech.mithras.service.util.UpdateUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -135,7 +135,7 @@ public class AssociationShahChangeInfoService extends ServiceImpl<AssociationSha
 
         List<AssociationShahChangeInfo> newValList = req.stream().map(item -> {
             AssociationShahChangeInfo newVal = BeanUtil.copyProperties(item, AssociationShahChangeInfo.class);
-            newVal.setAprvTime(DateUtil.parseDateTime(item.getAprvTime()));
+            newVal.setAprvTime(AssociationReportDateUtils.parseDateTime(item.getAprvTime()));
             //填充相关属性值
             return newVal;
         }).collect(Collectors.toList());

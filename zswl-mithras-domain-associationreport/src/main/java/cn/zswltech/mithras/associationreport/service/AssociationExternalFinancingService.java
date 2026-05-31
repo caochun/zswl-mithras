@@ -6,6 +6,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
+import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
 import cn.zswltech.mithras.associationreport.excel.AssociationExternalFinancingModel;
 import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.*;
@@ -16,7 +17,6 @@ import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationExt
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.service.mapper.model.associationreport.BasicAssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.DateUtil;
 import cn.zswltech.mithras.service.util.UpdateUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -142,8 +142,8 @@ public class AssociationExternalFinancingService extends ServiceImpl<Association
 
         List<AssociationExternalFinancing> newValList = req.stream().map(item -> {
             AssociationExternalFinancing newVal = BeanUtil.copyProperties(item, AssociationExternalFinancing.class);
-            newVal.setFinLoanDate(DateUtil.parseDateTime(item.getFinLoanDate()));
-            newVal.setFinMatuDate(DateUtil.parseDateTime(item.getFinMatuDate()));
+            newVal.setFinLoanDate(AssociationReportDateUtils.parseDateTime(item.getFinLoanDate()));
+            newVal.setFinMatuDate(AssociationReportDateUtils.parseDateTime(item.getFinMatuDate()));
             return newVal;
         }).collect(Collectors.toList());
 

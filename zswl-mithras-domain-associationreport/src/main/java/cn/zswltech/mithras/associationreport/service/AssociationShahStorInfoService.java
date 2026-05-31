@@ -6,17 +6,18 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
-import cn.zswltech.mithras.associationreport.excel.AssociationSeniorExecutiveInfoModel;
+import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
+import cn.zswltech.mithras.associationreport.excel.AssociationShahStorInfoModel;
 import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationDictionaryCategoryEnum;
-import cn.zswltech.mithras.service.mapper.associationreport.AssociationSeniorExecutiveInfoMapper;
+import cn.zswltech.mithras.service.mapper.associationreport.AssociationShahStorInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
-import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationSeniorExecutiveInfo;
+import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationShahStorInfo;
 import cn.zswltech.mithras.service.mapper.model.associationreport.BasicAssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.DateUtil;
 import cn.zswltech.mithras.service.util.UpdateUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -32,15 +33,16 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
-* @description 高管信息一览表
+* @description 股东股权信息一览表-股东股权信息
 * @author hspcadmin
-* @date 2025-08-26
+* @date 2025-08-25
 */
 @Service
-public class AssociationSeniorExecutiveInfoService  extends ServiceImpl<AssociationSeniorExecutiveInfoMapper, AssociationSeniorExecutiveInfo> implements DeleteData {
+public class AssociationShahStorInfoService extends ServiceImpl<AssociationShahStorInfoMapper, AssociationShahStorInfo> implements DeleteData {
 
     @Value("${association.zlAccount:}")
     private String zszlCreditCode;
@@ -48,63 +50,66 @@ public class AssociationSeniorExecutiveInfoService  extends ServiceImpl<Associat
     @Resource
     protected AssociationReportQueryService associationReportQueryService;
 
-    public List<AssociationDetailSeniorExecutiveInfoRSP> listByReportInstanceId(String reportInstanceId) {
-        LambdaQueryWrapper<AssociationSeniorExecutiveInfo> query = Wrappers.lambdaQuery();
+    public List<AssociationDetailShahStorInfoRSP> listByReportInstanceId(String reportInstanceId) {
+        LambdaQueryWrapper<AssociationShahStorInfo> query = Wrappers.lambdaQuery();
         query.eq(BasicAssociationReport::getReportInstanceId, reportInstanceId);
         query.orderByAsc(BasicAssociationReport::getRowNum);
-        List<AssociationSeniorExecutiveInfo> dbResult = this.list(query);
+        List<AssociationShahStorInfo> dbResult = this.list(query);
         if (CollectionUtil.isEmpty(dbResult)) {
             return Collections.emptyList();
         }
-        List<AssociationDetailSeniorExecutiveInfoRSP> result = BeanUtil.copyToList(dbResult, AssociationDetailSeniorExecutiveInfoRSP.class);
+        List<AssociationDetailShahStorInfoRSP> result = BeanUtil.copyToList(dbResult, AssociationDetailShahStorInfoRSP.class);
         // 枚举转译
         Map<String, Map<String, String>> dictMap = SpringUtil.getBean(AssociationDictionaryService.class).getCode2DisplayMap();
-        for (AssociationDetailSeniorExecutiveInfoRSP rsp : result) {
-            if (StrUtil.isNotBlank(rsp.getCurrDutyCode())) {
-                rsp.setCurrDutyDisplay(dictMap.get(AssociationDictionaryCategoryEnum.PUB00247.name()).get(rsp.getCurrDutyCode()));
+        for (AssociationDetailShahStorInfoRSP rsp : result) {
+            if (StrUtil.isNotBlank(rsp.getShahCharCode())) {
+                rsp.setShahCharDisplay(dictMap.get(AssociationDictionaryCategoryEnum.PTY00021.name()).get(rsp.getShahCharCode()));
             }
-            if (StrUtil.isNotBlank(rsp.getHighEduCode())) {
-                rsp.setHighEduDisplay(dictMap.get(AssociationDictionaryCategoryEnum.DIMLS803.name()).get(rsp.getHighEduCode()));
+            //股东进入方式,是否需要数据字典，待定...
+
+            //股权转让标志,是否需要数据字典，待定...
+            if (StrUtil.isNotBlank(rsp.getStorTranFlag())) {
+                rsp.setStorTranFlagDisplay(Optional.ofNullable(YesOrNoNumberEnum.findByCodeStr(rsp.getStorTranFlag())).map(YesOrNoNumberEnum::getChinese).orElse(null));
             }
 
         }
         return result;
     }
 
-    public List<AssociationSeniorExecutiveInfoModel> listModelByReportInstanceId(String reportInstanceId) {
-        LambdaQueryWrapper<AssociationSeniorExecutiveInfo> query = Wrappers.lambdaQuery();
+    public List<AssociationShahStorInfoModel> listModelByReportInstanceId(String reportInstanceId) {
+        LambdaQueryWrapper<AssociationShahStorInfo> query = Wrappers.lambdaQuery();
         query.eq(BasicAssociationReport::getReportInstanceId, reportInstanceId);
         query.orderByAsc(BasicAssociationReport::getRowNum);
-        List<AssociationSeniorExecutiveInfo> dbResult = this.list(query);
-        return BeanUtil.copyToList(dbResult, AssociationSeniorExecutiveInfoModel.class);
+        List<AssociationShahStorInfo> dbResult = this.list(query);
+        return BeanUtil.copyToList(dbResult, AssociationShahStorInfoModel.class);
     }
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public void deleteByReportInstanceId(String reportInstanceId) {
-        LambdaQueryWrapper<AssociationSeniorExecutiveInfo> query = Wrappers.lambdaQuery();
-        query.eq(AssociationSeniorExecutiveInfo::getReportInstanceId, reportInstanceId);
+        LambdaQueryWrapper<AssociationShahStorInfo> query = Wrappers.lambdaQuery();
+        query.eq(AssociationShahStorInfo::getReportInstanceId, reportInstanceId);
         this.remove(query);
     }
 
     @Transactional(rollbackFor = Throwable.class)
-    public void add(AssociationSeniorExecutiveInfoAddREQ req) {
-        AssociationSeniorExecutiveInfo info = BeanUtil.copyProperties(req, AssociationSeniorExecutiveInfo.class);
+    public void add(AssociationShahStorInfoAddREQ req) {
+        AssociationShahStorInfo info = BeanUtil.copyProperties(req, AssociationShahStorInfo.class);
         this.baseMapper.insert(info);
     }
 
     @Transactional(rollbackFor = Throwable.class)
-    public void modify(AssociationSeniorExecutiveInfoModifyREQ req) {
-        AssociationSeniorExecutiveInfo originalInfo = this.baseMapper.selectById(req.getId());
+    public void modify(AssociationShahStorInfoModifyREQ req) {
+        AssociationShahStorInfo originalInfo = this.baseMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        AssociationSeniorExecutiveInfo info = BeanUtil.copyProperties(req, AssociationSeniorExecutiveInfo.class);
+        AssociationShahStorInfo info = BeanUtil.copyProperties(req, AssociationShahStorInfo.class);
         this.baseMapper.updateById(info);
     }
 
     @Transactional(rollbackFor = Throwable.class)
-    public void modifyBatch(List<AssociationSeniorExecutiveInfoModifyREQ> req){
+    public void modifyBatch(List<AssociationShahStorInfoModifyREQ> req){
         //行号自动生成
         for(int rowNum = 1; rowNum < req.size()+1; rowNum++){
             req.get(rowNum-1).setRowNum(rowNum);
@@ -124,25 +129,25 @@ public class AssociationSeniorExecutiveInfoService  extends ServiceImpl<Associat
 
         String period = AssociationReportPeriodUtils.generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
 
-        LambdaQueryWrapper<AssociationSeniorExecutiveInfo> query = Wrappers.lambdaQuery();
+        LambdaQueryWrapper<AssociationShahStorInfo> query = Wrappers.lambdaQuery();
         query.eq(BasicAssociationReport::getReportInstanceId, reportInstanceId);
-        List<AssociationSeniorExecutiveInfo> oldDbResult = this.list(query);
+        List<AssociationShahStorInfo> oldDbResult = this.list(query);
 
-        List<AssociationSeniorExecutiveInfo> newValList = req.stream().map(item -> {
-            AssociationSeniorExecutiveInfo newVal = BeanUtil.copyProperties(item, AssociationSeniorExecutiveInfo.class);
-            newVal.setAoffTime(DateUtil.parseDateTime(item.getAoffTime()));
+        List<AssociationShahStorInfo> newValList = req.stream().map(item -> {
+            AssociationShahStorInfo newVal = BeanUtil.copyProperties(item, AssociationShahStorInfo.class);
+            newVal.setAprvTime(AssociationReportDateUtils.parseDateTime(item.getAprvTime()));
             //填充相关属性值
             return newVal;
         }).collect(Collectors.toList());
 
-        UpdateUtils.update(oldDbResult, newValList, AssociationSeniorExecutiveInfo::getId,
+        UpdateUtils.update(oldDbResult, newValList, AssociationShahStorInfo::getId,
                 updateEntityList -> {
                     updateEntityList.forEach(e -> {
-                        //填充相关属性值
+                            //填充相关属性值
                     });
                     this.updateBatchById(updateEntityList);
                 },
-                deleteList -> this.baseMapper.deleteBatchIds(deleteList.stream().map(AssociationSeniorExecutiveInfo::getId).collect(Collectors.toList())),
+                deleteList -> this.baseMapper.deleteBatchIds(deleteList.stream().map(AssociationShahStorInfo::getId).collect(Collectors.toList())),
                 addList -> {
                     addList.forEach(e -> {
                         if(StringUtils.isBlank(e.getUnifSociCredCode())) {//如果统一社会信用代码为空，则取默认配置文件中的统一社会信用代码
@@ -159,13 +164,13 @@ public class AssociationSeniorExecutiveInfoService  extends ServiceImpl<Associat
         );
     }
 
-    public Page<AssociationSeniorExecutiveInfo> list(AssociationSeniorExecutiveInfoListREQ req) {
+    public Page<AssociationShahStorInfo> list(AssociationShahStorInfoListREQ req) {
         return null;
     }
 
     @Transactional(rollbackFor = Throwable.class)
-    public void remove(AssociationSeniorExecutiveInfoRemoveREQ req) {
-        AssociationSeniorExecutiveInfo originalInfo = this.baseMapper.selectById(req.getId());
+    public void remove(AssociationShahStorInfoRemoveREQ req) {
+        AssociationShahStorInfo originalInfo = this.baseMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
