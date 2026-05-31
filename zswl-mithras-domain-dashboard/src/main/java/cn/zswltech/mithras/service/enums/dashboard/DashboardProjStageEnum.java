@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.enums.dashboard;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.trackEvent.TrackTaskBizSourceEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
