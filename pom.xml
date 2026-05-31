@@ -21,6 +21,7 @@
         <module>zswl-mithras-domain-log</module>
         <module>zswl-mithras-domain-async</module>
         <module>zswl-mithras-domain-associationreport</module>
+        <module>zswl-mithras-domain-kpi</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
@@ -41,6 +42,11 @@
                 <groupId>cn.zswltech.lib</groupId>
                 <artifactId>crypto-open-starter</artifactId>
                 <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>QLExpress</artifactId>
+                <version>3.3.1</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
