@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.service.mapper.groupcreditestablish;
 import cn.zswltech.mithras.service.mapper.dto.GroupCreditEstablishListSelectDTO;
-import cn.zswltech.mithras.service.mapper.dto.ProjEstablishListSelectDTO;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.service.mapper.model.groupcreditestablish.GroupCreditEstablishBaseInfo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

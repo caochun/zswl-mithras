@@ -3,7 +3,6 @@ package cn.zswltech.mithras.service.enums.groupcreditreview;
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
 import cn.zswltech.mithras.service.constant.FlowConstants;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

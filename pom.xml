@@ -33,6 +33,7 @@
         <module>zswl-mithras-domain-margin</module>
         <module>zswl-mithras-domain-projlifecycle</module>
         <module>zswl-mithras-domain-policy</module>
+        <module>zswl-mithras-domain-groupcredit</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
