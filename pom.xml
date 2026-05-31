@@ -37,6 +37,7 @@
         <module>zswl-mithras-domain-monthly</module>
         <module>zswl-mithras-domain-assetclassify</module>
         <module>zswl-mithras-domain-liquiditymanage</module>
+        <module>zswl-mithras-domain-filingmaterials</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
