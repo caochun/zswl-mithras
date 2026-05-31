@@ -3,7 +3,6 @@ package cn.zswltech.mithras.service.util;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.others.Util;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -27,7 +26,10 @@ public class LongUtil {
         if (num == null) {
             return 0L;
         }
-        return Util.mithrasLong2BigDecimal(num).setScale(2, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(10000)).longValue();
+        return BigDecimal.valueOf(num)
+                .divide(BigDecimal.valueOf(10000), 2, RoundingMode.HALF_UP)
+                .multiply(BigDecimal.valueOf(10000))
+                .longValue();
     }
 
     public static Integer null2zero(Integer num) {
