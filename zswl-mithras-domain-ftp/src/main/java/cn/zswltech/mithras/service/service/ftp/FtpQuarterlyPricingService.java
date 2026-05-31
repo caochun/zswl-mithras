@@ -3,7 +3,6 @@ package cn.zswltech.mithras.service.service.ftp;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.mapper.model.ftp.*;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import liquibase.pro.packaged.F;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
