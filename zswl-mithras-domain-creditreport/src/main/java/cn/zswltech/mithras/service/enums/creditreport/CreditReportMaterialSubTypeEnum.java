@@ -1,8 +1,6 @@
 package cn.zswltech.mithras.service.enums.creditreport;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.client.CorporationClientMaterialTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -28,6 +26,7 @@ public enum CreditReportMaterialSubTypeEnum implements IMaterialsTypeConvert {
     LEGAL_REPRESENTATIVE_ID_CARD_NEGATIVE_HANDLER(CreditReportMaterialTypeEnum.HANDLER_CREDIT_REPORT, "法人身份证复印件(反面)"),
     ;
 
+    private static final String BUSINESS_MODULE = "CREDIT_REPORT_SELECT";
 
     private final CreditReportMaterialTypeEnum parentType;
     private final String display;
@@ -48,7 +47,7 @@ public enum CreditReportMaterialSubTypeEnum implements IMaterialsTypeConvert {
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.CREDIT_REPORT_SELECT.name();
+        return BUSINESS_MODULE;
     }
 
     @Override

@@ -1,8 +1,5 @@
 package cn.zswltech.mithras.service.enums.creditreport;
 
-import cn.zswltech.mithras.service.enums.contract.ContractChangeMaterialEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractExtraFileTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
