@@ -1,9 +1,6 @@
 package cn.zswltech.mithras.service.enums.afterlease;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 import java.util.Map;
 import java.util.stream.Collectors;

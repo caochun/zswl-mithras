@@ -26,6 +26,7 @@ import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardClientAfterLeaseCheckQuery;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
@@ -85,7 +86,7 @@ public class DashboardAfterLeaseService {
         objectPage.setCurrent(1);
         objectPage.setSize(5000);
         DashboardClientAfterLeaseCheckQuery query = BeanUtil.copyProperties(req, DashboardClientAfterLeaseCheckQuery.class);
-        query.fillAuthQuery();
+        fillAuthQuery(query, currentUser);
         query.setProjSponsorUserId(currentUser.getId());
         Page<DashboardClientAfterLeaseCheckRSP> checkPlanBasePage = afterLeaseCheckPlanBaseMapper.pageList(objectPage, query);
         if (ObjectUtil.isEmpty(checkPlanBasePage.getRecords())) {
@@ -104,6 +105,18 @@ public class DashboardAfterLeaseService {
             one.setBizDeptName(deptId2NameMap.get(one.getBizDeptId()));
         });
         return BeanUtil.copyToList(checkPlanBasePage.getRecords(), DashboardAfterLeaseCheckRSP.class);
+    }
+
+    private void fillAuthQuery(DashboardClientAfterLeaseCheckQuery query, AccountVO currentUser) {
+        List<Long> viewDeptIds = getBean(SysUserService.class).canViewDeptIds(currentUser);
+        if (viewDeptIds == null) {
+            return;
+        }
+        if (viewDeptIds.isEmpty()) {
+            query.setAuthCurrentUserId(currentUser.getId());
+        } else {
+            query.setAuthBizDeptIds(viewDeptIds);
+        }
     }
 
     //待发起数据

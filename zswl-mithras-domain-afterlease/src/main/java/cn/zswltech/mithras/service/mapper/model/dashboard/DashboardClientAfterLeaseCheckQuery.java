@@ -2,7 +2,8 @@ package cn.zswltech.mithras.service.mapper.model.dashboard;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 /**
  * @author yangxiong
@@ -10,8 +11,17 @@ import lombok.EqualsAndHashCode;
  * @description
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class DashboardClientAfterLeaseCheckQuery extends CommonAuthQuery {
+public class DashboardClientAfterLeaseCheckQuery {
+    private List<Long> authBizDeptIds;
+    private Long authCurrentUserId;
+    private Integer start = 0;
+    private Integer limit = 20;
+
+    public void fillLimitQuery(int page, int pageSize) {
+        start = (page - 1) * pageSize;
+        limit = pageSize;
+    }
+
 
     @ApiModelProperty(value = "客户id")
     private String clientId;
