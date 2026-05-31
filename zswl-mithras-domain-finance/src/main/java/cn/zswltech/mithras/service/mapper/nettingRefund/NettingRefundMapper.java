@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.mapper.nettingRefund;
 
 import cn.zswltech.mithras.service.mapper.model.nettingRefund.NettingRefund;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
