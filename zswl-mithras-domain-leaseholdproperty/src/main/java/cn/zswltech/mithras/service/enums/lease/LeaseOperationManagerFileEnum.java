@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.enums.lease;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.MaterialsType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -19,8 +18,8 @@ public enum LeaseOperationManagerFileEnum implements PullDown, IMaterialsTypeCon
     public final String display;
     public final Integer order;
 
-    public static MaterialsType of(String code) {
-        for (MaterialsType value : MaterialsType.values()) {
+    public static LeaseOperationManagerFileEnum of(String code) {
+        for (LeaseOperationManagerFileEnum value : LeaseOperationManagerFileEnum.values()) {
             if (value.name().equals(code)) {
                 return value;
             }

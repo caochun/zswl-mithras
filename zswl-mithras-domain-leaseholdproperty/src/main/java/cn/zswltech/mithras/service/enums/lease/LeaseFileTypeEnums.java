@@ -2,8 +2,6 @@ package cn.zswltech.mithras.service.enums.lease;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.MaterialsType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -29,8 +27,8 @@ public enum LeaseFileTypeEnums implements PullDown, IMaterialsTypeConvert {
     public final String display;
     public final Integer order;
 
-    public static MaterialsType of(String code) {
-        for (MaterialsType value : MaterialsType.values()) {
+    public static LeaseFileTypeEnums of(String code) {
+        for (LeaseFileTypeEnums value : LeaseFileTypeEnums.values()) {
             if (value.name().equals(code)) {
                 return value;
             }
@@ -40,7 +38,7 @@ public enum LeaseFileTypeEnums implements PullDown, IMaterialsTypeConvert {
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.LEASE_DATA_LIST.name();
+        return "LEASE_DATA_LIST";
     }
 
     @Override

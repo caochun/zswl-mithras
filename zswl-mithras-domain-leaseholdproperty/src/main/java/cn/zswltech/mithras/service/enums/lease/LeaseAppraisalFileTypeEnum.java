@@ -2,8 +2,6 @@ package cn.zswltech.mithras.service.enums.lease;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.MaterialsType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -31,7 +29,7 @@ public enum LeaseAppraisalFileTypeEnum implements PullDown, IMaterialsTypeConver
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.LEASE_APPRAISAL_DATA_LIST.name();
+        return "LEASE_APPRAISAL_DATA_LIST";
     }
 
     @Override
