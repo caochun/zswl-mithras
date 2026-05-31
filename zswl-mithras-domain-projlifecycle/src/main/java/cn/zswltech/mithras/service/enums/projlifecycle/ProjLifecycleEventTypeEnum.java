@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.enums.projlifecycle;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 
 /**
  * @create: 2022-10-26
