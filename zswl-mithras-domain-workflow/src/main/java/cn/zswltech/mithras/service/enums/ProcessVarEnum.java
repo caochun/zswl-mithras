@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.enums;
 
-import cn.zswltech.mithras.service.enums.projreview.ProjectType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
