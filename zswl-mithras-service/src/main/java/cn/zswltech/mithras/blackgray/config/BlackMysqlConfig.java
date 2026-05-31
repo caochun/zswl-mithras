@@ -89,7 +89,7 @@ public class BlackMysqlConfig {
     public Resource[] resolveMapperLocations() {
         ResourcePatternResolver resourceResolver = new PathMatchingResourcePatternResolver();
         List<String> mapperLocations = new ArrayList<>();
-        mapperLocations.add("classpath*:mapper/*.xml");
+        mapperLocations.add("classpath*:blackgray/mapper/*.xml");
         List<Resource> resources = new ArrayList();
         if (!CollectionUtils.isEmpty(mapperLocations)) {
             for (String mapperLocation : mapperLocations) {

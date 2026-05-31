@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.blackgray.enums;
 
-import cn.zswltech.decision.engine.api.common.dto.DictionaryDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

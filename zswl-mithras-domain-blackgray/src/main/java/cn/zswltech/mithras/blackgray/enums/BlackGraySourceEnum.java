@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.blackgray.enums;
 
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.decision.engine.api.common.dto.DictionaryDTO;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
