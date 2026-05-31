@@ -35,6 +35,7 @@
         <module>zswl-mithras-domain-policy</module>
         <module>zswl-mithras-domain-groupcredit</module>
         <module>zswl-mithras-domain-monthly</module>
+        <module>zswl-mithras-domain-assetclassify</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
