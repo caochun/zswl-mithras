@@ -16,6 +16,7 @@
         <module>zswl-mithras-service-core</module>
         <module>zswl-mithras-domain-creditreport</module>
         <module>zswl-mithras-domain-xinsight</module>
+        <module>zswl-mithras-domain-ep</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
