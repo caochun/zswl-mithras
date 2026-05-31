@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -157,12 +156,12 @@ public enum TycJudicialTypeStateEnum {
 
     public static TycJudicialTypeStateEnum getByVal(String val) {
         // 去除空格并把中文｜转成英文|
-        String tVal = StringUtils.isBlank(val) ? "" : val.trim().replaceAll("｜", "|");
+        String tVal = isBlank(val) ? "" : val.trim().replaceAll("｜", "|");
         return map.getOrDefault(tVal, DEFAULT);
     }
 
     public String getType(String val) {
-        if (StringUtils.isBlank(val)) {
+        if (isBlank(val)) {
             return "";
         }
         String[] ss = val.split("\\|");
@@ -170,11 +169,15 @@ public enum TycJudicialTypeStateEnum {
     }
 
     public String getState(String val) {
-        if (StringUtils.isBlank(val)) {
+        if (isBlank(val)) {
             return "";
         }
         String[] ss = val.split("\\|");
         return ss.length > 1 ? ss[1] : "";
+    }
+
+    private static boolean isBlank(String val) {
+        return val == null || val.trim().isEmpty();
     }
 
 }
