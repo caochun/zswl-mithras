@@ -58,6 +58,7 @@
         <module>zswl-mithras-domain-document</module>
         <module>zswl-mithras-domain-creditlimit</module>
         <module>zswl-mithras-domain-metric</module>
+        <module>zswl-mithras-domain-system</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
