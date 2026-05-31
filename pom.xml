@@ -13,6 +13,7 @@
     <version>${revision}</version>
     <modules>
         <module>zswl-mithras-api</module>
+        <module>zswl-mithras-service-core</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
