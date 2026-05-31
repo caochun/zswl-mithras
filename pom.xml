@@ -26,6 +26,7 @@
         <module>zswl-mithras-domain-blackgray</module>
         <module>zswl-mithras-domain-finance</module>
         <module>zswl-mithras-domain-fund-direct</module>
+        <module>zswl-mithras-domain-leaseholdproperty</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
