@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.enums.rating;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.trackEvent.TrackEventMaterialsEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
