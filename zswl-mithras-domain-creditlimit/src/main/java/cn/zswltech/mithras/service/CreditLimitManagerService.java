@@ -11,8 +11,8 @@ import cn.zswltech.mithras.service.mapper.model.CreditBusinessRef;
 import cn.zswltech.mithras.service.mapper.model.CreditLimit;
 import cn.zswltech.mithras.service.mapper.model.CreditLimitChangeRecord;
 import cn.zswltech.mithras.service.mapper.model.CreditLimitDetail;
+import cn.zswltech.mithras.service.others.LackDataException;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.CreditBusinessRefService;
 import cn.zswltech.mithras.service.service.bo.*;
 import cn.zswltech.mithras.service.util.LongUtil;
@@ -23,6 +23,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
@@ -50,7 +52,7 @@ public class CreditLimitManagerService {
     public void create(CreditLimitCreateBO creditLimitCreateBO) {
         log.info("授信额度管理-创建额度[{}]", JSONUtil.toJsonStr(creditLimitCreateBO));
         // 校验
-        Util.validate(creditLimitCreateBO);
+        validate(creditLimitCreateBO);
         long sum = creditLimitCreateBO.getGuaranteeLimit() + creditLimitCreateBO.getCreditLimit();
         Assert.isTrue(creditLimitCreateBO.getTotalLimit() == sum, () -> MithrasException.newException("担保额度加信用额度不等于总额度"));
         // 保证只有一个生效的授信，先失效其他的
@@ -111,7 +113,7 @@ public class CreditLimitManagerService {
 
     public void modify(CreditLimitModifyBO creditLimitModifyBO) {
         log.info("授信额度管理-修改额度[{}]", JSONUtil.toJsonStr(creditLimitModifyBO));
-        Util.validate(creditLimitModifyBO);
+        validate(creditLimitModifyBO);
         long sum = creditLimitModifyBO.getGuaranteeLimit() + creditLimitModifyBO.getCreditLimit();
         Assert.isTrue(creditLimitModifyBO.getTotalLimit() == sum, () -> MithrasException.newException("担保额度加信用额度不等于总额度"));
         CreditLimit creditLimit = creditLimitService.findByThreeKeys(creditLimitModifyBO.getBizType(), creditLimitModifyBO.getGrantSubjectKey(), creditLimitModifyBO.getBizSourceKey());
@@ -130,7 +132,7 @@ public class CreditLimitManagerService {
     @Transactional(rollbackFor = Throwable.class)
     public void occupy(CreditLimitOccupyBO creditLimitOccupyBO) {
         log.info("授信额度管理-占用额度[{}]", JSONUtil.toJsonStr(creditLimitOccupyBO));
-        Util.validate(creditLimitOccupyBO);
+        validate(creditLimitOccupyBO);
         if (creditLimitOccupyBO.getAmount() < creditLimitOccupyBO.getGuaranteeAmount()) {
             throw new MithrasException("占用担保额度不能大于占用额度");
         }
@@ -180,7 +182,7 @@ public class CreditLimitManagerService {
 
     public void release(CreditLimitReleaseBO creditLimitReleaseBO) {
         log.info("授信额度管理-释放额度[{}]", JSONUtil.toJsonStr(creditLimitReleaseBO));
-        Util.validate(creditLimitReleaseBO);
+        validate(creditLimitReleaseBO);
         // 找到占用机构明细
         List<CreditLimitDetail> creditLimitDetailList = creditLimitDetailService.listByBizTargetKey(creditLimitReleaseBO.getBizType(), creditLimitReleaseBO.getBizTargetKey());
         if (CollectionUtil.isEmpty(creditLimitDetailList)) {
@@ -218,11 +220,11 @@ public class CreditLimitManagerService {
             // 按各机构占用比例拆分
             BigDecimal rate = BigDecimal.valueOf(entry.getValue().getOccupyTotalLimit()).divide(BigDecimal.valueOf(totalOccupy), 20, RoundingMode.HALF_UP);
             BigDecimal releaseAmountBD = BigDecimal.valueOf(creditLimitReleaseBO.getAmount()).multiply(rate);
-            releaseAmount = Util.mithrasLongDecimalTwo(releaseAmountBD.longValue());
+            releaseAmount = mithrasLongDecimalTwo(releaseAmountBD.longValue());
             // 如果有担保占用需要拆出释放了多少担保额度
             if (Objects.nonNull(creditLimitDetail.getOccupyGuaranteeLimit()) && creditLimitDetail.getOccupyGuaranteeLimit() > 0) {
                 BigDecimal releaseGuaranteeAmountBD = releaseAmountBD.multiply(BigDecimal.valueOf(creditLimitDetail.getOccupyGuaranteeLimit()).divide(BigDecimal.valueOf(creditLimitDetail.getOccupyTotalLimit()), 20, RoundingMode.HALF_UP));
-                releaseGuaranteeAmount = Util.mithrasLongDecimalTwo(releaseGuaranteeAmountBD.longValue());
+                releaseGuaranteeAmount = mithrasLongDecimalTwo(releaseGuaranteeAmountBD.longValue());
             }
             // 更新授信信息
             CreditLimit update = BeanUtil.copyProperties(creditLimit, CreditLimit.class);
@@ -264,12 +266,12 @@ public class CreditLimitManagerService {
 
     public void expire(CreditLimitExpireBO creditLimitExpireBO) {
         log.info("授信额度管理-失效额度[{}]", JSONUtil.toJsonStr(creditLimitExpireBO));
-        Util.validate(creditLimitExpireBO);
+        validate(creditLimitExpireBO);
         creditLimitService.expire(creditLimitExpireBO.getBizType(), creditLimitExpireBO.getGrantSubjectKey(), creditLimitExpireBO.getBizSourceKey());
     }
 
     public CreditLimitDetailBO querySingle(CreditLimitQueryBO creditLimitQueryBO, boolean hasOccupyDetailList) {
-        Util.validate(creditLimitQueryBO);
+        validate(creditLimitQueryBO);
         List<CreditLimitQueryBO> query = Collections.singletonList(creditLimitQueryBO);
         List<CreditLimitDetailBO> list = this.queryBatch(query, hasOccupyDetailList);
         if (CollectionUtil.isEmpty(list)) {
@@ -279,7 +281,7 @@ public class CreditLimitManagerService {
     }
 
     public List<CreditLimitDetailBO> queryBatch(List<CreditLimitQueryBO> creditLimitQueryBOList, boolean hasOccupyDetailList) {
-        creditLimitQueryBOList.forEach(Util::validate);
+        creditLimitQueryBOList.forEach(this::validate);
         List<String> queryKeyList = creditLimitQueryBOList.stream().map(e -> generateQueryKey(e.getBizType(), e.getGrantSubjectKey(), e.getBizSourceKey())).collect(Collectors.toList());
         LambdaQueryWrapper<CreditLimit> query = Wrappers.lambdaQuery();
         query.in(CreditLimit::getQueryKey, queryKeyList);
@@ -423,5 +425,24 @@ public class CreditLimitManagerService {
 
     private String generateQueryKey(String bizType, String grantingSubjectKey, String sourceOrTargetKey) {
         return bizType + "@" + grantingSubjectKey + "@" + sourceOrTargetKey;
+    }
+
+    private void validate(Object object) {
+        Set<ConstraintViolation<Object>> validateResult = Validation.buildDefaultValidatorFactory().getValidator().validate(object);
+        if (!validateResult.isEmpty()) {
+            for (ConstraintViolation<Object> constraintViolation : validateResult) {
+                throw new LackDataException(String.format("%s[%s]", constraintViolation.getMessage(), constraintViolation.getPropertyPath()));
+            }
+        }
+    }
+
+    private Long mithrasLongDecimalTwo(Long value) {
+        if (Objects.isNull(value)) {
+            return null;
+        }
+        return BigDecimal.valueOf(value).divide(BigDecimal.valueOf(10000L))
+                .setScale(2, RoundingMode.HALF_UP)
+                .multiply(BigDecimal.valueOf(10000L))
+                .longValue();
     }
 }
