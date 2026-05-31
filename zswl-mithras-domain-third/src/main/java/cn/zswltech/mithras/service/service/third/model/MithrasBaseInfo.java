@@ -11,14 +11,13 @@ import lombok.experimental.Accessors;
 import java.time.LocalDate;
 import java.util.List;
 
-import static cn.zswltech.mithras.service.others.Const.ENUM_TYC_PROVINCE;
-
 /**
  * @author luyi
  */
 @Data
 @Accessors(chain = true)
 public class MithrasBaseInfo {
+    private static final String ENUM_TYC_PROVINCE = "tycProvince";
 
     @ApiModelProperty("是否三证合一")
     private Boolean tripleCertInOne;

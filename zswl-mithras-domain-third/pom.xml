@@ -28,6 +28,11 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-domain-basedata</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <scope>provided</scope>
@@ -50,6 +55,34 @@
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech.flow</groupId>
+            <artifactId>core</artifactId>
+            <version>1.5.11-mithras-RELEASE</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.flywaydb</groupId>
+                    <artifactId>flyway-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.qiyuesuo.sdk</groupId>
+            <artifactId>private-java-sdk</artifactId>
+            <version>4.3.4</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
