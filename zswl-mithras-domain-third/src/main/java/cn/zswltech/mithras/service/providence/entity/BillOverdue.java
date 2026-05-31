@@ -7,8 +7,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Id;
-
 /**
  * @author Jim
  * @version 1.0.0
