@@ -26,6 +26,6 @@
     "mock",
     "dist",
     "bundle_dist",
-    "zswl-mithras-react"
+    "mithras-react"
   ]
 }
