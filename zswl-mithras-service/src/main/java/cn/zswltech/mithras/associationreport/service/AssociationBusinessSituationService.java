@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
 import cn.zswltech.mithras.associationreport.excel.AssociationBusinessSituationModel;
-import cn.zswltech.mithras.associationreport.storedata.AbstractDataStore;
+import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationBusinessSituationMapper;
@@ -71,7 +71,7 @@ public class AssociationBusinessSituationService extends ServiceImpl<Association
                 throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
             }
 
-            String period = AbstractDataStore.generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
+            String period = AssociationReportPeriodUtils.generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
             if(StringUtils.isBlank(info.getUnifSociCredCode())) {//如果统一社会信用代码为空，则取默认配置文件中的统一社会信用代码
                 info.setUnifSociCredCode(this.zszlCreditCode);
             }

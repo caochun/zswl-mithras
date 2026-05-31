@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
 import cn.zswltech.mithras.associationreport.excel.AssociationTop10ClientConcentrationModel;
-import cn.zswltech.mithras.associationreport.storedata.AbstractDataStore;
+import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.AssociationDetailTop10ClientConcentrationRSP;
 import cn.zswltech.mithras.dto.associationreport.AssociationTop10ClientConcentrationModifyREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
@@ -86,7 +86,7 @@ public class AssociationTop10ClientConcentrationService extends ServiceImpl<Asso
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
 
-        String period = AbstractDataStore.generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
+        String period = AssociationReportPeriodUtils.generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
 
         LambdaQueryWrapper<AssociationTop10ClientConcentration> query = Wrappers.lambdaQuery();
         query.eq(BasicAssociationReport::getReportInstanceId, reportInstanceId);

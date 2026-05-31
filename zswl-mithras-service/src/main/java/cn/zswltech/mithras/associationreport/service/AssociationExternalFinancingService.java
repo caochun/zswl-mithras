@@ -7,7 +7,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
 import cn.zswltech.mithras.associationreport.excel.AssociationExternalFinancingModel;
-import cn.zswltech.mithras.associationreport.storedata.AbstractDataStore;
+import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationDictionaryCategoryEnum;
@@ -134,7 +134,7 @@ public class AssociationExternalFinancingService extends ServiceImpl<Association
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
 
-        String period = AbstractDataStore.generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
+        String period = AssociationReportPeriodUtils.generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
 
         LambdaQueryWrapper<AssociationExternalFinancing> query = Wrappers.lambdaQuery();
         query.eq(BasicAssociationReport::getReportInstanceId, reportInstanceId);
