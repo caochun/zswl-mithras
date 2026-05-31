@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.liquiditymanage.bo;
 
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexModifyREQ;
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityColorEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
