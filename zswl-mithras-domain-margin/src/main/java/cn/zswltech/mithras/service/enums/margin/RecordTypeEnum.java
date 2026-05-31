@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.enums.margin;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 
 /**
  * @create: 2022-08-18

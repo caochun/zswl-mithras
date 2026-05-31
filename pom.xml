@@ -30,6 +30,7 @@
         <module>zswl-mithras-domain-datashare</module>
         <module>zswl-mithras-domain-liquidityrisk</module>
         <module>zswl-mithras-domain-basedata</module>
+        <module>zswl-mithras-domain-margin</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
