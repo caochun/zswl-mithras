@@ -3,7 +3,6 @@ package cn.zswltech.mithras.service.mapper.model.budget;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
-import cn.zswltech.mithras.service.util.FinancialUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -12,6 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -487,8 +487,8 @@ public class BudgetPlanProfitDetail extends BaseModelWithLogicDelete {
         this.assessmentProfit = Optional.ofNullable(this.grossProfit).orElse(0L) - this.riskFundDiff + Optional.ofNullable(this.profitAdjust).orElse(0L);
         this.assessmentProfitIdeal = Optional.ofNullable(this.grossProfit).orElse(0L) - this.riskFundDiffIdeal + Optional.ofNullable(this.profitAdjust).orElse(0L);
         // 扣费后利润
-        this.assessmentProfitWithoutExpense = FinancialUtil.calculateProfitWithoutExpense(BigDecimal.valueOf(this.assessmentProfit), expenseRate).longValue();
-        this.assessmentProfitWithoutExpenseIdeal = FinancialUtil.calculateProfitWithoutExpense(BigDecimal.valueOf(this.assessmentProfitIdeal), expenseRate).longValue();
+        this.assessmentProfitWithoutExpense = calculateProfitWithoutExpense(BigDecimal.valueOf(this.assessmentProfit), expenseRate).longValue();
+        this.assessmentProfitWithoutExpenseIdeal = calculateProfitWithoutExpense(BigDecimal.valueOf(this.assessmentProfitIdeal), expenseRate).longValue();
         // 费用 = 考核利润 - 扣费后利润
         this.expense = this.assessmentProfit - this.assessmentProfitWithoutExpense;
         this.expenseIdeal = this.assessmentProfitIdeal - this.assessmentProfitWithoutExpenseIdeal;
@@ -511,5 +511,13 @@ public class BudgetPlanProfitDetail extends BaseModelWithLogicDelete {
         if (StrUtil.equals(dataCategory, BudgetPlanDataCategoryEnum.HISTORY.name()) && this.assessmentProfitWithoutExpenseIdeal < 0) {
             this.assessmentProfitWithoutExpenseIdeal = 0L;
         }
+    }
+
+    private BigDecimal calculateProfitWithoutExpense(BigDecimal profit, Integer expenseRate) {
+        BigDecimal rate = BigDecimal.valueOf(expenseRate).divide(BigDecimal.valueOf(1000000), 20, RoundingMode.HALF_UP);
+        if (profit.longValue() >= 0) {
+            return profit.multiply(BigDecimal.ONE.subtract(rate));
+        }
+        return profit.multiply(BigDecimal.ONE.add(rate));
     }
 }
