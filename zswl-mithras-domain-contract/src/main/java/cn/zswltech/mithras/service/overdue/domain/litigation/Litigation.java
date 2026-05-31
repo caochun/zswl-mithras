@@ -3,7 +3,6 @@ package cn.zswltech.mithras.service.overdue.domain.litigation;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.overdue.LitigationStatus;
 import cn.zswltech.mithras.service.overdue.domain.share.Aggregate;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import lombok.Data;
 
 import java.util.List;
@@ -53,7 +52,7 @@ public class Litigation implements Aggregate<LongId> {
         return String.valueOf(id.getId());
     }
 
-    public void init(ContractBaseInfoService contractBaseInfoService) {
+    public void init() {
         if(ObjectUtil.isEmpty(this.clientId)){
             throw new IllegalArgumentException("clientId is null");
         }

@@ -1,10 +1,8 @@
 package cn.zswltech.mithras.service.overdue.domain.litigation;
 
-import cn.zswltech.mithras.service.overdue.domain.collection.CollectionId;
 import cn.zswltech.mithras.service.overdue.domain.share.Identifier;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -44,7 +42,7 @@ public class LongId implements Identifier, Comparable<LongId> {
     }
 
     @Override
-    public int compareTo(@NotNull LongId o) {
+    public int compareTo(LongId o) {
         return id.compareTo(o.id);
     }
 }
