@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.fund.direct.entity;
 
-import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -100,7 +99,7 @@ public class FundDirectFinancingRepayActualSplit extends BaseModelWithLogicDelet
     private Long remainingPrincipalAmount;
 
     /**
-     * 核销状态 {@link CashFlowState#name()}
+     * 核销状态
      */
     @TableField(value = "write_off_status")
     private String writeOffStatus;

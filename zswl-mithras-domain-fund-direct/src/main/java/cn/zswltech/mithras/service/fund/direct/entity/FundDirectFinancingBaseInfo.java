@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.fund.direct.entity;
 
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -168,7 +167,7 @@ public class FundDirectFinancingBaseInfo extends BaseModel implements Serializab
     private Integer ftpYieldRate;
 
     /**
-     * 融资状态 {@link FundFinancingStatusEnum#name()}
+     * 融资状态
      */
     @TableField("financing_status")
     private String financingStatus;
