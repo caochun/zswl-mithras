@@ -20,6 +20,7 @@
         <module>zswl-mithras-domain-guanbao</module>
         <module>zswl-mithras-domain-log</module>
         <module>zswl-mithras-domain-async</module>
+        <module>zswl-mithras-domain-associationreport</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
