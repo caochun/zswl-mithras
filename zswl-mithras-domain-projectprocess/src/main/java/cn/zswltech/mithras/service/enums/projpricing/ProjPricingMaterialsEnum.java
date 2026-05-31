@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.enums.projpricing;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.constant.FlowConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
