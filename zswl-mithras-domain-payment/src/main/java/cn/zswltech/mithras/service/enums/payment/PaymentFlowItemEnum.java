@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.enums.payment;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import com.google.common.base.Joiner;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -42,7 +41,7 @@ public enum PaymentFlowItemEnum implements PullDown {
         for (PaymentFlowItemEnum cashFlowItemEnum : cashFlowItemEnums) {
             allDisplay.add(cashFlowItemEnum.getDisplay());
         }
-        return Joiner.on("，").join(allDisplay);
+        return String.join("，", allDisplay);
     }
 
     public static PaymentFlowItemEnum of(String name) {

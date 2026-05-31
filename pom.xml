@@ -42,6 +42,7 @@
         <module>zswl-mithras-domain-financeprojectdistribution</module>
         <module>zswl-mithras-domain-ftp</module>
         <module>zswl-mithras-domain-projectprocess</module>
+        <module>zswl-mithras-domain-payment</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>

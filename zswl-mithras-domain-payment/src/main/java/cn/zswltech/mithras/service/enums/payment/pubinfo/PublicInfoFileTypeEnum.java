@@ -2,8 +2,6 @@ package cn.zswltech.mithras.service.enums.payment.pubinfo;
 
 import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.MaterialsEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -50,7 +48,7 @@ public enum PublicInfoFileTypeEnum implements PullDown, IMaterialsTypeConvert {
 
     @Override
     public String businessModule() {
-        return BusinessModuleEnum.PUBLIC_INFO.name();
+        return "PUBLIC_INFO";
     }
 
     @Override
