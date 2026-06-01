@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.client.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.InfoModule;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
@@ -67,8 +66,8 @@ public abstract class ClientLibAbstractHandler<LIB extends ILib, ENTITY extends 
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.CLIENT;
+    protected String businessModuleName() {
+        return "CLIENT";
     }
 
 }

@@ -77,6 +77,11 @@ public class CorpMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<Ma
         return ClientType.CORPORATION.equals(clientType);
     }
 
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.CLIENT;
+    }
+
     /**
      * 过滤出需要处理的编辑区数据 有过滤条件的自实现
      *
