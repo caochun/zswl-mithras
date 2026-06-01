@@ -198,7 +198,7 @@ public class DashboardProjectPlanInfoService extends DashboardProjectService {
         LocalDate[] queryDateArray = this.transformQueryDate(req);
         query.setQueryDateFrom(queryDateArray[0]);
         query.setQueryDateTo(queryDateArray[1]);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         return query;
     }
 

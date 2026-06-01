@@ -13,6 +13,53 @@
     <version>${revision}</version>
     <modules>
         <module>zswl-mithras-api</module>
+        <module>zswl-mithras-service-core</module>
+        <module>zswl-mithras-domain-creditreport</module>
+        <module>zswl-mithras-domain-xinsight</module>
+        <module>zswl-mithras-domain-ep</module>
+        <module>zswl-mithras-domain-guanbao</module>
+        <module>zswl-mithras-domain-log</module>
+        <module>zswl-mithras-domain-async</module>
+        <module>zswl-mithras-domain-associationreport</module>
+        <module>zswl-mithras-domain-kpi</module>
+        <module>zswl-mithras-domain-factory</module>
+        <module>zswl-mithras-domain-blackgray</module>
+        <module>zswl-mithras-domain-capital</module>
+        <module>zswl-mithras-domain-finance</module>
+        <module>zswl-mithras-domain-fund-direct</module>
+        <module>zswl-mithras-domain-fund</module>
+        <module>zswl-mithras-domain-leaseholdproperty</module>
+        <module>zswl-mithras-domain-datashare</module>
+        <module>zswl-mithras-domain-liquidityrisk</module>
+        <module>zswl-mithras-domain-basedata</module>
+        <module>zswl-mithras-domain-margin</module>
+        <module>zswl-mithras-domain-projlifecycle</module>
+        <module>zswl-mithras-domain-policy</module>
+        <module>zswl-mithras-domain-groupcredit</module>
+        <module>zswl-mithras-domain-monthly</module>
+        <module>zswl-mithras-domain-assetclassify</module>
+        <module>zswl-mithras-domain-liquiditymanage</module>
+        <module>zswl-mithras-domain-filingmaterials</module>
+        <module>zswl-mithras-domain-archives</module>
+        <module>zswl-mithras-domain-financeprojectdistribution</module>
+        <module>zswl-mithras-domain-ftp</module>
+        <module>zswl-mithras-domain-projectprocess</module>
+        <module>zswl-mithras-domain-payment</module>
+        <module>zswl-mithras-domain-afterlease</module>
+        <module>zswl-mithras-domain-budget</module>
+        <module>zswl-mithras-domain-client</module>
+        <module>zswl-mithras-domain-contract</module>
+        <module>zswl-mithras-domain-collection</module>
+        <module>zswl-mithras-domain-riskcontrol</module>
+        <module>zswl-mithras-domain-workbench</module>
+        <module>zswl-mithras-domain-third</module>
+        <module>zswl-mithras-domain-message</module>
+        <module>zswl-mithras-domain-dashboard</module>
+        <module>zswl-mithras-domain-workflow</module>
+        <module>zswl-mithras-domain-document</module>
+        <module>zswl-mithras-domain-creditlimit</module>
+        <module>zswl-mithras-domain-metric</module>
+        <module>zswl-mithras-domain-system</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
@@ -33,6 +80,11 @@
                 <groupId>cn.zswltech.lib</groupId>
                 <artifactId>crypto-open-starter</artifactId>
                 <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>QLExpress</artifactId>
+                <version>3.3.1</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.validator</groupId>

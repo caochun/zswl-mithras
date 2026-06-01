@@ -191,8 +191,7 @@ public class DashboardClientOverviewService {
         st.start("所有客户明细");
         //查询所有客户
         DashboardClientOverviewAllQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, DashboardClientOverviewAllQuery.class);
-        dashboardClientOverviewAllQuery.setAccountVO(BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
-        dashboardClientOverviewAllQuery.fillAuthQuery();
+        fillAuthQuery(dashboardClientOverviewAllQuery, BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
         Page<DashboardClientBasicDTO> dashboardClientBasicDTOPage = clientMapper.dashboardAllPageList(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
         List<DashboardClientOverviewAllRSP> dashboardClientOverviewAllRSPS = BeanUtil.copyToList(dashboardClientBasicDTOPage.getRecords(), DashboardClientOverviewAllRSP.class);
         if (ObjectUtil.isEmpty(dashboardClientOverviewAllRSPS)) {
@@ -229,8 +228,7 @@ public class DashboardClientOverviewService {
             return null;
         }
         DashboardClientOverviewAllQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, DashboardClientOverviewAllQuery.class);
-        dashboardClientOverviewAllQuery.setAccountVO(BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
-        dashboardClientOverviewAllQuery.fillAuthQuery();
+        fillAuthQuery(dashboardClientOverviewAllQuery, BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
         dashboardClientOverviewAllQuery.setLimitClientIds(targetClientIds);
         Page<DashboardClientBasicDTO> dashboardClientBasicDTOPage = clientMapper.dashboardAllPageList(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
         List<DashboardClientOverviewSurvivalRSP> dashboardClientOverviewSurvivalRSPS = BeanUtil.copyToList(dashboardClientBasicDTOPage.getRecords(), DashboardClientOverviewSurvivalRSP.class);
@@ -277,8 +275,7 @@ public class DashboardClientOverviewService {
         Map<Long, List<DashboardProjectInfoSettleInThreeMonthResult>> clientId2Settle = dashboardProjectInfoSettleInThreeMonthResults.stream().collect(Collectors.groupingBy(DashboardProjectInfoSettleInThreeMonthResult::getClientId));
         //查询客户信息
         DashboardClientOverviewAllQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, DashboardClientOverviewAllQuery.class);
-        dashboardClientOverviewAllQuery.setAccountVO(BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
-        dashboardClientOverviewAllQuery.fillAuthQuery();
+        fillAuthQuery(dashboardClientOverviewAllQuery, BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
         dashboardClientOverviewAllQuery.setLimitClientIds(clientId2Settle.keySet());
         Page<DashboardClientBasicDTO> dashboardClientBasicDTOPage = clientMapper.dashboardAllPageList(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
         List<DashboardClientOverviewSettleInThreeMonthRSP> dashboardClientOverviewSettleInThreeMonthRSPS = BeanUtil.copyToList(dashboardClientBasicDTOPage.getRecords(), DashboardClientOverviewSettleInThreeMonthRSP.class);
@@ -357,13 +354,29 @@ public class DashboardClientOverviewService {
         return amountDto;
     }
 
+    private void fillAuthQuery(DashboardClientOverviewAllQuery query, AccountVO accountVO) {
+        AccountVO loginInfo = Optional.ofNullable(AccountUtil.getLoginInfo()).orElse(accountVO);
+        if (ObjectUtil.isEmpty(loginInfo)) {
+            return;
+        }
+        List<Long> canViewDeptIds = sysUserService.canViewDeptIds(loginInfo);
+        if (canViewDeptIds == null) {
+            return;
+        }
+        if (canViewDeptIds.isEmpty()) {
+            query.setAuthCurrentUserId(loginInfo.getId());
+        } else {
+            query.setAuthBizDeptIds(canViewDeptIds);
+        }
+    }
+
     //逾期客户 cn.zswltech.mithras.service.mapper.dashboard.DashboardProjectInfoMapper#listOverdue
     public PageR<DashboardClientOverviewOverdueRSP> overduePageList(DashboardClientOverviewOverdueREQ req) {
         StopWatch st = new StopWatch();
         st.start("逾期客户");
         DashboardProjectInfoOverdueQuery query = BeanUtil.copyProperties(req, DashboardProjectInfoOverdueQuery.class);
         query.setAccountVO(BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         /*
         List<DashboardProjectInfoOverdueResult> dashboardProjectInfoOverdueResults = getBean(DashboardProjectInfoMapper.class).listOverdue(query);
         if (CollUtil.isEmpty(dashboardProjectInfoOverdueResults)) {
@@ -475,8 +488,7 @@ public class DashboardClientOverviewService {
             return null;
         }
         DashboardClientOverviewAllQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, DashboardClientOverviewAllQuery.class);
-        dashboardClientOverviewAllQuery.setAccountVO(BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
-        dashboardClientOverviewAllQuery.fillAuthQuery();
+        fillAuthQuery(dashboardClientOverviewAllQuery, BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
         dashboardClientOverviewAllQuery.setLimitClientIds(targetClientIds);
         //分页过滤数据
         Page<DashboardClientBasicDTO> dashboardClientBasicDTOPage = clientMapper.dashboardAllPageList(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);

@@ -5,6 +5,8 @@ import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.factory.mapper.ContractReceiptBottomMapper;
 import cn.zswltech.mithras.factory.model.ContractReceiptBottom;
+import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
+import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportPeriodCategoryEnum;
 import cn.zswltech.mithras.associationreport.DeleteDataSelector;
@@ -14,7 +16,6 @@ import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.service.mapper.model.associationreport.BasicAssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,10 +27,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -160,30 +159,17 @@ public abstract class AbstractDataStore<T extends BasicAssociationReport> implem
 
     protected LocalDate ensureMetricDate(AssociationReport current) {
         if (StrUtil.equals(current.getReportPeriodCategory(), AssociationReportPeriodCategoryEnum.MONTH.name())) {
-            return DateUtil.endOfMonth(LocalDate.of(current.getReportYear(), current.getReportPeriod(), 1));
+            return AssociationReportDateUtils.endOfMonth(LocalDate.of(current.getReportYear(), current.getReportPeriod(), 1));
         } else if (StrUtil.equals(current.getReportPeriodCategory(), AssociationReportPeriodCategoryEnum.QUARTER.name())) {
-            return DateUtil.ensureQuarterLastDay(current.getReportYear(), current.getReportPeriod());
+            return AssociationReportDateUtils.ensureQuarterLastDay(current.getReportYear(), current.getReportPeriod());
         } else {
             throw new MithrasException("该周期类型暂不支持");
         }
     }
 
-    public static String generatePeriod(String periodCategory, int period, int year) {
-        if (Objects.equals(AssociationReportPeriodCategoryEnum.REALTIME.name(), periodCategory)) {
-            return new SimpleDateFormat("yyyyMMdd").format(new Date());
-        }
-        if (Objects.equals(AssociationReportPeriodCategoryEnum.MONTH.name(), periodCategory)) {
-            return year + String.format("%02d", period);
-        }
-        if (Objects.equals(AssociationReportPeriodCategoryEnum.QUARTER.name(), periodCategory)) {
-            return year + "Q" + period;
-        }
-        throw new MithrasException("未定义的周期类型");
-    }
-
     private void doValueSave(AssociationReport associationReport, List<T> dataList) {
         String reportInstanceId = associationReport.getReportInstanceId();
-        String period = generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
+        String period = AssociationReportPeriodUtils.generatePeriod(associationReport.getReportPeriodCategory(), associationReport.getReportPeriod(), associationReport.getReportYear());
         dataList.forEach(e -> {
             //统一社会信用代码：则取默认配置文件中的统一社会信用代码
             e.setUnifSociCredCode(zszlCreditCode);

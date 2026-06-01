@@ -17,8 +17,6 @@ import cn.zswltech.mithras.web.MithrasApplication;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.io.ByteStreams;
 import lombok.extern.slf4j.Slf4j;
-import net.qiyuesuo.v3sdk.model.common.CompanyRequest;
-import net.qiyuesuo.v3sdk.model.common.SignSilentContract;
 import net.qiyuesuo.v3sdk.model.common.Signatory;
 import net.qiyuesuo.v3sdk.model.contract.request.ContractCreatebycategoryRequest;
 import net.qiyuesuo.v3sdk.model.contract.request.ContractDetailRequest;
@@ -150,12 +148,6 @@ public class QiyuesuoTest {
     @Test
     public void testSilentSealSignV2() throws IOException {
         V2ContractSignbycompanyRequest v2ContractSignbycompanyRequest = new V2ContractSignbycompanyRequest();
-        SignSilentContract contract = new SignSilentContract();
-        contract.setId(3299603470320325591L);
-        v2ContractSignbycompanyRequest.setContract(contract);
-        CompanyRequest company = new CompanyRequest();
-        company.setName("浙江省交通投资集团有限公司");
-        v2ContractSignbycompanyRequest.setCompany(company);
         qiyuesuoService.silentSealSignV2(v2ContractSignbycompanyRequest);
     }
 

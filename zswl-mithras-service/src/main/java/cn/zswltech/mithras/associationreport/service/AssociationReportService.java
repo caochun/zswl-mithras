@@ -69,7 +69,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class AssociationReportService extends ServiceImpl<AssociationReportMapper, AssociationReport> implements FlowEndEventProcessor {
+public class AssociationReportService extends ServiceImpl<AssociationReportMapper, AssociationReport> implements FlowEndEventProcessor, AssociationReportQueryService {
     @Resource
     private MaterialsListService materialsListService;
     @Resource

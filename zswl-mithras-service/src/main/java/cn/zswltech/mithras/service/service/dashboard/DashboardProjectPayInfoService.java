@@ -59,7 +59,7 @@ public class DashboardProjectPayInfoService extends DashboardProjectService {
         query.setContractCode(req.getContractCode());
         query.setActualPayDateTo(req.getActualPayDateTo());
         query.setActualPayDateFrom(req.getActualPayDateFrom());
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         List<DashboardProjectPayInfoResult> dbList = this.listPayInfo(query, req.getQueryDimension());
         if (CollectionUtil.isEmpty(dbList)) {
             return Collections.emptyList();
@@ -307,7 +307,7 @@ public class DashboardProjectPayInfoService extends DashboardProjectService {
         LocalDate[] queryDateArray = this.transformQueryDate(req);
         query.setQueryDateFrom(queryDateArray[0]);
         query.setQueryDateTo(queryDateArray[1]);
-        query.fillAuthQuery();
+        DashboardAuthQueryHelper.fillAuthQuery(query);
         return query;
     }
 
