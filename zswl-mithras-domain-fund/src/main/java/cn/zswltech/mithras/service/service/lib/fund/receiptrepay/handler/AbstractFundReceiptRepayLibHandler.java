@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.FundReceiptRepayInfoModule;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
@@ -35,8 +34,8 @@ public abstract class AbstractFundReceiptRepayLibHandler<LIB extends ILib, ENTIT
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.FUND_RECEIPT_REPAY;
+    protected String businessModuleName() {
+        return "FUND_RECEIPT_REPAY";
     }
 
     public abstract FundReceiptRepayInfoModule getSubModule();

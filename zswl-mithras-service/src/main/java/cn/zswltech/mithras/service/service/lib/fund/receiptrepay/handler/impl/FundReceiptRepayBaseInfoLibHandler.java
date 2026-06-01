@@ -154,6 +154,11 @@ public class FundReceiptRepayBaseInfoLibHandler extends AbstractFundReceiptRepay
     }
 
     @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.FUND_RECEIPT_REPAY;
+    }
+
+    @Override
     public String libMainIdFieldName() {
         return "origin_id";
     }

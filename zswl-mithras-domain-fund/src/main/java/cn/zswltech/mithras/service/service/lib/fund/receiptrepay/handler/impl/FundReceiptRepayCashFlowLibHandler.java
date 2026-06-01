@@ -2,18 +2,15 @@ package cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayCashFlowListRSP;
-import cn.zswltech.mithras.service.convert.fund.receiptrepay.FundReceiptRepayCashFlowConverter;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.FundReceiptRepayInfoModule;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlowLib;
-import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.List;
@@ -29,9 +26,6 @@ import java.util.stream.Collectors;
  */
 @Component
 public class FundReceiptRepayCashFlowLibHandler extends AbstractFundReceiptRepayLibHandler<FundReceiptRepayCashFlowLib, FundReceiptRepayCashFlow, FundReceiptRepayCashFlowListRSP> {
-
-    @Resource
-    private FundReceiptRepayCashFlowConverter baseConverter;
 
     /**
      * 审批拒绝 把版本表最新的数据还原到 临时表
@@ -64,14 +58,15 @@ public class FundReceiptRepayCashFlowLibHandler extends AbstractFundReceiptRepay
 
     @Override
     protected FundReceiptRepayCashFlowListRSP lib2Rsp(FundReceiptRepayCashFlowLib f) {
-        FundReceiptRepayCashFlowListRSP rsp = baseConverter.lib2ListRsp(f);
+        FundReceiptRepayCashFlowListRSP rsp = BeanUtil.copyProperties(f, FundReceiptRepayCashFlowListRSP.class);
+        rsp.setId(f.getOriginId());
         LocalDate lastDayOfThatMonth = f.getCreateTime().toLocalDate().with(TemporalAdjusters.lastDayOfMonth());
         LocalDate firstDayOfThatMonth = f.getCreateTime().toLocalDate().with(TemporalAdjusters.firstDayOfMonth());
         rsp.setIsRed(false);
-        if (Util.dateLe(f.getRepayDate(), lastDayOfThatMonth) && !CashFlowState.WRITTEN_OFF.name().equals(f.getWriteOffState())) {
+        if (!f.getRepayDate().isAfter(lastDayOfThatMonth) && !CashFlowState.WRITTEN_OFF.name().equals(f.getWriteOffState())) {
             // 月底前 未核销完毕数据 更新为 红色
             rsp.setIsRed(true);
-        } else if (Objects.nonNull(f.getApprovalPassDate()) && Util.dateGe(f.getApprovalPassDate(), firstDayOfThatMonth) && Util.dateLe(f.getApprovalPassDate(), lastDayOfThatMonth)) {
+        } else if (Objects.nonNull(f.getApprovalPassDate()) && !f.getApprovalPassDate().isBefore(firstDayOfThatMonth) && !f.getApprovalPassDate().isAfter(lastDayOfThatMonth)) {
             // 核销审批通过时间在本月内
             rsp.setIsRed(true);
         }

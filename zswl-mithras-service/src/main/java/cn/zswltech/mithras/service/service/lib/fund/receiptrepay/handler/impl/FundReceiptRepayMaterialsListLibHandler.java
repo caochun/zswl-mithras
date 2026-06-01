@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.FundReceiptRepayInfoModule;
-import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewInfoModule;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -10,7 +10,6 @@ import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
-import cn.zswltech.mithras.service.service.lib.groupcreditreview.handler.GroupCreditReviewLibAbstractHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -67,6 +66,11 @@ public class FundReceiptRepayMaterialsListLibHandler
     @Override
     public FundReceiptRepayInfoModule getSubModule() {
         return FundReceiptRepayInfoModule.MATERIALS_LIST;
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.FUND_RECEIPT_REPAY;
     }
 
 }

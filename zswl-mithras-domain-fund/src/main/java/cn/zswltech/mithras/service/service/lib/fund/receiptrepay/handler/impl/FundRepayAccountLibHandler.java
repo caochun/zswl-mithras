@@ -1,16 +1,12 @@
 package cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundRepayAccountListRSP;
-import cn.zswltech.mithras.service.convert.fund.receiptrepay.FundRepayAccountConverter;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.FundReceiptRepayInfoModule;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundRepayAccount;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundRepayAccountLib;
 import cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * 还款账户
@@ -20,9 +16,6 @@ import javax.annotation.Resource;
  */
 @Component
 public class FundRepayAccountLibHandler extends AbstractFundReceiptRepayLibHandler<FundRepayAccountLib, FundRepayAccount, FundRepayAccountListRSP> {
-
-    @Resource
-    private FundRepayAccountConverter baseConvert;
 
     @Override
     protected FundRepayAccountLib entity2Lib(FundRepayAccount f) {
@@ -36,7 +29,7 @@ public class FundRepayAccountLibHandler extends AbstractFundReceiptRepayLibHandl
 
     @Override
     protected FundRepayAccountListRSP lib2Rsp(FundRepayAccountLib f) {
-        return baseConvert.lib2ListRsp(f);
+        return BeanUtil.copyProperties(f, FundRepayAccountListRSP.class);
     }
 
     @Override
