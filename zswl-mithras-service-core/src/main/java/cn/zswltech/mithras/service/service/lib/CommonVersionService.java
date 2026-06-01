@@ -7,14 +7,13 @@ import cn.zswltech.mithras.dto.version.CommonVersionListREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.service.service.UserNameResolver;
 import cn.zswltech.mithras.service.util.StringUtil;
 import cn.zswltech.mithras.service.util.VersionUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -41,7 +40,7 @@ public abstract class CommonVersionService<T extends IEntity> {
     @Resource
     protected CommonVersionMapper commonVersionMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
     @Autowired
     protected BaseMapper<T> baseMapper;
 
@@ -65,7 +64,7 @@ public abstract class CommonVersionService<T extends IEntity> {
                 .eq(CommonVersion::getMainId, mainId)
                 // 不过滤类型 版本号共用
 //                .eq(CommonVersion::getVersionType, VersionTypeConstants.NORMAL)
-                .eq(CommonVersion::getModule, getBusinessModule().name())
+                .eq(CommonVersion::getModule, getBusinessModuleName())
                 .orderByDesc(CommonVersion::getVersion)
                 .last("LIMIT 1"));
         boolean needClearLastFlag = false;
@@ -75,7 +74,7 @@ public abstract class CommonVersionService<T extends IEntity> {
             CommonVersion newCommonVersion = CommonVersion.builder()
                     .mainId(mainId)
                     .type(type.getType())
-                    .module(getBusinessModule().name())
+                    .module(getBusinessModuleName())
                     .version(VersionUtil.generateVersion(null))
                     .processInstanceId(processInstanceId)
                     .versionType(versionType)
@@ -88,7 +87,7 @@ public abstract class CommonVersionService<T extends IEntity> {
             // 新增版本 不清空各版本表旧数据
             CommonVersion newCommonVersion = CommonVersion.builder()
                     .mainId(mainId)
-                    .module(getBusinessModule().name())
+                    .module(getBusinessModuleName())
                     .type(type.getType())
                     .version(VersionUtil.generateVersion(commonVersion.getVersion()))
                     .processInstanceId(processInstanceId)
@@ -99,7 +98,7 @@ public abstract class CommonVersionService<T extends IEntity> {
             commonVersionMapper.insert(newCommonVersion);
             version = newCommonVersion.getVersion();
         }
-        if (this.getBusinessModule() == BusinessModuleEnum.CLIENT) {
+        if ("CLIENT".equals(this.getBusinessModuleName())) {
             customFlushData(baseModel, version, needClearLastFlag, versionType, extraMap);
         } else {
             customFlushData(baseModel, version, needClearLastFlag, versionType);
@@ -131,7 +130,7 @@ public abstract class CommonVersionService<T extends IEntity> {
         CommonVersion newestVersion = commonVersionMapper.selectOne(Wrappers.<CommonVersion>lambdaQuery()
                 .eq(CommonVersion::getMainId, mainId)
                 .eq(CommonVersion::getVersionType, VersionTypeConstants.NORMAL)
-                .eq(CommonVersion::getModule, getBusinessModule().name())
+                .eq(CommonVersion::getModule, getBusinessModuleName())
                 .orderByDesc(CommonVersion::getVersion)
                 .last("LIMIT 1"));
         return newestVersion;
@@ -140,7 +139,7 @@ public abstract class CommonVersionService<T extends IEntity> {
     public CommonVersion findSpecificLatestVersion(Long mainId, String version) {
         LambdaQueryWrapper<CommonVersion> query = Wrappers.lambdaQuery();
         query.eq(CommonVersion::getMainId, mainId);
-        query.eq(CommonVersion::getModule, this.getBusinessModule().name());
+        query.eq(CommonVersion::getModule, this.getBusinessModuleName());
         query.eq(CommonVersion::getVersionType, VersionTypeConstants.NORMAL);
         query.lt(CommonVersion::getVersion, version);
         query.orderByDesc(CommonVersion::getVersion);
@@ -176,7 +175,7 @@ public abstract class CommonVersionService<T extends IEntity> {
         }
         LambdaQueryWrapper<CommonVersion> qw = Wrappers.<CommonVersion>lambdaQuery()
                 .eq(CommonVersion::getMainId, mainId)
-                .eq(CommonVersion::getModule, getBusinessModule());
+                .eq(CommonVersion::getModule, getBusinessModuleName());
         if (ObjectUtil.isNotEmpty(targetVersionType)) {
             qw.eq(CommonVersion::getVersionType, targetVersionType);
         } else {
@@ -258,7 +257,7 @@ public abstract class CommonVersionService<T extends IEntity> {
         }
 
         // 处理最后操作人用户名
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(commonVersionPage.getRecords().stream().map(CommonVersion::getUpdateBy)
+        Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(commonVersionPage.getRecords().stream().map(CommonVersion::getUpdateBy)
                 .filter(Objects::nonNull).collect(Collectors.toSet()));
 
 
@@ -293,6 +292,10 @@ public abstract class CommonVersionService<T extends IEntity> {
     /**
      * @return
      */
-    public abstract BusinessModuleEnum getBusinessModule();
+    public abstract Enum<?> getBusinessModule();
+
+    protected String getBusinessModuleName() {
+        return getBusinessModule().name();
+    }
 
 }
