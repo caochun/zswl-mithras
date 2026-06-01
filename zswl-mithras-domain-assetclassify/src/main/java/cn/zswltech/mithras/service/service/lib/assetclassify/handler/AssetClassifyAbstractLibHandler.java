@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.assetclassify.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -31,7 +30,7 @@ public abstract class AssetClassifyAbstractLibHandler<LIB extends ILib, ENTITY e
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.ASSET_CLASSIFY;
+    protected String businessModuleName() {
+        return "ASSET_CLASSIFY";
     }
 }

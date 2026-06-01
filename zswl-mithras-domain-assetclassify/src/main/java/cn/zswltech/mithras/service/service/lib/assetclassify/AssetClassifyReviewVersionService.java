@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.lib.assetclassify;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
@@ -59,7 +58,7 @@ public class AssetClassifyReviewVersionService extends CommonVersionService<Asse
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.ASSET_CLASSIFY_REVIEW;
+    protected String getBusinessModuleName() {
+        return "ASSET_CLASSIFY_REVIEW";
     }
 }
