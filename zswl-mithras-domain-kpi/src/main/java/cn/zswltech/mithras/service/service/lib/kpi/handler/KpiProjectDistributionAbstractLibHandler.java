@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.kpi.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -32,7 +31,7 @@ public abstract class KpiProjectDistributionAbstractLibHandler<LIB extends ILib,
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.KPI_PROJECT_DISTRIBUTION;
+    protected String businessModuleName() {
+        return "KPI_PROJECT_DISTRIBUTION";
     }
 }
