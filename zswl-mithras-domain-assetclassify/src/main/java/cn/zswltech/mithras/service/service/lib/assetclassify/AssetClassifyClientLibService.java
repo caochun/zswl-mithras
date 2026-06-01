@@ -4,12 +4,13 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.service.mapper.assetclassify.AssetClassifyClientMapper;
 import cn.zswltech.mithras.service.mapper.lib.assetclassify.AssetClassifyClientLibMapper;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClientLib;
-import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientService;
 import cn.zswltech.mithras.service.service.lib.assetclassify.handler.impl.AssetClassifyClientLibHandler;
 import cn.zswltech.mithras.service.util.StringUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class AssetClassifyClientLibService extends ServiceImpl<AssetClassifyClie
     @Resource
     private AssetClassifyClientLibHandler libHandler;
     @Resource
-    private AssetClassifyClientService assetClassifyClientService;
+    private AssetClassifyClientMapper assetClassifyClientMapper;
 
     public AssetClassifyClient getByVersion(Long originId, String version) {
         AssetClassifyClientLib assetClassifyClientLib = baseMapper.selectOne(Wrappers.<AssetClassifyClientLib>lambdaQuery()
@@ -43,7 +44,9 @@ public class AssetClassifyClientLibService extends ServiceImpl<AssetClassifyClie
 
     @Transactional(rollbackFor = Throwable.class)
     public void saveList(String version,Long assetClassifyId){
-        List<AssetClassifyClient> clientList = assetClassifyClientService.listByAssetClassifyId(assetClassifyId);
+        LambdaQueryWrapper<AssetClassifyClient> query = Wrappers.lambdaQuery();
+        query.eq(AssetClassifyClient::getAssetClassifyId, assetClassifyId);
+        List<AssetClassifyClient> clientList = assetClassifyClientMapper.selectList(query);
         if (CollectionUtil.isNotEmpty(clientList)){
             List<AssetClassifyClientLib> clientLibList = new ArrayList<>();
             for (AssetClassifyClient client : clientList) {
