@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.lib.policy.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishInfoModule;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -9,7 +9,6 @@ import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.service.service.lib.policy.handler.PolicyAbstractHandler;
 import cn.zswltech.mithras.service.service.lib.policy.handler.PolicyInfoModule;
-import cn.zswltech.mithras.service.service.lib.projestablish.handler.ProjEstablishLibAbstractHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -40,12 +39,12 @@ public class PolicyMaterialsListLibHandler
 
     @Override
     public List<MaterialsList> listNeedHandleEntity(Long mainId) {
-        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, BusinessModuleEnum.POLICY);
     }
 
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
-        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, BusinessModuleEnum.POLICY);
     }
 
     @Override

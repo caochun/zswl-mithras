@@ -1,12 +1,9 @@
 package cn.zswltech.mithras.service.service.lib.policy.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
-import cn.zswltech.mithras.service.service.lib.payment.handler.PaymentInfoModule;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
@@ -50,9 +47,6 @@ public abstract class PolicyAbstractHandler<LIB extends ILib, ENTITY extends IEn
         return "policy_id";
     }
 
-    public void validateData(Client client) {
-    }
-
     public abstract PolicyInfoModule getSubModule();
 
     public abstract boolean needHandle(Long mainId);
@@ -63,8 +57,8 @@ public abstract class PolicyAbstractHandler<LIB extends ILib, ENTITY extends IEn
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.POLICY;
+    protected String businessModuleName() {
+        return "POLICY";
     }
 
 }
