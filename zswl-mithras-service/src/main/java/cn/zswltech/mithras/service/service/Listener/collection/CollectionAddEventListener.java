@@ -207,7 +207,7 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
                         new FinancialCollectionRentVO().setContractId(cbf.getContractId()).setReceiptId(cbf.getReceiptId()).setChangeState(financialChangeStateENUM).
                                 setReceiptCode(cbf.getReceiptCode()).setContractCode(cbf.getContractCode()).setLeaseRate(rate));
                 receiptRentMap.get(cbf.getReceiptId()).getUpdateRentActual().add(
-                        new SyncCqReqBody(cbf)
+                        buildSyncCqReqBody(cbf)
                 );
             }
         }
@@ -218,7 +218,7 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
                         new FinancialCollectionRentVO().setContractId(cbf.getContractId()).setReceiptId(cbf.getReceiptId()).setReceiptId(cbf.getReceiptId()).
                                 setChangeState(financialChangeStateENUM).setReceiptCode(cbf.getReceiptCode()).setContractCode(cbf.getContractCode()).setLeaseRate(rate));
                 receiptRentMap.get(cbf.getReceiptId()).getAddRentActual().add(
-                        new SyncCqReqBody(cbf)
+                        buildSyncCqReqBody(cbf)
                 );
             }
         }
@@ -230,11 +230,11 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
                         new FinancialCollectionRentVO().setContractId(cbf.getContractId()).setReceiptId(cbf.getReceiptId()).setReceiptId(cbf.getReceiptId()).
                                 setChangeState(financialChangeStateENUM).setReceiptCode(cbf.getReceiptCode()).setContractCode(cbf.getContractCode()).setLeaseRate(rate));
                 receiptRentMap.get(cbf.getReceiptId()).getRemoveRentActual().add(
-                        new SyncCqReqBody(cbf)
+                        buildSyncCqReqBody(cbf)
                 );
                 //删除补0添加期限
                 receiptRentMap.get(cbf.getReceiptId()).getAddRentActual().add(
-                        new SyncCqReqBody(cbf).setRent(0L).setInterest(0L).setPrincipal(0L).setRemainingPrincipal(0L)
+                        buildSyncCqReqBody(cbf).setRent(0L).setInterest(0L).setPrincipal(0L).setRemainingPrincipal(0L)
                 );
             }
         }
@@ -244,7 +244,7 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
             receiptRentMap.putIfAbsent(baseInfo.getReceiptId(),
                     new FinancialCollectionRentVO().setContractId(baseInfo.getContractId()).setReceiptId(baseInfo.getReceiptId()).
                             setChangeState(financialChangeStateENUM).setReceiptCode(baseInfo.getReceiptCode()).setContractCode(baseInfo.getContractCode()).setLeaseRate(rate));
-            SyncCqReqBody syncCqReqBody = new SyncCqReqBody(baseInfo);
+            SyncCqReqBody syncCqReqBody = buildSyncCqReqBody(baseInfo);
             receiptRentMap.get(baseInfo.getReceiptId()).getUpdateRentActual().add(syncCqReqBody);
         }
         //补充第0期租金 -- 唯一ID，合同起租日期，合同剩余本金，当新增借据时传输，用于苍穹技术计提利息
@@ -493,6 +493,17 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
         syncCqReqBody.setRemainingPrincipal(LongUtil.null2zero(longLongMap.get(receiptCode)));
         syncCqReqBody.setInterest(0L);
         return syncCqReqBody;
+    }
+
+    private SyncCqReqBody buildSyncCqReqBody(CollectionBaseInfo collectionBaseInfo) {
+        return new SyncCqReqBody()
+                .setDate(collectionBaseInfo.getPlanCollectionDate())
+                .setPhase(collectionBaseInfo.getPhase())
+                .setRent(collectionBaseInfo.getPlanCollectionAmount())
+                .setPrincipal(collectionBaseInfo.getPrincipal())
+                .setInterest(collectionBaseInfo.getInterest())
+                .setRemainingPrincipal(collectionBaseInfo.getReceiptRemainingPrincipal())
+                .setCode(collectionBaseInfo.getCode());
     }
 
     public SyncCqReqBizInfo getBizInfo(Long contractId) {

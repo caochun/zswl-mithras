@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.service.third.financial.vo;
 
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -39,14 +38,5 @@ public class SyncCqReqBody {
     private Long remainingPrincipal;
 
     public SyncCqReqBody() {
-    }
-    public SyncCqReqBody(CollectionBaseInfo collectionBaseInfo) {
-        this.date = collectionBaseInfo.getPlanCollectionDate();
-        this.phase = collectionBaseInfo.getPhase();
-        this.rent = collectionBaseInfo.getPlanCollectionAmount();
-        this.principal = collectionBaseInfo.getPrincipal();
-        this.interest = collectionBaseInfo.getInterest();
-        this.remainingPrincipal = collectionBaseInfo.getReceiptRemainingPrincipal();
-        this.code = collectionBaseInfo.getCode();
     }
 }
