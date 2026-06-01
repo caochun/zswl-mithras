@@ -5,9 +5,9 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.poi.excel.ExcelReader;
+import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.mithras.dto.newftp.NewFtpLprPricingListRSP;
-import cn.zswltech.mithras.service.excel.importer.BaseDataLprExcelImporter;
-import cn.zswltech.mithras.service.excel.model.BaseDataLprExcelModel;
 import cn.zswltech.mithras.service.mapper.basedata.BaseDataLprMapper;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataLpr;
 import cn.zswltech.mithras.service.others.MithrasException;
@@ -18,7 +18,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -34,8 +33,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class BaseDataLprService extends ServiceImpl<BaseDataLprMapper, BaseDataLpr> {
-    @Resource
-    private BaseDataLprExcelImporter baseDataLprExcelImporter;
+
+    private static final int EXCEL_ROW_LIMIT = 15000;
 
     public NewFtpLprPricingListRSP specificMonthLprWithDiff(LocalDate month) {
         LocalDate start = month.minusMonths(1);
@@ -110,7 +109,7 @@ public class BaseDataLprService extends ServiceImpl<BaseDataLprMapper, BaseDataL
 
     @Transactional(rollbackFor = Throwable.class)
     public void importExcel(InputStream inputStream) {
-        List<BaseDataLprExcelModel> excelModelList = baseDataLprExcelImporter.parse(inputStream);
+        List<BaseDataLprExcelModel> excelModelList = parseExcel(inputStream);
         Assert.notEmpty(excelModelList, () -> MithrasException.newException("导入数据为空"));
         // 预处理
         for (BaseDataLprExcelModel excelModel : excelModelList) {
@@ -150,6 +149,15 @@ public class BaseDataLprService extends ServiceImpl<BaseDataLprMapper, BaseDataL
         if (CollectionUtil.isNotEmpty(toSaveList)) {
             this.saveBatch(toSaveList);
         }
+    }
+
+    private List<BaseDataLprExcelModel> parseExcel(InputStream inputStream) {
+        ExcelReader excelReader = ExcelUtil.getReader(inputStream);
+        Assert.isTrue(excelReader.getRowCount() <= EXCEL_ROW_LIMIT, () -> MithrasException.newException("最多支持导入" + EXCEL_ROW_LIMIT + "行数据"));
+        excelReader.addHeaderAlias("LPR报价日", "lprDate");
+        excelReader.addHeaderAlias("1年期", "oneYear");
+        excelReader.addHeaderAlias("5年期", "fiveYear");
+        return excelReader.read(0, 1, BaseDataLprExcelModel.class);
     }
 
     public NewFtpLprPricingListRSP convert(BaseDataLpr baseDataLpr) {
@@ -195,6 +203,36 @@ public class BaseDataLprService extends ServiceImpl<BaseDataLprMapper, BaseDataL
         }
         if (Objects.nonNull(curFiveYearLpr) && Objects.nonNull(lastFiveYearLpr)) {
             rsp.setFiveYearLprDiff(curFiveYearLpr - lastFiveYearLpr);
+        }
+    }
+
+    public static class BaseDataLprExcelModel {
+        private LocalDate lprDate;
+        private Double oneYear;
+        private Double fiveYear;
+
+        public LocalDate getLprDate() {
+            return lprDate;
+        }
+
+        public void setLprDate(LocalDate lprDate) {
+            this.lprDate = lprDate;
+        }
+
+        public Double getOneYear() {
+            return oneYear;
+        }
+
+        public void setOneYear(Double oneYear) {
+            this.oneYear = oneYear;
+        }
+
+        public Double getFiveYear() {
+            return fiveYear;
+        }
+
+        public void setFiveYear(Double fiveYear) {
+            this.fiveYear = fiveYear;
         }
     }
 }
