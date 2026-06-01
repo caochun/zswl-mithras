@@ -8,6 +8,7 @@ import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
+import cn.zswltech.mithras.service.repository.PlatformApiRequestInspector;
 import cn.zswltech.mithras.service.repository.RequestModeEnum;
 import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
 import cn.zswltech.mithras.service.service.third.financial.resp.FinancialBaseRSP;
@@ -28,7 +29,7 @@ import java.util.Map;
 
 import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
 
-public abstract class FinancialApiHandler<T, F extends FinancialBaseRSP> implements PlatformApiHandler<T, F> {
+public abstract class FinancialApiHandler<T, F extends FinancialBaseRSP> implements PlatformApiHandler<T, F>, PlatformApiRequestInspector {
 
     protected static final String DATA = "data";
 

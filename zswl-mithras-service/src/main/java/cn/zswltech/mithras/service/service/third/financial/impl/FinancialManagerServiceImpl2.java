@@ -260,7 +260,7 @@ public class FinancialManagerServiceImpl2 {
                     CQ2WithdrawReq cq2WithdrawReq = new CQ2WithdrawReq();
                     cq2WithdrawReq.setBillIdentification(Optional.ofNullable(PlatformApiEnum.getWithdrawType(PlatformApiEnum.CQ2_COLLECTION)).orElseThrow(() -> new MailException("暂不支持此类型删除接口")));
                     PlatformApiHandler<CQ2WithdrawReq, CQ2WithdrawRSP> platformApiHandler = platformApiHandleFactory.getPlatformApiHandler(PlatformApiEnum.CQ2_WITHDRAW);
-                    cq2WithdrawReq.setBillNo(platformApiHandleFactory.getFinancialApiHandler(PlatformApiEnum.CQ2_COLLECTION).getBillNo(collectionRequestInfo.getReqData()));
+                    cq2WithdrawReq.setBillNo(platformApiHandleFactory.getPlatformApiRequestInspector(PlatformApiEnum.CQ2_COLLECTION).getBillNo(collectionRequestInfo.getReqData()));
                     platformApiHandler.execute(cq2WithdrawReq);
                 }
             }
@@ -279,7 +279,7 @@ public class FinancialManagerServiceImpl2 {
             CQ2WithdrawReq cq2WithdrawReq = new CQ2WithdrawReq();
             cq2WithdrawReq.setBillIdentification(Optional.ofNullable(PlatformApiEnum.getWithdrawType(of)).orElseThrow(() -> new MailException("暂不支持此类型删除接口")));
             PlatformApiHandler<CQ2WithdrawReq, CQ2WithdrawRSP> platformApiHandler = platformApiHandleFactory.getPlatformApiHandler(PlatformApiEnum.CQ2_WITHDRAW);
-            cq2WithdrawReq.setBillNo(platformApiHandleFactory.getFinancialApiHandler(of).getBillNo(exceptionRequestInfo.getReqData()));
+            cq2WithdrawReq.setBillNo(platformApiHandleFactory.getPlatformApiRequestInspector(of).getBillNo(exceptionRequestInfo.getReqData()));
             //应收同时删除收款
             if (ObjectUtil.equals(vo.getPlatform(), PlatformApiEnum.CQ2_PLAN_COLLECTION.name())) {
                 CollectionRecordInfo collectionRecordInfo = collectionRecordInfoService.getById(Long.parseLong(vo.getBusinessKey()));
@@ -296,7 +296,7 @@ public class FinancialManagerServiceImpl2 {
                         } else {
                             CQ2WithdrawReq collectionWithdrawReq = new CQ2WithdrawReq();
                             collectionWithdrawReq.setBillIdentification(PlatformApiEnum.getWithdrawType(PlatformApiEnum.CQ2_COLLECTION));
-                            collectionWithdrawReq.setBillNo(platformApiHandleFactory.getFinancialApiHandler(PlatformApiEnum.CQ2_COLLECTION).getBillNo(collectionRequestInfo.getReqData()));
+                            collectionWithdrawReq.setBillNo(platformApiHandleFactory.getPlatformApiRequestInspector(PlatformApiEnum.CQ2_COLLECTION).getBillNo(collectionRequestInfo.getReqData()));
                             platformApiHandler.execute(collectionWithdrawReq);
                         }
                     }

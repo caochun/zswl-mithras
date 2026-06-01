@@ -545,7 +545,7 @@ public class PaymentActualDetailUnconfirmedService extends ServiceImpl<PaymentAc
                 PlatformApiHandler<CQ2WithdrawReq, CQ2WithdrawRSP> platformApiHandler = platformApiHandleFactory.getPlatformApiHandler(PlatformApiEnum.CQ2_WITHDRAW);
                 CQ2WithdrawReq collectionWithdrawReq = new CQ2WithdrawReq();
                 collectionWithdrawReq.setBillIdentification(PlatformApiEnum.getWithdrawType(PlatformApiEnum.CQ2_PAYMENT));
-                collectionWithdrawReq.setBillNo(platformApiHandleFactory.getFinancialApiHandler(PlatformApiEnum.CQ2_PAYMENT).getBillNo(exceptionRequestInfo.getReqData()));
+                collectionWithdrawReq.setBillNo(platformApiHandleFactory.getPlatformApiRequestInspector(PlatformApiEnum.CQ2_PAYMENT).getBillNo(exceptionRequestInfo.getReqData()));
                 CQ2WithdrawRSP execute = platformApiHandler.execute(collectionWithdrawReq);
                 if (ObjectUtil.isEmpty(execute) || !ObjectUtil.equals(execute.getSuccess(), Boolean.TRUE)) {
                     msg = "苍穹付款单删除失败，请手工处理";

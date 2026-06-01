@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
-import cn.zswltech.mithras.service.service.third.financial.FinancialApiHandler;
+import cn.zswltech.mithras.service.repository.PlatformApiRequestInspector;
 import cn.zswltech.mithras.service.service.third.financial.impl.handle.CQ2AccountApplicationHandle;
 import cn.zswltech.mithras.service.service.third.financial.impl.handle.CQ2CollectionHandle;
 import cn.zswltech.mithras.service.service.third.financial.impl.handle.CQ2PaymentHandle;
@@ -101,7 +101,7 @@ public class ExceptionRequestInfoService extends ServiceImpl<ExceptionRequestInf
                 rsp.setResJson(e.getResponse());
             }
             //
-            FinancialApiHandler platformApiHandler = platformApiHandleFactory.getFinancialApiHandler(PlatformApiEnum.of(e.getPlatform()));
+            PlatformApiRequestInspector platformApiHandler = platformApiHandleFactory.getPlatformApiRequestInspector(PlatformApiEnum.of(e.getPlatform()));
             if(ObjectUtil.isNotEmpty(platformApiHandler)) {
                 //获取说明
                 rsp.setSituationDescription(platformApiHandler.getSituationDescription(e.getReqData()));
