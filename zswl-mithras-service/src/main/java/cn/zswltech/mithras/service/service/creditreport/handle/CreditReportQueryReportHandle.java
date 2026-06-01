@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.creditreport.CreditApplyXJUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.creditreport.CreditReportApiHandler;
 import cn.zswltech.mithras.service.service.creditreport.CreditReportConfigService;
 import cn.zswltech.mithras.service.service.creditreport.req.CreditReportQueryReportReq;
@@ -35,7 +35,7 @@ public class CreditReportQueryReportHandle extends CreditReportApiHandler<Credit
     private CreditReportConfigService creditReportConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     private static final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().availableProcessors() + 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(100));
 

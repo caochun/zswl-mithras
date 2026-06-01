@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.enums.third.FinancialDevUrlENUM;
 import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.third.FinanceFlowRecordService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialApiHandler;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialConfigService;
@@ -43,7 +43,7 @@ public class CQ2CollectionHandle extends FinancialApiHandler<List<CQ2CollectionR
     private FinancialConfigService financialConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     @Resource
     private FinanceFlowRecordService financeFlowRecordService;

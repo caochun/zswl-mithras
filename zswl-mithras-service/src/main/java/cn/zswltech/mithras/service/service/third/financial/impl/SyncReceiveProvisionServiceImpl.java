@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.kpi.KpiProvisionDetailService;
 import cn.zswltech.mithras.service.service.third.financial.SyncReceiveProvisionService;
 import cn.zswltech.mithras.service.service.third.financial.req.ReceiveProvisionREQ;
@@ -54,7 +54,7 @@ public class SyncReceiveProvisionServiceImpl implements SyncReceiveProvisionServ
     @Resource
     private PlatformApiHandleFactory platformApiHandleFactory;
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
     @Resource
     private OrgDOMapper orgDOMapper;
 

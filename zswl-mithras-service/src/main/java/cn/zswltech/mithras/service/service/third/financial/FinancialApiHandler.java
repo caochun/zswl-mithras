@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
 import cn.zswltech.mithras.service.repository.PlatformApiRequestInspector;
 import cn.zswltech.mithras.service.repository.RequestModeEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.third.financial.resp.FinancialBaseRSP;
 import cn.zswltech.mithras.service.util.HttpUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
@@ -81,7 +81,7 @@ public abstract class FinancialApiHandler<T, F extends FinancialBaseRSP> impleme
             if(ObjectUtil.isNotEmpty(exceptionRequestInfo)){
                 exceptionRequestInfo.setRetryFlag(isExecuteSuccess(result) ? 1 : 0);
                 exceptionRequestInfo.setResponse(responseData);
-                getBean(ExceptionRequestInfoService.class).updateById(exceptionRequestInfo);
+                getBean(ExceptionRequestRecordService.class).updateById(exceptionRequestInfo);
             }
             //保存请求返回
             if (isExecuteSuccess(result))
@@ -169,7 +169,7 @@ public abstract class FinancialApiHandler<T, F extends FinancialBaseRSP> impleme
         }
         String reqDataString = JSON.toJSONString(reqData);
         String reqDataMd5 = MD5Util.MD5(String.valueOf(reqData));
-        ExceptionRequestInfoService requestInfoService = SpringContextHolder.getBean(ExceptionRequestInfoService.class);
+        ExceptionRequestRecordService requestInfoService = SpringContextHolder.getBean(ExceptionRequestRecordService.class);
         ExceptionRequestInfo exceptionRequestInfo = requestInfoService.getOne(Wrappers.<ExceptionRequestInfo>lambdaQuery()
                 .eq(ObjectUtil.isNotEmpty(platformApi().name()), ExceptionRequestInfo::getPlatform, platformApi().name())
                 .eq(ObjectUtil.isNotEmpty(businessId), ExceptionRequestInfo::getBusinessId, businessId)

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.service.enums.third.FinancialDevUrlENUM;
 import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialApiHandler;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialConfigService;
 import cn.zswltech.mithras.service.service.third.financial.req.CQWithdrawREQ;
@@ -36,7 +36,7 @@ public class WithdrawHandle extends FinancialApiHandler<List<CQWithdrawREQ>, Fin
     private FinancialConfigService financialConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     private static final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().availableProcessors() + 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(100));
 

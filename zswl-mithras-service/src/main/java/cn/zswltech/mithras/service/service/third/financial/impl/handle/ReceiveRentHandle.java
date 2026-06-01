@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.mapper.model.third.SyncCqRecord;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialApiHandler;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialConfigService;
 import cn.zswltech.mithras.service.service.third.financial.impl.SyncCqRecordService;
@@ -48,7 +48,7 @@ public class ReceiveRentHandle extends FinancialApiHandler<List<CQReceiveRentREQ
     private FinancialConfigService financialConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     @Resource
     private SyncCqRecordService syncCqRecordService;
@@ -80,7 +80,7 @@ public class ReceiveRentHandle extends FinancialApiHandler<List<CQReceiveRentREQ
         ExceptionRequestInfo exceptionRequestInfo = respSave(getRetryCount(), reqData, getBusinessId(reqData));
         syncCqRecord(reqData);
         exceptionRequestInfo.setRetryFlag(1);
-        getBean(ExceptionRequestInfoService.class).updateById(exceptionRequestInfo);
+        getBean(ExceptionRequestRecordService.class).updateById(exceptionRequestInfo);
         return new FinancialCommonRSP();
     }
 

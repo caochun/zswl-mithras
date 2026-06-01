@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.mapper.model.third.BrFlowRecord;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.capital.BrFlowRecordService;
 import cn.zswltech.mithras.service.service.third.br.BRApiHandler;
 import cn.zswltech.mithras.service.service.third.br.req.BRFlowHistoryReq;
@@ -42,7 +42,7 @@ public class BRFlowQueryHandle extends BRApiHandler<BRFlowHistoryReq, BRFlowHist
     private FinancialConfigService financialConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     @Resource
     private BrFlowRecordService brFlowRecordService;

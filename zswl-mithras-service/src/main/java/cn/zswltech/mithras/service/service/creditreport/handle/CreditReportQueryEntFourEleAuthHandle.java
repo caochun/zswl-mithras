@@ -5,7 +5,7 @@ import cn.zswltech.mithras.service.enums.ContentTypeEnum;
 import cn.zswltech.mithras.service.enums.creditreport.CreditApplyXJUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.creditreport.CreditReportApiHandler;
 import cn.zswltech.mithras.service.service.creditreport.CreditReportConfigService;
 import cn.zswltech.mithras.service.service.creditreport.req.CreditReportQueryEntFourEleAuthReq;
@@ -40,7 +40,7 @@ public class CreditReportQueryEntFourEleAuthHandle extends CreditReportApiHandle
     private CreditReportConfigService creditReportConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     private static final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().availableProcessors() + 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(100));
 
@@ -94,7 +94,7 @@ public class CreditReportQueryEntFourEleAuthHandle extends CreditReportApiHandle
             if(ObjectUtil.isNotEmpty(exceptionRequestInfo)){
                 exceptionRequestInfo.setRetryFlag(isExecuteSuccess(result) ? 1 : 0);
                 exceptionRequestInfo.setResponse(responseData);
-                getBean(ExceptionRequestInfoService.class).updateById(exceptionRequestInfo);
+                getBean(ExceptionRequestRecordService.class).updateById(exceptionRequestInfo);
             }
             //保存请求返回
             if (isExecuteSuccess(result))

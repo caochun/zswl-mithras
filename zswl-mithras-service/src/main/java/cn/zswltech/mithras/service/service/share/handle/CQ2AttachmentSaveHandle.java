@@ -5,7 +5,7 @@ import cn.zswltech.mithras.service.enums.third.FinancialDevUrlENUM;
 import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.share.req.CQ2AttachmentSaveReq;
 import cn.zswltech.mithras.service.service.share.rsp.CQ2AcchmentSaveRsp;
 import cn.zswltech.mithras.service.service.third.financial.FinancialApiHandler;
@@ -35,7 +35,7 @@ public class CQ2AttachmentSaveHandle extends FinancialApiHandler<CQ2AttachmentSa
     private FinancialConfigService financialConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     private static final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().availableProcessors() + 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(100));
 

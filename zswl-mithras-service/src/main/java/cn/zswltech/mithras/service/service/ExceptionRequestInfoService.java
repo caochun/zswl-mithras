@@ -10,7 +10,6 @@ import cn.zswltech.mithras.dto.third.financial.CqApiRecordREQ;
 import cn.zswltech.mithras.dto.third.financial.CqApiRecordRSP;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.third.ExceptionSourceENUM;
-import cn.zswltech.mithras.service.mapper.ExceptionRequestInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
@@ -25,11 +24,9 @@ import cn.zswltech.mithras.service.service.third.financial.req.CQ2AccountApplica
 import cn.zswltech.mithras.service.service.third.financial.req.CQ2CollectionReq;
 import cn.zswltech.mithras.service.service.third.financial.req.CQ2PaymentReq;
 import cn.zswltech.mithras.service.service.third.financial.req.CQ2PlanCollectionReq;
-import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,24 +43,10 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class ExceptionRequestInfoService extends ServiceImpl<ExceptionRequestInfoMapper, ExceptionRequestInfo> {
+public class ExceptionRequestInfoService extends ExceptionRequestRecordService {
 
     @Resource
     private PlatformApiHandleFactory platformApiHandleFactory;
-
-    public List<ExceptionRequestInfo> listNeedRetry(String platform){
-        return baseMapper.selectList(Wrappers .<ExceptionRequestInfo>lambdaQuery()
-                .eq(ExceptionRequestInfo::getPlatform, platform)
-                .eq(ExceptionRequestInfo::getRetryFlag, YesOrNoNumberEnum.NO.getCode())
-                ).stream().filter(base -> base.getMaxRetryAmount() > base.getRetryAmount()).collect(Collectors.toList());
-    }
-
-    public ExceptionRequestInfo getLastRequest(String platform, String businessId){
-        return baseMapper.selectOne(Wrappers .<ExceptionRequestInfo>lambdaQuery()
-                .eq(ExceptionRequestInfo::getPlatform, platform)
-                .eq(ExceptionRequestInfo::getBusinessId, businessId)
-                .last(StringUtil.mysqlLimitOne()));
-    }
 
     public PageR<CqApiRecordRSP> pageList(CqApiRecordREQ req) {
         Page<ExceptionRequestInfo> pageQuery = new Page<>(req.getPage(), req.getPageSize());

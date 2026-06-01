@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceAccountAgeItem;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.finance.FinanceAccountAgeItemService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialApiHandler;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialConfigService;
@@ -41,7 +41,7 @@ public class CQ2AccountAgeAddHandle extends FinancialApiHandler<List<CQ2AccountA
     private FinancialConfigService financialConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     @Resource
     private FinanceAccountAgeItemService financeAccountAgeItemService;

@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowDetailService;
 import cn.zswltech.mithras.service.service.margin.MarginRecordService;
@@ -79,7 +79,7 @@ public class FinancialManagerServiceImpl2 {
     private AppAuthConfig appAuthConfig;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     @Resource
     private CollectionRecordInfoService collectionRecordInfoService;

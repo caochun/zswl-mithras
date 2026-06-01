@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.enums.third.OverdueReportDevUrlENUM;
 import cn.zswltech.mithras.service.enums.third.OverdueReportUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.third.overduereport.OverdueReportApiHandler;
 import cn.zswltech.mithras.service.service.third.overduereport.OverdueReportConfigService;
 import cn.zswltech.mithras.service.service.third.overduereport.req.OverdueReportSetReappReq;
@@ -38,7 +38,7 @@ public class OverdueReportSetReappHandle extends OverdueReportApiHandler<List<Ov
     private OverdueReportConfigService overdueReportConfigService;
 
     @Resource
-    private ExceptionRequestInfoService exceptionRequestInfoService;
+    private ExceptionRequestRecordService exceptionRequestInfoService;
 
     private static final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().availableProcessors() + 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(100));
 
