@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.newftp.service.drift;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.gruul.common.util.spring.SpringContextUtil;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.newftp.mapper.NewFtpBaseInfoMapper;
@@ -43,7 +42,7 @@ public class NewFtpShiborInterestRatePricingDraftService
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
         //清理已有数据
-        SpringContextUtil.getBean(NewFtpShiborInterestRatePricingDraftService.class).remove(Wrappers.<NewFtpShiborInterestRatePricingDraft>lambdaQuery()
+        remove(Wrappers.<NewFtpShiborInterestRatePricingDraft>lambdaQuery()
                 .eq(NewFtpShiborInterestRatePricingDraft::getFtpId, ftpId));
 
         List<NewFtpShiborInterestRatePricingConfig> newFtpConfigs = newFtpShiborInterestRatePricingConfigMapper.selectList(Wrappers.<NewFtpShiborInterestRatePricingConfig>lambdaQuery()
@@ -56,7 +55,7 @@ public class NewFtpShiborInterestRatePricingDraftService
                 newFtpTreasuryBondYieldPricingDrafts.add(draft);
             });
             if(ObjectUtil.isNotEmpty(newFtpTreasuryBondYieldPricingDrafts)){
-                SpringContextUtil.getBean(NewFtpShiborInterestRatePricingDraftService.class).saveBatch(newFtpTreasuryBondYieldPricingDrafts);
+                saveBatch(newFtpTreasuryBondYieldPricingDrafts);
             }
         }
     }
