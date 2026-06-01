@@ -1,11 +1,9 @@
 package cn.zswltech.mithras.service.service.lib.payment.libservice.impl;
 
-import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.payment.version.PaymentVersionListRSP;
 import cn.zswltech.mithras.dto.version.*;
-import cn.zswltech.mithras.service.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.service.mapper.lib.payment.PaymentBaseInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
@@ -27,12 +25,14 @@ import java.util.*;
  */
 @Service
 public class PaymentVersionServiceImpl extends CommonVersionService<PaymentBaseInfo> {
+    private static final String DEFAULT_USER_NAME = "未知用户";
+
     @Resource
     private List<PaymentAbstractHandler> libHandlerList;
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
     @Resource
-    private PaymentBaseInfoLibServiceImpl baseInfoLibService;
+    private PaymentBaseInfoLibMapper paymentBaseInfoLibMapper;
 
     @Override
     public void customFlushData(PaymentBaseInfo paymentBaseInfo, String version, boolean needClearLastFlag, Integer versionType) {
@@ -107,19 +107,29 @@ public class PaymentVersionServiceImpl extends CommonVersionService<PaymentBaseI
 
     @Override
     protected CommonVersionListRSP convertPageRsp(CommonVersion cv, PaymentBaseInfo baseModel, Map<Long, String> userNameMap) {
-        PaymentVersionListRSP rsp = BeanUtil.copyProperties(cv, PaymentVersionListRSP.class);
-        PaymentBaseInfoLib one = baseInfoLibService.getOne(Wrappers.<PaymentBaseInfoLib>lambdaQuery()
-                .eq(PaymentBaseInfoLib::getVersion, rsp.getVersion())
-                .eq(PaymentBaseInfoLib::getOriginId, rsp.getMainId()));
+        PaymentVersionListRSP rsp = new PaymentVersionListRSP();
+        rsp.setId(cv.getId());
+        rsp.setMainId(cv.getMainId());
+        rsp.setVersion(cv.getVersion());
+        rsp.setType(cv.getType());
+        rsp.setModule(cv.getModule());
+        rsp.setCreateTime(cv.getCreateTime());
+        rsp.setCreateBy(cv.getCreateBy());
+        rsp.setUpdateTime(cv.getUpdateTime());
+        rsp.setUpdateBy(cv.getUpdateBy());
+        PaymentBaseInfoLib one = paymentBaseInfoLibMapper.selectOne(Wrappers.<PaymentBaseInfoLib>lambdaQuery()
+                .eq(PaymentBaseInfoLib::getVersion, cv.getVersion())
+                .eq(PaymentBaseInfoLib::getOriginId, cv.getMainId())
+                .last("LIMIT 1"));
         rsp.setApplyPaymentAmount(Optional.ofNullable(one).map(PaymentBaseInfoLib::getApplyPaymentAmount).orElse(null));
         rsp.setGmtModify(cv.getUpdateTime());
         rsp.setOperatorId(cv.getUpdateBy());
-        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(MithrasConstants.DEFAULT_USER_NAME));
+        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(DEFAULT_USER_NAME));
         return rsp;
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.PAYMENT;
+    protected String getBusinessModuleName() {
+        return "PAYMENT";
     }
 }
