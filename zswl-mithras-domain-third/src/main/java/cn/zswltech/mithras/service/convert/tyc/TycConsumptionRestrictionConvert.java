@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.convert.tyc;
 import cn.zswltech.mithras.dto.client.external.tyc.TycConsumptionRestrictionRSP;
 import cn.zswltech.mithras.service.mapper.model.client.TycConsumptionRestriction;
 import cn.zswltech.mithras.service.repository.tyc.resp.TycConsumptionRestrictionResp;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.hutool.core.date.LocalDateTimeUtil;
 
 import java.util.Objects;
 
@@ -20,7 +20,7 @@ public class TycConsumptionRestrictionConvert {
         tycConsumptionRestriction.setCaseCode(resp.getCaseCode());
         tycConsumptionRestriction.setFilePath(resp.getFilePath());
         if (Objects.nonNull(resp.getPublishDate())) {
-            tycConsumptionRestriction.setPublishDate(DateUtil.timestamp2LDT(resp.getPublishDate()));
+            tycConsumptionRestriction.setPublishDate(LocalDateTimeUtil.of(resp.getPublishDate()));
         }
         tycConsumptionRestriction.setXname(resp.getXname());
         tycConsumptionRestriction.setHcgid(resp.getHcgid());
@@ -28,7 +28,7 @@ public class TycConsumptionRestrictionConvert {
         tycConsumptionRestriction.setApplicantCid(resp.getApplicantCid());
         tycConsumptionRestriction.setQyinfoAlias(resp.getQyinfoAlias());
         if (Objects.nonNull(resp.getCaseCreateTime())) {
-            tycConsumptionRestriction.setCaseCreateTime(DateUtil.timestamp2LDT(resp.getCaseCreateTime()));
+            tycConsumptionRestriction.setCaseCreateTime(LocalDateTimeUtil.of(resp.getCaseCreateTime()));
 
         }
         tycConsumptionRestriction.setAlias(resp.getAlias());

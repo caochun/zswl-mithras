@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.convert.tyc;
 import cn.zswltech.mithras.dto.client.external.tyc.TycZhixingInfoRSP;
 import cn.zswltech.mithras.service.mapper.model.client.TycZhixingInfo;
 import cn.zswltech.mithras.service.repository.tyc.resp.TycZhixingInfoResp;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.hutool.core.date.LocalDateTimeUtil;
 
 import java.util.Optional;
 
@@ -22,7 +22,7 @@ public class TycZhixingInfoConvert {
         tycZhixingInfo.setPartyCardNum(resp.getPartyCardNum());
         tycZhixingInfo.setPname(resp.getPname());
         tycZhixingInfo.setExecCourtName(resp.getExecCourtName());
-        tycZhixingInfo.setCaseCreateTime(Optional.ofNullable(resp.getCaseCreateTime()).map(DateUtil::timestamp2LDT).orElse(null));
+        tycZhixingInfo.setCaseCreateTime(Optional.ofNullable(resp.getCaseCreateTime()).map(LocalDateTimeUtil::of).orElse(null));
         tycZhixingInfo.setExecMoney(resp.getExecMoney());
         return tycZhixingInfo;
     }

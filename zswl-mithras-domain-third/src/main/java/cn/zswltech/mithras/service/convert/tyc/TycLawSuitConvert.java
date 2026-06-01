@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.TycLawSuit;
 import cn.zswltech.mithras.service.repository.tyc.resp.TycLawSuitDetailResp;
 import cn.zswltech.mithras.service.repository.tyc.resp.TycLawSuitResp;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.hutool.core.date.LocalDateTimeUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -39,7 +39,7 @@ public class TycLawSuitConvert {
         tycLawSuit.setCaseReason(resp.getCaseReason());
         tycLawSuit.setCasePersonsJson(Optional.ofNullable(resp.getCasePersons()).map(JSON::toJSONString).orElse(null));
         tycLawSuit.setCaseMoney(resp.getCaseMoney());
-        tycLawSuit.setSubmitTime(Optional.ofNullable(resp.getSubmitTime()).map(DateUtil::timestamp2LDT).orElse(null));
+        tycLawSuit.setSubmitTime(Optional.ofNullable(resp.getSubmitTime()).map(LocalDateTimeUtil::of).orElse(null));
         tycLawSuit.setTycId(resp.getId());
         return tycLawSuit;
 

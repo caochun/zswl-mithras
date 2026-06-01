@@ -21,19 +21,65 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.text.CharSequenceUtil.split;
 import static cn.hutool.core.util.ObjectUtil.*;
 import static cn.zswltech.mithras.service.enums.ShareholderType.*;
-import static cn.zswltech.mithras.service.others.Util.returnBigDecimal;
-import static cn.zswltech.mithras.service.others.Util.toMithrasUnit;
 
 /**
  * @author luyi
  */
 public class TycConvertor {
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("([1-9]\\d*\\.?\\d*)|(0\\.\\d*[1-9])");
+
+    private static Long toMithrasUnit(BigDecimal value) {
+        if (value == null) {
+            return null;
+        }
+        return value.multiply(new BigDecimal("10000")).longValue();
+    }
+
+    private static Long toMithrasUnit(Long value) {
+        if (value == null) {
+            return null;
+        }
+        return value * 10000L;
+    }
+
+    private static BigDecimal returnBigDecimal(String value) {
+        value = prefixNumberStr(value);
+        if (isBlank(value)) {
+            return BigDecimal.ZERO;
+        }
+        return new BigDecimal(value);
+    }
+
+    private static BigDecimal returnBigDecimal(String value, BigDecimal scale) {
+        BigDecimal result = returnBigDecimal(value);
+        if (scale != null) {
+            result = result.multiply(scale);
+        }
+        return result;
+    }
+
+    private static String prefixNumberStr(String value) {
+        if (value == null) {
+            return null;
+        }
+        value = value.replace("-", "");
+        if (StringUtils.isBlank(value)) {
+            return null;
+        }
+        Matcher matcher = NUMBER_PATTERN.matcher(value);
+        if (matcher.find()) {
+            return matcher.group(0);
+        }
+        return "0";
+    }
 
     public static MithrasBaseInfo mithrasBaseInfo(TycBaseInfo baseInfo) {
         if (isNull(baseInfo)) {

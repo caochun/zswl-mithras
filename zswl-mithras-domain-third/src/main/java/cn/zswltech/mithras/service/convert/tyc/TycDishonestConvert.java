@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.convert.tyc;
 import cn.zswltech.mithras.dto.client.external.tyc.TycDishonestRSP;
 import cn.zswltech.mithras.service.mapper.model.client.TycDishonest;
 import cn.zswltech.mithras.service.repository.tyc.resp.TycDishonestResp;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.hutool.core.date.LocalDateTimeUtil;
 import com.alibaba.fastjson.JSON;
 
 import java.util.Objects;
@@ -33,8 +33,8 @@ public class TycDishonestConvert {
         tycDishonest.setCaseCode(resp.getCasecode());
         tycDishonest.setCardNum(resp.getCardnum());
         tycDishonest.setPerformance(resp.getPerformance());
-        tycDishonest.setRegDate(Optional.ofNullable(resp.getRegdate()).map(DateUtil::timestamp2LDT).orElse(null));
-        tycDishonest.setPublishDate(Optional.ofNullable(resp.getPublishdate()).map(DateUtil::timestamp2LDT).orElse(null));
+        tycDishonest.setRegDate(Optional.ofNullable(resp.getRegdate()).map(LocalDateTimeUtil::of).orElse(null));
+        tycDishonest.setPublishDate(Optional.ofNullable(resp.getPublishdate()).map(LocalDateTimeUtil::of).orElse(null));
         tycDishonest.setGistUnit(resp.getGistunit());
         tycDishonest.setDuty(resp.getDuty());
         tycDishonest.setGistId(resp.getGistid());

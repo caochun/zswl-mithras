@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.convert.tyc;
 import cn.zswltech.mithras.dto.client.external.tyc.TycEquityInfoRSP;
 import cn.zswltech.mithras.service.mapper.model.client.TycEquityInfo;
 import cn.zswltech.mithras.service.repository.tyc.resp.TycEquityInfoResp;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.hutool.core.date.LocalDateTimeUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +21,7 @@ public class TycEquityInfoConvert {
     public static TycEquityInfo tycResp2Entity(TycEquityInfoResp.ItemsDTO resp) {
         TycEquityInfo tycEquityInfo = new TycEquityInfo();
         tycEquityInfo.setPledgeeJson(Optional.ofNullable(resp.getPledgeeList()).map(JSON::toJSONString).orElse(null));
-        tycEquityInfo.setRegDate(Optional.ofNullable(resp.getRegDate()).map(DateUtil::timestamp2LDT).orElse(null));
+        tycEquityInfo.setRegDate(Optional.ofNullable(resp.getRegDate()).map(LocalDateTimeUtil::of).orElse(null));
         tycEquityInfo.setPledgor(resp.getPledgor());
         tycEquityInfo.setCertifNumberR(resp.getCertifNumberR());
         tycEquityInfo.setPledgee(resp.getPledgee());
@@ -33,7 +33,7 @@ public class TycEquityInfoConvert {
         tycEquityInfo.setEquityAmount(resp.getEquityAmount());
         tycEquityInfo.setTycId(resp.getId());
         tycEquityInfo.setState(resp.getState());
-        tycEquityInfo.setPutDate(Optional.ofNullable(resp.getPutDate()).map(DateUtil::timestamp2LDT).orElse(null));
+        tycEquityInfo.setPutDate(Optional.ofNullable(resp.getPutDate()).map(LocalDateTimeUtil::of).orElse(null));
         return tycEquityInfo;
     }
 

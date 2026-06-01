@@ -13,7 +13,7 @@
 package-lock.json
 
 # ===== Local repository (private jars) =====
-repository/
+/repository/
 
 # ===== Restored/generated @zswl source =====
 @zswl-src/
