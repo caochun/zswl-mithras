@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.service.service.finance;
 
-import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.service.mapper.finance.FinanceOverdueVersionRelationMapper;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueVersionRelation;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -23,7 +22,7 @@ public class FinanceOverdueVersionRelationService extends ServiceImpl<FinanceOve
         List<FinanceOverdueVersionRelation> list = this.list(Wrappers.<FinanceOverdueVersionRelation>lambdaQuery()
                 .eq(FinanceOverdueVersionRelation::getProcessInstanceId, processInstanceId)
                 .eq(FinanceOverdueVersionRelation::getRecordType, recordType));
-        if (CollectionUtil.isNotEmpty(list)) {
+        if (!list.isEmpty()) {
             return list;
         }
         if(this.count(Wrappers.<FinanceOverdueVersionRelation>lambdaQuery()
