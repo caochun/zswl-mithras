@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.groupcreditestablish.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.groupcreditestablish.GroupCreditEstablishInfoModule;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
@@ -63,8 +62,8 @@ public abstract class GroupCreditEstablishLibAbstractHandler<LIB extends ILib, E
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.GROUP_CREDIT_ESTABLISH;
+    protected String businessModuleName() {
+        return "GROUP_CREDIT_ESTABLISH";
     }
 
 }

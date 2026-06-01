@@ -1,9 +1,7 @@
 package cn.zswltech.mithras.service.service.lib.groupcreditreview.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewInfoModule;
-import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishInfoModule;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -64,8 +62,8 @@ public abstract class GroupCreditReviewLibAbstractHandler<LIB extends ILib, ENTI
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.GROUP_CREDIT_REVIEW;
+    protected String businessModuleName() {
+        return "GROUP_CREDIT_REVIEW";
     }
 
 }

@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.GroupCreditEstablishBaseInfoDetailRSP;
 import cn.zswltech.mithras.service.convert.groupcreditestablish.GroupCreditEstablishBaseInfoConverter;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.groupcreditestablish.GroupCreditEstablishInfoModule;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
@@ -59,6 +60,11 @@ public class GroupCreditEstablishMaterialsListLibHandler
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
         return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.GROUP_CREDIT_ESTABLISH;
     }
 
     @Override
