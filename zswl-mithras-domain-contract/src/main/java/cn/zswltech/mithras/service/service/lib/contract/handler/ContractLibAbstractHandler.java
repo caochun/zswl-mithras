@@ -1,13 +1,11 @@
 package cn.zswltech.mithras.service.service.lib.contract.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
-import io.swagger.models.auth.In;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
@@ -69,7 +67,7 @@ public abstract class ContractLibAbstractHandler<LIB extends ILib, ENTITY extend
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.CONTRACT;
+    protected String businessModuleName() {
+        return "CONTRACT";
     }
 }
