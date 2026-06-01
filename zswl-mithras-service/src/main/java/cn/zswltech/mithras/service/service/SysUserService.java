@@ -51,7 +51,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
  */
 @Slf4j
 @Service
-public class SysUserService {
+public class SysUserService implements CurrentUserOrgResolver {
 
     @Resource
     private OrgDOMapper orgDOMapper;
@@ -243,6 +243,7 @@ public class SysUserService {
         return orgList.stream().filter(e -> Objects.equals(e.getType(), OrgConstants.BUSINESS_DEPT)).collect(Collectors.toList());
     }
 
+    @Override
     public List<OrgDO> getUserDeptList() {
         return this.getUserDeptList(AccountUtil.getLoginInfo());
     }
@@ -283,6 +284,7 @@ public class SysUserService {
         return getUserByDeptId(DEPT_CODE_ID.get(orgCode));
     }
 
+    @Override
     public OrgDO getUserDept() {
         List<OrgDO> orgList = this.getUserDeptList();
         if (CollectionUtil.isEmpty(orgList)) {

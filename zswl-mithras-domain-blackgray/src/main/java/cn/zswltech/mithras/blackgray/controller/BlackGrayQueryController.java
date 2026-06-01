@@ -16,9 +16,10 @@ import cn.zswltech.mithras.blackgray.enums.BlackGrayTypeEnum;
 import cn.zswltech.mithras.blackgray.excel.ExcelUtil;
 import cn.zswltech.mithras.blackgray.service.BlackGrayLibraryService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
+import cn.zswltech.mithras.blackgray.utils.BlackDesensitizeUtil;
 import cn.zswltech.mithras.blackgray.vo.BlackGrayLibraryDistinctExportVO;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -58,7 +59,7 @@ public class BlackGrayQueryController {
     @Resource
     GruulAuthService gruulAuthService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
 
     /*@ApiOperation("新增黑灰名单库")
     @PostMapping("/black/gray/base/info/add")
@@ -77,7 +78,7 @@ public class BlackGrayQueryController {
     @ApiOperation("风控系统查询黑灰名单库列表")
     @PostMapping("/black/gray/base/info/list")
     public R<PageR<BlackGrayLibraryListRSP>> list(@RequestBody @Validated BlackGrayLibraryListREQ req){
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if(ObjectUtil.isNull(rootOrg)){
             throw new MithrasException("无机构信息");
         }
@@ -230,7 +231,7 @@ public class BlackGrayQueryController {
     @GetMapping("/black/gray/singleEnt/businessType")
     public R<List<String>> businessType (){
         // 根据用户所有所属机构身份，返回能显示出来的类别 对应BlackGrayBusinessTypeEnum的name()
-        return R.ok(blackGrayLibraryService.businessType(sysUserService.getUserDeptList().stream().map(OrgDO::getCode).collect(Collectors.toList())));
+        return R.ok(blackGrayLibraryService.businessType(currentUserOrgResolver.getUserDeptList().stream().map(OrgDO::getCode).collect(Collectors.toList())));
     }
 
     @ApiOperation("批量查询")

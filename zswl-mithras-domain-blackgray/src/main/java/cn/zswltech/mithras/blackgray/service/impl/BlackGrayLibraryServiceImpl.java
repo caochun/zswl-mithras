@@ -32,14 +32,14 @@ import cn.zswltech.mithras.blackgray.service.*;
 import cn.zswltech.mithras.blackgray.service.external.JKBlackGrayCollisionLibraryHandle;
 import cn.zswltech.mithras.blackgray.service.external.remote.JKBlackGrayCollisionLibraryREQ;
 import cn.zswltech.mithras.blackgray.service.external.remote.JKBlackGrayCollisionLibraryRSP;
+import cn.zswltech.mithras.blackgray.utils.BlackDesensitizeUtil;
+import cn.zswltech.mithras.service.mapper.client.ClientMapper;
+import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.mapper.client.ClientMapper;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -85,7 +85,9 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
     DictionaryService dictionaryService;
 
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
+    @Resource
+    private ClientMapper clientMapper;
     @Resource
     private JKBlackGrayCollisionLibraryHandle jkBlackGrayCollisionLibraryHandle;
 
@@ -111,10 +113,10 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
     @Override
     public PageR<BlackGrayLibraryListRSP> list(BlackGrayLibraryListREQ req) {
         //填充部门
-        OrgDO userOrg = sysUserService.getUserDept();
+        OrgDO userOrg = currentUserOrgResolver.getUserDept();
         // 数字摘要同步接口专用字段，做增量同步
         if(req.getUpdateTime() == null){
-            if(CollectionUtil.isEmpty(sysUserService.getUserDeptList())){
+            if(CollectionUtil.isEmpty(currentUserOrgResolver.getUserDeptList())){
                 throw new MithrasException("当前用户无机构");
             }
         }
@@ -229,7 +231,7 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
     public BlackGrayLibraryRSP libraryRecord(BlackGrayLibraryREQ req) {
         //补充客户信息
         if(ObjectUtil.isNotEmpty(req.getClientId())) {
-            Client client = SpringContextHolder.getBean(ClientMapper.class).selectById(req.getClientId());
+            Client client = clientMapper.selectById(req.getClientId());
             if (ObjectUtil.isEmpty(client)) {
                 throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
             }
@@ -331,7 +333,7 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
     @Override
     public PageR<BlackGrayLibraryOrgListRSP> orgList(BlackGrayLibraryListREQ req) {
         //填充部门
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if(ObjectUtil.isEmpty(rootOrg)){
             throw new MithrasException("用户所属机构信息不存在");
         }
@@ -560,7 +562,7 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
     @Override
     public List<BlackGrayLibraryListRSP> batchQuery(List<BlackGrayBatchQueryREQ> blackGrayBatchQueryREQS, List<String> businessTypeList) {
         List<BlackGrayLibraryListRSP> rsps = new ArrayList<>();
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if(ObjectUtil.isNull(rootOrg)){
             throw new MithrasException("无机构信息");
         }
@@ -969,7 +971,7 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
          */
         Map<String, Set<String>> dictMap = dictResp.getData().stream().collect(Collectors.toMap(DictionaryDO::getCode, e -> JSON.parseObject(e.getDisplay(), new TypeReference<HashMap<String, String>>() {}).keySet(), (k1, k2) -> k1));
         // 考虑所有机构，最终权限取并集
-        Set<String> rootOrgCodes = sysUserService.getUserDeptList().stream().map(OrgDO::getId).map(String::valueOf).collect(Collectors.toSet());
+        Set<String> rootOrgCodes = currentUserOrgResolver.getUserDeptList().stream().map(OrgDO::getId).map(String::valueOf).collect(Collectors.toSet());
 
         List<String> finalBusinessTypes = new ArrayList<>();
         for (Map.Entry<String, Set<String>> entry : dictMap.entrySet()) {

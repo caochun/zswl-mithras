@@ -20,7 +20,7 @@ import cn.zswltech.mithras.blackgray.mapper.BlackGrayLibraryMapper;
 import cn.zswltech.mithras.blackgray.model.BlackGrayBreakBusiness;
 import cn.zswltech.mithras.blackgray.service.BlackGrayBreakBusinessService;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
@@ -44,19 +44,19 @@ public class BlackGrayBreakBusinessServiceImpl implements BlackGrayBreakBusiness
     @Resource
     private BlackGrayLibraryMapper blackGrayLibraryMapper;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public Long add(BlackGrayBreakBusinessAddREQ req) {
         //填充部门
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if(rootOrg == null){
             throw new MithrasException("当前用户无机构");
         }
         Date date = new Date();
         BlackGrayBreakBusiness info = BeanUtil.copyProperties(req, BlackGrayBreakBusiness.class, "applyFileKeys");
-        List<OrgDO> deptDos = sysUserService.getUserDeptList();
+        List<OrgDO> deptDos = currentUserOrgResolver.getUserDeptList();
         if(CollectionUtil.isNotEmpty(deptDos)){
             info.setApplyDept(deptDos.get(0).getCode());
         }
@@ -110,7 +110,7 @@ public class BlackGrayBreakBusinessServiceImpl implements BlackGrayBreakBusiness
     }*/
 
     private Example getListExample(BlackGrayBreakBusinessListREQ req) {
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         Example example = new Example(BlackGrayBreakBusiness.class);
         Example.Criteria criteria = example.createCriteria();
         if(req.getAuditStatus() != null){

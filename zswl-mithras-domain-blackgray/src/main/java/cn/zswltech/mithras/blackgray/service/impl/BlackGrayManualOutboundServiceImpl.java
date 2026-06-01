@@ -26,7 +26,7 @@ import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
 import cn.zswltech.mithras.blackgray.service.audit.BlackGrayOutboundAuditService;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
@@ -58,7 +58,7 @@ public class BlackGrayManualOutboundServiceImpl implements BlackGrayManualOutbou
     @Resource
     GruulAuthService gruulAuthService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
@@ -85,7 +85,7 @@ public class BlackGrayManualOutboundServiceImpl implements BlackGrayManualOutbou
         info.setCreateTime(date);
         info.setUpdateTime(date);
         info.setApplyOrganization(BlackGrayOrgEnum.ZSZL.name());
-        List<OrgDO> deptDos = sysUserService.getUserDeptList();
+        List<OrgDO> deptDos = currentUserOrgResolver.getUserDeptList();
         if(CollectionUtil.isNotEmpty(deptDos)){
             info.setApplyDept(deptDos.get(0).getCode());
         }
@@ -145,7 +145,7 @@ public class BlackGrayManualOutboundServiceImpl implements BlackGrayManualOutbou
     private Example getListExample(BlackGrayManualOutboundListREQ req) {
         Example example = new Example(BlackGrayManualOutbound.class);
         Example.Criteria criteria = example.createCriteria();
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if(rootOrg == null){
             throw new MithrasException("当前用户无机构");
         }

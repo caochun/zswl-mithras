@@ -20,7 +20,7 @@ import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRecordService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -47,7 +47,7 @@ public class BlackGrayWarehouseAuditService {
     @Resource
     private BlackGrayLibraryService blackGrayLibraryService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
     @Resource
     private FlowProcessApiService processApiService;
 
@@ -102,7 +102,7 @@ public class BlackGrayWarehouseAuditService {
     }
 
     public PageR<BlackGrayWarehouseApprovalTaskRSP> auditList(BlackGrayApprovalTaskREQ req){
-        if (sysUserService.getUserDept() == null) {
+        if (currentUserOrgResolver.getUserDept() == null) {
             throw new MithrasException("当前用户无机构");
         }
         req.setCurrentOperator(String.valueOf(AccountUtil.getLoginInfo().getId()));

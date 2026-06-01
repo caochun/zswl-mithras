@@ -16,7 +16,7 @@ import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService
 import cn.zswltech.mithras.blackgray.service.RedisService;
 import cn.zswltech.mithras.blackgray.utils.StringUtils;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageHelper;
@@ -46,7 +46,7 @@ public class BlackGrayWarehouseRuleConfigServiceImpl implements BlackGrayWarehou
     @Resource
     private BlackGrayWarehouseRecordMapper blackGrayWarehouseRecordMapper;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
     @Resource
     private RedisService redisService;
     private final static String BLACK_GRAY_RULE_NUM_LOCK = "BLACK_GRAY_RULE_NUM_LOCK";

@@ -27,7 +27,7 @@ import cn.zswltech.mithras.blackgray.service.GruulAuthService;
 import cn.zswltech.mithras.blackgray.service.RedisService;
 import cn.zswltech.mithras.blackgray.utils.StringUtils;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageHelper;
@@ -67,7 +67,7 @@ public class BlackGrayWarehouseTaskServiceImpl implements BlackGrayWarehouseTask
     @Resource
     GruulAuthService gruulAuthService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
 
 
     private static final String BLACK_GRAY_TASK_NUM_LOCK = "BLACK_GRAY_TASK_NUM_LOCK:";

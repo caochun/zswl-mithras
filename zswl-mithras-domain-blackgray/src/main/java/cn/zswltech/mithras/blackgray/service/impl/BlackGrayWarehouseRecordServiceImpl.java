@@ -33,7 +33,7 @@ import cn.zswltech.mithras.blackgray.utils.StringUtils;
 import cn.zswltech.mithras.blackgray.vo.BlackGrayApplyReasonVo;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageHelper;
@@ -79,7 +79,7 @@ public class BlackGrayWarehouseRecordServiceImpl implements BlackGrayWarehouseRe
     @Resource
     private GruulAuthService gruulAuthService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
@@ -97,11 +97,11 @@ public class BlackGrayWarehouseRecordServiceImpl implements BlackGrayWarehouseRe
             throw new MithrasException("登录信息不存在");
         }
         //填充部门
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if (rootOrg == null) {
             throw new MithrasException("当前用户无机构");
         }
-        List<OrgDO> deptDos = sysUserService.getUserDeptList();
+        List<OrgDO> deptDos = currentUserOrgResolver.getUserDeptList();
         Map<String, BlackGrayWarehouseRecord> oldMap = new HashMap<>();
         //判断是否需要去重
         if(ObjectUtil.isNotEmpty(req.getTaskNum())){
@@ -136,11 +136,11 @@ public class BlackGrayWarehouseRecordServiceImpl implements BlackGrayWarehouseRe
             throw new MithrasException("登录信息不存在");
         }
         //填充部门
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if (rootOrg == null) {
             throw new MithrasException("当前用户无机构");
         }
-        List<OrgDO> deptDos = sysUserService.getUserDeptList();
+        List<OrgDO> deptDos = currentUserOrgResolver.getUserDeptList();
         List<BlackGrayWarehouseRecord> list = new ArrayList<>();
         reqs.forEach(req -> {
             Map<String, BlackGrayWarehouseRecord> oldMap = new HashMap<>();
@@ -480,7 +480,7 @@ public class BlackGrayWarehouseRecordServiceImpl implements BlackGrayWarehouseRe
         if(ObjectUtil.isEmpty(baseDict)){
             throw new MithrasException("当前无相关业务类型");
         }
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if (rootOrg == null) {
             throw new MithrasException("当前用户无机构");
         }

@@ -31,8 +31,8 @@ import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRecordService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
+import cn.zswltech.mithras.service.service.UserNameResolver;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.exception.ExcelDataConvertException;
 import com.alibaba.excel.read.builder.ExcelReaderBuilder;
@@ -81,9 +81,9 @@ public class BlackGrayWarehouseRecordController {
     @Resource
     GruulAuthService gruulAuthService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
     @ApiOperation("新增黑灰名单记录表")
     @PostMapping("/black/gray/warehouse/record/add")
@@ -232,8 +232,8 @@ public class BlackGrayWarehouseRecordController {
     @PostMapping(value = "/black/gray/warehouse/record/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public R<Void> upload(BlackGrayWarehouseRecordUploadREQ req) {
         Long userId = AccountUtil.getLoginInfo().getId();
-        OrgDO rootOrg = sysUserService.getUserDept();
-        List<OrgDO> deptDos = sysUserService.getUserDeptList();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
+        List<OrgDO> deptDos = currentUserOrgResolver.getUserDeptList();
         if (ObjectUtil.isNull(rootOrg)) {
             throw new MithrasException("无机构信息");
         }
@@ -293,7 +293,7 @@ public class BlackGrayWarehouseRecordController {
     @ApiOperation("解析黑灰名单上传记录表")
     @PostMapping(value = "/black/gray/warehouse/analysis/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public R<BlackGrayWarehouseRecordUploadRSP> analysisBatchRecord(BlackGrayWarehouseRecordUploadREQ req) {
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if (ObjectUtil.isNull(rootOrg)) {
             throw new MithrasException("无机构信息");
         }
@@ -327,7 +327,7 @@ public class BlackGrayWarehouseRecordController {
             req.setPage(1);
             req.setPageSize(Integer.MAX_VALUE);
         }
-        OrgDO rootOrg = sysUserService.getUserDept();
+        OrgDO rootOrg = currentUserOrgResolver.getUserDept();
         if (ObjectUtil.isNull(rootOrg)) {
             throw new MithrasException("无机构信息");
         }
@@ -344,7 +344,7 @@ public class BlackGrayWarehouseRecordController {
                 fileName.append("_");
                 fileName.append(rootOrgName);
                 fileName.append("_");
-                fileName.append(id2NameService.sysUserId2NameSingle(AccountUtil.getLoginInfo().getId()));
+                fileName.append(userNameResolver.sysUserId2NameSingle(AccountUtil.getLoginInfo().getId()));
                 fileName.append(".xlsx");
                 response.addHeader("Access-Control-Expose-Headers", "Content-Disposition");
                 response.setHeader("Content-disposition", "attachment;filename=" + URLEncoder.encode(fileName.toString(), "UTF-8"));

@@ -9,4 +9,8 @@ import java.util.Map;
 public interface UserNameResolver {
 
     Map<Long, String> sysUserId2Name(Collection<Long> userIds);
+
+    default String sysUserId2NameSingle(Long userId) {
+        return sysUserId2Name(java.util.Collections.singletonList(userId)).get(userId);
+    }
 }
