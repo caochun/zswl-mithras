@@ -1,15 +1,8 @@
 package cn.zswltech.mithras.service.service.newftp.service.drift;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.service.enums.newftp.DescriptionType;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.newftp.mapper.draft.NewFtpDescriptionTextDraftMapper;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpFinancingCostPricingConfig;
 import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpDescriptionTextDraft;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpFinancingCostPricingDraft;
-import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpFinancingCostPricingConfigService;
-import cn.zswltech.mithras.service.util.DateUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +36,7 @@ public class NewFtpDescriptionTextDraftService extends ServiceImpl<NewFtpDescrip
         text3.setDescContent("");
         toBeInsert.add(text3);
 
-        if (DateUtil.isQuarterStart(month)) {
+        if (isQuarterStart(month)) {
             NewFtpDescriptionTextDraft text4 = new NewFtpDescriptionTextDraft();
             text4.setFtpId(mainId);
             text4.setDescType(DescriptionType.QUARTERLY_SUPPLEMENT.name());
@@ -65,5 +58,10 @@ public class NewFtpDescriptionTextDraftService extends ServiceImpl<NewFtpDescrip
             return "去年全年";
         }
         return "<1月>-<" + (monthValue - 1) + "月>";
+    }
+
+    private boolean isQuarterStart(LocalDate month) {
+        int monthValue = month.getMonthValue();
+        return monthValue == 1 || monthValue == 4 || monthValue == 7 || monthValue == 10;
     }
 }

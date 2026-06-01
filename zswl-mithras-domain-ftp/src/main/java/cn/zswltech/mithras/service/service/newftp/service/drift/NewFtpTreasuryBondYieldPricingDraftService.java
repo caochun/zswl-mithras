@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.newftp.service.drift;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.gruul.common.util.spring.SpringContextUtil;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.newftp.mapper.NewFtpBaseInfoMapper;
@@ -42,7 +41,7 @@ public class NewFtpTreasuryBondYieldPricingDraftService
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
         //清理已有数据
-        SpringContextUtil.getBean(NewFtpTreasuryBondYieldPricingDraftService.class).remove(Wrappers.<NewFtpTreasuryBondYieldPricingDraft>lambdaQuery()
+        remove(Wrappers.<NewFtpTreasuryBondYieldPricingDraft>lambdaQuery()
                 .eq(NewFtpTreasuryBondYieldPricingDraft::getFtpId, ftpId));
         List<NewFtpTreasuryBondYieldPricingConfig> newFtpTreasuryBondYieldConfigs = newFtpTreasuryBondYieldPricingConfigMapper.selectList(Wrappers.<NewFtpTreasuryBondYieldPricingConfig>lambdaQuery()
                 .between(NewFtpTreasuryBondYieldPricingConfig::getMonth, newFtpBaseInfo.getMonth().minusMonths(6).atStartOfDay(), newFtpBaseInfo.getMonth().with(TemporalAdjusters.lastDayOfMonth())));
@@ -54,7 +53,7 @@ public class NewFtpTreasuryBondYieldPricingDraftService
                 newFtpTreasuryBondYieldPricingDrafts.add(draft);
             });
             if(ObjectUtil.isNotEmpty(newFtpTreasuryBondYieldPricingDrafts)){
-                SpringContextUtil.getBean(NewFtpTreasuryBondYieldPricingDraftService.class).saveBatch(newFtpTreasuryBondYieldPricingDrafts);
+                saveBatch(newFtpTreasuryBondYieldPricingDrafts);
             }
         }
     }
