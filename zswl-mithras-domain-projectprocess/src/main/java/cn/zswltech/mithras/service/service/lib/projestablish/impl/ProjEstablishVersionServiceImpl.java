@@ -1,11 +1,8 @@
 package cn.zswltech.mithras.service.service.lib.projestablish.impl;
 
-import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.projestablish.version.ProjEstablishVersionListRSP;
 import cn.zswltech.mithras.dto.version.*;
-import cn.zswltech.mithras.service.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
@@ -25,6 +22,8 @@ import java.util.*;
  */
 @Service
 public class ProjEstablishVersionServiceImpl extends CommonVersionService<ProjEstablishBaseInfo> {
+    private static final String DEFAULT_USER_NAME = "未知用户";
+
     @Resource
     private List<ProjEstablishLibAbstractHandler> libHandlerList;
     @Resource
@@ -105,16 +104,25 @@ public class ProjEstablishVersionServiceImpl extends CommonVersionService<ProjEs
 
     @Override
     protected CommonVersionListRSP convertPageRsp(CommonVersion cv, ProjEstablishBaseInfo baseModel, Map<Long, String> userNameMap) {
-        ProjEstablishVersionListRSP rsp = BeanUtil.copyProperties(cv, ProjEstablishVersionListRSP.class);
+        ProjEstablishVersionListRSP rsp = new ProjEstablishVersionListRSP();
+        rsp.setId(cv.getId());
+        rsp.setMainId(cv.getMainId());
+        rsp.setVersion(cv.getVersion());
+        rsp.setType(cv.getType());
+        rsp.setModule(cv.getModule());
+        rsp.setCreateTime(cv.getCreateTime());
+        rsp.setCreateBy(cv.getCreateBy());
+        rsp.setUpdateTime(cv.getUpdateTime());
+        rsp.setUpdateBy(cv.getUpdateBy());
         rsp.setGmtModify(cv.getUpdateTime());
         rsp.setOperatorId(cv.getUpdateBy());
-        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(MithrasConstants.DEFAULT_USER_NAME));
+        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(DEFAULT_USER_NAME));
         rsp.setProjName(baseModel.getProjName());
         return rsp;
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.PROJ_ESTABLISH;
+    protected String getBusinessModuleName() {
+        return "PROJ_ESTABLISH";
     }
 }
