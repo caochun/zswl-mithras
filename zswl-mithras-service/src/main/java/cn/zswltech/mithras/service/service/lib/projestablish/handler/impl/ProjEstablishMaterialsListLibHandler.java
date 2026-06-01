@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.service.service.lib.projestablish.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishInfoModule;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
@@ -69,5 +70,10 @@ public class ProjEstablishMaterialsListLibHandler
     @Override
     public boolean needHandle(Long mainId) {
         return true;
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.PROJ_ESTABLISH;
     }
 }

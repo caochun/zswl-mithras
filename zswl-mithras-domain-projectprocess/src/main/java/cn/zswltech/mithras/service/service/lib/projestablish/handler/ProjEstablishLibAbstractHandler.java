@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.projestablish.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishInfoModule;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
@@ -68,7 +67,7 @@ public abstract class ProjEstablishLibAbstractHandler<LIB extends ILib, ENTITY e
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.PROJ_ESTABLISH;
+    protected String businessModuleName() {
+        return "PROJ_ESTABLISH";
     }
 }
