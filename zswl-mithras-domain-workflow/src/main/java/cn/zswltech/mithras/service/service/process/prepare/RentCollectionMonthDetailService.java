@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.service.service.process.prepare;
 
-import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.process.prepare.RentCollectionMonthModifyAccountREQ;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.RentCollectionMonthDetail;
 import cn.zswltech.mithras.service.mapper.process.prepare.RentCollectionMonthDetailMapper;
@@ -39,7 +37,7 @@ public class RentCollectionMonthDetailService extends ServiceImpl<RentCollection
     }
 
     public List<Long> queryByIdList(List<Long> collectionIdList, LocalDateTime nextMonthLastMoment) {
-        if(CollectionUtil.isEmpty(collectionIdList) || nextMonthLastMoment == null){
+        if(collectionIdList == null || collectionIdList.isEmpty() || nextMonthLastMoment == null){
             return null;
         }
         List<RentCollectionMonthDetail> rentCollectionMonthDetails = this.list(Wrappers.<RentCollectionMonthDetail>lambdaQuery()
