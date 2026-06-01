@@ -5,7 +5,6 @@ import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
@@ -18,7 +17,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.google.common.collect.Sets;
-import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +67,7 @@ public abstract class LibAbstractHandler<LIB extends ILib, ENTITY extends IEntit
             }
         }
         List<ENTITY> draftDataList;
-        if (this.businessModuleEnum() == BusinessModuleEnum.CLIENT) {
+        if ("CLIENT".equals(this.businessModuleName())) {
             draftDataList = listNeedHandleEntity(mainId, extraMap);
         } else {
             draftDataList = listNeedHandleEntity(mainId);
@@ -253,11 +251,11 @@ public abstract class LibAbstractHandler<LIB extends ILib, ENTITY extends IEntit
         if (isMainTable()) {
             return latestLib;
         }
-        BusinessModuleEnum businessModuleEnum = businessModuleEnum();
+        String businessModuleName = businessModuleName();
         // 找到主表最新版本
         CommonVersion mainTableLatestVersion = commonVersionMapper.selectOne(Wrappers.<CommonVersion>lambdaQuery()
                         .eq(CommonVersion::getVersionType, VersionTypeConstants.NORMAL)
-                        .eq(CommonVersion::getModule, businessModuleEnum.name())
+                        .eq(CommonVersion::getModule, businessModuleName)
                         .eq(CommonVersion::getMainId, latestLib.getMainId())
                         .orderByDesc(CommonVersion::getVersion)
                 .last("LIMIT 1"));
@@ -364,7 +362,13 @@ public abstract class LibAbstractHandler<LIB extends ILib, ENTITY extends IEntit
 
     public abstract Set<String> compareIgnoreFieldNames();
 
-    public abstract BusinessModuleEnum businessModuleEnum();
+    public Enum<?> businessModuleEnum() {
+        throw new MithrasException("暂未配置业务模块枚举");
+    }
+
+    protected String businessModuleName() {
+        return businessModuleEnum().name();
+    }
 
     /**
      * 该libHandler 是否是主表

@@ -15,6 +15,7 @@ import cn.zswltech.mithras.service.mapper.contract.ContractReceiptMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.ClientHymx;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.service.service.UserNameResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ import static cn.hutool.core.collection.CollUtil.isNotEmpty;
  * @author junke
  */
 @Service
-public class Id2NameService {
+public class Id2NameService implements UserNameResolver {
     @Resource
     private ClientMapper clientMapper;
     @Resource
