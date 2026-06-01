@@ -3,17 +3,13 @@ package cn.zswltech.mithras.service.service.lib.contract.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryListRSP;
 import cn.zswltech.mithras.service.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.service.mapper.lib.client.CorpContactInfoLibMapper;
-import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfo;
 import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.service.service.lib.client.CorpContactInfoLibService;
-import cn.zswltech.mithras.service.service.lib.client.handler.impl.CorpContactInfoLibHandlerImpl;
 import cn.zswltech.mithras.service.service.lib.contract.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Service;
 
@@ -31,9 +27,7 @@ public class ContractTenantryLibHandler
         extends ContractLibAbstractHandler<ContractTenantryLib, ContractTenantry, ContractTenantryListRSP> {
 
     @Resource
-    private CorpContactInfoLibMapper contactInfoLibMapper;
-    @Resource
-    private CorpContactInfoLibHandlerImpl handler;
+    private CorpContactInfoLibService corpContactInfoLibService;
 
     @Override
     protected ContractTenantryLib entity2Lib(ContractTenantry f) {
@@ -64,7 +58,7 @@ public class ContractTenantryLibHandler
         for(ContractTenantryListRSP rsp : rspList){
             if (ObjectUtil.isNotNull(rsp.getContactId())){
 //                rsp.setContactName(handler.queryLatestDataByLibId(rsp.getContactId()).getName());
-                CorpContactInfoLib corpContactInfoLib = SpringUtil.getBean(CorpContactInfoLibService.class).getById(rsp.getContactId());
+                CorpContactInfoLib corpContactInfoLib = corpContactInfoLibService.getById(rsp.getContactId());
                 if (Objects.nonNull(corpContactInfoLib)) {
                     rsp.setContactName(corpContactInfoLib.getName());
                 }
