@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.creditreport;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -34,7 +33,7 @@ public abstract class CreditReportLibAbstractHandler<LIB extends ILib, ENTITY ex
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.CREDIT_REPORT_SELECT;
+    protected String businessModuleName() {
+        return "CREDIT_REPORT_SELECT";
     }
 }

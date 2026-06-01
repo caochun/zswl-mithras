@@ -3,6 +3,7 @@ package cn.zswltech.mithras.service.service.lib.creditreport;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -83,6 +84,11 @@ public class CreditReportMaterialsListLibHandler
     @Override
     public String libMainIdFieldName() {
         return "belong_id";
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.CREDIT_REPORT_SELECT;
     }
 
 }

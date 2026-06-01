@@ -3,7 +3,6 @@ package cn.zswltech.mithras.service.service.creditreport.impl;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportBaseInfo;
@@ -54,8 +53,8 @@ public class CreditReportVersionService extends CommonVersionService<CreditRepor
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.CREDIT_REPORT_SELECT;
+    protected String getBusinessModuleName() {
+        return "CREDIT_REPORT_SELECT";
     }
 }
 
