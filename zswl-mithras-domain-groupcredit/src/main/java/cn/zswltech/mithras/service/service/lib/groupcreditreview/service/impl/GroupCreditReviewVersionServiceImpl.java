@@ -1,14 +1,11 @@
 package cn.zswltech.mithras.service.service.lib.groupcreditreview.service.impl;
 
-import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.groupcreditreview.version.GroupCreditReviewVersionListRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.service.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.groupcreditreview.GroupCreditReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
@@ -33,6 +30,8 @@ import java.util.Optional;
  */
 @Service
 public class GroupCreditReviewVersionServiceImpl extends CommonVersionService<GroupCreditReviewBaseInfo> {
+    private static final String DEFAULT_USER_NAME = "未知用户";
+
     @Resource
     private List<GroupCreditReviewLibAbstractHandler> libHandlerList;
     @Resource
@@ -113,16 +112,25 @@ public class GroupCreditReviewVersionServiceImpl extends CommonVersionService<Gr
 
     @Override
     protected CommonVersionListRSP convertPageRsp(CommonVersion cv, GroupCreditReviewBaseInfo baseModel, Map<Long, String> userNameMap) {
-        GroupCreditReviewVersionListRSP rsp = BeanUtil.copyProperties(cv, GroupCreditReviewVersionListRSP.class);
+        GroupCreditReviewVersionListRSP rsp = new GroupCreditReviewVersionListRSP();
+        rsp.setId(cv.getId());
+        rsp.setMainId(cv.getMainId());
+        rsp.setVersion(cv.getVersion());
+        rsp.setType(cv.getType());
+        rsp.setModule(cv.getModule());
+        rsp.setCreateTime(cv.getCreateTime());
+        rsp.setCreateBy(cv.getCreateBy());
+        rsp.setUpdateTime(cv.getUpdateTime());
+        rsp.setUpdateBy(cv.getUpdateBy());
         rsp.setGmtModify(cv.getUpdateTime());
         rsp.setOperatorId(cv.getUpdateBy());
-        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(MithrasConstants.DEFAULT_USER_NAME));
+        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(DEFAULT_USER_NAME));
         rsp.setProjName(baseModel.getProjName());
         return rsp;
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.GROUP_CREDIT_REVIEW;
+    protected String getBusinessModuleName() {
+        return "GROUP_CREDIT_REVIEW";
     }
 }
