@@ -6,9 +6,7 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.service.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
@@ -29,6 +27,8 @@ import java.util.*;
  */
 @Service
 public class FundFinancingLibVersionService extends CommonVersionService<FundFinancingBaseInfo> {
+    private static final String DEFAULT_USER_NAME = "未知用户";
+
     @Autowired
     private List<FundFinancingAbstractLibHandler> libHandlerList;
 
@@ -109,13 +109,13 @@ public class FundFinancingLibVersionService extends CommonVersionService<FundFin
         FundFinancingVersionListRSP rsp = BeanUtil.copyProperties(cv, FundFinancingVersionListRSP.class);
         rsp.setGmtModify(cv.getUpdateTime());
         rsp.setOperatorId(cv.getUpdateBy());
-        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(MithrasConstants.DEFAULT_USER_NAME));
+        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(DEFAULT_USER_NAME));
         rsp.setFinancingCode(baseModel.getFinancingCode());
         return rsp;
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.FUND_FINANCING;
+    protected String getBusinessModuleName() {
+        return "FUND_FINANCING";
     }
 }
