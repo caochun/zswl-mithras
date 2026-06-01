@@ -23,7 +23,7 @@
         <module>zswl-mithras-domain-associationreport</module>
         <module>zswl-mithras-domain-kpi</module>
         <module>zswl-mithras-domain-factory</module>
-        <module>zswl-mithras-domain-blackgray</module>
+        <module>zswl-mithras-blackgray</module>
         <module>zswl-mithras-domain-capital</module>
         <module>zswl-mithras-domain-finance</module>
         <module>zswl-mithras-domain-fund-direct</module>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zswl-mithras-domain-blackgray</artifactId>
+    <artifactId>zswl-mithras-blackgray</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

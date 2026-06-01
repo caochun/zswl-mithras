@@ -166,7 +166,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-blackgray</artifactId>
+            <artifactId>zswl-mithras-blackgray</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
