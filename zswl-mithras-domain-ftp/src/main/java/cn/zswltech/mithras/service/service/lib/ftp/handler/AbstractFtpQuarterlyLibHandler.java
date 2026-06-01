@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.ftp.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ftp.FtpQuarterlyInfoModule;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
@@ -33,8 +32,8 @@ public abstract class AbstractFtpQuarterlyLibHandler<LIB extends ILib, ENTITY ex
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.FTP_QUARTERLY_GUIDANCE;
+    protected String businessModuleName() {
+        return "FTP_QUARTERLY_GUIDANCE";
     }
 
     public abstract FtpQuarterlyInfoModule getSubModule();

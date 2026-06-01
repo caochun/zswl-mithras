@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.lib.association.impl;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReportApply;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
@@ -55,8 +54,8 @@ public class AssociationReportVersionServiceServiceImpl extends CommonVersionSer
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.ASSOCIATION_REPORT_APPLY;
+    protected String getBusinessModuleName() {
+        return "ASSOCIATION_REPORT_APPLY";
     }
 
 }

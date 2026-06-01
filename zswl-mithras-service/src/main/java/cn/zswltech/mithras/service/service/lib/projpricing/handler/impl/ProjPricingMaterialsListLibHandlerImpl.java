@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.service.service.lib.projpricing.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.projpricing.ProjPricingInfoModule;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
@@ -46,6 +47,11 @@ public class ProjPricingMaterialsListLibHandlerImpl extends ProjPricingLibAbstra
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
         return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.PROJ_PRICING;
     }
 
     @Override

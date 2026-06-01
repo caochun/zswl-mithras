@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.lib.creditreport;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportBaseInfoLib;
 import org.springframework.stereotype.Component;
@@ -43,10 +42,5 @@ public class CreditReportBaseInfoLibHandler extends CreditReportLibAbstractHandl
     @Override
     public Set<String> compareIgnoreFieldNames() {
         return Collections.emptySet();
-    }
-
-    @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.CREDIT_REPORT_SELECT;
     }
 }

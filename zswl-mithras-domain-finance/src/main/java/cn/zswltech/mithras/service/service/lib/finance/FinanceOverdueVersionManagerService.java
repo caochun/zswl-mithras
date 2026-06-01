@@ -6,7 +6,6 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.finance.FinanceOverdueReportBaseMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
@@ -117,8 +116,8 @@ public class FinanceOverdueVersionManagerService extends CommonVersionService<Fi
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.FINANCE_OVERDUE;
+    protected String getBusinessModuleName() {
+        return "FINANCE_OVERDUE";
     }
 
 }

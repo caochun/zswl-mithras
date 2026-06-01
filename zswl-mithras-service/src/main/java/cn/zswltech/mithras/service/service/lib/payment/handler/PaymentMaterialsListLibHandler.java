@@ -1,8 +1,7 @@
 package cn.zswltech.mithras.service.service.lib.payment.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
@@ -47,6 +46,11 @@ public class PaymentMaterialsListLibHandler
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
         return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.PAYMENT;
     }
 
     @Override

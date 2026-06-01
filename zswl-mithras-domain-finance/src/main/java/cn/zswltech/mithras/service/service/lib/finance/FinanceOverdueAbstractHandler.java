@@ -1,9 +1,7 @@
 package cn.zswltech.mithras.service.service.lib.finance;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.projreview.FinanceOverdueModule;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -55,9 +53,6 @@ public abstract class FinanceOverdueAbstractHandler<LIB extends ILib, ENTITY ext
         return "overdue_report_id";
     }
 
-    public void validateData(Client client) {
-    }
-
     public abstract FinanceOverdueModule getSubModule();
 
     public abstract boolean needHandle(Long mainId);
@@ -68,7 +63,7 @@ public abstract class FinanceOverdueAbstractHandler<LIB extends ILib, ENTITY ext
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.PROJ_REVIEW;
+    protected String businessModuleName() {
+        return "PROJ_REVIEW";
     }
 }
