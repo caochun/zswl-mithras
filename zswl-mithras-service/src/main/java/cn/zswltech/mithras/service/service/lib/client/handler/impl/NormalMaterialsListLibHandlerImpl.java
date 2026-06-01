@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.service.service.lib.client.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.InfoModule;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
@@ -52,6 +53,11 @@ public class NormalMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<
     @Override
     public boolean needHandle(Long clientId, ClientType clientType) {
         return ClientType.NORMAL.equals(clientType);
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.CLIENT;
     }
 
     /**

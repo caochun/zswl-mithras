@@ -1,10 +1,9 @@
 package cn.zswltech.mithras.service.service.lib.contract;
 
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.service.mapper.lib.contract.ContractReceiptLibMapper;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractReceiptLib;
-import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractRentReceiptLibHandle;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -12,7 +11,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -27,9 +25,6 @@ import java.util.stream.Collectors;
 */
 @Service
 public class ContractReceiptLibService extends ServiceImpl<ContractReceiptLibMapper, ContractReceiptLib> {
-
-    @Resource
-    private ContractRentReceiptLibHandle libHandle;
 
     public List<ContractReceiptLib> listByContractIdVersion(Long contractId, String version) {
         LambdaQueryWrapper<ContractReceiptLib> query = Wrappers.lambdaQuery();
@@ -67,6 +62,10 @@ public class ContractReceiptLibService extends ServiceImpl<ContractReceiptLibMap
         query.eq(ContractReceiptLib::getVersion, version);
         query.in(ContractReceiptLib::getOriginId, originIds);
         query.orderByAsc(ContractReceiptLib::getId);
-        return this.list(query).stream().map(libHandle::actualLib2Entity).collect(Collectors.toList());
+        return this.list(query).stream().map(this::lib2Entity).collect(Collectors.toList());
+    }
+
+    private ContractReceipt lib2Entity(ContractReceiptLib lib) {
+        return BeanUtil.copyProperties(lib, ContractReceipt.class);
     }
 }

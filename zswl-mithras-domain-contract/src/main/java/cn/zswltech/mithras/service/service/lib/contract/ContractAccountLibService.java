@@ -12,7 +12,6 @@ import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractAcc
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -45,7 +44,7 @@ public class ContractAccountLibService extends ServiceImpl<ContractAccountLibMap
                 .eq(ContractAccountLib::getVersion, req.getVersion())
                 .eq(ContractAccountLib::getAccountUse, req.getAccountUse())
         );
-        if (CollectionUtils.isEmpty(dataList)) {
+        if (dataList == null || dataList.isEmpty()) {
             return new ArrayList<>();
         }
         AbstractContractAccountLibHandler targetHandler = contractAccountLibHandlerList.stream().filter(c -> c.getAccountUseEnum().name().equals(req.getAccountUse())).findFirst().orElse(null);

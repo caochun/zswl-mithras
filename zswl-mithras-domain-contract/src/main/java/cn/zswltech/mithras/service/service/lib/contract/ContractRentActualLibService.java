@@ -1,17 +1,15 @@
 package cn.zswltech.mithras.service.service.lib.contract;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.mapper.lib.contract.ContractRentActualLibMapper;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActualLib;
-import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractRentActualLibHandle;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -23,10 +21,6 @@ import java.util.stream.Collectors;
  */
 @Service
 public class ContractRentActualLibService extends ServiceImpl<ContractRentActualLibMapper, ContractRentActualLib> {
-
-    @Lazy
-    @Resource
-    private ContractRentActualLibHandle libHandle;
 
     public List<ContractRentActualLib> listByReceipt(Long receiptId) {
         LambdaQueryWrapper<ContractRentActualLib> query = Wrappers.lambdaQuery();
@@ -40,7 +34,7 @@ public class ContractRentActualLibService extends ServiceImpl<ContractRentActual
         query.eq(ContractRentActualLib::getReceiptId, receiptId);
         query.eq(ContractRentActualLib::getVersion, version);
         query.orderByAsc(ContractRentActual::getCashFlowPhase);
-        return this.list(query).stream().map(libHandle::actualLib2Entity).collect(Collectors.toList());
+        return this.list(query).stream().map(this::lib2Entity).collect(Collectors.toList());
     }
 
     public List<ContractRentActualLib> listLibByReceiptVersion(Long receiptId, String version) {
@@ -57,7 +51,7 @@ public class ContractRentActualLibService extends ServiceImpl<ContractRentActual
         query.eq(ContractRentActualLib::getVersion, version);
         query.orderByAsc(ContractRentActual::getReceiptId);
         query.orderByAsc(ContractRentActual::getCashFlowPhase);
-        return this.list(query).stream().map(libHandle::actualLib2Entity).collect(Collectors.toList());
+        return this.list(query).stream().map(this::lib2Entity).collect(Collectors.toList());
     }
 
     public List<ContractRentActualLib> listLibByContractVersion(Long contractId, String version) {
@@ -79,6 +73,10 @@ public class ContractRentActualLibService extends ServiceImpl<ContractRentActual
         query.orderByAsc(ContractRentActual::getReceiptId);
         query.orderByAsc(ContractRentActual::getCashFlowPhase);
         return this.list(query);
+    }
+
+    private ContractRentActual lib2Entity(ContractRentActualLib lib) {
+        return BeanUtil.copyProperties(lib, ContractRentActual.class);
     }
 
 }
