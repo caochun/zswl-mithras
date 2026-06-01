@@ -292,7 +292,9 @@ public abstract class CommonVersionService<T extends IEntity> {
     /**
      * @return
      */
-    public abstract Enum<?> getBusinessModule();
+    public Enum<?> getBusinessModule() {
+        throw new MithrasException("暂未配置业务模块枚举");
+    }
 
     protected String getBusinessModuleName() {
         return getBusinessModule().name();

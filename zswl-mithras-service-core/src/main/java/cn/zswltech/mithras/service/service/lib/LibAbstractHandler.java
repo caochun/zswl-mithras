@@ -362,7 +362,9 @@ public abstract class LibAbstractHandler<LIB extends ILib, ENTITY extends IEntit
 
     public abstract Set<String> compareIgnoreFieldNames();
 
-    public abstract Enum<?> businessModuleEnum();
+    public Enum<?> businessModuleEnum() {
+        throw new MithrasException("暂未配置业务模块枚举");
+    }
 
     protected String businessModuleName() {
         return businessModuleEnum().name();
