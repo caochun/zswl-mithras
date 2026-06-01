@@ -9,7 +9,6 @@ import cn.zswltech.mithras.service.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractFactoringPrice;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractFactoringPriceLib;
 import cn.zswltech.mithras.service.service.lib.contract.handler.ContractLibAbstractHandler;
-import cn.zswltech.mithras.service.util.FinancialUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -47,10 +46,10 @@ public class ContractFactoringPriceLibHandler extends ContractLibAbstractHandler
         if (Objects.nonNull(rsp)) {
             rsp.setId(f.getOriginId());
             if (Objects.nonNull(rsp.getContractAmount()) && Objects.nonNull(rsp.getEarnestMoney())) {
-                rsp.setEarnestMoneyRate(FinancialUtil.calculateFeeRate(rsp.getEarnestMoney(), rsp.getContractAmount()));
+                rsp.setEarnestMoneyRate(calculateFeeRate(rsp.getEarnestMoney(), rsp.getContractAmount()));
             }
             if (Objects.nonNull(rsp.getContractAmount()) && Objects.nonNull(rsp.getConsultingFee())) {
-                rsp.setConsultingFeeRate(FinancialUtil.calculateFeeRate(rsp.getConsultingFee(), rsp.getContractAmount()));
+                rsp.setConsultingFeeRate(calculateFeeRate(rsp.getConsultingFee(), rsp.getContractAmount()));
             }
             if(ObjectUtil.isNotEmpty(rsp.getStructuredInterest())){
                 rsp.setStructuredInterestList(JSONUtil.toList(rsp.getStructuredInterest(), StructuredInterest.class));

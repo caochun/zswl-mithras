@@ -8,6 +8,8 @@ import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collections;
 import java.util.Set;
 
@@ -69,5 +71,13 @@ public abstract class ContractLibAbstractHandler<LIB extends ILib, ENTITY extend
     @Override
     protected String businessModuleName() {
         return "CONTRACT";
+    }
+
+    protected Integer calculateFeeRate(Long target, Long total) {
+        if (total == 0) {
+            total = 1L;
+        }
+        return BigDecimal.valueOf(target).divide(BigDecimal.valueOf(total), 4, RoundingMode.HALF_UP)
+                .multiply(BigDecimal.valueOf(1000000)).intValue();
     }
 }
