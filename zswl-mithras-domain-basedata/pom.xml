@@ -37,5 +37,10 @@
             <artifactId>hutool-all</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>cn.zswltech.lib</groupId>
+            <artifactId>oss-toolkit</artifactId>
+            <version>1.0.5-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

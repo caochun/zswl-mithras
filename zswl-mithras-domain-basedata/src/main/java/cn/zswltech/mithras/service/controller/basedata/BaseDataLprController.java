@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.basedata.BaseDataLprDetailRSP;
 import cn.zswltech.mithras.dto.basedata.BaseDataLprSaveREQ;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.convert.CommonConvert;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataLpr;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.basedata.BaseDataLprService;
@@ -88,7 +87,7 @@ public class BaseDataLprController implements BaseDataLprApi {
 
     @Override
     public R<PageR<BaseDataLprDetailRSP>> pageList(@Valid PageReq pageReq) {
-        Page<BaseDataLpr> page = CommonConvert.toMybatisPlusPage(pageReq);
+        Page<BaseDataLpr> page = new Page<>(pageReq.getPage(), pageReq.getPageSize());
         LambdaQueryWrapper<BaseDataLpr> query = Wrappers.lambdaQuery();
         query.orderByDesc(BaseDataLpr::getLprDate);
         Page<BaseDataLpr> dbPage = baseDataLprService.page(page, query);
