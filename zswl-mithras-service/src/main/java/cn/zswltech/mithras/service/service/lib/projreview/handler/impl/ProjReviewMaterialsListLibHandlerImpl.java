@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.service.service.lib.projreview.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewInfoModule;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
@@ -69,6 +70,11 @@ public class ProjReviewMaterialsListLibHandlerImpl extends ProjReviewLibAbstract
     @Override
     public boolean needHandle(Long clientId) {
         return true;
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.PROJ_REVIEW;
     }
 
 }

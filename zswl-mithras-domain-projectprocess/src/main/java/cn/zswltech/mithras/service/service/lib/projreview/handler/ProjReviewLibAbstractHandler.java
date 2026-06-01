@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.projreview.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewInfoModule;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
@@ -68,7 +67,7 @@ public abstract class ProjReviewLibAbstractHandler<LIB extends ILib, ENTITY exte
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.PROJ_REVIEW;
+    protected String businessModuleName() {
+        return "PROJ_REVIEW";
     }
 }
