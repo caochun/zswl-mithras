@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.lib.afterlease;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckExternalQuery;
@@ -57,7 +56,7 @@ public class AfterLeaseCheckExternalQueryVersionService extends CommonVersionSer
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.AFTER_LEASE_CHECK_EXTERNAL_QUERY;
+    protected String getBusinessModuleName() {
+        return "AFTER_LEASE_CHECK_EXTERNAL_QUERY";
     }
 }

@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.afterlease.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckPlanLibModelEnum;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
@@ -59,7 +58,7 @@ public abstract class AfterLeaseCheckReportLibAbstractHandler<LIB extends ILib, 
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.NEW_AFTER_LEASE_CHECK_REPORT;
+    protected String businessModuleName() {
+        return "NEW_AFTER_LEASE_CHECK_REPORT";
     }
 }
