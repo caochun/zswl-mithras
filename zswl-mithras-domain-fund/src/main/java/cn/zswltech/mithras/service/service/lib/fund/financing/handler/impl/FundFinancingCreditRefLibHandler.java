@@ -2,17 +2,12 @@ package cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.financing.FundFinancingCreditRefDetailRSP;
-import cn.zswltech.mithras.dto.fund.financing.baseinfo.FundFinancingBaseInfoDetailRSP;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingLibModelEnum;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingCreditRefLib;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.lib.fund.financing.handler.FundFinancingAbstractLibHandler;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
 

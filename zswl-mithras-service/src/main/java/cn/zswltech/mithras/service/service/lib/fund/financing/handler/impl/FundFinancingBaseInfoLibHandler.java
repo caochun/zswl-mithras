@@ -2,6 +2,7 @@ package cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.financing.baseinfo.FundFinancingBaseInfoDetailRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfoLib;
@@ -65,5 +66,10 @@ public class FundFinancingBaseInfoLibHandler extends FundFinancingAbstractLibHan
     @Override
     public boolean needHandle(Long mainId) {
         return true;
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.FUND_FINANCING;
     }
 }

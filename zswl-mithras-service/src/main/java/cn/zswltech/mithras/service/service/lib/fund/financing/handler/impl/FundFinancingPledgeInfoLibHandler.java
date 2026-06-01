@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.fund.financing.pledge.FundFinancingPledgeListRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfoLib;
@@ -62,5 +63,10 @@ public class FundFinancingPledgeInfoLibHandler extends FundFinancingAbstractLibH
     @Override
     public boolean needHandle(Long mainId) {
         return true;
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.FUND_FINANCING;
     }
 }

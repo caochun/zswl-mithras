@@ -6,6 +6,7 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.fund.financing.repay.FundFinancingRepayActualListRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActual;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActualLib;
@@ -66,5 +67,10 @@ public class FundFinancingRepayActualLibHandler extends FundFinancingAbstractLib
     @Override
     public boolean needHandle(Long mainId) {
         return true;
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.FUND_FINANCING;
     }
 }

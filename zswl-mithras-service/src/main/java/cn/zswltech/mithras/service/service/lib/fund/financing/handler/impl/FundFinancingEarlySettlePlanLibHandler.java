@@ -2,6 +2,7 @@ package cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.financing.earlysettle.FundFinancingEarlySettlePlanRSP;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingEarlySettlePlan;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingEarlySettlePlanLib;
@@ -44,5 +45,10 @@ public class FundFinancingEarlySettlePlanLibHandler extends FundFinancingAbstrac
     @Override
     public boolean needHandle(Long mainId) {
         return true;
+    }
+
+    @Override
+    public BusinessModuleEnum businessModuleEnum() {
+        return BusinessModuleEnum.FUND_FINANCING;
     }
 }
