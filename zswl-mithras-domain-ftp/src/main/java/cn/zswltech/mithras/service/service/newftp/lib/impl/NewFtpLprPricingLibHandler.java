@@ -8,7 +8,6 @@ import cn.zswltech.mithras.service.enums.newftp.NewFtpSubModule;
 import cn.zswltech.mithras.service.service.newftp.lib.NewFtpLibAbstractHandler;
 import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpLprPricingDraft;
 import cn.zswltech.mithras.service.service.newftp.model.lib.NewFtpLprPricingLib;
-import cn.zswltech.mithras.service.util.DateUtil;
 import org.springframework.stereotype.Service;
 
 import java.time.format.DateTimeFormatter;
@@ -46,7 +45,7 @@ public class NewFtpLprPricingLibHandler
             newFtpDetailLprPricingListRSP.setLprDate(f.getLprDate().format(DateTimeFormatter.ofPattern(DatePattern.NORM_MONTH_PATTERN)));
 
         } else if (FtpFrequency.SEASON.name().equals(f.getFrequency())) {
-            newFtpDetailLprPricingListRSP.setLprDate(String.format("%s-Q%s", f.getLprDate().getYear(), DateUtil.ensureQuarter(f.getLprDate().getMonthValue())));
+            newFtpDetailLprPricingListRSP.setLprDate(String.format("%s-Q%s", f.getLprDate().getYear(), (f.getLprDate().getMonthValue() + 2) / 3));
         }
         return newFtpDetailLprPricingListRSP;
     }

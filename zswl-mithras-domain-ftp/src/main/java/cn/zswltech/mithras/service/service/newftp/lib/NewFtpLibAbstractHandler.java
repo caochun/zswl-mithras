@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.newftp.lib;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.newftp.NewFtpSubModule;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
@@ -57,8 +56,8 @@ public abstract class NewFtpLibAbstractHandler<LIB extends ILib, ENTITY extends 
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.NEW_FTP_GUIDANCE;
+    protected String businessModuleName() {
+        return "NEW_FTP_GUIDANCE";
     }
 
 }
