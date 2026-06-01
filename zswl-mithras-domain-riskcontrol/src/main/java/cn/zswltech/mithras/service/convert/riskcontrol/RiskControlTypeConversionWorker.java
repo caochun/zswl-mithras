@@ -1,12 +1,17 @@
 package cn.zswltech.mithras.service.convert.riskcontrol;
 
-import org.mapstruct.Named;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSONUtil;
+import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordAreaType;
+import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordOptionGrade;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @description:
@@ -17,7 +22,6 @@ import java.util.Map;
 public class RiskControlTypeConversionWorker {
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
 
-    @Named("formatDate")
     public String formatDate(String date) {
         if (date.length() < 10) {
             return null;
@@ -28,12 +32,31 @@ public class RiskControlTypeConversionWorker {
         }
     }
 
-    @Named("double2BigDecimal")
     public BigDecimal double2BigDecimal(double d) {
         return BigDecimal.valueOf(d);
     }
 
-    @Named("importantReasonInt2EnumName")
+    public String toJsonString(Object obj) {
+        if (Objects.isNull(obj)) {
+            return null;
+        }
+        return JSONUtil.toJsonStr(obj);
+    }
+
+    public List<RiskControlScoreCordAreaType> jsonStringToRiskControlScoreCordAreaList(String jsonStr) {
+        if (StrUtil.isEmpty(jsonStr)) {
+            return null;
+        }
+        return JSONUtil.toList(jsonStr, RiskControlScoreCordAreaType.class);
+    }
+
+    public RiskControlScoreCordOptionGrade jsonStringToRiskControlScoreCordOptionGradeType(String jsonStr) {
+        if (StrUtil.isEmpty(jsonStr)) {
+            return null;
+        }
+        return JSONUtil.toBean(jsonStr, RiskControlScoreCordOptionGrade.class);
+    }
+
     public Integer importantReasonInt2EnumName(String r) {
         ImportantReason of = ImportantReason.of(r);
         if (of != null) {
@@ -43,7 +66,6 @@ public class RiskControlTypeConversionWorker {
         }
     }
 
-    @Named("levelInt2EnumName")
     public Integer levelInt2EnumName(String level) {
         if ("一般关联交易".equals(level)) {
             return 1;
