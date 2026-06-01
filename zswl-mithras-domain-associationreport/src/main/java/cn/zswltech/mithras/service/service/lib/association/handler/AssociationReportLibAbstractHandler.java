@@ -1,8 +1,6 @@
 package cn.zswltech.mithras.service.service.lib.association.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -54,10 +52,6 @@ public abstract class AssociationReportLibAbstractHandler<LIB extends ILib, ENTI
         return "report_instance_id";
     }
 
-    public void validateData(Client client) {
-    }
-
-
     public abstract boolean needHandle(Long mainId);
 
     @Override
@@ -66,7 +60,7 @@ public abstract class AssociationReportLibAbstractHandler<LIB extends ILib, ENTI
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.ASSOCIATION_REPORT_APPLY;
+    protected String businessModuleName() {
+        return "ASSOCIATION_REPORT_APPLY";
     }
 }
