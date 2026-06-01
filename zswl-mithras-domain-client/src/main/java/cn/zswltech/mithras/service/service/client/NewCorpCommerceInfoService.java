@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class NewCorpCommerceInfoService extends ServiceImpl<NewCorpCommerceInfoMapper, NewCorpCommerceInfo> implements ClientDataSaveCheckInterface<NewCorpCommerceInfo>, ClientNewDataHelper<NewCorpCommerceInfo> {
+public class NewCorpCommerceInfoService extends ServiceImpl<NewCorpCommerceInfoMapper, NewCorpCommerceInfo> implements ClientNewDataHelper<NewCorpCommerceInfo> {
     public List<NewCorpCommerceInfo> findByClientUser(Long clientId, Long userId) {
         LambdaQueryWrapper<NewCorpCommerceInfo> query = Wrappers.lambdaQuery();
         query.eq(ClientBaseModel::getClientId, clientId);

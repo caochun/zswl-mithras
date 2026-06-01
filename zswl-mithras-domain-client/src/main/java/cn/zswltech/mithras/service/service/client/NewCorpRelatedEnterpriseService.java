@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class NewCorpRelatedEnterpriseService extends ServiceImpl<NewCorpRelatedEnterpriseMapper, NewCorpRelatedEnterprise> implements ClientDataSaveCheckInterface<NewCorpRelatedEnterprise>, ClientNewDataHelper<NewCorpRelatedEnterprise> {
+public class NewCorpRelatedEnterpriseService extends ServiceImpl<NewCorpRelatedEnterpriseMapper, NewCorpRelatedEnterprise> implements ClientNewDataHelper<NewCorpRelatedEnterprise> {
     @Override
     public List<NewCorpRelatedEnterprise> findByClientUser(Long clientId, Long userId) {
         LambdaQueryWrapper<NewCorpRelatedEnterprise> query = Wrappers.lambdaQuery();

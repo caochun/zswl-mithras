@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.client;
 
-import cn.zswltech.mithras.service.mapper.corp.NewCorpBankAccountMapper;
+import cn.zswltech.mithras.service.mapper.corp.NewCorpBondInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.service.mapper.model.client.NewCorpBankAccount;
+import cn.zswltech.mithras.service.mapper.model.client.NewCorpBondInfo;
 import cn.zswltech.mithras.service.service.client.copyhandler.ClientNewDataHelper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -15,20 +15,20 @@ import java.util.List;
  * @author luyi
  */
 @Service
-public class NewCorpBankAccountService extends ServiceImpl<NewCorpBankAccountMapper, NewCorpBankAccount> implements ClientDataSaveCheckInterface<NewCorpBankAccount>, ClientNewDataHelper<NewCorpBankAccount> {
+public class NewCorpBondInfoService extends ServiceImpl<NewCorpBondInfoMapper, NewCorpBondInfo> implements ClientNewDataHelper<NewCorpBondInfo> {
     @Override
-    public List<NewCorpBankAccount> findByClientUser(Long clientId, Long userId) {
-        LambdaQueryWrapper<NewCorpBankAccount> query = Wrappers.lambdaQuery();
+    public List<NewCorpBondInfo> findByClientUser(Long clientId, Long userId) {
+        LambdaQueryWrapper<NewCorpBondInfo> query = Wrappers.lambdaQuery();
         query.eq(ClientBaseModel::getClientId, clientId);
-        query.eq(NewCorpBankAccount::getUserId, userId);
+        query.eq(NewCorpBondInfo::getUserId, userId);
         return this.list(query);
     }
 
     @Override
     public void removeByClientUser(Long clientId, Long userId) {
-        LambdaQueryWrapper<NewCorpBankAccount> query = Wrappers.lambdaQuery();
+        LambdaQueryWrapper<NewCorpBondInfo> query = Wrappers.lambdaQuery();
         query.eq(ClientBaseModel::getClientId, clientId);
-        query.eq(NewCorpBankAccount::getUserId, userId);
+        query.eq(NewCorpBondInfo::getUserId, userId);
         this.remove(query);
     }
 }

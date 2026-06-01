@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.client;
 
-import cn.zswltech.mithras.service.mapper.corp.NewCorpContactInfoMapper;
+import cn.zswltech.mithras.service.mapper.corp.NewCorpAddressInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.service.mapper.model.client.NewCorpContactInfo;
+import cn.zswltech.mithras.service.mapper.model.client.NewCorpAddressInfo;
 import cn.zswltech.mithras.service.service.client.copyhandler.ClientNewDataHelper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -15,20 +15,20 @@ import java.util.List;
  * @author luyi
  */
 @Service
-public class NewCorpContactInfoService extends ServiceImpl<NewCorpContactInfoMapper, NewCorpContactInfo> implements ClientDataSaveCheckInterface<NewCorpContactInfo>, ClientNewDataHelper<NewCorpContactInfo> {
+public class NewCorpAddressInfoService extends ServiceImpl<NewCorpAddressInfoMapper, NewCorpAddressInfo> implements ClientNewDataHelper<NewCorpAddressInfo> {
     @Override
-    public List<NewCorpContactInfo> findByClientUser(Long clientId, Long userId) {
-        LambdaQueryWrapper<NewCorpContactInfo> query = Wrappers.lambdaQuery();
+    public List<NewCorpAddressInfo> findByClientUser(Long clientId, Long userId) {
+        LambdaQueryWrapper<NewCorpAddressInfo> query = Wrappers.lambdaQuery();
         query.eq(ClientBaseModel::getClientId, clientId);
-        query.eq(NewCorpContactInfo::getUserId, userId);
+        query.eq(NewCorpAddressInfo::getUserId, userId);
         return this.list(query);
     }
 
     @Override
     public void removeByClientUser(Long clientId, Long userId) {
-        LambdaQueryWrapper<NewCorpContactInfo> query = Wrappers.lambdaQuery();
+        LambdaQueryWrapper<NewCorpAddressInfo> query = Wrappers.lambdaQuery();
         query.eq(ClientBaseModel::getClientId, clientId);
-        query.eq(NewCorpContactInfo::getUserId, userId);
+        query.eq(NewCorpAddressInfo::getUserId, userId);
         this.remove(query);
     }
 }
