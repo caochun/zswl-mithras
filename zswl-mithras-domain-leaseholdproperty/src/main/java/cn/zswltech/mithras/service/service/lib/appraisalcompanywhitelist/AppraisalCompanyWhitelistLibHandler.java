@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.lib.appraisalcompanywhitelist;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyDetailRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.AppraisalCompanyWhitelistLib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -49,7 +48,7 @@ public class AppraisalCompanyWhitelistLibHandler extends LibAbstractHandler<Appr
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.APPRAISAL_COMPANY_WHITELIST;
+    protected String businessModuleName() {
+        return "APPRAISAL_COMPANY_WHITELIST";
     }
 }
