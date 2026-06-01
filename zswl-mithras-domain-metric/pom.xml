@@ -19,6 +19,11 @@
     <dependencies>
         <dependency>
             <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-service-core</artifactId>
             <version>${revision}</version>
         </dependency>
