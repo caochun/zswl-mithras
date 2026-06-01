@@ -7,7 +7,6 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.basedata.BaseDataExchangeRateQueryREQ;
 import cn.zswltech.mithras.dto.basedata.BaseDataExchangeREQ;
 import cn.zswltech.mithras.dto.basedata.BaseDataExchangeRSP;
-import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricCurrency;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.mapper.basedata.BaseDataExchangeRateMapper;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataExchangeRate;
@@ -31,6 +30,9 @@ import java.util.Objects;
 @Slf4j
 @Service
 public class BaseDataExchangeRateService extends ServiceImpl<BaseDataExchangeRateMapper, BaseDataExchangeRate> {
+    private static final String USD = "USD";
+    private static final String USD_DISPLAY = "美元";
+
     public PageR<BaseDataExchangeRSP> pageList(BaseDataExchangeRateQueryREQ req) {
         Page<BaseDataExchangeRate> pageQuery = new Page<>(req.getPage(), req.getPageSize());
         LambdaQueryWrapper<BaseDataExchangeRate> conditionQuery = Wrappers.lambdaQuery();
@@ -133,11 +135,11 @@ public class BaseDataExchangeRateService extends ServiceImpl<BaseDataExchangeRat
             throw new MithrasException("数据不存在");
         }
         // 如果是美元类型需要校验，确保对应月份必须要有数据
-        if (StrUtil.equals(record.getCurrency(), RiskMetricCurrency.USD.name())) {
+        if (StrUtil.equals(record.getCurrency(), USD)) {
             // 查询对应年月数据
-            List<BaseDataExchangeRate> list = this.queryByYearMonthCurrency(record.getTargetYear(), record.getTargetMonth(), RiskMetricCurrency.USD.name());
+            List<BaseDataExchangeRate> list = this.queryByYearMonthCurrency(record.getTargetYear(), record.getTargetMonth(), USD);
             if (list.size() <= 1) {
-                throw new MithrasException(String.format("对应月份仅有一条%s汇率数据，不允许删除", RiskMetricCurrency.USD.display));
+                throw new MithrasException(String.format("对应月份仅有一条%s汇率数据，不允许删除", USD_DISPLAY));
             }
         }
         this.removeById(id);

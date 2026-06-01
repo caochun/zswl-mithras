@@ -12,7 +12,6 @@ import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.apache.tomcat.jni.Local;
 import org.springframework.core.NamedThreadLocal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -19,12 +19,22 @@
     <dependencies>
         <dependency>
             <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-service-core</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>
