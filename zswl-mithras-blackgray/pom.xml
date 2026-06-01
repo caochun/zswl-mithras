@@ -34,7 +34,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-third</artifactId>
+            <artifactId>zswl-mithras-third</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
