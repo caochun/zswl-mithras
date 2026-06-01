@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.lib.kpi;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
 import cn.zswltech.mithras.service.others.MithrasException;
@@ -49,7 +48,7 @@ public class KpiProjectDistributionLibVersionService extends CommonVersionServic
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.KPI_PROJECT_DISTRIBUTION;
+    protected String getBusinessModuleName() {
+        return "KPI_PROJECT_DISTRIBUTION";
     }
 }
