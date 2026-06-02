@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.service.mapper.corp;
+package cn.zswltech.mithras.client.externaldata.common.infrastructure.mapper;
 
-import cn.zswltech.mithras.service.mapper.model.client.TycBaseModel;
+import cn.zswltech.mithras.client.externaldata.common.infrastructure.model.ExternalDataBaseModel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * {@code MybatisPlusException: can not find lambda cache for this entity [com.copm.ifm.base.basic.pojo.BaseTreePO]}
  * <p>
  * 原因是在执行{@link com.baomidou.mybatisplus.core.toolkit.LambdaUtils#getColumnMap(Class)}时
- * {@code COLUMN_CACHE_MAP}中没有{@link TycBaseModel}的信息
+ * {@code COLUMN_CACHE_MAP}中没有{@link ExternalDataBaseModel}的信息
  * <p>
  * 根据源码
  * {@link com.baomidou.mybatisplus.core.MybatisMapperRegistry#addMapper(Class)}
@@ -26,10 +26,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * {@link com.baomidou.mybatisplus.core.toolkit.LambdaUtils}中的{@code COLUMN_CACHE_MAP}中。
  * 但是没有单独缓存父类的信息，所以{@code COLUMN_CACHE_MAP}中没有相关缓存，就报错了。
  * <p>
- * 因此我们单独为{@link TycBaseModel}添加一个的Mapper类，这样他就会缓存该类的信息了。
+ * 因此我们单独为{@link ExternalDataBaseModel}添加一个的Mapper类，这样他就会缓存该类的信息了。
  * <p>
  * 另外一个解决方案是给相关Wrapper指定泛型类型，告诉mp让他加载子类的字段信息，也可以解决该问题：
  * 使用{@link com.baomidou.mybatisplus.core.conditions.AbstractWrapper#setEntityClass(Class)}
  */
-public interface TycBaseModelMapper extends BaseMapper<TycBaseModel> {
+public interface ExternalDataBaseModelMapper extends BaseMapper<ExternalDataBaseModel> {
 }

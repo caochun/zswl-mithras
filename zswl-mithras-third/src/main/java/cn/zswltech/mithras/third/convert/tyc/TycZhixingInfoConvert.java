@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.convert.tyc;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycZhixingInfoRSP;
-import cn.zswltech.mithras.service.mapper.model.client.TycZhixingInfo;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycZhixingInfo;
 import cn.zswltech.mithras.third.repository.tyc.resp.TycZhixingInfoResp;
 import cn.hutool.core.date.LocalDateTimeUtil;
 

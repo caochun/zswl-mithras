@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.service.tyc.impl;
 
 import cn.zswltech.mithras.third.convert.tyc.TycJudicialConvert;
-import cn.zswltech.mithras.service.mapper.corp.TycJudicialMapper;
-import cn.zswltech.mithras.service.mapper.model.client.TycJudicial;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycJudicialMapper;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycJudicial;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.third.repository.tyc.resp.TycJudicialResp;
 import cn.zswltech.mithras.third.service.tyc.TycAbstractService;

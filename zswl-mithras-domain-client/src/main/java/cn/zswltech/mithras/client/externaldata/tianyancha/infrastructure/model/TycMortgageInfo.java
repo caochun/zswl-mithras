@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.service.mapper.model.client;
+package cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model;
+
+import cn.zswltech.mithras.client.externaldata.common.infrastructure.model.ExternalDataBaseModel;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
@@ -14,7 +16,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
  */
 @Data
 
-public class TycMortgageInfo extends TycBaseModel {
+public class TycMortgageInfo extends ExternalDataBaseModel {
 
     @TableId(type = IdType.AUTO)
     /**

@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.service.mapper.model.client;
+package cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model;
+
+import cn.zswltech.mithras.client.externaldata.common.infrastructure.model.ExternalDataBaseModel;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -18,7 +20,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("tyc_dishonest")
-public class TycDishonest extends TycBaseModel {
+public class TycDishonest extends ExternalDataBaseModel {
 
     /**
      * 主键

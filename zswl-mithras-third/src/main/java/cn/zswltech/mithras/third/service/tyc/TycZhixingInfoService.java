@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.service.tyc;
 
-import cn.zswltech.mithras.service.mapper.model.client.TycZhixingInfo;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycZhixingInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

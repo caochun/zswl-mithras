@@ -6,6 +6,7 @@ import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.client.externaldata.environmentpenalty.infrastructure.model.EnvironmentPenalty;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.*;
 import cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.model.ZhongdengInfo;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
 import cn.zswltech.mithras.service.enums.RelationshipType;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.model;
 
-import cn.zswltech.mithras.service.mapper.model.client.TycBaseModel;
+import cn.zswltech.mithras.client.externaldata.common.infrastructure.model.ExternalDataBaseModel;
 import cn.zswltech.mithras.service.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
@@ -15,7 +15,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
  * @date 2022-06-21
  */
 @Data
-public class ZhongdengInfo extends TycBaseModel {
+public class ZhongdengInfo extends ExternalDataBaseModel {
 
     @TableId(type = IdType.AUTO)
     /**

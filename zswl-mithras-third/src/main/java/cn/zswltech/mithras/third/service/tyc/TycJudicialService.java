@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.service.tyc;
 
-import cn.zswltech.mithras.service.mapper.model.client.TycJudicial;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycJudicial;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

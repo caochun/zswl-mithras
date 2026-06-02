@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.service.tyc.impl;
 
 import cn.zswltech.mithras.third.convert.tyc.TycConsumptionRestrictionConvert;
-import cn.zswltech.mithras.service.mapper.corp.TycConsumptionRestrictionMapper;
-import cn.zswltech.mithras.service.mapper.model.client.TycConsumptionRestriction;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycConsumptionRestrictionMapper;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycConsumptionRestriction;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.third.repository.tyc.resp.TycConsumptionRestrictionResp;
 import cn.zswltech.mithras.third.service.tyc.TycAbstractService;

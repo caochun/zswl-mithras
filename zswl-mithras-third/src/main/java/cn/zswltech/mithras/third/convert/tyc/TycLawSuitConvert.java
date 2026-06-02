@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.convert.tyc;
 import cn.hutool.http.HtmlUtil;
 import cn.zswltech.mithras.dto.client.external.tyc.TycLawSuitRSP;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.client.TycLawSuit;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycLawSuit;
 import cn.zswltech.mithras.third.repository.tyc.resp.TycLawSuitDetailResp;
 import cn.zswltech.mithras.third.repository.tyc.resp.TycLawSuitResp;
 import cn.hutool.core.date.LocalDateTimeUtil;

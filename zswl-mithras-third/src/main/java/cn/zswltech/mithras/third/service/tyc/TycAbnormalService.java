@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.service.tyc;
 
-import cn.zswltech.mithras.service.mapper.model.client.TycAbnormal;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycAbnormal;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

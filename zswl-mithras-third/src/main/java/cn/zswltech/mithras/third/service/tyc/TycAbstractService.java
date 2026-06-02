@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.service.tyc;
 import cn.zswltech.mithras.third.enums.TycErrorEnum;
 import cn.zswltech.mithras.service.mapper.TycMockDataMapper;
 import cn.zswltech.mithras.service.mapper.model.TycMockData;
-import cn.zswltech.mithras.service.mapper.model.client.TycBaseModel;
+import cn.zswltech.mithras.client.externaldata.common.infrastructure.model.ExternalDataBaseModel;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
  * @date 2022/6/21 1:27 PM
  */
 @Slf4j
-public abstract class TycAbstractService<M extends BaseMapper<T>, T extends TycBaseModel, F> extends ServiceImpl<M, T> {
+public abstract class TycAbstractService<M extends BaseMapper<T>, T extends ExternalDataBaseModel, F> extends ServiceImpl<M, T> {
 
     protected static final String NO_DATA_BODY = "{\"result\":null,\"reason\":\"无数据\",\"error_code\":300000}";
 

@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.service.mapper.model.client;
+package cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model;
+
+import cn.zswltech.mithras.client.externaldata.common.infrastructure.model.ExternalDataBaseModel;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
@@ -14,7 +16,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
  * @date 2022-06-21
  */
 @Data
-public class TycConsumptionRestriction extends TycBaseModel {
+public class TycConsumptionRestriction extends ExternalDataBaseModel {
 
 
     @TableId(type = IdType.AUTO)

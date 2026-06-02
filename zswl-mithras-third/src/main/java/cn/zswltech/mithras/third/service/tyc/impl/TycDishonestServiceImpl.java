@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.service.tyc.impl;
 
 import cn.zswltech.mithras.third.convert.tyc.TycDishonestConvert;
-import cn.zswltech.mithras.service.mapper.corp.TycDishonestMapper;
-import cn.zswltech.mithras.service.mapper.model.client.TycDishonest;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycDishonestMapper;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycDishonest;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
 import cn.zswltech.mithras.third.repository.tyc.resp.TycDishonestResp;

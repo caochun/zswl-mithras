@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.service.tyc;
 
-import cn.zswltech.mithras.service.mapper.model.client.TycConsumptionRestriction;
+import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycConsumptionRestriction;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
