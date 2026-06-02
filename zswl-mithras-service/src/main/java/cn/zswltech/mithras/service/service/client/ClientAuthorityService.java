@@ -23,6 +23,8 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.client.authorityrecord.application.ClientAuthorityApplyRecordService;
+import cn.zswltech.mithras.client.authorityrecord.infrastructure.model.ClientAuthorityApplyRecord;
 import cn.zswltech.mithras.dto.client.client.ClientApplyOccupyREQ;
 import cn.zswltech.mithras.dto.client.client.ClientApplyOccupyRSP;
 import cn.zswltech.mithras.dto.client.client.ClientApplyStatusREQ;
