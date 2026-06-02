@@ -3,7 +3,6 @@ package cn.zswltech.mithras.factory.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.decision.engine.api.common.dto.R;
 import cn.zswltech.decision.engine.dto.decision.*;
-import cn.zswltech.mithras.blackgray.excel.ReflectUtils;
 import cn.zswltech.mithras.dto.kpi.KpiExpectedLossDecisionQuery;
 import cn.zswltech.mithras.dto.rating.RatingAccessCheckRSP;
 import cn.zswltech.mithras.dto.rating.RatingParamFieldApprovalRSP;
@@ -117,7 +116,12 @@ public class DecisionService {
         decisionREQ.setServiceCode("new_zl_ecl");
         Map<String, Object> param = new HashMap<>();
         for (Field field : query.getClass().getDeclaredFields()) {
-            param.put(field.getName(), ReflectUtils.getFieldValue(query, field.getName()));
+            field.setAccessible(true);
+            try {
+                param.put(field.getName(), field.get(query));
+            } catch (IllegalAccessException e) {
+                log.warn("读取ECL决策字段失败:{}", field.getName(), e);
+            }
         }
         decisionREQ.setParam(param);
         decisionREQ.setEnableDetail(true);
