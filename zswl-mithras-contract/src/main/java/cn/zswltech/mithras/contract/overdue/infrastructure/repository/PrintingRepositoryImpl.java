@@ -1,6 +1,5 @@
-package cn.zswltech.mithras.service.overdue.infrastructure.repository;
+package cn.zswltech.mithras.contract.overdue.infrastructure.repository;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.Printing;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.PrintingCode;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.PrintingConverter;
@@ -41,7 +40,7 @@ public class PrintingRepositoryImpl extends PrintingRepository {
         DocPrinting latestOne = printingDao.getOne(
                 Wrappers.<DocPrinting>lambdaQuery()
                         .ge(DocPrinting::getCreateTime, LocalDate.now())
-                        .orderByDesc(BaseModel::getCreateTime).last("limit 1"));
+                        .orderByDesc(DocPrinting::getCreateTime).last("limit 1"));
         PrintingCode code = latestOne == null ? new PrintingCode() : new PrintingCode(latestOne.getCode()).nextCode();
         aggregate.setCode(code);
         DocPrinting po = printingConverter.entity2Po(aggregate);
