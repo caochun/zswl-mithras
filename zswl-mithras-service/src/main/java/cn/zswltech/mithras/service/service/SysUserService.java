@@ -51,7 +51,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
  */
 @Slf4j
 @Service
-public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataScopeResolver, CurrentUserResolver {
+public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataScopeResolver, CurrentUserResolver, UserBizDeptResolver {
 
     @Resource
     private OrgDOMapper orgDOMapper;
@@ -315,6 +315,12 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataSc
             }
         }
         return null;
+    }
+
+    @Override
+    public String getBizDeptNameByUserId(Long userId) {
+        OrgDO orgDO = getBizDeptByUserId(userId);
+        return Objects.isNull(orgDO) ? null : orgDO.getName();
     }
 
     public boolean currentUserIsSpecificDept(String... deptCodes) {

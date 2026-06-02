@@ -1,0 +1,9 @@
+package cn.zswltech.mithras.service.service;
+
+/**
+ * Resolves workflow process starter for shared business modules.
+ */
+public interface ProcessStartUserResolver {
+
+    Long processStartUserId(String processId);
+}
