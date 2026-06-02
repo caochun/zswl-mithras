@@ -5,7 +5,7 @@ import cn.hutool.poi.excel.cell.CellEditor;
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelImporter;
 import cn.zswltech.mithras.service.excel.model.dashboard.DashboardReviewModel;
 import cn.zswltech.mithras.service.excel.model.dashboard.DashboardVisitModel;
-import cn.zswltech.mithras.service.service.newftp.excel.NumberToBigDecimalCellEditor;
+import cn.zswltech.mithras.ftp.newftp.excel.NumberToBigDecimalCellEditor;
 import org.springframework.stereotype.Component;
 
 @Component

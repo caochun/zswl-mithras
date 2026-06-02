@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.service.service.newftp.convert;
+package cn.zswltech.mithras.ftp.newftp.convert;
 
 import cn.zswltech.mithras.dto.newftp.NewFtpShiborInterestRateListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpShiborInterestRatePricingListRSP;
-import cn.zswltech.mithras.service.service.newftp.excel.NewFtpShiborInterestRateExcelModel;
+import cn.zswltech.mithras.ftp.newftp.excel.NewFtpShiborInterestRateExcelModel;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRateConfig;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRatePricingConfig;
 import org.mapstruct.Mapper;

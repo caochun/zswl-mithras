@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.newftp;
 
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpTreasuryBondYieldConfigService;
+import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpTreasuryBondYieldConfigService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

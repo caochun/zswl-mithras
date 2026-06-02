@@ -2,10 +2,10 @@ package cn.zswltech.mithras.others.service.newftp;
 
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.newftp.excel.NewFtpShiborInterestRateExcelModel;
-import cn.zswltech.mithras.service.service.newftp.excel.NewFtpShiborInterestRateImporter;
-import cn.zswltech.mithras.service.service.newftp.excel.NewFtpTreasuryBondYieldExcelModel;
-import cn.zswltech.mithras.service.service.newftp.excel.NewFtpTreasuryBondYieldImporter;
+import cn.zswltech.mithras.ftp.newftp.excel.NewFtpShiborInterestRateExcelModel;
+import cn.zswltech.mithras.ftp.newftp.excel.NewFtpShiborInterestRateImporter;
+import cn.zswltech.mithras.ftp.newftp.excel.NewFtpTreasuryBondYieldExcelModel;
+import cn.zswltech.mithras.ftp.newftp.excel.NewFtpTreasuryBondYieldImporter;
 import org.junit.Test;
 
 import javax.annotation.Resource;

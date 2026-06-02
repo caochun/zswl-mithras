@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.excel;
+package cn.zswltech.mithras.ftp.newftp.excel;
 
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.cell.CellEditor;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @description
  */
 @Component
-public class NewFtpShiborInterestRateImporter extends AbstractSimpleExcelImporter<NewFtpShiborInterestRateExcelModel> {
+public class NewFtpTreasuryBondYieldImporter extends AbstractSimpleExcelImporter<NewFtpTreasuryBondYieldExcelModel> {
     @Override
     protected ExcelConfig config(ExcelReader excelReader) {
         return new ExcelConfig(0, 1, null);
@@ -23,7 +23,7 @@ public class NewFtpShiborInterestRateImporter extends AbstractSimpleExcelImporte
     }
 
     @Override
-    protected Class<NewFtpShiborInterestRateExcelModel> modelClz() {
-        return NewFtpShiborInterestRateExcelModel.class;
+    protected Class<NewFtpTreasuryBondYieldExcelModel> modelClz() {
+        return NewFtpTreasuryBondYieldExcelModel.class;
     }
 }

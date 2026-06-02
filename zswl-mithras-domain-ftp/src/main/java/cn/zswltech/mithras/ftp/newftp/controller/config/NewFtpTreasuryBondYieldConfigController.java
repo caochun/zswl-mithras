@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.controller.config;
+package cn.zswltech.mithras.ftp.newftp.controller.config;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
@@ -6,10 +6,10 @@ import cn.zswltech.mithras.api.newftp.config.NewFtpTreasuryBondYieldConfigApi;
 import cn.zswltech.mithras.dto.PageReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpTreasuryBondYieldListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpTreasuryBondYieldPricingListRSP;
-import cn.zswltech.mithras.service.service.newftp.convert.NewFtpTreasuryBondYieldConfigConverter;
+import cn.zswltech.mithras.ftp.newftp.convert.NewFtpTreasuryBondYieldConfigConverter;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpTreasuryBondYieldConfig;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpTreasuryBondYieldPricingConfig;
-import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpTreasuryBondYieldConfigService;
+import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpTreasuryBondYieldConfigService;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpTreasuryBondYieldPricingConfigService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

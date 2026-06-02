@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.excel;
+package cn.zswltech.mithras.ftp.newftp.excel;
 
 import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
 import cn.zswltech.mithras.service.excel.model.ExcelModel;
@@ -10,19 +10,17 @@ import java.time.LocalDate;
 
 /**
  * @author zhaozhengkang
- * @description 10年期国债收益率导入对象
+ * @description 1年期SHIBOR利率
  * @date 2023-05-21
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class NewFtpTreasuryBondYieldExcelModel extends ExcelModel {
-
-    private static final long serialVersionUID = 1L;
+public class NewFtpShiborInterestRateExcelModel extends ExcelModel {
 
     @SimpleExcelHeader(headerName = "指标名称", headerOrder = 10)
     private LocalDate date;
 
-    @SimpleExcelHeader(headerName = "中国:10年期国债收益率", headerOrder = 20)
+    @SimpleExcelHeader(headerName = "SHIBOR:1年", headerOrder = 20)
     private BigDecimal value;
 
 }

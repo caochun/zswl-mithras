@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.controller.config;
+package cn.zswltech.mithras.ftp.newftp.controller.config;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
@@ -6,10 +6,10 @@ import cn.zswltech.mithras.api.newftp.config.NewFtpShiborInterestRateConfigApi;
 import cn.zswltech.mithras.dto.PageReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpShiborInterestRateListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpShiborInterestRatePricingListRSP;
-import cn.zswltech.mithras.service.service.newftp.convert.NewFtpShiborInterestRateConfigConverter;
+import cn.zswltech.mithras.ftp.newftp.convert.NewFtpShiborInterestRateConfigConverter;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRateConfig;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRatePricingConfig;
-import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpShiborInterestRateConfigService;
+import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpShiborInterestRateConfigService;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpShiborInterestRatePricingConfigService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
