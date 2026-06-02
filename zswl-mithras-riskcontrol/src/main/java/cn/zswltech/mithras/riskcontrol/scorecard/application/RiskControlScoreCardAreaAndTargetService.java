@@ -1,19 +1,14 @@
-package cn.zswltech.mithras.service.service.riskcontrol;
+package cn.zswltech.mithras.riskcontrol.scorecard.application;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListREQ;
-import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListRSP;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetListRSP;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateDetailREQ;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateDetailRSP;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateSaveREQ;
-import cn.zswltech.mithras.service.controller.client.CorpAddressInfoController;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.assembler.RiskControlCardTargetConverter;
-import cn.zswltech.mithras.service.enums.CorpAddressType;
 import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardAreaAndTarget;
 import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardTarget;
 import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.mapper.RiskControlScoreCardAreaAndTargetMapper;
-import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardTargetService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -39,7 +34,7 @@ public class RiskControlScoreCardAreaAndTargetService extends ServiceImpl<RiskCo
     @Resource
     private RiskControlCardTargetConverter riskControlCardTargetConverter;
     @Resource
-    private CorpAddressInfoController corpAddressInfoController;
+    private ScoreCardClientAddressResolver scoreCardClientAddressResolver;
 
     @Transactional(rollbackFor = Throwable.class)
     public void save(RiskControlScoreCordCalculateSaveREQ req){
@@ -73,23 +68,17 @@ public class RiskControlScoreCardAreaAndTargetService extends ServiceImpl<RiskCo
     public RiskControlScoreCordCalculateDetailRSP calculateDetail(RiskControlScoreCordCalculateDetailREQ req){
 
         if(ObjectUtil.isNotEmpty(req.getClientId())){
-            CorpAddressInfoListREQ corpAddressInfoListREQ = new CorpAddressInfoListREQ();
-            corpAddressInfoListREQ.setClientId(req.getClientId());
-            List<CorpAddressInfoListRSP> collect = corpAddressInfoController.list(corpAddressInfoListREQ).getData().getList().stream().filter(base -> ObjectUtil.equals(base.getAddressType(),
-                    CorpAddressType.REGISTRY_ADDRESS.name())).collect(Collectors.toList());
-            if(ObjectUtil.isEmpty(collect)){
-                throw new MithrasException("该用户无注册地址信息");
+            ScoreCardClientRegistryAddress registryAddress = scoreCardClientAddressResolver.registryAddress(req.getClientId())
+                    .orElseThrow(() -> new MithrasException("该用户无注册地址信息"));
+            req.setProvince(registryAddress.getProvinceName());
+            req.setCity(registryAddress.getCityName());
+            if("市辖区".equals(registryAddress.getCityName())){
+                req.setCity(registryAddress.getProvinceName());
             }
-            CorpAddressInfoListRSP corpAddressInfoListRSP = collect.get(0);
-            req.setProvince(corpAddressInfoListRSP.getProvinceName());
-            req.setCity(corpAddressInfoListRSP.getCityName());
-            if("市辖区".equals(corpAddressInfoListRSP.getCityName())){
-                req.setCity(corpAddressInfoListRSP.getProvinceName());
-            }
-            if("市辖区".equals(corpAddressInfoListRSP.getDistrictName())){
-                req.setArea(corpAddressInfoListRSP.getCityName());
+            if("市辖区".equals(registryAddress.getDistrictName())){
+                req.setArea(registryAddress.getCityName());
             } else {
-                req.setArea(corpAddressInfoListRSP.getDistrictName());
+                req.setArea(registryAddress.getDistrictName());
             }
         }
         List<RiskControlScoreCardAreaAndTarget> riskControlScoreCardAreaAndTargets = this.baseMapper.selectList(Wrappers.<RiskControlScoreCardAreaAndTarget>lambdaQuery()

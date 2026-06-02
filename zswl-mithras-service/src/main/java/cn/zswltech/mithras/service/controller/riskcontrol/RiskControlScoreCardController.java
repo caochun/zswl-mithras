@@ -23,7 +23,7 @@ import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskContro
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.handler.RiskControlScoreCardCheckHandler;
-import cn.zswltech.mithras.service.service.riskcontrol.RiskControlScoreCardAreaAndTargetService;
+import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardAreaAndTargetService;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardBaseInfoService;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardService;
 import cn.zswltech.mithras.service.util.StringUtil;
