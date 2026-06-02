@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.repository.aliyun.req;
+package cn.zswltech.mithras.third.aliyun.ocr.infrastructure.client.req;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

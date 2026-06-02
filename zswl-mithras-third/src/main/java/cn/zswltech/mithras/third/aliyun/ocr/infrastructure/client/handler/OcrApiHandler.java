@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.third.repository.aliyun.handler;
+package cn.zswltech.mithras.third.aliyun.ocr.infrastructure.client.handler;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.io.IoUtil;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
-import cn.zswltech.mithras.third.repository.aliyun.req.OcrDetectReq;
-import cn.zswltech.mithras.third.repository.aliyun.resp.OcrDetectResp;
+import cn.zswltech.mithras.third.aliyun.ocr.infrastructure.client.req.OcrDetectReq;
+import cn.zswltech.mithras.third.aliyun.ocr.infrastructure.client.resp.OcrDetectResp;
 import cn.zswltech.mithras.service.util.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
