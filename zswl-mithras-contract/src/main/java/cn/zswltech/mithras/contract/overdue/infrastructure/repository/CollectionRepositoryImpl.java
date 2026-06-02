@@ -1,7 +1,6 @@
-package cn.zswltech.mithras.service.overdue.infrastructure.repository;
+package cn.zswltech.mithras.contract.overdue.infrastructure.repository;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.contract.overdue.domain.collection.*;
 import cn.zswltech.mithras.contract.overdue.domain.share.diff.Diff;
@@ -10,11 +9,11 @@ import cn.zswltech.mithras.contract.overdue.domain.share.diff.EntityDiff;
 import cn.zswltech.mithras.contract.overdue.domain.share.diff.ListDiff;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.OverdueCollectionActionDao;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.OverdueCollectionActionLibDao;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.OverdueCollectionDao;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.OverdueCollectionRecordDao;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionAction;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionActionLib;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.service.service.UserNameResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
@@ -22,8 +21,6 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionActionConverter;
-import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionConverter;
 
 /**
  * @description:
@@ -34,7 +31,7 @@ import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionConverte
 public class CollectionRepositoryImpl extends CollectionRepository {
 
     @Resource
-    private OverdueCollectionDao overdueCollectionDao;
+    private OverdueCollectionRecordDao overdueCollectionDao;
     @Resource
     private OverdueCollectionActionLibDao overdueCollectionActionLibDao;
     @Resource
@@ -44,7 +41,7 @@ public class CollectionRepositoryImpl extends CollectionRepository {
     @Resource
     private CollectionActionConverter collectionActionConverter;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
 
     public CollectionRepositoryImpl() {
@@ -67,7 +64,7 @@ public class CollectionRepositoryImpl extends CollectionRepository {
         List<OverdueCollectionAction> actionPos = overdueCollectionActionDao.list(Wrappers.<OverdueCollectionAction>lambdaQuery()
                 .eq(OverdueCollectionAction::getOcId, collectionId.getId())
                 .orderByDesc(OverdueCollectionAction::getId));
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(actionPos.stream().map(BaseModel::getCreateBy).collect(Collectors.toSet()));
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(actionPos.stream().map(OverdueCollectionAction::getCreateBy).collect(Collectors.toSet()));
         Collection collection = collectionConverter.po2Entity(aggregatePo);
         if (ObjectUtil.isNotEmpty(actionPos)) {
             List<CollectionAction> collectionActions = collectionActionConverter.po2Entity(actionPos);
