@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.third.financial.impl.handle;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.enums.contractcp.RecordSourceEnum;
 import cn.zswltech.mithras.service.enums.third.FinancialDevUrlENUM;
 import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
@@ -72,7 +71,7 @@ public class RefundHandle extends FinancialApiHandler<List<CQRefundREQ>, Financi
 
     @Override
     public void cqRelatedMithras(FinancialCommonRSP result){
-        financialConfigService.cqRelatedMithras(result, RecordSourceEnum.MARGIN.name());
+        financialConfigService.cqRelatedMithras(result, "MARGIN");
     }
 
     @Override

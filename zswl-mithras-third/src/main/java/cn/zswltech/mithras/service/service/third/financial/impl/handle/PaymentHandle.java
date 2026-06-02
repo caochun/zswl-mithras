@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.service.service.third.financial.impl.handle;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.enums.contractcp.RecordSourceEnum;
 import cn.zswltech.mithras.service.enums.third.FinancialDevUrlENUM;
 import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
 import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
@@ -9,7 +8,7 @@ import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialApiHandler;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialConfigService;
-import cn.zswltech.mithras.service.service.third.financial.req.CQBillPaymentREQ;
+import cn.zswltech.mithras.service.service.third.financial.req.CQPaymentREQ;
 import cn.zswltech.mithras.service.service.third.financial.resp.FinancialCommonRSP;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -25,34 +24,34 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName PaymentHandle
- * @Description 苍穹付款申请单
+ * @Description 苍穹应付单
  * @Author jackerhe
  * @Date 2022/10/26 2:43 下午
  * @Version 1.0
  **/
 @Component
-public class PaymentApplyBillHandle extends FinancialApiHandler<List<CQBillPaymentREQ>, FinancialCommonRSP> {
+public class PaymentHandle extends FinancialApiHandler<List<CQPaymentREQ>, FinancialCommonRSP> {
 
     @Resource
     private FinancialConfigService financialConfigService;
+
     @Resource
     private ExceptionRequestRecordService exceptionRequestInfoService;
 
     private static final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().availableProcessors() + 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(100));
 
-
     @Override
     public PlatformApiEnum platformApi() {
-        return PlatformApiEnum.CQ_BILL_PAYMENT;
+        return PlatformApiEnum.CQ_PAYMENT;
     }
 
     @Override
     public String getUrl() {
         //测试环境
         if (!PROD.equals(active)) {
-            return financialConfigService.getUrl(FinancialDevUrlENUM.PAYMENT_BILL_INFO.url);
+            return financialConfigService.getUrl(FinancialDevUrlENUM.PAYMENT_INFO.url);
         }
-        return financialConfigService.getUrl(FinancialUrlENUM.PAYMENT_BILL_INFO.url);
+        return financialConfigService.getUrl(FinancialUrlENUM.PAYMENT_INFO.url);
     }
 
     @Override
@@ -61,8 +60,18 @@ public class PaymentApplyBillHandle extends FinancialApiHandler<List<CQBillPayme
     }
 
     @Override
-    public FinancialCommonRSP execute(List<CQBillPaymentREQ> reqData) {
+    public FinancialCommonRSP execute(List<CQPaymentREQ> reqData) {
        return super.execute(reqData);
+    }
+
+    @Override
+    public Map<String, String> getHttpHeadParam() {
+        return financialConfigService.getHttpHeadParam(FinancialUrlENUM.PAYMENT_INFO);
+    }
+
+    @Override
+    public void cqRelatedMithras(FinancialCommonRSP result){
+        financialConfigService.cqRelatedMithras(result, "PAYMENT");
     }
 
     @Override
@@ -71,8 +80,8 @@ public class PaymentApplyBillHandle extends FinancialApiHandler<List<CQBillPayme
         if (ObjectUtil.isEmpty(exceptionRequestInfos)) {
             return;
         }
-       exceptionRequestInfos.forEach(base -> CompletableFuture.runAsync(()->execute(JSON.parseArray(base.getReqData(), CQBillPaymentREQ.class)),
-               threadPool));
+        exceptionRequestInfos.forEach(base -> CompletableFuture.runAsync(()->execute(JSON.parseArray(base.getReqData(), CQPaymentREQ.class)),
+                threadPool));
     }
 
     @Override
@@ -81,20 +90,10 @@ public class PaymentApplyBillHandle extends FinancialApiHandler<List<CQBillPayme
     }
 
     @Override
-    public String getBusinessId(List<CQBillPaymentREQ> reqData){
+    public String getBusinessId(List<CQPaymentREQ> reqData){
         if(ObjectUtil.isEmpty(reqData)){
             return null;
         }
         return reqData.get(0).getSourcebillno();
-    }
-
-    @Override
-    public Map<String, String> getHttpHeadParam() {
-        return financialConfigService.getHttpHeadParam(FinancialUrlENUM.PAYMENT_BILL_INFO);
-    }
-
-    @Override
-    public void cqRelatedMithras(FinancialCommonRSP result){
-        financialConfigService.cqRelatedMithras(result, RecordSourceEnum.PAYMENT.name());
     }
 }

@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.third.financial.impl.handle;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contractcp.RecordSourceEnum;
 import cn.zswltech.mithras.service.enums.third.FinancialDevUrlENUM;
 import cn.zswltech.mithras.service.enums.third.FinancialRSPENUM;
 import cn.zswltech.mithras.service.enums.third.FinancialUrlENUM;
@@ -91,7 +90,7 @@ public class ReceiveRentHandle extends FinancialApiHandler<List<CQReceiveRentREQ
 
     @Override
     public void cqRelatedMithras(FinancialCommonRSP result){
-        financialConfigService.cqRelatedMithras(result, RecordSourceEnum.COLLECTION_RENT.name());
+        financialConfigService.cqRelatedMithras(result, "COLLECTION_RENT");
     }
 
     @Override
