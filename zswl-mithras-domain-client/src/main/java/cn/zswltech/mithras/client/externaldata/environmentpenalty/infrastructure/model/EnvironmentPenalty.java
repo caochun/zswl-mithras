@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.mapper.model.client;
+package cn.zswltech.mithras.client.externaldata.environmentpenalty.infrastructure.model;
 
 import cn.zswltech.mithras.service.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.TableField;

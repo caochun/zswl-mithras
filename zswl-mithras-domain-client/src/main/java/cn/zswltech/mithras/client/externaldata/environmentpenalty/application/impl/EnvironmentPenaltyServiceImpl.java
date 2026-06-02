@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.service.tyc.impl;
+package cn.zswltech.mithras.client.externaldata.environmentpenalty.application.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.external.ExternalPageREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyAddREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyModifyREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyRemoveREQ;
-import cn.zswltech.mithras.service.mapper.corp.EnvironmentPenaltyMapper;
-import cn.zswltech.mithras.service.mapper.model.client.EnvironmentPenalty;
+import cn.zswltech.mithras.client.externaldata.environmentpenalty.infrastructure.mapper.EnvironmentPenaltyMapper;
+import cn.zswltech.mithras.client.externaldata.environmentpenalty.infrastructure.model.EnvironmentPenalty;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.tyc.EnvironmentPenaltyService;
+import cn.zswltech.mithras.client.externaldata.environmentpenalty.application.EnvironmentPenaltyService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

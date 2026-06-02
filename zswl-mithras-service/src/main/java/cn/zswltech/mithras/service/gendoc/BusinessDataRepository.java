@@ -7,6 +7,8 @@ import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.dao.UserDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
+import cn.zswltech.mithras.client.externaldata.environmentpenalty.infrastructure.mapper.EnvironmentPenaltyMapper;
+import cn.zswltech.mithras.client.externaldata.environmentpenalty.infrastructure.model.EnvironmentPenalty;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;

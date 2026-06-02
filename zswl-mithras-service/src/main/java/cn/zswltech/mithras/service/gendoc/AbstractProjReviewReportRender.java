@@ -5,6 +5,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import cn.zswltech.mithras.client.externaldata.environmentpenalty.infrastructure.model.EnvironmentPenalty;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
 import cn.zswltech.mithras.service.enums.RelationshipType;
 import cn.zswltech.mithras.service.enums.ShareholderType;
