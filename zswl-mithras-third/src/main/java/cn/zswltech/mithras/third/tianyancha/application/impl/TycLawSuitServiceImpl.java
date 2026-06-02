@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
-import cn.zswltech.mithras.third.convert.tyc.TycLawSuitConvert;
+import cn.zswltech.mithras.third.tianyancha.application.convert.TycLawSuitConvert;
 import cn.zswltech.mithras.third.enums.TycErrorEnum;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycMockDataMapper;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycLawSuitMapper;

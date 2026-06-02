@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.convert.tyc;
+package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycJudicialRSP;
 import cn.zswltech.mithras.third.enums.TycJudicialTypeStateEnum;

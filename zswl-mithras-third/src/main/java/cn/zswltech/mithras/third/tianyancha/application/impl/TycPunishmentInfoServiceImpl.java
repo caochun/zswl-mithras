@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
-import cn.zswltech.mithras.third.convert.tyc.TycPunishmentInfoConvert;
+import cn.zswltech.mithras.third.tianyancha.application.convert.TycPunishmentInfoConvert;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycPunishmentInfoMapper;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycPunishmentInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;

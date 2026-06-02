@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
-import cn.zswltech.mithras.third.convert.tyc.TycZhixingInfoConvert;
+import cn.zswltech.mithras.third.tianyancha.application.convert.TycZhixingInfoConvert;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycZhixingInfoMapper;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycZhixingInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
-import cn.zswltech.mithras.third.convert.tyc.TycMortgageInfoConvert;
+import cn.zswltech.mithras.third.tianyancha.application.convert.TycMortgageInfoConvert;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycMortgageInfoMapper;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycMortgageInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;

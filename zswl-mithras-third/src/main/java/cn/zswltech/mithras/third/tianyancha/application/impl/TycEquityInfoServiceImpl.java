@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
-import cn.zswltech.mithras.third.convert.tyc.TycEquityInfoConvert;
+import cn.zswltech.mithras.third.tianyancha.application.convert.TycEquityInfoConvert;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycEquityInfoMapper;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycEquityInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;

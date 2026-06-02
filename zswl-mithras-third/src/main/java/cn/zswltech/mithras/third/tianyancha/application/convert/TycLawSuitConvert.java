@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.convert.tyc;
+package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.hutool.http.HtmlUtil;
 import cn.zswltech.mithras.dto.client.external.tyc.TycLawSuitRSP;

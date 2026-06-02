@@ -11,7 +11,7 @@ import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.*
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.client.ClientModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.third.convert.tyc.*;
+import cn.zswltech.mithras.third.tianyancha.application.convert.*;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
