@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.third.service.tyc.impl.TycExecutionService;
+import cn.zswltech.mithras.third.tianyancha.application.impl.TycExecutionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

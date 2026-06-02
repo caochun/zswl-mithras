@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.tyc;
+package cn.zswltech.mithras.third.tianyancha.application;
 
 import cn.zswltech.mithras.third.enums.TycErrorEnum;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycMockDataMapper;

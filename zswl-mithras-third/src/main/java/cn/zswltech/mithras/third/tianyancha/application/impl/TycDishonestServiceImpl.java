@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.tyc.impl;
+package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.third.convert.tyc.TycDishonestConvert;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycDishonestMapper;
@@ -6,8 +6,8 @@ import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.T
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
 import cn.zswltech.mithras.third.repository.tyc.resp.TycDishonestResp;
-import cn.zswltech.mithras.third.service.tyc.TycAbstractService;
-import cn.zswltech.mithras.third.service.tyc.TycDishonestService;
+import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;
+import cn.zswltech.mithras.third.tianyancha.application.TycDishonestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.tyc.impl;
+package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.third.service.tyc.*;
+import cn.zswltech.mithras.third.tianyancha.application.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

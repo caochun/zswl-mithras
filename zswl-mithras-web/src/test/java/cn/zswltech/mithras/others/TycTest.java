@@ -16,10 +16,10 @@
 //import cn.zswltech.mithras.third.repository.tyc.resp.TycMortgageInfoResp;
 //import cn.zswltech.mithras.third.repository.tyc.resp.TycPunishmentInfoResp;
 //import cn.zswltech.mithras.third.repository.tyc.resp.TycZhixingInfoResp;
-//import cn.zswltech.mithras.third.service.tyc.TycAbnormalService;
-//import cn.zswltech.mithras.third.service.tyc.TycDishonestService;
-//import cn.zswltech.mithras.third.service.tyc.TycEquityInfoService;
-//import cn.zswltech.mithras.third.service.tyc.impl.TycExecutionService;
+//import cn.zswltech.mithras.third.tianyancha.application.TycAbnormalService;
+//import cn.zswltech.mithras.third.tianyancha.application.TycDishonestService;
+//import cn.zswltech.mithras.third.tianyancha.application.TycEquityInfoService;
+//import cn.zswltech.mithras.third.tianyancha.application.impl.TycExecutionService;
 //import com.alibaba.fastjson.JSON;
 //import org.junit.Test;
 //import org.slf4j.Logger;
