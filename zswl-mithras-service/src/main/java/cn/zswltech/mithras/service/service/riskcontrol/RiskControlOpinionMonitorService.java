@@ -45,7 +45,7 @@ import cn.zswltech.mithras.service.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.FlowAssistService;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.client.ClientVwSyncService;
+import cn.zswltech.mithras.client.vwsync.application.ClientVwSyncService;
 import cn.zswltech.mithras.service.service.client.ProjClientRoleService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
