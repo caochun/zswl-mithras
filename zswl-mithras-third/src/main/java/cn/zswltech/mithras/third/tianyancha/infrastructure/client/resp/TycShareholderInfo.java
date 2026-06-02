@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.model;
+package cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp;
 
 import lombok.Data;
 

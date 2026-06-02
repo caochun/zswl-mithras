@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service;
+package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -12,7 +12,8 @@ import cn.zswltech.mithras.service.enums.RelationshipType;
 import cn.zswltech.mithras.service.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.service.mapper.model.client.IndustryType;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.third.service.model.*;
+import cn.zswltech.mithras.third.tianyancha.application.dto.*;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.*;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
 

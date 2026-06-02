@@ -57,8 +57,9 @@ import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoSe
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import cn.zswltech.mithras.service.service.projpricing.ProjPricingBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
-import cn.zswltech.mithras.third.service.TycService;
-import cn.zswltech.mithras.third.service.model.*;
+import cn.zswltech.mithras.third.tianyancha.application.TycService;
+import cn.zswltech.mithras.third.tianyancha.application.dto.*;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.*;
 import cn.zswltech.mithras.third.tianyancha.application.impl.TycExecutionService;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

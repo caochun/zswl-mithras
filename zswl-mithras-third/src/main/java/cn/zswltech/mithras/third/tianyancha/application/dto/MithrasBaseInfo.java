@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.model;
+package cn.zswltech.mithras.third.tianyancha.application.dto;
 
 import cn.zswltech.flow.core.util.ApplicationContextUtil;
 import cn.zswltech.mithras.service.mapper.corp.GeneralDictionaryMapper;

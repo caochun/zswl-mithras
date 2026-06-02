@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.model;
+package cn.zswltech.mithras.third.tianyancha.application.dto;
 
 import cn.hutool.core.annotation.Alias;
 import lombok.Data;

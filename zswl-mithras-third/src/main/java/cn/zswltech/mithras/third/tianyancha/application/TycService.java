@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service;
+package cn.zswltech.mithras.third.tianyancha.application;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.lang.TypeReference;
@@ -8,7 +8,9 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycMockDataMapper;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycMockData;
-import cn.zswltech.mithras.third.service.model.*;
+import cn.zswltech.mithras.third.tianyancha.application.convert.TycConvertor;
+import cn.zswltech.mithras.third.tianyancha.application.dto.*;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.*;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +28,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.hutool.core.util.ObjectUtil.notEqual;
 import static cn.zswltech.mithras.third.enums.TycErrorEnum.NO_DATA;
 import static cn.zswltech.mithras.third.enums.TycErrorEnum.SUCCESS;
-import static cn.zswltech.mithras.third.service.TycService.TycMockDataType.*;
+import static cn.zswltech.mithras.third.tianyancha.application.TycService.TycMockDataType.*;
 
 /**
  * @author luyi

@@ -21,10 +21,10 @@ import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.TycAppraisalCo
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.leaseholdproperty.AppraisalCompanyWhitelistService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseAppraisalService;
-import cn.zswltech.mithras.third.service.TycService;
-import cn.zswltech.mithras.third.service.model.MithrasBaseInfo;
-import cn.zswltech.mithras.third.service.model.MithrasCompanyInfo;
-import cn.zswltech.mithras.third.service.model.TycQueryCompanyReq;
+import cn.zswltech.mithras.third.tianyancha.application.TycService;
+import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasBaseInfo;
+import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasCompanyInfo;
+import cn.zswltech.mithras.third.tianyancha.application.dto.TycQueryCompanyReq;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
