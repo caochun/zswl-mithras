@@ -30,6 +30,7 @@ import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpParameterSettingConfig;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpTreasuryBondYieldPricingConfig;
 import cn.zswltech.mithras.ftp.newftp.model.draft.*;
 import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpDescriptionTextDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpLprPricingDraftService;
 import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpParameterSettingDraftService;
 import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpShiborInterestRatePricingDraftService;
 import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpTreasuryBondYieldPricingDraftService;

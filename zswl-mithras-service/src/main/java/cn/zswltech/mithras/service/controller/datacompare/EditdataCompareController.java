@@ -125,6 +125,7 @@ import cn.zswltech.mithras.service.service.lib.policy.PolicyInfoLibService;
 import cn.zswltech.mithras.service.service.lib.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;
+import cn.zswltech.mithras.ftp.newftp.controller.draft.NewFtpLprPricingDraftController;
 import cn.zswltech.mithras.ftp.newftp.controller.draft.NewFtpShiborInterestRateDraftController;
 import cn.zswltech.mithras.ftp.newftp.controller.draft.NewFtpTreasuryBondYieldDraftController;
 import cn.zswltech.mithras.service.service.newftp.controller.draft.*;
