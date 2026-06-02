@@ -13,12 +13,11 @@ import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionRecord;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightRecord;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
+import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.lib.kpi.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -49,7 +48,7 @@ public class KpiProjectDistributionRecordService extends ServiceImpl<KpiProjectD
     @Resource
     private KpiProjectDistributionWeightLibService kpiProjectDistributionWeightLibService;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
+    private ContractBaseInfoMapper contractBaseInfoMapper;
 
     @Transactional(rollbackFor = Throwable.class)
     public void add(KpiProjectDistributionRecordAddREQ req) {
@@ -111,7 +110,7 @@ public class KpiProjectDistributionRecordService extends ServiceImpl<KpiProjectD
         if (ObjectUtil.isEmpty(distributionListRSP)) {
             return;
         }
-        Map<String, Long> contractCode2Id = contractBaseInfoService.list(Wrappers.<ContractBaseInfo>lambdaQuery()
+        Map<String, Long> contractCode2Id = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                 .in(ContractBaseInfo::getContractCode, distributionListRSP.stream().map(KpiProjectDistributionBaseInfoLib::getContractCode).collect(Collectors.toList()))
         .notIn(ContractBaseInfo::getContractStatus, ContractStatus.INVALID.name(), ContractStatus.CLOSED.name()))
                 .stream().collect(Collectors.toMap(ContractBaseInfo::getContractCode, ContractBaseInfo::getId, (a, b) -> a));
@@ -127,7 +126,7 @@ public class KpiProjectDistributionRecordService extends ServiceImpl<KpiProjectD
             records.add(record);
         });
         Map<Long, List<KpiProjectDistributionWeightLib>> id2LibMap = kpiProjectDistributionWeightLibService.listByKpiProjectDistributionBaseInfoLibs(distributionListRSP).stream().collect(Collectors.groupingBy(KpiProjectDistributionWeightLib::getProjectDistributionId));
-        SpringContextHolder.getBean(KpiProjectDistributionRecordService.class).saveBatch(records);
+        this.saveBatch(records);
         Map<Long, Long> distributionId2RecordId = records.stream().collect(Collectors.toMap(KpiProjectDistributionRecord::getProjectDistributionId, KpiProjectDistributionRecord::getId, (a, b) -> b));
         List<KpiProjectDistributionWeightRecord> weightRecords = new ArrayList<>();
         distributionListRSP.forEach(e -> {
