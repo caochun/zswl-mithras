@@ -62,7 +62,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.OverdueCollectionDao;
+import cn.zswltech.mithras.contract.overdue.application.collection.OverdueCollectionRefreshService;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.Listener.ContractPriceChangeEvent;
 import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEventListener;
@@ -153,7 +153,7 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
     @Resource
     private ContractRentActualService contractRentActualService;
     @Resource
-    private OverdueCollectionDao overdueCollectionDao;
+    private OverdueCollectionRefreshService overdueCollectionRefreshService;
 
 
 //    @SneakyThrows
@@ -617,7 +617,7 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
                 MetricComputeEvent metricComputeEvent = new MetricComputeEvent();
                 metricComputeEventBus.post(metricComputeEvent);
                 // 更新逾期催收表
-                overdueCollectionDao.updateByClientId(baseInfo.getClientId());
+                overdueCollectionRefreshService.refreshClient(baseInfo.getClientId());
                 //给苍穹推送应收单
                 if (CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(baseInfo.getWriteOffStatus())) {
                     List<CollectionRecordInfo> allCollectionRecordInfos = collectionRecordInfoMapper.selectList(Wrappers.<CollectionRecordInfo>lambdaQuery()

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionOverdueHistory;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionOverdueRecordInfo;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.OverdueCollectionDao;
+import cn.zswltech.mithras.contract.overdue.application.collection.OverdueCollectionRefreshService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionOverdueHistoryService;
 import cn.zswltech.mithras.service.service.collection.CollectionOverdueRecordInfoService;
@@ -52,7 +52,7 @@ public class CollectionJob {
     @Resource
     private CollectionRecordInfoService collectionRecordInfoService;
     @Resource
-    private OverdueCollectionDao overdueCollectionDao;
+    private OverdueCollectionRefreshService overdueCollectionRefreshService;
 
     @XxlJob("penaltyInterestJobHandler")
     @Transactional(rollbackFor = Throwable.class)
@@ -302,7 +302,7 @@ public class CollectionJob {
                 Set<Long> clientSet = list.stream().map(CollectionBaseInfo::getClientId).collect(Collectors.toSet());
                 if (ObjectUtil.isNotEmpty(clientSet)) {
                     clientSet.forEach(id -> {
-                        overdueCollectionDao.updateByClientId(id);
+                        overdueCollectionRefreshService.refreshClient(id);
                     });
                 }
             }

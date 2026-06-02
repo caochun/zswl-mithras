@@ -10,11 +10,11 @@ import cn.zswltech.mithras.contract.overdue.application.dto.CollectionDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
 import cn.zswltech.mithras.contract.overdue.application.collection.CollectionApplicationService;
+import cn.zswltech.mithras.contract.overdue.application.job.SchedulingJobService;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionActionId;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionId;
 import cn.zswltech.mithras.service.overdue.application.service.CollectionActionDownloadService;
 import cn.zswltech.mithras.service.overdue.application.service.CollectionContractExportService;
-import cn.zswltech.mithras.service.overdue.infrastructure.service.SchedulingJobServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ import java.util.Map;
 @Api(tags = "催收管理")
 public class CollectionController {
     @Resource
-    private SchedulingJobServiceImpl schedulingJobService;
+    private SchedulingJobService schedulingJobService;
     @Resource
     private CollectionApplicationService collectionApplicationService;
     @Resource
