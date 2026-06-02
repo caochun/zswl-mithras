@@ -2,7 +2,7 @@ package cn.zswltech.mithras.metric.aggregator.deep.in;
 
 import cn.zswltech.mithras.metric.aggregator.MetricCalculator;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
+import cn.zswltech.mithras.metric.service.RiskMetricFactorQueryService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,7 @@ import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.
 public class XZ007Calculator implements MetricCalculator {
 
     @Resource
-    private RiskMetricFactorService metricFactorService;
+    private RiskMetricFactorQueryService metricFactorService;
 
     @Override
     public String metricCode() {

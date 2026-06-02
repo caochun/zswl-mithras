@@ -2,7 +2,7 @@ package cn.zswltech.mithras.metric.aggregator.deep.in;
 
 import cn.zswltech.mithras.metric.aggregator.MetricCalculator;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
+import cn.zswltech.mithras.metric.service.RiskMetricFactorQueryService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
@@ -11,20 +11,20 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.CAPITAL_BALANCE;
+import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.PROFIT;
 
 /**
  * @author yibin
  */
 @Component
-public class XZ059Calculator implements MetricCalculator {
+public class XZ056Calculator implements MetricCalculator {
 
     @Resource
-    private RiskMetricFactorService metricFactorService;
+    private RiskMetricFactorQueryService metricFactorService;
 
     @Override
     public String metricCode() {
-        return "A10000396_XZ059";
+        return "A10000396_XZ056";
     }
 
     @Override
@@ -33,8 +33,8 @@ public class XZ059Calculator implements MetricCalculator {
         //
         RiskMetricFactor factor = metricFactorService.getOne(Wrappers.<RiskMetricFactor>lambdaQuery()
                 .eq(RiskMetricFactor::getFactorDate, date)
-                .eq(RiskMetricFactor::getFactorName, "☆其他非流动金融资产@期末余额")
-                .eq(RiskMetricFactor::getFactorTable, CAPITAL_BALANCE.display)
+                .eq(RiskMetricFactor::getFactorName, "公允价值变动收益（损失以“－”号填列）@本年累计数")
+                .eq(RiskMetricFactor::getFactorTable, PROFIT.display)
         );
         result.put("a", null == factor ? 0 : factor.getFactorValue());
         return result;
@@ -42,7 +42,7 @@ public class XZ059Calculator implements MetricCalculator {
 
 
     /**
-     * 资产负债表（☆其他非流动金融资产@期末余额）
+     * 利润表（公允价值变动收益（损失以“－”号填列）@本年累计数）
      */
     @Override
     public String calcExpression() {

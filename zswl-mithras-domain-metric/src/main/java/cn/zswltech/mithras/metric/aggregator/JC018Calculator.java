@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.metric.aggregator;
 
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
+import cn.zswltech.mithras.metric.service.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.metric.service.RiskMetricTimedService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,7 @@ import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.
 public class JC018Calculator implements MetricCalculator {
 
     @Resource
-    private RiskMetricFactorService metricFactorService;
+    private RiskMetricFactorQueryService metricFactorService;
     @Resource
     private RiskMetricTimedService metricTimedService;
 

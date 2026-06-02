@@ -3,7 +3,7 @@ package cn.zswltech.mithras.metric.aggregator;
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricTimed;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
+import cn.zswltech.mithras.metric.service.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.metric.service.RiskMetricTimedService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cn.zswltech.mithras.metric.aggregator.AggConst.ENGINEERING_MACHINE_INDUSTRY_CODE;
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.CAPITAL_BALANCE;
 import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
 
@@ -23,16 +22,16 @@ import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
  * @author yibin
  */
 @Component
-public class JC026Calculator implements MetricCalculator {
+public class JC052Calculator implements MetricCalculator {
 
     @Resource
-    private RiskMetricFactorService metricFactorService;
+    private RiskMetricFactorQueryService metricFactorService;
     @Resource
     private RiskMetricTimedService metricTimedService;
 
     @Override
     public String metricCode() {
-        return "A10000396_JC026";
+        return "A10000396_JC052";
     }
 
     @Override
@@ -42,8 +41,8 @@ public class JC026Calculator implements MetricCalculator {
         QueryWrapper<RiskMetricTimed> wrapper = Wrappers.query();
         wrapper.eq("data_time", date);
         wrapper.select("ifnull(sum(left_capital),0) as s");
-        wrapper.ne("industry_type", ENGINEERING_MACHINE_INDUSTRY_CODE);
-        wrapper.groupBy("belong_group_id");
+        wrapper.eq("related", true);
+        wrapper.groupBy("client_id");
         wrapper.orderByDesc("s");
         wrapper.last(mysqlLimit(0, 1));
         List<Map<String, Object>> maps = metricTimedService.listMaps(wrapper);
@@ -65,7 +64,7 @@ public class JC026Calculator implements MetricCalculator {
 
 
     /**
-     * 按客户同一集团计算取最大的集团剩余本金（排除工程机械类）/资产负债表（所有者权益（或股东权益）合计@期末余额）
+     * 客户（是关联方）计算客户维度剩余本金（取最大）/资产负债表（所有者权益（或股东权益）合计@期末余额）
      */
     @Override
     public String calcExpression() {

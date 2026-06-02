@@ -3,7 +3,7 @@ package cn.zswltech.mithras.metric.aggregator;
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricTimed;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
+import cn.zswltech.mithras.metric.service.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.metric.service.RiskMetricTimedService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -22,16 +22,16 @@ import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
  * @author yibin
  */
 @Component
-public class JC052Calculator implements MetricCalculator {
+public class JC049Calculator implements MetricCalculator {
 
     @Resource
-    private RiskMetricFactorService metricFactorService;
+    private RiskMetricFactorQueryService metricFactorService;
     @Resource
     private RiskMetricTimedService metricTimedService;
 
     @Override
     public String metricCode() {
-        return "A10000396_JC052";
+        return "A10000396_JC049";
     }
 
     @Override
