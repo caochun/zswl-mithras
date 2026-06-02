@@ -1,8 +1,9 @@
 package cn.zswltech.mithras.service.overdue.application.flow;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
+import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
+import cn.zswltech.mithras.contract.overdue.application.collection.CollectionApplicationService;
 import cn.zswltech.mithras.service.flow.listener.endhandler.AbstractProcessEndHandler;
-import cn.zswltech.mithras.service.overdue.application.service.CollectionApplicationService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -27,7 +28,9 @@ public class CollectionProcessEndHandler extends AbstractProcessEndHandler {
 
     @Override
     public void handle(ProcessEndContext endContext) {
-        collectionApplicationService.processEnd(Long.valueOf(endContext.getBusinessKey()), endContext.getEndType(), Long.valueOf(endContext.getStartUserId()), endContext.getProcessInstanceId(), endContext.getModelKey());
+        boolean processPass = ProcessBusinessStatusEnum.success(endContext.getEndType());
+        collectionApplicationService.processEnd(Long.valueOf(endContext.getBusinessKey()), processPass,
+                Long.valueOf(endContext.getStartUserId()), endContext.getProcessInstanceId(), endContext.getModelKey());
     }
 
 }

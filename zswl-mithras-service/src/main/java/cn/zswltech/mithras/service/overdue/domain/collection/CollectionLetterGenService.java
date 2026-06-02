@@ -13,6 +13,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractGuarantorInfo;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.service.service.CollectionLetterGenerator;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +38,7 @@ import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionReposito
  */
 @Service
 @Slf4j
-public class CollectionLetterGenService {
+public class CollectionLetterGenService implements CollectionLetterGenerator {
 
     @Resource
     private CollectionRepository collectionRepository;
@@ -51,6 +52,11 @@ public class CollectionLetterGenService {
     private JointLiabilityNoticeRender jointLiabilityNoticeRender;
     @Resource
     private MaterialsListService materialsListService;
+
+    @Override
+    public void genLetter(Long actionId) {
+        genLetter(new CollectionActionId(actionId));
+    }
 
     public void genLetter(CollectionActionId id) {
         // 先删除原来生成的文件

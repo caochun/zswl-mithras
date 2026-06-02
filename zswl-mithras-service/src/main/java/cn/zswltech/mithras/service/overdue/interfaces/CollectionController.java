@@ -8,9 +8,10 @@ import cn.zswltech.mithras.contract.overdue.application.dto.CollectionActionDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
-import cn.zswltech.mithras.service.overdue.application.service.CollectionApplicationService;
+import cn.zswltech.mithras.contract.overdue.application.collection.CollectionApplicationService;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionActionId;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionId;
+import cn.zswltech.mithras.service.overdue.application.service.CollectionActionDownloadService;
 import cn.zswltech.mithras.service.overdue.infrastructure.service.SchedulingJobServiceImpl;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import io.swagger.annotations.Api;
@@ -35,6 +36,8 @@ public class CollectionController {
     private SchedulingJobServiceImpl schedulingJobService;
     @Resource
     private CollectionApplicationService collectionApplicationService;
+    @Resource
+    private CollectionActionDownloadService collectionActionDownloadService;
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
 
@@ -76,7 +79,7 @@ public class CollectionController {
     @ApiOperation(value = "催收动作列表导出")
     @PostMapping("/overduecollection/action/download")
     public void download(@RequestBody CollectionId collectionId) {
-        collectionApplicationService.downloadAction(collectionId);
+        collectionActionDownloadService.downloadAction(collectionId);
     }
 
     @ApiOperation(value = "新增催收动作")

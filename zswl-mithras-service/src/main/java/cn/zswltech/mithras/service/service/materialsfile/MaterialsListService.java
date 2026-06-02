@@ -49,6 +49,7 @@ import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseI
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.MithrasMinioClient;
+import cn.zswltech.mithras.service.service.BusinessMaterialResolver;
 import cn.zswltech.mithras.service.service.client.ClientAuthorityService;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
@@ -92,7 +93,7 @@ import static java.util.stream.Collectors.toList;
 
 @Slf4j
 @Service
-public class MaterialsListService extends ServiceImpl<MaterialsListMapper, MaterialsList> {
+public class MaterialsListService extends ServiceImpl<MaterialsListMapper, MaterialsList> implements BusinessMaterialResolver {
     @Resource
     private MithrasMinioClient mithrasMinioClient;
     @Resource
@@ -135,6 +136,11 @@ public class MaterialsListService extends ServiceImpl<MaterialsListMapper, Mater
         query.eq(MaterialsList::getBusinessType, businessType);
         query.eq(MaterialsList::getBelongId, belongId);
         return this.list(query);
+    }
+
+    @Override
+    public boolean hasMaterials(String businessType, Long belongId) {
+        return CollectionUtil.isNotEmpty(listBy(businessType, belongId));
     }
 
     @SneakyThrows

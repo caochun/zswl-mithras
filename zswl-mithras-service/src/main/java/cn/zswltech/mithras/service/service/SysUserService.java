@@ -51,7 +51,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
  */
 @Slf4j
 @Service
-public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataScopeResolver, CurrentUserResolver, UserBizDeptResolver, JobUserResolver {
+public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataScopeResolver, CurrentUserResolver, UserBizDeptResolver, JobUserResolver, OrgJobUserResolver {
 
     @Resource
     private OrgDOMapper orgDOMapper;
@@ -488,6 +488,18 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataSc
             return Collections.emptyList();
         }
         return userDOMapper.selectByIds(longs);
+    }
+
+    @Override
+    public List<Long> orgJobUsers(Long orgId, String jobCode) {
+        JobUserQuery query = new JobUserQuery();
+        query.setOrgId(orgId);
+        query.setJob(jobCode);
+        List<Long> userIds = userOrgJobDOMapper.selectUserIdByOrgIdAndJobCode(query);
+        if (ObjectUtil.isEmpty(userIds)) {
+            return Collections.emptyList();
+        }
+        return userIds;
     }
 
     public List<UserDO> listEffectSpecificOrgJobUser(Long orgId, String jobCode) {
