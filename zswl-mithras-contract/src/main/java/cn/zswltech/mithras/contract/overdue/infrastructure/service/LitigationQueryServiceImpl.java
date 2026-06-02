@@ -1,7 +1,6 @@
-package cn.zswltech.mithras.service.overdue.infrastructure.service;
+package cn.zswltech.mithras.contract.overdue.infrastructure.service;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.contract.overdue.application.assembler.LitigationAssembler;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
@@ -9,8 +8,9 @@ import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuer
 import cn.zswltech.mithras.contract.overdue.application.service.LitigationQueryService;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.LitigationRegistrationDao;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationRegistration;
-import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.service.service.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.service.service.CurrentUserResolver;
+import cn.zswltech.mithras.service.service.UserNameResolver;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
 
@@ -33,14 +33,17 @@ public class LitigationQueryServiceImpl implements LitigationQueryService {
     @Resource
     private LitigationAssembler litigationAssembler;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDataScopeResolver currentUserDataScopeResolver;
+
+    @Resource
+    private CurrentUserResolver currentUserResolver;
 
     @Override
     public PageR<LitigationListDto> page(LitigationPageQuery query) {
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         query.setIsBizUser(isBizUser);
         if (ObjectUtil.isEmpty(canViewDeptIds)) {
@@ -48,11 +51,11 @@ public class LitigationQueryServiceImpl implements LitigationQueryService {
         } else {
             query.setDeptIdList(canViewDeptIds);
         }
-        query.setCurrentUserId(AccountUtil.getLoginInfo().getId());
+        query.setCurrentUserId(currentUserResolver.currentUserId());
         Page<LitigationRegistration> page = litigationRegistrationDao.advancedList(query);
         
         List<LitigationListDto> rspList = litigationAssembler.po2ListDto(page.getRecords());
-        Map<Long, String> userNames = id2NameService.sysUserId2Name(rspList.stream().map(LitigationListDto::getCreateBy).collect(Collectors.toSet()));
+        Map<Long, String> userNames = userNameResolver.sysUserId2Name(rspList.stream().map(LitigationListDto::getCreateBy).collect(Collectors.toSet()));
         rspList.forEach(item -> item.setCreateByName(userNames.get(item.getCreateBy())));
         return PageR.of(page, rspList);
     }

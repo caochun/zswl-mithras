@@ -51,7 +51,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
  */
 @Slf4j
 @Service
-public class SysUserService implements CurrentUserOrgResolver {
+public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataScopeResolver, CurrentUserResolver {
 
     @Resource
     private OrgDOMapper orgDOMapper;
@@ -162,6 +162,11 @@ public class SysUserService implements CurrentUserOrgResolver {
      */
     public List<Long> canViewDeptIds() {
         return canViewDeptIds(AccountUtil.getLoginInfo());
+    }
+
+    @Override
+    public Long currentUserId() {
+        return AccountUtil.getLoginInfo().getId();
     }
 
     public List<Long> canViewDeptIds(AccountVO accountVO) {
