@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.overdue.application.service;
+package cn.zswltech.mithras.contract.overdue.application.service;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.contract.enums.overdue.LitigationStatus;
@@ -7,12 +7,10 @@ import cn.zswltech.mithras.contract.overdue.application.command.*;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuery;
-import cn.zswltech.mithras.contract.overdue.application.service.LitigationQueryService;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.Defendant;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.Litigation;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.LitigationRepository;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.LongId;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,9 +30,6 @@ public class LitigationApplicationService {
 
     @Resource
     private LitigationRepository litigationRepository;
-
-    @Resource
-    private ContractBaseInfoService contractBaseInfoService;
 
     @Resource
     private LitigationAssembler litigationAssembler;

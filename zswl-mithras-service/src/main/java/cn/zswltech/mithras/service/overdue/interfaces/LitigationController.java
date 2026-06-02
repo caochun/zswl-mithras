@@ -8,7 +8,7 @@ import cn.zswltech.mithras.contract.overdue.application.dto.LitigationDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.ContractClientQuery;
 import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuery;
-import cn.zswltech.mithras.service.overdue.application.service.LitigationApplicationService;
+import cn.zswltech.mithras.contract.overdue.application.service.LitigationApplicationService;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ClientOverdueInfoDto;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractClientInfo;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
