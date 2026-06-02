@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.providence.service.impl;
+package cn.zswltech.mithras.third.providence.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -9,9 +9,10 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.third.providence.entity.BillOverdue;
 import cn.zswltech.mithras.third.providence.entity.BillOverdueDraft;
 import cn.zswltech.mithras.third.providence.mapper.BillOverdueDraftMapper;
-import cn.zswltech.mithras.service.providence.req.BillOverdueReq;
-import cn.zswltech.mithras.service.providence.rsp.BillOverdueRsp;
-import cn.zswltech.mithras.service.providence.service.BillService;
+import cn.zswltech.mithras.third.providence.req.BillOverdueReq;
+import cn.zswltech.mithras.third.providence.rsp.BillOverdueRsp;
+import cn.zswltech.mithras.third.providence.service.BillService;
+import cn.zswltech.mithras.third.providence.util.BillOverduePdfParser;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -34,7 +35,7 @@ import java.util.List;
 public class BillOverdueDraftService extends ServiceImpl<BillOverdueDraftMapper, BillOverdueDraft> {
     @Transactional(rollbackFor = Throwable.class)
     public void parseAndImport(MultipartFile multipartFile, String busiDate) {
-        List<BillOverdue> billOverdueList = BillServiceImpl.parsePdf(multipartFile, busiDate);
+        List<BillOverdue> billOverdueList = BillOverduePdfParser.parse(multipartFile, busiDate);
         List<BillOverdueDraft> copyList = BeanUtil.copyToList(billOverdueList, BillOverdueDraft.class);
         this.getBaseMapper().delete(new LambdaQueryWrapper<BillOverdueDraft>().eq(BillOverdueDraft::getBusiDate, busiDate));
         this.saveBatch(copyList);

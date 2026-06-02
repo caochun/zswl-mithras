@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.providence.req;
+package cn.zswltech.mithras.third.providence.req;
 
 import cn.zswltech.mithras.dto.PageReq;
 import lombok.Data;

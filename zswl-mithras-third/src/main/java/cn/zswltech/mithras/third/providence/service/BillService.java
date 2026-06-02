@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.service.providence.service;
+package cn.zswltech.mithras.third.providence.service;
 
 import cn.zswltech.mithras.third.providence.entity.BillOverdue;
-import cn.zswltech.mithras.service.providence.req.BillOverdueReq;
-import cn.zswltech.mithras.service.providence.rsp.BillOverdueRsp;
+import cn.zswltech.mithras.third.providence.req.BillOverdueReq;
+import cn.zswltech.mithras.third.providence.rsp.BillOverdueRsp;
 import com.zswltec.providence.dto.base.PageR;
 import com.zswltec.providence.dto.base.R;
 import org.springframework.web.multipart.MultipartFile;

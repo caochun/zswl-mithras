@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.providence.rsp;
+package cn.zswltech.mithras.third.providence.rsp;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

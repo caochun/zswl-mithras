@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.providence;
+package cn.zswltech.mithras.third.providence.controller;
 
-import cn.zswltech.mithras.service.providence.req.BillOverdueReq;
-import cn.zswltech.mithras.service.providence.rsp.BillOverdueRsp;
-import cn.zswltech.mithras.service.providence.service.BillService;
-import cn.zswltech.mithras.service.providence.service.impl.BillOverdueDraftService;
+import cn.zswltech.mithras.third.providence.req.BillOverdueReq;
+import cn.zswltech.mithras.third.providence.rsp.BillOverdueRsp;
+import cn.zswltech.mithras.third.providence.service.BillService;
+import cn.zswltech.mithras.third.providence.service.impl.BillOverdueDraftService;
 import com.zswltec.providence.dto.base.PageR;
 import com.zswltec.providence.dto.base.R;
 import lombok.extern.slf4j.Slf4j;
