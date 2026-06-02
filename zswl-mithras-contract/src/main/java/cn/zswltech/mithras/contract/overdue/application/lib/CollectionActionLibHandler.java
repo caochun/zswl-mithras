@@ -1,17 +1,13 @@
-package cn.zswltech.mithras.service.overdue.application.lib;
+package cn.zswltech.mithras.contract.overdue.application.lib;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.contract.overdue.application.OverdueBusinessModule;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionActionDto;
-import cn.zswltech.mithras.contract.overdue.application.dto.PrintingDetailDto;
-import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrinting;
-import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrintingLib;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionAction;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionActionLib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.Set;
 
@@ -55,7 +51,7 @@ public class CollectionActionLibHandler extends
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.OVERDUE_COLLECTION_ACTION;
+    public Enum<?> businessModuleEnum() {
+        return OverdueBusinessModule.OVERDUE_COLLECTION_ACTION;
     }
 }

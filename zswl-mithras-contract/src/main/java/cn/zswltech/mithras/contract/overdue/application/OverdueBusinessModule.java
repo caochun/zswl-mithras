@@ -5,5 +5,6 @@ package cn.zswltech.mithras.contract.overdue.application;
  */
 public enum OverdueBusinessModule {
 
-    DOC_PRINTING
+    DOC_PRINTING,
+    OVERDUE_COLLECTION_ACTION
 }
