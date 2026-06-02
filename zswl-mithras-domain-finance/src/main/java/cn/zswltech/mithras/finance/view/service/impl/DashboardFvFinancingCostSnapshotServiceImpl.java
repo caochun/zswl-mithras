@@ -23,13 +23,12 @@ import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.mapper.dashboard.DashboardFundFinanceMapper;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundCostQuery;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundCostResult;
-import cn.zswltech.mithras.service.service.dashboard.DashboardFundFinanceService;
+import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -51,7 +50,7 @@ public class DashboardFvFinancingCostSnapshotServiceImpl extends ServiceImpl<Das
     @Resource
     private DashboardFvFinancingCostSnapshotService thisService;
     @Resource
-    private DashboardFundFinanceService dashboardFundFinanceService;
+    private DashboardFundFinanceDataProvider dashboardFundFinanceDataProvider;
 
     @Override
     public void generate(Long mainId, LocalDate dataTime) {
@@ -59,12 +58,12 @@ public class DashboardFvFinancingCostSnapshotServiceImpl extends ServiceImpl<Das
         query.setPage(1);
         query.setPageSize(10000);
         query.setQueryDate(dataTime);
-        PageR<DashboardFundFinanceFundsRSP> costFunds = dashboardFundFinanceService.costFunds(query);
+        PageR<DashboardFundFinanceFundsRSP> costFunds = dashboardFundFinanceDataProvider.costFunds(query);
         if (costFunds.getTotal() <= 0) {
             return;
         }
         Set<Long> indirectIds = costFunds.getList().stream().filter(e -> e.getFinancingCode().contains("DK")).map(DashboardFundFinanceFundsRSP::getFinancingId).collect(Collectors.toSet());
-        Map<Long, List<String>> orgNameListMap = dashboardFundFinanceService.getOrgNameListMap(indirectIds);
+        Map<Long, List<String>> orgNameListMap = dashboardFundFinanceDataProvider.getOrgNameListMap(indirectIds);
 
         List<DashboardFvFinancingCostSnapshot> rspList = costFunds.getList().stream().map(result -> {
             DashboardFvFinancingCostSnapshot rsp = new DashboardFvFinancingCostSnapshot();

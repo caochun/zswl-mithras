@@ -11,7 +11,9 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.dashboard.*;
+import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import cn.zswltech.mithras.finance.view.service.*;
+import cn.zswltech.mithras.finance.view.service.dto.DashboardFundFinanceCreditSnapshotData;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
@@ -70,7 +72,7 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  */
 @Slf4j
 @Service
-public class DashboardFundFinanceService {
+public class DashboardFundFinanceService implements DashboardFundFinanceDataProvider {
     @Resource
     private DashboardFundFinanceMapper dashboardFundFinanceMapper;
     @Resource
@@ -748,6 +750,35 @@ public class DashboardFundFinanceService {
                 });
             }
         }
+    }
+
+    @Override
+    public List<DashboardFundFinanceCreditSnapshotData> listCreditSnapshotData(LocalDate queryDate) {
+        DashboardFundCreditQuery query = new DashboardFundCreditQuery();
+        query.setQueryDate(queryDate);
+        List<DashboardFundCreditResult> dbList = dashboardFundFinanceMapper.listCredit(query);
+        if (CollectionUtil.isEmpty(dbList)) {
+            return Collections.emptyList();
+        }
+        Set<Long> creditIds = dbList.stream().map(DashboardFundCreditResult::getId).collect(Collectors.toSet());
+        List<FundCredit> fundCreditList = null;
+        if (CollUtil.isNotEmpty(creditIds)) {
+            fundCreditList = SpringUtil.getBean(FundCreditService.class).listByIds(creditIds);
+        }
+        Map<Long, CreditLimitDetailBO> creditLimitDetailBoMap = getBean(FundCreditService.class).queryLimitDetailBatch(fundCreditList, false);
+        return dbList.stream().map(e -> {
+            DashboardFundFinanceCreditSnapshotData data = new DashboardFundFinanceCreditSnapshotData();
+            data.setId(e.getId());
+            data.setCreditCode(e.getCreditCode());
+            data.setOrganizationName(e.getOrganizationName());
+            data.setBusinessType(e.getBusinessType());
+            data.setTotalCreditLimit(e.getTotalCreditLimit());
+            data.setUsedCreditLimit(Optional.ofNullable(creditLimitDetailBoMap.get(e.getId()))
+                    .map(CreditLimitDetailBO::getOccupyTotalLimit).orElse(0L));
+            data.setRecyclable(e.getRecyclable());
+            data.setDeadline(e.getDeadline());
+            return data;
+        }).collect(Collectors.toList());
     }
 
     public PageR<DashboardFundFinanceFundsRSP> costFunds(DashboardFundFinanceFundsREQ req) {

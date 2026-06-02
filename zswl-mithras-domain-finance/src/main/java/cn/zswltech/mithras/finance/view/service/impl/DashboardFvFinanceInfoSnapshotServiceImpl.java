@@ -17,13 +17,12 @@ import cn.zswltech.mithras.finance.view.mapper.DashboardFvFinanceInfoSnapshotMap
 import cn.zswltech.mithras.finance.view.service.DashboardFvFinanceInfoSnapshotService;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
-import cn.zswltech.mithras.service.service.dashboard.DashboardFundFinanceService;
+import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -44,7 +43,7 @@ import java.util.stream.Collectors;
 public class DashboardFvFinanceInfoSnapshotServiceImpl extends ServiceImpl<DashboardFvFinanceInfoSnapshotMapper, DashboardFvFinanceInfoSnapshot> implements DashboardFvFinanceInfoSnapshotService {
 
     @Resource
-    private DashboardFundFinanceService dashboardFundFinanceService;
+    private DashboardFundFinanceDataProvider dashboardFundFinanceDataProvider;
     @Resource
     private DashboardFvFinanceInfoSnapshotService thisService;
     @Resource
@@ -140,7 +139,7 @@ public class DashboardFvFinanceInfoSnapshotServiceImpl extends ServiceImpl<Dashb
 
     private List<DashboardFvFinanceInfoSnapshot> getList(DashboardFundFinanceLoanInfoREQ req, Long mainId) {
         req.setPageSize(10000);
-        PageR<DashboardFundFinanceLoanInfoRSP> pageR = dashboardFundFinanceService.listLoanInfo(req);
+        PageR<DashboardFundFinanceLoanInfoRSP> pageR = dashboardFundFinanceDataProvider.listLoanInfo(req);
         if (CollUtil.isEmpty(pageR.getList())) {
             return Collections.emptyList();
         }

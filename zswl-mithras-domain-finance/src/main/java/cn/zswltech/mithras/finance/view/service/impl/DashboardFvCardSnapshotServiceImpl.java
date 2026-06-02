@@ -10,7 +10,7 @@ import cn.zswltech.mithras.finance.view.entity.*;
 import cn.zswltech.mithras.finance.view.mapper.DashboardFvCardSnapshotMapper;
 import cn.zswltech.mithras.finance.view.service.*;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
-import cn.zswltech.mithras.service.service.dashboard.DashboardFundFinanceService;
+import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -39,7 +39,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
     @Resource
     private DashboardFvCardSnapshotService thisService;
     @Resource
-    private DashboardFundFinanceService dashboardFundFinanceService;
+    private DashboardFundFinanceDataProvider dashboardFundFinanceDataProvider;
     @Resource
     private DashboardFvCreditInfoSnapshotService creditInfoSnapshotService;
     @Resource
@@ -58,7 +58,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
             DashboardFundFinanceBaseREQ baseReq = new DashboardFundFinanceBaseREQ();
             baseReq.setQueryDate(dataTime);
             baseReq.setPageSize(100);
-            Map<String, DashboardFundFinanceStatisticsRSP> map = dashboardFundFinanceService.statisticsList(baseReq).stream().collect(Collectors.toMap(DashboardFundFinanceStatisticsRSP::getGroupCode, Function.identity()));
+            Map<String, DashboardFundFinanceStatisticsRSP> map = dashboardFundFinanceDataProvider.statisticsList(baseReq).stream().collect(Collectors.toMap(DashboardFundFinanceStatisticsRSP::getGroupCode, Function.identity()));
             // 查询已经存在的数据
             Map<String, DashboardFvCardSnapshot> existMap = new HashMap<>();
             List<DashboardFvCardSnapshot> snapshotList = thisService.list(Wrappers.<DashboardFvCardSnapshot>lambdaQuery()

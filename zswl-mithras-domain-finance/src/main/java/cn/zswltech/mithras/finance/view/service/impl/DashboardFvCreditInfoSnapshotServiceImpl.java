@@ -12,20 +12,14 @@ import cn.zswltech.mithras.finance.view.entity.DashboardFvCreditInfoSnapshot;
 import cn.zswltech.mithras.finance.view.mapper.DashboardFvCreditInfoSnapshotMapper;
 import cn.zswltech.mithras.finance.view.service.DashboardFvCardSnapshotService;
 import cn.zswltech.mithras.finance.view.service.DashboardFvCreditInfoSnapshotService;
+import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
+import cn.zswltech.mithras.finance.view.service.dto.DashboardFundFinanceCreditSnapshotData;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;
-import cn.zswltech.mithras.service.mapper.dashboard.DashboardFundFinanceMapper;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundCreditQuery;
-import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundCreditResult;
-import cn.zswltech.mithras.service.mapper.model.fund.FundCredit;
-import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.bo.CreditLimitDetailBO;
-import cn.zswltech.mithras.service.service.dashboard.DashboardFundFinanceService;
-import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -34,8 +28,6 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
-
-import static cn.hutool.extra.spring.SpringUtil.getBean;
 
 /**
  * 工作台授信信息快照表(DashboardFvCreditInfoSnapshot)表服务实现类
@@ -49,24 +41,14 @@ public class DashboardFvCreditInfoSnapshotServiceImpl extends ServiceImpl<Dashbo
     @Resource
     private DashboardFvCreditInfoSnapshotService thisService;
     @Resource
-    private DashboardFundFinanceMapper dashboardFundFinanceMapper;
+    private DashboardFundFinanceDataProvider dashboardFundFinanceDataProvider;
 
     @Override
     public void generate(Long mainId, LocalDate dataTime) {
-        // 获取接口数据
-        DashboardFundCreditQuery query = new DashboardFundCreditQuery();
-        query.setQueryDate(dataTime);
-        List<DashboardFundCreditResult> dbList = dashboardFundFinanceMapper.listCredit(query);
+        List<DashboardFundFinanceCreditSnapshotData> dbList = dashboardFundFinanceDataProvider.listCreditSnapshotData(dataTime);
         if (CollectionUtil.isEmpty(dbList)) {
             return;
         }
-        // 取出所有授信ID计算
-        Set<Long> creditIds = dbList.stream().map(DashboardFundCreditResult::getId).collect(Collectors.toSet());
-        List<FundCredit> fundCreditList = null;
-        if (CollUtil.isNotEmpty(creditIds)) {
-            fundCreditList = SpringUtil.getBean(FundCreditService.class).listByIds(creditIds);
-        }
-        Map<Long, CreditLimitDetailBO> creditLimitDetailBoMap = getBean(FundCreditService.class).queryLimitDetailBatch(fundCreditList, false);
         List<DashboardFvCreditInfoSnapshot> creditInfoSnapshotList = dbList.stream().map(e -> {
             DashboardFvCreditInfoSnapshot rsp = new DashboardFvCreditInfoSnapshot();
             rsp.setCardId(mainId);
@@ -77,9 +59,7 @@ public class DashboardFvCreditInfoSnapshotServiceImpl extends ServiceImpl<Dashbo
             if (Objects.nonNull(e.getTotalCreditLimit())) {
                 rsp.setCreditTotalAmount(new BigDecimal(LongUtil.null2zero(e.getTotalCreditLimit())).divide(new BigDecimal(10000), 6, RoundingMode.HALF_UP));
             }
-            CreditLimitDetailBO creditLimitDetail = creditLimitDetailBoMap.get(e.getId());
-            // 复用授信列表逻辑，已使用额度统一都按照可循环计算
-            Long usedLimit = Optional.ofNullable(creditLimitDetail).map(CreditLimitDetailBO::getOccupyTotalLimit).orElse(0L);
+            Long usedLimit = LongUtil.null2zero(e.getUsedCreditLimit());
             rsp.setCreditUsedAmount(new BigDecimal(usedLimit).divide(new BigDecimal(10000), 6, RoundingMode.HALF_UP));
             rsp.setIsCycle(e.getRecyclable());
             rsp.setDeadline(e.getDeadline());

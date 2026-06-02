@@ -17,10 +17,9 @@ import cn.zswltech.mithras.finance.view.service.DashboardFvRepayPrincipalInteres
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardFundRepayQuery;
-import cn.zswltech.mithras.service.service.dashboard.DashboardFundFinanceService;
+import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -40,7 +39,7 @@ import java.util.stream.Collectors;
 public class DashboardFvRepayPrincipalInterestSnapshotServiceImpl extends ServiceImpl<DashboardFvRepayPrincipalInterestSnapshotMapper, DashboardFvRepayPrincipalInterestSnapshot> implements DashboardFvRepayPrincipalInterestSnapshotService {
 
     @Resource
-    private DashboardFundFinanceService dashboardFundFinanceService;
+    private DashboardFundFinanceDataProvider dashboardFundFinanceDataProvider;
     @Resource
     private DashboardFvRepayPrincipalInterestSnapshotService thisService;
     @Resource
@@ -52,7 +51,7 @@ public class DashboardFvRepayPrincipalInterestSnapshotServiceImpl extends Servic
         DashboardFundFinanceRepayREQ query = new DashboardFundFinanceRepayREQ();
         query.setRepayDateFrom(dataTime.with(TemporalAdjusters.firstDayOfYear()));
         query.setRepayDateTo(dataTime.with(TemporalAdjusters.lastDayOfMonth()));
-        List<DashboardFundFinanceRepayRSP> dbList = dashboardFundFinanceService.listRepay(query);
+        List<DashboardFundFinanceRepayRSP> dbList = dashboardFundFinanceDataProvider.listRepay(query);
         if (CollectionUtil.isEmpty(dbList)) {
             return;
         }
