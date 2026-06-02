@@ -4,7 +4,7 @@ import cn.zswltech.mithras.third.convert.tyc.TycMortgageInfoConvert;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycMortgageInfoMapper;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycMortgageInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.third.repository.tyc.resp.TycMortgageInfoResp;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycMortgageInfoResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;
 import cn.zswltech.mithras.third.tianyancha.application.TycMortgageInfoService;
 import lombok.extern.slf4j.Slf4j;

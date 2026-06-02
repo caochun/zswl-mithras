@@ -2,7 +2,7 @@ package cn.zswltech.mithras.third.convert.tyc;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycAbnormalRSP;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycAbnormal;
-import cn.zswltech.mithras.third.repository.tyc.resp.TycAbnormalResp;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycAbnormalResp;
 
 /**
  * 经营异常

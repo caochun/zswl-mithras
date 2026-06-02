@@ -2,7 +2,7 @@ package cn.zswltech.mithras.third.convert.tyc;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycPunishmentInfoRSP;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycPunishmentInfo;
-import cn.zswltech.mithras.third.repository.tyc.resp.TycPunishmentInfoResp;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycPunishmentInfoResp;
 
 
 /**

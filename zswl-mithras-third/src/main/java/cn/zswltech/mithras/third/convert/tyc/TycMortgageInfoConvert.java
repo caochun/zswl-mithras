@@ -2,7 +2,7 @@ package cn.zswltech.mithras.third.convert.tyc;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycMortgageInfoRSP;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycMortgageInfo;
-import cn.zswltech.mithras.third.repository.tyc.resp.TycMortgageInfoResp;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycMortgageInfoResp;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;

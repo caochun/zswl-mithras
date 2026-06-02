@@ -5,7 +5,7 @@ import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycDishonest;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
-import cn.zswltech.mithras.third.repository.tyc.resp.TycDishonestResp;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycDishonestResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;
 import cn.zswltech.mithras.third.tianyancha.application.TycDishonestService;
 import lombok.extern.slf4j.Slf4j;

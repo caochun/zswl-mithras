@@ -9,10 +9,10 @@ import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.T
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
-import cn.zswltech.mithras.third.repository.tyc.TycMockDataType;
-import cn.zswltech.mithras.third.repository.tyc.req.TycLawSuitDetailReq;
-import cn.zswltech.mithras.third.repository.tyc.resp.TycLawSuitDetailResp;
-import cn.zswltech.mithras.third.repository.tyc.resp.TycLawSuitResp;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.TycMockDataType;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.req.TycLawSuitDetailReq;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycLawSuitDetailResp;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycLawSuitResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;
 import cn.zswltech.mithras.third.tianyancha.application.TycLawSuitService;
 import com.alibaba.fastjson.JSON;

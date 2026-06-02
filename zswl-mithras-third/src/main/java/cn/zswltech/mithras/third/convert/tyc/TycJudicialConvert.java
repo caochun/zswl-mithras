@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.convert.tyc;
 import cn.zswltech.mithras.dto.client.external.tyc.TycJudicialRSP;
 import cn.zswltech.mithras.third.enums.TycJudicialTypeStateEnum;
 import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycJudicial;
-import cn.zswltech.mithras.third.repository.tyc.resp.TycJudicialResp;
+import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycJudicialResp;
 
 /**
  * 司法协助
