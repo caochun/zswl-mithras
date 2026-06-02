@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.newftp.fms;
 
-import cn.zswltech.mithras.service.service.newftp.model.NewFtpBaseInfo;
+import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import org.springframework.stereotype.Service;
 
 /**

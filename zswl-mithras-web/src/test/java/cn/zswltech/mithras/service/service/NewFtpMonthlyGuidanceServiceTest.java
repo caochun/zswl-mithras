@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseIn
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.newftp.model.NewFtpBaseInfo;
+import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpMonthlyGuidanceDraftService;
 import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpQuarterlyBasePricingDraftService;

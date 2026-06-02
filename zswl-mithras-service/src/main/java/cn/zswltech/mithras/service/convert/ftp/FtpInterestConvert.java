@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.convert.ftp;
 
 import cn.zswltech.mithras.dto.ftp.FtpInterestDetailRsp;
-import cn.zswltech.mithras.service.mapper.model.ftp.FtpInterestDetailRecord;
+import cn.zswltech.mithras.ftp.model.FtpInterestDetailRecord;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

@@ -3,9 +3,9 @@ package cn.zswltech.mithras.service.service.newftp.convert;
 import cn.zswltech.mithras.dto.newftp.NewFtpTreasuryBondYieldListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpTreasuryBondYieldPricingListRSP;
 import cn.zswltech.mithras.service.service.newftp.excel.NewFtpTreasuryBondYieldExcelModel;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpTreasuryBondYieldConfig;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpTreasuryBondYieldPricingConfig;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpTreasuryBondYieldPricingDraft;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpTreasuryBondYieldConfig;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpTreasuryBondYieldPricingConfig;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpTreasuryBondYieldPricingDraft;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

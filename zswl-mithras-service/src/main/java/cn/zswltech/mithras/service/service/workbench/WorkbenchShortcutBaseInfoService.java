@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.workbench;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.workbench.WorkbenchShortcutsListRsp;
-import cn.zswltech.mithras.service.mapper.model.ftp.FtpMonthlyGuidance;
+import cn.zswltech.mithras.ftp.model.FtpMonthlyGuidance;
 import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchShortcutBaseInfo;
 import cn.zswltech.mithras.service.mapper.workbench.WorkbenchShortcutBaseInfoMapper;
 import cn.zswltech.mithras.service.service.ftp.FtpMonthlyGuidanceService;

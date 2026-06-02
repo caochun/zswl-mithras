@@ -6,10 +6,10 @@ import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.newftp.lib.impl.NewFtpDescriptionTextLibHandler;
-import cn.zswltech.mithras.service.service.newftp.mapper.lib.NewFtpDescriptionTextLibMapper;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpDescriptionTextDraft;
-import cn.zswltech.mithras.service.service.newftp.model.lib.NewFtpDescriptionTextLib;
+import cn.zswltech.mithras.ftp.newftp.lib.impl.NewFtpDescriptionTextLibHandler;
+import cn.zswltech.mithras.ftp.newftp.mapper.lib.NewFtpDescriptionTextLibMapper;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpDescriptionTextDraft;
+import cn.zswltech.mithras.ftp.newftp.model.lib.NewFtpDescriptionTextLib;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

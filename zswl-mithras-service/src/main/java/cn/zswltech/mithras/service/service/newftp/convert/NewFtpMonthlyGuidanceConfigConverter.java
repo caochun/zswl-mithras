@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.newftp.convert;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpMonthlyGuidanceTemplateConfig;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpMonthlyGuidanceDraft;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpMonthlyGuidanceTemplateDraft;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpMonthlyGuidanceTemplateConfig;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceDraft;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceTemplateDraft;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

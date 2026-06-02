@@ -2,12 +2,12 @@ package cn.zswltech.mithras.service.service.lib.ftp.handler.impl.monthly;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.ftp.FtpMonthlyInfoModule;
+import cn.zswltech.mithras.ftp.enums.FtpMonthlyInfoModule;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.service.service.lib.ftp.handler.AbstractFtpMonthlyLibHandler;
+import cn.zswltech.mithras.ftp.lib.handler.AbstractFtpMonthlyLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

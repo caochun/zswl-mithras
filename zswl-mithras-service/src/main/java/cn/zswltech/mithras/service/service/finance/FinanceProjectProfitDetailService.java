@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.mapper.model.contract.ContractIncomeSharing;
 import cn.zswltech.mithras.service.mapper.model.finance.ContractAssessDeptDetail;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDetail;
-import cn.zswltech.mithras.service.mapper.model.ftp.FtpInterestDetailRecord;
+import cn.zswltech.mithras.ftp.model.FtpInterestDetailRecord;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProvisionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProvisionDetail;

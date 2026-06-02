@@ -3,9 +3,9 @@ package cn.zswltech.mithras.service.service.newftp.service.lib;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailReq;
 import cn.zswltech.mithras.service.service.newftp.lib.impl.NewFtpMonthlyGuidanceLibHandler;
-import cn.zswltech.mithras.service.service.newftp.mapper.lib.NewFtpMonthlyGuidanceLibMapper;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpMonthlyGuidanceDraft;
-import cn.zswltech.mithras.service.service.newftp.model.lib.NewFtpMonthlyGuidanceLib;
+import cn.zswltech.mithras.ftp.newftp.mapper.lib.NewFtpMonthlyGuidanceLibMapper;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceDraft;
+import cn.zswltech.mithras.ftp.newftp.model.lib.NewFtpMonthlyGuidanceLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -31,5 +31,5 @@ public class NewFtpMonthlyGuidanceLibService
                 .eq(NewFtpMonthlyGuidanceLib::getVersion, req.getVersion()));
        return ObjectUtil.isEmpty(newFtpMonthlyGuidanceLibs) ? null : newFtpMonthlyGuidanceLibs.stream().map(newFtpMonthlyGuidanceLibHandler::actualLib2Entity).collect(Collectors.toList());
     }
-    
+
 }

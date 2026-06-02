@@ -3,8 +3,8 @@ package cn.zswltech.mithras.service.service.newftp.convert;
 import cn.zswltech.mithras.dto.newftp.NewFtpBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpBaseInfoListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpDescriptionTextListRsp;
-import cn.zswltech.mithras.service.service.newftp.model.NewFtpBaseInfo;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpDescriptionTextDraft;
+import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpDescriptionTextDraft;
 import org.mapstruct.Mapper;
 
 import java.util.List;

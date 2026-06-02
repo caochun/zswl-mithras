@@ -28,7 +28,7 @@ public class NewFtpBaseInfoDetailRSP {
     private LocalDate month;
 
     /**
-     * {@link cn.zswltech.mithras.service.enums.newftp.PricingFrequencyEnum}
+     * {@link cn.zswltech.mithras.ftp.newftp.enums.PricingFrequencyEnum}
      */
     @ApiModelProperty(value = "定价频率")
     private String pricingFrequency;
@@ -47,5 +47,5 @@ public class NewFtpBaseInfoDetailRSP {
 
     @ApiModelProperty(value = "业务版本")
     private String ftpBusinessVersion;
-    
+
 }

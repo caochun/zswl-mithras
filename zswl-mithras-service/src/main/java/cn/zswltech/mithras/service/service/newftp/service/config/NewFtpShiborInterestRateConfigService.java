@@ -3,9 +3,10 @@ package cn.zswltech.mithras.service.service.newftp.service.config;
 import cn.zswltech.mithras.service.service.newftp.convert.NewFtpShiborInterestRateConfigConverter;
 import cn.zswltech.mithras.service.service.newftp.excel.NewFtpShiborInterestRateExcelModel;
 import cn.zswltech.mithras.service.service.newftp.excel.NewFtpShiborInterestRateImporter;
-import cn.zswltech.mithras.service.service.newftp.mapper.config.NewFtpShiborInterestRateConfigMapper;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpShiborInterestRateConfig;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpShiborInterestRatePricingConfig;
+import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpShiborInterestRateConfigMapper;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRateConfig;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRatePricingConfig;
+import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpShiborInterestRatePricingConfigService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -88,7 +89,6 @@ public class NewFtpShiborInterestRateConfigService extends ServiceImpl<NewFtpShi
         });
     }
 }
-
 
 
 

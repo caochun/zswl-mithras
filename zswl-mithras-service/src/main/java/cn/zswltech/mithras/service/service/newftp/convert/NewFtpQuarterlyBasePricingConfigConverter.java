@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.newftp.convert;
 
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpQuarterlyBasePricingTemplateConfig;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpQuarterlyBasePricingDraft;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpQuarterlyBasePricingTemplateConfig;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpQuarterlyBasePricingDraft;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

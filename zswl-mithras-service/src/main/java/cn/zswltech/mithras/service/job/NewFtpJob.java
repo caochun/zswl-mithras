@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.job;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpFinancingCostPricingConfig;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
 import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpFinancingCostPricingConfigService;
 import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpGuaranteeCostPricingConfigService;
 import cn.zswltech.mithras.service.util.StringUtil;

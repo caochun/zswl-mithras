@@ -21,7 +21,7 @@ public class NewFtpBaseInfoAddREQ {
     private LocalDate month;
 
     /**
-     * {@link cn.zswltech.mithras.service.enums.newftp.PricingFrequencyEnum}
+     * {@link cn.zswltech.mithras.ftp.newftp.enums.PricingFrequencyEnum}
      */
     @ApiModelProperty(value = "定价频率")
     @NotNull(message = "定价频率不能为空")

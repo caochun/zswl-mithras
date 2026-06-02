@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingDetailRsp;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingModifyREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.newftp.model.NewFtpBaseInfo;
+import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpQuarterlyBasePricingDraftService;
 import lombok.SneakyThrows;

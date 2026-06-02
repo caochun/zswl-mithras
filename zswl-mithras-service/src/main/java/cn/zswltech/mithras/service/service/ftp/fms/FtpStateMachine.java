@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static cn.zswltech.mithras.service.service.ftp.fms.FtpEvent.*;
-import static cn.zswltech.mithras.service.enums.ftp.FtpProcessStatus.*;
+import static cn.zswltech.mithras.ftp.enums.FtpProcessStatus.*;
 
 /**
  * @description:

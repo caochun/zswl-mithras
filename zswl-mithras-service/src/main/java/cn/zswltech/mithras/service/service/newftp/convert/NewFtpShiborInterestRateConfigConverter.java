@@ -3,8 +3,8 @@ package cn.zswltech.mithras.service.service.newftp.convert;
 import cn.zswltech.mithras.dto.newftp.NewFtpShiborInterestRateListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpShiborInterestRatePricingListRSP;
 import cn.zswltech.mithras.service.service.newftp.excel.NewFtpShiborInterestRateExcelModel;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpShiborInterestRateConfig;
-import cn.zswltech.mithras.service.service.newftp.model.config.NewFtpShiborInterestRatePricingConfig;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRateConfig;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRatePricingConfig;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -27,5 +27,5 @@ public interface NewFtpShiborInterestRateConfigConverter {
 
 
     List<NewFtpShiborInterestRatePricingListRSP> pricingEntity2ListRSP(List<NewFtpShiborInterestRatePricingConfig> records);
-    
+
 }

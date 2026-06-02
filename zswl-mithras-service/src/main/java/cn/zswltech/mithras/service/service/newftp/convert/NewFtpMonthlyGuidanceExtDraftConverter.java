@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.newftp.convert;
 
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftModifyREQ;
-import cn.zswltech.mithras.service.service.newftp.model.draft.NewFtpMonthlyGuidanceExtDraft;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceExtDraft;
 import org.mapstruct.Mapper;
 
 /**

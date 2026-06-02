@@ -33,7 +33,7 @@ import cn.zswltech.mithras.service.enums.budget.BudgetPlanTypeEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetStatusEnum;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
-import cn.zswltech.mithras.service.enums.newftp.RelatedTermRange;
+import cn.zswltech.mithras.ftp.newftp.enums.RelatedTermRange;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;

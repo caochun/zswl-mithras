@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.budget.BudgetParameterConfigListRSP;
 import cn.zswltech.mithras.dto.budget.BudgetParameterConfigModifyREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.budget.BudgetConfigTypeEnum;
-import cn.zswltech.mithras.service.enums.newftp.RelatedTermRange;
+import cn.zswltech.mithras.ftp.newftp.enums.RelatedTermRange;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.mapper.budget.BudgetParameterConfigMapper;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetParameterConfig;

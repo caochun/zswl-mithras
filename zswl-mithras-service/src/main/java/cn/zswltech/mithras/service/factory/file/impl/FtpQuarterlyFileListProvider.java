@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.ftp.FtpQuarterlyMaterialsEnum;
+import cn.zswltech.mithras.ftp.enums.FtpQuarterlyMaterialsEnum;
 import cn.zswltech.mithras.service.factory.file.AbstractFileListProvider;
 import cn.zswltech.mithras.service.factory.file.bo.FileListExtQuery;
 import org.springframework.stereotype.Component;

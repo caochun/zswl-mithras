@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.newftp.fms;
 
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.enums.newftp.NewFtpProcessStatus;
+import cn.zswltech.mithras.ftp.newftp.enums.NewFtpProcessStatus;
 import cn.zswltech.mithras.service.service.projfms.IStateMachineEntity;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

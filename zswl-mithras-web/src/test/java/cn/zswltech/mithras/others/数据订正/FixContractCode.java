@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.mapper.model.afterlease.CollectionPenaltyRedu
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionOverdueHistory;
 import cn.zswltech.mithras.service.mapper.model.contract.*;
-import cn.zswltech.mithras.service.mapper.model.ftp.FtpInterestBaseInfo;
+import cn.zswltech.mithras.ftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfoLib;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
