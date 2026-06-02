@@ -1,5 +1,6 @@
 package cn.zswltech.mithras.riskcontrol.scorecard.application;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
@@ -9,6 +10,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.assembler.RiskControlCardTargetConverter;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.riskcontrol.common.AreaTypeEnum;
+import cn.zswltech.mithras.riskcontrol.common.ProvinceTypeEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlAssertEnum;
 import cn.zswltech.mithras.riskcontrol.common.TitleNameEnum;
 import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardBaseInfo;
@@ -52,6 +54,8 @@ public class RiskControlScoreCardServiceImpl implements RiskControlScoreCardServ
     private RiskControlScoreCardBaseInfoService riskControlScoreCardBaseInfoService;
     @Resource
     private RiskControlCardTargetConverter riskControlCardTargetConverter;
+    @Resource
+    private ScoreCardClientAddressResolver scoreCardClientAddressResolver;
 
     private final static Set<String> ignoreTargetSet = new HashSet<>();
     static {
@@ -268,6 +272,44 @@ public class RiskControlScoreCardServiceImpl implements RiskControlScoreCardServ
             rsp.getTryCalculateBodies().forEach(base -> rsp.setTotalPoints(rsp.getTotalPoints().add(Optional.ofNullable(base.getScore()).orElse(new BigDecimal(0)))));
         }
 
+        return rsp;
+    }
+
+    @Override
+    public RiskControlScoreCordChangeCardRSP calculate(RiskControlScoreCordCalculateREQ req) {
+        ScoreCardClientRegistryAddress registryAddress = scoreCardClientAddressResolver.registryAddress(req.getClientId())
+                .orElseThrow(() -> new MithrasException("该用户无注册地址信息"));
+
+        RiskControlScoreCardBaseInfo cardBaseInfo = riskControlScoreCardBaseInfoService.getOne(Wrappers.<RiskControlScoreCardBaseInfo>lambdaQuery()
+                .eq(RiskControlScoreCardBaseInfo::getYear, LocalDate.now().getYear())
+                .eq(RiskControlScoreCardBaseInfo::getSuitTrade, req.getSuitTrade())
+                .and(w -> w.eq(RiskControlScoreCardBaseInfo::getProvinceSeat, ProvinceTypeEnum.ALL.name()).or()
+                        .eq(RiskControlScoreCardBaseInfo::getProvinceSeat, ProvinceTypeEnum.change(registryAddress.getProvinceName()).name()))
+                .orderByDesc(RiskControlScoreCardBaseInfo::getYear)
+                .last(StringUtil.mysqlLimitOne()));
+        if (ObjectUtil.isEmpty(cardBaseInfo)) {
+            throw new MithrasException("没有适用的评分卡");
+        }
+
+        RiskControlScoreCordAreaSearchREQ areaSearchREQ = new RiskControlScoreCordAreaSearchREQ();
+        String cityName = registryAddress.getCityName();
+        if ("市辖区".equals(cityName)) {
+            cityName = registryAddress.getProvinceName();
+        }
+        if ("市辖区".equals(registryAddress.getDistrictName())) {
+            areaSearchREQ.setAreaName(cityName);
+        } else {
+            areaSearchREQ.setAreaName(registryAddress.getDistrictName());
+        }
+        areaSearchREQ.setAreaType(TitleNameEnum.AREA.display());
+        List<RiskControlScoreCordAreaSearchRSP> areaSearch = this.areaSearch(areaSearchREQ);
+        if (ObjectUtil.isEmpty(areaSearch)) {
+            throw new MithrasException("无此地区信息");
+        }
+
+        RiskControlScoreCordChangeCardRSP rsp = BeanUtil.copyProperties(cardBaseInfo, RiskControlScoreCordChangeCardRSP.class);
+        rsp.setCardId(cardBaseInfo.getId());
+        rsp.setAreaId(areaSearch.get(0).getId());
         return rsp;
     }
 }

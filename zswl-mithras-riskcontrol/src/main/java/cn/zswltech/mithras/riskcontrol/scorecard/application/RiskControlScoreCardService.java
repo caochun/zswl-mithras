@@ -19,4 +19,6 @@ public interface RiskControlScoreCardService {
     //试计算
     RiskControlScoreCordTryCalculateRSP tryCalculate(RiskControlScoreCordTryCalculateREQ req);
 
+    //选择适用评分卡
+    RiskControlScoreCordChangeCardRSP calculate(RiskControlScoreCordCalculateREQ req);
 }

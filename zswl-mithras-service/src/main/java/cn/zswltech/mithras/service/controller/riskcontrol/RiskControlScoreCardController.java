@@ -1,30 +1,21 @@
 package cn.zswltech.mithras.service.controller.riskcontrol;
 
-import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.riskcontrol.RiskControlScoreCardApi;
-import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListREQ;
-import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListRSP;
 import cn.zswltech.mithras.dto.file.FileDownLoadREQ;
 import cn.zswltech.mithras.dto.file.FileDownLoadRSP;
 import cn.zswltech.mithras.dto.file.FileUploadREQ;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.controller.FileController;
-import cn.zswltech.mithras.service.controller.client.CorpAddressInfoController;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.CorpAddressType;
-import cn.zswltech.mithras.riskcontrol.common.ProvinceTypeEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlScoreCardFileTypeEnum;
-import cn.zswltech.mithras.riskcontrol.common.TitleNameEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.handler.RiskControlScoreCardCheckHandler;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardAreaAndTargetService;
-import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardBaseInfoService;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -34,7 +25,6 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @ClassName 评分卡管理
@@ -54,10 +44,6 @@ public class RiskControlScoreCardController implements RiskControlScoreCardApi {
     private MaterialsListService materialsListService;
     @Resource
     private RiskControlScoreCardAreaAndTargetService riskControlScoreCardAreaAndTargetService;
-    @Resource
-    private CorpAddressInfoController corpAddressInfoController;
-    @Resource
-    private RiskControlScoreCardBaseInfoService riskControlScoreCardBaseInfoService;
     @Resource
     private RiskControlScoreCardCheckHandler riskControlScoreCardCheckHandler;
 
@@ -129,46 +115,7 @@ public class RiskControlScoreCardController implements RiskControlScoreCardApi {
 
     @Override
     public R<RiskControlScoreCordChangeCardRSP> calculate(@Valid RiskControlScoreCordCalculateREQ req) {
-        //查询地址信息
-        CorpAddressInfoListREQ corpAddressInfoListREQ = new CorpAddressInfoListREQ();
-        corpAddressInfoListREQ.setClientId(req.getClientId());
-        List<CorpAddressInfoListRSP> collect = corpAddressInfoController.list(corpAddressInfoListREQ).getData().getList().stream().filter(base -> ObjectUtil.equals(base.getAddressType(),
-                CorpAddressType.REGISTRY_ADDRESS.name())).collect(Collectors.toList());
-        if(ObjectUtil.isEmpty(collect)){
-            throw new MithrasException("该用户无注册地址信息");
-        }
-        CorpAddressInfoListRSP corpAddressInfoListRSP = collect.get(0);
-
-        //选取评分卡
-        RiskControlScoreCardBaseInfo cardBaseInfo = riskControlScoreCardBaseInfoService.getOne(Wrappers.<RiskControlScoreCardBaseInfo>lambdaQuery()
-                .eq(RiskControlScoreCardBaseInfo::getYear, LocalDate.now().getYear())
-                .eq(RiskControlScoreCardBaseInfo::getSuitTrade, req.getSuitTrade())
-                .and(w -> w.eq(RiskControlScoreCardBaseInfo::getProvinceSeat, ProvinceTypeEnum.ALL.name()).or()
-                        .eq(RiskControlScoreCardBaseInfo::getProvinceSeat, ProvinceTypeEnum.change(corpAddressInfoListRSP.getProvinceName()).name()))
-                .orderByDesc(RiskControlScoreCardBaseInfo::getYear)
-                .last(StringUtil.mysqlLimitOne()));
-        if(ObjectUtil.isEmpty(cardBaseInfo)){
-            throw new MithrasException("没有适用的评分卡");
-        }
-        //获取地区信息
-        RiskControlScoreCordAreaSearchREQ riskControlScoreCordAreaSearchREQ = new RiskControlScoreCordAreaSearchREQ();
-        if("市辖区".equals(corpAddressInfoListRSP.getCityName())){
-            corpAddressInfoListRSP.setCityName(corpAddressInfoListRSP.getProvinceName());
-        }
-        if("市辖区".equals(corpAddressInfoListRSP.getDistrictName())){
-            riskControlScoreCordAreaSearchREQ.setAreaName(corpAddressInfoListRSP.getCityName());
-        } else {
-            riskControlScoreCordAreaSearchREQ.setAreaName(corpAddressInfoListRSP.getDistrictName());
-        }
-        riskControlScoreCordAreaSearchREQ.setAreaType(TitleNameEnum.AREA.display());
-        List<RiskControlScoreCordAreaSearchRSP> areaSearch = riskControlScoreCardService.areaSearch(riskControlScoreCordAreaSearchREQ);
-        if(ObjectUtil.isEmpty(areaSearch)){
-            throw new MithrasException("无此地区信息");
-        }
-        RiskControlScoreCordChangeCardRSP rsp = BeanUtil.copyProperties(cardBaseInfo, RiskControlScoreCordChangeCardRSP.class);
-        rsp.setCardId(cardBaseInfo.getId());
-        rsp.setAreaId(areaSearch.get(0).getId());
-        return R.ok(rsp);
+        return R.ok(riskControlScoreCardService.calculate(req));
     }
 
     @Override
