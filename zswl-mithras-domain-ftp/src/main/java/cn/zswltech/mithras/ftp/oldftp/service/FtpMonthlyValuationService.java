@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.service.ftp;
+package cn.zswltech.mithras.ftp.oldftp.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.ftp.FtpGuidanceIdReq;
 import cn.zswltech.mithras.dto.ftp.FtpMonthlyValuationRsp;
-import cn.zswltech.mithras.service.convert.ftp.FtpMonthlyGuidanceConverter;
+import cn.zswltech.mithras.ftp.oldftp.convert.FtpMonthlyGuidanceConverter;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpMonthlyValuationMapper;
 import cn.zswltech.mithras.ftp.oldftp.mapper.lib.FtpMonthlyValuationLibMapper;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyValuation;
@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
