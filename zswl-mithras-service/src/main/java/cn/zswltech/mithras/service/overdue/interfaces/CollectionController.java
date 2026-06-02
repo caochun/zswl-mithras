@@ -3,6 +3,7 @@ package cn.zswltech.mithras.service.overdue.interfaces;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.contract.mapper.dto.OcContractListDto;
+import cn.zswltech.mithras.contract.overdue.application.collection.CollectionContractQueryService;
 import cn.zswltech.mithras.contract.overdue.application.command.CollectionActionSubmitCommand;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionActionDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionDetailDto;
@@ -12,8 +13,8 @@ import cn.zswltech.mithras.contract.overdue.application.collection.CollectionApp
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionActionId;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionId;
 import cn.zswltech.mithras.service.overdue.application.service.CollectionActionDownloadService;
+import cn.zswltech.mithras.service.overdue.application.service.CollectionContractExportService;
 import cn.zswltech.mithras.service.overdue.infrastructure.service.SchedulingJobServiceImpl;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +40,9 @@ public class CollectionController {
     @Resource
     private CollectionActionDownloadService collectionActionDownloadService;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
+    private CollectionContractExportService collectionContractExportService;
+    @Resource
+    private CollectionContractQueryService collectionContractQueryService;
 
     @GetMapping("/test/overdueClientInfoUpdateTask")
     public void overdueClientInfoUpdateTask() {
@@ -61,19 +64,19 @@ public class CollectionController {
     @ApiOperation(value = "合同列表")
     @GetMapping("/overduecollection/contract/list")
     public R<List<OcContractListDto>> contractList(@RequestParam("clientId") Long clientId) {
-        return R.ok(contractBaseInfoService.ocContractList(clientId));
+        return R.ok(collectionContractQueryService.ocContractList(clientId));
     }
 
     @ApiOperation(value = "合同列表导出")
     @PostMapping("/overduecollection/contract/export")
     public void contractListExport(@RequestBody CollectionPageQuery query) {
-        contractBaseInfoService.contractListExport(query.getClientId());
+        collectionContractExportService.contractListExport(query.getClientId());
     }
 
     @ApiOperation(value = "合同下拉列表")
     @GetMapping("/overduecollection/contract/pulldown")
     public R<Map<Long, String>> contractPulldown(@RequestParam("clientId") Long clientId) {
-        return R.ok(contractBaseInfoService.contractPulldown(clientId));
+        return R.ok(collectionContractQueryService.contractPulldown(clientId));
     }
 
     @ApiOperation(value = "催收动作列表导出")

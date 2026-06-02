@@ -14,6 +14,7 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.overdue.application.collection.ContractDepositBalanceResolver;
 import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.excel.exporter.MarginListExcelExporter;
@@ -59,7 +60,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Service
-public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, MarginBaseInfo> {
+public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, MarginBaseInfo> implements ContractDepositBalanceResolver {
     @Resource
     private MarginBaseInfoMapper marginBaseInfoMapper;
     @Resource
@@ -361,6 +362,11 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
             res.put(contractId, collection - refund);
         }
         return res;
+    }
+
+    @Override
+    public Map<Long, Long> depositBalances(Set<Long> contractIds) {
+        return getDepositBalances(contractIds);
     }
 
     public Map<Long, List<MarginRecordInfo>> getContractMarginRecord(Set<Long> contractIds, List<String> recordTypes, LocalDate endTime){

@@ -12,6 +12,7 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.overdue.application.collection.ContractRemainingPrincipalResolver;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.excel.exporter.CollectionListExcelExporter;
 import cn.zswltech.mithras.service.excel.model.CollectionListExcelModel;
@@ -61,7 +62,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Service
-public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMapper, CollectionBaseInfo> {
+public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMapper, CollectionBaseInfo> implements ContractRemainingPrincipalResolver {
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
@@ -585,6 +586,11 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
             rsps.put(contractId, collections.stream().map(e -> LongUtil.null2zero(e.getPrincipal()) - LongUtil.null2zero(e.getCollectionPrincipal())).reduce(0L, Math::addExact));
         });
         return rsps;
+    }
+
+    @Override
+    public Map<Long, Long> remainingUnpaidPrincipalByContract(List<Long> contractIds) {
+        return sumRemainingUnpaidPrincipalByContract(contractIds);
     }
 
     //获取下一期租金信息
