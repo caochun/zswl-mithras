@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.overdue.application.service;
+package cn.zswltech.mithras.contract.overdue.application.litigation;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;

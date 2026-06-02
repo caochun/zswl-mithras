@@ -11,7 +11,7 @@ import cn.zswltech.mithras.contract.overdue.application.dto.CollectionActionDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
-import cn.zswltech.mithras.contract.overdue.application.service.CollectionQueryService;
+import cn.zswltech.mithras.contract.overdue.application.collection.CollectionQueryService;
 import cn.zswltech.mithras.contract.overdue.domain.collection.ActionCode;
 import cn.zswltech.mithras.contract.overdue.domain.collection.Collection;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionAction;

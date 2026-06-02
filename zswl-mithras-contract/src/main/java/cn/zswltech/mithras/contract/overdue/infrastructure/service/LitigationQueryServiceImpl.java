@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.contract.overdue.application.assembler.LitigationAssembler;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuery;
-import cn.zswltech.mithras.contract.overdue.application.service.LitigationQueryService;
+import cn.zswltech.mithras.contract.overdue.application.litigation.LitigationQueryService;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.LitigationRegistrationDao;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationRegistration;
 import cn.zswltech.mithras.service.service.CurrentUserDataScopeResolver;

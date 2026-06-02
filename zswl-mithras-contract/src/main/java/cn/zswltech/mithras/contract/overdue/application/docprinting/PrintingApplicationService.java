@@ -9,7 +9,7 @@ import cn.zswltech.mithras.contract.overdue.application.command.PrintingAddComma
 import cn.zswltech.mithras.contract.overdue.application.dto.PrintingDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.PrintingListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.PrintingPageQuery;
-import cn.zswltech.mithras.contract.overdue.application.service.PrintingQueryService;
+import cn.zswltech.mithras.contract.overdue.application.docprinting.PrintingQueryService;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.Printing;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.PrintingRepository;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.LongId;
