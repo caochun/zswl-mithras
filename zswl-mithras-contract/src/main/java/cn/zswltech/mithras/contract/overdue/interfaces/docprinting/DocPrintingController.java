@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.overdue.interfaces;
+package cn.zswltech.mithras.contract.overdue.interfaces.docprinting;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SinglePkREQ;
+import cn.zswltech.mithras.contract.overdue.application.docprinting.PrintingApplicationService;
 import cn.zswltech.mithras.contract.overdue.application.command.PrintingAddCommand;
 import cn.zswltech.mithras.contract.overdue.application.command.PrintingSubmitCommand;
 import cn.zswltech.mithras.contract.overdue.application.dto.PrintingDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.PrintingListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.PrintingPageQuery;
-import cn.zswltech.mithras.service.overdue.application.service.PrintingApplicationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

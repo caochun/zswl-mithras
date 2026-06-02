@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.overdue.application.service;
+package cn.zswltech.mithras.contract.overdue.application.docprinting;
 
+import cn.zswltech.mithras.contract.overdue.application.OverdueBusinessModule;
+import cn.zswltech.mithras.contract.overdue.application.lib.PrintingLibHandler;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrinting;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.overdue.application.lib.PrintingLibHandler;
-import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrinting;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +43,7 @@ public class PrintingVersionService extends CommonVersionService<DocPrinting> {
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.DOC_PRINTING;
+    public Enum<?> getBusinessModule() {
+        return OverdueBusinessModule.DOC_PRINTING;
     }
 }

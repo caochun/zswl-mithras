@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.overdue.application.lib;
+package cn.zswltech.mithras.contract.overdue.application.lib;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.contract.overdue.application.OverdueBusinessModule;
 import cn.zswltech.mithras.contract.overdue.application.dto.PrintingDetailDto;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrinting;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrintingLib;
@@ -51,7 +51,7 @@ public class PrintingLibHandler extends LibAbstractHandler<DocPrintingLib, DocPr
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.DOC_PRINTING;
+    public Enum<?> businessModuleEnum() {
+        return OverdueBusinessModule.DOC_PRINTING;
     }
 }

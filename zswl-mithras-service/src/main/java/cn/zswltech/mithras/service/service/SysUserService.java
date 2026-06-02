@@ -51,7 +51,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
  */
 @Slf4j
 @Service
-public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataScopeResolver, CurrentUserResolver, UserBizDeptResolver {
+public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataScopeResolver, CurrentUserResolver, UserBizDeptResolver, JobUserResolver {
 
     @Resource
     private OrgDOMapper orgDOMapper;

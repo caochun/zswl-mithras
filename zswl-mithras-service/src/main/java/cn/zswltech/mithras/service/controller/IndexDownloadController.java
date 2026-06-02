@@ -108,7 +108,7 @@ import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.PrintingListDto;
 import cn.zswltech.mithras.contract.overdue.interfaces.LitigationController;
 import cn.zswltech.mithras.service.overdue.interfaces.CollectionController;
-import cn.zswltech.mithras.service.overdue.interfaces.DocPrintingController;
+import cn.zswltech.mithras.contract.overdue.interfaces.docprinting.DocPrintingController;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy;
