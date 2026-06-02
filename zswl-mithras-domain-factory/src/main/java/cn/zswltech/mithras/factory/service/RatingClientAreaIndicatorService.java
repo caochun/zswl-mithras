@@ -15,7 +15,6 @@ import cn.zswltech.mithras.third.service.dataminer.req.QueryDmRegionScoreReq;
 import cn.zswltech.mithras.third.service.dataminer.rsp.DataMinerRsp;
 import cn.zswltech.mithras.third.service.dataminer.rsp.QueryDmIndicatorRsp;
 import cn.zswltech.mithras.third.service.dataminer.rsp.QueryDmRegionScoreRsp;
-import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -114,7 +113,7 @@ public class RatingClientAreaIndicatorService extends ServiceImpl<RatingClientAr
                 });
             }
             // 查询所属地级市得分
-            AreaInfo areaInfo = areaInfoMapper.selectOne(Wrappers.<AreaInfo>lambdaQuery().eq(AreaInfo::getAreaUniCode, areaUniCode).last(StringUtil.mysqlLimitOne()));
+            AreaInfo areaInfo = areaInfoMapper.selectOne(Wrappers.<AreaInfo>lambdaQuery().eq(AreaInfo::getAreaUniCode, areaUniCode).last("limit 1"));
             if (Objects.nonNull(areaInfo) && Objects.nonNull(areaInfo.getCityUniCode()) && !Objects.equals(areaInfo.getCityUniCode(), areaUniCode)) {
                 QueryDmRegionScoreReq scoreReq = new QueryDmRegionScoreReq();
                 scoreReq.setAreaUniCode(areaInfo.getCityUniCode());
