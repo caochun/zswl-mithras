@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.riskcontrol.job;
 
-import cn.zswltech.mithras.service.service.riskcontrol.eventbus.MetricComputeEvent;
-import cn.zswltech.mithras.service.service.riskcontrol.eventbus.MetricComputeEventBus;
+import cn.zswltech.mithras.riskcontrol.eventbus.MetricComputeEvent;
+import cn.zswltech.mithras.riskcontrol.eventbus.MetricComputeEventBus;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

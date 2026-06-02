@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.riskcontrol.eventbus;
+package cn.zswltech.mithras.riskcontrol.eventbus;
 
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.Subscribe;

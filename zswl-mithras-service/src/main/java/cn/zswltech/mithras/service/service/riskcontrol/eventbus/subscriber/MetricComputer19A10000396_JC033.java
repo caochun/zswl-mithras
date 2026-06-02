@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.riskcontrol.eventbus.subscriber;
 
-import cn.zswltech.mithras.service.service.riskcontrol.eventbus.MetricComputeEvent;
-import cn.zswltech.mithras.service.service.riskcontrol.eventbus.SubscribeSupporter;
+import cn.zswltech.mithras.riskcontrol.eventbus.MetricComputeEvent;
+import cn.zswltech.mithras.riskcontrol.eventbus.SubscribeSupporter;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.Subscribe;
 import lombok.extern.slf4j.Slf4j;

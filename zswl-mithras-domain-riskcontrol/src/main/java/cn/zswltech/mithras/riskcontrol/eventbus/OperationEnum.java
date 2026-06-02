@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.riskcontrol.eventbus;
+package cn.zswltech.mithras.riskcontrol.eventbus;
 
 /**
  * @description:
