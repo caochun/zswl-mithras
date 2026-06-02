@@ -13,6 +13,8 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.client.ClientApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.client.hymx.application.ClientHymxService;
+import cn.zswltech.mithras.client.hymx.infrastructure.model.ClientHymx;
 import cn.zswltech.mithras.dto.client.client.*;
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoAddREQ;
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
