@@ -261,7 +261,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-ftp</artifactId>
+            <artifactId>zswl-mithras-ftp</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

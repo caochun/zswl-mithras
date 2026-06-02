@@ -42,7 +42,7 @@
         <module>zswl-mithras-domain-filingmaterials</module>
         <module>zswl-mithras-domain-archives</module>
         <module>zswl-mithras-domain-financeprojectdistribution</module>
-        <module>zswl-mithras-domain-ftp</module>
+        <module>zswl-mithras-ftp</module>
         <module>zswl-mithras-domain-projectprocess</module>
         <module>zswl-mithras-domain-payment</module>
         <module>zswl-mithras-domain-afterlease</module>
