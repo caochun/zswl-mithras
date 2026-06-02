@@ -14,11 +14,11 @@ import cn.zswltech.mithras.service.auth.checker.client.ClientAddSubAuthCheckerNe
 import cn.zswltech.mithras.service.auth.checker.client.ClientModifySubAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.client.ClientRemoveSubAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.corp.ZhongdengInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.client.ZhongdengInfo;
+import cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.mapper.ZhongdengInfoMapper;
+import cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.model.ZhongdengInfo;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.tyc.ZhongdengInfoService;
+import cn.zswltech.mithras.client.externaldata.zhongdeng.application.ZhongdengInfoService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;
 

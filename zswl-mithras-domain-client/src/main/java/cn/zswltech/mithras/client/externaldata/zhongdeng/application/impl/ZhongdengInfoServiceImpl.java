@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.service.tyc.impl;
+package cn.zswltech.mithras.client.externaldata.zhongdeng.application.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.external.ExternalPageREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoAddREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoModifyREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoRemoveREQ;
-import cn.zswltech.mithras.service.mapper.corp.ZhongdengInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.client.ZhongdengInfo;
+import cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.mapper.ZhongdengInfoMapper;
+import cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.model.ZhongdengInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.tyc.ZhongdengInfoService;
+import cn.zswltech.mithras.client.externaldata.zhongdeng.application.ZhongdengInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

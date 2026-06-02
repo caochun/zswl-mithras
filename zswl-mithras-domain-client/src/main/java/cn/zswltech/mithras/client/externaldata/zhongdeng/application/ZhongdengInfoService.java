@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.service.tyc;
+package cn.zswltech.mithras.client.externaldata.zhongdeng.application;
 
 import cn.zswltech.mithras.dto.client.external.ExternalPageREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoAddREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoModifyREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoRemoveREQ;
-import cn.zswltech.mithras.service.mapper.model.client.ZhongdengInfo;
+import cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.model.ZhongdengInfo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

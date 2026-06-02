@@ -1,5 +1,6 @@
-package cn.zswltech.mithras.service.mapper.model.client;
+package cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.model;
 
+import cn.zswltech.mithras.service.mapper.model.client.TycBaseModel;
 import cn.zswltech.mithras.service.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;

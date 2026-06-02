@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.service.mapper.corp;
+package cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.mapper;
 
-import cn.zswltech.mithras.service.mapper.model.client.ZhongdengInfo;
+import cn.zswltech.mithras.client.externaldata.zhongdeng.infrastructure.model.ZhongdengInfo;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 
 /**
