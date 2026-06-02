@@ -24,7 +24,7 @@ import cn.zswltech.mithras.service.service.basedata.BaseDataLprService;
 import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpFinancingCostPricingConfigMapper;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
-import cn.zswltech.mithras.service.service.newftp.utils.DateUtil;
+import cn.zswltech.mithras.ftp.newftp.utils.DateUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

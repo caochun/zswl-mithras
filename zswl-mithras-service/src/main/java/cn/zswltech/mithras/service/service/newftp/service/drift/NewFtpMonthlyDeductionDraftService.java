@@ -38,7 +38,7 @@ import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpFinancing
 import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpGuaranteeCostPricingConfigService;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpParameterSettingConfigService;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpTreasuryBondYieldConfigService;
-import cn.zswltech.mithras.service.service.newftp.utils.DateUtil;
+import cn.zswltech.mithras.ftp.newftp.utils.DateUtil;
 import cn.zswltech.mithras.service.util.BigDecimalUtil;
 import cn.zswltech.mithras.service.util.FlowUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
