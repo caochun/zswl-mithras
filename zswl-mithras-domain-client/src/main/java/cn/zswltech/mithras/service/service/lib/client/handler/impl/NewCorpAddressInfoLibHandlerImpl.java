@@ -3,25 +3,17 @@ package cn.zswltech.mithras.service.service.lib.client.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.gruul.dao.dal.vo.AccountVO;
-import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListRSP;
 import cn.zswltech.mithras.dto.client.addressinfo.NewCorpAddressInfoListRSP;
 import cn.zswltech.mithras.service.constant.LackDataMsg;
-import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CorpAddressType;
 import cn.zswltech.mithras.service.enums.InfoModule;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.client.ClientStatus;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.service.mapper.corp.CorpAddressInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.service.mapper.model.client.*;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.Util;
+import cn.zswltech.mithras.service.others.LackDataException;
 import cn.zswltech.mithras.service.service.lib.client.handler.ClientLibAbstractHandler;
 import cn.zswltech.mithras.service.validator.CorpAddressInfoValidator;
-import cn.zswltech.mithras.service.validator.NewCorpAddressInfoValidator;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -29,8 +21,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
-
-import static cn.hutool.core.bean.BeanUtil.copyProperties;
 
 /**
  * @author wangchuanhao
@@ -41,8 +31,6 @@ public class NewCorpAddressInfoLibHandlerImpl extends ClientLibAbstractHandler<N
 
     @Resource
     private AddressDictionaryMapper addressDictionaryMapper;
-    @Resource
-    private CorpAddressInfoMapper corpAddressInfoMapper;
 
     @Override
     protected NewCorpAddressInfoLib entity2Lib(NewCorpAddressInfo newCorpAddressInfo) {
@@ -80,8 +68,8 @@ public class NewCorpAddressInfoLibHandlerImpl extends ClientLibAbstractHandler<N
                 .map(CorpAddressInfo::getAddressType)
                 .filter(StringUtils::isNotBlank)
                 .collect(Collectors.toSet());
-        Util.errLackData(!addressTypeSet.contains(CorpAddressType.REGISTRY_ADDRESS.name()), LackDataMsg.ADDRESS_REGISTRY);
-        Util.errLackData(!addressTypeSet.contains(CorpAddressType.WORK_ADDRESS.name()), LackDataMsg.ADDRESS_WORK_ADDRESS);
+        errLackData(!addressTypeSet.contains(CorpAddressType.REGISTRY_ADDRESS.name()), LackDataMsg.ADDRESS_REGISTRY);
+        errLackData(!addressTypeSet.contains(CorpAddressType.WORK_ADDRESS.name()), LackDataMsg.ADDRESS_WORK_ADDRESS);
         dataList.forEach(CorpAddressInfoValidator::validate);
     }
 
@@ -117,6 +105,12 @@ public class NewCorpAddressInfoLibHandlerImpl extends ClientLibAbstractHandler<N
     @Override
     public List<NewCorpAddressInfo> listNeedHandleEntity(Long mainId, Map<String, Object> extraMap) {
         return this.listNeedHandleEntity(mainId);
+    }
+
+    private void errLackData(boolean condition, String msg) {
+        if (condition) {
+            throw new LackDataException(msg);
+        }
     }
 
 }
