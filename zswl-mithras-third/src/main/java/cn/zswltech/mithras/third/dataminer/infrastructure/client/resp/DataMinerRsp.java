@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.dataminer.rsp;
+package cn.zswltech.mithras.third.dataminer.infrastructure.client.resp;
 
 import lombok.Data;
 

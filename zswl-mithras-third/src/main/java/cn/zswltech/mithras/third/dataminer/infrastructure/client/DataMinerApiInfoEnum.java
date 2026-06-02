@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.dataminer;
+package cn.zswltech.mithras.third.dataminer.infrastructure.client;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

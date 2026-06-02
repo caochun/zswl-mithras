@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.dataminer;
+package cn.zswltech.mithras.third.dataminer.infrastructure.client;
 
 import cn.hutool.crypto.SmUtil;
 import cn.hutool.http.ContentType;
@@ -9,8 +9,8 @@ import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.third.service.dataminer.req.DataMinerBasicReq;
-import cn.zswltech.mithras.third.service.dataminer.rsp.DataMinerRsp;
+import cn.zswltech.mithras.third.dataminer.infrastructure.client.req.DataMinerBasicReq;
+import cn.zswltech.mithras.third.dataminer.infrastructure.client.resp.DataMinerRsp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;

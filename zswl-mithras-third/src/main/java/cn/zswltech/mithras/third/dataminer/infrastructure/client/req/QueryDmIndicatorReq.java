@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.service.dataminer.req;
+package cn.zswltech.mithras.third.dataminer.infrastructure.client.req;
 
-import cn.zswltech.mithras.third.service.dataminer.DataMinerApiInfoEnum;
+import cn.zswltech.mithras.third.dataminer.infrastructure.client.DataMinerApiInfoEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
