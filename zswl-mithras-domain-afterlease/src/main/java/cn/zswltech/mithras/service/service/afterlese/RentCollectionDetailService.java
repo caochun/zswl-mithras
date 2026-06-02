@@ -9,7 +9,6 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.afterlease.RentCollectionLevelEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.collection.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
@@ -72,7 +71,7 @@ public class RentCollectionDetailService {
             tmp.setId(o.getId());
             tmp.setPrincipal(o.getPrincipal());
             tmp.setPenaltyInterest(o.getPenaltyInterest());
-            tmp.setCollectionType(Optional.ofNullable(o.getCollectionType()).map(RecordTypeEnum::of).map(RecordTypeEnum::display).orElse(o.getCollectionType()));
+            tmp.setCollectionType(displayCollectionType(o.getCollectionType()));
             records.add(tmp);
         }
         rsp.setCollections(records);
@@ -205,6 +204,28 @@ public class RentCollectionDetailService {
             }
         }
         return Boolean.FALSE;
+    }
+
+    private String displayCollectionType(String collectionType) {
+        if (collectionType == null) {
+            return null;
+        }
+        switch (collectionType) {
+            case "COLLECTION":
+                return "收款";
+            case "WIRE_TRANSFER":
+                return "电汇";
+            case "REFUND":
+                return "退款";
+            case "REFUND_WARRANTY":
+                return "质保金退款";
+            case "REFUND_MARGIN":
+                return "保证金退款";
+            case "REFUND_MARGIN_DEDUCT":
+                return "保证金抵扣";
+            default:
+                return collectionType;
+        }
     }
 
 }
