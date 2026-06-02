@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.fms;
+package cn.zswltech.mithras.ftp.newftp.fms;
 
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpProcessStatus;

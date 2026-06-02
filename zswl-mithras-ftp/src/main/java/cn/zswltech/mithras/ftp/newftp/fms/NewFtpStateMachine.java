@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.fms;
+package cn.zswltech.mithras.ftp.newftp.fms;
 
 import cn.zswltech.mithras.service.service.projfms.IStateMachineEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static cn.zswltech.mithras.ftp.newftp.enums.NewFtpProcessStatus.*;
-import static cn.zswltech.mithras.service.service.newftp.fms.NewFtpEvent.*;
+import static cn.zswltech.mithras.ftp.newftp.fms.NewFtpEvent.*;
 
 
 /**
