@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.overdue.application.assembler;
+package cn.zswltech.mithras.contract.overdue.application.assembler;
 
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionActionDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionDetailDto;

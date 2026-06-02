@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
-import cn.zswltech.mithras.service.overdue.application.service.CollectionQueryService;
+import cn.zswltech.mithras.contract.overdue.application.service.CollectionQueryService;
 import cn.zswltech.mithras.service.overdue.infrastructure.dao.OverdueCollectionDao;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

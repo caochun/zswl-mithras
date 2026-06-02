@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.overdue.domain.docprinting;
+package cn.zswltech.mithras.contract.overdue.domain.docprinting;
 
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrinting;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrintingLib;

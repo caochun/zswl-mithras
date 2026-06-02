@@ -2,11 +2,12 @@ package cn.zswltech.mithras.service.overdue.application.service;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.contract.enums.overdue.LitigationStatus;
-import cn.zswltech.mithras.service.overdue.application.assembler.LitigationAssembler;
+import cn.zswltech.mithras.contract.overdue.application.assembler.LitigationAssembler;
 import cn.zswltech.mithras.contract.overdue.application.command.*;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuery;
+import cn.zswltech.mithras.contract.overdue.application.service.LitigationQueryService;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.Defendant;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.Litigation;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.LitigationRepository;

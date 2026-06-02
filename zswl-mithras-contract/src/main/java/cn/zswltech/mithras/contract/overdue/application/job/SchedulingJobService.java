@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.overdue.application.job;
+package cn.zswltech.mithras.contract.overdue.application.job;
 
 /**
  * @description:

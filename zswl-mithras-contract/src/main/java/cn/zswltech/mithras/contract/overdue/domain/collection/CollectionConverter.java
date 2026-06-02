@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.overdue.domain.collection;
+package cn.zswltech.mithras.contract.overdue.domain.collection;
 
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
 import org.mapstruct.Mapper;

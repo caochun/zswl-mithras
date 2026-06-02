@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.service.overdue.domain.collection;
+package cn.zswltech.mithras.contract.overdue.domain.collection;
 
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.contract.overdue.common.OverdueTypeConversionWorker;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionAction;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionActionLib;
 import org.mapstruct.Mapper;
@@ -14,7 +14,7 @@ import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionAction;
  * @author: zhaozhengkang
  * @date: 2024/10/21 17:28
  */
-@Mapper(componentModel = "spring", uses = TypeConversionWorker.class)
+@Mapper(componentModel = "spring", uses = OverdueTypeConversionWorker.class)
 public interface CollectionActionConverter {
 
     @Mapping(source = "id", target = "actionId.id")

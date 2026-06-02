@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.overdue.application.service;
+package cn.zswltech.mithras.contract.overdue.application.service;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;

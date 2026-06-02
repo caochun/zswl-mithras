@@ -22,8 +22,8 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import cn.zswltech.mithras.service.overdue.domain.collection.CollectionActionConverter;
-import cn.zswltech.mithras.service.overdue.domain.collection.CollectionConverter;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionActionConverter;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionConverter;
 
 /**
  * @description:

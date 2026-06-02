@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.overdue.infrastructure.repository;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.Printing;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.PrintingCode;
-import cn.zswltech.mithras.service.overdue.domain.docprinting.PrintingConverter;
+import cn.zswltech.mithras.contract.overdue.domain.docprinting.PrintingConverter;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.PrintingRepository;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.LongId;
 import cn.zswltech.mithras.contract.overdue.domain.share.diff.EntityDiff;

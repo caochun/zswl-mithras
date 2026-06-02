@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.overdue.domain.litigation;
 
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.contract.overdue.common.OverdueTypeConversionWorker;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationCaseProgress;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationDefendant;
@@ -16,7 +16,7 @@ import java.util.List;
  * @author: zhaozhengkang
  * @date: 2024/11/5 09:45
  */
-@Mapper(componentModel = "spring", uses = TypeConversionWorker.class)
+@Mapper(componentModel = "spring", uses = OverdueTypeConversionWorker.class)
 public interface LitigationConverter {
     @Mapping(source = "code.code", target = "code")
     @Mapping(source = "id.id", target = "id")
