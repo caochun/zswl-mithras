@@ -14,7 +14,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
 import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
-import cn.zswltech.mithras.contract.archive.service.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

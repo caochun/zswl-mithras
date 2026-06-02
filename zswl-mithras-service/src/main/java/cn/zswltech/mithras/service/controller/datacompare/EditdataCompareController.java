@@ -145,9 +145,9 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.*;
 import java.util.stream.Collectors;
-import cn.zswltech.mithras.contract.archive.service.ContractAccountLibService;
-import cn.zswltech.mithras.contract.archive.service.ContractLeaseItemLibService;
-import cn.zswltech.mithras.contract.archive.service.ContractTenantryLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractAccountLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractLeaseItemLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractTenantryLibService;
 
 /**
  * @create: 2022-08-02

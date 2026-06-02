@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionService;
 import cn.zswltech.mithras.service.service.contract.*;
 import cn.zswltech.mithras.service.service.contract.impl.ContractReceiptServiceImpl;
-import cn.zswltech.mithras.contract.archive.service.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractRentActualLibService;
 import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;

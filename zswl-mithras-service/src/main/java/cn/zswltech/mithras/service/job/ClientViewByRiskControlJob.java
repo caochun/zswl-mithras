@@ -46,7 +46,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import cn.zswltech.mithras.contract.archive.service.ContractTenantryLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractTenantryLibService;
 
 @Slf4j
 @Component

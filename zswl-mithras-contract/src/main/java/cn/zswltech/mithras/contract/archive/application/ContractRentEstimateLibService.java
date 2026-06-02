@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.archive.service;
+package cn.zswltech.mithras.contract.archive.application;
 
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentEstimateLibMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;

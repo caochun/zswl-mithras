@@ -22,7 +22,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
-import cn.zswltech.mithras.contract.archive.service.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractRentActualLibService;
 import cn.zswltech.mithras.service.service.message.MessageService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;

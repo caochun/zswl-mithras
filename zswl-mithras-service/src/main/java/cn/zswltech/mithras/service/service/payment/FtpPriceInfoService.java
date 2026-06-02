@@ -33,8 +33,8 @@
 //import cn.zswltech.mithras.service.service.flow.MyTaskService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestDetailRecordService;
-//import cn.zswltech.mithras.contract.archive.service.ContractReceiptLibService;
-//import cn.zswltech.mithras.contract.archive.service.ContractRentActualLibService;
+//import cn.zswltech.mithras.contract.archive.application.ContractReceiptLibService;
+//import cn.zswltech.mithras.contract.archive.application.ContractRentActualLibService;
 //import cn.zswltech.mithras.service.util.StringUtil;
 //import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 //import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

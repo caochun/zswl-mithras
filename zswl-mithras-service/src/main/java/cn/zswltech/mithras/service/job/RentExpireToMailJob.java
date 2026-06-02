@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.service.client.CorpContactInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.email.RentExpireEmailHandler;
-import cn.zswltech.mithras.contract.archive.service.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.util.DateUtil;
 import cn.zswltech.mithras.service.util.StringUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

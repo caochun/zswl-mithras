@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.contract.application.dto.ContractActualCashFlowExporterBO;
 import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
-import cn.zswltech.mithras.contract.archive.service.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractLeasePriceLibService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

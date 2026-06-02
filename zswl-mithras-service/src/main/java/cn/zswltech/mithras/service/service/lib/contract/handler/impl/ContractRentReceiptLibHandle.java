@@ -9,7 +9,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
-import cn.zswltech.mithras.contract.archive.service.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.archive.application.ContractRentActualLibService;
 import cn.zswltech.mithras.contract.archive.handler.ContractLibAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.beans.factory.annotation.Autowired;
