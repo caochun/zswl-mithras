@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.interfaces;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.riskcontrol.RiskControlScoreCardBaseInfoApi;
 import cn.zswltech.mithras.dto.riskcontrol.*;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardBaseInfo;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardBaseInfoService;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardBaseInfo;
+import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardBaseInfoService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;
 

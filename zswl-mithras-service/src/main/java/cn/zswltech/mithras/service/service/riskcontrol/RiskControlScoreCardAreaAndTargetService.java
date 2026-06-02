@@ -8,12 +8,12 @@ import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalcula
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateDetailRSP;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateSaveREQ;
 import cn.zswltech.mithras.service.controller.client.CorpAddressInfoController;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlCardTargetConverter;
+import cn.zswltech.mithras.riskcontrol.scorecard.application.assembler.RiskControlCardTargetConverter;
 import cn.zswltech.mithras.service.enums.CorpAddressType;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardAreaAndTarget;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTarget;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardAreaAndTargetMapper;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTargetService;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardAreaAndTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.mapper.RiskControlScoreCardAreaAndTargetMapper;
+import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardTargetService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

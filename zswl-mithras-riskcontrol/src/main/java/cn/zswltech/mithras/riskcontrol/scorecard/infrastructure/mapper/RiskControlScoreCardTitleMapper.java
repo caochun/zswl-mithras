@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.mapper;
 
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTitle;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardTitle;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 /**
  * 评分卡-标题

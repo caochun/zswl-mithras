@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model;
 
 import cn.zswltech.mithras.riskcontrol.common.RiskControlAssertEnum;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;

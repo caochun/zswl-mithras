@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.interfaces;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,12 +8,12 @@ import cn.zswltech.mithras.api.riskcontrol.RiskControlScoreCardTargetApi;
 import cn.zswltech.mithras.dto.riskcontrol.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTarget;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTitle;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardTitle;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardBaseInfoService;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTargetService;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTitleService;
+import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardBaseInfoService;
+import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardTargetService;
+import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardTitleService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,10 +1,11 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.application.assembler;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetAddREQ;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetListRSP;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetModifyREQ;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlTypeConversionWorker;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardTarget;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

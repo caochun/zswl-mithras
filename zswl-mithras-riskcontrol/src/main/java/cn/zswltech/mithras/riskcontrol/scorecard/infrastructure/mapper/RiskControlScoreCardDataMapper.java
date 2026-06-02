@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.mapper;
 
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardData;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardData;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 
 /**

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model;
 
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -16,7 +16,7 @@ import java.io.Serializable;
  * @Version 1.0
  **/
 @Data
-public class RiskControlScoreCardData extends BaseModel implements Serializable {
+public class RiskControlScoreCardTitle extends BaseModel implements Serializable {
 
     /**
      * 方案id
@@ -24,16 +24,17 @@ public class RiskControlScoreCardData extends BaseModel implements Serializable 
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    @TableField("title_name")
-    private String titleName;
-
     @TableField("year")
     private Integer year;
 
-    @TableField("content")
-    private String content;
+    @TableField("name")
+    private String name;
 
-    @TableField("row")
-    private Integer row;
+    @TableField("column_number")
+    private Integer columnNumber;
+
+    //指标类型 0 指标， 1 其他
+    @TableField("target_type")
+    private Integer targetType;
 
 }

@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.application;
 
 import cn.zswltech.mithras.riskcontrol.common.TitleNameEnum;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardData;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTitle;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardTitleMapper;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardData;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardTitle;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.mapper.RiskControlScoreCardTitleMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

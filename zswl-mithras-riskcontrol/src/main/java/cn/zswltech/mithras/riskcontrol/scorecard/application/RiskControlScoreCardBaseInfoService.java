@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.application;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlAssertEnum;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardBaseInfo;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardBaseInfoMapper;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardBaseInfo;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.mapper.RiskControlScoreCardBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.application;
 
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.*;
 

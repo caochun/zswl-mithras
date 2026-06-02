@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.riskcontrol.scorecard;
+package cn.zswltech.mithras.riskcontrol.scorecard.application.dto;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetListRSP;
@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.riskcontrol.common.AreaStatusEnum;
 import cn.zswltech.mithras.riskcontrol.common.AreaTypeEnum;
 import cn.zswltech.mithras.riskcontrol.common.GradeEnum;
-import cn.zswltech.mithras.riskcontrol.scorecard.RiskControlScoreCardData;
+import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardData;
 import cn.zswltech.mithras.service.others.MithrasException;
 import lombok.Data;
 
