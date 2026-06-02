@@ -1,6 +1,5 @@
-package cn.zswltech.mithras.service.overdue.infrastructure.repository;
+package cn.zswltech.mithras.contract.overdue.infrastructure.repository;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.*;
 import cn.zswltech.mithras.contract.overdue.domain.share.diff.Diff;
 import cn.zswltech.mithras.contract.overdue.domain.share.diff.DiffType;
@@ -14,7 +13,7 @@ import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationC
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationDefendant;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationRegistration;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationTrialInfo;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.service.service.UserNameResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
@@ -43,7 +42,7 @@ public class LitigationRepositoryImpl extends LitigationRepository {
     @Resource
     private LitigationConverter litigationConverter;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
 
     public LitigationRepositoryImpl() {
@@ -55,7 +54,7 @@ public class LitigationRepositoryImpl extends LitigationRepository {
         LitigationRegistration latestOne = litigationRegistrationDao.getOne(
                 Wrappers.<LitigationRegistration>lambdaQuery()
                         .ge(LitigationRegistration::getCreateTime, LocalDate.now())
-                        .orderByDesc(BaseModel::getCreateTime).last("limit 1"));
+                        .orderByDesc(LitigationRegistration::getCreateTime).last("limit 1"));
         LitigationCode code = latestOne == null ? new LitigationCode() : new LitigationCode(latestOne.getCode()).nextCode();
         aggregate.setCode(code);
         LitigationRegistration po = litigationConverter.entity2Po(aggregate);
@@ -71,9 +70,9 @@ public class LitigationRepositoryImpl extends LitigationRepository {
         List<CaseProgress> progress = litigationConverter.progressPo2Entity(
                 litigationCaseProgressDao.list(Wrappers.<LitigationCaseProgress>lambdaQuery()
                         .eq(LitigationCaseProgress::getLrId, aggregateId.getId())
-                        .orderByDesc(BaseModel::getCreateTime)));
+                        .orderByDesc(LitigationCaseProgress::getCreateTime)));
 
-        Map<Long, String> userNames = id2NameService.sysUserId2Name(progress.stream().map(CaseProgress::getCreateBy).collect(Collectors.toSet()));
+        Map<Long, String> userNames = userNameResolver.sysUserId2Name(progress.stream().map(CaseProgress::getCreateBy).collect(Collectors.toSet()));
         progress.forEach(item -> item.setProcessPerson(userNames.get(item.getCreateBy())));
         TrialInfo trialInfo = litigationConverter.trialInfo2Entity(
                 litigationTrialInfoDao.getOne(Wrappers.<LitigationTrialInfo>lambdaQuery()
