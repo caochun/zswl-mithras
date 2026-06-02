@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.factory.feign;
+package cn.zswltech.mithras.third.providence.feign;
 
 import com.zswltec.providence.api.PeerComparisonApi;
 import org.springframework.cloud.openfeign.FeignClient;

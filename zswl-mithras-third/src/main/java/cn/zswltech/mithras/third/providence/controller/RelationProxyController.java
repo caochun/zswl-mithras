@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.service.providence;
+package cn.zswltech.mithras.third.providence.controller;
 
-import cn.zswltech.mithras.factory.feign.ProvidenceRelationApiClient;
+import cn.zswltech.mithras.third.providence.feign.ProvidenceRelationApiClient;
 import com.zswltec.providence.api.RelationApi;
 
 import com.zswltec.providence.dto.RelationReq;

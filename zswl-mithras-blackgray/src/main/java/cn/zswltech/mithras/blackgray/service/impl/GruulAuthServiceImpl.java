@@ -13,7 +13,7 @@ import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 

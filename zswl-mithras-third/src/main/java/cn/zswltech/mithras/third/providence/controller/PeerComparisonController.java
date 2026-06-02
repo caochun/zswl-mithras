@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.providence;
+package cn.zswltech.mithras.third.providence.controller;
 
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.mithras.factory.feign.ProvidencePeerComparisonApiClient;
+import cn.zswltech.mithras.third.providence.feign.ProvidencePeerComparisonApiClient;
 import com.zswltec.providence.api.PeerComparisonApi;
 import com.zswltec.providence.dto.base.R;
 import com.zswltec.providence.dto.req.*;
