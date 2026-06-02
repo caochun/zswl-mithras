@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.contract.core.service.impl;
+package cn.zswltech.mithras.contract.core.application.impl;
 
 import cn.zswltech.mithras.contract.mapper.contract.ContractRetreatInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
-import cn.zswltech.mithras.contract.core.service.ContractRetreatInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractRetreatInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

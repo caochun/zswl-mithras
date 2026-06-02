@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.core.service;
+package cn.zswltech.mithras.contract.core.application;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

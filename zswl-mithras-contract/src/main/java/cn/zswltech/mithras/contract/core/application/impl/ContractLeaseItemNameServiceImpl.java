@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.contract.core.service.impl;
+package cn.zswltech.mithras.contract.core.application.impl;
 
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeaseItemNameMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
-import cn.zswltech.mithras.contract.core.service.ContractLeaseItemNameService;
+import cn.zswltech.mithras.contract.core.application.ContractLeaseItemNameService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

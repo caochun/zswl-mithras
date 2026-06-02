@@ -40,7 +40,7 @@ import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractDeductRentInfoService;
-import cn.zswltech.mithras.contract.core.service.ContractRetreatInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractRetreatInfoService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;

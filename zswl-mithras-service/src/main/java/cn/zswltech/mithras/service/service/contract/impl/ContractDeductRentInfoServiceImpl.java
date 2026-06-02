@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractDeductRentInfoService;
-import cn.zswltech.mithras.contract.core.service.ContractRetreatInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractRetreatInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.util.StringUtil;

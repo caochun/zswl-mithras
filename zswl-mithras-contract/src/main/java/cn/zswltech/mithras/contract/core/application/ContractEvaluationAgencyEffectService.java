@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.core.service;
+package cn.zswltech.mithras.contract.core.application;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

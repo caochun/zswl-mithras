@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeaseItemMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.core.service.ContractLeaseItemNameService;
+import cn.zswltech.mithras.contract.core.application.ContractLeaseItemNameService;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

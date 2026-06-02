@@ -45,7 +45,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum.MAIN_LESSSEE;
-import cn.zswltech.mithras.contract.core.service.ContractCodeAbstract;
+import cn.zswltech.mithras.contract.core.application.ContractCodeAbstract;
 
 
 /**

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.core.service;
+package cn.zswltech.mithras.contract.core.application;
 
 import cn.zswltech.mithras.contract.mapper.contract.ContractSpecialTradeMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractSpecialTrade;

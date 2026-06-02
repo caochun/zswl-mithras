@@ -133,7 +133,7 @@ import static cn.zswltech.mithras.service.enums.CashFlowItemEnum.*;
 import static cn.zswltech.mithras.service.enums.JobEnum.businesshead;
 import static cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
-import cn.zswltech.mithras.contract.core.service.ContractSpecialTraderService;
+import cn.zswltech.mithras.contract.core.application.ContractSpecialTraderService;
 
 /**
  * @author zhaozhengkang
