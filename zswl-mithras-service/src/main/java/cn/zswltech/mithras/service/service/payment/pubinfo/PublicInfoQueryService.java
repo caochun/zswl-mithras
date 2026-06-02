@@ -41,8 +41,8 @@ import cn.zswltech.mithras.service.mapper.model.payment.pubInfo.PublicInfoRecord
 import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.payment.pubinfo.PublicInfoQueryMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.providence.entity.OuterInfoRecord;
-import cn.zswltech.mithras.service.providence.service.impl.OuterInfoRecordService;
+import cn.zswltech.mithras.third.providence.entity.OuterInfoRecord;
+import cn.zswltech.mithras.third.providence.service.impl.OuterInfoRecordService;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.*;

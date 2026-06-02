@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.service.service.bo.ClientAuthBO;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewService;
-import cn.zswltech.mithras.service.service.third.TycService;
+import cn.zswltech.mithras.third.service.TycService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;

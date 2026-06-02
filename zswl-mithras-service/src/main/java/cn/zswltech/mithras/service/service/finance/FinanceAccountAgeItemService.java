@@ -32,7 +32,7 @@ import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
-import cn.zswltech.mithras.service.service.third.financial.req.CQ2AccountAgeAddREQ;
+import cn.zswltech.mithras.third.service.financial.req.CQ2AccountAgeAddREQ;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.SnowflakeIdGenerator;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

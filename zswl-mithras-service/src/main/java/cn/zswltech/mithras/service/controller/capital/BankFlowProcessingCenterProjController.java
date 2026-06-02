@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.capital.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowRecord;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.capital.BankFlowProcessingCenterService;
 import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffService;

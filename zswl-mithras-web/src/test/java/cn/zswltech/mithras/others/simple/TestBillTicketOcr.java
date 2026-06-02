@@ -7,7 +7,7 @@ import cn.hutool.core.io.IoUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.repository.aliyun.req.OcrDetectReq;
+import cn.zswltech.mithras.third.repository.aliyun.req.OcrDetectReq;
 import cn.zswltech.mithras.service.util.HttpUtil;
 import cn.zswltech.mithras.service.util.PdfUtil;
 import lombok.SneakyThrows;

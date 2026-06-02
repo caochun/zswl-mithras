@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.mithras.blackgray.enums.BusinessType;
-import cn.zswltech.mithras.service.enums.capital.third.BizTypeEnum;
+import cn.zswltech.mithras.third.enums.capital.BizTypeEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.service.enums.contract.ProjItemStatus;

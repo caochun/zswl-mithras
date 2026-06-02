@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.service.enums.capital.BankFlowCenterTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowRecord;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.service.service.third.FinanceFlowRecordService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;

@@ -191,7 +191,7 @@ public class BudgetExamineBenefitImportTest extends ApplicationTest {
         budgetExamineBenefitService.initCompanyData(6L);
         budgetExamineBenefitService.initMonthData(6L);
     }
-    
+
     public void writeOffNotice(Long budgetExamineId, Integer budgetExamineYear, Integer budgetExamineMonth, String sheetName) {
         // 清空原数据
         SpringUtil.getBean(BudgetExamineBenefitService.class).remove(Wrappers.<BudgetExamineBenefit>lambdaQuery().eq(BudgetExamineBenefit::getBudgetExamineId, budgetExamineId));

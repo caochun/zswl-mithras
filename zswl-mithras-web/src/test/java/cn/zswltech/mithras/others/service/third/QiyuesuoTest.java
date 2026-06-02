@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.third;
 
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswl.oss.core.OssClient;
-import cn.zswltech.mithras.service.config.QiyuesuoConfig;
+import cn.zswltech.mithras.third.config.QiyuesuoConfig;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractTextSignInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
@@ -10,8 +10,8 @@ import cn.zswltech.mithras.service.service.contract.text.ContractTextManageServi
 import cn.zswltech.mithras.service.service.contract.text.ContractTextSignInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.service.third.QiyuesuoService;
-import cn.zswltech.mithras.service.service.third.model.qiyuesuo.*;
+import cn.zswltech.mithras.third.service.QiyuesuoService;
+import cn.zswltech.mithras.third.service.model.qiyuesuo.*;
 import cn.zswltech.mithras.service.util.WatermarkUtil;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.alibaba.fastjson.JSONObject;

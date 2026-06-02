@@ -148,10 +148,10 @@ import cn.zswltech.mithras.service.service.riskcontrol.eventbus.MetricComputeEve
 import cn.zswltech.mithras.service.service.riskcontrol.eventbus.MetricComputeEventBus;
 import cn.zswltech.mithras.service.service.share.DataShareMerchantsService;
 import cn.zswltech.mithras.service.service.share.DataShareService;
-import cn.zswltech.mithras.service.service.third.TycService;
-import cn.zswltech.mithras.service.service.third.model.MithrasBaseInfo;
-import cn.zswltech.mithras.service.service.third.model.MithrasRelatedEnterpriseInfo;
-import cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo;
+import cn.zswltech.mithras.third.service.TycService;
+import cn.zswltech.mithras.third.service.model.MithrasBaseInfo;
+import cn.zswltech.mithras.third.service.model.MithrasRelatedEnterpriseInfo;
+import cn.zswltech.mithras.third.service.model.MithrasShareholderInfo;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
@@ -3313,7 +3313,7 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
                 rsp.setTycName(mithrasBaseInfo.getTycName());
                 rsp.setTycCorpRepresent(mithrasBaseInfo.getCorpRepresent());
                 List<MithrasShareholderInfo> shareholderInfos = tycService.shareholderInfo(client.getUscCode());
-                rsp.setTycShareHolderInfo(shareholderInfos);
+                rsp.setTycShareHolderInfo(BeanUtil.copyToList(shareholderInfos, cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo.class));
                 map.put(client.getId(), rsp);
             }
         });

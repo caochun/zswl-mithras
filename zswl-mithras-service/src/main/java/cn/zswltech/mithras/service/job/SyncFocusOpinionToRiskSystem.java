@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.enums.client.ClientStatus;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.third.opinion.RiskManageOpinionService;
+import cn.zswltech.mithras.third.service.opinion.RiskManageOpinionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

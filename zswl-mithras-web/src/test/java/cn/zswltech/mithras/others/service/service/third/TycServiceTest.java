@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.others.service.service.third;
 
-import cn.zswltech.mithras.service.service.third.TycService;
-import cn.zswltech.mithras.service.service.third.model.MithrasBaseInfo;
-import cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo;
+import cn.zswltech.mithras.third.service.TycService;
+import cn.zswltech.mithras.third.service.model.MithrasBaseInfo;
+import cn.zswltech.mithras.third.service.model.MithrasShareholderInfo;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

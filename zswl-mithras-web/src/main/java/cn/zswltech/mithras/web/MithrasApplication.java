@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @ServletComponentScan("cn.zswltech.mithras.service.config.druid")
 @MapperScan({"cn.zswltech.mithras.service.mapper",
         "cn.zswltech.mithras.factory.mapper",
-        "cn.zswltech.mithras.service.providence.mapper",
+        "cn.zswltech.mithras.third.providence.mapper",
         "cn.zswltech.lib.futurelog.save.mapper",
         "cn.zswltech.mithras.blackgray.mapper",
         "cn.zswltech.mithras.metric.financialcloudmetric.mapper",

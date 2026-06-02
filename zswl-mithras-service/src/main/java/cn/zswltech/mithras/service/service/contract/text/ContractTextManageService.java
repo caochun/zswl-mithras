@@ -11,7 +11,7 @@ import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.contract.text.*;
 import cn.zswltech.mithras.dto.file.FileListRSP;
-import cn.zswltech.mithras.service.config.QiyuesuoConfig;
+import cn.zswltech.mithras.third.config.QiyuesuoConfig;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;

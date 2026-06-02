@@ -46,7 +46,7 @@ import cn.zswltech.mithras.service.mapper.model.client.IndustryType;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.providence.enums.OrgTypeEnum;
+import cn.zswltech.mithras.third.providence.enums.OrgTypeEnum;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

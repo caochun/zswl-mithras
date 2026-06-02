@@ -38,7 +38,7 @@ import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.payment.*;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
-import cn.zswltech.mithras.service.enums.third.FinancialPaymentCodeENUM;
+import cn.zswltech.mithras.third.enums.FinancialPaymentCodeENUM;
 import cn.zswltech.mithras.service.flow.helper.CalBoardRuleHelper;
 import cn.zswltech.mithras.service.gendoc.PaymentLoanReviewFileRender;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
@@ -72,7 +72,7 @@ import cn.zswltech.mithras.service.service.projlifecycle.ProjectLifecycleEventSe
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
-import cn.zswltech.mithras.service.service.third.financial.vo.FinancialPaymentVO;
+import cn.zswltech.mithras.third.service.financial.vo.FinancialPaymentVO;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

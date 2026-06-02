@@ -5,7 +5,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.poi.excel.ExcelWriter;
-import cn.zswltech.mithras.service.repository.aliyun.resp.OcrDetectResp;
+import cn.zswltech.mithras.third.repository.aliyun.resp.OcrDetectResp;
 import cn.zswltech.mithras.service.util.HttpUtil;
 import cn.zswltech.mithras.service.util.PdfUtil;
 import com.alibaba.fastjson.JSONArray;

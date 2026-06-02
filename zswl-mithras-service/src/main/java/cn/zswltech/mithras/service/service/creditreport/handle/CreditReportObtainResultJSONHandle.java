@@ -2,9 +2,9 @@ package cn.zswltech.mithras.service.service.creditreport.handle;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.creditreport.CreditApplyXJUrlENUM;
-import cn.zswltech.mithras.service.mapper.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.service.ExceptionRequestRecordService;
+import cn.zswltech.mithras.third.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.service.service.creditreport.CreditReportApiHandler;
 import cn.zswltech.mithras.service.service.creditreport.CreditReportConfigService;
 import cn.zswltech.mithras.service.service.creditreport.req.CreditReportObtainResultJSONReq;

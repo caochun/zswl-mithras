@@ -2,7 +2,7 @@ package cn.zswltech.mithras.blackgray.service.external;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.blackgray.service.external.remote.JKBaseRSP;
-import cn.zswltech.mithras.service.enums.third.FinancialRSPENUM;
+import cn.zswltech.mithras.third.enums.FinancialRSPENUM;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
 import cn.zswltech.mithras.service.repository.RequestModeEnum;
 import cn.zswltech.mithras.service.util.HttpUtil;

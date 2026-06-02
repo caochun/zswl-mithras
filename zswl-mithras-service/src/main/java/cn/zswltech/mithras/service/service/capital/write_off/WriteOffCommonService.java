@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingPledgeInfo
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantry;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowRecord;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.capital.write_off.bo.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.service.service.client.ClientService;

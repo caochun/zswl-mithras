@@ -2,10 +2,10 @@ package cn.zswltech.mithras.others;
 
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.third.dataminer.DataMinerClient;
-import cn.zswltech.mithras.service.service.third.dataminer.req.QueryDmIndicatorReq;
-import cn.zswltech.mithras.service.service.third.dataminer.rsp.DataMinerRsp;
-import cn.zswltech.mithras.service.service.third.dataminer.rsp.QueryDmIndicatorRsp;
+import cn.zswltech.mithras.third.service.dataminer.DataMinerClient;
+import cn.zswltech.mithras.third.service.dataminer.req.QueryDmIndicatorReq;
+import cn.zswltech.mithras.third.service.dataminer.rsp.DataMinerRsp;
+import cn.zswltech.mithras.third.service.dataminer.rsp.QueryDmIndicatorRsp;
 import org.junit.Test;
 
 import javax.annotation.Resource;

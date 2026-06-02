@@ -5,7 +5,7 @@ import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.gruul.common.util.StringUtil;
-import cn.zswltech.mithras.service.config.QiyuesuoConfig;
+import cn.zswltech.mithras.third.config.QiyuesuoConfig;
 import com.aspose.cells.MsoFillFormat;
 import com.aspose.cells.MsoPresetTextEffect;
 import com.aspose.cells.Shape;

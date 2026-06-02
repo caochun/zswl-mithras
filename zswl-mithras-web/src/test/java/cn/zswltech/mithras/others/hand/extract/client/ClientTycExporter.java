@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.others.hand.extract.client;
 
 import cn.hutool.core.io.IoUtil;
-import cn.zswltech.mithras.service.service.third.TycService;
-import cn.zswltech.mithras.service.service.third.model.MithrasBaseInfo;
-import cn.zswltech.mithras.service.service.third.model.MithrasRelatedEnterpriseInfo;
-import cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo;
+import cn.zswltech.mithras.third.service.TycService;
+import cn.zswltech.mithras.third.service.model.MithrasBaseInfo;
+import cn.zswltech.mithras.third.service.model.MithrasRelatedEnterpriseInfo;
+import cn.zswltech.mithras.third.service.model.MithrasShareholderInfo;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

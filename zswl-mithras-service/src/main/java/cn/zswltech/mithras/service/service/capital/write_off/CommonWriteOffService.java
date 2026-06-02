@@ -2,12 +2,12 @@ package cn.zswltech.mithras.service.service.capital.write_off;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowMatchResult;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowRecord;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowTabMainInfo;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowTabRecord;
-import cn.zswltech.mithras.service.service.third.FinanceFlowMatchResultService;
-import cn.zswltech.mithras.service.service.third.FinanceFlowTabRecordService;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowMatchResult;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabMainInfo;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabRecord;
+import cn.zswltech.mithras.third.service.FinanceFlowMatchResultService;
+import cn.zswltech.mithras.third.service.FinanceFlowTabRecordService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

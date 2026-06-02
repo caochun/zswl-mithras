@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.bo;
 
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableFinanceListRSP;
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableProjectListRSP;
-import cn.zswltech.mithras.service.mapper.model.third.FinanceFlowRecord;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import lombok.Data;
 
 import java.util.*;
