@@ -54,7 +54,7 @@ import cn.zswltech.mithras.service.service.creditreport.CreditReportService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishTradeStructureService;
-import cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo;
+import cn.zswltech.mithras.client.service.model.MithrasShareholderInfo;
 import cn.zswltech.mithras.service.util.CompareUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

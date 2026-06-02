@@ -6,7 +6,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.mapper.client.ClientBusinessHistoryMapper;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBusinessHistory;
 import cn.zswltech.mithras.service.service.bo.ClientBusinessHistoryBO;
-import cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo;
+import cn.zswltech.mithras.client.service.model.MithrasShareholderInfo;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

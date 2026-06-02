@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.third.model;
+package cn.zswltech.mithras.client.service.model;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

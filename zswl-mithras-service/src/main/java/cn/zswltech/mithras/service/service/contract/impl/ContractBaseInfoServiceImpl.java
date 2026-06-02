@@ -122,7 +122,7 @@ import cn.zswltech.mithras.service.service.projpricing.ProjPricingBaseInfoServic
 import cn.zswltech.mithras.service.service.projpricing.ProjPricingPriceService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
-import cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo;
+import cn.zswltech.mithras.client.service.model.MithrasShareholderInfo;
 import cn.zswltech.mithras.service.util.*;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.bo;
 
 import cn.zswltech.mithras.service.mapper.model.client.ClientBusinessHistory;
-import cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo;
+import cn.zswltech.mithras.client.service.model.MithrasShareholderInfo;
 import com.alibaba.fastjson.JSON;
 import lombok.AllArgsConstructor;
 import lombok.Data;

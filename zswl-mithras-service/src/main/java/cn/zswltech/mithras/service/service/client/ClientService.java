@@ -3313,7 +3313,7 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
                 rsp.setTycName(mithrasBaseInfo.getTycName());
                 rsp.setTycCorpRepresent(mithrasBaseInfo.getCorpRepresent());
                 List<MithrasShareholderInfo> shareholderInfos = tycService.shareholderInfo(client.getUscCode());
-                rsp.setTycShareHolderInfo(BeanUtil.copyToList(shareholderInfos, cn.zswltech.mithras.service.service.third.model.MithrasShareholderInfo.class));
+                rsp.setTycShareHolderInfo(BeanUtil.copyToList(shareholderInfos, cn.zswltech.mithras.client.service.model.MithrasShareholderInfo.class));
                 map.put(client.getId(), rsp);
             }
         });
