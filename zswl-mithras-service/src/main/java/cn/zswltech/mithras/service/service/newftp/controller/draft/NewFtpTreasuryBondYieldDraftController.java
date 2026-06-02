@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.newftp.draft.NewFtpTreasuryBondYieldDraftApi;
 import cn.zswltech.mithras.dto.newftp.NewFtpCommonDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailTreasuryBondYieldListRSP;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpTreasuryBondYieldConfigService;
-import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpTreasuryBondYieldDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpTreasuryBondYieldDraftService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 

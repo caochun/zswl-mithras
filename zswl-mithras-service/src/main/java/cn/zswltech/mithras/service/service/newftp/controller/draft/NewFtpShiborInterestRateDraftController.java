@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.newftp.draft.NewFtpShiborInterestRateDraftApi;
 import cn.zswltech.mithras.dto.newftp.NewFtpCommonDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailTreasuryBondYieldListRSP;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpShiborInterestRateConfigService;
-import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpShiborInterestRateDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpShiborInterestRateDraftService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 

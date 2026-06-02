@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.service.drift;
+package cn.zswltech.mithras.ftp.newftp.service.drift;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DatePattern;
@@ -11,14 +11,13 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpFrequency;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.ftp.newftp.mapper.NewFtpBaseInfoMapper;
-import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpTreasuryBondYieldConfigMapper;
-import cn.zswltech.mithras.ftp.newftp.mapper.draft.NewFtpTreasuryBondYieldDraftMapper;
+import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpShiborInterestRateConfigMapper;
+import cn.zswltech.mithras.ftp.newftp.mapper.draft.NewFtpShiborInterestRateDraftMapper;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
-import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpTreasuryBondYieldConfig;
-import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpTreasuryBondYieldDraft;
-import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpTreasuryBondYieldPricingDraftService;
-import cn.zswltech.mithras.ftp.newftp.service.lib.NewFtpTreasuryBondYieldLibService;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRateConfig;
+import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpShiborInterestRateDraft;
+import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpShiborInterestRatePricingDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.lib.NewFtpShiborInterestRateLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -37,40 +36,39 @@ import java.util.stream.Collectors;
 import static java.util.Optional.ofNullable;
 
 /**
- * @description 10年期国债收益率
+ * @description 1年期SHIBOR利率
  * @date 2023-05-21
  */
 @Service
-public class NewFtpTreasuryBondYieldDraftService
-        extends ServiceImpl<NewFtpTreasuryBondYieldDraftMapper, NewFtpTreasuryBondYieldDraft> {
-
+public class NewFtpShiborInterestRateDraftService
+        extends ServiceImpl<NewFtpShiborInterestRateDraftMapper, NewFtpShiborInterestRateDraft> {
     @Resource
-    private NewFtpTreasuryBondYieldConfigMapper newFtpTreasuryBondYieldConfigMapper;
-    @Resource
-    private NewFtpTreasuryBondYieldLibService newFtpTreasuryBondYieldLibService;
+    private NewFtpShiborInterestRateConfigMapper newFtpShiborInterestRateConfigMapper;
     @Resource
     private NewFtpBaseInfoMapper newFtpBaseInfoMapper;
     @Resource
-    private NewFtpTreasuryBondYieldPricingDraftService newFtpTreasuryBondYieldPricingDraftService;
+    private NewFtpShiborInterestRatePricingDraftService newFtpShiborInterestRatePricingDraftService;
+    @Resource
+    private NewFtpShiborInterestRateLibService newFtpShiborInterestRateLibService;
 
     /**
-     * 查询十年期国债
+     * 查询1年期SHIBOR利率
      **/
-    public PageR<NewFtpDetailTreasuryBondYieldListRSP> treasuryBondYieldList(NewFtpCommonDetailReq req) {
+    public PageR<NewFtpDetailTreasuryBondYieldListRSP> shiborInterestList(NewFtpCommonDetailReq req) {
         FtpFrequency ftpFrequency = ofNullable(FtpFrequency.of(req.getFrequency())).orElseThrow(() -> new MithrasException("暂不支持"));
-        Page<NewFtpTreasuryBondYieldDraft> page;
-        if (ObjectUtil.isEmpty(req.getVersion())) {
-            page = this.page(new Page<>(req.getPage(), req.getPageSize()), Wrappers.<NewFtpTreasuryBondYieldDraft>lambdaQuery()
-                    .eq(NewFtpTreasuryBondYieldDraft::getFtpId, req.getMainId())
-                    .eq(NewFtpTreasuryBondYieldDraft::getFrequency, req.getFrequency())
-                    .orderByDesc(NewFtpTreasuryBondYieldDraft::getDate));
+        Page<NewFtpShiborInterestRateDraft> page;
+        if(ObjectUtil.isEmpty(req.getVersion())){
+            page = this.page(new Page<>(req.getPage(), req.getPageSize()), Wrappers.<NewFtpShiborInterestRateDraft>lambdaQuery()
+                    .eq(NewFtpShiborInterestRateDraft::getFtpId, req.getMainId())
+                    .eq(NewFtpShiborInterestRateDraft::getFrequency, req.getFrequency())
+                    .orderByDesc(NewFtpShiborInterestRateDraft::getDate));
         } else {
-            page = newFtpTreasuryBondYieldLibService.getByVersion(req.getMainId(), req.getFrequency(), req.getVersion(), req.getPage(), req.getPageSize());
+            page = newFtpShiborInterestRateLibService.getByVersion(req.getMainId(), req.getFrequency(), req.getVersion(), req.getPage(), req.getPageSize());
         }
         if (ObjectUtil.isEmpty(page) && ObjectUtil.isNotEmpty(page.getRecords())) {
             return PageR.empty(req.getPage(), req.getPageSize());
         }
-        List<NewFtpTreasuryBondYieldDraft> list = page.getRecords();
+        List<NewFtpShiborInterestRateDraft> list = page.getRecords();
         List<NewFtpDetailTreasuryBondYieldListRSP> rsp = new ArrayList<>();
         if (ObjectUtil.isNotEmpty(list)) {
             switch (ftpFrequency) {
@@ -96,7 +94,7 @@ public class NewFtpTreasuryBondYieldDraftService
                     list.forEach(day -> {
                         NewFtpDetailTreasuryBondYieldListRSP body = new NewFtpDetailTreasuryBondYieldListRSP();
                         LocalDate date = day.getDate();
-                        body.setDate(String.format("%s-Q%s", date.getYear(), DateUtil.ensureQuarter(date.getMonthValue())));
+                        body.setDate(String.format("%s-Q%s", date.getYear(), (date.getMonthValue() + 2) / 3));
                         body.setValue(day.getValue());
                         body.setId(day.getId());
                         rsp.add(body);
@@ -108,33 +106,35 @@ public class NewFtpTreasuryBondYieldDraftService
         return PageR.of(rsp, page.getTotal());
     }
 
-    //从配置区拉取数据
+    /**
+     * 从配置区拉取数据
+     */
     @Transactional(rollbackFor = Throwable.class)
-    public void addTreasuryBondYield(Long ftpId){
+    public void addShiborInterestRate(Long ftpId){
         NewFtpBaseInfo newFtpBaseInfo = newFtpBaseInfoMapper.selectById(ftpId);
         if(ObjectUtil.isEmpty(newFtpBaseInfo)){
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
         //清理已有数据
-        SpringContextUtil.getBean(NewFtpTreasuryBondYieldDraftService.class).remove(Wrappers.<NewFtpTreasuryBondYieldDraft>lambdaQuery()
-        .eq(NewFtpTreasuryBondYieldDraft::getFtpId, ftpId));
-        List<NewFtpTreasuryBondYieldDraft> dayDraft = new ArrayList<>();
-        List<NewFtpTreasuryBondYieldDraft> monthDraft = new ArrayList<>();
-        List<NewFtpTreasuryBondYieldDraft> seasonDraft = new ArrayList<>();
+        SpringContextUtil.getBean(NewFtpShiborInterestRateDraftService.class).remove(Wrappers.<NewFtpShiborInterestRateDraft>lambdaQuery()
+                .eq(NewFtpShiborInterestRateDraft::getFtpId, ftpId));
+        List<NewFtpShiborInterestRateDraft> dayDraft = new ArrayList<>();
+        List<NewFtpShiborInterestRateDraft> monthDraft = new ArrayList<>();
+        List<NewFtpShiborInterestRateDraft> seasonDraft = new ArrayList<>();
 
-        List<NewFtpTreasuryBondYieldConfig> newFtpTreasuryBondYieldConfigs = newFtpTreasuryBondYieldConfigMapper.selectList(Wrappers.<NewFtpTreasuryBondYieldConfig>lambdaQuery()
-                .between(NewFtpTreasuryBondYieldConfig::getDate, newFtpBaseInfo.getMonth().minusMonths(9).atStartOfDay(), newFtpBaseInfo.getMonth().with(TemporalAdjusters.lastDayOfMonth())));
-        if(ObjectUtil.isNotEmpty(newFtpTreasuryBondYieldConfigs)){
+        List<NewFtpShiborInterestRateConfig> newFtpShiborInterestRateConfigs = newFtpShiborInterestRateConfigMapper.selectList(Wrappers.<NewFtpShiborInterestRateConfig>lambdaQuery()
+                .between(NewFtpShiborInterestRateConfig::getDate, newFtpBaseInfo.getMonth().minusMonths(9).atStartOfDay(), newFtpBaseInfo.getMonth().with(TemporalAdjusters.lastDayOfMonth())));
+        if(ObjectUtil.isNotEmpty(newFtpShiborInterestRateConfigs)){
             //添加天
-            newFtpTreasuryBondYieldConfigs.forEach(config -> {
-                NewFtpTreasuryBondYieldDraft draft = BeanUtil.copyProperties(config, NewFtpTreasuryBondYieldDraft.class, "id");
+            newFtpShiborInterestRateConfigs.forEach(config -> {
+                NewFtpShiborInterestRateDraft draft = BeanUtil.copyProperties(config, NewFtpShiborInterestRateDraft.class, "id");
                 draft.setFtpId(ftpId);
                 draft.setFrequency(FtpFrequency.DAY.name());
                 dayDraft.add(draft);
             });
             //添加月
-            aveMonth(dayDraft.stream().collect(Collectors.groupingBy(e -> e.getDate().with(TemporalAdjusters.firstDayOfMonth())))).forEach((k, v) -> {
-                NewFtpTreasuryBondYieldDraft draft = new NewFtpTreasuryBondYieldDraft();
+            ave(dayDraft.stream().collect(Collectors.groupingBy(e -> e.getDate().with(TemporalAdjusters.firstDayOfMonth())))).forEach((k, v) -> {
+                NewFtpShiborInterestRateDraft draft = new NewFtpShiborInterestRateDraft();
                 draft.setDate(k);
                 draft.setValue(v);
                 draft.setFtpId(ftpId);
@@ -142,34 +142,34 @@ public class NewFtpTreasuryBondYieldDraftService
                 monthDraft.add(draft);
             });
             //季度
-            aveMonth(monthDraft.stream().collect(Collectors.groupingBy(e -> e.getDate().minusMonths(e.getDate().getMonthValue() % 3 == 0 ? 2 : e.getDate().getMonthValue() % 3 - 1)))).forEach((k, v) -> {
-                NewFtpTreasuryBondYieldDraft draft = new NewFtpTreasuryBondYieldDraft();
+            ave(monthDraft.stream().collect(Collectors.groupingBy(e -> e.getDate().minusMonths(e.getDate().getMonthValue() % 3 == 0 ? 2 : e.getDate().getMonthValue() % 3 - 1)))).forEach((k, v) -> {
+                NewFtpShiborInterestRateDraft draft = new NewFtpShiborInterestRateDraft();
                 draft.setDate(k);
                 draft.setValue(v);
                 draft.setFtpId(ftpId);
                 draft.setFrequency(FtpFrequency.SEASON.name());
                 seasonDraft.add(draft);
             });
-            List<NewFtpTreasuryBondYieldDraft> addList = new ArrayList<>();
+            List<NewFtpShiborInterestRateDraft> addList = new ArrayList<>();
             addList.addAll(dayDraft);
             addList.addAll(monthDraft);
             addList.addAll(seasonDraft);
             if(!addList.isEmpty()){
-                SpringContextUtil.getBean(NewFtpTreasuryBondYieldDraftService.class).saveBatch(addList);
+                SpringContextUtil.getBean(NewFtpShiborInterestRateDraftService.class).saveBatch(addList);
             }
         }
         //添加波动值
-        newFtpTreasuryBondYieldPricingDraftService.addTreasuryBondYieldPricing(ftpId);
+        newFtpShiborInterestRatePricingDraftService.addTreasuryBondYield(ftpId);
     }
 
-    private Map<LocalDate, Integer> aveMonth(Map<LocalDate, List<NewFtpTreasuryBondYieldDraft>> dateListMap){
+    private Map<LocalDate, Integer> ave(Map<LocalDate, List<NewFtpShiborInterestRateDraft>> dateListMap){
         if(ObjectUtil.isEmpty(dateListMap)){
             return Collections.emptyMap();
         }
         Map<LocalDate, Integer> map = new LinkedHashMap<>();
         dateListMap.forEach((k, v) -> {
             if (!v.isEmpty()) {
-                Integer reduce = v.stream().map(NewFtpTreasuryBondYieldDraft::getValue).reduce(0, Integer::sum);
+                Integer reduce = v.stream().map(NewFtpShiborInterestRateDraft::getValue).reduce(0, Integer::sum);
                 map.put(k, new BigDecimal(reduce).divide(new BigDecimal(v.size()), 0, RoundingMode.HALF_UP).intValue());
             }
         });
