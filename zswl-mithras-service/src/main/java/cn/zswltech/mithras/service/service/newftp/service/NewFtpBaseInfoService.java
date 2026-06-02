@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.service.service.newftp.convert.NewFtpBaseInfoConverter;
+import cn.zswltech.mithras.ftp.newftp.convert.NewFtpBaseInfoConverter;
 import cn.zswltech.mithras.service.service.newftp.fms.DefaultNewFtpStateMachine;
 import cn.zswltech.mithras.service.service.newftp.fms.NewFtpContext;
 import cn.zswltech.mithras.service.service.newftp.fms.NewFtpEvent;

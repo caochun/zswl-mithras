@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.convert;
+package cn.zswltech.mithras.ftp.newftp.convert;
 
 import cn.zswltech.mithras.dto.newftp.NewFtpBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpBaseInfoListRSP;

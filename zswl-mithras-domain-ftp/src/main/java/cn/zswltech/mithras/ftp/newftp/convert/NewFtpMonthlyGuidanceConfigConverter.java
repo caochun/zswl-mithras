@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.newftp.convert;
+package cn.zswltech.mithras.ftp.newftp.convert;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpMonthlyGuidanceTemplateConfig;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceDraft;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceTemplateDraft;

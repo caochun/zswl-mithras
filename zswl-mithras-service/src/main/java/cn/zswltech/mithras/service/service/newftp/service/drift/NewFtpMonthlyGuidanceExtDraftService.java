@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.enums.newftp.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.newftp.convert.NewFtpMonthlyGuidanceExtDraftConverter;
+import cn.zswltech.mithras.ftp.newftp.convert.NewFtpMonthlyGuidanceExtDraftConverter;
 import cn.zswltech.mithras.service.service.newftp.fms.DefaultNewFtpStateMachine;
 import cn.zswltech.mithras.service.service.newftp.fms.NewFtpContext;
 import cn.zswltech.mithras.service.service.newftp.fms.NewFtpEvent;
