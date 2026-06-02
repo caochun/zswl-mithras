@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjRegionalDivisionEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

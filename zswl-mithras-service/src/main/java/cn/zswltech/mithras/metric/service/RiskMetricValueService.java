@@ -15,7 +15,7 @@ import cn.zswltech.mithras.metric.mapper.RiskMetricValueMapper;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricValue;
 import cn.zswltech.mithras.metric.mapper.model.condition.RiskMetricValueListConditions;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlStrategy;
+import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlStrategyService;

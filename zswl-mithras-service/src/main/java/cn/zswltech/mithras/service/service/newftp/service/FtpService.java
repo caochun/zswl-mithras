@@ -24,7 +24,7 @@ import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.enums.projpricing.ProjectManageLevelEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.mapper.lib.client.CorpCommerceInfoLibMapper;

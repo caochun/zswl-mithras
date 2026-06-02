@@ -3,9 +3,9 @@ package cn.zswltech.mithras.others.service.riskcontrol;
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlOpinionMonitor;
-import cn.zswltech.mithras.service.mapper.riskcontrol.RiskControlOpinionMonitorMapper;
-import cn.zswltech.mithras.service.mapper.riskcontrol.RiskControlWarnMonitorMapper;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;
+import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorMapper;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;
@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.opinion.RiskControlOpinionHandleStatus.PEND_HANDLE;
-import static cn.zswltech.mithras.service.enums.opinion.RiskControlOpinionHandleStatus.REJECTED;
+import static cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus.PEND_HANDLE;
+import static cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus.REJECTED;
 
 /**
  * @description:

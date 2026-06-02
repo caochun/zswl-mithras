@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.lease.*;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.excel.exporter.LeaseLedgerManageExcelExporter;
 import cn.zswltech.mithras.service.excel.model.LeaseLedgerManageExcelModel;
 import cn.zswltech.mithras.service.gendoc.render.LeaseItemTextRender;

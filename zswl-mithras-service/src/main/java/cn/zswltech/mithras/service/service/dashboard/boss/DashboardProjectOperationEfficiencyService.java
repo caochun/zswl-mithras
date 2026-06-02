@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.boss.OperationEfficiencyDetailListRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.OperationEfficiencyStatisticsListRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.service.enums.dashboard.BossDashboardGuanYuanDataSourceKeyEnum;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.dashboard.guanyuandata.boss.OperationEfficiencyStageDTO;
 import cn.zswltech.sleipnir.toolkit.enums.GuanYuanFilterTypeEnum;

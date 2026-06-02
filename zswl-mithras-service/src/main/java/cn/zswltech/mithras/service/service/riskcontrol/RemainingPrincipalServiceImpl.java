@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.mapper.payment.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
-import cn.zswltech.mithras.service.service.riskcontrol.dto.RemainingPrincipalQueryDto;
+import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.PaginationProcessor;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

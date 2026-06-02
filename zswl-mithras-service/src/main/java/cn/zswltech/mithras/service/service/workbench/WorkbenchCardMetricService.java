@@ -38,7 +38,7 @@ import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoSe
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
-import cn.zswltech.mithras.service.service.riskcontrol.dto.RemainingPrincipalQueryDto;
+import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.service.service.workbench.cardcal.CardCalculator;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

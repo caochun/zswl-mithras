@@ -15,7 +15,7 @@ import cn.zswltech.mithras.factory.service.RatingReportService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
-import cn.zswltech.mithras.service.enums.opinion.RiskControlOpinionHandleStatus;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;

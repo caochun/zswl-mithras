@@ -5,7 +5,7 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Industry
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
 import cn.zswltech.mithras.service.service.riskcontrol.dto.CorpCommerceInfoLibDto;
-import cn.zswltech.mithras.service.service.riskcontrol.dto.RemainingPrincipalQueryDto;
+import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

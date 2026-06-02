@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
 import cn.zswltech.mithras.service.enums.projestablish.FactoringType;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projestablish.ZrType;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;

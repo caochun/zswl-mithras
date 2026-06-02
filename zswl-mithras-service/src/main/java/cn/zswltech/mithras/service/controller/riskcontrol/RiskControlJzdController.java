@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.riskcontrol.RiskControlJzdReportApi;
 import cn.zswltech.mithras.api.riskcontrol.model.*;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlJzdReport;
+import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReport;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlJzdReportService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -16,7 +16,7 @@ import java.util.List;
 
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
-import static cn.zswltech.mithras.service.enums.riskcontrol.jzd.report.JzdReportStatus.NOT_REPORT;
+import static cn.zswltech.mithras.riskcontrol.report.jzd.JzdReportStatus.NOT_REPORT;
 
 /**
  * @author yibin

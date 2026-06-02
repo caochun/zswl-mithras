@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.riskcontrol.RiskControlRelatedClientApi;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlRelatedTransactionPageReq;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlRelatedTransactionRsp;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlRelatedClient;
+import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClient;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlRelatedClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;

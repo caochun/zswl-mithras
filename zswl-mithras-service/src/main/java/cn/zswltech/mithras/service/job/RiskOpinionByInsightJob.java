@@ -1,16 +1,16 @@
 package cn.zswltech.mithras.service.job;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.zswltech.mithras.service.enums.opinion.RiskControlOpinionHandleStatus;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlEmotionEnum;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskDataSourceEnum;
-import cn.zswltech.mithras.service.enums.riskcontrol.opinion.RiskControlOpinionEnum;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlEmotionEnum;
+import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionEnum;
 import cn.zswltech.mithras.xinsight.mapper.XinsightInfoMapper;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.xinsight.model.XinsightInfo;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlOpinionMonitor;
-import cn.zswltech.mithras.service.mapper.riskcontrol.RiskControlOpinionMonitorMapper;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitorService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
 import cn.zswltech.mithras.service.util.IdGeneratorUtils;

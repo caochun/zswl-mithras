@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.enums.assetclassify.*;
 import cn.zswltech.mithras.service.enums.kpi.config.ProvisionRadioEnum;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.gendoc.render.AssetClassifySummaryRender;
 import cn.zswltech.mithras.service.mapper.assetclassify.AssetClassifyMapper;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;

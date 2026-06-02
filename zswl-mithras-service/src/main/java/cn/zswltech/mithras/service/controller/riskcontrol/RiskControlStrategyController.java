@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.riskcontrol.*;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.riskcontrol.AbstractMetricComputer;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlStrategyService;
-import cn.zswltech.mithras.riskcontrol.eventbus.MetricComputeEvent;
+import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

@@ -5,9 +5,9 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.riskcontrol.RiskControlGljyReportApi;
 import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.*;
-import cn.zswltech.mithras.service.enums.riskcontrol.gljy.report.GljyReportLevel;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlGljyReport;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlRelatedClient;
+import cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportLevel;
+import cn.zswltech.mithras.riskcontrol.report.gljy.RiskControlGljyReport;
+import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClient;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlGljyReportService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlRelatedClientService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -23,7 +23,7 @@ import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
-import static cn.zswltech.mithras.service.enums.riskcontrol.gljy.report.GljyReportStatus.REPORTED;
+import static cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportStatus.REPORTED;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 
 /**

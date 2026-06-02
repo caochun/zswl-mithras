@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.workbench.cardcal;
 
-import cn.zswltech.mithras.service.enums.riskcontrol.AlertState;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlStrategy;
+import cn.zswltech.mithras.riskcontrol.common.AlertState;
+import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlStrategyService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

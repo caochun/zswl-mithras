@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper">
+
+
+    <select id="listBySponsor"
+            resultType="cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor">
+        select * from risk_control_opinion_monitor
+        where
+            sponsor_user_id = #{sponsorId} and
+            ( handle_status = 'PEND_HANDLE'  OR   handle_status = 'REJECTED' )
+    </select>
+    <select id="countDealingClient" resultType="java.lang.Integer">
+        select count(distinct credit_code) from risk_control_opinion_monitor where handle_status in ('PEND_HANDLE','HANDLE_ING','REJECTED') and risk_type = 1
+    </select>
+    <select id="countNewOpClient" resultType="java.lang.Integer">
+        select count(distinct(credit_code)) from risk_control_opinion_monitor
+        where risk_type = 1 and create_time &gt; curdate() and
+        credit_code not in (select distinct(credit_code) from risk_control_warn_monitor where risk_type = 1 and data_time &lt; curdate());
+    </select>
+    <select id="countCloseOpClient" resultType="java.lang.Integer">
+        SELECT count(distinct (credit_code)) from(
+         select credit_code,COUNT(1) AS handleing_count from risk_control_opinion_monitor
+         where handle_status in ('PEND_HANDLE','HANDLE_ING','REJECTED')
+           AND credit_code in (select distinct(credit_code) from risk_control_opinion_monitor where handle_status in ('CLOSED','HANDLED') and update_time &gt; curdate())
+            and risk_type = 1
+         GROUP BY credit_code) tmp where tmp.handleing_count = 0;
+    </select>
+    <select id="selectLatest5Day"
+            resultType="cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor">
+        select * from risk_control_opinion_monitor
+        where
+            risk_type = 1 and
+            create_time &gt; date_add(curdate(),interval -5 day)
+        order by create_time
+    </select>
+    <select id="selectHandlingOpinion" resultType="cn.zswltech.mithras.riskcontrol.monitor.DeptPieDataDto">
+        select a.id,b.name as deptName from risk_control_opinion_monitor a
+            left join client c on a.credit_code = c.usc_code
+            left join bifrost_org b on b.id = c.belong_dept_id
+        where handle_status in ('PEND_HANDLE','HANDLE_ING','REJECTED') and risk_type = 1
+    </select>
+    <select id="selectMonitorOpDetail"
+            resultType="cn.zswltech.mithras.riskcontrol.monitor.ClientMonitorOpinionDetailRsp">
+        select
+            title,
+            link_address as linkAddress,
+            info_publ_date as date,
+            chi_name as clientName,
+            warn_star as warnStar,
+            warn_level as warnLevel,
+            handle_status as opinionStatus
+        from risk_control_opinion_monitor a
+        left join client c on a.credit_code = c.usc_code
+        where c.id = #{clientId}
+        and risk_type =1 order by a.create_time desc;
+    </select>
+
+    <select id="countDealing" resultType="java.lang.Integer">
+        select count(1) from risk_control_opinion_monitor where handle_status = 'HANDLE_ING'
+    </select>
+    <select id="countNewOp" resultType="java.lang.Integer">
+        select count(1) from risk_control_opinion_monitor
+        where create_time &gt;= curdate()
+    </select>
+    <select id="countCloseOp" resultType="java.lang.Integer">
+        SELECT count(1) AS handleing_count
+        from risk_control_opinion_monitor
+        where handle_status = 'HANDLED'
+          and update_time &gt;= curdate()
+    </select>
+
+    <select id="selectExistingRecords" resultType="cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor">
+        SELECT
+            id,
+            title,
+            credit_code,
+            info_publ_date
+        FROM risk_control_opinion_monitor
+        WHERE
+        <foreach collection="params" item="param" separator=" OR ">
+            (
+            title = #{param.title}
+            AND credit_code = #{param.creditCode}
+            AND info_publ_date = #{param.infoPublDate}
+            )
+        </foreach>
+    </select>
+</mapper>

@@ -2,6 +2,8 @@ package cn.zswltech.mithras.service.providence;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.riskcontrol.monitor.ClientMonitorOpinionDetailRsp;
+import cn.zswltech.mithras.riskcontrol.monitor.ClientMonitorWarnDetailRsp;
 import cn.zswltech.mithras.service.providence.dto.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

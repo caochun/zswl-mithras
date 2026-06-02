@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.service.service.riskcontrol.job;
 
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlStrategy;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlStrategySnapshot;
+import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
+import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshot;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlStrategyService;
-import cn.zswltech.mithras.service.service.riskcontrol.RiskControlStrategySnapshotService;
+import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshotService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.budget.BudgetPlanProfitDetailMapper;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanProfit;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanProfitDetail;

@@ -7,7 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlClientListFileService;
-import cn.zswltech.mithras.service.service.riskcontrol.dto.RiskClientListFileDTO;
+import cn.zswltech.mithras.riskcontrol.clientfile.RiskClientListFileDTO;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

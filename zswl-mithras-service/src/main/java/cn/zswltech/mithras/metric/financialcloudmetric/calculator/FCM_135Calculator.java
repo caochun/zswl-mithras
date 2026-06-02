@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClien
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyService;
 import cn.zswltech.mithras.service.service.lib.assetclassify.AssetClassifyClientAuxiliaryLibService;
 import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
-import cn.zswltech.mithras.service.service.riskcontrol.dto.RemainingPrincipalQueryDto;
+import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

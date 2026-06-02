@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.riskcontrol;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.service.mapper.lib.client.CorpCommerceInfoLibMapper;

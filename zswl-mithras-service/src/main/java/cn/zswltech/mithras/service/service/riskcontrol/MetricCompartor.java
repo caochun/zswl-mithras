@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.riskcontrol;
 
-import cn.zswltech.mithras.service.enums.riskcontrol.AlertState;
+import cn.zswltech.mithras.riskcontrol.common.AlertState;
 
 import javax.annotation.Nullable;
 

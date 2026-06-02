@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.enums.dashboard;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

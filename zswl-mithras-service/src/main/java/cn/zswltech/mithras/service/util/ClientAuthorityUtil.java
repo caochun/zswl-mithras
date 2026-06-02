@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.enums.client.ClientInfoEnum;
 import cn.zswltech.mithras.service.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.service.enums.client.ClientStatus;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.client.ClientAuthorityMapper;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;

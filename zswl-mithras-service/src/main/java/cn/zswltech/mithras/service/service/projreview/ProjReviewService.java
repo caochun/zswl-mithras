@@ -53,7 +53,7 @@ import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnu
 import cn.zswltech.mithras.service.enums.projreview.MeetMinuteStatuesEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.app.VisitRecordMapper;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpCommerceInfoMapper;

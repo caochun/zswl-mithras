@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.enums.SubjectItemDisplayDimension;
 import cn.zswltech.mithras.service.enums.SubjectItemType;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.corp.CorpCommerceInfoMapper;

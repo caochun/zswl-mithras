@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.contract.IncomeConfirmTypeEnum;
 import cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.excel.exporter.ContractIncomeSharingExcelManagerExporter;
 import cn.zswltech.mithras.service.excel.exporter.ContractIncomeSharingExcelManagerExporter2;
 import cn.zswltech.mithras.service.excel.model.ContractIncomeSharingExcelModel;

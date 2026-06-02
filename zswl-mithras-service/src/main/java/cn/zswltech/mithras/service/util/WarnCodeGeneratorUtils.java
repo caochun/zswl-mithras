@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.util;
 
-import cn.zswltech.mithras.service.mapper.riskcontrol.RiskControlWarnMonitorMapper;
+import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;

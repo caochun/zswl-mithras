@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.dashboard.DashBoardQueryTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.BelongTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.BusinessTypeEnum;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricDeptScope;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractIncomeSharing;

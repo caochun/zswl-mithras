@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.util;
 
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlOpinionMonitor;
-import cn.zswltech.mithras.service.mapper.riskcontrol.RiskControlOpinionMonitorMapper;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

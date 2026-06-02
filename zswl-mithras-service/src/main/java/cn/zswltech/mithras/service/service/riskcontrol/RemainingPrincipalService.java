@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.riskcontrol;
 
 import cn.hutool.core.lang.Pair;
-import cn.zswltech.mithras.service.service.riskcontrol.dto.RemainingPrincipalQueryDto;
+import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 
 import javax.annotation.Nullable;
 import java.math.BigDecimal;

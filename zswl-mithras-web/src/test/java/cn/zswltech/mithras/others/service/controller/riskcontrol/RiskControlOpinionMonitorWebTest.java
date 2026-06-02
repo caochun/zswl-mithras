@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.controller.riskcontrol;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
-import cn.zswltech.mithras.service.mapper.model.riskcontrol.RiskControlOpinionMonitor;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

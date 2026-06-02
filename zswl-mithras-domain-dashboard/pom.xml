@@ -40,7 +40,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-riskcontrol</artifactId>
+            <artifactId>zswl-mithras-riskcontrol</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

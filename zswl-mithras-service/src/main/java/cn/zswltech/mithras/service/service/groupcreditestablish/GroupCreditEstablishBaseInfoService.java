@@ -39,7 +39,7 @@ import cn.zswltech.mithras.service.enums.groupcreditestablish.GroupCreditEstabli
 import cn.zswltech.mithras.service.enums.groupcreditestablish.GroupCreditEstablishProcessStatus;
 import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewProcessStatus;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishMaterialsEnum;
-import cn.zswltech.mithras.service.enums.riskcontrol.RiskControlIndustryClassify;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.dto.GroupCreditEstablishListSelectDTO;
 import cn.zswltech.mithras.service.mapper.groupcreditestablish.GroupCreditEstablishBaseInfoMapper;
