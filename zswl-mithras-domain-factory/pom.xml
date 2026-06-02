@@ -63,5 +63,10 @@
             <artifactId>hutool-all</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
