@@ -4,7 +4,6 @@ package cn.zswltech.mithras.service.service.finance;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.mithras.dto.kpi.ContractAssessDeptConfigListREQ;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ContractAssessDeptConfigListRSP;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ContractAssessDeptDto;
@@ -35,9 +34,6 @@ public class ContractAssessDeptDetailService extends ServiceImpl<ContractAssessD
 
     @Resource
     private ContractAssessDeptDetailMapper contractAssessDeptDetailMapper;
-    @Resource
-    private OrgDOMapper orgDOMapper;
-
     //获取合同-考核部门设置详情
     public List<ContractAssessDeptConfigListRSP> getContractAssessDeptConfig(ContractAssessDeptConfigListREQ configListREQ){
         //查看考核部门详情数据
