@@ -115,6 +115,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
+import cn.zswltech.mithras.service.service.ClientRiskExposureResolver;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
@@ -198,7 +199,7 @@ import static cn.zswltech.mithras.service.others.MithrasException.err;
  */
 @Slf4j
 @Service
-public class ClientService extends ServiceImpl<ClientMapper, Client> implements FlowEndEventProcessor {
+public class ClientService extends ServiceImpl<ClientMapper, Client> implements FlowEndEventProcessor, ClientRiskExposureResolver {
 
     @Resource
     private ClientMapper clientMapper;

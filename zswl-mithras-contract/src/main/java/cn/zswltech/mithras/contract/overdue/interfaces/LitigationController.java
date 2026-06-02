@@ -1,27 +1,24 @@
-package cn.zswltech.mithras.service.overdue.interfaces;
+package cn.zswltech.mithras.contract.overdue.interfaces;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.overdue.application.command.*;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.ContractClientQuery;
 import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuery;
 import cn.zswltech.mithras.contract.overdue.application.service.LitigationApplicationService;
+import cn.zswltech.mithras.contract.overdue.application.service.LitigationContractQueryService;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ClientOverdueInfoDto;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractClientInfo;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import liquibase.pro.packaged.O;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @description:
@@ -36,7 +33,7 @@ public class LitigationController {
     @Resource
     private LitigationApplicationService litigationApplicationService;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
+    private LitigationContractQueryService litigationContractQueryService;
 
 
     @ApiOperation(value = "诉讼登记列表")
@@ -61,14 +58,13 @@ public class LitigationController {
     @ApiOperation(value = "诉讼登记-客户相关合同下拉")
     @GetMapping("/litigation/contract/pulldown")
     public R<Map<Long, String>> contractPulldown(@RequestParam Long clientId) {
-        List<ContractBaseInfo> contractBaseInfos = contractBaseInfoService.listByClientId(clientId);
-        return R.ok(contractBaseInfos.stream().collect(Collectors.toMap(ContractBaseInfo::getId, ContractBaseInfo::getContractCode)));
+        return R.ok(litigationContractQueryService.contractPulldown(clientId));
     }
 
     @ApiOperation(value = "诉讼登记-合同相关全量客户")
     @PostMapping("/litigation/contract/client")
     public R<List<ContractClientInfo>> contractClient(@RequestBody ContractClientQuery query) {
-        return R.ok(contractBaseInfoService.listClientsByContractId(query.getContractIds()));
+        return R.ok(litigationContractQueryService.contractClient(query.getContractIds()));
     }
 
     @ApiOperation(value = "诉讼登记保存")
@@ -102,6 +98,6 @@ public class LitigationController {
     @ApiOperation(value = "客户逾期信息展示")
     @GetMapping("/litigation/client/overdueinfo")
     public R<ClientOverdueInfoDto> clientOverdueInfo(@RequestParam("clientId") Long clientId) {
-        return R.ok(contractBaseInfoService.clientOverdueInfo(clientId));
+        return R.ok(litigationContractQueryService.clientOverdueInfo(clientId));
     }
 }
