@@ -21,14 +21,14 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInf
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
-import cn.zswltech.mithras.ftp.mapper.FtpInterestDetailRecordMapper;
+import cn.zswltech.mithras.ftp.oldftp.mapper.FtpInterestDetailRecordMapper;
 import cn.zswltech.mithras.service.mapper.model.collection.BillManagement;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
-import cn.zswltech.mithras.ftp.model.FtpInterestBaseInfo;
-import cn.zswltech.mithras.ftp.model.FtpInterestDetailRecord;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;

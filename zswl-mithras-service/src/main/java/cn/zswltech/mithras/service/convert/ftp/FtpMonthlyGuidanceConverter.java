@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.convert.ftp;
 
 import cn.zswltech.mithras.dto.ftp.*;
-import cn.zswltech.mithras.ftp.model.*;
+import cn.zswltech.mithras.ftp.oldftp.model.*;
 import org.mapstruct.Mapper;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.ftp.fms;
 
-import cn.zswltech.mithras.ftp.model.FtpMonthlyGuidance;
-import cn.zswltech.mithras.ftp.model.FtpQuarterlyGuidance;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyGuidance;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyGuidance;
 import org.springframework.stereotype.Service;
 
 /**

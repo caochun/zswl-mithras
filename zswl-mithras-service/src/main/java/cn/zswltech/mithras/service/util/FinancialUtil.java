@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.enums.InterestWayEnum;
 import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
-import cn.zswltech.mithras.ftp.bo.FtpCalculateHelperBO;
+import cn.zswltech.mithras.ftp.oldftp.bo.FtpCalculateHelperBO;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.bo.*;

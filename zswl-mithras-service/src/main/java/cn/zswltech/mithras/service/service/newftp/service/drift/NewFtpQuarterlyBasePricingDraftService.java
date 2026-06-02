@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingModifyREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.ftp.enums.FtpBusinessVersion;
+import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
 import cn.zswltech.mithras.service.enums.newftp.*;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.service.others.AuthCheckException;

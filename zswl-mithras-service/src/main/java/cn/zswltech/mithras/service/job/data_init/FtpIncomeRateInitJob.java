@@ -16,11 +16,11 @@ import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingProduc
 import cn.zswltech.mithras.service.job.data_init.dto.FtpIncomeDetailExcelModel;
 import cn.zswltech.mithras.service.job.data_init.dto.FtpIncomeRateExcelModel;
 import cn.zswltech.mithras.service.job.data_init.dto.ZsRentLeaseAbsExcelModel;
-import cn.zswltech.mithras.ftp.model.FtpIncomeBaseInfo;
-import cn.zswltech.mithras.ftp.model.FtpIncomeDetailRecord;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeBaseInfo;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeDetailRecord;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
-import cn.zswltech.mithras.ftp.service.FtpIncomeDetailRecordService;
+import cn.zswltech.mithras.ftp.oldftp.service.FtpIncomeDetailRecordService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;

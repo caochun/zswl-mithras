@@ -3,7 +3,7 @@ package cn.zswltech.mithras.ftp.newftp.lib.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailTreasuryBondYieldListRSP;
-import cn.zswltech.mithras.ftp.enums.FtpFrequency;
+import cn.zswltech.mithras.ftp.oldftp.enums.FtpFrequency;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpSubModule;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.ftp.newftp.lib.NewFtpLibAbstractHandler;

@@ -7,7 +7,7 @@
 //import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
 //import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
 //import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActualLib;
-//import cn.zswltech.mithras.ftp.model.FtpInterestBaseInfo;
+//import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 //import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
 //import cn.zswltech.mithras.service.mapper.model.payment.FtpPriceInfo;
 //import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

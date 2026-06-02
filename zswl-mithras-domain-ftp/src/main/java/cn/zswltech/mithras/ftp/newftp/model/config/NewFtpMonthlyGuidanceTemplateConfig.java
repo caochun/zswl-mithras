@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.ftp.newftp.model.config;
 
-import cn.zswltech.mithras.ftp.enums.FtpBusinessVersion;
+import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import com.baomidou.mybatisplus.annotation.IdType;

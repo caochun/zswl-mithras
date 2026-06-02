@@ -8,7 +8,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.newftp.NewFtpCommonDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailLprPricingListRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.ftp.enums.FtpFrequency;
+import cn.zswltech.mithras.ftp.oldftp.enums.FtpFrequency;
 import cn.zswltech.mithras.service.mapper.basedata.BaseDataLprMapper;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataLpr;
 import cn.zswltech.mithras.service.others.MithrasException;

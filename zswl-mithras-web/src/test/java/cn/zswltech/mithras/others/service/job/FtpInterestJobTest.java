@@ -6,7 +6,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.service.job.FtpInterestJob;
 import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
-import cn.zswltech.mithras.ftp.bo.CashFtpInfluenceBO;
+import cn.zswltech.mithras.ftp.oldftp.bo.CashFtpInfluenceBO;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.service.service.newftp.service.FtpService;
 import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpFinancingCostPricingConfigService;

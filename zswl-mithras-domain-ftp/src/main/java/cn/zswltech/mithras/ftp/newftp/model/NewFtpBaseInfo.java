@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.newftp.model;
 
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.ftp.enums.FtpBusinessVersion;
+import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpProcessStatus;
 import cn.zswltech.mithras.ftp.newftp.enums.PricingFrequencyEnum;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;

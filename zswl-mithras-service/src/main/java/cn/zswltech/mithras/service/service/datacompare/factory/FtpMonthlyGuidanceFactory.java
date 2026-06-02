@@ -3,14 +3,14 @@ package cn.zswltech.mithras.service.service.datacompare.factory;
 import cn.zswltech.mithras.dto.ftp.FtpMonthlyGuidanceDetailRsp;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.ftp.mapper.lib.FtpMonthlyGuidanceLibMapper;
-import cn.zswltech.mithras.ftp.model.FtpMonthlyGuidance;
-import cn.zswltech.mithras.ftp.model.FtpMonthlyGuidanceLib;
+import cn.zswltech.mithras.ftp.oldftp.mapper.lib.FtpMonthlyGuidanceLibMapper;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyGuidance;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyGuidanceLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.ftp.lib.handler.impl.monthly.FtpMonthlyGuidanceLibHandler;
+import cn.zswltech.mithras.ftp.oldftp.lib.handler.impl.monthly.FtpMonthlyGuidanceLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

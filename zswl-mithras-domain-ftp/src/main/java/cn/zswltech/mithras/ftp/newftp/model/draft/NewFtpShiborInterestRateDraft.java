@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.ftp.newftp.model.draft;
 
-import cn.zswltech.mithras.ftp.enums.FtpFrequency;
+import cn.zswltech.mithras.ftp.oldftp.enums.FtpFrequency;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRateConfig;
 import com.baomidou.mybatisplus.annotation.TableField;

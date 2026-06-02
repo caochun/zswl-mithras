@@ -10,12 +10,12 @@ import cn.zswltech.mithras.service.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.ftp.mapper.FtpQuarterlyGuidanceMapper;
+import cn.zswltech.mithras.ftp.oldftp.mapper.FtpQuarterlyGuidanceMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.ftp.model.FtpQuarterlyGuidance;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyGuidance;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
-import cn.zswltech.mithras.ftp.lib.handler.AbstractFtpQuarterlyLibHandler;
+import cn.zswltech.mithras.ftp.oldftp.lib.handler.AbstractFtpQuarterlyLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

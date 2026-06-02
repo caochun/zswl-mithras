@@ -22,10 +22,10 @@ import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseIn
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingProductDetailService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualSplitRecordService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualSplitService;
-import cn.zswltech.mithras.ftp.mapper.FtpIncomeBaseInfoMapper;
-import cn.zswltech.mithras.ftp.model.FtpIncomeBaseInfo;
-import cn.zswltech.mithras.ftp.model.FtpIncomeDetailRecord;
-import cn.zswltech.mithras.ftp.service.FtpIncomeDetailRecordService;
+import cn.zswltech.mithras.ftp.oldftp.mapper.FtpIncomeBaseInfoMapper;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeBaseInfo;
+import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeDetailRecord;
+import cn.zswltech.mithras.ftp.oldftp.service.FtpIncomeDetailRecordService;
 import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingCreditRef;

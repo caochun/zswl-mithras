@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.ftp.mapper.FtpIncomeDetailRecordMapper">
-    <select id="countByDate" resultType="cn.zswltech.mithras.ftp.model.FtpIncomeDetailRecord">
+<mapper namespace="cn.zswltech.mithras.ftp.oldftp.mapper.FtpIncomeDetailRecordMapper">
+    <select id="countByDate" resultType="cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeDetailRecord">
         select a.ftp_income_id, sum(a.ftp_income) as ftp_income from ftp_income_detail_record a
         <where>
             <if test="from != null">
