@@ -8,8 +8,6 @@ import cn.zswltech.mithras.factory.lib.ratingamount.RatingAmountLibService;
 import cn.zswltech.mithras.factory.lib.ratingamount.handler.RatingAmountAbstractHandler;
 import cn.zswltech.mithras.factory.model.RatingAmount;
 import cn.zswltech.mithras.factory.model.RatingAmountLib;
-import cn.zswltech.mithras.factory.model.RatingClient;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
@@ -65,7 +63,7 @@ public class RatingAmountVersionServiceImpl extends CommonVersionService<RatingA
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.RATING_AMOUNT;
+    protected String getBusinessModuleName() {
+        return "RATING_AMOUNT";
     }
 }

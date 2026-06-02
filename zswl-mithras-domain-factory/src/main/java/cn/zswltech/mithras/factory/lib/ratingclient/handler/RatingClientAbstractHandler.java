@@ -1,9 +1,7 @@
-package cn.zswltech.mithras.factory.lib.ratingamount.handler;
+package cn.zswltech.mithras.factory.lib.ratingclient.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.dto.rating.ratingamount.RatingAmountDetailLibRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientDetailLibRSP;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -13,7 +11,7 @@ import java.util.Collections;
 import java.util.Set;
 
 
-public abstract class RatingAmountAbstractHandler<LIB extends ILib, ENTITY extends IEntity, RSP extends ListBaseRSP>
+public abstract class RatingClientAbstractHandler<LIB extends ILib, ENTITY extends IEntity, RSP extends ListBaseRSP>
         extends LibAbstractHandler<LIB, ENTITY, RSP> {
 
     @Override
@@ -50,10 +48,7 @@ public abstract class RatingAmountAbstractHandler<LIB extends ILib, ENTITY exten
         return "rating_id";
     }
 
-    public void validateData(Client client) {
-    }
-
-    public abstract RatingAmountDetailLibRSP getSubModule();
+    public abstract RatingClientDetailLibRSP getSubModule();
 
     public abstract boolean needHandle(Long mainId);
 
@@ -63,8 +58,8 @@ public abstract class RatingAmountAbstractHandler<LIB extends ILib, ENTITY exten
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.RATING_AMOUNT;
+    protected String businessModuleName() {
+        return "RATING_CLIENT";
     }
 
 }
