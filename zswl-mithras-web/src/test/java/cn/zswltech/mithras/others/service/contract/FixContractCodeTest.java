@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.others.service.contract;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.lib.contract.ContractBaseInfoLibMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;

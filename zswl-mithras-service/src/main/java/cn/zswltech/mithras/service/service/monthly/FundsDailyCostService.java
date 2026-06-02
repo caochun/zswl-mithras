@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeI
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPlan;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;

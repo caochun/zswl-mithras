@@ -10,10 +10,10 @@ import cn.zswltech.mithras.dto.projlifecycle.ProjectLifecycleListREQ;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractAocPrice;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractFactoringPrice;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
@@ -43,8 +43,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.enums.contract.ContractStatus.*;
-import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.CLOSED;
+import static cn.zswltech.mithras.contract.enums.contract.ContractStatus.*;
+import static cn.zswltech.mithras.contract.enums.contract.ProjItemStatus.CLOSED;
 
 /**
  * @author yibin

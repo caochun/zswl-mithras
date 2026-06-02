@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeAddREQ;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeListRSP;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeModifyREQ;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeRemoveREQ;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractPledge;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledge;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Collection;

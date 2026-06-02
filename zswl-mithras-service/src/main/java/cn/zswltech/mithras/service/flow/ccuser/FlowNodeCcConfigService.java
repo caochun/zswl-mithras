@@ -7,7 +7,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.mapper.flow.FlowNodeCcConfigMapper;
 import cn.zswltech.mithras.service.mapper.flow.model.FlowNodeCcConfig;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;

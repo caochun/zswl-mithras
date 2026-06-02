@@ -7,13 +7,13 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.enums.contract.ProjItemStatus;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.enums.contract.ProjItemStatus;
 import cn.zswltech.mithras.service.mapper.client.ClientVwSyncMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.ClientViewByRiskControl;
 import cn.zswltech.mithras.service.mapper.model.client.ClientVwSync;
-import cn.zswltech.mithras.service.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.groupcreditestablish.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
@@ -46,6 +46,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import cn.zswltech.mithras.contract.service.lib.contract.ContractTenantryLibService;
 
 @Slf4j
 @Component

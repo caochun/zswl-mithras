@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.mapper.lib.fund.financing.FundFinancingRepayA
 import cn.zswltech.mithras.service.mapper.liquidityrisk.BaseAmountSettingMapper;
 import cn.zswltech.mithras.service.mapper.liquidityrisk.FinancingDeliverDetailSettingMapper;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActualLib;

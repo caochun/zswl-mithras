@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.contract.operationprepare;
 
 import cn.hutool.core.lang.Assert;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import org.springframework.beans.factory.InitializingBean;

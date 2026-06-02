@@ -2,10 +2,10 @@ package cn.zswltech.mithras.service.gendoc.render.contractzlzz;
 
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractSubTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractSubTypeEnum;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;

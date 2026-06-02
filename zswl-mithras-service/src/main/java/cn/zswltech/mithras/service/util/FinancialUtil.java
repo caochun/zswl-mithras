@@ -10,7 +10,7 @@ import cn.hutool.core.lang.Pair;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.InterestWayEnum;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.ftp.oldftp.bo.FtpCalculateHelperBO;

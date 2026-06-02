@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.gendoc.render.overduecollect;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.service.overdue.domain.acl.ContractLesseeInfo;
+import cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo;
 import com.deepoove.poi.XWPFTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

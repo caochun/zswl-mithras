@@ -26,8 +26,8 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayAc
 import cn.zswltech.mithras.service.fund.direct.excel.FundDirectFinancingRepayActualExcelModel;
 import cn.zswltech.mithras.service.fund.direct.excel.FundDirectFinancingRepayActualExporter;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingRepayActualMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlow;

@@ -16,10 +16,10 @@
 //import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 //import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 //import cn.zswltech.mithras.service.job.FtpInterestJob;
-//import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
-//import cn.zswltech.mithras.service.mapper.model.contract.ContractReceiptLib;
-//import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
-//import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActualLib;
+//import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+//import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
+//import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
+//import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
 //import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfit;
 //import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDetail;
 //import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
@@ -33,8 +33,8 @@
 //import cn.zswltech.mithras.service.service.flow.MyTaskService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestDetailRecordService;
-//import cn.zswltech.mithras.service.service.lib.contract.ContractReceiptLibService;
-//import cn.zswltech.mithras.service.service.lib.contract.ContractRentActualLibService;
+//import cn.zswltech.mithras.contract.service.lib.contract.ContractReceiptLibService;
+//import cn.zswltech.mithras.contract.service.lib.contract.ContractRentActualLibService;
 //import cn.zswltech.mithras.service.util.StringUtil;
 //import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 //import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

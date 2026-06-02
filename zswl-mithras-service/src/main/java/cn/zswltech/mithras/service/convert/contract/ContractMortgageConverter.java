@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageAddREQ;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageListRSP;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageModifyREQ;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractMortgage;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

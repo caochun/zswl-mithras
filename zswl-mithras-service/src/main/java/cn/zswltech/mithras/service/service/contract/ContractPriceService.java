@@ -5,8 +5,8 @@ import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceModifyREQ;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractPrice;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrice;
 
 import java.util.List;
 import java.util.Map;

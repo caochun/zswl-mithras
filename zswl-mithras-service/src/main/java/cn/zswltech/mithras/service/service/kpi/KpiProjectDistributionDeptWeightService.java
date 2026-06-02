@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightSaveREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionPrevREQ;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.kpi.KpiProjectDistributionDeptWeightMapper;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptWeight;

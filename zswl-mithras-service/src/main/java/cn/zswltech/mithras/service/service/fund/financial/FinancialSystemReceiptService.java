@@ -2,8 +2,8 @@ package cn.zswltech.mithras.service.service.fund.financial;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.enums.contract.LPRTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.LPRTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.fund.financial.FundFinancialSystemEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.*;
 import cn.zswltech.mithras.service.enums.projestablish.RateType;

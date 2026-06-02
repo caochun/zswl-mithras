@@ -2,7 +2,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

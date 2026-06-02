@@ -4,9 +4,9 @@ import cn.zswltech.mithras.dto.contract.rent.ContractRentActualExportREQ;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentActualImportREQ;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.IRRCalculateResultRSP;
 import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.OutputStream;

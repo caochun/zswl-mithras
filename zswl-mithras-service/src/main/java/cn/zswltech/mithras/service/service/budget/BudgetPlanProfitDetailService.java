@@ -9,7 +9,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;

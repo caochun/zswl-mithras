@@ -4,7 +4,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.third.config.QiyuesuoConfig;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractTextSignInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextSignInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.text.ContractTextManageService;
 import cn.zswltech.mithras.service.service.contract.text.ContractTextSignInfoService;

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.liquidityrisk.*;
 import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.dto.FundFinancingRepayActualDTO;
 import cn.zswltech.mithras.service.mapper.lib.fund.financing.FundFinancingRepayActualLibMapper;
 import cn.zswltech.mithras.service.mapper.liquidityrisk.BaseAmountSettingMapper;

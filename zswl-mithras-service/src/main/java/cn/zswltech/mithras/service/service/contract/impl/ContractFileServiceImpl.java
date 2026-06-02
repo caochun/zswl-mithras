@@ -10,11 +10,11 @@ import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseRemoveMainA
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contract.*;
+import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.service.gendoc.render.ContractFileSignBillRender;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

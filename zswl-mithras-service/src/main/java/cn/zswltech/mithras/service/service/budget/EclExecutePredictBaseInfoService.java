@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.kpi.EclOuterLevelEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiRatingModelGroupEnum;
 import cn.zswltech.mithras.service.enums.kpi.config.EclConfigEnum;
@@ -30,7 +30,7 @@ import cn.zswltech.mithras.service.mapper.budget.EclExecutePredictBaseInfoMapper
 import cn.zswltech.mithras.service.mapper.kpi.EclExecuteRecordMapper;
 import cn.zswltech.mithras.service.mapper.model.budget.*;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.EclBusinessConfig;
 import cn.zswltech.mithras.service.mapper.model.kpi.EclExecuteRecord;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfoLib;

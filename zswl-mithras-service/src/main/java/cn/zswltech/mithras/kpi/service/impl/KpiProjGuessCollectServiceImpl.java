@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.convert.kpi.KpiParameterConfigConvert;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.service.mapper.finance.FinanceProjectProfitDetailReceiptMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDetailReceipt;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfoLib;

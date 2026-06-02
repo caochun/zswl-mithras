@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.projreview.cashflowplan.IRRCalculateResultRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.convert.projpricing.ProjPricingCashFlowPlanConverter;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.service.excel.ExcelExporterFactory;

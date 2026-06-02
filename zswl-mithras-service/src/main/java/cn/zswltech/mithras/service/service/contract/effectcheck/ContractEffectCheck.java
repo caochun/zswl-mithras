@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.contract.effectcheck;
 
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 
 /**

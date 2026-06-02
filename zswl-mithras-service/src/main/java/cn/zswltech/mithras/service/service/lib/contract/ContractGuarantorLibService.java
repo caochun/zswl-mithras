@@ -2,9 +2,9 @@ package cn.zswltech.mithras.service.service.lib.contract;
 
 import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorListRSP;
-import cn.zswltech.mithras.service.mapper.lib.contract.ContractGuarantorLibMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantorLib;
+import cn.zswltech.mithras.contract.mapper.lib.contract.ContractGuarantorLibMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantorLib;
 import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractGuarantorLibHandler;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

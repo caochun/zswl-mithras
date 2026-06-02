@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.service.overdue.application.assembler;
 
-import cn.zswltech.mithras.service.overdue.application.command.PrintingAddCommand;
-import cn.zswltech.mithras.service.overdue.application.dto.PrintingDetailDto;
-import cn.zswltech.mithras.service.overdue.application.dto.PrintingListDto;
-import cn.zswltech.mithras.service.overdue.domain.docprinting.Printing;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.DocPrinting;
+import cn.zswltech.mithras.contract.overdue.application.command.PrintingAddCommand;
+import cn.zswltech.mithras.contract.overdue.application.dto.PrintingDetailDto;
+import cn.zswltech.mithras.contract.overdue.application.dto.PrintingListDto;
+import cn.zswltech.mithras.contract.overdue.domain.docprinting.Printing;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrinting;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

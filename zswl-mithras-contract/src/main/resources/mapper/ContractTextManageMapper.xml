@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.service.mapper.contract.ContractTextManageMapper">
+<mapper namespace="cn.zswltech.mithras.contract.mapper.contract.ContractTextManageMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.service.mapper.model.contract.ContractTextManage">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.contract.mapper.model.contract.ContractTextManage">
         <id property="id" column="id" jdbcType="BIGINT"/>
         <result property="contractId" column="contract_id" jdbcType="BIGINT"/>
         <result property="signWay" column="sign_way" jdbcType="VARCHAR"/>
@@ -22,7 +22,7 @@
         push_time,create_by,update_by,
         deleted,create_time,update_time
     </sql>
-    <select id="list" resultType="cn.zswltech.mithras.service.service.bo.ContractTextManageBO"
+    <select id="list" resultType="cn.zswltech.mithras.contract.service.bo.ContractTextManageBO"
             parameterType="cn.zswltech.mithras.dto.contract.text.ContractTextManageListREQ">
         SELECT ctm.id AS id,
         cbi.id AS contractId,
@@ -66,7 +66,7 @@
         ORDER BY ctm.id DESC
     </select>
     <select id="selectByContractId"
-            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractTextManage">
+            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractTextManage">
         SELECT
         <include refid="Base_Column_List"/>
         FROM contract_text_manage

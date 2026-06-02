@@ -20,7 +20,7 @@ import cn.zswltech.mithras.dto.fund.financing.plan.FundFinancingPlanModifyREQ;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftDetailRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.controller.basedata.BaseDataLprController;
-import cn.zswltech.mithras.service.enums.contract.LPRTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.LPRTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.OrganizationType;
 import cn.zswltech.mithras.service.enums.fund.financing.*;
 import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingPlanMapper;

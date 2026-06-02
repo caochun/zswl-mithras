@@ -109,11 +109,11 @@ import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.dto.version.DiffValueList;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.controller.kpi.KpiProjectDistributionWeightController;
-import cn.zswltech.mithras.service.enums.contract.ContractAccountUseEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.service.enums.datacompare.CompareFactoryEnum;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractLeaseItem;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractLeaseItemLib;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItemLib;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.*;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactoryCreator;
@@ -145,6 +145,9 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.*;
 import java.util.stream.Collectors;
+import cn.zswltech.mithras.contract.service.lib.contract.ContractAccountLibService;
+import cn.zswltech.mithras.contract.service.lib.contract.ContractLeaseItemLibService;
+import cn.zswltech.mithras.contract.service.lib.contract.ContractTenantryLibService;
 
 /**
  * @create: 2022-08-02

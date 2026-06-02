@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.service.overdue.infrastructure.service;
 
 import cn.zswltech.mithras.service.mapper.collection.CollectionOverdueHistoryMapper;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.overdue.application.job.SchedulingJobService;
 import cn.zswltech.mithras.service.overdue.infrastructure.dao.OverdueCollectionDao;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollection;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

@@ -18,7 +18,7 @@ import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActual;

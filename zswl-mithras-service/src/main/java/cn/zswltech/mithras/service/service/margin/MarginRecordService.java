@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.mapper.margin.MarginWriteOffRecordMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginRecordInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginWriteOffRecord;

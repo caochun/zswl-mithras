@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.fund.financial;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.enums.contract.LPRTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.LPRTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financial.FundFinancialSystemEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;

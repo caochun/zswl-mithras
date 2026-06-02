@@ -7,12 +7,12 @@ import cn.zswltech.mithras.dto.dashboard.boss.CurrentYearBusinessPayReceiptRateL
 import cn.zswltech.mithras.dto.dashboard.boss.CurrentYearBusinessPayReceiptRateListRSP;
 import cn.zswltech.mithras.service.enums.dashboard.DashBoardQueryTypeEnum;
 import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricDeptScope;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.dashboard.dto.DashboardQueryPriceDto;
+import cn.zswltech.mithras.contract.service.dashboard.dto.DashboardQueryPriceDto;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

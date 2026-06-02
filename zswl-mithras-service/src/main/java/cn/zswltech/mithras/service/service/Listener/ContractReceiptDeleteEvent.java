@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.Listener;
 
-import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.service.mapper.lib.contract.ContractFactoringPriceLibMapper">
+<mapper namespace="cn.zswltech.mithras.contract.mapper.lib.contract.ContractFactoringPriceLibMapper">
 
 
     <select id="queryNewestLib"
-            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractFactoringPriceLib">
+            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPriceLib">
 
         SELECT p.* FROM contract_factoring_price_lib p
         INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1

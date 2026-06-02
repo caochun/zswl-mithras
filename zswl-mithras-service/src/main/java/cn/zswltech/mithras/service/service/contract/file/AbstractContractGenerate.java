@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.enums.BizClientType;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.contract.*;
+import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.excel.model.ContractEntityPledgeItemExcelModel;
@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.gendoc.render.*;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.service.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
@@ -53,6 +53,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static cn.zswltech.mithras.service.enums.datacompare.CompareFactoryEnum.contractTenantry;
+import cn.zswltech.mithras.contract.service.contract.ContractPledgeItemService;
 
 /**
  * @author dingqi

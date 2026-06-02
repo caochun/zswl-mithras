@@ -43,7 +43,7 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
 import static cn.zswltech.mithras.service.constant.MithrasConstants.ERR_IN_TRANSFER;
 import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
-import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.TAKE_EFFECT;
+import static cn.zswltech.mithras.contract.enums.contract.ProjItemStatus.TAKE_EFFECT;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 
 

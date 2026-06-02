@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryListRSP;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryModifyREQ;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryRemoveREQ;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Collection;

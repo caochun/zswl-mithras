@@ -21,8 +21,8 @@ import cn.zswltech.mithras.associationreport.service.AssociationDictionaryServic
 import cn.zswltech.mithras.associationreport.service.AssociationMainBusinessService;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.contract.MortgageTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.PledgeTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.MortgageTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.PledgeTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationMainBusiness;
@@ -30,7 +30,7 @@ import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationRep
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

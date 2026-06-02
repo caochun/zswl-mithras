@@ -5,13 +5,13 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.service.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.enums.contract.CreditorDebtorTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.enums.contract.CreditorDebtorTypeEnum;
 import cn.zswltech.mithras.service.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
@@ -27,7 +27,7 @@ import org.springframework.test.context.ActiveProfiles;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum.MAIN_LESSSEE;
+import static cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum.MAIN_LESSSEE;
 import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
 
 /**

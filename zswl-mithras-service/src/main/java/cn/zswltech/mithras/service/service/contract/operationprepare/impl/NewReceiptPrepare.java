@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.service.service.contract.operationprepare.impl;
 
 import cn.hutool.core.lang.Assert;
-import cn.zswltech.mithras.service.enums.contract.ContractOperationEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.operationprepare.AbstractContractOperationPrepare;
 import org.springframework.stereotype.Component;

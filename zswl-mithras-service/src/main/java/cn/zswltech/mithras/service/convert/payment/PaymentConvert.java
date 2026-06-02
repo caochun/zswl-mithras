@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.service.excel.model.PaymentPolicyExcelModel;
 import cn.zswltech.mithras.service.mapper.dto.PaymentListDto;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfoLib;

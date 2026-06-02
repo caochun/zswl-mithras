@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.mapper.lib.assetclassify.AssetClassifyClientA
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassify;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

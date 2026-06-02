@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorAddREQ;
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorListRSP;
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorModifyREQ;
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorRemoveREQ;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantor;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Collection;

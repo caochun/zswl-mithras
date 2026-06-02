@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.utils.CashFlowGenerationApi;
 import cn.zswltech.mithras.dto.utils.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.PayType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.service.excel.exporter.AbstractCashFlowExcelExporter;
@@ -49,7 +49,7 @@ import static cn.hutool.core.io.IoUtil.toStream;
 import static cn.hutool.core.util.NumberUtil.div;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
 import static cn.zswltech.mithras.service.constant.GlobalConstants.MONEY_MULTIPLE;
-import static cn.zswltech.mithras.service.enums.contract.RepayRateEnum.of;
+import static cn.zswltech.mithras.contract.enums.contract.RepayRateEnum.of;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 import static cn.zswltech.mithras.service.util.FinancialUtil.*;
 

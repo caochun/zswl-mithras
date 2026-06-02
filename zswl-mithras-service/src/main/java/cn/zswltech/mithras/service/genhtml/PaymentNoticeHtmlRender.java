@@ -13,10 +13,10 @@ import cn.zswltech.mithras.service.mapper.model.afterlease.RentCollectionEmailRe
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.util.FreeMarkerUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.deepoove.poi.XWPFTemplate;

@@ -1,13 +1,13 @@
 package cn.zswltech.mithras.service.overdue.application.assembler;
 
-import cn.zswltech.mithras.service.overdue.application.command.DefendantAddCommand;
-import cn.zswltech.mithras.service.overdue.application.command.ProgressAddCommand;
-import cn.zswltech.mithras.service.overdue.application.dto.*;
-import cn.zswltech.mithras.service.overdue.domain.litigation.CaseProgress;
-import cn.zswltech.mithras.service.overdue.domain.litigation.Defendant;
-import cn.zswltech.mithras.service.overdue.domain.litigation.Litigation;
-import cn.zswltech.mithras.service.overdue.domain.litigation.TrialInfo;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.LitigationRegistration;
+import cn.zswltech.mithras.contract.overdue.application.command.DefendantAddCommand;
+import cn.zswltech.mithras.contract.overdue.application.command.ProgressAddCommand;
+import cn.zswltech.mithras.contract.overdue.application.dto.*;
+import cn.zswltech.mithras.contract.overdue.domain.litigation.CaseProgress;
+import cn.zswltech.mithras.contract.overdue.domain.litigation.Defendant;
+import cn.zswltech.mithras.contract.overdue.domain.litigation.Litigation;
+import cn.zswltech.mithras.contract.overdue.domain.litigation.TrialInfo;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationRegistration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

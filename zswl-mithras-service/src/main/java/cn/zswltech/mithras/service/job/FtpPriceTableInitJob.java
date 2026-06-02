@@ -4,9 +4,9 @@
 //import cn.hutool.core.date.StopWatch;
 //import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 //import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-//import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
-//import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
-//import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActualLib;
+//import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+//import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
+//import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
 //import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 //import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
 //import cn.zswltech.mithras.service.mapper.model.payment.FtpPriceInfo;
@@ -14,7 +14,7 @@
 //import cn.zswltech.mithras.service.others.MithrasException;
 //import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
-//import cn.zswltech.mithras.service.service.lib.contract.ContractRentActualLibService;
+//import cn.zswltech.mithras.contract.service.lib.contract.ContractRentActualLibService;
 //import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 //import cn.zswltech.mithras.service.service.payment.FtpPriceInfoService;
 //import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

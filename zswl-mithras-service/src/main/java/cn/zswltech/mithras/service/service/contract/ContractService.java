@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.enums.contract.*;
+import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
 import cn.zswltech.mithras.service.enums.projestablish.RateType;
@@ -44,21 +44,21 @@ import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnu
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.flow.helper.CalBoardRuleHelper;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.contract.ContractMortgageMapper;
-import cn.zswltech.mithras.service.mapper.contract.ContractPledgeMapper;
-import cn.zswltech.mithras.service.mapper.contract.ContractReceiptMapper;
-import cn.zswltech.mithras.service.mapper.contract.ContractRentActualMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractMortgageMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractPledgeMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractRentActualMapper;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.lib.contract.ContractReceiptLibMapper;
-import cn.zswltech.mithras.service.mapper.lib.contract.ContractRentActualLibMapper;
+import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;
+import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;
 import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.ProcessModifyRemark;
 import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
@@ -84,7 +84,7 @@ import cn.zswltech.mithras.service.service.contract.operationprepare.ContractOpe
 import cn.zswltech.mithras.service.service.contract.operationprepare.ContractOperationPrepareFactory;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
-import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
@@ -133,6 +133,7 @@ import static cn.zswltech.mithras.service.enums.CashFlowItemEnum.*;
 import static cn.zswltech.mithras.service.enums.JobEnum.businesshead;
 import static cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
+import cn.zswltech.mithras.contract.service.contract.ContractSpecialTraderService;
 
 /**
  * @author zhaozhengkang

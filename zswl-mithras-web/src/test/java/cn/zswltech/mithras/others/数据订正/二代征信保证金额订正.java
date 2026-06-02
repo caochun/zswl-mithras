@@ -5,7 +5,7 @@ import cn.zswltech.mithras.report.mapper.base.model.CrBaseModel;
 import cn.zswltech.mithras.report.mapper.base.model.CrGuarantorBase;
 import cn.zswltech.mithras.report.mapper.formal.model.CrGuarantor;
 import cn.zswltech.mithras.report.service.formal.CrGuarantorService;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantor;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
 import cn.zswltech.mithras.web.MithrasApplication;

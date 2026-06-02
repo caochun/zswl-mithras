@@ -16,13 +16,13 @@ import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthC
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifyMainAuthChecker;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.enums.CacheEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractChangeTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractExtraFileTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractPrepayment;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepayment;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPrepaymentService;
@@ -50,7 +50,7 @@ import java.util.Objects;
 
 import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.enums.BusinessModuleEnum.CONTRACT;
-import static cn.zswltech.mithras.service.enums.contract.ContractExtraFileTypeEnum.START_RENT;
+import static cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum.START_RENT;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 
 /**

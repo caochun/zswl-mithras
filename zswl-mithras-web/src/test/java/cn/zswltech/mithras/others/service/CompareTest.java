@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.service.excel.MyStyleUtil;
 import cn.zswltech.mithras.service.excel.model.ExcelModel;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

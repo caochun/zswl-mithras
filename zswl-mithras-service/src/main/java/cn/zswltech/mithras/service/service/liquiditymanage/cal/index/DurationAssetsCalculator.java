@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityColorEnum;
 import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractRentActual;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.service.service.liquiditymanage.LiquidityIndicatorIndexHolder;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityIndexCalculatorBo;

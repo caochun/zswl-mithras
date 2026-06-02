@@ -2,8 +2,8 @@ package cn.zswltech.mithras.service.flow.listener.endhandler;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProcessEventDescEnum;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projlifecycle.ProjLifecycleEvent;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;

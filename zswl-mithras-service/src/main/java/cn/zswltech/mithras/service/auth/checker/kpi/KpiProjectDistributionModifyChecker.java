@@ -5,7 +5,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.service.auth.checker.IDataAuthChecker;
 import cn.zswltech.mithras.service.constant.FlowConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfo;
 import cn.zswltech.mithras.service.others.AuthCheckException;

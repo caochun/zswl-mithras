@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.contract.receipt.ContractReceiptQueryActualTaxREQ;
 import cn.zswltech.mithras.dto.contract.receipt.ContractReceiptUpdateStartDateREQ;
 import cn.zswltech.mithras.dto.contract.rent.ContractReceiptComputeActualTaxRSP;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.math.BigDecimal;

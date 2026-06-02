@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.mapper.budget.BudgetExamineBudgetExecuteMappe
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetExamineBenefit;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetExamineBudgetExecute;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.PerformanceBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;

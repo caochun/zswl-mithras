@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service;
 
-import cn.zswltech.mithras.service.overdue.domain.collection.CollectionActionId;
-import cn.zswltech.mithras.service.overdue.domain.collection.CollectionLetterGenService;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionActionId;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionLetterGenService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

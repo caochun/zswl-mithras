@@ -1,0 +1,13 @@
+package cn.zswltech.mithras.contract.mapper.contract;
+
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlan;
+import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * @author dingqi
+ * @date 2022/8/24
+ * @description
+ */
+public interface ContractSettlePlanMapper extends CustomBaseMapper<ContractSettlePlan> {
+}

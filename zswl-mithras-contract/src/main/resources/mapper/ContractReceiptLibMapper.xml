@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.service.mapper.lib.contract.ContractReceiptLibMapper">
+<mapper namespace="cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper">
     <select id="newsetContractReceiptLib"
-            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractReceiptLib">
+            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib">
         SELECT p.*
         FROM contract_receipt_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version

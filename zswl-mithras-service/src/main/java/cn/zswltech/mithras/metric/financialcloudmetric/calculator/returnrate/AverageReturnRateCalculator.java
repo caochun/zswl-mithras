@@ -10,7 +10,7 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.FinancialCloud
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease.DepartmentPaymentCache;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.ConditionKey;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.TimeDimension;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

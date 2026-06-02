@@ -37,7 +37,7 @@ import cn.zswltech.mithras.service.excel.model.OtherFilingLedgerManageExcelModel
 import cn.zswltech.mithras.service.gendoc.render.BusinessMaterialsOtherRender;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.filingmaterials.FilingMaterialsMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.filingmaterials.FilingMaterials;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;

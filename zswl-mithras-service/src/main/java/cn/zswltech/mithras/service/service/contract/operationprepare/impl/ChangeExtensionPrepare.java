@@ -2,10 +2,10 @@ package cn.zswltech.mithras.service.service.contract.operationprepare.impl;
 
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseAdjustEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractChangeTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractOperationEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
 import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseAdjustInfoService;
 import cn.zswltech.mithras.service.service.contract.operationprepare.AbstractContractChangePrepare;

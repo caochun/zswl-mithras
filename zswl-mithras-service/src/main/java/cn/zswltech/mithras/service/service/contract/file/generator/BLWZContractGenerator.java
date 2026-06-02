@@ -1,14 +1,14 @@
 package cn.zswltech.mithras.service.service.contract.file.generator;
 
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractBizTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractBizTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.wz.WzBaoLiBizRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.wz.WzBaoLiTransferConfirmRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.wz.WzBaoLiTransferNotifyRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.wz.WzBaoLiTransferRegisterProtocolRender;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.file.AbstractContractGenerate;
 import cn.zswltech.mithras.service.service.contract.file.SharedResources;

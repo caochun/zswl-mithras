@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.contract.operationprepare;
 
-import cn.zswltech.mithras.service.enums.contract.ContractOperationEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
 
 import java.util.HashMap;
 import java.util.Map;

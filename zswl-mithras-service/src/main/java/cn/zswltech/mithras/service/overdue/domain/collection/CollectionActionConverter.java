@@ -1,12 +1,13 @@
 package cn.zswltech.mithras.service.overdue.domain.collection;
 
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollectionAction;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollectionActionLib;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionAction;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionActionLib;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.List;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionAction;
 
 /**
  * @description: entity Map to po

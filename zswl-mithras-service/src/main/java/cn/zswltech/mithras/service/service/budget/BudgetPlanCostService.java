@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanTypeEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetStatusEnum;
 import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.mapper.dto.BudgetPlanCostDetailFundGroupMonth
 import cn.zswltech.mithras.service.mapper.dto.BudgetPlanCostDetailProjectGroupMonthDTO;
 import cn.zswltech.mithras.service.mapper.model.budget.*;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActual;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptFlowDetail;

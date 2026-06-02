@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.contract;
 
-import cn.zswltech.mithras.service.mapper.model.contract.ContractSettlePlan;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlan;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

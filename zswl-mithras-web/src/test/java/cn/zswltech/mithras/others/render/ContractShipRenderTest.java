@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.gendoc.render.ContractMainShipZLHZRender;
 import cn.zswltech.mithras.service.gendoc.render.ContractShipPromiseRender;
 import cn.zswltech.mithras.service.gendoc.render.contractzlzz.ContractZLZZShipMainRender;
 import cn.zswltech.mithras.service.gendoc.render.contractzlzz.ContractZLZZShipTradeRender;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import org.junit.Test;
 

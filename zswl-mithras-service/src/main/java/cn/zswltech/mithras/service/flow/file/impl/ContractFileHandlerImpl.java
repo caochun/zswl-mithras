@@ -5,7 +5,7 @@ import cn.zswltech.flow.core.domain.entity.AddSignRecord;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.service.impl.FlowAddSignRecordService;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.service.flow.file.IFileHandler;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;

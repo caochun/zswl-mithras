@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.contract.file.generator;
 
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractBizTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractBizTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiBizRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferConfirmRender;
@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzgt.YzGtBaoLiBi
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzgt.YzGtBaoLiTransferConfirmRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzgt.YzGtBaoLiTransferNotifyRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzgt.YzGtBaoLiTransferRegisterProtocolRender;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import cn.zswltech.mithras.service.service.contract.file.AbstractContractGenerate;
@@ -29,7 +29,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
 import static cn.zswltech.mithras.service.enums.BusinessModuleEnum.CONTRACT;
-import static cn.zswltech.mithras.service.enums.contract.ContractTypeEnum.MAIN_CONTRACT;
+import static cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum.MAIN_CONTRACT;
 
 /**
  * 保理有追合同生成

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.contract.impl;
 
 import cn.zswltech.mithras.service.enums.TimeoutTypeEnum;
-import cn.zswltech.mithras.service.mapper.contract.ContractRemindRecordMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractRemindRecord;
+import cn.zswltech.mithras.contract.mapper.contract.ContractRemindRecordMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractRemindRecord;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractRemindRecordService;
 import cn.zswltech.mithras.service.service.contract.delayqueue.DelayQueueService;

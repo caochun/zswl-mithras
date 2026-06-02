@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.util;
 
 import cn.hutool.json.JSONConfig;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.PayType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.service.service.bo.CashFlowBO;

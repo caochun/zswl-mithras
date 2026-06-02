@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.contract.file.generator;
 
-import cn.zswltech.mithras.service.enums.contract.ContractBizTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.enums.contract.ContractBizTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.service.contract.file.AbstractContractGenerate;
 import cn.zswltech.mithras.service.service.contract.file.SharedResources;
 import org.junit.jupiter.api.function.ThrowingConsumer;

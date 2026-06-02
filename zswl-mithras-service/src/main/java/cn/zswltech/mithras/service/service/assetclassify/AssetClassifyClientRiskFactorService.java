@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.service.mapper.model.SystemConfig;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClientRiskFactorTemplate;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

@@ -17,12 +17,12 @@ import cn.zswltech.mithras.service.convert.contract.ContractGuarantorConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.enums.contract.*;
-import cn.zswltech.mithras.service.mapper.contract.ContractGuarantorMapper;
+import cn.zswltech.mithras.contract.enums.contract.*;
+import cn.zswltech.mithras.contract.mapper.contract.ContractGuarantorMapper;
 import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfoLib;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.Listener.client.ClientViewAuthorityEvent;
@@ -46,6 +46,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
+import cn.zswltech.mithras.contract.service.contract.ContractCodeAbstract;
 
 
 /**

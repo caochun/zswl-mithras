@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.mapper.basedata.BaseDataBankAccountMapper;
 import cn.zswltech.mithras.service.mapper.liquiditymanage.AccountBalanceBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataSpecialDate;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.liquiditymanage.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.basedata.BaseDataSpecialDateService;

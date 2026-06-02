@@ -43,7 +43,7 @@ import cn.zswltech.mithras.service.enums.client.CorporationClientMaterialTypeEnu
 import cn.zswltech.mithras.service.enums.client.NormalClientMaterialTypeEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishMaterialsEnum;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProcessEventDescEnum;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;

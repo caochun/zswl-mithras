@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.service.service.capital.write_off;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.capital.write_off.bo.FundPledgeSupervisedBO;

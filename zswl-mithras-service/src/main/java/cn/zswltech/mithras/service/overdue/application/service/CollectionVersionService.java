@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.overdue.application.lib.CollectionActionLibHandler;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollectionAction;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionAction;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
 import org.springframework.stereotype.Service;
 

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.payment.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.service.Id2NameService;

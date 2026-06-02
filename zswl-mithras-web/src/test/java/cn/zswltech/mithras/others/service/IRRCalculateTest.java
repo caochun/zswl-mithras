@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service;
 
 import cn.hutool.core.io.FileUtil;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.excel.exporter.IRRCalculateExcelExporter;
 import cn.zswltech.mithras.service.excel.model.IRRCalculateExcelModel;
 import cn.zswltech.mithras.service.service.bo.CashFlowBO;

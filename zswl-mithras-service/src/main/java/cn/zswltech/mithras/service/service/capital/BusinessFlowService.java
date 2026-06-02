@@ -39,7 +39,7 @@ import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBase
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.service.mapper.model.collection.BillManagement;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;

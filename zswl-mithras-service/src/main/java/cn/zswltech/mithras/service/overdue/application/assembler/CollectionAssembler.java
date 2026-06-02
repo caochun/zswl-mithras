@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.service.overdue.application.assembler;
 
-import cn.zswltech.mithras.service.overdue.application.dto.CollectionActionDto;
-import cn.zswltech.mithras.service.overdue.application.dto.CollectionDetailDto;
-import cn.zswltech.mithras.service.overdue.application.dto.CollectionListDto;
-import cn.zswltech.mithras.service.overdue.domain.collection.Collection;
-import cn.zswltech.mithras.service.overdue.domain.collection.CollectionAction;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollection;
+import cn.zswltech.mithras.contract.overdue.application.dto.CollectionActionDto;
+import cn.zswltech.mithras.contract.overdue.application.dto.CollectionDetailDto;
+import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
+import cn.zswltech.mithras.contract.overdue.domain.collection.Collection;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionAction;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

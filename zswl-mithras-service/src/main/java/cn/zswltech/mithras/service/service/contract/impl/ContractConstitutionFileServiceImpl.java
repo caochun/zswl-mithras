@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.service.service.contract.impl;
 
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractConstitutionFileTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
-import cn.zswltech.mithras.service.mapper.contract.ContractConstitutionFileMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractConstitutionFile;
+import cn.zswltech.mithras.contract.enums.contract.ContractConstitutionFileTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.mapper.contract.ContractConstitutionFileMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractConstitutionFile;
 import cn.zswltech.mithras.service.service.bo.ContractConstitutionFileBO;
 import cn.zswltech.mithras.service.service.contract.ContractConstitutionFileService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

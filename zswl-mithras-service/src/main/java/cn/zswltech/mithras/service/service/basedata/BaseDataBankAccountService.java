@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.mapper.collection.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractAccount;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPayAccount;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundRepayAccount;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.service.mapper.lib.contract.ContractGuarantorLibMapper">
+<mapper namespace="cn.zswltech.mithras.contract.mapper.lib.contract.ContractGuarantorLibMapper">
 
 
-    <select id="newestList" resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantorLib">
+    <select id="newestList" resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantorLib">
         SELECT p.* FROM contract_guarantor_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
         WHERE t1.module = 'CONTRACT' AND t1.version_type = 1

@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifySubAu
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseRemoveSubAuthChecker;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.contract.ContractPledgeMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractPledgeMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractPledgeService;
 import lombok.extern.slf4j.Slf4j;

@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @ServletComponentScan("cn.zswltech.mithras.service.config.druid")
 @MapperScan({"cn.zswltech.mithras.service.mapper",
+        "cn.zswltech.mithras.contract.mapper",
+        "cn.zswltech.mithras.contract.overdue.infrastructure.dao.mapper",
         "cn.zswltech.mithras.factory.mapper",
         "cn.zswltech.mithras.third.providence.mapper",
         "cn.zswltech.lib.futurelog.save.mapper",
@@ -28,7 +30,6 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.service.service.newftp.mapper",
         "cn.zswltech.mithras.service.fund.direct.mapper",
         "cn.zswltech.mithras.kpi.mapper",
-        "cn.zswltech.mithras.service.overdue.infrastructure.dao.mapper",
         "cn.zswltech.mithras.finance.view.mapper"
 })
 @EnableTransactionManagement

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.contract.operationprepare.impl;
 
-import cn.zswltech.mithras.service.enums.contract.ContractChangeTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractOperationEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
 import cn.zswltech.mithras.service.service.contract.operationprepare.AbstractContractChangePrepare;
 import org.springframework.stereotype.Component;
 

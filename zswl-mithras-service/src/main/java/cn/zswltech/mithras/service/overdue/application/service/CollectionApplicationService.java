@@ -22,18 +22,18 @@ import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.enums.overdue.LetterType;
-import cn.zswltech.mithras.service.enums.overdue.OverdueCollectionType;
+import cn.zswltech.mithras.contract.enums.overdue.LetterType;
+import cn.zswltech.mithras.contract.enums.overdue.OverdueCollectionType;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.overdue.application.assembler.CollectionAssembler;
-import cn.zswltech.mithras.service.overdue.application.command.CollectionActionSubmitCommand;
-import cn.zswltech.mithras.service.overdue.application.dto.CollectionActionDto;
-import cn.zswltech.mithras.service.overdue.application.dto.CollectionDetailDto;
-import cn.zswltech.mithras.service.overdue.application.dto.CollectionListDto;
-import cn.zswltech.mithras.service.overdue.application.query.CollectionPageQuery;
-import cn.zswltech.mithras.service.overdue.domain.collection.Collection;
-import cn.zswltech.mithras.service.overdue.domain.collection.*;
+import cn.zswltech.mithras.contract.overdue.application.command.CollectionActionSubmitCommand;
+import cn.zswltech.mithras.contract.overdue.application.dto.CollectionActionDto;
+import cn.zswltech.mithras.contract.overdue.application.dto.CollectionDetailDto;
+import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
+import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
+import cn.zswltech.mithras.contract.overdue.domain.collection.Collection;
+import cn.zswltech.mithras.contract.overdue.domain.collection.*;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import lombok.extern.slf4j.Slf4j;
@@ -51,6 +51,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
+import cn.zswltech.mithras.service.overdue.domain.collection.CollectionLetterGenService;
 
 /**
  * @description:

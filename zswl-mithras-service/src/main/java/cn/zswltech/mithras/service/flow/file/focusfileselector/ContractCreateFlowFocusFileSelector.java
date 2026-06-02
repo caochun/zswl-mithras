@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.flow.file.focusfileselector;
 
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;

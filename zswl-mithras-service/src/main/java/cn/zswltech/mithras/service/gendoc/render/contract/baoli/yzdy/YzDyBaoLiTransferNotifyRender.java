@@ -2,11 +2,11 @@ package cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractAccountUseEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractAccount;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.service.contract.ContractAccountService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;

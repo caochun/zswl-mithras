@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.auth.rule.DataAuthProcessRule;
 import cn.zswltech.mithras.service.auth.rule.DataAuthSponsorUserRule;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.mapper.budget.BudgetExamineMapper;
 import cn.zswltech.mithras.service.mapper.budget.BudgetExaminePayPlanExecuteMapper;
 import cn.zswltech.mithras.service.mapper.budget.BudgetPlanMapper;
 import cn.zswltech.mithras.service.mapper.model.budget.*;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

@@ -9,7 +9,7 @@ import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.util.Page;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfo;
 import org.springframework.util.StringUtils;
 

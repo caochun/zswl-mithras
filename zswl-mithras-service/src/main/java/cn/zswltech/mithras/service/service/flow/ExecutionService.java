@@ -28,7 +28,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.ProcessVarEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contract.ResolutionTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ResolutionTypeEnum;
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportMaterialTypeEnum;
 import cn.zswltech.mithras.service.enums.lease.LeaseFileTypeEnums;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialCommentsEnum;
@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandlerFactory;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.ProcessModifyRemark;
-import cn.zswltech.mithras.service.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportClientItem;
 import cn.zswltech.mithras.service.mapper.model.policy.PolicyInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
@@ -92,6 +92,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
+import cn.zswltech.mithras.contract.service.contract.ContractRetreatInfoService;
 
 /**
  * 流程相关 操作

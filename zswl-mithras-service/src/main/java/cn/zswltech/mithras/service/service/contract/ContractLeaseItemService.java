@@ -2,8 +2,8 @@ package cn.zswltech.mithras.service.service.contract;
 
 import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
 import cn.zswltech.mithras.dto.contract.leaseitem.*;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractLeaseItem;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
 import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 

@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.enums.financeoverdue.OverdueSettlementRelatio
 import cn.zswltech.mithras.service.mapper.finance.FinanceOverdueSettlementMapper;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueSettlement;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueVersionRelation;

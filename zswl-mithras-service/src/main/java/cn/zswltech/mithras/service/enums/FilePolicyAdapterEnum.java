@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums;
 
-import cn.zswltech.mithras.service.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishMaterialsEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
 import lombok.AllArgsConstructor;

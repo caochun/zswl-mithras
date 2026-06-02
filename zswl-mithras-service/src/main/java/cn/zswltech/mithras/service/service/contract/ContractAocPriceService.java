@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.contract;
 
 import cn.zswltech.mithras.dto.contract.price.ContractAocPriceModifyREQ;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractAocPrice;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.validation.Valid;

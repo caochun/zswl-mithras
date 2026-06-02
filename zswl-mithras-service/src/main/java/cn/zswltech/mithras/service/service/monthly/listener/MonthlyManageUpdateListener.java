@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.monthly.MonthlyQueryResult;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.monthly.MonthlyManagementStatusEnum;
 import cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum;
-import cn.zswltech.mithras.service.mapper.contract.ContractIncomeSharingMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractIncomeSharingMapper;
 import cn.zswltech.mithras.service.mapper.model.monthly.*;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.monthly.*;

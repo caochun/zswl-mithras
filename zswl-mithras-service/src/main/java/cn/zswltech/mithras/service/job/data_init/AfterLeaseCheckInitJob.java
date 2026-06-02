@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.service.job.data_init;
 
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClientLib;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;

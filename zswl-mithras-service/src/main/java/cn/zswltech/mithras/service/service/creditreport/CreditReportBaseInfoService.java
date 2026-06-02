@@ -47,7 +47,7 @@ import cn.zswltech.mithras.service.mapper.dto.credit.XJCreditReportJsonDTO;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportClientItem;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportRecordDetails;
@@ -97,8 +97,8 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.enums.common.RecordStatus.EXPIRE;
-import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.CLOSED;
-import static cn.zswltech.mithras.service.enums.contract.ProjItemStatus.INVALID;
+import static cn.zswltech.mithras.contract.enums.contract.ProjItemStatus.CLOSED;
+import static cn.zswltech.mithras.contract.enums.contract.ProjItemStatus.INVALID;
 
 /**
  * @author vico

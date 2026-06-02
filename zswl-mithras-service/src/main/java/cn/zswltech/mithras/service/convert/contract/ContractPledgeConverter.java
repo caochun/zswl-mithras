@@ -7,8 +7,8 @@ import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeAddREQ;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeListRSP;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeModifyREQ;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractPledge;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledge;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

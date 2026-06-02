@@ -39,7 +39,7 @@ import cn.zswltech.mithras.service.mapper.fund.FinanceFlowWriteOffDetailMapper;
 import cn.zswltech.mithras.service.mapper.model.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginRecordInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.WarrantyBaseInfo;

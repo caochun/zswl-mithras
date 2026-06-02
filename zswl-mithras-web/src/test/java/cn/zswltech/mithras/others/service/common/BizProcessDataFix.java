@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.mapper.afterlease.NewAfterLeaseCheckExternalQ
 import cn.zswltech.mithras.service.mapper.afterlease.NewAfterLeaseCheckPlanClientMapper;
 import cn.zswltech.mithras.service.mapper.afterlease.CollectionPenaltyReductionInfoMapper;
 import cn.zswltech.mithras.service.mapper.client.ClientMapper;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.groupcreditestablish.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.groupcreditreview.GroupCreditReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.BizProcessData;
@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckExternalQuery;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.service.mapper.model.afterlease.CollectionPenaltyReductionInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.groupcreditestablish.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

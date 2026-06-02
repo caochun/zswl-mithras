@@ -38,13 +38,13 @@ import cn.zswltech.mithras.service.flow.dynamicform.afterlease.AfterLeaseCheckPl
 import cn.zswltech.mithras.service.flow.dynamicform.afterlease.AssetManagerReviewHandler;
 import cn.zswltech.mithras.service.flow.dynamicform.projreview.LawManagerReviewHandler;
 import cn.zswltech.mithras.service.mapper.SystemConfigMapper;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.SystemConfig;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

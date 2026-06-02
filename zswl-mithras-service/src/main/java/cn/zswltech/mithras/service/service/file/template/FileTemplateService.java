@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.service.mapper.model.FileAuthenticationConfig;
 import cn.zswltech.mithras.service.mapper.model.GeneralDictionary;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractSignInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractSignInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.FileAuthenticationConfigService;

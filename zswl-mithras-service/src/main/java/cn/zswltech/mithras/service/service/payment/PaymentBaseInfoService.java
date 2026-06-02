@@ -52,9 +52,9 @@ import cn.zswltech.mithras.service.enums.afterlease.ClientRole;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
@@ -69,7 +69,7 @@ import cn.zswltech.mithras.third.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
@@ -148,6 +148,8 @@ import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
 import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
+import cn.zswltech.mithras.contract.service.lib.contract.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.service.lib.contract.ContractTenantryLibService;
 
 
 /**

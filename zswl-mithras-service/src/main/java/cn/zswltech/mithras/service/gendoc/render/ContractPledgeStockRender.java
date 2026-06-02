@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.service.mapper.model.client.*;
-import cn.zswltech.mithras.service.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;

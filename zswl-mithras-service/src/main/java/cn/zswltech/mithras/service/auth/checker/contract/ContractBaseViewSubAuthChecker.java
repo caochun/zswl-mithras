@@ -7,8 +7,8 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthChecke
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewSubAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.rule.DataAuthViewRule;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

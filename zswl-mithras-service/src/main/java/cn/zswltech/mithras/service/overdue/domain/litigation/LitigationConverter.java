@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.overdue.domain.litigation;
+package cn.zswltech.mithras.contract.overdue.domain.litigation;
 
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.overdue.application.dto.LitigationListDto;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.LitigationCaseProgress;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.LitigationDefendant;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.LitigationRegistration;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.LitigationTrialInfo;
+import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationCaseProgress;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationDefendant;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationRegistration;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationTrialInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

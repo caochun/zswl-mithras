@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.enums.contract.ProjItemStatus;
+import cn.zswltech.mithras.contract.enums.contract.ProjItemStatus;
 import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewProcessStatus;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.ProcessModifyRemark;

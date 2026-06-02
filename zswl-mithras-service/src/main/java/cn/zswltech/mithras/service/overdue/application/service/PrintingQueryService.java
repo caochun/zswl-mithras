@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.service.overdue.application.service;
 
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.service.overdue.application.dto.LitigationListDto;
-import cn.zswltech.mithras.service.overdue.application.dto.PrintingListDto;
-import cn.zswltech.mithras.service.overdue.application.query.LitigationPageQuery;
-import cn.zswltech.mithras.service.overdue.application.query.PrintingPageQuery;
+import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
+import cn.zswltech.mithras.contract.overdue.application.dto.PrintingListDto;
+import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuery;
+import cn.zswltech.mithras.contract.overdue.application.query.PrintingPageQuery;
 
 /**
  * @description: 依赖反转，application层定义的query接口，在infrastructure层做实现

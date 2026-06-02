@@ -1,8 +1,9 @@
 package cn.zswltech.mithras.service.overdue.domain.collection;
 
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollection;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import cn.zswltech.mithras.contract.overdue.domain.collection.Collection;
 
 /**
  * @description: entity Map to po

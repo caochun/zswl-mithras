@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.client.client.*;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.service.mapper.dto.CollectionNextRentParam;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.afterlese.impl.RentCollectionIndexServiceImpl;

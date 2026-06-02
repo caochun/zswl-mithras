@@ -1,9 +1,10 @@
 package cn.zswltech.mithras.service.overdue.domain.docprinting;
 
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.DocPrinting;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.DocPrintingLib;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrinting;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.DocPrintingLib;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import cn.zswltech.mithras.contract.overdue.domain.docprinting.Printing;
 
 /**
  * @description:

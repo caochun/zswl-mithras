@@ -2,14 +2,14 @@ package cn.zswltech.mithras.service.service.contract;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.contract.text.ContractTextStatusEnum;
-import cn.zswltech.mithras.service.enums.contract.text.SigningWayEnum;
+import cn.zswltech.mithras.contract.enums.contract.text.ContractTextStatusEnum;
+import cn.zswltech.mithras.contract.enums.contract.text.SigningWayEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.gendoc.render.IContractSignInfo;
-import cn.zswltech.mithras.service.mapper.contract.ContractSignInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractSignInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractSignInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractSignInfo;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

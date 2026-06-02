@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.contract;
 
 import cn.zswltech.mithras.dto.contract.account.*;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractAccount;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

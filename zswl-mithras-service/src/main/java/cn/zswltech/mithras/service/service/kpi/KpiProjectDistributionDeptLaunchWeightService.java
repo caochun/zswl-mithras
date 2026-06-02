@@ -8,7 +8,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.kpi.KpiProjectDistributionDeptLaunchWeightMapper;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptLaunchWeight;

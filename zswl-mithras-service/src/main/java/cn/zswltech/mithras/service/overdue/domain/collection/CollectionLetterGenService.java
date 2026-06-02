@@ -3,15 +3,15 @@ package cn.zswltech.mithras.service.overdue.domain.collection;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.overdue.CollectionActionFileType;
-import cn.zswltech.mithras.service.enums.overdue.LetterType;
+import cn.zswltech.mithras.contract.enums.overdue.CollectionActionFileType;
+import cn.zswltech.mithras.contract.enums.overdue.LetterType;
 import cn.zswltech.mithras.service.gendoc.render.overduecollect.CollectionLetterRender;
 import cn.zswltech.mithras.service.gendoc.render.overduecollect.CreditNotificationLetterRender;
 import cn.zswltech.mithras.service.gendoc.render.overduecollect.JointLiabilityNoticeRender;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.overdue.domain.acl.ContractGuarantorInfo;
-import cn.zswltech.mithras.service.overdue.domain.acl.ContractLesseeInfo;
+import cn.zswltech.mithras.contract.overdue.domain.acl.ContractGuarantorInfo;
+import cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -25,6 +25,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectLetterCode;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionAction;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionActionId;
+import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionRepository;
 
 /**
  * @description: 催收函生成服务

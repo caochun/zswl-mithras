@@ -15,7 +15,7 @@ import cn.zswltech.mithras.ftp.oldftp.bo.FtpQuarterlyBasePricingBO;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.ftp.newftp.enums.AssetIndustryClassify;
 import cn.zswltech.mithras.service.enums.newftp.CustomerEntityClassify;
 import cn.zswltech.mithras.service.enums.newftp.RegionalClassify;

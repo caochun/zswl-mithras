@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.annotation;
 
-import cn.zswltech.mithras.service.enums.contract.ContractChangeTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

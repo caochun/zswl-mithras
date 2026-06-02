@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.riskcontrol.eventbus.subscriber;
 
-import cn.zswltech.mithras.service.mapper.lib.contract.ContractBaseInfoLibMapper;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.service.service.riskcontrol.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;

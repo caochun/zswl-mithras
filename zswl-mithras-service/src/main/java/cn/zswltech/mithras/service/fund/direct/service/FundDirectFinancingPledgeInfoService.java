@@ -28,7 +28,7 @@ import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingPledgeI
 import cn.zswltech.mithras.service.mapper.message.MessageModel;
 import cn.zswltech.mithras.service.mapper.message.PopUpNotificationBody;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

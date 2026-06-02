@@ -15,12 +15,12 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.contract.ContractTenantryConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.TradeStructureRoleEnum;
-import cn.zswltech.mithras.service.enums.contract.*;
-import cn.zswltech.mithras.service.mapper.contract.ContractTenantryMapper;
+import cn.zswltech.mithras.contract.enums.contract.*;
+import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
 import cn.zswltech.mithras.service.mapper.lib.client.CorpContactInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfoLib;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.Id2NameService;
@@ -44,7 +44,8 @@ import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.contract.LesseeTypeEnum.MAIN_LESSSEE;
+import static cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum.MAIN_LESSSEE;
+import cn.zswltech.mithras.contract.service.contract.ContractCodeAbstract;
 
 
 /**

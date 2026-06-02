@@ -2,11 +2,11 @@ package cn.zswltech.mithras.service.overdue.infrastructure.dao;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.mapper.collection.CollectionOverdueHistoryMapper;
-import cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.service.overdue.application.dto.CollectionListDto;
-import cn.zswltech.mithras.service.overdue.application.query.CollectionPageQuery;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.mapper.OverdueCollectionMapper;
-import cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollection;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
+import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.mapper.OverdueCollectionMapper;
+import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

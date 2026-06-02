@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.service.mapper.contract.ContractBaseInfoMapper">
+<mapper namespace="cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper">
 
-    <select id="listContractPrincipal" resultType="cn.zswltech.mithras.service.service.bo.ContractPrincipalBO">
+    <select id="listContractPrincipal" resultType="cn.zswltech.mithras.contract.service.bo.ContractPrincipalBO">
         select
         b.contract_id as contractId,
         sum(b.principal) as planPrincipal,
@@ -28,7 +28,7 @@
         group by b.contract_id
     </select>
 
-    <select id="myList" resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo">
+    <select id="myList" resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo">
         select a.*
         from contract_base_info a
         <where>
@@ -70,7 +70,7 @@
         </foreach>
     </select>
 
-    <select id="fuzzyList" resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo">
+    <select id="fuzzyList" resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo">
         select a.*
         from contract_base_info a
         <where>
@@ -218,7 +218,7 @@
         a.client_id
     </select>
 
-    <select id="getContractExpirationDateByRent" resultType="cn.zswltech.mithras.service.mapper.dto.ContractRentLastTimeDTO">
+    <select id="getContractExpirationDateByRent" resultType="cn.zswltech.mithras.contract.mapper.dto.ContractRentLastTimeDTO">
         select
         contract_id,
         max(cash_flow_date) endTime
@@ -232,7 +232,7 @@
         contract_id
     </select>
     <select id="queryPriceDtoList"
-            resultType="cn.zswltech.mithras.service.service.dashboard.dto.DashboardQueryPriceDto">
+            resultType="cn.zswltech.mithras.contract.service.dashboard.dto.DashboardQueryPriceDto">
         SELECT b.actual_irr AS irr,
         a.id AS contractId
         FROM contract_base_info AS a
@@ -245,7 +245,7 @@
     </select>
 
     <select id="getOverdueCollection"
-            resultType="cn.zswltech.mithras.service.overdue.infrastructure.dao.model.OverdueCollection">
+            resultType="cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection">
         select c.client_id            as clientId,
                cl.client_name         as clientName,
                cl.belong_sponsor_id as projectSponsor,
@@ -268,7 +268,7 @@
     </select>
 
 
-    <select id="ocContractList" resultType="cn.zswltech.mithras.service.mapper.dto.OcContractListDto">
+    <select id="ocContractList" resultType="cn.zswltech.mithras.contract.mapper.dto.OcContractListDto">
         select a.id,
                a.contract_status as contractStatus,
                a.contract_code as contractCode,
@@ -307,7 +307,7 @@
                  left join bifrost_user user on user.id = a.proj_sponsor_user_id
         where a.client_id = #{clientId} and a.contract_status != 'INVALID';
     </select>
-    <select id="ocContractListByClientId" resultType="cn.zswltech.mithras.service.mapper.dto.OcContractDto">
+    <select id="ocContractListByClientId" resultType="cn.zswltech.mithras.contract.mapper.dto.OcContractDto">
         select
             id,
             client_id as clientId,
@@ -325,7 +325,7 @@
     </select>
 
     <select id="getContractLessees"
-            resultType="cn.zswltech.mithras.service.overdue.domain.acl.ContractLesseeInfo">
+            resultType="cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo">
         select a.id,
                a.contract_code as contractCode,
                b.lessee_id as lesseeId,
@@ -370,7 +370,7 @@
     </select>
     <!-- 适用一个合同下有多个借据，多批还款请款，在发送逾期催收通知书时使用 -->
     <select id="getContractLessees1"
-            resultType="cn.zswltech.mithras.service.overdue.domain.acl.ContractLesseeInfo">
+            resultType="cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo">
         select a.id,
         a.contract_code as contractCode,
         b.lessee_id as lesseeId,
@@ -417,7 +417,7 @@
     </select>
 
     <select id="getContractGuarantors"
-            resultType="cn.zswltech.mithras.service.overdue.domain.acl.ContractGuarantorInfo">
+            resultType="cn.zswltech.mithras.contract.overdue.domain.acl.ContractGuarantorInfo">
         select a.id,
                a.contract_code as contractCode,
                b.guarantor_ids as guarantorIds,
@@ -457,7 +457,7 @@
         </foreach>
     </select>
 
-    <select id="clientOverdueInfo" resultType="cn.zswltech.mithras.service.overdue.domain.acl.ClientOverdueInfoDto">
+    <select id="clientOverdueInfo" resultType="cn.zswltech.mithras.contract.overdue.domain.acl.ClientOverdueInfoDto">
         select b.id          as clientId,
                b.client_name as clientName,
                a.overdueDays,
@@ -484,7 +484,7 @@
 
 
     <select id="listByClientIds"
-            resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo">
+            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo">
         select
             a.id,a.contract_code
         from contract_base_info a
@@ -504,7 +504,7 @@
     </select>
 
     <select id="listClientsByContractId"
-            resultType="cn.zswltech.mithras.service.overdue.domain.acl.ClientRole">
+            resultType="cn.zswltech.mithras.contract.overdue.domain.acl.ClientRole">
         SELECT p.contract_id as contractId,p.guarantor_ids as clientId, 'guarantor' as role FROM contract_guarantor_lib p
          INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
                      WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
@@ -524,7 +524,7 @@
         </foreach>
     </select>
 
-    <select id="contractSearchList" resultType="cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo">
+    <select id="contractSearchList" resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo">
         select *
         from contract_base_info cbi
         where cbi.contract_status in ('TAKE_EFFECT', 'START_RENT')

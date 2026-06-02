@@ -1,12 +1,12 @@
 package cn.zswltech.mithras.service.job;
 
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractReceiptLib;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
-import cn.zswltech.mithras.service.service.lib.contract.ContractReceiptLibService;
+import cn.zswltech.mithras.contract.service.lib.contract.ContractReceiptLibService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

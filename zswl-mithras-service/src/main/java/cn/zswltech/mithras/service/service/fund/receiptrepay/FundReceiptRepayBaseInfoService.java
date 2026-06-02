@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.fund.financing.FundFinancingConvert;
 import cn.zswltech.mithras.service.convert.fund.receiptrepay.FundReceiptRepayConverter;
 import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
 import cn.zswltech.mithras.service.enums.fund.OrganizationType;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;

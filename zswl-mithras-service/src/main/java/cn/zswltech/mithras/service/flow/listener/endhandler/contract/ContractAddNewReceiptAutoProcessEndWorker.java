@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.flow.listener.endhandler.contract;
 
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractProcessStatusEnum;
-import cn.zswltech.mithras.service.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

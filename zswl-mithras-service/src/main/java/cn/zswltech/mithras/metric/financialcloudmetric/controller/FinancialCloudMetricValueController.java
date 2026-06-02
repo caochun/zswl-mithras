@@ -10,7 +10,7 @@ import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetri
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
 import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricService;
 import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricValueService;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

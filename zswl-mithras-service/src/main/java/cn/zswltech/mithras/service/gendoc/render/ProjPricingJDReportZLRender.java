@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.enums.SubjectItemType;
 import cn.zswltech.mithras.service.enums.SubjectReportType;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.contract.RepayRateEnum;
+import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.*;
 import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.service.enums.projreview.ProjectType;

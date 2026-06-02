@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.overdue.application.service;
 
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.service.overdue.application.dto.CollectionListDto;
-import cn.zswltech.mithras.service.overdue.application.query.CollectionPageQuery;
+import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
+import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
 
 import java.util.List;
 

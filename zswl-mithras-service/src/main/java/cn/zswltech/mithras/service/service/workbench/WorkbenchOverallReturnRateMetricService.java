@@ -10,7 +10,7 @@ import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricDeptScope;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.service.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchOverallReturnRateMetric;
 import cn.zswltech.mithras.service.mapper.workbench.WorkbenchOverallReturnRateMetricMapper;
