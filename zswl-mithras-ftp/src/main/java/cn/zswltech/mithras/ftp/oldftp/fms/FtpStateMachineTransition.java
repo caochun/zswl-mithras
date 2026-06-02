@@ -1,9 +1,6 @@
-package cn.zswltech.mithras.service.service.ftp.fms;
+package cn.zswltech.mithras.ftp.oldftp.fms;
 
 import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
-import cn.zswltech.mithras.service.service.projfms.ProjAction;
-import cn.zswltech.mithras.service.service.projfms.ProjEvent;
-import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import lombok.Builder;
 import lombok.Data;
 

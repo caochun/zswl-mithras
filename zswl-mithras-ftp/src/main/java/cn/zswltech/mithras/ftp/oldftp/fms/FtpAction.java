@@ -1,7 +1,4 @@
-package cn.zswltech.mithras.service.service.ftp.fms;
-
-import cn.zswltech.mithras.service.service.projfms.ProjContext;
-import cn.zswltech.mithras.service.service.projfms.ProjStateMachine;
+package cn.zswltech.mithras.ftp.oldftp.fms;
 
 /**
  * @description:

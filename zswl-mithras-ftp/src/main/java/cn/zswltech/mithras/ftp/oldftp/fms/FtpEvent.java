@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.ftp.fms;
+package cn.zswltech.mithras.ftp.oldftp.fms;
 
 /**
  * @description:

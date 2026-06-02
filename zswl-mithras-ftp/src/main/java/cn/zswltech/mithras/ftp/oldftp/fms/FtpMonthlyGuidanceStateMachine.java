@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.ftp.fms;
+package cn.zswltech.mithras.ftp.oldftp.fms;
 
 import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyGuidance;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyGuidance;

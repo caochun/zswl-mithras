@@ -1,8 +1,7 @@
-package cn.zswltech.mithras.service.service.ftp.fms;
+package cn.zswltech.mithras.ftp.oldftp.fms;
 
 import cn.zswltech.mithras.service.service.projfms.IStateMachineEntity;
 import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
-import cn.zswltech.mithras.service.service.projfms.ProjEvent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
