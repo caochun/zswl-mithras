@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.service.contract.ContractLeaseItemService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemListRowDataService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractLeaseItemLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractLeaseItemLibService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

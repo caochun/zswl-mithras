@@ -97,7 +97,7 @@ import cn.zswltech.mithras.service.service.Listener.ContractPriceChangeEvent;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseAdjustInfoService;
 import cn.zswltech.mithras.service.service.bo.ClientBusinessHistoryBO;
-import cn.zswltech.mithras.contract.service.bo.ContractPrincipalBO;
+import cn.zswltech.mithras.contract.application.dto.ContractPrincipalBO;
 import cn.zswltech.mithras.service.service.client.ClientAuthorityService;
 import cn.zswltech.mithras.service.service.client.ClientBusinessHistoryService;
 import cn.zswltech.mithras.service.service.client.ClientService;
@@ -108,7 +108,7 @@ import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoServic
 import cn.zswltech.mithras.service.service.lib.LibCommonConvert;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.lib.contractcp.ContractCollectionPaymentService;
 import cn.zswltech.mithras.service.service.lib.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewBaseInfoLibService;

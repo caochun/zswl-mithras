@@ -31,7 +31,7 @@ import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEven
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractDeductRentInfoService;
-import cn.zswltech.mithras.contract.service.contract.ContractRetreatInfoService;
+import cn.zswltech.mithras.contract.core.service.ContractRetreatInfoService;
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialService;

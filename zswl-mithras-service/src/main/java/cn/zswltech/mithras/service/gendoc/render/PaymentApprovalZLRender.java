@@ -17,7 +17,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractMortgageLibService;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;

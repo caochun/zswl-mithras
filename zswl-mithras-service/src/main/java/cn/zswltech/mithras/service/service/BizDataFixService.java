@@ -106,7 +106,7 @@ import cn.zswltech.mithras.service.service.kpi.*;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.lib.kpi.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.service.service.lib.projestablish.ProjEstablishBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewBaseInfoLibService;

@@ -14,7 +14,7 @@
 //import cn.zswltech.mithras.service.others.MithrasException;
 //import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
-//import cn.zswltech.mithras.contract.service.lib.contract.ContractRentActualLibService;
+//import cn.zswltech.mithras.contract.archive.service.ContractRentActualLibService;
 //import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 //import cn.zswltech.mithras.service.service.payment.FtpPriceInfoService;
 //import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

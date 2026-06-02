@@ -46,7 +46,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
-import cn.zswltech.mithras.contract.service.contract.ContractCodeAbstract;
+import cn.zswltech.mithras.contract.core.service.ContractCodeAbstract;
 
 
 /**

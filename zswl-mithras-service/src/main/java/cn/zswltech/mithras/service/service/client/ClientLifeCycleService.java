@@ -44,7 +44,7 @@ import cn.zswltech.mithras.service.service.collection.CollectionOverdueHistorySe
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.lib.assetclassify.AssetClassifyClientAuxiliaryLibService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractReceiptLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractReceiptLibService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishPriceService;

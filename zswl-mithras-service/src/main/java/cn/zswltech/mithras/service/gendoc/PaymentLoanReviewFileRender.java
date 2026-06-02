@@ -37,7 +37,7 @@ import cn.zswltech.mithras.service.service.contract.*;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractTenantryLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractTenantryLibService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewLeasePriceService;
 import cn.zswltech.mithras.service.util.ExcelKeywordReplacerUtil;

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccountLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.ContractAccountZRSKLibHandler;
+import cn.zswltech.mithras.contract.archive.handler.impl.ContractAccountZRSKLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

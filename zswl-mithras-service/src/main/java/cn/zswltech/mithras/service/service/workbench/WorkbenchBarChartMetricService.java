@@ -21,9 +21,9 @@ import cn.zswltech.mithras.service.mapper.workbench.WorkbenchBarChartMetricMappe
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractAocPriceLibService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractFactoringPriceLibService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractAocPriceLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractFactoringPriceLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.service.lib.projestablish.ProjEstablishAocPriceLibService;
 import cn.zswltech.mithras.service.service.lib.projestablish.ProjEstablishFactoringPriceLibService;
 import cn.zswltech.mithras.service.service.lib.projestablish.ProjEstablishLeasePriceLibService;

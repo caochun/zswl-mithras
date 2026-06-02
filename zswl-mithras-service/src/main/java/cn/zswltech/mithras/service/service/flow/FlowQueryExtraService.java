@@ -31,7 +31,7 @@ import cn.zswltech.mithras.service.service.afterlese.AfterLeaseAdjustInfoService
 import cn.zswltech.mithras.service.service.afterlese.impl.AfterLeaseAdjustInfoServiceImpl;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.service.contract.ContractRetreatInfoService;
+import cn.zswltech.mithras.contract.core.service.ContractRetreatInfoService;
 import cn.zswltech.mithras.service.service.filingmaterials.FilingMaterialsService;
 import cn.zswltech.mithras.service.service.filingmaterials.OtherFilingMaterialsService;
 import cn.zswltech.mithras.service.service.financeprofitdistribution.FinanceProjectDistributionBaseInfoService;

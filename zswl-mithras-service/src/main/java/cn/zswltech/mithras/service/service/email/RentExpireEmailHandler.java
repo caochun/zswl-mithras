@@ -37,8 +37,8 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoS
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractLeasePriceLibService;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.archive.service.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.deepoove.poi.XWPFTemplate;

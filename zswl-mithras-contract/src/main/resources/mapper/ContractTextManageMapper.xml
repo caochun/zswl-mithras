@@ -22,7 +22,7 @@
         push_time,create_by,update_by,
         deleted,create_time,update_time
     </sql>
-    <select id="list" resultType="cn.zswltech.mithras.contract.service.bo.ContractTextManageBO"
+    <select id="list" resultType="cn.zswltech.mithras.contract.application.dto.ContractTextManageBO"
             parameterType="cn.zswltech.mithras.dto.contract.text.ContractTextManageListREQ">
         SELECT ctm.id AS id,
         cbi.id AS contractId,

@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractTenantryLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractTenantryLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;

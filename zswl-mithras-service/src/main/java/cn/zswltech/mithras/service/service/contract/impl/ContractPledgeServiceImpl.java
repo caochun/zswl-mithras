@@ -58,7 +58,7 @@ import javax.annotation.Resource;
 import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
-import cn.zswltech.mithras.contract.service.contract.ContractPledgeItemService;
+import cn.zswltech.mithras.contract.core.service.ContractPledgeItemService;
 
 
 /**

@@ -17,7 +17,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledge;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeLib;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.ContractLibAbstractHandler;
+import cn.zswltech.mithras.contract.archive.handler.ContractLibAbstractHandler;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.alibaba.fastjson.JSONArray;
 import org.apache.commons.collections4.CollectionUtils;

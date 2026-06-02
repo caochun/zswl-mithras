@@ -14,8 +14,8 @@ import cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
 import cn.zswltech.mithras.service.mapper.dto.ClientMaxLeaseMonthDTO;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
-import cn.zswltech.mithras.contract.service.bo.ContractPrincipalBO;
-import cn.zswltech.mithras.contract.service.dashboard.dto.DashboardQueryPriceDto;
+import cn.zswltech.mithras.contract.application.dto.ContractPrincipalBO;
+import cn.zswltech.mithras.contract.pricing.dto.ContractPriceQueryDto;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -71,7 +71,7 @@ public interface ContractBaseInfoMapper extends CustomBaseMapper<ContractBaseInf
 
     ClientOverdueInfoDto clientOverdueInfo(@Param("clientId")Long clientId);
 
-    List<DashboardQueryPriceDto> queryPriceDtoList(@Param("contractIds") List<Long> contractIds);
+    List<ContractPriceQueryDto> queryPriceDtoList(@Param("contractIds") List<Long> contractIds);
 
     List<ContractBaseInfo> contractSearchList(String contractCode);
 }

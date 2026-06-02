@@ -15,9 +15,9 @@ import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.AbstractContractAccountLibHandler;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.ContractLibAbstractHandler;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.*;
+import cn.zswltech.mithras.contract.archive.handler.AbstractContractAccountLibHandler;
+import cn.zswltech.mithras.contract.archive.handler.ContractLibAbstractHandler;
+import cn.zswltech.mithras.contract.archive.handler.impl.*;
 import cn.zswltech.mithras.service.service.lib.contract.handler.impl.*;
 
 import org.springframework.beans.factory.annotation.Autowired;

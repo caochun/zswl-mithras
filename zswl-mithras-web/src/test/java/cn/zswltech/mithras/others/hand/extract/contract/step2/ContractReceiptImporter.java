@@ -13,7 +13,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractRentActualLibService;
 import cn.zswltech.mithras.service.util.VersionUtil;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

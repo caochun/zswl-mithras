@@ -53,7 +53,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static cn.zswltech.mithras.service.enums.datacompare.CompareFactoryEnum.contractTenantry;
-import cn.zswltech.mithras.contract.service.contract.ContractPledgeItemService;
+import cn.zswltech.mithras.contract.core.service.ContractPledgeItemService;
 
 /**
  * @author dingqi

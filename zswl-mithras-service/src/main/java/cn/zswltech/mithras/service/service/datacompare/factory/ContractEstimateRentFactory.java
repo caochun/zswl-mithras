@@ -9,7 +9,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimateLi
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.ContractRentEstimateLibHandle;
+import cn.zswltech.mithras.contract.archive.handler.impl.ContractRentEstimateLibHandle;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

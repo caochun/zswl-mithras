@@ -17,7 +17,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.contract.service.bo.FinancialCostsBO;
+import cn.zswltech.mithras.contract.application.dto.FinancialCostsBO;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
 import cn.zswltech.mithras.service.service.contract.impl.ContractReceiptServiceImpl;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.service.dashboard.dto.DashboardQueryPriceDto;
+import cn.zswltech.mithras.contract.pricing.dto.ContractPriceQueryDto;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -61,15 +61,15 @@ public class CurrentYearBusinessPayReceiptService {
         List<Long> contractIds = paymentActualDetails.stream().map(PaymentActualDetail::getContractId).distinct().collect(Collectors.toList());
         Map<Long, ContractBaseInfo> contractMap = contractBaseInfoService.listByIds(contractIds).stream().collect(Collectors.toMap(ContractBaseInfo::getId, Function.identity(), (a, b) -> a));
         // 3、找到所有合同的报价方案
-        List<DashboardQueryPriceDto> queryPriceDtoList = contractBaseInfoMapper.queryPriceDtoList(contractIds);
+        List<ContractPriceQueryDto> queryPriceDtoList = contractBaseInfoMapper.queryPriceDtoList(contractIds);
         Map<Long, Long> irrMap = new HashMap<>();
         if (CollUtil.isNotEmpty(queryPriceDtoList)) {
             irrMap = queryPriceDtoList.stream().filter(e -> Objects.nonNull(e.getIrr()))
-                    .collect(Collectors.toMap(DashboardQueryPriceDto::getContractId, DashboardQueryPriceDto::getIrr, (a, b) -> a));
+                    .collect(Collectors.toMap(ContractPriceQueryDto::getContractId, ContractPriceQueryDto::getIrr, (a, b) -> a));
         }
 
         Map<Long, Long> finalIrrMap = irrMap;
-        paymentActualDetails = paymentActualDetails.stream().filter(item -> queryPriceDtoList.stream().map(DashboardQueryPriceDto::getContractId).collect(Collectors.toList()).contains(item.getContractId())  &&
+        paymentActualDetails = paymentActualDetails.stream().filter(item -> queryPriceDtoList.stream().map(ContractPriceQueryDto::getContractId).collect(Collectors.toList()).contains(item.getContractId())  &&
                 Objects.nonNull(finalIrrMap.get(item.getContractId()))).collect(Collectors.toList());
         // 将浙江业务部和公用事业业务部找到
         Long zjDept = sysUserService.getOrgIdByCode(WorkbenchMetricDeptScope.JCSSYWB.name());

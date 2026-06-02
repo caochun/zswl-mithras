@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.service.excel.model.CashFlowRichExcelModel;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
-import cn.zswltech.mithras.contract.service.bo.ContractEstimateCashFlowExporterBO;
+import cn.zswltech.mithras.contract.application.dto.ContractEstimateCashFlowExporterBO;
 
 import java.util.Comparator;
 import java.util.LinkedList;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.mapper.contract;
 
 import cn.zswltech.mithras.dto.contract.text.ContractTextManageListREQ;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextManage;
-import cn.zswltech.mithras.contract.service.bo.ContractTextManageBO;
+import cn.zswltech.mithras.contract.application.dto.ContractTextManageBO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.mapper.contract;
 
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
-import cn.zswltech.mithras.contract.service.bo.ContractLeaseItemCountBO;
+import cn.zswltech.mithras.contract.application.dto.ContractLeaseItemCountBO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

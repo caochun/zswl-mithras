@@ -13,7 +13,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantorLib;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.ContractLibAbstractHandler;
+import cn.zswltech.mithras.contract.archive.handler.ContractLibAbstractHandler;
 import com.alibaba.fastjson.JSONArray;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;

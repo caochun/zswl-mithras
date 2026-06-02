@@ -84,7 +84,7 @@ import cn.zswltech.mithras.service.service.contract.operationprepare.ContractOpe
 import cn.zswltech.mithras.service.service.contract.operationprepare.ContractOperationPrepareFactory;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
@@ -133,7 +133,7 @@ import static cn.zswltech.mithras.service.enums.CashFlowItemEnum.*;
 import static cn.zswltech.mithras.service.enums.JobEnum.businesshead;
 import static cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
-import cn.zswltech.mithras.contract.service.contract.ContractSpecialTraderService;
+import cn.zswltech.mithras.contract.core.service.ContractSpecialTraderService;
 
 /**
  * @author zhaozhengkang

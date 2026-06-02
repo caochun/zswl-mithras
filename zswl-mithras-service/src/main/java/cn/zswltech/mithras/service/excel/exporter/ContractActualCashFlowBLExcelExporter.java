@@ -10,9 +10,9 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.contract.service.bo.ContractActualCashFlowExporterBO;
+import cn.zswltech.mithras.contract.application.dto.ContractActualCashFlowExporterBO;
 import cn.zswltech.mithras.service.service.contract.ContractFactoringPriceService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractFactoringPriceLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.service.util.FinancialUtil;
 import org.springframework.stereotype.Component;
 

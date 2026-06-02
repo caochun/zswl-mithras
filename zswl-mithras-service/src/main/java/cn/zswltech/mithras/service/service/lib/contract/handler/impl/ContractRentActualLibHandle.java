@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.contract.service.lib.contract.handler.ContractLibAbstractHandler;
+import cn.zswltech.mithras.contract.archive.handler.ContractLibAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;

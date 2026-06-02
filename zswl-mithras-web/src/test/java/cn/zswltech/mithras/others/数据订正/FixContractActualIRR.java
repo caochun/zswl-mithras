@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
-import cn.zswltech.mithras.contract.service.lib.contract.ContractReceiptLibService;
+import cn.zswltech.mithras.contract.archive.service.ContractReceiptLibService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

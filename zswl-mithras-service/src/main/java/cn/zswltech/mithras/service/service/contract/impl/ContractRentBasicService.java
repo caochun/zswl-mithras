@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.contract.price.*;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.contract.service.bo.ContractPriceHelperBO;
+import cn.zswltech.mithras.contract.application.dto.ContractPriceHelperBO;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import org.springframework.stereotype.Component;
 

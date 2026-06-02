@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper">
 
-    <select id="listContractPrincipal" resultType="cn.zswltech.mithras.contract.service.bo.ContractPrincipalBO">
+    <select id="listContractPrincipal" resultType="cn.zswltech.mithras.contract.application.dto.ContractPrincipalBO">
         select
         b.contract_id as contractId,
         sum(b.principal) as planPrincipal,
@@ -232,7 +232,7 @@
         contract_id
     </select>
     <select id="queryPriceDtoList"
-            resultType="cn.zswltech.mithras.contract.service.dashboard.dto.DashboardQueryPriceDto">
+            resultType="cn.zswltech.mithras.contract.pricing.dto.ContractPriceQueryDto">
         SELECT b.actual_irr AS irr,
         a.id AS contractId
         FROM contract_base_info AS a
