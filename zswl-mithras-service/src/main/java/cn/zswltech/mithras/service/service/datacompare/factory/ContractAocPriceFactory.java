@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewAocPriceLib
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.contract.archive.handler.impl.ContractAocPriceLibHandler;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractAocPriceLibHandler;
 import cn.zswltech.mithras.service.service.lib.projreview.handler.impl.ProjReviewAocPriceLibHandler;
 import org.springframework.stereotype.Service;
 

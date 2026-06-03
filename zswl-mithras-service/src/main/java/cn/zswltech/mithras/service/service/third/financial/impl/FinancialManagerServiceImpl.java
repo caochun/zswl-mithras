@@ -32,7 +32,7 @@ import cn.zswltech.mithras.service.repository.PlatformApiHandler;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionService;
 import cn.zswltech.mithras.service.service.contract.*;
-import cn.zswltech.mithras.contract.archive.application.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

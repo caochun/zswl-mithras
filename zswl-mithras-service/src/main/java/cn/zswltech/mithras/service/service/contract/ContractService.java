@@ -84,7 +84,7 @@ import cn.zswltech.mithras.service.service.contract.operationprepare.ContractOpe
 import cn.zswltech.mithras.service.service.contract.operationprepare.ContractOperationPrepareFactory;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
-import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

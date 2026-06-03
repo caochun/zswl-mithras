@@ -44,7 +44,7 @@ import cn.zswltech.mithras.service.service.lib.afterlease.AfterLeaseCheckReportM
 import cn.zswltech.mithras.service.service.lib.afterlease.handler.impl.AfterLeaseCheckReportBaseLibHandler;
 import cn.zswltech.mithras.service.service.lib.afterlease.handler.impl.AfterLeaseCheckReportMetaLibHandler;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.archive.application.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.aspose.slides.Collections.ArrayList;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

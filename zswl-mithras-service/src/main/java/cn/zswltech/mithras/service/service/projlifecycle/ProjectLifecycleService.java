@@ -84,9 +84,9 @@ import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanBaseServ
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.service.service.afterlese.impl.RentCollectionIndexServiceImpl;
 import cn.zswltech.mithras.service.service.flow.MyTaskService;
-import cn.zswltech.mithras.contract.archive.application.ContractAocPriceLibService;
-import cn.zswltech.mithras.contract.archive.application.ContractFactoringPriceLibService;
-import cn.zswltech.mithras.contract.archive.application.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractAocPriceLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewAocPriceLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewFactoringPriceLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewLeasePriceLibService;

@@ -148,8 +148,8 @@ import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
 import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
-import cn.zswltech.mithras.contract.archive.application.ContractLeasePriceLibService;
-import cn.zswltech.mithras.contract.archive.application.ContractTenantryLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibService;
 
 
 /**

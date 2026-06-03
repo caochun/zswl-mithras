@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

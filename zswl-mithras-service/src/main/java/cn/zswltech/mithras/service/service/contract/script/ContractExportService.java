@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.archive.application.ContractLeaseItemLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractLeaseItemLibService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;

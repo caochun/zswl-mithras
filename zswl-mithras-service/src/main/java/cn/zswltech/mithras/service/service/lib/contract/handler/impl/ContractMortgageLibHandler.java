@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageLib;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.contract.archive.handler.ContractLibAbstractHandler;
+import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;

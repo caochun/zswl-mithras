@@ -30,7 +30,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.contract.archive.application.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.util.StreamUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.alibaba.fastjson.JSON;

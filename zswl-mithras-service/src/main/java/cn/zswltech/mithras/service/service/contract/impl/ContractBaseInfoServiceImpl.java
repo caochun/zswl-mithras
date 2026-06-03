@@ -108,7 +108,7 @@ import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoServic
 import cn.zswltech.mithras.service.service.lib.LibCommonConvert;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
-import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.lib.contractcp.ContractCollectionPaymentService;
 import cn.zswltech.mithras.service.service.lib.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewBaseInfoLibService;

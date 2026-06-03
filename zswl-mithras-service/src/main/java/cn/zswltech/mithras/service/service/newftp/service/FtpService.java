@@ -48,7 +48,7 @@ import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.archive.application.ContractTenantryLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibService;
 import cn.zswltech.mithras.service.service.newftp.lib.impl.NewFtpQuarterlyBasePricingLibHandler;
 import cn.zswltech.mithras.ftp.newftp.mapper.draft.NewFtpQuarterlyBasePricingDraftMapper;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;

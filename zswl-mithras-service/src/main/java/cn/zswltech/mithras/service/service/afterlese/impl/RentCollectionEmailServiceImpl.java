@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.service.basedata.BaseDataBankAccountService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPayAccountService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.lib.client.handler.impl.CorpContactInfoLibHandlerImpl;
-import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.util.EmailUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

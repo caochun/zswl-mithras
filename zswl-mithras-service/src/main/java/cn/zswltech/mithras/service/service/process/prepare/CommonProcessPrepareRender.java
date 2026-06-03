@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.mapper.model.process.prepare.RentCollectionMo
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.capital.write_off.bo.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
-import cn.zswltech.mithras.contract.archive.application.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
 import cn.zswltech.mithras.service.util.FreeMarkerUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.deepoove.poi.XWPFTemplate;
