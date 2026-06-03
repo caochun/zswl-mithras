@@ -76,7 +76,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.afterlease.*;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
-import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.client.ClientStatus;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;

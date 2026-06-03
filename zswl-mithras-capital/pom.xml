@@ -10,4 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>zswl-mithras-capital</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-service-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
 </project>

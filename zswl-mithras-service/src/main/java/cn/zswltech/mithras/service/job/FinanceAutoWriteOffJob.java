@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.zswltech.mithras.service.enums.capital.FinancingFlowWriteOffStatusEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinancingFlowWriteOffStatusEnum;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.third.mapper.FinanceFlowRecordMapper;
 import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffService;

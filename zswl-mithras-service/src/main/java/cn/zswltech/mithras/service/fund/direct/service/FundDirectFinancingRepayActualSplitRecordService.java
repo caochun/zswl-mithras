@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.capital.FinancePaymentWriteOffREQ;
 import cn.zswltech.mithras.dto.capital.FinanceRepaySplitRecordREQ;
 import cn.zswltech.mithras.dto.capital.FinanceRepaySplitRecordRSP;
 import cn.zswltech.mithras.dto.third.financial.ThirdFinancialWithdrawREQ;
-import cn.zswltech.mithras.service.enums.capital.FinancePaymentWriteOffOrderEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinancePaymentWriteOffOrderEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.fund.direct.entity.*;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingRepayActualSplitRecordMapper;

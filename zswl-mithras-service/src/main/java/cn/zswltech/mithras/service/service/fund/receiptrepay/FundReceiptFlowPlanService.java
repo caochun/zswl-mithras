@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.fund.receiptrepay;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;
 import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptFlowPlanMapper;

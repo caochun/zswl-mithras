@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.enums.budget.BudgetPlanCalculateStatusEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetPlanTypeEnum;
 import cn.zswltech.mithras.service.enums.budget.BudgetStatusEnum;
-import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.LiquidityBoardDeta
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.LiquidityIndexDetailREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.LiquidityMismatchDetailREQ;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.enums.fund.liquidity.FundParameterConfigType;

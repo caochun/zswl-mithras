@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
 import cn.zswltech.mithras.service.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.SpecialFileBusinessType;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.capital.FinanceFlowDetailTableEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceFlowDetailTableEnum;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.service.enums.payment.PaymentMethod;

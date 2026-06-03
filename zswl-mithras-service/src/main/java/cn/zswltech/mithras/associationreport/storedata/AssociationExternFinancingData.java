@@ -13,8 +13,8 @@ import cn.zswltech.mithras.associationreport.service.AssociationDictionaryServic
 import cn.zswltech.mithras.associationreport.service.AssociationExternalFinancingService;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationDictionaryCategoryEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
-import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.capital.FinancePaymentWriteOffOrderEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinancePaymentWriteOffOrderEnum;
 import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;

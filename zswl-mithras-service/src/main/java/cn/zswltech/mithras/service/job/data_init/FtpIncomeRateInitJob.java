@@ -6,7 +6,7 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.poi.excel.ExcelUtil;
-import cn.zswltech.mithras.service.enums.capital.FinancingFlowWriteOffStatusEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinancingFlowWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.enums.capital;
+package cn.zswltech.mithras.capital.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum.REPAY;
+import static cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum.REPAY;
 import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
 
 @Slf4j

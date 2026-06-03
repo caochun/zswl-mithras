@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.enums.capital.write_off;
+package cn.zswltech.mithras.capital.domain.enums.write_off;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
 import lombok.AllArgsConstructor;
@@ -6,22 +6,21 @@ import lombok.Getter;
 
 /**
  * @author bigbear
- * @date 2024/9/18 16:18
+ * @date 2024/9/19 10:22
  * @description
  */
 @Getter
 @AllArgsConstructor
-public enum WriteOffBusinessModelEnum implements PullDown {
-    PROJECT_COLLECT("项目端-收款"),
-    PROJECT_PAY("项目端-付款"),
-    FINANCE_COLLECT("资金端-收款"),
-    FINANCE_PAY("资金端-付款"),
+public enum WriteOffAccountTypeEnum implements PullDown {
+    SUPERVISION_ACCOUNT("监管账户", 1),
+    ORDINARY_ACCOUNT("普通账户", 99),
     ;
 
     private final String display;
+    private final Integer sort;
 
-    public static WriteOffBusinessModelEnum find(String name) {
-        for (WriteOffBusinessModelEnum value : WriteOffBusinessModelEnum.values()) {
+    public static WriteOffAccountTypeEnum find(String name) {
+        for (WriteOffAccountTypeEnum value : WriteOffAccountTypeEnum.values()) {
             if (value.name().equals(name)) {
                 return value;
             }

@@ -59,7 +59,7 @@ public class BankFlowProcessingCenterListREQ extends PageReq {
     private String bankName;
 
     /**
-     * {@link cn.zswltech.mithras.service.enums.capital.BankFlowPaymentCollectionTypeEnum}
+     * {@link cn.zswltech.mithras.capital.domain.enums.BankFlowPaymentCollectionTypeEnum}
      */
     /**
      * 收付款类型

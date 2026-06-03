@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.enums.capital;
+package cn.zswltech.mithras.capital.domain.enums;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
 import lombok.AllArgsConstructor;

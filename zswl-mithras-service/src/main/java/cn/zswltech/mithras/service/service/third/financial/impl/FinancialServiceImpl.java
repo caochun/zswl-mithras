@@ -28,7 +28,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.capital.FinanceFlowDetailTableEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceFlowDetailTableEnum;
 import cn.zswltech.mithras.service.enums.collection.BillTypeEnum;
 import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;

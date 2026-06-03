@@ -23,7 +23,7 @@ public class FinanceFlowWriteOffDetail extends BaseModelWithLogicDelete implemen
     private Long id;
 
     /**
-     * 记录主表枚举{@link cn.zswltech.mithras.service.enums.capital.FinanceFlowDetailTableEnum}
+     * 记录主表枚举{@link cn.zswltech.mithras.capital.domain.enums.FinanceFlowDetailTableEnum}
      */
     @TableField(value = "record_main_table")
     private String recordMainTable;

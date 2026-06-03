@@ -9,7 +9,7 @@ import cn.zswltech.gruul.dao.dal.dao.UserDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.capital.BankFlowCenterTypeEnum;
-import cn.zswltech.mithras.service.enums.capital.FinancingFlowWriteOffStatusEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinancingFlowWriteOffStatusEnum;
 import cn.zswltech.mithras.service.mapper.fund.FinanceFlowWriteOffDetailMapper;
 import cn.zswltech.mithras.service.mapper.model.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;

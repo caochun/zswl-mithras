@@ -31,7 +31,7 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.capital.FinanceFlowDetailTableEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceFlowDetailTableEnum;
 import cn.zswltech.mithras.service.enums.collection.BillTypeEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionRecordWriteOffStatus;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;

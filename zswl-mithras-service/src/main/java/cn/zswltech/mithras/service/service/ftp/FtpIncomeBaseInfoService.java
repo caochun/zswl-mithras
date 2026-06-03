@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.ftp.FtpIncomeBaseInfoListRSP;
 import cn.zswltech.mithras.dto.ftp.FtpIncomeDetailRecordListREQ;
 import cn.zswltech.mithras.dto.ftp.FtpIncomeDetailRecordListRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectRepayActualSplitRSP;
-import cn.zswltech.mithras.service.enums.capital.FinancePaymentWriteOffOrderEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinancePaymentWriteOffOrderEnum;
 import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
 import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;

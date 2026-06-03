@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.liquiditymanage.cal.index;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
-import cn.zswltech.mithras.service.enums.capital.FinanceCashFlowItemEnum;
+import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityColorEnum;
 import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptFlowDetail;
