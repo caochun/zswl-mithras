@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.third.service.opinion.handle;
+package cn.zswltech.mithras.third.riskopinion.infrastructure.client.handle;
 
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.third.service.opinion.RiskManageApiHandler;
-import cn.zswltech.mithras.third.service.opinion.req.RiskControlOpinionPullListREQ;
-import cn.zswltech.mithras.third.service.opinion.resp.RiskControlOpinionPullListRsp;
+import cn.zswltech.mithras.third.riskopinion.infrastructure.client.RiskManageApiHandler;
+import cn.zswltech.mithras.third.riskopinion.infrastructure.client.req.RiskControlOpinionPullListREQ;
+import cn.zswltech.mithras.third.riskopinion.infrastructure.client.resp.RiskControlOpinionPullListRsp;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

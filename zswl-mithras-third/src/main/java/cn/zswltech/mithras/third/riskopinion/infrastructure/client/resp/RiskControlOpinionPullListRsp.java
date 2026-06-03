@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.opinion.resp;
+package cn.zswltech.mithras.third.riskopinion.infrastructure.client.resp;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

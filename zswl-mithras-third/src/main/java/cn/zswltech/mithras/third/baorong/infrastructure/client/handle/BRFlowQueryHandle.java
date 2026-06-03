@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.br.handle;
+package cn.zswltech.mithras.third.baorong.infrastructure.client.handle;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,9 +8,9 @@ import cn.zswltech.mithras.third.mapper.model.BrFlowRecord;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.third.service.ExceptionRequestRecordService;
 import cn.zswltech.mithras.third.service.capital.BrFlowRecordService;
-import cn.zswltech.mithras.third.service.br.BRApiHandler;
-import cn.zswltech.mithras.third.service.br.req.BRFlowHistoryReq;
-import cn.zswltech.mithras.third.service.br.rsp.BRFlowHistoryRsp;
+import cn.zswltech.mithras.third.baorong.infrastructure.client.BRApiHandler;
+import cn.zswltech.mithras.third.baorong.infrastructure.client.req.BRFlowHistoryReq;
+import cn.zswltech.mithras.third.baorong.infrastructure.client.rsp.BRFlowHistoryRsp;
 import cn.zswltech.mithras.third.service.financial.impl.FinancialConfigService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.br.req;
+package cn.zswltech.mithras.third.baorong.infrastructure.client.req;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

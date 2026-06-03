@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.br.rsp;
+package cn.zswltech.mithras.third.baorong.infrastructure.client.rsp;
 
 import lombok.Data;
 

@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.third.service.opinion;
+package cn.zswltech.mithras.third.riskopinion.application;
 
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
-import cn.zswltech.mithras.third.service.opinion.req.RiskControlOpinionRegisterItem;
-import cn.zswltech.mithras.third.service.opinion.resp.RiskControlCommRSP;
+import cn.zswltech.mithras.third.riskopinion.infrastructure.client.req.RiskControlOpinionRegisterItem;
+import cn.zswltech.mithras.third.riskopinion.infrastructure.client.resp.RiskControlCommRSP;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

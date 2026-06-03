@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.third.service.opinion;
+package cn.zswltech.mithras.third.riskopinion.infrastructure.client;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
 import cn.zswltech.mithras.service.repository.RequestModeEnum;
-import cn.zswltech.mithras.third.service.opinion.resp.RiskControlCommRSP;
+import cn.zswltech.mithras.third.riskopinion.infrastructure.client.resp.RiskControlCommRSP;
 import cn.zswltech.mithras.service.util.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
 

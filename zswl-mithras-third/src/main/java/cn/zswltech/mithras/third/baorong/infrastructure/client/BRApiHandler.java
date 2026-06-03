@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.br;
+package cn.zswltech.mithras.third.baorong.infrastructure.client;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
 import cn.zswltech.mithras.service.repository.RequestModeEnum;
 import cn.zswltech.mithras.third.service.ExceptionRequestRecordService;
-import cn.zswltech.mithras.third.service.br.rsp.BRCommonRsp;
+import cn.zswltech.mithras.third.baorong.infrastructure.client.rsp.BRCommonRsp;
 import cn.zswltech.mithras.service.util.HttpUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.alibaba.fastjson.JSON;
