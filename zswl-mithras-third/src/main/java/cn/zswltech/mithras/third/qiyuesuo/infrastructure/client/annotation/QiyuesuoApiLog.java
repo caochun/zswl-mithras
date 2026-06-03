@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.annotation;
+package cn.zswltech.mithras.third.qiyuesuo.infrastructure.client.annotation;
 
 import java.lang.annotation.*;
 

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.service.model.qiyuesuo;
+package cn.zswltech.mithras.third.qiyuesuo.infrastructure.client.dto;
 
 import lombok.Data;
 

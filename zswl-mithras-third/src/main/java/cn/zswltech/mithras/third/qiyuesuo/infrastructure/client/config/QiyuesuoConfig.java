@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.config;
+package cn.zswltech.mithras.third.qiyuesuo.infrastructure.client.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;

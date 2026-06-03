@@ -33,7 +33,7 @@ public class QiyuesuoApiLogAop {
     @Resource
     private QiyuesuoInvokeLogMapper qiyuesuoInvokeLogMapper;
 
-    @Pointcut("@annotation(cn.zswltech.mithras.third.annotation.QiyuesuoApiLog)")
+    @Pointcut("@annotation(cn.zswltech.mithras.third.qiyuesuo.infrastructure.client.annotation.QiyuesuoApiLog)")
     public void writeLog() {
     }
 

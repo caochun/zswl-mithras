@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.third.service;
+package cn.zswltech.mithras.third.qiyuesuo.infrastructure.client;
 
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.http.Method;
-import cn.zswltech.mithras.third.annotation.QiyuesuoApiLog;
-import cn.zswltech.mithras.third.config.QiyuesuoConfig;
+import cn.zswltech.mithras.third.qiyuesuo.infrastructure.client.annotation.QiyuesuoApiLog;
+import cn.zswltech.mithras.third.qiyuesuo.infrastructure.client.config.QiyuesuoConfig;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.third.service.model.qiyuesuo.*;
+import cn.zswltech.mithras.third.qiyuesuo.infrastructure.client.dto.*;
 import com.alibaba.fastjson.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
