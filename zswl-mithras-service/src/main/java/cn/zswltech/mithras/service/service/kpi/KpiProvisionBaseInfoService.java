@@ -30,7 +30,7 @@ import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.third.financial.SyncReceiveProvisionService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
-import cn.zswltech.mithras.third.service.financial.vo.CQ2AccountApplicationVO;
+import cn.zswltech.mithras.third.financialshare.application.dto.CQ2AccountApplicationVO;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

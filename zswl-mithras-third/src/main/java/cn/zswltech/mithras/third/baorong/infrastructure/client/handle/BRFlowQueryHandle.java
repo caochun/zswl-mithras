@@ -11,7 +11,7 @@ import cn.zswltech.mithras.third.baorong.application.BrFlowRecordService;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.BRApiHandler;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.req.BRFlowHistoryReq;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.rsp.BRFlowHistoryRsp;
-import cn.zswltech.mithras.third.service.financial.impl.FinancialConfigService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialConfigService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

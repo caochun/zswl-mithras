@@ -22,8 +22,8 @@ import cn.zswltech.mithras.service.service.third.financial.FinancialExtraService
 import cn.zswltech.mithras.service.service.third.financial.FinancialService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialServiceImpl;
-import cn.zswltech.mithras.third.service.financial.resp.CQ2WithdrawRSP;
-import cn.zswltech.mithras.third.service.financial.vo.CQ2WithdrawVO;
+import cn.zswltech.mithras.third.financialshare.infrastructure.client.resp.CQ2WithdrawRSP;
+import cn.zswltech.mithras.third.financialshare.application.dto.CQ2WithdrawVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -61,10 +61,10 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInf
 import cn.zswltech.mithras.service.service.fund.receiptrepay.*;
 import cn.zswltech.mithras.service.service.third.FinanceFlowRecordService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
-import cn.zswltech.mithras.third.service.financial.vo.AppAuthConfig;
-import cn.zswltech.mithras.third.service.financial.vo.CQ2CollectionVO;
-import cn.zswltech.mithras.third.service.financial.vo.CQ2PaymentVO;
-import cn.zswltech.mithras.third.service.financial.vo.SyncCqReqBizInfo;
+import cn.zswltech.mithras.third.financialshare.infrastructure.client.config.AppAuthConfig;
+import cn.zswltech.mithras.third.financialshare.application.dto.CQ2CollectionVO;
+import cn.zswltech.mithras.third.financialshare.application.dto.CQ2PaymentVO;
+import cn.zswltech.mithras.third.financialshare.application.dto.SyncCqReqBizInfo;
 import cn.zswltech.mithras.service.util.BigDecimalUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.ThreadPoolUtil;

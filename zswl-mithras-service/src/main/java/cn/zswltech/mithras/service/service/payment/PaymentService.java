@@ -72,7 +72,7 @@ import cn.zswltech.mithras.service.service.projlifecycle.ProjectLifecycleEventSe
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
-import cn.zswltech.mithras.third.service.financial.vo.FinancialPaymentVO;
+import cn.zswltech.mithras.third.financialshare.application.dto.FinancialPaymentVO;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

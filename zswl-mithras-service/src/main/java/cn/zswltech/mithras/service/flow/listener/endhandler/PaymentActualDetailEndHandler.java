@@ -42,7 +42,7 @@ import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialExtraService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
-import cn.zswltech.mithras.third.service.financial.vo.FinancialPaymentVO;
+import cn.zswltech.mithras.third.financialshare.application.dto.FinancialPaymentVO;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.ThreadPoolUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

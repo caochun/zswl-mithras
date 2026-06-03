@@ -31,7 +31,7 @@ import cn.zswltech.mithras.service.service.fund.FundFinancingCreditRefService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingService;
 import cn.zswltech.mithras.service.service.third.FinanceFlowRecordService;
-import cn.zswltech.mithras.third.service.financial.vo.CQ2CollectionVO;
+import cn.zswltech.mithras.third.financialshare.application.dto.CQ2CollectionVO;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
