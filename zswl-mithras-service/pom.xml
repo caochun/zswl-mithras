@@ -321,7 +321,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-dashboard</artifactId>
+            <artifactId>zswl-mithras-dashboard</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

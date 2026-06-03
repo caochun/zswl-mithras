@@ -12,7 +12,7 @@ import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckPlanProcessSta
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckPlanStatusEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckPlanTypeEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckWayEnum;
-import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
+import cn.zswltech.mithras.dashboard.domain.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.NewAfterLeaseCheckPlanBaseMapper;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.dashboard.DashboardClientAfterLeaseCheckQuery;
 import cn.zswltech.mithras.service.service.Id2NameService;

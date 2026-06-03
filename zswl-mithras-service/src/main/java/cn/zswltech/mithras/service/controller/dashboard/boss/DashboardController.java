@@ -7,10 +7,10 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.dashboard.boss.DashboardApi;
 import cn.zswltech.mithras.dto.dashboard.boss.DashboardListRSP;
-import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardAuthorityConfig;
-import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardConfig;
-import cn.zswltech.mithras.service.service.dashboard.boss.DashboardAuthorityConfigService;
-import cn.zswltech.mithras.service.service.dashboard.boss.DashboardConfigService;
+import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardAuthorityConfig;
+import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardConfig;
+import cn.zswltech.mithras.dashboard.application.boss.DashboardAuthorityConfigService;
+import cn.zswltech.mithras.dashboard.application.boss.DashboardConfigService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

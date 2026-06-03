@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardApprovalListRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
 import cn.zswltech.mithras.service.controller.dashboard.DashboardOperationContractController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
-import cn.zswltech.mithras.service.enums.dashboard.BusinessGroupEnum;
+import cn.zswltech.mithras.dashboard.domain.enums.BusinessGroupEnum;
 import cn.zswltech.mithras.service.enums.projestablish.ContractBusinessModelEnum;
 import cn.zswltech.mithras.service.excel.exporter.dashboard.DashboardOperationApprovalExcelExporter;
 import cn.zswltech.mithras.service.excel.model.dashboard.DashboardOperationApprovalModel;

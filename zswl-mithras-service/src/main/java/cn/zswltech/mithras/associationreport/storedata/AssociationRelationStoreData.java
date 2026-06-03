@@ -25,7 +25,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.dashboard.GuanYuanOperationService;
-import cn.zswltech.mithras.service.service.dashboard.guanyuandata.ProjectSituationDTO;
+import cn.zswltech.mithras.dashboard.application.guanyuandata.ProjectSituationDTO;
 import cn.zswltech.mithras.service.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;

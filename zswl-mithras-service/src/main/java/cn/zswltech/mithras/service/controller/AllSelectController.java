@@ -59,7 +59,7 @@ import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.payment.domain.enums.app.AppContractSubTypeEnum;
 import cn.zswltech.mithras.payment.domain.enums.app.AppPaymentStatus;
 import cn.zswltech.mithras.service.enums.creditreport.*;
-import cn.zswltech.mithras.service.enums.dashboard.DashboardOperationTermEnum;
+import cn.zswltech.mithras.dashboard.domain.enums.DashboardOperationTermEnum;
 import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsFilingTypeEnum;
 import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsPolicyEnum;
 import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsProcessStatusEnum;

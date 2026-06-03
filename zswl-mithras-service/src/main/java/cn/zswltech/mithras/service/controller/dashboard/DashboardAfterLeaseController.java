@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.dashboard.DashboardAfterLeaseApi;
 import cn.zswltech.mithras.dto.dashboard.DashboardAfterLeaseCheckListREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardAfterLeaseCheckRSP;
 import cn.zswltech.mithras.dto.dashboard.DashboardAfterLeaseStatisticsRSP;
-import cn.zswltech.mithras.service.enums.dashboard.DashboardAfterLeaseCheckStatueEnum;
+import cn.zswltech.mithras.dashboard.domain.enums.DashboardAfterLeaseCheckStatueEnum;
 import cn.zswltech.mithras.service.service.dashboard.DashboardAfterLeaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;

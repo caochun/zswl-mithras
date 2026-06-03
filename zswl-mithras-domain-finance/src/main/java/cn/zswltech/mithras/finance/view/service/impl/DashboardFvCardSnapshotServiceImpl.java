@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceStatisticsRSP;
 import cn.zswltech.mithras.finance.view.entity.*;
 import cn.zswltech.mithras.finance.view.mapper.DashboardFvCardSnapshotMapper;
 import cn.zswltech.mithras.finance.view.service.*;
-import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
+import cn.zswltech.mithras.dashboard.domain.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

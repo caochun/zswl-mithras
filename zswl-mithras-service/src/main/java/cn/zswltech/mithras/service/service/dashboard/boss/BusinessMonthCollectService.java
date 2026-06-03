@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.dashboard.boss.MonthCollectStatisticsListREQ;
 import cn.zswltech.mithras.dto.dashboard.boss.MonthCollectStatisticsListRSP;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.dashboard.DashBoardQueryTypeEnum;
+import cn.zswltech.mithras.dashboard.domain.enums.DashBoardQueryTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.BelongTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.BusinessTypeEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;

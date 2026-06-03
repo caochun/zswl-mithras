@@ -16,7 +16,7 @@ import cn.zswltech.mithras.finance.view.mapper.DashboardFvCardSnapshotMapper;
 import cn.zswltech.mithras.finance.view.mapper.DashboardFvFinanceInfoSnapshotMapper;
 import cn.zswltech.mithras.finance.view.service.DashboardFvFinanceInfoSnapshotService;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
+import cn.zswltech.mithras.dashboard.domain.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

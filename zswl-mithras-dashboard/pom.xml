@@ -10,4 +10,63 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>zswl-mithras-dashboard</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-service-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>gruul-spring-boot-starter</artifactId>
+            <version>3.5.2-mithras.RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-customer</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-riskcontrol</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

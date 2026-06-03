@@ -60,7 +60,6 @@
                 <module>zswl-mithras-workbench</module>
         <module>zswl-mithras-third</module>
         <module>zswl-mithras-domain-message</module>
-        <module>zswl-mithras-domain-dashboard</module>
         <module>zswl-mithras-dashboard</module>
         <module>zswl-mithras-workflow</module>
         <module>zswl-mithras-document</module>

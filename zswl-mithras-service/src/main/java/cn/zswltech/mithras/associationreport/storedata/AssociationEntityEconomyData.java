@@ -22,7 +22,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.dashboard.GuanYuanOperationService;
-import cn.zswltech.mithras.service.service.dashboard.guanyuandata.PayIncomeDTO;
+import cn.zswltech.mithras.dashboard.application.guanyuandata.PayIncomeDTO;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.util.DateUtil;

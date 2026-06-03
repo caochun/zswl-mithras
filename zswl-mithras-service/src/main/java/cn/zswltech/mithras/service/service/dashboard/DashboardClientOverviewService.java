@@ -19,7 +19,7 @@ import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.domain.enums.client.EnterpriseNatureEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
+import cn.zswltech.mithras.dashboard.domain.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.service.enums.projestablish.FactoringType;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projestablish.ZrType;
@@ -29,7 +29,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.Cli
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeasePriceMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.service.mapper.dashboard.DashboardProjectInfoMapper;
+import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardProjectInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.dto.client.DashboardClientBasicDTO;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.dashboard.DashboardClientOverviewAllQuery;
 import cn.zswltech.mithras.service.mapper.model.AddressDictionary;
@@ -37,7 +37,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.IndustryType;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.service.mapper.model.dashboard.*;
+import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.*;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;
@@ -257,7 +257,7 @@ public class DashboardClientOverviewService {
         return PageR.of(dashboardClientOverviewSurvivalRSPS, dashboardClientBasicDTOPage.getTotal());
     }
 
-    //三个月结清客户  cn.zswltech.mithras.service.mapper.dashboard.DashboardProjectInfoMapper#listSettleInThreeMonth
+    //三个月结清客户  cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardProjectInfoMapper#listSettleInThreeMonth
     public PageR<DashboardClientOverviewSettleInThreeMonthRSP> settleInThreeMonthPageList(DashboardClientOverviewSettleInThreeMonthREQ req) {
         StopWatch st = new StopWatch();
         st.start("三个月结清客户");
@@ -371,7 +371,7 @@ public class DashboardClientOverviewService {
         }
     }
 
-    //逾期客户 cn.zswltech.mithras.service.mapper.dashboard.DashboardProjectInfoMapper#listOverdue
+    //逾期客户 cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardProjectInfoMapper#listOverdue
     public PageR<DashboardClientOverviewOverdueRSP> overduePageList(DashboardClientOverviewOverdueREQ req) {
         StopWatch st = new StopWatch();
         st.start("逾期客户");

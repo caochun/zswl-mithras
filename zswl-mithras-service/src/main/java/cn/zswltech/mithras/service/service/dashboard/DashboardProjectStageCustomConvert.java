@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.dashboard;
 
 import cn.zswltech.mithras.dto.dashboard.DashboardProjectBasicRSP;
-import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectBasicResult;
+import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectBasicResult;
 
 /**
  * @author dingqi
