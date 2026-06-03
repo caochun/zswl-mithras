@@ -71,7 +71,7 @@ import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptWeightL
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;
 import cn.zswltech.mithras.service.service.kpi.KpiProvisionDetailService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionLibVersionService;
-import cn.zswltech.mithras.service.service.margin.MarginRecordService;
+import cn.zswltech.mithras.margin.service.MarginRecordService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

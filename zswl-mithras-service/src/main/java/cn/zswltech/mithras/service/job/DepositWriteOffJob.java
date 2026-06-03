@@ -19,14 +19,14 @@ import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsProcessSt
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
+import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractDeductRentInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractRetreatInfoService;
-import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

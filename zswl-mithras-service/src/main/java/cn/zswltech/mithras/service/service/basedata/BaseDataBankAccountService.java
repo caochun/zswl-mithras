@@ -27,7 +27,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financin
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundRepayAccount;
 import cn.zswltech.mithras.service.mapper.model.liquiditymanage.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.liquiditymanage.FundFinancingAccountSetting;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginRecordInfo;
+import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
@@ -38,7 +38,7 @@ import cn.zswltech.mithras.fund.application.financing.FundFinancingPayAccountSer
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundRepayAccountService;
 import cn.zswltech.mithras.service.service.liquiditymanage.FundFinancingAccountSettingService;
-import cn.zswltech.mithras.service.service.margin.MarginRecordService;
+import cn.zswltech.mithras.margin.service.MarginRecordService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.util.StringUtil;

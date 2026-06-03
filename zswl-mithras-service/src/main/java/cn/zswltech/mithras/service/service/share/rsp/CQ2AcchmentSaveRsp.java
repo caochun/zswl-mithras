@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.share.rsp;
+package cn.zswltech.mithras.datashare.service.rsp;
 
 import cn.zswltech.mithras.third.financialshare.infrastructure.client.resp.FinancialBaseRSP;
 import lombok.*;

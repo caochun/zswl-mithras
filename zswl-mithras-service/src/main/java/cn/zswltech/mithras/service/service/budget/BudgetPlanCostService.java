@@ -47,7 +47,7 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoS
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingRepayActualService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowDetailService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
-import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

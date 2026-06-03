@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.service.margin;
+package cn.zswltech.mithras.margin.service;
 
 import cn.zswltech.mithras.dto.margin.MarginwriteOffListREQ;
 import cn.zswltech.mithras.dto.margin.MarginwriteOffListRSP;
-import cn.zswltech.mithras.service.mapper.margin.MarginWriteOffRecordMapper;
+import cn.zswltech.mithras.margin.mapper.MarginWriteOffRecordMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginWriteOffRecord;
+import cn.zswltech.mithras.margin.mapper.model.MarginWriteOffRecord;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

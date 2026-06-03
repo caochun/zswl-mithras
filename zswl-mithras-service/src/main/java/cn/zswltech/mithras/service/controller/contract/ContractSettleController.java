@@ -34,7 +34,7 @@ import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLib
 import cn.zswltech.mithras.contract.versioning.application.ContractSettlePlanLibService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.lib.contractcp.ContractCollectionPaymentService;
-import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import org.springframework.transaction.annotation.Transactional;

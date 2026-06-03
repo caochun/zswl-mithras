@@ -14,8 +14,8 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
 import cn.zswltech.mithras.filingmaterials.infrastructure.persistence.mapper.model.FilingMaterials;
-import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistribution;
-import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistributionBaseInfo;
+import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
+import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportClientItem;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;

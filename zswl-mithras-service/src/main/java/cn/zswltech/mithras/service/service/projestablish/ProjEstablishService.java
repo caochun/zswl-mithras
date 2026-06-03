@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
+import cn.zswltech.mithras.projlifecycle.enums.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.projestablish.ProjEstablishBaseInfoMapper;

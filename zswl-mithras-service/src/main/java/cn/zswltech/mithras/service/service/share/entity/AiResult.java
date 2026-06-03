@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.share.entity;
+package cn.zswltech.mithras.datashare.service.entity;
 
 import lombok.Getter;
 import lombok.Setter;

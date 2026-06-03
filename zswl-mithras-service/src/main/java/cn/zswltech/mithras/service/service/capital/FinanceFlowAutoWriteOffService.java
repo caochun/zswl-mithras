@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum
 import cn.zswltech.mithras.fund.domain.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
+import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.payment.domain.enums.*;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.third.enums.CQCollectionTypeENUM;
@@ -46,7 +46,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.Cli
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.FinanceFlowWriteOffDetailMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
-import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
+import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
@@ -56,9 +56,9 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financin
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayExpense;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.margin.WarrantyBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.margin.WarrantyRecordInfo;
+import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.mapper.model.WarrantyBaseInfo;
+import cn.zswltech.mithras.margin.mapper.model.WarrantyRecordInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
@@ -80,8 +80,8 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInf
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayExpenseService;
-import cn.zswltech.mithras.service.service.margin.WarrantyBaseInfoService;
-import cn.zswltech.mithras.service.service.margin.WarrantyRecordService;
+import cn.zswltech.mithras.margin.service.WarrantyBaseInfoService;
+import cn.zswltech.mithras.margin.service.WarrantyRecordService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.service.service.payment.PaymentWriteOffService;

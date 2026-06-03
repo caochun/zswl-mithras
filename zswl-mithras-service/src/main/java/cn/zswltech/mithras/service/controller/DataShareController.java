@@ -8,8 +8,8 @@ import cn.zswltech.mithras.dto.client.share.DataShareREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareRSP;
 import cn.zswltech.mithras.dto.client.share.DataShareUserREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareUserRSP;
-import cn.zswltech.mithras.service.service.share.DataShareMerchantsService;
-import cn.zswltech.mithras.service.service.share.DataShareService;
+import cn.zswltech.mithras.datashare.service.DataShareMerchantsService;
+import cn.zswltech.mithras.datashare.service.DataShareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

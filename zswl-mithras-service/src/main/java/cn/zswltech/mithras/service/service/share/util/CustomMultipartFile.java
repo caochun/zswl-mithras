@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.share.util;
+package cn.zswltech.mithras.datashare.service.util;
 
 import org.springframework.web.multipart.MultipartFile;
 

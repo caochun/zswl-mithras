@@ -19,7 +19,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractRetreatInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTextManageMapper;
 import cn.zswltech.mithras.filingmaterials.infrastructure.persistence.mapper.FilingMaterialsMapper;
-import cn.zswltech.mithras.service.mapper.financeprojectdistribution.FinanceProjectDistributionMapper;
+import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistributionMapper;
 import cn.zswltech.mithras.service.mapper.creditreport.CreditReportBaseInfoMapper;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpMonthlyGuidanceMapper;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpQuarterlyGuidanceMapper;
@@ -37,7 +37,7 @@ import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.L
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.TycAppraisalCompanyBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.liquiditymanage.AccountBalanceBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.liquiditymanage.FundFinancingAccountSettingMapper;
-import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
+import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.pubinfo.PublicInfoRecordMapper;
 import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoMapper;

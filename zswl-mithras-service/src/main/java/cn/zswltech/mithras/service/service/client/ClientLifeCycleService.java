@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.domain.enums.client.EnterpriseNatureEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.enums.projlifecycle.ProjStageEnum;
+import cn.zswltech.mithras.projlifecycle.enums.ProjStageEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;

@@ -29,7 +29,7 @@
         order by update_time desc
     </select>
 
-    <select id="lifecycleList" resultType="cn.zswltech.mithras.service.mapper.dto.ProjLifecycleListDTO">
+    <select id="lifecycleList" resultType="cn.zswltech.mithras.projlifecycle.mapper.dto.ProjLifecycleListDTO">
         select
         proj.*,
         GROUP_CONCAT(distinct c.contract_status) as contractStatuses,
@@ -117,7 +117,7 @@
         proj.id desc
     </select>
 
-    <select id="clientLifecycleList" resultType="cn.zswltech.mithras.service.mapper.dto.ProjLifecycleListDTO">
+    <select id="clientLifecycleList" resultType="cn.zswltech.mithras.projlifecycle.mapper.dto.ProjLifecycleListDTO">
         select
         proj.*,
         GROUP_CONCAT(distinct c.contract_status) as contractStatuses,
@@ -186,7 +186,7 @@
         proj.clientId desc
     </select>
 
-    <select id="lifecycleStatistics" resultType="cn.zswltech.mithras.service.mapper.dto.ProjLifecycleStatisticsDTO">
+    <select id="lifecycleStatistics" resultType="cn.zswltech.mithras.projlifecycle.mapper.dto.ProjLifecycleStatisticsDTO">
         select
         COUNT(*) AS totalCount,
         COUNT(IF(prId IS NULL, true, null)) AS establishCount,

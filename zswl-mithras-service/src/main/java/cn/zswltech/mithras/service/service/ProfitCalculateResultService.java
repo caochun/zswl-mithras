@@ -32,7 +32,7 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDeta
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
+import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.finance.mapper.query.ProfitCalculateResultQuery;
@@ -49,7 +49,7 @@ import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyClientAuxi
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
-import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.util.DateUtil;

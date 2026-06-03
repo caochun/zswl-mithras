@@ -27,7 +27,7 @@ import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationCli
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

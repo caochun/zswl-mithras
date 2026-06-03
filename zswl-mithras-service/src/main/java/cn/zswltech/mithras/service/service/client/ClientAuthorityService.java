@@ -68,7 +68,7 @@ import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.materialsfile.batchdownload.AbstractFileBatchDownload;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.FileModuleCheck;
 import cn.zswltech.mithras.service.service.message.MessageService;
-import cn.zswltech.mithras.service.service.share.DataShareService;
+import cn.zswltech.mithras.datashare.service.DataShareService;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;

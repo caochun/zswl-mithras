@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.service.service.projlifecycle;
 
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
+import cn.zswltech.mithras.projlifecycle.enums.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.service.mapper.model.projlifecycle.ProjLifecycleEvent;
+import cn.zswltech.mithras.projlifecycle.mapper.model.ProjLifecycleEvent;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.projlifecycle.ProjLifecycleEventMapper;
+import cn.zswltech.mithras.projlifecycle.mapper.ProjLifecycleEventMapper;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

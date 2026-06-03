@@ -5,12 +5,12 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.flow.core.util.ApplicationContextUtil;
-import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
+import cn.zswltech.mithras.projlifecycle.enums.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.service.mapper.model.projlifecycle.ProjLifecycleEvent;
+import cn.zswltech.mithras.projlifecycle.mapper.model.ProjLifecycleEvent;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.projlifecycle.ProjLifecycleEventMapper;
+import cn.zswltech.mithras.projlifecycle.mapper.ProjLifecycleEventMapper;
 import org.springframework.transaction.support.TransactionSynchronization;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 

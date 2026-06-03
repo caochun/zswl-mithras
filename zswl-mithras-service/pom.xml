@@ -126,27 +126,27 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-xinsight</artifactId>
+            <artifactId>zswl-mithras-xinsight</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-ep</artifactId>
+            <artifactId>zswl-mithras-ep</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-guanbao</artifactId>
+            <artifactId>zswl-mithras-guanbao</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-log</artifactId>
+            <artifactId>zswl-mithras-log</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-async</artifactId>
+            <artifactId>zswl-mithras-async</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -196,7 +196,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-datashare</artifactId>
+            <artifactId>zswl-mithras-datashare</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -211,12 +211,12 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-margin</artifactId>
+            <artifactId>zswl-mithras-margin</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-projlifecycle</artifactId>
+            <artifactId>zswl-mithras-projlifecycle</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -256,7 +256,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-financeprojectdistribution</artifactId>
+            <artifactId>zswl-mithras-financeprojectdistribution</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

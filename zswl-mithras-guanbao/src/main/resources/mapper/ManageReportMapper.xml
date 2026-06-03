@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.guanbao.mapper.managereport.ManageReportMapper">
+    <select id="selectYunYingDaiBan" resultType="cn.zswltech.mithras.guanbao.mapper.managereport.YunYingDaiBanResult">
+        select
+            t.ID_ as processInstanceId,
+            t.BUSINESS_KEY_ as businessKey,
+            t.KEY_ as processModelType,
+            t.source_status as processStatus,
+            t.ASSIGNEE_ as currentAssignerId,
+            t.proj_code as projCode,
+            t.proj_name as projName,
+            t.contract_code as contractCode,
+            t.biz_dept_id as bizDeptId,
+            t.proj_sponsor_user_id as projSponsorUserId,
+            t.lease_types as leaseTypes,
+            bu2.user_name as projSponsorUserName,
+            bu.user_name as currentAssignerName,
+            bo.name as bizDeptName
+        from (
+                 select
+                     ahp.ID_,
+                     ahp.BUSINESS_KEY_,
+                     arp.KEY_,
+                     bs.source_status,
+                     aht.ASSIGNEE_,
+                     case arp.KEY_
+                         when 'LeaseCreateFlow' then prbi.proj_code
+                         when 'LeaseModifyFlow' then prbi.proj_code
+                         when 'ContractCreateFlow' then cbi.proj_code
+                         when 'ContractModifyFlow' then cbi.proj_code
+                         when 'PaymentCreateFlow' then pbicbi.proj_code
+                         end as proj_code,
+                     case arp.KEY_
+                         when 'LeaseCreateFlow' then prbi.proj_name
+                         when 'LeaseModifyFlow' then prbi.proj_name
+                         when 'ContractCreateFlow' then cbi.proj_name
+                         when 'ContractModifyFlow' then cbi.proj_name
+                         when 'PaymentCreateFlow' then pbicbi.proj_name
+                         end as proj_name,
+                     case arp.KEY_
+                         when 'ContractCreateFlow' then cbi.contract_code
+                         when 'ContractModifyFlow' then cbi.contract_code
+                         when 'PaymentCreateFlow' then pbicbi.contract_code
+                         end as contract_code,
+                     case arp.KEY_
+                         when 'LeaseCreateFlow' then prbi.biz_dept_id
+                         when 'LeaseModifyFlow' then prbi.biz_dept_id
+                         when 'ContractCreateFlow' then cbi.biz_dept_id
+                         when 'ContractModifyFlow' then cbi.biz_dept_id
+                         when 'PaymentCreateFlow' then pbicbi.biz_dept_id
+                         end as biz_dept_id,
+                     case arp.KEY_
+                         when 'LeaseCreateFlow' then prbi.proj_sponsor_user_id
+                         when 'LeaseModifyFlow' then prbi.proj_sponsor_user_id
+                         when 'ContractCreateFlow' then cbi.proj_sponsor_user_id
+                         when 'ContractModifyFlow' then cbi.proj_sponsor_user_id
+                         when 'PaymentCreateFlow' then pbicbi.proj_sponsor_user_id
+                         end as proj_sponsor_user_id,
+                     case arp.KEY_
+                         when 'LeaseCreateFlow' then prbi.biz_type
+                         when 'LeaseModifyFlow' then prbi.biz_type
+                         when 'ContractCreateFlow' then cbi.biz_type
+                         when 'ContractModifyFlow' then cbi.biz_type
+                         when 'PaymentCreateFlow' then pbicbi.biz_type
+                         end as biz_type,
+                     case arp.KEY_
+                         when 'LeaseCreateFlow' then prbi.lease_types
+                         when 'LeaseModifyFlow' then prbi.lease_types
+                         when 'ContractCreateFlow' then concat('["', cbi.lease_type, '"]')
+                         when 'ContractModifyFlow' then concat('["', cbi.lease_type, '"]')
+                         when 'PaymentCreateFlow' then concat('["', pbicbi.lease_type, '"]')
+                         end as lease_types
+                 from act_hi_procinst as ahp
+                          left join act_re_procdef as arp on ahp.PROC_DEF_ID_ = arp.ID_
+                          left join act_hi_taskinst as aht on ahp.ID_ = aht.PROC_INST_ID_ and aht.END_TIME_ is null
+                          left join business_status as bs on ahp.ID_ = bs.source_id and bs.source_type = 1
+                          left join lease_item_info as lii on ahp.BUSINESS_KEY_ = lii.id and arp.KEY_ in ('LeaseCreateFlow', 'LeaseModifyFlow')
+                          left join proj_review_base_info as prbi on prbi.id = lii.proj_review_id and arp.KEY_ in ('LeaseCreateFlow', 'LeaseModifyFlow')
+                          left join contract_base_info as cbi on ahp.BUSINESS_KEY_ = cbi.id and arp.KEY_ in ('ContractCreateFlow', 'ContractModifyFlow')
+                          left join payment_base_info as pbi on ahp.BUSINESS_KEY_ = pbi.id and arp.KEY_ in ('PaymentCreateFlow')
+                          left join contract_base_info as pbicbi on pbi.contract_id = pbicbi.id and arp.KEY_ in ('PaymentCreateFlow')
+                 where 1 = 1
+                   and arp.KEY_ in ('LeaseCreateFlow', 'LeaseModifyFlow', 'ContractCreateFlow', 'ContractModifyFlow', 'PaymentCreateFlow')
+                   and ahp.ID_ in
+                   <foreach collection="processInstanceIds" item="processInstanceId" open="(" separator="," close=")">
+                       #{processInstanceId}
+                   </foreach>
+             ) as t
+                 left join bifrost_user as bu on t.t.ASSIGNEE_ = bu.id
+                 left join bifrost_user as bu2 on t.proj_sponsor_user_id = bu2.id
+                 left join bifrost_org as bo on t.biz_dept_id = bo.id
+    </select>
+
+    <select id="selectYeWuYunXingFenXi" resultType="cn.zswltech.mithras.guanbao.mapper.managereport.YeWuYunXingFenXiResult">
+        select
+            *
+        from (
+            select
+            <include refid="yeWuYunXingFenXi-select-sql"></include>
+            from
+            <include refid="yeWuYunXingFenXi-from-sql"></include>
+            <where>
+                <include refid="yeWuYunXingFenXi-where-inner-sql"></include>
+            </where>
+        ) as t
+        where 1 = 1
+            and t.bizType = 'ZL'
+            <include refid="yeWuYunXingFenXi-where-sql"></include>
+        order by t.processStartTime desc
+        limit #{start},#{size}
+    </select>
+
+    <select id="countYeWuYunXingFenXi" resultType="java.lang.Long">
+        select
+            count(*)
+        from (
+            select
+            <include refid="yeWuYunXingFenXi-select-sql"></include>
+            from
+            <include refid="yeWuYunXingFenXi-from-sql"></include>
+            <where>
+                <include refid="yeWuYunXingFenXi-where-inner-sql"></include>
+            </where>
+        ) as t
+        where 1 = 1
+            and t.bizType = 'ZL'
+            <include refid="yeWuYunXingFenXi-where-sql"></include>
+    </select>
+
+    <select id="statisticYeWuYunXingFenXi" resultType="cn.zswltech.mithras.guanbao.mapper.managereport.YeWuYunXingFenXiStatisticResult">
+        select
+            <if test="groupType == 'DEPT'">
+                count(t.processInstanceId) as quantity,
+                t.bizDeptId,
+                t.bizDeptName,
+                t.processModelType,
+                sum(t.projAmount) as amount
+            </if>
+            <if test="groupType == 'MONTH'">
+                count(t.processInstanceId) as quantity,
+                t.processStartTimeMonth as yearAndMonth,
+                t.processModelType,
+                sum(t.projAmount) as amount
+            </if>
+        from (
+            select
+            <include refid="yeWuYunXingFenXi-select-sql"></include>
+            from
+            <include refid="yeWuYunXingFenXi-from-sql"></include>
+            <where>
+                <include refid="yeWuYunXingFenXi-where-inner-sql"></include>
+            </where>
+        ) as t
+        where 1 = 1
+            and t.bizType = 'ZL'
+            <include refid="yeWuYunXingFenXi-where-sql"></include>
+        <if test="groupType == 'DEPT'">
+            group by t.bizDeptId, t.bizDeptName, t.processModelType
+        </if>
+        <if test="groupType == 'MONTH'">
+            group by t.processStartTimeMonth, t.processModelType
+        </if>
+    </select>
+
+    <sql id="yeWuYunXingFenXi-select-sql">
+            bs.source_status as processStatus,
+            case bs.source_status
+                when 1 then '审批中'
+                when 2 then '审批完成'
+                when 6 then '审批完成'
+            end as processStatusDisplay,
+            ahp.PROC_INST_ID_ as processInstanceId,
+            ahp.BUSINESS_KEY_ as businessKey,
+            ahp.START_TIME_ as processStartTime,
+            SUBSTRING(ahp.START_TIME_, 1, 7) as processStartTimeMonth,
+            SUBSTRING(ahp.START_TIME_, 1, 4) as processStartTimeYear,
+            ahp.END_TIME_ as processEndTime,
+            SUBSTRING(ahp.END_TIME_, 1, 7) as processEndTimeMonth,
+            SUBSTRING(ahp.END_TIME_, 1, 4) as processEndTimeYear,
+            arp.KEY_ as processModelType,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.biz_type
+                when 'LeaseCreateFlow' then lii.biz_type
+                when 'ProjReviewCreateFlow' then prbi.biz_type
+                when 'ContractCreateFlow' then cbi.biz_type
+                when 'PaymentCreateFlow' then pbi.biz_type
+                when 'PaymentActualDetailFlow' then pbi.biz_type
+            end as bizType,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.lease_types
+                when 'LeaseCreateFlow' then lii.lease_types
+                when 'ProjReviewCreateFlow' then prbi.lease_types
+                when 'ContractCreateFlow' then concat('["',cbi.lease_type,'"]')
+                when 'PaymentCreateFlow' then concat('["',pbi.con_lease_type,'"]')
+                when 'PaymentActualDetailFlow' then concat('["',pbi.con_lease_type,'"]')
+            end as leaseTypes,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.client_risk_control_industry_classify
+                when 'LeaseCreateFlow' then lii.client_risk_control_industry_classify
+                when 'ProjReviewCreateFlow' then prbi.client_risk_control_industry_classify
+                when 'ContractCreateFlow' then cbi.client_risk_control_industry_classify
+                when 'PaymentCreateFlow' then pbi.client_risk_control_industry_classify
+                when 'PaymentActualDetailFlow' then pbi.client_risk_control_industry_classify
+            end as clientRiskControlIndustryClassify,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.proj_code
+                when 'LeaseCreateFlow' then lii.proj_code
+                when 'ProjReviewCreateFlow' then prbi.proj_code
+                when 'ContractCreateFlow' then cbi.proj_code
+                when 'PaymentCreateFlow' then pbi.proj_code
+                when 'PaymentActualDetailFlow' then pbi.proj_code
+            end as projCode,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.proj_name
+                when 'LeaseCreateFlow' then lii.proj_name
+                when 'ProjReviewCreateFlow' then prbi.proj_name
+                when 'ContractCreateFlow' then cbi.proj_name
+                when 'PaymentCreateFlow' then pbi.proj_name
+                when 'PaymentActualDetailFlow' then pbi.proj_name
+            end as projName,
+            case arp.KEY_
+                when 'ContractCreateFlow' then cbi.contract_code
+                when 'PaymentCreateFlow' then pbi.contract_code
+                when 'PaymentActualDetailFlow' then pbi.contract_code
+            end as contractCode,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.apply_credit_amount
+                when 'LeaseCreateFlow' then lii.apply_credit_amount
+                when 'ProjReviewCreateFlow' then prbi.apply_credit_amount
+                when 'ContractCreateFlow' then cbi.contract_amount
+                when 'PaymentCreateFlow' then pbi.apply_payment_amount
+                when 'PaymentActualDetailFlow' then pbi.actual_pay
+            end as projAmount,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.biz_dept_id
+                when 'LeaseCreateFlow' then lii.biz_dept_id
+                when 'ProjReviewCreateFlow' then prbi.biz_dept_id
+                when 'ContractCreateFlow' then cbi.biz_dept_id
+                when 'PaymentCreateFlow' then pbi.con_biz_dept_id
+                when 'PaymentActualDetailFlow' then pbi.con_biz_dept_id
+            end as bizDeptId,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.biz_dept_name
+                when 'LeaseCreateFlow' then lii.biz_dept_name
+                when 'ProjReviewCreateFlow' then prbi.biz_dept_name
+                when 'ContractCreateFlow' then cbi.biz_dept_name
+                when 'PaymentCreateFlow' then pbi.biz_dept_name
+                when 'PaymentActualDetailFlow' then pbi.biz_dept_name
+            end as bizDeptName,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.proj_sponsor_user_id
+                when 'LeaseCreateFlow' then lii.proj_sponsor_user_id
+                when 'ProjReviewCreateFlow' then prbi.proj_sponsor_user_id
+                when 'ContractCreateFlow' then cbi.proj_sponsor_user_id
+                when 'PaymentCreateFlow' then pbi.con_proj_sponsor_user_id
+                when 'PaymentActualDetailFlow' then pbi.con_proj_sponsor_user_id
+            end as projSponsorUserId,
+            case arp.KEY_
+                when 'ProjEstablishCreateFlow' then pebi.proj_sponsor_user_name
+                when 'LeaseCreateFlow' then lii.proj_sponsor_user_name
+                when 'ProjReviewCreateFlow' then prbi.proj_sponsor_user_name
+                when 'ContractCreateFlow' then cbi.proj_sponsor_user_name
+                when 'PaymentCreateFlow' then pbi.proj_sponsor_user_name
+                when 'PaymentActualDetailFlow' then pbi.proj_sponsor_user_name
+            end as projSponsorUserName,
+            case arp.KEY_
+                when 'PaymentActualDetailFlow' then pbi.min_pay_date
+            end as minPayDate,
+            case arp.KEY_
+                when 'PaymentActualDetailFlow' then SUBSTRING(pbi.min_pay_date, 1, 7)
+            end as minPayDateMonth,
+            case arp.KEY_
+                when 'PaymentActualDetailFlow' then pbi.actual_pay
+            end as actualPayAmount
+    </sql>
+
+    <sql id="yeWuYunXingFenXi-from-sql">
+            act_hi_procinst as ahp
+            left join act_re_procdef as arp on ahp.PROC_DEF_ID_ = arp.ID_
+            left join business_status as bs on ahp.ID_ = bs.source_id and source_type = 1
+            left join (
+                select
+                    a.*,
+                    b.apply_credit_amount,
+                    c.risk_control_industry_classify as client_risk_control_industry_classify,
+                    d.name as biz_dept_name,
+                    e.user_name as proj_sponsor_user_name
+                from proj_establish_base_info as a
+                inner join proj_establish_lease_price as b on a.id = b.proj_establish_id
+                left join corp_commerce_info as c on a.client_id = c.client_id
+                left join bifrost_org as d on d.id = a.biz_dept_id
+                left join bifrost_user as e on e.id = a.proj_sponsor_user_id
+                <where>
+                    <if test="bizDeptId != null">
+                        and a.biz_dept_id = #{bizDeptId}
+                    </if>
+                    <if test="projSponsorUserId != null">
+                        and a.proj_sponsor_user_id = #{projSponsorUserId}
+                    </if>
+                    <if test="riskControlIndustryClassifyList != null and riskControlIndustryClassifyList.size() > 0">
+                        and c.risk_control_industry_classify in
+                        <foreach collection="riskControlIndustryClassifyList" item="item" open="(" separator="," close=")">
+                            #{item}
+                        </foreach>
+                    </if>
+                    <if test="leaseType != null">
+                        and a.lease_types like concat('%', #{leaseType}, '%')
+                    </if>
+                </where>
+            ) as pebi on ahp.BUSINESS_KEY_ = pebi.id and arp.KEY_ = 'ProjEstablishCreateFlow'
+            left join (
+                select
+                    a.id as lease_item_info_id,
+                    aa.*,
+                    b.apply_credit_amount,
+                    c.risk_control_industry_classify as client_risk_control_industry_classify,
+                    d.name as biz_dept_name,
+                    e.user_name as proj_sponsor_user_name
+                from lease_item_info as a
+                inner join proj_review_base_info as aa on a.proj_review_id = aa.id
+                inner join proj_review_lease_price as b on aa.id = b.project_id
+                left join corp_commerce_info as c on aa.client_id = c.client_id
+                left join bifrost_org as d on d.id = aa.biz_dept_id
+                left join bifrost_user as e on e.id = aa.proj_sponsor_user_id
+                <where>
+                    <if test="bizDeptId != null">
+                        and aa.biz_dept_id = #{bizDeptId}
+                    </if>
+                    <if test="projSponsorUserId != null">
+                        and aa.proj_sponsor_user_id = #{projSponsorUserId}
+                    </if>
+                    <if test="riskControlIndustryClassifyList != null and riskControlIndustryClassifyList.size() > 0">
+                        and c.risk_control_industry_classify in
+                        <foreach collection="riskControlIndustryClassifyList" item="item" open="(" separator="," close=")">
+                            #{item}
+                        </foreach>
+                    </if>
+                    <if test="leaseType != null">
+                        and aa.lease_types like concat('%', #{leaseType}, '%')
+                    </if>
+                </where>
+            ) as lii on ahp.BUSINESS_KEY_ = lii.lease_item_info_id and arp.KEY_ = 'LeaseCreateFlow'
+            left join (
+                select
+                    a.*,
+                    b.apply_credit_amount,
+                    c.risk_control_industry_classify as client_risk_control_industry_classify,
+                    d.name as biz_dept_name,
+                    e.user_name as proj_sponsor_user_name
+                from proj_review_base_info as a
+                inner join proj_review_lease_price as b on a.id = b.project_id
+                left join corp_commerce_info as c on a.client_id = c.client_id
+                left join bifrost_org as d on d.id = a.biz_dept_id
+                left join bifrost_user as e on e.id = a.proj_sponsor_user_id
+                <where>
+                    <if test="bizDeptId != null">
+                        and a.biz_dept_id = #{bizDeptId}
+                    </if>
+                    <if test="projSponsorUserId != null">
+                        and a.proj_sponsor_user_id = #{projSponsorUserId}
+                    </if>
+                    <if test="riskControlIndustryClassifyList != null and riskControlIndustryClassifyList.size() > 0">
+                        and c.risk_control_industry_classify in
+                        <foreach collection="riskControlIndustryClassifyList" item="item" open="(" separator="," close=")">
+                            #{item}
+                        </foreach>
+                    </if>
+                    <if test="leaseType != null">
+                        and a.lease_types like concat('%', #{leaseType}, '%')
+                    </if>
+                </where>
+            ) as prbi on ahp.BUSINESS_KEY_ = prbi.id and arp.KEY_ = 'ProjReviewCreateFlow'
+            left join (
+                select
+                    a.*,
+                    b.apply_credit_amount as contract_amount,
+                    c.risk_control_industry_classify as client_risk_control_industry_classify,
+                    d.name as biz_dept_name,
+                    e.user_name as proj_sponsor_user_name
+                from contract_base_info as a
+                inner join contract_lease_price as b on a.id = b.contract_id
+                left join corp_commerce_info as c on a.client_id = c.client_id
+                left join bifrost_org as d on d.id = a.biz_dept_id
+                left join bifrost_user as e on e.id = a.proj_sponsor_user_id
+                <where>
+                    <if test="bizDeptId != null">
+                        and a.biz_dept_id = #{bizDeptId}
+                    </if>
+                    <if test="projSponsorUserId != null">
+                        and a.proj_sponsor_user_id = #{projSponsorUserId}
+                    </if>
+                    <if test="riskControlIndustryClassifyList != null and riskControlIndustryClassifyList.size() > 0">
+                        and c.risk_control_industry_classify in
+                        <foreach collection="riskControlIndustryClassifyList" item="item" open="(" separator="," close=")">
+                            #{item}
+                        </foreach>
+                    </if>
+                    <if test="leaseType != null">
+                        and a.lease_type = #{leaseType}
+                    </if>
+                </where>
+            ) as cbi on ahp.BUSINESS_KEY_ = cbi.id and arp.KEY_ = 'ContractCreateFlow'
+            left join (
+                select
+                    a.*,
+                    b.proj_code,
+                    b.proj_name,
+                    b.proj_sponsor_user_id as con_proj_sponsor_user_id,
+                    b.biz_type,
+                    b.lease_type as con_lease_type,
+                    aa.actual_pay,
+                    aa.min_pay_date,
+                    c.risk_control_industry_classify as client_risk_control_industry_classify,
+                    d.name as biz_dept_name,
+                    e.user_name as proj_sponsor_user_name
+                from payment_base_info as a
+                inner join contract_base_info as b on a.contract_id = b.id
+                left join (select min(paid_in_date) as min_pay_date, sum(paid_in_amount) as actual_pay, payment_id from payment_actual_detail group by payment_id) as aa on a.id = aa.payment_id
+                left join corp_commerce_info as c on b.client_id = c.client_id
+                left join bifrost_org as d on d.id = b.biz_dept_id
+                left join bifrost_user as e on e.id = b.proj_sponsor_user_id
+                <where>
+                    <if test="bizDeptId != null">
+                        and b.biz_dept_id = #{bizDeptId}
+                    </if>
+                    <if test="projSponsorUserId != null">
+                        and b.proj_sponsor_user_id = #{projSponsorUserId}
+                    </if>
+                    <if test="riskControlIndustryClassifyList != null and riskControlIndustryClassifyList.size() > 0">
+                        and c.risk_control_industry_classify in
+                        <foreach collection="riskControlIndustryClassifyList" item="item" open="(" separator="," close=")">
+                            #{item}
+                        </foreach>
+                    </if>
+                    <if test="leaseType != null">
+                        and b.lease_type = #{leaseType}
+                    </if>
+                </where>
+            ) as pbi on ahp.BUSINESS_KEY_ = pbi.id and arp.KEY_ in ('PaymentCreateFlow', 'PaymentActualDetailFlow')
+    </sql>
+
+    <sql id="yeWuYunXingFenXi-where-inner-sql">
+        <if test="processModelTypeList != null and processModelTypeList.size() > 0">
+            and arp.KEY_ in
+            <foreach collection="processModelTypeList" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="processStartTimeFrom != null">
+            and ahp.START_TIME_ &gt;= #{processStartTimeFrom}
+        </if>
+        <if test="processStartTimeFrom != null">
+            and ahp.START_TIME_ &lt;= #{processStartTimeTo}
+        </if>
+        <if test="processStatusList != null and processStatusList.size() > 0">
+            and bs.source_status in
+            <foreach collection="processStatusList" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </sql>
+
+    <sql id="yeWuYunXingFenXi-where-sql">
+        <if test="bizDeptId != null">
+            and t.bizDeptId = #{bizDeptId}
+        </if>
+        <if test="projSponsorUserId != null">
+            and t.projSponsorUserId = #{projSponsorUserId}
+        </if>
+        <if test="riskControlIndustryClassifyList != null and riskControlIndustryClassifyList.size() > 0">
+            and t.clientRiskControlIndustryClassify in
+            <foreach collection="riskControlIndustryClassifyList" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="leaseType != null">
+            and t.leaseTypes like concat('%', #{leaseType}, '%')
+        </if>
+    </sql>
+</mapper>

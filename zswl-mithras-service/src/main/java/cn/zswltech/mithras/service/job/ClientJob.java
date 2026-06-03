@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.service.client.ClientAuthorityService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpContactInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
-import cn.zswltech.mithras.service.service.share.DataShareService;
+import cn.zswltech.mithras.datashare.service.DataShareService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

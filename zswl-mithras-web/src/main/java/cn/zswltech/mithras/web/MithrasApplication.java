@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @Slf4j
-@ServletComponentScan("cn.zswltech.mithras.service.config.druid")
+@ServletComponentScan("cn.zswltech.mithras.guanbao.config")
 @MapperScan({"cn.zswltech.mithras.service.mapper",
         "cn.zswltech.mithras.contract.mapper",
         "cn.zswltech.mithras.contract.overdue.infrastructure.dao.mapper",

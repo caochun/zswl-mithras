@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.enums.projlifecycle.ProjStageEnum;
+import cn.zswltech.mithras.projlifecycle.enums.ProjStageEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import org.springframework.web.bind.annotation.RestController;

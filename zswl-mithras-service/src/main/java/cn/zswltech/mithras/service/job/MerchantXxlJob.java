@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.job;
 
 import cn.zswltech.gruul.web.api.intercept.WhiteListUtil;
-import cn.zswltech.mithras.service.service.share.DataShareService;
+import cn.zswltech.mithras.datashare.service.DataShareService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

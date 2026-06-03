@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.margin;
+package cn.zswltech.mithras.margin.service;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -15,19 +15,19 @@ import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.overdue.application.collection.ContractDepositBalanceResolver;
-import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
+import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.excel.exporter.MarginListExcelExporter;
 import cn.zswltech.mithras.service.excel.model.MarginBaseInfoListExcelModel;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.collection.CollectionRecordInfoMapper;
-import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
+import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.service.mapper.model.margin.DepositCollectRefund;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginRecordInfo;
+import cn.zswltech.mithras.margin.mapper.model.DepositCollectRefund;
+import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;

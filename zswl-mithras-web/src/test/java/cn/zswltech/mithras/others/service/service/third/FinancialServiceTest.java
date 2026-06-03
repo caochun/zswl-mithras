@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
+import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.service.job.CQFinanceJob;

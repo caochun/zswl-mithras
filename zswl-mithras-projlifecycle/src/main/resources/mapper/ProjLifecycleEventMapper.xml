@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.projlifecycle.mapper.ProjLifecycleEventMapper">
+    <insert id="insertList">
+        insert into proj_lifecycle_event(event_time,event_type,event,operator,event_desc,proj_id)
+        values
+        <foreach collection="lists" open="" close="" item="item" separator=",">
+            (#{item.eventTime},#{item.eventType},#{item.event},#{item.operator},#{item.eventdesc},#{item.projId})
+        </foreach>
+    </insert>
+    <select id="mainList"
+            resultType="cn.zswltech.mithras.projlifecycle.mapper.model.ProjLifecycleListDO">
+        select *
+        from (select projBase.client_id,
+        projBase.proj_name,
+        IFNULL(aoc.apply_credit_amount, IFNULL(factoring.apply_credit_amount, lease.apply_credit_amount))
+        apply_credit_amount,
+        IFNULL(aoc2.apply_credit_amount, IFNULL(factoring2.apply_credit_amount, lease2.apply_credit_amount))
+        establish_apply_credit_amount,
+        projBase.biz_type,
+        projBase.establish_id,
+        projBase.review_id,
+        projBase.proj_sponsor_user_id,
+        projBase.create_time, projBase.biz_dept_id,
+        projSettle.settled settled,
+        projPay.payed,
+        clt.belong_sponsor_id,
+        clt.belong_dept_id,
+        IFNULL(establishFlow.assignees, IFNULL(reviewFlow.assignees, projContractFlow.assignees)) assignees,
+        IFNULL(establishFlow.flow_type, IFNULL(reviewFlow.flow_type, projContractFlow.flow_type)) flow_type,
+        IFNULL(establishFlow.start_time,
+        IFNULL(reviewFlow.start_time, projContractFlow.start_time)) start_time,
+        projEffected.effected,
+        projInvested.invested,
+        establish_status,
+        establish_process_status,
+        review_status,
+        review_process_status,
+        case when effected =0 then 'NOT_EFFECT'
+        when effected = 1 and payed is null then 'NOT_PAY'
+        when payed>0 and (invested is null or invested = 0) then 'NOT_INVEST'
+        when invested = 1 AND (settled is null OR settled =0) then 'NOT_SETTLE'
+        end projLifecycleStatus
+        from lifecycle_proj projBase <!--全周期项目基表视图-->
+        join client clt on clt.id = projBase.client_id
+        left join proj_review_aoc_price aoc on projBase.review_id = aoc.project_id
+        left join proj_review_factoring_price factoring on projBase.review_id = factoring.project_id
+        left join proj_review_lease_price lease on projBase.review_id = lease.project_id
+        left join proj_establish_aoc_price aoc2 on projBase.establish_id = aoc2.proj_establish_id
+        left join proj_establish_factoring_price factoring2 on projBase.establish_id = factoring2.proj_establish_id
+        left join proj_establish_lease_price lease2 on projBase.establish_id = lease2.proj_establish_id
+        <!--项目结清视图-->
+        left join lifecycle_proj_settle projSettle on projBase.review_id = projSettle.proj_review_id
+        <!-- #立项流程视图 -->
+        left join lifecycle_establish_flow establishFlow ON projBase.establish_id = establishFlow.establish_id
+        <!-- #评审流程视图 -->
+        left join lifecycle_review_flow reviewFlow ON projBase.review_id = reviewFlow.review_id
+        <!-- #合同流程视图 -->
+        left join lifecycle_proj_contract_flow projContractFlow on projBase.review_id = projContractFlow.proj_review_id
+        left join lifecycle_proj_effected projEffected on projBase.review_id = projEffected.proj_review_id
+        left join lifecycle_proj_invested projInvested on projBase.review_id = projInvested.proj_review_id
+        left join lifecycle_proj_pay projPay on projBase.review_id = projPay.proj_review_id
+        )
+        result
+        <where>
+            <if test="req.clientId!=null">AND client_id = #{req.clientId}</if>
+            <if test="req.projName!=null">AND proj_name LIKE CONCAT('%', #{req.projName},'%')</if>
+            <if test="req.bizType!=null">AND biz_type=#{req.bizType}</if>
+            <if test="req.bizDeptId!=null">AND biz_dept_id=#{req.bizDeptId}</if>
+            <if test="req.projSponsorUserId!=null">AND proj_sponsor_user_id =#{req.projSponsorUserId}</if>
+            <if test="req.projestablishFrom!=null">AND create_time &gt;= #{req.projestablishFrom}</if>
+            <if test="req.projestablishTo!=null">AND create_time &lt;= #{req.projestablishTo}</if>
+            <if test="req.projStage=='PROJESTABLISH_STAGE'">AND review_id is null</if>
+            <if test="req.projStage=='PROJREVIEW_STAGE'">AND review_id is not null AND settled is null</if>
+            <if test="req.projStage=='CONTRACTSETTLE_STAGE'">AND settled = 1</if>
+            <if test="req.projStage=='CONTRACT_STAGE'">
+                AND settled is not null AND settled =0
+            </if>
+            <!--<if test="req.effected==1">AND effected = 1</if>
+            <if test="req.invested==1">AND invested = 1</if>-->
+            <if test="req.establishStatus!=null">and establish_status = #{req.establishStatus}</if>
+            <if test="req.establishProcessStatus!=null">and establish_process_status = #{req.establishProcessStatus}
+            </if>
+            <if test="req.reviewStatus!=null">and review_status = #{req.reviewStatus}</if>
+            <if test="req.reviewProcessStatus!=null">and review_process_status = #{req.reviewProcessStatus}</if>
+            <choose>
+                <when test="req.projLifecycleStatus=='ESTABLISH_NOT_EFFECT'">AND establish_status='NEW'</when>
+                <when test="req.projLifecycleStatus=='REVIEW_NOT_START'">AND establish_status='TAKE_EFFECT' AND
+                    review_status IS NULL
+                </when>
+                <when test="req.projLifecycleStatus=='REVIEW_NOT_EFFECT'">AND review_status='NEW'</when>
+                <when test="req.projLifecycleStatus=='CONTRACT_NOT_CREATE'">AND review_status='TAKE_EFFECT' AND effected
+                    is null
+                </when>
+                <when test="req.projLifecycleStatus=='CONTRACT_NOT_EFFECT'">AND effected = 0</when>
+                <when test="req.projLifecycleStatus=='NOT_PAY'">AND effected = 1 and payed is null</when>
+                <when test="req.projLifecycleStatus=='NOT_INVEST'">AND payed>0 and (invested is null or invested = 0)
+                </when>
+                <when test="req.projLifecycleStatus=='NOT_SETTLE'">AND invested = 1 AND (settled is null OR settled
+                    =0)
+                </when>
+                <when test="req.projLifecycleStatus=='SETTLE'">AND settled=1</when>
+                <otherwise></otherwise>
+            </choose>
+
+            <!--            下面这两个if不会同时成立，在代码中已控制-->
+            <if test="req.deptIdList!=null and req.deptIdList.size()>0">
+                AND belong_dept_id IN
+                <foreach collection="req.deptIdList" open="(" close=")" separator="," item="item">#{item}</foreach>
+            </if>
+            <if test="req.sponsorId!=null">AND belong_sponsor_id=#{req.sponsorId}</if>
+        </where>
+    </select>
+    <select id="getProjSettle"
+            resultType="cn.zswltech.mithras.projlifecycle.mapper.model.LifecycleProjDO">
+        select * from lifecycle_proj_settle
+        <where>
+            <if test="reviewId!=null">AND proj_review_id=#{reviewId}</if>
+        </where>
+    </select>
+
+</mapper>

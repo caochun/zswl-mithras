@@ -23,7 +23,7 @@ import javax.annotation.Resource;
  */
 
 @Slf4j
-@ServletComponentScan("cn.zswltech.mithras.service.config.druid")
+@ServletComponentScan("cn.zswltech.mithras.guanbao.config")
 @MapperScan({"cn.zswltech.mithras.service.mapper", "cn.zswltech.lib.futurelog.save.mapper"})
 @EnableTransactionManagement
 @SpringBootApplication(scanBasePackages = {"cn.zswltech"})

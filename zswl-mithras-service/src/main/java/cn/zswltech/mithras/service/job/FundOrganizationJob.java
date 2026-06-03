@@ -2,10 +2,10 @@ package cn.zswltech.mithras.service.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareMerchants;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareMerchants;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
-import cn.zswltech.mithras.service.service.share.DataShareMerchantsService;
+import cn.zswltech.mithras.datashare.service.DataShareMerchantsService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;

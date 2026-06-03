@@ -51,7 +51,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
+import cn.zswltech.mithras.projlifecycle.enums.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.enums.projreview.MeetMinuteStatuesEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;

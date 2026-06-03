@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.share.impl;
+package cn.zswltech.mithras.datashare.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.io.IoUtil;
@@ -16,15 +16,15 @@ import cn.zswltech.mithras.dto.client.share.DataShareUserREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareUserRSP;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareCodeDict;
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareManager;
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareMerchants;
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareOrg;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareCodeDict;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareManager;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareMerchants;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareOrg;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.share.DataShareManagerService;
-import cn.zswltech.mithras.service.service.share.DataShareMerchantsService;
-import cn.zswltech.mithras.service.service.share.DataShareService;
+import cn.zswltech.mithras.datashare.service.DataShareManagerService;
+import cn.zswltech.mithras.datashare.service.DataShareMerchantsService;
+import cn.zswltech.mithras.datashare.service.DataShareService;
 import cn.zswltech.mithras.service.util.PwdUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

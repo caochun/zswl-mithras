@@ -15,11 +15,11 @@
         <module>zswl-mithras-api</module>
         <module>zswl-mithras-service-core</module>
         <module>zswl-mithras-domain-creditreport</module>
-        <module>zswl-mithras-domain-xinsight</module>
-        <module>zswl-mithras-domain-ep</module>
-        <module>zswl-mithras-domain-guanbao</module>
-        <module>zswl-mithras-domain-log</module>
-        <module>zswl-mithras-domain-async</module>
+        <module>zswl-mithras-xinsight</module>
+        <module>zswl-mithras-ep</module>
+        <module>zswl-mithras-guanbao</module>
+        <module>zswl-mithras-log</module>
+        <module>zswl-mithras-async</module>
         <module>zswl-mithras-domain-associationreport</module>
         <module>zswl-mithras-domain-factory</module>
         <module>zswl-mithras-blackgray</module>
@@ -28,10 +28,10 @@
         <module>zswl-mithras-fund-direct</module>
         <module>zswl-mithras-fund</module>
         <module>zswl-mithras-leaseholdproperty</module>
-        <module>zswl-mithras-domain-datashare</module>
+        <module>zswl-mithras-datashare</module>
         <module>zswl-mithras-domain-basedata</module>
-        <module>zswl-mithras-domain-margin</module>
-        <module>zswl-mithras-domain-projlifecycle</module>
+        <module>zswl-mithras-margin</module>
+        <module>zswl-mithras-projlifecycle</module>
         <module>zswl-mithras-policy</module>
         <module>zswl-mithras-credit</module>
         <module>zswl-mithras-domain-monthly</module>
@@ -40,7 +40,7 @@
         <module>zswl-mithras-liquidity</module>
         <module>zswl-mithras-filingmaterials</module>
         <module>zswl-mithras-archives</module>
-        <module>zswl-mithras-domain-financeprojectdistribution</module>
+        <module>zswl-mithras-financeprojectdistribution</module>
         <module>zswl-mithras-ftp</module>
         <module>zswl-mithras-domain-projectprocess</module>
         <module>zswl-mithras-project</module>

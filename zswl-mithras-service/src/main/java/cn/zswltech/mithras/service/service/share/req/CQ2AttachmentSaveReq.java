@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.share.req;
+package cn.zswltech.mithras.datashare.service.req;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
+import cn.zswltech.mithras.projlifecycle.enums.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.share.util;
+package cn.zswltech.mithras.datashare.service.util;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;

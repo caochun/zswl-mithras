@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionOverdueRecordInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractLeaseItemService;
 import cn.zswltech.mithras.service.service.contract.ContractSettlePlanService;
-import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialManagerService;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

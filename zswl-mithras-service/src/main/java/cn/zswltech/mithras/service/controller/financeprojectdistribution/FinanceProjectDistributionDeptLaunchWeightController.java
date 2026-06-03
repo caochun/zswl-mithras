@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.financeprojectdistribution.FinanceProjectDistributionDeptLaunchWeightApi;
 import cn.zswltech.mithras.dto.financeprojectdistribution.*;
-import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistributionDeptLaunchWeight;
+import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptLaunchWeight;
 import cn.zswltech.mithras.service.service.financeprofitdistribution.FinanceProjectDistributionDeptLaunchWeightService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

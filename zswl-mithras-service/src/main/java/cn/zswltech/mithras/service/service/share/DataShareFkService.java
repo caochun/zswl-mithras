@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.service.service.share;
+package cn.zswltech.mithras.datashare.service;
 
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareFk;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareFk;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.servlet.http.HttpServletResponse;

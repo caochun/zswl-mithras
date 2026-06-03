@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.async.mapper.AsyncTaskRecordMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.async.mapper.model.AsyncTaskRecord">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="taskId" column="task_id" jdbcType="VARCHAR"/>
+            <result property="taskName" column="task_name" jdbcType="VARCHAR"/>
+            <result property="taskType" column="task_type" jdbcType="VARCHAR"/>
+            <result property="taskStatus" column="task_status" jdbcType="VARCHAR"/>
+            <result property="retryCount" column="retry_count" jdbcType="INTEGER"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="args" column="args" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,task_id,task_name,
+        task_type,task_status,retry_count,
+        create_by,update_by,deleted,
+        update_time,create_time,args,
+        description
+    </sql>
+</mapper>

@@ -24,7 +24,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.enums.projlifecycle.ProjLifecycleEventTypeEnum;
+import cn.zswltech.mithras.projlifecycle.enums.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.flow.helper.CalBoardRuleHelper;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.AfterLeaseAdjustInfoMapper;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.AfterLeaseAdjustInfo;

@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.collection.BillTypeEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionRecordWriteOffStatus;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.service.enums.margin.RecordTypeEnum;
+import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeInfo;

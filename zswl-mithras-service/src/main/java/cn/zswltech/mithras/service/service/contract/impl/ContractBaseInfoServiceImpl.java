@@ -69,7 +69,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpS
 import cn.zswltech.mithras.contract.mapper.dto.ContractListSelectDTO;
 import cn.zswltech.mithras.contract.mapper.dto.ContractRentLastTimeDTO;
 import cn.zswltech.mithras.contract.mapper.dto.OcContractListDto;
-import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
+import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.message.MessageModel;
 import cn.zswltech.mithras.service.mapper.message.NoticeMessageBody;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -82,7 +82,7 @@ import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemInfo;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
+import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
@@ -112,7 +112,7 @@ import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibH
 import cn.zswltech.mithras.service.service.lib.contractcp.ContractCollectionPaymentService;
 import cn.zswltech.mithras.service.service.lib.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewBaseInfoLibService;
-import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.message.MessageService;

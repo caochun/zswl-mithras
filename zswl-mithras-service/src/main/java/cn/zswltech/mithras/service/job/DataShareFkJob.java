@@ -2,10 +2,10 @@ package cn.zswltech.mithras.service.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.basic.Constant;
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareFk;
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareManager;
-import cn.zswltech.mithras.service.service.share.DataShareFkService;
-import cn.zswltech.mithras.service.service.share.DataShareManagerService;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareFk;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareManager;
+import cn.zswltech.mithras.datashare.service.DataShareFkService;
+import cn.zswltech.mithras.datashare.service.DataShareManagerService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

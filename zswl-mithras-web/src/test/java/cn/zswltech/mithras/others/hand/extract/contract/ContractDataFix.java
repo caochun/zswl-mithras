@@ -24,13 +24,13 @@ import cn.zswltech.mithras.service.mapper.lib.projestablish.ProjEstablishBaseInf
 import cn.zswltech.mithras.service.mapper.lib.projestablish.ProjEstablishLeasePriceLibMapper;
 import cn.zswltech.mithras.service.mapper.lib.projreview.ProjReviewBaseInfoLibMapper;
 import cn.zswltech.mithras.service.mapper.lib.projreview.ProjReviewLeasePriceLibMapper;
-import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.margin.MarginRecordInfoMapper;
+import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
+import cn.zswltech.mithras.margin.mapper.MarginRecordInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.margin.MarginRecordInfo;
+import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfoLib;

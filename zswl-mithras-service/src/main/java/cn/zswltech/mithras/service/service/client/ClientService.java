@@ -101,7 +101,7 @@ import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.Ne
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.datashare.DataShareMerchants;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareMerchants;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
@@ -142,7 +142,7 @@ import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionSer
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewAocPriceLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewFactoringPriceLibService;
 import cn.zswltech.mithras.service.service.lib.projreview.ProjReviewLeasePriceLibService;
-import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.message.MessageService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
@@ -155,8 +155,8 @@ import cn.zswltech.mithras.service.service.projreview.ProjReviewService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewTradeStructureService;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEventBus;
-import cn.zswltech.mithras.service.service.share.DataShareMerchantsService;
-import cn.zswltech.mithras.service.service.share.DataShareService;
+import cn.zswltech.mithras.datashare.service.DataShareMerchantsService;
+import cn.zswltech.mithras.datashare.service.DataShareService;
 import cn.zswltech.mithras.third.tianyancha.application.TycService;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasBaseInfo;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasRelatedEnterpriseInfo;
