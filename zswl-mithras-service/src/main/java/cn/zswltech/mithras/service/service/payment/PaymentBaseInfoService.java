@@ -75,7 +75,7 @@ import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.policy.PolicyInfo;
+import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.mapper.payment.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;

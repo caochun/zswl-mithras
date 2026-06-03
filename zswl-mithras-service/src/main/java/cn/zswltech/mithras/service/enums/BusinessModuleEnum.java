@@ -40,7 +40,7 @@ import cn.zswltech.mithras.service.mapper.liquiditymanage.FundFinancingAccountSe
 import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.payment.pubinfo.PublicInfoRecordMapper;
-import cn.zswltech.mithras.service.mapper.policy.PolicyInfoMapper;
+import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.service.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.projpricing.ProjPricingBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;

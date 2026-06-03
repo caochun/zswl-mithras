@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.lib.policy.handler.impl;
+package cn.zswltech.mithras.policy.application.lib.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -7,15 +7,15 @@ import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
 import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishBaseInfoConverter;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishInfoModule;
-import cn.zswltech.mithras.service.mapper.model.policy.PolicyInfo;
-import cn.zswltech.mithras.service.mapper.model.policy.PolicyInfoLib;
+import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfo;
+import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfoLib;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.lib.policy.handler.PolicyAbstractHandler;
-import cn.zswltech.mithras.service.service.lib.policy.handler.PolicyInfoModule;
+import cn.zswltech.mithras.policy.application.lib.handler.PolicyAbstractHandler;
+import cn.zswltech.mithras.policy.application.lib.handler.PolicyInfoModule;
 import cn.zswltech.mithras.service.service.lib.projestablish.handler.ProjEstablishLibAbstractHandler;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import org.springframework.stereotype.Service;
