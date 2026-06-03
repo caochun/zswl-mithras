@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.leaseholdproperty.impl;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseFileNameComparisonREQ;
-import cn.zswltech.mithras.service.enums.lease.LeaseOCRTypeEnum;
+import cn.zswltech.mithras.leaseholdproperty.domain.enums.LeaseOCRTypeEnum;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemVatInvoiceService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseOCRService;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;

@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;
-import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.AppraisalCompanyWhitelist;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.AppraisalCompanyWhitelistService;

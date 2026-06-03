@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.leaseholdproperty;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
-import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemAppraisalRelation;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemAppraisalRelation;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;

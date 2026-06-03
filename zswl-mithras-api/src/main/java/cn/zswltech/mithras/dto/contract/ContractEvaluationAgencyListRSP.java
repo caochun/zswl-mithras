@@ -20,13 +20,13 @@ public class ContractEvaluationAgencyListRSP {
     private String companyName;
 
     /**
-     * {@link cn.zswltech.mithras.service.enums.lease.LeaseAppraisalPurposeEnum#name()}
+     * {@link cn.zswltech.mithras.leaseholdproperty.domain.enums.LeaseAppraisalPurposeEnum#name()}
      */
     @ApiModelProperty(value = "用途")
     private String purpose;
 
     /**
-     * {@link cn.zswltech.mithras.service.enums.lease.LeaseAppraisalSelectEnum#name()}
+     * {@link cn.zswltech.mithras.leaseholdproperty.domain.enums.LeaseAppraisalSelectEnum#name()}
      */
     @ApiModelProperty(value = "是否被选中")
     private String selectType;

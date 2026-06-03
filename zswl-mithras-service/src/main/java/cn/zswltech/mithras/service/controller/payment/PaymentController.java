@@ -66,7 +66,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccountLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemInfo;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;

@@ -4,8 +4,9 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.AppraisalCompanyWhitelist;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistLibHandler;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
 import org.springframework.stereotype.Service;
 

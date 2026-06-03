@@ -32,9 +32,9 @@ import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBatc
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.kpi.KpiProjectDistributionMapper;
-import cn.zswltech.mithras.service.mapper.leaseholdproperty.AppraisalCompanyWhitelistMapper;
-import cn.zswltech.mithras.service.mapper.leaseholdproperty.LeaseItemInfoMapper;
-import cn.zswltech.mithras.service.mapper.leaseholdproperty.TycAppraisalCompanyBaseInfoMapper;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.AppraisalCompanyWhitelistMapper;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.LeaseItemInfoMapper;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.TycAppraisalCompanyBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.liquiditymanage.AccountBalanceBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.liquiditymanage.FundFinancingAccountSettingMapper;
 import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;

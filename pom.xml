@@ -30,7 +30,6 @@
         <module>zswl-mithras-domain-fund-direct</module>
         <module>zswl-mithras-domain-fund</module>
         <module>zswl-mithras-fund</module>
-        <module>zswl-mithras-domain-leaseholdproperty</module>
         <module>zswl-mithras-leaseholdproperty</module>
         <module>zswl-mithras-domain-datashare</module>
         <module>zswl-mithras-domain-basedata</module>

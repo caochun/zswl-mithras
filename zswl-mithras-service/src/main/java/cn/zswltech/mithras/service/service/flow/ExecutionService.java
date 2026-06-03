@@ -30,7 +30,7 @@ import cn.zswltech.mithras.workflow.domain.enums.ProcessVarEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ResolutionTypeEnum;
 import cn.zswltech.mithras.service.enums.creditreport.CreditReportMaterialTypeEnum;
-import cn.zswltech.mithras.service.enums.lease.LeaseFileTypeEnums;
+import cn.zswltech.mithras.leaseholdproperty.domain.enums.LeaseFileTypeEnums;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialCommentsEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandlerFactory;

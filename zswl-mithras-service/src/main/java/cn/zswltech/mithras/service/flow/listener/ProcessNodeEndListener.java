@@ -79,7 +79,7 @@ import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBase
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
-import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemInfo;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.pubinfo.PublicInfoQuery;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;

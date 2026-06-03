@@ -11,7 +11,7 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractFlowSubModuleEnum;
-import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemInfo;
+import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

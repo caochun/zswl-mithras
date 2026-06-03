@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.service.enums.lease.LeaseTextFileEnum;
+import cn.zswltech.mithras.leaseholdproperty.domain.enums.LeaseTextFileEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.MithrasException;
