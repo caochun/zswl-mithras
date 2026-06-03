@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.afterlese;
 
 import cn.zswltech.mithras.dto.afterlease.*;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 

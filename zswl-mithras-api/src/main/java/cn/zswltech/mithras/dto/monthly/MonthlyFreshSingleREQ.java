@@ -25,7 +25,7 @@ public class MonthlyFreshSingleREQ {
     private Long singleRecordId;
 
     /**
-     * {@link cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum}
+     * {@link cn.zswltech.mithras.monthly.enums.MonthlyModuleTypeEnum}
      */
     @ApiModelProperty(value = "TabType")
     private String tabType ;

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.basedata.*;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;

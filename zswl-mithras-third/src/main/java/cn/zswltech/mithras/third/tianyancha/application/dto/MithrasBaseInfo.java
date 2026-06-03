@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.tianyancha.application.dto;
 
 import cn.zswltech.flow.core.util.ApplicationContextUtil;
-import cn.zswltech.mithras.service.mapper.corp.GeneralDictionaryMapper;
-import cn.zswltech.mithras.service.mapper.model.GeneralDictionary;
+import cn.zswltech.mithras.basedata.mapper.corp.GeneralDictionaryMapper;
+import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

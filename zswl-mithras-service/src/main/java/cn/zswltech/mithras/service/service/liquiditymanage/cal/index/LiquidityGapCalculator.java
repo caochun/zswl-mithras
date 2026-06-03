@@ -3,13 +3,13 @@ package cn.zswltech.mithras.service.service.liquiditymanage.cal.index;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
-import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityColorEnum;
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
-import cn.zswltech.mithras.service.mapper.model.liquiditymanage.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.liquiditymanage.enums.LiquidityColorEnum;
+import cn.zswltech.mithras.liquiditymanage.enums.LiquidityIndexType;
+import cn.zswltech.mithras.liquiditymanage.mapper.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.service.service.liquiditymanage.LiquidityIndicatorIndexHolder;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.AbstractLiquidityCalculator;
-import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityIndexCalculatorBo;
+import cn.zswltech.mithras.liquiditymanage.service.cal.bo.LiquidityIndexCalculatorBo;
 import cn.zswltech.mithras.service.util.LongUtil;
 import org.springframework.stereotype.Component;
 

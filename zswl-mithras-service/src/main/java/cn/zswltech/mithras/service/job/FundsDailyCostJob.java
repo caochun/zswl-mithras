@@ -15,8 +15,8 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayAc
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.monthly.FundsDailyCost;
-import cn.zswltech.mithras.service.mapper.model.monthly.FundsDailyCostMain;
+import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCost;
+import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCostMain;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.monthly.FundsDailyCostMainService;
 import cn.zswltech.mithras.service.service.monthly.FundsDailyCostService;

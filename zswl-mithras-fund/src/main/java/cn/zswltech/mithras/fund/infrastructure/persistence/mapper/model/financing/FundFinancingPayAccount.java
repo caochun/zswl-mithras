@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing;
 
-import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingAccountTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;

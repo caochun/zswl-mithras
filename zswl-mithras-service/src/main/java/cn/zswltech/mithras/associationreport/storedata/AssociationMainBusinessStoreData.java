@@ -29,7 +29,7 @@ import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationMai
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;

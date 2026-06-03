@@ -4,7 +4,7 @@ import cn.hutool.core.date.StopWatch;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

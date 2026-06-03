@@ -4,12 +4,12 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.LiquidityIndexDetailRSP;
-import cn.zswltech.mithras.service.enums.fund.liquidity.FundParameterSignType;
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityColorEnum;
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
+import cn.zswltech.mithras.liquiditymanage.enums.FundParameterSignType;
+import cn.zswltech.mithras.liquiditymanage.enums.LiquidityColorEnum;
+import cn.zswltech.mithras.liquiditymanage.enums.LiquidityIndexType;
 import cn.zswltech.mithras.service.service.liquiditymanage.LiquidityIndicatorIndexHolder;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.AbstractLiquidityCalculator;
-import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityIndexCalculatorBo;
+import cn.zswltech.mithras.liquiditymanage.service.cal.bo.LiquidityIndexCalculatorBo;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

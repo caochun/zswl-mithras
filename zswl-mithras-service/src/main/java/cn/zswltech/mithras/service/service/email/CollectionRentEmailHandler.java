@@ -12,8 +12,8 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeI
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.gendoc.render.overduecollect.CollectionLetterRender;
-import cn.zswltech.mithras.service.mapper.email.EmailSendFailLogMapper;
-import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
+import cn.zswltech.mithras.message.mapper.email.EmailSendFailLogMapper;
+import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;

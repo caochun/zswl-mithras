@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
-import cn.zswltech.mithras.service.mapper.model.liquiditymanage.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquiditymanage.mapper.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.service.service.liquiditymanage.AccountBalanceBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

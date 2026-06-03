@@ -20,7 +20,7 @@ import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardProjectInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.*;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.basedata.BaseDataBankAccountService;

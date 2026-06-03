@@ -43,7 +43,7 @@ import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.SystemConfig;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.service.others.MithrasException;

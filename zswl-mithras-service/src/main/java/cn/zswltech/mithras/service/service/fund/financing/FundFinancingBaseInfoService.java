@@ -32,9 +32,9 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuar
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.*;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.CreditBusinessRefService;
+import cn.zswltech.mithras.creditlimit.service.CreditBusinessRefService;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.bo.CreditLimitDetailBO;
+import cn.zswltech.mithras.creditlimit.service.bo.CreditLimitDetailBO;
 import cn.zswltech.mithras.fund.application.*;
 import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.service.service.fund.FundGuaranteeAgencyService;

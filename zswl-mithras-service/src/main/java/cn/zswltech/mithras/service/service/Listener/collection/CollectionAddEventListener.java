@@ -26,7 +26,7 @@ import cn.zswltech.mithras.finance.mapper.finance.ContractAssessDeptDetailMapper
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.mapper.WarrantyBaseInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.margin.mapper.model.WarrantyBaseInfo;
@@ -72,7 +72,7 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.collection.CollUtil.isNotEmpty;
 import static cn.hutool.core.text.CharSequenceUtil.*;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum.*;
+import static cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum.*;
 import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
 
 

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.dto.client.lifecycle.*;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.domain.enums.client.EnterpriseNatureEnum;
-import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.projlifecycle.enums.ProjStageEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
@@ -28,7 +28,7 @@ import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;

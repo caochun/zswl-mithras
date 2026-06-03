@@ -3,12 +3,12 @@ package cn.zswltech.mithras.service.service.liquiditymanage.cal.account;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.fund.domain.enums.DirectFinancingType;
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
+import cn.zswltech.mithras.liquiditymanage.enums.LiquidityIndexType;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.service.service.liquiditymanage.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.AbstractLiquidityCalculator;
-import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityAccountCalculatorBo;
+import cn.zswltech.mithras.liquiditymanage.service.cal.bo.LiquidityAccountCalculatorBo;
 import cn.zswltech.mithras.service.util.LongUtil;
 import org.springframework.stereotype.Component;
 

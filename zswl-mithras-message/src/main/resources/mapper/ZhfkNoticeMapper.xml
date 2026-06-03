@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.message.mapper.ZhfkNoticeMapper">
+
+    <select id="getList" resultType="cn.zswltech.mithras.message.mapper.model.ZhfkNotice">
+        select * from zhfk_notice where
+        JSON_CONTAINS(`data_scope`->'$.users', concat('[\"',#{dto.userId},'\"]'), '$')
+        <if test="dto.needRead!=null">
+            and read_status = #{dto.needRead}
+        </if>
+        <if test="dto.createStart!=null">
+            and gmt_create >= #{dto.createStart}
+        </if>
+        <if test="dto.createEnd!=null">
+            and #{dto.createEnd} >= gmt_create
+        </if>
+        <if test="dto.title!=null">
+            and title like concat('%',#{dto.title},'%')
+        </if>
+        <if test="dto.bizType!=null">
+            and JSON_CONTAINS(`biz_info`->'$.bizCode', concat('\"',#{dto.bizType},'\"'), '$')
+        </if>
+        <if test="dto.type!=null">
+            and `type` = #{dto.type}
+        </if>
+
+        order by gmt_create desc
+    </select>
+
+</mapper>

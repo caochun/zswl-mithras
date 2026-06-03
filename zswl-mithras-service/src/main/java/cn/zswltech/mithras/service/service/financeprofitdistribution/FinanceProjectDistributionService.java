@@ -20,7 +20,7 @@ import cn.zswltech.mithras.dto.financeprojectdistribution.FinanceProjectDistribu
 import cn.zswltech.mithras.dto.flow.execution.ExecutionProcessBaseREQ;
 import cn.zswltech.mithras.dto.utils.BeanCopyUtils;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.convert.MessageConver;
+import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.ProcessState;
@@ -42,7 +42,7 @@ import cn.zswltech.mithras.service.service.client.ClientTransferService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
-import cn.zswltech.mithras.service.service.message.MessageService;
+import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.util.StringUtil;

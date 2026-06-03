@@ -55,7 +55,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.app.AppCon
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.app.VisitDownloadTaskRecordMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.app.VisitRecordMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
+import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractSignInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.dto.VisitRecordListParam;
@@ -68,7 +68,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.app.
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.app.VisitDownloadTaskRecord;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.app.VisitRecord;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractSignInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;

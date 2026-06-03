@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.liquiditymanage.cal;
 
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
-import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityAccountCalculatorBo;
-import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityBaseCalculatorBo;
+import cn.zswltech.mithras.liquiditymanage.enums.LiquidityIndexType;
+import cn.zswltech.mithras.liquiditymanage.service.cal.bo.LiquidityAccountCalculatorBo;
+import cn.zswltech.mithras.liquiditymanage.service.cal.bo.LiquidityBaseCalculatorBo;
 
 /**
  * 流动性管理指标计算统一接口，一个指标一个类

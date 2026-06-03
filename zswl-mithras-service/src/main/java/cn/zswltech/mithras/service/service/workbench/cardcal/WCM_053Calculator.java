@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.workbench.cardcal;
 
-import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;

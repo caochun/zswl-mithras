@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.monthly.mapper.MonthlyManagementCostRecordMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.monthly.mapper.model.MonthlyManagementCostRecord">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="mainId" column="main_id" jdbcType="BIGINT"/>
+            <result property="financingId" column="financing_id" jdbcType="BIGINT"/>
+            <result property="financingCode" column="financing_code" jdbcType="VARCHAR"/>
+            <result property="yearAndMonth" column="year_and_month" jdbcType="VARCHAR"/>
+            <result property="organizationName" column="organization_name" jdbcType="VARCHAR"/>
+            <result property="financingAmount" column="financing_amount" jdbcType="BIGINT"/>
+            <result property="remainingAmount" column="remaining_amount" jdbcType="BIGINT"/>
+            <result property="businessType" column="business_type" jdbcType="VARCHAR"/>
+            <result property="financingRate" column="financing_rate" jdbcType="INTEGER"/>
+            <result property="dailyRate" column="daily_rate" jdbcType="INTEGER"/>
+            <result property="totalCapitalCost" column="total_capital_cost" jdbcType="BIGINT"/>
+            <result property="totalCapitalCostAfterTax" column="total_capital_cost_after_tax" jdbcType="BIGINT"/>
+            <result property="termCapitalCost" column="term_capital_cost" jdbcType="BIGINT"/>
+            <result property="termCapitalCostAfterTax" column="term_capital_cost_after_tax" jdbcType="BIGINT"/>
+            <result property="propertyType" column="property_type" jdbcType="VARCHAR"/>
+            <result property="financingCost" column="financing_cost" jdbcType="BIGINT"/>
+            <result property="valueDate" column="value_date" jdbcType="DATE"/>
+            <result property="propertyTypeDisplay" column="property_type_display" jdbcType="VARCHAR"/>
+            <result property="loanProperty" column="loan_property" jdbcType="VARCHAR"/>
+            <result property="isConfirmed" column="is_confirmed" jdbcType="INTEGER"/>
+            <result property="isEffect" column="is_effect" jdbcType="TINYINT"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,main_id,financing_id,
+        financing_code,year_and_month,organization_name,
+        financing_amount,remaining_amount,business_type,
+        financing_rate,daily_rate,total_capital_cost,
+        total_capital_cost_after_tax,term_capital_cost,term_capital_cost_after_tax,
+        property_type,financing_cost,value_date,
+        property_type_display,loan_property,is_confirmed,
+        is_effect,deleted,create_by,
+        create_time,update_by,update_time
+    </sql>
+</mapper>

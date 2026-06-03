@@ -24,7 +24,7 @@ import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.CollectionPenaltyReductionRelation;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.BizProcessDataService;

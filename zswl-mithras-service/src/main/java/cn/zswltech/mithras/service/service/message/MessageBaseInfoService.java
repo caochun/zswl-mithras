@@ -1,10 +1,10 @@
 /*
-package cn.zswltech.mithras.service.service.message;
+package cn.zswltech.mithras.message.service;
 
 import cn.zswltech.mithras.dto.client.message.MessageInfoREQ;
 import cn.zswltech.mithras.dto.client.message.MessageReadREQ;
-import cn.zswltech.mithras.service.mapper.model.MessageBaseInfo;
-import cn.zswltech.mithras.service.mapper.message.MessageModel;
+import cn.zswltech.mithras.message.mapper.model.MessageBaseInfo;
+import cn.zswltech.mithras.message.mapper.message.MessageModel;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

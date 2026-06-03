@@ -20,7 +20,7 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPers
 import cn.zswltech.mithras.service.constant.FlowConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.convert.MessageConver;
+import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishBaseInfoConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
@@ -39,7 +39,7 @@ import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.flow.FlowEndEventProcessor;
 import cn.zswltech.mithras.service.service.lib.projestablish.impl.ProjEstablishVersionServiceImpl;
-import cn.zswltech.mithras.service.service.message.MessageService;
+import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.projfms.ProjContext;
 import cn.zswltech.mithras.service.service.projfms.ProjEvent;
 import cn.zswltech.mithras.service.service.projfms.impl.ProjEstablishStateMachine;

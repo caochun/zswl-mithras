@@ -2,10 +2,10 @@ package cn.zswltech.mithras.service.service.collection;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.service.mapper.collection.CollectionOverdueHistoryMapper;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionOverdueHistory;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.mapper.CollectionOverdueHistoryMapper;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueHistory;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;

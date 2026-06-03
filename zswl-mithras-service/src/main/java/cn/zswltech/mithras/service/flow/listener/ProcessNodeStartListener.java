@@ -14,7 +14,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundCred
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.bo.CreditLimitDetailBO;
+import cn.zswltech.mithras.creditlimit.service.bo.CreditLimitDetailBO;
 import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.fund.application.FundFinancingCreditRefService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;

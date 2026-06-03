@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.kpi;
+import cn.zswltech.mithras.message.enums.MessageUrlEnum;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -28,7 +29,7 @@ import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.convert.MessageConver;
+import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.kpi.KpiProjectDistributionConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientTransferStatus;
@@ -36,8 +37,8 @@ import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.kpi.enums.KpiProjectSourceDistributionEnum;
 import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;
-import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;
+import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
+import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionMapper;
 import cn.zswltech.mithras.kpi.mapper.query.KpiProjectDistributionQuery;
@@ -61,7 +62,7 @@ import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionBaseInfoLibServ
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionLibVersionService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.service.service.lib.kpi.handler.impl.KpiProjectDistributionWeightLibHandler;
-import cn.zswltech.mithras.service.service.message.MessageService;
+import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.util.StringUtil;

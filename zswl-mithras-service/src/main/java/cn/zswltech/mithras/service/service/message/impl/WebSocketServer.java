@@ -1,8 +1,8 @@
 /*
-package cn.zswltech.mithras.service.service.message.impl;
+package cn.zswltech.mithras.message.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.mapper.message.MessageModel;
+import cn.zswltech.mithras.message.mapper.message.MessageModel;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;

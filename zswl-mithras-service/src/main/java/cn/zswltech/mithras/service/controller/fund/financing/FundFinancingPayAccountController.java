@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingSubM
 import cn.zswltech.mithras.service.convert.fund.financing.FundFinancingConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.financing.FundFinancingPayAccountMapper;
-import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPayAccount;
 import cn.zswltech.mithras.service.service.basedata.BaseDataBankAccountService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;

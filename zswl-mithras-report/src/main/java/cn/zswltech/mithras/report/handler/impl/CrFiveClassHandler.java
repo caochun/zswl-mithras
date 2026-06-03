@@ -15,7 +15,7 @@ import cn.zswltech.mithras.report.service.draft.CrFiveClassDraftService;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyBizNodeEnum;
-import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;

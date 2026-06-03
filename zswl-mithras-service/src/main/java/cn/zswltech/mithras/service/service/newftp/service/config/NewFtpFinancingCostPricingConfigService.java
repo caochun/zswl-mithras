@@ -20,7 +20,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financin
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPlanLib;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.basedata.BaseDataLprService;
+import cn.zswltech.mithras.basedata.service.BaseDataLprService;
 import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpFinancingCostPricingConfigMapper;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;

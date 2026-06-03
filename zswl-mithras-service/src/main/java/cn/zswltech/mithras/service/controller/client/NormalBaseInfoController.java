@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.auth.checker.client.ClientAddSubAuthCheckerNe
 import cn.zswltech.mithras.service.auth.checker.client.ClientModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.client.ClientViewMainAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
+import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.NormalBaseInfoService;

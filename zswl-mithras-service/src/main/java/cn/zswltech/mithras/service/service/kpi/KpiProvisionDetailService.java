@@ -32,7 +32,7 @@ import cn.zswltech.mithras.leaseholdproperty.domain.enums.LeaseItemManagerLeaseI
 import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
+import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.dto.ClientMaxLeaseMonthDTO;
 import cn.zswltech.mithras.kpi.mapper.KpiProvisionBaseInfoMapper;
@@ -43,7 +43,7 @@ import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecord;

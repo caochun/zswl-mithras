@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.constant.FinancialConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.capital.domain.enums.FinanceFlowDetailTableEnum;
-import cn.zswltech.mithras.service.enums.collection.BillTypeEnum;
+import cn.zswltech.mithras.collection.enums.BillTypeEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.fund.domain.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.domain.enums.OrganizationType;
@@ -38,7 +38,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.FinanceFlowWri
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FinanceFlowWriteOffDetail;
-import cn.zswltech.mithras.service.mapper.model.collection.BillManagement;
+import cn.zswltech.mithras.collection.mapper.model.BillManagement;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;

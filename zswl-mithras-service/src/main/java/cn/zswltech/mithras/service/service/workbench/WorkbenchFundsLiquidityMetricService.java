@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.workbench.chart.sub.ChartBaseDataVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartDataVO;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.fund.domain.enums.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchFundsLiquidityMetric;
 import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.WorkbenchFundsLiquidityMetricMapper;

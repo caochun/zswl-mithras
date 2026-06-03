@@ -8,10 +8,10 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInf
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPayAccount;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
-import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
-import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataSpecialDate;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
+import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundCredit;
@@ -24,10 +24,10 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptr
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptFlowPlan;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
-import cn.zswltech.mithras.service.mapper.model.liquiditymanage.AccountBalanceBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.liquiditymanage.FundFinancingAccountSetting;
-import cn.zswltech.mithras.service.mapper.model.liquiditymanage.FundParameterConfig;
-import cn.zswltech.mithras.service.service.bo.CreditLimitDetailBO;
+import cn.zswltech.mithras.liquiditymanage.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquiditymanage.mapper.model.FundFinancingAccountSetting;
+import cn.zswltech.mithras.liquiditymanage.mapper.model.FundParameterConfig;
+import cn.zswltech.mithras.creditlimit.service.bo.CreditLimitDetailBO;
 import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDate;

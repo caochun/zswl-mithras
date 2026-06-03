@@ -52,7 +52,7 @@ import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.PayType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;

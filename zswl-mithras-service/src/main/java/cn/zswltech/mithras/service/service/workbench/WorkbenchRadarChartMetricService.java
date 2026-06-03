@@ -11,7 +11,7 @@ import cn.zswltech.mithras.workbench.domain.enums.WorkbenchMetricDeptScope;
 import cn.zswltech.mithras.workbench.domain.enums.WorkbenchMetricRole;
 import cn.zswltech.mithras.workbench.domain.enums.WorkbenchMetricUnit;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchRadarChartMetric;

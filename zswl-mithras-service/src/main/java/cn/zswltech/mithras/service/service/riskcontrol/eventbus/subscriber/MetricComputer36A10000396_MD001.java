@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.riskcontrol.eventbus.subscriber;
 
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
-import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
+import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.service.riskcontrol.AbstractMetricComputer;

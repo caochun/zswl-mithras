@@ -5,7 +5,7 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.fund.domain.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingAccountTypeEnum;
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
+import cn.zswltech.mithras.liquiditymanage.enums.LiquidityIndexType;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPayAccount;
@@ -14,7 +14,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptr
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.service.service.liquiditymanage.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.AbstractLiquidityCalculator;
-import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityAccountCalculatorBo;
+import cn.zswltech.mithras.liquiditymanage.service.cal.bo.LiquidityAccountCalculatorBo;
 import cn.zswltech.mithras.service.util.LongUtil;
 import org.springframework.stereotype.Component;
 

@@ -15,7 +15,7 @@ import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider
 import cn.zswltech.mithras.finance.view.service.*;
 import cn.zswltech.mithras.finance.view.service.dto.DashboardFundFinanceCreditSnapshotData;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.dashboard.domain.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingBizTypeEnum;
@@ -38,7 +38,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptr
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.bo.CreditLimitDetailBO;
+import cn.zswltech.mithras.creditlimit.service.bo.CreditLimitDetailBO;
 import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.fund.application.FundFinancingCreditRefService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;

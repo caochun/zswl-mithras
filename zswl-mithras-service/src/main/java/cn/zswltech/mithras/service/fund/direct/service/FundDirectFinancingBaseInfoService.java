@@ -31,7 +31,7 @@ import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundDirectFinancingMaterialsEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingMaterialsEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.service.enums.monthly.StampDutyTypeEnum;
+import cn.zswltech.mithras.monthly.enums.StampDutyTypeEnum;
 import cn.zswltech.mithras.service.fund.direct.converter.FundDirectFinancingBaseInfoConverter;
 import cn.zswltech.mithras.service.fund.direct.entity.*;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingBaseInfoMapper;

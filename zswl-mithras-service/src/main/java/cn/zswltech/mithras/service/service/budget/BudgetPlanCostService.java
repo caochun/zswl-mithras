@@ -31,7 +31,7 @@ import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanCo
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.dto.BudgetPlanCostDetailFundGroupMonthDTO;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.dto.BudgetPlanCostDetailProjectGroupMonthDTO;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.*;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingRepayActual;

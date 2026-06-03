@@ -161,7 +161,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-factory</artifactId>
+            <artifactId>zswl-mithras-factory</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -206,7 +206,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-basedata</artifactId>
+            <artifactId>zswl-mithras-basedata</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -231,7 +231,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-monthly</artifactId>
+            <artifactId>zswl-mithras-monthly</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -241,7 +241,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-liquiditymanage</artifactId>
+            <artifactId>zswl-mithras-liquiditymanage</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -296,7 +296,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-collection</artifactId>
+            <artifactId>zswl-mithras-collection</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -316,7 +316,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-message</artifactId>
+            <artifactId>zswl-mithras-message</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -336,12 +336,12 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-creditlimit</artifactId>
+            <artifactId>zswl-mithras-creditlimit</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-metric</artifactId>
+            <artifactId>zswl-mithras-metric</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

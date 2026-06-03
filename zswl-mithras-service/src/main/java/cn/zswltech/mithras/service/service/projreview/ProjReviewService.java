@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.projreview;
+import cn.zswltech.mithras.message.enums.MessageUrlEnum;
 import cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemType;
 import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
 
@@ -37,7 +38,7 @@ import cn.zswltech.mithras.service.config.ProjReviewConfigProperties;
 import cn.zswltech.mithras.service.constant.FlowConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.convert.MessageConver;
+import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.projreview.ProjReviewCashFlowQuotationProposalConverter;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.customer.domain.enums.app.VisitPhaseStatus;
@@ -49,7 +50,7 @@ import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
+import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.projlifecycle.enums.ProjLifecycleEventTypeEnum;
 import cn.zswltech.mithras.service.enums.projreview.MeetMinuteStatuesEnum;
@@ -89,7 +90,7 @@ import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService
 import cn.zswltech.mithras.service.service.lib.projpricing.impl.ProjPricingVersionServiceImpl;
 import cn.zswltech.mithras.service.service.lib.projreview.impl.ProjReviewVersionServiceImpl;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.service.message.MessageService;
+import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.service.projfms.ProjContext;
 import cn.zswltech.mithras.service.service.projfms.ProjEvent;

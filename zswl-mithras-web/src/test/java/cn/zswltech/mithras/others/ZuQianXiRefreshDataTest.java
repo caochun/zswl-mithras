@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfoLib;

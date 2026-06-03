@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.third.financial;
 
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 
 import java.util.List;
 

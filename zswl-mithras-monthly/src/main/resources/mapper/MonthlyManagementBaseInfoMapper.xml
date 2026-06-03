@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.monthly.mapper.MonthlyManagementBaseInfoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.monthly.mapper.model.MonthlyManagementBaseInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="year" column="year" jdbcType="INTEGER"/>
+            <result property="month" column="month" jdbcType="INTEGER"/>
+            <result property="airCount" column="air_count" jdbcType="BIGINT"/>
+            <result property="airCountExcludeTax" column="air_count_exclude_tax" jdbcType="BIGINT"/>
+            <result property="rpCount" column="rp_count" jdbcType="BIGINT"/>
+            <result property="rpCountExcludeTax" column="rp_count_exclude_tax" jdbcType="BIGINT"/>
+            <result property="costCount" column="cost_count" jdbcType="BIGINT"/>
+            <result property="costCountExcludeTax" column="cost_count_exclude_tax" jdbcType="BIGINT"/>
+            <result property="stampDutyCount" column="stamp_duty_count" jdbcType="BIGINT"/>
+            <result property="confirmDate" column="confirm_date" jdbcType="DATE"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="closeDate" column="close_date" jdbcType="TIMESTAMP"/>
+            <result property="deleted" column="deleted" jdbcType="TINYINT"/>
+            <result property="createBy" column="create_by" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="BIGINT"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,year,month,
+        air_count,air_count_exclude_tax,rp_count,
+        rp_count_exclude_tax,cost_count,cost_count_exclude_tax,
+        stamp_duty_count,confirm_date,status,
+        close_date,deleted,create_by,
+        create_time,update_by,update_time
+    </sql>
+</mapper>

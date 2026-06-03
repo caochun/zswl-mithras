@@ -18,9 +18,9 @@ import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseCheckPlanConvert
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.NewAfterLeaseCheckMaterialsEnum;
-import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.service.mapper.message.MessageModel;
-import cn.zswltech.mithras.service.mapper.message.NoticeMessageBody;
+import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
+import cn.zswltech.mithras.message.mapper.message.MessageModel;
+import cn.zswltech.mithras.message.mapper.message.NoticeMessageBody;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanBase;
@@ -34,7 +34,7 @@ import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientSe
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.lib.afterlease.AfterLeaseCheckPlanVersionService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.service.message.MessageService;
+import cn.zswltech.mithras.message.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

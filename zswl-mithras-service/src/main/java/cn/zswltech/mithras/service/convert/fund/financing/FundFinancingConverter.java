@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.convert.fund.financing;
 
 import cn.zswltech.mithras.dto.fund.financing.payaccount.FundFinancingPayAccountBankRSP;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

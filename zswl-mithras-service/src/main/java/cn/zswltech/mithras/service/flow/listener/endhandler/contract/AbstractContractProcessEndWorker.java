@@ -21,7 +21,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractTextManageMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractSignInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextManage;

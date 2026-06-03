@@ -30,7 +30,7 @@ public class MonthlyFreshREQ {
     private Long sourceId;
 
     /**
-     * {@link cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum}
+     * {@link cn.zswltech.mithras.monthly.enums.MonthlyModuleTypeEnum}
      */
     @ApiModelProperty(value = "TabType")
     private String tabType ;

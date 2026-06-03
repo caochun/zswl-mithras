@@ -1,14 +1,14 @@
 /*
-package cn.zswltech.mithras.service.service.message.impl;
+package cn.zswltech.mithras.message.service.impl;
 
 
 import cn.zswltech.mithras.dto.client.message.MessageInfoREQ;
 import cn.zswltech.mithras.dto.client.message.MessageReadREQ;
 import cn.zswltech.mithras.service.enums.JudgeEnum;
-import cn.zswltech.mithras.service.mapper.MessageBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.message.MessageModel;
-import cn.zswltech.mithras.service.mapper.model.MessageBaseInfo;
-import cn.zswltech.mithras.service.service.message.MessageBaseInfoService;
+import cn.zswltech.mithras.message.mapper.MessageBaseInfoMapper;
+import cn.zswltech.mithras.message.mapper.message.MessageModel;
+import cn.zswltech.mithras.message.mapper.model.MessageBaseInfo;
+import cn.zswltech.mithras.message.service.MessageBaseInfoService;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;

@@ -29,7 +29,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-collection</artifactId>
+            <artifactId>zswl-mithras-collection</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

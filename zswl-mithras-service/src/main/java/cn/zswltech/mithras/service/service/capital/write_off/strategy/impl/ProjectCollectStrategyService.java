@@ -20,7 +20,7 @@ import cn.zswltech.mithras.capital.domain.enums.write_off.FinanceWriteOffStatusE
 import cn.zswltech.mithras.capital.domain.enums.write_off.WriteOffAccountTypeEnum;
 import cn.zswltech.mithras.capital.domain.enums.write_off.WriteOffBusinessModelEnum;
 import cn.zswltech.mithras.service.enums.capital.BankFlowCenterTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowMatchResult;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabMainInfo;

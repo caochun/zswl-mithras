@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

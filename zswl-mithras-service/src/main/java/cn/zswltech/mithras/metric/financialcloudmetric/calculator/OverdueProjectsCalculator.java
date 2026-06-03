@@ -15,10 +15,10 @@ import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMet
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
-import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.collection.CollectionRecordInfoMapper;
+import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
+import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.lib.AssetClassifyClientAuxiliaryLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractGuarantorLibMapper;
@@ -27,8 +27,8 @@ import cn.zswltech.mithras.service.mapper.lib.projreview.ProjReviewFactoringPric
 import cn.zswltech.mithras.service.mapper.lib.projreview.ProjReviewLeasePriceLibMapper;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClientAuxiliaryLib;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantorLib;

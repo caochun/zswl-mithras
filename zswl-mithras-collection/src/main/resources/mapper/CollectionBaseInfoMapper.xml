@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper">
+    <insert id="insertList">
+        insert into collection_base_info(contract_id,payment_id,payment_code,phase,contract_code,client_id,code,write_off_status,principal,interest,plan_collection_amount,plan_collection_date,cash_flow_item,cash_flow_amount,rent_actual_id)
+        values
+        <foreach collection="infos" open="" close="" item="item" separator=",">
+            (#{item.contractId},#{item.paymentId},#{item.paymentCode},#{item.phase},#{item.contractCode},#{item.clientId},#{item.code},#{item.writeOffStatus},#{item.principal},#{item.interest},#{item.planCollectionAmount},#{item.planCollectionDate},#{item.cashFlowItem},#{item.cashFlowAmount},#{item.rentActualId})
+        </foreach>
+    </insert>
+
+    <select id="pageList" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        select a.*
+        from collection_base_info a,contract_base_info b
+        <where>
+            a.contract_id = b.id
+            <if test="dto.clientId!=null">and a.client_id = #{dto.clientId}</if>
+            <if test="dto.status!=null">and a.write_off_status = #{dto.status}</if>
+            <if test="dto.cashFlowItem!=null">and a.cash_flow_item = #{dto.cashFlowItem}</if>
+            <if test="dto.contractCode!=null">and a.contract_code LIKE concat('%', #{dto.contractCode},'%')</if>
+            <if test="dto.amountFrom!=null">and a.plan_collection_amount <![CDATA[ >= ]]> #{dto.amountFrom}</if>
+            <if test="dto.amountTo!=null">and a.plan_collection_amount <![CDATA[ <= ]]> #{dto.amountTo}</if>
+            <if test="dto.collectionDateFrom!=null">and a.collection_date <![CDATA[ >= ]]> #{dto.collectionDateFrom}</if>
+            <if test="dto.collectionDateTo!=null">and a.collection_date <![CDATA[ <= ]]> #{dto.collectionDateTo}</if>
+            <if test="dto.planCollectionDateFrom!=null">and a.plan_collection_date <![CDATA[ >= ]]> #{dto.planCollectionDateFrom}</if>
+            <if test="dto.planCollectionDateTo!=null">and a.plan_collection_date <![CDATA[ <= ]]> #{dto.planCollectionDateTo}</if>
+            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+        </where>
+        order by a.contract_code,a.plan_collection_date,a.code asc
+    </select>
+
+    <select id="overdueList" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        select *
+        from collection_base_info
+        where DATE_FORMAT(plan_collection_date, '%Y-%m-%d') <![CDATA[ < ]]> SUBDATE(CURDATE(), 3)
+          AND cash_flow_item = 'RENT'
+          AND write_off_status != 'WRITE_OFF_COMPLETED'
+    </select>
+
+    <select id="overdueListWithoutGracePeriod" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        select *
+        from collection_base_info
+        where plan_collection_date &lt; concat(substr(now(),1,10),' 00:00:00')
+        and cash_flow_item = 'RENT'
+        and phase > 0
+        and (ifnull(principal,0) + ifnull(interest,0)) > (ifnull(collection_principal,0) + ifnull(collection_interest,0))
+    </select>
+
+    <select id="getEndTimeByReceipt" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        select receipt_id, max(plan_collection_date) plan_collection_date from collection_base_info
+        where cash_flow_item = 'RENT'
+        and receipt_id in
+        <foreach collection="receiptIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        group by receipt_id
+    </select>
+
+
+
+    <select id="specifyClientOverdueList"
+            resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        select *
+        from collection_base_info
+        where DATE_FORMAT(plan_collection_date, '%Y-%m-%d') <![CDATA[ < ]]> SUBDATE(CURDATE(), 3)
+          AND cash_flow_item = 'RENT'
+          AND write_off_status != 'WRITE_OFF_COMPLETED'
+        AND client_id = #{clientId}
+    </select>
+
+    <select id="getLastRentDateByContractIds"
+            resultType="cn.zswltech.mithras.collection.mapper.dto.CollectionContractSettleDTO">
+        select contract_id contractId,
+        max(plan_collection_date) settleDate
+        FROM
+        collection_base_info
+        where cash_flow_item = 'RENT'
+        and contract_id in
+        <foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        GROUP BY
+        contract_id
+    </select>
+
+    <select id="getLastRentByContractIdsAndTime"
+            resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        SELECT
+        a.receipt_id receipt_id,
+        max( a.plan_collection_date ) plan_collection_date,
+        a.receipt_remaining_principal receipt_remaining_principal
+        FROM
+        (
+        SELECT
+        c.receipt_id receipt_id,
+        c.plan_collection_date plan_collection_date,
+        ( SELECT remaining_principal FROM contract_rent_actual WHERE id = c.rent_actual_id ) receipt_remaining_principal,
+        c.rent_actual_id rentActualId
+        FROM
+        collection_base_info c
+        WHERE
+        c.cash_flow_item = 'RENT'
+        AND c.receipt_id IS NOT NULL
+        and #{planDate} >= c.plan_collection_date
+        and receipt_id in
+        <foreach collection="receiptIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        ORDER BY receipt_id, plan_collection_date DESC
+        ) a
+        GROUP BY
+        a.receipt_id
+    </select>
+
+    <select id="sumAmount" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        SELECT
+            cash_flow_item,
+            sum( plan_collection_amount ) plan_collection_amount,
+            sum( principal ) principal,
+            sum( interest ) interest
+        FROM
+            collection_base_info
+        where plan_collection_date BETWEEN #{startTime} AND #{endTime}
+        GROUP BY
+            cash_flow_item
+    </select>
+
+    <select id="sumContractAmount" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        SELECT
+            DISTINCT (b.id) id,
+                     b.apply_credit_amount plan_collection_amount
+        FROM
+            collection_base_info a
+                INNER JOIN contract_base_info b ON a.contract_id = b.id
+        where a.plan_collection_date BETWEEN #{startTime} AND #{endTime}
+    </select>
+
+    <select id="collectionList" resultType="cn.zswltech.mithras.dto.collection.CollectionFlowCenterBusinessCollectionListRSP">
+        select a.collection_id,
+        a.write_off_status,
+        CASE a.write_off_status
+        WHEN 'UNCOLLECTION' THEN
+        10
+        WHEN 'TO_BE_WRITE_OFF' THEN
+        40
+        WHEN 'PORTION_WRITTEN_OFF' THEN
+        20
+        WHEN 'WRITE_OFF_COMPLETED' THEN
+        30
+        ELSE
+        50
+        END as sort,
+        a.client_id,
+        a.contract_code,
+        a.phase,
+        a.cash_flow_item,
+        a.biz_dept_id,
+        a.plan_collection_date,
+        a.plan_collection_amount,
+        a.principal,
+        a.interest,
+        a.collection_amount,
+        a.collection_date,
+        a.code,
+        a.proj_name,
+        biz_type,
+        lease_type,
+        retreat_lock
+        from (
+        SELECT
+        c.id AS collection_id,
+        'TO_BE_WRITE_OFF'
+        write_off_status,
+        c.client_id,
+        c.contract_code,
+        c.phase,
+        c.cash_flow_item,
+        b.biz_dept_id,
+        c.plan_collection_date,
+        c.plan_collection_amount,
+        c.principal,
+        c.interest,
+        c.collection_amount,
+        c.collection_date,
+        c.CODE,
+        b.proj_name,
+        b.biz_type,
+        b.lease_type,
+        c.retreat_lock
+        FROM
+        collection_base_info c
+        LEFT JOIN contract_base_info b ON c.contract_id = b.id
+        WHERE
+        c.write_off_status IN ( 'UNCOLLECTION', 'TO_BE_WRITE_OFF' )
+        and c.plan_collection_date > now()
+        union ALL
+        SELECT
+        c.id AS collection_id,
+        'UNCOLLECTION' write_off_status,
+        c.client_id,
+        c.contract_code,
+        c.phase,
+        c.cash_flow_item,
+        b.biz_dept_id,
+        c.plan_collection_date,
+        c.plan_collection_amount,
+        c.principal,
+        c.interest,
+        c.collection_amount,
+        c.collection_date,
+        c.CODE,
+        b.proj_name,
+        b.biz_type,
+        b.lease_type,
+        c.retreat_lock
+        FROM
+        collection_base_info c
+        LEFT JOIN contract_base_info b ON c.contract_id = b.id
+        WHERE
+        c.write_off_status IN ( 'UNCOLLECTION', 'TO_BE_WRITE_OFF' )
+        and now() >= c.plan_collection_date
+        UNION ALL
+        SELECT
+        c.id AS collection_id,
+        c.write_off_status,
+        c.client_id,
+        c.contract_code,
+        c.phase,
+        c.cash_flow_item,
+        b.biz_dept_id,
+        c.plan_collection_date,
+        c.plan_collection_amount,
+        c.principal,
+        c.interest,
+        c.collection_amount,
+        c.collection_date,
+        c.CODE,
+        b.proj_name,
+        b.biz_type,
+        b.lease_type,
+        c.retreat_lock
+        FROM
+        collection_base_info c
+        LEFT JOIN contract_base_info b ON c.contract_id = b.id
+        WHERE
+        c.write_off_status in ('PORTION_WRITTEN_OFF', 'WRITE_OFF_COMPLETED')
+        ) a
+        <where>
+            <if test="dto.planCollectionDateFrom!=null">and a.plan_collection_date <![CDATA[ >= ]]> #{dto.planCollectionDateFrom}</if>
+            <if test="dto.planCollectionDateTo!=null">and a.plan_collection_date <![CDATA[ <= ]]> #{dto.planCollectionDateTo}</if>
+            <if test="dto.clientId!=null">and a.client_id = #{dto.clientId}</if>
+            <if test="dto.cashFlowItemList!=null">and a.cash_flow_item in
+                <foreach collection="dto.cashFlowItemList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.contractCode!=null">and a.contract_code LIKE concat('%', #{dto.contractCode},'%')</if>
+            <if test="dto.bizDeptId!=null">and a.biz_dept_id = #{dto.bizDeptId}</if>
+            <if test="dto.contractId">and a.contract_id = #{dto.contractId}</if>
+            <if test="dto.writeOffStatusList!=null">and a.write_off_status in
+                <foreach collection="dto.writeOffStatusList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY sort asc, plan_collection_date desc
+    </select>
+    <select id="overduePageQuery"
+            resultType="cn.zswltech.mithras.dto.dashboard.DashboardClientOverviewOverdueRSP">
+        SELECT c1.client_name                                                                                           AS clientName,
+        c1.id                                                                                                    AS clientId,
+        proj_review.proj_name                                                                                    AS projName,
+        contract.contract_code                                                                                   AS contractCode,
+        collection.phase                                                                                         AS phase,
+        collection.contract_id                                                                                   AS contractId,
+        ROUND((IFNULL(collection.plan_collection_amount, 0) - IFNULL(collection.collection_amount, 0)) / 100000000, 2)
+        AS overdueAmount,
+        ROUND((IFNULL(collection.penalty_interest, 0) - IFNULL(collection.collection_amount, 0)) / 100000000, 2) AS
+        penaltyInterestAmount,
+        contract.biz_type                                                                                        AS bizType,
+        c2.client_name                                                                                           AS tenantry,
+        contract.biz_dept_id                                                                                     AS bizDeptId,
+        contract.proj_sponsor_user_id                                                                            AS projSponsorUserId,
+        contract.proj_cosponsor_user_ids                                                                         AS projCosponsorUserIds,
+        ROUND(IFNULL(collection.penalty_interest_deduction_amount, 0) / 100000000,
+        2)                                                                                                 AS penaltyInterestReductionAmount
+        FROM collection_base_info collection
+        LEFT JOIN contract_base_info contract ON contract.id = collection.contract_id
+        LEFT JOIN proj_review_base_info proj_review ON proj_review.id = contract.proj_review_id
+        LEFT JOIN contract_tenantry tenantry ON tenantry.contract_id = contract.id
+        LEFT JOIN contract_guarantor guarantor ON guarantor.contract_id = contract.id
+        LEFT JOIN client c1 ON collection.client_id = c1.id
+        LEFT JOIN client c2 ON tenantry.lessee_id = c2.id
+        WHERE (IFNULL(plan_collection_amount, 0) - IFNULL(collection_amount, 0)) > 0
+        AND collection.cash_flow_item = 'RENT'
+        AND collection.plan_collection_date &lt; CURRENT_DATE
+        AND collection.phase &gt; 0
+        AND collection.client_id IN
+        <foreach collection="clientIds" open="(" separator="," close=")" item="clientId">
+            #{clientId}
+        </foreach>
+        <if test="query.clientId != null">
+            AND collection.client_id LIKE CONCAT('%', #{query.clientId}, '%')
+        </if>
+        <if test="query.projName != null and query.projName != ''">
+            AND proj_review.proj_name LIKE CONCAT('%', #{query.projName}, '%')
+        </if>
+        <if test="query.contractCode != null and query.contractCode != ''">
+            AND collection.contract_code LIKE CONCAT('%', #{query.contractCode}, '%')
+        </if>
+        <if test="query.bizDeptId != null">
+            AND contract.biz_dept_id = #{query.bizDeptId}
+        </if>
+        <if test="query.projSponsorUserId != null">
+            AND contract.proj_sponsor_user_id = #{query.projSponsorUserId}
+        </if>
+        <if test="query.beginTime != null">
+            AND collection.plan_collection_date &gt;= #{query.beginTime}
+        </if>
+        <if test="query.endTime != null">
+            AND collection.plan_collection_date &lt;= #{query.endTime}
+        </if>
+        GROUP BY collection.code
+    </select>
+
+<!--    <select id="calculatePrincipleBalanceFromBudget" resultType="long">-->
+<!--        select-->
+<!--            ifnull(sum(ifnull(principal,0)),0)-->
+<!--        from collection_base_info-->
+<!--        where 1=1-->
+<!--          and cash_flow_item = 'RENT'-->
+<!--          and phase > 0-->
+<!--          and plan_collection_date &gt;= #{targetDate}-->
+<!--          and #{targetDate} &gt;= #{receiptStartDate}-->
+<!--        <if test="ignoreClientIds != null and ignoreClientIds.size() > 0">-->
+<!--            and contract_id not in (-->
+<!--                select-->
+<!--                    contract_id-->
+<!--                from contract_tenantry-->
+<!--                where lessee_id in-->
+<!--                <foreach collection="ignoreClientIds" item="clientId" separator="," open="(" close=")">-->
+<!--                    #{clientId}-->
+<!--                </foreach>-->
+<!--            )-->
+<!--        </if>-->
+<!--        <if test="receiptId != null">-->
+<!--            and receipt_id = #{receiptId}-->
+<!--        </if>-->
+<!--    </select>-->
+
+    <select id="calculateRemainingPrincipalGroupByDeptId" resultType="cn.zswltech.mithras.collection.service.bo.DeptRemainingPrincipalBO">
+        select
+            a.biz_dept_id as bizDeptId,
+            sum(b.remaining_principal) as remainingPrincipal
+        from contract_base_info as a
+        left join (
+            select
+                contract_id,
+                ifnull(sum(principal),0) as remaining_principal
+            from collection_base_info
+            where plan_collection_date &gt;= #{targetDate} and cash_flow_item = 'RENT' and phase > 0
+            group by contract_id
+        ) as b on a.id = b.contract_id
+        group by a.biz_dept_id
+    </select>
+
+    <select id="contractNextRentList"
+            parameterType="cn.zswltech.mithras.collection.mapper.dto.CollectionNextRentParam"
+            resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        select p.* from
+        (select min(plan_collection_date) as plan_collection_date, contract_id from collection_base_info
+        where cash_flow_item = 'RENT' and write_off_status != 'WRITE_OFF_COMPLETED'
+        group by contract_id ) as a left join collection_base_info p on a.contract_id = p.contract_id and a.plan_collection_date =
+        p.plan_collection_date
+        inner join contract_base_info cbi on cbi.id = p.contract_id
+        <where>
+            <if test="dto.clientId!=null">AND p.client_id = #{dto.clientId}</if>
+            <if test="dto.isBizUser==true">
+                and
+                (cbi.biz_dept_id IN
+                <foreach collection="dto.deptIdList" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+                OR cbi.proj_sponsor_user_id = #{dto.currentUserId}
+                OR JSON_CONTAINS(cbi.proj_cosponsor_user_ids, CONVERT (#{dto.currentUserId}, CHAR))
+                )
+            </if>
+        </where>
+    </select>
+
+
+    <select id="getReceiptNextRent"
+            resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+        SELECT
+        b.*
+        FROM
+        (
+        SELECT
+        c.receipt_id receipt_id,
+        min( c.plan_collection_date ) plan_collection_date
+        FROM
+        collection_base_info c
+        WHERE
+        c.cash_flow_item = 'RENT'
+        AND c.receipt_id IS NOT NULL
+        and c.plan_collection_date >= #{planDate}
+        and receipt_id in
+        <foreach collection="receiptIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        group by receipt_id
+        ) a left join collection_base_info b on a.receipt_id = b.receipt_id and a.plan_collection_date = b.plan_collection_date
+        GROUP BY
+        a.receipt_id
+    </select>
+</mapper>

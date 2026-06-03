@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractSettlePlanTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;

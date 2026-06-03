@@ -30,8 +30,8 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptr
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptFlowPlan;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
-import cn.zswltech.mithras.service.mapper.model.monthly.FundsDailyCost;
-import cn.zswltech.mithras.service.mapper.model.monthly.FundsDailyCostMain;
+import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCost;
+import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCostMain;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPlanService;

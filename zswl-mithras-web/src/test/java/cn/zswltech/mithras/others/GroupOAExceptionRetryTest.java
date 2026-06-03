@@ -7,8 +7,8 @@ import cn.zswl.notice.service.ExportService;
 import cn.zswl.notice.util.RemoteUtil;
 import cn.zswltech.mithras.dto.message.MessageHandleREQ;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.enums.MessageChannelEnum;
-import cn.zswltech.mithras.service.service.message.MessageService;
+import cn.zswltech.mithras.message.enums.MessageChannelEnum;
+import cn.zswltech.mithras.message.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 

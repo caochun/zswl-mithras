@@ -27,7 +27,7 @@ public class MonthlyManageUpdateEvent extends ApplicationEvent {
     @NoArgsConstructor
     public static class DataObject {
         /**
-         * 模型类型 {@link cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum#name}
+         * 模型类型 {@link cn.zswltech.mithras.monthly.enums.MonthlyModuleTypeEnum#name}
          */
         @NotNull
         private String modelType;

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.lib.AssetClassifyClientAuxiliaryLibMapper;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassify;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;

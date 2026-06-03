@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassify;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;

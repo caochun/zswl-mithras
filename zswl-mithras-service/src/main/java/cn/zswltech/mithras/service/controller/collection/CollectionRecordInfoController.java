@@ -10,8 +10,8 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthChecke
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewSubAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.mapper.collection.CollectionRecordInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
+import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionWriteOffRecordService;
 import org.springframework.web.bind.annotation.RestController;

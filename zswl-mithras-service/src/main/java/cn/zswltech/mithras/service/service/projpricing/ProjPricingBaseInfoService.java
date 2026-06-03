@@ -39,10 +39,10 @@ import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditRev
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
+import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.dto.ProjPricingListSelectDTO;
-import cn.zswltech.mithras.service.mapper.model.AddressDictionary;
+import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;

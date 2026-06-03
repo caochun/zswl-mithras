@@ -13,13 +13,13 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewSubAuthChecker
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
-import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
+import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.mapper.MarginRecordInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;
 import cn.zswltech.mithras.service.others.MithrasException;

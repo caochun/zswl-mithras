@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.service.contract;
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.contract.enums.contract.IncomeConfirmTypeEnum;
-import cn.zswltech.mithras.service.enums.monthly.MonthlyModuleTypeEnum;
+import cn.zswltech.mithras.monthly.enums.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.service.service.contract.ContractIncomeSharingService;
 import cn.zswltech.mithras.service.service.monthly.listener.MonthlyManageUpdateEvent;
 import cn.zswltech.mithras.service.service.monthly.listener.MonthlyManageUpdateListener;

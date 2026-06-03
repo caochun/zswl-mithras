@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.projlifecycle.ProjStageTotalRSP;
 import cn.zswltech.mithras.dto.projlifecycle.ProjectLifecycleListREQ;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
-import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;

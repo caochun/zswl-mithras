@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service;
 
 import cn.zswltech.mithras.dto.SelectRSP;
-import cn.zswltech.mithras.service.mapper.corp.GeneralDictionaryMapper;
-import cn.zswltech.mithras.service.mapper.model.GeneralDictionary;
+import cn.zswltech.mithras.basedata.mapper.corp.GeneralDictionaryMapper;
+import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 

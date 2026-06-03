@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.dto.materialsfile.FundMaterialListRSP;
-import cn.zswltech.mithras.service.CreditLimitManagerService;
+import cn.zswltech.mithras.creditlimit.service.CreditLimitManagerService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.fund.FundGuaranteeInfoConverter;
 import cn.zswltech.mithras.service.enums.SpecialFileBusinessType;
@@ -18,7 +18,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuar
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuaranteeInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.service.service.bo.CreditLimitDetailBO;
+import cn.zswltech.mithras.creditlimit.service.bo.CreditLimitDetailBO;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

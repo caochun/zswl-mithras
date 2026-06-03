@@ -15,7 +15,7 @@ import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.L
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseholdProperty;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.leaseholdproperty.GeneralDictionaryService;
+import cn.zswltech.mithras.basedata.service.leaseholdproperty.GeneralDictionaryService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseholdPropertyService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

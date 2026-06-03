@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.unittest.service;
 
-import cn.zswltech.mithras.service.enums.basedata.BaseDataSpecialDateTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataSpecialDate;
-import cn.zswltech.mithras.service.service.basedata.BaseDataSpecialDateService;
+import cn.zswltech.mithras.basedata.enums.BaseDataSpecialDateTypeEnum;
+import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
+import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
