@@ -1,5 +1,6 @@
 package cn.zswltech.mithras.service.service.fund.financing.fms;
 
+import cn.zswltech.mithras.fund.application.financing.fms.IFundFinancingStateMachineEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static cn.zswltech.mithras.service.enums.fund.financing.FundFinancingProcessStatus.*;
+import static cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingProcessStatus.*;
 import static cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingEvent.*;
 
 /**

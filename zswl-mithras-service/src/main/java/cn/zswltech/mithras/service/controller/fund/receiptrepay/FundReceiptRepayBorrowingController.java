@@ -8,8 +8,8 @@ import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBorrowingListRS
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBorrowingModifyREQ;
 import cn.zswltech.mithras.service.auth.checker.fund.FundReceiptRepayModifySubAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBorrowingMapper;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBorrowing;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayBorrowingMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBorrowing;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBorrowingService;
 import org.springframework.web.bind.annotation.RestController;
 

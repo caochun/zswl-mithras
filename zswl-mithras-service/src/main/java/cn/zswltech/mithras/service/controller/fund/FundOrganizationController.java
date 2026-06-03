@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.fund.FundOrganizationApi;
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.fund.FundCreditService;

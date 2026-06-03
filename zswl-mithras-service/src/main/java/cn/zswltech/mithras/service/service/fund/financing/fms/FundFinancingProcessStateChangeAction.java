@@ -1,9 +1,10 @@
 package cn.zswltech.mithras.service.service.fund.financing.fms;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.fund.application.financing.fms.IFundFinancingStateMachineEntity;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingProcessStatus;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingProcessStatus;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import lombok.Data;

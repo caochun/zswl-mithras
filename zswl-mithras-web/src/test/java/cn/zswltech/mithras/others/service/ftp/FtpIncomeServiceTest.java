@@ -4,7 +4,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.interestPay.InterestPayREQ;
 import cn.zswltech.mithras.dto.monthly.MonthlyCostREQ;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.service.job.FtpIncomeJob;
 import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.service.service.interestPay.InterestPayService;

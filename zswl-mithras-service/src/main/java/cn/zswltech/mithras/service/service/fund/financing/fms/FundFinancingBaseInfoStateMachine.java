@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.fund.financing.fms;
 
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import org.springframework.stereotype.Service;
 
 /**

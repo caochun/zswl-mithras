@@ -2,9 +2,9 @@ package cn.zswltech.mithras.service.convert.fund.receiptrepay;
 
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayCashFlowListRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayCashFlowModifyREQ;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActual;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlow;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlowLib;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingRepayActual;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlowLib;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingCashFlowPlan;
 import cn.zswltech.mithras.service.service.bo.CashFlowBO;
 import org.mapstruct.Mapper;

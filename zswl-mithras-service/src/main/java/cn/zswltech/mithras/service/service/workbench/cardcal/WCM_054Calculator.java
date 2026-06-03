@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.workbench.cardcal;
 
-import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlow;
+import cn.zswltech.mithras.fund.domain.enums.receiptrepay.CashFlowState;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.auth.rule.fund.FundReceiptRepayAuthMoneyManag
 import cn.zswltech.mithras.service.auth.rule.fund.FundReceiptRepayAuthProcessRule;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBaseInfoMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;

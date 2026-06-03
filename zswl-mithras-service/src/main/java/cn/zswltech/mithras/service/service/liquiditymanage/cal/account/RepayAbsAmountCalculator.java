@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.liquiditymanage.cal.account;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
-import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
+import cn.zswltech.mithras.fund.domain.enums.DirectFinancingType;
 import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;

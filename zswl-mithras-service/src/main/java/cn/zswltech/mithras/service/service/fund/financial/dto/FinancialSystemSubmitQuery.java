@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.fund.financial.dto;
 
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;
-import cn.zswltech.mithras.service.enums.fund.financing.LprArrangeModeEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingBizTypeEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.LprArrangeModeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.RateType;
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModel;

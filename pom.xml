@@ -27,8 +27,7 @@
         <module>zswl-mithras-capital</module>
         <module>zswl-mithras-domain-finance</module>
         <module>zswl-mithras-finance</module>
-        <module>zswl-mithras-domain-fund-direct</module>
-        <module>zswl-mithras-domain-fund</module>
+        <module>zswl-mithras-fund-direct</module>
         <module>zswl-mithras-fund</module>
         <module>zswl-mithras-leaseholdproperty</module>
         <module>zswl-mithras-domain-datashare</module>

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingDele
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingMainCreateAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;

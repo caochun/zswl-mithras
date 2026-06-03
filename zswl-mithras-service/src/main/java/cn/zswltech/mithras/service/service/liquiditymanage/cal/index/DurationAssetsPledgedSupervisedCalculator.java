@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeI
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.service.service.liquiditymanage.LiquidityIndicatorIndexHolder;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.service.service.liquiditymanage.cal.bo.LiquidityIndexCalculatorBo;

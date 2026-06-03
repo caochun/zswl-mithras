@@ -15,9 +15,9 @@ import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingLibModelEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingService;
-import cn.zswltech.mithras.service.service.lib.fund.financing.FundFinancingLibVersionService;
+import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingLibVersionService;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RestController;
 

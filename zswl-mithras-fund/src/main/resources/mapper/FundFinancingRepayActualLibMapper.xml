@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.fund.infrastructure.persistence.mapper.lib.financing.FundFinancingRepayActualLibMapper">
+
+    <select id="queryNewestLibs"
+            resultType="cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingRepayActualLib">
+        SELECT p.* FROM fund_financing_repay_actual_lib p
+        INNER JOIN (SELECT main_id AS financing_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'FUND_FINANCING' AND version_type = 1
+        GROUP BY main_id) m ON p.financing_id = m.financing_id AND p.version = m.version
+        WHERE 1 = 1
+        <if test="financingIds!=null and financingIds.size()>0">
+            AND p.financing_id IN
+            <foreach collection="financingIds" open="(" close=")" separator="," item="item">
+                #{item}
+            </foreach>
+        </if>
+        <if test="startDate!=null">
+            AND p.repay_date &gt;= #{startDate}
+        </if>
+        <if test="endDate!=null">
+            AND p.repay_date &lt;= #{endDate}
+        </if>
+        ORDER BY p.repay_date DESC
+    </select>
+
+    <select id="stockPageList" resultType="cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingRepayActualLib">
+        SELECT
+        p.*
+        FROM
+        fund_financing_repay_actual_lib p,
+        fund_financing_base_info b
+        WHERE
+        b.financing_status IN ( 'CARRY_INTEREST' )
+        AND p.financing_id = b.id
+        AND p.version = (select version from common_version c where c.version_type = 1
+        AND c.module = 'FUND_FINANCING'
+        AND c.main_id = p.financing_id
+        ORDER BY version DESC
+        LIMIT 1)
+        <if test="dto.timeLimitType!=null">
+            AND b.time_limit_type = #{dto.timeLimitType}
+        </if>
+        AND p.repay_date between #{dto.fromTime} and #{dto.toTime}
+        ORDER BY p.repay_date
+    </select>
+
+</mapper>

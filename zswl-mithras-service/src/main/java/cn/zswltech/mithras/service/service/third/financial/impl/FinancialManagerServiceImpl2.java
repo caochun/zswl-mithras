@@ -17,7 +17,7 @@ import cn.zswltech.mithras.third.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.third.enums.FinancialDevUrlENUM;
 import cn.zswltech.mithras.third.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptFlowDetail;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginRecordInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.third.mapper.model.SyncCqRecord;

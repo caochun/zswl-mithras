@@ -19,7 +19,7 @@ import cn.zswltech.mithras.finance.view.mapper.DashboardFvFinancingCostSnapshotM
 import cn.zswltech.mithras.finance.view.service.DashboardFvCardSnapshotService;
 import cn.zswltech.mithras.finance.view.service.DashboardFvFinancingCostSnapshotService;
 import cn.zswltech.mithras.dashboard.domain.enums.DashboardCardGroupEnum;
-import cn.zswltech.mithras.service.enums.fund.financing.FinancingTypeEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardFundFinanceMapper;
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardFundCostQuery;
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardFundCostResult;

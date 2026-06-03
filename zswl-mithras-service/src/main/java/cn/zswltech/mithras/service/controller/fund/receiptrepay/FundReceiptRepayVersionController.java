@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
-import cn.zswltech.mithras.service.enums.fund.receiptrepay.CreateBatchType;
+import cn.zswltech.mithras.fund.domain.enums.receiptrepay.CreateBatchType;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayVersionService;
 import lombok.extern.slf4j.Slf4j;

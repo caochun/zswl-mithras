@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.fund.FundGuaranteeInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeInfoListRSP;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeInfoModifyREQ;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.mapper.model.fund.FundGuaranteeInfo;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuaranteeInfo;
 import org.mapstruct.Mapper;
 
 /**

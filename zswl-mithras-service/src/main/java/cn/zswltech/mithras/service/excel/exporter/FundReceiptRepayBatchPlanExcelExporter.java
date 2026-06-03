@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.excel.exporter;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.service.excel.model.FundReceiptRepayBatchPlanExcelModel;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayPlan;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayPlan;
 import cn.zswltech.mithras.service.others.Util;
 import com.alibaba.fastjson.JSONArray;
 import org.apache.commons.lang3.StringUtils;

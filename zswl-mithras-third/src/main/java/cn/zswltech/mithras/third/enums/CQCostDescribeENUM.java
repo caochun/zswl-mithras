@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.third.enums;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.enums.fund.DirectFinancingType;
-import cn.zswltech.mithras.service.enums.fund.OrganizationType;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTypeEnum;
+import cn.zswltech.mithras.fund.domain.enums.DirectFinancingType;
+import cn.zswltech.mithras.fund.domain.enums.OrganizationType;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingTimeLimitTypeEnum;
 import lombok.Getter;
 
 /**

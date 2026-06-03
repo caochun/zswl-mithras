@@ -3,13 +3,13 @@ package cn.zswltech.mithras.service.service.datacompare.factory;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBorrowingListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.lib.fund.receiptrepay.FundReceiptRepayBorrowingLibMapper;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBorrowing;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBorrowingLib;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.lib.receiptrepay.FundReceiptRepayBorrowingLibMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBorrowing;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBorrowingLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler.impl.FundReceiptRepayBorrowingLibHandler;
+import cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.impl.FundReceiptRepayBorrowingLibHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.fund.financing.FundFinancingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpGuaranteeCostPricingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpGuaranteeCostPricingModifyREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;

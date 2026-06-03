@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.enums;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTypeEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingTimeLimitTypeEnum;
 import lombok.Getter;
 
 import java.util.Map;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.factory.file.impl;
 
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.fund.receiptrepay.FundReceiptRepayMaterialsEnum;
+import cn.zswltech.mithras.fund.domain.enums.receiptrepay.FundReceiptRepayMaterialsEnum;
 import cn.zswltech.mithras.service.factory.file.AbstractFileListProvider;
 import org.springframework.stereotype.Component;
 

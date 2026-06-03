@@ -181,12 +181,12 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-fund</artifactId>
+            <artifactId>zswl-mithras-fund</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-fund-direct</artifactId>
+            <artifactId>zswl-mithras-fund-direct</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

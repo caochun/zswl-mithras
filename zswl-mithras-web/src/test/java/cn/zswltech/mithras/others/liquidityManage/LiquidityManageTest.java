@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.liquidityManage;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.enums.fund.liquidity.LiquidityIndexType;
+import cn.zswltech.mithras.fund.domain.enums.liquidity.LiquidityIndexType;
 import cn.zswltech.mithras.service.service.liquiditymanage.AccountBalanceBaseInfoService;
 import cn.zswltech.mithras.service.service.liquiditymanage.FundFinancingAccountSettingService;
 import cn.zswltech.mithras.service.service.liquiditymanage.LiquidityDataService;

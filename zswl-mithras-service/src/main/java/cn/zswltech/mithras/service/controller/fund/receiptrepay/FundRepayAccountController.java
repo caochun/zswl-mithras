@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.auth.checker.fund.FundReceiptRepayAddSubAuthC
 import cn.zswltech.mithras.service.auth.checker.fund.FundReceiptRepayModifySubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.fund.FundReceiptRepayRemoveSubAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundRepayAccountMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundRepayAccountMapper;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundRepayAccountService;
 import org.springframework.web.bind.annotation.RestController;
 

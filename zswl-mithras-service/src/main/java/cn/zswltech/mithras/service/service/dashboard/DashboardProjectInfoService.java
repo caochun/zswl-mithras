@@ -15,7 +15,7 @@ import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.dashboard.domain.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.dashboard.domain.enums.DashboardPledgeTypeEnum;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;

@@ -14,10 +14,10 @@ import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledge
 import cn.zswltech.mithras.service.gendoc.render.overduecollect.CollectionLetterRender;
 import cn.zswltech.mithras.service.mapper.email.EmailSendFailLogMapper;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlow;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectLetterCode;
@@ -47,8 +47,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 import static cn.hutool.core.text.CharSequenceUtil.equalsAny;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum.CARRY_INTEREST;
-import static cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum.EFFECT;
+import static cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum.CARRY_INTEREST;
+import static cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum.EFFECT;
 import static cn.zswltech.mithras.service.job.NextMonthRentNotify.FinancingType.indirect;
 
 /**

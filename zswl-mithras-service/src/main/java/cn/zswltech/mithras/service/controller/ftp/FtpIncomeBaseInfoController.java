@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.ftp.FtpIncomeBaseInfoApi;
 import cn.zswltech.mithras.dto.ftp.*;
-import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import org.springframework.web.bind.annotation.RequestBody;

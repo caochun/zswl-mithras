@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.fund.infrastructure.persistence.mapper.financing.FundFinancingBaseInfoMapper">
+
+    <select id="unionSelectAllPlan" resultType="cn.zswltech.mithras.dto.capital.UnionSelectAllPlanDTO"
+    parameterType="cn.zswltech.mithras.dto.capital.BusinessFlowFinanceListREQ">
+        SELECT CONCAT(a.id, '_DIRECT_COLLECTION') AS idKEY,
+        a.write_off_status AS writeOffStatus,
+        '应收款' AS type,
+        '融资款' AS cashFlowItem,
+        a.financing_amount AS amount,
+        a.duration_from AS `date`,
+        a.financing_code AS serialNo,
+        a.product_name AS financingRoute,
+        a.financing_amount AS financingAmount,
+        CASE a.direct_financing_type
+        WHEN 'ABS' THEN 'ABS'
+        WHEN 'ABN' THEN 'ABN'
+        WHEN 'MTN' THEN 'MTN'
+        WHEN 'CP' THEN 'CP'
+        WHEN 'SCP' THEN 'SCP'
+        WHEN 'PRIVATE_BOND' THEN '公司债' END AS businessType
+        FROM fund_direct_financing_base_info AS a
+        WHERE 1 = 1
+        <if test="req.writeOffStatus != null and req.writeOffStatus != ''">
+            AND a.write_off_status IN
+            <foreach item="status" collection="req.writeOffStatus" open="(" separator="," close=")">
+                #{status}
+            </foreach>
+        </if>
+        <if test="req.dateFrom != null and req.dateFrom != ''">
+            AND a.duration_from &gt;= #{req.dateFrom}
+        </if>
+        <if test="req.dateTo != null and req.dateTo != ''">
+            AND a.duration_from &lt;= #{req.dateTo}
+        </if>
+        <if test="req.financingRoute != null and req.financingRoute != ''">
+            AND product_name LIKE CONCAT('%', #{req.financingRoute}, '%')
+        </if>
+        UNION ALL
+        SELECT CONCAT(b.id, '_INDIRECT_COLLECTION') AS idKEY,
+        b.write_off_status AS writeOffStatus,
+        '应收款' AS type,
+        '融资款' AS cashFlowItem,
+        b.financing_amount AS amount,
+        b.actual_loan_date AS `date`,
+        b.financing_code AS serialNo,
+        b.organization_name AS financingRoute,
+        b.financing_amount AS financingAmount,
+        CASE b.business_type
+        WHEN 'BANK_ACCEPTANCE' THEN '银行承兑汇票'
+        WHEN 'LETTER_OF_CREDIT' THEN '信用证'
+        WHEN 'FACTORING_FINANCING' THEN '保理融资'
+        WHEN 'WORKING_CAPITAL_LOAN' THEN '流动资金贷款'
+        WHEN 'PROJECT_LOAN' THEN '项目贷款'
+        WHEN 'COMMERCE_ACCEPTANCE' THEN '商业承兑汇票'
+        WHEN 'OTHER' THEN '其他' END AS businessType
+        FROM fund_financing_base_info AS b
+        WHERE 1 = 1
+        <if test="req.writeOffStatus != null and req.writeOffStatus != ''">
+            AND b.write_off_status IN
+            <foreach item="status" collection="req.writeOffStatus" open="(" separator="," close=")">
+                #{status}
+            </foreach>
+        </if>
+        <if test="req.dateFrom != null and req.dateFrom != ''">
+            AND b.actual_loan_date &gt;= #{req.dateFrom}
+        </if>
+        <if test="req.dateTo != null and req.dateTo != ''">
+            AND b.actual_loan_date &lt;= #{req.dateTo}
+        </if>
+        <if test="req.financingRoute != null and req.financingRoute != ''">
+            AND b.organization_name LIKE CONCAT('%', #{req.financingRoute}, '%')
+        </if>
+        UNION ALL
+        SELECT CONCAT(c.id, '_DIRECT_PAYMENT') AS idKEY,
+        dt.write_off_status AS writeOffStatus,
+        '应还款' AS type,
+        '还本付息' AS cashFlowItem,
+        c.repay_amount AS amount,
+        c.repay_date AS `date`,
+        c.cash_flow_code AS serialNo,
+        dt.product_name AS financingRoute,
+        c.repay_amount AS financingAmount,
+        CASE dt.direct_financing_type
+        WHEN 'ABS' THEN 'ABS'
+        WHEN 'ABN' THEN 'ABN'
+        WHEN 'MTN' THEN 'MTN'
+        WHEN 'CP' THEN 'CP'
+        WHEN 'SCP' THEN 'SCP'
+        WHEN 'PRIVATE_BOND' THEN '公司债' END AS businessType
+        FROM fund_direct_financing_repay_actual AS c
+        LEFT JOIN fund_direct_financing_base_info dt ON c.financing_id = dt.id
+        WHERE 1 = 1
+        <if test="req.writeOffStatus != null and req.writeOffStatus != ''">
+            AND c.write_off_status IN
+            <foreach item="status" collection="req.writeOffStatus" open="(" separator="," close=")">
+                #{status}
+            </foreach>
+        </if>
+        <if test="req.dateFrom != null and req.dateFrom != ''">
+            AND c.repay_date &gt;= #{req.dateFrom}
+        </if>
+        <if test="req.dateTo != null and req.dateTo != ''">
+            AND c.repay_date &lt;= #{req.dateTo}
+        </if>
+        <if test="req.financingRoute != null and req.financingRoute != ''">
+            AND dt.product_name LIKE CONCAT('%', #{req.financingRoute}, '%')
+        </if>
+        UNION ALL
+        SELECT CONCAT(d.id, '_INDIRECT_PAYMENT') AS idKEY,
+        t.write_off_status AS writeOffStatus,
+        '应还款' AS type,
+        '还本付息' AS cashFlowItem,
+        d.repay_amount AS amount,
+        d.repay_date AS `date`,
+        d.cash_flow_code AS serialNo,
+        t.organization_name AS financingRoute,
+        d.repay_amount AS financingAmount,
+        CASE t.business_type
+        WHEN 'BANK_ACCEPTANCE' THEN '银行承兑汇票'
+        WHEN 'LETTER_OF_CREDIT' THEN '信用证'
+        WHEN 'FACTORING_FINANCING' THEN '保理融资'
+        WHEN 'WORKING_CAPITAL_LOAN' THEN '流动资金贷款'
+        WHEN 'PROJECT_LOAN' THEN '项目贷款'
+        WHEN 'COMMERCE_ACCEPTANCE' THEN '商业承兑汇票'
+        WHEN 'OTHER' THEN '其他' END AS businessType
+        FROM fund_financing_repay_actual AS d
+        LEFT JOIN fund_financing_base_info t ON d.financing_id = t.id
+        WHERE 1 = 1
+        <if test="req.writeOffStatus != null and req.writeOffStatus != ''">
+            AND d.write_off_status IN
+            <foreach item="status" collection="req.writeOffStatus" open="(" separator="," close=")">
+                #{status}
+            </foreach>
+        </if>
+        <if test="req.dateFrom != null and req.dateFrom != ''">
+            AND d.repay_date &gt;= #{req.dateFrom}
+        </if>
+        <if test="req.dateTo != null and req.dateTo != ''">
+            AND d.repay_date &lt;= #{req.dateTo}
+        </if>
+        <if test="req.financingRoute != null and req.financingRoute != ''">
+            AND t.organization_name LIKE CONCAT('%', #{req.financingRoute}, '%')
+        </if>
+    </select>
+
+    <select id="financeCodeList" resultType="cn.zswltech.mithras.dto.capital.FinanceCodeListRSP">
+        SELECT CONCAT(id, '_DIRECT') AS idKey,
+               financing_code AS financingCode
+        FROM fund_direct_financing_base_info
+        WHERE 1 = 1
+        <if test="orgName != null and orgName != ''">
+            AND product_name LIKE CONCAT('%', #{orgName}, '%')
+        </if>
+        UNION
+        SELECT CONCAT(id, '_INDIRECT') AS idKey,
+               financing_code AS financingCode
+        FROM fund_financing_base_info
+        WHERE 1 = 1
+        <if test="orgName != null and orgName != ''">
+            AND organization_name LIKE CONCAT('%', #{orgName}, '%')
+        </if>
+    </select>
+
+    <select id="listLoanInfo" resultType="cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoRSP"
+    parameterType="cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoREQ">
+        SELECT *
+        FROM (SELECT CONCAT('INDIRECT_', financing.id) AS idKey,
+        'INDIRECT' AS financingTypeCode,
+        '间融' AS financingTypeDisplay,
+        financing.organization_name AS orgName,
+        financing.financing_code AS financingCode,
+        ROUND(financing.financing_amount / 10000, 2) AS loanAmount,
+        ROUND((financing.financing_amount - IFNULL(repay_detail.repay_principal_amount, 0)) / 10000, 2) AS balanceAmount,
+        ROUND(IFNULL(plan.lpr_rate_percent / 10000, 0) + IFNULL(plan.lpr_add_percent, 0) / 10000, 2) AS interestRate,
+        ROUND(IFNULL(plan.comprehensive_interest_rate, 0) / 10000, 2) AS comprehensiveFinancingCost,
+        plan.financing_month AS duration,
+        financing.actual_loan_date AS actualLoanDate,
+        financing.actual_expire_date AS actualExpireDate,
+        CONCAT(CASE plan.repay_way WHEN 'DEBJ'  THEN '等额本金'
+        WHEN 'DEBX'  THEN '等额本息'
+        WHEN 'LSBQ'  THEN '利随本清'
+        WHEN 'XXHB'  THEN '先息后本'
+        WHEN 'BGZHK' THEN '不规则还款' END,
+        ',' , CASE plan.repay_frequency WHEN 'MONTH'        THEN '按月'
+        WHEN 'DOUBLE_MONTH' THEN '按双月'
+        WHEN 'QUARTER'      THEN '按季'
+        WHEN 'HALF_YEAR'     THEN '按半年'
+        WHEN 'YEAR'         THEN '按年'
+        WHEN 'LRREGULAR'    THEN '不规则分期'
+        WHEN 'NON_STAGES'   THEN '非分期' END) AS repayWay,
+        interest.plan_principle_amount AS planPrincipalAmount,
+        repay_detail.repay_principal_amount AS actualPrincipalAmount,
+        interest.plan_interest_amount AS planInterestAmount,
+        repay_detail.repay_interest_amount AS actualInterestAmount
+        FROM fund_financing_base_info financing
+        LEFT JOIN fund_financing_plan plan ON financing.id = plan.financing_id
+        LEFT JOIN fund_receipt_repay_base_info frbi ON financing.id = frbi.financing_id
+        LEFT JOIN (
+        SELECT
+        SUM(principal_amount) AS repay_principal_amount,
+        SUM(interest_amount) AS repay_interest_amount,
+        receipt_repay_id
+        FROM fund_receipt_flow_detail
+        WHERE cash_flow_item = 'REPAY'
+        AND deleted = 0
+        GROUP BY receipt_repay_id
+        ) AS repay_detail ON frbi.id = repay_detail.receipt_repay_id
+        LEFT JOIN (
+        SELECT
+        SUM(principle_amount) AS plan_principle_amount,
+        SUM(interest_amount) AS plan_interest_amount,
+        receipt_repay_id
+        FROM fund_receipt_repay_cash_flow
+        WHERE phase > 0
+        GROUP BY receipt_repay_id
+        ) AS interest on frbi.id = interest.receipt_repay_id
+        WHERE frbi.financing_type IS NULL
+        AND financing.financing_status IN
+        <foreach collection="req.financingStatusList" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        <if test="req.financingTypeCode != null and req.financingTypeCode != ''">
+            AND 'INDIRECT' = #{req.financingTypeCode}
+        </if>
+        <if test="req.orgName != null and req.orgName != ''">
+            AND financing.id IN (
+            SELECT financing_id
+            FROM fund_financing_credit_ref
+            WHERE organization_id IN (
+            SELECT id FROM fund_organization WHERE organization_name LIKE CONCAT('%', #{req.orgName}, '%'))
+            )
+        </if>
+        <if test="req.ids != null and req.ids.size() > 0">
+            and a.idKey IN
+            <foreach collection="req.ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="req.actualLoanDateFrom != null">
+            AND financing.actual_loan_date &gt;= #{req.actualLoanDateFrom}
+        </if>
+        <if test="req.actualLoanDateTo != null">
+            AND financing.actual_loan_date &lt;= #{req.actualLoanDateTo}
+        </if>
+        GROUP BY idKey
+        UNION
+        SELECT CONCAT('DIRECT_', financing.id) AS idKey,
+        'DIRECT' AS financingTypeCode,
+        '直融' AS financingTypeDisplay,
+        financing.product_name AS orgName,
+        financing.financing_code AS financingCode,
+        financing.financing_amount AS loanAmount,
+        ROUND((IFNULL(financing.financing_amount, 0) - (IFNULL(repay_detail.repay_principal_amount, 0) / 10000)), 2) AS balanceAmount,
+        ROUND(financing.average_coupon_rate / 10000, 2) AS interestRate,
+        ROUND(IFNULL(financing.comprehensive_financing_cost, 0) / 10000, 2) AS comprehensiveFinancingCost,
+        financing.financing_month AS duration,
+        financing.carry_interest_time AS actualLoanDate,
+        financing.duration_time AS actualExpireDate,
+        '按季，还本付息' AS repayWay,
+        interest.plan_principle_amount AS planPrincipalAmount,
+        repay_detail.repay_principal_amount AS actualPrincipalAmount,
+        interest.plan_interest_amount AS planInterestAmount,
+        repay_detail.repay_interest_amount AS actualInterestAmount
+        FROM fund_direct_financing_base_info financing
+        LEFT JOIN fund_receipt_repay_base_info frbi ON financing.id = frbi.financing_id AND frbi.financing_type = 'DIRECT'
+        LEFT JOIN (
+        SELECT
+        SUM(principal_amount) AS repay_principal_amount,
+        SUM(interest_amount) AS repay_interest_amount,
+        receipt_repay_id
+        FROM fund_receipt_flow_detail
+        WHERE cash_flow_item = 'REPAY'
+        AND deleted = 0
+        GROUP BY receipt_repay_id
+        ) AS repay_detail ON frbi.id = repay_detail.receipt_repay_id
+        LEFT JOIN (
+        SELECT
+        SUM(principle_amount) AS plan_principle_amount,
+        SUM(interest_amount) AS plan_interest_amount,
+        receipt_repay_id
+        FROM fund_receipt_repay_cash_flow
+        WHERE phase > 0
+        GROUP BY receipt_repay_id
+        ) AS interest ON frbi.id = interest.receipt_repay_id
+        WHERE frbi.financing_type = 'DIRECT'
+        AND financing.financing_status IN
+        <foreach collection="req.financingStatusList" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        <if test="req.financingTypeCode != null and req.financingTypeCode != ''">
+            AND 'DIRECT' = #{req.financingTypeCode}
+        </if>
+        <if test="req.orgName != null and req.orgName != ''">
+            AND financing.product_name LIKE CONCAT('%', #{req.orgName}, '%')
+        </if>
+        <if test="req.ids != null and req.ids.size() > 0">
+            AND idKey IN
+            <foreach collection="req.ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        <if test="req.actualLoanDateFrom != null">
+            AND financing.carry_interest_time &gt;= #{req.actualLoanDateFrom}
+        </if>
+        <if test="req.actualLoanDateTo != null">
+            AND financing.carry_interest_time &lt;= #{req.actualLoanDateTo}
+        </if>
+        GROUP BY idKey) AS t
+        ORDER BY t.actualLoanDate DESC
+    </select>
+
+    <select id="listBalance" resultType="cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceBalanceRSP"
+    parameterType="cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceBalanceREQ">
+        SELECT CONCAT('INDIRECT_', financing.id) AS idKey,
+        'INDIRECT' AS financingTypeCode,
+        '间融' AS financingTypeDisplay,
+        financing.financing_code AS financingCode,
+        financing.organization_name AS orgName,
+        ROUND(financing.financing_amount / 10000, 2) AS loanAmount,
+        ROUND((plan.lpr_rate_percent + plan.lpr_add_percent) / 10000, 2) AS interestRate,
+        plan.financing_month AS duration,
+        CASE financing.business_type WHEN 'BANK_ACCEPTANCE' THEN '银行承兑汇票'
+        WHEN 'LETTER_OF_CREDIT' THEN '信用证'
+        WHEN 'FACTORING_FINANCING' THEN '保理融资'
+        WHEN 'WORKING_CAPITAL_LOAN' THEN '流动资金贷款'
+        WHEN 'PROJECT_LOAN' THEN '项目贷款'
+        WHEN 'COMMERCE_ACCEPTANCE' THEN '商业承兑汇票'
+        WHEN 'OTHER' THEN '其他' END AS businessType,
+        CASE plan.interest_rate_type WHEN 'FIXED' THEN '固定利率' WHEN 'FLOAT' THEN '浮动利率' END AS interestRateWay,
+        ROUND((plan.lpr_rate_percent + plan.lpr_add_percent) / 10000, 2) AS comprehensiveInterestRate,
+        ROUND(plan.service_charge_amount / 10000, 2) AS commission
+        FROM fund_financing_base_info financing
+        LEFT JOIN fund_financing_plan plan ON financing.id = plan.financing_id
+        INNER JOIN fund_receipt_repay_base_info repay ON repay.financing_id = financing.id
+        INNER JOIN fund_receipt_repay_cash_flow cash_flow ON cash_flow.receipt_repay_id = repay.id
+        WHERE cash_flow.write_off_state NOT IN ('WRITTEN_OFF', 'BEYOND_WRITTEN_OFF')
+        <if test="req.financingCode != null and req.financingCode != ''">
+            AND financing.financing_code LIKE CONCAT('%', #{req.financingCode}, '%')
+        </if>
+        <if test="req.financingTypeCode != null and req.financingTypeCode != ''">
+            AND 'INDIRECT' = #{req.financingTypeCode}
+        </if>
+        <if test="req.orgName != null and req.orgName != ''">
+            AND financing.organization_name LIKE CONCAT('%', #{req.orgName}, '%')
+        </if>
+        <if test="req.ids != null and req.ids.size() > 0">
+            and idKey in
+            <foreach collection="req.ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        GROUP BY financing.id
+        UNION
+        SELECT CONCAT('DIRECT_', financing.id) AS idKey,
+        'DIRECT' AS financingTypeCode,
+        '直融' AS financingTypeDisplay,
+        financing.financing_code AS financingCode,
+        financing.product_name AS orgName,
+        financing.financing_amount AS loanAmount,
+        ROUND(asset_pool.average_annual_interest_rate / 10000, 2) AS interestRate,
+        financing.financing_month AS duration,
+        CASE financing.direct_financing_type WHEN 'ABS' THEN 'ABS'
+        WHEN 'ABN' THEN 'ABN'
+        WHEN 'MTN' THEN 'MTN'
+        WHEN 'CP' THEN 'CP'
+        WHEN 'SCP' THEN 'SCP'
+        WHEN 'PRIVATE_BOND' THEN '公司债' END AS businessType,
+        '固定利率' AS interestRateWay,
+        ROUND(financing.average_coupon_rate / 10000, 2) AS comprehensiveInterestRate,
+        null AS commission
+        FROM fund_direct_financing_base_info financing
+        LEFT JOIN fund_direct_financing_asset_pool ASset_pool ON financing.id = ASset_pool.financing_id
+        INNER JOIN fund_receipt_repay_base_info repay ON repay.financing_id = financing.id
+        INNER JOIN fund_receipt_repay_cash_flow cash_flow ON cash_flow.receipt_repay_id = repay.id
+        WHERE cash_flow.write_off_state NOT IN ('WRITTEN_OFF', 'BEYOND_WRITTEN_OFF')
+        <if test="req.financingCode != null and req.financingCode != ''">
+            AND financing.financing_code LIKE CONCAT('%', #{req.financingCode}, '%')
+        </if>
+        <if test="req.financingTypeCode != null and req.financingTypeCode != ''">
+            AND 'DIRECT' = #{req.financingTypeCode}
+        </if>
+        <if test="req.orgName != null and req.orgName != ''">
+            AND financing.product_name LIKE CONCAT('%', #{req.orgName}, '%')
+        </if>
+        <if test="req.ids != null and req.ids.size() > 0">
+            and idKey in
+            <foreach collection="req.ids" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
+        GROUP BY financing.id
+    </select>
+
+
+    <select id="selectRepayPrincipalInterestList"
+            resultType="cn.zswltech.mithras.fund.application.liquiditymanage.dto.RepayPrincipalInterestDto">
+        SELECT 'INDIRECT' AS type,
+        ffbi.id AS financingId,
+        '' AS organizationName,
+        ffbi.financing_code AS financingCode,
+        ROUND(ffbi.financing_amount / 10000, 2) AS financingAmount,
+        fcrcf.repay_date AS dueDate,
+        fcrcf.repay_amount AS shouldPayAmount,
+        fcrcf.principle_amount AS shouldPayPrincipal,
+        fcrcf.interest_amount AS shouldPayInterest
+        FROM fund_financing_base_info AS ffbi
+        LEFT JOIN fund_receipt_repay_base_info frrbi ON frrbi.financing_id = ffbi.id
+        LEFT JOIN fund_receipt_repay_cash_flow fcrcf ON fcrcf.receipt_repay_id = frrbi.id
+        WHERE frrbi.financing_type IS NULL
+        <if test="req.queryDateFrom != null">
+            AND fcrcf.repay_date &gt;= #{req.queryDateFrom}
+        </if>
+        <if test="req.queryDateTo != null">
+            AND fcrcf.repay_date &lt;= #{req.queryDateTo}
+        </if>
+        AND ffbi.financing_status IN ('CARRY_INTEREST', 'SETTLE')
+        UNION
+        SELECT 'DIRECT' AS type,
+        fdfbi.id AS financingId,
+        '浙商租赁' AS organizationName,
+        fdfbi.financing_code AS financingCode,
+        fdfbi.financing_amount AS financingAmount,
+        fcrcf.repay_date AS dueDate,
+        fcrcf.repay_amount AS shouldPayAmount,
+        fcrcf.principle_amount AS shouldPayPrincipal,
+        fcrcf.interest_amount AS shouldPayInterest
+        FROM fund_direct_financing_base_info fdfbi
+        LEFT JOIN fund_receipt_repay_base_info frrbi ON frrbi.financing_id = fdfbi.id
+        LEFT JOIN fund_receipt_repay_cash_flow fcrcf ON fcrcf.receipt_repay_id = frrbi.id
+        WHERE frrbi.financing_type IS NOT NULL
+        <if test="req.queryDateFrom != null">
+            AND fcrcf.repay_date &gt;= #{req.queryDateFrom}
+        </if>
+        <if test="req.queryDateTo != null">
+            AND fcrcf.repay_date &lt;= #{req.queryDateTo}
+        </if>
+        AND fdfbi.financing_status IN ('CARRY_INTEREST', 'SETTLE')
+    </select>
+</mapper>

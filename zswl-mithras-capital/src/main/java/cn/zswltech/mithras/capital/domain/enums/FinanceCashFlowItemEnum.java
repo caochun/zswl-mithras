@@ -13,8 +13,8 @@ import java.util.Objects;
 /**
  * 资金端所以现金流项目枚举
  * 目前收集至
- * {@link cn.zswltech.mithras.service.mapper.dto.FundPlanFlowResultDTO.CashFlowItem}
- * {@link cn.zswltech.mithras.service.enums.fund.receiptrepay.ExpenseType}
+ * {@link cn.zswltech.mithras.fund.application.dto.FundPlanFlowResultDTO.CashFlowItem}
+ * {@link cn.zswltech.mithras.fund.domain.enums.receiptrepay.ExpenseType}
  *
  */
 @Getter

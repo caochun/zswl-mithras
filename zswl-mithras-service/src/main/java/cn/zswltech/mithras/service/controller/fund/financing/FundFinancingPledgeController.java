@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingSubModifyAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingPledgeInfoMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.financing.FundFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import org.springframework.web.bind.annotation.RestController;
 

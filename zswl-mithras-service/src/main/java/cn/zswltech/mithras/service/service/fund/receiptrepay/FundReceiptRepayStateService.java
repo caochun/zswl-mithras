@@ -9,16 +9,16 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.service.enums.fund.receiptrepay.DepositCashFlowType;
+import cn.zswltech.mithras.fund.domain.enums.receiptrepay.CashFlowState;
+import cn.zswltech.mithras.fund.domain.enums.receiptrepay.DepositCashFlowType;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.ProcessState;
-import cn.zswltech.mithras.service.enums.fund.receiptrepay.ReceiptRepayState;
+import cn.zswltech.mithras.fund.domain.enums.receiptrepay.ReceiptRepayState;
 import cn.zswltech.mithras.third.enums.CQPaymentTypeENUM;
-import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayAccountMapper;
-import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayCashFlowMapper;
-import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundRepayAccountMapper;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.*;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayAccountMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundRepayAccountMapper;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.*;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingService;
@@ -391,7 +391,7 @@ public class FundReceiptRepayStateService {
                     writtenOffCount++;
                 }
             }
-            // @see cn.zswltech.mithras.service.enums.fund.receiptrepay.ReceiptRepayState
+            // @see cn.zswltech.mithras.fund.domain.enums.receiptrepay.ReceiptRepayState
             if (noWriteOffCount > 0 && writeOffIngCount > 0 && writtenOffCount > 0) {
                 // 未核销 + 核销中 + 核销完毕 = 未核销
                 noWriteOffReceiptIdList.add(receiptId);

@@ -9,10 +9,10 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.CreditLimitBizTypeEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingProcessStatus;
-import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingProcessStatus;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.flow.listener.endhandler.AbstractProcessEndHandler;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.bo.CreditLimitReleaseBO;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInf
 import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingBaseInfoStateMachine;
 import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingContext;
 import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingEvent;
-import cn.zswltech.mithras.service.service.lib.fund.financing.FundFinancingLibVersionService;
+import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingLibVersionService;
 import cn.zswltech.mithras.service.service.monthly.MonthlyStampDutyService;
 import org.springframework.stereotype.Component;
 

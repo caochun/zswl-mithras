@@ -8,11 +8,11 @@ import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBaseInfoListREQ
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPayAccount;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingCollectAccountLib;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPayAccountLib;
-import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActualLib;
-import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.*;
-import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayListQueryDto;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingCollectAccountLib;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPayAccountLib;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingRepayActualLib;
+import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.*;
+import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayListQueryDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

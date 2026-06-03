@@ -27,7 +27,7 @@ import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.proc
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.RentCollectionMonthDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.capital.write_off.bo.FundPledgeSupervisedBO;
+import cn.zswltech.mithras.fund.application.capital.write_off.bo.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
