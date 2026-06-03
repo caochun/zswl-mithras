@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.mapper.model.liquidityrisk;
+package cn.zswltech.mithras.liquidity.infrastructure.persistence.model.risk;
 
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;

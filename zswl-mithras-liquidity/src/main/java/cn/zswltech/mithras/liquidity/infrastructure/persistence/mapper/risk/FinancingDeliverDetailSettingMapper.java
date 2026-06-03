@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.service.mapper.liquidityrisk;
+package cn.zswltech.mithras.liquidity.infrastructure.persistence.mapper.risk;
 
-import cn.zswltech.mithras.service.mapper.model.liquidityrisk.FinancingDeliverDetailSetting;
+import cn.zswltech.mithras.liquidity.infrastructure.persistence.model.risk.FinancingDeliverDetailSetting;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 
 /**
