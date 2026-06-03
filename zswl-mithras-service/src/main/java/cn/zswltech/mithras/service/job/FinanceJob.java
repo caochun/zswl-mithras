@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.service.third.jk.JinKongMonthlyReportService;
-import cn.zswltech.mithras.third.service.jk.res.ReportBcmBalanceMfRes;
+import cn.zswltech.mithras.third.jinkong.infrastructure.client.res.ReportBcmBalanceMfRes;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
