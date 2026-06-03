@@ -7,7 +7,7 @@ import cn.zswltech.mithras.third.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.third.mapper.model.BrFlowRecord;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.third.service.ExceptionRequestRecordService;
-import cn.zswltech.mithras.third.service.capital.BrFlowRecordService;
+import cn.zswltech.mithras.third.baorong.application.BrFlowRecordService;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.BRApiHandler;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.req.BRFlowHistoryReq;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.rsp.BRFlowHistoryRsp;

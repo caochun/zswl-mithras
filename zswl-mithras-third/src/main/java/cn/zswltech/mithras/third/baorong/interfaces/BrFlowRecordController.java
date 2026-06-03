@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.controller.capital;
+package cn.zswltech.mithras.third.baorong.interfaces;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.capital.BrFlowRecordApi;
@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.capital.BrFlowRecordListREQ;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordListRSP;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordRemoveREQ;
 import cn.zswltech.mithras.third.mapper.model.BrFlowRecord;
-import cn.zswltech.mithras.third.service.capital.BrFlowRecordService;
+import cn.zswltech.mithras.third.baorong.application.BrFlowRecordService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;
 

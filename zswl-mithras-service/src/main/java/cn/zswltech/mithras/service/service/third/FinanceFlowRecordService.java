@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
 import cn.zswltech.mithras.service.service.basedata.BaseDataBankAccountService;
-import cn.zswltech.mithras.third.service.capital.BrFlowRecordService;
+import cn.zswltech.mithras.third.baorong.application.BrFlowRecordService;
 import cn.zswltech.mithras.third.service.FinanceFlowRecordTempService;
 import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffService;
 import cn.zswltech.mithras.third.service.financial.req.CQ2FlowQueryReq;
