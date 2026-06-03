@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.budget.weekly.*;
-import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanPayWeeklyReport;
+import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayWeeklyReport;
 import cn.zswltech.mithras.service.service.budget.BudgetPlanPayWeeklyReportService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

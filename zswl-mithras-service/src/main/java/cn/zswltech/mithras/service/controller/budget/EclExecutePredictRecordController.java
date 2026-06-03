@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.budget.EclExecutePredictRecordApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.budget.*;
-import cn.zswltech.mithras.service.mapper.model.budget.EclExecutePredictRecord;
+import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.EclExecutePredictRecord;
 import cn.zswltech.mithras.service.service.budget.EclExecutePredictRecordService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

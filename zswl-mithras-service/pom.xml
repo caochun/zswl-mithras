@@ -281,7 +281,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-budget</artifactId>
+            <artifactId>zswl-mithras-budget</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

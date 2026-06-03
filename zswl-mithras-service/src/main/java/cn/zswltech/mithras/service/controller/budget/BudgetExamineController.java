@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.IdREQ;
 import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.mapper.model.budget.BudgetExamine;
+import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetExamine;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.budget.BudgetExamineService;

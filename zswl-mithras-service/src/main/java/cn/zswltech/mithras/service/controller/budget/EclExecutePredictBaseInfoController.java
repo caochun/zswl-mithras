@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.mapper.model.budget.EclExecutePredictBaseInfo;
+import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.EclExecutePredictBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.budget.EclExecutePredictBaseInfoService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

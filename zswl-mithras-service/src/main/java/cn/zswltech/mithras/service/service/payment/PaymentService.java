@@ -46,7 +46,7 @@ import cn.zswltech.mithras.service.gendoc.PaymentLoanReviewFileRender;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanPayDetail;
+import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayDetail;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
