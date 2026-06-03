@@ -62,7 +62,7 @@ import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstab
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;
-import cn.zswltech.mithras.service.service.lib.client.impl.ClientVersionServiceImpl;
+import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.payment.PaymentService;
 import cn.zswltech.mithras.service.service.policy.PolicyInfoService;

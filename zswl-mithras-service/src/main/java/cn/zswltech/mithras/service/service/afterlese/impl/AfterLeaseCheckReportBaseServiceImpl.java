@@ -22,7 +22,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.service.mapper.afterlease.NewAfterLeaseCheckReportBaseMapper;
 import cn.zswltech.mithras.service.mapper.model.afterlease.*;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;

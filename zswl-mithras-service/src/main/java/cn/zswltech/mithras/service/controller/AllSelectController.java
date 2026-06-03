@@ -65,11 +65,11 @@ import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseIn
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.service.mapper.corp.GeneralDictionaryMapper;
-import cn.zswltech.mithras.service.mapper.corp.IndustryTypeMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.service.mapper.dto.FundPlanFlowResultDTO;
 import cn.zswltech.mithras.service.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.service.mapper.model.GeneralDictionary;
-import cn.zswltech.mithras.service.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.IndustryType;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.service.SysUserService;

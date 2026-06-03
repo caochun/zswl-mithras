@@ -25,7 +25,7 @@ import cn.zswltech.mithras.third.enums.*;
 import cn.zswltech.mithras.service.mapper.finance.ContractAssessDeptDetailMapper;
 import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.margin.WarrantyBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;

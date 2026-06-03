@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.excel.model.kpi.EclExecuteRecordExcelModel;
 import cn.zswltech.mithras.service.mapper.dto.kpi.EclExecuteRecordParam;
 import cn.zswltech.mithras.service.mapper.kpi.EclExecuteRecordLibMapper;
 import cn.zswltech.mithras.service.mapper.kpi.EclExecuteRecordMapper;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProvisionBaseInfo;

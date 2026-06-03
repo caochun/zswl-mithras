@@ -5,7 +5,7 @@
 //import cn.zswltech.mithras.service.enums.ClientVersionTypeEnum;
 //import cn.zswltech.mithras.service.mapper.model.ClientVersion;
 //import cn.zswltech.mithras.service.service.client.ClientService;
-//import cn.zswltech.mithras.service.service.lib.client.ClientVersionService;
+//import cn.zswltech.mithras.customer.application.lib.client.ClientVersionService;
 //import org.junit.Test;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;

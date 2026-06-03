@@ -11,10 +11,10 @@ import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.client.ClientViewMainAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.InfoModule;
+import cn.zswltech.mithras.customer.domain.enums.InfoModule;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.lib.client.impl.ClientVersionServiceImpl;
+import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RestController;
 

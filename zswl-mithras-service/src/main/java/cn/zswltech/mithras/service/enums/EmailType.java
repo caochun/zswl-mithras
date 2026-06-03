@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.enums;
 
-import cn.zswltech.mithras.service.enums.client.ClientType;
+import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

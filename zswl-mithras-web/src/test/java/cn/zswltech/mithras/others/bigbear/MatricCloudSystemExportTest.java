@@ -16,8 +16,8 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Industry
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Region;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;
-import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingCreditRef;
@@ -36,11 +36,11 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoS
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingRepayActualService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowDetailService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
-import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
-import cn.zswltech.mithras.service.service.riskcontrol.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

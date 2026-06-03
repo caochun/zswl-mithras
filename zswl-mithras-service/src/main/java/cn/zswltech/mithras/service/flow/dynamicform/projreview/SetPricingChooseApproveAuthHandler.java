@@ -27,7 +27,7 @@ import cn.zswltech.mithras.service.convert.projpricing.ProjPricingBaseInfoConver
 import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum;
+import cn.zswltech.mithras.customer.domain.enums.client.EnterpriseNatureEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.enums.newftp.*;
 import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.enums.projreview.ProjRegionalDivisionEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingCashFlowPlan;

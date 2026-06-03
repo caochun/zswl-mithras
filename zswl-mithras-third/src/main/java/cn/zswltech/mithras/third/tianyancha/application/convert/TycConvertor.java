@@ -8,9 +8,9 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
-import cn.zswltech.mithras.service.enums.RelationshipType;
-import cn.zswltech.mithras.service.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.service.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.domain.enums.RelationshipType;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.IndustryType;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.third.tianyancha.application.dto.*;
 import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.*;
@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.text.CharSequenceUtil.split;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.service.enums.ShareholderType.*;
+import static cn.zswltech.mithras.customer.domain.enums.ShareholderType.*;
 
 /**
  * @author luyi

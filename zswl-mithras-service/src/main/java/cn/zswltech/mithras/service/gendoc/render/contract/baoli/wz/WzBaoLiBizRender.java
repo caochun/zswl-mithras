@@ -1,13 +1,13 @@
 package cn.zswltech.mithras.service.gendoc.render.contract.baoli.wz;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.zswltech.mithras.service.enums.CorpAddressType;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
-import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfoLib;
-import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfoLib;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfoLib;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;

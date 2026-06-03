@@ -7,12 +7,12 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.MaterialsType;
 import cn.zswltech.mithras.service.enums.NormalMaterialsType;
-import cn.zswltech.mithras.service.enums.client.ClientType;
+import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.service.factory.file.AbstractFileListProvider;
 import cn.zswltech.mithras.service.factory.file.bo.FileListExtQuery;
-import cn.zswltech.mithras.service.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 

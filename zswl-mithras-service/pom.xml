@@ -286,7 +286,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-client</artifactId>
+            <artifactId>zswl-mithras-customer</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

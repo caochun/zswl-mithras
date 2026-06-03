@@ -42,7 +42,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMappe
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractFactoringPriceLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractLeasePriceLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPriceLib;

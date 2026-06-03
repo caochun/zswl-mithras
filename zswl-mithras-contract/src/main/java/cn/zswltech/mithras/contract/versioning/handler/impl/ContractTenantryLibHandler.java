@@ -6,10 +6,10 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryListRSP;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfoLib;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
-import cn.zswltech.mithras.service.service.lib.client.CorpContactInfoLibService;
+import cn.zswltech.mithras.customer.application.lib.client.CorpContactInfoLibService;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

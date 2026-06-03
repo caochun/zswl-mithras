@@ -6,7 +6,7 @@ import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProcessEventDescEnum;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.service.mapper.model.client.ClientTransfer;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientTransfer;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projlifecycle.ProjLifecycleEvent;

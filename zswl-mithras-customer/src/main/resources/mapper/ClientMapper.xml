@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper">
+
+    <select id="listNoAuthority" resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client">
+        select
+        *
+        from client
+        where 1 = 1
+        and client_status = 'TAKE_EFFECT'
+        and id not in (select client_id from corp_commerce_info where risk_control_industry_classify = 'INTRA_GROUP_COLLABORATION')
+        and id not in (select client_id from client_authority where user_id = #{userId} and level in (2,3) and deleted = 0)
+        <if test="clientName != null and clientName != ''">
+            and client_name like concat('%', #{clientName} , '%')
+        </if>
+        order by create_time desc
+    </select>
+
+    <select id="myList" resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client">
+        select a.*,b.industry_type as industryType
+        from client a
+        left join corp_commerce_info b on a.id = b.client_id
+        left join normal_base_info c on a.id= c.client_id
+        <where>
+            <if test="p.released != null and p.released == true">
+                and a.client_status = 'NEW' and a.is_released = 1
+            </if>
+            <if test="p.isGroup != null and p.isGroup == true">
+                and a.id in (select client_id from corp_commerce_info where group_flag = 1)
+            </if>
+            <if test="p.projManagerId != null">
+                and (
+                    a.client_type = 'NORMAL'
+                    or
+                    a.client_status = 'NEW'
+                    or
+                    a.id in (
+                        select client_id from client_authority
+                        where deleted = 0 and user_id = #{p.projManagerId}
+                        <if test="p.levels != null and p.levels.size()>0">
+                            and level in
+                            <foreach collection="p.levels" item="item" open="(" close=")" separator=",">
+                                #{item}
+                            </foreach>
+                        </if>
+                    )
+                    or
+                    a.id in (select client_id from corp_commerce_info where risk_control_industry_classify = 'INTRA_GROUP_COLLABORATION')
+                    )
+            </if>
+            <if test="p.clientCode!=null and p.clientCode!=''">and a.client_code like CONCAT('%',#{p.clientCode},'%')</if>
+            <if test="p.clientName!=null and p.clientName!=''">and a.client_name like CONCAT('%',#{p.clientName}, '%')</if>
+            <if test="p.clientType!=null and p.clientType!=''">and a.client_type = #{p.clientType}</if>
+            <if test="p.industryType!=null and p.industryType!=''">and b.industry_type=#{p.industryType}</if>
+            <if test="p.riskControlIndustryClassify!=null and p.riskControlIndustryClassify!=''">and b.risk_control_industry_classify=#{p.riskControlIndustryClassify}</if>
+            <if test="p.enterpriseNature!=null and p.enterpriseNature!=''">and b.enterprise_nature=#{p.enterpriseNature}</if>
+            <if test="(p.provinceCode!=null and p.provinceCode!='') or (p.cityCode!=null and p.cityCode!='') or (p.districtCode!=null and p.districtCode!='')">
+                and a.id in (
+                    select
+                        distinct(client_id)
+                    from
+                        corp_address_info
+                    where
+                        address_type = 'REGISTRY_ADDRESS'
+                        <if test="p.provinceCode!=null and p.provinceCode!=''">and province = #{p.provinceCode}</if>
+                        <if test="p.cityCode!=null and p.cityCode!=''">and city = #{p.cityCode}</if>
+                        <if test="p.districtCode!=null and p.districtCode!=''">and district = #{p.districtCode}</if>
+                )
+            </if>
+            <if test="p.createFrom!=null">and a.create_time &gt;= #{p.createFrom}</if>
+            <if test="p.createTo!=null">and a.create_time &lt;= #{p.createTo}</if>
+            <if test="p.updateFrom!=null">and a.update_time &gt;= #{p.updateFrom}</if>
+            <if test="p.updateTo!=null">and a.update_time &lt; #{p.updateTo}</if>
+            <if test="p.clientStatus!=null">and client_status=#{p.clientStatus}</if>
+            <if test="p.processStatus!=null">and process_status=#{p.processStatus}</if>
+            <if test="p.createById!=null">and a.create_by = #{p.createById}</if>
+            <if test="p.createByDeptId!=null">
+                and a.create_by_dept=#{p.createByDeptId}
+            </if>
+            <if test="p.effected==true">and (client_status='TAKE_EFFECT' or (a.client_status='NEW' and a.is_released = 1))</if>
+
+            <if test="p.belongDeptId!=null and p.clientName==null">and a.belong_dept_id=#{p.belongDeptId}</if>
+            <if test="p.belongDeptId!=null and p.clientName!=null">
+                and (a.belong_dept_id=#{p.belongDeptId} or a.belong_dept_id is null)
+            </if>
+
+            <if test="p.belongSponsorId!=null and p.clientName==null">
+                and (a.belong_sponsor_id=#{p.belongSponsorId} or a.create_by=#{p.belongSponsorId})
+            </if>
+            <if test="p.belongSponsorId!=null and p.clientName!=null">
+                and (a.belong_sponsor_id=#{p.belongSponsorId} or a.create_by=#{p.belongSponsorId} or a.belong_sponsor_id
+                is null)
+            </if>
+            <if test="p.targetClientIds!=null and p.targetClientIds.size()>0">
+                and a.id in
+                <foreach collection="p.targetClientIds" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="p.queryConditionDeptIds != null and p.queryConditionDeptIds.size() > 0">
+                and (a.client_status = 'TAKE_EFFECT' or (a.client_status = 'NEW' and a.is_released = 1) or client_type = 'NORMAL' or a.id in (select client_id from client_create_record where dept_id in
+                <foreach collection="p.queryConditionDeptIds" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+                ))
+            </if>
+            <if test="p.queryConditionUserId != null">
+                and (a.client_status = 'TAKE_EFFECT' or (a.client_status = 'NEW' and a.is_released = 1) or client_type = 'NORMAL' or a.id in (select client_id from client_create_record where user_id = #{p.queryConditionUserId}))
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+    <select id="dashboardAllPageList" resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.dto.client.DashboardClientBasicDTO">
+        select * from (
+        SELECT
+        c.id AS clientId,
+        c.client_name AS clientName,
+        c.create_time AS createTime,
+        c.create_by AS createBy,
+        c.client_type AS clientType,
+        c.client_status AS client_status,
+        cc.industry_type AS industryTypeCode,
+        c.province_of_affiliation AS province,
+        cc.risk_control_industry_classify AS riskControlIndustryClassifyCode,
+        cc.enterprise_nature AS enterpriseNatureCode,
+        c.province_of_affiliation AS provinceCode,
+        c.belong_dept_id AS bizDeptId,
+        c.belong_sponsor_id AS projSponsorUserId,
+        alr.classify_result AS assetClassifyResultCode,
+        collection.plan_collection_date as plan_collection_date
+        FROM
+        client c
+        LEFT JOIN corp_commerce_info cc ON c.id = cc.client_id
+        LEFT JOIN (
+        SELECT
+        a.client_id,
+        a.classify_result
+        FROM
+        asset_classify_client a
+        INNER JOIN (
+        SELECT
+        acc.client_id,
+        MAX( acc.asset_classify_id ) AS asset_classify_id
+        FROM
+        asset_classify_client acc
+        RIGHT JOIN asset_classify ac ON acc.asset_classify_id = ac.id
+        WHERE
+        ac.finish = 1
+        GROUP BY
+        acc.client_id
+        ) last ON a.client_id = last.client_id
+        AND a.asset_classify_id = last.asset_classify_id
+        ) alr ON c.id = alr.client_id
+        left join (select MAX(plan_collection_date) as plan_collection_date, client_id as client_id from collection_base_info where cash_flow_item =
+        'RENT' GROUP BY client_id) collection on collection.client_id = c.id
+        ) temp
+        <where>
+            <if test="p.clientName!=null">
+                and temp.clientName like CONCAT('%',#{p.clientName},'%')
+            </if>
+            <if test="p.clientId!=null">
+                and temp.clientId = #{p.clientId}
+            </if>
+            <if test="p.limitClientIds!=null and p.limitClientIds.size()>0">
+                and temp.clientId in
+                <foreach collection="p.limitClientIds" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="p.riskControlIndustryClassifyCode!=null">
+                and temp.riskControlIndustryClassifyCode = #{p.riskControlIndustryClassifyCode}
+            </if>
+            <if test="p.assetClassifyResultCode!=null">
+                and temp.assetClassifyResultCode = #{p.assetClassifyResultCode}
+            </if>
+            <if test="p.provinceCode!=null">
+                and temp.province = #{p.provinceCode}
+            </if>
+            <if test="p.bizDeptId!=null">
+                and temp.bizDeptId = #{p.bizDeptId}
+            </if>
+            <if test="p.projSponsorUserId!=null">
+                and temp.projSponsorUserId = #{p.projSponsorUserId}
+            </if>
+            <if test="p.authBizDeptIds!=null and p.authBizDeptIds.size()>0">
+                and (temp.bizDeptId in
+                <foreach collection="p.authBizDeptIds" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+                or temp.bizDeptId is null
+                )
+            </if>
+            <if test="p.authCurrentUserId!=null">
+                and (temp.projSponsorUserId = #{p.authCurrentUserId}
+                )
+            </if>
+            <if test="p.createFrom != null">
+                and temp.createTime >= #{p.createFrom}
+            </if>
+            <if test="p.createTo != null">
+                and #{p.createTo} >= temp.createTime
+            </if>
+            <if test="p.dealLineFrom!=null">
+                and temp.plan_collection_date >= #{p.dealLineFrom}
+            </if>
+            <if test="p.dealLineTo!=null">
+                and #{p.dealLineTo} >= temp.plan_collection_date
+            </if>
+            <if test="p.clientIds!=null and p.clientIds.size()>0">
+                and temp.clientId in
+                <foreach collection="p.clientIds" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="p.clientStatus!=null and p.clientStatus.size()>0">
+                and temp.client_status in
+                <foreach collection="p.clientStatus" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+    <select id="listMonitorClient"
+            resultType="cn.zswltech.mithras.customer.interfaces.providence.dto.ClientMonitorListRsp">
+        select a.id as clientId,
+               client_name as clientName,
+               usc_code as uscc,
+               b.name as bizDeptName,
+               c.opinion_count as opCount
+        from client a
+        left join bifrost_org b on b.id = a.belong_dept_id
+        left join (select credit_code, count(id) as opinion_count from risk_control_opinion_monitor where risk_type = 1 group by credit_code) c on c.credit_code = a.usc_code
+        where (client_status = 'TAKE_EFFECT' or (client_status = 'NEW' AND is_released = 1)) and client_type = 'CORPORATION'
+        and a.id in
+        <foreach collection="clientIds" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        <if test="onlyWarn!=null">
+            and c.opinion_count > 0
+            and usc_code in (select distinct credit_code from risk_control_warn_monitor where risk_control_warn_monitor.warn_level != 1 )
+        </if>
+    </select>
+
+    <select id="countMonitorClient"
+            resultType="java.lang.Integer">
+    select count(1)
+    from client
+    where (client_status = 'TAKE_EFFECT' or (client_status = 'NEW' AND is_released = 1)) and client_type = 'CORPORATION'
+    </select>
+
+    <select id="listRelatedClient" resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client">
+        select
+            t1.*
+        from client as t1
+        inner join corp_commerce_info as t2 on t1.id = t2.client_id
+        where t2.is_related = 1
+    </select>
+
+</mapper>

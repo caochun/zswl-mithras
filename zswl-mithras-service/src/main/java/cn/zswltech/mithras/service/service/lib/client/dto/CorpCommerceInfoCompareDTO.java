@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.lib.client.dto;
+package cn.zswltech.mithras.customer.application.lib.client.dto;
 
 import cn.zswltech.mithras.service.annotation.BirCompareColumn;
 import lombok.Data;

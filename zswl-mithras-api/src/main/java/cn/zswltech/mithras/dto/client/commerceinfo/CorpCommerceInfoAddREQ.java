@@ -125,7 +125,7 @@ public class CorpCommerceInfoAddREQ {
     private String enterpriseNature;
 
     /**
-     * 控股类型 {@link cn.zswltech.mithras.service.enums.client.OwnershipTypeEnum}
+     * 控股类型 {@link cn.zswltech.mithras.customer.domain.enums.client.OwnershipTypeEnum}
      */
     @ApiModelProperty(value = "控股类型")
     private String ownershipType;

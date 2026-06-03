@@ -24,7 +24,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMappe
 import cn.zswltech.mithras.service.mapper.model.afterlease.RentCollectionEmailHtmlStore;
 import cn.zswltech.mithras.service.mapper.model.afterlease.RentCollectionEmailRecord;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
-import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfoLib;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
@@ -34,7 +34,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.basedata.BaseDataBankAccountService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPayAccountService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
-import cn.zswltech.mithras.service.service.lib.client.handler.impl.CorpContactInfoLibHandlerImpl;
+import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpContactInfoLibHandlerImpl;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.util.EmailUtil;

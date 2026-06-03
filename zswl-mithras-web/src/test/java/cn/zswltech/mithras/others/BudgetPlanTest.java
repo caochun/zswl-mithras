@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlan;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanPayDetail;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanProfit;
 import cn.zswltech.mithras.service.mapper.model.budget.BudgetPlanProfitDetail;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;

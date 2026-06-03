@@ -3,13 +3,13 @@ package cn.zswltech.mithras.service.service.datacompare.factory;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.lib.client.NormalBankAccountLibMapper;
-import cn.zswltech.mithras.service.mapper.model.client.NormalBankAccount;
-import cn.zswltech.mithras.service.mapper.model.client.NormalBankAccountLib;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.NormalBankAccountLibMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBankAccount;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBankAccountLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.client.handler.impl.NormalBankAccountLibHandlerImpl;
+import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NormalBankAccountLibHandlerImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

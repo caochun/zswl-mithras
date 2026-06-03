@@ -53,7 +53,7 @@ import cn.zswltech.mithras.service.mapper.collection.CollectionWriteOffRecordMap
 import cn.zswltech.mithras.service.mapper.fund.FinanceFlowWriteOffDetailMapper;
 import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.FinanceFlowWriteOffDetail;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionWriteOffRecord;

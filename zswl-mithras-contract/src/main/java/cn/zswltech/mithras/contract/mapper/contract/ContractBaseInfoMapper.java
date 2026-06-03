@@ -12,7 +12,7 @@ import cn.zswltech.mithras.contract.overdue.domain.acl.ClientRole;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractGuarantorInfo;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
-import cn.zswltech.mithras.service.mapper.dto.ClientMaxLeaseMonthDTO;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.dto.ClientMaxLeaseMonthDTO;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.contract.application.dto.ContractPrincipalBO;
 import cn.zswltech.mithras.contract.pricing.dto.ContractPriceQueryDto;

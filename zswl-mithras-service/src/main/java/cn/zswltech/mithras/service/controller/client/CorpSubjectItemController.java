@@ -26,7 +26,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.enums.SubjectItemType.BIZ_INDEX;
+import static cn.zswltech.mithras.customer.domain.enums.SubjectItemType.BIZ_INDEX;
 import static java.math.RoundingMode.HALF_UP;
 
 /**

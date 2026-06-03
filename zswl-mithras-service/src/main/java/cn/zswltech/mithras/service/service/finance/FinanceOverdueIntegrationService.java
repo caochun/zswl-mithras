@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.enums.financeoverdue.OverdueRecordStatueEnum;
 import cn.zswltech.mithras.service.enums.financeoverdue.OverdueRecordTypeEnum;
 import cn.zswltech.mithras.service.enums.third.FinancialAccountNumberENUM;
 import cn.zswltech.mithras.service.mapper.finance.FinanceOverdueIntegrationMapper;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;

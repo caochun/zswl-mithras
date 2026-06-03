@@ -38,15 +38,15 @@ import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.service.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.service.mapper.client.ClientMapper;
-import cn.zswltech.mithras.service.mapper.corp.CorpAddressInfoMapper;
-import cn.zswltech.mithras.service.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.service.mapper.corp.CorpSubjectItemMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpAddressInfoMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpCommerceInfoMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpSubjectItemMapper;
 import cn.zswltech.mithras.service.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.service.mapper.model.client.CorpSubjectItem;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpSubjectItem;
 import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.process.prepare.CommonProcessPrepareMapper;
@@ -85,7 +85,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static cn.zswltech.mithras.service.enums.SubjectItemType.PROFIT;
+import static cn.zswltech.mithras.customer.domain.enums.SubjectItemType.PROFIT;
 
 @Slf4j
 @Service

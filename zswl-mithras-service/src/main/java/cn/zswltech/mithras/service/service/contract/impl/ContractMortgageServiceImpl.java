@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.convert.contract.ContractMortgageConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.client.ClientType;
+import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.ContractConstitutionFileTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractModelEnum;
 import cn.zswltech.mithras.contract.enums.contract.MortgageTypeEnum;

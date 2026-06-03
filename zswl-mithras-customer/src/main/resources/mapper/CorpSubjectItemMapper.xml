@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpSubjectItemMapper">
+
+    <insert id="batchInsert">
+        insert into corp_subject_item(client_id, year, quarter, report_type, subject_type, subject_code, subject_name,
+        subject_value)
+        values
+        <foreach collection="list" open="" close="" item="item" separator=",">
+            (#{item.clientId},#{item.year},#{item.quarter},#{item.reportType},#{item.subjectType},#{item.subjectCode},#{item.subjectName},#{item.subjectValue})
+        </foreach>
+
+    </insert>
+</mapper>

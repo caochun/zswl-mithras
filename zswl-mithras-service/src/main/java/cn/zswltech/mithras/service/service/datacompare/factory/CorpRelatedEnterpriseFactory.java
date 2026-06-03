@@ -3,13 +3,13 @@ package cn.zswltech.mithras.service.service.datacompare.factory;
 import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.lib.client.CorpRelatedEnterpriseLibMapper;
-import cn.zswltech.mithras.service.mapper.model.client.CorpRelatedEnterprise;
-import cn.zswltech.mithras.service.mapper.model.client.CorpRelatedEnterpriseLib;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpRelatedEnterpriseLibMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpRelatedEnterprise;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpRelatedEnterpriseLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.client.handler.impl.CorpRelatedEnterpriseLibHandlerImpl;
+import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpRelatedEnterpriseLibHandlerImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

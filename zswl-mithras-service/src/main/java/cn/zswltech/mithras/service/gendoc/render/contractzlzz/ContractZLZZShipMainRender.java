@@ -19,7 +19,7 @@ import cn.zswltech.mithras.contract.enums.contract.LPRTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.config.TaxRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.RateType;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
-import cn.zswltech.mithras.service.mapper.model.client.*;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.client.ClientService;

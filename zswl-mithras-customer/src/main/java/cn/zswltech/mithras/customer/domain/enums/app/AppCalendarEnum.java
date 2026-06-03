@@ -1,0 +1,33 @@
+package cn.zswltech.mithras.customer.domain.enums.app;
+
+import cn.zswltech.mithras.service.config.enumscan.PullDown;
+
+/**
+ * @author luyi
+ */
+public enum AppCalendarEnum implements PullDown {
+
+    MYSELF("我的日历"),
+    TEAM("团队日历")
+    ;
+
+    AppCalendarEnum(String display) {
+        this.display = display;
+    }
+
+    public final String display;
+
+    public static AppCalendarEnum of(String code) {
+        for (AppCalendarEnum value : AppCalendarEnum.values()) {
+            if (value.name().equals(code)) {
+                return value;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String display() {
+        return display;
+    }
+}

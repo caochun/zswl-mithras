@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.validator;
 
-import cn.zswltech.mithras.service.mapper.model.client.CorpContactInfo;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfo;
 
 /**
  * 校验

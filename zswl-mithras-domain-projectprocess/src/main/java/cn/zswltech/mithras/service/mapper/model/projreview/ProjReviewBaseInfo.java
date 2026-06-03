@@ -344,7 +344,7 @@ public class ProjReviewBaseInfo extends BaseModel implements Serializable, IEnti
 
     /**
      * 企业性质
-     * {@link cn.zswltech.mithras.service.enums.client.EnterpriseNatureEnum}
+     * {@link cn.zswltech.mithras.customer.domain.enums.client.EnterpriseNatureEnum}
      */
     @TableField(value = "enterprise_nature")
     private String enterpriseNature;

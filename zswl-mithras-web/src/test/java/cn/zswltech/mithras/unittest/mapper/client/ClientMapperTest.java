@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.unittest.mapper.client;
 
-import cn.zswltech.mithras.service.enums.client.ClientStatus;
-import cn.zswltech.mithras.service.mapper.client.ClientMapper;
-import cn.zswltech.mithras.service.mapper.dto.ClientListParam;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.dto.ClientListParam;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.unittest.mapper.MithrasMapperTest;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.Test;

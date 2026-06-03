@@ -1,17 +1,17 @@
-package cn.zswltech.mithras.service.service.lib.client.handler.impl;
+package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.InfoModule;
-import cn.zswltech.mithras.service.enums.client.ClientType;
+import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.service.service.lib.client.handler.ClientLibAbstractHandler;
+import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

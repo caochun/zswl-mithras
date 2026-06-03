@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.enums.projreview.ProjectInsurancePurchaserEnu
 import cn.zswltech.mithras.service.enums.projreview.ProjectPolicyTypeEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
-import cn.zswltech.mithras.service.mapper.model.client.*;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewMeetMinuteBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportCategoryOne;
 import cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportCategoryTwo;
 import cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportImportantReason;
 import cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportLevel;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;

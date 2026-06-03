@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListR
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
 import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishBaseInfoConverter;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishInfoModule;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.service.service.Id2NameService;

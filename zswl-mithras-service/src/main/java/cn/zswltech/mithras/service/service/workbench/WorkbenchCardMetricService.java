@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricUnit;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassify;
 import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;

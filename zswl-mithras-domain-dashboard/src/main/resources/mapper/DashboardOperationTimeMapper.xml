@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.service.mapper.dashboard.DashboardOperationTimeMapper">
 
     <select id="listNewestCommerceInfo"
-            resultType="cn.zswltech.mithras.service.mapper.model.client.CorpCommerceInfoLib">
+            resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib">
         SELECT p.*
         FROM corp_commerce_info_lib p
         INNER JOIN (select client_id,max(version) max_version from corp_commerce_info_lib

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.infrastructure.client.handler.impl;
 
-import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycMockData;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycMockData;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.third.tianyancha.infrastructure.client.TycMockDataType;
 import cn.zswltech.mithras.third.tianyancha.infrastructure.client.handler.AbstractTycApiHandler;

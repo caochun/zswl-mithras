@@ -6,7 +6,7 @@ import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.service.enums.EmailType;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.client.ClientType;
+import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.service.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.service.mapper.email.EmailSendFailLogMapper;
 import cn.zswltech.mithras.service.mapper.model.SystemConfig;

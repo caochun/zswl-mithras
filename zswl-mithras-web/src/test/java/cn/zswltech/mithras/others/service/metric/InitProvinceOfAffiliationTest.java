@@ -1,13 +1,13 @@
 package cn.zswltech.mithras.others.service.metric;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.enums.CorpAddressType;
-import cn.zswltech.mithras.service.mapper.corp.CorpAddressInfoMapper;
-import cn.zswltech.mithras.service.mapper.lib.client.CorpAddressInfoLibMapper;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfoLib;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpAddressInfoMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpAddressInfoLibMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;

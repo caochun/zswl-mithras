@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.service.client.copyhandler;
 
-import cn.zswltech.mithras.service.enums.InfoModule;
-import cn.zswltech.mithras.service.service.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
 
 /**
  * @author dingqi

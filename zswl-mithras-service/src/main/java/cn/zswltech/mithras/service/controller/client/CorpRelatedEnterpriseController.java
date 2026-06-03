@@ -11,13 +11,13 @@ import cn.zswltech.mithras.service.auth.checker.client.ClientModifySubAuthChecke
 import cn.zswltech.mithras.service.auth.checker.client.ClientRemoveSubAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.client.ClientViewMainAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.corp.CorpRelatedEnterpriseMapper;
-import cn.zswltech.mithras.service.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.service.mapper.model.client.*;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpRelatedEnterpriseMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpRelatedEnterpriseService;
-import cn.zswltech.mithras.service.service.lib.client.CorpRelatedEnterpriseLibService;
+import cn.zswltech.mithras.customer.application.lib.client.CorpRelatedEnterpriseLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

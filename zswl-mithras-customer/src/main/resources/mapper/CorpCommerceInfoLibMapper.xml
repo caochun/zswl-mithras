@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpCommerceInfoLibMapper">
+    <select id="listNewestCommerceInfo"
+            resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib">
+        SELECT p.*
+        FROM corp_commerce_info_lib p
+        INNER JOIN (SELECT main_id AS client_id, MAX(version) AS version FROM common_version t1
+        WHERE t1.module = 'CLIENT' AND t1.version_type = 1 GROUP BY main_id) m
+        ON p.client_id = m.client_id AND p.version = m.version
+        <where>
+            <if test="dto.inRiskControlIndustryClassify != null and dto.inRiskControlIndustryClassify.size()>0">
+                AND p.risk_control_industry_classify IN
+                <foreach collection="dto.inRiskControlIndustryClassify" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.notInRiskControlIndustryClassify != null and dto.notInRiskControlIndustryClassify.size()>0">
+                AND p.risk_control_industry_classify NOT IN
+                <foreach collection="dto.notInRiskControlIndustryClassify" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.inClientIds != null and dto.inClientIds.size() > 0">
+                AND p.client_id IN
+                <foreach collection="dto.inClientIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.notInClientIds != null and dto.notInClientIds.size() > 0">
+                AND p.client_id NOT IN
+                <foreach collection="dto.notInClientIds" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.isRelated != null">
+                AND p.belong_group_client_id = #{dto.isRelated}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="intraGroupClients"
+            resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib">
+        SELECT p.client_id,
+               p.belong_group_client_id,
+               p.risk_control_industry_classify,
+               p.is_related
+        FROM corp_commerce_info_lib p
+                 INNER JOIN (SELECT main_id AS client_id, MAX(version) AS version
+                             FROM common_version t1
+                             WHERE t1.module = 'CLIENT'
+                               AND t1.version_type = 1
+                             GROUP BY main_id) m
+                            ON p.client_id = m.client_id AND p.version = m.version
+        where p.risk_control_industry_classify = 'INTRA_GROUP_COLLABORATION'
+    </select>
+</mapper>

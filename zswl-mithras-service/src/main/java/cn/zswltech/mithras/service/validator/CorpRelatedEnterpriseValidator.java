@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.validator;
 
-import cn.zswltech.mithras.service.constant.LackDataMsg;
-import cn.zswltech.mithras.service.mapper.model.client.CorpRelatedEnterprise;
+import cn.zswltech.mithras.customer.domain.constant.LackDataMsg;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpRelatedEnterprise;
 import cn.zswltech.mithras.service.others.Util;
 import org.apache.commons.lang3.StringUtils;
 

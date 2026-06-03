@@ -4,7 +4,7 @@ import cn.zswltech.mithras.factory.model.RatingClient;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.report.mapper.model.CrModifyDataSnap;
 import cn.zswltech.mithras.report.service.CrModifyDataSnapService;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.test.autoconfigure.MybatisPlusTest;

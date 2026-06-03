@@ -178,7 +178,7 @@
 
     </select>
 
-    <select id="clientMaxLeaseMonth" resultType="cn.zswltech.mithras.service.mapper.dto.ClientMaxLeaseMonthDTO">
+    <select id="clientMaxLeaseMonth" resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.dto.ClientMaxLeaseMonthDTO">
         SELECT
         a.client_id,
         max( a.lease_month_count ) AS lease_month_count

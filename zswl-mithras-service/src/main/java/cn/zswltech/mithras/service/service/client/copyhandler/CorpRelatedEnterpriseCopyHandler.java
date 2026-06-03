@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.service.service.client.copyhandler;
 
-import cn.zswltech.mithras.service.enums.InfoModule;
-import cn.zswltech.mithras.service.mapper.model.client.CorpRelatedEnterprise;
-import cn.zswltech.mithras.service.mapper.model.client.NewCorpRelatedEnterprise;
-import cn.zswltech.mithras.service.service.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpRelatedEnterprise;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpRelatedEnterprise;
+import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.service.service.client.CorpRelatedEnterpriseService;
-import cn.zswltech.mithras.service.service.client.NewCorpRelatedEnterpriseService;
+import cn.zswltech.mithras.customer.application.client.NewCorpRelatedEnterpriseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycAbnormalConvert;
-import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.mapper.TycAbnormalMapper;
-import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycAbnormal;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.mapper.TycAbnormalMapper;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycAbnormal;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycAbnormalResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbnormalService;

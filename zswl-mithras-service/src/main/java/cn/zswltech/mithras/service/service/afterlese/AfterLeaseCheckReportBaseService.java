@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.afterlese;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportBaseREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportBaseRSP;
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckReportBase;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.service.bo.AfterLeaseClientDataBO;

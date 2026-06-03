@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.riskcontrol.monitor.ClientMonitorOpinionDetailRsp;
 import cn.zswltech.mithras.riskcontrol.monitor.ClientMonitorWarnDetailRsp;
-import cn.zswltech.mithras.service.providence.dto.*;
+import cn.zswltech.mithras.customer.interfaces.providence.dto.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

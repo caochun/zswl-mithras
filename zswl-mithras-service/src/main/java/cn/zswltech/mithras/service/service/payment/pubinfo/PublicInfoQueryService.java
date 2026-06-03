@@ -29,10 +29,10 @@ import cn.zswltech.mithras.service.enums.payment.pubinfo.InvestigationResultEnum
 import cn.zswltech.mithras.service.enums.payment.pubinfo.PublicInfoClientTypeEnum;
 import cn.zswltech.mithras.service.enums.payment.pubinfo.PublicInfoFileTypeEnum;
 import cn.zswltech.mithras.service.enums.payment.pubinfo.PublicInfoRowKeyEnum;
-import cn.zswltech.mithras.service.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.pubInfo.PublicInfoConfig;

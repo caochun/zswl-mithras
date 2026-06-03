@@ -17,7 +17,7 @@ import cn.zswltech.mithras.third.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.service.mapper.margin.MarginWriteOffRecordMapper;
 import cn.zswltech.mithras.service.mapper.margin.WarrantyBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.margin.WarrantyRecordInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginWriteOffRecord;
 import cn.zswltech.mithras.service.mapper.model.margin.WarrantyBaseInfo;

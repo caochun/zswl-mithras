@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListREQ;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListRSP;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.ScoreCardClientAddressResolver;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.ScoreCardClientRegistryAddress;
-import cn.zswltech.mithras.service.enums.CorpAddressType;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.service.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.service.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.service.service.client.CorpAddressInfoService;

@@ -15,7 +15,7 @@ import cn.zswltech.mithras.third.enums.CQBusinessTypeENUM;
 import cn.zswltech.mithras.third.enums.CQTaxRateENUM;
 import cn.zswltech.mithras.third.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.service.mapper.finance.ContractAssessDeptDetailMapper;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.finance.ContractAssessDeptDetail;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

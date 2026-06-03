@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.mapper.flow.FlowQueryExtraMapper;
 import cn.zswltech.mithras.service.mapper.flow.model.FlowQueryExtra;
 import cn.zswltech.mithras.service.mapper.flow.model.FlowQueryExtraMissing;
 import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
 import cn.zswltech.mithras.service.mapper.model.filingmaterials.FilingMaterials;

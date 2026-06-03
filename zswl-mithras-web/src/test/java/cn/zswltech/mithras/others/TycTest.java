@@ -1,6 +1,6 @@
-//import cn.zswltech.mithras.service.mapper.model.client.TycAbnormal;
-//import cn.zswltech.mithras.service.mapper.model.client.TycDishonest;
-//import cn.zswltech.mithras.service.mapper.model.client.TycEquityInfo;
+//import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.TycAbnormal;
+//import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.TycDishonest;
+//import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.TycEquityInfo;
 //import cn.zswltech.mithras.service.plugin.AutoAuditEntity;
 //import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 //import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;

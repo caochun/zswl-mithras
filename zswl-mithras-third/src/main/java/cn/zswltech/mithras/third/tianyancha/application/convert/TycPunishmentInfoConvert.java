@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycPunishmentInfoRSP;
-import cn.zswltech.mithras.client.externaldata.tianyancha.infrastructure.model.TycPunishmentInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycPunishmentInfo;
 import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycPunishmentInfoResp;
 
 

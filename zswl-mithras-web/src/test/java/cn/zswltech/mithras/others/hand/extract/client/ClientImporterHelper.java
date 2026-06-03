@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.hand.extract.client;
 
-import cn.zswltech.mithras.service.enums.MarriageType;
+import cn.zswltech.mithras.customer.domain.enums.MarriageType;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 

@@ -56,7 +56,6 @@
         <module>zswl-mithras-afterlease</module>
         <module>zswl-mithras-domain-budget</module>
         <module>zswl-mithras-budget</module>
-        <module>zswl-mithras-domain-client</module>
         <module>zswl-mithras-customer</module>
         <module>zswl-mithras-identity</module>
         <module>zswl-mithras-contract</module>

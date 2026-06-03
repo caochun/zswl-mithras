@@ -1,15 +1,15 @@
-package cn.zswltech.mithras.service.service.lib.client.handler.impl;
+package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.normal.NormalSpouseListRSP;
-import cn.zswltech.mithras.service.enums.InfoModule;
-import cn.zswltech.mithras.service.enums.client.ClientType;
-import cn.zswltech.mithras.service.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.service.mapper.model.client.NormalSpouse;
-import cn.zswltech.mithras.service.mapper.model.client.NormalSpouseLib;
+import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalSpouse;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalSpouseLib;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.lib.client.handler.ClientLibAbstractHandler;
+import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

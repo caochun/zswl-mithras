@@ -11,13 +11,13 @@ import cn.zswltech.mithras.service.auth.checker.client.ClientModifySubAuthChecke
 import cn.zswltech.mithras.service.auth.checker.client.ClientRemoveSubAuthCheckerNew;
 import cn.zswltech.mithras.service.auth.checker.client.ClientViewMainAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.corp.CorpBankAccountMapper;
-import cn.zswltech.mithras.service.mapper.model.client.CorpBankAccount;
-import cn.zswltech.mithras.service.mapper.model.client.CorpBankAccountLib;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpBankAccountMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpBankAccount;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpBankAccountLib;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpBankAccountService;
-import cn.zswltech.mithras.service.service.lib.client.CorpBankAccountLibService;
+import cn.zswltech.mithras.customer.application.lib.client.CorpBankAccountLibService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.RestController;

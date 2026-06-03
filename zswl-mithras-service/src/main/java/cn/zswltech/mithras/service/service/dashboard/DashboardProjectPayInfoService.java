@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.enums.dashboard.PayInfoQueryDimensionEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.dashboard.DashboardProjectInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.app.VisitRecord;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.app.VisitRecord;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPayInfoQuery;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPayInfoResult;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

@@ -21,7 +21,7 @@ public class ContractTextManageUpdateSingleSigningWayREQ {
     private Long id;
 
     /**
-     * 文本签约方式 {@link cn.zswltech.mithras.service.enums.contract.SigningWayEnum#name()}
+     * 文本签约方式 {@link cn.zswltech.mithras.contract.enums.contract.text.SigningWayEnum#name()}
      */
     @ApiModelProperty(value = "文本签约方式")
     @NotBlank(message = "文本签约方式不能为空")
