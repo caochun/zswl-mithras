@@ -49,7 +49,6 @@
         <module>zswl-mithras-liquidity</module>
         <module>zswl-mithras-domain-filingmaterials</module>
         <module>zswl-mithras-filingmaterials</module>
-        <module>zswl-mithras-domain-archives</module>
         <module>zswl-mithras-archives</module>
         <module>zswl-mithras-domain-financeprojectdistribution</module>
         <module>zswl-mithras-ftp</module>

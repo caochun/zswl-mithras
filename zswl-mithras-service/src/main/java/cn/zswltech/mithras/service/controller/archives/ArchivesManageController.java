@@ -8,7 +8,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.archives.*;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListRSP;
-import cn.zswltech.mithras.service.mapper.model.archives.ArchivesManagement;
+import cn.zswltech.mithras.archives.infrastructure.persistence.model.ArchivesManagement;
 import cn.zswltech.mithras.service.service.archives.ArchivesManageService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import io.swagger.annotations.ApiModelProperty;

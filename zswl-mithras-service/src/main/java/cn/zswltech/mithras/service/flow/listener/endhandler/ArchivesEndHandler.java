@@ -2,10 +2,10 @@ package cn.zswltech.mithras.service.flow.listener.endhandler;
 
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
-import cn.zswltech.mithras.service.enums.archives.ArchivesFlowStatusEnum;
-import cn.zswltech.mithras.service.enums.archives.ArchivesStatusEnum;
-import cn.zswltech.mithras.service.mapper.archives.ArchivesManagementMapper;
-import cn.zswltech.mithras.service.mapper.model.archives.ArchivesManagement;
+import cn.zswltech.mithras.archives.domain.enums.ArchivesFlowStatusEnum;
+import cn.zswltech.mithras.archives.domain.enums.ArchivesStatusEnum;
+import cn.zswltech.mithras.archives.infrastructure.persistence.mapper.ArchivesManagementMapper;
+import cn.zswltech.mithras.archives.infrastructure.persistence.model.ArchivesManagement;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
