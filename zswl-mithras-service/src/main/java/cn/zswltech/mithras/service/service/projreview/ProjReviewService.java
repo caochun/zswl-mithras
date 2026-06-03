@@ -1,4 +1,6 @@
 package cn.zswltech.mithras.service.service.projreview;
+import cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemType;
+import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -83,7 +85,7 @@ import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.flow.FlowEndEventProcessor;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseReviewService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.lib.projpricing.impl.ProjPricingVersionServiceImpl;
 import cn.zswltech.mithras.service.service.lib.projreview.impl.ProjReviewVersionServiceImpl;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

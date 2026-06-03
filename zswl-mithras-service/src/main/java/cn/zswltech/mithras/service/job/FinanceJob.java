@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.job;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -22,7 +23,7 @@ import cn.zswltech.mithras.service.mapper.model.kpi.KpiProvisionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProvisionDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;

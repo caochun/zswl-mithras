@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -45,7 +46,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptWeight;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionWeight;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.projlifecycle.ProjLifecycleEvent;
@@ -61,6 +62,7 @@ import cn.zswltech.mithras.service.service.FlowAssistService;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.Listener.client.ClientViewAuthorityEvent;
 import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.customer.application.client.ClientTransferWeightService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;

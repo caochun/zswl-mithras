@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.job;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -17,7 +18,7 @@ import cn.zswltech.mithras.service.enums.associationreport.AssociationReportPeri
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReportApply;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;

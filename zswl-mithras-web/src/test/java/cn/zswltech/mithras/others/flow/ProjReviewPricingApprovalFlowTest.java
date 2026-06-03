@@ -8,7 +8,7 @@ import cn.zswltech.flow.core.enums.UserDefineTypeEnum;
 import cn.zswltech.flow.core.model.ext.GlobalExt;
 import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.service.constant.FlowConstants;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.flowable.bpmn.model.BpmnModel;

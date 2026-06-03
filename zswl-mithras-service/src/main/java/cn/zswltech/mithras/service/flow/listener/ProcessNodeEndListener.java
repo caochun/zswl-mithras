@@ -1,4 +1,6 @@
 package cn.zswltech.mithras.service.flow.listener;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
+import cn.zswltech.mithras.workflow.domain.enums.ProcessVarEnum;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -85,7 +87,7 @@ import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewAocPrice;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewFactoringPrice;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewLeasePrice;
-import cn.zswltech.mithras.service.mapper.model.trackEvent.TrackEventInfo;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.trackevent.TrackEventInfo;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.others.MithrasException;
@@ -108,7 +110,7 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoS
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
 import cn.zswltech.mithras.service.service.lib.groupcreditreview.handler.impl.GroupCreditReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

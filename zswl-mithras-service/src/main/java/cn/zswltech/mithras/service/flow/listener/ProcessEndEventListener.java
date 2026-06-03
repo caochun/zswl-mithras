@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.service.flow.listener.endhandler.AbstractProcessEndHandler;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.service.ProcAttentionRecordService;
+import cn.zswltech.mithras.workflow.application.ProcAttentionRecordService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.message.MessageService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

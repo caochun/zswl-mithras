@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueReportBaseAddREQ;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueReportBaseListREQ;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueReportBaseRemoveREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.CommonProcessPrepareStatus;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.financeoverdue.OverduePlanStatueEnum;
 import cn.zswltech.mithras.service.enums.financeoverdue.OverdueRecordStatueEnum;
@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.mapper.finance.FinanceOverdueReportBaseMapper
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueReportBase;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueSettlement;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;

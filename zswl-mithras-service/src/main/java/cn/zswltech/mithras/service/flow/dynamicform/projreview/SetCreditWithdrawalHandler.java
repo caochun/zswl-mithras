@@ -7,7 +7,7 @@ import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.service.constant.FlowConstants;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import com.github.pagehelper.util.StringUtil;
 import org.springframework.stereotype.Component;

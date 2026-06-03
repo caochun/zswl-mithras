@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.payment;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -76,11 +77,11 @@ import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfo;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.mapper.payment.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.payment.PaymentPolicyInfoMapper;
-import cn.zswltech.mithras.service.mapper.process.prepare.CommonProcessPrepareMapper;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.process.prepare.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;

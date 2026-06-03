@@ -6,7 +6,7 @@ import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.dto.flow.form.UpdateStampDutyFormRSP;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;

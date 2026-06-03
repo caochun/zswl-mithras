@@ -1,4 +1,7 @@
 package cn.zswltech.mithras.factory.service;
+import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -47,9 +50,9 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpSubjectItem;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.process.prepare.CommonProcessPrepareMapper;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.process.prepare.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.Id2NameService;

@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.projestablish;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -75,7 +76,7 @@ import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.impl.CorpAddressInfoLibServiceImpl;
 import cn.zswltech.mithras.service.service.lib.projestablish.handler.impl.ProjEstablishBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

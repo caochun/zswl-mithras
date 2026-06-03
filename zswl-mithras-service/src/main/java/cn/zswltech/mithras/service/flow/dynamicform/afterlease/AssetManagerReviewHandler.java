@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.flow.form.SelectUserREQ;
 import cn.zswltech.mithras.dto.flow.form.SelectUserRSP;
 import cn.zswltech.mithras.dto.flow.form.SetProjectClassifyREQ;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.service.others.MithrasException;

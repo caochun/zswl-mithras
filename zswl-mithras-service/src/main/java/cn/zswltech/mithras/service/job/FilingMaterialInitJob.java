@@ -11,7 +11,7 @@ import cn.zswltech.flow.core.domain.req.task.TaskSystemPageReq;
 import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.service.impl.FlowCacheService;
 import cn.zswltech.flow.core.util.Page;
-import cn.zswltech.mithras.service.enums.CommonProcessPrepareStatus;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsFilingTypeEnum;
 import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsInitiationMethodEnum;
@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingBaseInfoMa
 import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.service.mapper.model.filingmaterials.FilingMaterials;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.service.filingmaterials.AfterFilingMaterialsService;
 import cn.zswltech.mithras.service.service.filingmaterials.FilingMaterialsService;
 import cn.zswltech.mithras.service.service.filingmaterials.FundFilingMaterialsService;

@@ -47,7 +47,7 @@ import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPla
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.app.VisitRecord;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.filingmaterials.FilingMaterials;
-import cn.zswltech.mithras.service.mapper.process.prepare.CommonProcessPrepareMapper;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.process.prepare.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.FlowAssistService;

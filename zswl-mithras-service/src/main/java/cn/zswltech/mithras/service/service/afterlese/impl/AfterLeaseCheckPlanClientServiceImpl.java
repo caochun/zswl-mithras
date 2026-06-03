@@ -1,4 +1,6 @@
 package cn.zswltech.mithras.service.service.afterlese.impl;
+import cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemType;
+import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.process.prepare.handle;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.filingmaterials.FilingBaseREQ;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.service.filingmaterials.FilingMaterialsFactory;
 import cn.zswltech.mithras.service.service.filingmaterials.FilingMaterialsService;
 import cn.zswltech.mithras.service.service.filingmaterials.FundFilingMaterialsService;

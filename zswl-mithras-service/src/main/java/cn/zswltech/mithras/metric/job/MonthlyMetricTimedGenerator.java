@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.metric.job;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.metric.service.RiskMetricDictService;

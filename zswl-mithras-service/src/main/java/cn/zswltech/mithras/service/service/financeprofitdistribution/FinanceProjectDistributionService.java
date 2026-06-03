@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.financeprofitdistribution;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -28,10 +29,10 @@ import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistributionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistributionDeptLaunchWeight;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistributionDeptWeight;
-import cn.zswltech.mithras.service.mapper.process.prepare.CommonProcessPrepareMapper;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.process.prepare.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.service.mapper.financeprojectdistribution.FinanceProjectDistributionMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
@@ -62,7 +63,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.enums.CommonProcessPrepareStatus.COMMITTED;
+import static cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus.COMMITTED;
 
 /**
  * @author lllin

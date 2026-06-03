@@ -13,8 +13,8 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpCommerceInfoLib;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.customer.application.lib.client.NewCorpCommerceInfoLibService;
+import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.service.service.lib.client.NewCorpCommerceInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NewCorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;

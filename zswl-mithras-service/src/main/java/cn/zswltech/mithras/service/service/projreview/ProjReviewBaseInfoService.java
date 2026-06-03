@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.projreview;
+import cn.zswltech.mithras.customer.domain.enums.ClientAuthEnum;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -40,7 +41,7 @@ import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.projreview.ProjReviewBaseInfoConverter;
 import cn.zswltech.mithras.service.convert.projreview.ProjReviewPriceConverter;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.client.*;
+import cn.zswltech.mithras.customer.domain.enums.client.*;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewProcessStatus;
@@ -84,7 +85,7 @@ import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import cn.zswltech.mithras.service.service.flow.FlowQueryExtraService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.service.service.lib.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

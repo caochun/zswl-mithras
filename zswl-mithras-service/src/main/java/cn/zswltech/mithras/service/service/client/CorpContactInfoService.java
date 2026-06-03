@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.customer.domain.enums.InfoModule;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -15,7 +16,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
-import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;
+import cn.zswltech.mithras.service.service.client.copyhandler.ClientOldDataHelper;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

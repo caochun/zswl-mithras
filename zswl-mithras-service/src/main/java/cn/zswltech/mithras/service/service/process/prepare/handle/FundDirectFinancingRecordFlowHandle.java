@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInf
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

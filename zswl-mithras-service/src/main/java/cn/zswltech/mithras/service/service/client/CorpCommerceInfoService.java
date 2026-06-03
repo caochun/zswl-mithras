@@ -1,4 +1,6 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -27,7 +29,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.customer.application.bo.ClientAuthBO;
 import cn.zswltech.mithras.customer.application.bo.ClientBusinessHistoryBO;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
-import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;
+import cn.zswltech.mithras.service.service.client.copyhandler.ClientOldDataHelper;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.impl.ContractBaseInfoServiceImpl;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;

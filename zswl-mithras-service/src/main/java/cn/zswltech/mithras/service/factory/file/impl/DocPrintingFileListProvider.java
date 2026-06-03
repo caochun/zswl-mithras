@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.factory.file.impl;
 
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.trackEvent.TrackEventMaterialsEnum;
+import cn.zswltech.mithras.workflow.domain.enums.trackevent.TrackEventMaterialsEnum;
 import cn.zswltech.mithras.service.factory.file.AbstractFileListProvider;
 import org.springframework.stereotype.Component;
 

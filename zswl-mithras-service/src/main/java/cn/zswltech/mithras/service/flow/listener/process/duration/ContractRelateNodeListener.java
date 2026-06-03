@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.flow.ContractNodeTimeService;
+import cn.zswltech.mithras.workflow.application.flow.ContractNodeTimeService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.third.financial.impl.events.PaymentWriteOffEvent;
 import lombok.extern.slf4j.Slf4j;

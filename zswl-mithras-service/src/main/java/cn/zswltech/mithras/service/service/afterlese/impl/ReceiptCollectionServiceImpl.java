@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.afterlese.impl;
+import cn.zswltech.mithras.workflow.domain.enums.ProcessVarEnum;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;

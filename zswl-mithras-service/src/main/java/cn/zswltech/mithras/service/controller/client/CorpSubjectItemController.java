@@ -1,4 +1,9 @@
 package cn.zswltech.mithras.service.controller.client;
+import cn.zswltech.mithras.customer.domain.enums.FinanceReportCashFlowItemCode;
+import cn.zswltech.mithras.customer.domain.enums.FinanceReportProfitItemCode;
+import cn.zswltech.mithras.customer.domain.enums.FinanceReportCapitalBalanceItemCode;
+import cn.zswltech.mithras.customer.domain.enums.SubjectReportType;
+import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
 
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.ObjectUtil;

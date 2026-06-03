@@ -4,7 +4,7 @@ import cn.hutool.core.map.MapUtil;
 import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;

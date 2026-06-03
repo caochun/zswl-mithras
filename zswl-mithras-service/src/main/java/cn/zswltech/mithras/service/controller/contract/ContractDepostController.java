@@ -32,7 +32,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractDeductRentInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.SysUserService;

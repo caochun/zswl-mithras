@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.flow.dynamicform.risk.opinion;
 
 import cn.zswltech.mithras.service.constant.FlowConstants;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.risk.AbstractAssetManagementHandler;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;

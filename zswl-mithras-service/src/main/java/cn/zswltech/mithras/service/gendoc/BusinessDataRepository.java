@@ -21,6 +21,7 @@ import cn.zswltech.mithras.contract.mapper.contract.*;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.*;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.*;
 import cn.zswltech.mithras.service.mapper.model.AddressDictionary;
+import cn.zswltech.mithras.service.mapper.corp.GeneralDictionaryMapper;
 import cn.zswltech.mithras.service.mapper.model.GeneralDictionary;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;

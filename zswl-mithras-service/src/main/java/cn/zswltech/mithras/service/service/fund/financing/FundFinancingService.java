@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.fund.financing;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -41,7 +42,7 @@ import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBase
 import cn.zswltech.mithras.service.mapper.fund.receiptrepay.FundReceiptRepayBorrowingMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.mapper.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.ProcessModifyRemark;
 import cn.zswltech.mithras.service.mapper.model.fund.FundCredit;
 import cn.zswltech.mithras.service.mapper.model.fund.FundCreditGuaranteeDetail;
 import cn.zswltech.mithras.service.mapper.model.fund.FundGuaranteeAgency;
@@ -49,8 +50,8 @@ import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.*;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBorrowing;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
-import cn.zswltech.mithras.service.mapper.process.prepare.CommonProcessPrepareMapper;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.process.prepare.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;

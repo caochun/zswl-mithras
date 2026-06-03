@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.contract;
+import cn.zswltech.mithras.workflow.domain.enums.ProcessVarEnum;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -54,13 +55,13 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;
 import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.mapper.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.ProcessModifyRemark;
 import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewLeasePrice;
@@ -82,7 +83,7 @@ import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.effectcheck.ContractEffectCheckFactory;
 import cn.zswltech.mithras.service.service.contract.operationprepare.ContractOperationPrepare;
 import cn.zswltech.mithras.service.service.contract.operationprepare.ContractOperationPrepareFactory;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.margin.MarginBaseInfoService;

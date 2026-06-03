@@ -1,4 +1,7 @@
 package cn.zswltech.mithras.service.service.app;
+import cn.zswltech.mithras.customer.domain.enums.app.VisitPhaseStatus;
+import cn.zswltech.mithras.customer.domain.enums.app.VisitRecordStatus;
+import cn.zswltech.mithras.customer.domain.enums.app.VisitDownloadTaskStatusEnum;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;

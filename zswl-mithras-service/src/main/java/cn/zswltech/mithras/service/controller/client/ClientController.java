@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.client;
+import cn.zswltech.mithras.customer.application.client.ClientTransferApplyService;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -16,6 +17,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.customer.hymx.application.ClientHymxService;
 import cn.zswltech.mithras.customer.hymx.infrastructure.model.ClientHymx;
 import cn.zswltech.mithras.dto.client.client.*;
+import cn.zswltech.mithras.customer.application.client.ClientTransferWeightService;
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoAddREQ;
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
 import cn.zswltech.mithras.dto.file.*;
@@ -26,7 +28,7 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonAddMainAuthChecker
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.client.*;
+import cn.zswltech.mithras.customer.domain.enums.client.*;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
 import cn.zswltech.mithras.service.excel.exporter.ClientTransferExcelExporter;

@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.process.prepare;
+import cn.zswltech.mithras.workflow.application.process.prepare.RentCollectionMonthDetailService;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -17,7 +18,7 @@ import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantorLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.RentCollectionMonthDetail;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.RentCollectionMonthDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.capital.write_off.bo.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;

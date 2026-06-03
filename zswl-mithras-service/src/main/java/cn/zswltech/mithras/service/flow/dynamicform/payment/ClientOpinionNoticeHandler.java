@@ -6,7 +6,7 @@ import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.api.payment.dto.PaymentTransactionStructureInfoReq;
 import cn.zswltech.mithras.api.payment.dto.PaymentTransactionStructureInfoRsp;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;

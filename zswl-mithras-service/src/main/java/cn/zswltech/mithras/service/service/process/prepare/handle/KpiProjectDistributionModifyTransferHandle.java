@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.enums.kpi.KpiProjectWeightTypeEnum;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientTransfer;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.*;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.SysUserService;

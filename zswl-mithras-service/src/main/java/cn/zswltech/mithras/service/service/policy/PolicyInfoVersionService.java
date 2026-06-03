@@ -39,7 +39,7 @@ import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoMa
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.BizProcessDataService;
-import cn.zswltech.mithras.service.service.ProcAttentionRecordService;
+import cn.zswltech.mithras.workflow.application.ProcAttentionRecordService;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.flow.FlowEndEventProcessor;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;

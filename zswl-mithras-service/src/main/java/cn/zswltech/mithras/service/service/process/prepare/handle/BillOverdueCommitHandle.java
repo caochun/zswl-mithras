@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.process.prepare.handle;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.third.providence.service.impl.BillOverdueDraftService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

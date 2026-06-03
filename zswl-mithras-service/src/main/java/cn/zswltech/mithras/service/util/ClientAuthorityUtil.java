@@ -1,4 +1,11 @@
 package cn.zswltech.mithras.service.util;
+import cn.zswltech.mithras.customer.application.client.NewCorpRelatedEnterpriseService;
+import cn.zswltech.mithras.customer.application.client.NewCorpBankAccountService;
+import cn.zswltech.mithras.customer.application.client.NewCorpShareHolderInfoService;
+import cn.zswltech.mithras.customer.application.client.NewCorpBondInfoService;
+import cn.zswltech.mithras.customer.application.client.NewCorpContactInfoService;
+import cn.zswltech.mithras.customer.application.client.NewCorpAddressInfoService;
+import cn.zswltech.mithras.customer.application.client.NewCorpCommerceInfoService;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -29,7 +36,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.service.service.client.*;
-import cn.zswltech.mithras.customer.application.client.copyhandler.ClientDataCopyHandlerFactory;
+import cn.zswltech.mithras.service.service.client.copyhandler.ClientDataCopyHandlerFactory;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

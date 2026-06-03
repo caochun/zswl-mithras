@@ -1,4 +1,15 @@
 package cn.zswltech.mithras.service.gendoc.render;
+import cn.zswltech.mithras.customer.domain.enums.SubjectItemDisplayDimension;
+import cn.zswltech.mithras.customer.domain.enums.SubjectQuarterType;
+import cn.zswltech.mithras.customer.domain.enums.RelationshipType;
+import cn.zswltech.mithras.customer.domain.enums.ShareholderType;
+import cn.zswltech.mithras.customer.domain.enums.SubjectReportType;
+import cn.zswltech.mithras.customer.domain.enums.MarriageType;
+import cn.zswltech.mithras.customer.domain.enums.GenderType;
+import cn.zswltech.mithras.customer.domain.enums.OrgScaleType;
+import cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemType;
+import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.convert.NumberChineseFormatter;

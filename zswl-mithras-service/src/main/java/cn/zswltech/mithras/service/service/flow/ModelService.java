@@ -18,7 +18,7 @@ import cn.zswltech.mithras.dto.flow.model.ModelListREQ;
 import cn.zswltech.mithras.dto.flow.model.ModelListRSP;
 import cn.zswltech.mithras.dto.flow.model.SaveModelREQ;
 import cn.zswltech.mithras.service.convert.flow.FlowModelConvert;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.mapper.corp.GeneralDictionaryMapper;

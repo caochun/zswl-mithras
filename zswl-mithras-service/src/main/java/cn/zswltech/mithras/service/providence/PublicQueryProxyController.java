@@ -6,7 +6,7 @@ import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.payment.pubInfo.PublicInfoQuery;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.customer.interfaces.providence.dto.OuterPublicQueryReq;
+import cn.zswltech.mithras.service.providence.dto.OuterPublicQueryReq;
 import cn.zswltech.mithras.third.providence.entity.OuterInfoRecord;
 import cn.zswltech.mithras.third.providence.service.impl.OuterInfoRecordService;
 import cn.zswltech.mithras.service.service.client.ClientService;

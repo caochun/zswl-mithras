@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.flow.helper;
+import cn.zswltech.mithras.workflow.domain.enums.ProcessVarEnum;
 
 import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;

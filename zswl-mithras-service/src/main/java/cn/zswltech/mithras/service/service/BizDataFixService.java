@@ -34,7 +34,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
-import cn.zswltech.mithras.service.enums.client.*;
+import cn.zswltech.mithras.customer.domain.enums.client.*;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;

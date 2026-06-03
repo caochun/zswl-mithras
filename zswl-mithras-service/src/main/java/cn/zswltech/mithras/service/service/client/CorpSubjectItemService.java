@@ -1,4 +1,11 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.customer.domain.enums.CalcBizSubjectEnum;
+import cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemMenu;
+import cn.zswltech.mithras.customer.domain.enums.SubjectItemDisplayDimension;
+import cn.zswltech.mithras.customer.domain.enums.SubjectQuarterType;
+import cn.zswltech.mithras.customer.domain.enums.SubjectReportType;
+import cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemType;
+import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;

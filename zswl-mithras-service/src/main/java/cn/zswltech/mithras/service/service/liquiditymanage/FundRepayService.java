@@ -7,11 +7,11 @@ import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingRepayAc
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;
 import cn.zswltech.mithras.service.mapper.fund.financing.FundFinancingRepayActualMapper;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActual;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.FinancingRepayActualProcessDetail;
-import cn.zswltech.mithras.service.mapper.process.prepare.FinancingRepayActualProcessDetailMapper;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.FinancingRepayActualProcessDetail;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.process.prepare.FinancingRepayActualProcessDetailMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingRepayActualService;
-import cn.zswltech.mithras.service.service.process.prepare.FinancingRepayActualProcessDetailService;
+import cn.zswltech.mithras.workflow.application.process.prepare.FinancingRepayActualProcessDetailService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

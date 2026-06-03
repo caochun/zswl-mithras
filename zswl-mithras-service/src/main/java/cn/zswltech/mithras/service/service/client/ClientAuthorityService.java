@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;

@@ -7,6 +7,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientUserRef;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.copyhandler.ClientNewDataHelper;
 import cn.zswltech.mithras.service.service.client.ClientCreateRecordService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.ClientUserRefService;

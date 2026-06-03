@@ -8,7 +8,7 @@ import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.dto.flow.form.SetReviewMeetingPlanDateREQ;
 import cn.zswltech.mithras.dto.flow.form.SetReviewMeetingPlanDateRSP;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
-import cn.zswltech.mithras.service.enums.FlowDynamicFormEnum;
+import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.alibaba.fastjson.JSON;

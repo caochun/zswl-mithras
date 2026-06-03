@@ -2,10 +2,10 @@ package cn.zswltech.mithras.service.flow.listener.taskend;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.flow.core.flowlistener.task.TaskCompleteAction;
-import cn.zswltech.mithras.service.mapper.flow.model.FlowTaskDuration;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.flow.model.FlowTaskDuration;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataSpecialDate;
 import cn.zswltech.mithras.service.service.basedata.BaseDataSpecialDateService;
-import cn.zswltech.mithras.service.service.flow.FlowTaskDurationService;
+import cn.zswltech.mithras.workflow.application.flow.FlowTaskDurationService;
 import lombok.extern.slf4j.Slf4j;
 import org.flowable.engine.HistoryService;
 import org.flowable.task.api.history.HistoricTaskInstance;

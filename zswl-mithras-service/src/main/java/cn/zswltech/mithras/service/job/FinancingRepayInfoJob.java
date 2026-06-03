@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.job;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
@@ -17,8 +18,8 @@ import cn.zswltech.mithras.service.mapper.lib.fund.financing.FundFinancingRepayA
 import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.*;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.CommonProcessPrepare;
-import cn.zswltech.mithras.service.mapper.model.process.prepare.FinancingRepayActualProcessDetail;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.FinancingRepayActualProcessDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.SysUserService;
@@ -27,7 +28,7 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoS
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowPlanService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
-import cn.zswltech.mithras.service.service.process.prepare.FinancingRepayActualProcessDetailService;
+import cn.zswltech.mithras.workflow.application.process.prepare.FinancingRepayActualProcessDetailService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -43,7 +44,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.enums.CommonProcessPrepareStatus.PEND_COMMIT;
+import static cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus.PEND_COMMIT;
 
 /**
  * @author zhouning
