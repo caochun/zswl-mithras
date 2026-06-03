@@ -21,8 +21,8 @@ import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDeta
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProvisionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProvisionDetail;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

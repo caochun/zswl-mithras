@@ -11,14 +11,14 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.CalculateDetai
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.DepartmentPerCapitalCalculator;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.FinancialCloudMetricCalculator;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.ConditionKey;
-import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentActualDetailMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;

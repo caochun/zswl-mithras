@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.liquidityrisk.*;
 import cn.zswltech.mithras.service.convert.contract.ContractPriceConverter;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
+import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.service.excel.exporter.CashOutflowListExcelExporter;
 import cn.zswltech.mithras.service.excel.model.AssetsCashOutflowListExcelModel;
@@ -33,7 +33,7 @@ import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRep
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.liquidity.infrastructure.persistence.model.risk.BaseAmountSetting;
 import cn.zswltech.mithras.liquidity.infrastructure.persistence.model.risk.FinancingDeliverDetailSetting;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.others.Util;

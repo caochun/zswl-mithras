@@ -80,8 +80,8 @@ import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPled
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.leaseholdproperty.LeaseItemInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.pubInfo.PublicInfoQuery;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.pubinfo.PublicInfoQuery;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewAocPrice;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
@@ -114,7 +114,7 @@ import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService
 import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
 import cn.zswltech.mithras.service.service.lib.groupcreditreview.handler.impl.GroupCreditReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
-import cn.zswltech.mithras.service.service.payment.pubinfo.PublicInfoQueryService;
+import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.*;
 import cn.zswltech.mithras.service.service.trackEvent.TrackEventService;

@@ -14,7 +14,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractSpecialTradeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.ProcessState;
-import cn.zswltech.mithras.service.enums.payment.PaymentMethod;
+import cn.zswltech.mithras.payment.domain.enums.PaymentMethod;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;
 import cn.zswltech.mithras.service.mapper.model.afterlease.PenaltyReduceBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.afterlease.PenaltyReduceDetailRecord;

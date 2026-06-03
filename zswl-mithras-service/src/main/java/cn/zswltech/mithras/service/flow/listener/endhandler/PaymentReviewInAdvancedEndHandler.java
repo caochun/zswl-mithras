@@ -4,7 +4,7 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import lombok.extern.slf4j.Slf4j;

@@ -62,7 +62,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

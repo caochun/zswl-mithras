@@ -19,10 +19,10 @@ import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPayInf
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPlanInfoQuery;
 import cn.zswltech.mithras.service.mapper.model.dashboard.DashboardProjectPlanInfoResult;
 import cn.zswltech.mithras.service.mapper.model.kpi.PerformanceBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentCollectionInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.payment.PaymentCollectionInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentCollectionInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentCollectionInfoMapper;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.util.LongUtil;

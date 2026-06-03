@@ -8,9 +8,9 @@
 //import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 //import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
 //import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
-//import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
-//import cn.zswltech.mithras.service.mapper.model.payment.FtpPriceInfo;
-//import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+//import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
+//import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpPriceInfo;
+//import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 //import cn.zswltech.mithras.service.others.MithrasException;
 //import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;

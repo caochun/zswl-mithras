@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionRecordWriteOffStatus;
 import cn.zswltech.mithras.contract.enums.contract.LPRTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
-import cn.zswltech.mithras.service.enums.payment.PaymentMethod;
+import cn.zswltech.mithras.payment.domain.enums.PaymentMethod;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projestablish.RateType;
 import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;

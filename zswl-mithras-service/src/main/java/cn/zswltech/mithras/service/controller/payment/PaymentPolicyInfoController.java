@@ -15,10 +15,10 @@ import cn.zswltech.mithras.service.auth.checker.payment.PaymentModifyAuthChecker
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentPolicyInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.payment.PaymentPolicyInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPolicyInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentPolicyInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

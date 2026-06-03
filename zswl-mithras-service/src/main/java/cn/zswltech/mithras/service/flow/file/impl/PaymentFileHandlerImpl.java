@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.flow.file.impl;
 
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.payment.LendingMaterialType;
+import cn.zswltech.mithras.payment.domain.enums.LendingMaterialType;
 import cn.zswltech.mithras.service.flow.file.IFileHandler;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;

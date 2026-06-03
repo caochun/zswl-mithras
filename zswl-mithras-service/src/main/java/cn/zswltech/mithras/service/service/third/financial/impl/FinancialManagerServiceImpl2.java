@@ -19,7 +19,7 @@ import cn.zswltech.mithras.third.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionRecordInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginRecordInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.third.mapper.model.SyncCqRecord;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;

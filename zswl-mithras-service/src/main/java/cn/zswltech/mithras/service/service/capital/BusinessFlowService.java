@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingBizTypeEnum
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingTimeLimitTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.ExpenseType;
-import cn.zswltech.mithras.service.enums.payment.PaymentMethod;
+import cn.zswltech.mithras.payment.domain.enums.PaymentMethod;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.third.enums.*;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;

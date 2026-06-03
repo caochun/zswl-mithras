@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.text.*;
-import cn.zswltech.mithras.service.enums.payment.LendingMaterialType;
+import cn.zswltech.mithras.payment.domain.enums.LendingMaterialType;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTextManageMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

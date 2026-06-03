@@ -47,9 +47,9 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.dashboard.*;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.third.providence.entity.BillOverdue;
 import cn.zswltech.mithras.third.providence.mapper.BillOverdueMapper;

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.flow.form.PaymentUpdateIrrRSP;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

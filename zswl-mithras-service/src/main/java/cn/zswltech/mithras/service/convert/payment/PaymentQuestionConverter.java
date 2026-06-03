@@ -2,8 +2,8 @@ package cn.zswltech.mithras.service.convert.payment;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionModifyReq;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentQuestionnaire;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentQuestionnaireAnswer;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaire;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

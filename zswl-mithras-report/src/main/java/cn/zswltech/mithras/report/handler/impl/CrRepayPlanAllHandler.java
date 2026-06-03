@@ -23,8 +23,8 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

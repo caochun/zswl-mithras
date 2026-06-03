@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardCardGroupEnum;
-import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
+import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.dashboard.DashboardProjectStageMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;

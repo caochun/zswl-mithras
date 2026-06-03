@@ -27,7 +27,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
-import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskOpinionWarnCordType;
 import cn.zswltech.mithras.riskcontrol.common.RiskRelationTypeEnum;
@@ -35,7 +35,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.Cli
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ProjClientRole;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;

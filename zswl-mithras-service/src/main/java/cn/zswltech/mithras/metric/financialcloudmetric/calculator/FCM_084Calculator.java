@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;

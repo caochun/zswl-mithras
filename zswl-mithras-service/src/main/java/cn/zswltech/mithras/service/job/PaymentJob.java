@@ -2,12 +2,12 @@ package cn.zswltech.mithras.service.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
-import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
+import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
-import cn.zswltech.mithras.service.service.payment.pubinfo.PublicInfoQueryService;
+import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.context.XxlJobHelper;

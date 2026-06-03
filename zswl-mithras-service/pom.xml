@@ -271,7 +271,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-payment</artifactId>
+            <artifactId>zswl-mithras-payment</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

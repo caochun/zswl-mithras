@@ -53,7 +53,7 @@ import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiBizRender;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.contract.ContractAccountService;

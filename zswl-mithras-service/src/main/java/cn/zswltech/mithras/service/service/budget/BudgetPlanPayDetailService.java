@@ -58,7 +58,7 @@ import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfoLib;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewLeasePrice;
-import cn.zswltech.mithras.service.mapper.payment.PaymentActualDetailMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.Id2NameService;

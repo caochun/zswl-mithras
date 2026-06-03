@@ -37,7 +37,7 @@ import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingCashFlowPlan;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingLeasePrice;

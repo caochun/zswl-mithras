@@ -3,8 +3,8 @@ package cn.zswltech.mithras.service.convert.payment;
 import cn.zswltech.mithras.api.payment.writeoff.ActualDetailPostReq;
 import cn.zswltech.mithras.api.payment.writeoff.ActualDetailDto;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetailUnconfirmed;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetailUnconfirmed;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

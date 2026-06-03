@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.mapper.model.collection.CollectionOverdueReco
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;

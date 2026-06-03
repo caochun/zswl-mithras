@@ -16,11 +16,11 @@ import cn.zswltech.mithras.service.auth.checker.payment.PaymentActualDetailOpera
 import cn.zswltech.mithras.service.controller.payment.checker.PaymentWriteOffAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentCollectionInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentCollectionInfo;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailUnconfirmedService;
-import cn.zswltech.mithras.service.service.payment.PaymentWriteOffHistoryService;
+import cn.zswltech.mithras.payment.application.PaymentWriteOffHistoryService;
 import cn.zswltech.mithras.service.service.payment.PaymentWriteOffService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;

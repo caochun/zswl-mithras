@@ -24,8 +24,8 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMappe
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

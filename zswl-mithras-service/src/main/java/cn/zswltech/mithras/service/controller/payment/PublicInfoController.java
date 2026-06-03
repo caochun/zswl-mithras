@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.controller.payment;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.payment.PublicInfoApi;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.*;
-import cn.zswltech.mithras.service.service.payment.pubinfo.PublicInfoQueryService;
+import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;
 import groovy.util.logging.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

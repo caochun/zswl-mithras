@@ -34,8 +34,8 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;

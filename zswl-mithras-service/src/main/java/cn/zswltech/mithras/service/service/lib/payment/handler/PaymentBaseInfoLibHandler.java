@@ -1,9 +1,11 @@
 package cn.zswltech.mithras.service.service.lib.payment.handler;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
+import cn.zswltech.mithras.payment.application.lib.handler.PaymentAbstractHandler;
+import cn.zswltech.mithras.payment.application.lib.handler.PaymentInfoModule;
 import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfoLib;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfoLib;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import com.baomidou.mybatisplus.annotation.TableField;
 import org.springframework.stereotype.Service;

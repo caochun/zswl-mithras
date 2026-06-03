@@ -4,7 +4,7 @@ import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.service.mapper.payment.PaymentActualDetailMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.service.riskcontrol.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;

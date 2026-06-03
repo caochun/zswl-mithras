@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.auth.rule.DataAuthProcessRule;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;

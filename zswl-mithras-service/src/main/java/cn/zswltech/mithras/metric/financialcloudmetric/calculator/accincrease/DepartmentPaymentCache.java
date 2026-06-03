@@ -2,10 +2,10 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptLaunchWeight;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptLaunchWeightService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;

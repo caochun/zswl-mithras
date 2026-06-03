@@ -66,7 +66,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.app.
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;

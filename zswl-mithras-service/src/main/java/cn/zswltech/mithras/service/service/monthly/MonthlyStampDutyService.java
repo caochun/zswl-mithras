@@ -11,7 +11,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.mapper.model.fund.FundOrganization;
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.monthly.MonthlyStampDuty;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.monthly.MonthlyStampDutyMapper;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

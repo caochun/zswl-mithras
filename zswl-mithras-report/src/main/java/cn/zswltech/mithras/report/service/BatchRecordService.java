@@ -18,7 +18,7 @@ import cn.zswltech.mithras.report.mapper.model.BatchRecord;
 import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.payment.pubinfo.PublicInfoFileTypeEnum;
+import cn.zswltech.mithras.payment.domain.enums.pubinfo.PublicInfoFileTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ProjClientRole;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

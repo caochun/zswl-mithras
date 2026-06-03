@@ -9,11 +9,11 @@ import cn.zswltech.mithras.service.controller.payment.checker.PaymentQuestionnai
 import cn.zswltech.mithras.service.controller.payment.checker.PaymentSubModifyChecker;
 import cn.zswltech.mithras.service.convert.payment.PaymentQuestionConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentQuestionnaire;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentQuestionnaireAnswer;
-import cn.zswltech.mithras.service.mapper.payment.PaymentQuestionnaireAnswerMapper;
-import cn.zswltech.mithras.service.mapper.payment.PaymentQuestionnaireMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaire;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswer;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentQuestionnaireAnswerMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentQuestionnaireMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -14,7 +14,7 @@
 //import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 //import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 //import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-//import cn.zswltech.mithras.service.enums.payment.PaymentStatusEnum;
+//import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
 //import cn.zswltech.mithras.service.job.FtpInterestJob;
 //import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 //import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
@@ -23,10 +23,10 @@
 //import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfit;
 //import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDetail;
 //import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
-//import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
-//import cn.zswltech.mithras.service.mapper.model.payment.FtpPriceInfo;
-//import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-//import cn.zswltech.mithras.service.mapper.payment.FtpPriceInfoMapper;
+//import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
+//import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpPriceInfo;
+//import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+//import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.FtpPriceInfoMapper;
 //import cn.zswltech.mithras.service.others.MithrasException;
 //import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitDetailService;
 //import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitService;

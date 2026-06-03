@@ -19,10 +19,10 @@ import cn.zswltech.mithras.service.mapper.model.afterlease.CollectionPenaltyRedu
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

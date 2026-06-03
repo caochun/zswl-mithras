@@ -2,14 +2,16 @@ package cn.zswltech.mithras.service.service.lib.payment.handler;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListRsp;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentQuestionnaireAnswer;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentQuestionnaireAnswerLib;
+import cn.zswltech.mithras.payment.application.lib.handler.PaymentAbstractHandler;
+import cn.zswltech.mithras.payment.application.lib.handler.PaymentInfoModule;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswer;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswerLib;
 import cn.zswltech.mithras.service.service.payment.PaymentQuestionnaireAnswerService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-import static cn.zswltech.mithras.service.service.lib.payment.handler.PaymentInfoModule.QUESTIONNAIRE;
+import static cn.zswltech.mithras.payment.application.lib.handler.PaymentInfoModule.QUESTIONNAIRE;
 
 /**
  * @description:

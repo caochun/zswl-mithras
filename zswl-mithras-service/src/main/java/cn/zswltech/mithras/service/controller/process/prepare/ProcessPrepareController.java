@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.job.NextMonthRentNotify;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.FinancingRepayActualProcessDetail;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.RentCollectionMonthDetail;

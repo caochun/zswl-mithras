@@ -45,7 +45,7 @@ import cn.zswltech.mithras.dto.utils.CashFlowGenerationIrrREQ;
 import cn.zswltech.mithras.service.controller.contract.ContractRentController;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.afterlease.RentCollectionIndexFilterConditionType;
-import cn.zswltech.mithras.service.enums.app.AppPaymentStatus;
+import cn.zswltech.mithras.payment.domain.enums.app.AppPaymentStatus;
 import cn.zswltech.mithras.service.enums.app.AppProjStageStatus;
 import cn.zswltech.mithras.customer.domain.enums.app.VisitDownloadTaskStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;

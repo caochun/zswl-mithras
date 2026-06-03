@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.excel.model.CashFlowRichExcelModel;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.contract.application.dto.ContractActualCashFlowExporterBO;
 import cn.zswltech.mithras.service.service.contract.ContractFactoringPriceService;
 import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;

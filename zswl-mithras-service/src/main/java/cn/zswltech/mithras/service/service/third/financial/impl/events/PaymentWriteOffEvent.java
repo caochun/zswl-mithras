@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.third.financial.impl.events;
 
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 

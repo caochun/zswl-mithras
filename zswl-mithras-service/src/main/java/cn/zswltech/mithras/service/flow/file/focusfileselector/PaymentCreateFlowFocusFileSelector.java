@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.flow.file.focusfileselector;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.bo.FileBO;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

@@ -17,8 +17,8 @@ import cn.zswltech.mithras.associationreport.service.AssociationEntityEconomySer
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationEntityEconomyService;
 import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.dashboard.GuanYuanOperationService;

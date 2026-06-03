@@ -10,7 +10,7 @@ import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.ProjClientRoleService;

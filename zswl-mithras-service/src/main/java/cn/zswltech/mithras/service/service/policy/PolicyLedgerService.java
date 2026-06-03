@@ -34,12 +34,12 @@ import cn.zswltech.mithras.policy.infrastructure.persistence.dto.PolicyListParam
 import cn.zswltech.mithras.service.mapper.dto.*;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentPolicyInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPolicyInfo;
 import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfoTmp;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;

@@ -18,8 +18,8 @@ import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
@@ -49,7 +49,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus.WRITTEN_OFF;
+import static cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus.WRITTEN_OFF;
 
 /**
  * @description:

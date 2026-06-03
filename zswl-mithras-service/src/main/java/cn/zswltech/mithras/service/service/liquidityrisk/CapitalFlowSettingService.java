@@ -7,7 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.liquidityrisk.*;
-import cn.zswltech.mithras.service.enums.payment.PaymentWriteOffStatus;
+import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.dto.FundFinancingRepayActualDTO;
 import cn.zswltech.mithras.service.mapper.lib.fund.financing.FundFinancingRepayActualLibMapper;
@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepa
 import cn.zswltech.mithras.service.mapper.model.fund.financing.FundFinancingRepayActualLib;
 import cn.zswltech.mithras.liquidity.infrastructure.persistence.model.risk.BaseAmountSetting;
 import cn.zswltech.mithras.liquidity.infrastructure.persistence.model.risk.FinancingDeliverDetailSetting;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;

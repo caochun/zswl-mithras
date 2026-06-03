@@ -5,7 +5,7 @@
 //import cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease.DepartmentPaymentCache;
 //import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
 //import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricValueService;
-//import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+//import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 //import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 //import cn.zswltech.mithras.service.util.LongUtil;
 //import org.springframework.stereotype.Component;

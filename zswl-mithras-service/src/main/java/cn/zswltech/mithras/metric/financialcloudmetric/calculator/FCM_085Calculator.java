@@ -2,10 +2,10 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.mapper.model.collection;
 
-import cn.zswltech.mithras.service.enums.payment.WriteOffTypeEnum;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.service.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.*;

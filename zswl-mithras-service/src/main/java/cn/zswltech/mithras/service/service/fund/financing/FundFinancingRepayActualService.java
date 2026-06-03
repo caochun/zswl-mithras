@@ -17,8 +17,8 @@ import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingChangeSubTy
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingProcessStatus;
 import cn.zswltech.mithras.service.enums.fund.financing.FundFinancingSceneEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
-import cn.zswltech.mithras.service.enums.payment.WriteOffTypeEnum;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffTypeEnum;
 import cn.zswltech.mithras.service.excel.exporter.FundFinancingRepayActualExporter;
 import cn.zswltech.mithras.service.excel.importer.FundFinancingRepayImporter;
 import cn.zswltech.mithras.service.excel.model.FundFinancingRepayActualExcelModel;

@@ -29,7 +29,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.SysUserService;

@@ -11,8 +11,8 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractLeasePriceLibMap
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePriceLib;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.payment.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import lombok.SneakyThrows;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;

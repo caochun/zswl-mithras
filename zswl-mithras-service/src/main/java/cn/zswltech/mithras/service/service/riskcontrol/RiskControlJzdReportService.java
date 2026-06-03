@@ -15,7 +15,7 @@ import cn.zswltech.mithras.metric.emit.model.req.concentration.ConcentrationAddR
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.riskcontrol.report.jzd.JzdReportAssetsCategory;
 import cn.zswltech.mithras.riskcontrol.report.jzd.JzdReportEconomyComposition;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpCommerceInfoMapper;
@@ -24,7 +24,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.margin.MarginBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReport;
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReportMapper;

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.service.mapper.model.payment.FtpAssessmentInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

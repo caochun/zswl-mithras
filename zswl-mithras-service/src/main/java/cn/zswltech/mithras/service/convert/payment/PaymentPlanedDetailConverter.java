@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.convert.payment;
 
 import cn.zswltech.mithras.api.payment.dto.PlanedDetailDto;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentPlanedDetail;
-import cn.zswltech.mithras.service.mapper.model.payment.PaymentPlanedDetailLib;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPlanedDetail;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPlanedDetailLib;
 import org.mapstruct.Mapper;
 
 import java.util.List;
