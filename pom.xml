@@ -44,10 +44,14 @@
         <module>zswl-mithras-domain-financeprojectdistribution</module>
         <module>zswl-mithras-ftp</module>
         <module>zswl-mithras-domain-projectprocess</module>
+        <module>zswl-mithras-project</module>
         <module>zswl-mithras-domain-payment</module>
         <module>zswl-mithras-domain-afterlease</module>
+        <module>zswl-mithras-afterlease</module>
         <module>zswl-mithras-domain-budget</module>
         <module>zswl-mithras-domain-client</module>
+        <module>zswl-mithras-customer</module>
+        <module>zswl-mithras-identity</module>
         <module>zswl-mithras-contract</module>
         <module>zswl-mithras-domain-collection</module>
         <module>zswl-mithras-riskcontrol</module>
@@ -55,7 +59,9 @@
         <module>zswl-mithras-third</module>
         <module>zswl-mithras-domain-message</module>
         <module>zswl-mithras-domain-dashboard</module>
+        <module>zswl-mithras-workflow</module>
         <module>zswl-mithras-domain-workflow</module>
+        <module>zswl-mithras-document</module>
         <module>zswl-mithras-domain-document</module>
         <module>zswl-mithras-domain-creditlimit</module>
         <module>zswl-mithras-domain-metric</module>
