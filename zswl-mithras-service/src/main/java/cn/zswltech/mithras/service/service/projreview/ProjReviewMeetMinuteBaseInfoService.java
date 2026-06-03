@@ -20,7 +20,7 @@ import cn.zswltech.mithras.dto.trackEvent.TrackEventListRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.flow.FlowProcessConvert;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.afterlease.ClientRole;
+import cn.zswltech.mithras.afterlease.domain.enums.ClientRole;
 import cn.zswltech.mithras.service.enums.app.AppProjStageStatus;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;

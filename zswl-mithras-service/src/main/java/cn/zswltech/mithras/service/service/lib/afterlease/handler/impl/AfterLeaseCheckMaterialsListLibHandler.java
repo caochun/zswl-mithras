@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.service.service.lib.afterlease.handler.AfterLeaseCheckReportLibAbstractHandler;
+import cn.zswltech.mithras.afterlease.application.lib.handler.AfterLeaseCheckReportLibAbstractHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

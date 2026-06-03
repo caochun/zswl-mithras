@@ -56,7 +56,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.afterlese.RentCollectionDetailService;
+import cn.zswltech.mithras.afterlease.application.RentCollectionDetailService;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientService;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyService;
 import cn.zswltech.mithras.service.service.bo.*;

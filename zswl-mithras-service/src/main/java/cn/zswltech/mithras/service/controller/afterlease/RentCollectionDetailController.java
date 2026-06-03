@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.controller.afterlease;
 import cn.zswltech.mithras.api.afterlease.RentCollectionDetailApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.afterlease.rentcollection.*;
-import cn.zswltech.mithras.service.service.afterlese.RentCollectionDetailService;
+import cn.zswltech.mithras.afterlease.application.RentCollectionDetailService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

@@ -2,15 +2,15 @@ package cn.zswltech.mithras.service.job.data_init;
 
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClientLib;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClientLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
-import cn.zswltech.mithras.service.service.lib.afterlease.AfterLeaseCheckPlanClientLibService;
+import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckPlanClientLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

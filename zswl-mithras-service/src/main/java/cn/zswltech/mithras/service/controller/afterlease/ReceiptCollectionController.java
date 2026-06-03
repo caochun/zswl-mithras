@@ -11,14 +11,14 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonModifyMainAuthChec
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.MaterialsEnum;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.service.mapper.model.afterlease.CollectionPenaltyReductionInfo;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.afterlese.CollectionPenaltyReductionService;
+import cn.zswltech.mithras.afterlease.application.CollectionPenaltyReductionService;
 import cn.zswltech.mithras.service.service.afterlese.ReceiptCollectionService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.util.CollectionLevelUtil;
+import cn.zswltech.mithras.afterlease.domain.util.CollectionLevelUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;
 

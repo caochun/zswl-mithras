@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.afterlese;
 
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
 
 import java.io.OutputStream;
 import java.util.List;

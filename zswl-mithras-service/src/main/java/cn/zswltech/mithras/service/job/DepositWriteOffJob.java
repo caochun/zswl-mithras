@@ -11,7 +11,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.afterlease.RentCollectionIndexPaymentState;
+import cn.zswltech.mithras.afterlease.domain.enums.RentCollectionIndexPaymentState;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;

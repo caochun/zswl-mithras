@@ -34,7 +34,7 @@ import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseAdjustEnum;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.*;
@@ -56,7 +56,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMap
 import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.ProcessModifyRemark;
-import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;

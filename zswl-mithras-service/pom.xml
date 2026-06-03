@@ -276,7 +276,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-afterlease</artifactId>
+            <artifactId>zswl-mithras-afterlease</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

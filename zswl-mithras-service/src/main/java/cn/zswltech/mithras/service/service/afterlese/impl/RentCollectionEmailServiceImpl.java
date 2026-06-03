@@ -16,13 +16,13 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeI
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPayAccountService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.genhtml.PaymentNoticeHtmlRender;
-import cn.zswltech.mithras.service.mapper.afterlease.RentCollectionEmailHtmlStoreMapper;
-import cn.zswltech.mithras.service.mapper.afterlease.RentCollectionEmailRecordMapper;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.RentCollectionEmailHtmlStoreMapper;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.RentCollectionEmailRecordMapper;
 import cn.zswltech.mithras.service.mapper.basedata.BaseDataBankAccountMapper;
 import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
-import cn.zswltech.mithras.service.mapper.model.afterlease.RentCollectionEmailHtmlStore;
-import cn.zswltech.mithras.service.mapper.model.afterlease.RentCollectionEmailRecord;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.RentCollectionEmailHtmlStore;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.RentCollectionEmailRecord;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;

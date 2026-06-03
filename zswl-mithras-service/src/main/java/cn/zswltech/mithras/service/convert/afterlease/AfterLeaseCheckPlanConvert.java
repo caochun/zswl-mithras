@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckPlanDetailRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckPlanListRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckSummaryReportRSP;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanBase;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanBase;
 
 /**
  * @author dingqi

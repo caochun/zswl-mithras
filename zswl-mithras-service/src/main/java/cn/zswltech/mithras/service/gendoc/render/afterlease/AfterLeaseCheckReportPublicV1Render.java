@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.gendoc.render.afterlease;
 
 import cn.hutool.poi.excel.ExcelWriter;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTemplateVersionEnum;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckReportTemplateVersionEnum;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

@@ -26,7 +26,7 @@ import cn.zswltech.mithras.workflow.domain.enums.trackevent.TrackTaskBizSourceEn
 import cn.zswltech.mithras.workflow.domain.enums.trackevent.TrackTaskTypeEnum;
 import cn.zswltech.mithras.service.excel.exporter.TrackEventExcelManagerExporter;
 import cn.zswltech.mithras.service.excel.model.TrackEventExcelExporter;
-import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;

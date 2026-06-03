@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.afterlese;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportCSREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportCSRSP;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckReportSummary;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckReportSummary;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

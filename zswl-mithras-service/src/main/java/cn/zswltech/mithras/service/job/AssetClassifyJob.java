@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.afterlese.RentCollectionDetailService;
+import cn.zswltech.mithras.afterlease.application.RentCollectionDetailService;
 import cn.zswltech.mithras.service.service.assetclassify.*;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;

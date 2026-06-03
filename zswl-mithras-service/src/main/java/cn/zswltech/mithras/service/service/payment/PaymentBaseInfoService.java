@@ -49,7 +49,7 @@ import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.afterlease.ClientRole;
+import cn.zswltech.mithras.afterlease.domain.enums.ClientRole;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;

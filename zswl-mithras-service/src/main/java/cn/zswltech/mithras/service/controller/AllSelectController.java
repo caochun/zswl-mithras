@@ -47,7 +47,7 @@ import cn.zswltech.mithras.factory.enums.RatingBizTypeEnum;
 import cn.zswltech.mithras.service.config.enumscan.PullDownEnumProcessor;
 import cn.zswltech.mithras.service.convert.CommonConvert;
 import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckStatusEnum;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckStatusEnum;
 import cn.zswltech.mithras.service.enums.app.*;
 import cn.zswltech.mithras.service.enums.associationreport.*;
 import cn.zswltech.mithras.customer.domain.enums.client.*;

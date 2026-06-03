@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.file.ext.FileListREQAdjustExt;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseAdjustMaterialsEnum;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseAdjustMaterialsEnum;
 import cn.zswltech.mithras.contract.enums.overdue.LitigationFileType;
 import cn.zswltech.mithras.workflow.domain.enums.trackevent.TrackEventMaterialsEnum;
 import cn.zswltech.mithras.service.factory.file.AbstractFileListProvider;

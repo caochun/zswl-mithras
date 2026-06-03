@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.afterlease.AfterLeaseAdjustDetailRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseAdjustInfoListRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseAdjustInfoModifyREQ;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

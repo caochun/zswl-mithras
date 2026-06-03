@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.lib.NewAfterLeaseCheckReportMetaLibMapper">
+
+    <select id="selectLatestListByPlanClientId"
+            resultType="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckReportMetaLib">
+        SELECT t1.*
+        FROM new_after_lease_check_report_meta_lib t1
+        INNER JOIN (
+        SELECT origin_id, MAX(version) as max_version
+        FROM new_after_lease_check_report_meta_lib
+        WHERE check_plan_client_id IN
+        <foreach collection="planClientIdList" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        AND version_type = 1
+        GROUP BY origin_id
+        ) t2 ON t1.origin_id = t2.origin_id AND t1.version = t2.max_version
+        WHERE t1.check_plan_client_id IN
+        <foreach collection="planClientIdList" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        AND t1.version_type = 1
+    </select>
+</mapper>

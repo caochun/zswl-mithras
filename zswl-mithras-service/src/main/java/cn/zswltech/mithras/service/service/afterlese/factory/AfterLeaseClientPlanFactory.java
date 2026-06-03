@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.service.service.afterlese.factory;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseClientPlanRSP;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckTermEnum;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckWayEnum;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckTermEnum;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.service.util.BigDecimalUtil;
 import org.testng.collections.Lists;

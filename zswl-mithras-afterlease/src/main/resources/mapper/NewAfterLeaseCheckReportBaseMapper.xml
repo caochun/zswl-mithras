@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.NewAfterLeaseCheckReportBaseMapper">
+
+    <select id="getAfterLeaseListExpandBO"
+            resultType="cn.zswltech.mithras.afterlease.application.bo.AfterLeaseListExpandBO">
+        SELECT nalcpb.id AS planId,
+        nalcpc.client_id AS clientId,
+        nalcpc.belong_dept_id AS bizDeptId,
+        nalcpc.belong_sponsor_id AS projSponsorUserId,
+        nalcpc.risk_manager_id AS riskControlManagerId,
+        nalcpc.risk_manager_name AS riskControlManagerName
+        FROM new_after_lease_check_plan_base nalcpb
+        LEFT JOIN new_after_lease_check_plan_client nalcpc ON nalcpb.id = nalcpc.plan_id
+        WHERE nalcpb.id IN
+        <foreach collection="planIds" item="planId" open="(" close=")" separator=",">
+            #{planId}
+        </foreach>
+    </select>
+</mapper>

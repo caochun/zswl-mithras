@@ -3,9 +3,9 @@ package cn.zswltech.mithras.service.gendoc.render.afterlease;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelWriter;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTemplateVersionEnum;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckReportDetail;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckReportTemplateVersionEnum;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckReportDetail;
 import org.springframework.stereotype.Component;
 
 import java.io.OutputStream;

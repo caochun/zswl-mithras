@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.gendoc.render.afterlease;
 
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseCheckReportTemplateVersionEnum;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckReportTemplateVersionEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import lombok.extern.slf4j.Slf4j;
 

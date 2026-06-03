@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.service.convert.afterlease;
 
 import cn.zswltech.mithras.dto.afterlease.*;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckExternalQuery;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckExternalQueryClientInfo;
-import cn.zswltech.mithras.service.service.bo.AfterLeaseClientDataBO;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQuery;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
+import cn.zswltech.mithras.afterlease.application.bo.AfterLeaseClientDataBO;
 import org.mapstruct.Mapper;
 
 import java.util.List;

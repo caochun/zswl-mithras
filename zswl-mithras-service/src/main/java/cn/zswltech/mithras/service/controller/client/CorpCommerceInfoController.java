@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.auth.checker.client.ClientModifyMainAuthCheck
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.domain.enums.ClientAuthEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.DomesticOrAbroad;
-import cn.zswltech.mithras.service.mapper.afterlease.NewAfterLeaseCheckPlanClientMapper;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.NewAfterLeaseCheckPlanClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;

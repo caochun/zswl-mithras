@@ -6,7 +6,7 @@ import cn.zswltech.mithras.factory.mapper.RatingClientMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiParameterConfigMapper;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.afterlease.*;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.*;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.app.VisitRecordMapper;
 import cn.zswltech.mithras.archives.infrastructure.persistence.mapper.ArchivesManagementMapper;
 import cn.zswltech.mithras.service.mapper.assetclassify.AssetClassifyClientMapper;

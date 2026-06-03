@@ -46,7 +46,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.afterlese.RentCollectionDetailService;
+import cn.zswltech.mithras.afterlease.application.RentCollectionDetailService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;

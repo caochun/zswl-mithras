@@ -5,7 +5,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.AuthBaseReq;
 import cn.zswltech.mithras.service.auth.checker.IDataAuthChecker;
-import cn.zswltech.mithras.service.enums.AuthCheckSourceSceneEnum;
+import cn.zswltech.mithras.afterlease.domain.enums.AuthCheckSourceSceneEnum;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;

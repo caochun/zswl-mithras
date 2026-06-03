@@ -2,12 +2,12 @@ package cn.zswltech.mithras.service.service.afterlese;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportBaseREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportBaseRSP;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckReportBase;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckReportBase;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.service.bo.AfterLeaseClientDataBO;
-import cn.zswltech.mithras.service.service.bo.AfterLeaseListExpandBO;
+import cn.zswltech.mithras.afterlease.application.bo.AfterLeaseClientDataBO;
+import cn.zswltech.mithras.afterlease.application.bo.AfterLeaseListExpandBO;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 

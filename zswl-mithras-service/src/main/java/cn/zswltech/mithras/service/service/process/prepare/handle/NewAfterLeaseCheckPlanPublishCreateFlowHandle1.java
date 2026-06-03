@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.process.prepare.handle;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.afterlease.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;

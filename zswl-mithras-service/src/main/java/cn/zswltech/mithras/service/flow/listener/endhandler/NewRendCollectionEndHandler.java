@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.afterlease.RentCollectionPenaltyReduceDetailRSP;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProcessEventDescEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.afterlease.PenaltyReduceBaseInfo;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.PenaltyReduceBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projlifecycle.ProjLifecycleEvent;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;

@@ -7,12 +7,12 @@ import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProcessEventDescEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.model.afterlease.CollectionPenaltyReductionInfo;
+import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projlifecycle.ProjLifecycleEvent;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.service.service.afterlese.CollectionPenaltyReductionService;
+import cn.zswltech.mithras.afterlease.application.CollectionPenaltyReductionService;
 import cn.zswltech.mithras.service.service.afterlese.ReceiptCollectionService;
 import org.springframework.stereotype.Component;
 

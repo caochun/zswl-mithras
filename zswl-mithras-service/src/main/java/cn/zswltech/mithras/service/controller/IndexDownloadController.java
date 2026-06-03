@@ -73,7 +73,7 @@ import cn.zswltech.mithras.service.controller.projreview.ProjReviewBaseInfoContr
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.afterlease.*;
+import cn.zswltech.mithras.afterlease.domain.enums.*;
 import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.capital.domain.enums.FinanceCashFlowItemEnum;

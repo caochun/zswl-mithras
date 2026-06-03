@@ -50,8 +50,8 @@
         <module>zswl-mithras-domain-projectprocess</module>
         <module>zswl-mithras-project</module>
         <module>zswl-mithras-payment</module>
-        <module>zswl-mithras-domain-afterlease</module>
-        <module>zswl-mithras-afterlease</module>        <module>zswl-mithras-budget</module>
+        <module>zswl-mithras-afterlease</module>
+        <module>zswl-mithras-budget</module>
         <module>zswl-mithras-customer</module>
         <module>zswl-mithras-identity</module>
         <module>zswl-mithras-contract</module>

@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.CommonFileSortComparator;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonAddSubAuthCheckerNew;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.afterlease.AfterLeaseAdjustMaterialsEnum;
+import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseAdjustMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.service.Id2NameService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseReportService;
