@@ -5,7 +5,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.dashboard.boss.AssetsFiveClassifyListRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
-import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
+import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.dashboard.domain.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.AssetClassifyStatisticsDTO;

@@ -2,11 +2,11 @@ package cn.zswltech.mithras.service.service.riskcontrol.eventbus.subscriber;
 
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassify;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassify;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyService;
-import cn.zswltech.mithras.service.service.lib.assetclassify.AssetClassifyClientAuxiliaryLibService;
+import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyClientAuxiliaryLibService;
 import cn.zswltech.mithras.service.service.riskcontrol.AbstractMetricComputer;
 import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;

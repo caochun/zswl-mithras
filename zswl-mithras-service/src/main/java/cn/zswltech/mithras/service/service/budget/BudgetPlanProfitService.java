@@ -20,7 +20,7 @@ import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
+import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.budget.domain.enums.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.budget.domain.enums.BudgetPlanCalculateStatusEnum;
 import cn.zswltech.mithras.budget.domain.enums.BudgetPlanTypeEnum;

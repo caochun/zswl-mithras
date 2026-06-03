@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.CacheEnum;
-import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
+import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.kpi.KpiProvisionStatusEnum;
 import cn.zswltech.mithras.service.excel.exporter.kpi.KpiProvisionBaseInfoDetailExcelExporter;
 import cn.zswltech.mithras.service.excel.model.kpi.KpiProvisionBaseInfoDetailExcelModel;

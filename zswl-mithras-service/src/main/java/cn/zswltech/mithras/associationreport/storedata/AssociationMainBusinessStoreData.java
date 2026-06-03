@@ -14,7 +14,7 @@ import cn.zswltech.gruul.dao.dal.entity.SystemConfigDO;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.customer.domain.enums.OrgScaleType;
-import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
+import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationDictionaryCategoryEnum;
 import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;

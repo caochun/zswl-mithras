@@ -3,8 +3,8 @@ package cn.zswltech.mithras.service.convert.assetclassify;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientDetailRSP;
 import cn.zswltech.mithras.dto.assetclassify.QuarterDetailRSP;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassify;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassify;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

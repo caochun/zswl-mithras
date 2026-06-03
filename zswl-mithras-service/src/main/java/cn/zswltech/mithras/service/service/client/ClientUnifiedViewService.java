@@ -42,7 +42,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpC
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardProjectStageMapper;
 import cn.zswltech.mithras.contract.mapper.dto.OcContractDto;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;

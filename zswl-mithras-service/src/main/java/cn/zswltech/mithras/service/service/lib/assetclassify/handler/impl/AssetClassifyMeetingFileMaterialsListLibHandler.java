@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.lib.assetclassify.handler.impl;
+package cn.zswltech.mithras.assetclassify.application.lib.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.service.service.lib.assetclassify.handler.AssetClassifyAbstractLibHandler;
+import cn.zswltech.mithras.assetclassify.application.lib.handler.AssetClassifyAbstractLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

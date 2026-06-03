@@ -9,8 +9,8 @@ import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingBaseInf
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.*;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.app.VisitRecordMapper;
 import cn.zswltech.mithras.archives.infrastructure.persistence.mapper.ArchivesManagementMapper;
-import cn.zswltech.mithras.service.mapper.assetclassify.AssetClassifyClientMapper;
-import cn.zswltech.mithras.service.mapper.assetclassify.AssetClassifyMapper;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.AssetClassifyClientMapper;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.AssetClassifyMapper;
 import cn.zswltech.mithras.service.mapper.associationreport.AssociationReportApplyMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientTransferMapper;

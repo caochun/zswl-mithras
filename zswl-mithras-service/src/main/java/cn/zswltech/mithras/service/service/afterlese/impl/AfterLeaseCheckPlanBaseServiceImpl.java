@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseCheckPlanConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.afterlease.domain.enums.*;
-import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
+import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
@@ -56,7 +56,7 @@ import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.lib.NewA
 import cn.zswltech.mithras.service.mapper.message.MessageModel;
 import cn.zswltech.mithras.service.mapper.message.NoticeMessageBody;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.*;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;

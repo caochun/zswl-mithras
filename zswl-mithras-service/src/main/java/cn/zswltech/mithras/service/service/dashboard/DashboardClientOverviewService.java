@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.AccountReq;
 import cn.zswltech.mithras.dto.client.client.ClientListRSP;
 import cn.zswltech.mithras.dto.client.lifecycle.CardName;
 import cn.zswltech.mithras.dto.dashboard.*;
-import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyResultEnum;
+import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.domain.enums.client.EnterpriseNatureEnum;

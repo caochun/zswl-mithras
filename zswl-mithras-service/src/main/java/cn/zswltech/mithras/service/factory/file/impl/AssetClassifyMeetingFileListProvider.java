@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.assetclassify.AssetClassifyMaterialsEnum;
+import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyMaterialsEnum;
 import cn.zswltech.mithras.service.factory.file.AbstractFileListProvider;
 import cn.zswltech.mithras.service.factory.file.bo.FileListExtQuery;
 import org.springframework.stereotype.Component;

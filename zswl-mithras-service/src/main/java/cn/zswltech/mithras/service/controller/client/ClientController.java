@@ -38,8 +38,8 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.Cli
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientTransferMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientTransferWeightMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.service.mapper.lib.assetclassify.AssetClassifyClientAuxiliaryLibMapper;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.lib.AssetClassifyClientAuxiliaryLibMapper;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;

@@ -2,8 +2,8 @@ package cn.zswltech.mithras.others.service.service;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyCheckContent;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyCheckContent;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyCheckContentService;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

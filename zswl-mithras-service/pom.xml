@@ -236,7 +236,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-assetclassify</artifactId>
+            <artifactId>zswl-mithras-assetclassify</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

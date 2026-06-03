@@ -1,13 +1,13 @@
-package cn.zswltech.mithras.service.service.lib.assetclassify;
+package cn.zswltech.mithras.assetclassify.application.lib;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientListREQ;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.mapper.lib.assetclassify.AssetClassifyClientAuxiliaryLibMapper;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClientAuxiliaryLib;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.lib.AssetClassifyClientAuxiliaryLibMapper;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClientAuxiliaryLib;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyCommonService;
-import cn.zswltech.mithras.service.service.lib.assetclassify.handler.impl.AssetClassifyClientAuxiliaryLibHandler;
+import cn.zswltech.mithras.assetclassify.application.lib.handler.impl.AssetClassifyClientAuxiliaryLibHandler;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

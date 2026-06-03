@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientListREQ;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.mapper.model.assetclassify.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
