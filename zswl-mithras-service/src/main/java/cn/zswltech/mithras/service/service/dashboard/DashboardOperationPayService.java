@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.dashboard.BusinessGroupEnum;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardAdjustPositionEnum;
 import cn.zswltech.mithras.service.enums.dashboard.DashboardExcelFileTypeEnum;
-import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewMaterialsEnum;
+import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewMaterialsEnum;
 import cn.zswltech.mithras.service.enums.kpi.BelongTypeEnum;
 import cn.zswltech.mithras.service.enums.kpi.BusinessTypeEnum;
 import cn.zswltech.mithras.service.excel.importer.DashboardAdjustPersonImporter;

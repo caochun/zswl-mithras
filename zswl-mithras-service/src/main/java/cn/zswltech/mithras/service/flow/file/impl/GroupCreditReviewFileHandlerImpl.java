@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.flow.file.impl;
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewMaterialsEnum;
+import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewMaterialsEnum;
 import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.service.flow.file.IFileHandler;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

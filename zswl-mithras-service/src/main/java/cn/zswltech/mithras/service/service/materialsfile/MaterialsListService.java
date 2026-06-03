@@ -29,7 +29,7 @@ import cn.zswltech.mithras.service.enums.client.ClientMaterialsDisplayEnum;
 import cn.zswltech.mithras.service.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.client.CorporationClientMaterialTypeEnum;
 import cn.zswltech.mithras.service.enums.client.NormalClientMaterialTypeEnum;
-import cn.zswltech.mithras.service.enums.groupcreditestablish.GroupCreditEstablishMaterialsEnum;
+import cn.zswltech.mithras.credit.domain.groupcredit.establish.enums.GroupCreditEstablishMaterialsEnum;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishMaterialsApproveEnum;
 import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishMaterialsEnum;
 import cn.zswltech.mithras.service.enums.projpricing.ProjPricingMaterialsEnum;

@@ -28,7 +28,7 @@ import cn.zswltech.mithras.service.enums.projreview.*;
 import cn.zswltech.mithras.service.flow.dynamicform.projreview.SetMeetingPlanDateHandler;
 import cn.zswltech.mithras.service.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewMeetMinuteBaseInfo;

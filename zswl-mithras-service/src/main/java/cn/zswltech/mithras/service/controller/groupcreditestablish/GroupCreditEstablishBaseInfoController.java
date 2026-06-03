@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.groupcreditestablish.GroupCreditEstablishListREQ;
 import cn.zswltech.mithras.dto.groupcreditestablish.GroupCreditEstablishListRSP;
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.*;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ClientIdREQ;
-import cn.zswltech.mithras.service.mapper.model.groupcreditestablish.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import org.springframework.web.bind.annotation.RestController;

@@ -11,11 +11,11 @@ import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportR
 import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportUploadREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewMaterialsEnum;
+import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.service.mapper.groupcreditreview.GroupCreditReviewBaseInfoMapper;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;

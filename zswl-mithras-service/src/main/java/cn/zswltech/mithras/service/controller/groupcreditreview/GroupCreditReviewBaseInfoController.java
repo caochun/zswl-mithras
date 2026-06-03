@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.groupcreditestablish.GroupCreditEstablishVagueLis
 import cn.zswltech.mithras.dto.groupcreditreview.GroupCreditReviewListREQ;
 import cn.zswltech.mithras.dto.groupcreditreview.GroupCreditReviewListRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.baseinfo.*;
-import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewService;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.factory.file.impl;
 
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewMaterialsEnum;
+import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewMaterialsEnum;
 import cn.zswltech.mithras.service.factory.file.AbstractFileListProvider;
 import org.springframework.stereotype.Component;
 

@@ -3,12 +3,12 @@ package cn.zswltech.mithras.service.service.lib.groupcreditreview.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.groupcreditreview.baseinfo.GroupCreditReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.service.convert.groupcreditreview.GroupCreditReviewBaseInfoConverter;
-import cn.zswltech.mithras.service.enums.groupcreditreview.GroupCreditReviewInfoModule;
-import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfoLib;
+import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewInfoModule;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
-import cn.zswltech.mithras.service.service.lib.groupcreditreview.handler.GroupCreditReviewLibAbstractHandler;
+import cn.zswltech.mithras.credit.application.groupcredit.review.handler.GroupCreditReviewLibAbstractHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper">
+
+    <select id="myList" resultType="cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo">
+        select a.*
+        from group_credit_review_base_info a
+        <where>
+            <if test="dto.clientId!=null">and a.client_id=#{dto.clientId}</if>
+            <if test="dto.projName!=null and dto.projName!=''">and a.proj_name like CONCAT('%',#{dto.projName},'%')</if>
+            <if test="dto.projCode!=null and dto.projCode!=''">and a.proj_code like CONCAT('%',#{dto.projCode}, '%')
+            </if>
+            <if test="dto.bizDeptId!=null">and a.biz_dept_id=#{dto.bizDeptId}</if>
+            <if test="dto.projSponsorUserId!=null">and a.proj_sponsor_user_id=#{dto.projSponsorUserId}</if>
+            <if test="dto.groupCreditReviewStatus!=null">and a.group_credit_review_status=#{dto.groupCreditReviewStatus}</if>
+            <if test="dto.groupCreditReviewProcessStatus!=null">and a.group_credit_review_process_status=#{dto.groupCreditReviewProcessStatus}</if>
+            <if test="dto.createFrom!=null">and a.create_time &gt;= #{dto.createFrom}</if>
+            <if test="dto.createTo!=null">and a.create_time &lt;= #{dto.createTo}</if>
+            <if test="dto.updateFrom!=null">and a.update_time &gt;= #{dto.updateFrom}</if>
+            <if test="dto.updateTo!=null">and a.update_time &lt;= #{dto.updateTo}</if>
+            <if test="dto.creditAmountFrom!=null">and a.apply_credit_amount &gt;= #{dto.creditAmountFrom}</if>
+            <if test="dto.creditAmountTo!=null">and a.apply_credit_amount &lt;= #{dto.creditAmountTo}</if>
+            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+        </where>
+        order by update_time desc
+    </select>
+</mapper>

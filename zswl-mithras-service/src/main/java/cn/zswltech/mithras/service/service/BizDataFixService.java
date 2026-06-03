@@ -72,8 +72,8 @@ import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptFlo
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.fund.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDetailReceipt;
-import cn.zswltech.mithras.service.mapper.model.groupcreditestablish.GroupCreditEstablishBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.groupcreditreview.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.kpi.*;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentBaseInfo;

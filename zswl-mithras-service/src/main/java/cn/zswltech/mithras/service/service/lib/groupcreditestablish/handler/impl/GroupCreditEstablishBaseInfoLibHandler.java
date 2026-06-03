@@ -4,12 +4,12 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.GroupCreditEstablishBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
 import cn.zswltech.mithras.service.convert.groupcreditestablish.GroupCreditEstablishBaseInfoConverter;
-import cn.zswltech.mithras.service.enums.groupcreditestablish.GroupCreditEstablishInfoModule;
-import cn.zswltech.mithras.service.mapper.model.groupcreditestablish.GroupCreditEstablishBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.groupcreditestablish.GroupCreditEstablishBaseInfoLib;
+import cn.zswltech.mithras.credit.domain.groupcredit.establish.enums.GroupCreditEstablishInfoModule;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
-import cn.zswltech.mithras.service.service.lib.groupcreditestablish.handler.GroupCreditEstablishLibAbstractHandler;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.handler.GroupCreditEstablishLibAbstractHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -226,7 +226,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-groupcredit</artifactId>
+            <artifactId>zswl-mithras-credit</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
