@@ -33,7 +33,7 @@ import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.service.enums.payment.WriteOffStatus;
 import cn.zswltech.mithras.service.enums.projlifecycle.ProjStageEnum;
-import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricRole;
+import cn.zswltech.mithras.workbench.domain.enums.WorkbenchMetricRole;
 import cn.zswltech.mithras.service.mapper.dto.ClientProjLifecycleListParam;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;

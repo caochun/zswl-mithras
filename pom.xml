@@ -60,8 +60,7 @@
         <module>zswl-mithras-contract</module>
         <module>zswl-mithras-domain-collection</module>
         <module>zswl-mithras-riskcontrol</module>
-        <module>zswl-mithras-domain-workbench</module>
-        <module>zswl-mithras-workbench</module>
+                <module>zswl-mithras-workbench</module>
         <module>zswl-mithras-third</module>
         <module>zswl-mithras-domain-message</module>
         <module>zswl-mithras-domain-dashboard</module>

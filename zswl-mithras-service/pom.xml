@@ -306,7 +306,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-workbench</artifactId>
+            <artifactId>zswl-mithras-workbench</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.workbench.CardMetricChooseDto;
 import cn.zswltech.mithras.dto.workbench.WorkBenchRoleListRsp;
 import cn.zswltech.mithras.dto.workbench.WorkbenchCardMetricListRsp;
 import cn.zswltech.mithras.dto.workbench.WorkbenchMetricReq;
-import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricRole;
+import cn.zswltech.mithras.workbench.domain.enums.WorkbenchMetricRole;
 import cn.zswltech.mithras.service.service.workbench.WorkbenchCardMetricService;
 import org.springframework.web.bind.annotation.RestController;
 

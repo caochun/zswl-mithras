@@ -2,11 +2,11 @@ package cn.zswltech.mithras.service.service.workbench.Initjob;
 
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
-import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchHyperlink;
-import cn.zswltech.mithras.service.mapper.model.workbench.WorkbenchShortcuts;
+import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchHyperlink;
+import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchShortcuts;
 import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.service.service.workbench.WorkbenchHyperlinkService;
-import cn.zswltech.mithras.service.service.workbench.WorkbenchShortcutsService;
+import cn.zswltech.mithras.workbench.application.WorkbenchHyperlinkService;
+import cn.zswltech.mithras.workbench.application.WorkbenchShortcutsService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

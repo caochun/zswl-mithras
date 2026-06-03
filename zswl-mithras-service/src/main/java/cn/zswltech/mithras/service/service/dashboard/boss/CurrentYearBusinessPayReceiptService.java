@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.dashboard.boss.CurrentYearBusinessPayReceiptRateListREQ;
 import cn.zswltech.mithras.dto.dashboard.boss.CurrentYearBusinessPayReceiptRateListRSP;
 import cn.zswltech.mithras.service.enums.dashboard.DashBoardQueryTypeEnum;
-import cn.zswltech.mithras.service.enums.workbench.WorkbenchMetricDeptScope;
+import cn.zswltech.mithras.workbench.domain.enums.WorkbenchMetricDeptScope;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.payment.PaymentActualDetail;
