@@ -31,7 +31,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.F
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayBatchMapper;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.kpi.KpiProjectDistributionMapper;
+import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionMapper;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.AppraisalCompanyWhitelistMapper;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.LeaseItemInfoMapper;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.TycAppraisalCompanyBaseInfoMapper;
@@ -44,7 +44,7 @@ import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoMa
 import cn.zswltech.mithras.service.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.projpricing.ProjPricingBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.stampduty.StampDutyMapper;
+import cn.zswltech.mithras.finance.mapper.stampduty.StampDutyMapper;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.trackevent.TrackEventMapper;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.mapper.DocPrintingMapper;
 import cn.zswltech.mithras.contract.overdue.infrastructure.dao.mapper.LitigationRegistrationMapper;

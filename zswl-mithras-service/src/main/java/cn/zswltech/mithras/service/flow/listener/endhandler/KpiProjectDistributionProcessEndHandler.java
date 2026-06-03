@@ -9,12 +9,12 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
-import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfo;
+import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
+import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionBaseInfoService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;
-import cn.zswltech.mithras.service.service.lib.kpi.KpiProjectDistributionLibVersionService;
+import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionLibVersionService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.kpi;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.enums.kpi.config.TaxRateEnum;
+import cn.zswltech.mithras.kpi.enums.config.TaxRateEnum;
 import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
 import org.junit.Test;
 

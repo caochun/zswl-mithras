@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.liquiditymanage.fundTransfer.*;
 import cn.zswltech.mithras.service.enums.basedata.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.liquidity.SettingTimeEnum;
-import cn.zswltech.mithras.service.enums.kpi.BusinessTypeEnum;
+import cn.zswltech.mithras.kpi.enums.BusinessTypeEnum;
 import cn.zswltech.mithras.service.mapper.basedata.BaseDataBankAccountMapper;
 import cn.zswltech.mithras.service.mapper.liquiditymanage.AccountBalanceBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.basedata.BaseDataBankAccount;

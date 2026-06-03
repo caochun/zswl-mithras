@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.finance.mapper.ProfitCalculateResultMapper">
+    <select id="myPageList" resultType="cn.zswltech.mithras.finance.bo.ProfitCalculateResultBO">
+        select
+        a.id as id,
+        a.calculate_date as calculateDate,
+        a.contract_id as contractId,
+        a.contract_start_date as contractStartDate,
+        a.confirm_income_this_year as confirmIncomeThisYear,
+        a.calculate_interest_this_year as calculateInterestThisYear,
+        a.operating_income as operatingIncome,
+        a.ftp_interest as ftpInterest,
+        a.risk_balance_end_of_last_year as riskBalanceEndOfLastYear,
+        a.risk_balance_end_of_this_year as riskBalanceEndOfThisYear,
+        a.additional_tax as additionalTax,
+        a.profit as profit,
+        a.profit_exclude_fee as profitExcludeFee,
+        a.remaining_principle_end_of_this_year as remainingPrincipleEndOfThisYear,
+        a.remaining_earnest_end_of_this_year as remainingEarnestEndOfThisYear,
+        b.contract_code as contractCode,
+        b.biz_dept_id as bizDeptId,
+        b.client_id as clientId,
+        b.biz_type as bizType,
+        b.lease_type as leaseType,
+        b.factoring_type as factoringType,
+        b.zr_type as zrType,
+        c.client_name as clientName,
+        d.risk_control_industry_classify as riskControlIndustryClassify,
+        e.name as bizDeptName
+        from profit_calculate_result as a
+        left join contract_base_info as b on a.contract_id = b.id
+        left join client as c on a.contract_id = c.id
+        left join corp_commerce_info_lib as d on c.id = d.client_id and c.newest_version = d.version
+        left join bifrost_org e on e.id = b.biz_dept_id
+        <include refid="myPageListWhere"></include>
+        limit #{query.start}, #{query.size}
+    </select>
+
+    <select id="myPageListCount" resultType="int">
+        select
+        count(*)
+        from profit_calculate_result as a
+        left join contract_base_info as b on a.contract_id = b.id
+        left join client as c on a.contract_id = c.id
+        left join corp_commerce_info_lib as d on c.id = d.client_id and c.newest_version = d.version
+        left join bifrost_org e on e.id = b.biz_dept_id
+        <include refid="myPageListWhere"></include>
+    </select>
+
+    <sql id="myPageListWhere">
+        <where>
+            <if test="query.calculateDate != null">
+                and a.calculate_date = #{query.calculateDate}
+            </if>
+            <if test="query.contractCode != null">
+                and b.contract_code like concat('%', #{query.contractCode}, '%')
+            </if>
+        </where>
+    </sql>
+</mapper>

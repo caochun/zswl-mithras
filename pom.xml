@@ -21,11 +21,9 @@
         <module>zswl-mithras-domain-log</module>
         <module>zswl-mithras-domain-async</module>
         <module>zswl-mithras-domain-associationreport</module>
-        <module>zswl-mithras-domain-kpi</module>
         <module>zswl-mithras-domain-factory</module>
         <module>zswl-mithras-blackgray</module>
         <module>zswl-mithras-capital</module>
-        <module>zswl-mithras-domain-finance</module>
         <module>zswl-mithras-finance</module>
         <module>zswl-mithras-fund-direct</module>
         <module>zswl-mithras-fund</module>

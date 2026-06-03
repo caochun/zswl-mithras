@@ -11,9 +11,9 @@
 //import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
 //import cn.zswltech.mithras.service.enums.JobEnum;
 //import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-//import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistribution;
-//import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptWeight;
-//import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptWeightLib;
+//import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
+//import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeight;
+//import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeightLib;
 //import cn.zswltech.mithras.service.others.MithrasException;
 //import cn.zswltech.mithras.service.service.SysUserService;
 //import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptWeightLibService;

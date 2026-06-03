@@ -22,7 +22,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.third.enums.*;
-import cn.zswltech.mithras.service.mapper.finance.ContractAssessDeptDetailMapper;
+import cn.zswltech.mithras.finance.mapper.finance.ContractAssessDeptDetailMapper;
 import cn.zswltech.mithras.service.mapper.margin.MarginBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.margin.WarrantyBaseInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;

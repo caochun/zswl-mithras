@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.kpi.mapper.EclExecuteRecordLibMapper">
+    <select id="listCompare" resultType="cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecordLib">
+        select e.*
+        from ecl_execute_record_lib e
+        inner join
+        (select kpi_provision_detail_id, max(version) as version from ecl_execute_record_lib group by kpi_provision_detail_id) t on
+        e.kpi_provision_detail_id = t.kpi_provision_detail_id and e.version = t.version
+        <where>
+            <if test="param.clientName != null and param.clientName != ''">
+                and e.client_name like concat('%', #{param.clientName},'%')
+            </if>
+
+            <if test="param.contractCode != null and param.contractCode != ''">
+                and e.contract_code like concat('%', #{param.contractCode},'%')
+            </if>
+
+            <if test="param.createTimeFrom != null ">
+                and #{param.createTimeFrom} > e.create_time
+            </if>
+
+        </where>
+    </select>
+</mapper>

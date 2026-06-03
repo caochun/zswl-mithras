@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.finance.FinanceOverdueIntegrationApi;
 import cn.zswltech.mithras.dto.finance.overdue.*;
-import cn.zswltech.mithras.service.mapper.model.finance.FinanceOverdueIntegration;
+import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.service.service.finance.FinanceOverdueIntegrationService;
 import cn.zswltech.mithras.service.service.finance.FinanceOverdueReportBaseService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

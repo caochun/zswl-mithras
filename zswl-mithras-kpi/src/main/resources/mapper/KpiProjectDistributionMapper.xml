@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionMapper">
+    <select id="myPageList" resultType="cn.zswltech.mithras.kpi.bo.KpiProjectDistributionBO">
+        select
+        a.id as id,
+        a.contract_id as contract_id,
+        b.project_distribution_id as project_distribution_id,
+        a.distribution_status as distributionStatus,
+        a.approval_status as approvalStatus,
+        b.contract_code as contractCode,
+        b.proj_name as projName,
+        b.contract_start_date as contractStartDate,
+        c.biz_dept_id as contractBelongDeptId,
+        c.proj_sponsor_user_id as sponsorUserId,
+        b.proj_classify as projClassify,
+        b.proj_source as projSource,
+        d.proj_source as projReviewSource,
+        b.effect_year as effectYear,
+        b.effect_month as effectMonth
+        from kpi_project_distribution as a
+        left join kpi_project_distribution_base_info as b on a.id = b.project_distribution_id
+        left join contract_base_info as c on a.contract_id = c.id
+        left join proj_review_base_info as d on c.proj_review_id = d.id
+        <include refid="myPageListWhere"></include>
+        limit #{query.start}, #{query.size}
+    </select>
+
+    <select id="myPageListCount" resultType="int">
+        select
+        count(*)
+        from kpi_project_distribution as a
+        left join kpi_project_distribution_base_info as b on a.id = b.project_distribution_id
+        left join contract_base_info as c on a.contract_id = c.id
+        left join proj_review_base_info as d on c.proj_review_id = d.id
+        <include refid="myPageListWhere"></include>
+    </select>
+
+    <sql id="myPageListWhere">
+        <where>
+            <if test="query.distributionStatus != null">
+                and a.distribution_status = #{query.distributionStatus}
+            </if>
+            <if test="query.contractCode != null">
+                and b.contract_code like concat('%', #{query.contractCode}, '%')
+            </if>
+            <if test="query.projName != null">
+                and b.proj_name like concat('%', #{query.projName}, '%')
+            </if>
+            <if test="query.sponsorUserId != null">
+                and c.proj_sponsor_user_id  = #{query.sponsorUserId}
+            </if>
+            <if test="query.deptId != null">
+                and c.biz_dept_id  = #{query.deptId}
+            </if>
+            <if test="query.approvalStatus != null">
+                and a.approval_status = #{query.approvalStatus}
+            </if>
+            <if test="query.currentUserBizDeptId != null">
+                and c.biz_dept_id in
+                <foreach collection="query.currentUserBizDeptId" item="bizDeptId" separator="," open="(" close=")">
+                    #{bizDeptId}
+                </foreach>
+            </if>
+            <if test="query.currentUserId != null">
+                and (c.proj_sponsor_user_id  = #{query.currentUserId} or JSON_CONTAINS(c.`proj_cosponsor_user_ids`, #{query.currentUserIdStr}, '$'))
+            </if>
+            <if test="query.contractIds!=null and query.contractIds.size()>0">
+                AND a.contract_id IN
+                <foreach collection="query.contractIds" open="(" close=")" separator="," item="item">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="query.sponsorUserIdWeight != null">
+                and b.project_distribution_id in (
+                    select project_distribution_id from kpi_project_distribution_weight
+                where weight_type = 'PROJECT_SPONSOR' and weight_target = #{query.sponsorUserIdWeight})
+            </if>
+            <if test="query.projCosponsorUserIdWeight != null">
+                and b.project_distribution_id in (
+                select project_distribution_id from kpi_project_distribution_weight
+                where weight_type = 'PROJECT_COSPONSOR' and weight_target = #{query.projCosponsorUserIdWeight})
+            </if>
+            <if test="query.bizDeptIdWeight != null">
+                and b.project_distribution_id in (
+                select project_distribution_id from kpi_project_distribution_weight
+                where weight_type = 'BUSINESS_DEPT' and weight_target = #{query.bizDeptIdWeight})
+            </if>
+        </where>
+    </sql>
+</mapper>

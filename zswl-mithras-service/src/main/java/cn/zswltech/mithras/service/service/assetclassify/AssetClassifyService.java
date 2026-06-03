@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.convert.assetclassify.AssetClassifyConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.assetclassify.domain.enums.*;
 import cn.zswltech.mithras.assetclassify.application.AssetClassifyClientRiskFactorTemplateService;
-import cn.zswltech.mithras.service.enums.kpi.config.ProvisionRadioEnum;
+import cn.zswltech.mithras.kpi.enums.config.ProvisionRadioEnum;
 import cn.zswltech.mithras.service.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;

@@ -3,10 +3,10 @@ package cn.zswltech.mithras.service.service.lib.kpi.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptWeight;
-import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionDeptWeightLib;
+import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeight;
+import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeightLib;
 import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.lib.kpi.handler.KpiProjectDistributionAbstractLibHandler;
+import cn.zswltech.mithras.kpi.service.lib.handler.KpiProjectDistributionAbstractLibHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

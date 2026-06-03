@@ -9,15 +9,16 @@ import cn.zswltech.mithras.dto.kpi.EclBusinessConfigDetailRSP;
 import cn.zswltech.mithras.dto.kpi.EclBusinessConfigListREQ;
 import cn.zswltech.mithras.dto.kpi.EclBusinessConfigModifyREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.kpi.config.EclConfigEnum;
-import cn.zswltech.mithras.service.mapper.kpi.EclBusinessConfigMapper;
-import cn.zswltech.mithras.service.mapper.model.kpi.EclBusinessConfig;
-import cn.zswltech.mithras.service.mapper.model.kpi.EclBusinessConfigLib;
+import cn.zswltech.mithras.kpi.enums.config.EclConfigEnum;
+import cn.zswltech.mithras.kpi.mapper.EclBusinessConfigMapper;
+import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfig;
+import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfigLib;
+import cn.zswltech.mithras.kpi.service.EclBusinessConfigLibService;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.bo.EclBreachMappingBO;
-import cn.zswltech.mithras.service.service.bo.EclLossLgdBO;
-import cn.zswltech.mithras.service.service.bo.EclRatingMappingBO;
-import cn.zswltech.mithras.service.service.bo.EclScenarioWeightBO;
+import cn.zswltech.mithras.kpi.bo.EclBreachMappingBO;
+import cn.zswltech.mithras.kpi.bo.EclLossLgdBO;
+import cn.zswltech.mithras.kpi.bo.EclRatingMappingBO;
+import cn.zswltech.mithras.kpi.bo.EclScenarioWeightBO;
 import cn.zswltech.mithras.service.util.StringUtil;
 import cn.zswltech.mithras.service.util.VersionUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -32,7 +33,7 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.kpi.config.EclConfigEnum.RATING_MAPPING;
+import static cn.zswltech.mithras.kpi.enums.config.EclConfigEnum.RATING_MAPPING;
 
 /**
 * @description ecl_业务配置表

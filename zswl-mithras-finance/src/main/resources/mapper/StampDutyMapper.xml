@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.finance.mapper.stampduty.StampDutyMapper">
+
+    <select id="queryPreApprovedProcess" resultType="cn.zswltech.mithras.finance.bo.StampDutyBO">
+        select
+            t1.BUSINESS_KEY_ as businessKey,
+            t2.KEY_ as modelKey,
+            t1.PROC_INST_ID_ as procInstId
+        FROM ACT_HI_PROCINST t1
+        INNER JOIN ACT_RE_PROCDEF t2 ON t1.PROC_DEF_ID_ = t2.ID_
+        LEFT JOIN business_status t3 ON t1.ID_ = t3.source_id AND t3.source_type = 1
+        LEFT JOIN ACT_RU_TASK t4 ON t1.ID_ = t4.PROC_INST_ID_
+        LEFT JOIN process_instance_ext t5 ON t1.ID_ = t5.process_instance_id
+        WHERE  t2.KEY_ IN
+        <foreach collection="modelKeyList" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+        AND DATE_FORMAT(t1.END_TIME_,'%Y-%m-%d') = #{preDate}
+    </select>
+</mapper>

@@ -20,8 +20,8 @@
 //import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
 //import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 //import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
-//import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfit;
-//import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDetail;
+//import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
+//import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 //import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 //import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
 //import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpPriceInfo;
@@ -29,7 +29,7 @@
 //import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.FtpPriceInfoMapper;
 //import cn.zswltech.mithras.service.others.MithrasException;
 //import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitDetailService;
-//import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitService;
+//import cn.zswltech.mithras.finance.service.FinanceProjectProfitService;
 //import cn.zswltech.mithras.service.service.flow.MyTaskService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestDetailRecordService;

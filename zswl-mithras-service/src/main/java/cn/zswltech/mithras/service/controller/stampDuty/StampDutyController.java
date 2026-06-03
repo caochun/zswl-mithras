@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.interestPay.*;
 import cn.zswltech.mithras.dto.stampduty.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.mapper.model.stampduty.StampDutyDetail;
+import cn.zswltech.mithras.finance.mapper.model.stampduty.StampDutyDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.stampduty.ReportStampDutyService;
 import lombok.extern.slf4j.Slf4j;

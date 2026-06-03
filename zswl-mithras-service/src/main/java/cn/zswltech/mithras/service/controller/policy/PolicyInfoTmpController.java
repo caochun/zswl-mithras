@@ -12,7 +12,7 @@ import cn.zswltech.mithras.api.policy.PolicyInfoTmpApi;
 import cn.zswltech.mithras.dto.policy.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.kpi.config.TaxRateEnum;
+import cn.zswltech.mithras.kpi.enums.config.TaxRateEnum;
 import cn.zswltech.mithras.policy.domain.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.domain.enums.PolicyTypeEnum;
 import cn.zswltech.mithras.service.excel.exporter.PaymentPolicyExcelExporter;

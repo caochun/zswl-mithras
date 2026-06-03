@@ -7,7 +7,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDetail;
+import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitDetailService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjGuessService;
 import com.xxl.job.core.context.XxlJobHelper;

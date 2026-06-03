@@ -8,10 +8,10 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionHistoryRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightInfo;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightInfoWithTag;
-import cn.zswltech.mithras.service.enums.kpi.KpiProjectWeightTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionBaseInfoLib;
-import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionWeight;
-import cn.zswltech.mithras.service.mapper.model.kpi.KpiProjectDistributionWeightLib;
+import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;
+import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfoLib;
+import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeight;
+import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.service.others.MithrasException;
 
 import java.util.*;

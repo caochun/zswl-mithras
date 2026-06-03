@@ -24,7 +24,7 @@ import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetExamin
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.dto.ContractPayInfoDTO;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetExamine;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetExamineBenefit;
-import cn.zswltech.mithras.service.mapper.model.finance.FinanceProjectProfitDetail;
+import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;

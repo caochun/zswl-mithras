@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.finance.FinanceProjectProfitApi;
 import cn.zswltech.mithras.dto.PageReq;
 import cn.zswltech.mithras.dto.finance.*;
 import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitDetailService;
-import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitService;
+import cn.zswltech.mithras.finance.service.FinanceProjectProfitService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
