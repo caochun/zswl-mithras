@@ -246,7 +246,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-filingmaterials</artifactId>
+            <artifactId>zswl-mithras-filingmaterials</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

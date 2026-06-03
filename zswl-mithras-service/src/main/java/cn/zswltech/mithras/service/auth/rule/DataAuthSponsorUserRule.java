@@ -11,7 +11,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.service.auth.checker.AuthHelper;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsBusinessTypeEnum;
+import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsBusinessTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.SponsorField;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;

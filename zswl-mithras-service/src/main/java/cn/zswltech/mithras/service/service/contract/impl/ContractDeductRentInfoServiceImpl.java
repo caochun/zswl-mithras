@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
-import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsProcessStatusEnum;
+import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsProcessStatusEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractDeductRentInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;

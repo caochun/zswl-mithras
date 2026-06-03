@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
-import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsProcessStatusEnum;
+import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsProcessStatusEnum;
 import cn.zswltech.mithras.service.factory.file.impl.ContarctDepositProviderCheck;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

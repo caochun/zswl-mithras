@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.mapper.collection.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractRetreatInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTextManageMapper;
-import cn.zswltech.mithras.service.mapper.filingmaterials.FilingMaterialsMapper;
+import cn.zswltech.mithras.filingmaterials.infrastructure.persistence.mapper.FilingMaterialsMapper;
 import cn.zswltech.mithras.service.mapper.financeprojectdistribution.FinanceProjectDistributionMapper;
 import cn.zswltech.mithras.service.mapper.creditreport.CreditReportBaseInfoMapper;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpMonthlyGuidanceMapper;

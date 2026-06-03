@@ -14,7 +14,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsBusinessTypeEnum;
+import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsBusinessTypeEnum;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.service.SysUserService;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;

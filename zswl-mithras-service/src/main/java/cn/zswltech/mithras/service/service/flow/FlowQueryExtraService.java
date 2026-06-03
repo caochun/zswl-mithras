@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.mapper.model.afterlease.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
-import cn.zswltech.mithras.service.mapper.model.filingmaterials.FilingMaterials;
+import cn.zswltech.mithras.filingmaterials.infrastructure.persistence.mapper.model.FilingMaterials;
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistribution;
 import cn.zswltech.mithras.service.mapper.model.financeprofitdistribution.FinanceProjectDistributionBaseInfo;
 import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportBaseInfo;

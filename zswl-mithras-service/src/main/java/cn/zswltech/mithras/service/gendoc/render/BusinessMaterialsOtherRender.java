@@ -2,9 +2,9 @@ package cn.zswltech.mithras.service.gendoc.render;
 
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.dto.filingmaterials.OtherFilingRenderDTO;
-import cn.zswltech.mithras.service.constant.FilingMaterialsConstants;
+import cn.zswltech.mithras.filingmaterials.domain.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.enums.filingmaterials.BusinessMaterialsDocNameEnum;
+import cn.zswltech.mithras.filingmaterials.domain.enums.BusinessMaterialsDocNameEnum;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.Id2NameService;

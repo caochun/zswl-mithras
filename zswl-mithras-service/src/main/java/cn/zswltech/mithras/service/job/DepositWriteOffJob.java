@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.enums.afterlease.RentCollectionIndexPaymentSt
 import cn.zswltech.mithras.service.enums.collection.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
-import cn.zswltech.mithras.service.enums.filingmaterials.FilingMaterialsProcessStatusEnum;
+import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsProcessStatusEnum;
 import cn.zswltech.mithras.service.mapper.model.collection.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;

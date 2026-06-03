@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.filingmaterials.FundFilingMaterialsBatchDownloadR
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.filingmaterials.FilingMaterials;
+import cn.zswltech.mithras.filingmaterials.infrastructure.persistence.mapper.model.FilingMaterials;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.filingmaterials.AfterFilingMaterialsService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.filingmaterials.FilingMaterialsConfigDTO;
 import cn.zswltech.mithras.service.CommonFileSortComparator;
-import cn.zswltech.mithras.service.constant.FilingMaterialsConstants;
+import cn.zswltech.mithras.filingmaterials.domain.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.factory.file.AbstractFileListProvider;
