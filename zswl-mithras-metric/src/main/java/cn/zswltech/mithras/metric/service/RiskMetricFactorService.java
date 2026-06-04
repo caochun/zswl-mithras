@@ -18,7 +18,6 @@ import cn.zswltech.mithras.dto.metric.factor.RiskMetricFactorFileListReq;
 import cn.zswltech.mithras.dto.metric.factor.RiskMetricFactorListReq;
 import cn.zswltech.mithras.dto.metric.factor.RiskMetricFactorPageListReq;
 import cn.zswltech.mithras.dto.metric.factor.RiskMetricFactorPageListRsp;
-import cn.zswltech.mithras.metric.enums.RiskMetricMaterialsEnum;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorType;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.MissingFactorException;
@@ -26,8 +25,6 @@ import cn.zswltech.mithras.metric.mapper.RiskMetricFactorMapper;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorFile;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorMerge;
-import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -53,7 +50,6 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.text.CharSequenceUtil.*;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.BANK_INTEREST_REPAY;
-import static cn.zswltech.mithras.service.enums.FileDownloadZipPathEnum.RISK_METRIC_FACTOR_FILE;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 import static org.apache.poi.ss.usermodel.CellType.FORMULA;
 import static org.apache.poi.ss.usermodel.CellType.NUMERIC;
@@ -70,7 +66,7 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
     @Resource
     private RiskMetricFactorFileService factorFileService;
     @Resource
-    private MaterialsListService materialsListService;
+    private RiskMetricFactorReportFileStore reportFileStore;
     private Map<String, List<String>> refreshConfigMap;
     @Resource
     private SystemConfigService configService;
@@ -133,9 +129,6 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
                         .eq(RiskMetricFactor::getFactorTable, riskMetricFactorTable.display)
                 );
             }
-            //暂时不删，因为多个sheet可能对应的同一个文件
-           /* List<MaterialsList> list = materialsListService.listBy(RISK_METRIC_FACTOR_FILE.name(), factorFile.getId());
-            materialsListService.remove(list.stream().map(MaterialsList::getId).collect(Collectors.toList()));*/
         }
     }
 
@@ -240,7 +233,7 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
                             }
                             String headerName = headerRow.getCell(j).getStringCellValue().trim();
                             if (equalsAny(headerName, "借款金额（万元)", "已还本金（万元）", "未还本金（万元）") && value != null && isNotBlank(value.toString())) {
-                                value = Util.toMithrasUnit(new BigDecimal(value.toString()).multiply(new BigDecimal("10000")));
+                                value = toMithrasUnit(new BigDecimal(value.toString()).multiply(new BigDecimal("10000")));
                             }
                             jo.set(headerName, value);
                         }
@@ -270,7 +263,7 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
                         factor.setFactorName(k);
                         factor.setFactorSource(RiskMetricFactorType.IMPORT.name());
                         factor.setFactorTable(tableName);
-                        factor.setFactorValue(Util.toMithrasUnit(v));
+                        factor.setFactorValue(toMithrasUnit(v));
                         list.add(factor);
                     });
                     this.remove(Wrappers.<RiskMetricFactor>lambdaQuery().eq(RiskMetricFactor::getFactorDate, date).eq(RiskMetricFactor::getFactorTable, tableName));
@@ -288,7 +281,7 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
                         factor.setFactorName(k);
                         factor.setFactorSource(RiskMetricFactorType.IMPORT.name());
                         factor.setFactorTable(tableName);
-                        factor.setFactorValue(Util.toMithrasUnit(v));
+                        factor.setFactorValue(toMithrasUnit(v));
                         list.add(factor);
                     });
                     this.remove(Wrappers.<RiskMetricFactor>lambdaQuery().eq(RiskMetricFactor::getFactorDate, date).eq(RiskMetricFactor::getFactorTable, tableName));
@@ -306,7 +299,7 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
                         factor.setFactorName(k);
                         factor.setFactorSource(RiskMetricFactorType.IMPORT.name());
                         factor.setFactorTable(tableName);
-                        factor.setFactorValue(Util.toMithrasUnit(v));
+                        factor.setFactorValue(toMithrasUnit(v));
                         list.add(factor);
                     });
                     this.remove(Wrappers.<RiskMetricFactor>lambdaQuery().eq(RiskMetricFactor::getFactorDate, date).eq(RiskMetricFactor::getFactorTable, tableName));
@@ -323,7 +316,7 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
                         factor.setFactorName(k);
                         factor.setFactorSource(RiskMetricFactorType.IMPORT.name());
                         factor.setFactorTable(tableName);
-                        factor.setFactorValue(Util.toMithrasUnit(v));
+                        factor.setFactorValue(toMithrasUnit(v));
                         list.add(factor);
                     });
                     this.remove(Wrappers.<RiskMetricFactor>lambdaQuery().eq(RiskMetricFactor::getFactorDate, date).eq(RiskMetricFactor::getFactorTable, tableName));
@@ -343,7 +336,7 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
                 factorFileService.saveOrUpdate(factorFile, keyCondition);
                 if (null == fileId) {
                     factorFile = factorFileService.getOne(keyCondition);
-                    fileId = materialsListService.add(file, factorFile.getId(), RiskMetricMaterialsEnum.REPORT_FILE.name(), RISK_METRIC_FACTOR_FILE.name());
+                    fileId = reportFileStore.addReportFile(file, factorFile.getId());
                     factorFile.setFileId(fileId);
                     //不要更新update time
                     factorFile.setUpdateTime(null);
@@ -449,6 +442,13 @@ public class RiskMetricFactorService extends ServiceImpl<RiskMetricFactorMapper,
             throw new MissingFactorException("财报" + table + "缺少信息:" + name + "，请补充。");
         }
         return riskMetricFactor;
+    }
+
+    private Long toMithrasUnit(BigDecimal value) {
+        if (value == null) {
+            return null;
+        }
+        return value.multiply(new BigDecimal("10000")).longValue();
     }
 
 }
