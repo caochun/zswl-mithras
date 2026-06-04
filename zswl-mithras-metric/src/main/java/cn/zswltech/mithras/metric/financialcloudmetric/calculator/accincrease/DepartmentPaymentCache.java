@@ -2,14 +2,14 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
+import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionDeptLaunchWeightMapper;
+import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionMapper;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptLaunchWeight;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptLaunchWeightService;
-import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;
-import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -29,7 +29,6 @@ import java.util.stream.Collectors;
  * @date 2025/4/22 16:10
  * @description
  */
-
 @Slf4j
 @Component
 public class DepartmentPaymentCache {
@@ -43,44 +42,25 @@ public class DepartmentPaymentCache {
     @Resource
     private SysUserService sysUserService;
     @Resource
-    private KpiProjectDistributionService kpiProjectDistributionService;
+    private KpiProjectDistributionMapper kpiProjectDistributionMapper;
     @Resource
-    private PaymentActualDetailService paymentActualDetailService;
-//    @Resource
-//    private KpiProjectDistributionDeptWeightService kpiProjectDistributionDeptWeightService;
+    private PaymentActualDetailMapper paymentActualDetailMapper;
     @Resource
-    private KpiProjectDistributionDeptLaunchWeightService kpiProjectDistributionDeptLaunchWeightService;
+    private KpiProjectDistributionDeptLaunchWeightMapper kpiProjectDistributionDeptLaunchWeightMapper;
 
-    // 提供一个初始化方法
     private void init(LocalDate dateTime) {
         if (!DEPT_PAYMENT_CACHE.isEmpty()) {
             return;
         }
-        List<KpiProjectDistribution> distributionList = kpiProjectDistributionService.list();
+        List<KpiProjectDistribution> distributionList = kpiProjectDistributionMapper.selectList(Wrappers.lambdaQuery());
         if (CollUtil.isEmpty(distributionList)) {
             log.warn("没有找到项目分配信息");
             return;
         }
         Map<Long, KpiProjectDistribution> distributionMap = distributionList.stream().collect(Collectors.toMap(KpiProjectDistribution::getId, Function.identity(), (a, b) -> a));
 
-        // 寻找项目分配对应的部门分配比重信息
-//        Map<Long, List<KpiProjectDistributionDeptWeight>> listMap = kpiProjectDistributionDeptWeightService.list(Wrappers.<KpiProjectDistributionDeptWeight>lambdaQuery()
-//                        .in(KpiProjectDistributionDeptWeight::getProjectDistributionId, distributionList.stream().map(KpiProjectDistribution::getId).collect(Collectors.toList())))
-//                .stream().collect(Collectors.groupingBy(KpiProjectDistributionDeptWeight::getProjectDistributionId));
-//        for (Map.Entry<Long, List<KpiProjectDistributionDeptWeight>> entry : listMap.entrySet()) {
-//            Long distributionId = entry.getKey();
-//            List<KpiProjectDistributionDeptWeight> deptWeightList = entry.getValue();
-//            Map<Long, Integer> deptWeightMap = deptWeightList.stream().collect(Collectors.toMap(KpiProjectDistributionDeptWeight::getWeightTarget, KpiProjectDistributionDeptWeight::getWeightValue));
-//
-//            KpiProjectDistribution distribution = distributionMap.get(distributionId);
-//            if (Objects.isNull(distribution)) {
-//                log.warn("项目分配信息不存在");
-//                continue;
-//            }
-//            DEPT_PAYMENT_CACHE.put(distribution.getContractId(), deptWeightMap);
-//        }
         // 改为取项目分配表投放占比
-        Map<Long, List<KpiProjectDistributionDeptLaunchWeight>> listMap = kpiProjectDistributionDeptLaunchWeightService.list(Wrappers.<KpiProjectDistributionDeptLaunchWeight>lambdaQuery()
+        Map<Long, List<KpiProjectDistributionDeptLaunchWeight>> listMap = kpiProjectDistributionDeptLaunchWeightMapper.selectList(Wrappers.<KpiProjectDistributionDeptLaunchWeight>lambdaQuery()
                         .in(KpiProjectDistributionDeptLaunchWeight::getProjectDistributionId, distributionList.stream().map(KpiProjectDistribution::getId).collect(Collectors.toList())))
                 .stream().collect(Collectors.groupingBy(KpiProjectDistributionDeptLaunchWeight::getProjectDistributionId));
         for (Map.Entry<Long, List<KpiProjectDistributionDeptLaunchWeight>> entry : listMap.entrySet()) {
@@ -96,7 +76,7 @@ public class DepartmentPaymentCache {
             DEPT_PAYMENT_CACHE.put(distribution.getContractId(), deptWeightMap);
         }
 
-        Map<Long, List<PaymentActualDetail>> map = paymentActualDetailService.list(Wrappers.<PaymentActualDetail>lambdaQuery()
+        Map<Long, List<PaymentActualDetail>> map = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
                         .ge(PaymentActualDetail::getPaidInDate, dateTime.with(TemporalAdjusters.firstDayOfYear()))
                         .le(PaymentActualDetail::getPaidInDate, dateTime.with(TemporalAdjusters.lastDayOfMonth()))
                         .eq(PaymentActualDetail::getWriteOffStatus, WriteOffStatus.WRITTEN_OFF.name()))
@@ -104,14 +84,14 @@ public class DepartmentPaymentCache {
 
         YEAR_PAYMENT_ACTUAL_CACHE.putAll(map);
 
-        LATER_PAYMENT_ACTUAL_CACHE.putAll(paymentActualDetailService.list(Wrappers.<PaymentActualDetail>lambdaQuery()
+        LATER_PAYMENT_ACTUAL_CACHE.putAll(paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
                         .eq(PaymentActualDetail::getWriteOffStatus, WriteOffStatus.WRITTEN_OFF.name())
                         .le(PaymentActualDetail::getPaidInDate, dateTime.with(TemporalAdjusters.lastDayOfMonth())))
                 .stream().collect(Collectors.groupingBy(PaymentActualDetail::getContractId)));
 
         ORG_MAP.putAll(sysUserService.listBizDept().stream().collect(Collectors.toMap(OrgDO::getCode, Function.identity())));
 
-        MONTH_PAYMENT_ACTUAL_CACHE.putAll(paymentActualDetailService.list(Wrappers.<PaymentActualDetail>lambdaQuery()
+        MONTH_PAYMENT_ACTUAL_CACHE.putAll(paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
                         .eq(PaymentActualDetail::getWriteOffStatus, WriteOffStatus.WRITTEN_OFF.name())
                         .ge(PaymentActualDetail::getPaidInDate, dateTime.with(TemporalAdjusters.firstDayOfMonth()))
                         .le(PaymentActualDetail::getPaidInDate, dateTime.with(TemporalAdjusters.lastDayOfMonth())))
@@ -131,7 +111,6 @@ public class DepartmentPaymentCache {
             synchronized (DepartmentPaymentCache.class) {
                 if (DEPT_PAYMENT_CACHE.isEmpty()) {
                     synchronized (DEPT_PAYMENT_CACHE) {
-                        // 确保全部清空
                         clear();
                         init(dateTime);
                     }
@@ -146,7 +125,6 @@ public class DepartmentPaymentCache {
             synchronized (DepartmentPaymentCache.class) {
                 if (YEAR_PAYMENT_ACTUAL_CACHE.isEmpty()) {
                     synchronized (YEAR_PAYMENT_ACTUAL_CACHE) {
-                        // 确保全部清空
                         clear();
                         init(dateTime);
                     }
@@ -161,7 +139,6 @@ public class DepartmentPaymentCache {
             synchronized (DepartmentPaymentCache.class) {
                 if (LATER_PAYMENT_ACTUAL_CACHE.isEmpty()) {
                     synchronized (LATER_PAYMENT_ACTUAL_CACHE) {
-                        // 确保全部清空
                         clear();
                         init(dateTime);
                     }
@@ -176,7 +153,6 @@ public class DepartmentPaymentCache {
             synchronized (DepartmentPaymentCache.class) {
                 if (ORG_MAP.isEmpty()) {
                     synchronized (ORG_MAP) {
-                        // 确保全部清空
                         clear();
                         init(dateTime);
                     }
@@ -191,7 +167,6 @@ public class DepartmentPaymentCache {
             synchronized (DepartmentPaymentCache.class) {
                 if (MONTH_PAYMENT_ACTUAL_CACHE.isEmpty()) {
                     synchronized (MONTH_PAYMENT_ACTUAL_CACHE) {
-                        // 确保全部清空
                         clear();
                         init(dateTime);
                     }
