@@ -58,6 +58,11 @@
             <artifactId>QLExpress</artifactId>
         </dependency>
         <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>4.1.2</version>
