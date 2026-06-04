@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.metric.service;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.dto.metric.value.RiskMetricValueListReq;
 import cn.zswltech.mithras.dto.metric.value.RiskMetricValueModifyReq;
 import cn.zswltech.mithras.metric.aggregator.MetricCalculator;
@@ -14,15 +13,14 @@ import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricUnit;
 import cn.zswltech.mithras.metric.mapper.RiskMetricValueMapper;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricValue;
 import cn.zswltech.mithras.metric.mapper.model.condition.RiskMetricValueListConditions;
-import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.riskcontrol.RiskControlStrategyService;
+import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategyMapper;
+import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,12 +50,15 @@ import static java.math.RoundingMode.HALF_UP;
 @Service
 public class RiskMetricValueService extends ServiceImpl<RiskMetricValueMapper, RiskMetricValue> {
 
-    private List<MetricCalculator> calculatorList = null;
+    @Autowired
+    private List<MetricCalculator> calculatorList = new ArrayList<>();
 
     @Resource
     private MetricEmitter metricEmitter;
     @Resource
     private RedisDistLock lock;
+    @Resource
+    private RiskControlStrategyMapper riskControlStrategyMapper;
 
     @Transactional(rollbackFor = Exception.class)
     public void modify(List<RiskMetricValueModifyReq> req) {
@@ -134,7 +135,7 @@ public class RiskMetricValueService extends ServiceImpl<RiskMetricValueMapper, R
                                     || RiskMetricUnit.YUAN.name().equals(e.getUnit())
                                     || RiskMetricUnit.PERCENT.name().equals(e.getUnit())
                             ) {
-                                single.setValue(Util.mithrasLong2BigDecimal(v).setScale(2, HALF_UP).toString());
+                                single.setValue(mithrasLong2BigDecimal(v).setScale(2, HALF_UP).toString());
                             }
                             single.setCode(e.getMetricCode());
                             single.setName(e.getMetricName());
@@ -179,16 +180,14 @@ public class RiskMetricValueService extends ServiceImpl<RiskMetricValueMapper, R
         return null;
     }
 
-    @Resource
-    private RiskControlStrategyService riskControlStrategyService;
-
     //    @Transactional(rollbackFor = Exception.class)
     public void calc(LocalDate dataTime) {
         String key = "mithras:metric:calc:onlyOne";
         if (lock.tryLock(key, 1, 60 * 1000)) {
             try {
                 Map<String, RiskControlStrategy> strategyMap =
-                        riskControlStrategyService.list().stream().collect(Collectors.toMap(RiskControlStrategy::getMetricCode, item -> item, (k1, k2) -> k1));
+                        riskControlStrategyMapper.selectList(Wrappers.<RiskControlStrategy>lambdaQuery())
+                                .stream().collect(Collectors.toMap(RiskControlStrategy::getMetricCode, item -> item, (k1, k2) -> k1));
                 getCalculatorList().parallelStream().forEach(calculator -> {
                     try {
                         //风控策略有值
@@ -234,10 +233,11 @@ public class RiskMetricValueService extends ServiceImpl<RiskMetricValueMapper, R
     }
 
     public List<MetricCalculator> getCalculatorList() {
-        if (CollUtil.isEmpty(calculatorList)) {
-            calculatorList = new ArrayList<>(SpringContextHolder.getApplicationContext().getBeansOfType(MetricCalculator.class).values());
-        }
         return calculatorList;
+    }
+
+    private BigDecimal mithrasLong2BigDecimal(Long value) {
+        return BigDecimal.valueOf(value).divide(BigDecimal.valueOf(10000L));
     }
 }
 
