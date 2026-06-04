@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job.dto;
+package cn.zswltech.mithras.customer.application.client.dto;
 
 import lombok.Data;
 

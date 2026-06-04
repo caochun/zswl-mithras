@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.service.service.email;
 
+import cn.zswltech.mithras.customer.application.client.dto.ClientReleaseRemindDTO;
+import cn.zswltech.mithras.customer.application.client.dto.ReleaseRemindEmailInfoDTO;
 import cn.zswltech.mithras.service.enums.EmailType;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientRemindContentEnum;
-import cn.zswltech.mithras.service.job.dto.ClientReleaseRemindDTO;
-import cn.zswltech.mithras.service.job.dto.ReleaseRemindEmailInfoDTO;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
