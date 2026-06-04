@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.payment.PaymentQuestionnaireApi;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListReq;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionModifyReq;
-import cn.zswltech.mithras.service.controller.payment.checker.PaymentQuestionnaireModifyReq;
+import cn.zswltech.mithras.payment.interfaces.dto.PaymentQuestionnaireModifyReq;
 import cn.zswltech.mithras.service.service.payment.PaymentQuestionnaireAnswerService;
 import org.springframework.web.bind.annotation.RestController;
 
