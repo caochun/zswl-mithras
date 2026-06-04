@@ -6,7 +6,6 @@ import cn.zswltech.mithras.api.creditreport.CredReportClientApi;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchClientQuery;
 import cn.zswltech.mithras.creditreport.service.CreditSearchClientService;
-import com.aspose.slides.internal.z.r;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
