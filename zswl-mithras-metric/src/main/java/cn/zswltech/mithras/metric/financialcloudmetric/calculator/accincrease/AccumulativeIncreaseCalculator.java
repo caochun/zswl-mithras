@@ -11,17 +11,16 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.CalculateDetai
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.DepartmentPerCapitalCalculator;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.FinancialCloudMetricCalculator;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.ConditionKey;
-import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;
@@ -56,11 +55,9 @@ public abstract class AccumulativeIncreaseCalculator implements FinancialCloudMe
     @Resource
     private CorpCommerceInfoLibMapper commerceInfoLibMapper;
     @Resource
-    private ClientService clientService;
+    private ContractBaseInfoMapper contractBaseInfoMapper;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
-    @Resource
-    private ProjReviewBaseInfoService projReviewBaseInfoService;
+    private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
 
     private final Object lock = new Object();
     private static final Map<String, Long> DEPT_CODE_ID = new HashMap<>();
@@ -138,7 +135,7 @@ public abstract class AccumulativeIncreaseCalculator implements FinancialCloudMe
             }
             if (Objects.isNull(deptWeight)) {
                 // 查询合同所属部门
-                ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(contractId);
+                ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(contractId);
                 deptWeight = MapUtil.of(contractBaseInfo.getBizDeptId(), 1000000);
             }
             if (deptWeight.containsKey(org.getId())) {
@@ -188,7 +185,7 @@ public abstract class AccumulativeIncreaseCalculator implements FinancialCloudMe
                         }
                     }
                 }
-                contractIds = contractBaseInfoService.list(Wrappers.<ContractBaseInfo>lambdaQuery()
+                contractIds = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                         .eq(ContractBaseInfo::getBizDeptId, DEPT_CODE_ID.get(condition.getValue())))
                         .stream()
                         .map(ContractBaseInfo::getId).collect(Collectors.toList());
@@ -196,7 +193,7 @@ public abstract class AccumulativeIncreaseCalculator implements FinancialCloudMe
                 break;
             case REGION:
                 //查询符合的项目
-                List<Long> projReviewIds = projReviewBaseInfoService.list(Wrappers.<ProjReviewBaseInfo>lambdaQuery()
+                List<Long> projReviewIds = projReviewBaseInfoMapper.selectList(Wrappers.<ProjReviewBaseInfo>lambdaQuery()
                         .eq(ProjReviewBaseInfo::getProvince, condition.getValue()))
                         .stream()
                         .map(ProjReviewBaseInfo::getId).collect(Collectors.toList());
@@ -204,7 +201,7 @@ public abstract class AccumulativeIncreaseCalculator implements FinancialCloudMe
                     contractIds = Collections.emptyList();
                 } else {
                     //按照合同所属业务部门查询符合条件的数据
-                    contractIds = contractBaseInfoService.list(Wrappers.<ContractBaseInfo>lambdaQuery()
+                    contractIds = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                             .in(ContractBaseInfo::getProjReviewId, projReviewIds))
                             .stream()
                             .map(ContractBaseInfo::getId).collect(Collectors.toList());
