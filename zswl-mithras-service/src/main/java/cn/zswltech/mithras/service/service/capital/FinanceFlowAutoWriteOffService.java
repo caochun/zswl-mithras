@@ -69,7 +69,7 @@ import cn.zswltech.mithras.third.mapper.FinanceFlowRecordMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.projectprocess.service.bo.FinanceFlowWriteOffBO;
+import cn.zswltech.mithras.capital.application.bo.FinanceFlowWriteOffBO;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.FundCreditService;
