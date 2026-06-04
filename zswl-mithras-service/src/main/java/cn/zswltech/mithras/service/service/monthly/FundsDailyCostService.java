@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPlanService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingRepayActualService;
-import cn.zswltech.mithras.service.service.monthly.listener.MonthlyManageUpdateEvent;
+import cn.zswltech.mithras.monthly.event.MonthlyManageUpdateEvent;
 import cn.zswltech.mithras.service.util.FinancialUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

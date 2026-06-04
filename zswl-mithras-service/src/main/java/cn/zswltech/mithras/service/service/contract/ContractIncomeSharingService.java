@@ -49,7 +49,7 @@ import cn.zswltech.mithras.projectprocess.service.bo.DailyDiscountRateCalcResult
 import cn.zswltech.mithras.projectprocess.service.bo.IncomeSharingCashFlowBO;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
-import cn.zswltech.mithras.service.service.monthly.listener.MonthlyManageUpdateEvent;
+import cn.zswltech.mithras.monthly.event.MonthlyManageUpdateEvent;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
