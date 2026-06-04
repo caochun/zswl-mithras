@@ -38,7 +38,7 @@ public class FCM_003Calculator extends FinancingBalanceCalculator {
 
     @Override
     public Set<Long> getFinancingIds(LocalDate dateTime) {
-        List<FundFinancingBaseInfo> fundFinancingBaseInfos = financingBaseInfoService.list(Wrappers.<FundFinancingBaseInfo>lambdaQuery()
+        List<FundFinancingBaseInfo> fundFinancingBaseInfos = financingBaseInfoMapper.selectList(Wrappers.<FundFinancingBaseInfo>lambdaQuery()
                 .in(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.EFFECT.name(), FundFinancingStatusEnum.CARRY_INTEREST.name(), FundFinancingStatusEnum.SETTLE.name())
                 .eq(FundFinancingBaseInfo::getBusinessType, FundFinancingBizTypeEnum.LETTER_OF_CREDIT.name()));
         if (CollUtil.isEmpty(fundFinancingBaseInfos)) {

@@ -3,30 +3,28 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingTimeLimitTypeEnum;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * @description: 业务类型为银行承兑汇票下所有融资期限类型 的期末融资融资余额加总 （亿）
+ * @description: 融资期限类型为长期的 保理融资/流动资金贷款/项目贷款  （亿）
  * @author: zhaozhengkang
  * @date: 2023/4/13 09:57
  */
 @Component
-public class FCM_005Calculator extends FinancingBalanceCalculator {
+public class FCM_001Calculator extends FinancingBalanceCalculator {
 
     @Override
     public String metricCode() {
-        return "FCM_005";
+        return "FCM_001";
     }
 
     @Override
@@ -37,9 +35,11 @@ public class FCM_005Calculator extends FinancingBalanceCalculator {
 
     @Override
     public Set<Long> getFinancingIds(LocalDate dateTime) {
-        List<FundFinancingBaseInfo> fundFinancingBaseInfos = financingBaseInfoService.list(Wrappers.<FundFinancingBaseInfo>lambdaQuery()
+        List<FundFinancingBaseInfo> fundFinancingBaseInfos = financingBaseInfoMapper.selectList(Wrappers.<FundFinancingBaseInfo>lambdaQuery()
                 .in(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.EFFECT.name(), FundFinancingStatusEnum.CARRY_INTEREST.name(), FundFinancingStatusEnum.SETTLE.name())
-                .in(FundFinancingBaseInfo::getBusinessType, FundFinancingBizTypeEnum.BANK_ACCEPTANCE.name()));
+                .in(FundFinancingBaseInfo::getBusinessType, Arrays.asList(FundFinancingBizTypeEnum.FACTORING_FINANCING.name(),
+                        FundFinancingBizTypeEnum.WORKING_CAPITAL_LOAN.name(), FundFinancingBizTypeEnum.PROJECT_LOAN.name()))
+                .eq(FundFinancingBaseInfo::getTimeLimitType, FundFinancingTimeLimitTypeEnum.LONG_TERM_LOAN.name()));
         if (CollUtil.isEmpty(fundFinancingBaseInfos)) {
             return Collections.emptySet();
         }
