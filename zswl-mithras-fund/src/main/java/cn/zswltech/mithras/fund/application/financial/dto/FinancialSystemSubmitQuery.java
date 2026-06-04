@@ -1,8 +1,7 @@
-package cn.zswltech.mithras.service.service.fund.financial.dto;
+package cn.zswltech.mithras.fund.application.financial.dto;
 
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.LprArrangeModeEnum;
-import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
@@ -168,7 +167,7 @@ public class FinancialSystemSubmitQuery {
         private String CORP_PRIV_FLG;
         /**
          * 利率浮动方式
-         * {@link RateType#name()}
+         * RateType name
          */
         @JSONField(name = "LILVFDFS")
         private String LILVFDFS;

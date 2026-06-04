@@ -1,12 +1,8 @@
-package cn.zswltech.mithras.service.service.fund.financial.dto;
+package cn.zswltech.mithras.fund.application.financial.dto;
 
-import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingBizTypeEnum;
-import cn.zswltech.mithras.fund.domain.enums.financing.LprArrangeModeEnum;
-import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
-import lombok.experimental.Accessors;
 
 
 /**
