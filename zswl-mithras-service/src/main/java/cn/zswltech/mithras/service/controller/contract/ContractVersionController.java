@@ -27,7 +27,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractPrepaymentService;
 import cn.zswltech.mithras.service.service.contract.ContractService;
-import cn.zswltech.mithras.service.service.contract.ContractSettlePlanService;
+import cn.zswltech.mithras.contract.core.application.ContractSettlePlanService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

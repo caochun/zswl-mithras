@@ -5,7 +5,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractSettlePlanMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlan;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractService;
-import cn.zswltech.mithras.service.service.contract.ContractSettlePlanService;
+import cn.zswltech.mithras.contract.core.application.ContractSettlePlanService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.service.client.ProjClientRoleService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionOverdueRecordInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractLeaseItemService;
-import cn.zswltech.mithras.service.service.contract.ContractSettlePlanService;
+import cn.zswltech.mithras.contract.core.application.ContractSettlePlanService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.service.third.financial.FinancialManagerService;

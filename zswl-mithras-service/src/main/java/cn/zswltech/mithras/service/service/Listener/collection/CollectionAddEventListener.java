@@ -41,6 +41,7 @@ import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionService;
 import cn.zswltech.mithras.service.service.contract.*;
+import cn.zswltech.mithras.contract.core.application.ContractSettlePlanService;
 import cn.zswltech.mithras.service.service.contract.impl.ContractReceiptServiceImpl;
 import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
