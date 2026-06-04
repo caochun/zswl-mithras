@@ -70,7 +70,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.system.service.BizProcessDataService;
 import cn.zswltech.mithras.system.service.FlowAssistService;
-import cn.zswltech.mithras.service.service.Listener.ContractPriceChangeEvent;
+import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEvent;
 import cn.zswltech.mithras.system.service.ProcessModifyRemarkService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseAdjustInfoService;

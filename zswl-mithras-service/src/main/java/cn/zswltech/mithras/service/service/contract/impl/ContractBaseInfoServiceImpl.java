@@ -95,7 +95,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.contract.overdue.domain.acl.*;
 import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.service.service.Listener.ContractPriceChangeEvent;
+import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseAdjustInfoService;
 import cn.zswltech.mithras.customer.application.bo.ClientBusinessHistoryBO;

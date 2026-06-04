@@ -32,7 +32,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFact
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.Listener.ContractPriceChangeEvent;
+import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;

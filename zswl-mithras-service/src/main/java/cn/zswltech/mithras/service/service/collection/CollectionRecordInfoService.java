@@ -64,7 +64,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.contract.overdue.application.collection.OverdueCollectionRefreshService;
 import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.service.service.Listener.ContractPriceChangeEvent;
+import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEventListener;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.budget.EclExecuteClientPromotionResultService;
