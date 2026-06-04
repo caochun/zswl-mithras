@@ -25,7 +25,7 @@ import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReport;
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReportMapper;
 import cn.zswltech.mithras.service.service.client.ClientService;

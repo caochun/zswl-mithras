@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.constant;
+package cn.zswltech.mithras.associationreport.constant;
 
 import cn.hutool.core.collection.ListUtil;
 

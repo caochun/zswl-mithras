@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.bo;
+package cn.zswltech.mithras.projectprocess.service.bo;
 
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableFinanceListRSP;
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableProjectListRSP;

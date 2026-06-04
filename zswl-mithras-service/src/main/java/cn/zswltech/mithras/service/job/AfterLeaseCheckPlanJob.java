@@ -32,8 +32,8 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportMetaService;

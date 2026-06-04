@@ -7,8 +7,8 @@ import cn.zswltech.mithras.dto.riskcontrol.opinion.RiskControlOpinionMonitorAddR
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionEnum;
-import cn.zswltech.mithras.service.mapper.SystemConfigMapper;
-import cn.zswltech.mithras.service.mapper.model.SystemConfig;
+import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
+import cn.zswltech.mithras.system.mapper.model.SystemConfig;
 import cn.zswltech.mithras.ep.mapper.model.EpCaseInfo;
 import cn.zswltech.mithras.ep.mapper.model.EpChangeInfo;
 import cn.zswltech.mithras.ep.mapper.model.EpCourtAnnounce;

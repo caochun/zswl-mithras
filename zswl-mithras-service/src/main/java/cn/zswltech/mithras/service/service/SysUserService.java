@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service;
+package cn.zswltech.mithras.system.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -28,9 +28,15 @@ import cn.zswltech.mithras.dto.UserRSP;
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationBaseREQ;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.mapper.SystemConfigMapper;
-import cn.zswltech.mithras.service.mapper.model.SystemConfig;
-import cn.zswltech.mithras.service.service.bo.UserOrgJobInfoBO;
+import cn.zswltech.mithras.service.service.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
+import cn.zswltech.mithras.service.service.CurrentUserResolver;
+import cn.zswltech.mithras.service.service.JobUserResolver;
+import cn.zswltech.mithras.service.service.OrgJobUserResolver;
+import cn.zswltech.mithras.service.service.UserBizDeptResolver;
+import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
+import cn.zswltech.mithras.system.mapper.model.SystemConfig;
+import cn.zswltech.mithras.system.service.bo.UserOrgJobInfoBO;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;

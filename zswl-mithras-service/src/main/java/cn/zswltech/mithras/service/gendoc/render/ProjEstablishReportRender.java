@@ -42,7 +42,8 @@ import cn.zswltech.mithras.service.controller.projestablish.ProjEstablishBaseInf
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.projestablish.*;
+import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.*;
 import cn.zswltech.mithras.service.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.*;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
@@ -50,7 +51,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.service.others.Const;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.DictService;
+import cn.zswltech.mithras.system.service.DictService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.*;
 import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishLeasePriceService;

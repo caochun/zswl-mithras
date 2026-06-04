@@ -26,8 +26,8 @@ import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establi
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.BizProcessDataService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.BizProcessDataService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.service.impl.GroupCreditEstablishVersionServiceImpl;
 import com.alibaba.fastjson.JSON;

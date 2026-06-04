@@ -21,12 +21,12 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalBaseInfoMapper;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;

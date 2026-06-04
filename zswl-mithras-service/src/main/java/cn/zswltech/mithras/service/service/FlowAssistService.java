@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service;
+package cn.zswltech.mithras.system.service;
 
 import cn.zswltech.gruul.biz.service.impl.OrgServiceImpl;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;

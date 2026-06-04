@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.Das
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardOperationCapacityQuery;
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardOperationCapacityResult;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.util.DashboardOperationUtil;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import lombok.extern.slf4j.Slf4j;

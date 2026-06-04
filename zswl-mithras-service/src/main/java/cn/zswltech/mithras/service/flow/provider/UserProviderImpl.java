@@ -10,7 +10,7 @@ import cn.zswltech.gruul.common.result.Response;
 import cn.zswltech.gruul.dao.dal.query.UserQuery;
 import cn.zswltech.gruul.dao.dal.tkmybatis.Page;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;

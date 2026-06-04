@@ -30,7 +30,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentPoli
 import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.payment.application.lib.libservice.PaymentPolicyInfoLibService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.message.service.MessageService;

@@ -38,7 +38,7 @@ import cn.zswltech.mithras.customer.domain.enums.client.NormalClientMaterialType
 import cn.zswltech.mithras.credit.domain.groupcredit.establish.enums.GroupCreditEstablishMaterialsEnum;
 import cn.zswltech.mithras.credit.domain.groupcredit.establish.enums.GroupCreditEstablishProcessStatus;
 import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewProcessStatus;
-import cn.zswltech.mithras.service.enums.projestablish.ProjEstablishMaterialsEnum;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishMaterialsEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.dto.GroupCreditEstablishListSelectDTO;
@@ -51,14 +51,14 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.service.others.Const;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.Listener.client.ClientViewAuthorityEvent;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientAuthorityService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;

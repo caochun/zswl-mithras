@@ -16,7 +16,7 @@ import cn.zswltech.mithras.basedata.mapper.model.BaseDataExchangeRate;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataLpr;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.basedata.service.BaseDataExchangeRateService;
 import cn.zswltech.mithras.basedata.service.BaseDataLprService;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;

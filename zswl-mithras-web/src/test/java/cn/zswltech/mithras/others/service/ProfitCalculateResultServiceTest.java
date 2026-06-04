@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service;
 
-import cn.zswltech.mithras.service.service.ProfitCalculateResultService;
+import cn.zswltech.mithras.system.service.ProfitCalculateResultService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

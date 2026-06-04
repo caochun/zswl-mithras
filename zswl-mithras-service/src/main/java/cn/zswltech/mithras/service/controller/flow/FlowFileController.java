@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.flow.file.FlowFileListRSP;
 import cn.zswltech.mithras.dto.flow.file.FlowFileRemoveREQ;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.flow.file.FlowFocusFileSelectorFactory;
-import cn.zswltech.mithras.service.service.bo.FileBO;
+import cn.zswltech.mithras.projectprocess.service.bo.FileBO;
 import cn.zswltech.mithras.service.service.flow.FlowFileService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;

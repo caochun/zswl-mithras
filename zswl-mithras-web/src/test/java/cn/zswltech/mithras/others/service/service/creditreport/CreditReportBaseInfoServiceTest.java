@@ -2,8 +2,8 @@ package cn.zswltech.mithras.others.service.service.creditreport;
 
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.mapper.dto.credit.XJCreditReportJsonDTO;
-import cn.zswltech.mithras.service.service.creditreport.CreditReportBaseInfoService;
+import cn.zswltech.mithras.creditreport.mapper.dto.credit.XJCreditReportJsonDTO;
+import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

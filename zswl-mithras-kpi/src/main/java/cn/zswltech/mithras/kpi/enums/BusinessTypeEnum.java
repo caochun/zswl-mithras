@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.enums;
 
-import cn.zswltech.mithras.service.enums.projpricing.FtpIndustryCategoryEnum;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

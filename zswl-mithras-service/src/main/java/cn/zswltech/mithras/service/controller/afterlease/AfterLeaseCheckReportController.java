@@ -28,7 +28,7 @@ import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.Ne
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckReportFinance;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckReportMeta;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportMetaService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckReportBaseService;

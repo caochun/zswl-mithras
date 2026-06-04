@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.mapper.model.contract;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountPayeeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
-import cn.zswltech.mithras.service.enums.projestablish.RePayType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.RePayType;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import lombok.Data;
 import java.io.Serializable;

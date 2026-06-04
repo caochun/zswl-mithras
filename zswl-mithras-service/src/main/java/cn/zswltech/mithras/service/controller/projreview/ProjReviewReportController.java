@@ -12,7 +12,7 @@ import cn.zswltech.mithras.api.projreview.ProjReviewReportApi;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.projreview.report.*;
 import cn.zswltech.mithras.service.CommonFileSortComparator;
-import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

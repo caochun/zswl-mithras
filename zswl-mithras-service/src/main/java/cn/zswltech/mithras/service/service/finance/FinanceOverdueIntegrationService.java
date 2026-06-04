@@ -25,7 +25,7 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegratio
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueVersionRelation;
 import cn.zswltech.mithras.finance.service.FinanceOverdueVersionRelationService;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuaranteeAgency;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuaranteeInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.fund.application.FundCreditGuaranteeDetailService;
 import cn.zswltech.mithras.service.service.fund.FundGuaranteeAgencyService;
 import cn.zswltech.mithras.service.service.fund.FundGuaranteeInfoService;

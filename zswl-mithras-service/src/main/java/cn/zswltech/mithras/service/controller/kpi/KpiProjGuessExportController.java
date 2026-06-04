@@ -14,7 +14,7 @@ import cn.zswltech.mithras.kpi.enums.KpiProjectSourceDistributionEnum;
 import cn.zswltech.mithras.service.excel.exporter.kpi.*;
 import cn.zswltech.mithras.service.excel.model.kpi.*;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjGuessBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import lombok.extern.slf4j.Slf4j;

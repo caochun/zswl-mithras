@@ -11,7 +11,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewAocPrice;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewAocPrice;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractAocPriceService;
 import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;

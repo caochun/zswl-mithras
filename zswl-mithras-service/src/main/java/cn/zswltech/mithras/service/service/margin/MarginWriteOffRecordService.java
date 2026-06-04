@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.margin.MarginwriteOffListRSP;
 import cn.zswltech.mithras.margin.mapper.MarginWriteOffRecordMapper;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.margin.mapper.model.MarginWriteOffRecord;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

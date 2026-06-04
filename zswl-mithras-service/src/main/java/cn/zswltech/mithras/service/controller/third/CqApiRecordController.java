@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.third.CqApiRecordApi;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.third.financial.CqApiRecordREQ;
 import cn.zswltech.mithras.dto.third.financial.CqApiRecordRSP;
-import cn.zswltech.mithras.service.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.system.service.ExceptionRequestInfoService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

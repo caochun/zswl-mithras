@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeight;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeightLib;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.kpi.service.lib.handler.KpiProjectDistributionAbstractLibHandler;
 import org.springframework.stereotype.Component;
 

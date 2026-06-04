@@ -18,7 +18,7 @@ import cn.zswltech.mithras.policy.domain.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.domain.enums.PolicyStatusEnum;
 import cn.zswltech.mithras.policy.infrastructure.persistence.dto.NearPolicyEndTimeDTO;
 import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfo;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import cn.zswltech.mithras.service.service.flow.MyTaskService;

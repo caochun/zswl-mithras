@@ -8,7 +8,7 @@ import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeight;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeightLib;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptWeightLibService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptWeightService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;

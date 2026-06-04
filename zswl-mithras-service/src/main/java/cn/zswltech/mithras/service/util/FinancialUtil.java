@@ -9,13 +9,18 @@ import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.enums.InterestWayEnum;
+import cn.zswltech.mithras.projectprocess.enums.InterestWayEnum;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.ftp.oldftp.bo.FtpCalculateHelperBO;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
+import cn.zswltech.mithras.projectprocess.service.bo.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.service.bo.CashFlowCalculateBO;
+import cn.zswltech.mithras.projectprocess.service.bo.CashFlowIRRBO;
+import cn.zswltech.mithras.projectprocess.service.bo.DailyDiscountRateCalcResultBO;
+import cn.zswltech.mithras.projectprocess.service.bo.IncomeSharingCashFlowBO;
 import cn.zswltech.mithras.service.service.bo.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,7 +32,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.projestablish.PayType.AFTERWARD;
+import static cn.zswltech.mithras.projectprocess.enums.projestablish.PayType.AFTERWARD;
 import static cn.zswltech.mithras.service.others.MithrasException.err;
 import static cn.zswltech.mithras.service.others.Util.mithrasLongDecimalTwo;
 

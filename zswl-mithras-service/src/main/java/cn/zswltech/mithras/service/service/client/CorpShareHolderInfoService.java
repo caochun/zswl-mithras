@@ -14,7 +14,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpS
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.NewCorpShareholderInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.service.service.client.copyhandler.ClientOldDataHelper;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;

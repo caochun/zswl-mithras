@@ -1,5 +1,5 @@
 /*
-package cn.zswltech.mithras.service.service.lib.creditreport;
+package cn.zswltech.mithras.creditreport.service.lib.creditreport;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
@@ -10,8 +10,8 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpBankAccount;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpBankAccountLib;
-import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportDO;
-import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportLibDO;
+import cn.zswltech.mithras.creditreport.mapper.model.CreditReportDO;
+import cn.zswltech.mithras.creditreport.mapper.model.CreditReportLibDO;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;
 import cn.zswltech.mithras.service.mapper.tag.ILib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;

@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.system.controller;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.service.mapper.SystemSwitchMapper;
-import cn.zswltech.mithras.service.mapper.model.SystemSwitch;
+import cn.zswltech.mithras.system.mapper.SystemSwitchMapper;
+import cn.zswltech.mithras.system.mapper.model.SystemSwitch;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.google.common.base.Objects;
 import org.springframework.web.bind.annotation.GetMapping;

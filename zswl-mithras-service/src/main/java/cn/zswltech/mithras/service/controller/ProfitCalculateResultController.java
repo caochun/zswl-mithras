@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.ProfitCalculateResultListRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.excel.exporter.ProfitCalculateExcelExporter;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.ProfitCalculateResultService;
+import cn.zswltech.mithras.system.service.ProfitCalculateResultService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

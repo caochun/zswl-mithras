@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.creditreport;
+package cn.zswltech.mithras.creditreport.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
@@ -13,12 +13,12 @@ import cn.zswltech.mithras.dto.creditreport.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.service.enums.creditreport.CreditApplyStatusEnum;
-import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportBaseInfo;
+import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
+import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
-import cn.zswltech.mithras.service.service.creditreport.CreditReportBaseInfoService;
-import cn.zswltech.mithras.service.service.creditreport.CreditReportService;
+import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
+import cn.zswltech.mithras.creditreport.service.CreditReportService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.RestController;

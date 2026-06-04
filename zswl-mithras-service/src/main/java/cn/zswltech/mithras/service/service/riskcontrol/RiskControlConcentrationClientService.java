@@ -24,8 +24,8 @@ import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationCli
 import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationGroup;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationClientMapper;
-import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;

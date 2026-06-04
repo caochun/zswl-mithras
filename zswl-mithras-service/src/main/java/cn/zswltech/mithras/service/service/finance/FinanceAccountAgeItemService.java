@@ -28,7 +28,7 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceAccountAgeBaseInf
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceAccountAgeItem;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;

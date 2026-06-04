@@ -34,7 +34,7 @@ import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.Budget
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayWeeklyReport;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayWeeklyReportDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

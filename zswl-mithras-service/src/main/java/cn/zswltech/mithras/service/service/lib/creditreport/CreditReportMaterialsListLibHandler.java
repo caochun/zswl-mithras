@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.lib.creditreport;
+package cn.zswltech.mithras.creditreport.service.lib.creditreport;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,8 +8,8 @@ import cn.zswltech.mithras.service.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.service.mapper.model.creditreport.CreditReportClientItem;
-import cn.zswltech.mithras.service.service.creditreport.CreditReportClientItemService;
+import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
+import cn.zswltech.mithras.creditreport.service.CreditReportClientItemService;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

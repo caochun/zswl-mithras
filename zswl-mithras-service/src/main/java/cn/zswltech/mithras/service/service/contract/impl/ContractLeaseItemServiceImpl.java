@@ -29,7 +29,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItemLib;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemListRowData;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.LeaseItemCommonService;
+import cn.zswltech.mithras.system.service.LeaseItemCommonService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractLeaseItemService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;

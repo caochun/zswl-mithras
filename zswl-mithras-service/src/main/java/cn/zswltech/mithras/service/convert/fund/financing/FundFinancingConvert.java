@@ -11,7 +11,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financin
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingRepayActual;
-import cn.zswltech.mithras.service.service.bo.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.service.bo.CashFlowBO;
 
 import java.util.List;
 import java.util.Objects;

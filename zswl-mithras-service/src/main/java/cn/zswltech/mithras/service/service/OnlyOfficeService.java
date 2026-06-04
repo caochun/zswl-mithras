@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service;
+package cn.zswltech.mithras.system.service;
 
 import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.core.lang.Assert;

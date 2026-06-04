@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.flow.listener.endhandler;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.projlifecycle.enums.ProcessEventDescEnum;
-import cn.zswltech.mithras.service.enums.projreview.ReviewRelationDataType;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.projlifecycle.mapper.model.ProjLifecycleEvent;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishService;
 import org.springframework.stereotype.Component;

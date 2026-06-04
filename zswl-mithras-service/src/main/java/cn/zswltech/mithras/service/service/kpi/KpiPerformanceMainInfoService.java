@@ -13,7 +13,7 @@ import cn.zswltech.mithras.kpi.mapper.model.PerformanceMainInfo;
 import cn.zswltech.mithras.kpi.mapper.model.PerformanceRecordInfo;
 import cn.zswltech.mithras.kpi.service.KpiPerformanceRecordInfoService;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.kpi.excel.CompanyExcelModel;
 import cn.zswltech.mithras.service.service.kpi.excel.DeptExcelModel;
 import cn.zswltech.mithras.service.service.kpi.excel.PersonalExcelModel;

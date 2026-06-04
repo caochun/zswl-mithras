@@ -3,13 +3,13 @@ package cn.zswltech.mithras.service.service.datacompare.factory;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoDetailRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.lib.projpricing.ProjPricingBaseInfoLibMapper;
-import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingBaseInfoLibMapper;
+import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfoLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.projpricing.handler.impl.ProjPricingBaseInfoLibHandler;
+import cn.zswltech.mithras.projectprocess.service.lib.projpricing.handler.impl.ProjPricingBaseInfoLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

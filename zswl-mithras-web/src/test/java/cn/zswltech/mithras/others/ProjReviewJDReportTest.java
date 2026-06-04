@@ -2,11 +2,11 @@ package cn.zswltech.mithras.others;
 
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.service.gendoc.render.ProjReviewEarningsRateRender;
 import cn.zswltech.mithras.service.gendoc.render.ProjReviewJDReportZLRender;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.service.bo.ProjReviewRenderBO;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.service.bo.ProjReviewRenderBO;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import org.junit.Test;
 

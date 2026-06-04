@@ -17,7 +17,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.pubin
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.pubinfo.PublicInfoRecord;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.FileModuleCheck;
 import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;

@@ -13,7 +13,7 @@ import cn.zswltech.mithras.ftp.oldftp.enums.FtpMonthlyMaterialsEnum;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpQuarterlyMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.ftp.FtpMonthlyGuidanceService;
 import cn.zswltech.mithras.service.service.ftp.FtpQuarterlyGuidanceService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

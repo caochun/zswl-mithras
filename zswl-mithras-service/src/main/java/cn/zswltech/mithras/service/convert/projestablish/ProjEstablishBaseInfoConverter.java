@@ -5,8 +5,8 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListR
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoModifyREQ;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.mapper.dto.ProjEstablishListSelectDTO;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.dto.ProjEstablishListSelectDTO;
+import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

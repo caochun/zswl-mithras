@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.factory.onlyoffice.OoBizHandler;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

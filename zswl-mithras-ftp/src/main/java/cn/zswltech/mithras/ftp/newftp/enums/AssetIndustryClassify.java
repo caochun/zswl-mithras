@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.newftp.enums;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
 
 /**
  * @description:

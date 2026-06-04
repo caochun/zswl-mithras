@@ -27,8 +27,8 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.collection.service.bo.CollectionDetailChainBO;
 import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;

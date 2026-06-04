@@ -23,7 +23,7 @@ import cn.zswltech.mithras.margin.mapper.model.MarginWriteOffRecord;
 import cn.zswltech.mithras.margin.mapper.model.WarrantyBaseInfo;
 import cn.zswltech.mithras.margin.mapper.model.WarrantyRecordInfo;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEventListener;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

@@ -4,7 +4,7 @@ import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchHyperlink;
 import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchShortcuts;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.workbench.application.WorkbenchHyperlinkService;
 import cn.zswltech.mithras.workbench.application.WorkbenchShortcutsService;
 import com.xxl.job.core.handler.annotation.XxlJob;

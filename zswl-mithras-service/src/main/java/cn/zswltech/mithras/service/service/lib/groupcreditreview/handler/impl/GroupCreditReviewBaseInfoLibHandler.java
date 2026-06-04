@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.convert.groupcreditreview.GroupCreditReviewBa
 import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewInfoModule;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.credit.application.groupcredit.review.handler.GroupCreditReviewLibAbstractHandler;
 import org.springframework.stereotype.Component;

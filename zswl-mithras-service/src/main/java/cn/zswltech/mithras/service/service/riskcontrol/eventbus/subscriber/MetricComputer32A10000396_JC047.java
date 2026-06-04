@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.service.service.riskcontrol.eventbus.subscriber;
 
-import cn.zswltech.mithras.service.enums.projreview.ProjRegionalClassify;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
 import com.google.common.eventbus.AllowConcurrentEvents;

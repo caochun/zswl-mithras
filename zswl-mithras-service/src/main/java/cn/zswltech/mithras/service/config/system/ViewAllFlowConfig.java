@@ -4,8 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.mapper.SystemConfigMapper;
-import cn.zswltech.mithras.service.mapper.model.SystemConfig;
+import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
+import cn.zswltech.mithras.system.mapper.model.SystemConfig;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

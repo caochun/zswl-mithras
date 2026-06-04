@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.bo;
+package cn.zswltech.mithras.projectprocess.service.bo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

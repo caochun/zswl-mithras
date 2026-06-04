@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.service.contract.file.generator.*;
 
 import static cn.hutool.core.text.CharSequenceUtil.equalsAny;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.service.enums.projestablish.FactoringType.*;
+import static cn.zswltech.mithras.projectprocess.enums.projestablish.FactoringType.*;
 
 /**
  * @author dingqi

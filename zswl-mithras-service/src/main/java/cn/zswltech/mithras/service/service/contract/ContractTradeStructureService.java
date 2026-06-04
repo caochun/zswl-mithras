@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.enums.TradeStructureRoleEnum;
+import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.contract.enums.contract.CreditorDebtorTypeEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTradeStructureMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;

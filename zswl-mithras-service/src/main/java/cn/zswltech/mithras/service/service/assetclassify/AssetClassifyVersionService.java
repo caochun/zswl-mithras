@@ -29,8 +29,8 @@ import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyNodeRecord;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.BizProcessDataService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.BizProcessDataService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyLibVersionService;
 import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyReviewVersionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

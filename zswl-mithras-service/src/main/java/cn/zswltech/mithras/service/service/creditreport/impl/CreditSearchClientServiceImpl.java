@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.service.service.creditreport.impl;
+package cn.zswltech.mithras.creditreport.service.impl;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchClientQuery;
-import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.creditreport.CreditReportBaseInfoService;
-import cn.zswltech.mithras.service.service.creditreport.CreditSearchClientService;
+import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
+import cn.zswltech.mithras.creditreport.service.CreditSearchClientService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

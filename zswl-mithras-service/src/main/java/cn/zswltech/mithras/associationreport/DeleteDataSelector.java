@@ -2,7 +2,7 @@ package cn.zswltech.mithras.associationreport;
 
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.associationreport.service.*;
-import cn.zswltech.mithras.service.enums.associationreport.AssociationReportCategoryEnum;
+import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 
 /**

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.creditreport;
+package cn.zswltech.mithras.creditreport.service;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;

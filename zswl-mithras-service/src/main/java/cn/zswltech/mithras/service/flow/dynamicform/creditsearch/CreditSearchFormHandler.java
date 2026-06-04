@@ -5,7 +5,7 @@ import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.service.mapper.creditreport.CreditReportBaseInfoMapper;
+import cn.zswltech.mithras.creditreport.mapper.CreditReportBaseInfoMapper;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

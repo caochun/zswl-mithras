@@ -19,8 +19,8 @@ import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.NewAfter
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQuery;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.BizProcessDataService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.BizProcessDataService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryClientInfoService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckExternalQueryVersionService;

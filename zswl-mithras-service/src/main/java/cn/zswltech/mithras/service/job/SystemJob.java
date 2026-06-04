@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPay;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.BizDataFixService;
+import cn.zswltech.mithras.system.service.BizDataFixService;
 import cn.zswltech.mithras.service.service.Listener.SystemSwitchRefreshEvent;
 import cn.zswltech.mithras.service.service.budget.BudgetPlanPayFlowService;
 import cn.zswltech.mithras.service.service.budget.BudgetPlanPayService;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.client.ClientBusinessOpinionAddREQ;
 import cn.zswltech.mithras.dto.client.ClientBusinessOpinionListREQ;
 import cn.zswltech.mithras.dto.client.ClientBusinessOpinionListRSP;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBusinessOpinion;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.client.ClientBusinessOpinionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

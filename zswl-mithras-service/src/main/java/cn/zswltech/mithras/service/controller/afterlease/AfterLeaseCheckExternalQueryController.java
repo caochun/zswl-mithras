@@ -25,7 +25,7 @@ import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.Ne
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.IndustryType;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryClientInfoService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckExternalQueryClientInfoLibService;

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.fileledger.ProjSideArchivedMaterialsQueryRSP;
 import cn.zswltech.mithras.dto.utils.BeanCopyUtils;
 import cn.zswltech.mithras.filingmaterials.infrastructure.persistence.mapper.model.ProjFilingMaterialsQuery;
 import cn.zswltech.mithras.filingmaterials.infrastructure.persistence.mapper.model.ProjFilingMaterialsResult;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.filingmaterials.FilingMaterialsService;
 import cn.zswltech.mithras.service.util.DateUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

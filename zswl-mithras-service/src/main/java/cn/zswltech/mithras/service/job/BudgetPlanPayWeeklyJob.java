@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.budget.weekly.BudgetPlanPayWeeklyReportAddREQ;
 import cn.zswltech.mithras.budget.domain.enums.BudgetPlanTypeEnum;
 import cn.zswltech.mithras.budget.domain.enums.BudgetStatusEnum;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.*;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.service.budget.*;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;

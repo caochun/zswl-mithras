@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.convert.creditsearch;
 
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
-import cn.zswltech.mithras.service.enums.creditreport.CreditApplyStatusEnum;
+import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
 import cn.zswltech.mithras.service.excel.model.CreditSearchExcelModel;
 
 import java.util.Optional;

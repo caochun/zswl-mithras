@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.creditreport;
+package cn.zswltech.mithras.creditreport.controller;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
@@ -7,8 +7,8 @@ import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
 import cn.zswltech.mithras.dto.creditreport.CreditReportProjectReviewAddDTO;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchProjectCmd;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchProjectQuery;
-import cn.zswltech.mithras.service.service.creditreport.CreditReportBaseInfoService;
-import cn.zswltech.mithras.service.service.creditreport.CreditSearchProjectService;
+import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
+import cn.zswltech.mithras.creditreport.service.CreditSearchProjectService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

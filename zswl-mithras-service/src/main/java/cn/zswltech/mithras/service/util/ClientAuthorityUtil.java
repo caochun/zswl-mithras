@@ -33,7 +33,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.*;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.service.service.client.*;
 import cn.zswltech.mithras.service.service.client.copyhandler.ClientDataCopyHandlerFactory;

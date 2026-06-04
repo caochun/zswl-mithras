@@ -10,9 +10,9 @@ import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowMeetMin
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowMeetMinutePlanListREQ;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanListRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewCashFlowPlan;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewLeasePrice;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewMeetMinuteBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewMeetMinuteBaseInfo;
 import cn.zswltech.mithras.service.others.LackDataException;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewCashFlowPlanService;

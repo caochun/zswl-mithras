@@ -10,7 +10,7 @@ import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionWeightMapper;
 import cn.zswltech.mithras.kpi.mapper.query.KpiProjectDistributionQuery;
 import cn.zswltech.mithras.kpi.mapper.model.*;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionBaseInfoLibService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.kpi.service.lib.handler.impl.KpiProjectDistributionBaseInfoLibHandler;

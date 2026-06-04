@@ -17,7 +17,7 @@ import cn.zswltech.mithras.fund.domain.enums.FundCreditMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundCredit;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.creditlimit.service.bo.CreditLimitQueryBO;
 import cn.zswltech.mithras.fund.application.FundCreditGuaranteeDetailService;
 import cn.zswltech.mithras.service.service.fund.FundCreditService;

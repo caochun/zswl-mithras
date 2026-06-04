@@ -2,7 +2,7 @@ package cn.zswltech.mithras.report.auth;
 
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.others.AuthCheckException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

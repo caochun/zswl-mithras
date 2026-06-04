@@ -14,13 +14,13 @@
     <modules>
         <module>zswl-mithras-api</module>
         <module>zswl-mithras-service-core</module>
-        <module>zswl-mithras-domain-creditreport</module>
+        <module>zswl-mithras-creditreport</module>
         <module>zswl-mithras-xinsight</module>
         <module>zswl-mithras-ep</module>
         <module>zswl-mithras-guanbao</module>
         <module>zswl-mithras-log</module>
         <module>zswl-mithras-async</module>
-        <module>zswl-mithras-domain-associationreport</module>
+        <module>zswl-mithras-associationreport</module>
         <module>zswl-mithras-factory</module>
         <module>zswl-mithras-blackgray</module>
         <module>zswl-mithras-capital</module>
@@ -42,7 +42,7 @@
         <module>zswl-mithras-archives</module>
         <module>zswl-mithras-financeprojectdistribution</module>
         <module>zswl-mithras-ftp</module>
-        <module>zswl-mithras-domain-projectprocess</module>
+        <module>zswl-mithras-projectprocess</module>
         <module>zswl-mithras-project</module>
         <module>zswl-mithras-payment</module>
         <module>zswl-mithras-afterlease</module>
@@ -61,7 +61,7 @@
         <module>zswl-mithras-kpi</module>
         <module>zswl-mithras-creditlimit</module>
         <module>zswl-mithras-metric</module>
-        <module>zswl-mithras-domain-system</module>
+        <module>zswl-mithras-system</module>
         <module>zswl-mithras-service</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>

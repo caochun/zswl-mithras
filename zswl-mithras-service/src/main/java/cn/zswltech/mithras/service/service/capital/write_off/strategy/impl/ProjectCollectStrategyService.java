@@ -26,7 +26,7 @@ import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabMainInfo;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabRecord;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffService;
 import cn.zswltech.mithras.service.service.capital.write_off.impl.ProjectCollectWriteOffServiceImpl;
 import cn.zswltech.mithras.service.service.capital.write_off.strategy.ManualWriteOffStrategyInterface;

@@ -11,8 +11,8 @@ import cn.zswltech.mithras.service.excel.model.ContractRentActualExcelModel;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
-import cn.zswltech.mithras.service.service.bo.CashFlowBO;
-import cn.zswltech.mithras.service.service.bo.CashFlowCalculateBO;
+import cn.zswltech.mithras.projectprocess.service.bo.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.service.bo.CashFlowCalculateBO;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;

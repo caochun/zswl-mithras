@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.OnlyOfficeApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.dto.onlyoffice.DocDetailRSP;
 import cn.zswltech.mithras.api.dto.onlyoffice.GetDocDetailREQ;
-import cn.zswltech.mithras.service.service.OnlyOfficeService;
+import cn.zswltech.mithras.system.service.OnlyOfficeService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

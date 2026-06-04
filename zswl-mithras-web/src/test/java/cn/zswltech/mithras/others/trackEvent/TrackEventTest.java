@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayA
 import cn.zswltech.mithras.service.job.NextMonthRentNotify;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.fund.application.bo.ComprehensiveFinancingCostBO;
 import cn.zswltech.mithras.service.service.dashboard.GuanYuanOperationService;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.BusinessContractSummaryDTO;

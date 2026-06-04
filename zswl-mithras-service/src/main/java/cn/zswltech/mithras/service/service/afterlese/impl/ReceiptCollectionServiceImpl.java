@@ -27,7 +27,7 @@ import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.Co
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.BizProcessDataService;
+import cn.zswltech.mithras.system.service.BizProcessDataService;
 import cn.zswltech.mithras.afterlease.application.CollectionPenaltyReductionService;
 import cn.zswltech.mithras.afterlease.application.impl.CollectionPenaltyReductionRelationService;
 import cn.zswltech.mithras.service.service.afterlese.ReceiptCollectionService;

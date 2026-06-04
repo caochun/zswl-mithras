@@ -2,7 +2,7 @@ package cn.zswltech.mithras.report.enums.biz;
 
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
 import cn.zswltech.mithras.service.config.enumscan.PullDownExt;
-import cn.zswltech.mithras.service.enums.projestablish.RepayCalcType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

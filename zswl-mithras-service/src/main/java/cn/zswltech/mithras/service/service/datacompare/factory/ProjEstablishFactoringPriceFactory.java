@@ -3,13 +3,13 @@ package cn.zswltech.mithras.service.service.datacompare.factory;
 import cn.zswltech.mithras.dto.projestablish.pricefactoring.ProjEstablishFactoringPriceRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.lib.projestablish.ProjEstablishFactoringPriceLibMapper;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishFactoringPrice;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishFactoringPriceLib;
+import cn.zswltech.mithras.projectprocess.mapper.lib.projestablish.ProjEstablishFactoringPriceLibMapper;
+import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishFactoringPrice;
+import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishFactoringPriceLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.projestablish.handler.impl.ProjEstablishFactoringPriceLibHandler;
+import cn.zswltech.mithras.projectprocess.service.lib.projestablish.handler.impl.ProjEstablishFactoringPriceLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

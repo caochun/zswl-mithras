@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model;
 
-import cn.zswltech.mithras.service.enums.projreview.ProjectClassify;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -121,7 +121,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-creditreport</artifactId>
+            <artifactId>zswl-mithras-creditreport</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -151,7 +151,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-associationreport</artifactId>
+            <artifactId>zswl-mithras-associationreport</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -266,7 +266,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-projectprocess</artifactId>
+            <artifactId>zswl-mithras-projectprocess</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -346,7 +346,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-system</artifactId>
+            <artifactId>zswl-mithras-system</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

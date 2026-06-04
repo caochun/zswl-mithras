@@ -22,8 +22,8 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.app.VisitR
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.app.VisitRecord;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.FileModuleCheck;

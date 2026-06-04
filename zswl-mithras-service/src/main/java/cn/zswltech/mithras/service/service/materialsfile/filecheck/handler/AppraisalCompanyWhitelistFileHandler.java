@@ -18,7 +18,7 @@ import cn.zswltech.mithras.leaseholdproperty.domain.enums.LeaseAppraisalFileType
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.AppraisalCompanyWhitelistService;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.FileModuleCheck;
 import lombok.extern.slf4j.Slf4j;

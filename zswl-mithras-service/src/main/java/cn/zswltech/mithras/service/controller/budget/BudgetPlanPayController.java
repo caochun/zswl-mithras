@@ -17,7 +17,7 @@ import cn.zswltech.mithras.dto.budget.BudgetPlanPayRSP;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPay;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 

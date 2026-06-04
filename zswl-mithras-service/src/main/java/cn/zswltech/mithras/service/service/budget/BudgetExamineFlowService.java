@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.ProcessState;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetExamineMapper;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetExamine;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;

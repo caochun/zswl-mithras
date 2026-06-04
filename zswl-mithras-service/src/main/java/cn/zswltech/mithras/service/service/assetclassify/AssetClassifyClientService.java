@@ -49,9 +49,9 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.BizProcessDataService;
-import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.BizProcessDataService;
+import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportMetaService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportTemplateService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanBaseService;

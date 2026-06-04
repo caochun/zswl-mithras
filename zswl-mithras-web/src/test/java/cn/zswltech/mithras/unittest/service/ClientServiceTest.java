@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.client.client.ClientListREQ;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

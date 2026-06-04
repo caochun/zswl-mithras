@@ -6,8 +6,8 @@ import cn.zswltech.mithras.dto.projestablish.priceaoc.ProjEstablishAocPriceRSP;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpQuarterlyInfoModule;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyBasePricing;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyBasePricingLib;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishAocPrice;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishAocPriceLib;
+import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishAocPrice;
+import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishAocPriceLib;
 import cn.zswltech.mithras.ftp.oldftp.lib.handler.AbstractFtpQuarterlyLibHandler;
 import org.springframework.stereotype.Service;
 

@@ -10,8 +10,8 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.PenaltyReduceBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projlifecycle.mapper.model.ProjLifecycleEvent;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.service.service.afterlese.PenaltyReduceBaseInfoService;
 import org.springframework.stereotype.Component;
 

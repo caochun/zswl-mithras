@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.service.config.enumscan.MaterialsTypeFactory;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;

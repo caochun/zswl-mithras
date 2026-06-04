@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.contract.enums.contract.CreditorDebtorTypeEnum;
-import cn.zswltech.mithras.service.enums.projestablish.FactoringType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.FactoringType;
 import cn.zswltech.mithras.service.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;

@@ -35,7 +35,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-domain-projectprocess</artifactId>
+            <artifactId>zswl-mithras-projectprocess</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.creditreport.mapper.CreditReportBaseInfoMapper">
+
+
+    <select id="selectClientInfo" resultType="cn.zswltech.mithras.dto.client.client.ClientInfo">
+        SELECT c.id as clientId,c.client_code,c.client_name,ca.user_id
+        FROM client c
+                 left join client_authority ca
+                           on c.id=ca.client_id
+            <where>
+                ca.deleted=0 and ca.`level` in(2,3)
+                <if test="clientName !=null">
+                    and c.client_name like concat('%',#{clientName},'%')
+                </if>
+                <if test="userId !=null">
+                    and ca.user_id=#{userId}
+                </if>
+                <if test="bizDeptIds !=null and bizDeptIds.size()>0">
+                    and ca.dept_id in
+                    <foreach close=")" collection="bizDeptIds" item="item" open="(" separator=",">
+                        #{item}
+                    </foreach>
+                </if>
+            </where>
+    </select>
+    <select id="selectClientInfoAll" resultType="cn.zswltech.mithras.dto.client.client.ClientInfo">
+        SELECT c.id as clientId,c.client_type,c.client_name,ca.user_id
+        FROM client c
+        left join client_authority ca
+        on c.id=ca.client_id
+        <where>
+            ca.deleted=0
+            <if test="clientName !=null">
+                and c.client_name like concat('%',#{clientName},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

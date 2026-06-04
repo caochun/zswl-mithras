@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.process.modify.remark.*;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.ProcessModifyRemark;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.ProcessModifyRemarkLib;
 import cn.zswltech.mithras.workflow.application.ProcessModifyRemarkLibService;
-import cn.zswltech.mithras.service.service.ProcessModifyRemarkService;
+import cn.zswltech.mithras.system.service.ProcessModifyRemarkService;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

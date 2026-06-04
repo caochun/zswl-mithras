@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.enums.contract.text.ContractTextStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.text.SigningWayEnum;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractSignInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextManage;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.text.ContractTextManageService;
 import cn.zswltech.mithras.service.service.contract.text.ContractTextSignInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;

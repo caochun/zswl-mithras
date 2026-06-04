@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.service.ProfitCalculateResultService;
+import cn.zswltech.mithras.system.service.ProfitCalculateResultService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

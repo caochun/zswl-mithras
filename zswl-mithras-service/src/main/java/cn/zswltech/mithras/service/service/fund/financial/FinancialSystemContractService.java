@@ -9,7 +9,7 @@ import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.LprAdjustmentDayEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.LprArrangeModeEnum;
-import cn.zswltech.mithras.service.enums.projestablish.RateType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPlan;

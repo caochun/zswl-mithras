@@ -5,7 +5,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.others.AuthCheckException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -18,7 +18,7 @@ import cn.zswltech.mithras.policy.domain.enums.PolicyApprovalStatusEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfo;
-import cn.zswltech.mithras.service.mapper.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
@@ -35,7 +35,7 @@ import javax.validation.Valid;
 import java.util.Objects;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.MithrasConstants.ERR_IN_TRANSFER;
+import static cn.zswltech.mithras.associationreport.constant.MithrasConstants.ERR_IN_TRANSFER;
 import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;

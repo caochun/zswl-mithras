@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.flow.listener.endhandler;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
-import cn.zswltech.mithras.service.service.creditreport.CreditReportService;
+import cn.zswltech.mithras.creditreport.service.CreditReportService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.flow.file;
 
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.service.bo.FileBO;
+import cn.zswltech.mithras.projectprocess.service.bo.FileBO;
 
 import java.util.List;
 

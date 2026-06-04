@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
-import cn.zswltech.mithras.service.enums.projestablish.RateType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;

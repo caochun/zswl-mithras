@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.lib.projreview.handler.impl;
+package cn.zswltech.mithras.projectprocess.service.lib.projreview.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -6,14 +6,14 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
-import cn.zswltech.mithras.service.enums.projreview.ProjReviewInfoModule;
-import cn.zswltech.mithras.service.enums.projreview.ProjectType;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.mapper.model.projreview.ProjReviewBaseInfoLib;
-import cn.zswltech.mithras.service.service.Id2NameService;
-import cn.zswltech.mithras.service.service.lib.projreview.handler.ProjReviewLibAbstractHandler;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;
+import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.projectprocess.service.lib.projreview.handler.ProjReviewLibAbstractHandler;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

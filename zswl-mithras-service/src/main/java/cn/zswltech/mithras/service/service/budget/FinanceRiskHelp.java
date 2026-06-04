@@ -13,7 +13,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceBcmBalanceMf;
 import cn.zswltech.mithras.finance.service.budget.FinanceBcmBalanceMfService;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceSubjectBalanceAssist;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.finance.service.FinanceSubjectBalanceAssistService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

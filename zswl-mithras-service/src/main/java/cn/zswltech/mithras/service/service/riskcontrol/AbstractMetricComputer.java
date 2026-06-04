@@ -11,7 +11,7 @@ import cn.zswltech.mithras.riskcontrol.common.AlertState;
 import cn.zswltech.mithras.riskcontrol.common.MetricUnit;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshot;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshotService;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;

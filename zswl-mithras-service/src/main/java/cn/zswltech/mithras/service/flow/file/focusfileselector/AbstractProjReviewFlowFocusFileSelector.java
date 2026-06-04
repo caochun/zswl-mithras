@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.flow.file.focusfileselector;
 
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.projreview.ProjReviewMaterialsEnum;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;

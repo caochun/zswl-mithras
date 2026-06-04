@@ -29,7 +29,7 @@ import cn.zswltech.mithras.budget.domain.enums.BudgetStatusEnum;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.*;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.*;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.util.SpringUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

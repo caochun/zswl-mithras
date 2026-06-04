@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service;
+package cn.zswltech.mithras.system.service;
 
 import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.basedata.mapper.corp.GeneralDictionaryMapper;

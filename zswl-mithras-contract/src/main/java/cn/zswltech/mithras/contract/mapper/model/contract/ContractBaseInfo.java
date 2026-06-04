@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.contract.mapper.model.contract;
 
 import cn.zswltech.mithras.service.annotation.NotCompareColumn;
-import cn.zswltech.mithras.service.enums.projestablish.FactoringType;
-import cn.zswltech.mithras.service.enums.projestablish.ZrType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.FactoringType;
+import cn.zswltech.mithras.projectprocess.enums.projestablish.ZrType;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.service.mapper.model.SponsorField;
 import cn.zswltech.mithras.service.mapper.tag.IEntity;

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageItem;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import com.alibaba.fastjson.JSONArray;
 import com.deepoove.poi.XWPFTemplate;

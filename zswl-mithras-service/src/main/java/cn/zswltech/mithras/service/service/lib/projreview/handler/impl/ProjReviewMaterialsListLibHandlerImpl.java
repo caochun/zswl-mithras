@@ -1,15 +1,15 @@
-package cn.zswltech.mithras.service.service.lib.projreview.handler.impl;
+package cn.zswltech.mithras.projectprocess.service.lib.projreview.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.projreview.ProjReviewInfoModule;
+import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.service.service.lib.projreview.handler.ProjReviewLibAbstractHandler;
+import cn.zswltech.mithras.projectprocess.service.lib.projreview.handler.ProjReviewLibAbstractHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

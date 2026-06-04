@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.convert.groupcreditestablish.GroupCreditEstab
 import cn.zswltech.mithras.credit.domain.groupcredit.establish.enums.GroupCreditEstablishInfoModule;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.handler.GroupCreditEstablishLibAbstractHandler;
 import org.springframework.stereotype.Component;

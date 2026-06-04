@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.auth.checker.implnew.CommonAddSubAuthCheckerN
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseAdjustMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseReportService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import lombok.extern.slf4j.Slf4j;

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.excel.model.ContractExcelModel;
 import cn.zswltech.mithras.contract.mapper.dto.ContractListSelectDTO;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

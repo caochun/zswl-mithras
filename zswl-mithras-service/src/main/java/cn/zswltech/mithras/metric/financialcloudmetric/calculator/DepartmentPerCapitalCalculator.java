@@ -3,7 +3,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Department;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;

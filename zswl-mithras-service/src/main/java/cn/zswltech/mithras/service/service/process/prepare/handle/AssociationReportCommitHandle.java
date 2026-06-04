@@ -10,12 +10,12 @@ import cn.zswltech.mithras.associationreport.service.AssociationReportApplyServi
 import cn.zswltech.mithras.associationreport.service.AssociationReportService;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.associationreport.AssociationProcessStatusEnum;
-import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReport;
-import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReportApply;
+import cn.zswltech.mithras.associationreport.enums.AssociationProcessStatusEnum;
+import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
+import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

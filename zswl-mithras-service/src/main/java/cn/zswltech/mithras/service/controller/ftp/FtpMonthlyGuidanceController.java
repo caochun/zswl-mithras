@@ -19,7 +19,7 @@ import cn.zswltech.mithras.ftp.oldftp.enums.FtpProcessStatus;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyGuidance;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.ftp.FtpMonthlyGuidanceService;
 import cn.zswltech.mithras.service.service.ftp.FtpMonthlyGuidanceVersionService;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpMonthlyPricingService;

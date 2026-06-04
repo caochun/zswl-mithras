@@ -6,7 +6,7 @@ import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptLaunchWeight;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptLaunchWeightService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;

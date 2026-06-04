@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.flow.file.IFileHandler;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientTransferApply;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.customer.application.client.ClientTransferApplyService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import org.apache.commons.collections4.CollectionUtils;

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
-import cn.zswltech.mithras.service.service.BizProcessDataService;
+import cn.zswltech.mithras.system.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

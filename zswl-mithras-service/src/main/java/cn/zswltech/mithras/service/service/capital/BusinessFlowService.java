@@ -48,7 +48,7 @@ import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.Id2NameService;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.capital.excel.BusinessFlowFundCollectExporter;
 import cn.zswltech.mithras.service.service.capital.excel.BusinessFlowFundCollectModel;
 import cn.zswltech.mithras.service.service.capital.excel.BusinessFlowFundPaymentExporter;

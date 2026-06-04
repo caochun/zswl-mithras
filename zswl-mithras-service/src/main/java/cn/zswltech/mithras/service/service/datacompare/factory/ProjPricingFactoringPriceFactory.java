@@ -3,13 +3,13 @@ package cn.zswltech.mithras.service.service.datacompare.factory;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingFactoringPriceRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.lib.projpricing.ProjPricingFactoringPriceLibMapper;
-import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingFactoringPrice;
-import cn.zswltech.mithras.service.mapper.model.projpricing.ProjPricingFactoringPriceLib;
+import cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingFactoringPriceLibMapper;
+import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingFactoringPrice;
+import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingFactoringPriceLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.projpricing.handler.impl.ProjPricingFactoringPriceLibHandler;
+import cn.zswltech.mithras.projectprocess.service.lib.projpricing.handler.impl.ProjPricingFactoringPriceLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

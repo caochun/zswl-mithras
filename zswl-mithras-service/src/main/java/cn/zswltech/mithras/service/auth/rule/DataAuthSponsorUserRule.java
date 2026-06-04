@@ -15,7 +15,7 @@ import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsBusinessT
 import cn.zswltech.mithras.service.mapper.model.SponsorField;
 import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import lombok.extern.slf4j.Slf4j;

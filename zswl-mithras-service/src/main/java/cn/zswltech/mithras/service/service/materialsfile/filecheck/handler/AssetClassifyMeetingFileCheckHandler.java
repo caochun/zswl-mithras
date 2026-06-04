@@ -10,7 +10,7 @@ import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyMaterialsEnum
 import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyMeetingFileMaterialsEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.SysUserService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.materialsfile.filecheck.FileModuleCheck;
 import org.springframework.stereotype.Component;

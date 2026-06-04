@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import static cn.zswltech.mithras.metric.aggregator.AggConst.ENGINEERING_MACHINE_RETAIL_INDUSTRY_CODE;
-import static cn.zswltech.mithras.service.enums.projreview.ProjectType.PUBLIC_UTILITIES;
+import static cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType.PUBLIC_UTILITIES;
 
 /**
  * @author yibin

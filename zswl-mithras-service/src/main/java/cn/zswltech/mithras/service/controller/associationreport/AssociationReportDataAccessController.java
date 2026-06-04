@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.associationreport;
+package cn.zswltech.mithras.associationreport.controller;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessList
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessListRSP;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessRemoveREQ;
 import cn.zswltech.mithras.associationreport.service.AssociationReportDataAccessService;
-import cn.zswltech.mithras.service.mapper.model.associationreport.AssociationReportDataAccess;
+import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportDataAccess;
 
 import java.util.List;
 
