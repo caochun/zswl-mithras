@@ -1,9 +1,7 @@
 package cn.zswltech.mithras.service.excel.model.monthly;
 
 import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
-import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.service.excel.model.ExcelModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
