@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
+import cn.zswltech.mithras.liquiditymanage.mapper.AccountBalanceBaseInfoMapper;
 import cn.zswltech.mithras.liquiditymanage.mapper.model.AccountBalanceBaseInfo;
-import cn.zswltech.mithras.service.service.liquiditymanage.AccountBalanceBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 public class FCM_129Calculator implements FinancialCloudMetricCalculator {
 
     @Resource
-    private AccountBalanceBaseInfoService accountBalanceBaseInfoService;
+    private AccountBalanceBaseInfoMapper accountBalanceBaseInfoMapper;
 
     @Override
     public String metricCode() {
@@ -37,7 +37,7 @@ public class FCM_129Calculator implements FinancialCloudMetricCalculator {
         LocalDate start = dateTime.with(firstDayOfMonth()).plusMonths(1);
         LocalDate end = start.with(lastDayOfMonth()).plusMonths(5);
         // 查询数据
-        List<AccountBalanceBaseInfo> infoList = accountBalanceBaseInfoService.list(Wrappers.<AccountBalanceBaseInfo>lambdaQuery()
+        List<AccountBalanceBaseInfo> infoList = accountBalanceBaseInfoMapper.selectList(Wrappers.<AccountBalanceBaseInfo>lambdaQuery()
                 .ge(AccountBalanceBaseInfo::getDate, start)
                 .le(AccountBalanceBaseInfo::getDate, end));
         if (infoList.isEmpty()) {
