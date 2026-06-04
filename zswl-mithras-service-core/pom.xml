@@ -109,6 +109,11 @@
             <version>2.3.30</version>
         </dependency>
         <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>pinyin4j</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.bitbucket.cowwoc</groupId>
             <artifactId>diff-match-patch</artifactId>
             <version>1.2</version>
