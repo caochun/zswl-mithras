@@ -22,7 +22,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBase
 import cn.zswltech.mithras.projlifecycle.mapper.ProjLifecycleEventMapper;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractAocPriceService;
+import cn.zswltech.mithras.contract.core.application.ContractAocPriceService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractFactoringPriceService;
 import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
