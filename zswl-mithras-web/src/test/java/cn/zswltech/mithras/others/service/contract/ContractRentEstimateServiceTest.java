@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.service.contract;
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentEstimateExportREQ;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
+import cn.zswltech.mithras.contract.core.application.ContractRentEstimateService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

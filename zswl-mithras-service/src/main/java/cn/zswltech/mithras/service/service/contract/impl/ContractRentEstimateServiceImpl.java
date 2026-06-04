@@ -40,7 +40,7 @@ import cn.zswltech.mithras.contract.application.dto.ContractPriceHelperBO;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
-import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
+import cn.zswltech.mithras.contract.core.application.ContractRentEstimateService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractRentEstimateLibService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;

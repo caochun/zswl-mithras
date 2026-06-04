@@ -16,7 +16,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.contract.core.application.ContractMortgageItemService;
-import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
+import cn.zswltech.mithras.contract.core.application.ContractRentEstimateService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.data.*;

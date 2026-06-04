@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
-import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
+import cn.zswltech.mithras.contract.core.application.ContractRentEstimateService;
 import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import com.deepoove.poi.XWPFTemplate;

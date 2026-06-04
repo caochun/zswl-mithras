@@ -40,7 +40,7 @@ import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientTransferService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
+import cn.zswltech.mithras.contract.core.application.ContractRentEstimateService;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;

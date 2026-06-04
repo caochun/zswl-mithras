@@ -57,7 +57,7 @@ import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.kpi.bo.KpiProjectDistributionBO;
 import cn.zswltech.mithras.service.service.client.ClientTransferService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
+import cn.zswltech.mithras.contract.core.application.ContractRentEstimateService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionBaseInfoLibService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionLibVersionService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionWeightLibService;
