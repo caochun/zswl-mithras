@@ -69,5 +69,17 @@
             <version>1.0.5-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>cn.zswltech.flow</groupId>
+            <artifactId>core</artifactId>
+            <version>1.5.11-mithras-RELEASE</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.flywaydb</groupId>
+                    <artifactId>flyway-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 </project>
