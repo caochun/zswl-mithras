@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.lang.Pair;
-import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
 import org.apache.commons.lang3.tuple.Triple;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +20,7 @@ import java.util.Map;
 public class FCM_136Calculator implements FinancialCloudMetricCalculator {
 
     @Resource
-    private RemainingPrincipalServiceImpl remainingPrincipalServiceImpl;
+    private ContractRemainingPrincipalReader contractRemainingPrincipalReader;
 
     @Override
     public String metricCode() {
@@ -35,8 +34,8 @@ public class FCM_136Calculator implements FinancialCloudMetricCalculator {
             lastDayOfMonth = LocalDate.now();
         }
         // 1. 计算系统剩余逾期本金+利息
-        Triple<BigDecimal, BigDecimal, BigDecimal> triple = remainingPrincipalServiceImpl.overdueAmount(lastDayOfMonth);
-        Map<Long, Pair<BigDecimal, BigDecimal>> prePrincipalInterest = remainingPrincipalServiceImpl.prePrincipalInterest(lastDayOfMonth);
+        Triple<BigDecimal, BigDecimal, BigDecimal> triple = contractRemainingPrincipalReader.overdueAmount(lastDayOfMonth);
+        Map<Long, Pair<BigDecimal, BigDecimal>> prePrincipalInterest = contractRemainingPrincipalReader.prePrincipalInterest(lastDayOfMonth);
         BigDecimal prePrincipal = BigDecimal.ZERO;
         BigDecimal preInterest = BigDecimal.ZERO;
         for (Map.Entry<Long, Pair<BigDecimal, BigDecimal>> entry : prePrincipalInterest.entrySet()) {

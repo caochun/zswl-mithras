@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
@@ -15,11 +16,14 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import org.apache.commons.lang3.tuple.Triple;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -101,6 +105,116 @@ public class ContractRemainingPrincipalReader {
                 result.put(contractId, paid.subtract(contractPrincipal.getOrDefault(contractId, BigDecimal.ZERO)));
             });
         });
+        return result;
+    }
+
+    public Triple<BigDecimal, BigDecimal, BigDecimal> overdueAmount(LocalDate dateTime) {
+        if (dateTime.getMonthValue() == LocalDate.now().getMonthValue()) {
+            dateTime = LocalDate.now();
+        }
+        BigDecimal overdueInterest = BigDecimal.ZERO;
+        BigDecimal overduePrincipal = BigDecimal.ZERO;
+        Map<Long, Pair<BigDecimal, BigDecimal>> overduePrincipalInterest = overdueAmountCalculator(dateTime);
+        if (CollUtil.isEmpty(overduePrincipalInterest)) {
+            return Triple.of(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
+        }
+        for (Map.Entry<Long, Pair<BigDecimal, BigDecimal>> entry : overduePrincipalInterest.entrySet()) {
+            Pair<BigDecimal, BigDecimal> pair = entry.getValue();
+            overdueInterest = overdueInterest.add(pair.getValue());
+            overduePrincipal = overduePrincipal.add(pair.getKey());
+        }
+        Map<Long, Pair<BigDecimal, BigDecimal>> prePrincipalInterest = prePrincipalInterest(dateTime);
+        BigDecimal prePrincipal = BigDecimal.ZERO;
+        for (Map.Entry<Long, Pair<BigDecimal, BigDecimal>> entry : prePrincipalInterest.entrySet()) {
+            Pair<BigDecimal, BigDecimal> pair = entry.getValue();
+            prePrincipal = prePrincipal.add(pair.getKey());
+        }
+        return Triple.of(overduePrincipal, overdueInterest, overduePrincipal.add(prePrincipal));
+    }
+
+    public Map<Long, Pair<BigDecimal, BigDecimal>> prePrincipalInterest(LocalDate dateTime) {
+        Map<Long, Pair<BigDecimal, BigDecimal>> result = new HashMap<>();
+        List<CollectionBaseInfo> collectionBaseInfos = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery()
+                .eq(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name())
+                .gt(CollectionBaseInfo::getPhase, 0)
+                .ge(CollectionBaseInfo::getPlanCollectionDate, dateTime.with(TemporalAdjusters.lastDayOfMonth())));
+        collectionBaseInfos.stream().collect(Collectors.groupingBy(CollectionBaseInfo::getContractId))
+                .forEach((k, v) -> {
+                    BigDecimal prePrincipal = v.stream().map(e -> LongUtil.null2zero(e.getPrincipal()))
+                            .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+
+                    BigDecimal preInterest = v.stream().map(e -> LongUtil.null2zero(e.getInterest()))
+                            .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+                    result.put(k, Pair.of(prePrincipal, preInterest));
+                });
+        return result;
+    }
+
+    public Map<Long, Pair<BigDecimal, BigDecimal>> overdueAmountCalculator(LocalDate dateTime) {
+        Map<Long, Pair<BigDecimal, BigDecimal>> result = new HashMap<>();
+        Map<Long, List<CollectionBaseInfo>> collect = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery()
+                        .eq(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name())
+                        .gt(CollectionBaseInfo::getPhase, 0)
+                        .lt(CollectionBaseInfo::getPlanCollectionDate, dateTime))
+                .stream().collect(Collectors.groupingBy(CollectionBaseInfo::getContractId));
+
+        Map<Integer, List<Long>> partitionedContractIds = new HashMap<>();
+        for (int i = 0; i < 20; i++) {
+            partitionedContractIds.put(i, new ArrayList<>());
+        }
+
+        collect.keySet().forEach(contractId -> {
+            int partitionIndex = Math.abs(Objects.hash(contractId) % 20);
+            partitionedContractIds.get(partitionIndex).add(contractId);
+        });
+
+        for (Map.Entry<Integer, List<Long>> entry : partitionedContractIds.entrySet()) {
+            List<Long> batchContractIds = entry.getValue();
+            if (batchContractIds.isEmpty()) {
+                continue;
+            }
+            List<Long> collectionBaseInfoIds = new ArrayList<>();
+            BigDecimal overdueInterest = BigDecimal.ZERO;
+            BigDecimal overduePrincipal = BigDecimal.ZERO;
+            for (Long contractId : batchContractIds) {
+                List<CollectionBaseInfo> collectionBaseInfos = collect.get(contractId);
+                collectionBaseInfoIds.addAll(collectionBaseInfos.stream().map(CollectionBaseInfo::getId).collect(Collectors.toList()));
+                List<CollectionRecordInfo> collectionRecordInfos = collectionRecordInfoMapper.selectList(Wrappers.<CollectionRecordInfo>lambdaQuery()
+                        .in(CollectionRecordInfo::getCollectionId, collectionBaseInfoIds)
+                        .le(CollectionRecordInfo::getCollectionDate, dateTime.with(TemporalAdjusters.lastDayOfMonth())));
+                if (CollUtil.isEmpty(collectionRecordInfos)) {
+                    BigDecimal principal = collectionBaseInfos.stream().map(e -> LongUtil.null2zero(e.getPrincipal() - e.getCollectionPrincipal()))
+                            .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+                    BigDecimal interest = collectionBaseInfos.stream().map(e -> LongUtil.null2zero(e.getInterest() - e.getCollectionInterest()))
+                            .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+                    overdueInterest = overdueInterest.add(principal.add(interest));
+                    overduePrincipal = overduePrincipal.add(principal);
+                    continue;
+                }
+
+                Map<Long, List<CollectionRecordInfo>> recordListMap = collectionRecordInfos.stream().collect(Collectors.groupingBy(CollectionRecordInfo::getCollectionId));
+                List<CollectionBaseInfo> overdueRecordInContract = collectionBaseInfos.stream().filter(collectionBaseInfo -> {
+                    List<CollectionRecordInfo> infos = recordListMap.get(collectionBaseInfo.getId());
+                    if (CollUtil.isEmpty(infos)) {
+                        return true;
+                    }
+                    long actualReceipt = infos.stream().mapToLong(o -> LongUtil.null2zero(o.getPrincipal()) + LongUtil.null2zero(o.getInterest())).sum();
+                    return actualReceipt < collectionBaseInfo.getPlanCollectionAmount();
+                }).collect(Collectors.toList());
+                if (overdueRecordInContract.isEmpty()) {
+                    continue;
+                }
+                BigDecimal principal = overdueRecordInContract.stream().map(e -> LongUtil.null2zero(e.getPrincipal()) - LongUtil.null2zero(e.getCollectionPrincipal()))
+                        .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+                BigDecimal interest = overdueRecordInContract.stream().map(e -> LongUtil.null2zero(e.getInterest()) - LongUtil.null2zero(e.getCollectionInterest()))
+                        .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+
+                overdueInterest = overdueInterest.add(interest);
+                overduePrincipal = overduePrincipal.add(principal);
+
+                result.put(contractId, Pair.of(overduePrincipal, overdueInterest));
+            }
+        }
         return result;
     }
 }
