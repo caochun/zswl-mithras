@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifySubAu
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseRemoveSubAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractGuarantorMapper;
-import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
+import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.validation.Valid;

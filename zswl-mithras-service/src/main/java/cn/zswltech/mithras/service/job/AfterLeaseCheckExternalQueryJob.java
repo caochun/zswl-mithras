@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckReportBaseSe
 import cn.zswltech.mithras.afterlease.application.bo.AfterLeaseClientDataBO;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
+import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;

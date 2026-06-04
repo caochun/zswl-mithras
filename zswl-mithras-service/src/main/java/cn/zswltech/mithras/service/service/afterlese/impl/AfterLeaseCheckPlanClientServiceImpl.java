@@ -62,7 +62,7 @@ import cn.zswltech.mithras.service.service.afterlese.NewAfterLeaseCheckReportDet
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
+import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckPlanBaseLibService;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckPlanClientLibService;

@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.contract;
+import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import cn.zswltech.mithras.workflow.domain.enums.ProcessVarEnum;
 
 import cn.hutool.core.collection.CollectionUtil;

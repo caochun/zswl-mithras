@@ -1,4 +1,7 @@
 package cn.zswltech.mithras.service.service.client;
+import cn.zswltech.mithras.contract.core.application.ContractPledgeService;
+import cn.zswltech.mithras.contract.core.application.ContractMortgageService;
+import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.domain.enums.ClientAuthEnum;
 import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;

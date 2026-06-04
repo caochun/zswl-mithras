@@ -14,7 +14,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFactoringPrice;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.contract.core.application.ContractFactoringPriceService;
-import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
+import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewFactoringPriceService;
 import cn.zswltech.mithras.service.util.LongUtil;

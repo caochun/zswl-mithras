@@ -8,7 +8,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
-import cn.zswltech.mithras.service.service.contract.ContractGuarantorService;
+import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckPlanClientLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
