@@ -3,19 +3,18 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator.returnrate;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.FinancialCloudMetricCalculator;
+import cn.zswltech.mithras.metric.financialcloudmetric.calculator.ContractNewestPriceReader;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease.DepartmentPaymentCache;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.ConditionKey;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.TimeDimension;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractPriceService;
-import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 
@@ -36,9 +35,11 @@ public abstract class AverageReturnRateCalculator implements FinancialCloudMetri
     @Resource
     private OrgDOMapper orgDOMapper;
     @Resource
-    private ContractPriceService contractPriceService;
+    private ContractNewestPriceReader contractNewestPriceReader;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
+    private ContractBaseInfoMapper contractBaseInfoMapper;
+    @Resource
+    private PaymentBaseInfoMapper paymentBaseInfoMapper;
     @Resource
     private DepartmentPaymentCache departmentPaymentCache;
 
@@ -88,7 +89,7 @@ public abstract class AverageReturnRateCalculator implements FinancialCloudMetri
         if (condition() != null) {
             // 非整体的需要在这里过滤一下别的部门的付款，需要考虑有分润的合同和合同业务部门维度的汇总
             // 还要考虑投放了无分润的情况
-            List<ContractBaseInfo> contractBaseInfos = contractBaseInfoService.list(Wrappers.<ContractBaseInfo>lambdaQuery()
+            List<ContractBaseInfo> contractBaseInfos = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                     .in(ContractBaseInfo::getId, paymentThisMonth.keySet())
                     .eq(ContractBaseInfo::getBizDeptId, DEPT_CODE_ID.get(condition().getValue())));
             if (CollUtil.isNotEmpty(contractBaseInfos)) {
@@ -133,7 +134,7 @@ public abstract class AverageReturnRateCalculator implements FinancialCloudMetri
         // 查询付款拿到借据ID，没有生效的借据ID取临时的关联ID
         List<Long> paymentIds = paymentThisMonth.values().stream().map(e -> e.stream().map(PaymentActualDetail::getPaymentId).distinct().collect(Collectors.toList()))
                 .flatMap(Collection::stream).distinct().collect(Collectors.toList());
-        List<PaymentBaseInfo> paymentBaseInfos = SpringUtil.getBean(PaymentBaseInfoService.class).listByIds(paymentIds);
+        List<PaymentBaseInfo> paymentBaseInfos = paymentBaseInfoMapper.selectBatchIds(paymentIds);
         // 比较关键，转化用
         Map<Long, Long> paymentReceiptIdMap = new HashMap<>();
         Set<Long> receiptIds = paymentBaseInfos.stream().map(e -> {
@@ -141,7 +142,7 @@ public abstract class AverageReturnRateCalculator implements FinancialCloudMetri
             paymentReceiptIdMap.put(e.getId(), l);
             return l;
         }).collect(Collectors.toSet());
-        Map<Long, Integer> irrMap = contractPriceService.queryNewestReceiptIrr(receiptIds);
+        Map<Long, Integer> irrMap = contractNewestPriceReader.queryNewestReceiptIrr(receiptIds);
 
         // 计算加权平均IRR
         BigDecimal averageIrr = BigDecimal.ZERO;
