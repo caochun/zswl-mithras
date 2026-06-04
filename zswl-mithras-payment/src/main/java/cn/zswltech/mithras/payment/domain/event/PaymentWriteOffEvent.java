@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.third.financial.impl.events;
+package cn.zswltech.mithras.payment.domain.event;
 
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import lombok.Getter;

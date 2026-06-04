@@ -68,7 +68,7 @@ import cn.zswltech.mithras.service.service.payment.PaymentWriteOffService;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEventBus;
 import cn.zswltech.mithras.service.service.third.financial.FinancialService;
-import cn.zswltech.mithras.service.service.third.financial.impl.events.PaymentWriteOffEvent;
+import cn.zswltech.mithras.payment.domain.event.PaymentWriteOffEvent;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import cn.zswltech.mithras.service.util.ThreadPoolUtil;

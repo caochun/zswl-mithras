@@ -21,7 +21,7 @@ import cn.zswltech.mithras.riskcontrol.report.gljy.RiskControlGljyReportMapper;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
-import cn.zswltech.mithras.service.service.third.financial.impl.events.PaymentWriteOffEvent;
+import cn.zswltech.mithras.payment.domain.event.PaymentWriteOffEvent;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxl.job.core.handler.annotation.XxlJob;

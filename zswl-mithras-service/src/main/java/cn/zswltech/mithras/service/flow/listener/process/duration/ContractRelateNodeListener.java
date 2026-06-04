@@ -14,7 +14,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBase
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.workflow.application.flow.ContractNodeTimeService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
-import cn.zswltech.mithras.service.service.third.financial.impl.events.PaymentWriteOffEvent;
+import cn.zswltech.mithras.payment.domain.event.PaymentWriteOffEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.flowable.engine.HistoryService;
 import org.flowable.engine.RuntimeService;
