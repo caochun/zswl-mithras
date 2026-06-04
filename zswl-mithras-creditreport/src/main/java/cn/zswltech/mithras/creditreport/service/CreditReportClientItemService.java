@@ -6,12 +6,11 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.creditreport.CreditReportClientInfo;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
+import cn.zswltech.mithras.creditreport.mapper.CreditReportBaseInfoMapper;
 import cn.zswltech.mithras.creditreport.mapper.CreditReportClientItemMapper;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -34,7 +33,7 @@ import java.util.stream.Collectors;
 public class CreditReportClientItemService extends ServiceImpl<CreditReportClientItemMapper, CreditReportClientItem> {
 
     @Resource
-    private MaterialsListService materialsListService;
+    private CreditReportBaseInfoMapper creditReportBaseInfoMapper;
 
     @Transactional(rollbackFor = Throwable.class)
     public void remove(Long creditReportBaseInfoId, List<Long> surviveIds) {
@@ -47,7 +46,7 @@ public class CreditReportClientItemService extends ServiceImpl<CreditReportClien
         if (ObjectUtil.isNotEmpty(surviveIds)) {
             updateWrapper.notIn(CreditReportClientItem::getId, surviveIds);
         }
-        SpringContextHolder.getBean(CreditReportClientItemService.class).update(updateWrapper);
+        this.update(updateWrapper);
     }
 
     @Transactional(rollbackFor = Throwable.class)
@@ -58,7 +57,7 @@ public class CreditReportClientItemService extends ServiceImpl<CreditReportClien
         List<CreditReportClientItem> clientItems = BeanUtil.copyToList(addRecords, CreditReportClientItem.class);
         //判断是否需要新增档案
 
-        SpringContextHolder.getBean(CreditReportClientItemService.class).saveBatch(clientItems);
+        this.saveBatch(clientItems);
         //带入相关附件
     }
 
@@ -76,8 +75,7 @@ public class CreditReportClientItemService extends ServiceImpl<CreditReportClien
         if (ObjectUtil.isNotEmpty(clientItems)) {
             clientId2ClientItemMap.putAll(clientItems.stream().collect(Collectors.groupingBy(CreditReportClientItem::getCreditReportBaseInfoId)));
             //查询到期时间
-            List<CreditReportBaseInfo> creditReportBaseInfos = SpringContextHolder.getBean(CreditReportBaseInfoService.class)
-                    .list(Wrappers.<CreditReportBaseInfo>lambdaQuery()
+            List<CreditReportBaseInfo> creditReportBaseInfos = creditReportBaseInfoMapper.selectList(Wrappers.<CreditReportBaseInfo>lambdaQuery()
                             .in(CreditReportBaseInfo::getId, clientItems.stream().map(CreditReportClientItem::getCreditReportBaseInfoId).collect(Collectors.toList()))
                             .eq(CreditReportBaseInfo::getApplyStatus, CreditApplyStatusEnum.PASS.name()));
             if (ObjectUtil.isNotEmpty(creditReportBaseInfos)) {
@@ -128,7 +126,7 @@ public class CreditReportClientItemService extends ServiceImpl<CreditReportClien
                 e.setSelectGoal(info.getSelectGoal());
             }
         });
-        SpringContextHolder.getBean(CreditReportClientItemService.class).updateBatchById(clientItems);
+        this.updateBatchById(clientItems);
     }
 
     public List<CreditReportClientItem> listByBaseInfoId(Long creditReportBaseInfoId) {
