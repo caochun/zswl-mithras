@@ -30,7 +30,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
-import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEvent;
+import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.service.service.client.ProjClientRoleService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;

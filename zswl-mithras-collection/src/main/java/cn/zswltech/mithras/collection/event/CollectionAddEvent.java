@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.Listener.collection;
+package cn.zswltech.mithras.collection.event;
 
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;

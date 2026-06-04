@@ -26,6 +26,7 @@ import cn.zswltech.mithras.finance.mapper.finance.ContractAssessDeptDetailMapper
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.mapper.WarrantyBaseInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;

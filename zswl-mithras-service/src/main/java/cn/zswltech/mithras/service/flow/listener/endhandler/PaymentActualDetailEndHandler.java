@@ -31,7 +31,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentCollectionInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentCollectionInfoMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEvent;
+import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.filingmaterials.FilingMaterialsService;

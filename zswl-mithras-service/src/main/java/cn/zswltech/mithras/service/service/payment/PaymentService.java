@@ -60,7 +60,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.system.service.BizProcessDataService;
 import cn.zswltech.mithras.system.service.FlowAssistService;
-import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEvent;
+import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.budget.BudgetPlanPayDetailService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
