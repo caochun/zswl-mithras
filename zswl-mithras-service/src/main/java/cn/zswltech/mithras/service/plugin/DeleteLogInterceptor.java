@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.system.mapper.SystemSwitchMapper;
 import cn.zswltech.mithras.system.mapper.model.SystemDatabaseRecord;
 import cn.zswltech.mithras.system.mapper.model.SystemSwitch;
-import cn.zswltech.mithras.service.service.Listener.SystemSwitchRefreshEvent;
+import cn.zswltech.mithras.system.event.SystemSwitchRefreshEvent;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

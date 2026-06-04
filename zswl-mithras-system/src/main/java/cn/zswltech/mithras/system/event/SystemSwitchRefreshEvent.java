@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.Listener;
+package cn.zswltech.mithras.system.event;
 
 import lombok.Getter;
 import lombok.Setter;

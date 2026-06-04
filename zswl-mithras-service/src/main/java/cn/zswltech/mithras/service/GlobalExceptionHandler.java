@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.others.AuthCheckException;
 import cn.zswltech.mithras.service.others.LackDataException;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.service.service.Listener.SystemSwitchRefreshEvent;
+import cn.zswltech.mithras.system.event.SystemSwitchRefreshEvent;
 import cn.zswltech.mithras.system.service.SystemUserOperateLogService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import cn.zswltech.mithras.service.util.ThreadPoolUtil;
