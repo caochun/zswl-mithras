@@ -10,10 +10,10 @@ import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetri
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
 import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricService;
 import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricValueService;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +41,7 @@ public class FinancialCloudMetricValueController implements FinancialCloudMetric
     @Resource
     private Id2NameService id2NameService;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
+    private ContractBaseInfoMapper contractBaseInfoMapper;
 
     @Override
     public R<Void> cacl(FinancialCloudMetricValueCalcREQ req) {
@@ -94,7 +94,7 @@ public class FinancialCloudMetricValueController implements FinancialCloudMetric
             Set<Long> contractIds = contractDetails.parallelStream().map(ContractDetail::getContractId).collect(Collectors.toSet());
             Map<Long, String> contractId2Name = id2NameService.contractId2Name(contractIds);
 
-            Map<Long, ContractBaseInfo> contractBaseInfos = contractBaseInfoService.list(Wrappers.<ContractBaseInfo>lambdaQuery()
+            Map<Long, ContractBaseInfo> contractBaseInfos = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                             .select(ContractBaseInfo::getId, ContractBaseInfo::getClientId, ContractBaseInfo::getContractCode)
                             .in(ContractBaseInfo::getId, contractIds))
                     .stream().collect(Collectors.toMap(ContractBaseInfo::getId, v -> v));

@@ -24,8 +24,6 @@ import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetri
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
 import cn.zswltech.mithras.service.enums.ContentTypeEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalService;
 import cn.zswltech.mithras.service.util.HttpUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -69,6 +67,8 @@ public class FinancialCloudMetricValueService extends
     private OverdueProjectsCalculator overdueProjectsCalculator;
     @Resource
     private DepartmentPaymentCache departmentPaymentCache;
+    @Resource
+    private ContractRemainingPrincipalReader remainingPrincipalReader;
 
     @Autowired
     private List<FinancialCloudMetricCalculator> calculatorList = new ArrayList<>();
@@ -245,7 +245,7 @@ public class FinancialCloudMetricValueService extends
         InventoryInvestmentBalanceCalculator.clear();
         DepartmentBaseCalculator.clear();
         departmentPaymentCache.clear();
-        SpringContextHolder.getBean(RemainingPrincipalService.class).clear();
+        remainingPrincipalReader.clear();
     }
 
     @PostConstruct
@@ -322,8 +322,33 @@ public class FinancialCloudMetricValueService extends
     }
 
     public void testSpecificMetric(String metricCode) {
-        FinancialCloudMetricCalculator calculator = SpringContextHolder.getBean(metricCode + "Calculator");
+        FinancialCloudMetricCalculator calculator = findCalculator(metricCode);
         FinancialCloudMetric metric = metricService.getOne(Wrappers.<FinancialCloudMetric>lambdaQuery().eq(FinancialCloudMetric::getMetricCode, calculator.metricCode()).last("limit 1"));
         doCalculate(calculator, metric, LocalDate.of(2023, 9, 1));
+    }
+
+    private FinancialCloudMetricCalculator findCalculator(String metricCode) {
+        for (FinancialCloudMetricCalculator calculator : calculatorList) {
+            if (Objects.equals(calculator.metricCode(), metricCode)) {
+                return calculator;
+            }
+        }
+        for (DepartmentBaseCalculator calculator : departmentBaseCalculators) {
+            if (Objects.equals(calculator.metricCode(), metricCode)) {
+                return calculator;
+            }
+        }
+        for (DepartmentPerCapitalCalculator calculator : departmentPerCapitalCalculators) {
+            if (Objects.equals(calculator.metricCode(), metricCode)) {
+                return calculator;
+            }
+        }
+        for (Secondary item : secondary) {
+            FinancialCloudMetricCalculator calculator = (FinancialCloudMetricCalculator) item;
+            if (Objects.equals(calculator.metricCode(), metricCode)) {
+                return calculator;
+            }
+        }
+        throw new MithrasException("指标计算器不存在");
     }
 }

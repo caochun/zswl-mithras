@@ -6,7 +6,6 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.ReflectUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricStatus;
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetric;
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
@@ -37,11 +36,9 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBase
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFactoringPriceLib;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePriceLib;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.projectprocess.service.riskcontrol.dto.ProjReviewPriceDto;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
-import cn.zswltech.mithras.projectprocess.service.riskcontrol.dto.ProjReviewPriceDto;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -70,9 +67,11 @@ public class OverdueProjectsCalculator {
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
+    private CollectionRecordInfoMapper collectionRecordInfoMapper;
+    @Resource
     private ContractBaseInfoLibMapper contractBaseInfoLibMapper;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
+    private ContractStockRiskExposureReader stockRiskExposureReader;
     @Resource
     private Id2NameService id2NameService;
     @Resource
@@ -88,7 +87,7 @@ public class OverdueProjectsCalculator {
     @Resource
     private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
     @Resource
-    private RemainingPrincipalServiceImpl remainingPrincipalServiceImpl;
+    private ContractRemainingPrincipalReader remainingPrincipalReader;
     @Resource
     private FinancialCloudMetricService financialCloudMetricService;
     @Resource
@@ -123,7 +122,7 @@ public class OverdueProjectsCalculator {
             Triple<BigDecimal, BigDecimal, Long> principalInterestTriple;
             List<CollectionBaseInfo> collectionBaseInfos = collect.get(contractId);
             List<Long> collectionBaseInfoIds = collectionBaseInfos.stream().map(CollectionBaseInfo::getId).collect(Collectors.toList());
-            List<CollectionRecordInfo> collectionRecordInfos = SpringUtil.getBean(CollectionRecordInfoMapper.class).selectList(Wrappers.<CollectionRecordInfo>lambdaQuery()
+            List<CollectionRecordInfo> collectionRecordInfos = collectionRecordInfoMapper.selectList(Wrappers.<CollectionRecordInfo>lambdaQuery()
                     .in(CollectionRecordInfo::getCollectionId, collectionBaseInfoIds)
                     .le(CollectionRecordInfo::getCollectionDate, overdueDate));
             // 检查实际收款和预计收款找出逾期记录
@@ -215,8 +214,8 @@ public class OverdueProjectsCalculator {
                 });
 
 
-        Map<Long, Long> riskExposureByContracts = contractBaseInfoService.getStockRiskExposureByContracts(contractId2OverdueRecord.keySet());
-        Map<Long, Pair<BigDecimal, BigDecimal>> prePrincipalInterest = remainingPrincipalServiceImpl.prePrincipalInterest(dateTime);
+        Map<Long, Long> riskExposureByContracts = stockRiskExposureReader.stockRiskExposureByContracts(contractId2OverdueRecord.keySet());
+        Map<Long, Pair<BigDecimal, BigDecimal>> prePrincipalInterest = remainingPrincipalReader.prePrincipalInterest(dateTime);
         Map<Long, OverdueProjectInfo> tmpMap = new HashMap<>();
         for (Map.Entry<Long, List<CollectionBaseInfo>> entry : contractId2OverdueRecord.entrySet()) {
             ContractBaseInfoLib contract = baseInfoLibMap.get(entry.getKey());

@@ -47,6 +47,9 @@ public class ContractRemainingPrincipalReader {
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
 
+    public void clear() {
+    }
+
     public Map<Long, BigDecimal> remainingPrincipalGroupByContractId(LocalDate endDate) {
         Set<Long> targetContractIds = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
                         .select(PaymentActualDetail::getContractId)
