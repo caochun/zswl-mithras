@@ -25,7 +25,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBase
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.collection.service.bo.ReconciliationLetterBO;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;

@@ -20,7 +20,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractLeaseItemService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

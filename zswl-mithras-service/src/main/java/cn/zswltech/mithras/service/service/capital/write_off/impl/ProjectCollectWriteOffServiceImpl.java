@@ -39,7 +39,7 @@ import cn.zswltech.mithras.service.service.capital.write_off.CommonWriteOffServi
 import cn.zswltech.mithras.service.service.capital.write_off.WriteOffCommonService;
 import cn.zswltech.mithras.fund.application.capital.write_off.bo.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.third.service.FinanceFlowMatchResultService;
 import cn.zswltech.mithras.service.service.third.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.service.FinanceFlowTabMainInfoService;

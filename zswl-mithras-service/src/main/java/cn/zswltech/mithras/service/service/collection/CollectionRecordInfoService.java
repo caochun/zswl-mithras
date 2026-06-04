@@ -71,7 +71,7 @@ import cn.zswltech.mithras.service.service.budget.EclExecuteClientPromotionResul
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEventBus;

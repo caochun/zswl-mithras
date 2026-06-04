@@ -34,7 +34,7 @@ import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractIncomeSharingService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.fund.application.FundFinancingCreditRefService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;

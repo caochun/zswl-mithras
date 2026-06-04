@@ -11,7 +11,7 @@ import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.fund.application.capital.write_off.bo.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

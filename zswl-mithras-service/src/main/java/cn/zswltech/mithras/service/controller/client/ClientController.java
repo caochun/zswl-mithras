@@ -54,7 +54,7 @@ import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.client.*;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import cn.zswltech.mithras.service.service.projpricing.ProjPricingBaseInfoService;

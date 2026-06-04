@@ -30,7 +30,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.third.financialshare.infrastructure.client.req.CQ2AccountAgeAddREQ;
 import cn.zswltech.mithras.service.util.LongUtil;

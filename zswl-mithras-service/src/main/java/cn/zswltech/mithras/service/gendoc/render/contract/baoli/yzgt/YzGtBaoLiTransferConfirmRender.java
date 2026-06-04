@@ -15,7 +15,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.basedata.service.BaseDataLprService;
 import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.deepoove.poi.XWPFTemplate;

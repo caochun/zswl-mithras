@@ -27,7 +27,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstabli
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishFactoringPriceLib;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishLeasePriceLib;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.ProjEstablishAocPriceLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.ProjEstablishFactoringPriceLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.ProjEstablishLeasePriceLibService;

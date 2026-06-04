@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzgt.YzGtBaoLiTr
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzgt.YzGtBaoLiTransferRegisterProtocolRender;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.contract.file.AbstractContractGenerate;
 import cn.zswltech.mithras.service.service.contract.file.SharedResources;
 import lombok.extern.slf4j.Slf4j;

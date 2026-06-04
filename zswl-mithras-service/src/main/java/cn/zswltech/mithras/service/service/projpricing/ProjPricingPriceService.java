@@ -27,7 +27,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.*;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewService;
 import cn.zswltech.mithras.projectprocess.service.lib.projpricing.ProjPricingAocPriceLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projpricing.ProjPricingFactoringPriceLibService;

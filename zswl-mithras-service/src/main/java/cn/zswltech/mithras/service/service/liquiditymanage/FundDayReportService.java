@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.service.basedata.BaseDataBankAccountService;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.fund.application.liquiditymanage.dto.RepayPrincipalInterestDto;
 import cn.zswltech.mithras.service.service.monthly.MonthlyManagementBaseInfoService;

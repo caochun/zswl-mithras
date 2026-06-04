@@ -53,7 +53,7 @@ import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2PaymentVO;

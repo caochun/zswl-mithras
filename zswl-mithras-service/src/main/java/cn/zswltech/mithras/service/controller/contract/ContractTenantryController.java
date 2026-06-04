@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifySubAu
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseRemoveSubAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.List;

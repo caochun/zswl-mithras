@@ -17,7 +17,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBase
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewBaseInfoLibService;

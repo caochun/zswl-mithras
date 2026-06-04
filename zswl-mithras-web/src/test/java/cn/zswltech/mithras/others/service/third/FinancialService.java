@@ -23,7 +23,7 @@ import cn.zswltech.mithras.service.service.Listener.collection.CollectionAddEven
 import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.service.third.financial.impl.FinancialManagerServiceImpl2;

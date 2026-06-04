@@ -11,7 +11,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFact
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewAocPriceService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewFactoringPriceService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewLeasePriceService;

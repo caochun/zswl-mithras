@@ -77,7 +77,7 @@ import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractIncomeSharingService;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
+import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
