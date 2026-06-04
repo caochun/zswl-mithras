@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.providence.dto;
+package cn.zswltech.mithras.customer.interfaces.providence.dto;
 
 import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;

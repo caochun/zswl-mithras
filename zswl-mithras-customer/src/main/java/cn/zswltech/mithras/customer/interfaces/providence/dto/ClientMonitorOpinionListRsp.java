@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.providence.dto;
+package cn.zswltech.mithras.customer.interfaces.providence.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -13,30 +13,27 @@ import java.time.LocalDateTime;
  */
 @ApiModel
 @Data
-public class ClientMonitorWarnListRsp {
+public class ClientMonitorOpinionListRsp {
 
     private Long id;
     @ApiModelProperty("客户名称")
     private String clientName;
-    @ApiModelProperty("标题")
-    private String warnTitle;
-    @ApiModelProperty("编号")
-    private String warnCode;
-    @ApiModelProperty("状态 RiskControlOpinionHandleStatus")
-    private String warnStatus;
     @ApiModelProperty("统一社会信用代码")
     private String uscc;
+    // 标题
+    private String title;
+
+    @ApiModelProperty("预警星级")
+    private Integer warnStar;
+
+    @ApiModelProperty("预警级别")
+    private Integer warnLevel;
 
     /**
      * 预警日期
      */
     @ApiModelProperty("预警日期")
     private LocalDateTime dataTime;
-
-    /**
-     * 预警信号：1：绿灯；2：黄灯；3：红灯
-     */
-    @ApiModelProperty("预警信号：1：绿灯；2：黄灯；3：红灯")
-    private Integer warnLevel;
-
+    @ApiModelProperty("状态 RiskControlOpinionHandleStatus")
+    private String handleResult;
 }

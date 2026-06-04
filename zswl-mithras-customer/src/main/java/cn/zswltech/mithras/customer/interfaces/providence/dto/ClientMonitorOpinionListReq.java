@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.providence.dto;
+package cn.zswltech.mithras.customer.interfaces.providence.dto;
 
 import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
@@ -12,10 +12,10 @@ import lombok.Data;
  */
 @ApiModel()
 @Data
-public class ClientMonitorListReq extends PageReq {
+public class ClientMonitorOpinionListReq extends PageReq {
     @ApiModelProperty("客户名称")
     private String clientName;
 
-    @ApiModelProperty("只看预警, 1表示true")
-    private Integer onlyWarn;
+    @ApiModelProperty("舆情状态")
+    private String opinionStatus;
 }
