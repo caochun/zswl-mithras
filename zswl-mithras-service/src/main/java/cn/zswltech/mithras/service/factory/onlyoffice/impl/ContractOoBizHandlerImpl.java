@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
-import cn.zswltech.mithras.service.factory.onlyoffice.OoBizHandler;
+import cn.zswltech.mithras.system.onlyoffice.OoBizHandler;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
@@ -117,8 +117,8 @@ public class ContractOoBizHandlerImpl implements OoBizHandler {
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.CONTRACT;
+    public String getBusinessModule() {
+        return BusinessModuleEnum.CONTRACT.name();
     }
 
     private ProcessResp findRelatedProcess(Long contractId, List<String> modelKeyList) {

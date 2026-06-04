@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.payment.domain.enums.PaymentTypeEnum;
-import cn.zswltech.mithras.service.factory.onlyoffice.OoBizHandler;
+import cn.zswltech.mithras.system.onlyoffice.OoBizHandler;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
@@ -105,8 +105,8 @@ public class PaymentOoBizHandlerImpl implements OoBizHandler {
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.PAYMENT;
+    public String getBusinessModule() {
+        return BusinessModuleEnum.PAYMENT.name();
     }
 
     private ProcessResp findRelatedProcess(Long contractId, List<String> modelKeyList) {

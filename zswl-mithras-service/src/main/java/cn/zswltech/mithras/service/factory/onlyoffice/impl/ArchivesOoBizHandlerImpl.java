@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.factory.onlyoffice.impl;
 
 import cn.zswltech.mithras.api.dto.onlyoffice.DocDetailRSP;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.factory.onlyoffice.OoBizHandler;
+import cn.zswltech.mithras.system.onlyoffice.OoBizHandler;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import org.springframework.stereotype.Component;
 
@@ -20,8 +20,8 @@ public class ArchivesOoBizHandlerImpl implements OoBizHandler {
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.ARCHIVES;
+    public String getBusinessModule() {
+        return BusinessModuleEnum.ARCHIVES.name();
     }
 
 
