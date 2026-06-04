@@ -5,32 +5,29 @@ import cn.hutool.core.lang.Pair;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
+import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpCommerceInfoLibMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.dto.financialcloudmetric.ContractDetail;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.CalculateDetailCache;
+import cn.zswltech.mithras.metric.financialcloudmetric.calculator.ContractRemainingPrincipalReader;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.DepartmentPerCapitalCalculator;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.FinancialCloudMetricCalculator;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease.DepartmentPaymentCache;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.ConditionKey;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
-import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
-import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
-import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
-import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import liquibase.pro.packaged.L;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
@@ -58,9 +55,13 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
     @Resource
     private CorpCommerceInfoLibMapper commerceInfoLibMapper;
     @Resource
-    private RemainingPrincipalServiceImpl remainingPrincipalServiceImpl;
+    private ContractRemainingPrincipalReader contractRemainingPrincipalReader;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
+    private ContractBaseInfoMapper contractBaseInfoMapper;
+    @Resource
+    private ContractTenantryMapper contractTenantryMapper;
+    @Resource
+    private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
 
     private final Object lock = new Object();
     private static final Map<String, Long> DEPT_CODE_ID = new HashMap<>();
@@ -82,16 +83,16 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
             return BigDecimal.ZERO;
         }
         BigDecimal res = BigDecimal.ZERO;
-        Set<Long> collect = contractBaseInfoService.listByIds(yearPaymentActual.keySet())
+        Set<Long> collect = contractBaseInfoMapper.selectBatchIds(yearPaymentActual.keySet())
                 .stream().filter(e -> CharSequenceUtil.equalsAny(e.getContractStatus(), ContractStatus.START_RENT.name(), ContractStatus.TAKE_EFFECT.name(), ContractStatus.NEW.name()))
                 .map(ContractBaseInfo::getId).collect(Collectors.toSet());
-        Map<Long, BigDecimal> remainingPrincipal = remainingPrincipalServiceImpl.remainingPrincipal(collect, dateTime.with(TemporalAdjusters.lastDayOfMonth()));
+        Map<Long, BigDecimal> remainingPrincipal = contractRemainingPrincipalReader.remainingPrincipal(collect, dateTime.with(TemporalAdjusters.lastDayOfMonth()));
         for (Long contractId : collect) {
             // 拿到部门比重信息
             Map<Long, Integer> deptWeight = departmentPaymentCache.getDeptWeight(contractId, dateTime);
             if (Objects.isNull(deptWeight)) {
                 // 查询合同所属部门
-                ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(contractId);
+                ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(contractId);
                 deptWeight = MapUtil.of(contractBaseInfo.getBizDeptId(), 1000000);
             }
             // 如果这里面包含下面设置的部门，则进行计算
@@ -116,8 +117,7 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
         if (condition == null) {
             return calculateFullContract(dateTime);
         }
-        RemainingPrincipalQueryDto dto = new RemainingPrincipalQueryDto();
-        dto.setEndDate(dateTime.with(TemporalAdjusters.lastDayOfMonth()));
+        LocalDate endDate = dateTime.with(TemporalAdjusters.lastDayOfMonth());
         Set<Long> targetContractIds = getTargetContractIds();
         if (targetContractIds == null) {
             calculateFullContract(dateTime);
@@ -125,11 +125,10 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
         if (targetContractIds != null && targetContractIds.isEmpty()) {
             return BigDecimal.ZERO;
         }
-        dto.setContractIds(targetContractIds);
 
-        Map<Long, BigDecimal> remainingPrincipal = remainingPrincipalServiceImpl.remainingPrincipal(dto.getContractIds(), dto.getEndDate());
+        Map<Long, BigDecimal> remainingPrincipal = contractRemainingPrincipalReader.remainingPrincipal(targetContractIds, endDate);
         BigDecimal res = BigDecimal.ZERO;
-        for (Long contractId : dto.getContractIds()) {
+        for (Long contractId : targetContractIds) {
             res = res.add(Optional.ofNullable(remainingPrincipal.get(contractId)).orElse(BigDecimal.ZERO));
         }
         return res;
@@ -137,9 +136,7 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
 
 
     private BigDecimal calculateFullContract(LocalDate dateTime) {
-        RemainingPrincipalQueryDto dto = new RemainingPrincipalQueryDto();
-        dto.setEndDate(dateTime.with(TemporalAdjusters.lastDayOfMonth()));
-        Map<Long, BigDecimal> remainingPrincipals = remainingPrincipalServiceImpl.remainingPrincipalGroupByContractId(dto);
+        Map<Long, BigDecimal> remainingPrincipals = contractRemainingPrincipalReader.remainingPrincipalGroupByContractId(dateTime.with(TemporalAdjusters.lastDayOfMonth()));
         processDetails(remainingPrincipals);
         return remainingPrincipals.values().stream().reduce(BigDecimal.ZERO, BigDecimal::add);
     }
@@ -171,10 +168,10 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
                     synchronized (lock) {
                         if (INDUSTRY_GROUP.isEmpty()) {
                             // ====》 20250716:由于数据库中的客户id不一致问题，这个地方从全量合同出发
-                            List<ContractBaseInfo> contractBaseInfos = contractBaseInfoService.list(Wrappers.<ContractBaseInfo>lambdaQuery()
+                            List<ContractBaseInfo> contractBaseInfos = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                                     .notIn(ContractBaseInfo::getContractStatus, ContractStatus.SETTLE.name(), ContractStatus.INVALID.name(), ContractStatus.CLOSED.name()));
-                            List<ContractTenantry> contractTenantryList = SpringUtil.getBean(ContractTenantryService.class)
-                                    .list(Wrappers.<ContractTenantry>lambdaQuery()
+                            List<ContractTenantry> contractTenantryList = contractTenantryMapper
+                                    .selectList(Wrappers.<ContractTenantry>lambdaQuery()
                                             .in(ContractTenantry::getContractId, contractBaseInfos.stream().map(ContractBaseInfo::getId).collect(Collectors.toSet()))
                                             .eq(ContractTenantry::getLesseeType, LesseeTypeEnum.MAIN_LESSSEE.name()));
                             Map<String, List<ContractTenantry>> collect = contractTenantryList.stream().filter(e -> Objects.nonNull(e.getRentConcatAccountId())).collect(Collectors.groupingBy(ContractTenantry::getRentConcatAccountId));
@@ -214,12 +211,12 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
                 break;
             case REGION:
                 // 找合同
-                List<Long> projReviewIds = SpringUtil.getBean(ProjReviewBaseInfoService.class).list(Wrappers.<ProjReviewBaseInfo>lambdaQuery()
+                List<Long> projReviewIds = projReviewBaseInfoMapper.selectList(Wrappers.<ProjReviewBaseInfo>lambdaQuery()
                                 .eq(ProjReviewBaseInfo::getProvince, condition.getValue()))
                         .stream().map(ProjReviewBaseInfo::getId).collect(Collectors.toList());
                 if (!CollUtil.isEmpty(projReviewIds)) {
                     //按照合同所属业务部门查询符合条件的数据
-                    List<Long> collected = SpringUtil.getBean(ContractBaseInfoService.class).list(Wrappers.<ContractBaseInfo>lambdaQuery()
+                    List<Long> collected = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                                     .in(ContractBaseInfo::getProjReviewId, projReviewIds)
                                     .notIn(ContractBaseInfo::getContractStatus, ContractStatus.SETTLE.name(), ContractStatus.INVALID.name(), ContractStatus.CLOSED.name()))
                             .stream().map(ContractBaseInfo::getId).collect(Collectors.toList());
@@ -235,7 +232,7 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
                         }
                     }
                 }
-                List<ContractBaseInfo> infoList = SpringUtil.getBean(ContractBaseInfoService.class).list(Wrappers.<ContractBaseInfo>lambdaQuery()
+                List<ContractBaseInfo> infoList = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                         .notIn(ContractBaseInfo::getContractStatus, ContractStatus.SETTLE.name(), ContractStatus.INVALID.name(), ContractStatus.CLOSED.name())
                         .eq(ContractBaseInfo::getBizDeptId, DEPT_CODE_ID.get(condition().getValue())));
                 res.addAll(infoList.stream().map(ContractBaseInfo::getId).collect(Collectors.toSet()));
