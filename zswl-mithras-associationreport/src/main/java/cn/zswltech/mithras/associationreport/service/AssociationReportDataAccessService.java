@@ -4,7 +4,6 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessAddREQ;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessListREQ;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessModifyREQ;
@@ -37,6 +36,9 @@ public class AssociationReportDataAccessService extends ServiceImpl<AssociationR
     @Resource
     private AssociationReportDataAccessMapper associationReportDataAccessMapper;
 
+    @Resource
+    private SysUserService sysUserService;
+
     @Transactional(rollbackFor = Throwable.class)
     public void add(AssociationReportDataAccessAddREQ req) {
         AssociationReportDataAccess info = BeanUtil.copyProperties(req, AssociationReportDataAccess.class);
@@ -68,7 +70,7 @@ public class AssociationReportDataAccessService extends ServiceImpl<AssociationR
 
     //获取金融局报送可以新增的报表类型
     public Set<String> getCurrentUserAccessAddReportCategoryCodes() {
-        List<String> userRoles = SpringUtil.getBean(SysUserService.class).getCurrentUserRoles();
+        List<String> userRoles = sysUserService.getCurrentUserRoles();
         if (CollectionUtil.isEmpty(userRoles)) {
             return Collections.emptySet();
         }
@@ -84,7 +86,7 @@ public class AssociationReportDataAccessService extends ServiceImpl<AssociationR
 
     //获取金融局报送可以查询的报表类型
     public Set<String> getCurrentUserAccessQueryReportCategoryCodes() {
-        List<String> userRoles = SpringUtil.getBean(SysUserService.class).getCurrentUserRoles();
+        List<String> userRoles = sysUserService.getCurrentUserRoles();
         if (CollectionUtil.isEmpty(userRoles)) {
             return Collections.emptySet();
         }
