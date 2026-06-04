@@ -38,6 +38,11 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-document</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
