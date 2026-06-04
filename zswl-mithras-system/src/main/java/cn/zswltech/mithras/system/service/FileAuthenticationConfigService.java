@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.system.service;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.common.util.AccountUtil;
@@ -9,11 +8,9 @@ import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.dto.file.FileAuthenticationConfigREQ;
 import cn.zswltech.mithras.service.enums.OwnerTypeEnum;
 import cn.zswltech.mithras.service.mapper.FileAuthenticationConfigMapper;
-import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.service.mapper.model.FileAuthenticationConfig;
 import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.basedata.service.leaseholdproperty.GeneralDictionaryService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -23,7 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author yangxiong
@@ -35,8 +31,6 @@ public class FileAuthenticationConfigService extends ServiceImpl<FileAuthenticat
 
     @Resource
     private GeneralDictionaryService generalDictionaryService;
-    @Resource
-    private SysUserService sysUserService;
     @Resource(name = "userServiceAPI")
     private UserService userService;
 
