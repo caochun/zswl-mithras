@@ -84,7 +84,7 @@ import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMa
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.service.service.afterlese.impl.RentCollectionIndexServiceImpl;

@@ -48,7 +48,7 @@ import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.workflow.application.ProcAttentionRecordService;
 import cn.zswltech.mithras.system.service.ProcessModifyRemarkService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseAdjustInfoService;
-import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.service.service.budget.BudgetPlanPayFlowService;

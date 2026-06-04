@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.afterlese;
+package cn.zswltech.mithras.afterlease.application;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryListReq;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryListStatisticsRsp;

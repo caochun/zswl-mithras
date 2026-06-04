@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.BizProcessDataService;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryClientInfoService;
-import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckExternalQueryVersionService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

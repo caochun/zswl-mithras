@@ -63,7 +63,7 @@ import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.customer.application.client.ClientTransferWeightService;
-import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;

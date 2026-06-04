@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.flow.listener.endhandler;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

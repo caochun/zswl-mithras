@@ -17,7 +17,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryClientInfoService;
-import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckExternalQueryService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckReportBaseService;
 import cn.zswltech.mithras.afterlease.application.bo.AfterLeaseClientDataBO;
 import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
