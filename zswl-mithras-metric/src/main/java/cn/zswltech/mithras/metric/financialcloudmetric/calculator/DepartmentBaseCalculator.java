@@ -1,17 +1,15 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.kpi.enums.BelongTypeEnum;
 import cn.zswltech.mithras.kpi.enums.BusinessTypeEnum;
+import cn.zswltech.mithras.kpi.mapper.PerformanceBaseInfoMapper;
+import cn.zswltech.mithras.kpi.mapper.PerformanceMainInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.model.PerformanceBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.PerformanceMainInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.kpi.KpiPerformanceBaseInfoService;
-import cn.zswltech.mithras.service.service.kpi.KpiPerformanceMainInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -37,9 +35,11 @@ import java.util.stream.Collectors;
 public abstract class DepartmentBaseCalculator implements FinancialCloudMetricCalculator {
 
     @Resource
-    protected KpiPerformanceMainInfoService kpiPerformanceMainInfoService;
+    protected PerformanceMainInfoMapper performanceMainInfoMapper;
     @Resource
-    protected KpiPerformanceBaseInfoService kpiPerformanceBaseInfoService;
+    protected PerformanceBaseInfoMapper performanceBaseInfoMapper;
+    @Resource
+    private SysUserService sysUserService;
 
     private static final Object lock = new Object();
 
@@ -85,7 +85,7 @@ public abstract class DepartmentBaseCalculator implements FinancialCloudMetricCa
         if (targetCache.isEmpty()) {
             synchronized (lock) {
                 if (targetCache.isEmpty()) {
-                    PerformanceMainInfo mainInfo = kpiPerformanceMainInfoService.getOne(Wrappers.<PerformanceMainInfo>lambdaQuery()
+                    PerformanceMainInfo mainInfo = performanceMainInfoMapper.selectOne(Wrappers.<PerformanceMainInfo>lambdaQuery()
                             .eq(PerformanceMainInfo::getYear, dateTime.getYear())
                             .orderByDesc(PerformanceMainInfo::getCreateTime)
                             // FIXME 为了兼容目标未完成的需求，临时使用，后续需要修复
@@ -96,7 +96,7 @@ public abstract class DepartmentBaseCalculator implements FinancialCloudMetricCa
                     }
 
                     // 去找年度目标
-                    List<PerformanceBaseInfo> baseInfoList = kpiPerformanceBaseInfoService.list(Wrappers.<PerformanceBaseInfo>lambdaQuery()
+                    List<PerformanceBaseInfo> baseInfoList = performanceBaseInfoMapper.selectList(Wrappers.<PerformanceBaseInfo>lambdaQuery()
                             .eq(PerformanceBaseInfo::getMainId, mainInfo.getId())
                             .eq(PerformanceBaseInfo::getBelongType, BelongTypeEnum.DEPARTMENT.name())
                             .eq(PerformanceBaseInfo::getBusinessType, BusinessTypeEnum.DEPT_TOTAL.name())
@@ -111,7 +111,7 @@ public abstract class DepartmentBaseCalculator implements FinancialCloudMetricCa
                     targetCache.putAll(map);
                 }
                 if (orgCache.isEmpty()) {
-                    orgCache.putAll(SpringUtil.getBean(SysUserService.class).listBizDept().stream().collect(Collectors.toMap(OrgDO::getCode, Function.identity())));
+                    orgCache.putAll(sysUserService.listBizDept().stream().collect(Collectors.toMap(OrgDO::getCode, Function.identity())));
                 }
             }
         }
