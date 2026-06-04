@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.Listener.timeout;
+package cn.zswltech.mithras.service.event.timeout;
 
 import cn.zswltech.mithras.service.enums.TimeoutTypeEnum;
 import lombok.Getter;
