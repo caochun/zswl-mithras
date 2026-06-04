@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPlanServi
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingBaseInfoStateMachine;
 import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingContext;
-import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingEvent;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingEvent;
 import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingLibVersionService;
 import cn.zswltech.mithras.service.service.monthly.MonthlyStampDutyService;
 import org.springframework.stereotype.Component;

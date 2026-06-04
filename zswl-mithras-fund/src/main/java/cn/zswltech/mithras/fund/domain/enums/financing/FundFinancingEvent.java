@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.fund.financing.fms;
+package cn.zswltech.mithras.fund.domain.enums.financing;
 
 /**
  * @description:

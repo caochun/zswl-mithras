@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingBaseInfoStateMachine;
 import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingContext;
-import cn.zswltech.mithras.service.service.fund.financing.fms.FundFinancingEvent;
+import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingEvent;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingLibVersionService;
 import org.springframework.stereotype.Component;
