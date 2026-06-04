@@ -3,6 +3,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
@@ -16,6 +17,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.tuple.Triple;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +26,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,6 +110,95 @@ public class ContractRemainingPrincipalReader {
             });
         });
         return result;
+    }
+
+    public BigDecimal remainingPrincipal(LocalDate endDate) {
+        BigDecimal principal = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
+                        .eq(PaymentActualDetail::getWriteOffStatus, WriteOffStatus.WRITTEN_OFF.name())
+                        .le(ObjectUtil.isNotEmpty(endDate), PaymentActualDetail::getPaidInDate, endDate))
+                .stream().map(PaymentActualDetail::getPaidInAmount).map(LongUtil::null2zero).map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        int i = 1;
+        BigDecimal received = BigDecimal.ZERO;
+        while (true) {
+            Page<CollectionBaseInfo> page = collectionBaseInfoMapper.selectPage(new Page<>(i, 500),
+                    Wrappers.<CollectionBaseInfo>lambdaQuery()
+                            .in(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name(), CashFlowItemEnum.FIRST_RENT.name())
+                            .le(ObjectUtil.isNotEmpty(endDate), CollectionBaseInfo::getPlanCollectionDate, endDate));
+            if (page.getRecords().isEmpty()) {
+                break;
+            }
+
+            Map<Long, List<CollectionRecordInfo>> longListMap = collectionRecordInfoMapper.selectList(Wrappers.<CollectionRecordInfo>lambdaQuery()
+                            .in(CollectionRecordInfo::getCollectionId, page.getRecords().stream().map(CollectionBaseInfo::getId).collect(Collectors.toList())))
+                    .stream().collect(Collectors.groupingBy(CollectionRecordInfo::getCollectionId));
+            for (CollectionBaseInfo record : page.getRecords()) {
+                List<CollectionRecordInfo> collectionRecordInfos = longListMap.get(record.getId());
+                if (CollUtil.isNotEmpty(collectionRecordInfos)) {
+                    received = collectionRecordInfos.stream().map(CollectionRecordInfo::getPrincipal)
+                            .map(LongUtil::null2zero)
+                            .map(BigDecimal::new).reduce(received, BigDecimal::add);
+                }
+                if (record.getCashFlowItem().equals(CashFlowItemEnum.FIRST_RENT.name())) {
+                    received = received.add(BigDecimal.valueOf(LongUtil.null2zero(record.getCollectionAmount())));
+                }
+            }
+            i++;
+        }
+        return principal.subtract(received);
+    }
+
+    public Map<Long, Long> remainingPrincipalGroupByClientId(Set<Long> clientIds, LocalDate endDate) {
+        if (ObjectUtil.isEmpty(clientIds)) {
+            return Collections.emptyMap();
+        }
+        List<PaymentActualDetail> paymentActualDetails = paymentActualDetailMapper.selectList(
+                Wrappers.<PaymentActualDetail>lambdaQuery()
+                        .in(PaymentActualDetail::getClientId, clientIds)
+                        .eq(PaymentActualDetail::getWriteOffStatus, WriteOffStatus.WRITTEN_OFF.name())
+                        .le(ObjectUtil.isNotEmpty(endDate), PaymentActualDetail::getPaidInDate, endDate));
+
+        Map<Long, List<PaymentActualDetail>> detailGroupByClientIds = paymentActualDetails.stream()
+                .collect(Collectors.groupingBy(PaymentActualDetail::getClientId));
+
+        Map<Long, BigDecimal> clientIdToPrincipal = new HashMap<>();
+        detailGroupByClientIds.forEach((clientId, details) -> {
+            BigDecimal principal = clientIdToPrincipal.getOrDefault(clientId, BigDecimal.ZERO);
+            BigDecimal reduce = details.stream().map(PaymentActualDetail::getPaidInAmount).map(LongUtil::null2zero)
+                    .map(BigDecimal::new).reduce(principal, BigDecimal::add);
+            clientIdToPrincipal.put(clientId, reduce);
+        });
+
+        List<CollectionBaseInfo> collections = collectionBaseInfoMapper.selectList(
+                Wrappers.<CollectionBaseInfo>lambdaQuery()
+                        .in(CollectionBaseInfo::getClientId, clientIds)
+                        .in(CollectionBaseInfo::getWriteOffStatus,
+                                Arrays.asList(CollectionWriteOffStatusEnum.PORTION_WRITTEN_OFF.name(),
+                                        CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name()))
+                        .in(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name(), CashFlowItemEnum.FIRST_RENT.name())
+                        .le(ObjectUtil.isNotEmpty(endDate), CollectionBaseInfo::getPlanCollectionDate, endDate));
+        Map<Long, BigDecimal> clientIdToReceived = new HashMap<>();
+
+        Map<Long, List<CollectionBaseInfo>> collectionMap = collections.stream().collect(Collectors.groupingBy(CollectionBaseInfo::getClientId));
+        collectionMap.forEach((clientId, collectionBaseInfos) -> {
+            BigDecimal received = clientIdToReceived.getOrDefault(clientId, BigDecimal.ZERO);
+            BigDecimal reduce = collectionBaseInfos.stream()
+                    .map(CollectionBaseInfo::getReceipt)
+                    .map(LongUtil::null2zero)
+                    .map(BigDecimal::new)
+                    .reduce(received, BigDecimal::add);
+            clientIdToReceived.put(clientId, reduce);
+        });
+
+        Map<Long, Long> clientIdToRemainingPrincipal = new HashMap<>();
+        for (Map.Entry<Long, BigDecimal> entry : clientIdToPrincipal.entrySet()) {
+            Long clientId = entry.getKey();
+            BigDecimal principal = entry.getValue();
+            BigDecimal received = clientIdToReceived.getOrDefault(clientId, BigDecimal.ZERO);
+            BigDecimal remainingPrincipal = principal.subtract(received);
+            clientIdToRemainingPrincipal.put(clientId, remainingPrincipal.longValue());
+        }
+        return clientIdToRemainingPrincipal;
     }
 
     public Triple<BigDecimal, BigDecimal, BigDecimal> overdueAmount(LocalDate dateTime) {
