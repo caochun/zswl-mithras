@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.config.system;
+package cn.zswltech.mithras.system.config;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONArray;
