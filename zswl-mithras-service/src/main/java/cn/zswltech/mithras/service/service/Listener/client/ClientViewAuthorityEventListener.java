@@ -7,6 +7,8 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
+import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
@@ -52,11 +54,12 @@ public class ClientViewAuthorityEventListener implements ApplicationListener<Cli
     public void onApplicationEvent(@NotNull ClientViewAuthorityEvent event) {
         log.info("客户查看权-收到客户查看权变更通知[{}]", JSONUtil.toJsonStr(event.getInfo()));
         ClientViewAuthorityEvent.ClientViewAuthorityInfo info = event.getInfo();
-        if (Objects.isNull(info) || Objects.isNull(info.getBusinessModule()) || Objects.isNull(info.getBizId())) {
+        BusinessModuleEnum businessModule = Objects.isNull(info) ? null : BusinessModuleEnum.of(info.getBusinessModule());
+        if (Objects.isNull(info) || Objects.isNull(businessModule) || Objects.isNull(info.getBizId())) {
             return;
         }
         try {
-            switch (info.getBusinessModule()) {
+            switch (businessModule) {
                 case GROUP_CREDIT_ESTABLISH: {
                     this.doGroupCreditEstablish(info);
                     break;
@@ -288,7 +291,7 @@ public class ClientViewAuthorityEventListener implements ApplicationListener<Cli
             try {
                 // 先统一删除
                 LambdaQueryWrapper<ClientAuthority> query = Wrappers.lambdaQuery();
-                query.eq(ClientAuthority::getSourceBusinessType, info.getBusinessModule().name());
+                query.eq(ClientAuthority::getSourceBusinessType, info.getBusinessModule());
                 query.eq(ClientAuthority::getSourceId, info.getBizId());
                 clientAuthorityService.remove(query);
                 // 再统一新增
@@ -304,7 +307,7 @@ public class ClientViewAuthorityEventListener implements ApplicationListener<Cli
                         clientAuthority.setClientId(clientId);
                         clientAuthority.setUserId(userId);
                         clientAuthority.setLevel(ClientLevelEnum.VIEW.getLevel());
-                        clientAuthority.setSourceBusinessType(info.getBusinessModule().name());
+                        clientAuthority.setSourceBusinessType(info.getBusinessModule());
                         clientAuthority.setSourceId(info.getBizId());
                         clientAuthorityList.add(clientAuthority);
                     }

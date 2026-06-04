@@ -25,7 +25,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.service.service.Listener.client.ClientViewAuthorityEvent;
+import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
 import cn.zswltech.mithras.projectprocess.service.bo.ContractConstitutionFileBO;
 import cn.zswltech.mithras.service.service.contract.*;
 import cn.zswltech.mithras.customer.application.lib.client.CorpContactInfoLibService;
