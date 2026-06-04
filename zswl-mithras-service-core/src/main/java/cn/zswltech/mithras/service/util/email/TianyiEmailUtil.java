@@ -4,7 +4,6 @@ package cn.zswltech.mithras.service.util.email;
 import cn.hutool.extra.mail.MailAccount;
 import cn.hutool.extra.mail.MailUtil;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import com.alibaba.nacos.common.utils.CollectionUtils;
 
 import java.io.File;
 import java.util.Set;
@@ -53,7 +52,7 @@ public class TianyiEmailUtil {
      * @param files   附件列表
      */
     public static String sendEMail(Set<String> toSet, Set<String> ccSet, Set<String> bccSet, String subject, String content, boolean isHtml, File... files) {
-        if (CollectionUtils.isEmpty(toSet)) {
+        if (toSet == null || toSet.isEmpty()) {
             throw new RuntimeException("收件人为空！！！！");
         }
         MailAccount tyDefaultAccount = SpringContextHolder.getBean(TianyiMailAccount.class);
