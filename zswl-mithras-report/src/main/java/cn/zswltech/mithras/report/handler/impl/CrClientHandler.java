@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.service.mapper.CreditReportMapper;
+import cn.zswltech.mithras.system.mapper.CreditReportMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpAddressInfoLibMapper;
