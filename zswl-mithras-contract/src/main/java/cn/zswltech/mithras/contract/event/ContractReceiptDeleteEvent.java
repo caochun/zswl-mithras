@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.Listener;
+package cn.zswltech.mithras.contract.event;
 
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import lombok.Getter;
