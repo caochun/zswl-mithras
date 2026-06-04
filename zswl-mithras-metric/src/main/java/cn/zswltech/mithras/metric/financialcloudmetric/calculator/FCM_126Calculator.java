@@ -3,7 +3,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
-import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricValueService;
+import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMetricValueReader;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.entity.Example;
 
@@ -25,7 +25,7 @@ public class FCM_126Calculator extends FinancialReportRelatedCalculator {
     @Resource(name = "userServiceAPI")
     private UserService userService;
     @Resource
-    private FinancialCloudMetricValueService metricValueService;
+    private FinancialCloudMetricValueReader metricValueReader;
 
     @Override
     public String metricCode() {
@@ -39,7 +39,7 @@ public class FCM_126Calculator extends FinancialReportRelatedCalculator {
         example.createCriteria().andEqualTo("status", 0)
                 .andNotIn("account", Arrays.asList("admin", "readonly"));
         int count = userService.selectCountByExample(example);
-        FinancialCloudMetricValue fcm119 = metricValueService.getMetricValue("FCM_119", dateTime);
+        FinancialCloudMetricValue fcm119 = metricValueReader.getMetricValue("FCM_119", dateTime);
         if (Objects.isNull(fcm119) || Objects.isNull(fcm119.getValue())) {
             return BigDecimal.ZERO;
         }
