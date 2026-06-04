@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
-import static cn.zswltech.mithras.service.service.flow.FlowQueryExtraService.format;
 
 /**
  * 流程中的业务数据
@@ -175,5 +174,9 @@ public class BizProcessDataService extends ServiceImpl<BizProcessDataMapper, Biz
         }
         builder.append(")");
         return builder.toString();
+    }
+
+    private static String format(String content) {
+        return content.replace("（", "(").replace("）", ")").replaceAll("\\s+", "").toUpperCase();
     }
 }
