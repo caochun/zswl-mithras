@@ -8,7 +8,7 @@ import cn.zswltech.mithras.service.excel.model.CashFlowRichExcelModel;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;
 import cn.zswltech.mithras.contract.application.dto.ContractEstimateCashFlowExporterBO;
-import cn.zswltech.mithras.service.service.contract.ContractFactoringPriceService;
+import cn.zswltech.mithras.contract.core.application.ContractFactoringPriceService;
 import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
 import org.springframework.stereotype.Component;
 

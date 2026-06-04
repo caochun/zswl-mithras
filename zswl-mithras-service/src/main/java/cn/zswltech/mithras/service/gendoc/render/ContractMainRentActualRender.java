@@ -14,7 +14,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
-import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
 import com.deepoove.poi.XWPFTemplate;

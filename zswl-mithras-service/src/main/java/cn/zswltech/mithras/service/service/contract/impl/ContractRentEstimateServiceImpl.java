@@ -38,7 +38,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.bo.*;
 import cn.zswltech.mithras.contract.application.dto.ContractPriceHelperBO;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;

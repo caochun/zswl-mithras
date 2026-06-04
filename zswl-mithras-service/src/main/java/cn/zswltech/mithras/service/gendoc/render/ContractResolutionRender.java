@@ -17,7 +17,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewLeasePriceService;

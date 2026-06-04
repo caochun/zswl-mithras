@@ -8,7 +8,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
-import cn.zswltech.mithras.service.service.contract.ContractRemindRecordService;
+import cn.zswltech.mithras.contract.core.application.ContractRemindRecordService;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.service.service.monthly.MonthlyStampDutyService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;

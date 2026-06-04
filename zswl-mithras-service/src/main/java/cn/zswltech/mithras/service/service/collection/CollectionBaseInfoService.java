@@ -30,7 +30,7 @@ import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.collection.service.bo.CollectionDetailChainBO;
-import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.third.financial.FinancialManagerService;

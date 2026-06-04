@@ -67,7 +67,7 @@ import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractTenantryService;
 import cn.zswltech.mithras.service.service.flow.MyTaskService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;

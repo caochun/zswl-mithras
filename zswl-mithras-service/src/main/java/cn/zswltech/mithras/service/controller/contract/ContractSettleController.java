@@ -28,7 +28,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionService;
-import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractSettlePlanService;
 import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractSettlePlanLibService;

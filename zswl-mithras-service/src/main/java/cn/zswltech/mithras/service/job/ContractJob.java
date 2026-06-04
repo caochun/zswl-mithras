@@ -29,7 +29,7 @@ import cn.zswltech.mithras.service.service.Listener.timeout.TimeoutNotifyEventLi
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
-import cn.zswltech.mithras.service.service.contract.ContractRemindRecordService;
+import cn.zswltech.mithras.contract.core.application.ContractRemindRecordService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailUnconfirmedService;

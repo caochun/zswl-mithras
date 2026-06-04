@@ -33,7 +33,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBase
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractAccountService;
+import cn.zswltech.mithras.contract.core.application.ContractAccountService;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingPayAccountService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundRepayAccountService;

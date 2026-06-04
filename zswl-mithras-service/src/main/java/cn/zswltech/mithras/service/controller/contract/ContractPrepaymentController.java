@@ -20,7 +20,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractAccountMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractPrepaymentMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractPrepaymentService;
+import cn.zswltech.mithras.contract.core.application.ContractPrepaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

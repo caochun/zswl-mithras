@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.contract.ContractAccountService;
+import cn.zswltech.mithras.contract.core.application.ContractAccountService;
 import cn.zswltech.mithras.service.service.contract.ContractLeaseItemService;
 import cn.zswltech.mithras.service.service.contract.ContractRentEstimateService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;

@@ -29,7 +29,7 @@ import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.budget.*;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractLeasePriceService;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;

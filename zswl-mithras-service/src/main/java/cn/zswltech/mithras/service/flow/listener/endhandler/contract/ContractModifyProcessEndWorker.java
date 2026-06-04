@@ -27,7 +27,7 @@ import cn.zswltech.mithras.afterlease.application.PenaltyReduceDetailRecordServi
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionFlowCenterService;
 import cn.zswltech.mithras.service.service.contract.ContractEvaluationAgencyDraftService;
-import cn.zswltech.mithras.service.service.contract.ContractPrepaymentService;
+import cn.zswltech.mithras.contract.core.application.ContractPrepaymentService;
 import cn.zswltech.mithras.service.service.contract.ContractService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

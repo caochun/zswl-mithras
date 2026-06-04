@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepayment;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
-import cn.zswltech.mithras.service.service.contract.ContractPrepaymentService;
+import cn.zswltech.mithras.contract.core.application.ContractPrepaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

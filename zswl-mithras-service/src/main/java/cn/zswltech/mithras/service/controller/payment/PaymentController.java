@@ -77,7 +77,7 @@ import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.system.service.ExceptionRequestInfoService;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.contract.ContractAccountService;
+import cn.zswltech.mithras.contract.core.application.ContractAccountService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;

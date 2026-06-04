@@ -14,7 +14,7 @@ import cn.zswltech.mithras.message.mapper.message.PopUpNotificationBody;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRemindRecord;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractRemindRecordService;
+import cn.zswltech.mithras.contract.core.application.ContractRemindRecordService;
 import cn.zswltech.mithras.service.service.contract.delayqueue.DelayQueueService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

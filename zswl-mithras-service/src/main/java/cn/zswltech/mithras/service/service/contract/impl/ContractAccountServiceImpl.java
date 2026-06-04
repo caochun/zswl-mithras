@@ -12,7 +12,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractAccountMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.contract.ContractAccountService;
+import cn.zswltech.mithras.contract.core.application.ContractAccountService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
