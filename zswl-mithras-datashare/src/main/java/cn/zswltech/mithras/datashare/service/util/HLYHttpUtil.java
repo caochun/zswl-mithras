@@ -2,7 +2,6 @@ package cn.zswltech.mithras.datashare.service.util;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -11,6 +10,8 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Base64;
 
 /**
  * @author: ldhu
@@ -35,7 +36,7 @@ public class HLYHttpUtil {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         String authStr = clientId.concat(":").concat(securet);
-        String authStrEnc = new String(Base64.encodeBase64(authStr.getBytes()));
+        String authStrEnc = Base64.getEncoder().encodeToString(authStr.getBytes());
         httpHeaders.set("Authorization", "Basic ".concat(authStrEnc));
 
         MultiValueMap<String, String> formData = new LinkedMultiValueMap();
