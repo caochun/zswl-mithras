@@ -102,7 +102,7 @@ import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.newftp.service.FtpService;
-import cn.zswltech.mithras.service.service.payment.model.FillReceiptInfoReq;
+import cn.zswltech.mithras.payment.interfaces.dto.FillReceiptInfoReq;
 import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;
 import cn.zswltech.mithras.service.service.policy.PolicyInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;

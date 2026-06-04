@@ -62,7 +62,7 @@ import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
-import cn.zswltech.mithras.service.service.payment.model.FillReceiptInfoReq;
+import cn.zswltech.mithras.payment.interfaces.dto.FillReceiptInfoReq;
 import cn.zswltech.mithras.service.util.ContractUtil;
 import cn.zswltech.mithras.service.util.FinancialUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
