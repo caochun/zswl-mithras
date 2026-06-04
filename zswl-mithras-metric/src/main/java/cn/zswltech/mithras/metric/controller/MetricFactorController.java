@@ -2,7 +2,6 @@ package cn.zswltech.mithras.metric.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
@@ -10,10 +9,9 @@ import cn.zswltech.mithras.api.metric.MetricFactorApi;
 import cn.zswltech.mithras.dto.metric.factor.*;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorFile;
+import cn.zswltech.mithras.metric.service.RiskMetricFactorRefreshClient;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
-import cn.zswltech.mithras.service.job.JinKongSyncJob;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.third.jk.JinKongMonthlyReportService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.SneakyThrows;
@@ -45,9 +43,7 @@ public class MetricFactorController implements MetricFactorApi {
     @Resource
     private RiskMetricFactorService metricFactorService;
     @Resource
-    private JinKongMonthlyReportService jinKongMonthlyReportService;
-    @Resource
-    private JinKongSyncJob jinKongSyncJob;
+    private RiskMetricFactorRefreshClient refreshClient;
 
     @Override
     public R<PageR<RiskMetricFactorPageListRsp>> detailPageList(@Valid RiskMetricFactorPageListReq req) {
@@ -102,46 +98,10 @@ public class MetricFactorController implements MetricFactorApi {
     public R<Void> refresh(RiskMetricFactorRefreshReq req) {
         LocalDate localDate = req.getDate().with(TemporalAdjusters.lastDayOfMonth());
         // 各个报表之间多线程处理，提高处理速度
-        // 资产负债表
-        CompletableFuture<Boolean> assetCF = CompletableFuture.supplyAsync(() -> {
-            try {
-                jinKongMonthlyReportService.jinKongSyncAsset(localDate);
-                return Boolean.TRUE;
-            } catch (Exception e) {
-                log.error("资产负债表:", e);
-                return Boolean.FALSE;
-            }
-        });
-        // 利润表
-        CompletableFuture<Boolean> profitCF = CompletableFuture.supplyAsync(() -> {
-            try {
-                jinKongMonthlyReportService.jinKongSyncProfit(localDate);
-                return Boolean.TRUE;
-            } catch (Exception e) {
-                log.error("利润表:", e);
-                return Boolean.FALSE;
-            }
-        });
-        // 现金流量表
-        CompletableFuture<Boolean> cashFlowCF = CompletableFuture.supplyAsync(() -> {
-            try {
-                jinKongMonthlyReportService.jinKongSyncCashFlow(localDate);
-                return Boolean.TRUE;
-            } catch (Exception e) {
-                log.error("现金流量表:", e);
-                return Boolean.FALSE;
-            }
-        });
-        // 科目余额表
-        CompletableFuture<Boolean> subjectBalanceCF = CompletableFuture.supplyAsync(() -> {
-            try {
-                jinKongMonthlyReportService.syncAccountBalanceData(localDate.getYear(), localDate.getMonthValue());
-                return Boolean.TRUE;
-            } catch (Exception e) {
-                log.error("科目余额表:", e);
-                return Boolean.FALSE;
-            }
-        });
+        CompletableFuture<Boolean> assetCF = CompletableFuture.supplyAsync(() -> refreshClient.refreshAsset(localDate));
+        CompletableFuture<Boolean> profitCF = CompletableFuture.supplyAsync(() -> refreshClient.refreshProfit(localDate));
+        CompletableFuture<Boolean> cashFlowCF = CompletableFuture.supplyAsync(() -> refreshClient.refreshCashFlow(localDate));
+        CompletableFuture<Boolean> subjectBalanceCF = CompletableFuture.supplyAsync(() -> refreshClient.refreshSubjectBalance(localDate));
         // 处理返回结果
         List<String> msgList = new LinkedList<>();
         if (Objects.nonNull(assetCF.get()) && !assetCF.get()) {
@@ -165,6 +125,6 @@ public class MetricFactorController implements MetricFactorApi {
 
     @Override
     public void test() {
-        jinKongSyncJob.jinKongSyncProfitJob();
+        refreshClient.testProfitSync();
     }
 }
