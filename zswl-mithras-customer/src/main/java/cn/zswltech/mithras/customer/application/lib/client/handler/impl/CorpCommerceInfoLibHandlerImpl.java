@@ -2,17 +2,15 @@ package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
+import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoGroupNameService;
 import cn.zswltech.mithras.customer.domain.constant.LackDataMsg;
 import cn.zswltech.mithras.customer.domain.enums.InfoModule;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
-import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,7 +30,7 @@ public class CorpCommerceInfoLibHandlerImpl extends ClientLibAbstractHandler<Cor
     @Resource
     private IndustryTypeMapper industryTypeMapper;
     @Resource
-    private CorpCommerceInfoService commerceInfoService;
+    private CorpCommerceInfoGroupNameService groupNameService;
 
     @Override
     protected CorpCommerceInfoLib entity2Lib(CorpCommerceInfo corpCommerceInfo) {
@@ -82,7 +80,7 @@ public class CorpCommerceInfoLibHandlerImpl extends ClientLibAbstractHandler<Cor
         if (Objects.nonNull(industryType)) {
             rsp.setIndustryTypeName(industryType.getDisplay());
         }
-        rsp.setBelongGroupClientName(commerceInfoService.queryBelongGroupClientName(rsp.getClientId(), rsp.getBelongGroupClientId(), rsp.getClientName()));
+        rsp.setBelongGroupClientName(groupNameService.queryBelongGroupClientName(rsp.getClientId(), rsp.getBelongGroupClientId(), rsp.getClientName()));
         return rsp;
     }
 

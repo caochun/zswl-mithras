@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.lib.client;
+package cn.zswltech.mithras.customer.application.lib.client;
 
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;

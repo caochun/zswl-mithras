@@ -2,31 +2,23 @@ package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.gruul.dao.dal.vo.AccountVO;
-import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
 import cn.zswltech.mithras.dto.client.commerceinfo.NewCorpCommerceInfoDetailRSP;
+import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoGroupNameService;
 import cn.zswltech.mithras.customer.domain.constant.LackDataMsg;
-import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.customer.domain.enums.InfoModule;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
+import cn.zswltech.mithras.service.others.LackDataException;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
+import cn.hutool.core.collection.CollectionUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.*;
-
-import static cn.hutool.core.bean.BeanUtil.copyProperties;
 
 /**
  * @author wangchuanhao
@@ -40,7 +32,7 @@ public class NewCorpCommerceInfoLibHandlerImpl extends ClientLibAbstractHandler<
     @Resource
     private IndustryTypeMapper industryTypeMapper;
     @Resource
-    private CorpCommerceInfoService commerceInfoService;
+    private CorpCommerceInfoGroupNameService groupNameService;
     @Resource
     private CorpCommerceInfoMapper corpCommerceInfoMapper;
 
@@ -75,7 +67,7 @@ public class NewCorpCommerceInfoLibHandlerImpl extends ClientLibAbstractHandler<
         List<NewCorpCommerceInfo> dataList = draftMapper.selectList(Wrappers.<NewCorpCommerceInfo>lambdaQuery()
                 .eq(NewCorpCommerceInfo::getClientId, client.getId())
                 .eq(NewCorpCommerceInfo::getUserId, userId));
-        Util.errLackData(CollectionUtils.isEmpty(dataList), LackDataMsg.COMMERCE);
+        errLackData(CollectionUtil.isEmpty(dataList), LackDataMsg.COMMERCE);
     }
 
     @Override
@@ -94,12 +86,18 @@ public class NewCorpCommerceInfoLibHandlerImpl extends ClientLibAbstractHandler<
         if (Objects.nonNull(industryType)) {
             rsp.setIndustryTypeName(industryType.getDisplay());
         }
-        rsp.setBelongGroupClientName(commerceInfoService.queryBelongGroupClientName(rsp.getClientId(), rsp.getBelongGroupClientId(), rsp.getClientName()));
+        rsp.setBelongGroupClientName(groupNameService.queryBelongGroupClientName(rsp.getClientId(), rsp.getBelongGroupClientId(), rsp.getClientName()));
         return rsp;
     }
 
     @Override
     public List<NewCorpCommerceInfo> listNeedHandleEntity(Long mainId, Map<String, Object> extraMap) {
         return this.listNeedHandleEntity(mainId);
+    }
+
+    private void errLackData(boolean condition, String msg) {
+        if (condition) {
+            throw new LackDataException(msg);
+        }
     }
 }

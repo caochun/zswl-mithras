@@ -25,7 +25,7 @@ import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
-import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projpricing.ProjPricingBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;

@@ -33,7 +33,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.BizProcessDataService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.flow.FlowEndEventProcessor;
-import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projpricing.impl.ProjPricingVersionServiceImpl;
 import cn.zswltech.mithras.service.service.projfms.ProjContext;
 import cn.zswltech.mithras.service.service.projfms.ProjEvent;

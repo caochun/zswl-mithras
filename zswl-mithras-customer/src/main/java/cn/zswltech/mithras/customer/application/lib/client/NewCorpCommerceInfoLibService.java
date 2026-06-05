@@ -1,9 +1,7 @@
-package cn.zswltech.mithras.service.service.lib.client;
+package cn.zswltech.mithras.customer.application.lib.client;
 
-import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
 import cn.zswltech.mithras.dto.client.commerceinfo.NewCorpCommerceInfoDetailRSP;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpCommerceInfoLib;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
 import com.baomidou.mybatisplus.extension.service.IService;

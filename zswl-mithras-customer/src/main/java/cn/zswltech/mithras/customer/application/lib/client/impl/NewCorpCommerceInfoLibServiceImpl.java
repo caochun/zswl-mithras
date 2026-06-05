@@ -2,20 +2,15 @@ package cn.zswltech.mithras.customer.application.lib.client.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
-import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
 import cn.zswltech.mithras.dto.client.commerceinfo.NewCorpCommerceInfoDetailRSP;
+import cn.zswltech.mithras.customer.application.lib.client.NewCorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.NewCorpCommerceInfoLibMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpCommerceInfoLib;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.service.service.lib.client.NewCorpCommerceInfoLibService;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NewCorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.service.util.StringUtil;
@@ -37,7 +32,7 @@ import java.util.stream.Collectors;
 public class NewCorpCommerceInfoLibServiceImpl extends ServiceImpl<NewCorpCommerceInfoLibMapper, NewCorpCommerceInfoLib> implements NewCorpCommerceInfoLibService {
 
     @Resource
-    private ClientService clientService;
+    private ClientMapper clientMapper;
     @Resource
     private NewCorpCommerceInfoLibHandlerImpl newCorpCommerceInfoLibHandler;
 
@@ -54,7 +49,7 @@ public class NewCorpCommerceInfoLibServiceImpl extends ServiceImpl<NewCorpCommer
 
     @Override
     public NewCorpCommerceInfoLib getNewestOne(Long clientId) {
-        Client client = clientService.getById(clientId);
+        Client client = clientMapper.selectById(clientId);
         Assert.notNull(client, () -> MithrasException.newException("客户信息不存在: " + clientId));
         return this.getNewestOne(client);
     }
