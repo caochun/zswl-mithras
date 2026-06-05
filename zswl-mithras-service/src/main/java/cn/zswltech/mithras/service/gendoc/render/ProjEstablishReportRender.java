@@ -38,7 +38,7 @@ import cn.zswltech.mithras.service.controller.client.CorpSubjectItemController;
 import cn.zswltech.mithras.service.controller.client.EnvironmentPenaltyController;
 import cn.zswltech.mithras.service.controller.client.TycController;
 import cn.zswltech.mithras.service.controller.client.ZhongdengInfoController;
-import cn.zswltech.mithras.service.controller.projestablish.ProjEstablishBaseInfoController;
+import cn.zswltech.mithras.service.application.projestablish.ProjEstablishBaseInfoFacade;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
@@ -182,7 +182,7 @@ public class ProjEstablishReportRender extends AbstractBasicRender<Long> {
 
 
     @Resource
-    private ProjEstablishBaseInfoController projEstablishBaseInfoController;
+    private ProjEstablishBaseInfoFacade projEstablishBaseInfoController;
     @Resource
     private ProjEstablishLeasePriceService leasePriceService;
     @Resource

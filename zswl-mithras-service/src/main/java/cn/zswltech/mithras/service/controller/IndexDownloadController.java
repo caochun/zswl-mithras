@@ -67,9 +67,9 @@ import cn.zswltech.mithras.service.controller.fund.receiptrepay.FundReceiptRepay
 import cn.zswltech.mithras.liquiditymanage.controller.FundLiquidityBaseController;
 import cn.zswltech.mithras.liquiditymanage.controller.FundLiquidityIndexController;
 import cn.zswltech.mithras.liquiditymanage.controller.FundTransferController;
-import cn.zswltech.mithras.service.controller.projestablish.ProjEstablishBaseInfoController;
-import cn.zswltech.mithras.service.controller.projpricing.ProjPricingBaseInfoController;
-import cn.zswltech.mithras.service.controller.projreview.ProjReviewBaseInfoController;
+import cn.zswltech.mithras.service.application.projestablish.ProjEstablishBaseInfoFacade;
+import cn.zswltech.mithras.service.application.projpricing.ProjPricingBaseInfoFacade;
+import cn.zswltech.mithras.service.application.projreview.ProjReviewBaseInfoFacade;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
@@ -152,9 +152,9 @@ public class IndexDownloadController implements IndexDownloadApi {
 
     private final static Map<BusinessModuleEnum, Triple<Class<?>, String, List<String>>/*ControllerClass,Method, ignoredFields*/> MAP = MapUtil.of(
             Pair.of(BusinessModuleEnum.CLIENT, Triple.of(ClientController.class, "newList", of("id"))),
-            Pair.of(BusinessModuleEnum.PROJ_ESTABLISH, Triple.of(ProjEstablishBaseInfoController.class, "list", of(""))),
-            Pair.of(BusinessModuleEnum.PROJ_REVIEW, Triple.of(ProjReviewBaseInfoController.class, "list", of())),
-            Pair.of(BusinessModuleEnum.PROJ_PRICING, Triple.of(ProjPricingBaseInfoController.class, "list", of())),
+            Pair.of(BusinessModuleEnum.PROJ_ESTABLISH, Triple.of(ProjEstablishBaseInfoFacade.class, "list", of(""))),
+            Pair.of(BusinessModuleEnum.PROJ_REVIEW, Triple.of(ProjReviewBaseInfoFacade.class, "list", of())),
+            Pair.of(BusinessModuleEnum.PROJ_PRICING, Triple.of(ProjPricingBaseInfoFacade.class, "list", of())),
             Pair.of(BusinessModuleEnum.CONTRACT, Triple.of(ContractBaseInfoController.class, "list", of())),
             Pair.of(BusinessModuleEnum.FUND_ORGANIZATION, Triple.of(FundOrganizationFacade.class, "list", of())),
             Pair.of(FUND_CREDIT, Triple.of(FundCreditFacade.class, "list", of())),
