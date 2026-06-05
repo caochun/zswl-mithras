@@ -1,13 +1,13 @@
-package cn.zswltech.mithras.service.controller.projlifecycle;
+package cn.zswltech.mithras.service.application.projlifecycle;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.projlifecycle.ProjectLifecycleAPI;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionListRSP;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.projlifecycle.*;
+import cn.zswltech.mithras.projlifecycle.application.ProjectLifecycleApplicationService;
 import cn.zswltech.mithras.service.auth.rule.special.ProjEstablishAuthViewRule;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.projlifecycle.enums.ProjStageEnum;
@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.service.projlifecycle.ProjLifecycleService;
 import cn.zswltech.mithras.service.service.projlifecycle.ProjectLifecycleService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -30,9 +30,9 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  * @create: 2022-10-24
  **/
 
-@RestController
+@Service
 @Slf4j
-public class ProjectLifecycleController implements ProjectLifecycleAPI {
+public class ProjectLifecycleFacade implements ProjectLifecycleApplicationService {
 
     @Resource
     private ProjectLifecycleService projectLifecycleService;
@@ -169,4 +169,3 @@ public class ProjectLifecycleController implements ProjectLifecycleAPI {
         }
     }
 }
-

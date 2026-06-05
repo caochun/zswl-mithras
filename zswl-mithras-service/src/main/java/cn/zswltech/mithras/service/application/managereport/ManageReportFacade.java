@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.controller.managereport;
+package cn.zswltech.mithras.service.application.managereport;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.managereport.ManageReportApi;
 import cn.zswltech.mithras.dto.managereport.*;
+import cn.zswltech.mithras.guanbao.application.managereport.ManageReportApplicationService;
 import cn.zswltech.mithras.service.service.managereport.ManageReportService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,8 +15,8 @@ import java.util.List;
  * @date 2024/12/10
  * @description
  */
-@RestController
-public class ManageReportController implements ManageReportApi {
+@Service
+public class ManageReportFacade implements ManageReportApplicationService {
     @Resource
     private ManageReportService manageReportService;
 
