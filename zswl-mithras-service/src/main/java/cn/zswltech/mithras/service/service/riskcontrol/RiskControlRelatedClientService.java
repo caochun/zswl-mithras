@@ -4,6 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlRelatedTransactionPageReq;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlRelatedTransactionRsp;
+import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClientApplicationService;
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClientConverter;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
@@ -38,7 +39,8 @@ import java.util.stream.Collectors;
 */
 @Service
 public class RiskControlRelatedClientService
-        extends ServiceImpl<RiskControlRelatedClientMapper, RiskControlRelatedClient> {
+        extends ServiceImpl<RiskControlRelatedClientMapper, RiskControlRelatedClient>
+        implements RiskControlRelatedClientApplicationService {
     @Resource
     private RelatedClientImporter relatedClientImporter;
     @Resource
@@ -49,6 +51,8 @@ public class RiskControlRelatedClientService
     private CollectionBaseInfoService collectionBaseInfoService;
     @Resource
     private RiskControlRelatedClientConverter baseConverter;
+
+    private final Map<String, List<String>> pullDownMap = new java.util.HashMap<>();
 
     @Transactional(rollbackFor = Throwable.class)
     public void importFile(InputStream inputStream) {
@@ -87,6 +91,7 @@ public class RiskControlRelatedClientService
         if(updateList.size() > 0){
             saveOrUpdateBatch(updateList);
         }
+        pullDownMap.clear();
     }
 
     public PageR<RiskControlRelatedTransactionRsp> paymentList(RiskControlRelatedTransactionPageReq req) {
@@ -171,5 +176,22 @@ public class RiskControlRelatedClientService
                         .eq(ObjectUtil.isNotEmpty(req.getRelatedPartyType()), RiskControlRelatedClient::getRelatedPartyType,
                                 req.getRelatedPartyType()))
                 .stream().collect(Collectors.toMap(RiskControlRelatedClient::getClientId, item -> item, (k1, k2) -> k1));
+    }
+
+    public Map<String, List<String>> pullDown() {
+        if (ObjectUtil.isNotEmpty(pullDownMap)) {
+            return pullDownMap;
+        }
+        List<RiskControlRelatedClient> listAll = this.list();
+        java.util.Set<String> relatedPartyType = listAll.stream().map(RiskControlRelatedClient::getRelatedPartyType)
+                .collect(Collectors.toSet());
+        java.util.Set<String> parentRelationType = listAll.stream().map(RiskControlRelatedClient::getParentRelationType)
+                .collect(Collectors.toSet());
+        java.util.Set<String> subRelationType = listAll.stream().map(RiskControlRelatedClient::getSubRelationType)
+                .collect(Collectors.toSet());
+        pullDownMap.put("relatedPartyType", new ArrayList<>(relatedPartyType));
+        pullDownMap.put("parentRelationType", new ArrayList<>(parentRelationType));
+        pullDownMap.put("subRelationType", new ArrayList<>(subRelationType));
+        return pullDownMap;
     }
 }

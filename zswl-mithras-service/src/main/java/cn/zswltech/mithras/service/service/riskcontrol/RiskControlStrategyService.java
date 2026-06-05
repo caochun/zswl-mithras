@@ -9,6 +9,7 @@ import cn.zswltech.mithras.dto.workbench.WorkbenchMetricReq;
 import cn.zswltech.mithras.dto.workbench.chart.LineBarChartValueVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartBaseDataVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartDataVO;
+import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategyApplicationService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
@@ -33,12 +34,14 @@ import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEventBus;
 import cn.zswltech.mithras.service.service.riskcontrol.eventbus.subscriber.MetricComputer29J10000396_FJC47608;
 import cn.zswltech.mithras.service.service.riskcontrol.eventbus.subscriber.RiskControlClassifyMetricComputer;
+import cn.zswltech.mithras.service.others.SpringContextHolder;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,8 +59,10 @@ import java.util.stream.Collectors;
  * @description 风控管理-预警监控管理
  * @date 2023-02-08
  */
+@Slf4j
 @Service
-public class RiskControlStrategyService extends ServiceImpl<RiskControlStrategyMapper, RiskControlStrategy> {
+public class RiskControlStrategyService extends ServiceImpl<RiskControlStrategyMapper, RiskControlStrategy>
+        implements RiskControlStrategyApplicationService {
     @Resource
     private TypeConversionWorker converterWorker;
     @Resource
@@ -357,5 +362,16 @@ public class RiskControlStrategyService extends ServiceImpl<RiskControlStrategyM
         } catch (Throwable t) {
             log.error("fullComputeMetricJobHandler error", t);
         }
+    }
+
+    @Override
+    public void recalculate(RiskControlStrategyCalReq req) {
+        this.calculate(req.getDate());
+    }
+
+    @Override
+    public void test(String metricCode) {
+        AbstractMetricComputer computer = SpringContextHolder.getBean("metricComputer" + metricCode);
+        computer.compute(new MetricComputeEvent());
     }
 }

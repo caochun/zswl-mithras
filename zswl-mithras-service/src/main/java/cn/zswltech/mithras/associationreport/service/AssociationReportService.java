@@ -179,6 +179,16 @@ public class AssociationReportService extends ServiceImpl<AssociationReportMappe
         return materialsListService.download(materials.getId()).getFileUrl();
     }
 
+    @Override
+    public boolean updateBatchById(List<AssociationReport> associationReportList) {
+        return super.updateBatchById(associationReportList);
+    }
+
+    @Override
+    public AssociationReport getById(Long id) {
+        return super.getById(id);
+    }
+
     public String create(AssociationReportCreateREQ req) {
         //如果是实时报表，周期取月日
         if (req.getPeriodCategory().equals(AssociationReportPeriodCategoryEnum.REALTIME.name())) {

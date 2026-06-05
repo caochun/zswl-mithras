@@ -1,7 +1,15 @@
 package cn.zswltech.mithras.service.service.riskcontrol;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.api.riskcontrol.model.JzdReportAddREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.JzdReportListREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.JzdReportListRSP;
+import cn.zswltech.mithras.api.riskcontrol.model.JzdReportModifyREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.JzdReportRemoveREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.JzdReportSubmitREQ;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
@@ -27,6 +35,7 @@ import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReport;
+import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReportApplicationService;
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReportMapper;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
@@ -37,6 +46,7 @@ import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -72,7 +82,7 @@ import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
  */
 @Slf4j
 @Service
-public class RiskControlJzdReportService extends ServiceImpl<RiskControlJzdReportMapper, RiskControlJzdReport> {
+public class RiskControlJzdReportService extends ServiceImpl<RiskControlJzdReportMapper, RiskControlJzdReport> implements RiskControlJzdReportApplicationService {
     @Resource
     private MetricEmitter metricEmitter;
 
@@ -271,6 +281,56 @@ public class RiskControlJzdReportService extends ServiceImpl<RiskControlJzdRepor
     public Long add(RiskControlJzdReport jzdReport) {
         this.save(jzdReport);
         return jzdReport.getId();
+    }
+
+    public void submit(JzdReportSubmitREQ req) {
+        this.submit(req.getDataMonth());
+    }
+
+    public void addManually(JzdReportAddREQ req) {
+        if (req.getDataMonth() != null) {
+            req.setDataMonth(req.getDataMonth().withDayOfMonth(1));
+        }
+        RiskControlJzdReport riskControlJzdReport = BeanUtil.copyProperties(req, RiskControlJzdReport.class);
+        riskControlJzdReport.setReportStatus(NOT_REPORT.name());
+        this.add(riskControlJzdReport);
+    }
+
+    public void remove(JzdReportRemoveREQ req) {
+        this.removeById(req.getId());
+    }
+
+    public void modify(JzdReportModifyREQ req) {
+        if (req.getDataMonth() != null) {
+            req.setDataMonth(req.getDataMonth().withDayOfMonth(1));
+        }
+        RiskControlJzdReport riskControlJzdReport = BeanUtil.copyProperties(req, RiskControlJzdReport.class);
+        riskControlJzdReport.setReportStatus(NOT_REPORT.name());
+        this.updateById(riskControlJzdReport);
+    }
+
+    public PageR<JzdReportListRSP> pageList(JzdReportListREQ req) {
+        if (req.getDataMonth() != null) {
+            req.setDataMonth(req.getDataMonth().withDayOfMonth(1));
+        }
+
+        Page<RiskControlJzdReport> data = this.page(
+                new Page<>(req.getPage(), req.getPageSize()),
+                Wrappers.<RiskControlJzdReport>lambdaQuery()
+                        .like(isNotBlank(req.getBizType()), RiskControlJzdReport::getBizType, req.getBizType())
+                        .eq(isNotNull(req.getDataMonth()), RiskControlJzdReport::getDataMonth, req.getDataMonth())
+                        .like(isNotBlank(req.getClientName()), RiskControlJzdReport::getClientName, req.getClientName())
+                        .eq(isNotBlank(req.getCreateType()), RiskControlJzdReport::getCreateType, req.getCreateType())
+        );
+
+        List<JzdReportListRSP> list = BeanUtil.copyToList(data.getRecords(), JzdReportListRSP.class);
+        PageR<JzdReportListRSP> pageR = PageR.of(list, data.getTotal(),
+                data.getPages(),
+                data.getCurrent(),
+                data.getSize());
+        boolean matched = list.stream().anyMatch(e -> NOT_REPORT.name().equals(e.getReportStatus()));
+        pageR.getOthers().put("reportStatus", matched);
+        return pageR;
     }
 
     @Transactional(rollbackFor = Exception.class)

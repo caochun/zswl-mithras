@@ -36,6 +36,7 @@ import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanPa
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPay;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;

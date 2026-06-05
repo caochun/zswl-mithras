@@ -1,6 +1,15 @@
 package cn.zswltech.mithras.service.service.riskcontrol;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportAddREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportListREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportListRSP;
+import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportModifyREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportRelatedClientREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportRemoveREQ;
+import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportSubmitREQ;
 import cn.zswltech.mithras.metric.emit.MetricEmitter;
 import cn.zswltech.mithras.metric.emit.model.req.relation.trade.RelatedClientListREQ;
 import cn.zswltech.mithras.metric.emit.model.req.relation.trade.RelatedClientListRSP;
@@ -16,6 +25,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.riskcontrol.report.gljy.RiskControlGljyReport;
+import cn.zswltech.mithras.riskcontrol.report.gljy.RiskControlGljyReportApplicationService;
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClient;
 import cn.zswltech.mithras.riskcontrol.report.gljy.RiskControlGljyReportMapper;
 import cn.zswltech.mithras.service.service.client.ClientService;
@@ -23,6 +33,7 @@ import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.payment.domain.event.PaymentWriteOffEvent;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +50,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import static cn.hutool.core.collection.CollUtil.isNotEmpty;
+import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
 import static cn.hutool.core.util.ObjectUtil.*;
 import static cn.hutool.json.JSONUtil.toJsonStr;
@@ -56,7 +68,7 @@ import static java.util.Objects.requireNonNull;
  */
 @Slf4j
 @Service
-public class RiskControlGljyReportService extends ServiceImpl<RiskControlGljyReportMapper, RiskControlGljyReport> {
+public class RiskControlGljyReportService extends ServiceImpl<RiskControlGljyReportMapper, RiskControlGljyReport> implements RiskControlGljyReportApplicationService {
     @Resource
     private MetricEmitter metricEmitter;
 
@@ -103,6 +115,66 @@ public class RiskControlGljyReportService extends ServiceImpl<RiskControlGljyRep
         );
         err(CollUtil.isNotEmpty(list), "已存在相同的记录");*/
         this.save(report);
+    }
+
+    public void addManually(GljyReportAddREQ req) {
+        err(req.getLevel().equals(GljyReportLevel.IMPORTANT.name()) && isBlank(req.getImportantReason()),
+                "重大原因不能为空");
+        this.addManually(BeanUtil.copyProperties(req, RiskControlGljyReport.class));
+    }
+
+    public void remove(GljyReportRemoveREQ req) {
+        RiskControlGljyReport report = this.getById(req.getId());
+        if (isNotNull(report) && REPORTED.name().equals(report.getReportStatus())) {
+            err("记录已报送，不能删除");
+        }
+        this.removeById(req.getId());
+    }
+
+    public void modify(GljyReportModifyREQ req) {
+        err(req.getLevel().equals(GljyReportLevel.IMPORTANT.name()) && isBlank(req.getImportantReason()),
+                "重大原因不能为空");
+        if (req.getLevel().equals(GljyReportLevel.NORMAL.name())) {
+            req.setImportantReason("");
+        }
+        RiskControlGljyReport report = this.getById(req.getId());
+        if (isNotNull(report) && REPORTED.name().equals(report.getReportStatus())) {
+            err("记录已报送，不能修改");
+        }
+        this.updateById(BeanUtil.copyProperties(req, RiskControlGljyReport.class));
+    }
+
+    public PageR<GljyReportListRSP> pageList(GljyReportListREQ req) {
+        Page<RiskControlGljyReport> data = this.page(
+                new Page<>(req.getPage(), req.getPageSize()),
+                Wrappers.<RiskControlGljyReport>lambdaQuery()
+                        .like(isNotBlank(req.getLevel()), RiskControlGljyReport::getLevel, req.getLevel())
+                        .ge(isNotNull(req.getAmountFrom()), RiskControlGljyReport::getAmount, req.getAmountFrom())
+                        .le(isNotNull(req.getAmountTo()), RiskControlGljyReport::getAmount, req.getAmountTo())
+                        .eq(isNotBlank(req.getReportStatus()), RiskControlGljyReport::getReportStatus, req.getReportStatus())
+                        .like(isNotBlank(req.getTradePartyName()), RiskControlGljyReport::getTradePartyName, req.getTradePartyName())
+                        .ge(isNotNull(req.getTradeDateFrom()), RiskControlGljyReport::getTradeDate, req.getTradeDateFrom())
+                        .le(isNotNull(req.getTradeDateTo()), RiskControlGljyReport::getTradeDate, req.getTradeDateTo())
+                        .orderByAsc(RiskControlGljyReport::getReportStatus)
+                        .orderByDesc(RiskControlGljyReport::getTradeDate)
+        );
+
+        List<GljyReportListRSP> list = BeanUtil.copyToList(data.getRecords(), GljyReportListRSP.class);
+        return PageR.of(list, data.getTotal(), data.getPages(), data.getCurrent(), data.getSize());
+    }
+
+    public void submit(GljyReportSubmitREQ req) {
+        this.submit(req.getIdList());
+    }
+
+    public List<String> relatedClientList(GljyReportRelatedClientREQ req) {
+        Page<RiskControlRelatedClient> page = getBean(RiskControlRelatedClientService.class).page(
+                new Page<>(1, 50),
+                Wrappers.<RiskControlRelatedClient>lambdaQuery()
+                        .like(isNotBlank(req.getName()), RiskControlRelatedClient::getClientName, req.getName())
+        );
+        return page.getRecords().stream().map(RiskControlRelatedClient::getClientName)
+                .collect(Collectors.toList());
     }
 
     @Transactional(rollbackFor = Exception.class)
