@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.bigbear;
 
-import cn.zswltech.mithras.service.job.DashboardFinanceViewJob;
+import cn.zswltech.mithras.finance.view.job.DashboardFinanceViewJob;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;

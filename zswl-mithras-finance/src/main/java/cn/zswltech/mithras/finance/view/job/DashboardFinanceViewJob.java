@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.finance.view.job;
 
 import cn.zswltech.mithras.finance.view.service.DashboardFvCardSnapshotService;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
-import java.time.temporal.TemporalAdjusters;
 
 /**
  * @author bigbear
