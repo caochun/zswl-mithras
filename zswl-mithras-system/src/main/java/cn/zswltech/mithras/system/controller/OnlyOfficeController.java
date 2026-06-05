@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.system.controller;
 
 import cn.zswltech.mithras.api.OnlyOfficeApi;
 import cn.zswltech.mithras.api.common.R;

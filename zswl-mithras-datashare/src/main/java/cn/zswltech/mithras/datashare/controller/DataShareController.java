@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.datashare.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.R;
