@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.excel.exporter;
+package cn.zswltech.mithras.policy.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.service.excel.model.PolicyLedgerContractExcelModel;
+import cn.zswltech.mithras.policy.excel.model.PolicyLedgerContractExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;
 

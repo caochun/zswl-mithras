@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
-import cn.zswltech.mithras.service.excel.model.PaymentPolicyExcelModel;
+import cn.zswltech.mithras.policy.excel.model.PaymentPolicyExcelModel;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.dto.PaymentListDto;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
