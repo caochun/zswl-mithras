@@ -35,9 +35,6 @@ CREATE TABLE `rent_collection_email_html_store` (
     KEY `idx_html_key` (`html_key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='发送租金催收邮件html缓存';
 
--- email催收后 修改收款主表的催收次数 用于过滤条件
-ALTER TABLE collection_base_info ADD email_notice_count int(11) DEFAULT 0 COMMENT '租金催收email发送次数';
-
 CREATE TABLE `collection_penalty_reduction_info`
 (
     `id`                                bigint(20) NOT NULL AUTO_INCREMENT,
@@ -53,25 +50,6 @@ CREATE TABLE `collection_penalty_reduction_info`
     `update_time`                       datetime      DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='租后-罚息减免基本表';
-
-alter table collection_base_info
-    add penalty_interest_deduction_amount bigint(20) DEFAULT '0' COMMENT '罚息减免金额';
-
-alter table collection_base_info
-    add notice_financial_flag tinyint(1) DEFAULT NULL COMMENT '是否通知过苍穹（1是0否）';
-
-alter table collection_base_info
-    add overdue_collection_count int(11) DEFAULT '0' COMMENT '逾期催收次数';
-
-alter table collection_base_info
-    add plan_penalty_interest_date datetime DEFAULT NULL COMMENT '计划罚息收款日期';
-
-alter table contract_base_info
-    add overdue_collection_flag tinyint(1) DEFAULT '1' COMMENT '逾期催收状态0可催收，1不可催收';
-
-alter table contract_base_info_lib
-    add overdue_collection_flag tinyint(1) DEFAULT NULL COMMENT '逾期催收状态0可催收，1不可催收';
-
 
 CREATE TABLE `collection_penalty_reduction_relation`
 (
