@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.dashboard;
+package cn.zswltech.mithras.dashboard.interfaces;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.dashboard.DashboardClientAfterLeaseApi;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckRSP;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseStatisticsRSP;
-import cn.zswltech.mithras.service.service.dashboard.DashboardClientAfterLeaseService;
+import cn.zswltech.mithras.dashboard.application.DashboardClientAfterLeaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

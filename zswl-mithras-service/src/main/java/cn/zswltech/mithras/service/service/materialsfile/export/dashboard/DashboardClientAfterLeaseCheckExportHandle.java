@@ -8,7 +8,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardClientAfterLeaseController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardClientAfterLeaseController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardClientAfterLeaseCheckExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardClientAfterLeaseCheckModel;

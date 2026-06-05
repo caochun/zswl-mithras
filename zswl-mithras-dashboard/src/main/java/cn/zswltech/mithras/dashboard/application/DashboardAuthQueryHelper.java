@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.dashboard;
+package cn.zswltech.mithras.dashboard.application;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;

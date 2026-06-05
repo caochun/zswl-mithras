@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.dashboard;
+package cn.zswltech.mithras.dashboard.application;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

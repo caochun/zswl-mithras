@@ -8,6 +8,8 @@ import cn.zswltech.mithras.dto.dashboard.*;
 import cn.zswltech.mithras.associationreport.constant.OrgConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.dashboard.application.DashboardAuthQueryHelper;
+import cn.zswltech.mithras.dashboard.application.DashboardProjectService;
 import cn.zswltech.mithras.kpi.enums.BelongTypeEnum;
 import cn.zswltech.mithras.kpi.enums.BusinessTypeEnum;
 import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;

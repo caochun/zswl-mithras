@@ -59,7 +59,7 @@ import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientServ
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.contract.ContractService;
-import cn.zswltech.mithras.service.service.dashboard.DashboardAuthQueryHelper;
+import cn.zswltech.mithras.dashboard.application.DashboardAuthQueryHelper;
 import cn.zswltech.mithras.service.service.dashboard.DashboardClientOverviewService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
