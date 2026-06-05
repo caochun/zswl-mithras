@@ -1,9 +1,6 @@
-package cn.zswltech.mithras.service.service.lib.afterlease.handler.impl;
+package cn.zswltech.mithras.afterlease.application.lib.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
@@ -43,12 +40,12 @@ public class AfterLeaseCheckMaterialsListLibHandler extends AfterLeaseCheckRepor
 
     @Override
     public List<MaterialsList> listNeedHandleEntity(Long mainId) {
-        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleName());
     }
 
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
-        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleName());
     }
 
     @Override
@@ -64,11 +61,6 @@ public class AfterLeaseCheckMaterialsListLibHandler extends AfterLeaseCheckRepor
     @Override
     public String libMainIdFieldName() {
         return "belong_id";
-    }
-
-    @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.NEW_AFTER_LEASE_CHECK_REPORT;
     }
 
 }
