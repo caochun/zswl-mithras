@@ -1,9 +1,8 @@
-package cn.zswltech.mithras.service.controller.fund;
+package cn.zswltech.mithras.service.application.fund;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.FundOrganizationApi;
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
@@ -13,7 +12,8 @@ import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.bind.annotation.RestController;
+import cn.zswltech.mithras.fund.application.FundOrganizationApplicationService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,8 +23,8 @@ import java.util.List;
  * @description 资金管理-机构表
  * @date 2022-12-13
  */
-@RestController
-public class FundOrganizationController implements FundOrganizationApi {
+@Service
+public class FundOrganizationFacade implements FundOrganizationApplicationService {
     @Resource
     private FundOrganizationService fundOrganizationService;
     @Resource

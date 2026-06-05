@@ -1,11 +1,10 @@
-package cn.zswltech.mithras.service.controller.fund;
+package cn.zswltech.mithras.service.application.fund;
 
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.FundCreditApi;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.dto.materialsfile.FundMaterialListRSP;
@@ -23,7 +22,8 @@ import cn.zswltech.mithras.fund.application.FundCreditGuaranteeDetailService;
 import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import org.apache.commons.collections.CollectionUtils;
-import org.springframework.web.bind.annotation.RestController;
+import cn.zswltech.mithras.fund.application.FundCreditApplicationService;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -39,8 +39,8 @@ import java.util.List;
  * @description fund_credit
  * @date 2022-12-13
  */
-@RestController
-public class FundCreditController implements FundCreditApi {
+@Service
+public class FundCreditFacade implements FundCreditApplicationService {
 
     @Resource
     private FundCreditService fundCreditService;

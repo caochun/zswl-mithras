@@ -1,8 +1,7 @@
-package cn.zswltech.mithras.service.controller.fund;
+package cn.zswltech.mithras.service.application.fund;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.FundGuaranteeInfoApi;
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuaranteeAgency;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuaranteeInfo;
@@ -11,7 +10,8 @@ import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.fund.application.FundCreditGuaranteeDetailService;
 import cn.zswltech.mithras.service.service.fund.FundGuaranteeAgencyService;
 import cn.zswltech.mithras.service.service.fund.FundGuaranteeInfoService;
-import org.springframework.web.bind.annotation.RestController;
+import cn.zswltech.mithras.fund.application.FundGuaranteeInfoApplicationService;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -22,8 +22,8 @@ import java.util.List;
  * @description fund_guarantee_info
  * @date 2022-12-13
  */
-@RestController
-public class FundGuaranteeInfoController implements FundGuaranteeInfoApi {
+@Service
+public class FundGuaranteeInfoFacade implements FundGuaranteeInfoApplicationService {
 
     @Resource
     private FundGuaranteeInfoService fundGuaranteeInfoService;
