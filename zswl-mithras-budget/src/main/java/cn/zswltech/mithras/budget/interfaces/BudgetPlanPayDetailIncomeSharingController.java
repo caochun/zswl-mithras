@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.budget;
+package cn.zswltech.mithras.budget.interfaces;
 
 import org.springframework.web.bind.annotation.RestController;
 

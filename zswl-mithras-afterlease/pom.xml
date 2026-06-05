@@ -53,6 +53,11 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-system</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
@@ -80,6 +85,11 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>

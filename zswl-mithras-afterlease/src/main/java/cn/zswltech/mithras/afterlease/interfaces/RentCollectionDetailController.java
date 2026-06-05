@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.afterlease;
+package cn.zswltech.mithras.afterlease.interfaces;
 
 import cn.zswltech.mithras.api.afterlease.RentCollectionDetailApi;
 import cn.zswltech.mithras.api.common.R;
