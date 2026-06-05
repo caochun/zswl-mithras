@@ -6,7 +6,6 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditReportMaterialSubTypeEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditReportMaterialTypeEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditSearchStatusEnum;
@@ -17,9 +16,9 @@ import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.creditreport.service.CreditReportApiService;
-import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
 import cn.zswltech.mithras.creditreport.service.CreditReportClientItemService;
 import cn.zswltech.mithras.creditreport.service.CreditReportConfigService;
+import cn.zswltech.mithras.creditreport.service.CreditReportQueryService;
 import cn.zswltech.mithras.creditreport.service.handle.CreditReportObtainResultJSONHandle;
 import cn.zswltech.mithras.creditreport.service.handle.CreditReportObtainResultPDFHandle;
 import cn.zswltech.mithras.creditreport.service.handle.CreditReportQueryEntFourEleAuthHandle;
@@ -32,7 +31,7 @@ import cn.zswltech.mithras.creditreport.service.resp.CreditReportObtainResultJSO
 import cn.zswltech.mithras.creditreport.service.resp.CreditReportObtainResultPDFResp;
 import cn.zswltech.mithras.creditreport.service.resp.CreditReportQueryEntFourEleAuthResp;
 import cn.zswltech.mithras.creditreport.service.resp.CreditReportQueryReportResp;
-import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
+import cn.zswltech.mithras.document.application.MaterialsListQueryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
@@ -61,7 +60,7 @@ public class CreditReportApiXJServiceImpl implements CreditReportApiService {
     @Resource
     private CreditReportClientItemService creditReportClientItemService;
     @Resource
-    private CreditReportBaseInfoService creditReportBaseInfoService;
+    private CreditReportQueryService creditReportQueryService;
     @Resource
     private CreditReportQueryEntFourEleAuthHandle creditReportQueryEntFourEleAuthHandle;
     @Resource
@@ -73,7 +72,7 @@ public class CreditReportApiXJServiceImpl implements CreditReportApiService {
     @Resource
     private CreditReportConfigService creditReportConfigService;
     @Resource
-    private MaterialsListService materialsListService;
+    private MaterialsListQueryService materialsListQueryService;
     @Resource
     private OssClient ossClient;
 
@@ -82,6 +81,7 @@ public class CreditReportApiXJServiceImpl implements CreditReportApiService {
 
     private final static String PDF = "PDF";
     private final static String FILE_NAME = "征信报告";
+    private final static String BUSINESS_TYPE_CREDIT_REPORT_SELECT = "CREDIT_REPORT_SELECT";
 
 
 
@@ -92,9 +92,9 @@ public class CreditReportApiXJServiceImpl implements CreditReportApiService {
         if (ObjectUtil.isEmpty(creditReportDO)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        CreditReportBaseInfo baseInfo = creditReportBaseInfoService.getById(creditReportDO.getCreditReportBaseInfoId());
+        CreditReportBaseInfo baseInfo = creditReportQueryService.getById(creditReportDO.getCreditReportBaseInfoId());
         //查询文件
-        List<MaterialsList> materialsLists = materialsListService.list(BusinessModuleEnum.CREDIT_REPORT_SELECT.name(), ListUtil.toList(CreditReportMaterialTypeEnum.ENTERPRISE_CREDIT_REPORT.name()), ListUtil.toList(creditReportDO.getId()));
+        List<MaterialsList> materialsLists = materialsListQueryService.list(BUSINESS_TYPE_CREDIT_REPORT_SELECT, ListUtil.toList(CreditReportMaterialTypeEnum.ENTERPRISE_CREDIT_REPORT.name()), ListUtil.toList(creditReportDO.getId()));
         if (ObjectUtil.isEmpty(materialsLists)) {
             log.warn("CreditReportApiXJSeriveImpl addArchive file is null {}", creditReportId);
             return null;
@@ -127,7 +127,7 @@ public class CreditReportApiXJServiceImpl implements CreditReportApiService {
                 creditReportDO.setArchiveId(execute.getArchiveId());
             }
             creditReportClientItemService.updateById(creditReportDO);
-            creditReportBaseInfoService.modifySelectStatus(creditReportDO.getCreditReportBaseInfoId());
+            creditReportQueryService.modifySelectStatus(creditReportDO.getCreditReportBaseInfoId());
             //删除文件
             deleteOnExit(req.getBusinessLicenseCopy());
             deleteOnExit(req.getLegalIdCardFront());
@@ -191,7 +191,7 @@ public class CreditReportApiXJServiceImpl implements CreditReportApiService {
                 creditReportDO.setSerialNumber(execute.getSerialnumber());
             }
             creditReportClientItemService.updateById(creditReportDO);
-            creditReportBaseInfoService.modifySelectStatus(creditReportDO.getCreditReportBaseInfoId());
+            creditReportQueryService.modifySelectStatus(creditReportDO.getCreditReportBaseInfoId());
         }
         return execute == null ? null : execute.getSerialnumber();
     }
@@ -224,7 +224,7 @@ public class CreditReportApiXJServiceImpl implements CreditReportApiService {
                 creditReportDO.setSelectErrorCode(execute.getError());
             }
             creditReportClientItemService.updateById(creditReportDO);
-            creditReportBaseInfoService.modifySelectStatus(creditReportDO.getCreditReportBaseInfoId());
+            creditReportQueryService.modifySelectStatus(creditReportDO.getCreditReportBaseInfoId());
         }
         if (ObjectUtil.isEmpty(execute) || ObjectUtil.isEmpty(execute.getJson())) {
             return null;
@@ -268,7 +268,7 @@ public class CreditReportApiXJServiceImpl implements CreditReportApiService {
                 execute.setMultipartFile(convertBase64ToMultipartFile(execute.getPdf()));
             }
             creditReportClientItemService.updateById(creditReportDO);
-            creditReportBaseInfoService.modifySelectStatus(creditReportDO.getCreditReportBaseInfoId());
+            creditReportQueryService.modifySelectStatus(creditReportDO.getCreditReportBaseInfoId());
         }
 
         return execute;

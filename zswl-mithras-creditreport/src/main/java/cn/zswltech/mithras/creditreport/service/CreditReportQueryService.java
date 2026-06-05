@@ -29,6 +29,8 @@ public interface CreditReportQueryService {
 
     CreditReportBaseInfo getById(Long id);
 
+    void modifySelectStatus(Long id);
+
     List<CreditReportSubmitDTO> submit(CreditReportSubmitCmd cmd);
 
     List<ClientInfo> getClientInfo(String clientName, Long creditReportId);
