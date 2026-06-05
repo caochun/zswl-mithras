@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.afterlease;
+package cn.zswltech.mithras.service.application.afterlease;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.mithras.api.afterlease.ReceiptCollectionApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.afterlease.application.ReceiptCollectionApplicationService;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.afterlease.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.service.afterlese.ReceiptCollectionService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.afterlease.domain.util.CollectionLevelUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -37,8 +37,8 @@ import java.util.stream.Collectors;
  * @Date 2022/11/18 2:33 下午
  * @Version 1.0
  **/
-@RestController
-public class ReceiptCollectionController implements ReceiptCollectionApi {
+@Service
+public class ReceiptCollectionFacade implements ReceiptCollectionApplicationService {
 
     @Resource
     private CollectionPenaltyReductionService collectionPenaltyReductionService;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.afterlease;
+package cn.zswltech.mithras.service.application.afterlease;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
@@ -8,7 +8,7 @@ import cn.zswltech.gruul.dao.dal.dao.UserOrgJobDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.gruul.dao.dal.entity.UserOrgJobDO;
-import cn.zswltech.mithras.api.afterlease.AfterLeaseCheckClientApi;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckClientApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SelectRSP;
@@ -37,7 +37,7 @@ import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -51,8 +51,8 @@ import java.util.stream.Collectors;
  * @description
  */
 @Slf4j
-@RestController
-public class AfterLeaseCheckClientController implements AfterLeaseCheckClientApi {
+@Service
+public class AfterLeaseCheckClientFacade implements AfterLeaseCheckClientApplicationService {
     @Resource
     private AfterLeaseCheckPlanBaseService afterLeaseCheckPlanBaseService;
     @Resource

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.afterlease;
+package cn.zswltech.mithras.service.application.afterlease;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -7,8 +7,8 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.common.result.Response;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
-import cn.zswltech.mithras.api.afterlease.AfterLeaseReportApi;
 import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseReportApplicationService;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseReportListREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseReportUploadREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.service.afterlese.AfterLeaseReportService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -42,9 +42,9 @@ import java.util.stream.Collectors;
  * @Date 2022/11/11 11:35 上午
  * @Version 1.0
  **/
-@RestController
+@Service
 @Slf4j
-public class AfterLeaseReportController implements AfterLeaseReportApi {
+public class AfterLeaseReportFacade implements AfterLeaseReportApplicationService {
 
     @Resource
     private AfterLeaseReportService afterLeaseReportService;

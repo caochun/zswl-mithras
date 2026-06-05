@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.controller.afterlease;
+package cn.zswltech.mithras.service.application.afterlease;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.gruul.common.constant.OrgConstants;
-import cn.zswltech.mithras.api.afterlease.AfterLeaseCheckPlanBaseApi;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanBaseApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SinglePkREQ;
@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.service.lib.afterlease.AfterLeaseCheckPlanVer
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.message.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -51,8 +51,8 @@ import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATIO
  * @description
  */
 @Slf4j
-@RestController
-public class AfterLeaseCheckPlanBaseController implements AfterLeaseCheckPlanBaseApi {
+@Service
+public class AfterLeaseCheckPlanBaseFacade implements AfterLeaseCheckPlanBaseApplicationService {
     @Resource
     private AfterLeaseCheckPlanBaseService afterLeaseCheckPlanBaseService;
     @Resource

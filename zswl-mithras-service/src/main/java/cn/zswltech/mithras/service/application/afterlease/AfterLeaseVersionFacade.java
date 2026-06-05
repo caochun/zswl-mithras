@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.afterlease;
+package cn.zswltech.mithras.service.application.afterlease;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.mithras.api.afterlease.AfterLeaseVersionApi;
 import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseVersionApplicationService;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseAdjustDetailREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCancelREQ;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseAdjustInfoService;
 import cn.zswltech.mithras.service.service.client.ClientTransferService;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -37,8 +37,8 @@ import static cn.zswltech.mithras.service.others.MithrasException.err;
  * @author: jackerhe
  * @date: 2022/11/10 3:04 下午
  **/
-@RestController
-public class AfterLeaseVersionController implements AfterLeaseVersionApi {
+@Service
+public class AfterLeaseVersionFacade implements AfterLeaseVersionApplicationService {
 
     @Resource
     private AfterLeaseAdjustInfoService baseInfoService;
