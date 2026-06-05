@@ -45,7 +45,7 @@ import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.dto.BudgetPlanPayDetailExpenseGroupDTO;

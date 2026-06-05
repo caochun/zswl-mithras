@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.PayType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
-import cn.zswltech.mithras.service.excel.model.CashFlowRichExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowRichExcelModel;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.application.dto.ContractEstimateCashFlowExporterBO;

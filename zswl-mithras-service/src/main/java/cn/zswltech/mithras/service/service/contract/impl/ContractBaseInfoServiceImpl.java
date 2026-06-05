@@ -67,7 +67,7 @@ import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;

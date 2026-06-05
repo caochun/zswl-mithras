@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.contract;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentActualExportREQ;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentActualImportREQ;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.IRRCalculateResultRSP;
-import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;

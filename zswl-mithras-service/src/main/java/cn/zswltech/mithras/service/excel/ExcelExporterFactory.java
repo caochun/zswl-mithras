@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.excel;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.excel.exporter.*;
-import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.contract.excel.model.ContractRentActualExcelModel;
 import cn.zswltech.mithras.projectprocess.service.bo.ProjPricingCashFlowExporterBO;
 import cn.zswltech.mithras.projectprocess.service.bo.ProjReviewCashFlowExporterBO;

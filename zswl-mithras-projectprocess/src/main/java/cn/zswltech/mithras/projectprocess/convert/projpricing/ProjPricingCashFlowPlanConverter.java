@@ -5,7 +5,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.NumberUtil;
 import cn.zswltech.mithras.dto.projpricing.cashflowplan.ProjPricingCashFlowPlanListRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingCashFlowPlan;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePrice;
 import cn.zswltech.mithras.projectprocess.service.bo.CashFlowBO;

@@ -9,8 +9,8 @@ import cn.zswltech.mithras.projectprocess.convert.projpricing.ProjPricingCashFlo
 import cn.zswltech.mithras.projectprocess.enums.projestablish.PayType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.service.excel.exporter.AbstractCashFlowExcelExporter;
-import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
-import cn.zswltech.mithras.service.excel.model.CashFlowRichExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowRichExcelModel;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingCashFlowPlan;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePrice;

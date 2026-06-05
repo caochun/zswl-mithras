@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
+import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
