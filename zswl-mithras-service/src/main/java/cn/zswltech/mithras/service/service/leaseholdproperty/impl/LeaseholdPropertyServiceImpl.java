@@ -118,8 +118,8 @@ public class LeaseholdPropertyServiceImpl extends ServiceImpl<LeaseholdPropertyM
             rsp.setCreateBy(userMap.get(dto.getCreateBy()));
             rsp.setUpdateBy(userMap.get(dto.getUpdateBy()));
             rsp.setType(dto.getType());
-            rsp.setUpdateTime(DateUtil.format(dto.getUpdateTime(), cn.zswltech.mithras.service.util.DateUtil.DATE_TIME_PATTERN));
-            rsp.setCreateTime(DateUtil.format(dto.getCreateTime(), cn.zswltech.mithras.service.util.DateUtil.DATE_TIME_PATTERN));
+            rsp.setUpdateTime(DateUtil.format(dto.getUpdateTime(), cn.zswltech.mithras.basedata.util.DateUtil.DATE_TIME_PATTERN));
+            rsp.setCreateTime(DateUtil.format(dto.getCreateTime(), cn.zswltech.mithras.basedata.util.DateUtil.DATE_TIME_PATTERN));
             result.add(rsp);
         });
     }

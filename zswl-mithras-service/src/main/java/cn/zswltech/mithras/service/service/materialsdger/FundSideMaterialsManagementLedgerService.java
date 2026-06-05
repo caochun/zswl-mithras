@@ -35,7 +35,7 @@ import cn.zswltech.mithras.service.service.filingmaterials.FilingMaterialsServic
 import cn.zswltech.mithras.service.service.filingmaterials.FundFilingMaterialsService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import cn.zswltech.mithras.service.util.FileUriUtil;
 import cn.zswltech.mithras.service.util.StringUtils;
 import cn.zswltech.mithras.service.util.ThreadPoolUtil;

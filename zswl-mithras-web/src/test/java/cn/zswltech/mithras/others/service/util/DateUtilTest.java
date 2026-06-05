@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.util;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import org.junit.Test;
 
 import java.time.LocalDate;

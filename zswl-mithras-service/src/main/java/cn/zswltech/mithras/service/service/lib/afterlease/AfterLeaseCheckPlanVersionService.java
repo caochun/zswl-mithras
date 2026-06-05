@@ -24,7 +24,7 @@ import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
 import cn.zswltech.mithras.afterlease.application.lib.handler.AfterLeaseCheckPlanLibAbstractHandler;
 import cn.zswltech.mithras.message.service.MessageService;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;

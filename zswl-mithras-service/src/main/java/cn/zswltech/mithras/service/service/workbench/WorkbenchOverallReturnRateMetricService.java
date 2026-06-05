@@ -21,7 +21,7 @@ import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

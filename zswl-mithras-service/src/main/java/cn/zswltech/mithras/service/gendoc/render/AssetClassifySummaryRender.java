@@ -25,7 +25,7 @@ import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.data.*;
 import lombok.extern.slf4j.Slf4j;

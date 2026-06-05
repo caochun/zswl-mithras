@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalService
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
 

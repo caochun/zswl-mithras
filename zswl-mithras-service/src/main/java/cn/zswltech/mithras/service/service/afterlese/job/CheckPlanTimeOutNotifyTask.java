@@ -15,7 +15,7 @@ import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.Ne
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.message.service.MessageService;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;

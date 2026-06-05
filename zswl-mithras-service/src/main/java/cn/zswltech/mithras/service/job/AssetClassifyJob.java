@@ -20,7 +20,7 @@ import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
 import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyLibVersionService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

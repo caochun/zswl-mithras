@@ -15,7 +15,7 @@ import cn.zswltech.mithras.ftp.newftp.model.lib.NewFtpQuarterlyBasePricingLib;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpQuarterlyBasePricingDraftService;
 import cn.zswltech.mithras.service.service.newftp.service.lib.NewFtpQuarterlyBasePricingLibService;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

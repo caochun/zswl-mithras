@@ -52,7 +52,7 @@ import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
 import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.PaginationProcessor;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

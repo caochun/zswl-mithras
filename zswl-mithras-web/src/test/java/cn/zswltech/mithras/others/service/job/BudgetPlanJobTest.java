@@ -5,7 +5,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.job.BudgetPlanPayWeeklyJob;
-import cn.zswltech.mithras.service.util.WorkdayWeekUtil;
+import cn.zswltech.mithras.basedata.util.WorkdayWeekUtil;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

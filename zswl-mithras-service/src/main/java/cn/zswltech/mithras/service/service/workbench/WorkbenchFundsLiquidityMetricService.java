@@ -12,7 +12,7 @@ import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.Wor
 import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.WorkbenchFundsLiquidityMetricMapper;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;
-import cn.zswltech.mithras.service.util.DateUtil;
+import cn.zswltech.mithras.basedata.util.DateUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
