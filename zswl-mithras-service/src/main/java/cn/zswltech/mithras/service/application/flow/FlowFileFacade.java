@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.controller.flow;
+package cn.zswltech.mithras.service.application.flow;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.flow.FlowFileApi;
+import cn.zswltech.mithras.workflow.application.flow.api.FlowFileApplicationService;
 import cn.zswltech.mithras.dto.FlowFocusFileREQ;
 import cn.zswltech.mithras.dto.FlowFocusFileRSP;
 import cn.zswltech.mithras.dto.flow.file.FlowFileListREQ;
@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.flow.file.FlowFocusFileSelectorFactory;
 import cn.zswltech.mithras.projectprocess.service.bo.FileBO;
 import cn.zswltech.mithras.service.service.flow.FlowFileService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -26,8 +26,8 @@ import java.util.stream.Collectors;
  * @author wangchuanhao
  * @date 2022/11/23 10:52 AM
  */
-@RestController
-public class FlowFileController implements FlowFileApi {
+@Service
+public class FlowFileFacade implements FlowFileApplicationService {
 
     @Resource
     private FlowFileService flowFileService;

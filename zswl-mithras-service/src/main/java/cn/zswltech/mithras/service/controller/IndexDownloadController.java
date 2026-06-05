@@ -56,8 +56,8 @@ import cn.zswltech.mithras.service.application.capital.BusinessFlowFacade;
 import cn.zswltech.mithras.service.application.client.ClientFacade;
 import cn.zswltech.mithras.collection.controller.CollectionFlowCenterController;
 import cn.zswltech.mithras.service.application.contract.ContractBaseInfoFacade;
-import cn.zswltech.mithras.service.controller.flow.ProcessController;
-import cn.zswltech.mithras.service.controller.flow.TaskController;
+import cn.zswltech.mithras.service.application.flow.ProcessFacade;
+import cn.zswltech.mithras.service.application.flow.TaskFacade;
 import cn.zswltech.mithras.ftp.oldftp.controller.FtpInterestController;
 import cn.zswltech.mithras.service.application.fund.FundCreditFacade;
 import cn.zswltech.mithras.service.application.fund.FundGuaranteeAgencyFacade;
@@ -174,8 +174,8 @@ public class IndexDownloadController implements IndexDownloadApi {
             Pair.of(LIQUIDITY_REPAY, Triple.of(FundLiquidityIndexController.class, "manageRepay", of())),
             Pair.of(FUND_TRANSFER, Triple.of(FundTransferController.class, "list", of())),
             Pair.of(BusinessModuleEnum.FUND_RECEIPT_REPAY, Triple.of(FundReceiptRepayBaseInfoFacade.class, "list", of())),
-            Pair.of(BusinessModuleEnum.MY_PROCESS_RECEIVED_AUDITED, Triple.of(TaskController.class, "myReceiveDoneList", of())),
-            Pair.of(BusinessModuleEnum.MY_PROCESS_PROCESS_QUERY, Triple.of(ProcessController.class, "list", of())),
+            Pair.of(BusinessModuleEnum.MY_PROCESS_RECEIVED_AUDITED, Triple.of(TaskFacade.class, "myReceiveDoneList", of())),
+            Pair.of(BusinessModuleEnum.MY_PROCESS_PROCESS_QUERY, Triple.of(ProcessFacade.class, "list", of())),
             Pair.of(BusinessModuleEnum.AFTER_LEASE_CHECK_PLAN, Triple.of(AfterLeaseCheckPlanBaseController.class, "afterLeaseAssetStrategys", of())),
             Pair.of(NEW_AFTER_LEASE_CHECK_PLAN_LEDGER, Triple.of(AfterLeaseCheckClientController.class, "queryCheckPlanLedgerList", of())),
             Pair.of(BusinessModuleEnum.FTP_INTEREST, Triple.of(FtpInterestController.class, "pageList", of())),

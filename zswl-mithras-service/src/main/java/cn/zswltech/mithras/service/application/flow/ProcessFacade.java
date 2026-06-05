@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.flow;
+package cn.zswltech.mithras.service.application.flow;
 
 import cn.zswltech.flow.core.api.FlowModelApiService;
 import cn.zswltech.flow.core.api.FlowProcessApiService;
@@ -11,7 +11,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.flow.ProcessApi;
+import cn.zswltech.mithras.workflow.application.flow.api.ProcessApplicationService;
 import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.flow.execution.MockStartComplexProcessREQ;
 import cn.zswltech.mithras.dto.flow.execution.MockStartProcessREQ;
@@ -22,8 +22,8 @@ import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.flow.MyTaskService;
 import cn.zswltech.mithras.service.service.flow.ProcessService;
 import lombok.SneakyThrows;
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -41,8 +41,8 @@ import java.util.stream.Collectors;
  * @author wangchuanhao
  * @date 2022/6/22 11:44 PM
  */
-@RestController
-public class ProcessController implements ProcessApi {
+@Service
+public class ProcessFacade implements ProcessApplicationService {
 
     @Autowired
     private HttpServletResponse response;
