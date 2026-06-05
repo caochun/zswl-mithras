@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.service.convert.filingmaterials;
+package cn.zswltech.mithras.filingmaterials.application.convert;
 
 import cn.zswltech.mithras.dto.filingmaterials.OtherPageListREQ;
 import cn.zswltech.mithras.dto.filingmaterials.OtherPageSelectDTO;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = TypeConversionWorker.class)
+@Mapper(componentModel = "spring", uses = FilingMaterialsTypeConversionWorker.class)
 public interface OtherFilingConverter {
 
     @Mapping(target = "startDateFrom", source = "startDateFrom", qualifiedByName = "startOfDay")
