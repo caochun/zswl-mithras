@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.policy.application.lib.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -39,12 +38,12 @@ public class PolicyMaterialsListLibHandler
 
     @Override
     public List<MaterialsList> listNeedHandleEntity(Long mainId) {
-        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, BusinessModuleEnum.POLICY);
+        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleName());
     }
 
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
-        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, BusinessModuleEnum.POLICY);
+        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleName());
     }
 
     @Override
