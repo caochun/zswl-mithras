@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.convert.groupcreditestablish;
+package cn.zswltech.mithras.credit.application.groupcredit.convert.establish;
 
+import cn.zswltech.mithras.credit.application.groupcredit.convert.GroupCreditTypeConversionWorker;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.GroupCreditEstablishBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.GroupCreditEstablishBaseInfoModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -12,7 +12,7 @@ import org.mapstruct.Mapping;
  * @author wangchuanhao
  * @date 2022/11/14 10:07 AM
  */
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = GroupCreditTypeConversionWorker.class, componentModel = "spring")
 public interface GroupCreditEstablishBaseInfoConverter {
 
     @Mapping(source = "projCosponsorUserIds", target = "projCosponsorUserIds", qualifiedByName = "jsonStringToLongList")
