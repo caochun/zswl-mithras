@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.EclExecuteRecordApi;
+import cn.zswltech.mithras.kpi.application.EclExecuteRecordApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecord;
 import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecordLib;
@@ -12,7 +12,7 @@ import cn.zswltech.mithras.kpi.service.EclExecuteRecordLibService;
 import cn.zswltech.mithras.service.service.kpi.EclExecuteRecordService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -26,8 +26,8 @@ import java.util.Set;
 * @author vico
 * @date 2025-09-28
 */
-@RestController
-public class EclExecuteRecordController implements EclExecuteRecordApi {
+@Service
+public class EclExecuteRecordFacade implements EclExecuteRecordApplicationService {
 
     @Resource
     private EclExecuteRecordService eclExecuteRecordService;

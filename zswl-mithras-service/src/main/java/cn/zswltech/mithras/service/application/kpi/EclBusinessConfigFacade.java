@@ -1,16 +1,16 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.EclBusinessConfigApi;
+import cn.zswltech.mithras.kpi.application.EclBusinessConfigApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfig;
 import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfigLib;
 import cn.zswltech.mithras.kpi.service.EclBusinessConfigLibService;
 import cn.zswltech.mithras.service.service.kpi.EclBusinessConfigService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -21,8 +21,8 @@ import java.util.List;
 * @author vico
 * @date 2025-09-24
 */
-@RestController
-public class EclBusinessConfigController implements EclBusinessConfigApi {
+@Service
+public class EclBusinessConfigFacade implements EclBusinessConfigApplicationService {
 
     @Resource
     private EclBusinessConfigService eclBusinessConfigService;

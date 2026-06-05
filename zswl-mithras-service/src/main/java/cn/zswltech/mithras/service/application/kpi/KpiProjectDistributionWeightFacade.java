@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiProjectDistributionWeightApi;
+import cn.zswltech.mithras.kpi.application.KpiProjectDistributionWeightApplicationService;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightSaveREQ;
@@ -11,7 +11,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.service.client.ClientTransferService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionWeightService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -21,8 +21,8 @@ import javax.validation.Valid;
  * @date 2023/6/15
  * @description
  */
-@RestController
-public class KpiProjectDistributionWeightController implements KpiProjectDistributionWeightApi {
+@Service
+public class KpiProjectDistributionWeightFacade implements KpiProjectDistributionWeightApplicationService {
     @Resource
     private KpiProjectDistributionWeightService kpiProjectDistributionWeightService;
 

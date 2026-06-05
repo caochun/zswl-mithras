@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiProjGuessBaseInfoApi;
+import cn.zswltech.mithras.kpi.application.KpiProjGuessBaseInfoApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.service.kpi.service.KpiProjGuessCalculateService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjGuessBaseInfoService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -17,8 +17,8 @@ import java.util.List;
 * @author jackerhe
 * @date 2023-06-15
 */
-@RestController
-public class KpiProjGuessBaseInfoController implements KpiProjGuessBaseInfoApi {
+@Service
+public class KpiProjGuessBaseInfoFacade implements KpiProjGuessBaseInfoApplicationService {
 
     @Resource
     private KpiProjGuessBaseInfoService kpiProjGuessBaseInfoService;

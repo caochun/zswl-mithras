@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiProjGuessExportApi;
+import cn.zswltech.mithras.kpi.application.KpiProjGuessExportApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.JobEnum;
@@ -18,7 +18,7 @@ import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjGuessBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -36,9 +36,9 @@ import java.util.List;
  * @Date 2023/7/4 2:03 下午
  * @Version 1.0
  **/
-@RestController
+@Service
 @Slf4j
-public class KpiProjGuessExportController implements KpiProjGuessExportApi {
+public class KpiProjGuessExportFacade implements KpiProjGuessExportApplicationService {
 
     @Resource
     private HttpServletResponse httpServletResponse;

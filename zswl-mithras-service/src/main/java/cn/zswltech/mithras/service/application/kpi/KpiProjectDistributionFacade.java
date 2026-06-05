@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiProjectDistributionApi;
+import cn.zswltech.mithras.kpi.application.KpiProjectDistributionApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.kpi.KpiProjectDistributionModifyChecker;
@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -22,8 +22,8 @@ import java.util.List;
  * @description
  */
 @Slf4j
-@RestController
-public class KpiProjectDistributionController implements KpiProjectDistributionApi {
+@Service
+public class KpiProjectDistributionFacade implements KpiProjectDistributionApplicationService {
     @Resource
     private KpiProjectDistributionService kpiProjectDistributionService;
 

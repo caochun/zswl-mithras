@@ -116,7 +116,7 @@ import cn.zswltech.mithras.dto.version.DiffFile;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.dto.version.DiffValueList;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.controller.kpi.KpiProjectDistributionWeightController;
+import cn.zswltech.mithras.kpi.application.KpiProjectDistributionWeightApplicationService;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.service.enums.datacompare.CompareFactoryEnum;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
@@ -301,7 +301,7 @@ public class EditdataCompareController implements EditdataCompareApi {
     @Resource
     private ProjPricingCashFlowPlanApi projPricingCashFlowPlanApi;
     @Resource
-    private KpiProjectDistributionWeightController kpiProjectDistributionWeightController;
+    private KpiProjectDistributionWeightApplicationService kpiProjectDistributionWeightApplicationService;
 
     @Override
     public R<Map<String, DiffValue>> projBaseInfoEditdataCompare(ProjEstablishBaseInfoDetailREQ req) {
@@ -843,7 +843,7 @@ public class EditdataCompareController implements EditdataCompareApi {
 
     @Override
     public R<List<Map<String, DiffValue>>> kpiProjectdistributionCompare(@Valid KpiProjectDistributionWeightREQ req) {
-        R<KpiProjectDistributionWeightRSP> list = kpiProjectDistributionWeightController.detail(req);
+        R<KpiProjectDistributionWeightRSP> list = kpiProjectDistributionWeightApplicationService.detail(req);
         if(ObjectUtil.isEmpty(list) || ObjectUtil.isEmpty(list.getData())) {
             return R.ok();
         }

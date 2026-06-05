@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiPerformanceManageApi;
+import cn.zswltech.mithras.kpi.application.KpiPerformanceManageApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.others.MithrasException;
@@ -10,7 +10,7 @@ import cn.zswltech.mithras.service.service.kpi.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.service.service.kpi.KpiPerformanceMainInfoService;
 import cn.zswltech.mithras.kpi.service.KpiPerformanceRecordInfoService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -25,8 +25,8 @@ import java.util.List;
  * @description
  */
 @Slf4j
-@RestController
-public class KpiPerformanceManageController implements KpiPerformanceManageApi {
+@Service
+public class KpiPerformanceManageFacade implements KpiPerformanceManageApplicationService {
 
     @Resource
     private KpiPerformanceMainInfoService mainInfoService;

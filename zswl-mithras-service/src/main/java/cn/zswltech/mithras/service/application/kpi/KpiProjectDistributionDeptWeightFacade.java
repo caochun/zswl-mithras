@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiProjectDistributionDeptWeightApi;
+import cn.zswltech.mithras.kpi.application.KpiProjectDistributionDeptWeightApplicationService;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightInfo;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightSaveREQ;
@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptLaunchWeightService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptWeightService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,8 +23,8 @@ import java.util.List;
  * @description
  */
 @Slf4j
-@RestController
-public class KpiProjectDistributionDeptWeightController implements KpiProjectDistributionDeptWeightApi {
+@Service
+public class KpiProjectDistributionDeptWeightFacade implements KpiProjectDistributionDeptWeightApplicationService {
 
     @Resource
     private KpiProjectDistributionDeptWeightService kpiProjectDistributionDeptWeightService;

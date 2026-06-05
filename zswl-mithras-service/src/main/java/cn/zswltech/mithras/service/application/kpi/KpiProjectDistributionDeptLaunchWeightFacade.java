@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import cn.zswltech.mithras.api.kpi.KpiProjectDistributionDeptLaunchWeightApi;
+import cn.zswltech.mithras.kpi.application.KpiProjectDistributionDeptLaunchWeightApplicationService;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightAddREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightListREQ;
@@ -22,8 +22,8 @@ import java.util.List;
 * @author hspcadmin
 * @date 2025-09-29
 */
-@RestController
-public class KpiProjectDistributionDeptLaunchWeightController implements KpiProjectDistributionDeptLaunchWeightApi {
+@Service
+public class KpiProjectDistributionDeptLaunchWeightFacade implements KpiProjectDistributionDeptLaunchWeightApplicationService {
 
     @Resource
     private KpiProjectDistributionDeptLaunchWeightService kpiProjectDistributionDeptLaunchWeightService;

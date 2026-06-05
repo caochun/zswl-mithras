@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
@@ -7,7 +7,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.util.Page;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiProjectDistributionBaseInfoApi;
+import cn.zswltech.mithras.kpi.application.KpiProjectDistributionBaseInfoApplicationService;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoRSP;
@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.auth.checker.kpi.KpiProjectDistributionModify
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionBaseInfoService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -27,8 +27,8 @@ import javax.validation.Valid;
  * @date 2023/6/14
  * @description
  */
-@RestController
-public class KpiProjectDistributionBaseInfoController implements KpiProjectDistributionBaseInfoApi {
+@Service
+public class KpiProjectDistributionBaseInfoFacade implements KpiProjectDistributionBaseInfoApplicationService {
     @Resource
     private KpiProjectDistributionBaseInfoService kpiProjectDistributionBaseInfoService;
 

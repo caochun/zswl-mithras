@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.controller.kpi;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiProvisionBaseInfoApi;
+import cn.zswltech.mithras.kpi.application.KpiProvisionBaseInfoApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.service.kpi.KpiProvisionDetailService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -41,8 +41,8 @@ import static cn.zswltech.mithras.service.repository.PlatformApiHandler.log;
  * @description 绩效-拨备表
  * @date 2023-06-19
  */
-@RestController
-public class KpiProvisionBaseInfoController implements KpiProvisionBaseInfoApi {
+@Service
+public class KpiProvisionBaseInfoFacade implements KpiProvisionBaseInfoApplicationService {
 
     @Resource
     private KpiProvisionDetailService kpiProvisionDetailService;
