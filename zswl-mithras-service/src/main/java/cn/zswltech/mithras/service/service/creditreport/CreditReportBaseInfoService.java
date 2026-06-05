@@ -148,6 +148,11 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
     @Autowired
     private CreditReportRecordDetailsMapper creditReportRecordDetailsMapper;
 
+    @Override
+    public CreditReportBaseInfo getById(Long id) {
+        return super.getById(id);
+    }
+
 
     @Transactional(rollbackFor = Throwable.class)
     public void add(CreditReportAddCmd req) {

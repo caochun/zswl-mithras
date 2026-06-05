@@ -17,7 +17,7 @@ import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
+import cn.zswltech.mithras.creditreport.service.CreditReportQueryService;
 import cn.zswltech.mithras.creditreport.service.CreditReportService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
@@ -48,64 +48,64 @@ public class CreditReportController implements CreditReportBaseApi {
     private HttpServletResponse response;
 
     @Resource
-    private CreditReportBaseInfoService creditReportBaseInfoService;
+    private CreditReportQueryService creditReportQueryService;
 
     @Override
     public R<List<ClientInfo>> getClientInfo(@Param("clientName") String clientName, @Param("creditReportId") Long creditReportId) {
         //return R.ok(creditReportService.getClientInfo(clientName, creditReportId));
-        return R.ok(creditReportBaseInfoService.getClientInfo(clientName, creditReportId));
+        return R.ok(creditReportQueryService.getClientInfo(clientName, creditReportId));
     }
 
     @Override
     public R<CreditReportClientAddDTO> showCreditReportByClientId(Long clientId) {
         //return R.ok(creditReportService.showCreditReportByClientId(clientId));
-        return R.ok(creditReportBaseInfoService.showCreditReportByClientId(clientId));
+        return R.ok(creditReportQueryService.showCreditReportByClientId(clientId));
     }
 
     @Override
     public R<Void> add(CreditReportAddCmd cmd) {
         //creditReportService.add(cmd);
         //新保存
-        creditReportBaseInfoService.add(cmd);
+        creditReportQueryService.add(cmd);
         return R.ok();
     }
 
     @Override
     public R<PageR<CreditReportListDTO>> list(CreditReportListREQ req) {
         //return R.ok(creditReportService.list(req));
-        return R.ok(creditReportBaseInfoService.list(req));
+        return R.ok(creditReportQueryService.list(req));
     }
 
     @Override
     public R<CreditReportDetailDTO> detail(Long id) {
         //return R.ok(creditReportService.detail(id));
-        return R.ok(creditReportBaseInfoService.detail(id));
+        return R.ok(creditReportQueryService.detail(id));
     }
 
     @Override
     public R<Void> save(CreditReportSaveCmd cmd) {
         //creditReportService.saveCreditReport(cmd);
-        creditReportBaseInfoService.modify(cmd);
+        creditReportQueryService.modify(cmd);
         return R.ok();
     }
 
     @Override
     public R<List<CreditReportSubmitDTO>> submit(CreditReportSubmitCmd cmd) {
         //creditReportService.submit(cmd)
-        return R.ok(creditReportBaseInfoService.submit(cmd));
+        return R.ok(creditReportQueryService.submit(cmd));
     }
 
     @Override
     public R<Void> delete(Long id) {
         //creditReportService.delete(id);
-        creditReportBaseInfoService.remove(id);
+        creditReportQueryService.remove(id);
         return R.ok();
     }
 
     @Override
     public R<List<CreditSearchCompareBusinessDTO>> compareBusiness(CreditSearchCompareBusinessCmd req) {
         //提交审批前需要调用天眼查比对
-        CreditReportBaseInfo creditSearchInfo = creditReportBaseInfoService.getById(req.getCreditSearchId());
+        CreditReportBaseInfo creditSearchInfo = creditReportQueryService.getById(req.getCreditSearchId());
         //CreditReportDO creditSearchInfo = creditReportService.getById(req.getCreditSearchId());
         if (ObjectUtil.isNull(creditSearchInfo)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
@@ -132,7 +132,7 @@ public class CreditReportController implements CreditReportBaseApi {
         try {
             response.addHeader("Access-Control-Expose-Headers", "Content-Disposition");
             response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("征信查询" + GlobalConstants.OFFICE_EXCEL_SUFFIX, StandardCharsets.UTF_8.name()));
-            creditReportBaseInfoService.export(response.getOutputStream(), req);
+            creditReportQueryService.export(response.getOutputStream(), req);
         } catch (MithrasException e) {
             throw e;
         } catch (Exception e) {
