@@ -3,7 +3,6 @@ package cn.zswltech.mithras.creditreport.service.lib.creditreport;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -61,7 +60,7 @@ public class CreditReportMaterialsListLibHandler
         }
         return materialsListMapper.selectList(Wrappers.<MaterialsList>lambdaQuery()
                 .in(MaterialsList::getBelongId, clientItems.stream().map(CreditReportClientItem::getId).collect(Collectors.toList()))
-                .eq(MaterialsList::getBusinessType, businessModuleEnum().name()));
+                .eq(MaterialsList::getBusinessType, businessModuleName()));
     }
 
     @Override
@@ -73,7 +72,7 @@ public class CreditReportMaterialsListLibHandler
         return materialsListLibMapper.selectList(Wrappers.<MaterialsListLib>lambdaQuery()
                 .eq(MaterialsListLib::getVersion, version)
                 .in(MaterialsListLib::getOriginId, clientItems.stream().map(CreditReportClientItem::getId).collect(Collectors.toList()))
-                .eq(MaterialsListLib::getBusinessType, businessModuleEnum().name()));
+                .eq(MaterialsListLib::getBusinessType, businessModuleName()));
     }
 
     @Override
@@ -84,11 +83,6 @@ public class CreditReportMaterialsListLibHandler
     @Override
     public String libMainIdFieldName() {
         return "belong_id";
-    }
-
-    @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.CREDIT_REPORT_SELECT;
     }
 
 }
