@@ -5,24 +5,18 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.rating.RatingAmountApi;
 import cn.zswltech.mithras.dto.rating.*;
 import cn.zswltech.mithras.dto.rating.ratingamount.*;
-import cn.zswltech.mithras.factory.model.RatingAmount;
-import cn.zswltech.mithras.factory.service.RatingAmountService;
-import com.mysql.cj.x.protobuf.Mysqlx;
+import cn.zswltech.mithras.factory.service.RatingAmountApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
 public class RatingAmountController implements RatingAmountApi {
 
     @Resource
-    private RatingAmountService ratingAmountService;
+    private RatingAmountApplicationService ratingAmountService;
 
     @Override
     public R<PageR<RatingAmountPageRSP>> ratingAmountPage(RatingAmountPageREQ req) {

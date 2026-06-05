@@ -43,6 +43,7 @@ import cn.zswltech.mithras.factory.mapper.RatingClientMapper;
 import cn.zswltech.mithras.factory.mapper.RatingReportMapper;
 import cn.zswltech.mithras.factory.mapper.RzyDmCalculateIndicatorMapper;
 import cn.zswltech.mithras.factory.model.*;
+import cn.zswltech.mithras.factory.service.RatingClientApplicationService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.*;
@@ -104,7 +105,7 @@ import static cn.zswltech.mithras.service.enums.ProcessModelTypeEnum.RatingClien
 
 @Slf4j
 @Service
-public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingClient> implements FlowEndEventProcessor {
+public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingClient> implements RatingClientApplicationService, FlowEndEventProcessor {
 
     @Resource
     private AddressDictionaryMapper addressDictionaryMapper;

@@ -30,6 +30,7 @@ import cn.zswltech.mithras.factory.mapper.AreaInfoMapper;
 import cn.zswltech.mithras.factory.mapper.RatingAmountMapper;
 import cn.zswltech.mithras.factory.mapper.RatingReportMapper;
 import cn.zswltech.mithras.factory.model.*;
+import cn.zswltech.mithras.factory.service.RatingAmountApplicationService;
 import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteResult;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
@@ -92,7 +93,7 @@ import static cn.zswltech.mithras.customer.domain.enums.SubjectItemType.PROFIT;
 
 @Slf4j
 @Service
-public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingAmount> implements FlowEndEventProcessor {
+public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingAmount> implements RatingAmountApplicationService, FlowEndEventProcessor {
 
     @Resource
     private ProjReviewBaseInfoService projReviewBaseInfoService;

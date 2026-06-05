@@ -5,8 +5,8 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.rating.RatingClientApi;
 import cn.zswltech.mithras.dto.rating.*;
 import cn.zswltech.mithras.dto.rating.ratingclient.*;
+import cn.zswltech.mithras.factory.service.RatingClientApplicationService;
 import cn.zswltech.mithras.factory.service.RatingClientAreaIndicatorService;
-import cn.zswltech.mithras.factory.service.RatingClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +19,7 @@ import java.util.List;
 public class RatingClientController implements RatingClientApi {
 
     @Resource
-    private RatingClientService ratingClientService;
+    private RatingClientApplicationService ratingClientService;
     @Resource
     private RatingClientAreaIndicatorService ratingClientAreaIndicatorService;
 
