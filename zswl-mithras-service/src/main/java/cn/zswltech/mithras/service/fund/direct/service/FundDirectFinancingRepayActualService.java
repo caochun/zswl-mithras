@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.projectprocess.service.bo.CashFlowBO;
 import cn.zswltech.mithras.projectprocess.service.bo.CashFlowCalculateBO;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowDetailService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;

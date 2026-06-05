@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.contract;
+package cn.zswltech.mithras.contract.core.application;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.contract.receipt.ContractReceiptQueryActualTaxREQ;

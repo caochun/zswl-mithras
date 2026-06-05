@@ -67,7 +67,7 @@ import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractIncomeSharingService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;
 import cn.zswltech.mithras.service.service.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.handler.impl.ProjReviewBaseInfoLibHandler;

@@ -36,7 +36,7 @@ import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.contract.versioning.application.ContractAocPriceLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;

@@ -12,7 +12,7 @@
 //import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpPriceInfo;
 //import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 //import cn.zswltech.mithras.service.others.MithrasException;
-//import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+//import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 //import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 //import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
 //import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;

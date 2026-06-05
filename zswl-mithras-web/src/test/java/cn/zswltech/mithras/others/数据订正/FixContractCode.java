@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.others.数据订正;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.contract.core.application.ContractPledgeService;
 import cn.zswltech.mithras.contract.core.application.ContractMortgageService;
 import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;

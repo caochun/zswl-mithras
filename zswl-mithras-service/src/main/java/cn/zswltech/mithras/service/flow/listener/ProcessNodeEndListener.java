@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.flow.listener;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.workflow.domain.enums.ProcessVarEnum;
 

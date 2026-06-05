@@ -21,7 +21,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.ftp.newftp.mapper.NewFtpChangeApplyRecordMapper;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpChangeApplyRecord;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;

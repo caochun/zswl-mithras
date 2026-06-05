@@ -92,7 +92,7 @@ import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import cn.zswltech.mithras.service.service.flow.MyTaskService;

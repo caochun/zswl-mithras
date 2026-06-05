@@ -20,7 +20,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestDetailRecordService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;

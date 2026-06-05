@@ -43,7 +43,7 @@ import cn.zswltech.mithras.third.mapper.FinanceFlowRecordMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractIncomeSharingService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import cn.zswltech.mithras.service.util.ThreadPoolUtil;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;

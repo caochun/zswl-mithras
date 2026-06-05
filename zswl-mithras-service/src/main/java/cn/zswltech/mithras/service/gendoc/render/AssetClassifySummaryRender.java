@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.util.DateUtil;

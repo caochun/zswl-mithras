@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.associationreport.storedata;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.contract.core.application.ContractPledgeService;
 import cn.zswltech.mithras.contract.core.application.ContractMortgageService;

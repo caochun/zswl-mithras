@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.service.service.monthly.MonthlyStampDutyService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;

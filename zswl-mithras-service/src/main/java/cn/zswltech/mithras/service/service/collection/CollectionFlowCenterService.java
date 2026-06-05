@@ -49,7 +49,7 @@ import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractReceiptService;
+import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.contract.core.application.ContractSettlePlanService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.margin.service.MarginRecordService;
