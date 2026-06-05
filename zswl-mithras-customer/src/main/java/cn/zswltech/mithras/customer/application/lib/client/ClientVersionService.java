@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.lib.client;
+package cn.zswltech.mithras.customer.application.lib.client;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;

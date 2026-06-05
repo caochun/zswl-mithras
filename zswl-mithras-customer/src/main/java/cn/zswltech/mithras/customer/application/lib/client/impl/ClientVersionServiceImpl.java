@@ -6,10 +6,8 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.associationreport.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.domain.enums.InfoModule;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
@@ -23,8 +21,6 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.lib.CommonVersionService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpMaterialsListLibHandlerImpl;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NormalMaterialsListLibHandlerImpl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,6 +36,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class ClientVersionServiceImpl extends CommonVersionService<Client> {
+    private static final String DEFAULT_USER_NAME = "未知用户";
+
     @Resource
     private List<ClientLibAbstractHandler> libHandlerList;
     @Resource
@@ -179,12 +177,12 @@ public class ClientVersionServiceImpl extends CommonVersionService<Client> {
         rsp.setGmtModify(cv.getUpdateTime());
         rsp.setOperatorId(cv.getUpdateBy());
         rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy()))
-                .orElse(MithrasConstants.DEFAULT_USER_NAME));
+                .orElse(DEFAULT_USER_NAME));
         return rsp;
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.CLIENT;
+    protected String getBusinessModuleName() {
+        return "CLIENT";
     }
 }
