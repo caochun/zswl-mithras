@@ -5,6 +5,7 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayWeeklyReportDetailApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -60,7 +61,7 @@ import java.util.stream.Collectors;
 * @date 2025-04-11
 */
 @Service
-public class BudgetPlanPayWeeklyReportDetailService extends ServiceImpl<BudgetPlanPayWeeklyReportDetailMapper, BudgetPlanPayWeeklyReportDetail> {
+public class BudgetPlanPayWeeklyReportDetailService extends ServiceImpl<BudgetPlanPayWeeklyReportDetailMapper, BudgetPlanPayWeeklyReportDetail> implements BudgetPlanPayWeeklyReportDetailApplicationService {
 
     @Resource
     private BudgetPlanPayWeeklyReportDetailMapper budgetPlanPayWeeklyReportDetailMapper;

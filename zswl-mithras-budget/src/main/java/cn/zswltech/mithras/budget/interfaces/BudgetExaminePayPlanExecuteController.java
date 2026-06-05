@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.budget;
+package cn.zswltech.mithras.budget.interfaces;
 import cn.zswltech.mithras.api.budget.BudgetExaminePayPlanExecuteApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.budget.BudgetExaminePayPlanExecuteListREQ;
 import cn.zswltech.mithras.dto.budget.BudgetExaminePayPlanExecuteListRSP;
-import cn.zswltech.mithras.service.service.budget.BudgetExaminePayPlanExecuteService;
+import cn.zswltech.mithras.budget.application.BudgetExaminePayPlanExecuteApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -18,7 +18,7 @@ import java.util.List;
 public class BudgetExaminePayPlanExecuteController implements BudgetExaminePayPlanExecuteApi {
 
     @Resource
-    private BudgetExaminePayPlanExecuteService budgetExaminePayPlanExecuteService;
+    private BudgetExaminePayPlanExecuteApplicationService budgetExaminePayPlanExecuteService;
 
     @Override
     public R<List<BudgetExaminePayPlanExecuteListRSP>> list(BudgetExaminePayPlanExecuteListREQ req){

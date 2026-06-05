@@ -5,6 +5,7 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.budget.application.BudgetExamineBudgetExecuteApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -60,7 +61,7 @@ import java.util.stream.Collectors;
  * @date 2025-04-11
  */
 @Service
-public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamineBudgetExecuteMapper, BudgetExamineBudgetExecute> {
+public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamineBudgetExecuteMapper, BudgetExamineBudgetExecute> implements BudgetExamineBudgetExecuteApplicationService {
     @Resource
     private BudgetExamineBudgetExecuteMapper budgetExamineBudgetExecuteMapper;
     @Resource

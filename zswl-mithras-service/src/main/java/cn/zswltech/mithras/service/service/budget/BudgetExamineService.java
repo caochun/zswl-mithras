@@ -5,6 +5,8 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.budget.application.BudgetExamineApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -21,6 +23,7 @@ import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.Budget
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceSubjectBalanceAssist;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
+import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -31,7 +34,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
 * @description 预算管理-预算考核
@@ -39,7 +45,7 @@ import java.util.Objects;
 * @date 2025-04-11
 */
 @Service
-public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, BudgetExamine> {
+public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, BudgetExamine> implements BudgetExamineApplicationService {
 
     @Resource
     private BudgetExamineMapper budgetExamineMapper;
@@ -53,6 +59,8 @@ public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, Budge
     private BudgetExaminePayPlanExecuteService budgetExaminePayPlanExecuteService;
     @Resource
     private BudgetExamineFlowService budgetExamineFlowService;
+    @Resource
+    private Id2NameService id2NameService;
 
     @Transactional(rollbackFor = Throwable.class)
     public void add(BudgetExamineAddREQ req) {
@@ -138,6 +146,24 @@ public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, Budge
         .eq(ObjectUtil.isNotEmpty(req.getExamineYear()), BudgetExamine::getExamineYear, req.getExamineYear())
         .eq(ObjectUtil.isNotEmpty(req.getExamineMonth()), BudgetExamine::getExamineMonth, req.getExamineMonth())
                 .orderByDesc(BudgetExamine::getId));
+    }
+
+    public PageR<BudgetExamineListRSP> pageList(BudgetExamineListREQ req) {
+        Page<BudgetExamine> data = this.list(req);
+        List<BudgetExamineListRSP> list = BeanUtil.copyToList(data.getRecords(), BudgetExamineListRSP.class);
+        if (ObjectUtil.isNotEmpty(list)) {
+            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(list.stream().map(BudgetExamineListRSP::getSubmitUserId).collect(Collectors.toList()));
+            list.forEach(e -> e.setSubmitUserName(userId2Name.get(e.getSubmitUserId())));
+        }
+        return PageR.of(list, data.getTotal(), data.getPages(), data.getCurrent(), data.getSize());
+    }
+
+    public BudgetExamineListRSP detail(Long id) {
+        BudgetExamine byId = this.getById(id);
+        if (ObjectUtil.isEmpty(byId)) {
+            throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
+        }
+        return BeanUtil.copyProperties(byId, BudgetExamineListRSP.class);
     }
 
     @Transactional(rollbackFor = Throwable.class)

@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.budget;
+package cn.zswltech.mithras.budget.interfaces;
 
 import cn.zswltech.mithras.api.budget.BudgetPlanPayFlowApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SinglePkREQ;
-import cn.zswltech.mithras.service.service.budget.BudgetPlanPayFlowService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayFlowApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 @RestController
 public class BudgetPlanPayFlowController implements BudgetPlanPayFlowApi {
     @Resource
-    private BudgetPlanPayFlowService budgetPlanPayFlowService;
+    private BudgetPlanPayFlowApplicationService budgetPlanPayFlowService;
 
     @Override
     public R addYearFlow(SinglePkREQ req) {

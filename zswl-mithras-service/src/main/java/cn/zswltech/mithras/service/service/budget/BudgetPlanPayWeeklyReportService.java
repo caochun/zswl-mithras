@@ -5,6 +5,8 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayWeeklyReportApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -53,7 +55,7 @@ import java.util.stream.Collectors;
 * @date 2025-04-11
 */
 @Service
-public class BudgetPlanPayWeeklyReportService extends ServiceImpl<BudgetPlanPayWeeklyReportMapper, BudgetPlanPayWeeklyReport> {
+public class BudgetPlanPayWeeklyReportService extends ServiceImpl<BudgetPlanPayWeeklyReportMapper, BudgetPlanPayWeeklyReport> implements BudgetPlanPayWeeklyReportApplicationService {
 
     @Resource
     private BudgetPlanPayWeeklyReportMapper budgetPlanPayWeeklyReportMapper;
@@ -175,6 +177,12 @@ public class BudgetPlanPayWeeklyReportService extends ServiceImpl<BudgetPlanPayW
                 .eq(ObjectUtil.isNotEmpty(req.getPlanStatus()), BudgetPlanPayWeeklyReport::getPlanStatus, req.getPlanStatus())
                 .like(ObjectUtil.isNotEmpty(req.getBudgetPlanName()), BudgetPlanPayWeeklyReport::getBudgetPlanName, req.getBudgetPlanName())
                 .orderByDesc(BudgetPlanPayWeeklyReport::getId));
+    }
+
+    public PageR<BudgetPlanPayWeeklyReportListRSP> pageList(BudgetPlanPayWeeklyReportListREQ req) {
+        Page<BudgetPlanPayWeeklyReport> data = this.list(req);
+        List<BudgetPlanPayWeeklyReportListRSP> list = BeanUtil.copyToList(data.getRecords(), BudgetPlanPayWeeklyReportListRSP.class);
+        return PageR.of(list, data.getTotal(), data.getPages(), data.getCurrent(), data.getSize());
     }
 
     public BudgetPlanPayWeeklyReportListRSP planInfo(Long id) {

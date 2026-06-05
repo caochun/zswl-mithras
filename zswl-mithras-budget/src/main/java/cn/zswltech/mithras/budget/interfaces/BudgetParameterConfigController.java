@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.controller.budget;
+package cn.zswltech.mithras.budget.interfaces;
 import cn.zswltech.mithras.api.budget.BudgetParameterConfigApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.budget.BudgetParameterConfigListREQ;
 import cn.zswltech.mithras.dto.budget.BudgetParameterConfigListRSP;
 import cn.zswltech.mithras.dto.budget.BudgetParameterConfigModifyREQ;
-import cn.zswltech.mithras.service.service.budget.BudgetParameterConfigService;
+import cn.zswltech.mithras.budget.application.BudgetParameterConfigApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -19,7 +19,7 @@ import java.util.List;
 public class BudgetParameterConfigController implements BudgetParameterConfigApi {
 
     @Resource
-    private BudgetParameterConfigService budgetParameterConfigService;
+    private BudgetParameterConfigApplicationService budgetParameterConfigService;
 
     @Override
     public R<Void> modify(BudgetParameterConfigModifyREQ req){

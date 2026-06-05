@@ -5,6 +5,8 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.budget.application.EclPredictBusinessConfigApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -41,7 +43,7 @@ import java.util.stream.Collectors;
 * @date 2025-10-14
 */
 @Service
-public class EclPredictBusinessConfigService extends ServiceImpl<EclPredictBusinessConfigMapper, EclPredictBusinessConfig> {
+public class EclPredictBusinessConfigService extends ServiceImpl<EclPredictBusinessConfigMapper, EclPredictBusinessConfig> implements EclPredictBusinessConfigApplicationService {
 
     @Resource
     private EclPredictBusinessConfigMapper eclPredictBusinessConfigMapper;
@@ -118,11 +120,21 @@ public class EclPredictBusinessConfigService extends ServiceImpl<EclPredictBusin
                 .orderByAsc(EclPredictBusinessConfig::getOrderFlag));
     }
 
+    public PageR<EclPredictBusinessConfigListRSP> pageList(EclPredictBusinessConfigListREQ req) {
+        Page<EclPredictBusinessConfig> data = this.list(req);
+        List<EclPredictBusinessConfigListRSP> list = BeanUtil.copyToList(data.getRecords(), EclPredictBusinessConfigListRSP.class);
+        return PageR.of(list, data.getTotal(), data.getPages(), data.getCurrent(), data.getSize());
+    }
+
     public EclPredictBusinessConfig detail(EclPredictBusinessConfigDetailREQ req) {
         return this.getOne(Wrappers.<EclPredictBusinessConfig>lambdaQuery()
                 .eq(ObjectUtil.isNotEmpty(req.getId()), EclPredictBusinessConfig::getId, req.getId())
                 .eq(ObjectUtil.isNotEmpty(req.getExecutePredictId()), EclPredictBusinessConfig::getExecutePredictId, req.getExecutePredictId())
                 .eq(ObjectUtil.isNotEmpty(req.getConfigCode()), EclPredictBusinessConfig::getConfigCode, req.getConfigCode()));
+    }
+
+    public EclPredictBusinessConfigDetailRSP detailRsp(EclPredictBusinessConfigDetailREQ req) {
+        return BeanUtil.copyProperties(this.detail(req), EclPredictBusinessConfigDetailRSP.class);
     }
 
 

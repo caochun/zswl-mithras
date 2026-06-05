@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.budget;
+package cn.zswltech.mithras.budget.interfaces;
 
 import cn.zswltech.mithras.api.budget.BudgetPlanPayWeeklyReportDetailApi;
 import cn.zswltech.mithras.api.common.PageR;
@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.MultiplePkREQ;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.budget.BudgetPlanPayDetailMonthAddREQ;
 import cn.zswltech.mithras.dto.budget.weekly.*;
-import cn.zswltech.mithras.service.service.budget.BudgetPlanPayWeeklyReportDetailService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayWeeklyReportDetailApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -23,7 +23,7 @@ import java.util.List;
 public class BudgetPlanPayWeeklyReportDetailController implements BudgetPlanPayWeeklyReportDetailApi {
 
     @Resource
-    private BudgetPlanPayWeeklyReportDetailService budgetPlanPayWeeklyReportDetailService;
+    private BudgetPlanPayWeeklyReportDetailApplicationService budgetPlanPayWeeklyReportDetailService;
 
     /*@Override
     public R<Void> modify(BudgetPlanPayWeeklyReportDetailModifyREQ req){

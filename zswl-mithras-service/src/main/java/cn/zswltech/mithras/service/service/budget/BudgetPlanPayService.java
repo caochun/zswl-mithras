@@ -15,12 +15,16 @@ import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
+import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayApplicationService;
 import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.dto.flow.execution.ExecutionProcessBaseREQ;
+import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.budget.domain.enums.BudgetStatusEnum;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
+import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
@@ -42,7 +46,10 @@ import java.util.Objects;
 * @date 2025-04-11
 */
 @Service
-public class BudgetPlanPayService extends ServiceImpl<BudgetPlanPayMapper, BudgetPlanPay> {
+public class BudgetPlanPayService extends ServiceImpl<BudgetPlanPayMapper, BudgetPlanPay> implements BudgetPlanPayApplicationService {
+    @Resource
+    private SysUserService sysUserService;
+
     public PageR<BudgetPlanPayListRSP> pageList(BudgetPlanPayListREQ req) {
         Page<BudgetPlanPay> pageQuery = new Page<>(req.getPage(), req.getPageSize());
         LambdaQueryWrapper<BudgetPlanPay> conditionQuery = Wrappers.lambdaQuery();
@@ -50,6 +57,35 @@ public class BudgetPlanPayService extends ServiceImpl<BudgetPlanPayMapper, Budge
         Page<BudgetPlanPay> dbResult = this.page(pageQuery, conditionQuery);
         List<BudgetPlanPayListRSP> list = BeanUtil.copyToList(dbResult.getRecords(), BudgetPlanPayListRSP.class);
         return PageR.of(list, dbResult.getTotal(), dbResult.getPages(), dbResult.getCurrent(), dbResult.getSize());
+    }
+
+    public BudgetPlanPayRSP planInfo(Long id) {
+        BudgetPlanPay budgetPlanPay = this.getById(id);
+        BudgetPlanPayRSP rsp = BeanUtil.copyProperties(budgetPlanPay, BudgetPlanPayRSP.class);
+        if (sysUserService.currentUserIsSpecificJob(JobEnum.projmanager.name())) {
+            OrgDO org = sysUserService.currentUserBizDept();
+            if (Objects.nonNull(org)) {
+                ProcessPageReq processPageReq = new ProcessPageReq();
+                processPageReq.setBusinessKey(String.format("%s-%s", budgetPlanPay.getId(), org.getId()));
+                processPageReq.setModelKeyList(ListUtil.of(ProcessModelTypeEnum.YearHalfOtherPlanEventFlow.name(), ProcessModelTypeEnum.MonthPlanEventFlow.name()));
+                processPageReq.setProcessStatusList(Collections.singletonList(ProcessBusinessStatusEnum.RUNNING.getType()));
+                cn.zswltech.flow.core.util.Page<ProcessResp> processRespPage = SpringUtil.getBean(FlowTaskApiService.class).queryProcess(processPageReq);
+                if (Objects.nonNull(processRespPage) && CollectionUtil.isNotEmpty(processRespPage.getContents())) {
+                    rsp.setProcessInstanceId(processRespPage.getContents().get(0).getProcessInstanceId());
+                }
+            }
+        }
+        if (sysUserService.currentUserIsSpecificJob(JobEnum.financialofficer.name(), JobEnum.financialmanager.name())) {
+            ProcessPageReq processPageReq = new ProcessPageReq();
+            processPageReq.setBusinessKey(budgetPlanPay.getId().toString());
+            processPageReq.setModelKey(ProcessModelTypeEnum.FinalPlanEventFlow.name());
+            processPageReq.setProcessStatusList(Collections.singletonList(ProcessBusinessStatusEnum.RUNNING.getType()));
+            cn.zswltech.flow.core.util.Page<ProcessResp> processRespPage = SpringUtil.getBean(FlowTaskApiService.class).queryProcess(processPageReq);
+            if (Objects.nonNull(processRespPage) && CollectionUtil.isNotEmpty(processRespPage.getContents())) {
+                rsp.setProcessInstanceId(processRespPage.getContents().get(0).getProcessInstanceId());
+            }
+        }
+        return rsp;
     }
 
     @Transactional(rollbackFor = Throwable.class)

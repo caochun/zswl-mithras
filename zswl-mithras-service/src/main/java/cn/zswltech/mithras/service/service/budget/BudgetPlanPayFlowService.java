@@ -5,6 +5,7 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayFlowApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.collection.CollectionUtil;
@@ -56,7 +57,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Service
-public class BudgetPlanPayFlowService {
+public class BudgetPlanPayFlowService implements BudgetPlanPayFlowApplicationService {
 
     @Resource
     private SysUserService sysUserService;

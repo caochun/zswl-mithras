@@ -5,6 +5,8 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.budget.application.EclExecutePredictBaseInfoApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -16,6 +18,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.fuxi.common.dto.RatingManagementRSP;
 import cn.zswltech.mithras.dto.budget.EclExecutePredictBaseInfoAddREQ;
 import cn.zswltech.mithras.dto.budget.EclExecutePredictBaseInfoListREQ;
+import cn.zswltech.mithras.dto.budget.EclExecutePredictBaseInfoListRSP;
 import cn.zswltech.mithras.dto.budget.EclExecutePredictBaseInfoRemoveREQ;
 import cn.zswltech.mithras.dto.kpi.KpiExpectedLossDecisionQuery;
 import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteEclResult;
@@ -83,7 +86,7 @@ import java.util.stream.Collectors;
 */
 @Service
 @Slf4j
-public class EclExecutePredictBaseInfoService extends ServiceImpl<EclExecutePredictBaseInfoMapper, EclExecutePredictBaseInfo> {
+public class EclExecutePredictBaseInfoService extends ServiceImpl<EclExecutePredictBaseInfoMapper, EclExecutePredictBaseInfo> implements EclExecutePredictBaseInfoApplicationService {
 
 
     @Resource
@@ -359,6 +362,28 @@ public class EclExecutePredictBaseInfoService extends ServiceImpl<EclExecutePred
 
     public Page<EclExecutePredictBaseInfo> list(EclExecutePredictBaseInfoListREQ req) {
         return this.page(new Page<>(req.getPage(), req.getPageSize()), Wrappers.<EclExecutePredictBaseInfo>lambdaQuery());
+    }
+
+    public Long createFromManual(EclExecutePredictBaseInfoAddREQ req) {
+        req.setSource(YesOrNoNumberEnum.YES.getCode());
+        return this.create(req);
+    }
+
+    public PageR<EclExecutePredictBaseInfoListRSP> pageList(EclExecutePredictBaseInfoListREQ req) {
+        Page<EclExecutePredictBaseInfo> data = this.list(req);
+        List<EclExecutePredictBaseInfoListRSP> list = BeanUtil.copyToList(data.getRecords(), EclExecutePredictBaseInfoListRSP.class);
+        return PageR.of(list, data.getTotal(), data.getPages(), data.getCurrent(), data.getSize());
+    }
+
+    public void calculationAsync(Long id) {
+        CompletableFuture.supplyAsync(() -> {
+            try {
+                this.calculation(id, null);
+            } catch (Exception e) {
+                throw new MithrasException("测算失败");
+            }
+            return null;
+        });
     }
 
     @Transactional(rollbackFor = Throwable.class)

@@ -7,6 +7,7 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.budget.application.BudgetPlanProfitApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -83,6 +84,7 @@ import cn.zswltech.mithras.service.service.projreview.ProjReviewLeasePriceServic
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
 import cn.zswltech.mithras.service.util.FinancialUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.service.util.ThreadPoolUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -112,7 +114,7 @@ import java.util.stream.Collectors;
 */
 @Slf4j
 @Service
-public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper, BudgetPlanProfit> {
+public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper, BudgetPlanProfit> implements BudgetPlanProfitApplicationService {
     @Resource
     private Id2NameService id2NameService;
     @Resource
@@ -135,6 +137,44 @@ public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper,
         update.setId(budgetPlanProfitId);
         update.setCalculateStatus(calculateStatus.name());
         this.updateById(update);
+    }
+
+    public Long createAndInit(BudgetPlanProfitCreateREQ req) {
+        Long budgetPlanProfitId = this.create(req);
+        ThreadPoolUtil.getCommonPool().execute(() -> {
+            try {
+                this.initProfitDetail(budgetPlanProfitId);
+            } catch (Exception e) {
+                log.error("预算管理-异步计算利润明细发生异常[利润预算id: {}]", budgetPlanProfitId, e);
+                SpringUtil.getBean(BudgetPlanProfitService.class).modifyCalculateStatus(budgetPlanProfitId, BudgetPlanCalculateStatusEnum.FAILURE);
+            }
+        });
+        ThreadPoolUtil.getCommonPool().execute(() -> {
+            Long budgetPlanCostId = null;
+            try {
+                BudgetPlanProfit budgetPlanProfit = this.getById(budgetPlanProfitId);
+                BudgetPlanCost budgetPlanCost = budgetPlanCostService.findByBudgetPlanId(budgetPlanProfit.getBudgetPlanId());
+                budgetPlanCostId = budgetPlanCost.getId();
+                SpringUtil.getBean(BudgetPlanCostService.class).initCostDetail(budgetPlanCost.getId());
+                SpringUtil.getBean(BudgetPlanCostService.class).modifyCalculateStatus(budgetPlanCostId, BudgetPlanCalculateStatusEnum.SUCCESS);
+            } catch (Exception e) {
+                log.error("预算管理-异步计算成本预算明细发生异常[利润预算id: {}, 成本预算id: {}]", budgetPlanProfitId, budgetPlanCostId, e);
+                SpringUtil.getBean(BudgetPlanCostService.class).modifyCalculateStatus(budgetPlanCostId, BudgetPlanCalculateStatusEnum.FAILURE);
+            }
+        });
+        return budgetPlanProfitId;
+    }
+
+    public BudgetPlanProfitRSP info(Long id) {
+        BudgetPlanProfit budgetPlanProfit = this.getById(id);
+        BudgetPlanProfitRSP rsp = BeanUtil.copyProperties(budgetPlanProfit, BudgetPlanProfitRSP.class);
+        BudgetPlanPay budgetPlanPay = budgetPlanPayService.getByBudgetPlanId(budgetPlanProfit.getBudgetPlanId());
+        rsp.setBudgetPlanPayId(budgetPlanPay.getId());
+        return rsp;
+    }
+
+    public void delete(BudgetPlanProfitRemoveREQ req) {
+        this.delete(req.getId());
     }
 
     public BudgetPlanProfit getOneByBudgetPlanId(Long budgetPlanId) {

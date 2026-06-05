@@ -5,6 +5,7 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailCashFlowApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -36,7 +37,7 @@ import java.util.stream.Collectors;
 */
 @Slf4j
 @Service
-public class BudgetPlanPayDetailCashFlowService extends ServiceImpl<BudgetPlanPayDetailCashFlowMapper, BudgetPlanPayDetailCashFlow> {
+public class BudgetPlanPayDetailCashFlowService extends ServiceImpl<BudgetPlanPayDetailCashFlowMapper, BudgetPlanPayDetailCashFlow> implements BudgetPlanPayDetailCashFlowApplicationService {
     @Transactional(rollbackFor = Throwable.class)
     public void copyByDetailId(Long oldDetailId, Long newDetailId) {
         LambdaQueryWrapper<BudgetPlanPayDetailCashFlow> query = Wrappers.lambdaQuery();

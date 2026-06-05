@@ -5,6 +5,8 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.budget.application.EclExecutePredictRecordApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -43,7 +45,7 @@ import java.util.stream.Collectors;
 * @date 2025-10-14
 */
 @Service
-public class EclExecutePredictRecordService extends ServiceImpl<EclExecutePredictRecordMapper, EclExecutePredictRecord> {
+public class EclExecutePredictRecordService extends ServiceImpl<EclExecutePredictRecordMapper, EclExecutePredictRecord> implements EclExecutePredictRecordApplicationService {
 
     @Resource
     private EclExecutePredictRecordMapper eclExecutePredictRecordMapper;
@@ -196,6 +198,12 @@ public class EclExecutePredictRecordService extends ServiceImpl<EclExecutePredic
                 .ge(ObjectUtil.isNotEmpty(req.getUpdateTimeFrom()), EclExecutePredictRecord::getUpdateTime, req.getUpdateTimeFrom())
                 .le(ObjectUtil.isNotEmpty(req.getUpdateTimeTo()), EclExecutePredictRecord::getUpdateTime, localDateTime)
                 .orderByDesc(EclExecutePredictRecord::getUpdateTime));
+    }
+
+    public PageR<EclExecutePredictRecordListRSP> pageList(EclExecutePredictRecordListREQ req) {
+        Page<EclExecutePredictRecord> data = this.list(req);
+        List<EclExecutePredictRecordListRSP> list = BeanUtil.copyToList(data.getRecords(), EclExecutePredictRecordListRSP.class);
+        return PageR.of(list, data.getTotal(), data.getPages(), data.getCurrent(), data.getSize());
     }
 
     @Transactional(rollbackFor = Throwable.class)

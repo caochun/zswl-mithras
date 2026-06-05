@@ -5,6 +5,7 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailFtpInterestApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -38,7 +39,7 @@ import java.util.stream.Collectors;
 */
 @Slf4j
 @Service
-public class BudgetPlanPayDetailFtpInterestService extends ServiceImpl<BudgetPlanPayDetailFtpInterestMapper, BudgetPlanPayDetailFtpInterest> {
+public class BudgetPlanPayDetailFtpInterestService extends ServiceImpl<BudgetPlanPayDetailFtpInterestMapper, BudgetPlanPayDetailFtpInterest> implements BudgetPlanPayDetailFtpInterestApplicationService {
     @Resource
     private BudgetPlanPayDetailService budgetPlanPayDetailService;
 

@@ -1,16 +1,18 @@
-package cn.zswltech.mithras.service.controller.budget;
+package cn.zswltech.mithras.budget.interfaces;
 
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailApplicationService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailCashFlowApplicationService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailFtpInterestApplicationService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailIncomeSharingApplicationService;
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.MultiplePkREQ;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.budget.*;
-import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.budget.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 import cn.zswltech.mithras.api.budget.BudgetPlanPayDetailApi;
@@ -28,15 +30,15 @@ import java.util.List;
 @RestController
 public class BudgetPlanPayDetailController implements BudgetPlanPayDetailApi {
     @Resource
-    private BudgetPlanPayDetailService budgetPlanPayDetailService;
+    private BudgetPlanPayDetailApplicationService budgetPlanPayDetailService;
     @Resource
     private BudgetPlanPayDetailPriceService budgetPlanPayDetailPriceService;
     @Resource
-    private BudgetPlanPayDetailCashFlowService budgetPlanPayDetailCashFlowService;
+    private BudgetPlanPayDetailCashFlowApplicationService budgetPlanPayDetailCashFlowService;
     @Resource
-    private BudgetPlanPayDetailIncomeSharingService budgetPlanPayDetailIncomeSharingService;
+    private BudgetPlanPayDetailIncomeSharingApplicationService budgetPlanPayDetailIncomeSharingService;
     @Resource
-    private BudgetPlanPayDetailFtpInterestService budgetPlanPayDetailFtpInterestService;
+    private BudgetPlanPayDetailFtpInterestApplicationService budgetPlanPayDetailFtpInterestService;
     @Resource
     private BudgetPlanPayDetailExpenseService budgetPlanPayDetailExpenseService;
 
@@ -85,8 +87,7 @@ public class BudgetPlanPayDetailController implements BudgetPlanPayDetailApi {
 
     @Override
     public R<Boolean> checkPlanPayAmount(BudgetPlanPayDetailMonthCheckREQ req) {
-        BudgetPlanPayDetail byId = budgetPlanPayDetailService.getById(req.getId());
-        return R.ok(budgetPlanPayDetailService.checkPlanPayAmount(byId.getProjReviewId(), req.getPlanPayAmount(),req.getId()));
+        return R.ok(budgetPlanPayDetailService.checkPlanPayAmount(req));
     }
 
     @Override

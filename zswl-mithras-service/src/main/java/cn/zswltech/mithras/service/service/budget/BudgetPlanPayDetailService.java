@@ -5,6 +5,7 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
@@ -109,7 +110,7 @@ import java.util.stream.Collectors;
 */
 @Slf4j
 @Service
-public class BudgetPlanPayDetailService extends ServiceImpl<BudgetPlanPayDetailMapper, BudgetPlanPayDetail> {
+public class BudgetPlanPayDetailService extends ServiceImpl<BudgetPlanPayDetailMapper, BudgetPlanPayDetail> implements BudgetPlanPayDetailApplicationService {
     @Resource
     private SysUserService sysUserService;
     @Resource
@@ -274,6 +275,11 @@ public class BudgetPlanPayDetailService extends ServiceImpl<BudgetPlanPayDetailM
         // log.info("授信额度：{}，拟投放金额：{}",creditAmount,checkAmount);
         // return Objects.nonNull(creditAmount) && (Objects.nonNull(planPayAmount) ? (creditAmount.compareTo(checkAmount) >= 0) : (creditAmount.compareTo(checkAmount) > 0));
         return true;
+    }
+
+    public boolean checkPlanPayAmount(BudgetPlanPayDetailMonthCheckREQ req) {
+        BudgetPlanPayDetail byId = this.getById(req.getId());
+        return this.checkPlanPayAmount(byId.getProjReviewId(), req.getPlanPayAmount(), req.getId());
     }
 
     // 查询当前审批项目剩余授信额度

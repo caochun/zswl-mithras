@@ -5,6 +5,8 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.budget.application.BudgetPlanCostApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.collection.CollectionUtil;
@@ -15,6 +17,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.budget.BudgetPlanCostDetailListRSP;
 import cn.zswltech.mithras.dto.budget.BudgetPlanCostListREQ;
+import cn.zswltech.mithras.dto.budget.BudgetPlanCostListRSP;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.budget.domain.enums.BudgetPlanCalculateStatusEnum;
 import cn.zswltech.mithras.budget.domain.enums.BudgetPlanDataCategoryEnum;
@@ -73,7 +76,7 @@ import java.util.stream.Collectors;
 */
 @Slf4j
 @Service
-public class BudgetPlanCostService extends ServiceImpl<BudgetPlanCostMapper, BudgetPlanCost> {
+public class BudgetPlanCostService extends ServiceImpl<BudgetPlanCostMapper, BudgetPlanCost> implements BudgetPlanCostApplicationService {
     @Resource
     private BudgetPlanCostMapper budgetPlanCostMapper;
     @Resource
@@ -201,6 +204,12 @@ public class BudgetPlanCostService extends ServiceImpl<BudgetPlanCostMapper, Bud
                 .eq(ObjectUtil.isNotEmpty(req.getBudgetStatus()), BudgetPlanCost::getBudgetStatus, req.getBudgetStatus())
                 .orderByDesc(BudgetPlanCost::getId);
         return budgetPlanCostMapper.selectPage(new Page<>(req.getPage(), req.getPageSize()), queryWrapper);
+    }
+
+    public PageR<BudgetPlanCostListRSP> pageList(BudgetPlanCostListREQ req) {
+        Page<BudgetPlanCost> data = this.list(req);
+        List<BudgetPlanCostListRSP> list = BeanUtil.copyToList(data.getRecords(), BudgetPlanCostListRSP.class);
+        return PageR.of(list, data.getTotal(), data.getPages(), data.getCurrent(), data.getSize());
     }
 
     @Transactional(rollbackFor = Throwable.class)

@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.controller.budget;
+package cn.zswltech.mithras.budget.interfaces;
 
 import cn.zswltech.mithras.api.budget.BudgetPlanCostDetailApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.budget.BudgetPlanCostDetailListREQ;
 import cn.zswltech.mithras.dto.budget.BudgetPlanCostDetailListRSP;
-import cn.zswltech.mithras.service.service.budget.BudgetPlanCostService;
+import cn.zswltech.mithras.budget.application.BudgetPlanCostApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 public class BudgetPlanCostDetailController implements BudgetPlanCostDetailApi {
     @Resource
-    private BudgetPlanCostService budgetPlanCostService;
+    private BudgetPlanCostApplicationService budgetPlanCostService;
 
     @Override
     public R<List<BudgetPlanCostDetailListRSP>> list(@Valid BudgetPlanCostDetailListREQ req) {
