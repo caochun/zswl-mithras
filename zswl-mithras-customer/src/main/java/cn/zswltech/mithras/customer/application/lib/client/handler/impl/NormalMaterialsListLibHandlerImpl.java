@@ -1,17 +1,13 @@
 package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import cn.zswltech.mithras.customer.domain.enums.InfoModule;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -55,11 +51,6 @@ public class NormalMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<
         return ClientType.NORMAL.equals(clientType);
     }
 
-    @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.CLIENT;
-    }
-
     /**
      * 过滤出需要处理的编辑区数据 有过滤条件的自实现
      *
@@ -68,7 +59,7 @@ public class NormalMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<
      */
     @Override
     public List<MaterialsList> listNeedHandleEntity(Long mainId) {
-        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleName());
     }
 
     /**
@@ -79,7 +70,7 @@ public class NormalMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<
      */
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
-        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleName());
     }
 
     @Override

@@ -2,32 +2,21 @@ package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.customer.application.lib.client.ClientMaterialsAccess;
+import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import cn.zswltech.mithras.customer.domain.enums.InfoModule;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.customer.domain.enums.client.CorporationClientMaterialSubTypeEnum;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.others.LackDataException;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
 import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
-import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.util.ClientAuthorityUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
@@ -50,7 +39,7 @@ public class CorpMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<Ma
     private MaterialsListLibHandlerProxy materialsListLibHandlerProxy;
 
     @Resource
-    private ClientAuthorityUtil authorityUtil;
+    private ClientMaterialsAccess clientMaterialsAccess;
 
     @Override
     protected MaterialsListLib entity2Lib(MaterialsList f) {
@@ -77,11 +66,6 @@ public class CorpMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<Ma
         return ClientType.CORPORATION.equals(clientType);
     }
 
-    @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.CLIENT;
-    }
-
     /**
      * 过滤出需要处理的编辑区数据 有过滤条件的自实现
      *
@@ -91,7 +75,7 @@ public class CorpMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<Ma
     @Override
     public List<MaterialsList> listNeedHandleEntity(Long mainId, Map<String, Object> extraMap) {
         // 文件表需要特殊处理，不能用默认逻辑
-        Client client = SpringUtil.getBean(ClientService.class).getById(mainId);
+        Client client = clientMaterialsAccess.getClient(mainId);
         if (Objects.isNull(client)) {
             throw new MithrasException("客户数据不存在");
         }
@@ -100,14 +84,14 @@ public class CorpMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<Ma
         }
         LambdaQueryWrapper<MaterialsList> query = Wrappers.lambdaQuery();
         query.eq(MaterialsList::getBelongId, mainId);
-        query.eq(MaterialsList::getBusinessType, BusinessModuleEnum.CLIENT.name());
-        if (SpringUtil.getBean(ClientAuthorityUtil.class).isIntraGroupCollaboration(client.getId())) {
+        query.eq(MaterialsList::getBusinessType, businessModuleName());
+        if (clientMaterialsAccess.isIntraGroupCollaboration(client.getId())) {
 //            return this.listNeedHandleEntity(mainId);
-            return SpringUtil.getBean(MaterialsListService.class).list(query);
+            return draftMapper.selectList(query);
         }
         Long userId = (Long) extraMap.get("userId");
         query.eq(BaseModel::getCreateBy, userId);
-        return SpringUtil.getBean(MaterialsListService.class).list(query);
+        return draftMapper.selectList(query);
     }
 
     @Override
@@ -123,7 +107,7 @@ public class CorpMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<Ma
      */
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
-        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleName());
     }
 
     @Override
@@ -142,10 +126,10 @@ public class CorpMaterialsListLibHandlerImpl extends ClientLibAbstractHandler<Ma
             Long currentUserId = AccountUtil.getLoginInfo().getId();
             LambdaQueryWrapper<MaterialsList> query = Wrappers.lambdaQuery();
             query.eq(MaterialsList::getBelongId, client.getId());
-            query.eq(MaterialsList::getBusinessType, BusinessModuleEnum.CLIENT.name());
+            query.eq(MaterialsList::getBusinessType, businessModuleName());
             query.in(MaterialsList::getMaterialSubType, ListUtil.of(CorporationClientMaterialSubTypeEnum.BUSINESS_LICENSE.name(), CorporationClientMaterialSubTypeEnum.LEASE_APPLICATION.name(), CorporationClientMaterialSubTypeEnum.CREDIT_LETTER.name()));
             // 公海客户的话不需要指定上传人
-            if (!authorityUtil.isIntraGroupCollaboration(client.getId())) {
+            if (!clientMaterialsAccess.isIntraGroupCollaboration(client.getId())) {
                 query.eq(BaseModel::getCreateBy, currentUserId);
             }
             // 过滤其他非客户管理上传的客户资料
