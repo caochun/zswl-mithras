@@ -11,7 +11,7 @@ import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum
 import cn.zswltech.mithras.associationreport.enums.AssociationReportPeriodCategoryEnum;
 import cn.zswltech.mithras.associationreport.DeleteDataSelector;
 import cn.zswltech.mithras.associationreport.StoreDataSelector;
-import cn.zswltech.mithras.associationreport.service.AssociationReportService;
+import cn.zswltech.mithras.associationreport.service.AssociationReportQueryService;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.BasicAssociationReport;
@@ -44,7 +44,7 @@ public abstract class AbstractDataStore<T extends BasicAssociationReport> implem
     @Value("${association.zlAccount:}")
     private String zszlCreditCode;
     @Resource
-    protected AssociationReportService associationReportService;
+    protected AssociationReportQueryService associationReportQueryService;
     @Resource
     protected ContractReceiptBottomMapper contractReceiptBottomMapper;
 
@@ -58,7 +58,7 @@ public abstract class AbstractDataStore<T extends BasicAssociationReport> implem
         // 数据校验
         this.check(dataList);
         // 查主表数据
-        AssociationReport associationReport = associationReportService.findByReportInstanceId(reportInstanceId);
+        AssociationReport associationReport = associationReportQueryService.findByReportInstanceId(reportInstanceId);
         if (Objects.isNull(associationReport)) {
             throw new MithrasException("报送主表数据不存在");
         }
@@ -68,7 +68,7 @@ public abstract class AbstractDataStore<T extends BasicAssociationReport> implem
     @Override
     public void storeFromSystemJob(String reportInstanceId) {
         // 查主表数据
-        AssociationReport associationReport = associationReportService.findByReportInstanceId(reportInstanceId);
+        AssociationReport associationReport = associationReportQueryService.findByReportInstanceId(reportInstanceId);
         if (Objects.isNull(associationReport)) {
             throw new MithrasException("报送主表数据不存在");
         }

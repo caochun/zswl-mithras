@@ -86,7 +86,7 @@ public class AssociationCompanyProfitStatementData extends AbstractDataStore<Ass
     protected List<AssociationCompanyProfitStatement> parseFromSystemData(AssociationReport currentReport) {
         // 取上一期
         int[] yearPeriod = this.ensureLastOneYearPeriod(currentReport);
-        AssociationReport lastReport = associationReportService.findByCategoryYearPeriod(currentReport.getReportCategoryCode(), yearPeriod[0], yearPeriod[1]);
+        AssociationReport lastReport = associationReportQueryService.findByCategoryYearPeriod(currentReport.getReportCategoryCode(), yearPeriod[0], yearPeriod[1]);
         if (Objects.isNull(lastReport)) {
             throw new MithrasException(String.format("金融局报送【利润表】自动取值-没有找到上一期报送记录[current:%s]", currentReport.getReportInstanceId()));
         }
