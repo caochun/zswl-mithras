@@ -9,7 +9,7 @@ import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establi
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.groupcreditestablish.handler.impl.GroupCreditEstablishBaseInfoLibHandler;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.handler.impl.GroupCreditEstablishBaseInfoLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

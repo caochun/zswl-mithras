@@ -72,7 +72,7 @@ import cn.zswltech.mithras.service.service.bo.*;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.contract.impl.ContractRentActualServiceImpl;
-import cn.zswltech.mithras.service.service.lib.groupcreditreview.handler.impl.GroupCreditReviewBaseInfoLibHandler;
+import cn.zswltech.mithras.credit.application.groupcredit.review.handler.impl.GroupCreditReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;

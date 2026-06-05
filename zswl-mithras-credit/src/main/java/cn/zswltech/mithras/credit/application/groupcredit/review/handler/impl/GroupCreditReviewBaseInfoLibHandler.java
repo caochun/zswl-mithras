@@ -1,14 +1,12 @@
-package cn.zswltech.mithras.service.service.lib.groupcreditreview.handler.impl;
+package cn.zswltech.mithras.credit.application.groupcredit.review.handler.impl;
 
-import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.groupcreditreview.baseinfo.GroupCreditReviewBaseInfoDetailRSP;
-import cn.zswltech.mithras.service.convert.groupcreditreview.GroupCreditReviewBaseInfoConverter;
 import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewInfoModule;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
-import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
+import cn.zswltech.mithras.credit.application.groupcredit.GroupCreditBaseInfoAssembler;
 import cn.zswltech.mithras.credit.application.groupcredit.review.handler.GroupCreditReviewLibAbstractHandler;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -26,11 +24,7 @@ public class GroupCreditReviewBaseInfoLibHandler
         extends GroupCreditReviewLibAbstractHandler<GroupCreditReviewBaseInfoLib, GroupCreditReviewBaseInfo, GroupCreditReviewBaseInfoDetailRSP> {
 
     @Resource
-    private GroupCreditReviewBaseInfoConverter baseInfoConverter;
-    @Resource
-    private GroupCreditReviewBaseInfoService baseInfoService;
-    @Resource
-    private SysUserService sysUserService;
+    private GroupCreditBaseInfoAssembler baseInfoAssembler;
 
     @Override
     public Set<String> compareIgnoreFieldNames() {
@@ -46,24 +40,21 @@ public class GroupCreditReviewBaseInfoLibHandler
 
     @Override
     protected GroupCreditReviewBaseInfoLib entity2Lib(GroupCreditReviewBaseInfo f) {
-        return BeanUtil.copyProperties(f, GroupCreditReviewBaseInfoLib.class);
+        GroupCreditReviewBaseInfoLib lib = new GroupCreditReviewBaseInfoLib();
+        BeanUtils.copyProperties(f, lib);
+        return lib;
     }
 
     @Override
     protected GroupCreditReviewBaseInfo lib2Entity(GroupCreditReviewBaseInfoLib t) {
-        return BeanUtil.copyProperties(t, GroupCreditReviewBaseInfo.class);
+        GroupCreditReviewBaseInfo entity = new GroupCreditReviewBaseInfo();
+        BeanUtils.copyProperties(t, entity);
+        return entity;
     }
 
     @Override
     protected GroupCreditReviewBaseInfoDetailRSP lib2Rsp(GroupCreditReviewBaseInfoLib f) {
-        GroupCreditReviewBaseInfoDetailRSP rsp = baseInfoConverter.entityToDetailRSP(f);
-        // fill names
-        baseInfoService.join(rsp);
-        rsp.setApprovedAmount(f.getProjectApprovalAmount());
-        rsp.setId(f.getOriginId());
-        // 帮前端兼容下
-        rsp.setIsBizDept(sysUserService.currentUserIsBizDept());
-        return rsp;
+        return baseInfoAssembler.reviewLib2Rsp(f);
     }
 
     @Override

@@ -113,7 +113,7 @@ import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBa
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;
 import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
-import cn.zswltech.mithras.service.service.lib.groupcreditreview.handler.impl.GroupCreditReviewBaseInfoLibHandler;
+import cn.zswltech.mithras.credit.application.groupcredit.review.handler.impl.GroupCreditReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
