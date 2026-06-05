@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.workbench.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.convert.workbench.WorkbenchAnnouncementConverter;
+import cn.zswltech.mithras.workbench.application.convert.WorkbenchAnnouncementConverter;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.workbench.domain.enums.AnnouncementMetricMaterialEnum;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;

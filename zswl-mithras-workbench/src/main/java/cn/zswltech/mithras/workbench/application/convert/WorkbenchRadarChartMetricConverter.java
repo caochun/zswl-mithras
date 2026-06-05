@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.workbench;
+package cn.zswltech.mithras.workbench.application.convert;
 import org.mapstruct.Mapper;
 
 /**

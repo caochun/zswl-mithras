@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.workbench;
+package cn.zswltech.mithras.workbench.application.convert;
 
 import cn.zswltech.mithras.dto.workbench.WorkbenchAnnouncementAddReq;
 import cn.zswltech.mithras.dto.workbench.WorkbenchAnnouncementDetailRsp;
