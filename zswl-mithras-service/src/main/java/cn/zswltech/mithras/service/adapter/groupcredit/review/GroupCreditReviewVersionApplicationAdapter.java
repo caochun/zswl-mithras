@@ -1,9 +1,12 @@
-package cn.zswltech.mithras.service.controller.groupcreditreview;
+package cn.zswltech.mithras.service.adapter.groupcredit.review;
 
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.groupcreditreview.GroupCreditReviewVersionApi;
+import cn.zswltech.mithras.contract.enums.contract.ProjItemStatus;
+import cn.zswltech.mithras.credit.application.groupcredit.review.service.GroupCreditReviewVersionApplicationService;
+import cn.zswltech.mithras.credit.application.groupcredit.review.service.impl.GroupCreditReviewVersionServiceImpl;
+import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewProcessStatus;
+import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.groupcreditreview.GroupCreditReviewRatingCheckRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.version.GroupCreditReviewEffectREQ;
@@ -15,19 +18,15 @@ import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.contract.enums.contract.ProjItemStatus;
-import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewProcessStatus;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.ProcessModifyRemark;
-import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.system.service.ProcessModifyRemarkService;
 import cn.zswltech.mithras.service.service.client.ClientAuthorityService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewService;
-import cn.zswltech.mithras.credit.application.groupcredit.review.service.impl.GroupCreditReviewVersionServiceImpl;
+import cn.zswltech.mithras.system.service.ProcessModifyRemarkService;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.ProcessModifyRemark;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.Objects;
@@ -40,13 +39,8 @@ import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.service.enums.common.RecordStatus.CLOSED;
 import static cn.zswltech.mithras.service.enums.common.RecordStatus.EXPIRE;
 
-/**
- * @author wangchuanhao
- * @description 集团授信评审基本信息表
- * @date 2022-11-11
- */
-@RestController
-public class GroupCreditReviewVersionController implements GroupCreditReviewVersionApi {
+@Service
+public class GroupCreditReviewVersionApplicationAdapter implements GroupCreditReviewVersionApplicationService {
 
     @Resource
     private GroupCreditReviewVersionServiceImpl versionService;
@@ -57,10 +51,8 @@ public class GroupCreditReviewVersionController implements GroupCreditReviewVers
     @Resource
     private GroupCreditReviewBaseInfoService groupCreditReviewBaseInfoService;
 
-
     @Override
-    public R<Void> effect(GroupCreditReviewEffectREQ req) {
-        // 加锁
+    public void effect(GroupCreditReviewEffectREQ req) {
         String lockKey = CacheEnum.EFFECT_SUBMIT_LOCK.buildKey(BusinessModuleEnum.GROUP_CREDIT_REVIEW.name(), req.getId());
         boolean getLockFlag = redisDistLock.tryLockWithoutReleaseTime(lockKey, 1000L);
         if (!getLockFlag) {
@@ -68,7 +60,6 @@ public class GroupCreditReviewVersionController implements GroupCreditReviewVers
         }
         try {
             GroupCreditReviewBaseInfo baseInfo = groupCreditReviewBaseInfoService.getById(req.getId());
-
             if (isNull(baseInfo)) {
                 throw new MithrasException(RECORD_NOT_EXIST);
             }
@@ -81,14 +72,11 @@ public class GroupCreditReviewVersionController implements GroupCreditReviewVers
             if (Objects.equals(baseInfo.getGroupCreditReviewStatus(), RecordStatus.TAKE_EFFECT) && !Objects.equals(baseInfo.getGroupCreditReviewProcessStatus(), GroupCreditReviewProcessStatus.CHANGING_UN_SUBMIT.name())) {
                 throw new MithrasException("数据未变动，无需提交数据");
             }
-            // 是否可提交 简单校验
             if (Objects.nonNull(groupCreditReviewService.findRelatedProcess(req.getId()))) {
                 throw new MithrasException("该评审数据变动处于流程中，无法提交数据");
             }
             groupCreditReviewService.effectCheck(baseInfo);
             groupCreditReviewBaseInfoService.checkClientRating(baseInfo);
-
-            // 数据变动 全量数据校验 判断数据是否变动 和 最新版本数据对比 如果不存在版本则放行
             ChangeDTO changeDTO = versionService.checkActualChange(req.getId());
             if (!Boolean.TRUE.equals(changeDTO.getChangeFlag())) {
                 throw new MithrasException("数据未变动，无需提交数据");
@@ -103,26 +91,23 @@ public class GroupCreditReviewVersionController implements GroupCreditReviewVers
         } finally {
             redisDistLock.unlock(lockKey);
         }
-        return R.ok();
     }
 
     @Override
-    public R<PageR<CommonVersionListRSP>> list(CommonVersionListREQ req) {
+    public PageR<CommonVersionListRSP> list(CommonVersionListREQ req) {
         if (StringUtils.isEmpty(req.getModule())) {
             req.setModule(BusinessModuleEnum.GROUP_CREDIT_REVIEW.name());
         }
-        PageR<CommonVersionListRSP> data = versionService.selectPage(req);
-        return R.ok(data);
+        return versionService.selectPage(req);
     }
 
     @Override
-    public R<CommonVersionDiffRSP> comparePreVersion(GroupCreditReviewVersionDiffREQ req) {
-        return R.ok(versionService.comparePreVersion(req.getId()));
+    public CommonVersionDiffRSP comparePreVersion(GroupCreditReviewVersionDiffREQ req) {
+        return versionService.comparePreVersion(req.getId());
     }
 
     @Override
-    public R<GroupCreditReviewRatingCheckRSP> checkRatingInfo(SinglePkREQ req) {
-        return R.ok(groupCreditReviewBaseInfoService.checkRatingInfo(req.getId()));
+    public GroupCreditReviewRatingCheckRSP checkRatingInfo(SinglePkREQ req) {
+        return groupCreditReviewBaseInfoService.checkRatingInfo(req.getId());
     }
-
 }

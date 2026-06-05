@@ -9,6 +9,7 @@ import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportL
 import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportListRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportRemoveREQ;
 import cn.zswltech.mithras.dto.groupcreditreview.report.GroupCreditReviewReportUploadREQ;
+import cn.zswltech.mithras.credit.application.groupcredit.review.service.GroupCreditReviewReportApplicationService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.credit.domain.groupcredit.review.enums.GroupCreditReviewMaterialsEnum;
@@ -43,7 +44,7 @@ import static cn.zswltech.mithras.service.constant.ResultMsg.ONLY_BIZ_DEPT_DO;
  * @date 2022/7/22 10:50 AM
  */
 @Service
-public class GroupCreditReviewReportService implements GroupCreditReviewUpdateAdvice {
+public class GroupCreditReviewReportService implements GroupCreditReviewReportApplicationService, GroupCreditReviewUpdateAdvice {
 
     @Resource
     private MaterialsListService materialsListService;
@@ -59,6 +60,7 @@ public class GroupCreditReviewReportService implements GroupCreditReviewUpdateAd
     private GroupCreditReviewService groupCreditReviewService;
 
     @Transactional(rollbackFor = Exception.class)
+    @Override
     public void upload(MultipartFile file, GroupCreditReviewReportUploadREQ req) {
         GroupCreditReviewBaseInfo baseInfo = groupCreditReviewBaseInfoMapper.selectById(req.getGroupCreditReviewId());
         authCheck(baseInfo);
@@ -67,6 +69,7 @@ public class GroupCreditReviewReportService implements GroupCreditReviewUpdateAd
     }
 
     @Transactional(rollbackFor = Exception.class)
+    @Override
     public void remove(GroupCreditReviewReportRemoveREQ req) {
         MaterialsList materialsList = materialsListService.getById(req.getId());
         if (Objects.isNull(materialsList)) {
@@ -81,10 +84,12 @@ public class GroupCreditReviewReportService implements GroupCreditReviewUpdateAd
         recordStatus(baseInfo.getId());
     }
 
+    @Override
     public FileListRSP download(Long recordId) {
         return materialsListService.download(recordId);
     }
 
+    @Override
     public List<Pair<String, List<GroupCreditReviewReportListRSP>>> list(GroupCreditReviewReportListREQ req) {
         Page<MaterialsList> page = materialsListMapper.selectPage(new Page<>(req.getPage(), req.getPageSize()),
                 Wrappers.<MaterialsList>lambdaQuery()
