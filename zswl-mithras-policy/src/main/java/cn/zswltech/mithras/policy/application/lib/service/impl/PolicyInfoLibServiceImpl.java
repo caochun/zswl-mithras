@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.service.lib.policy.impl;
+package cn.zswltech.mithras.policy.application.lib.service.impl;
 
 import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
 import cn.zswltech.mithras.policy.infrastructure.persistence.mapper.PolicyInfoLibMapper;
 import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfoLib;
-import cn.zswltech.mithras.service.service.lib.policy.PolicyInfoLibService;
+import cn.zswltech.mithras.policy.application.lib.service.PolicyInfoLibService;
 import cn.zswltech.mithras.policy.application.lib.handler.impl.PolicyInfoLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
