@@ -6,9 +6,9 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.leaseholdproperty.AppraisalCompanyWhitelistApi;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
+import cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.leaseholdproperty.AppraisalCompanyWhitelistService;
-import cn.zswltech.mithras.service.service.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

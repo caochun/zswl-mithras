@@ -10,10 +10,10 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.leaseholdproperty.domain.enums.AppraisalCompanyWhitelistProcessStatusEnum;
+import cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.leaseholdproperty.AppraisalCompanyWhitelistService;
-import cn.zswltech.mithras.service.service.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

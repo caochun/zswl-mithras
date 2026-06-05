@@ -1,7 +1,6 @@
-package cn.zswltech.mithras.service.service.lib.appraisalcompanywhitelist;
+package cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
@@ -53,7 +52,7 @@ public class AppraisalCompanyWhitelistMaterialLibHandler extends LibAbstractHand
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.APPRAISAL_COMPANY_WHITELIST;
+    protected String businessModuleName() {
+        return "APPRAISAL_COMPANY_WHITELIST";
     }
 }
