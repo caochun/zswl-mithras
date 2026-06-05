@@ -42,7 +42,7 @@ import cn.zswltech.mithras.service.service.fund.FundGuaranteeInfoService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingPlanLibService;
-import cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl.FundFinancingPlanLibHandler;
+import cn.zswltech.mithras.fund.application.lib.financing.handler.impl.FundFinancingPlanLibHandler;
 import cn.zswltech.mithras.service.service.monthly.FundsDailyCostMainService;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.service.util.LongUtil;

@@ -1,12 +1,11 @@
-package cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl;
+package cn.zswltech.mithras.fund.application.lib.financing.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.financing.plan.FundFinancingPlanDetailRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingDetailConverter;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPlanLib;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPlanService;
 import cn.zswltech.mithras.fund.application.lib.financing.handler.FundFinancingAbstractLibHandler;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ import javax.annotation.Resource;
 @Component
 public class FundFinancingPlanLibHandler extends FundFinancingAbstractLibHandler<FundFinancingPlanLib, FundFinancingPlan, FundFinancingPlanDetailRSP> {
     @Resource
-    private FundFinancingPlanService financingPlanService;
+    private FundFinancingDetailConverter fundFinancingDetailConverter;
 
     @Override
     protected FundFinancingPlanLib entity2Lib(FundFinancingPlan f) {
@@ -34,7 +33,7 @@ public class FundFinancingPlanLibHandler extends FundFinancingAbstractLibHandler
 
     @Override
     protected FundFinancingPlanDetailRSP lib2Rsp(FundFinancingPlanLib f) {
-        return financingPlanService.convertToDetailRSP(this.actualLib2Entity(f));
+        return fundFinancingDetailConverter.convertPlanToDetailRSP(this.actualLib2Entity(f));
     }
 
     @Override
@@ -48,7 +47,7 @@ public class FundFinancingPlanLibHandler extends FundFinancingAbstractLibHandler
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.FUND_FINANCING;
+    protected String businessModuleName() {
+        return "FUND_FINANCING";
     }
 }

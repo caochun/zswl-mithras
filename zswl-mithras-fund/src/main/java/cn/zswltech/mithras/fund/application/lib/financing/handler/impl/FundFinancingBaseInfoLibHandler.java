@@ -1,12 +1,11 @@
-package cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl;
+package cn.zswltech.mithras.fund.application.lib.financing.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.financing.baseinfo.FundFinancingBaseInfoDetailRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingDetailConverter;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfoLib;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.application.lib.financing.handler.FundFinancingAbstractLibHandler;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,7 @@ import java.util.Set;
 @Component
 public class FundFinancingBaseInfoLibHandler extends FundFinancingAbstractLibHandler<FundFinancingBaseInfoLib, FundFinancingBaseInfo, FundFinancingBaseInfoDetailRSP> {
     @Resource
-    private FundFinancingBaseInfoService financingBaseInfoService;
+    private FundFinancingDetailConverter fundFinancingDetailConverter;
 
     @Override
     protected FundFinancingBaseInfoLib entity2Lib(FundFinancingBaseInfo f) {
@@ -36,7 +35,7 @@ public class FundFinancingBaseInfoLibHandler extends FundFinancingAbstractLibHan
 
     @Override
     protected FundFinancingBaseInfoDetailRSP lib2Rsp(FundFinancingBaseInfoLib f) {
-        return financingBaseInfoService.convertToDetailRSP(this.actualLib2Entity(f), true);
+        return fundFinancingDetailConverter.convertBaseInfoToDetailRSP(this.actualLib2Entity(f), true);
     }
 
     @Override
@@ -69,7 +68,7 @@ public class FundFinancingBaseInfoLibHandler extends FundFinancingAbstractLibHan
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.FUND_FINANCING;
+    protected String businessModuleName() {
+        return "FUND_FINANCING";
     }
 }

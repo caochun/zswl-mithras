@@ -9,7 +9,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financin
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl.FundFinancingPlanLibHandler;
+import cn.zswltech.mithras.fund.application.lib.financing.handler.impl.FundFinancingPlanLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

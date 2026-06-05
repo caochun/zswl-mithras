@@ -1,12 +1,11 @@
-package cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl;
+package cn.zswltech.mithras.fund.application.lib.financing.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.financing.earlysettle.FundFinancingEarlySettlePlanRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingDetailConverter;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingEarlySettlePlan;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingEarlySettlePlanLib;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingEarlySettlePlanService;
 import cn.zswltech.mithras.fund.application.lib.financing.handler.FundFinancingAbstractLibHandler;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ import javax.annotation.Resource;
 @Component
 public class FundFinancingEarlySettlePlanLibHandler extends FundFinancingAbstractLibHandler<FundFinancingEarlySettlePlanLib, FundFinancingEarlySettlePlan, FundFinancingEarlySettlePlanRSP> {
     @Resource
-    private FundFinancingEarlySettlePlanService financingEarlySettlePlanService;
+    private FundFinancingDetailConverter fundFinancingDetailConverter;
 
     @Override
     protected FundFinancingEarlySettlePlanLib entity2Lib(FundFinancingEarlySettlePlan f) {
@@ -34,7 +33,7 @@ public class FundFinancingEarlySettlePlanLibHandler extends FundFinancingAbstrac
 
     @Override
     protected FundFinancingEarlySettlePlanRSP lib2Rsp(FundFinancingEarlySettlePlanLib f) {
-        return financingEarlySettlePlanService.convertToRSP(this.actualLib2Entity(f), f.getFinancingId());
+        return fundFinancingDetailConverter.convertEarlySettlePlanToRSP(this.actualLib2Entity(f), f.getFinancingId());
     }
 
     @Override
@@ -48,7 +47,7 @@ public class FundFinancingEarlySettlePlanLibHandler extends FundFinancingAbstrac
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.FUND_FINANCING;
+    protected String businessModuleName() {
+        return "FUND_FINANCING";
     }
 }

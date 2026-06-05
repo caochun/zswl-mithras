@@ -41,7 +41,7 @@ import cn.zswltech.mithras.service.service.fund.FundGuaranteeAgencyService;
 import cn.zswltech.mithras.service.service.fund.FundGuaranteeInfoService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingBaseInfoLibService;
-import cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl.FundFinancingBaseInfoLibHandler;
+import cn.zswltech.mithras.fund.application.lib.financing.handler.impl.FundFinancingBaseInfoLibHandler;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

@@ -1,14 +1,13 @@
-package cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl;
+package cn.zswltech.mithras.fund.application.lib.financing.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.fund.financing.pledge.FundFinancingPledgeListRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingDetailConverter;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingPledgeInfoLib;
-import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.fund.application.lib.financing.handler.FundFinancingAbstractLibHandler;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +24,7 @@ import java.util.stream.Collectors;
 @Component
 public class FundFinancingPledgeInfoLibHandler extends FundFinancingAbstractLibHandler<FundFinancingPledgeInfoLib, FundFinancingPledgeInfo, FundFinancingPledgeListRSP> {
     @Resource
-    private FundFinancingPledgeInfoService financingPledgeInfoService;
+    private FundFinancingDetailConverter fundFinancingDetailConverter;
 
     @Override
     protected FundFinancingPledgeInfoLib entity2Lib(FundFinancingPledgeInfo f) {
@@ -52,7 +51,7 @@ public class FundFinancingPledgeInfoLibHandler extends FundFinancingAbstractLibH
             return Collections.emptyList();
         }
         List<FundFinancingPledgeInfo> entityList = fList.stream().map(this::actualLib2Entity).collect(Collectors.toList());
-        return financingPledgeInfoService.convertToRSPList(entityList);
+        return fundFinancingDetailConverter.convertPledgeInfoToRSPList(entityList);
     }
 
     @Override
@@ -66,7 +65,7 @@ public class FundFinancingPledgeInfoLibHandler extends FundFinancingAbstractLibH
     }
 
     @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.FUND_FINANCING;
+    protected String businessModuleName() {
+        return "FUND_FINANCING";
     }
 }
