@@ -4,7 +4,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.opinion.RiskControlOpinionNoticeReq;
-import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
+import cn.zswltech.mithras.riskcontrol.application.RiskControlOpinionMonitorApplicationService;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.datashare.mapper.model.DataShareManager;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
@@ -35,7 +35,7 @@ public class RiskControlJob {
     @Resource
     private DataShareManagerService dataShareManagerService;
     @Resource
-    private RiskControlOpinionMonitorController riskControlOpinionMonitorController;
+    private RiskControlOpinionMonitorApplicationService riskControlOpinionMonitorApplicationService;
     @Resource
     private RiskControlOpinionMonitorService riskControlOpinionMonitorService;
     @Resource
@@ -69,7 +69,7 @@ public class RiskControlJob {
             RiskControlOpinionNoticeReq req = new RiskControlOpinionNoticeReq();
             req.setSize(shareManager.getPageSize());
             req.setStartId(shareManager.getDataTotal());
-            riskControlOpinionMonitorController.notice(req);
+            riskControlOpinionMonitorApplicationService.notice(req);
             RiskControlOpinionMonitor monitor = riskControlOpinionMonitorService.getOne(Wrappers.<RiskControlOpinionMonitor>lambdaQuery()
                     .orderByDesc(RiskControlOpinionMonitor::getId)
                     .last(StringUtil.mysqlLimitOne()));

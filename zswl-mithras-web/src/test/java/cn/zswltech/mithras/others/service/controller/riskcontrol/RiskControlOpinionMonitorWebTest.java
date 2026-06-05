@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.controller.riskcontrol;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
+import cn.zswltech.mithras.service.application.riskcontrol.RiskControlOpinionMonitorFacade;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @ActiveProfiles("dev")
 class RiskControlOpinionMonitorWebTest {
     @Resource
-    private RiskControlOpinionMonitorController controller;
+    private RiskControlOpinionMonitorFacade controller;
 
     @Test
     void notice2BizPersonIfNeeded() {

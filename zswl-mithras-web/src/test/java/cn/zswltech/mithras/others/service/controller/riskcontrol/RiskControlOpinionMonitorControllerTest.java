@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.controller.riskcontrol;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.dto.riskcontrol.opinion.RiskControlOpinionNoticeReq;
-import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
+import cn.zswltech.mithras.service.application.riskcontrol.RiskControlOpinionMonitorFacade;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
@@ -36,7 +36,7 @@ import static org.mockito.Mockito.when;
 class RiskControlOpinionMonitorControllerTest {
 
     @InjectMocks
-    private RiskControlOpinionMonitorController riskControlOpinionMonitorController;
+    private RiskControlOpinionMonitorFacade riskControlOpinionMonitorController;
     @Mock
     private PlatformApiHandleFactory platformApiHandleFactory;
     @Mock

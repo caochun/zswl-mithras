@@ -8,8 +8,7 @@ import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.riskcontrol.opinion.*;
-import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
-import cn.zswltech.mithras.service.controller.riskcontrol.RiskWarnMonitorController;
+import cn.zswltech.mithras.service.application.riskcontrol.RiskControlOpinionMonitorFacade;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
@@ -56,8 +55,6 @@ public class RiskControlWarnMonitorService extends ServiceImpl<RiskControlWarnMo
     private RiskControlWarnMonitorMapper riskControlWarnMonitorMapper;
     @Resource
     private FlowTaskApiService taskApiService;
-    @Resource
-    private RiskWarnMonitorController riskWarnMonitorController;
     @Value("${xinsight.ips.primary}")
     private String XinsightIp;
 
@@ -219,7 +216,7 @@ public class RiskControlWarnMonitorService extends ServiceImpl<RiskControlWarnMo
         //过滤预警
         List<RiskControlWarnMonitor> updateList = new ArrayList<>();
         if (ObjectUtil.isNotEmpty(list)) {
-            Set<String> focusClientUscCodes = SpringContextHolder.getBean(RiskControlOpinionMonitorController.class).focusClientUscCodes();
+            Set<String> focusClientUscCodes = SpringContextHolder.getBean(RiskControlOpinionMonitorFacade.class).focusClientUscCodes();
             list.forEach(
                     e -> {
                         //没有存量合作合同的客户的舆情，也不用处理

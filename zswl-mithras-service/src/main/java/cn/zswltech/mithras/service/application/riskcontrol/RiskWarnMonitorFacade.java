@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.riskcontrol;
+package cn.zswltech.mithras.service.application.riskcontrol;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,7 +8,7 @@ import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.riskcontrol.RiskWarnMonitorApi;
+import cn.zswltech.mithras.riskcontrol.application.RiskWarnMonitorApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.riskcontrol.opinion.*;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitor
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlWarnMonitorService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -37,8 +37,8 @@ import java.util.stream.Collectors;
  * @description 风控管理-监控预警管理
  * @date 2023-02-08
  */
-@RestController
-public class RiskWarnMonitorController implements RiskWarnMonitorApi {
+@Service
+public class RiskWarnMonitorFacade implements RiskWarnMonitorApplicationService {
 
     @Resource
     private RiskControlOpinionMonitorService riskControlOpinionMonitorService;

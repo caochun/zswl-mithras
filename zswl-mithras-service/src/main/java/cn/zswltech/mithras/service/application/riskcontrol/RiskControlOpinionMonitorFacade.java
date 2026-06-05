@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.riskcontrol;
+package cn.zswltech.mithras.service.application.riskcontrol;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,7 +8,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.riskcontrol.RiskControlOpinionMonitorApi;
+import cn.zswltech.mithras.riskcontrol.application.RiskControlOpinionMonitorApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ClientIdREQ;
@@ -56,7 +56,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.flowable.engine.RuntimeService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
 
 import javax.annotation.Resource;
@@ -82,9 +82,9 @@ import static java.util.Objects.isNull;
  * @description risk_control_opinion_monitor
  * @date 2023-03-09
  */
-@RestController
+@Service
 @Slf4j
-public class RiskControlOpinionMonitorController implements RiskControlOpinionMonitorApi {
+public class RiskControlOpinionMonitorFacade implements RiskControlOpinionMonitorApplicationService {
 
     private final static String YQJK = "舆情监控";
     @Resource

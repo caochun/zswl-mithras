@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.riskcontrol;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
+import cn.zswltech.mithras.service.application.riskcontrol.RiskControlOpinionMonitorFacade;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorMapper;
@@ -32,7 +32,7 @@ public class RiskControlVersionServiceTest extends ApplicationTest {
     @Resource
     private RiskControlWarnMonitorMapper riskControlWarnMonitorMapper;
     @Resource
-    private RiskControlOpinionMonitorController riskControlOpinionMonitorController;
+    private RiskControlOpinionMonitorFacade riskControlOpinionMonitorController;
 
     @Test
     public void testList() {

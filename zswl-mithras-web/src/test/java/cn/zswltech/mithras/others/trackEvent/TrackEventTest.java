@@ -13,7 +13,7 @@ import cn.zswltech.mithras.factory.service.DecisionService;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.factory.service.RatingReportService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.controller.riskcontrol.RiskControlOpinionMonitorController;
+import cn.zswltech.mithras.service.application.riskcontrol.RiskControlOpinionMonitorFacade;
 import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
@@ -244,7 +244,7 @@ public class TrackEventTest extends ApplicationTest  {
         req.setHandleStatus("PEND_HANDLE");
         req.setPage(1);
         req.setPage(Integer.MAX_VALUE);
-        R<PageR<RiskControlOpinionMonitorListRSP>> list = getBean(RiskControlOpinionMonitorController.class).list(req);
+        R<PageR<RiskControlOpinionMonitorListRSP>> list = getBean(RiskControlOpinionMonitorFacade.class).list(req);
 
         // 创建一个新的工作簿
         Workbook workbook = new XSSFWorkbook();
