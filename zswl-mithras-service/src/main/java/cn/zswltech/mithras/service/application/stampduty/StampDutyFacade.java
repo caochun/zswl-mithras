@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.stampDuty;
+package cn.zswltech.mithras.service.application.stampduty;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
@@ -8,20 +8,17 @@ import cn.zswltech.mithras.api.stampduty.StampDutyApi;
 import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.interestPay.*;
 import cn.zswltech.mithras.dto.stampduty.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.finance.application.stampduty.StampDutyApplicationService;
 import cn.zswltech.mithras.finance.mapper.model.stampduty.StampDutyDetail;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.stampduty.ReportStampDutyService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletOutputStream;
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,13 +26,11 @@ import java.util.stream.Collectors;
 
 
 @Slf4j
-@RestController
-public class StampDutyController implements StampDutyApi {
+@Service
+public class StampDutyFacade implements StampDutyApplicationService {
 
     @Resource
     private ReportStampDutyService reportStampDutyService;
-    @Autowired
-    private HttpServletResponse response;
     @Resource
     private OrgDOMapper orgDOMapper;
 
@@ -81,17 +76,8 @@ public class StampDutyController implements StampDutyApi {
     }
 
     @Override
-    public void export(StampDutyBatchREQ param) {
-        try {
-            response.addHeader("Access-Control-Expose-Headers", "Content-Disposition");
-            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("印花税管理台账" + GlobalConstants.OFFICE_EXCEL_SUFFIX, StandardCharsets.UTF_8.name()));
-            reportStampDutyService.exportExcel(response.getOutputStream(), param.getIds());
-        } catch (MithrasException e) {
-            throw e;
-        } catch (Exception e) {
-            log.error("导出台账管理表发生未知异常", e);
-            throw new MithrasException("导出台账管理表发生未知异常");
-        }
+    public void export(StampDutyBatchREQ param, ServletOutputStream outputStream) {
+        reportStampDutyService.exportExcel(outputStream, param.getIds());
     }
 
     @Override
