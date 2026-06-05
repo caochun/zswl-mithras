@@ -1,0 +1,2 @@
+alter table `materials_list` add column `system_generate` tinyint(4) not null default 0 comment '是否系统生成文件，0-否，1-是';
+update `materials_list` set `system_generate` = 1 where `materials_type` in ('LEASE_CONTRACT', 'CONSULTING_CONTRACT', 'GUARANTEE_CONTRACT', 'MORTGAGE_CONTRACT');
