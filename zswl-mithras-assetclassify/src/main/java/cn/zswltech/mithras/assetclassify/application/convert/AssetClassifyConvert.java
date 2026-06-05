@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.service.convert.assetclassify;
+package cn.zswltech.mithras.assetclassify.application.convert;
 
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientDetailRSP;
 import cn.zswltech.mithras.dto.assetclassify.QuarterDetailRSP;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassify;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import org.mapstruct.Mapper;
@@ -14,7 +14,7 @@ import org.mapstruct.Mapping;
  * @Date 2023/1/4 2:17 下午
  * @Version 1.0
  **/
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = AssetClassifyTypeConversionWorker.class, componentModel = "spring")
 public interface AssetClassifyConvert {
 
     @Mapping(source = "classifyAmount", target = "classificationAmounts", qualifiedByName = "jsonStringToObject")

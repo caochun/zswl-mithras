@@ -20,7 +20,7 @@ import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.service.convert.assetclassify.AssetClassifyConvert;
+import cn.zswltech.mithras.assetclassify.application.convert.AssetClassifyConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.assetclassify.domain.enums.*;
 import cn.zswltech.mithras.assetclassify.application.AssetClassifyClientRiskFactorTemplateService;
