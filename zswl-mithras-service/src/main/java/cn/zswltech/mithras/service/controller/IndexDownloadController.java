@@ -58,7 +58,7 @@ import cn.zswltech.mithras.collection.controller.CollectionFlowCenterController;
 import cn.zswltech.mithras.service.controller.contract.ContractBaseInfoController;
 import cn.zswltech.mithras.service.controller.flow.ProcessController;
 import cn.zswltech.mithras.service.controller.flow.TaskController;
-import cn.zswltech.mithras.service.controller.ftp.FtpInterestController;
+import cn.zswltech.mithras.ftp.oldftp.controller.FtpInterestController;
 import cn.zswltech.mithras.service.controller.fund.FundCreditController;
 import cn.zswltech.mithras.service.controller.fund.FundGuaranteeAgencyController;
 import cn.zswltech.mithras.service.controller.fund.FundOrganizationController;
