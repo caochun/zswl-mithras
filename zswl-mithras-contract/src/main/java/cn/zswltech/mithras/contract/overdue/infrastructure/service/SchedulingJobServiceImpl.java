@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.overdue.infrastructure.service;
+package cn.zswltech.mithras.contract.overdue.infrastructure.service;
 
 import cn.zswltech.mithras.contract.overdue.application.job.SchedulingJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
