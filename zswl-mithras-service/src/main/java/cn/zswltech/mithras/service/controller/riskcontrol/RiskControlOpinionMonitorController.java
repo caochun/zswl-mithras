@@ -46,7 +46,7 @@ import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitor
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
 import cn.zswltech.mithras.third.riskopinion.infrastructure.client.req.RiskControlOpinionPullListREQ;
 import cn.zswltech.mithras.third.riskopinion.infrastructure.client.resp.RiskControlOpinionPullListRsp;
-import cn.zswltech.mithras.service.util.IdGeneratorUtils;
+import cn.zswltech.mithras.riskcontrol.util.IdGeneratorUtils;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

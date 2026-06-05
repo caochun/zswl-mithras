@@ -10,7 +10,7 @@ import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitor;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorMapper;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlWarnMonitorService;
-import cn.zswltech.mithras.service.util.WarnCodeGeneratorUtils;
+import cn.zswltech.mithras.riskcontrol.util.WarnCodeGeneratorUtils;
 import cn.zswltech.mithras.xinsight.mapper.XinsightWarnMonitorMapper;
 import cn.zswltech.mithras.xinsight.model.XinsightWarnMonitor;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

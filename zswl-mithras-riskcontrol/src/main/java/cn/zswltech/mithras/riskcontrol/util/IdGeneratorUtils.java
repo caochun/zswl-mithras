@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.util;
+package cn.zswltech.mithras.riskcontrol.util;
 
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;

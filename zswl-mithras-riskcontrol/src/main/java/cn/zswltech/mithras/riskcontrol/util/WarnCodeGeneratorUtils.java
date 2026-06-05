@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.util;
+package cn.zswltech.mithras.riskcontrol.util;
 
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorMapper;
 import lombok.extern.slf4j.Slf4j;

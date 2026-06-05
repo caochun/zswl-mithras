@@ -13,7 +13,7 @@ import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitorService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
-import cn.zswltech.mithras.service.util.IdGeneratorUtils;
+import cn.zswltech.mithras.riskcontrol.util.IdGeneratorUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.google.common.collect.Lists;
