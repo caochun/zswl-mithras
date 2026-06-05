@@ -1,25 +1,13 @@
-package cn.zswltech.mithras.service.controller.collection;
+package cn.zswltech.mithras.collection.controller;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.collection.CollectionRecordInfoApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.collection.*;
-import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthCheckerNew;
-import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewSubAuthCheckerNew;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
-import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionWriteOffRecordService;
+import cn.zswltech.mithras.collection.service.CollectionRecordInfoApplicationService;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * @create: 2022-08-17
@@ -28,12 +16,11 @@ import java.util.List;
 public class CollectionRecordInfoController implements CollectionRecordInfoApi {
 
     @Resource
-    private CollectionRecordInfoService collectionRecordInfoService;
+    private CollectionRecordInfoApplicationService collectionRecordInfoService;
 //    @Resource
 //    private CollectionWriteOffRecordService collectionWriteOffRecordService;
 
     @Override
-    @DataAuthCheck(keyFieldName = "id", checkerClass = CommonViewMainAuthCheckerNew.class, businessModule = BusinessModuleEnum.COLLECTION)
     public R<CollectionRecordListRSP> recordList(@Valid CollectionRecordListREQ req) {
         return R.ok(collectionRecordInfoService.list(req));
     }
@@ -44,7 +31,6 @@ public class CollectionRecordInfoController implements CollectionRecordInfoApi {
 //    }
 
     @Override
-    @DataAuthCheck(keyFieldName = "id", checkerClass = CommonViewSubAuthCheckerNew.class, mapperClass = CollectionRecordInfoMapper.class, businessModule = BusinessModuleEnum.COLLECTION)
     public R<CollectionRecordDetailRSP> recordDetail(@Valid CollectionRecordDetailREQ req) {
         return R.ok(collectionRecordInfoService.detail(req));
     }
@@ -52,10 +38,7 @@ public class CollectionRecordInfoController implements CollectionRecordInfoApi {
 
 //    @Override
     public R<String> addRecord(@Valid CollectionRecordAddREQ req) {
-        CollectionRecordInfo info = new CollectionRecordInfo();
-        info.setDataSource("财务系统");
-        info.setSourceFlag(0);
-        return collectionRecordInfoService.addRecord(info);
+        return collectionRecordInfoService.addFinancialRecord();
     }
 
 //    @Override

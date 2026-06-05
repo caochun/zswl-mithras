@@ -16,6 +16,7 @@ import cn.zswltech.mithras.collection.mapper.BillManagementMapper;
 import cn.zswltech.mithras.collection.mapper.model.BillManagement;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.service.BillManagementApplicationService;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
@@ -46,7 +47,7 @@ import java.util.stream.Collectors;
 * @date 2023-06-05
 */
 @Service
-public class BillManagementService extends ServiceImpl<BillManagementMapper, BillManagement> {
+public class BillManagementService extends ServiceImpl<BillManagementMapper, BillManagement> implements BillManagementApplicationService {
 
     @Resource
     private BillManagementMapper billManagementMapper;
@@ -62,6 +63,7 @@ public class BillManagementService extends ServiceImpl<BillManagementMapper, Bil
     private PaymentBaseInfoService paymentBaseInfoService;
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void add(BillManagementAddREQ req) {
         BillManagement info = BeanUtil.copyProperties(req, BillManagement.class);
         if(YesOrNoNumberEnum.YES.getCode().equals(info.getBillBuyRateType()) && ObjectUtil.isNotEmpty(req.getContractId())) {
@@ -74,6 +76,7 @@ public class BillManagementService extends ServiceImpl<BillManagementMapper, Bil
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void modify(BillManagementModifyREQ req) {
         BillManagement originalInfo = billManagementMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {
@@ -89,6 +92,7 @@ public class BillManagementService extends ServiceImpl<BillManagementMapper, Bil
         billManagementMapper.updateById(info);
     }
 
+    @Override
     public Page<BillManagement> list(BillManagementListREQ req) {
         return billManagementMapper.selectPage(new Page<>(req.getPage(), req.getPageSize()), Wrappers.<BillManagement>lambdaQuery()
         .eq(BillManagement::getBillType, req.getBillType())
@@ -96,6 +100,7 @@ public class BillManagementService extends ServiceImpl<BillManagementMapper, Bil
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void remove(BillManagementRemoveREQ req) {
         BillManagement originalInfo = billManagementMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {

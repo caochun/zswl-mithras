@@ -24,6 +24,7 @@ import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.collection.service.bo.ReconciliationLetterBO;
+import cn.zswltech.mithras.collection.service.CollectionReconciliationLetterApplicationService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
@@ -52,7 +53,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Slf4j
-public class ReconciliationLetterService {
+public class ReconciliationLetterService implements CollectionReconciliationLetterApplicationService {
 
     @Resource
     private ClientMapper clientMapper;
@@ -71,6 +72,7 @@ public class ReconciliationLetterService {
     @Resource
     private MarginBaseInfoService marginBaseInfoService;
 
+    @Override
     public void exportExcel(CollectionReconciliationLetterREQ req, OutputStream outputStream) {
 
         //Workbook workbook = WorkbookUtil.createBook(Boolean.TRUE);
@@ -262,6 +264,7 @@ public class ReconciliationLetterService {
     /**
      * 统计各客户项目信息
      **/
+    @Override
     public Map<Long, ReconciliationLetterBO> statisticsClientsLetter(LocalDate localDateTime){
         Map<Long, Client> clientMap = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
                 .eq(Client::getClientType, ClientType.CORPORATION.name())).stream().collect(Collectors.toMap(Client::getId, e -> e));
@@ -454,4 +457,3 @@ public class ReconciliationLetterService {
     }
 
 }
-

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.collection;
+package cn.zswltech.mithras.collection.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.collection.CollectionReconciliationLetterREQ;
 import cn.zswltech.mithras.dto.collection.CollectionReconciliationLetterRSP;
 import cn.zswltech.mithras.collection.service.bo.ReconciliationLetterBO;
-import cn.zswltech.mithras.service.service.collection.ReconciliationLetterService;
+import cn.zswltech.mithras.collection.service.CollectionReconciliationLetterApplicationService;
 import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,7 +32,7 @@ import java.util.Map;
 public class CollectionReconciliationLetterController implements CollectionReconciliationLetterApi {
 
     @Resource
-    private ReconciliationLetterService reconciliationLetterService;
+    private CollectionReconciliationLetterApplicationService reconciliationLetterService;
     @Resource
     private HttpServletResponse httpServletResponse;
 

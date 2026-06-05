@@ -54,7 +54,7 @@ import cn.zswltech.mithras.service.controller.afterlease.AfterLeaseCheckClientCo
 import cn.zswltech.mithras.service.controller.afterlease.AfterLeaseCheckPlanBaseController;
 import cn.zswltech.mithras.service.controller.capital.BusinessFlowController;
 import cn.zswltech.mithras.service.controller.client.ClientController;
-import cn.zswltech.mithras.service.controller.collection.CollectionFlowCenterController;
+import cn.zswltech.mithras.collection.controller.CollectionFlowCenterController;
 import cn.zswltech.mithras.service.controller.contract.ContractBaseInfoController;
 import cn.zswltech.mithras.service.controller.flow.ProcessController;
 import cn.zswltech.mithras.service.controller.flow.TaskController;

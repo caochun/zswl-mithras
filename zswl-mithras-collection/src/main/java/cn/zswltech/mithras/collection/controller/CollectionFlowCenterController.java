@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.collection;
+package cn.zswltech.mithras.collection.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.collection.CollectionFlowCenterApi;
@@ -6,10 +6,8 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.collection.*;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.service.CollectionFlowCenterApplicationService;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionFlowCenterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,9 +29,7 @@ import java.util.List;
 public class CollectionFlowCenterController implements CollectionFlowCenterApi {
 
     @Resource
-    private CollectionFlowCenterService collectionFlowCenterService;
-    @Resource
-    private CollectionBaseInfoService collectionBaseInfoService;
+    private CollectionFlowCenterApplicationService collectionFlowCenterService;
 
     @Resource
     private HttpServletResponse httpServletResponse;
@@ -66,7 +62,7 @@ public class CollectionFlowCenterController implements CollectionFlowCenterApi {
 
     @Override
     public R<Void> collectionManualRecord(@Valid CollectionFlowCenterBusinessCollectionManualRecordREQ req) {
-        collectionFlowCenterService.collectionManualRecord(req, true);
+        collectionFlowCenterService.collectionManualRecord(req);
         return R.ok();
     }
 
@@ -115,11 +111,6 @@ public class CollectionFlowCenterController implements CollectionFlowCenterApi {
 
     @Override
     public R<CollectionFlowCenterRecycleMarginPlanRSP> recycleMarginPlan(@Valid CollectionFlowCenterRecycleMarginPlanREQ req) {
-        CollectionBaseInfo nextCollectionMessage = collectionBaseInfoService.getNextCollectionMessage(req.getCollectionId());
-        CollectionFlowCenterRecycleMarginPlanRSP planRSP = new CollectionFlowCenterRecycleMarginPlanRSP();
-        if (ObjectUtil.isNotEmpty(nextCollectionMessage)) {
-            planRSP.setPlanCollectionDate(nextCollectionMessage.getPlanCollectionDate());
-        }
-        return R.ok(planRSP);
+        return R.ok(collectionFlowCenterService.recycleMarginPlan(req));
     }
 }
