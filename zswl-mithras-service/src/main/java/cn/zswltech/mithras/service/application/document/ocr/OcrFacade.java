@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.service.application.document.ocr;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.img.ImgUtil;
@@ -6,7 +6,7 @@ import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.hutool.poi.excel.style.StyleUtil;
-import cn.zswltech.mithras.api.OcrApi;
+import cn.zswltech.mithras.document.application.file.api.OcrApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
@@ -26,7 +26,7 @@ import org.apache.pdfbox.rendering.PDFRenderer;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -42,9 +42,9 @@ import java.util.stream.Collectors;
  * @author wangchuanhao
  * @date 2022/7/5 5:34 PM
  */
-@RestController
+@Service
 @Slf4j
-public class OcrController implements OcrApi {
+public class OcrFacade implements OcrApplicationService {
 
     private static final String MATERIALS_TYPE = "OCR";
     private static final String TMP_BUSINESS_TYPE = "TMP";

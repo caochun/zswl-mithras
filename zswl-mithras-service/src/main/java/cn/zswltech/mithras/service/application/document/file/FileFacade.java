@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.service.application.document.file;
 
 import cn.hutool.core.lang.Pair;
-import cn.zswltech.mithras.api.FileApi;
+import cn.zswltech.mithras.document.application.file.api.FileApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.file.*;
 import cn.zswltech.mithras.service.auth.aop.TokenParamAuth;
 import cn.zswltech.mithras.service.service.materialsfile.FileExportService;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -20,8 +20,8 @@ import java.util.List;
  * @Date 2022/11/20 9:56 上午
  * @Version 1.0
  **/
-@RestController
-public class FileController implements FileApi {
+@Service
+public class FileFacade implements FileApplicationService {
 
     @Resource
     private FileService fileService;

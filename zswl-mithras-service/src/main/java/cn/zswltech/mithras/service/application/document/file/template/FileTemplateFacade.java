@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.file.template;
+package cn.zswltech.mithras.service.application.document.file.template;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.file.template.FileTemplateApi;
+import cn.zswltech.mithras.document.application.file.api.FileTemplateApplicationService;
 import cn.zswltech.mithras.dto.file.template.*;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.SneakyThrows;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -25,8 +25,8 @@ import static cn.zswltech.mithras.service.enums.BusinessModuleEnum.FILE_TEMPLATE
 /**
  * @author yibin
  */
-@RestController
-public class FileTemplateController implements FileTemplateApi {
+@Service
+public class FileTemplateFacade implements FileTemplateApplicationService {
     @Resource
     private FileTemplateService fileTemplateService;
 

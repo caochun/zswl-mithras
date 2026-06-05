@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.file.FileDownLoadRSP;
 import cn.zswltech.mithras.dto.file.FileUploadREQ;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.controller.FileController;
+import cn.zswltech.mithras.service.application.document.file.FileFacade;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlScoreCardFileTypeEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -39,7 +39,7 @@ public class RiskControlScoreCardFacade implements RiskControlScoreCardApplicati
     @Resource
     private RiskControlScoreCardService riskControlScoreCardService;
     @Resource
-    private FileController fileController;
+    private FileFacade fileFacade;
     @Resource
     private MaterialsListService materialsListService;
     @Resource
@@ -61,7 +61,7 @@ public class RiskControlScoreCardFacade implements RiskControlScoreCardApplicati
         .eq(MaterialsList::getBusinessType, BusinessModuleEnum.RISK_CONTROL_SCORE_CARD.name())
         .eq(MaterialsList::getBelongId, LocalDate.now().getYear()));
         //保存文件
-        fileController.upload(fileUploadREQ);
+        fileFacade.upload(fileUploadREQ);
         return R.ok();
     }
 
@@ -81,7 +81,7 @@ public class RiskControlScoreCardFacade implements RiskControlScoreCardApplicati
         fileDownLoadREQ.setFileId(one.getId());
         fileDownLoadREQ.setMainId(one.getMainId());
         fileDownLoadREQ.setModuleType(one.getBusinessType());
-        return fileController.download(fileDownLoadREQ);
+        return fileFacade.download(fileDownLoadREQ);
     }
 
    /* @Override

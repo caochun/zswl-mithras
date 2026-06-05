@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.service.application.document.migrate;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
-import cn.zswltech.mithras.api.MigrateFileApi;
+import cn.zswltech.mithras.document.application.file.api.MigrateFileApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
@@ -26,7 +26,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.transaction.support.TransactionTemplate;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -54,9 +54,9 @@ import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATIO
  * @author wangchuanhao
  * @date 2022/11/26 1:47 PM
  */
-@RestController
+@Service
 @Slf4j
-public class MigrateFileController implements MigrateFileApi {
+public class MigrateFileFacade implements MigrateFileApplicationService {
 
     /**
      * 文件根路径
