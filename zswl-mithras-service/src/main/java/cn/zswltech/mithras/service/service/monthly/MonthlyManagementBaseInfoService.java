@@ -13,7 +13,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.monthly.*;
 import cn.zswltech.mithras.dto.third.financial.ThirdFinancialWithdrawREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.controller.third.FinancialController;
+import cn.zswltech.mithras.service.application.third.FinancialFacade;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.enums.capital.BankFlowCenterTypeEnum;
@@ -983,7 +983,7 @@ public class MonthlyManagementBaseInfoService extends ServiceImpl<MonthlyManagem
                         withdrawReq.setBusinessKey(airRecord.getId().toString());
                         withdrawReq.setPlatform(FinancialDevUrlENUM.CQ2_ACCOUNT_APPLICATION.name());
                         withdrawReq.setSource(ExceptionSourceENUM.ASSET_SIDE_AIR_ACCOUNT.name());
-                        getBean(FinancialController.class).withdraw(Collections.singletonList(withdrawReq));
+                        getBean(FinancialFacade.class).withdraw(Collections.singletonList(withdrawReq));
                     } catch (Exception e) {
                         throw new MithrasException(String.format("更新数据时，反结算失败，模块：%s， 记录ID：%s", typeEnum.name(), req.getSingleRecordId()));
                     }
@@ -1004,7 +1004,7 @@ public class MonthlyManagementBaseInfoService extends ServiceImpl<MonthlyManagem
                         withdrawReq.setBusinessKey(costRecord.getId().toString());
                         withdrawReq.setPlatform(FinancialDevUrlENUM.CQ2_ACCOUNT_APPLICATION.name());
                         withdrawReq.setSource(ExceptionSourceENUM.ASSET_SIDE_COST_DK.name());
-                        getBean(FinancialController.class).withdraw(Collections.singletonList(withdrawReq));
+                        getBean(FinancialFacade.class).withdraw(Collections.singletonList(withdrawReq));
                     } catch (Exception e) {
                         throw new MithrasException(String.format("更新数据时，反结算失败，模块：%s， 记录ID：%s", typeEnum.name(), req.getSingleRecordId()));
                     }
@@ -1025,7 +1025,7 @@ public class MonthlyManagementBaseInfoService extends ServiceImpl<MonthlyManagem
                         withdrawReq.setBusinessKey(rpRecord.getId().toString());
                         withdrawReq.setPlatform(FinancialDevUrlENUM.CQ2_ACCOUNT_APPLICATION.name());
                         withdrawReq.setSource(ExceptionSourceENUM.ASSET_SIDE_PR_ACCOUNT.name());
-                        getBean(FinancialController.class).withdraw(Collections.singletonList(withdrawReq));
+                        getBean(FinancialFacade.class).withdraw(Collections.singletonList(withdrawReq));
                     } catch (Exception e) {
                         throw new MithrasException(String.format("更新数据时，反结算失败，模块：%s， 记录ID：%s", typeEnum.name(), req.getSingleRecordId()));
                     }
@@ -1046,7 +1046,7 @@ public class MonthlyManagementBaseInfoService extends ServiceImpl<MonthlyManagem
                         withdrawReq.setBusinessKey(financeStampDuty.getId().toString());
                         withdrawReq.setPlatform(FinancialDevUrlENUM.CQ2_ACCOUNT_APPLICATION.name());
                         withdrawReq.setSource(ExceptionSourceENUM.FINANCE_SIDE_COST_STAMP_DUTY.name());
-                        getBean(FinancialController.class).withdraw(Collections.singletonList(withdrawReq));
+                        getBean(FinancialFacade.class).withdraw(Collections.singletonList(withdrawReq));
                     } catch (Exception e) {
                         throw new MithrasException(String.format("更新数据时，反结算失败，模块：%s， 记录ID：%s", typeEnum.name(), req.getSingleRecordId()));
                     }
@@ -1067,7 +1067,7 @@ public class MonthlyManagementBaseInfoService extends ServiceImpl<MonthlyManagem
                         withdrawReq.setBusinessKey(projStampDuty.getId().toString());
                         withdrawReq.setPlatform(FinancialDevUrlENUM.CQ2_ACCOUNT_APPLICATION.name());
                         withdrawReq.setSource(ExceptionSourceENUM.ASSET_SIDE_COST_STAMP_DUTY.name());
-                        getBean(FinancialController.class).withdraw(Collections.singletonList(withdrawReq));
+                        getBean(FinancialFacade.class).withdraw(Collections.singletonList(withdrawReq));
                     } catch (Exception e) {
                         throw new MithrasException(String.format("更新数据时，反结算失败，模块：%s， 记录ID：%s", typeEnum.name(), req.getSingleRecordId()));
                     }

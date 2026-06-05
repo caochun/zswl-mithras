@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.controller.third;
+package cn.zswltech.mithras.service.application.third;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.third.CqApiRecordApi;
+import cn.zswltech.mithras.third.financialshare.application.api.CqApiRecordApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.third.financial.CqApiRecordREQ;
 import cn.zswltech.mithras.dto.third.financial.CqApiRecordRSP;
 import cn.zswltech.mithras.system.service.ExceptionRequestInfoService;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
@@ -17,8 +17,8 @@ import javax.validation.Valid;
  * @date 2024/7/17
  * @description
  */
-@RestController
-public class CqApiRecordController implements CqApiRecordApi {
+@Service
+public class CqApiRecordFacade implements CqApiRecordApplicationService {
     @Resource
     private ExceptionRequestInfoService exceptionRequestInfoService;
 

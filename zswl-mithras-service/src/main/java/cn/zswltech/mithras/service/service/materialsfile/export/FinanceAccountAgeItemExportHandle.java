@@ -9,7 +9,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
 import cn.zswltech.mithras.dto.finance.accountage.FinanceAccountAgeItemListREQ;
 import cn.zswltech.mithras.dto.finance.accountage.FinanceAccountAgeItemListRSP;
-import cn.zswltech.mithras.service.controller.accountage.FinanceAccountAgeItemController;
+import cn.zswltech.mithras.service.application.finance.accountage.FinanceAccountAgeItemFacade;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.finance.enums.third.FinancialAccountAgeSendStatusStatus;
 import cn.zswltech.mithras.finance.enums.third.FinancialAccountNumberENUM;
@@ -37,7 +37,7 @@ import java.util.Optional;
 public class FinanceAccountAgeItemExportHandle extends ExportHandle<FinanceAccountAgeItemCheckModel, FinanceAccountAgeItemExcelExporter> {
 
     @Resource
-    private FinanceAccountAgeItemController financeAccountAgeItemController;
+    private FinanceAccountAgeItemFacade financeAccountAgeItemFacade;
 
     @Override
     public String getBusinessType() {
@@ -55,7 +55,7 @@ public class FinanceAccountAgeItemExportHandle extends ExportHandle<FinanceAccou
         allREQ.setPage(1);
         allREQ.setIds(req.getIds());
         allREQ.setPageSize(50000);
-        R<PageR<FinanceAccountAgeItemListRSP>> sumRSPR = financeAccountAgeItemController.list(allREQ);
+        R<PageR<FinanceAccountAgeItemListRSP>> sumRSPR = financeAccountAgeItemFacade.list(allREQ);
         PageR<FinanceAccountAgeItemListRSP> data = sumRSPR.getData();
         List<FinanceAccountAgeItemListRSP> lists = data.getList();
         if (ObjectUtil.isEmpty(lists)) {

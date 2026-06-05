@@ -1,17 +1,17 @@
-package cn.zswltech.mithras.service.controller.accountage;
+package cn.zswltech.mithras.service.application.finance.accountage;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.finance.FinanceAccountAgeBaseInfoApi;
+import cn.zswltech.mithras.finance.application.accountage.api.FinanceAccountAgeBaseInfoApplicationService;
 import cn.zswltech.mithras.dto.finance.accountage.*;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceAccountAgeBaseInfo;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.finance.FinanceAccountAgeBaseInfoService;
 import cn.zswltech.mithras.service.service.finance.FinanceAccountAgeItemService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
 * @author vico
 * @date 2024-09-10
 */
-@RestController
-public class FinanceAccountAgeBaseInfoController implements FinanceAccountAgeBaseInfoApi {
+@Service
+public class FinanceAccountAgeBaseInfoFacade implements FinanceAccountAgeBaseInfoApplicationService {
 
     @Resource
     private FinanceAccountAgeBaseInfoService financeAccountAgeBaseInfoService;

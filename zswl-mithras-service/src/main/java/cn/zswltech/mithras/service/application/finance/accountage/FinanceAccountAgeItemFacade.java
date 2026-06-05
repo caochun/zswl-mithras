@@ -1,15 +1,15 @@
-package cn.zswltech.mithras.service.controller.accountage;
+package cn.zswltech.mithras.service.application.finance.accountage;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.finance.FinanceAccountAgeItemApi;
+import cn.zswltech.mithras.finance.application.accountage.api.FinanceAccountAgeItemApplicationService;
 import cn.zswltech.mithras.dto.finance.accountage.*;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceAccountAgeItem;
 import cn.zswltech.mithras.service.service.finance.FinanceAccountAgeItemService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
@@ -19,8 +19,8 @@ import java.util.List;
 * @author vico
 * @date 2024-09-10
 */
-@RestController
-public class FinanceAccountAgeItemController implements FinanceAccountAgeItemApi {
+@Service
+public class FinanceAccountAgeItemFacade implements FinanceAccountAgeItemApplicationService {
 
     @Resource
     private FinanceAccountAgeItemService financeAccountAgeItemService;
