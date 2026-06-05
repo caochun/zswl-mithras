@@ -1,0 +1,19 @@
+-- -- 收款表处理历史数据
+-- update collection_base_info set receipt_code = payment_code where  payment_code IN
+--   (
+-- select payment_apply_code from contract_receipt a where payment_apply_code is not null and  payment_apply_code !='');
+--
+-- update collection_base_info a , contract_receipt b set a.receipt_id = b.id where a.receipt_code = b.payment_apply_code;
+--
+-- update collection_base_info
+-- set receipt_code = payment_code
+-- where payment_code IN (
+--     (
+--         select payment_apply_code
+--         from contract_receipt a
+--         where payment_apply_code is not null and payment_apply_code != ''
+--         ));
+--
+-- update collection_base_info a , contract_receipt b
+-- set a.receipt_id = b.id
+-- where a.receipt_code = b.payment_apply_code;

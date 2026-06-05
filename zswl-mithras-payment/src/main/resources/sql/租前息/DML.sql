@@ -1,0 +1,8 @@
+-- -- 付款表处理历史数据
+-- update `payment_base_info` a set `receipt_id` = (select `id` from `contract_receipt` b where a.`payment_code` = b.`payment_apply_code` limit 1);
+-- update `payment_base_info` a set `receipt_code` = (select `receipt_code` from `contract_receipt` b where a.`payment_code` = b.`payment_apply_code` limit 1);
+-- update `payment_base_info` a set `receipt_id_final` = (select `origin_id` from `contract_receipt_lib` b where a.`payment_code` = b.`payment_apply_code` and b.`version_type` = 1 limit 1);
+-- update `payment_base_info_lib` a set `receipt_id` = (select `id` from `contract_receipt` b where a.`payment_code` = b.`payment_apply_code` limit 1);
+-- update `payment_base_info_lib` a set `receipt_code` = (select `receipt_code` from `contract_receipt` b where a.`payment_code` = b.`payment_apply_code` limit 1);
+-- update `payment_base_info_lib` a set `receipt_id_final` = (select `origin_id` from `contract_receipt_lib` b where a.`payment_code` = b.`payment_apply_code` and b.`version_type` = 1 limit 1);
+--
