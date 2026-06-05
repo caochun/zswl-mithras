@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.contract.rent.ContractRentActualListRSP;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentEstimateListRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
-import cn.zswltech.mithras.service.excel.model.ContractRentActualExcelModel;
+import cn.zswltech.mithras.contract.excel.model.ContractRentActualExcelModel;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;

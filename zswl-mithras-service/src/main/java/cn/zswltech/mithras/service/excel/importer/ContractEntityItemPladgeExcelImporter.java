@@ -4,7 +4,7 @@ import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.cell.CellEditor;
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelImporter;
 import cn.zswltech.mithras.service.excel.celleditor.NumberToBigDecimalCellEditor;
-import cn.zswltech.mithras.service.excel.model.ContractEntityPledgeItemExcelModel;
+import cn.zswltech.mithras.contract.excel.model.ContractEntityPledgeItemExcelModel;
 import cn.zswltech.mithras.service.others.MithrasException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

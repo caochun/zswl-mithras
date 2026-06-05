@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.contract.script;
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.service.excel.exporter.ContractExcelExporter;
 import cn.zswltech.mithras.service.excel.exporter.ContractMatcherResultExporter;
-import cn.zswltech.mithras.service.excel.model.ContractMatcherResultModel;
+import cn.zswltech.mithras.contract.excel.model.ContractMatcherResultModel;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.system.service.Id2NameService;

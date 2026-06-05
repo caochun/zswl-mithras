@@ -1,5 +1,6 @@
-package cn.zswltech.mithras.service.excel.model;
+package cn.zswltech.mithras.contract.excel.model;
 
+import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.service.excel.ColumnStyleEnum;
 import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
 import lombok.Data;

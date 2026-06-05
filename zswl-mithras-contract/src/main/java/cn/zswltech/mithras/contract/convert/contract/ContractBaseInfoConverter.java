@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListREQ;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListRSP;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoModifyREQ;
-import cn.zswltech.mithras.service.excel.model.ContractExcelModel;
+import cn.zswltech.mithras.contract.excel.model.ContractExcelModel;
 import cn.zswltech.mithras.contract.mapper.dto.ContractListSelectDTO;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;

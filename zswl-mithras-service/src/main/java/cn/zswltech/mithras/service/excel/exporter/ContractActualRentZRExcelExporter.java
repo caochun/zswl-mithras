@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.service.excel.model.ContractRentActualExcelModel;
+import cn.zswltech.mithras.contract.excel.model.ContractRentActualExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;
 

@@ -39,7 +39,7 @@ import cn.zswltech.mithras.service.excel.ExcelExporterFactory;
 import cn.zswltech.mithras.service.excel.exporter.IRRCalculateExcelExporter;
 import cn.zswltech.mithras.service.excel.importer.CashFlowExcelImporter;
 import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
-import cn.zswltech.mithras.service.excel.model.ContractRentActualExcelModel;
+import cn.zswltech.mithras.contract.excel.model.ContractRentActualExcelModel;
 import cn.zswltech.mithras.service.excel.model.IRRCalculateExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractRentActualMapper;

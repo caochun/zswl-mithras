@@ -21,7 +21,7 @@ import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.service.excel.model.ContractEntityPledgeItemExcelModel;
+import cn.zswltech.mithras.contract.excel.model.ContractEntityPledgeItemExcelModel;
 import cn.zswltech.mithras.service.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.service.gendoc.render.*;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
