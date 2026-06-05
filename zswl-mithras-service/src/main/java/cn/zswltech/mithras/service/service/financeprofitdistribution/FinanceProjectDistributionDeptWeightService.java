@@ -8,6 +8,10 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistributionDeptWeightMapper;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptWeight;
+import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionDeptWeightApplicationService;
+import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
+import cn.zswltech.mithras.service.auth.checker.financeprojectdistribution.FinanceProjectDistributionModifyChecker;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.system.service.SysUserService;
@@ -30,7 +34,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class FinanceProjectDistributionDeptWeightService extends ServiceImpl<FinanceProjectDistributionDeptWeightMapper, FinanceProjectDistributionDeptWeight> {
+public class FinanceProjectDistributionDeptWeightService extends ServiceImpl<FinanceProjectDistributionDeptWeightMapper, FinanceProjectDistributionDeptWeight> implements FinanceProjectDistributionDeptWeightApplicationService {
 
     @Resource
     private Id2NameService id2NameService;
@@ -57,6 +61,8 @@ public class FinanceProjectDistributionDeptWeightService extends ServiceImpl<Fin
 
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
+    @DataAuthCheck(keyFieldName = "projectDistributionId", paramType = DataAuthCheck.ParamType.OBJECT, businessModule = BusinessModuleEnum.FINANCE_PROJECT_DISTRIBUTION, checkerClass = FinanceProjectDistributionModifyChecker.class)
     public void saveDept(FinanceProjectDistributionDeptWeightSaveREQ req) {
         // 部门分润比-数据校验
         Pair<FinanceProjectDistribution, List<FinanceProjectDistributionDeptWeightInfo>> pair = thisService.deptSaveValid(req);
@@ -181,6 +187,7 @@ public class FinanceProjectDistributionDeptWeightService extends ServiceImpl<Fin
         return collect;
     }
 
+    @Override
     public FinanceProjectDistributionWeightRSP detail(FinanceProjectDistributionWeightREQ req) {
         boolean isHistory = StrUtil.isNotBlank(req.getVersion());
         FinanceProjectDistribution projectDistribution = financeProjectDistributionService.getById(req.getProjectDistributionId());

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.financeprojectdistribution;
+package cn.zswltech.mithras.financeprojectdistribution.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.financeprojectdistribution.FinanceProjectDistributionDeptLaunchWeightApi;
 import cn.zswltech.mithras.dto.financeprojectdistribution.*;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptLaunchWeight;
-import cn.zswltech.mithras.service.service.financeprofitdistribution.FinanceProjectDistributionDeptLaunchWeightService;
+import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionDeptLaunchWeightApplicationService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +22,7 @@ import java.util.List;
 public class FinanceProjectDistributionDeptLaunchWeightController implements FinanceProjectDistributionDeptLaunchWeightApi {
 
     @Resource
-    private FinanceProjectDistributionDeptLaunchWeightService financeProjectDistributionDeptLaunchWeightService;
+    private FinanceProjectDistributionDeptLaunchWeightApplicationService financeProjectDistributionDeptLaunchWeightService;
 
     @Override
     public R<Void> add(FinanceProjectDistributionDeptLaunchWeightAddREQ req) {

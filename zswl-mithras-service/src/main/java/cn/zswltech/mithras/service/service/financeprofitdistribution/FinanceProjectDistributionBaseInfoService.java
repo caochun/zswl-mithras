@@ -11,6 +11,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistributionBaseInfoMapper;
+import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionBaseInfoApplicationService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.system.service.SysUserService;
@@ -32,7 +33,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class FinanceProjectDistributionBaseInfoService extends ServiceImpl<FinanceProjectDistributionBaseInfoMapper, FinanceProjectDistributionBaseInfo> {
+public class FinanceProjectDistributionBaseInfoService extends ServiceImpl<FinanceProjectDistributionBaseInfoMapper, FinanceProjectDistributionBaseInfo> implements FinanceProjectDistributionBaseInfoApplicationService {
 
     @Resource
     FinanceProjectDistributionService financeProjectDistributionService;
@@ -49,6 +50,7 @@ public class FinanceProjectDistributionBaseInfoService extends ServiceImpl<Finan
         return this.getOne(query);
     }
 
+    @Override
     public FinanceProjectDistributionBaseInfoRSP detail(FinanceProjectDistributionBaseREQ req) {
         FinanceProjectDistribution projectDistribution = financeProjectDistributionService.getById(req.getProjectDistributionId());
         if (Objects.isNull(projectDistribution)) {

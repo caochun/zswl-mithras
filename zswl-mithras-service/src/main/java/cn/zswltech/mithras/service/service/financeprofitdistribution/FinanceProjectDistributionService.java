@@ -29,6 +29,7 @@ import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptLaunchWeight;
+import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionApplicationService;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptWeight;
@@ -46,6 +47,8 @@ import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
+import cn.zswltech.mithras.service.auth.checker.financeprojectdistribution.FinanceProjectDistributionModifyChecker;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -72,7 +75,7 @@ import static cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStat
  */
 @Slf4j
 @Service
-public class FinanceProjectDistributionService extends ServiceImpl<FinanceProjectDistributionMapper, FinanceProjectDistribution> {
+public class FinanceProjectDistributionService extends ServiceImpl<FinanceProjectDistributionMapper, FinanceProjectDistribution> implements FinanceProjectDistributionApplicationService {
     @Resource
     private FinanceProjectDistributionBaseInfoService financeProjectDistributionBaseInfoService;
     @Resource
@@ -138,6 +141,8 @@ public class FinanceProjectDistributionService extends ServiceImpl<FinanceProjec
      * @param projectDistributionId
      */
     @Transactional(rollbackFor = Throwable.class)
+    @Override
+    @DataAuthCheck(keyFieldName = "projectDistributionId", paramType = DataAuthCheck.ParamType.OBJECT, businessModule = BusinessModuleEnum.FINANCE_PROJECT_DISTRIBUTION, checkerClass = FinanceProjectDistributionModifyChecker.class)
     public R<String> submit(Long projectDistributionId, boolean updateFlag) {
         FinanceProjectDistribution financeProjectDistribution = this.getById(projectDistributionId);
         if (Objects.isNull(financeProjectDistribution)) {

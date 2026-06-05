@@ -5,6 +5,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.financeprojectdistribution.*;
+import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionDeptLaunchWeightApplicationService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistributionDeptLaunchWeightMapper;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
@@ -28,7 +29,7 @@ import java.util.stream.Collectors;
  * @date 2025-12-19
 */
 @Service
-public class FinanceProjectDistributionDeptLaunchWeightService extends ServiceImpl<FinanceProjectDistributionDeptLaunchWeightMapper, FinanceProjectDistributionDeptLaunchWeight> {
+public class FinanceProjectDistributionDeptLaunchWeightService extends ServiceImpl<FinanceProjectDistributionDeptLaunchWeightMapper, FinanceProjectDistributionDeptLaunchWeight> implements FinanceProjectDistributionDeptLaunchWeightApplicationService {
 
     @Resource
     private FinanceProjectDistributionDeptLaunchWeightMapper financeProjectDistributionDeptLaunchWeightMapper;
@@ -147,12 +148,14 @@ public class FinanceProjectDistributionDeptLaunchWeightService extends ServiceIm
 
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void add(FinanceProjectDistributionDeptLaunchWeightAddREQ req) {
         FinanceProjectDistributionDeptLaunchWeight info = BeanUtil.copyProperties(req, FinanceProjectDistributionDeptLaunchWeight.class);
         financeProjectDistributionDeptLaunchWeightMapper.insert(info);
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void modify(FinanceProjectDistributionDeptLaunchWeightModifyREQ req) {
         FinanceProjectDistributionDeptLaunchWeight originalInfo = financeProjectDistributionDeptLaunchWeightMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {
@@ -162,11 +165,13 @@ public class FinanceProjectDistributionDeptLaunchWeightService extends ServiceIm
         financeProjectDistributionDeptLaunchWeightMapper.updateById(info);
     }
 
+    @Override
     public Page<FinanceProjectDistributionDeptLaunchWeight> list(FinanceProjectDistributionDeptLaunchWeightListREQ req) {
         return null;
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void remove(FinanceProjectDistributionDeptLaunchWeightRemoveREQ req) {
         FinanceProjectDistributionDeptLaunchWeight originalInfo = financeProjectDistributionDeptLaunchWeightMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {
