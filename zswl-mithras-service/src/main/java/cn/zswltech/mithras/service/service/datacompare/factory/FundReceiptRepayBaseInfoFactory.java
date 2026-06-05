@@ -9,7 +9,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptr
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.fund.receiptrepay.handler.impl.FundReceiptRepayBaseInfoLibHandler;
+import cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.impl.FundReceiptRepayBaseInfoLibHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
