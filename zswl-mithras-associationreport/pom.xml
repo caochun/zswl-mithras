@@ -43,6 +43,18 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>gruul-spring-boot-starter</artifactId>
+            <version>3.5.2-mithras.RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech.flow</groupId>
+            <artifactId>core</artifactId>
+            <version>1.5.11-mithras-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <scope>provided</scope>

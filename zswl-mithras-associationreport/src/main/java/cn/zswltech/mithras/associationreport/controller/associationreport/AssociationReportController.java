@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.asscociationreport;
+package cn.zswltech.mithras.associationreport.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -19,6 +19,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
 import cn.zswltech.mithras.associationreport.excel.AssociationReportBaseModel;
 import cn.zswltech.mithras.associationreport.service.*;
+import cn.zswltech.mithras.associationreport.service.application.AssociationReportApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.associationreport.*;
 import cn.zswltech.mithras.service.annotation.Log;
@@ -62,7 +63,7 @@ public class AssociationReportController implements AssociationReportApi {
     protected static final String DICT_UNKNOWN_CODE = "DICT_UNKNOWN_CODE";
 
     @Resource
-    private AssociationReportService associationReportService;
+    private AssociationReportApplicationService associationReportService;
     @Resource
     private AssociationDictionaryService associationDictionaryService;
     @Resource
@@ -1110,7 +1111,7 @@ public class AssociationReportController implements AssociationReportApi {
                 }
             });
             //验证报表提交的数据不能为空
-            List<String> errorList = new com.aspose.slides.Collections.ArrayList();
+            List<String> errorList = new ArrayList<>();
             for (AssociationReport report : associationReportList) {
                 List<AssociationReportBaseModel> details = associationReportService.getReportList(report.getReportCategoryCode(), report.getReportInstanceId());
                 if (ObjectUtil.isEmpty(details)) {
