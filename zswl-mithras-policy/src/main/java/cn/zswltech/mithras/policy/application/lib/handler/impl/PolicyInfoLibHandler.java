@@ -4,20 +4,16 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.TypeReference;
 import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
-import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
-import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishBaseInfoConverter;
-import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishInfoModule;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.policy.infrastructure.persistence.model.PolicyInfoLib;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.policy.application.lib.handler.PolicyAbstractHandler;
 import cn.zswltech.mithras.policy.application.lib.handler.PolicyInfoModule;
-import cn.zswltech.mithras.projectprocess.service.lib.projestablish.handler.ProjEstablishLibAbstractHandler;
-import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
+import cn.zswltech.mithras.service.service.UserNameResolver;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -39,7 +35,9 @@ public class PolicyInfoLibHandler
     @Resource
     private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientMapper clientMapper;
+    @Resource
+    private UserNameResolver userNameResolver;
 
     @Override
     public Set<String> compareIgnoreFieldNames() {
@@ -84,8 +82,11 @@ public class PolicyInfoLibHandler
             sysUserIds.addAll(rsp.getProjCosponsorUserIds());
         }
         clientIds.add(rsp.getClientId());
-        Map<Long, String> clientMap = id2NameService.clientId2Name(clientIds);
-        Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(sysUserIds);
+        Map<Long, String> clientMap = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
+                        .in(Client::getId, clientIds))
+                .stream()
+                .collect(Collectors.toMap(Client::getId, Client::getClientName));
+        Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(sysUserIds);
         rsp.setProjSponsorUserName(sysUserMap.get(rsp.getProjSponsorUserId()));
         if (CollUtil.isNotEmpty(rsp.getProjCosponsorUserIds())) {
             rsp.setProjCosponsorUserNames(rsp.getProjCosponsorUserIds().stream().map(sysUserMap::get).collect(Collectors.toList()));
