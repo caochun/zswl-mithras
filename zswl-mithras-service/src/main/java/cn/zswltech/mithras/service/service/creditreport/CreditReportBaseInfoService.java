@@ -25,7 +25,7 @@ import cn.zswltech.mithras.dto.creditreport.*;
 import cn.zswltech.mithras.creditreport.constant.CreditReportConstants;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.convert.creditsearch.CreditSearchConvert;
+import cn.zswltech.mithras.creditreport.convert.CreditSearchConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;

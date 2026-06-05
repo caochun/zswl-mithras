@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.creditsearch;
+package cn.zswltech.mithras.creditreport.convert;
 
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
 import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
