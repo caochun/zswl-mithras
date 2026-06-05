@@ -19,7 +19,7 @@ import cn.zswltech.mithras.customer.externaldata.zhongdeng.infrastructure.model.
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListREQ;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.controller.client.CorpSubjectItemController;
+import cn.zswltech.mithras.service.application.client.CorpSubjectItemFacade;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.domain.enums.SubjectItemDisplayDimension;
 import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
@@ -80,7 +80,7 @@ public class ProjReviewJDReportZLRender extends AbstractProjReviewReportRender<P
     @Resource
     private ProjReviewCashFlowPlanService projReviewCashFlowPlanService;
     @Resource
-    private CorpSubjectItemController corpSubjectItemController;
+    private CorpSubjectItemFacade corpSubjectItemController;
 
     /**
      * 渲染尽调报告

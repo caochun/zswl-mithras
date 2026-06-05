@@ -35,7 +35,7 @@ import cn.zswltech.mithras.dto.groupcreditreview.GroupCreditReviewListRSP;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoListRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.controller.client.ClientController;
+import cn.zswltech.mithras.service.application.client.ClientFacade;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
@@ -272,7 +272,7 @@ public class AppService extends ServiceImpl<VisitRecordMapper, VisitRecord> {
             addREQ.setUscCode(companyInfo.getCreditCode());
             addREQ.setDomesticOrAbroad(DomesticOrAbroad.DOMESTIC.name());
             // FIXME 不合理，为了复用，service调用了controller，应该调整代码逻辑下沉
-            R<CorpCommerceInfoAddREQ> r = SpringUtil.getBean(ClientController.class).addCorporation(addREQ);
+            R<CorpCommerceInfoAddREQ> r = SpringUtil.getBean(ClientFacade.class).addCorporation(addREQ);
             if (!r.isSuccess()) {
                 log.error("APP端创建客户失败[{}]", r.getMsg());
                 throw new MithrasException("创建客户失败");

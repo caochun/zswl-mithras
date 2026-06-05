@@ -41,8 +41,8 @@ import cn.zswltech.mithras.service.auth.checker.payment.PaymentModifyAuthChecker
 import cn.zswltech.mithras.service.constant.FinancialConstants;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.controller.client.CorpAddressInfoController;
-import cn.zswltech.mithras.service.controller.client.CorpCommerceInfoController;
+import cn.zswltech.mithras.service.application.client.CorpAddressInfoFacade;
+import cn.zswltech.mithras.service.application.client.CorpCommerceInfoFacade;
 import cn.zswltech.mithras.service.convert.FileConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
@@ -167,9 +167,9 @@ public class PaymentFacade implements PaymentApplicationService {
     @Resource
     private ContractPriceService priceService;
     @Resource
-    private CorpCommerceInfoController corpCommerceInfoController;
+    private CorpCommerceInfoFacade corpCommerceInfoController;
     @Resource
-    private CorpAddressInfoController corpAddressInfoController;
+    private CorpAddressInfoFacade corpAddressInfoController;
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
     @Resource

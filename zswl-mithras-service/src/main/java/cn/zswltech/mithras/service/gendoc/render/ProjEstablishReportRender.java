@@ -34,10 +34,10 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListR
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.controller.client.CorpSubjectItemController;
-import cn.zswltech.mithras.service.controller.client.EnvironmentPenaltyController;
-import cn.zswltech.mithras.service.controller.client.TycController;
-import cn.zswltech.mithras.service.controller.client.ZhongdengInfoController;
+import cn.zswltech.mithras.service.application.client.CorpSubjectItemFacade;
+import cn.zswltech.mithras.service.application.client.EnvironmentPenaltyFacade;
+import cn.zswltech.mithras.service.application.client.TycFacade;
+import cn.zswltech.mithras.service.application.client.ZhongdengInfoFacade;
 import cn.zswltech.mithras.service.application.projestablish.ProjEstablishBaseInfoFacade;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
@@ -186,11 +186,11 @@ public class ProjEstablishReportRender extends AbstractBasicRender<Long> {
     @Resource
     private ProjEstablishLeasePriceService leasePriceService;
     @Resource
-    private TycController tycController;
+    private TycFacade tycController;
     @Resource
-    private ZhongdengInfoController zhongdengInfoController;
+    private ZhongdengInfoFacade zhongdengInfoController;
     @Resource
-    private EnvironmentPenaltyController environmentPenaltyController;
+    private EnvironmentPenaltyFacade environmentPenaltyController;
     @Resource
     private ClientVersionServiceImpl clientVersionService;
     @Resource
@@ -218,7 +218,7 @@ public class ProjEstablishReportRender extends AbstractBasicRender<Long> {
     @Resource
     private NormalBaseInfoLibHandlerImpl normalBaseInfoLibHandler;
     @Resource
-    private CorpSubjectItemController corpSubjectItemController;
+    private CorpSubjectItemFacade corpSubjectItemController;
     @Resource
     private DictService dictService;
     @Resource

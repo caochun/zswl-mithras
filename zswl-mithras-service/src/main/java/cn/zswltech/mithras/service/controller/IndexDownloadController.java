@@ -53,7 +53,7 @@ import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.afterlease.interfaces.AfterLeaseCheckClientController;
 import cn.zswltech.mithras.afterlease.interfaces.AfterLeaseCheckPlanBaseController;
 import cn.zswltech.mithras.service.application.capital.BusinessFlowFacade;
-import cn.zswltech.mithras.service.controller.client.ClientController;
+import cn.zswltech.mithras.service.application.client.ClientFacade;
 import cn.zswltech.mithras.collection.controller.CollectionFlowCenterController;
 import cn.zswltech.mithras.service.application.contract.ContractBaseInfoFacade;
 import cn.zswltech.mithras.service.controller.flow.ProcessController;
@@ -151,7 +151,7 @@ import static java.time.format.DateTimeFormatter.ofPattern;
 public class IndexDownloadController implements IndexDownloadApi {
 
     private final static Map<BusinessModuleEnum, Triple<Class<?>, String, List<String>>/*ControllerClass,Method, ignoredFields*/> MAP = MapUtil.of(
-            Pair.of(BusinessModuleEnum.CLIENT, Triple.of(ClientController.class, "newList", of("id"))),
+            Pair.of(BusinessModuleEnum.CLIENT, Triple.of(ClientFacade.class, "newList", of("id"))),
             Pair.of(BusinessModuleEnum.PROJ_ESTABLISH, Triple.of(ProjEstablishBaseInfoFacade.class, "list", of(""))),
             Pair.of(BusinessModuleEnum.PROJ_REVIEW, Triple.of(ProjReviewBaseInfoFacade.class, "list", of())),
             Pair.of(BusinessModuleEnum.PROJ_PRICING, Triple.of(ProjPricingBaseInfoFacade.class, "list", of())),

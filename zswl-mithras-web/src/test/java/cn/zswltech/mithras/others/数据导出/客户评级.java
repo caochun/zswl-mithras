@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.rating.ratingclient.*;
 import cn.zswltech.mithras.factory.model.RatingClientAreaIndicatorConfig;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.controller.client.CorpCommerceInfoController;
+import cn.zswltech.mithras.service.application.client.CorpCommerceInfoFacade;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
@@ -47,7 +47,7 @@ public class 客户评级 extends ApplicationTest {
     @Resource
     private ClientService clientService;
     @Resource
-    private CorpCommerceInfoController corpCommerceInfoController;
+    private CorpCommerceInfoFacade corpCommerceInfoController;
     @Resource
     private CorpCommerceInfoService commerceInfoService;
     @Resource

@@ -29,7 +29,7 @@ import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListREQ;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
 import cn.zswltech.mithras.dto.dashboard.*;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
-import cn.zswltech.mithras.service.controller.client.CorpSubjectItemController;
+import cn.zswltech.mithras.service.application.client.CorpSubjectItemFacade;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.customer.domain.enums.SubjectItemDisplayDimension;
 import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
@@ -661,7 +661,7 @@ public class ClientUnifiedViewService {
         corpSubjectItemListREQ.setSubjectType(SubjectItemType.CAPITAL_BALANCE.name());
         corpSubjectItemListREQ.setLatest(Boolean.TRUE);
         corpSubjectItemListREQ.setDisplayDimensions(ListUtil.toList(SubjectItemDisplayDimension.BASE.name(), SubjectItemDisplayDimension.PERCENT.name(), SubjectItemDisplayDimension.OVER_YEAR.name()));
-        R<List<CorpSubjectItemListRSP>> corpSubjectRsp = SpringContextHolder.getBean(CorpSubjectItemController.class).list(corpSubjectItemListREQ);
+        R<List<CorpSubjectItemListRSP>> corpSubjectRsp = SpringContextHolder.getBean(CorpSubjectItemFacade.class).list(corpSubjectItemListREQ);
         if (ObjectUtil.isNotEmpty(corpSubjectRsp) && ObjectUtil.isNotEmpty(corpSubjectRsp.getData())) {
             rsp.setDataYear(corpSubjectRsp.getData().get(0).getYear());
             rsp.setReportPeriod(corpSubjectRsp.getData().get(0).getQuarter());
