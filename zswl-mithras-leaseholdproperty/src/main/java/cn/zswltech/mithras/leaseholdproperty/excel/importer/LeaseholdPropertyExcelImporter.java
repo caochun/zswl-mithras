@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.excel.importer;
+package cn.zswltech.mithras.leaseholdproperty.excel.importer;
 
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.cell.CellEditor;
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelImporter;
-import cn.zswltech.mithras.service.excel.model.LeaseholdPropertyExcelModel;
+import cn.zswltech.mithras.leaseholdproperty.excel.model.LeaseholdPropertyExcelModel;
 import org.springframework.stereotype.Component;
 
 /**

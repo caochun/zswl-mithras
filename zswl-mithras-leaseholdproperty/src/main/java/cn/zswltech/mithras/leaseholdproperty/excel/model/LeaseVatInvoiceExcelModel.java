@@ -1,5 +1,6 @@
-package cn.zswltech.mithras.service.excel.model;
+package cn.zswltech.mithras.leaseholdproperty.excel.model;
 
+import cn.zswltech.mithras.service.excel.model.ExcelModel;
 import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
 import lombok.Data;
 import lombok.experimental.Accessors;
