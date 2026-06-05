@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardProjectPayListREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardProjectPayListRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardProjectPayController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardProjectPayController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardProjectPayExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardProjectPayModel;

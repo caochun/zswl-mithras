@@ -8,7 +8,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.dashboard.DashboardApprovalListREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardApprovalListRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardOperationContractController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardOperationContractController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.domain.enums.BusinessGroupEnum;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ContractBusinessModelEnum;

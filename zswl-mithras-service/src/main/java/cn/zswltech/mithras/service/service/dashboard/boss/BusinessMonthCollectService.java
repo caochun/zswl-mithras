@@ -48,7 +48,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class BusinessMonthCollectService {
+public class BusinessMonthCollectService implements cn.zswltech.mithras.dashboard.application.boss.BusinessMonthCollectApplicationService {
 
     @Resource
     private SysUserService sysUserService;

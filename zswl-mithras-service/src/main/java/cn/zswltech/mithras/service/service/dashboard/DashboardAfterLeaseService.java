@@ -41,7 +41,7 @@ import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
 
 @Slf4j
 @Service
-public class DashboardAfterLeaseService {
+public class DashboardAfterLeaseService implements cn.zswltech.mithras.dashboard.application.DashboardAfterLeaseApplicationService {
 
     @Resource
     private NewAfterLeaseCheckPlanBaseMapper afterLeaseCheckPlanBaseMapper;

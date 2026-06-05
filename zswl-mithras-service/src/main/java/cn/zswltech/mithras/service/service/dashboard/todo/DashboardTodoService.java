@@ -61,7 +61,7 @@ import static cn.hutool.json.JSONUtil.toList;
 
 @Slf4j
 @Service
-public class DashboardTodoService {
+public class DashboardTodoService implements cn.zswltech.mithras.dashboard.application.todo.DashboardTodoApplicationService {
 
     @Resource
     private FlowTaskApiService taskApiService;

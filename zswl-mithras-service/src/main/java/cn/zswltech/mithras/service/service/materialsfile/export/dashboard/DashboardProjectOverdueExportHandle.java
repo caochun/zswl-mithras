@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardProjectInfoOverdueREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardProjectInfoOverdueRSP;
 import cn.zswltech.mithras.dto.dashboard.OverDueSumRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardProjectInfoController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardProjectInfoController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardProjectOverdueExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardProjectOverdueModel;

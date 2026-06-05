@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
  * @description
  */
 @Service
-public class DashboardProjectStageService extends DashboardProjectService {
+public class DashboardProjectStageService extends DashboardProjectService implements cn.zswltech.mithras.dashboard.application.DashboardProjectStageApplicationService {
     @Resource
     private DashboardProjectStageMapper dashboardProjectStageMapper;
     @Resource

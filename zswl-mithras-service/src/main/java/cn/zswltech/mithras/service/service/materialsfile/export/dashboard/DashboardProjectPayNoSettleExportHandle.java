@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardProjectPayNoSettleREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardProjectPayNoSettleRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardProjectInfoController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardProjectInfoController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardProjectPayNoSettleExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardProjectPayNoSettleModel;

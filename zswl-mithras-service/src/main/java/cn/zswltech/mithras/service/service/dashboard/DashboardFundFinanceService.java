@@ -72,7 +72,7 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  */
 @Slf4j
 @Service
-public class DashboardFundFinanceService implements DashboardFundFinanceDataProvider {
+public class DashboardFundFinanceService implements DashboardFundFinanceDataProvider, cn.zswltech.mithras.dashboard.application.DashboardFundFinanceApplicationService {
     @Resource
     private DashboardFundFinanceMapper dashboardFundFinanceMapper;
     @Resource

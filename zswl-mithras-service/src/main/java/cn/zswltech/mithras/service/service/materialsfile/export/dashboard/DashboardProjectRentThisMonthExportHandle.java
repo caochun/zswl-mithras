@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardProjectInfoRentThisMonthREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardProjectInfoRentThisMonthRSP;
 import cn.zswltech.mithras.dto.dashboard.RentThisMonthSumRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardProjectInfoController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardProjectInfoController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardProjectRentThisMonthExcelExporter;

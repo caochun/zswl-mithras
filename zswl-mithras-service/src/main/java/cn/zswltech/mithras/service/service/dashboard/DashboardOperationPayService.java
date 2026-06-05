@@ -60,7 +60,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class DashboardOperationPayService {
+public class DashboardOperationPayService implements cn.zswltech.mithras.dashboard.application.DashboardOperationPayApplicationService {
 
     @Resource
     private DashboardOperationPayMapper dashboardOperationPayMapper;

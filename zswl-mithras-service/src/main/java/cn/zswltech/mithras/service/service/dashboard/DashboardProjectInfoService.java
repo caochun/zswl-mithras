@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
  * @description
  */
 @Service
-public class DashboardProjectInfoService extends DashboardProjectService {
+public class DashboardProjectInfoService extends DashboardProjectService implements cn.zswltech.mithras.dashboard.application.DashboardProjectInfoApplicationService {
     @Resource
     private DashboardProjectInfoMapper dashboardProjectInfoMapper;
 

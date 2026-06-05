@@ -58,7 +58,7 @@ import java.util.stream.Collectors;
  **/
 @Service
 @Slf4j
-public class DashboardOperationConversionService {
+public class DashboardOperationConversionService implements cn.zswltech.mithras.dashboard.application.DashboardOperationConversionApplicationService {
 
     @Resource
     private PaymentActualDetailMapper paymentActualDetailMapper;

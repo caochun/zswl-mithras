@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceCreditInfoREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceCreditInfoRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardFundFinanceController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardFundFinanceController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardFundFinanceCreditInfoExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardFundFinanceCreditInfoModel;

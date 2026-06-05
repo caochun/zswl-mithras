@@ -74,7 +74,7 @@ import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
  **/
 @Service
 @Slf4j
-public class DashboardClientOverviewService {
+public class DashboardClientOverviewService implements cn.zswltech.mithras.dashboard.application.DashboardClientOverviewApplicationService {
 
     @Resource
     private ClientMapper clientMapper;

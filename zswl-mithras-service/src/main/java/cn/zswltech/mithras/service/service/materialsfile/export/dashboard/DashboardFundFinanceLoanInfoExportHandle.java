@@ -9,7 +9,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardFundFinanceController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardFundFinanceController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardFundFinanceLoanInfoExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardFundFinanceLoanInfoModel;

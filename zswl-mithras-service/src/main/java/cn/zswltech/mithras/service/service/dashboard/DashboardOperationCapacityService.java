@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class DashboardOperationCapacityService {
+public class DashboardOperationCapacityService implements cn.zswltech.mithras.dashboard.application.DashboardOperationCapacityApplicationService {
 
     @Resource
     private DashboardOperationPayMapper dashboardOperationPayMapper;

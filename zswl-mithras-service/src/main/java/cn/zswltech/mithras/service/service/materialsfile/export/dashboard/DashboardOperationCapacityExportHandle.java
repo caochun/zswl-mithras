@@ -11,8 +11,8 @@ import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationCapacityLis
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationPayListREQ;
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationPayListRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardOperationCapacityController;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardOperationPayController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardOperationCapacityController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardOperationPayController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardOperationCapacityExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardOperationPayExcelExporter;

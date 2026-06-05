@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class CurrentYearBusinessPayReceiptService {
+public class CurrentYearBusinessPayReceiptService implements cn.zswltech.mithras.dashboard.application.boss.CurrentYearBusinessPayReceiptApplicationService {
 
     @Resource
     private SysUserService sysUserService;

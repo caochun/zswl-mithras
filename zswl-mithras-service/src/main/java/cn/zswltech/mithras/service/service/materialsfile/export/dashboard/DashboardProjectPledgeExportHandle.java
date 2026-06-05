@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardProjectPledgeREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardProjectPledgeRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardProjectInfoController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardProjectInfoController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.domain.enums.DashboardPledgeTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.DirectFinancingType;

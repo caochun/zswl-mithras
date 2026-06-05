@@ -9,7 +9,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientOverviewOverdueREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientOverviewOverdueRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardClientOverviewController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardClientOverviewController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardClientOverviewOverdueExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardClientOverviewOverdueExcelModel;

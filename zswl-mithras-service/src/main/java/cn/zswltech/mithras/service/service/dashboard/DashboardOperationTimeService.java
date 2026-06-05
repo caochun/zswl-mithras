@@ -62,7 +62,7 @@ import java.util.stream.Collectors;
  **/
 @Service
 @Slf4j
-public class DashboardOperationTimeService {
+public class DashboardOperationTimeService implements cn.zswltech.mithras.dashboard.application.DashboardOperationTimeApplicationService {
 
     @Resource
     private FlowTaskApiService taskApiService;

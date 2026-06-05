@@ -69,7 +69,7 @@ import java.util.stream.Stream;
  **/
 @Service
 @Slf4j
-public class GuanYuanOperationService extends GuanYuanBasicService {
+public class GuanYuanOperationService extends GuanYuanBasicService implements cn.zswltech.mithras.dashboard.application.DashboardOperationContractApplicationService {
 
     @Resource
     private FlowTaskApiService taskApiService;

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardClientOverviewAllREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientOverviewAllRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardClientOverviewController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardClientOverviewController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardClientOverviewAllExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardClientOverviewAllExcelModel;

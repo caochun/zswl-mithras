@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceRepayREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceRepayRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.dashboard.DashboardFundFinanceController;
+import cn.zswltech.mithras.dashboard.interfaces.DashboardFundFinanceController;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.dashboard.excel.exporter.DashboardFundFinanceRepayExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardFundFinanceRepayModel;

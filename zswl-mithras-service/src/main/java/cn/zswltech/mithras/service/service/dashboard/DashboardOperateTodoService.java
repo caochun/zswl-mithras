@@ -44,7 +44,7 @@ import java.util.stream.Stream;
 
 @Slf4j
 @Service
-public class DashboardOperateTodoService {
+public class DashboardOperateTodoService implements cn.zswltech.mithras.dashboard.application.DashboardOperateTodoApplicationService {
     public static final String YYJB = "经办";
     public static final String YYFH = "复核";
     public static final String YYFZR = "运营部负责人";
