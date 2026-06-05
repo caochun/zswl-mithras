@@ -1,0 +1,27 @@
+-- 资料清单 版本表
+CREATE TABLE `materials_list_lib` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+    `belong_id` bigint(20) DEFAULT NULL COMMENT '客户id',
+    `materials_type` varchar(50) DEFAULT NULL COMMENT '资料类型',
+    `materials_sub_type` varchar(50) DEFAULT NULL COMMENT '资料子类型',
+    `business_type` varchar(50) DEFAULT NULL COMMENT '业务类型',
+    `oss_filename` varchar(100) DEFAULT NULL COMMENT 'oss文件名',
+    `suffix` varchar(100) DEFAULT NULL COMMENT '文件后缀',
+    `filename` varchar(500) DEFAULT NULL COMMENT '附件名',
+    `file_path` varchar(200) DEFAULT NULL COMMENT '文件url',
+    `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+    `create_by` bigint(20) DEFAULT NULL,
+    `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `update_by` bigint(20) DEFAULT NULL,
+    `system_generate` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否系统生成文件，0-否，1-是',
+    `version` varchar(40) NOT NULL COMMENT '版本号',
+    `origin_id` bigint(20) NOT NULL COMMENT '临时数据表id 需要用来比对数据 或者 流程拒绝时全量回写',
+    `data_create_time` datetime DEFAULT NULL,
+    `data_create_by` bigint(20) DEFAULT NULL,
+    `data_update_time` datetime DEFAULT NULL,
+    `data_update_by` bigint(20) DEFAULT NULL,
+    `version_type` tinyint(4) DEFAULT '1' COMMENT '版本标志，0无效，1有效...业务自扩展',
+    PRIMARY KEY (`id`),
+    KEY `materials_list_belong_id_IDX` (`belong_id`,`business_type`,`materials_type`,`materials_sub_type`) USING BTREE,
+    KEY `idx_origin_id` (origin_id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='资料清单版本表';
