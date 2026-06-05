@@ -7,6 +7,8 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
+import cn.zswltech.mithras.associationreport.AssociationReportAmountUtils;
+import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
 import cn.zswltech.mithras.associationreport.service.AssociationBalanceSheetPartialService;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
@@ -16,8 +18,6 @@ import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationBalanceSheetPartial;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.util.DateUtil;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -41,7 +41,7 @@ public class AssociationBalanceSheetPartialData extends AbstractDataStore<Associ
 
     @Override
     public boolean storeFromSystemJobCheck(int year, int period) {
-        LocalDate dataDate  = DateUtil.ensureQuarterLastDay(year, period);
+        LocalDate dataDate  = AssociationReportDateUtils.ensureQuarterLastDay(year, period);
         Map<String, Long> assetMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.CAPITAL_BALANCE.display, dataDate.getYear(), dataDate.getMonthValue());
         boolean condition = CollectionUtil.isNotEmpty(assetMap);
         log.info("金融局报送【资产负债表】自动取值-前置数据校验结果:资产负债表 = {}", condition);
@@ -99,7 +99,7 @@ public class AssociationBalanceSheetPartialData extends AbstractDataStore<Associ
                 if (StrUtil.isBlank(factorName)) {
                     continue;
                 }
-                ReflectUtil.setFieldValue(currentReportValue, field, Optional.ofNullable(assetMap.get(factorName)).map(Util::millimeterLong2YuanBigDecimal).orElse(BigDecimal.ZERO));
+                ReflectUtil.setFieldValue(currentReportValue, field, Optional.ofNullable(assetMap.get(factorName)).map(AssociationReportAmountUtils::millimeterLong2YuanBigDecimal).orElse(BigDecimal.ZERO));
             } catch (Exception e) {
                 log.error("金融局报送【资产负债表】自动取值发生异常[fieldName:{}]", field.getName(), e);
             }
