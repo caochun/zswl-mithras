@@ -62,8 +62,8 @@ import cn.zswltech.mithras.ftp.oldftp.controller.FtpInterestController;
 import cn.zswltech.mithras.service.application.fund.FundCreditFacade;
 import cn.zswltech.mithras.service.application.fund.FundGuaranteeAgencyFacade;
 import cn.zswltech.mithras.service.application.fund.FundOrganizationFacade;
-import cn.zswltech.mithras.service.controller.fund.financing.FundFinancingController;
-import cn.zswltech.mithras.service.controller.fund.receiptrepay.FundReceiptRepayBaseInfoController;
+import cn.zswltech.mithras.service.application.fund.financing.FundFinancingFacade;
+import cn.zswltech.mithras.service.application.fund.receiptrepay.FundReceiptRepayBaseInfoFacade;
 import cn.zswltech.mithras.liquiditymanage.controller.FundLiquidityBaseController;
 import cn.zswltech.mithras.liquiditymanage.controller.FundLiquidityIndexController;
 import cn.zswltech.mithras.liquiditymanage.controller.FundTransferController;
@@ -160,7 +160,7 @@ public class IndexDownloadController implements IndexDownloadApi {
             Pair.of(FUND_CREDIT, Triple.of(FundCreditFacade.class, "list", of())),
             Pair.of(FUND_CREDIT_LIMIT, Triple.of(FundCreditFacade.class, "limitDetail", of())),
             Pair.of(FUND_GUARANTEE_AGENCY_LIMIT, Triple.of(FundGuaranteeAgencyFacade.class, "limitDetail", of())),
-            Pair.of(FUND_FINANCING, Triple.of(FundFinancingController.class, "pageList", of())),
+            Pair.of(FUND_FINANCING, Triple.of(FundFinancingFacade.class, "pageList", of())),
             Pair.of(FUND_DIRECT_FINANCING, Triple.of(FundDirectFinancingBaseInfoController.class, "list", of())),
             Pair.of(BUSINESS_FLOW_PROJ_PAY, Triple.of(CollectionFlowCenterController.class, "paymentList", of())),
             Pair.of(BUSINESS_FLOW_PROJ_COLLECT, Triple.of(CollectionFlowCenterController.class, "collectionList", of())),
@@ -173,7 +173,7 @@ public class IndexDownloadController implements IndexDownloadApi {
             Pair.of(LIQUIDITY_RENT_INCOME, Triple.of(FundLiquidityIndexController.class, "manageRentIncome", of())),
             Pair.of(LIQUIDITY_REPAY, Triple.of(FundLiquidityIndexController.class, "manageRepay", of())),
             Pair.of(FUND_TRANSFER, Triple.of(FundTransferController.class, "list", of())),
-            Pair.of(BusinessModuleEnum.FUND_RECEIPT_REPAY, Triple.of(FundReceiptRepayBaseInfoController.class, "list", of())),
+            Pair.of(BusinessModuleEnum.FUND_RECEIPT_REPAY, Triple.of(FundReceiptRepayBaseInfoFacade.class, "list", of())),
             Pair.of(BusinessModuleEnum.MY_PROCESS_RECEIVED_AUDITED, Triple.of(TaskController.class, "myReceiveDoneList", of())),
             Pair.of(BusinessModuleEnum.MY_PROCESS_PROCESS_QUERY, Triple.of(ProcessController.class, "list", of())),
             Pair.of(BusinessModuleEnum.AFTER_LEASE_CHECK_PLAN, Triple.of(AfterLeaseCheckPlanBaseController.class, "afterLeaseAssetStrategys", of())),
