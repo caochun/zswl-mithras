@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.dashboard.DashboardOperationTimeApi;
 import cn.zswltech.mithras.dto.dashboard.operation.*;
 import cn.zswltech.mithras.service.service.dashboard.DashboardOperationConversionService;
 import cn.zswltech.mithras.service.service.dashboard.DashboardOperationTimeService;
-import cn.zswltech.mithras.service.util.DashboardHelpUtil;
+import cn.zswltech.mithras.dashboard.application.util.DashboardHelpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

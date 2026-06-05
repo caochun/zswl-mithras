@@ -37,7 +37,7 @@ import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
-import cn.zswltech.mithras.service.util.DashboardOperationUtil;
+import cn.zswltech.mithras.dashboard.application.util.DashboardOperationUtil;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

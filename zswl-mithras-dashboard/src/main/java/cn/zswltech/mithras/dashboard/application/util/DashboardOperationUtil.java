@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.util;
+package cn.zswltech.mithras.dashboard.application.util;
 
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationBaseREQ;
 import cn.zswltech.mithras.dashboard.domain.enums.DashboardAdjustPositionEnum;

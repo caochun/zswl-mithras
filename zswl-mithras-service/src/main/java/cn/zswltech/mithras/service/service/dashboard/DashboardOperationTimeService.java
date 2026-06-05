@@ -33,7 +33,7 @@ import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardCorpCommerceInfoLibDto;
 import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
-import cn.zswltech.mithras.service.util.DashboardOperationUtil;
+import cn.zswltech.mithras.dashboard.application.util.DashboardOperationUtil;
 import cn.zswltech.mithras.service.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

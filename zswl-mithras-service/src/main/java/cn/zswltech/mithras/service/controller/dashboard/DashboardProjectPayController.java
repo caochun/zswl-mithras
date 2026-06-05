@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.dashboard.DashboardProjectPayApi;
 import cn.zswltech.mithras.dto.dashboard.*;
 import cn.zswltech.mithras.service.service.dashboard.DashboardProjectPayInfoService;
-import cn.zswltech.mithras.service.util.DashboardHelpUtil;
+import cn.zswltech.mithras.dashboard.application.util.DashboardHelpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.util.DashboardHelpUtil.RECORDS;
-import static cn.zswltech.mithras.service.util.DashboardHelpUtil.SUM_DATE;
+import static cn.zswltech.mithras.dashboard.application.util.DashboardHelpUtil.RECORDS;
+import static cn.zswltech.mithras.dashboard.application.util.DashboardHelpUtil.SUM_DATE;
 
 
 /**

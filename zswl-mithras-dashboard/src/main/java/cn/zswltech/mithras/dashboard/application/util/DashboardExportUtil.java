@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.util;
+package cn.zswltech.mithras.dashboard.application.util;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;

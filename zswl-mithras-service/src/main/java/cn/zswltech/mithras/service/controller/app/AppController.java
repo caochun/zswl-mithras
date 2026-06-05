@@ -85,7 +85,7 @@ import cn.zswltech.mithras.service.service.projestablish.ProjEstablishLeasePrice
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishPriceService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
-import cn.zswltech.mithras.service.util.DashboardHelpUtil;
+import cn.zswltech.mithras.dashboard.application.util.DashboardHelpUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.ThreadPoolUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
