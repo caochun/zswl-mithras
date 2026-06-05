@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.payment;
+package cn.zswltech.mithras.service.application.payment;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -6,7 +6,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.payment.PaymentPolicyInfoApi;
+import cn.zswltech.mithras.payment.application.PaymentPolicyInfoApplicationService;
 import cn.zswltech.mithras.api.payment.dto.PaymentPoliceImportREQ;
 import cn.zswltech.mithras.dto.payment.lib.*;
 import cn.zswltech.mithras.dto.policy.PolicyInfoMaterialsListRSP;
@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.service.payment.PaymentPolicyInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -45,9 +45,9 @@ import java.util.stream.Collectors;
  * @description payment_policy_info
  * @date 2022-09-13
  */
-@RestController
+@Service
 @Slf4j
-public class PaymentPolicyInfoController implements PaymentPolicyInfoApi {
+public class PaymentPolicyInfoFacade implements PaymentPolicyInfoApplicationService {
 
     @Resource
     private PaymentPolicyInfoService paymentPolicyInfoService;

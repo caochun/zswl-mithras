@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.payment;
+package cn.zswltech.mithras.service.application.payment;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -6,7 +6,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.payment.PaymentMaterialsApi;
+import cn.zswltech.mithras.payment.application.PaymentMaterialsApplicationService;
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsListReq;
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsListRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsOperateReq;
@@ -31,7 +31,7 @@ import cn.zswltech.mithras.service.service.payment.PaymentMaterialsService;
 import cn.zswltech.mithras.service.service.payment.PaymentService;
 import cn.zswltech.mithras.service.util.FlowUtil;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -43,8 +43,8 @@ import java.util.stream.Collectors;
  * @author: zhaozhengkang
  * @date: 2022/8/17 14:34
  */
-@RestController
-public class PaymentMaterialsController implements PaymentMaterialsApi {
+@Service
+public class PaymentMaterialsFacade implements PaymentMaterialsApplicationService {
     @Resource
     private PaymentMaterialsService materialsService;
     @Resource

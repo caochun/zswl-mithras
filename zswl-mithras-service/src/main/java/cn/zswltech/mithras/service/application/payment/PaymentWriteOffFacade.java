@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.controller.payment;
+package cn.zswltech.mithras.service.application.payment;
 
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.payment.dto.*;
 import cn.zswltech.mithras.api.payment.writeoff.ActualDetailWriteoffReq;
-import cn.zswltech.mithras.api.payment.PaymentWriteOffApi;
+import cn.zswltech.mithras.payment.application.PaymentWriteOffApplicationService;
 import cn.zswltech.mithras.api.payment.writeoff.PaymentWriteOffHistoryListReq;
 import cn.zswltech.mithras.api.payment.writeoff.PaymentWriteOffHistoryListRsp;
 import cn.zswltech.mithras.api.payment.writeoff.*;
@@ -22,7 +22,7 @@ import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.payment.application.PaymentWriteOffHistoryService;
 import cn.zswltech.mithras.service.service.payment.PaymentWriteOffService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -35,8 +35,8 @@ import java.util.Objects;
  * @author: zhaozhengkang
  * @date: 2022/8/17 10:15
  */
-@RestController
-public class PaymentWriteOffController implements PaymentWriteOffApi {
+@Service
+public class PaymentWriteOffFacade implements PaymentWriteOffApplicationService {
     @Resource
     private PaymentWriteOffService writeOffService;
     @Resource

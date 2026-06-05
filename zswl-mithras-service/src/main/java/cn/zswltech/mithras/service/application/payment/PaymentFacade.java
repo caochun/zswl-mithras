@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.payment;
+package cn.zswltech.mithras.service.application.payment;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -14,7 +14,7 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.payment.PaymentApi;
+import cn.zswltech.mithras.payment.application.PaymentApplicationService;
 import cn.zswltech.mithras.api.payment.PaymentDetailReq;
 import cn.zswltech.mithras.api.payment.dto.*;
 import cn.zswltech.mithras.api.payment.register.*;
@@ -101,7 +101,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -121,8 +121,8 @@ import java.util.stream.Collectors;
  * @date: 2022/8/15 15:57
  */
 @Slf4j
-@RestController
-public class PaymentController implements PaymentApi {
+@Service
+public class PaymentFacade implements PaymentApplicationService {
 
     @Resource
     private PaymentBaseInfoService baseInfoService;
