@@ -1,0 +1,1 @@
+INSERT INTO dashboard_config (dashboard_key, dashboard_display, order_num, deleted, create_by, create_time, update_by, update_time) VALUES ('IndustryIndexComparison ', '行业指标对比', 600, 0, null, '2024-05-15 19:33:38', null, '2024-05-18 23:33:57');
