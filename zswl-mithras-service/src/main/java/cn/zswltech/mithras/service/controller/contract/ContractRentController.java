@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.controller.contract;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.contract.core.application.ContractRentEstimateService;
 

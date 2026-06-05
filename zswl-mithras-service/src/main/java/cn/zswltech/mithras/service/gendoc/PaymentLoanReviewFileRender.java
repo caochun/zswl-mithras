@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.gendoc;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.contract.core.application.ContractPledgeService;
 import cn.zswltech.mithras.contract.core.application.ContractMortgageService;
 import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;

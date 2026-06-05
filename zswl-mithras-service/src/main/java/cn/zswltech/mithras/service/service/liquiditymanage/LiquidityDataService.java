@@ -38,6 +38,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptr
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.liquiditymanage.mapper.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.liquiditymanage.mapper.model.FundFinancingAccountSetting;
+import cn.zswltech.mithras.liquiditymanage.service.LiquidityIndicatorBoardHolder;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.basedata.BaseDataBankAccountService;

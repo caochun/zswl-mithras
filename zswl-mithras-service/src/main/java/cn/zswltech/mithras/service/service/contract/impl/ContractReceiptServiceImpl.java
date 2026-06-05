@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.service.service.contract.impl;
+import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 
 import cn.hutool.core.collection.CollectionUtil;
