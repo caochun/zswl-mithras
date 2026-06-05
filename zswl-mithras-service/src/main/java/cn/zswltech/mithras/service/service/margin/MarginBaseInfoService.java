@@ -9,7 +9,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.margin.*;
-import cn.zswltech.mithras.service.convert.margin.MarginConvert;
+import cn.zswltech.mithras.margin.convert.MarginConvert;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
