@@ -1,12 +1,10 @@
-package cn.zswltech.mithras.service.service.lib.payment.handler;
+package cn.zswltech.mithras.payment.application.lib.handler;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListRsp;
-import cn.zswltech.mithras.payment.application.lib.handler.PaymentAbstractHandler;
-import cn.zswltech.mithras.payment.application.lib.handler.PaymentInfoModule;
+import cn.zswltech.mithras.payment.application.lib.PaymentLibAssembler;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswer;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswerLib;
-import cn.zswltech.mithras.service.service.payment.PaymentQuestionnaireAnswerService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -23,7 +21,7 @@ public class PaymentQuestionAnswerHandler
         extends PaymentAbstractHandler<PaymentQuestionnaireAnswerLib, PaymentQuestionnaireAnswer, PaymentQuestionListRsp>{
 
     @Resource
-    private PaymentQuestionnaireAnswerService answerService;
+    private PaymentLibAssembler paymentLibAssembler;
     @Override
     protected PaymentQuestionnaireAnswerLib entity2Lib(PaymentQuestionnaireAnswer f) {
         return BeanUtil.copyProperties(f, PaymentQuestionnaireAnswerLib.class);
@@ -36,7 +34,7 @@ public class PaymentQuestionAnswerHandler
 
     @Override
     protected PaymentQuestionListRsp lib2Rsp(PaymentQuestionnaireAnswerLib f) {
-        PaymentQuestionListRsp rsp = answerService.join(lib2Entity(f));
+        PaymentQuestionListRsp rsp = paymentLibAssembler.questionnaireAnswer2Rsp(lib2Entity(f));
         rsp.setId(f.getOriginId());
         return rsp;
     }
