@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.projpricing;
+package cn.zswltech.mithras.projectprocess.convert.projpricing;
 
 import cn.zswltech.mithras.dto.projestablish.priceaoc.ProjEstablishAocPriceRSP;
 import cn.zswltech.mithras.dto.projestablish.pricefactoring.ProjEstablishFactoringPriceRSP;

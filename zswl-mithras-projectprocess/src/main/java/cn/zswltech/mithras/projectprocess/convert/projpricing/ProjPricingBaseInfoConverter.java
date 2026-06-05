@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.convert.projpricing;
+package cn.zswltech.mithras.projectprocess.convert.projpricing;
 
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoListREQ;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoModifyREQ;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.projectprocess.convert.ProjectProcessTypeConversionWorker;
 import cn.zswltech.mithras.projectprocess.mapper.dto.ProjPricingListSelectDTO;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;
@@ -20,7 +20,7 @@ import java.util.List;
  * @author: zhaozhengkang
  * @date: 2022/8/5 17:11
  */
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = ProjectProcessTypeConversionWorker.class, componentModel = "spring")
 public interface ProjPricingBaseInfoConverter {
 
     ProjPricingBaseInfoConverter INSTANCE = Mappers.getMapper(ProjPricingBaseInfoConverter.class);

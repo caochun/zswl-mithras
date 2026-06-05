@@ -50,7 +50,7 @@ import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.contract.ContractBaseInfoConverter;
 import cn.zswltech.mithras.service.convert.contract.ContractPriceConverter;
 import cn.zswltech.mithras.service.convert.contract.ContractTenantryConvert;
-import cn.zswltech.mithras.service.convert.projpricing.ProjPricingPriceConverter;
+import cn.zswltech.mithras.projectprocess.convert.projpricing.ProjPricingPriceConverter;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;

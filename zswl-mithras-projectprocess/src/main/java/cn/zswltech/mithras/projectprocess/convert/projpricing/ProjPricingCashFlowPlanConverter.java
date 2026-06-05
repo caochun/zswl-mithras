@@ -1,15 +1,13 @@
-package cn.zswltech.mithras.service.convert.projreview;
+package cn.zswltech.mithras.projectprocess.convert.projpricing;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.NumberUtil;
 import cn.zswltech.mithras.dto.projpricing.cashflowplan.ProjPricingCashFlowPlanListRSP;
-import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanListRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingCashFlowPlan;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
+import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePrice;
 import cn.zswltech.mithras.projectprocess.service.bo.CashFlowBO;
 import cn.zswltech.mithras.projectprocess.service.bo.CashFlowCalculateBO;
 
@@ -20,35 +18,35 @@ import java.util.Objects;
  * @date 2022/9/6
  * @description
  */
-public class ProjReviewCashFlowPlanConverter {
-    public static CashFlowBO toCashFlowBO(ProjReviewCashFlowPlan projReviewCashFlowPlan) {
+public class ProjPricingCashFlowPlanConverter {
+    public static CashFlowBO toCashFlowBO(ProjPricingCashFlowPlan projPricingCashFlowPlan) {
         CashFlowBO cashFlowBO = new CashFlowBO();
-        cashFlowBO.setCashFlowDate(projReviewCashFlowPlan.getCashFlowDate());
-        cashFlowBO.setCashFlowPhase(projReviewCashFlowPlan.getCashFlowPhase());
-        cashFlowBO.setCashFlowAmount(projReviewCashFlowPlan.getCashFlowAmount());
-        cashFlowBO.setRent(projReviewCashFlowPlan.getRent());
-        cashFlowBO.setInterest(projReviewCashFlowPlan.getInterest());
-        cashFlowBO.setPrincipal(projReviewCashFlowPlan.getPrincipal());
-        cashFlowBO.setRemainingPrincipal(projReviewCashFlowPlan.getRemainingPrincipal());
+        cashFlowBO.setCashFlowDate(projPricingCashFlowPlan.getCashFlowDate());
+        cashFlowBO.setCashFlowPhase(projPricingCashFlowPlan.getCashFlowPhase());
+        cashFlowBO.setCashFlowAmount(projPricingCashFlowPlan.getCashFlowAmount());
+        cashFlowBO.setRent(projPricingCashFlowPlan.getRent());
+        cashFlowBO.setInterest(projPricingCashFlowPlan.getInterest());
+        cashFlowBO.setPrincipal(projPricingCashFlowPlan.getPrincipal());
+        cashFlowBO.setRemainingPrincipal(projPricingCashFlowPlan.getRemainingPrincipal());
         return cashFlowBO;
     }
 
-    public static ProjReviewCashFlowPlanListRSP toCashFlowRSP(ProjReviewCashFlowPlan projReviewCashFlowPlan){
-        ProjReviewCashFlowPlanListRSP rsp = new ProjReviewCashFlowPlanListRSP();
-        rsp.setId(projReviewCashFlowPlan.getId());
-        rsp.setDate(LocalDateTimeUtil.format(projReviewCashFlowPlan.getCashFlowDate(), DatePattern.NORM_DATE_PATTERN));
-        rsp.setPhase(projReviewCashFlowPlan.getCashFlowPhase());
-        rsp.setCashFlowAmount(projReviewCashFlowPlan.getCashFlowAmount());
-        rsp.setRent(projReviewCashFlowPlan.getRent());
-        rsp.setPrincipal(projReviewCashFlowPlan.getPrincipal());
-        rsp.setInterest(projReviewCashFlowPlan.getInterest());
-        rsp.setRemainingPrincipal(projReviewCashFlowPlan.getRemainingPrincipal());
+    public static ProjPricingCashFlowPlanListRSP toCashFlowRSP(ProjPricingCashFlowPlan projPricingCashFlowPlan){
+        ProjPricingCashFlowPlanListRSP rsp = new ProjPricingCashFlowPlanListRSP();
+        rsp.setId(projPricingCashFlowPlan.getId());
+        rsp.setDate(LocalDateTimeUtil.format(projPricingCashFlowPlan.getCashFlowDate(), DatePattern.NORM_DATE_PATTERN));
+        rsp.setPhase(projPricingCashFlowPlan.getCashFlowPhase());
+        rsp.setCashFlowAmount(projPricingCashFlowPlan.getCashFlowAmount());
+        rsp.setRent(projPricingCashFlowPlan.getRent());
+        rsp.setPrincipal(projPricingCashFlowPlan.getPrincipal());
+        rsp.setInterest(projPricingCashFlowPlan.getInterest());
+        rsp.setRemainingPrincipal(projPricingCashFlowPlan.getRemainingPrincipal());
         return rsp;
     }
 
-    public static ProjReviewCashFlowPlan toProjReviewCashFlowPlan(Long projReviewId, CashFlowBO cashFlowBO) {
-        ProjReviewCashFlowPlan cashFlowPlan = new ProjReviewCashFlowPlan();
-        cashFlowPlan.setProjectId(projReviewId);
+    public static ProjPricingCashFlowPlan toProjPricingCashFlowPlan(Long projPricingId, CashFlowBO cashFlowBO) {
+        ProjPricingCashFlowPlan cashFlowPlan = new ProjPricingCashFlowPlan();
+        cashFlowPlan.setProjectId(projPricingId);
         cashFlowPlan.setCashFlowDate(cashFlowBO.getCashFlowDate());
         cashFlowPlan.setCashFlowPhase(cashFlowBO.getCashFlowPhase());
         cashFlowPlan.setCashFlowAmount(cashFlowBO.getCashFlowAmount());
@@ -59,7 +57,7 @@ public class ProjReviewCashFlowPlanConverter {
         return cashFlowPlan;
     }
 
-    public static CashFlowCalculateBO toCashFlowCalculateBO(ProjReviewLeasePrice leasePrice) {
+    public static CashFlowCalculateBO toCashFlowCalculateBO(ProjPricingLeasePrice leasePrice) {
         CashFlowCalculateBO cashFlowCalculateBO = new CashFlowCalculateBO();
         cashFlowCalculateBO.setCreditAmount(leasePrice.getApplyCreditAmount() == null ? 0L : leasePrice.getApplyCreditAmount());
         cashFlowCalculateBO.setConsultingFee(leasePrice.getConsultingFee() == null ? 0L : leasePrice.getConsultingFee());
@@ -77,7 +75,7 @@ public class ProjReviewCashFlowPlanConverter {
         return cashFlowCalculateBO;
     }
 
-    public static CashFlowExcelModel toCashFlowExcelModel(ProjReviewCashFlowPlan projReviewCashFlowPlan) {
+    public static CashFlowExcelModel toCashFlowExcelModel(ProjPricingCashFlowPlan projReviewCashFlowPlan) {
         CashFlowExcelModel cashFlowExcelModel = new CashFlowExcelModel();
         cashFlowExcelModel.setCashFlowDate(projReviewCashFlowPlan.getCashFlowDate());
         cashFlowExcelModel.setCashFlowPhase(projReviewCashFlowPlan.getCashFlowPhase());

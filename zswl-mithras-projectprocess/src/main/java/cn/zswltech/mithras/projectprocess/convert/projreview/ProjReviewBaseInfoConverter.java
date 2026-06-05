@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.convert.projreview;
+package cn.zswltech.mithras.projectprocess.convert.projreview;
 
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoListREQ;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.projectprocess.convert.ProjectProcessTypeConversionWorker;
 import cn.zswltech.mithras.projectprocess.mapper.dto.ProjReviewListSelectDTO;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
@@ -22,7 +22,7 @@ import java.util.List;
  * @author: zhaozhengkang
  * @date: 2022/8/5 17:11
  */
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = ProjectProcessTypeConversionWorker.class, componentModel = "spring")
 public interface ProjReviewBaseInfoConverter {
 
     ProjReviewBaseInfoConverter INSTANCE = Mappers.getMapper(ProjReviewBaseInfoConverter.class);

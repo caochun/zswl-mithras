@@ -23,7 +23,7 @@ import cn.zswltech.mithras.ftp.oldftp.bo.FtpQuarterlyBasePricingBO;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.convert.projpricing.ProjPricingBaseInfoConverter;
+import cn.zswltech.mithras.projectprocess.convert.projpricing.ProjPricingBaseInfoConverter;
 import cn.zswltech.mithras.workflow.domain.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;

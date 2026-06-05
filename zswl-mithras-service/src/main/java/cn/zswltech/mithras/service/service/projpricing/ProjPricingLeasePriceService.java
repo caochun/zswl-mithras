@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.projpricing;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingLeasePriceModifyREQ;
-import cn.zswltech.mithras.service.convert.projpricing.ProjPricingPriceConverter;
+import cn.zswltech.mithras.projectprocess.convert.projpricing.ProjPricingPriceConverter;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingLeasePriceMapper;
 import cn.zswltech.mithras.service.others.MithrasException;
