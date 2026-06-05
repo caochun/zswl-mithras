@@ -1,4 +1,4 @@
-package cn.zswltech.mithras;
+package cn.zswltech.mithras.system;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
