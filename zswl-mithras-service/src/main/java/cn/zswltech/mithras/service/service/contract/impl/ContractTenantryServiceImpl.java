@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryListRSP;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryModifyREQ;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryRemoveREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.convert.contract.ContractTenantryConvert;
+import cn.zswltech.mithras.contract.convert.contract.ContractTenantryConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.contract.enums.contract.*;

@@ -3,7 +3,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.contract.ContractTenantryApi;
 import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.tenantry.*;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifySubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseRemoveSubAuthChecker;

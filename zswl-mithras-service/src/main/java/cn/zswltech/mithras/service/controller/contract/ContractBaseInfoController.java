@@ -19,7 +19,7 @@ import cn.zswltech.mithras.dto.contract.baseinfo.*;
 import cn.zswltech.mithras.dto.flow.execution.ExecutionProcessBaseREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListRSP;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifyMainAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseRemoveMainAuthChecker;

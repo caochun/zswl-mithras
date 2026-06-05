@@ -1,9 +1,8 @@
-package cn.zswltech.mithras.service.convert.contract;
+package cn.zswltech.mithras.contract.convert.contract;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
 
 /**
@@ -15,7 +14,7 @@ public class ContractMortgageConvert {
     public static ContractMortgage merge(ContractMortgage oldDbData, ContractMortgageModifyREQ modifyREQ) {
         ContractMortgage newData = new ContractMortgage();
         BeanUtil.copyProperties(oldDbData, newData);
-        TypeConversionWorker typeConversionWorker = SpringUtil.getBean(TypeConversionWorker.class);
+        ContractTypeConversionWorker typeConversionWorker = SpringUtil.getBean(ContractTypeConversionWorker.class);
         newData.setRelatContracts(typeConversionWorker.toJsonString(modifyREQ.getRelatContracts()));
         newData.setMortgageType(modifyREQ.getMortgageType());
         newData.setMortgageIds(typeConversionWorker.toJsonString(modifyREQ.getMortgageIds()));

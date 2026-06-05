@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.contract.price.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.convert.contract.ContractBaseInfoConverter;
+import cn.zswltech.mithras.contract.convert.contract.ContractBaseInfoConverter;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;

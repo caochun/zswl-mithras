@@ -3,6 +3,7 @@ package cn.zswltech.mithras.service.convert.fund;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeAgencyDetailRSP;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeAgencyListRSP;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeAgencyModifyREQ;
+import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuaranteeAgency;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasBaseInfo;
 import org.mapstruct.Mapper;

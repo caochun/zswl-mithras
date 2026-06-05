@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.contract;
+package cn.zswltech.mithras.contract.convert.contract;
 
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.excel.model.ContractEntityMortgageItemExcelModel;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.annotation;
+package cn.zswltech.mithras.contract.annotation;
 
 import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
 

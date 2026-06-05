@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
 import cn.zswltech.mithras.dto.contract.guarantor.*;
 import cn.zswltech.mithras.dto.contract.ContractRelationREQ;
 import cn.zswltech.mithras.dto.contract.ContractRelationRSP;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifyMainAuthChecker;

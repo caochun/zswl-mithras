@@ -5,7 +5,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.financeprojectdistribution.FinanceProjectDistributionBaseREQ;
 import cn.zswltech.mithras.dto.financeprojectdistribution.FinanceProjectDistributionBaseInfoRSP;
 import cn.zswltech.mithras.dto.utils.BeanCopyUtils;
-import cn.zswltech.mithras.service.convert.contract.ContractBaseInfoConverter;
+import cn.zswltech.mithras.contract.convert.contract.ContractBaseInfoConverter;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;

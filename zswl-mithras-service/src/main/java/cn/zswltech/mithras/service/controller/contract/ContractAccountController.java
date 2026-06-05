@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.controller.contract;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.contract.ContractAccountApi;
 import cn.zswltech.mithras.dto.contract.account.*;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifySubAuthChecker;

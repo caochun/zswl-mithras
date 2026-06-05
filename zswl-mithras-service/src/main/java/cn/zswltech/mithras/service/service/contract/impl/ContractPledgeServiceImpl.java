@@ -19,7 +19,7 @@ import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeListRSP;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeModifyREQ;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeRemoveREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.convert.contract.ContractEntityPledgeItemConvert;
+import cn.zswltech.mithras.contract.convert.contract.ContractEntityPledgeItemConvert;
 import cn.zswltech.mithras.contract.convert.contract.ContractPledgeConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;

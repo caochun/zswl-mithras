@@ -1,10 +1,9 @@
-package cn.zswltech.mithras.service.convert.contract;
+package cn.zswltech.mithras.contract.convert.contract;
 
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListREQ;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListRSP;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.service.excel.model.ContractExcelModel;
 import cn.zswltech.mithras.contract.mapper.dto.ContractListSelectDTO;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
@@ -13,7 +12,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBa
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = ContractTypeConversionWorker.class, componentModel = "spring")
 public interface ContractBaseInfoConverter {
 
     @Mapping(source = "projCosponsorUserIds", target = "projCosponsorUserIds", qualifiedByName = "jsonStringToLongList")

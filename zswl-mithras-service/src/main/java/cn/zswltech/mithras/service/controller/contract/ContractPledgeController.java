@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeAddREQ;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeListRSP;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeModifyREQ;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeRemoveREQ;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifyMainAuthChecker;

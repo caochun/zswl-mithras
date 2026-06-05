@@ -8,6 +8,7 @@ import org.mapstruct.Named;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,6 +37,22 @@ public class ContractTypeConversionWorker {
             return null;
         }
         return JSON.toJSONString(obj);
+    }
+
+    @Named("startOfDay")
+    public LocalDateTime startOfDay(LocalDate date) {
+        if (date == null) {
+            return null;
+        }
+        return date.atStartOfDay();
+    }
+
+    @Named("endOfDay")
+    public LocalDateTime endOfDay(LocalDate date) {
+        if (date == null) {
+            return null;
+        }
+        return date.atTime(23, 59, 59);
     }
 
     @Named("jsonStringToStringList")

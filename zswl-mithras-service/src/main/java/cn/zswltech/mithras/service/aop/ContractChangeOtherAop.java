@@ -4,7 +4,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.contract.ContractCanChangeRSP;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
@@ -54,7 +54,7 @@ public class ContractChangeOtherAop {
     @Resource
     private FileService fileService;
 
-    @Pointcut("@annotation(cn.zswltech.mithras.service.annotation.ContractChangeOther)")
+    @Pointcut("@annotation(cn.zswltech.mithras.contract.annotation.ContractChangeOther)")
     public void authCheck() {
 
     }

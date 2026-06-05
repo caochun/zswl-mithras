@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.prepayment.ContractPrepaymentAddREQ;
 import cn.zswltech.mithras.dto.contract.prepayment.ContractPrepaymentDetailRSP;
 import cn.zswltech.mithras.dto.contract.prepayment.ContractPrepaymentModifyREQ;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifySubAuthChecker;

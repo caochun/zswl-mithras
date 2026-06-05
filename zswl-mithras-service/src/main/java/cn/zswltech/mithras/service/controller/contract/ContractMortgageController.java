@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageAddREQ;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageListRSP;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageModifyREQ;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageRemoveREQ;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseAddSubAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.contract.ContractBaseModifyMainAuthChecker;

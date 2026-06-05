@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.contract.price.ContractFactoringPriceModifyREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
-import cn.zswltech.mithras.service.annotation.ContractChangeOther;
+import cn.zswltech.mithras.contract.annotation.ContractChangeOther;
 import cn.zswltech.mithras.contract.convert.contract.ContractPriceConverter;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractFactoringPriceMapper;
