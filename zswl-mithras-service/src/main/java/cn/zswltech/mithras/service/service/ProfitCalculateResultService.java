@@ -46,7 +46,7 @@ import cn.zswltech.mithras.service.service.ftp.FtpInterestDetailRecordService;
 import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionBaseInfoService;
 import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyClientAuxiliaryLibService;
-import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;

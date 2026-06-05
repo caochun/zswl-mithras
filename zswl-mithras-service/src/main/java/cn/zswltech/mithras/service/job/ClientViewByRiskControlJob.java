@@ -25,7 +25,7 @@ import cn.zswltech.mithras.customer.vwsync.application.ClientVwSyncService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
-import cn.zswltech.mithras.service.service.lib.contract.*;
+import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.ProjEstablishBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;

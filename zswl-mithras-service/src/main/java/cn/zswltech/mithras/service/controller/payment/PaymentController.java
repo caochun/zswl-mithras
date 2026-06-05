@@ -83,7 +83,7 @@ import cn.zswltech.mithras.service.service.contract.ContractPriceService;
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;
 import cn.zswltech.mithras.customer.application.lib.client.CorpBankAccountLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractAccountLibService;
-import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.payment.application.lib.libservice.PaymentBaseInfoLibService;
 import cn.zswltech.mithras.payment.application.lib.libservice.PaymentPlanedDetailLibService;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;

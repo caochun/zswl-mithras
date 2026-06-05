@@ -108,9 +108,9 @@ import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowDeta
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;
 import cn.zswltech.mithras.service.service.kpi.KpiProvisionBaseInfoService;
-import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
-import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
+import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.ProjEstablishBaseInfoLibService;

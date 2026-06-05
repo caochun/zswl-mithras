@@ -1,12 +1,10 @@
-package cn.zswltech.mithras.service.service.lib.contract;
+package cn.zswltech.mithras.contract.versioning.application;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.projreview.ProjReviewVersionListRSP;
 import cn.zswltech.mithras.dto.version.*;
-import cn.zswltech.mithras.associationreport.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
@@ -40,6 +38,8 @@ public class ContractVersionService extends CommonVersionService<ContractBaseInf
     private static final String RECEIPT_ID = "receiptId";
 
     private static final String ESTIMATED_LEASE_DATE = "estimatedLeaseDate";
+
+    private static final String DEFAULT_USER_NAME = "未知用户";
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -208,8 +208,8 @@ public class ContractVersionService extends CommonVersionService<ContractBaseInf
     }
 
     @Override
-    public BusinessModuleEnum getBusinessModule() {
-        return BusinessModuleEnum.CONTRACT;
+    public Enum<?> getBusinessModule() {
+        return ContractBusinessModule.CONTRACT;
     }
 
     @Override
@@ -217,7 +217,7 @@ public class ContractVersionService extends CommonVersionService<ContractBaseInf
         ProjReviewVersionListRSP rsp = BeanUtil.copyProperties(cv, ProjReviewVersionListRSP.class);
         rsp.setGmtModify(cv.getUpdateTime());
         rsp.setOperatorId(cv.getUpdateBy());
-        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(MithrasConstants.DEFAULT_USER_NAME));
+        rsp.setOperatorName(Optional.ofNullable(userNameMap.get(cv.getUpdateBy())).orElse(DEFAULT_USER_NAME));
         rsp.setProjName(contractBaseInfo.getContractCode());
         return rsp;
     }

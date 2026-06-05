@@ -36,6 +36,7 @@ import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.service.service.contract.ContractPriceService;
+import cn.zswltech.mithras.service.service.ContractPriceAmountResolver;
 import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.contract.versioning.application.ContractAocPriceLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
@@ -68,7 +69,7 @@ import java.util.stream.Collectors;
  * @Version 1.0
  **/
 @Service
-public class ContractPriceServiceImpl implements ContractPriceService {
+public class ContractPriceServiceImpl implements ContractPriceService, ContractPriceAmountResolver {
 
     @Lazy
     @Autowired

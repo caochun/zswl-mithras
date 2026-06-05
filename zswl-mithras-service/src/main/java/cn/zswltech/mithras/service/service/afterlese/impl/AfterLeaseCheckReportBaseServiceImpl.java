@@ -43,7 +43,7 @@ import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckReportBaseL
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckReportMetaLibService;
 import cn.zswltech.mithras.afterlease.application.lib.handler.impl.AfterLeaseCheckReportBaseLibHandler;
 import cn.zswltech.mithras.afterlease.application.lib.handler.impl.AfterLeaseCheckReportMetaLibHandler;
-import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.aspose.slides.Collections.ArrayList;

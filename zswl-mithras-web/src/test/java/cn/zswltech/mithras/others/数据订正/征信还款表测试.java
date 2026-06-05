@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.数据订正;
 
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
+import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

@@ -82,7 +82,7 @@ import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMa
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewLeasePriceMapper;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.ContractService;
-import cn.zswltech.mithras.service.service.lib.contract.ContractVersionService;
+import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
 import cn.zswltech.mithras.payment.application.lib.libservice.impl.PaymentVersionServiceImpl;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentService;

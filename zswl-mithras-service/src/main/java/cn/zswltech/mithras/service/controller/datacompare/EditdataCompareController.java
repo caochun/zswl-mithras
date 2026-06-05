@@ -128,7 +128,7 @@ import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactoryCre
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.customer.application.lib.client.CorpAddressInfoLibService;
-import cn.zswltech.mithras.service.service.lib.contract.*;
+import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.service.service.lib.policy.PolicyInfoLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewBaseInfoLibService;

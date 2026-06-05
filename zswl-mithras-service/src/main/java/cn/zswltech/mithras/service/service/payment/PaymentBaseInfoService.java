@@ -100,7 +100,7 @@ import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import cn.zswltech.mithras.service.service.flow.MyTaskService;
 import cn.zswltech.mithras.service.service.flow.ProcessService;
-import cn.zswltech.mithras.service.service.lib.contract.*;
+import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.message.service.MessageService;

@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.service.lib.contract;
+package cn.zswltech.mithras.contract.versioning.application;
 
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.service.service.contract.impl.ContractPriceServiceImpl;
+import cn.zswltech.mithras.service.service.ContractPriceAmountResolver;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
@@ -30,7 +30,7 @@ public class ContractBaseInfoLibService extends ServiceImpl<ContractBaseInfoLibM
     @Resource
     private ContractBaseInfoLibHandler baseInfoLibHandler;
     @Resource
-    private ContractPriceServiceImpl contractPriceService;
+    private ContractPriceAmountResolver contractPriceAmountResolver;
 
     public ContractBaseInfoLib getLatest(Long contractId) {
         LambdaQueryWrapper<ContractBaseInfoLib> query = Wrappers.lambdaQuery();
@@ -71,7 +71,7 @@ public class ContractBaseInfoLibService extends ServiceImpl<ContractBaseInfoLibM
     public BigDecimal newestContractAmountClientId(Set<Long> clientIds) {
         List<ContractBaseInfoLib> contractBaseInfoLibs = baseMapper.listNewestContractByClientIds(clientIds);
         Set<Long> contractIds = contractBaseInfoLibs.stream().map(ContractBaseInfoLib::getOriginId).collect(Collectors.toSet());
-        Map<Long, Long> priceAmounts = contractPriceService.queryNewestContractAmount(contractIds);
+        Map<Long, Long> priceAmounts = contractPriceAmountResolver.queryNewestContractAmount(contractIds);
         return priceAmounts.values().stream()
                 .map(LongUtil::null2zero)
                 .map(BigDecimal::new)
