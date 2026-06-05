@@ -9,7 +9,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.ftp.FtpInterestDetailReq;
 import cn.zswltech.mithras.dto.ftp.FtpInterestDetailRsp;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.convert.ftp.FtpInterestConvert;
+import cn.zswltech.mithras.ftp.oldftp.convert.FtpInterestConvert;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.collection.enums.BillTypeEnum;

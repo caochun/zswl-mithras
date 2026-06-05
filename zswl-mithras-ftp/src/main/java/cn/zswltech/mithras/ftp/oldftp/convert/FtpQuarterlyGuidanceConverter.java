@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.ftp;
+package cn.zswltech.mithras.ftp.oldftp.convert;
 
 import cn.zswltech.mithras.dto.ftp.*;
 import cn.zswltech.mithras.ftp.oldftp.model.*;
