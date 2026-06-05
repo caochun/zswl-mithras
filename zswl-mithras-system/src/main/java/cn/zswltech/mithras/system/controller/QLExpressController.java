@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.system.controller;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.json.JSONUtil;
