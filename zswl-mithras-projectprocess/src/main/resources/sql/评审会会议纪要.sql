@@ -118,8 +118,6 @@ insert into proj_review_cash_flow_quotation_proposal select * from proj_review_c
 insert into proj_review_cash_flow_quotation_proposal_lib select * from proj_review_cash_flow_plan_lib;
 
 
-alter table track_event_info add column proj_review_meet_minute_id bigint(20) DEFAULT NULL COMMENT '项目评审会议纪要ID';
-
 alter table proj_review_cash_flow_plan add column proj_review_meet_minute_id bigint(20) DEFAULT NULL COMMENT '项目评审会议纪要ID';
 
 alter table proj_review_cash_flow_plan_lib add column proj_review_meet_minute_id bigint(20) DEFAULT NULL COMMENT '项目评审会议纪要ID';
@@ -195,47 +193,9 @@ VALUES ('projReviewQueryEffect', '评审生效模糊查询', 12, 'POST','/proj/r
 
 
 INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
-VALUES ('groupCreditReviewMeetMinuteBaseInfoDetail', '授信评审会议纪要表详情', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL,
-        NULL, 'POST', '/proj/review/meet/minute/base/info/detail', 2, NULL),
-       ('groupCreditReviewMeetMinuteBaseInfoModify', '修改授信评审会议纪要表-保存', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL,
-        NULL, 'POST', '/proj/review/meet/minute/base/info/modify', 2, NULL),
-       ('groupCreditReviewMeetMinuteBaseInfoSubmit', '修改授信评审会议纪要表-提交', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL,
-        NULL, 'POST', '/proj/review/meet/minute/base/info/submit', 2, NULL),
-       ('groupCreditReviewMeetMinuteGetRelatedCustomers', '授信评审会议纪要-获取交易结构用户', 0, (select id from bifrost_menu where code = 'groupCreditReview'),
-        NULL, NULL, NULL, 'POST', '/proj/review/meet/minute/get/related/customers', 2, NULL);
-
-
-INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
-VALUES ('groupCreditReviewQuotationProposalCashflowplanUpload', '授信评审-评审会会议纪要-上传现金流计划表', 0,
-        (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL, NULL, 'POST',
-        '/proj/review/quotation/proposal/cashflowplan/upload', 2, NULL),
-       ('groupCreditReviewQuotationProposalCashflowplanList', '授信评审-评审会会议纪要-获取现金流计划表', 0,
-        (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL, NULL, 'POST', '/proj/review/quotation/proposal/cashflowplan/list',
-        2, NULL),
-       ('groupCreditReviewQuotationProposalCashflowplanRentExport', '授信评审-评审会会议纪要-导出租金表', 0,
-        (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL, NULL, 'POST',
-        '/proj/review/quotation/proposal/cashflowplan/rent/export', 2, NULL),
-       ('groupCreditReviewQuotationProposalCashflowplanCashflowExport', '授信评审-评审会会议纪要-导出现金流表', 0,
-        (select id from bifrost_menu where code = 'groupCreditReview'), NULL, NULL, NULL, 'POST',
-        '/proj/review/quotation/proposal/cashflowplan/cashflow/export', 2, NULL);
-
-INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
-VALUES ('groupCreditReviewMeetMinuteTrackEventList', '授信评审会议纪要表-跟踪事项列表', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL,
-        NULL, NULL, 'POST', '/proj/review/meet/minute/trackEvent/list', 2, NULL);
-
-INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
 VALUES
 ('projReviewTrackEventClose', '项目评审会议纪要表-跟踪事项关闭', 0, 12, NULL, NULL, NULL, 'POST', '/trackEvent/close', 2, NULL);
 
-INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
-VALUES ('groupCreditReviewTrackEventClose', '授信评审会议纪要表-跟踪事项关闭', 0, (select id from bifrost_menu where code = 'groupCreditReview'), NULL,
-        NULL, NULL, 'POST', '/trackEvent/close', 2, NULL);
-
-
-
-INSERT INTO `bifrost_function` (`code`, `name`, `sort_no`, `menu_id`, `create_by`, `update_by`, `en_name`, `method`, `path`, `type`, `group_id`)
-VALUES ('paymentMeetMinuteCreditDateCheck', '授信评审会议纪要表-授信到期日判断', 0, (select id from bifrost_menu where code = 'QX0114'), NULL,
-        NULL, NULL, 'POST', '/proj/review/meet/minute/credit/date/check', 2, NULL);
 -- 评审会纪要线上化优化需求
 
 update proj_review_meet_minute_base_info set special_contract_terms = CONCAT('["', special_contract_terms, '"]') where special_contract_terms is
