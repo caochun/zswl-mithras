@@ -2,7 +2,6 @@ package cn.zswltech.mithras.service.service.lib;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -56,10 +55,14 @@ public class MaterialsListLibHandlerProxy {
      * @param mainId
      * @return
      */
-    public List<MaterialsList> listNeedHandleEntity(Long mainId, BusinessModuleEnum businessModuleEnum) {
+    public List<MaterialsList> listNeedHandleEntity(Long mainId, Enum<?> businessModuleEnum) {
+        return listNeedHandleEntity(mainId, businessModuleEnum.name());
+    }
+
+    public List<MaterialsList> listNeedHandleEntity(Long mainId, String businessType) {
         List<MaterialsList> draftDataList = draftMapper.selectList(Wrappers.<MaterialsList>lambdaQuery()
                 .eq(MaterialsList::getBelongId, mainId)
-                .eq(MaterialsList::getBusinessType, businessModuleEnum.name())
+                .eq(MaterialsList::getBusinessType, businessType)
         );
         return draftDataList;
     }
@@ -70,11 +73,15 @@ public class MaterialsListLibHandlerProxy {
      * @param mainId
      * @return
      */
-    public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version, BusinessModuleEnum businessModuleEnum) {
+    public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version, Enum<?> businessModuleEnum) {
+        return listNeedHandleLib(mainId, version, businessModuleEnum.name());
+    }
+
+    public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version, String businessType) {
         List<MaterialsListLib> versionList = mapper.selectList(Wrappers.<MaterialsListLib>lambdaQuery()
                 .eq(MaterialsListLib::getVersion, version)
                 .eq(MaterialsListLib::getBelongId, mainId)
-                .eq(MaterialsListLib::getBusinessType, businessModuleEnum.name())
+                .eq(MaterialsListLib::getBusinessType, businessType)
         );
         return versionList;
     }
