@@ -21,6 +21,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueSettlement;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueVersionRelation;
+import cn.zswltech.mithras.finance.service.FinanceOverdueSettlementApplicationService;
 import cn.zswltech.mithras.finance.service.FinanceOverdueVersionRelationService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
@@ -57,7 +58,7 @@ import java.util.stream.Collectors;
 */
 @Service
 @Slf4j
-public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueSettlementMapper, FinanceOverdueSettlement> {
+public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueSettlementMapper, FinanceOverdueSettlement> implements FinanceOverdueSettlementApplicationService {
 
     @Resource
     private FinanceOverdueSettlementMapper financeOverdueSettlementMapper;
@@ -80,6 +81,7 @@ public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueS
     private FinanceOverdueSettlementLibService financeOverdueSettlementLibService;
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void add(FinanceOverdueSettlementAddREQ req) {
         FinanceOverdueSettlement info = BeanUtil.copyProperties(req, FinanceOverdueSettlement.class);
         info.setApprovalStatus(ProjProcessState.UN_SUBMIT.name());
@@ -168,6 +170,7 @@ public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueS
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void modify(FinanceOverdueSettlementModifyREQ req) {
         FinanceOverdueSettlement originalInfo = financeOverdueSettlementMapper.selectById(Long.parseLong(req.getId()));
         if (ObjectUtil.isNull(originalInfo)) {
@@ -201,6 +204,7 @@ public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueS
         this.updateBatchById(list);
     }
 
+    @Override
     public Page<FinanceOverdueSettlement> list(FinanceOverdueSettlementListREQ req) {
         List<Long> ids = null;
         if (ObjectUtil.isNotEmpty(req.getProcessInstanceId())) {
@@ -225,6 +229,7 @@ public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueS
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void remove(FinanceOverdueSettlementRemoveREQ req) {
         FinanceOverdueSettlement originalInfo = financeOverdueSettlementMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {
@@ -324,6 +329,7 @@ public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueS
         }
     }
 
+    @Override
     public List<FinanceOverdueSettlementContractRelationRsp> contractRelation(FinanceOverdueSettlementContractRelationREQ req) {
         List<ContractBaseInfo> contractBaseInfos = contractBaseInfoService.listByClients(Collections.singletonList(req.getClientId()));
         if (ObjectUtil.isEmpty(contractBaseInfos)) {

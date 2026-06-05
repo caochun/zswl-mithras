@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.finance;
+package cn.zswltech.mithras.finance.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
@@ -6,13 +6,11 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.finance.FinanceOverdueSettlementApi;
 import cn.zswltech.mithras.dto.finance.overdue.*;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueSettlement;
-import cn.zswltech.mithras.service.service.finance.FinanceOverdueReportBaseService;
-import cn.zswltech.mithras.service.service.finance.FinanceOverdueSettlementService;
+import cn.zswltech.mithras.finance.service.FinanceOverdueSettlementApplicationService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -24,9 +22,7 @@ import java.util.List;
 public class FinanceOverdueSettlementController implements FinanceOverdueSettlementApi {
 
     @Resource
-    private FinanceOverdueSettlementService financeOverdueSettlementService;
-    @Resource
-    private FinanceOverdueReportBaseService financeOverdueReportBaseService;
+    private FinanceOverdueSettlementApplicationService financeOverdueSettlementService;
 
     @Override
     public R<Void> add(FinanceOverdueSettlementAddREQ req) {

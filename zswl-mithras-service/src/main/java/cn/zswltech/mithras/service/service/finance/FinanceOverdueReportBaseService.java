@@ -16,6 +16,7 @@ import cn.zswltech.mithras.finance.mapper.finance.FinanceOverdueReportBaseMapper
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueReportBase;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueSettlement;
+import cn.zswltech.mithras.finance.service.FinanceOverdueReportBaseApplicationService;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
@@ -37,7 +38,7 @@ import java.util.List;
 * @date 2025-09-15
 */
 @Service
-public class FinanceOverdueReportBaseService extends ServiceImpl<FinanceOverdueReportBaseMapper, FinanceOverdueReportBase> {
+public class FinanceOverdueReportBaseService extends ServiceImpl<FinanceOverdueReportBaseMapper, FinanceOverdueReportBase> implements FinanceOverdueReportBaseApplicationService {
 
     @Resource
     private FinanceOverdueReportBaseMapper financeOverdueReportBaseMapper;
@@ -49,6 +50,7 @@ public class FinanceOverdueReportBaseService extends ServiceImpl<FinanceOverdueR
     private CommonProcessPrepareService commonProcessPrepareService;
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public Long add(FinanceOverdueReportBaseAddREQ req) {
         //检查
         req.setPlanDate(req.getPlanDate().plusMonths(1).with(TemporalAdjusters.firstDayOfMonth()).minusDays(1));
@@ -110,12 +112,14 @@ public class FinanceOverdueReportBaseService extends ServiceImpl<FinanceOverdueR
         updateById(originalInfo);
     }
 
+    @Override
     public Page<FinanceOverdueReportBase> list(FinanceOverdueReportBaseListREQ req) {
         return this.page(new Page<>(req.getPage(), req.getPageSize()), Wrappers.<FinanceOverdueReportBase>lambdaQuery()
         .orderByDesc(FinanceOverdueReportBase::getPlanDate));
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void close(FinanceOverdueReportBaseRemoveREQ req) {
         FinanceOverdueReportBase originalInfo = financeOverdueReportBaseMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {

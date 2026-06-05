@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.finance;
+package cn.zswltech.mithras.finance.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
@@ -6,8 +6,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.finance.FinanceOverdueIntegrationApi;
 import cn.zswltech.mithras.dto.finance.overdue.*;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegration;
-import cn.zswltech.mithras.service.service.finance.FinanceOverdueIntegrationService;
-import cn.zswltech.mithras.service.service.finance.FinanceOverdueReportBaseService;
+import cn.zswltech.mithras.finance.service.FinanceOverdueIntegrationApplicationService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,9 +22,7 @@ import java.util.List;
 public class FinanceOverdueIntegrationController implements FinanceOverdueIntegrationApi {
 
     @Resource
-    private FinanceOverdueIntegrationService financeOverdueIntegrationService;
-    @Resource
-    private FinanceOverdueReportBaseService financeOverdueReportBaseService;
+    private FinanceOverdueIntegrationApplicationService financeOverdueIntegrationService;
 
 
     @Override

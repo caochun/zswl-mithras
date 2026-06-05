@@ -23,6 +23,7 @@ import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueVersionRelation;
+import cn.zswltech.mithras.finance.service.FinanceOverdueIntegrationApplicationService;
 import cn.zswltech.mithras.finance.service.FinanceOverdueVersionRelationService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.Id2NameService;
@@ -59,7 +60,7 @@ import java.util.stream.Collectors;
 * @date 2025-09-15
 */
 @Service
-public class FinanceOverdueIntegrationService extends ServiceImpl<FinanceOverdueIntegrationMapper, FinanceOverdueIntegration> {
+public class FinanceOverdueIntegrationService extends ServiceImpl<FinanceOverdueIntegrationMapper, FinanceOverdueIntegration> implements FinanceOverdueIntegrationApplicationService {
 
     @Resource
     private FinanceOverdueIntegrationMapper financeOverdueIntegrationMapper;
@@ -252,6 +253,7 @@ public class FinanceOverdueIntegrationService extends ServiceImpl<FinanceOverdue
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void modify(FinanceOverdueIntegrationModifyREQ req) {
         FinanceOverdueIntegration originalInfo = financeOverdueIntegrationMapper.selectById(Long.parseLong(req.getId()));
         if (ObjectUtil.isNull(originalInfo)) {
@@ -266,6 +268,7 @@ public class FinanceOverdueIntegrationService extends ServiceImpl<FinanceOverdue
         financeOverdueIntegrationMapper.updateById(info);
     }
 
+    @Override
     public Page<FinanceOverdueIntegration> list(FinanceOverdueIntegrationListREQ req) {
         List<Long> ids = null;
         if (ObjectUtil.isNotEmpty(req.getProcessInstanceId())) {
@@ -289,6 +292,7 @@ public class FinanceOverdueIntegrationService extends ServiceImpl<FinanceOverdue
     }
 
     @Transactional(rollbackFor = Throwable.class)
+    @Override
     public void remove(FinanceOverdueIntegrationRemoveREQ req) {
         FinanceOverdueIntegration originalInfo = financeOverdueIntegrationMapper.selectById(req.getId());
         if (ObjectUtil.isNull(originalInfo)) {

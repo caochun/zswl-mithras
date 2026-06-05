@@ -10,6 +10,8 @@ import cn.zswltech.flow.core.domain.req.StartProcessReq;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
+import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueIntegrationPushREQ;
+import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueIntegrationPushRSP;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueVersionSubmitREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
@@ -22,6 +24,7 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegratio
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueReportBase;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueSettlement;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueVersionRelation;
+import cn.zswltech.mithras.finance.service.FinanceOverdueVersionApplicationService;
 import cn.zswltech.mithras.finance.service.FinanceOverdueVersionRelationService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.finance.service.lib.finance.FinanceOverdueVersionManagerService;
@@ -42,7 +45,7 @@ import java.util.stream.Collectors;
 * @date 2025-09-15
 */
 @Service
-public class FinanceOverdueVersionService {
+public class FinanceOverdueVersionService implements FinanceOverdueVersionApplicationService {
 
     @Resource
     private FlowProcessApiService processApiService;
@@ -57,6 +60,7 @@ public class FinanceOverdueVersionService {
     @Resource
     private FinanceOverdueVersionManagerService financeOverdueVersionManagerService;
 
+    @Override
     public void submit(FinanceOverdueVersionSubmitREQ req) {
         FinanceOverdueReportBase reportBase = financeOverdueReportBaseService.getById(req.getReportId());
         if (ObjectUtil.isEmpty(reportBase)) {
@@ -142,6 +146,62 @@ public class FinanceOverdueVersionService {
             });
             financeOverdueSettlementService.updateBatchById(overdueSettlements);
         }
+    }
+
+    @Override
+    public FinanceOverdueIntegrationPushRSP push(FinanceOverdueVersionSubmitREQ req) {
+        FinanceOverdueReportBase reportBase = financeOverdueReportBaseService.getById(req.getReportId());
+        if (ObjectUtil.isEmpty(reportBase)) {
+            throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
+        }
+        if (OverduePlanStatueEnum.CLOSE.name().equals(reportBase.getReportStatus())) {
+            throw new MithrasException("已关闭的计划不能推送");
+        }
+        FinanceOverdueIntegrationPushREQ integrationPushREQ = new FinanceOverdueIntegrationPushREQ();
+        integrationPushREQ.setReportBaseId(req.getReportId());
+        integrationPushREQ.setIds(req.getIntegrationRecordIds());
+
+        FinanceOverdueIntegrationPushREQ overdueREQ = new FinanceOverdueIntegrationPushREQ();
+        overdueREQ.setReportBaseId(req.getReportId());
+        overdueREQ.setIds(req.getSettlementRecordIds());
+        FinanceOverdueIntegrationPushRSP rsp = new FinanceOverdueIntegrationPushRSP();
+        FinanceOverdueIntegrationPushRSP financeOverdueIntegrationRsp = null;
+        FinanceOverdueIntegrationPushRSP financeOverdueSettlementRsp = null;
+        if (CollectionUtil.isEmpty(req.getIntegrationRecordIds()) && ObjectUtil.isEmpty(req.getSettlementRecordIds())) {
+            financeOverdueIntegrationRsp = financeOverdueIntegrationService.push(integrationPushREQ);
+            financeOverdueSettlementRsp = financeOverdueSettlementService.push(overdueREQ);
+        } else if (CollectionUtil.isNotEmpty(req.getIntegrationRecordIds()) && ObjectUtil.isEmpty(req.getSettlementRecordIds())) {
+            financeOverdueIntegrationRsp = financeOverdueIntegrationService.push(integrationPushREQ);
+        } else if (CollectionUtil.isEmpty(req.getIntegrationRecordIds()) && ObjectUtil.isNotEmpty(req.getSettlementRecordIds())) {
+            financeOverdueSettlementRsp = financeOverdueSettlementService.push(overdueREQ);
+        } else {
+            financeOverdueIntegrationRsp = financeOverdueIntegrationService.push(integrationPushREQ);
+            financeOverdueSettlementRsp = financeOverdueSettlementService.push(overdueREQ);
+        }
+        financeOverdueReportBaseService.modifyReportStatus(req.getReportId());
+        List<String> messages = new ArrayList<>();
+
+        if (ObjectUtil.isNotEmpty(financeOverdueIntegrationRsp)) {
+            rsp.setCount(financeOverdueIntegrationRsp.getCount());
+            rsp.setSuccess(financeOverdueIntegrationRsp.getSuccess());
+            rsp.setFailure(financeOverdueIntegrationRsp.getFailure());
+            if (CollectionUtil.isNotEmpty(financeOverdueIntegrationRsp.getMessage())) {
+                messages.addAll(financeOverdueIntegrationRsp.getMessage());
+            }
+        }
+        if (ObjectUtil.isNotEmpty(financeOverdueSettlementRsp)) {
+            rsp.setCount(rsp.getCount() + financeOverdueSettlementRsp.getCount());
+            rsp.setSuccess(rsp.getSuccess() + financeOverdueSettlementRsp.getSuccess());
+            rsp.setFailure(rsp.getFailure() + financeOverdueSettlementRsp.getFailure());
+            if (CollectionUtil.isNotEmpty(financeOverdueSettlementRsp.getMessage())) {
+                messages.addAll(financeOverdueSettlementRsp.getMessage());
+            }
+        }
+        rsp.setMessage(messages);
+        if (rsp.getCount() < 1) {
+            throw new MithrasException("无可推送数据");
+        }
+        return rsp;
     }
 
     /**
