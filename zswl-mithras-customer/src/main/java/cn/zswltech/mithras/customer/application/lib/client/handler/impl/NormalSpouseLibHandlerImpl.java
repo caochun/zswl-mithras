@@ -4,12 +4,12 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.normal.NormalSpouseListRSP;
 import cn.zswltech.mithras.customer.domain.enums.InfoModule;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalSpouse;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalSpouseLib;
-import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class NormalSpouseLibHandlerImpl extends ClientLibAbstractHandler<NormalSpouseLib, NormalSpouse, NormalSpouseListRSP> {
 
     @Resource
-    private ClientService clientService;
+    private ClientMapper clientMapper;
 
     @Override
     protected NormalSpouseLib entity2Lib(NormalSpouse normalSpouse) {
@@ -53,7 +53,10 @@ public class NormalSpouseLibHandlerImpl extends ClientLibAbstractHandler<NormalS
     protected NormalSpouseListRSP lib2Rsp(NormalSpouseLib f) {
         NormalSpouseListRSP rsp = BeanUtil.copyProperties(f, NormalSpouseListRSP.class);
         rsp.setId(f.getOriginId());
-        Long spouseClientId = clientService.getNormalByCertList(Arrays.asList(f.getCertNumber())).stream()
+        Long spouseClientId = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
+                        .eq(Client::getClientType, ClientType.NORMAL.name())
+                        .eq(Client::getCertNumber, f.getCertNumber()))
+                .stream()
                 .findFirst()
                 .map(Client::getId)
                 .orElse(null);

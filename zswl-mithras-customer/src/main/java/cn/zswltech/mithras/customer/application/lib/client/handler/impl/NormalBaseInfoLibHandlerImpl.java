@@ -7,15 +7,14 @@ import cn.zswltech.mithras.customer.domain.enums.InfoModule;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBaseInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBaseInfoLib;
-import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.service.client.ClientService;
+import cn.zswltech.mithras.service.others.LackDataException;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
+import cn.hutool.core.collection.CollectionUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,7 +31,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotNull;
 public class NormalBaseInfoLibHandlerImpl extends ClientLibAbstractHandler<NormalBaseInfoLib, NormalBaseInfo, NormalBaseInfoDetailRSP> {
 
     @Resource
-    private ClientService clientService;
+    private ClientMapper clientMapper;
     @Resource
     private AddressDictionaryMapper addressDictionaryMapper;
 
@@ -65,14 +64,14 @@ public class NormalBaseInfoLibHandlerImpl extends ClientLibAbstractHandler<Norma
         }
         List<NormalBaseInfo> dataList = draftMapper.selectList(Wrappers.<NormalBaseInfo>lambdaQuery()
                 .eq(NormalBaseInfo::getClientId, client.getId()));
-        Util.errLackData(CollectionUtils.isEmpty(dataList), LackDataMsg.NORMAL_BASE);
+        errLackData(CollectionUtil.isEmpty(dataList), LackDataMsg.NORMAL_BASE);
     }
 
     @Override
     protected NormalBaseInfoDetailRSP lib2Rsp(NormalBaseInfoLib f) {
         NormalBaseInfoDetailRSP rsp = BeanUtil.copyProperties(f, NormalBaseInfoDetailRSP.class);
         rsp.setId(f.getOriginId());
-        Client client = clientService.getById(f.getClientId());
+        Client client = clientMapper.selectById(f.getClientId());
         if (isNotNull(client)) {
             rsp.setClientType(client.getClientType());
             rsp.setClientName(client.getClientName());
@@ -92,4 +91,9 @@ public class NormalBaseInfoLibHandlerImpl extends ClientLibAbstractHandler<Norma
         return this.listNeedHandleEntity(mainId);
     }
 
+    private void errLackData(boolean condition, String msg) {
+        if (condition) {
+            throw new LackDataException(msg);
+        }
+    }
 }
