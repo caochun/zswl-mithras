@@ -4,8 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchClientQuery;
-import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
+import cn.zswltech.mithras.creditreport.service.CreditReportQueryService;
 import cn.zswltech.mithras.creditreport.service.CreditSearchClientService;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +15,7 @@ public class CreditSearchClientServiceImpl implements CreditSearchClientService 
 
 
     @Resource
-    private Id2NameService id2NameService;
-
-    @Resource
-    private CreditReportBaseInfoService creditReportBaseInfoService;
+    private CreditReportQueryService creditReportQueryService;
 /*
     @Override
     public PageR<CreditReportListDTO> list(CreditSearchClientQuery req) {
@@ -36,7 +32,7 @@ public class CreditSearchClientServiceImpl implements CreditSearchClientService 
         creditReportListREQ.setClientId(req.getClientId());
         creditReportListREQ.setPage(req.getPage());
         creditReportListREQ.setPageSize(req.getPageSize());
-        return creditReportBaseInfoService.list(creditReportListREQ);
+        return creditReportQueryService.list(creditReportListREQ);
         //return PageR.of(list, page.getTotal(), page.getSize(), page.getCurrent());
     }
 
@@ -83,7 +79,7 @@ public class CreditSearchClientServiceImpl implements CreditSearchClientService 
 
     @Override
     public void delete(Long id) {
-        creditReportBaseInfoService.remove(id);
+        creditReportQueryService.remove(id);
         /*CreditReportItemDO itemDO = creditReportItemDOMapper.selectById(id);
         if (Objects.isNull(itemDO)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);

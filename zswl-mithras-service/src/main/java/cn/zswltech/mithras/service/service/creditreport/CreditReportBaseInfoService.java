@@ -64,6 +64,7 @@ import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractTradeStructureService;
 import cn.zswltech.mithras.creditreport.service.resp.CreditReportObtainResultPDFResp;
+import cn.zswltech.mithras.creditreport.service.CreditReportQueryService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
@@ -107,7 +108,7 @@ import static cn.zswltech.mithras.contract.enums.contract.ProjItemStatus.INVALID
  */
 @Service
 @Slf4j
-public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInfoMapper, CreditReportBaseInfo> {
+public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInfoMapper, CreditReportBaseInfo> implements CreditReportQueryService {
 
     @Resource
     private CreditReportBaseInfoMapper creditReportBaseInfoMapper;
