@@ -1,11 +1,10 @@
-package cn.zswltech.mithras.service.controller.workbench;
+package cn.zswltech.mithras.service.application.workbench;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.biz.service.SystemConfigService;
 import cn.zswltech.gruul.common.result.Response;
 import cn.zswltech.gruul.dao.dal.entity.SystemConfigDO;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.workbench.WorkbenchLittleChartApi;
 import cn.zswltech.mithras.dto.workbench.ProjectMetricReq;
 import cn.zswltech.mithras.dto.workbench.ProjectVO;
 import cn.zswltech.mithras.dto.workbench.WorkbenchMetricReq;
@@ -44,10 +43,11 @@ import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewFacto
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewLeasePriceLibService;
 import cn.zswltech.mithras.service.service.workbench.WorkbenchRadarChartMetricService;
 import cn.zswltech.mithras.service.util.LongUtil;
+import cn.zswltech.mithras.workbench.application.WorkbenchLittleChartApplicationService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -62,8 +62,8 @@ import java.util.stream.Collectors;
  * @author: zhaozhengkang
  * @date: 2023/5/10 14:22
  */
-@RestController
-public class WorkbenchLittleChartController implements WorkbenchLittleChartApi {
+@Service
+public class WorkbenchLittleChartFacade implements WorkbenchLittleChartApplicationService {
 
     private static final String WORKBENCH_CHART_METRIC_ROLE_CONFIG_KEY = "workbenchLittleChart2RoleConfig";
     @Resource

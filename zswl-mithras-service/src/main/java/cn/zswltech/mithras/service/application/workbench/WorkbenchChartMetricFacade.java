@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.workbench;
+package cn.zswltech.mithras.service.application.workbench;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -12,7 +12,6 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.SystemConfigDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.workbench.WorkbenchChartMetricApi;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.projestablish.ProjEstablishPriceDetailRSP;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
@@ -79,6 +78,7 @@ import cn.zswltech.mithras.service.service.workbench.WorkbenchBarChartMetricServ
 import cn.zswltech.mithras.service.service.workbench.WorkbenchChartMetricService;
 import cn.zswltech.mithras.service.service.workbench.WorkbenchFundsLiquidityMetricService;
 import cn.zswltech.mithras.service.service.workbench.WorkbenchOverallReturnRateMetricService;
+import cn.zswltech.mithras.workbench.application.WorkbenchChartMetricApplicationService;
 import cn.zswltech.mithras.basedata.util.DateUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.alibaba.fastjson.JSON;
@@ -87,13 +87,10 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.SneakyThrows;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -114,8 +111,8 @@ import static cn.hutool.core.collection.CollUtil.isNotEmpty;
  * @description 工作台-柱状图指标
  * @date 2023-05-09
  */
-@RestController
-public class WorkbenchChartMetricController implements WorkbenchChartMetricApi {
+@Service
+public class WorkbenchChartMetricFacade implements WorkbenchChartMetricApplicationService {
     private static final String WORKBENCH_CHART_METRIC_ROLE_CONFIG_KEY = "workbenchChartMetric2RoleConfig";
     @Resource
     private WorkbenchBarChartMetricService barChartMetricService;
@@ -145,8 +142,6 @@ public class WorkbenchChartMetricController implements WorkbenchChartMetricApi {
     private Id2NameService id2NameService;
     @Resource
     private PaymentBaseInfoService paymentBaseInfoService;
-    @Resource
-    private HttpServletResponse httpServletResponse;
 
 
     @Override
@@ -339,7 +334,7 @@ public class WorkbenchChartMetricController implements WorkbenchChartMetricApi {
     }
 
     @Override
-    public R<PageR<PaymentDetailRsp>> launchList(@RequestBody @Valid ProjectMetricReq req) {
+    public R<PageR<PaymentDetailRsp>> launchList(@Valid ProjectMetricReq req) {
         // 合同编号 项目名称 类别 业务部门 投放金额 应付日期 实付日期
         Page<PaymentActualDetail> detailPage = paymentActualDetailService.page(
                 new Page<>(req.getPage(), req.getPageSize()),
@@ -890,7 +885,7 @@ public class WorkbenchChartMetricController implements WorkbenchChartMetricApi {
     @Resource
     private MetricComputeEventBus metricComputeEventBus;
 
-    @GetMapping("/cal/test")
+    @Override
     public void testCalculate() {
 //        workbenchChartMetricService.workbenchMetricJobHandler();
         MetricComputeEvent metricComputeEvent = new MetricComputeEvent();
