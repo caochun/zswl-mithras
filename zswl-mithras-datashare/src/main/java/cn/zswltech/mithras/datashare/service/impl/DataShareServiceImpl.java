@@ -6,7 +6,6 @@ import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.gruul.biz.service.OrgService;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.common.util.StringUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
@@ -15,13 +14,13 @@ import cn.zswltech.mithras.dto.client.share.DataShareRegisterCustomREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareUserREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareUserRSP;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.datashare.mapper.model.DataShareCodeDict;
 import cn.zswltech.mithras.datashare.mapper.model.DataShareManager;
 import cn.zswltech.mithras.datashare.mapper.model.DataShareMerchants;
 import cn.zswltech.mithras.datashare.mapper.model.DataShareOrg;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.datashare.service.DataShareManagerService;
 import cn.zswltech.mithras.datashare.service.DataShareMerchantsService;
 import cn.zswltech.mithras.datashare.service.DataShareService;
@@ -71,13 +70,10 @@ public class DataShareServiceImpl implements DataShareService {
     private DataShareCodeDictService dataShareCodeDictService;
 
     @Autowired
-    private ClientService clientService;
+    private ClientMapper clientMapper;
 
     @Autowired
     private UserService userService;
-
-    @Resource
-    private OrgService orgService;
 
     @Value("${data.share.loginUrl}")
     private String merchantLoginUrl;
@@ -389,7 +385,7 @@ public class DataShareServiceImpl implements DataShareService {
                         codeMap.put(rsp.getIdentificationNumber(), String.valueOf(rsp.getClientId()));
                     }
                 });
-                List<Client> clients = clientService.listByClientCodeIsNull();
+                List<Client> clients = clientMapper.selectList(Wrappers.<Client>lambdaQuery().isNull(Client::getClientCode));
                 List<Client> clientsUpdate = new ArrayList<>();
                 clients.forEach(rsp -> {
                     if (ClientType.CORPORATION.name().equals(rsp.getClientType()) && !StringUtil.isBlank(codeMap.get(rsp.getUscCode()))) {
@@ -400,7 +396,7 @@ public class DataShareServiceImpl implements DataShareService {
                         clientsUpdate.add(rsp);
                     }
                 });
-                clientService.updateClientCode(clientsUpdate);
+                clientsUpdate.forEach(clientMapper::updateById);
                 return data.getInteger("total");
             } else {
                 //可能是tocken过期了, 清空重新获取
