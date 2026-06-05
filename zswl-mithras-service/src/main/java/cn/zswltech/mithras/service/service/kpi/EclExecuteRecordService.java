@@ -17,7 +17,7 @@ import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.excel.importer.EclEcecuteRecordmporter;
-import cn.zswltech.mithras.service.excel.model.kpi.EclExecuteRecordExcelModel;
+import cn.zswltech.mithras.kpi.excel.model.EclExecuteRecordExcelModel;
 import cn.zswltech.mithras.kpi.mapper.dto.EclExecuteRecordParam;
 import cn.zswltech.mithras.kpi.mapper.EclExecuteRecordLibMapper;
 import cn.zswltech.mithras.kpi.mapper.EclExecuteRecordMapper;
