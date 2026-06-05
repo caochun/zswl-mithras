@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.dashboard.boss;
+package cn.zswltech.mithras.dashboard.interfaces.boss;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.dashboard.boss.DashboardBusinessTransformFunnelApi;
 import cn.zswltech.mithras.dto.dashboard.boss.BusinessTransformFunnelListRSP;
-import cn.zswltech.mithras.service.service.dashboard.boss.DashboardBusinessTransformFunnelService;
+import cn.zswltech.mithras.dashboard.application.boss.DashboardBusinessTransformFunnelService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

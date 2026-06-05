@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.controller.dashboard.boss;
+package cn.zswltech.mithras.dashboard.interfaces.boss;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.dashboard.boss.DashboardAssetsClientDistributionApi;
 import cn.zswltech.mithras.dto.dashboard.boss.DistributionAssetsIndustryListRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.DistributionClientDepartmentListRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.DistributionClientStatisticsListRSP;
-import cn.zswltech.mithras.service.service.dashboard.boss.DashboardAssetsClientDistributionService;
+import cn.zswltech.mithras.dashboard.application.boss.DashboardAssetsClientDistributionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

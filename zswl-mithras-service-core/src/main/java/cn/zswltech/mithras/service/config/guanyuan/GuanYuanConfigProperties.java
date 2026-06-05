@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.guanbao.config;
+package cn.zswltech.mithras.service.config.guanyuan;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

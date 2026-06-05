@@ -13,7 +13,7 @@ import cn.zswltech.gruul.dao.dal.entity.SystemConfigDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.ReportGroupListRSP;
 import cn.zswltech.mithras.dto.ReportSelectRSP;
-import cn.zswltech.mithras.guanbao.config.GuanYuanConfigProperties;
+import cn.zswltech.mithras.service.config.guanyuan.GuanYuanConfigProperties;
 import cn.zswltech.mithras.guanbao.enums.ManagementReportSourceEnum;
 import cn.zswltech.mithras.guanbao.mapper.ManagementReportMapper;
 import cn.zswltech.mithras.guanbao.mapper.model.ManagementReport;

@@ -32,7 +32,7 @@ import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.Oper
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.dashboard.DashboardOperateTodoService;
-import cn.zswltech.mithras.service.service.dashboard.boss.GuanYuanBasicService;
+import cn.zswltech.mithras.dashboard.application.boss.GuanYuanBasicService;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.ZLHeTongShiXiaoDTO;
 import cn.zswltech.sleipnir.toolkit.enums.GuanYuanFilterTypeEnum;
 import cn.zswltech.sleipnir.toolkit.request.guanyuan.GuanYuanDSRequest;

@@ -30,7 +30,7 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.ZrType;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
-import cn.zswltech.mithras.service.service.dashboard.boss.GuanYuanBasicService;
+import cn.zswltech.mithras.dashboard.application.boss.GuanYuanBasicService;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.BusinessContractSummaryDTO;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.PayIncomeDTO;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.ProjectSituationDTO;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.dashboard.boss;
+package cn.zswltech.mithras.dashboard.application.boss;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.text.CharSequenceUtil;

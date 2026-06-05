@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.dashboard.boss;
+package cn.zswltech.mithras.dashboard.interfaces.boss;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.dashboard.boss.BalanceOverviewRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.AssetsOverviewDetailListRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.LoanOverviewRSP;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.dashboard.boss.DashboardAssetsOverviewService;
+import cn.zswltech.mithras.dashboard.application.boss.DashboardAssetsOverviewService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

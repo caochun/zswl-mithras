@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.dashboard.boss;
+package cn.zswltech.mithras.dashboard.interfaces.boss;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.dashboard.boss.DashboardOverdueProjectApi;
 import cn.zswltech.mithras.dto.dashboard.boss.OverdueProjectListRSP;
-import cn.zswltech.mithras.service.service.dashboard.boss.DashboardOverdueProjectService;
+import cn.zswltech.mithras.dashboard.application.boss.DashboardOverdueProjectService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

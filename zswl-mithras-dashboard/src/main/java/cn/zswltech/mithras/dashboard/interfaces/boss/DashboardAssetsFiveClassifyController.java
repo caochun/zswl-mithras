@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.dashboard.boss;
+package cn.zswltech.mithras.dashboard.interfaces.boss;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.dashboard.boss.DashboardAssetsFiveClassifyApi;
 import cn.zswltech.mithras.dto.dashboard.boss.AssetsFiveClassifyListRSP;
-import cn.zswltech.mithras.service.service.dashboard.boss.DashboardAssetsFiveClassifyService;
+import cn.zswltech.mithras.dashboard.application.boss.DashboardAssetsFiveClassifyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
