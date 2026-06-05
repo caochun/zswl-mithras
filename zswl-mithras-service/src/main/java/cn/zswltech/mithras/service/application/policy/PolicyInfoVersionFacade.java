@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.policy;
+package cn.zswltech.mithras.service.application.policy;
 
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.policy.PolicyInfoVersionApi;
+import cn.zswltech.mithras.policy.application.PolicyInfoVersionApplicationService;
 import cn.zswltech.mithras.dto.policy.PolicyInfoCancelREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoEffectREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoRemoveREQ;
@@ -28,7 +28,7 @@ import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -46,8 +46,8 @@ import static cn.zswltech.mithras.service.others.MithrasException.err;
  * @create: 2023-06-15
  **/
 @Slf4j
-@RestController
-public class PolicyInfoVersionController implements PolicyInfoVersionApi {
+@Service
+public class PolicyInfoVersionFacade implements PolicyInfoVersionApplicationService {
 
     @Resource
     private PolicyInfoVersionService policyInfoVersionService;

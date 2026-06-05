@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.policy;
+package cn.zswltech.mithras.service.application.policy;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -8,7 +8,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.payment.dto.PaymentPoliceTmpImportREQ;
-import cn.zswltech.mithras.api.policy.PolicyInfoTmpApi;
+import cn.zswltech.mithras.policy.application.PolicyInfoTmpApplicationService;
 import cn.zswltech.mithras.dto.policy.*;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
@@ -29,7 +29,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -51,9 +51,9 @@ import java.util.stream.Collectors;
 * @author vico
 * @date 2023-10-23
 */
-@RestController
+@Service
 @Slf4j
-public class PolicyInfoTmpController implements PolicyInfoTmpApi {
+public class PolicyInfoTmpFacade implements PolicyInfoTmpApplicationService {
 
     @Resource
     private PolicyInfoTmpService policyInfoTmpService;
