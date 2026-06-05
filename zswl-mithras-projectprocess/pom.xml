@@ -29,6 +29,11 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-basedata</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-projlifecycle</artifactId>
             <version>${revision}</version>
         </dependency>
@@ -45,6 +50,11 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>

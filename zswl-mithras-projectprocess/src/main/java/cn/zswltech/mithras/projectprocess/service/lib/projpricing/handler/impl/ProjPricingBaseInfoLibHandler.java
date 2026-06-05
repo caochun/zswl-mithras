@@ -1,19 +1,19 @@
-package cn.zswltech.mithras.projectprocess.service.lib.projreview.handler.impl;
+package cn.zswltech.mithras.projectprocess.service.lib.projpricing.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
+import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoDetailRSP;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingInfoModule;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;
-import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.projectprocess.service.lib.projreview.handler.ProjReviewLibAbstractHandler;
+import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.service.ProjectProcessNameResolver;
+import cn.zswltech.mithras.projectprocess.service.lib.projpricing.handler.ProjPricingLibAbstractHandler;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -31,11 +31,11 @@ import static cn.hutool.core.util.ObjectUtil.isNotNull;
  * @since
  */
 @Service
-public class ProjReviewBaseInfoLibHandler
-        extends ProjReviewLibAbstractHandler<ProjReviewBaseInfoLib, ProjReviewBaseInfo, ProjReviewBaseInfoDetailRSP> {
+public class ProjPricingBaseInfoLibHandler
+        extends ProjPricingLibAbstractHandler<ProjPricingBaseInfoLib, ProjPricingBaseInfo, ProjPricingBaseInfoDetailRSP> {
 
     @Resource
-    private Id2NameService id2NameService;
+    private ProjectProcessNameResolver id2NameService;
 
     @Resource
     private AddressDictionaryMapper addressDictionaryMapper;
@@ -43,26 +43,26 @@ public class ProjReviewBaseInfoLibHandler
     @Override
     public Set<String> compareIgnoreFieldNames() {
         HashSet<String> fields = new HashSet<>();
-        fields.add("projReviewStatus");
-        fields.add("projReviewProcessStatus");
+        fields.add("projPricingStatus");
+        fields.add("projPricingProcessStatus");
         return fields;
     }
 
     @Override
-    protected ProjReviewBaseInfoLib entity2Lib(ProjReviewBaseInfo f) {
-        return BeanUtil.copyProperties(f, ProjReviewBaseInfoLib.class);
+    protected ProjPricingBaseInfoLib entity2Lib(ProjPricingBaseInfo f) {
+        return BeanUtil.copyProperties(f, ProjPricingBaseInfoLib.class);
     }
 
     @Override
-    protected ProjReviewBaseInfo lib2Entity(ProjReviewBaseInfoLib t) {
-        return BeanUtil.copyProperties(t, ProjReviewBaseInfo.class);
+    protected ProjPricingBaseInfo lib2Entity(ProjPricingBaseInfoLib t) {
+        return BeanUtil.copyProperties(t, ProjPricingBaseInfo.class);
     }
 
     @Override
-    protected ProjReviewBaseInfoDetailRSP lib2Rsp(ProjReviewBaseInfoLib f) {
+    protected ProjPricingBaseInfoDetailRSP lib2Rsp(ProjPricingBaseInfoLib f) {
         String[] ignoreProperties = new String[]{"creditorInfo", "debtorInfo", "guaranteeInfo", "lesseeInfo", "mortgagorInfo",
                 "pledgorInfo", "leaseTypes", "factoringTypes", "zrTypes", "projCosponsorUserIds", "projCosponsorUserNames"};
-        ProjReviewBaseInfoDetailRSP rsp = BeanUtil.copyProperties(f, ProjReviewBaseInfoDetailRSP.class, ignoreProperties);
+        ProjPricingBaseInfoDetailRSP rsp = BeanUtil.copyProperties(f, ProjPricingBaseInfoDetailRSP.class, ignoreProperties);
         rsp.setCreditorInfo(Optional.ofNullable(JSON.parseObject(f.getCreditorInfo(),
                 new TypeReference<List<ClientInfo>>() {
                 }))
@@ -223,8 +223,8 @@ public class ProjReviewBaseInfoLibHandler
 
 
     @Override
-    public ProjReviewInfoModule getSubModule() {
-        return ProjReviewInfoModule.BASE_INFO;
+    public ProjPricingInfoModule getSubModule() {
+        return ProjPricingInfoModule.BASE_INFO;
     }
 
     @Override
