@@ -26,7 +26,7 @@ import cn.zswltech.mithras.dto.third.financial.ThirdCollectionRecordREQ;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.service.convert.collection.CollectionRecordInfoConverter;
+import cn.zswltech.mithras.collection.convert.CollectionRecordInfoConverter;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.message.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
