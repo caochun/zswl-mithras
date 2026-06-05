@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.excel.exporter;
+package cn.zswltech.mithras.contract.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.contract.excel.model.ContractExcelModel;
+import cn.zswltech.mithras.contract.excel.model.ContractExcelModel2;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
  */
 @Primary
 @Component
-public class ContractExcelExporter extends AbstractSimpleExcelExporter<ContractExcelModel> {
+public class ContractExcelExporter2 extends AbstractSimpleExcelExporter<ContractExcelModel2> {
     @Override
     protected void customStrategy(Workbook workbook) {
 
     }
 
     @Override
-    protected Class<ContractExcelModel> modelClz() {
-        return ContractExcelModel.class;
+    protected Class<ContractExcelModel2> modelClz() {
+        return ContractExcelModel2.class;
     }
 }

@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.overdue.application.collection.ContractRemainingPrincipalResolver;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.excel.exporter.CollectionListExcelExporter;
+import cn.zswltech.mithras.collection.excel.exporter.CollectionListExcelExporter;
 import cn.zswltech.mithras.collection.excel.model.CollectionListExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;

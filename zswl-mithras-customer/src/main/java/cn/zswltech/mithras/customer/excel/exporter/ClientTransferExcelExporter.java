@@ -1,8 +1,7 @@
-package cn.zswltech.mithras.service.excel.exporter;
+package cn.zswltech.mithras.customer.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.customer.excel.ClientTransferExcelModel;
-import cn.zswltech.mithras.leaseholdproperty.excel.model.LeaseItemVehicleRegistrationCertificateExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;
 

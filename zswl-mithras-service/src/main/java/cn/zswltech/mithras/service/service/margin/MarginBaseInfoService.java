@@ -17,7 +17,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.overdue.application.collection.ContractDepositBalanceResolver;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.excel.exporter.MarginListExcelExporter;
+import cn.zswltech.mithras.margin.excel.exporter.MarginListExcelExporter;
 import cn.zswltech.mithras.margin.excel.model.MarginBaseInfoListExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;

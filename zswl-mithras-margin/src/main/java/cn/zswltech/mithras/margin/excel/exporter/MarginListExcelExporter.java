@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.excel.exporter;
+package cn.zswltech.mithras.margin.excel.exporter;
 
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;

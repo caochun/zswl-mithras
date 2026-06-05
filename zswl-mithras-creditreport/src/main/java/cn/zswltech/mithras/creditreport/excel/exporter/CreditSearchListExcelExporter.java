@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.excel.exporter;
+package cn.zswltech.mithras.creditreport.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.creditreport.excel.CreditSearchExcelModel;
