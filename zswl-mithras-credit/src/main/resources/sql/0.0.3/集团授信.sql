@@ -1,15 +1,3 @@
--- 项目评审增加两个字段 数据来源类型、集团授信评审id
-ALTER TABLE proj_review_base_info ADD relation_data_type VARCHAR(30) DEFAULT NULL COMMENT '数据来源类型，区分普通立项(PROJ_ESTABLISH)和集团授信(GROUP_CREDIT_REVIEW)';
-ALTER TABLE proj_review_base_info ADD group_credit_review_id BIGINT(20) DEFAULT NULL COMMENT '集团授信评审id';
-ALTER TABLE proj_review_base_info_lib ADD relation_data_type VARCHAR(30) DEFAULT NULL COMMENT '数据来源类型，区分普通立项(PROJ_ESTABLISH)和集团授信(GROUP_CREDIT_REVIEW)';
-ALTER TABLE proj_review_base_info_lib ADD group_credit_review_id BIGINT(20) DEFAULT NULL COMMENT '集团授信评审id';
-
--- 客户模块增加两个字段 是否集团公司 所属集团
-ALTER TABLE corp_commerce_info ADD group_flag TINYINT(4) DEFAULT NULL COMMENT '是否集团公司 1是，0否';
-ALTER TABLE corp_commerce_info ADD belong_group_client_id BIGINT(20) DEFAULT NULL COMMENT '所属集团 法人客户id -1无 -2自己';
-ALTER TABLE corp_commerce_info_lib ADD group_flag TINYINT(4) DEFAULT NULL COMMENT '是否集团公司 1是，0否';
-ALTER TABLE corp_commerce_info_lib ADD belong_group_client_id BIGINT(20) DEFAULT NULL COMMENT '所属集团 法人客户id -1无 -2自己';
-
 -- 集团授信立项表、评审表
 CREATE TABLE `group_credit_establish_base_info` (
     `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -147,16 +135,3 @@ CREATE TABLE `group_credit_review_base_info_lib` (
     INDEX `idx_origin_id` (`origin_id`),
     KEY `idx_proj_code` (`proj_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='集团授信评审基本信息版本表';
-
--- 项目编号拆表 因为项目评审、项目立项都要生成项目编号了，项目编号又需要唯一，所以需要单独拎出来存
-CREATE TABLE `proj_code_store` (
-    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-    `proj_code` varchar(20) DEFAULT NULL COMMENT '项目编号',
-    `biz_type` varchar(20) DEFAULT NULL COMMENT '业务类型。租赁、保理、转租赁',
-    `type_seq_id` bigint(20) DEFAULT NULL COMMENT '不同类型，不同的自增序列id',
-    `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
-    `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `uniq_proj_code` (`proj_code`),
-    UNIQUE KEY `seqid_unique` (`biz_type`,`type_seq_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1208 DEFAULT CHARSET=utf8mb4 COMMENT='项目编号单存表';
