@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.service.util;
+package cn.zswltech.mithras.ftp.newftp.utils;
+
+import cn.zswltech.mithras.service.util.StringUtil;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
