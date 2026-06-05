@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.datashare.service.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.basic.Constant;
@@ -6,7 +6,6 @@ import cn.zswltech.mithras.datashare.mapper.model.DataShareFk;
 import cn.zswltech.mithras.datashare.mapper.model.DataShareManager;
 import cn.zswltech.mithras.datashare.service.DataShareFkService;
 import cn.zswltech.mithras.datashare.service.DataShareManagerService;
-import cn.zswltech.mithras.service.util.StringUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -49,7 +48,7 @@ public class DataShareFkJob {
             LambdaQueryWrapper<DataShareManager> query = Wrappers.lambdaQuery();
             query.eq(DataShareManager::getModelName, Constant.DATA_SHARE_FK);
             query.orderByDesc(DataShareManager::getEndTime);  // 按照最后执行时间降序
-            query.last(StringUtil.mysqlLimitOne());
+            query.last("limit 1");
             DataShareManager dataShareManager = dataShareManagerService.getOne(query);
 
             // 2、获取已完成报销单清单

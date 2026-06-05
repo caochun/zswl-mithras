@@ -73,5 +73,10 @@
             <artifactId>commons-lang3</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.xuxueli</groupId>
+            <artifactId>xxl-job-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
