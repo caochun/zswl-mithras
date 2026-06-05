@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.excel.exporter;
+package cn.zswltech.mithras.funddirect.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.service.excel.model.PropertyExcelModel;
+import cn.zswltech.mithras.funddirect.excel.model.PropertyExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;
 

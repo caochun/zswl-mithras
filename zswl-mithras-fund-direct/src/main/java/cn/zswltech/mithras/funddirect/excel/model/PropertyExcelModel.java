@@ -1,7 +1,8 @@
-package cn.zswltech.mithras.service.excel.model;
+package cn.zswltech.mithras.funddirect.excel.model;
 
 import cn.zswltech.mithras.service.excel.ColumnStyleEnum;
 import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
+import cn.zswltech.mithras.service.excel.model.ExcelModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import java.math.BigDecimal;
