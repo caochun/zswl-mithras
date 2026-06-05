@@ -45,7 +45,7 @@ public class ResponseBodyHandler implements ResponseBodyAdvice<Object> {
     private static final Set<String> IGNORE = new HashSet<>();
 
     static {
-        IGNORE.add("cn.zswltech.mithras.service.controller.contract.ContractVersionController#startRent");
+        IGNORE.add("cn.zswltech.mithras.service.application.contract.ContractVersionFacade#startRent");
     }
 
     @Resource

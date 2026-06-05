@@ -5,7 +5,6 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.controller.contract.ContractFileController;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
@@ -65,9 +64,6 @@ public class ContractDetailListRender extends AbstractContractRender<JSONObject>
     private ContractLeasePriceService contractLeasePriceService;
     @Resource
     protected MaterialsListService materialsListService;
-    @Resource
-    protected ContractFileController contractFileController;
-
     @Override
     public String render(OutputStream outputStream, JSONObject jsonObject) throws Exception {
         ProjReviewBaseInfo projReviewBaseInfo = JSONUtil.toBean(jsonObject, ProjReviewBaseInfo.class);

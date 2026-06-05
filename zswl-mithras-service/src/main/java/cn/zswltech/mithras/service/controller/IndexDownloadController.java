@@ -55,7 +55,7 @@ import cn.zswltech.mithras.afterlease.interfaces.AfterLeaseCheckPlanBaseControll
 import cn.zswltech.mithras.service.application.capital.BusinessFlowFacade;
 import cn.zswltech.mithras.service.controller.client.ClientController;
 import cn.zswltech.mithras.collection.controller.CollectionFlowCenterController;
-import cn.zswltech.mithras.service.controller.contract.ContractBaseInfoController;
+import cn.zswltech.mithras.service.application.contract.ContractBaseInfoFacade;
 import cn.zswltech.mithras.service.controller.flow.ProcessController;
 import cn.zswltech.mithras.service.controller.flow.TaskController;
 import cn.zswltech.mithras.ftp.oldftp.controller.FtpInterestController;
@@ -155,7 +155,7 @@ public class IndexDownloadController implements IndexDownloadApi {
             Pair.of(BusinessModuleEnum.PROJ_ESTABLISH, Triple.of(ProjEstablishBaseInfoFacade.class, "list", of(""))),
             Pair.of(BusinessModuleEnum.PROJ_REVIEW, Triple.of(ProjReviewBaseInfoFacade.class, "list", of())),
             Pair.of(BusinessModuleEnum.PROJ_PRICING, Triple.of(ProjPricingBaseInfoFacade.class, "list", of())),
-            Pair.of(BusinessModuleEnum.CONTRACT, Triple.of(ContractBaseInfoController.class, "list", of())),
+            Pair.of(BusinessModuleEnum.CONTRACT, Triple.of(ContractBaseInfoFacade.class, "list", of())),
             Pair.of(BusinessModuleEnum.FUND_ORGANIZATION, Triple.of(FundOrganizationFacade.class, "list", of())),
             Pair.of(FUND_CREDIT, Triple.of(FundCreditFacade.class, "list", of())),
             Pair.of(FUND_CREDIT_LIMIT, Triple.of(FundCreditFacade.class, "limitDetail", of())),

@@ -42,7 +42,7 @@ import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoListREQ;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.dto.utils.CashFlowGenerationIrrREQ;
-import cn.zswltech.mithras.service.controller.contract.ContractRentController;
+import cn.zswltech.mithras.service.application.contract.ContractRentFacade;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.RentCollectionIndexFilterConditionType;
 import cn.zswltech.mithras.payment.domain.enums.app.AppPaymentStatus;
@@ -130,7 +130,7 @@ public class AppController implements AppApi {
     @Resource
     private CollectionBaseInfoService collectionBaseInfoService;
     @Resource
-    private ContractRentController contractRentController;
+    private ContractRentFacade contractRentFacade;
     @Resource
     private CollectionRecordInfoService collectionRecordInfoService;
     @Resource
@@ -489,7 +489,7 @@ public class AppController implements AppApi {
         //实际租金表
         ContractSingleIdREQ contractSingleIdREQ = new ContractSingleIdREQ();
         contractSingleIdREQ.setContractId(req.getContractId());
-        R<List<ContractRentActualListRSP>> rentActualListRSPR = contractRentController.listActualRent(contractSingleIdREQ);
+        R<List<ContractRentActualListRSP>> rentActualListRSPR = contractRentFacade.listActualRent(contractSingleIdREQ);
         if (rentActualListRSPR != null && !rentActualListRSPR.getData().isEmpty()) {
             List<AppProContractDetailRSP.BasicInfoRSP> basicInfoRSPList = new ArrayList<>();
             detailRSP.setBasicInfoRSPList(basicInfoRSPList);
