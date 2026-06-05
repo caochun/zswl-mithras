@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.process.prepare;
+package cn.zswltech.mithras.service.application.process.prepare;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -12,7 +12,7 @@ import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
-import cn.zswltech.mithras.api.process.prepare.ProcessPrepareApi;
+import cn.zswltech.mithras.workflow.application.process.prepare.api.ProcessPrepareApplicationService;
 import cn.zswltech.mithras.dto.IdPageREQ;
 import cn.zswltech.mithras.dto.IdREQ;
 import cn.zswltech.mithras.dto.process.prepare.*;
@@ -36,7 +36,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
@@ -62,8 +62,8 @@ import static cn.zswltech.mithras.service.others.Util.toYuan;
 /**
  * @author luyi
  */
-@RestController
-public class ProcessPrepareController implements ProcessPrepareApi {
+@Service
+public class ProcessPrepareFacade implements ProcessPrepareApplicationService {
 
     @Resource
     private CommonProcessPrepareService prepareService;

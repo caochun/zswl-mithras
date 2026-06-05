@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.payment.PaymentActualDetailRemoveAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.payment.PaymentActualDetailOperationAuthChecker;
-import cn.zswltech.mithras.service.controller.payment.checker.PaymentWriteOffAuthChecker;
+import cn.zswltech.mithras.service.application.payment.checker.PaymentWriteOffAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentCollectionInfo;

@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionModifyReq;
 import cn.zswltech.mithras.payment.interfaces.dto.PaymentQuestionnaireModifyReq;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.service.controller.payment.checker.PaymentSubModifyChecker;
+import cn.zswltech.mithras.service.application.payment.checker.PaymentSubModifyChecker;
 import cn.zswltech.mithras.payment.application.convert.PaymentQuestionConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
