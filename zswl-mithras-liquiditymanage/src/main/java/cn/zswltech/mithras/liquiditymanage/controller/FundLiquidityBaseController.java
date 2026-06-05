@@ -1,13 +1,11 @@
-package cn.zswltech.mithras.service.controller.liquiditymanage;
+package cn.zswltech.mithras.liquiditymanage.controller;
 
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.liquiditymanage.FundLiquidityBaseApi;
 import cn.zswltech.mithras.dto.liquiditymanage.base.*;
+import cn.zswltech.mithras.liquiditymanage.service.FundLiquidityBaseApplicationService;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.liquiditymanage.AccountBalanceBaseInfoService;
-import cn.zswltech.mithras.service.service.liquiditymanage.FundFinancingAccountSettingService;
-import cn.zswltech.mithras.service.service.liquiditymanage.FundParameterConfigService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,27 +24,23 @@ import java.util.List;
 public class FundLiquidityBaseController implements FundLiquidityBaseApi {
 
     @Resource
-    private AccountBalanceBaseInfoService accountBalanceBaseInfoService;
-    @Resource
-    private FundFinancingAccountSettingService accountSettingService;
-    @Resource
-    private FundParameterConfigService parameterConfigService;
+    private FundLiquidityBaseApplicationService fundLiquidityBaseService;
 
     @Override
     public R<AccountBalanceDetailListRSP> accountBalanceList(AccountBalanceDetailListREQ req) {
-        return R.ok(accountBalanceBaseInfoService.accountBalanceList(req));
+        return R.ok(fundLiquidityBaseService.accountBalanceList(req));
     }
 
     @Override
     public R<AccountBalanceDetailModifyRSP> accountBalanceModify(AccountBalanceDetailModifyREQ req) {
-        return R.ok(accountBalanceBaseInfoService.accountBalanceModify(req));
+        return R.ok(fundLiquidityBaseService.accountBalanceModify(req));
     }
 
     @Override
     public R<Void> accountBalanceImport(MultipartFile file) {
         Assert.isTrue(!file.isEmpty(), () -> MithrasException.newException("文件不能为空"));
         try {
-            accountBalanceBaseInfoService.importExcel(file.getInputStream());
+            fundLiquidityBaseService.importAccountBalance(file.getInputStream());
         } catch (MithrasException e) {
             throw e;
         } catch (Exception e) {
@@ -58,46 +52,46 @@ public class FundLiquidityBaseController implements FundLiquidityBaseApi {
 
     @Override
     public R<List<AccountSettingListRSP>> accountSettingList(AccountSettingListREQ req) {
-        return R.ok(accountSettingService.accountSettingList(req));
+        return R.ok(fundLiquidityBaseService.accountSettingList(req));
     }
 
     @Override
     public R<AccountSettingModifyRSP> accountSettingModify(AccountSettingModifyREQ req) {
-        return R.ok(accountSettingService.accountSettingModify(req));
+        return R.ok(fundLiquidityBaseService.accountSettingModify(req));
     }
 
     @Override
     public R<AccountSettingRestoreRSP> accountSettingRestore(AccountSettingRestoreREQ req) {
-        return R.ok(accountSettingService.accountSettingRestore(req));
+        return R.ok(fundLiquidityBaseService.accountSettingRestore(req));
     }
 
     @Override
     public R<ParameterBaseDetailRSP> parameterBaseDetail(ParameterBaseDetailREQ req) {
-        return R.ok(parameterConfigService.parameterBaseDetail(req));
+        return R.ok(fundLiquidityBaseService.parameterBaseDetail(req));
     }
 
     @Override
     public R<ParameterBaseModifyRSP> parameterBaseModify(ParameterBaseModifyREQ req) {
-        return R.ok(parameterConfigService.parameterBaseModify(req));
+        return R.ok(fundLiquidityBaseService.parameterBaseModify(req));
     }
 
     @Override
     public R<List<ParameterIndexDetailRSP>> parameterIndexDetail(ParameterIndexDetailREQ req) {
-        return R.ok(parameterConfigService.parameterIndexDetail(req));
+        return R.ok(fundLiquidityBaseService.parameterIndexDetail(req));
     }
 
     @Override
     public R<ParameterIndexModifyRSP> parameterIndexModify(List<ParameterIndexModifyREQ> req) {
-        return R.ok(parameterConfigService.parameterIndexModify(req));
+        return R.ok(fundLiquidityBaseService.parameterIndexModify(req));
     }
 
     @Override
     public void test() {
-        accountBalanceBaseInfoService.init(false, null);
+        fundLiquidityBaseService.accountBalanceCalculate();
     }
 
     @Override
     public void testSetting() {
-        accountSettingService.init();
+        fundLiquidityBaseService.accountSettingCalculate();
     }
 }

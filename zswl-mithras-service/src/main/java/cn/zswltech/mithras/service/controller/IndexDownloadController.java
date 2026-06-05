@@ -64,9 +64,9 @@ import cn.zswltech.mithras.service.controller.fund.FundGuaranteeAgencyController
 import cn.zswltech.mithras.service.controller.fund.FundOrganizationController;
 import cn.zswltech.mithras.service.controller.fund.financing.FundFinancingController;
 import cn.zswltech.mithras.service.controller.fund.receiptrepay.FundReceiptRepayBaseInfoController;
-import cn.zswltech.mithras.service.controller.liquiditymanage.FundLiquidityBaseController;
-import cn.zswltech.mithras.service.controller.liquiditymanage.FundLiquidityIndexController;
-import cn.zswltech.mithras.service.controller.liquiditymanage.FundTransferController;
+import cn.zswltech.mithras.liquiditymanage.controller.FundLiquidityBaseController;
+import cn.zswltech.mithras.liquiditymanage.controller.FundLiquidityIndexController;
+import cn.zswltech.mithras.liquiditymanage.controller.FundTransferController;
 import cn.zswltech.mithras.service.controller.projestablish.ProjEstablishBaseInfoController;
 import cn.zswltech.mithras.service.controller.projpricing.ProjPricingBaseInfoController;
 import cn.zswltech.mithras.service.controller.projreview.ProjReviewBaseInfoController;

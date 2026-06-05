@@ -1,13 +1,10 @@
-package cn.zswltech.mithras.service.controller.liquiditymanage;
+package cn.zswltech.mithras.liquiditymanage.controller;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.liquiditymanage.FundTransferApi;
-import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListREQ;
-import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.fundTransfer.*;
-import cn.zswltech.mithras.service.job.FinancingRepayInfoJob;
-import cn.zswltech.mithras.service.service.liquiditymanage.FundTransferService;
+import cn.zswltech.mithras.liquiditymanage.service.FundTransferApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,9 +22,7 @@ import java.util.List;
 public class FundTransferController implements FundTransferApi {
 
     @Resource
-    private FundTransferService fundTransferService;
-    @Resource
-    private FinancingRepayInfoJob financingRepayInfoJob;
+    private FundTransferApplicationService fundTransferService;
 
     @Override
     public R<FundTransferListRSP> list(FundTransferListREQ req) {
@@ -66,7 +61,7 @@ public class FundTransferController implements FundTransferApi {
 
     @Override
     public void test() {
-        financingRepayInfoJob.financingRepayInfoInAdvance();
+        fundTransferService.financingRepayInfoInAdvance();
     }
 
     @Override

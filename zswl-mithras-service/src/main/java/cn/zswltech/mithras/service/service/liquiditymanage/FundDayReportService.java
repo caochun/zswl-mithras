@@ -17,6 +17,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.liquiditymanage.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquiditymanage.service.FundDayReportApplicationService;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.service.service.basedata.BaseDataBankAccountService;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
@@ -50,7 +51,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class FundDayReportService {
+public class FundDayReportService implements FundDayReportApplicationService {
 
     @Resource
     private Id2NameService id2NameService;
@@ -75,6 +76,7 @@ public class FundDayReportService {
     @Resource
     private ProjectLifecycleService projectLifecycleService;
 
+    @Override
     public DayReportIndicatorListRSP dayReportIndicatorList(DayReportIndicatorListREQ req) {
         // 当日数据与昨日数据做计算
         LocalDate today = LocalDate.now();
@@ -145,6 +147,7 @@ public class FundDayReportService {
         return rsp;
     }
 
+    @Override
     public AccountBalanceListRSP accountBalanceList(AccountBalanceListREQ req) {
         // 首先找到当前时间的所有账户余额记录
         List<AccountBalanceBaseInfo> accountBalanceBaseInfos = accountBalanceBaseInfoService.list(Wrappers.<AccountBalanceBaseInfo>lambdaQuery().eq(AccountBalanceBaseInfo::getDate, LocalDate.now().minusDays(1)));
@@ -195,6 +198,7 @@ public class FundDayReportService {
         return vo;
     }
 
+    @Override
     public List<RentIncomeListRSP> rentIncomeList(RentIncomeListREQ req) {
         // 资产合同状态=起租，租金支付日在今日的资产合同（如租金支付日是节假日，支付日为节前最后一个工作日）==》2025/1/21修改为和账户余额表逻辑一致
         Map<LocalDate, BaseDataSpecialDate> specialDateMap = baseDataSpecialDateService.findAllSpecialDate().stream().collect(Collectors.toMap(BaseDataSpecialDate::getSpecialDate, Function.identity()));
@@ -272,6 +276,7 @@ public class FundDayReportService {
         return Pair.of(LocalDate.now(), lastHoliday.minusDays(1));
     }
 
+    @Override
     public PageR<RepayPrincipalInterestListRSP> repayPrincipalInterestList(RepayPrincipalInterestListREQ req) {
         // 数据范围：融资合同状态=起租，还本付息的支付日在今日的融资合同（无需考虑节假日）
         LocalDate now = LocalDate.now();

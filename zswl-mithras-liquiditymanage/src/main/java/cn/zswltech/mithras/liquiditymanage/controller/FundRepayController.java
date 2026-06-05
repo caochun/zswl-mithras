@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.controller.liquiditymanage;
+package cn.zswltech.mithras.liquiditymanage.controller;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.liquiditymanage.FundRepayActualApi;
 import cn.zswltech.mithras.dto.liquiditymanage.financingRepay.FinancingRepayPlanModifyREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.financingRepay.FinancingRepayWriteOffModifyREQ;
-import cn.zswltech.mithras.service.service.liquiditymanage.FundRepayService;
+import cn.zswltech.mithras.liquiditymanage.service.FundRepayApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 public class FundRepayController implements FundRepayActualApi {
 
     @Resource
-    private FundRepayService fundRepayService;
+    private FundRepayApplicationService fundRepayService;
 
 
     @Override

@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.liquiditymanage;
+package cn.zswltech.mithras.liquiditymanage.controller;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.liquiditymanage.FundLiquidityIndexApi;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.*;
-import cn.zswltech.mithras.service.service.liquiditymanage.FundLiquidityIndexService;
+import cn.zswltech.mithras.liquiditymanage.service.FundLiquidityIndexApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -19,7 +19,7 @@ import java.util.List;
 public class FundLiquidityIndexController implements FundLiquidityIndexApi {
 
     @Resource
-    private FundLiquidityIndexService liquidityIndexService;
+    private FundLiquidityIndexApplicationService liquidityIndexService;
 
     @Override
     public R<LiquidityIndexDetailRSP> manageIndex(LiquidityIndexDetailREQ req) {

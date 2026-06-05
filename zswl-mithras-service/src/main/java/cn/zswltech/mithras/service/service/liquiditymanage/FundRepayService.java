@@ -2,6 +2,7 @@ package cn.zswltech.mithras.service.service.liquiditymanage;
 
 import cn.zswltech.mithras.dto.liquiditymanage.financingRepay.FinancingRepayPlanModifyREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.financingRepay.FinancingRepayWriteOffModifyREQ;
+import cn.zswltech.mithras.liquiditymanage.service.FundRepayApplicationService;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingRepayActualMapper;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualService;
@@ -26,7 +27,7 @@ import java.util.*;
  */
 @Slf4j
 @Service
-public class FundRepayService {
+public class FundRepayService implements FundRepayApplicationService {
 
     @Resource
     private FinancingRepayActualProcessDetailMapper processDetailMapper;
@@ -41,6 +42,7 @@ public class FundRepayService {
     @Resource
     private FinancingRepayActualProcessDetailService processDetailService;
 
+    @Override
     public void planModify(FinancingRepayPlanModifyREQ req) {
         FinancingRepayActualProcessDetail processDetail = processDetailMapper.selectById(req.getId());
         if (processDetail == null) {
@@ -78,6 +80,7 @@ public class FundRepayService {
     }
 
 
+    @Override
     public void writeOffModify(FinancingRepayWriteOffModifyREQ req) {
         FinancingRepayActualProcessDetail processDetail = processDetailMapper.selectById(req.getId());
         if (processDetail == null) {

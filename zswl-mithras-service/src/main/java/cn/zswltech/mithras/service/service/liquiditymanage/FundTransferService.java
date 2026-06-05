@@ -21,6 +21,8 @@ import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.liquiditymanage.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquiditymanage.service.FundTransferApplicationService;
+import cn.zswltech.mithras.service.job.FinancingRepayInfoJob;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -44,7 +46,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class FundTransferService {
+public class FundTransferService implements FundTransferApplicationService {
 
     @Resource
     private AccountBalanceBaseInfoMapper accountBalanceBaseInfoMapper;
@@ -52,7 +54,10 @@ public class FundTransferService {
     private BaseDataSpecialDateService baseDataSpecialDateService;
     @Resource
     private BaseDataBankAccountMapper baseDataBankAccountMapper;
+    @Resource
+    private FinancingRepayInfoJob financingRepayInfoJob;
 
+    @Override
     public FundTransferListRSP list(FundTransferListREQ req) {
         if (req.getQueryDateStart() == null) {
             LocalDate queryDateEnd = LocalDate.now();
@@ -125,6 +130,7 @@ public class FundTransferService {
     }
 
 
+    @Override
     public FundTransferGraphRSP graphList(FundTransferGraphREQ req) {
         FundTransferListREQ transferListREQ = BeanUtil.copyProperties(req, FundTransferListREQ.class);
         FundTransferListRSP fundTransferListRSP = list(transferListREQ);
@@ -144,6 +150,7 @@ public class FundTransferService {
     }
 
 
+    @Override
     public FundTransferDetailListRSP detailList(FundTransferDetailListREQ req) {
         FundTransferListREQ transferListREQ = BeanUtil.copyProperties(req, FundTransferListREQ.class);
         FundTransferListRSP fundTransferListRSP = list(transferListREQ);
@@ -163,6 +170,7 @@ public class FundTransferService {
     }
 
 
+    @Override
     public FundTransferListDailyRSP listDaily(FundTransferListDailyREQ req) {
         FundTransferListREQ transferListREQ = BeanUtil.copyProperties(req, FundTransferListREQ.class);
         FundTransferListRSP fundTransferListRSP = list(transferListREQ);
@@ -226,6 +234,7 @@ public class FundTransferService {
     }
 
 
+    @Override
     public FundTransferGraphDailyRSP graphDaily(FundTransferGraphDailyREQ req) {
         FundTransferListREQ transferListREQ = BeanUtil.copyProperties(req, FundTransferListREQ.class);
         FundTransferListRSP fundTransferListRSP = list(transferListREQ);
@@ -285,6 +294,7 @@ public class FundTransferService {
     }
 
 
+    @Override
     public FundTransferCurrentDailyRSP currentDaily(FundTransferCurrentDailyREQ req) {
         FundTransferListREQ transferListREQ = BeanUtil.copyProperties(req, FundTransferListREQ.class);
         FundTransferListRSP fundTransferListRSP = list(transferListREQ);
@@ -498,6 +508,7 @@ public class FundTransferService {
     }
 
 
+    @Override
     public List<FundTransferBankAccountListRSP> list(FundTransferBankAccountListREQ req) {
         List<BaseDataBankAccount> dbList = baseDataBankAccountMapper.selectList(Wrappers.<BaseDataBankAccount>lambdaQuery()
                 .eq(BaseDataBankAccount::getAccountType, BaseDataBankAccountTypeEnum.SUPERVISION.name())
@@ -521,6 +532,12 @@ public class FundTransferService {
         }).collect(Collectors.toList());
     }
 
+    @Override
+    public void financingRepayInfoInAdvance() {
+        financingRepayInfoJob.financingRepayInfoInAdvance();
+    }
+
+    @Override
     public PageR<AccountDepositedAmountDetail> accountCurrentDaily(FundTransferAccountCurrentDailyREQ req) {
         FundTransferListREQ transferListREQ = BeanUtil.copyProperties(req, FundTransferListREQ.class);
         FundTransferListRSP fundTransferListRSP = list(transferListREQ);

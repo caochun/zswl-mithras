@@ -34,6 +34,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financin
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptFlowPlan;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.liquiditymanage.mapper.model.FundFinancingAccountSetting;
+import cn.zswltech.mithras.liquiditymanage.service.FundLiquidityIndexApplicationService;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
@@ -78,7 +79,7 @@ import static cn.zswltech.mithras.service.service.liquiditymanage.LiquidityIndic
  */
 @Slf4j
 @Service
-public class FundLiquidityIndexService {
+public class FundLiquidityIndexService implements FundLiquidityIndexApplicationService {
 
     @Autowired
     private List<AbstractLiquidityCalculator<LiquidityIndexCalculatorBo>> calculatorIndexList;
@@ -113,6 +114,7 @@ public class FundLiquidityIndexService {
     @Resource
     private FundDirectFinancingBaseInfoService fundDirectFinancingBaseInfoService;
 
+    @Override
     public LiquidityIndexDetailRSP manageIndex(LiquidityIndexDetailREQ req) {
         liquidityDataService.dataQueryIndex(req);
         LiquidityIndexDetailRSP rsp = new LiquidityIndexDetailRSP();
@@ -123,6 +125,7 @@ public class FundLiquidityIndexService {
         return rsp;
     }
 
+    @Override
     public LiquidityBoardDetailSumRSP manageBoard(LiquidityBoardDetailREQ req) {
         liquidityDataService.dataQueryBoard(req);
         LiquidityBoardDetailSumRSP result = new LiquidityBoardDetailSumRSP();
@@ -167,6 +170,7 @@ public class FundLiquidityIndexService {
         return result;
     }
 
+    @Override
     public List<LiquidityMismatchDetailRSP> manageMismatch(LiquidityMismatchDetailREQ req) {
         /**
          * 数据范围：融资合同中关联质押or监管的资产合同对应融资合同每期还款金额期间内，租金合计值小于融资合同的当期还本付息金额
@@ -366,6 +370,7 @@ public class FundLiquidityIndexService {
         return sumRsp;
     }
 
+    @Override
     public List<LiquidityBoardRentIncomeRSP> manageRentIncome(LiquidityBoardRentIncomeREQ req) {
         // 首先异步计算真正生效的日期区间
         CompletableFuture<List<LocalDate>> listCompletableFuture = CompletableFuture.supplyAsync(() -> getEffectDateList(req));
@@ -486,6 +491,7 @@ public class FundLiquidityIndexService {
         return effectLocalDateList.stream().distinct().sorted(Comparator.comparing(LocalDate::toEpochDay)).collect(Collectors.toList());
     }
 
+    @Override
     public List<LiquidityBoardRepayPrincipalInterestRSP> manageRepay(LiquidityBoardRepayPrincipalInterestREQ req) {
         Page<RepayPrincipalInterestDto> queryPage = new Page<>(1, 5000);
         RepayPrincipalInterestListREQ queryReq = new RepayPrincipalInterestListREQ();

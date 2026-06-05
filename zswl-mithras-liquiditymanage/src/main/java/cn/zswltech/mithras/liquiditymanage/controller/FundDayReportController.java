@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.controller.liquiditymanage;
+package cn.zswltech.mithras.liquiditymanage.controller;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.liquiditymanage.FundDayReportApi;
 import cn.zswltech.mithras.dto.liquiditymanage.dayReport.*;
-import cn.zswltech.mithras.service.service.liquiditymanage.FundDayReportService;
+import cn.zswltech.mithras.liquiditymanage.service.FundDayReportApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +21,7 @@ import java.util.List;
 public class FundDayReportController implements FundDayReportApi {
 
     @Resource
-    private FundDayReportService fundDayReportService;
+    private FundDayReportApplicationService fundDayReportService;
 
     @Override
     public R<DayReportIndicatorListRSP> dayReportIndicatorList(DayReportIndicatorListREQ req) {
