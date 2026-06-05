@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.excel.exporter;
+package cn.zswltech.mithras.liquidity.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.service.excel.model.LiquidityRiskInflowExcelModel;
+import cn.zswltech.mithras.liquidity.excel.model.LiquidityRiskShortTermLoanExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ import java.util.Map;
  * @description
  */
 @Component
-public class LiquidityRiskInflowExcelExporter extends AbstractSimpleExcelExporter<LiquidityRiskInflowExcelModel> {
+public class LiquidityRiskShortTermLoanExcelExporter extends AbstractSimpleExcelExporter<LiquidityRiskShortTermLoanExcelModel> {
 
     @Override
     protected void customStrategy(Workbook workbook) {
@@ -26,13 +26,12 @@ public class LiquidityRiskInflowExcelExporter extends AbstractSimpleExcelExporte
         HashMap<Integer, Integer> wideMap = new HashMap<>();
         wideMap.put(0, 40);
         wideMap.put(1, 40);
-        wideMap.put(8, 40);
-        wideMap.put(10, 30);
+        wideMap.put(6, 40);
         return wideMap;
     }
 
     @Override
-    protected Class<LiquidityRiskInflowExcelModel> modelClz() {
-        return LiquidityRiskInflowExcelModel.class;
+    protected Class<LiquidityRiskShortTermLoanExcelModel> modelClz() {
+        return LiquidityRiskShortTermLoanExcelModel.class;
     }
 }
