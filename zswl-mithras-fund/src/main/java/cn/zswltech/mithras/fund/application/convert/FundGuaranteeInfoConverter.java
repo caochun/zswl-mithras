@@ -1,10 +1,9 @@
-package cn.zswltech.mithras.service.convert.fund;
+package cn.zswltech.mithras.fund.application.convert;
 
 import cn.zswltech.mithras.dto.fund.FundGuaranteeInfoAddREQ;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeInfoListRSP;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeInfoModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundGuaranteeInfo;
 import org.mapstruct.Mapper;
 
@@ -13,7 +12,7 @@ import org.mapstruct.Mapper;
  * @author: zhaozhengkang
  * @date: 2022/12/14 16:45
  */
-@Mapper(componentModel = "spring", uses = TypeConversionWorker.class)
+@Mapper(componentModel = "spring", uses = FundTypeConversionWorker.class)
 public interface FundGuaranteeInfoConverter {
 
     FundGuaranteeInfo addReq2Entity(FundGuaranteeInfoAddREQ req);

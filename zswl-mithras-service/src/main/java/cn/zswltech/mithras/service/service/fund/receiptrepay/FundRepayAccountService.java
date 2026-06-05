@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.receiptrepay.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.convert.fund.receiptrepay.FundRepayAccountConverter;
+import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundRepayAccountConverter;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundRepayAccountMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.lib.receiptrepay.FundRepayAccountLibMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundRepayAccount;

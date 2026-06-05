@@ -1,7 +1,6 @@
-package cn.zswltech.mithras.service.convert.fund;
+package cn.zswltech.mithras.fund.application.convert;
 
 import cn.zswltech.mithras.dto.fund.*;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundCredit;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundCreditGuaranteeDetail;
 import org.mapstruct.Mapper;
@@ -14,7 +13,7 @@ import java.util.List;
  * @author: zhaozhengkang
  * @date: 2022/12/14 16:44
  */
-@Mapper(componentModel = "spring", uses = TypeConversionWorker.class)
+@Mapper(componentModel = "spring", uses = FundTypeConversionWorker.class)
 public interface FundCreditConverter {
     FundCredit addReq2Entity(FundCreditAddREQ req);
 

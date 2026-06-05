@@ -1,10 +1,9 @@
-package cn.zswltech.mithras.service.convert.fund;
+package cn.zswltech.mithras.fund.application.convert;
 
 import cn.zswltech.mithras.dto.fund.FundOrganizationAddREQ;
 import cn.zswltech.mithras.dto.fund.FundOrganizationDetailRSP;
 import cn.zswltech.mithras.dto.fund.FundOrganizationListRSP;
 import cn.zswltech.mithras.dto.fund.FundOrganizationModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -14,7 +13,7 @@ import org.mapstruct.Mapping;
  * @author: zhaozhengkang
  * @date: 2022/12/14 16:42
  */
-@Mapper(componentModel = "spring", uses = TypeConversionWorker.class)
+@Mapper(componentModel = "spring", uses = FundTypeConversionWorker.class)
 public interface FundOrganizationConverter {
 
     @Mapping(target = "contactInfo", source = "contactInfo", qualifiedByName = "toJsonString")

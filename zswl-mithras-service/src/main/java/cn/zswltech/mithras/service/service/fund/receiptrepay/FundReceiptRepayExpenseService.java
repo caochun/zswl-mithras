@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayExpenseListREQ;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayExpenseListRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayExpenseModifyREQ;
-import cn.zswltech.mithras.service.convert.fund.receiptrepay.FundReceiptRepayExpenseConverter;
+import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundReceiptRepayExpenseConverter;
 import cn.zswltech.mithras.fund.domain.enums.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayExpenseMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.lib.receiptrepay.FundReceiptRepayExpenseLibMapper;

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.fund.financing.payaccount.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundFinancingSubModifyAuthChecker;
-import cn.zswltech.mithras.service.convert.fund.financing.FundFinancingConverter;
+import cn.zswltech.mithras.fund.application.convert.financing.FundFinancingConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.financing.FundFinancingPayAccountMapper;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;

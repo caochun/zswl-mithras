@@ -8,7 +8,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.convert.fund.FundOrganizationConverter;
+import cn.zswltech.mithras.fund.application.convert.FundOrganizationConverter;
 import cn.zswltech.mithras.fund.application.FundFinancingCreditRefService;
 import cn.zswltech.mithras.fund.domain.enums.OrganizationType;
 import cn.zswltech.mithras.datashare.mapper.DataShareMerchantsMapper;

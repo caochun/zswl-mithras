@@ -9,7 +9,7 @@ import cn.zswltech.mithras.fund.application.lib.receiptrepay.FundReceiptRepayBas
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundOrganization;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfoLib;
-import cn.zswltech.mithras.service.convert.fund.receiptrepay.FundReceiptRepayConverter;
+import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundReceiptRepayConverter;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.FundOrganizationService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;

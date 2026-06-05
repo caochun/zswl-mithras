@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.convert.fund.receiptrepay;
+package cn.zswltech.mithras.fund.application.convert.receiptrepay;
 
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.financing.baseinfo.FundFinancingBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.financing.plan.FundFinancingPlanDetailRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBaseInfoListREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.fund.application.convert.FundTypeConversionWorker;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPayAccount;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingCollectAccountLib;
@@ -21,7 +21,7 @@ import org.mapstruct.Mapping;
  * @author: zhaozhengkang
  * @date: 2023/2/21 10:23
  */
-@Mapper(componentModel = "spring", uses = TypeConversionWorker.class)
+@Mapper(componentModel = "spring", uses = FundTypeConversionWorker.class)
 public interface FundReceiptRepayConverter {
     @Mapping(target = "dateFrom", source = "dateFrom", qualifiedByName = "startOfDay")
     @Mapping(target = "dateTo", source = "dateTo", qualifiedByName = "endOfDay")

@@ -32,7 +32,7 @@ import cn.zswltech.mithras.creditlimit.enums.CreditLimitBizTypeEnum;
 import cn.zswltech.mithras.creditlimit.service.CreditLimitManagerService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.convert.fund.financing.FundFinancingConvert;
+import cn.zswltech.mithras.fund.application.convert.financing.FundFinancingConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.fund.domain.enums.financing.*;
 import cn.zswltech.mithras.fund.domain.enums.receiptrepay.CashFlowState;

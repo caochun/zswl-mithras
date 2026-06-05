@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.fund.financing;
+package cn.zswltech.mithras.fund.application.convert.financing;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailAddREQ;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailModifyREQ;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailRSP;
