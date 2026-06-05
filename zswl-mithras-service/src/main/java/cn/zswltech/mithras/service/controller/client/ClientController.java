@@ -32,7 +32,7 @@ import cn.zswltech.mithras.customer.domain.enums.client.*;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.service.excel.exporter.ClientTransferExcelExporter;
-import cn.zswltech.mithras.service.excel.model.ClientTransferExcelModel;
+import cn.zswltech.mithras.customer.excel.ClientTransferExcelModel;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientAuthorityMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientTransferMapper;

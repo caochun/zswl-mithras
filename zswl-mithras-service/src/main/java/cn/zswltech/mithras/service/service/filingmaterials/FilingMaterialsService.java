@@ -119,7 +119,7 @@ import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstab
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListLibService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.service.payment.model.PublicInfoExcelModel;
+import cn.zswltech.mithras.payment.application.pubinfo.model.PublicInfoExcelModel;
 import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;
 import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoRecordService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;

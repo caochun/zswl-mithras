@@ -52,7 +52,7 @@ import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.contract.*;
 import cn.zswltech.mithras.service.service.materialsfile.FileService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.service.payment.model.PublicInfoExcelModel;
+import cn.zswltech.mithras.payment.application.pubinfo.model.PublicInfoExcelModel;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.alibaba.excel.EasyExcelFactory;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -958,7 +958,6 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
         }
     }
 }
-
 
 
 
