@@ -48,7 +48,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.contract.ContractBaseInfoConverter;
-import cn.zswltech.mithras.service.convert.contract.ContractPriceConverter;
+import cn.zswltech.mithras.contract.convert.contract.ContractPriceConverter;
 import cn.zswltech.mithras.service.convert.contract.ContractTenantryConvert;
 import cn.zswltech.mithras.projectprocess.convert.projpricing.ProjPricingPriceConverter;
 import cn.zswltech.mithras.service.enums.*;

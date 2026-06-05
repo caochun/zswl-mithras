@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.contract.price.ContractAocPriceDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractFactoringPriceDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.liquidityrisk.*;
-import cn.zswltech.mithras.service.convert.contract.ContractPriceConverter;
+import cn.zswltech.mithras.contract.convert.contract.ContractPriceConverter;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;

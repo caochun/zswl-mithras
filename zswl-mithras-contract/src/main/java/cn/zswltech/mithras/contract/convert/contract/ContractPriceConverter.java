@@ -1,10 +1,9 @@
-package cn.zswltech.mithras.service.convert.contract;
+package cn.zswltech.mithras.contract.convert.contract;
 
 import cn.zswltech.mithras.dto.contract.price.*;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewAocPriceRSP;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewFactoringPriceRSP;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewLeasePriceRSP;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
@@ -16,7 +15,7 @@ import org.mapstruct.Mapping;
  * @author: zhaozhengkang
  * @date: 2022/8/8 15:52
  */
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = ContractTypeConversionWorker.class, componentModel = "spring")
 public interface ContractPriceConverter {
 
     @Mapping(source = "structuredInterestList", target = "structuredInterest", qualifiedByName = "toJsonString")
