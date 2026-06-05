@@ -1,5 +1,3 @@
-CREATE INDEX materials_list_belong_id_IDX USING BTREE ON mithras.materials_list (belong_id,business_type,materials_type,materials_sub_type);
-
 ALTER TABLE mithras.bifrost_function ADD group_id BIGINT NULL COMMENT '功能分组id';
 
 CREATE TABLE mithras.gruul_function_group (
