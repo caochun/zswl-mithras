@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.excel.importer;
+package cn.zswltech.mithras.riskcontrol.excel.importer;
 
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.cell.CellEditor;
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelImporter;
-import cn.zswltech.mithras.service.excel.model.RelatedClientExcelModel;
+import cn.zswltech.mithras.riskcontrol.excel.model.RelatedClientExcelModel;
 import org.springframework.stereotype.Component;
 
 /**
