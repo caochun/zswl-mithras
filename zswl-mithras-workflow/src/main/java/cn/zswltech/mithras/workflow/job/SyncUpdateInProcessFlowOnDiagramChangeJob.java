@@ -1,6 +1,5 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.workflow.job;
 
-import cn.zswltech.mithras.service.util.StringUtils;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +31,7 @@ public class SyncUpdateInProcessFlowOnDiagramChangeJob {
         // 1. 获取任务参数（从XXL-Job上下文获取）
         String processDefKey = XxlJobHelper.getJobParam();
         log.info("SyncUpdateInProcessFlowOnDiagramChangeJob任务，接收到输入参数processDefKey:{}", processDefKey);
-        if (StringUtils.isEmpty(processDefKey)) {
+        if (processDefKey == null || processDefKey.trim().isEmpty()) {
             XxlJobHelper.handleFail("任务参数不能为空，请传入正确的参数");
             return;
         }
