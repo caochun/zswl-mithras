@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.service.excel.model;
+package cn.zswltech.mithras.collection.excel.model;
+
+import cn.zswltech.mithras.service.excel.model.ExcelModel;
 
 import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
 import lombok.Data;

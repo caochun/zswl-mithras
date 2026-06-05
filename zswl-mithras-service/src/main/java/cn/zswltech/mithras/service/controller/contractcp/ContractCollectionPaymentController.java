@@ -49,7 +49,7 @@ import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoS
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayCashFlowService;
-import cn.zswltech.mithras.service.service.lib.contractcp.ContractCollectionPaymentService;
+import cn.zswltech.mithras.collection.service.contractcp.ContractCollectionPaymentService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.workflow.application.process.prepare.RentCollectionMonthDetailService;
 import cn.zswltech.mithras.service.util.StringUtil;

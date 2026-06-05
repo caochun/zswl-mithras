@@ -117,7 +117,7 @@ import cn.zswltech.mithras.service.service.lib.LibCommonConvert;
 import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
-import cn.zswltech.mithras.service.service.lib.contractcp.ContractCollectionPaymentService;
+import cn.zswltech.mithras.collection.service.contractcp.ContractCollectionPaymentService;
 import cn.zswltech.mithras.projectprocess.service.lib.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;

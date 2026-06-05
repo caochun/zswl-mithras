@@ -36,7 +36,7 @@ import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.contract.core.application.ContractPrepaymentService;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
 import cn.zswltech.mithras.contract.versioning.application.ContractPrepaymentLibService;
-import cn.zswltech.mithras.service.service.lib.contractcp.ContractCollectionPaymentService;
+import cn.zswltech.mithras.collection.service.contractcp.ContractCollectionPaymentService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.service.util.LongUtil;
