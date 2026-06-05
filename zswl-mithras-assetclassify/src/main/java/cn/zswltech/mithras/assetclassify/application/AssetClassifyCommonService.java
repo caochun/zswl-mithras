@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.assetclassify;
+package cn.zswltech.mithras.assetclassify.application;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
@@ -6,9 +6,9 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientListREQ;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class AssetClassifyCommonService {
     @Resource
     private SysUserService sysUserService;
     @Resource
-    private CorpCommerceInfoService corpCommerceInfoService;
+    private CorpCommerceInfoMapper corpCommerceInfoMapper;
 
     public <T extends AssetClassifyClient> LambdaQueryWrapper<T> buildQuery(AssetClassifyClientListREQ req) {
         LambdaQueryWrapper<T> conditionQuery = Wrappers.lambdaQuery();
@@ -54,7 +54,7 @@ public class AssetClassifyCommonService {
             LambdaQueryWrapper<CorpCommerceInfo> subQuery = Wrappers.lambdaQuery();
             subQuery.select(CorpCommerceInfo::getClientId)
                     .eq(CorpCommerceInfo::getIsRelated, req.getIsRelated());
-            List<Object> relatedClientIds = corpCommerceInfoService.listObjs(subQuery);
+            List<Object> relatedClientIds = corpCommerceInfoMapper.selectObjs(subQuery);
             if (CollectionUtil.isNotEmpty(relatedClientIds)) {
                 conditionQuery.in(T::getClientId, relatedClientIds);
             }
