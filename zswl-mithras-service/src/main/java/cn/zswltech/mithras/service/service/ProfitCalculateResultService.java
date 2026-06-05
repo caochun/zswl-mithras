@@ -19,7 +19,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.kpi.enums.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.kpi.enums.config.TaxRateEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.excel.model.ProfitCalculateExcelModel;
+import cn.zswltech.mithras.finance.excel.model.ProfitCalculateExcelModel;
 import cn.zswltech.mithras.finance.mapper.ProfitCalculateResultMapper;
 import cn.zswltech.mithras.finance.mapper.model.ProfitCalculateResult;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClientAuxiliaryLib;

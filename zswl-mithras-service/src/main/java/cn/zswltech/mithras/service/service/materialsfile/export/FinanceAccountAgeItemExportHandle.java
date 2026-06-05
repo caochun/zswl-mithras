@@ -14,8 +14,8 @@ import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.finance.enums.third.FinancialAccountAgeSendStatusStatus;
 import cn.zswltech.mithras.finance.enums.third.FinancialAccountNumberENUM;
 import cn.zswltech.mithras.finance.enums.third.FinancialPaymentContentENUM;
-import cn.zswltech.mithras.service.excel.exporter.FinanceAccountAgeItemExcelExporter;
-import cn.zswltech.mithras.service.excel.model.FinanceAccountAgeItemCheckModel;
+import cn.zswltech.mithras.finance.excel.exporter.FinanceAccountAgeItemExcelExporter;
+import cn.zswltech.mithras.finance.excel.model.FinanceAccountAgeItemCheckModel;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import org.springframework.stereotype.Component;
 
