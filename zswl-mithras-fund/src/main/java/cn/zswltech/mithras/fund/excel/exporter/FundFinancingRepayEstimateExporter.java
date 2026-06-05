@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.excel.exporter;
+package cn.zswltech.mithras.fund.excel.exporter;
 
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.service.excel.model.FundFinancingRepayEstimateExcelModel;
+import cn.zswltech.mithras.fund.excel.model.FundFinancingRepayEstimateExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;

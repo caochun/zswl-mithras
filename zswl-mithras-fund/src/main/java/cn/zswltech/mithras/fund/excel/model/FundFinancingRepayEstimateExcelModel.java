@@ -1,5 +1,6 @@
-package cn.zswltech.mithras.service.excel.model;
+package cn.zswltech.mithras.fund.excel.model;
 
+import cn.zswltech.mithras.service.excel.model.ExcelModel;
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.service.excel.ColumnStyleEnum;
 import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
