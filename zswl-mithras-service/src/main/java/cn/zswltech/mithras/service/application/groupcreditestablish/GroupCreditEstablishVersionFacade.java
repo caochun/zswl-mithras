@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.controller.groupcreditestablish;
+package cn.zswltech.mithras.service.application.groupcreditestablish;
 
+import cn.zswltech.mithras.credit.application.groupcredit.establish.service.GroupCreditEstablishVersionApplicationService;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.groupcreditestablish.GroupCreditEstablishVersionApi;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.groupcreditestablish.GroupCreditEstablishRatingCheckRSP;
 import cn.zswltech.mithras.dto.groupcreditestablish.version.GroupCreditEstablishEffectREQ;
@@ -26,7 +26,7 @@ import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstab
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishService;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.service.impl.GroupCreditEstablishVersionServiceImpl;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Objects;
@@ -43,8 +43,8 @@ import static cn.zswltech.mithras.service.enums.common.RecordStatus.TAKE_EFFECT;
  * @description 集团授信立项基本信息表
  * @date 2022-11-11
  */
-@RestController
-public class GroupCreditEstablishVersionController implements GroupCreditEstablishVersionApi {
+@Service
+public class GroupCreditEstablishVersionFacade implements GroupCreditEstablishVersionApplicationService {
 
     @Resource
     private GroupCreditEstablishVersionServiceImpl versionService;
