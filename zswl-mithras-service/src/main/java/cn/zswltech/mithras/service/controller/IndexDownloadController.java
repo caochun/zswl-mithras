@@ -52,7 +52,7 @@ import cn.zswltech.mithras.dto.stampduty.StampDutyListRSP;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.afterlease.interfaces.AfterLeaseCheckClientController;
 import cn.zswltech.mithras.afterlease.interfaces.AfterLeaseCheckPlanBaseController;
-import cn.zswltech.mithras.service.controller.capital.BusinessFlowController;
+import cn.zswltech.mithras.service.application.capital.BusinessFlowFacade;
 import cn.zswltech.mithras.service.controller.client.ClientController;
 import cn.zswltech.mithras.collection.controller.CollectionFlowCenterController;
 import cn.zswltech.mithras.service.controller.contract.ContractBaseInfoController;
@@ -164,8 +164,8 @@ public class IndexDownloadController implements IndexDownloadApi {
             Pair.of(FUND_DIRECT_FINANCING, Triple.of(FundDirectFinancingBaseInfoController.class, "list", of())),
             Pair.of(BUSINESS_FLOW_PROJ_PAY, Triple.of(CollectionFlowCenterController.class, "paymentList", of())),
             Pair.of(BUSINESS_FLOW_PROJ_COLLECT, Triple.of(CollectionFlowCenterController.class, "collectionList", of())),
-            Pair.of(BUSINESS_FLOW_FINANCIAL_PAY, Triple.of(BusinessFlowController.class, "selectList", of())),
-            Pair.of(BUSINESS_FLOW_FINANCIAL_COLLECT, Triple.of(BusinessFlowController.class, "selectList", of())),
+            Pair.of(BUSINESS_FLOW_FINANCIAL_PAY, Triple.of(BusinessFlowFacade.class, "selectList", of())),
+            Pair.of(BUSINESS_FLOW_FINANCIAL_COLLECT, Triple.of(BusinessFlowFacade.class, "selectList", of())),
             Pair.of(ACCOUNT_BALANCE, Triple.of(FundLiquidityBaseController.class, "accountBalanceList", of())),
             Pair.of(ACCOUNT_SETTING, Triple.of(FundLiquidityBaseController.class, "accountSettingList", of())),
             Pair.of(LIQUIDITY_BOARD, Triple.of(FundLiquidityIndexController.class, "manageBoard", of())),
