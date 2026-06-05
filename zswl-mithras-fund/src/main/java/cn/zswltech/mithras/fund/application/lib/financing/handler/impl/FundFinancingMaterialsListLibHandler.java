@@ -1,10 +1,7 @@
-package cn.zswltech.mithras.service.service.lib.fund.financing.handler.impl;
+package cn.zswltech.mithras.fund.application.lib.financing.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingLibModelEnum;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
 import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
@@ -45,12 +42,12 @@ public class FundFinancingMaterialsListLibHandler
 
     @Override
     public List<MaterialsList> listNeedHandleEntity(Long mainId) {
-        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleName());
     }
 
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
-        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleName());
     }
 
     @Override
@@ -71,10 +68,5 @@ public class FundFinancingMaterialsListLibHandler
     @Override
     public boolean needHandle(Long mainId) {
         return true;
-    }
-
-    @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.FUND_FINANCING;
     }
 }
