@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.kpi;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.kpi.*;
-import cn.zswltech.mithras.service.convert.kpi.KpiProjectDistributionConvert;
+import cn.zswltech.mithras.kpi.convert.KpiProjectDistributionConvert;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionWeightMapper;

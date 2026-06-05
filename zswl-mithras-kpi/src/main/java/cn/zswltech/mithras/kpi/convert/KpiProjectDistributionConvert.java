@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.kpi;
+package cn.zswltech.mithras.kpi.convert;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
