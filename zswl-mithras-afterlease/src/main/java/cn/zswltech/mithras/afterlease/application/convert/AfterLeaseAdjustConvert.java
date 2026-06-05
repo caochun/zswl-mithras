@@ -1,9 +1,8 @@
-package cn.zswltech.mithras.service.convert.afterlease;
+package cn.zswltech.mithras.afterlease.application.convert;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseAdjustDetailRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseAdjustInfoListRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseAdjustInfoModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import org.mapstruct.Mapper;
@@ -16,7 +15,7 @@ import org.mapstruct.Mapping;
  * @Date 2022/11/8 10:52 上午
  * @Version 1.0
  **/
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = AfterLeaseTypeConversionWorker.class, componentModel = "spring")
 public interface AfterLeaseAdjustConvert {
 
     @Mapping(source = "id", target = "projId")

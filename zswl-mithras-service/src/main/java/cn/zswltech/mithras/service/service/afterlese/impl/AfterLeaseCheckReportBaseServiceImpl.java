@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportBaseREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportBaseRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseCheckReportConvert;
+import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckReportConvert;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckPlanTypeEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;

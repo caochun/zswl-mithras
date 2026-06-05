@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.afterlease;
+package cn.zswltech.mithras.afterlease.application.convert;
 
 import cn.zswltech.mithras.dto.afterlease.*;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQuery;

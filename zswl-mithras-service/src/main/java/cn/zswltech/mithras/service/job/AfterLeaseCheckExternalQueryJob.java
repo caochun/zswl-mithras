@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.convert.afterlease.ExternalQueryConverter;
+import cn.zswltech.mithras.afterlease.application.convert.ExternalQueryConverter;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.ClientRole;
 import cn.zswltech.mithras.afterlease.domain.enums.ExternalQueryStatus;

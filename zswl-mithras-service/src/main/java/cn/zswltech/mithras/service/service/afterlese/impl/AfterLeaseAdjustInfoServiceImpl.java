@@ -18,7 +18,7 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.afterlease.*;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseAdjustConvert;
+import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseAdjustConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseAdjustEnum;

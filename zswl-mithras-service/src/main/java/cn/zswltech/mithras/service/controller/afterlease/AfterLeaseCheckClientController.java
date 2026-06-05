@@ -18,7 +18,7 @@ import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.afterleasecheck.AfterLeaseCheckPlanModifyMainChecker;
 import cn.zswltech.mithras.service.auth.checker.afterleasecheck.AfterLeaseCheckPlanModifySubChecker;
 import cn.zswltech.mithras.service.auth.checker.implnew.CommonModifyMainAuthCheckerNew;
-import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseCheckPlanProjectConvert;
+import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckPlanProjectConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckPlanStatusEnum;

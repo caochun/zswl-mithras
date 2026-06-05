@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.afterleasecheck.AfterLeaseCheckPlanAddMainChecker;
 import cn.zswltech.mithras.service.auth.checker.afterleasecheck.AfterLeaseCheckPlanModifyMainChecker;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseCheckPlanConvert;
+import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckPlanConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.NewAfterLeaseCheckMaterialsEnum;

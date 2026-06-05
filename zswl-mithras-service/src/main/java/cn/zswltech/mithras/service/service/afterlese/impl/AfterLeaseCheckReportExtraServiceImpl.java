@@ -5,7 +5,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportNonPublicExtraREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportNonPublicExtraRSP;
-import cn.zswltech.mithras.service.convert.afterlease.AfterLeaseCheckReportConvert;
+import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckReportConvert;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckReportAreaTypeEnum;
 import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckReportTypeEnum;
