@@ -257,8 +257,6 @@ CREATE TABLE `after_lease_check_project_report_finance` (
   KEY `idx_plan_project_client_subjecttype` (`check_plan_project_id`,`client_id`,`subject_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='租后检查报告财务报表快照数据表';
 
-alter table zhfk_notice modify column `deal_user` varchar(500) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '处理用户列表，ALL则为所有用户';
-
 INSERT INTO `after_lease_check_project_report_template` (`report_type`, `area_type`, `group_name`, `code`, `title`, `content_input_type`, `content_input_option`, `order_num`)
 VALUES
 	('PUBLIC', 'CONTENT', '当地区域经济情况', 'P_C_1_01', '承租人所在区域GDP、一般公共预算收入是否较上一年度下滑超过20%', 'radio', '[{\"label\":\"是\",\"value\":\"1\"},{\"label\":\"否\",\"value\":\"0\"},{\"label\":\"不适用\",\"value\":\"-1\"}]', 0),
