@@ -6,7 +6,7 @@ import cn.zswltech.mithras.payment.application.lib.PaymentLibAssembler;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfoLib;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswer;
-import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
+import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

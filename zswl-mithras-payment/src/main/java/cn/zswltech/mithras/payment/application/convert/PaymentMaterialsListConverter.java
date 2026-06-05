@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.payment;
+package cn.zswltech.mithras.payment.application.convert;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsListRsp;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;

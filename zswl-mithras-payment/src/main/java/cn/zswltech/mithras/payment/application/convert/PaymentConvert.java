@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.convert.payment;
+package cn.zswltech.mithras.payment.application.convert;
 
 import cn.zswltech.mithras.api.payment.dto.*;
 import cn.zswltech.mithras.api.payment.writeoff.ActualDetailListRsp;
@@ -9,7 +9,6 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.service.excel.model.PaymentPolicyExcelModel;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.dto.PaymentListDto;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
@@ -25,7 +24,7 @@ import org.mapstruct.Mapping;
  * @author: zhaozhengkang
  * @date: 2022/8/15 16:45
  */
-@Mapper(componentModel = "spring", uses = TypeConversionWorker.class)
+@Mapper(componentModel = "spring", uses = PaymentTypeConversionWorker.class)
 public interface PaymentConvert {
 
     PaymentBaseInfo addReqToEntity(PaymentAddReq req);

@@ -20,7 +20,7 @@ import cn.zswltech.mithras.api.payment.writeoff.PaymentWriteOffListRsp;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
+import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.message.enums.MessageUrlEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;

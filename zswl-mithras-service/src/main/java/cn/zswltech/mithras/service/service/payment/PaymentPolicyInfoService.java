@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.payment.lib.*;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
+import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;

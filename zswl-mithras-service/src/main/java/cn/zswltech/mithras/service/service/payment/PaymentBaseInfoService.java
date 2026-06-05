@@ -50,7 +50,7 @@ import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
-import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
+import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.afterlease.domain.enums.ClientRole;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;

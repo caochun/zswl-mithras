@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.service.payment;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.payment.dto.PlanedDetailDto;
-import cn.zswltech.mithras.service.convert.payment.PaymentPlanedDetailConverter;
+import cn.zswltech.mithras.payment.application.convert.PaymentPlanedDetailConverter;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPlanedDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentPlanedDetailMapper;

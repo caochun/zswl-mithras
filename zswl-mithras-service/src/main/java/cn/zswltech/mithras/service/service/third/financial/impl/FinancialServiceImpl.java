@@ -26,7 +26,7 @@ import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.service.convert.payment.PaymentConvert;
+import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.capital.domain.enums.FinanceFlowDetailTableEnum;
 import cn.zswltech.mithras.collection.enums.BillTypeEnum;

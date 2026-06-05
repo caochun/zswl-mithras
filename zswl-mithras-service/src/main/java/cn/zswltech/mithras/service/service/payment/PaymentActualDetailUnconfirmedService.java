@@ -17,7 +17,7 @@ import cn.zswltech.mithras.api.payment.writeoff.ActualDetailDto;
 import cn.zswltech.mithras.dto.flow.execution.ExecutionProcessBaseREQ;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.convert.payment.PaymentActualDetailConverter;
+import cn.zswltech.mithras.payment.application.convert.PaymentActualDetailConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
