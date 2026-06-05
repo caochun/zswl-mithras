@@ -3,7 +3,7 @@ package cn.zswltech.mithras.service.service.projectprocess;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.service.ProjectProcessBaseInfoAssembler;
-import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishBaseInfoConverter;
+import cn.zswltech.mithras.projectprocess.convert.projestablish.ProjEstablishBaseInfoConverter;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import org.springframework.stereotype.Service;
 

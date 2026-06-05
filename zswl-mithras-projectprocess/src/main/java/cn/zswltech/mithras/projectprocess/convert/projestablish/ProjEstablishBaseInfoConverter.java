@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.convert.projestablish;
+package cn.zswltech.mithras.projectprocess.convert.projestablish;
 
 
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.projectprocess.convert.ProjectProcessTypeConversionWorker;
 import cn.zswltech.mithras.projectprocess.mapper.dto.ProjEstablishListSelectDTO;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import org.mapstruct.Mapper;
@@ -15,7 +15,7 @@ import org.mapstruct.Mapping;
  * @author: zhaozhengkang
  * @date: 2022/8/5 17:11
  */
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = ProjectProcessTypeConversionWorker.class, componentModel = "spring")
 public interface ProjEstablishBaseInfoConverter {
     
     @Mapping(source = "leaseTypes", target = "leaseTypes", qualifiedByName = "jsonStringToStringList")

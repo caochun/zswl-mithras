@@ -3,6 +3,7 @@ package cn.zswltech.mithras.projectprocess.convert;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
+import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
 import cn.zswltech.mithras.projectprocess.service.ProjectProcessNameResolver;
 import com.alibaba.fastjson.JSON;
 import org.mapstruct.Named;
@@ -61,6 +62,24 @@ public class ProjectProcessTypeConversionWorker {
                 String clientName = map.get(clientInfo.getClientId());
                 if (StrUtil.isNotBlank(clientName)) {
                     clientInfo.setClientName(clientName);
+                }
+            }
+        }
+        return res;
+    }
+
+    @Named("jsonStringToPersonInfoList")
+    public List<ProjEstablishPersonInfo> jsonStringToPersonInfoList(String jsonStr) {
+        if (StrUtil.isEmpty(jsonStr)) {
+            return null;
+        }
+        List<ProjEstablishPersonInfo> res = JSON.parseArray(jsonStr, ProjEstablishPersonInfo.class);
+        if (CollectionUtil.isNotEmpty(res) && nameResolver != null) {
+            Map<Long, String> map = nameResolver.clientId2Name(res.stream().map(ProjEstablishPersonInfo::getClientId).collect(Collectors.toList()));
+            for (ProjEstablishPersonInfo personInfo : res) {
+                String clientName = map.get(personInfo.getClientId());
+                if (StrUtil.isNotBlank(clientName)) {
+                    personInfo.setClientName(clientName);
                 }
             }
         }

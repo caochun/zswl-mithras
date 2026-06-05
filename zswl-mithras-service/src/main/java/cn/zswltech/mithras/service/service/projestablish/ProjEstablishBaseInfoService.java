@@ -34,7 +34,7 @@ import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientProjDetailRSP;
 import cn.zswltech.mithras.factory.service.RatingAmountService;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishBaseInfoConverter;
+import cn.zswltech.mithras.projectprocess.convert.projestablish.ProjEstablishBaseInfoConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CacheEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
