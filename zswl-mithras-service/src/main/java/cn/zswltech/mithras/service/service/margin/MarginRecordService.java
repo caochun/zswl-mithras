@@ -15,10 +15,15 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.UUIDUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.dto.margin.*;
+import cn.zswltech.mithras.margin.service.MarginRecordApplicationService;
+import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
+import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthCheckerNew;
+import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewSubAuthCheckerNew;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.service.constant.FinancialConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.message.convert.MessageConver;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.margin.enums.MarginWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
@@ -86,7 +91,7 @@ import static com.baomidou.mybatisplus.core.toolkit.ObjectUtils.isNotNull;
  **/
 @Slf4j
 @Service
-public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, MarginRecordInfo> {
+public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, MarginRecordInfo> implements MarginRecordApplicationService {
 
     @Resource
     private MarginBaseInfoMapper marginBaseInfoMapper;
@@ -476,6 +481,8 @@ public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, Mar
     }
 
 
+    @Override
+    @DataAuthCheck(keyFieldName = "id", checkerClass = CommonViewMainAuthCheckerNew.class, businessModule = BusinessModuleEnum.MARGIN)
     public List<MarginRecordListRSP> list(MarginRecordListREQ req) {
         List<MarginRecordInfo> infoList;
         if (RecordTypeEnum.COLLECTION.name().equals(req.getRecordType())) {
@@ -546,6 +553,8 @@ public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, Mar
         recordInfo.setCollectionType(RecordTypeEnum.WIRE_TRANSFER.name());
     }
 
+    @Override
+    @DataAuthCheck(keyFieldName = "id", checkerClass = CommonViewMainAuthCheckerNew.class, businessModule = BusinessModuleEnum.COLLECTION)
     public MarginRecordDetailRSP collectionDetail(MarginRecordDetailREQ req) {
         CollectionBaseInfo collectionBaseInfo = collectionBaseInfoMapper.selectById(req.getId());
         MarginRecordInfo marginRecordInfo = new MarginRecordInfo();
@@ -569,6 +578,8 @@ public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, Mar
         return rsp;
     }
 
+    @Override
+    @DataAuthCheck(keyFieldName = "id", checkerClass = CommonViewSubAuthCheckerNew.class, mapperClass = MarginRecordInfoMapper.class, businessModule = BusinessModuleEnum.MARGIN)
     public MarginRecordDetailRSP detail(MarginRecordDetailREQ req) {
         MarginRecordInfo marginRecordInfo = marginRecordInfoMapper.selectById(req.getId());
         if (ObjectUtil.isNull(marginRecordInfo)) {
@@ -591,6 +602,8 @@ public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, Mar
         return rsp;
     }
 
+    @Override
+    @DataAuthCheck(keyFieldName = "id", checkerClass = CommonViewSubAuthCheckerNew.class, mapperClass = MarginRecordInfoMapper.class, businessModule = BusinessModuleEnum.MARGIN)
     public MarginDeductDetailRSP deductDetail(MarginRecordDetailREQ req) {
         MarginRecordInfo marginRecordInfo = marginRecordInfoMapper.selectById(req.getId());
         MarginDeductDetailRSP rsp = new MarginDeductDetailRSP();

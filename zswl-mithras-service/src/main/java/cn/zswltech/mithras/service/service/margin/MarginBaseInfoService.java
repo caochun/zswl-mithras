@@ -10,6 +10,10 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.margin.*;
 import cn.zswltech.mithras.margin.convert.MarginConvert;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoApplicationService;
+import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
+import cn.zswltech.mithras.service.auth.checker.implnew.CommonViewMainAuthCheckerNew;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProjectBizType;
@@ -60,7 +64,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Service
-public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, MarginBaseInfo> implements ContractDepositBalanceResolver {
+public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, MarginBaseInfo> implements MarginBaseInfoApplicationService, ContractDepositBalanceResolver {
     @Resource
     private MarginBaseInfoMapper marginBaseInfoMapper;
     @Resource
@@ -143,6 +147,7 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
     }
 
 
+    @Override
     public PageR<MarginBaseInfoListRSP> list(MarginBaseInfoListREQ req) {
         List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
@@ -186,6 +191,7 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
         return rsps;
     }
 
+    @Override
     @SneakyThrows
     public void exportList(MarginBaseInfoListREQ req, ServletOutputStream outputStream) {
 //        List<MarginBaseInfo> baseInfoList = marginBaseInfoMapper.selectList(Wrappers.<MarginBaseInfo>lambdaQuery().in(MarginBaseInfo::getId, req.getIds()));
@@ -198,6 +204,8 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
         marginListExcelExporter.exportExcel(excelModelList, outputStream);
     }
 
+    @Override
+    @DataAuthCheck(keyFieldName = "id", checkerClass = CommonViewMainAuthCheckerNew.class, businessModule = BusinessModuleEnum.MARGIN)
     public MarginBaseInfoRSP detail(MarginBaseInfoDetailREQ req) {
         MarginBaseInfo info = marginBaseInfoMapper.selectById(req.getId());
         ContractBaseInfoLib detail = baseInfoLibHandler.queryLatestDataByOriginId(info.getContractId());
