@@ -19,7 +19,7 @@ import cn.zswltech.mithras.service.excel.exporter.app.AppPcVisitRecordDetailExce
 import cn.zswltech.mithras.service.excel.exporter.app.AppPcVisitRecordSummaryExcelExporter;
 import cn.zswltech.mithras.service.excel.model.app.AppPcVisitRecordDetailModel;
 import cn.zswltech.mithras.service.excel.model.app.AppPcVisitRecordSummaryModel;
-import cn.zswltech.mithras.service.excel.model.dashboard.DashboardOperationPayModel;
+import cn.zswltech.mithras.dashboard.excel.model.DashboardOperationPayModel;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.service.materialsfile.export.ExportHandle;
 import org.springframework.stereotype.Component;
