@@ -1,27 +1,16 @@
 package cn.zswltech.mithras.projectprocess.service.lib.projestablish.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishBaseInfoListRSP;
-import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
-import cn.zswltech.mithras.service.convert.projestablish.ProjEstablishBaseInfoConverter;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishInfoModule;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfoLib;
-import cn.zswltech.mithras.system.service.Id2NameService;
-import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.handler.ProjEstablishLibAbstractHandler;
-import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
+import cn.zswltech.mithras.projectprocess.service.ProjectProcessBaseInfoAssembler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.stream.Collectors;
-
-import static cn.hutool.core.util.ObjectUtil.isNotNull;
 
 /**
  * @author zhaozhengkang
@@ -32,9 +21,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotNull;
 public class ProjEstablishBaseInfoLibHandler
         extends ProjEstablishLibAbstractHandler<ProjEstablishBaseInfoLib, ProjEstablishBaseInfo, ProjEstablishBaseInfoListRSP> {
     @Resource
-    private ProjEstablishBaseInfoConverter baseInfoConverter;
-    @Resource
-    private ProjEstablishBaseInfoService baseInfoService;
+    private ProjectProcessBaseInfoAssembler baseInfoAssembler;
 
     @Override
     public Set<String> compareIgnoreFieldNames() {
@@ -58,11 +45,7 @@ public class ProjEstablishBaseInfoLibHandler
 
     @Override
     protected ProjEstablishBaseInfoListRSP lib2Rsp(ProjEstablishBaseInfoLib f) {
-        ProjEstablishBaseInfoListRSP rsp = baseInfoConverter.entityToDetailRSP(f);
-        // fill names
-        baseInfoService.join(rsp);
-        rsp.setId(f.getOriginId());
-        return rsp;
+        return baseInfoAssembler.establishLib2Rsp(f);
     }
 
     @Override
