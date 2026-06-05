@@ -9,7 +9,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.third.repository.aliyun.req.OcrDetectReq;
 import cn.zswltech.mithras.service.util.HttpUtil;
-import cn.zswltech.mithras.service.util.PdfUtil;
+import cn.zswltech.mithras.third.aliyun.ocr.infrastructure.util.PdfUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.pdfbox.pdmodel.PDDocument;

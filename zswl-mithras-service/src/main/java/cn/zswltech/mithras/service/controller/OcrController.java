@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.repository.PlatformApiHandler;
 import cn.zswltech.mithras.third.aliyun.ocr.infrastructure.client.req.OcrDetectReq;
 import cn.zswltech.mithras.third.aliyun.ocr.infrastructure.client.resp.OcrDetectResp;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.service.util.PdfUtil;
+import cn.zswltech.mithras.third.aliyun.ocr.infrastructure.util.PdfUtil;
 import com.alibaba.fastjson.JSON;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

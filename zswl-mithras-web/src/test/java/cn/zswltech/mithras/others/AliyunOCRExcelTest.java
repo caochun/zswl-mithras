@@ -7,7 +7,7 @@ import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.zswltech.mithras.third.repository.aliyun.resp.OcrDetectResp;
 import cn.zswltech.mithras.service.util.HttpUtil;
-import cn.zswltech.mithras.service.util.PdfUtil;
+import cn.zswltech.mithras.third.aliyun.ocr.infrastructure.util.PdfUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.ocr_api20210707.models.RecognizeTableOcrRequest;
