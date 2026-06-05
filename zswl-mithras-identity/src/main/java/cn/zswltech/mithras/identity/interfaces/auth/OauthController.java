@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.auth;
+package cn.zswltech.mithras.identity.interfaces.auth;
 
 
 import cn.hutool.core.bean.BeanUtil;
