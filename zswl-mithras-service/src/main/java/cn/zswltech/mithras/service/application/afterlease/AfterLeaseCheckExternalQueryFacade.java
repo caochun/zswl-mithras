@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.controller.afterlease;
+package cn.zswltech.mithras.service.application.afterlease;
 
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.api.afterlease.AfterLeaseCheckExternalQueryApi;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.afterlease.*;
@@ -35,7 +35,7 @@ import cn.zswltech.mithras.afterlease.application.lib.handler.impl.AfterLeaseChe
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -54,8 +54,8 @@ import java.util.stream.Collectors;
  * @description 租后检查外部查询任务
  * @date 2022-11-17
  */
-@RestController
-public class AfterLeaseCheckExternalQueryController implements AfterLeaseCheckExternalQueryApi {
+@Service
+public class AfterLeaseCheckExternalQueryFacade implements AfterLeaseCheckExternalQueryApplicationService {
     @Resource
     private Id2NameService id2NameService;
     @Resource

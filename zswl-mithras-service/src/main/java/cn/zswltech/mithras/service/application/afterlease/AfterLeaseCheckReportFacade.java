@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.afterlease;
+package cn.zswltech.mithras.service.application.afterlease;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -7,7 +7,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.api.afterlease.AfterLeaseCheckReportApi;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.MultiplePkREQ;
 import cn.zswltech.mithras.dto.SinglePkREQ;
@@ -38,7 +38,7 @@ import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckReportFinanc
 import cn.zswltech.mithras.service.service.afterlese.NewAfterLeaseCheckReportDetailService;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -54,8 +54,8 @@ import java.util.stream.Collectors;
  * @description
  */
 @Slf4j
-@RestController
-public class AfterLeaseCheckReportController implements AfterLeaseCheckReportApi {
+@Service
+public class AfterLeaseCheckReportFacade implements AfterLeaseCheckReportApplicationService {
     @Resource
     private AfterLeaseCheckReportMetaService afterLeaseCheckReportMetaService;
     @Resource
