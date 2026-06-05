@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.validator;
+package cn.zswltech.mithras.customer.application.validator;
 
 import java.util.regex.Pattern;
 
