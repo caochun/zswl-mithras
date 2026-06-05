@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.leaseholdproperty;
+package cn.zswltech.mithras.service.application.leaseholdproperty;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -8,7 +8,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.leaseholdproperty.LeaseLedgerApi;
+import cn.zswltech.mithras.leaseholdproperty.application.LeaseLedgerApplicationService;
 import cn.zswltech.mithras.basic.Constant;
 import cn.zswltech.mithras.dto.MultiplePkREQ;
 import cn.zswltech.mithras.dto.SinglePkREQ;
@@ -35,8 +35,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -57,8 +56,8 @@ import static cn.zswltech.mithras.service.enums.BusinessModuleEnum.FILE_TEMPLATE
  * @since 2023-09-19
  */
 @Slf4j
-@RestController
-public class LeaseLedgerController implements LeaseLedgerApi {
+@Service
+public class LeaseLedgerFacade implements LeaseLedgerApplicationService {
 
     @Resource
     private LeaseItemInfoService leaseItemInfoService;
@@ -223,7 +222,7 @@ public class LeaseLedgerController implements LeaseLedgerApi {
     }
 
     @Override
-    public R<LeaseItemRedupRSP> dedup(@RequestBody @Valid LeaseItemListREQ req) {
+    public R<LeaseItemRedupRSP> dedup(@Valid LeaseItemListREQ req) {
         LeaseItemRedupRSP rsp = new LeaseItemRedupRSP();
         Map<Long,Set<String>> matchDetailSet = new HashMap<>(); // 记录匹配的新的租赁物清单id 和被击中的字段
         Set<Long> matchProjSet = new HashSet<>(); // 记录匹配的存量抵押物管理id

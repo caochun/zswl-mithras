@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.controller.leaseholdproperty;
+package cn.zswltech.mithras.service.application.leaseholdproperty;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.leaseholdproperty.LeaseVersionApi;
+import cn.zswltech.mithras.leaseholdproperty.application.LeaseVersionApplicationService;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseReviewEffectREQ;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.enums.CacheEnum;
@@ -20,7 +20,7 @@ import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseItemInfoServic
 import cn.zswltech.mithras.service.service.leaseholdproperty.LeaseReviewService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -29,8 +29,8 @@ import java.util.Objects;
 import static cn.zswltech.mithras.service.constant.ResultMsg.CONCURRENT_OPERATION;
 import static cn.zswltech.mithras.service.enums.BusinessModuleEnum.CONTRACT;
 
-@RestController
-public class LeaseVersionController implements LeaseVersionApi {
+@Service
+public class LeaseVersionFacade implements LeaseVersionApplicationService {
 
     @Resource
     private LeaseItemInfoService leaseItemInfoService;
