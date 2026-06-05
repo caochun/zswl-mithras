@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.service.lib.kpi.handler.impl;
+package cn.zswltech.mithras.kpi.service.lib.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -6,8 +6,9 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightInfo;
 import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeight;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightLib;
-import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.kpi.service.lib.handler.KpiProjectDistributionAbstractLibHandler;
+import cn.zswltech.mithras.service.service.DeptNameResolver;
+import cn.zswltech.mithras.service.service.UserNameResolver;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -23,7 +24,9 @@ import java.util.Set;
 @Component
 public class KpiProjectDistributionWeightLibHandler extends KpiProjectDistributionAbstractLibHandler<KpiProjectDistributionWeightLib, KpiProjectDistributionWeight, KpiProjectDistributionWeightInfo> {
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private UserNameResolver userNameResolver;
 
     @Override
     protected KpiProjectDistributionWeightLib entity2Lib(KpiProjectDistributionWeight f) {
@@ -49,9 +52,9 @@ public class KpiProjectDistributionWeightLibHandler extends KpiProjectDistributi
         rsp.setWeightTypeName(Optional.ofNullable(KpiProjectWeightTypeEnum.find(rsp.getWeightType())).map(KpiProjectWeightTypeEnum::getDisplay).orElse(null));
 
         if(ObjectUtil.equals(rsp.getWeightType(), KpiProjectWeightTypeEnum.BUSINESS_DEPT.name())) {
-            rsp.setWeightTargetName(id2NameService.deptId2NameSingle(rsp.getWeightTarget()));
+            rsp.setWeightTargetName(deptNameResolver.deptId2NameSingle(rsp.getWeightTarget()));
         } else {
-            rsp.setWeightTargetName(id2NameService.sysUserId2NameSingle(rsp.getWeightTarget()));
+            rsp.setWeightTargetName(userNameResolver.sysUserId2NameSingle(rsp.getWeightTarget()));
         }
         return rsp;
     }

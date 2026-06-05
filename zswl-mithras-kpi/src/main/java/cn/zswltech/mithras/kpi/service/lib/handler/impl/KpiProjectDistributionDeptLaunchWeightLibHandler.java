@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.service.service.lib.kpi.handler.impl;
+package cn.zswltech.mithras.kpi.service.lib.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptLaunchWeight;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptLaunchWeightLib;
-import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.kpi.service.lib.handler.KpiProjectDistributionAbstractLibHandler;
+import cn.zswltech.mithras.service.service.DeptNameResolver;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @Component
 public class KpiProjectDistributionDeptLaunchWeightLibHandler extends KpiProjectDistributionAbstractLibHandler<KpiProjectDistributionDeptLaunchWeightLib, KpiProjectDistributionDeptLaunchWeight, KpiProjectDistributionDeptLaunchWeightInfo> {
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
 
 
     @Override
@@ -37,7 +37,7 @@ public class KpiProjectDistributionDeptLaunchWeightLibHandler extends KpiProject
         info.setId(lib.getId());
         info.setWeightValue(lib.getWeightValue());
         info.setWeightTarget(lib.getWeightTarget());
-        info.setWeightTargetName(id2NameService.deptId2NameSingle(lib.getWeightTarget()));
+        info.setWeightTargetName(deptNameResolver.deptId2NameSingle(lib.getWeightTarget()));
         return info;
     }
 }

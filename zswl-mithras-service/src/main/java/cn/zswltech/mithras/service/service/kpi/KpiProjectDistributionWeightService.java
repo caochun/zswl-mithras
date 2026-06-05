@@ -14,7 +14,7 @@ import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionBaseInfoLibService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.kpi.service.lib.handler.impl.KpiProjectDistributionBaseInfoLibHandler;
-import cn.zswltech.mithras.service.service.lib.kpi.handler.impl.KpiProjectDistributionWeightLibHandler;
+import cn.zswltech.mithras.kpi.service.lib.handler.impl.KpiProjectDistributionWeightLibHandler;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

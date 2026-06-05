@@ -17,7 +17,7 @@ import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
 import cn.zswltech.mithras.fund.application.lib.receiptrepay.service.FundReceiptRepayBaseInfoLibService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionWeightLibService;
-import cn.zswltech.mithras.service.service.lib.kpi.handler.impl.KpiProjectDistributionWeightLibHandler;
+import cn.zswltech.mithras.kpi.service.lib.handler.impl.KpiProjectDistributionWeightLibHandler;
 import cn.zswltech.mithras.service.util.CompareUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.AllArgsConstructor;
