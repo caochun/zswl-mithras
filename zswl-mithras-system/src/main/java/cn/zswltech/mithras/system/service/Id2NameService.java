@@ -17,6 +17,7 @@ import cn.zswltech.mithras.customer.hymx.infrastructure.model.ClientHymx;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.projectprocess.service.ProjectProcessNameResolver;
 import cn.zswltech.mithras.service.service.DeptNameResolver;
+import cn.zswltech.mithras.service.service.ClientInfoResolver;
 import cn.zswltech.mithras.service.service.UserNameResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ import static cn.hutool.core.collection.CollUtil.isNotEmpty;
  * @author junke
  */
 @Service
-public class Id2NameService implements UserNameResolver, DeptNameResolver, ProjectProcessNameResolver {
+public class Id2NameService implements UserNameResolver, DeptNameResolver, ProjectProcessNameResolver, ClientInfoResolver {
     @Resource
     private ClientMapper clientMapper;
     @Resource
@@ -81,6 +82,11 @@ public class Id2NameService implements UserNameResolver, DeptNameResolver, Proje
             });
         }
         return result;
+    }
+
+    @Override
+    public Map<Long, ClientInfo> clientId2Client(Collection<Long> clientIds) {
+        return clientId2CLient(clientIds);
     }
 
     public Map<Long, String> sysUserId2Name(Collection<Long> userIds) {

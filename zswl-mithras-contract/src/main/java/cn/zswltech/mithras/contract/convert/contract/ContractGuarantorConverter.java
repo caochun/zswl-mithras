@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.convert.contract;
+package cn.zswltech.mithras.contract.convert.contract;
 
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorAddREQ;
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorListRSP;
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.contract.convert.contract.ContractTypeConversionWorker;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = ContractTypeConversionWorker.class, componentModel = "spring")
 public interface ContractGuarantorConverter {
 
 

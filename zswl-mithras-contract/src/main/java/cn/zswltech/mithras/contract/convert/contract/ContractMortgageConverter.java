@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.convert.contract;
+package cn.zswltech.mithras.contract.convert.contract;
 
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageAddREQ;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageListRSP;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageModifyREQ;
-import cn.zswltech.mithras.service.convert.TypeConversionWorker;
+import cn.zswltech.mithras.contract.convert.contract.ContractTypeConversionWorker;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(uses = TypeConversionWorker.class, componentModel = "spring")
+@Mapper(uses = ContractTypeConversionWorker.class, componentModel = "spring")
 public interface ContractMortgageConverter {
 
 

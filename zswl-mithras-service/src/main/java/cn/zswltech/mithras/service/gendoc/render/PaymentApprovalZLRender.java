@@ -16,9 +16,9 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
-import cn.zswltech.mithras.service.service.lib.contract.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
-import cn.zswltech.mithras.service.service.lib.contract.ContractMortgageLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;
 

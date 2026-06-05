@@ -1,26 +1,19 @@
-package cn.zswltech.mithras.service.service.lib.contract.handler.impl;
+package cn.zswltech.mithras.contract.versioning.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageListRSP;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeListRSP;
-import cn.zswltech.mithras.service.convert.contract.ContractMortgageConverter;
-import cn.zswltech.mithras.service.convert.contract.ContractPledgeConverter;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.contract.convert.contract.ContractPledgeConverter;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledge;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeLib;
-import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.service.service.ClientInfoResolver;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
-import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
-import com.alibaba.fastjson.JSONArray;
-import org.apache.commons.collections4.CollectionUtils;
+import cn.zswltech.mithras.document.application.MaterialsListQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,10 +42,10 @@ public class ContractPledgeLibHandler
     private ContractPledgeConverter converter;
 
     @Autowired
-    private Id2NameService id2NameService;
+    private ClientInfoResolver clientInfoResolver;
 
     @Resource
-    private MaterialsListService materialsListService;
+    private MaterialsListQueryService materialsListQueryService;
 
     @Override
     protected ContractPledgeLib entity2Lib(ContractPledge f) {
@@ -73,10 +66,10 @@ public class ContractPledgeLibHandler
     protected List<ContractPledgeListRSP> lib2RspList(List<ContractPledgeLib> fList) {
         List<ContractPledgeListRSP> rspList = fList.stream().map(f -> converter.entityToRSP(f)).collect(Collectors.toList());
         Map<Long, Long> originIdMap = fList.stream().collect(Collectors.toMap(ContractPledgeLib::getId, ContractPledgeLib::getOriginId));
-        Map<Long, ClientInfo> clientInfoMap = id2NameService.clientId2CLient(rspList.stream().map(ContractPledgeListRSP::getPledgeIds).filter(Objects::nonNull).flatMap(Collection::stream).collect(Collectors.toSet()));
-        Map<Long, List<MaterialsList>> materialsListMap = materialsListService.list(BusinessModuleEnum.CONTRACT.name(), Collections.singletonList(PLEDGE_ITEM_FILE_TYPE), fList.stream().map(ContractPledgeLib::getOriginId).collect(Collectors.toList())).stream().collect(Collectors.groupingBy(MaterialsList::getMainId));
+        Map<Long, ClientInfo> clientInfoMap = clientInfoResolver.clientId2Client(rspList.stream().map(ContractPledgeListRSP::getPledgeIds).filter(Objects::nonNull).flatMap(Collection::stream).collect(Collectors.toSet()));
+        Map<Long, List<MaterialsList>> materialsListMap = materialsListQueryService.list("CONTRACT", Collections.singletonList(PLEDGE_ITEM_FILE_TYPE), fList.stream().map(ContractPledgeLib::getOriginId).collect(Collectors.toList())).stream().collect(Collectors.groupingBy(MaterialsList::getMainId));
         for (ContractPledgeListRSP rsp : rspList) {
-            if (CollectionUtils.isNotEmpty(rsp.getPledgeIds())) {
+            if (rsp.getPledgeIds() != null && !rsp.getPledgeIds().isEmpty()) {
                 rsp.setPledgeInfo(rsp.getPledgeIds().stream().map(pId -> clientInfoMap.get(pId)).filter(Objects::nonNull).collect(Collectors.toList()));
             }
             List<MaterialsList> materialsListList = Optional.ofNullable(materialsListMap.get(originIdMap.get(rsp.getId()))).orElse(new ArrayList<>());

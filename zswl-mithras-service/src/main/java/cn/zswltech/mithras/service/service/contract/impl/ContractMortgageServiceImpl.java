@@ -19,7 +19,7 @@ import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageRemoveREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.contract.ContractEntityMortgageItemConvert;
 import cn.zswltech.mithras.service.convert.contract.ContractMortgageConvert;
-import cn.zswltech.mithras.service.convert.contract.ContractMortgageConverter;
+import cn.zswltech.mithras.contract.convert.contract.ContractMortgageConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
