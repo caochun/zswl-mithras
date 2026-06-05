@@ -4,6 +4,9 @@ import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.contract.core.application.ContractPledgeService;
 import cn.zswltech.mithras.contract.core.application.ContractMortgageService;
 import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
+import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractPledgeLibService;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Pair;

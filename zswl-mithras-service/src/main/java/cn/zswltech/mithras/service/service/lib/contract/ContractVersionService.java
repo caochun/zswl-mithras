@@ -18,7 +18,6 @@ import cn.zswltech.mithras.service.service.lib.CommonVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.AbstractContractAccountLibHandler;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import cn.zswltech.mithras.contract.versioning.handler.impl.*;
-import cn.zswltech.mithras.service.service.lib.contract.handler.impl.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

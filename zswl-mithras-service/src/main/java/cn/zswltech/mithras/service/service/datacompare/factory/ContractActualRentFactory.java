@@ -13,8 +13,8 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractRentActualLibHandle;
-import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractRentReceiptLibHandle;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractRentActualLibHandle;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractRentReceiptLibHandle;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -1,9 +1,10 @@
-package cn.zswltech.mithras.service.service.lib.contract.handler.impl;
+package cn.zswltech.mithras.contract.versioning.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.date.DatePattern;
+import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentActualListRSP;
-import cn.zswltech.mithras.service.convert.contract.ContractRentConvert;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
@@ -57,11 +58,28 @@ public class ContractRentReceiptLibHandle
         rsp.setContractId(f.getContractId());
         rsp.setReceiptCode(f.getReceiptCode());
         if (ObjectUtil.isNotEmpty(contractRentActuals)) {
-            rsp.setRentActualList(contractRentActuals.stream().map(ContractRentConvert::toContractRentActualListTableData).collect(Collectors.toList()));
+            rsp.setRentActualList(contractRentActuals.stream().map(this::toContractRentActualListTableData).collect(Collectors.toList()));
         }
         rsp.setReceiptId(f.getId());
         rsp.setId(f.getOriginId());
         return rsp;
+    }
+
+    private ContractRentActualListRSP.TableData toContractRentActualListTableData(ContractRentActual contractRentActual) {
+        ContractRentActualListRSP.TableData tableData = new ContractRentActualListRSP.TableData();
+        tableData.setId(contractRentActual.getId());
+        tableData.setCashFlowCode(contractRentActual.getCashFlowCode());
+        if (ObjectUtil.isNotEmpty(contractRentActual.getCashFlowDate())) {
+            tableData.setDate(LocalDateTimeUtil.format(contractRentActual.getCashFlowDate(), DatePattern.NORM_DATE_PATTERN));
+        }
+        tableData.setPhase(contractRentActual.getCashFlowPhase());
+        tableData.setRent(contractRentActual.getRent());
+        tableData.setPrincipal(contractRentActual.getPrincipal());
+        tableData.setInterest(contractRentActual.getInterest());
+        tableData.setRemainingPrincipal(contractRentActual.getRemainingPrincipal());
+        tableData.setReceivedDate(contractRentActual.getCollectionDate());
+        tableData.setReceivedAmount(contractRentActual.getCollectionAmount());
+        return tableData;
     }
 
     @Override

@@ -59,7 +59,7 @@ import cn.zswltech.mithras.service.service.flow.ProcessService;
 import cn.zswltech.mithras.service.service.lib.contract.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
-import cn.zswltech.mithras.service.service.lib.contract.handler.impl.ContractRentReceiptLibHandle;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractRentReceiptLibHandle;
 import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.service.service.payment.PaymentActualDetailService;

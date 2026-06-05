@@ -30,6 +30,9 @@ import cn.zswltech.mithras.projectprocess.service.lib.projestablish.ProjEstablis
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
+import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
+import cn.zswltech.mithras.contract.versioning.application.ContractPledgeLibService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.context.XxlJobHelper;

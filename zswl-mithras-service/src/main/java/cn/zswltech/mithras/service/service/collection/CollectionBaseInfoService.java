@@ -33,6 +33,8 @@ import cn.zswltech.mithras.collection.service.bo.CollectionDetailChainBO;
 import cn.zswltech.mithras.contract.core.application.ContractLeasePriceService;
 import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.service.service.CollectionRentActualReceiptStatus;
+import cn.zswltech.mithras.service.service.CollectionRentActualReceiptStatusResolver;
 import cn.zswltech.mithras.service.service.third.financial.FinancialManagerService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
@@ -62,7 +64,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Service
-public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMapper, CollectionBaseInfo> implements ContractRemainingPrincipalResolver {
+public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMapper, CollectionBaseInfo> implements ContractRemainingPrincipalResolver, CollectionRentActualReceiptStatusResolver {
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
@@ -84,6 +86,22 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
     private ContractLeasePriceService contractLeasePriceService;
     @Resource
     private ContractReceiptService contractReceiptService;
+
+    @Override
+    public CollectionRentActualReceiptStatus resolve(Long rentActualId) {
+        CollectionRentActualReceiptStatus status = new CollectionRentActualReceiptStatus();
+        CollectionBaseInfo collectionBaseInfo = this.getOne(Wrappers.<CollectionBaseInfo>lambdaQuery()
+                .eq(CollectionBaseInfo::getRentActualId, rentActualId)
+                .last("limit 1"));
+        if (ObjectUtil.isEmpty(collectionBaseInfo)) {
+            status.setReceived(false);
+            return status;
+        }
+        status.setReceived(CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(collectionBaseInfo.getWriteOffStatus()));
+        status.setReceivedDate(collectionBaseInfo.getCollectionDate());
+        status.setReceivedAmount(collectionBaseInfo.getCollectionAmount());
+        return status;
+    }
 
     public LocalDate findEarliestOverdueDate(Long receiptId) {
         LambdaQueryWrapper<CollectionBaseInfo> query = Wrappers.lambdaQuery();
