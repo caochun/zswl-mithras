@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.assetclassify.application.lib.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.mapper.model.MaterialsList;
@@ -45,17 +44,12 @@ public class AssetClassifyReviewMaterialsListLibHandler
 
     @Override
     public List<MaterialsList> listNeedHandleEntity(Long mainId) {
-        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleEnum());
+        return materialsListLibHandlerProxy.listNeedHandleEntity(mainId, businessModuleName());
     }
 
     @Override
     public List<MaterialsListLib> listNeedHandleLib(Long mainId, String version) {
-        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleEnum());
-    }
-
-    @Override
-    public BusinessModuleEnum businessModuleEnum() {
-        return BusinessModuleEnum.ASSET_CLASSIFY_REVIEW;
+        return materialsListLibHandlerProxy.listNeedHandleLib(mainId, version, businessModuleName());
     }
 
     @Override
