@@ -29,7 +29,7 @@ import cn.zswltech.mithras.service.enums.common.ProjectBizType;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.payment.domain.enums.*;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
-import cn.zswltech.mithras.service.excel.model.CollectionListExcelModel;
+import cn.zswltech.mithras.collection.excel.model.CollectionListExcelModel;
 import cn.zswltech.mithras.service.handler.LinkStyleHandler;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.model.BillManagement;

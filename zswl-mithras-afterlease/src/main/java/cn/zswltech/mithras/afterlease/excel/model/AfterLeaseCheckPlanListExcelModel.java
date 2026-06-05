@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.excel.model;
+package cn.zswltech.mithras.afterlease.excel.model;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.format.DateTimeFormat;

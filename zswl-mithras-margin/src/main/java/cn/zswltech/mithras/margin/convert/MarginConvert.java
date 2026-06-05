@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.margin.convert;
 
 import cn.zswltech.mithras.dto.margin.MarginBaseInfoListRSP;
-import cn.zswltech.mithras.service.excel.model.MarginBaseInfoListExcelModel;
+import cn.zswltech.mithras.margin.excel.model.MarginBaseInfoListExcelModel;
 
 import java.math.BigDecimal;
 import java.util.Optional;

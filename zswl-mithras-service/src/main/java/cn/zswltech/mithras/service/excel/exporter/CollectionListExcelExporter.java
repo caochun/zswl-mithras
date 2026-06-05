@@ -2,7 +2,7 @@ package cn.zswltech.mithras.service.excel.exporter;
 
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.service.excel.model.CollectionListExcelModel;
+import cn.zswltech.mithras.collection.excel.model.CollectionListExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;
 
