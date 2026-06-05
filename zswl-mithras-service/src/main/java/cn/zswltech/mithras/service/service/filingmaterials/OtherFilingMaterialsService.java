@@ -32,8 +32,8 @@ import cn.zswltech.mithras.filingmaterials.domain.enums.BusinessMaterialsDocName
 import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsFilingTypeEnum;
 import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsInitiationMethodEnum;
 import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsProcessStatusEnum;
-import cn.zswltech.mithras.service.excel.exporter.OtherFilingLedgerManageExcelExporter;
-import cn.zswltech.mithras.service.excel.model.OtherFilingLedgerManageExcelModel;
+import cn.zswltech.mithras.filingmaterials.excel.exporter.OtherFilingLedgerManageExcelExporter;
+import cn.zswltech.mithras.filingmaterials.excel.model.OtherFilingLedgerManageExcelModel;
 import cn.zswltech.mithras.service.gendoc.render.BusinessMaterialsOtherRender;
 import cn.zswltech.mithras.service.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.filingmaterials.infrastructure.persistence.mapper.FilingMaterialsMapper;
