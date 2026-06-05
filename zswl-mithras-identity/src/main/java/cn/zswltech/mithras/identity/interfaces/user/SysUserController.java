@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.identity.interfaces.user;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.biz.service.LoginService;
@@ -8,13 +8,9 @@ import cn.zswltech.gruul.common.result.Response;
 import cn.zswltech.gruul.common.util.RequestUtil;
 import cn.zswltech.gruul.common.util.StringUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
-import cn.zswltech.mithras.service.config.AppConfigProperties;
-import cn.zswltech.mithras.service.config.OcrConfigProperties;
-import cn.zswltech.mithras.service.util.DESUtil;
+import cn.zswltech.mithras.identity.infrastructure.config.AppConfigProperties;
+import cn.zswltech.mithras.identity.infrastructure.util.DESUtil;
 import cn.zswltech.mithras.service.util.HttpClientUtil;
-import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
-import com.google.gson.JsonObject;
-import liquibase.pro.packaged.J;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Document;
@@ -37,13 +33,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
-import javax.crypto.spec.SecretKeySpec;
-import java.security.SecureRandom;
-import java.security.Security;
 
 @RestController
 public class SysUserController {
@@ -91,7 +80,7 @@ public class SysUserController {
             UserDO queryDo = new UserDO();
             queryDo.setPhone(phone);
             UserDO userDO = userService.selectOne(queryDo);
-            if (ObjectUtils.isEmpty(userDO)) {
+            if (ObjectUtil.isEmpty(userDO)) {
                 //账户不存在，但是提示模糊一点
                 logger.info("[portalSsoLogin]:user does not exist, phone={}", phone);
                 return Response.error("请联系融租易系统管理员将您的集团信息录入系统");
@@ -157,7 +146,7 @@ public class SysUserController {
             Element root = doc.getRootElement();
             Element authenticationFailure = root.element("authenticationFailure");
             // 校验ticket失败逻辑
-            if (!ObjectUtils.isEmpty(authenticationFailure)) {
+            if (!ObjectUtil.isEmpty(authenticationFailure)) {
                 logger.error("[portalSsoLogin]: ticket={} --- service={} --- authenticationFailure={}", ticket, service, authenticationFailure.getTextTrim());
                 return Response.error(MSG.req_error_account_not_exist);
             }
@@ -165,7 +154,7 @@ public class SysUserController {
             Element authenticationSuccess = root.element("authenticationSuccess");
             if (ObjectUtil.isNotEmpty(authenticationSuccess)) {
                 Element attributes = authenticationSuccess.element("attributes");
-                if (!ObjectUtils.isEmpty(attributes)) {
+                if (!ObjectUtil.isEmpty(attributes)) {
                     mainCode = attributes.element("workcode").getTextTrim();
                 }
             }
@@ -179,7 +168,7 @@ public class SysUserController {
             UserDO queryDo = new UserDO();
             queryDo.setMainCode(mainCode);
             UserDO userDO = userService.selectOne(queryDo);
-            if (ObjectUtils.isEmpty(userDO)) {
+            if (ObjectUtil.isEmpty(userDO)) {
                 //账户不存在，但是提示模糊一点
                 logger.info("[portalSsoLogin]:user does not exist, workcode={}", mainCode);
                 return Response.error("请联系融租易系统管理员将您的集团信息录入系统");
@@ -237,7 +226,7 @@ public class SysUserController {
             UserDO queryDo = new UserDO();
             queryDo.setMainCode(mainCode);
             UserDO userDO = userService.selectOne(queryDo);
-            if (ObjectUtils.isEmpty(userDO)) {
+            if (ObjectUtil.isEmpty(userDO)) {
                 //账户不存在，但是提示模糊一点
                 logger.info("[dashboardSsoLogin]:user does not exist, workcode={}", mainCode);
                 return Response.error("请联系融租易系统管理员将您的集团信息录入系统");

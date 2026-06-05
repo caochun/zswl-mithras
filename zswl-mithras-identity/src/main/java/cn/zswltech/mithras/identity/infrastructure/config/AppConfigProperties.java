@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.config;
+package cn.zswltech.mithras.identity.infrastructure.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
