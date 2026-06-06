@@ -13,6 +13,7 @@ import cn.zswltech.mithras.customer.sandrecord.application.ClientSandRecordServi
 import cn.zswltech.mithras.customer.vwsync.application.ClientVwSyncService;
 import cn.zswltech.mithras.customer.externalcustomer.application.ExternalCustomerService;
 import cn.zswltech.mithras.riskcontrol.clientfile.RiskClientListFileDTO;
+import cn.zswltech.mithras.riskcontrol.clientfile.RiskClientListFileTransferService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.jcraft.jsch.ChannelSftp;
@@ -40,7 +41,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class RiskControlClientListFileService {
+public class RiskControlClientListFileService implements RiskClientListFileTransferService {
 
     @Resource
     private ClientMapper clientMapper;

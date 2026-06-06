@@ -1,13 +1,13 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.riskcontrol.job;
 
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.service.riskcontrol.RiskControlClientListFileService;
 import cn.zswltech.mithras.riskcontrol.clientfile.RiskClientListFileDTO;
+import cn.zswltech.mithras.riskcontrol.clientfile.RiskClientListFileTransferService;
+import cn.zswltech.mithras.service.constant.GlobalConstants;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -35,7 +35,7 @@ public class RiskClientToSFTPJob {
     private String PATH_PREFIX; // SFTP目录前缀
 
     @Resource
-    private RiskControlClientListFileService riskControlClientListFileService;
+    private RiskClientListFileTransferService riskClientListFileTransferService;
 
     private static final String PROD = "prod";
     private static final String TEST = "test";
@@ -66,7 +66,7 @@ public class RiskClientToSFTPJob {
             today = LocalDateTimeUtil.parse(param, "yyyy-MM-dd").toLocalDate();
         }
         // 1. 获取客户沙盘数据
-        List<RiskClientListFileDTO> clientList = riskControlClientListFileService.getClientList(today);
+        List<RiskClientListFileDTO> clientList = riskClientListFileTransferService.getClientList(today);
         if (CollectionUtil.isEmpty(clientList)) {
             log.info("客户沙盘数据为空，任务终止。");
             return;
@@ -85,6 +85,6 @@ public class RiskClientToSFTPJob {
         }
         String path = "/" + PATH_PREFIX + "/" + pathSub + "/" + dateStr;
         log.info("SFTP服务器目录路径: {}", path);
-        riskControlClientListFileService.createAndTransferCsv(fileName, clientList, path);
+        riskClientListFileTransferService.createAndTransferCsv(fileName, clientList, path);
     }
 }
