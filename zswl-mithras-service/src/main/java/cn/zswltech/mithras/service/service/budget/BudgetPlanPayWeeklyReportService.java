@@ -5,16 +5,19 @@ import cn.zswltech.mithras.budget.application.BudgetPlanCostDetailProjectService
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailExpenseService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayDetailPriceService;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
+import cn.zswltech.mithras.budget.application.job.BudgetPlanPayWeeklyJobService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayWeeklyReportApplicationService;
 import cn.zswltech.mithras.budget.domain.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.domain.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.spring.SpringUtil;
+import cn.hutool.json.JSONUtil;
 import cn.zswltech.flow.core.api.FlowProcessApiService;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.flow.core.domain.req.StartProcessReq;
@@ -30,16 +33,25 @@ import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.budget.domain.enums.BudgetPlanTypeEnum;
 import cn.zswltech.mithras.budget.domain.enums.BudgetStatusEnum;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanPayWeeklyReportMapper;
+import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlan;
+import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPay;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayDetail;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayWeeklyReport;
 import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayWeeklyReportDetail;
+import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
+import cn.zswltech.mithras.service.util.LongUtil;
+import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.basedata.util.WorkdayWeekUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,16 +63,25 @@ import java.util.stream.Collectors;
 
 /**
 * @description 预算管理-投放计划-项目周报
-* @author vico
-* @date 2025-04-11
+ * @author vico
+ * @date 2025-04-11
 */
+@Slf4j
 @Service
-public class BudgetPlanPayWeeklyReportService extends ServiceImpl<BudgetPlanPayWeeklyReportMapper, BudgetPlanPayWeeklyReport> implements BudgetPlanPayWeeklyReportApplicationService {
+public class BudgetPlanPayWeeklyReportService extends ServiceImpl<BudgetPlanPayWeeklyReportMapper, BudgetPlanPayWeeklyReport> implements BudgetPlanPayWeeklyReportApplicationService, BudgetPlanPayWeeklyJobService {
 
     @Resource
     private BudgetPlanPayWeeklyReportMapper budgetPlanPayWeeklyReportMapper;
     @Resource
     private BudgetPlanPayWeeklyReportDetailService budgetPlanPayWeeklyReportDetailService;
+    @Resource
+    private BudgetPlanService budgetPlanService;
+    @Resource
+    private BudgetPlanPayService budgetPlanPayService;
+    @Resource
+    private BudgetPlanPayDetailService budgetPlanPayDetailService;
+    @Resource
+    private ProjReviewBaseInfoService projReviewBaseInfoService;
     @Resource
     private SysUserService sysUserService;
     @Resource
@@ -68,6 +89,94 @@ public class BudgetPlanPayWeeklyReportService extends ServiceImpl<BudgetPlanPayW
 
     @Value("${mithras.job.deptLeader}")
     private String deptLeaderJob;
+
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public void createBudgetPlanPayWeekly(LocalDate targetDate) {
+        if (!WorkdayWeekUtil.isDateFirstWorkday(targetDate)) {
+            log.info("BudgetPlanPayWeeklyJob createBudgetPlanPayWeekly {} 非第一个工作日跳过", targetDate);
+            return;
+        }
+        BudgetPlan budgetPlan = budgetPlanService.getOne(
+                Wrappers.<BudgetPlan>lambdaQuery()
+                        .eq(BudgetPlan::getPlanYear, targetDate.getYear())
+                        .eq(BudgetPlan::getPlanMonth, targetDate.getMonth())
+                        .eq(BudgetPlan::getBudgetStatus, BudgetStatusEnum.CONFIRM.name())
+                        .in(BudgetPlan::getBudgetType, ListUtil.of(BudgetPlanTypeEnum.MONTH.name(), BudgetPlanTypeEnum.MONTH_ADJUST.name()))
+                        .orderByDesc(BudgetPlan::getId)
+                        .last(StringUtil.mysqlLimitOne())
+        );
+        BudgetPlanPay budgetPlanPay = budgetPlanPayService.getByBudgetPlanId(budgetPlan.getId());
+        BudgetPlanPayWeeklyReport budgetPlanPayWeeklyReport = this.getOne(
+                Wrappers.<BudgetPlanPayWeeklyReport>lambdaQuery()
+                        .ge(BudgetPlanPayWeeklyReport::getDateFrom, LocalDate.of(targetDate.getYear(), targetDate.getMonthValue(), 1))
+                        .le(BudgetPlanPayWeeklyReport::getDateTo, LocalDate.of(targetDate.getYear(), targetDate.getMonthValue(), targetDate.lengthOfMonth()))
+                        .eq(BudgetPlanPayWeeklyReport::getPlanStatus, BudgetStatusEnum.COLLECT_FINISH.name())
+                        .orderByDesc(BudgetPlanPayWeeklyReport::getDateFrom)
+                        .last(StringUtil.mysqlLimitOne())
+        );
+        List<BudgetPlanPayWeeklyReportDetail> todoList;
+        if (Objects.isNull(budgetPlanPay) && Objects.isNull(budgetPlanPayWeeklyReport)) {
+            log.info("没有投放计划也没有历史周报，不生成周报待办");
+            return;
+        } else if (Objects.isNull(budgetPlanPay)) {
+            log.info("使用上一次周报数据生成周报待办[{}]", JSONUtil.toJsonStr(budgetPlanPayWeeklyReport));
+            List<BudgetPlanPayWeeklyReportDetail> budgetPlanPayWeeklyReportDetailList = budgetPlanPayWeeklyReportDetailService.listByReportId(budgetPlanPayWeeklyReport.getId());
+            todoList = BeanUtil.copyToList(budgetPlanPayWeeklyReportDetailList, BudgetPlanPayWeeklyReportDetail.class);
+        } else if (Objects.isNull(budgetPlanPayWeeklyReport)) {
+            log.info("使用投放计划数据生成周报待办[{}]", JSONUtil.toJsonStr(budgetPlanPay));
+            List<BudgetPlanPayDetail> budgetPlanPayDetailList = budgetPlanPayDetailService.listByBudgetPlanId(budgetPlanPay.getBudgetPlanId());
+            todoList = BeanUtil.copyToList(budgetPlanPayDetailList, BudgetPlanPayWeeklyReportDetail.class);
+        } else {
+            if (budgetPlanPay.getCreateTime().isAfter(budgetPlanPayWeeklyReport.getCreateTime())) {
+                log.info("使用投放计划数据生成周报待办[{}]", JSONUtil.toJsonStr(budgetPlanPay));
+                List<BudgetPlanPayDetail> budgetPlanPayDetailList = budgetPlanPayDetailService.listByBudgetPlanId(budgetPlanPay.getBudgetPlanId());
+                todoList = BeanUtil.copyToList(budgetPlanPayDetailList, BudgetPlanPayWeeklyReportDetail.class);
+            } else {
+                log.info("使用上一次周报的数据生成周报待办[{}]", JSONUtil.toJsonStr(budgetPlanPayWeeklyReport));
+                List<BudgetPlanPayWeeklyReportDetail> budgetPlanPayWeeklyReportDetailList = budgetPlanPayWeeklyReportDetailService.listByReportId(budgetPlanPayWeeklyReport.getId());
+                todoList = BeanUtil.copyToList(budgetPlanPayWeeklyReportDetailList, BudgetPlanPayWeeklyReportDetail.class);
+            }
+        }
+        WorkdayWeekUtil.WorkweekResult workweekResult = WorkdayWeekUtil.calculateWorkweek(targetDate);
+        todoList.removeIf(e -> this.isBeforeCurrentMonth(targetDate, e.getPlanPayDate()) || LongUtil.null2zero(e.getPaidAmount()) >= LongUtil.null2zero(e.getPlanPayAmount()));
+        if (CollectionUtil.isEmpty(todoList)) {
+            log.info("{}-{}不存在符合条件的待发周报", LocalDateTimeUtil.format(workweekResult.getFirstWorkday(), DatePattern.NORM_DATE_PATTERN), LocalDateTimeUtil.format(workweekResult.getLastWorkday(), DatePattern.NORM_DATE_PATTERN));
+            return;
+        }
+        Map<Long, Set<Long>> deptId2UserIds = new HashMap<>();
+        for (BudgetPlanPayWeeklyReportDetail reportDetail : todoList) {
+            if (Objects.isNull(reportDetail.getProjReviewId())) {
+                continue;
+            }
+            ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoService.getById(reportDetail.getProjReviewId());
+            if (Objects.nonNull(projReviewBaseInfo)) {
+                reportDetail.setSponsorUserId(projReviewBaseInfo.getProjSponsorUserId());
+                reportDetail.setBelongDeptId(projReviewBaseInfo.getBizDeptId());
+            }
+            Set<Long> userIds = deptId2UserIds.get(reportDetail.getBelongDeptId());
+            if (Objects.isNull(userIds)) {
+                userIds = new HashSet<>();
+                deptId2UserIds.put(reportDetail.getBelongDeptId(), userIds);
+            }
+            userIds.add(reportDetail.getSponsorUserId());
+        }
+        BudgetPlanPayWeeklyReportAddREQ budgetPlanPayWeeklyReportAddREQ = BeanUtil.copyProperties(budgetPlanPay, BudgetPlanPayWeeklyReportAddREQ.class);
+        budgetPlanPayWeeklyReportAddREQ.setDateFrom(workweekResult.getFirstWorkday());
+        budgetPlanPayWeeklyReportAddREQ.setDateTo(workweekResult.getLastWorkday());
+        budgetPlanPayWeeklyReportAddREQ.setPlanStatus(BudgetStatusEnum.COLLECTING.name());
+        budgetPlanPayWeeklyReportAddREQ.setBudgetPlanPayId(budgetPlanPay.getId());
+        Long budgetPlanPayWeeklyId = this.create(budgetPlanPayWeeklyReportAddREQ, todoList);
+        this.createProcess(deptId2UserIds, budgetPlanPayWeeklyId);
+    }
+
+    private boolean isBeforeCurrentMonth(LocalDate targetDate, LocalDate date) {
+        if (ObjectUtil.isEmpty(date)) {
+            return false;
+        }
+        LocalDate targetDateBegin = LocalDate.of(targetDate.getYear(), targetDate.getMonthValue(), 1);
+        return date.isBefore(targetDateBegin);
+    }
 
     @Transactional(rollbackFor = Throwable.class)
     public Long create(BudgetPlanPayWeeklyReportAddREQ req, List<BudgetPlanPayWeeklyReportDetail> detailList) {
