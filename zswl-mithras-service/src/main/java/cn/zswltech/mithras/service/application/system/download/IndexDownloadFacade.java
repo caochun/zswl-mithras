@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.system.controller;
+package cn.zswltech.mithras.service.application.system.download;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -110,6 +110,7 @@ import cn.zswltech.mithras.contract.overdue.interfaces.LitigationController;
 import cn.zswltech.mithras.service.overdue.interfaces.CollectionController;
 import cn.zswltech.mithras.contract.overdue.interfaces.docprinting.DocPrintingController;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
+import cn.zswltech.mithras.system.application.download.api.IndexDownloadApplicationService;
 import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy;
 import lombok.SneakyThrows;
@@ -118,7 +119,7 @@ import org.apache.commons.lang3.tuple.Triple;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -147,8 +148,8 @@ import static java.time.format.DateTimeFormatter.ofPattern;
  * @author yibin
  */
 @Slf4j
-@RestController
-public class IndexDownloadController implements IndexDownloadApi {
+@Service
+public class IndexDownloadFacade implements IndexDownloadApplicationService {
 
     private final static Map<BusinessModuleEnum, Triple<Class<?>, String, List<String>>/*ControllerClass,Method, ignoredFields*/> MAP = MapUtil.of(
             Pair.of(BusinessModuleEnum.CLIENT, Triple.of(ClientFacade.class, "newList", of("id"))),

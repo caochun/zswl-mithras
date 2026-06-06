@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.system.controller;
+package cn.zswltech.mithras.service.application.system.select;
 import cn.zswltech.mithras.customer.domain.enums.app.VisitWayStatus;
 import cn.zswltech.mithras.customer.domain.enums.app.VisitTypeStatus;
 import cn.zswltech.mithras.customer.domain.enums.InfoModule;
@@ -93,13 +93,14 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.system.application.select.api.AllSelectApplicationService;
 import cn.zswltech.mithras.service.service.filingmaterials.AfterFilingMaterialsService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -114,8 +115,8 @@ import static cn.hutool.core.util.ObjectUtil.isNotNull;
  * @author luyi
  */
 @Slf4j
-@RestController
-public class AllSelectController implements AllSelectApi {
+@Service
+public class AllSelectFacade implements AllSelectApplicationService {
     @Resource
     private IndustryTypeMapper industryTypeMapper;
     @Resource
