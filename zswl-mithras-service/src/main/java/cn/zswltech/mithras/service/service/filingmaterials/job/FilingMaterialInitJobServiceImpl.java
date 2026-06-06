@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.filingmaterials.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
@@ -11,6 +11,7 @@ import cn.zswltech.flow.core.domain.req.task.TaskSystemPageReq;
 import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.service.impl.FlowCacheService;
 import cn.zswltech.flow.core.util.Page;
+import cn.zswltech.mithras.filingmaterials.application.job.FilingMaterialInitJobService;
 import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsFilingTypeEnum;
@@ -31,8 +32,6 @@ import cn.zswltech.mithras.service.service.flow.ExecutionService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.flowable.engine.runtime.ProcessInstance;
@@ -50,7 +49,7 @@ import java.util.stream.Collectors;
  */
 @Component
 @Slf4j
-public class FilingMaterialInitJob {
+public class FilingMaterialInitJobServiceImpl implements FilingMaterialInitJobService {
     @Resource
     private AfterFilingMaterialsService afterFilingMaterialsService;
     @Resource
@@ -71,8 +70,8 @@ public class FilingMaterialInitJob {
     /**
      * 租后资料归档邮件发送
      */
-    @XxlJob("afterFilingMaterialInitJob")
-    public void afterFilingMaterialInitJob() {
+    @Override
+    public void initAfterFilingMaterial() {
         try {
             log.info("afterFilingMaterialInitJob 开始扫描");
             //审批状态在2026.01.01至上线期间更新为“计划完结审批通过
@@ -92,11 +91,10 @@ public class FilingMaterialInitJob {
         }
     }
 
-    @XxlJob("afterFilingMaterialBankJob")
-    public void afterFilingMaterialBankJob() {
+    @Override
+    public void returnAfterFilingMaterial(String jobParam) {
         try {
             log.info("afterFilingMaterialBankJob 开始扫描");
-            String jobParam = XxlJobHelper.getJobParam();
             if(CharSequenceUtil.isEmpty(jobParam)){
                 return;
             }
@@ -141,11 +139,10 @@ public class FilingMaterialInitJob {
     /**
      * 资金资料归档邮件发送
      */
-    @XxlJob("fundFilingMaterialInitJob")
-    public void fundFilingMaterialInitJob() {
+    @Override
+    public void initFundFilingMaterial(String jobParam) {
         try {
             log.info("fundFilingMaterialInitJob 开始扫描");
-            String jobParam = XxlJobHelper.getJobParam();
             //直融
             LambdaQueryWrapper<FundDirectFinancingBaseInfo> directQueryWrapper = Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
                     .eq(FundDirectFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name());
@@ -182,11 +179,10 @@ public class FilingMaterialInitJob {
         }
     }
 
-    @XxlJob("projectFilingMaterialCloseJob")
-    public void projectFilingMaterialCloseJob() {
+    @Override
+    public void closeProjectFilingMaterial(String jobParam) {
         try {
             log.info("projectFilingMaterialCloseJob 项目资料归档在途流程关闭开始");
-            String jobParam = XxlJobHelper.getJobParam();
             //审批中
             LambdaQueryWrapper<FilingMaterials> queryWrapper = Wrappers.<FilingMaterials>lambdaQuery();
             queryWrapper.eq(FilingMaterials::getApproveStatus, FilingMaterialsProcessStatusEnum.UNDER_APPROVAL.name());
