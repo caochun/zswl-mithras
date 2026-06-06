@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service.job;
 
-import cn.zswltech.mithras.service.job.ProjectStatusJob;
+import cn.zswltech.mithras.projectprocess.job.ProjectStatusJob;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

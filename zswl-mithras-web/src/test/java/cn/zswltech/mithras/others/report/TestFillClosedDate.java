@@ -36,7 +36,7 @@ import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.job.*;
-import cn.zswltech.mithras.service.job.data_init.ProjRiskControlIndustryTypeJob;
+import cn.zswltech.mithras.projectprocess.job.data_init.ProjRiskControlIndustryTypeJob;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;

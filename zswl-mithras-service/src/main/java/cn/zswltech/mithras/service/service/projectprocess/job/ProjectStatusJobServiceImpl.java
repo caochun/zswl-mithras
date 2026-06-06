@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.projectprocess.job;
 
+import cn.zswltech.mithras.projectprocess.application.job.ProjectStatusJobService;
 import cn.zswltech.mithras.service.service.groupcreditestablish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.groupcreditreview.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewService;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  **/
 @Slf4j
 @Component
-public class ProjectStatusJob {
+public class ProjectStatusJobServiceImpl implements ProjectStatusJobService {
 
     @Resource
     private ProjEstablishBaseInfoService projEstablishBaseInfoService;
@@ -29,7 +29,7 @@ public class ProjectStatusJob {
     /**
      * 维护项目/授信相关立项/评审数据
      **/
-    @XxlJob("projStatusJob")
+    @Override
     public void projStatusJob() {
         try {
             //项目立项

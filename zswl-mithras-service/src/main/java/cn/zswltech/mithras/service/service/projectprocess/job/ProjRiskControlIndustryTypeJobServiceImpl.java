@@ -1,19 +1,19 @@
-package cn.zswltech.mithras.service.job.data_init;
+package cn.zswltech.mithras.service.service.projectprocess.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.projectprocess.application.job.ProjRiskControlIndustryTypeJobService;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;
-import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.ProjEstablishBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewBaseInfoLibService;
+import cn.zswltech.mithras.service.service.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class ProjRiskControlIndustryTypeJob {
+public class ProjRiskControlIndustryTypeJobServiceImpl implements ProjRiskControlIndustryTypeJobService {
 
     @Resource
     private ProjReviewBaseInfoService projReviewBaseInfoService;
@@ -46,7 +46,7 @@ public class ProjRiskControlIndustryTypeJob {
     private CorpCommerceInfoService corpCommerceInfoService;
 
 
-    @XxlJob("projRiskControlIndustryTypeJob")
+    @Override
     public void projRiskControlIndustryTypeJob() {
         log.info("projRiskControlIndustryTypeJob start..........");
         // 获取所有的评审

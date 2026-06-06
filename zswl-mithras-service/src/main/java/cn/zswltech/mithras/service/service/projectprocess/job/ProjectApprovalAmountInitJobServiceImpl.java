@@ -1,25 +1,21 @@
-package cn.zswltech.mithras.service.job.data_init;
+package cn.zswltech.mithras.service.service.projectprocess.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.poi.excel.ExcelUtil;
-import cn.zswltech.mithras.blackgray.enums.BusinessType;
-import cn.zswltech.mithras.third.enums.capital.BizTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.contract.enums.contract.ProjItemStatus;
-import cn.zswltech.mithras.service.job.data_init.dto.ProjectApprovalAmountExcelModel;
+import cn.zswltech.mithras.projectprocess.application.job.ProjectApprovalAmountInitJobService;
+import cn.zswltech.mithras.projectprocess.job.data_init.dto.ProjectApprovalAmountExcelModel;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.*;
-import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewAocPriceLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewFactoringPriceLibService;
 import cn.zswltech.mithras.projectprocess.service.lib.projreview.ProjReviewLeasePriceLibService;
+import cn.zswltech.mithras.service.enums.common.ProjectBizType;
+import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewAocPriceService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewFactoringPriceService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewLeasePriceService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -39,7 +35,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Component
-public class ProjectApprovalAmountInitJob {
+public class ProjectApprovalAmountInitJobServiceImpl implements ProjectApprovalAmountInitJobService {
 
     @Autowired
     private ProjReviewBaseInfoService projReviewBaseInfoService;
@@ -56,7 +52,7 @@ public class ProjectApprovalAmountInitJob {
     @Autowired
     private ProjReviewFactoringPriceLibService factoringPriceLibService;
 
-    @XxlJob("projectApprovalAmountInitJob")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void projectApprovalAmountInitJob() {
         log.info("项目批复金额初始化任务开始");
@@ -74,7 +70,6 @@ public class ProjectApprovalAmountInitJob {
                 return;
             }
             // 查询项目列表
-            List<String> collected = excelModelList.stream().map(ProjectApprovalAmountExcelModel::getProjectName).collect(Collectors.toList());
             List<ProjReviewBaseInfo> projReviewBaseInfos = projReviewBaseInfoService.list(Wrappers.<ProjReviewBaseInfo>lambdaQuery()
                     .in(ProjReviewBaseInfo::getProjReviewStatus, RecordStatus.NEW.name(), RecordStatus.TAKE_EFFECT.name()));
             Map<String, List<ProjReviewBaseInfo>> projReviewBaseInfoMap = projReviewBaseInfos.stream().collect(Collectors.groupingBy(e -> e.getProjName().trim()));
