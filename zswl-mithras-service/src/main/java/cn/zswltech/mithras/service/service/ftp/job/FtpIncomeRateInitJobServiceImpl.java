@@ -1,21 +1,20 @@
-package cn.zswltech.mithras.service.job.data_init;
+package cn.zswltech.mithras.service.service.ftp.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.poi.excel.ExcelUtil;
-import cn.zswltech.mithras.capital.domain.enums.FinancingFlowWriteOffStatusEnum;
+import cn.zswltech.mithras.ftp.oldftp.job.FtpIncomeRateInitJob;
+import cn.zswltech.mithras.ftp.oldftp.job.data_init.dto.FtpIncomeDetailExcelModel;
+import cn.zswltech.mithras.ftp.oldftp.job.data_init.dto.FtpIncomeRateExcelModel;
+import cn.zswltech.mithras.ftp.oldftp.job.data_init.dto.ZsRentLeaseAbsExcelModel;
+import cn.zswltech.mithras.ftp.oldftp.service.job.FtpIncomeRateInitJobService;
 import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
-import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingProductDetail;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingProductDetailService;
-import cn.zswltech.mithras.service.job.data_init.dto.FtpIncomeDetailExcelModel;
-import cn.zswltech.mithras.service.job.data_init.dto.FtpIncomeRateExcelModel;
-import cn.zswltech.mithras.service.job.data_init.dto.ZsRentLeaseAbsExcelModel;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeDetailRecord;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingBaseInfo;
@@ -23,24 +22,15 @@ import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpIncomeDetailRecordService;
 import cn.zswltech.mithras.service.service.fund.financing.FundFinancingBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.ResourceUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
@@ -54,7 +44,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Component
-public class FtpIncomeRateInitJob {
+public class FtpIncomeRateInitJobServiceImpl implements FtpIncomeRateInitJobService {
 
     @Autowired
     private FundFinancingBaseInfoService financingBaseInfoService;
@@ -67,7 +57,7 @@ public class FtpIncomeRateInitJob {
     @Autowired
     private FtpIncomeDetailRecordService detailRecordService;
 
-    @XxlJob(value = "ftpIncomeRateInitJob")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void ftpIncomeRateInitJob() {
         try {

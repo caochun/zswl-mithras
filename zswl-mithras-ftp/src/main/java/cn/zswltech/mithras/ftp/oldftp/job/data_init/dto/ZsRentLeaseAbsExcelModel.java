@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job.data_init.dto;
+package cn.zswltech.mithras.ftp.oldftp.job.data_init.dto;
 
 import cn.hutool.core.annotation.Alias;
 import lombok.Data;

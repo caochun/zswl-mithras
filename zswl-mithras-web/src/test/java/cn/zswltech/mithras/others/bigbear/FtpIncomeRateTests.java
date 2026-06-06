@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.bigbear;
 import cn.zswltech.mithras.report.handler.CrAbstractHandler;
 import cn.zswltech.mithras.report.handler.impl.newimpl.CrRepayPlanNewHandler;
 import cn.zswltech.mithras.report.job.ReportJob;
-import cn.zswltech.mithras.service.job.data_init.FtpIncomeRateInitJob;
+import cn.zswltech.mithras.ftp.oldftp.job.FtpIncomeRateInitJob;
 import cn.zswltech.mithras.web.MithrasApplication;
 import liquibase.pro.packaged.A;
 import org.junit.Test;
