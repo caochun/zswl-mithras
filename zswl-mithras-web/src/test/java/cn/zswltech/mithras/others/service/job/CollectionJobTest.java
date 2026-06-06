@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.service.job;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.service.job.CollectionJob;
 import cn.zswltech.mithras.fund.job.FundFinancingJob;
-import cn.zswltech.mithras.service.job.FundOrganizationJob;
+import cn.zswltech.mithras.fund.job.FundOrganizationJob;
 import org.junit.Test;
 
 import javax.annotation.Resource;

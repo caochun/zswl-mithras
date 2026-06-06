@@ -10,6 +10,7 @@ import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.fund.application.convert.FundOrganizationConverter;
 import cn.zswltech.mithras.fund.application.FundFinancingCreditRefService;
+import cn.zswltech.mithras.fund.application.FundOrganizationInstitutionCodeSyncService;
 import cn.zswltech.mithras.fund.domain.enums.OrganizationType;
 import cn.zswltech.mithras.datashare.mapper.DataShareMerchantsMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.FundOrganizationMapper;
@@ -44,7 +45,7 @@ import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
  * @date 2022-12-13
  */
 @Service
-public class FundOrganizationService extends ServiceImpl<FundOrganizationMapper, FundOrganization> {
+public class FundOrganizationService extends ServiceImpl<FundOrganizationMapper, FundOrganization> implements FundOrganizationInstitutionCodeSyncService {
     @Resource
     private FundOrganizationConverter fundOrganizationConverter;
     @Resource
@@ -60,6 +61,38 @@ public class FundOrganizationService extends ServiceImpl<FundOrganizationMapper,
     private DataShareMerchantsMapper dataShareMerchantsMapper;
 
     private final DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyyMMdd");
+
+    @Override
+    public void syncInstitutionCode() {
+        LambdaQueryWrapper<FundOrganization> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.isNotNull(FundOrganization::getUscCode);
+        queryWrapper.isNull(FundOrganization::getInstitutionCode);
+        List<FundOrganization> fundOrganizationList = this.list(queryWrapper);
+        List<String> uscCodes = new ArrayList<>();
+        if (CollectionUtil.isNotEmpty(fundOrganizationList)) {
+            uscCodes = fundOrganizationList.stream().map(FundOrganization::getUscCode).collect(Collectors.toList());
+        }
+        List<DataShareMerchants> dataShareMerchantsList = null;
+        Map<String, Long> clientIdMap = new HashMap<>();
+        if (CollectionUtil.isNotEmpty(uscCodes)) {
+            dataShareMerchantsList = dataShareMerchantsMapper.selectList(Wrappers.<DataShareMerchants>lambdaQuery()
+                    .in(DataShareMerchants::getCreditCode, uscCodes));
+        }
+        if (CollectionUtil.isNotEmpty(dataShareMerchantsList)) {
+            clientIdMap = dataShareMerchantsList.stream()
+                    .filter(dataShareMerchants -> StrUtil.isNotBlank(dataShareMerchants.getCreditCode()))
+                    .collect(Collectors.toMap(DataShareMerchants::getCreditCode, DataShareMerchants::getClientId, (k1, k2) -> k1));
+        }
+        if (CollectionUtil.isNotEmpty(fundOrganizationList) && CollectionUtil.isNotEmpty(clientIdMap)) {
+            for (FundOrganization fundOrg : fundOrganizationList) {
+                Long clientId = clientIdMap.get(fundOrg.getUscCode());
+                if (clientId != null) {
+                    fundOrg.setInstitutionCode(String.valueOf(clientId));
+                }
+            }
+            this.saveOrUpdateBatch(fundOrganizationList);
+        }
+    }
 
     public List<String> listDistinctAbbreviation(String abbreviation) {
         LambdaQueryWrapper<FundOrganization> query = Wrappers.lambdaQuery();
