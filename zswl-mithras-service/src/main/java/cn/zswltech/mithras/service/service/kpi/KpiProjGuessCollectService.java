@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.kpi.service;
+package cn.zswltech.mithras.service.service.kpi;
 
 import cn.zswltech.mithras.kpi.bo.KpiFinanceProjectProfitRecordBo;
 import cn.zswltech.mithras.kpi.bo.KpiParameterConfigBo;

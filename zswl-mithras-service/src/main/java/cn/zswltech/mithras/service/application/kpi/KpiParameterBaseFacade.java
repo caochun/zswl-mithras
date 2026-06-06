@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.service.kpi.controller;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiParameterBaseApi;
 import cn.zswltech.mithras.dto.kpi.*;
+import cn.zswltech.mithras.kpi.application.KpiParameterBaseApplicationService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterBase;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
 import cn.zswltech.mithras.kpi.service.KpiParameterBaseService;
@@ -19,7 +19,7 @@ import cn.zswltech.mithras.system.service.Id2NameService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -33,9 +33,9 @@ import java.util.stream.Collectors;
 * @author vico
 * @date 2024-09-21
 */
-@RestController
+@Service
 @Slf4j
-public class KpiParameterBaseController implements KpiParameterBaseApi {
+public class KpiParameterBaseFacade implements KpiParameterBaseApplicationService {
 
     @Resource
     private KpiParameterBaseService kpiParameterBaseService;

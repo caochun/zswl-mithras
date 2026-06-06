@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.kpi.controller;
+package cn.zswltech.mithras.service.application.kpi;
 
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.kpi.KpiParameterConfigApi;
 import cn.zswltech.mithras.dto.kpi.ContractAssessDeptConfigListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiParameterConfigCommonReq;
 import cn.zswltech.mithras.dto.kpi.KpiParameterConfigListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiParameterConfigListRSP;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.*;
+import cn.zswltech.mithras.kpi.application.KpiParameterConfigApplicationService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
 import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
@@ -19,7 +19,7 @@ import cn.zswltech.mithras.kpi.enums.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.finance.service.ContractAssessDeptDetailService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -31,8 +31,8 @@ import java.util.List;
  * @description
  */
 @Slf4j
-@RestController
-public class KpiParameterConfigController implements KpiParameterConfigApi {
+@Service
+public class KpiParameterConfigFacade implements KpiParameterConfigApplicationService {
     @Resource
     private KpiParameterConfigService parameterConfigService;
     @Resource

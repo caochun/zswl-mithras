@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.kpi.service;
+package cn.zswltech.mithras.service.service.kpi;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
