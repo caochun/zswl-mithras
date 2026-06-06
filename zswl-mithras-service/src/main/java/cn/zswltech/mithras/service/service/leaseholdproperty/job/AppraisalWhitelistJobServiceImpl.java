@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.leaseholdproperty.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -6,22 +6,22 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
-import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
+import cn.zswltech.mithras.leaseholdproperty.application.job.AppraisalWhitelistJobService;
 import cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
 import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.AppraisalCompanyWhitelist;
+import cn.zswltech.mithras.message.convert.MessageConver;
+import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
+import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
+import cn.zswltech.mithras.message.service.MessageService;
+import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.service.enums.JobEnum;
+import cn.zswltech.mithras.service.enums.VersionTypeEnum;
+import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.service.service.leaseholdproperty.AppraisalCompanyWhitelistService;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.leaseholdproperty.AppraisalCompanyWhitelistService;
-import cn.zswltech.mithras.message.service.MessageService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -39,7 +39,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Component
-public class AppraisalWhitelistJob {
+public class AppraisalWhitelistJobServiceImpl implements AppraisalWhitelistJobService {
     private static final int MESSAGE_NOTIFY_DAYS = 30;
     private static final String MESSAGE_NOTIFY_TEMPLATE = "【%s】创建的白名单评估机构【%s】将于【%s】日后到期，请关注处理！";
 
@@ -54,8 +54,8 @@ public class AppraisalWhitelistJob {
     @Resource
     private Id2NameService id2NameService;
 
-    @XxlJob("AppraisalWhitelistDailyJob")
-    public void AppraisalWhitelistDailyJob() {
+    @Override
+    public void appraisalWhitelistDailyJob() {
         List<AppraisalCompanyWhitelist> todoList = appraisalCompanyWhitelistService.list(
                 Wrappers.<AppraisalCompanyWhitelist>lambdaQuery().eq(AppraisalCompanyWhitelist::getRecordStatus, RecordStatus.TAKE_EFFECT.name())
         );
