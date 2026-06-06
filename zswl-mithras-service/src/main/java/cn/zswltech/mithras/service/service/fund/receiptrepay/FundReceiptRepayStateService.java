@@ -14,6 +14,7 @@ import cn.zswltech.mithras.fund.domain.enums.receiptrepay.DepositCashFlowType;
 import cn.zswltech.mithras.service.enums.fund.receiptrepay.ProcessState;
 import cn.zswltech.mithras.fund.domain.enums.receiptrepay.ReceiptRepayState;
 import cn.zswltech.mithras.third.enums.CQPaymentTypeENUM;
+import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayStateCronService;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayAccountMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
@@ -45,7 +46,7 @@ import java.util.stream.Collectors;
  * @date 2023-02-20
  */
 @Service
-public class FundReceiptRepayStateService {
+public class FundReceiptRepayStateService implements FundReceiptRepayStateCronService {
 
     @Resource
     private FundReceiptRepayBaseInfoMapper fundReceiptRepayBaseInfoMapper;

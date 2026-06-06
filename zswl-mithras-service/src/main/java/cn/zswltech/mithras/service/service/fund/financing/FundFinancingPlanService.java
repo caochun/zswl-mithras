@@ -35,6 +35,7 @@ import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.fund.application.bo.ComprehensiveFinancingCostBO;
 import cn.zswltech.mithras.creditlimit.service.bo.CreditLimitDetailBO;
 import cn.zswltech.mithras.fund.application.*;
+import cn.zswltech.mithras.fund.application.financing.FundFinancingPlanRateAdjustService;
 import cn.zswltech.mithras.fund.application.financing.FundLprAdjustRecordService;
 import cn.zswltech.mithras.service.service.fund.FundCreditService;
 import cn.zswltech.mithras.service.service.fund.FundGuaranteeAgencyService;
@@ -66,7 +67,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class FundFinancingPlanService extends ServiceImpl<FundFinancingPlanMapper, FundFinancingPlan> {
+public class FundFinancingPlanService extends ServiceImpl<FundFinancingPlanMapper, FundFinancingPlan> implements FundFinancingPlanRateAdjustService {
     @Resource
     private FundFinancingPlanLibService financingPlanLibService;
     @Resource
