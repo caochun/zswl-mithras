@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.contractcp;
+package cn.zswltech.mithras.service.application.collection.contractcp;
 import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollUtil;
@@ -13,10 +13,10 @@ import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.contractcp.ContractCollectionPaymentApi;
 import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.contractcp.*;
 import cn.zswltech.mithras.dto.fund.RentPayNoticeProcessDTO;
+import cn.zswltech.mithras.collection.service.ContractCollectionPaymentApplicationService;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
@@ -60,13 +60,11 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.support.TransactionTemplate;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletOutputStream;
 import javax.validation.Valid;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -89,9 +87,9 @@ import static java.util.stream.Collectors.groupingBy;
  * @create: 2022-08-17
  **/
 
-@RestController
+@Service
 @Slf4j
-public class ContractCollectionPaymentController implements ContractCollectionPaymentApi {
+public class ContractCollectionPaymentFacade implements ContractCollectionPaymentApplicationService {
 
     @Resource
     private ContractCollectionPaymentService contractCollectionPaymentService;
@@ -99,29 +97,18 @@ public class ContractCollectionPaymentController implements ContractCollectionPa
     private ContractBaseInfoMapper contractBaseInfoMapper;
 
     @Resource
-    private HttpServletResponse httpServletResponse;
-    @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
     @Resource
     private TransactionTemplate transactionTemplate;
 
     @Override
-    public R<PageR<ContractCollectionPaymentListRSP>> list(@Valid ContractCollectionPaymentListREQ req) {
-        return R.ok(contractCollectionPaymentService.list(req));
+    public PageR<ContractCollectionPaymentListRSP> list(@Valid ContractCollectionPaymentListREQ req) {
+        return contractCollectionPaymentService.list(req);
     }
 
     @Override
-    public void exportList(ContractCollectionPaymentListREQ req) {
-        try {
-            httpServletResponse.addHeader("Access-Control-Expose-Headers", "Content-Disposition");
-            httpServletResponse.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("合同收付款列表" + GlobalConstants.OFFICE_EXCEL_SUFFIX, StandardCharsets.UTF_8.name()));
-            contractCollectionPaymentService.exportList(req, httpServletResponse.getOutputStream());
-        } catch (MithrasException e) {
-            throw e;
-        } catch (Exception e) {
-            log.error("导出合同收付款列表发生未知异常", e);
-            throw new MithrasException("导出合同收付款列表发生未知异常");
-        }
+    public void exportList(ContractCollectionPaymentListREQ req, ServletOutputStream outputStream) {
+        contractCollectionPaymentService.exportList(req, outputStream);
     }
 
     /**
@@ -271,23 +258,22 @@ public class ContractCollectionPaymentController implements ContractCollectionPa
     }
 
     @Override
-    public R<List<SelectRSP>> contractList(@Valid ContractcpContractDetailREQ req) {
+    public List<SelectRSP> contractList(@Valid ContractcpContractDetailREQ req) {
         ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(req.getContractId());
         List<String> lists = Arrays.asList(ContractStatus.TAKE_EFFECT.name(), ContractStatus.START_RENT.name(), ContractStatus.SETTLE.name());
         List<ContractBaseInfo> list = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery().select(ContractBaseInfo::getId,ContractBaseInfo::getContractCode)
                 .eq(ContractBaseInfo::getProjReviewId, contractBaseInfo.getProjReviewId())
                 .in(ContractBaseInfo::getContractStatus,lists));
-        List<SelectRSP> rsps = list.stream().map(e -> new SelectRSP(e.getContractCode(), e.getId().toString())).collect(Collectors.toList());
-        return R.ok(rsps);
+        return list.stream().map(e -> new SelectRSP(e.getContractCode(), e.getId().toString())).collect(Collectors.toList());
     }
 
     @Override
-    public R<ContractInfoRSP> contractDetail(@Valid ContractcpContractDetailREQ req) {
-        return R.ok(contractCollectionPaymentService.contractInfo(req));
+    public ContractInfoRSP contractDetail(@Valid ContractcpContractDetailREQ req) {
+        return contractCollectionPaymentService.contractInfo(req);
     }
 
     @Override
-    public R<List<SelectRSP>> cashList(@Valid ContractcpContractDetailREQ req) {
+    public List<SelectRSP> cashList(@Valid ContractcpContractDetailREQ req) {
         List<SelectRSP> select= new ArrayList<>(Arrays.stream(CashSelectTypeEnum.values()).map(e -> new SelectRSP(e.display, e.name())).collect(Collectors.toList()));
         List<PaymentBaseInfo> infos = paymentBaseInfoMapper.selectList(Wrappers.<PaymentBaseInfo>lambdaQuery().select(PaymentBaseInfo::getReceiptCode)
                 .eq(PaymentBaseInfo::getContractId, req.getContractId()).in(PaymentBaseInfo::getPaymentStatus, Arrays.asList(PaymentStatusEnum.TAKE_EFFECT.name(), PaymentStatusEnum.FINISHED.name()))
@@ -299,26 +285,17 @@ public class ContractCollectionPaymentController implements ContractCollectionPa
             tmp.setValue(code);
             select.add(tmp);
         }
-        return R.ok(select);
+        return select;
     }
 
     @Override
-    public R<PageR<ContractRentActualInfoRSP>> cashDetail(@Valid ContractCollectionPaymentDetailREQ req) {
-        return R.ok(contractCollectionPaymentService.cashDetail(req));
+    public PageR<ContractRentActualInfoRSP> cashDetail(@Valid ContractCollectionPaymentDetailREQ req) {
+        return contractCollectionPaymentService.cashDetail(req);
     }
 
     @Override
-    public R<Void> exportCashDetail(ContractCollectionPaymentDetailExportREQ req) {
-        try {
-            httpServletResponse.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("现金流明细" + GlobalConstants.OFFICE_EXCEL_SUFFIX, StandardCharsets.UTF_8.name()));
-            contractCollectionPaymentService.exportCashDetail(req, httpServletResponse.getOutputStream());
-            return R.ok();
-        } catch (MithrasException e) {
-            throw e;
-        } catch (Exception e) {
-            log.error("导出现金流明细发生未知异常", e);
-            return R.fail("导出现金流明细发生未知异常");
-        }
+    public void exportCashDetail(ContractCollectionPaymentDetailExportREQ req, ServletOutputStream outputStream) {
+        contractCollectionPaymentService.exportCashDetail(req, outputStream);
     }
 
     /**
