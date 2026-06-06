@@ -23,6 +23,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.*;
 import cn.zswltech.mithras.dto.file.FileListRSP;
+import cn.zswltech.mithras.payment.application.job.PaymentPublicInfoCopyRetryService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
@@ -86,7 +87,7 @@ import java.util.zip.ZipOutputStream;
  */
 @Slf4j
 @Service
-public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, PublicInfoQuery> {
+public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, PublicInfoQuery> implements PaymentPublicInfoCopyRetryService {
 
     @Resource
     private HttpServletResponse response;
@@ -764,6 +765,7 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
         publicInfoRecordService.remove(Wrappers.<PublicInfoRecord>lambdaQuery().eq(PublicInfoRecord::getPublicInfoQueryId, publicInfoQuery.getId()));
     }
 
+    @Override
     public void copyIntervalTable(Long paymentId) {
         // 打印日志
         log.info("拷贝公开信息开始>>>>>>>>>>>>>>>>>>>>>付款申请ID：{}", paymentId);
@@ -958,6 +960,5 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
         }
     }
 }
-
 
 

@@ -60,6 +60,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
+import cn.zswltech.mithras.payment.application.job.PaymentBeyondDaysCalculateService;
 import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
@@ -163,7 +164,7 @@ import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibSe
  */
 @Slf4j
 @Service
-public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, PaymentBaseInfo> implements PaymentUpdateAdvice {
+public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, PaymentBaseInfo> implements PaymentUpdateAdvice, PaymentBeyondDaysCalculateService {
     public static final String CONTRACT_AUTO_FLOW_TARGET_PAYMENT_KEY = "targetPaymentId";
 
     private static Pattern seqPattern = Pattern.compile("\\(([^}]*)\\)");
@@ -307,6 +308,38 @@ public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, P
         query.eq(PaymentBaseInfo::getPaymentCode, paymentCode);
         query.last(StringUtil.mysqlLimitOne());
         return this.getOne(query);
+    }
+
+    @Override
+    public void calculateBeyondDays(String paymentCode) {
+        LambdaQueryWrapper<PaymentBaseInfo> query = Wrappers.lambdaQuery();
+        if (StringUtils.hasText(paymentCode)) {
+            query.eq(PaymentBaseInfo::getPaymentCode, paymentCode);
+        }
+        query.eq(PaymentBaseInfo::getPaymentStatus, PaymentStatusEnum.TAKE_EFFECT.name());
+        query.ne(PaymentBaseInfo::getWriteOffStatus, PaymentWriteOffStatus.WRITTEN_OFF.name());
+        List<PaymentBaseInfo> todoList = this.list(query);
+        if (CollectionUtil.isEmpty(todoList)) {
+            return;
+        }
+        List<PaymentBaseInfo> updateList = new LinkedList<>();
+        for (PaymentBaseInfo paymentBaseInfo : todoList) {
+            try {
+                long days = paymentActualDetailUnconfirmedService.calculateEffectDays(paymentBaseInfo.getId(), LocalDate.now());
+                if (days <= 0) {
+                    continue;
+                }
+                PaymentBaseInfo update = new PaymentBaseInfo();
+                update.setId(paymentBaseInfo.getId());
+                update.setBeyondDays((int) days);
+                updateList.add(update);
+            } catch (Exception e) {
+                log.error("{}计算超期天数发生异常", paymentBaseInfo.getPaymentCode(), e);
+            }
+        }
+        if (CollectionUtil.isNotEmpty(updateList)) {
+            this.updateBatchById(updateList);
+        }
     }
 
     public long getCanWriteOffMaxAmount(PaymentBaseInfo paymentBaseInfo) {

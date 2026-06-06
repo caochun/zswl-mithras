@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.PaymentJob;
+import cn.zswltech.mithras.payment.job.PaymentJob;
 import org.junit.Test;
 
 import javax.annotation.Resource;
