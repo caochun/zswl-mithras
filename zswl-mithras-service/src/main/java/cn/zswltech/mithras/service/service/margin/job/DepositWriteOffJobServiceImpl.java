@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.margin.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.api.FlowProcessApiService;
@@ -19,6 +19,7 @@ import cn.zswltech.mithras.filingmaterials.domain.enums.FilingMaterialsProcessSt
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
+import cn.zswltech.mithras.margin.application.job.DepositWriteOffJobService;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.system.service.BizProcessDataService;
 import cn.zswltech.mithras.system.service.SysUserService;
@@ -31,7 +32,6 @@ import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -47,7 +47,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class DepositWriteOffJob {
+public class DepositWriteOffJobServiceImpl implements DepositWriteOffJobService {
     @Resource
     private ContractRetreatInfoService contractRetreatInfoService;
     @Resource
@@ -67,7 +67,7 @@ public class DepositWriteOffJob {
     @Resource
     private BizProcessDataService bizProcessDataService;
 
-    @XxlJob("sendNoticeJob")
+    @Override
     public void sendNoticeJob() {
         // 1、找到所有的已经通过的，退回金额>0 、推送标记不为1的信息
         LambdaQueryWrapper<ContractRetreatInfo> query = Wrappers.lambdaQuery();
@@ -86,7 +86,7 @@ public class DepositWriteOffJob {
         }
     }
 
-    @XxlJob("depositWriteOffJob")
+    @Override
     public void depositWriteOffJob() {
         /* 1、找到不同合同保证金余额， 看余额能覆盖最后几个期次，从期次编号最小的 开始的计划收款日期前的 30天 */
         LocalDate applyPayDateLeft = LocalDate.now().plusDays(29);
