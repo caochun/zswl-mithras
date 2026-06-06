@@ -7,7 +7,7 @@ import cn.zswltech.mithras.service.enums.VersionTypeEnum;
 import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyBizNodeEnum;
 import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyStatusEnum;
 import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.service.job.AssetClassifyJob;
+import cn.zswltech.mithras.assetclassify.job.AssetClassifyJob;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyNodeRecord;
 import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientService;

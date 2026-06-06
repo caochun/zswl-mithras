@@ -15,6 +15,8 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.util.Page;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
+import cn.zswltech.mithras.assetclassify.application.job.AssetClassifyInitJobService;
+import cn.zswltech.mithras.assetclassify.application.job.AssetClassifyWeekdayRemindJobService;
 import cn.zswltech.mithras.dto.assetclassify.*;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.service.constant.ResultMsg;
@@ -95,7 +97,7 @@ import static cn.zswltech.mithras.service.others.MithrasException.err;
  */
 @Service
 @Slf4j
-public class AssetClassifyService extends ServiceImpl<AssetClassifyMapper, AssetClassify> {
+public class AssetClassifyService extends ServiceImpl<AssetClassifyMapper, AssetClassify> implements AssetClassifyInitJobService, AssetClassifyWeekdayRemindJobService {
 
     @Resource
     private AssetClassifyConvert assetClassifyConvert;
@@ -190,6 +192,20 @@ public class AssetClassifyService extends ServiceImpl<AssetClassifyMapper, Asset
         return CollectionUtil.isNotEmpty(this.list(query));
     }
 
+    @Override
+    @Transactional(rollbackFor = Throwable.class)
+    public void init(LocalDateTime targetDateTime) {
+        int[] yearQuarter = DateUtil.ensureLastYearQuarter(targetDateTime);
+        int year = yearQuarter[0];
+        int quarter = yearQuarter[1];
+        boolean exist = this.exist(year, quarter);
+        if (exist) {
+            log.info("{}年{}季度已经存在数据，不再生成数据", year, quarter);
+            return;
+        }
+        this.init(year, quarter);
+    }
+
     @Transactional(rollbackFor = Throwable.class)
     public void finish(Long assetClassifyId) {
         // 拷贝建议分类作为本次分类结果
@@ -270,6 +286,7 @@ public class AssetClassifyService extends ServiceImpl<AssetClassifyMapper, Asset
      * @author: jackerhe
      * @date: 2023/1/9 11:28 上午
      **/
+    @Override
     public void weekdayRemind(Integer days) {
         AssetClassify assetClassify = this.getOne(Wrappers.<AssetClassify>lambdaQuery()
                 .eq(AssetClassify::getFinish, YesOrNoNumberEnum.NO.getCode())
