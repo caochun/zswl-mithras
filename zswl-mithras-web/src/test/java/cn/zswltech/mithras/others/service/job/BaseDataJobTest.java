@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.hutool.json.JSONUtil;
+import cn.zswltech.mithras.basedata.job.BaseDataJob;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.BaseDataJob;
 import com.xxl.job.core.biz.model.ReturnT;
 import org.junit.Test;
 

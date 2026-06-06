@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.basedata.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -6,28 +6,27 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
-import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
+import cn.zswltech.mithras.basedata.application.job.BaseDataJobService;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataExchangeRate;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataLpr;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
-import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
-import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.basedata.service.BaseDataExchangeRateService;
 import cn.zswltech.mithras.basedata.service.BaseDataLprService;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
+import cn.zswltech.mithras.dto.message.MessageAddREQ;
+import cn.zswltech.mithras.message.convert.MessageConver;
+import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.service.MessageService;
+import cn.zswltech.mithras.service.enums.JobEnum;
+import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.service.process.prepare.handle.BaseDataExchangeRateCommitHandle;
+import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
+import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.biz.model.ReturnT;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,7 +45,7 @@ import java.util.List;
  */
 @Slf4j
 @Component
-public class BaseDataJob {
+public class BaseDataJobServiceImpl implements BaseDataJobService {
     @Resource
     private BaseDataSpecialDateService baseDataSpecialDateService;
     @Resource
@@ -66,8 +65,8 @@ public class BaseDataJob {
      * 汇率设置待办任务
      */
     @Transactional(rollbackFor = Throwable.class)
-    @XxlJob("baseDataExchangeRateTodoJob")
-    public void generateExchangeRateTodo() {
+    @Override
+    public void generateExchangeRateTodo(String jobParam) {
         // 获取所有财务经理人员
         List<Long> userIds = sysUserService.jobUsers(Collections.singleton(JobEnum.financialmanager.name()));
         if (CollectionUtil.isEmpty(userIds)) {
@@ -75,10 +74,10 @@ public class BaseDataJob {
             return;
         }
         LocalDate targetDate;
-        if (StrUtil.isBlank(XxlJobHelper.getJobParam())) {
+        if (StrUtil.isBlank(jobParam)) {
             targetDate = LocalDate.now();
         } else {
-            targetDate = LocalDateTimeUtil.parseDate(XxlJobHelper.getJobParam(), DatePattern.NORM_DATE_PATTERN);
+            targetDate = LocalDateTimeUtil.parseDate(jobParam, DatePattern.NORM_DATE_PATTERN);
         }
         // 查询是否有当月的美元汇率
         List<BaseDataExchangeRate> currentMonthUSDList = baseDataExchangeRateService.queryByYearMonthCurrency(targetDate.getYear(), targetDate.getMonthValue(), "USD");
@@ -109,7 +108,7 @@ public class BaseDataJob {
      *
      * @return 任务执行结果
      */
-    @XxlJob("specialDataRemindJob")
+    @Override
     public ReturnT<String> specialDataRemindJob() {
         int currentYear = LocalDateTime.now().getYear();
         int nextYear = currentYear + 1;
@@ -128,7 +127,7 @@ public class BaseDataJob {
      *
      * @return 任务执行结果
      */
-    @XxlJob("lprRemindJob")
+    @Override
     public ReturnT<String> lprRemindJob() {
         Date now = new Date();
         int month = DateUtil.month(now) + 1;
