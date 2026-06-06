@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.system.controller;
+package cn.zswltech.mithras.service.application.document.materialsfile;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -12,7 +12,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.materialsfile.MaterialsListApi;
+import cn.zswltech.mithras.document.application.materialsfile.api.MaterialsListApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.file.FileDownLoadRSP;
@@ -75,7 +75,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -102,8 +102,8 @@ import static java.util.stream.Collectors.toList;
  **/
 
 @Slf4j
-@RestController
-public class MaterialsListController implements MaterialsListApi {
+@Service
+public class MaterialsListFacade implements MaterialsListApplicationService {
 
     @Resource
     private HttpServletResponse response;

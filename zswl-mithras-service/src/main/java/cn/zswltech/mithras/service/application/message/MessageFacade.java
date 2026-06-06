@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.service.application.message;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -14,7 +14,7 @@ import cn.zswltech.gruul.common.util.RequestUtil;
 import cn.zswltech.gruul.common.util.ShaUtil;
 import cn.zswltech.gruul.dao.dal.dao.UserDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
-import cn.zswltech.mithras.api.MessageApi;
+import cn.zswltech.mithras.message.application.api.MessageApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.message.*;
@@ -34,9 +34,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -54,9 +53,9 @@ import java.util.stream.Collectors;
  * @Date 2022/9/13 1:43 下午
  * @Version 1.0
  **/
-@RestController
+@Service
 @Slf4j
-public class MessageController implements MessageApi {
+public class MessageFacade implements MessageApplicationService {
 
     @Resource
     private MessageService messageService;
@@ -194,7 +193,6 @@ public class MessageController implements MessageApi {
     }
 
     @ApiOperation("oa集团换取tocken")
-    @PostMapping("/message/oa/auth")
     public Response authOA(@RequestBody OAAuthREQ req, HttpServletRequest request, HttpServletResponse response) {
         this.logHeaderInfo(request);
         if(!checkTocken(req)){
