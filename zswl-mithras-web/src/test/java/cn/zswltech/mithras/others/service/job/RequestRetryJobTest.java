@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service.job;
 
-import cn.zswltech.mithras.service.job.RequestRetryJob;
+import cn.zswltech.mithras.third.application.job.RequestRetryJobService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,12 +22,12 @@ import javax.annotation.Resource;
 @ActiveProfiles("dev")
 public class RequestRetryJobTest {
     @Resource
-    private RequestRetryJob requestRetryJob;
+    private RequestRetryJobService requestRetryJobService;
 
     @Test
     public void demoJobHandlerTest() {
         while (true){
-            requestRetryJob.doJobHandler();
+            requestRetryJobService.doJobHandler();
         }
     }
 }

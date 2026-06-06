@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.third.job;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,6 +8,7 @@ import cn.zswltech.mithras.service.repository.PlatformApiEnum;
 import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
 import cn.zswltech.mithras.service.repository.PlatformApiHandler;
 import cn.zswltech.mithras.system.service.ExceptionRequestInfoService;
+import cn.zswltech.mithras.third.application.job.RequestRetryJobService;
 import cn.zswltech.mithras.third.financialshare.infrastructure.client.req.CQBillPaymentREQ;
 import cn.zswltech.mithras.third.financialshare.infrastructure.client.req.CQPaymentREQ;
 import cn.zswltech.mithras.third.financialshare.infrastructure.client.req.CQReceiveREQ;
@@ -15,7 +16,6 @@ import cn.zswltech.mithras.third.financialshare.infrastructure.client.req.CQRece
 import cn.zswltech.mithras.third.financialshare.infrastructure.client.resp.FinancialCommonRSP;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -29,7 +29,7 @@ import java.util.List;
  **/
 @Component
 @Slf4j
-public class RequestRetryJob {
+public class RequestRetryJobServiceImpl implements RequestRetryJobService {
 
     @Resource
     private PlatformApiHandleFactory platformApiHandleFactory;
@@ -40,7 +40,7 @@ public class RequestRetryJob {
     /**
      * 苍穹相关请求重试任务
      */
-    @XxlJob("requestRetryCQHandler")
+    @Override
     public void doJobHandler() {
         try {
             log.info(">>>>>>>>>>>>>>requestRetryCQHandler began");
