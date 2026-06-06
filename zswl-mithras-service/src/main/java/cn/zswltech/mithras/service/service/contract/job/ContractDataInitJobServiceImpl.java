@@ -1,5 +1,6 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.contract.job;
 
+import cn.zswltech.mithras.contract.application.job.ContractDataInitJobService;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
@@ -7,9 +8,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
 import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -24,7 +23,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class DataInitJob {
+public class ContractDataInitJobServiceImpl implements ContractDataInitJobService {
 
     @Resource
     private RedisDistLock redisDistLock;
@@ -35,7 +34,7 @@ public class DataInitJob {
     @Resource
     private ContractReceiptLibService contractReceiptLibService;
 
-    @XxlJob(value = "initReceiptStartDate")
+    @Override
     public void initReceiptStartDate() {
         boolean lock = redisDistLock.tryLockWithoutReleaseTime("initReceiptStartDate", 10000);
         try {

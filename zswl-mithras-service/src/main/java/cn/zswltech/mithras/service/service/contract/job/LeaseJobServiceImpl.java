@@ -1,8 +1,9 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.contract.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.util.StrUtil;
+import cn.zswltech.mithras.contract.application.job.LeaseJobService;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeaseItemMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
@@ -10,7 +11,6 @@ import cn.zswltech.mithras.contract.core.application.ContractLeaseItemNameServic
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class LeaseJob {
+public class LeaseJobServiceImpl implements LeaseJobService {
 
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
@@ -35,7 +35,7 @@ public class LeaseJob {
     @Resource
     private ContractLeaseItemNameService contractLeaseItemNameService;
 
-    @XxlJob("setContractLeaseItemNameJob")
+    @Override
     public void setContractLeaseItemNameJob() {
         try {
             log.info("setContractLeaseItemNameJob start");

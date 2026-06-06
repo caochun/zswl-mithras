@@ -1,6 +1,7 @@
-package cn.zswltech.mithras.service.job.data_init;
+package cn.zswltech.mithras.service.service.contract.job;
 
 import cn.hutool.core.date.StopWatch;
+import cn.zswltech.mithras.contract.application.job.NominalPriceInitJobService;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
@@ -12,8 +13,6 @@ import cn.zswltech.mithras.service.service.contract.ContractService;
 import cn.zswltech.mithras.service.util.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.ObjectUtils;
 import org.springframework.stereotype.Component;
@@ -34,7 +33,7 @@ import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
  */
 @Slf4j
 @Component
-public class NominalPriceInitJob {
+public class NominalPriceInitJobServiceImpl implements NominalPriceInitJobService {
 
     @Resource
     protected ContractService contractService;
@@ -42,13 +41,12 @@ public class NominalPriceInitJob {
     @Resource
     protected ContractBaseInfoService contractBaseInfoService;
 
-    @XxlJob("NominalPriceInitJob")
-    public void NominalPriceInitJob() {
+    @Override
+    public void nominalPriceInitJob(String jobParam) {
         try {
             log.info("NominalPriceInitJob start");
             StopWatch stopWatch = new StopWatch();
             stopWatch.start();
-            String jobParam = XxlJobHelper.getJobParam();
            // jobParam = "1951";
             initNominalPriceList(jobParam);
             stopWatch.stop();
