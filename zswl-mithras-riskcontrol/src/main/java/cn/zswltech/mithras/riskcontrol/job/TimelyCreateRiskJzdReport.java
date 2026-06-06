@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.riskcontrol.job;
 
-import cn.zswltech.mithras.service.service.riskcontrol.RiskControlJzdReportService;
+import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReportTimedCreateService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Component
 public class TimelyCreateRiskJzdReport {
     @Resource
-    private RiskControlJzdReportService jzdReportService;
+    private RiskControlJzdReportTimedCreateService jzdReportService;
 
     @XxlJob("timelyCreateRiskJzdReport")
     public void create() {

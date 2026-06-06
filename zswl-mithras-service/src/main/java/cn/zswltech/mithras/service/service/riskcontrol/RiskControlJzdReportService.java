@@ -37,6 +37,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBase
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReport;
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReportApplicationService;
 import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReportMapper;
+import cn.zswltech.mithras.riskcontrol.report.jzd.RiskControlJzdReportTimedCreateService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
@@ -82,7 +83,7 @@ import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
  */
 @Slf4j
 @Service
-public class RiskControlJzdReportService extends ServiceImpl<RiskControlJzdReportMapper, RiskControlJzdReport> implements RiskControlJzdReportApplicationService {
+public class RiskControlJzdReportService extends ServiceImpl<RiskControlJzdReportMapper, RiskControlJzdReport> implements RiskControlJzdReportApplicationService, RiskControlJzdReportTimedCreateService {
     @Resource
     private MetricEmitter metricEmitter;
 
