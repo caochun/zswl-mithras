@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.CreditLimitJob;
+import cn.zswltech.mithras.creditlimit.job.CreditLimitJob;
 import org.junit.Test;
 
 import javax.annotation.Resource;

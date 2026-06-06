@@ -1,10 +1,9 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.creditlimit.job;
 
 import cn.zswltech.mithras.creditlimit.service.CreditLimitService;
 import cn.zswltech.mithras.creditlimit.enums.CreditLimitStatusEnum;
 import cn.zswltech.mithras.creditlimit.mapper.model.CreditLimit;
-import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundCredit;
-import cn.zswltech.mithras.service.service.fund.FundCreditService;
+import cn.zswltech.mithras.creditlimit.service.port.FundCreditEffectiveStatusService;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -23,7 +22,7 @@ public class CreditLimitJob {
     @Resource
     private CreditLimitService creditLimitService;
     @Resource
-    private FundCreditService fundCreditService;
+    private FundCreditEffectiveStatusService fundCreditEffectiveStatusService;
 
     @XxlJob("creditLimitStatusDailyJob")
     public void creditLimitStatusDailyJob() {
@@ -43,9 +42,6 @@ public class CreditLimitJob {
         creditLimitService.update(updateInvalidWrapper);
 
         // 同步处理授信业务表
-        fundCreditService.update(Wrappers.<FundCredit>lambdaUpdate()
-                .lt(FundCredit::getEffectiveDateTo, now)
-                .eq(FundCredit::getEffective, Boolean.TRUE)
-                .set(FundCredit::getEffective, Boolean.FALSE));
+        fundCreditEffectiveStatusService.invalidExpiredFundCredit(now);
     }
 }

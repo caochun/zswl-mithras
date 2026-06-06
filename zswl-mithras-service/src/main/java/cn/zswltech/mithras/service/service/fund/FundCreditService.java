@@ -12,6 +12,7 @@ import cn.zswltech.mithras.dto.materialsfile.FundMaterialListRSP;
 import cn.zswltech.mithras.creditlimit.service.CreditLimitManagerService;
 import cn.zswltech.mithras.creditlimit.service.CreditLimitService;
 import cn.zswltech.mithras.creditlimit.service.bo.*;
+import cn.zswltech.mithras.creditlimit.service.port.FundCreditEffectiveStatusService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.convert.TypeConversionWorker;
 import cn.zswltech.mithras.fund.application.convert.FundCreditConverter;
@@ -76,7 +77,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class FundCreditService extends ServiceImpl<FundCreditMapper, FundCredit> {
+public class FundCreditService extends ServiceImpl<FundCreditMapper, FundCredit> implements FundCreditEffectiveStatusService {
     @Resource
     private FundCreditConverter baseConverter;
     @Resource
@@ -111,6 +112,14 @@ public class FundCreditService extends ServiceImpl<FundCreditMapper, FundCredit>
     private FundFinancingCreditRefService financingCreditRefService;
 
     private final DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyyMMdd");
+
+    @Override
+    public void invalidExpiredFundCredit(LocalDate now) {
+        this.update(Wrappers.<FundCredit>lambdaUpdate()
+                .lt(FundCredit::getEffectiveDateTo, now)
+                .eq(FundCredit::getEffective, Boolean.TRUE)
+                .set(FundCredit::getEffective, Boolean.FALSE));
+    }
 
     public List<FundCreditListRSP.FundCreditList> listEffectByOrgId(Long orgId, Boolean effective) {
         LambdaQueryWrapper<FundCredit> query = Wrappers.lambdaQuery();
