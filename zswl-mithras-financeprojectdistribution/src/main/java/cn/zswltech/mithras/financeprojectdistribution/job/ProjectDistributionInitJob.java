@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.financeprojectdistribution.job;
 
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.zswltech.mithras.service.service.financeprofitdistribution.FinanceProjectDistributionService;
+import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionProcessPrepareService;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 public class ProjectDistributionInitJob {
     @Resource
-    FinanceProjectDistributionService projectDistributionService;
+    FinanceProjectDistributionProcessPrepareService projectDistributionService;
 
 
     /**

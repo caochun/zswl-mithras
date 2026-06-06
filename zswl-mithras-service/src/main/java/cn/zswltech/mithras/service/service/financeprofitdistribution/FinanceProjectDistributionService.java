@@ -30,6 +30,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptLaunchWeight;
 import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionApplicationService;
+import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionProcessPrepareService;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptWeight;
@@ -75,7 +76,7 @@ import static cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStat
  */
 @Slf4j
 @Service
-public class FinanceProjectDistributionService extends ServiceImpl<FinanceProjectDistributionMapper, FinanceProjectDistribution> implements FinanceProjectDistributionApplicationService {
+public class FinanceProjectDistributionService extends ServiceImpl<FinanceProjectDistributionMapper, FinanceProjectDistribution> implements FinanceProjectDistributionApplicationService, FinanceProjectDistributionProcessPrepareService {
     @Resource
     private FinanceProjectDistributionBaseInfoService financeProjectDistributionBaseInfoService;
     @Resource
