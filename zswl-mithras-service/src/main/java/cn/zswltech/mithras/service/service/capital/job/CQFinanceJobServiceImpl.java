@@ -1,22 +1,22 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.capital.job;
 
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.capital.application.job.CQFinanceJobService;
 import cn.zswltech.mithras.capital.domain.enums.FinancingFlowWriteOffStatusEnum;
 import cn.zswltech.mithras.datashare.mapper.model.DataShareManager;
-import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
-import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffService;
 import cn.zswltech.mithras.datashare.service.DataShareManagerService;
+import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffService;
 import cn.zswltech.mithras.service.service.third.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.handle.BRFlowQueryHandle;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.req.BRFlowHistoryReq;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.req.CwgsApiAppUser;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.req.CwgsHead;
 import cn.zswltech.mithras.third.baorong.infrastructure.client.rsp.BRFlowHistoryRsp;
+import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +33,7 @@ import java.util.List;
  **/
 @Slf4j
 @Component
-public class CQFinanceJob {
+public class CQFinanceJobServiceImpl implements CQFinanceJobService {
 
     @Resource
     private FinanceFlowRecordService financeFlowRecordService;
@@ -48,8 +48,7 @@ public class CQFinanceJob {
 
     private final static String BR_FLOW_FULL = "br_flow_full";
 
-    //每日晚上9点 银行流水还未核销完毕，也触发收款单的统一推送
-    @XxlJob("sendWriteOffNotice")
+    @Override
     public void sendWriteOffNotice() {
           try {
               List<FinanceFlowRecord> list = financeFlowRecordService.list(Wrappers.<FinanceFlowRecord>lambdaQuery()
@@ -65,8 +64,7 @@ public class CQFinanceJob {
         }
     }
 
-    //每日拉取本月银行流水
-    @XxlJob("fullFlowRecord")
+    @Override
     public void fullFlowRecord() {
         try {
             financeFlowRecordService.fullSync(LocalDateTime.now().minusMonths(3), LocalDateTime.now());
@@ -75,8 +73,7 @@ public class CQFinanceJob {
         }
     }
 
-    //每日拉取保融银行流水
-    @XxlJob("fullBRFlowRecord")
+    @Override
     public void fullBRFlowRecord() {
         try {
             //获取管理信息信息

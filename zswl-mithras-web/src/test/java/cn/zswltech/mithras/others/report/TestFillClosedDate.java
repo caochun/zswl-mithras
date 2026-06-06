@@ -8,6 +8,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceBalanceRSP;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoRSP;
 import cn.zswltech.mithras.metric.job.MonthlyTaskGenerator;
+import cn.zswltech.mithras.capital.job.CQFinanceJob;
 import cn.zswltech.mithras.capital.job.FinanceAutoWriteOffJob;
 import cn.zswltech.mithras.kpi.job.KpiDeptWeightDataInitJob;
 import cn.zswltech.mithras.report.enums.biz.DataTypeEnum;

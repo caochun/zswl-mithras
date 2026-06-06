@@ -15,7 +15,7 @@ import cn.zswltech.mithras.service.enums.common.ProcessStatus;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
-import cn.zswltech.mithras.service.job.CQFinanceJob;
+import cn.zswltech.mithras.capital.job.CQFinanceJob;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
