@@ -1,26 +1,20 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.collection;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.collection.application.job.CollectionPenaltyInterestJobService;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionOverdueRecordInfoMapper;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueHistory;
 import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueRecordInfo;
-import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.contract.overdue.application.collection.OverdueCollectionRefreshService;
-import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionOverdueHistoryService;
-import cn.zswltech.mithras.service.service.collection.CollectionOverdueRecordInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
+import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +32,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class CollectionJob {
+public class CollectionPenaltyInterestJobServiceImpl implements CollectionPenaltyInterestJobService {
     @Resource
     private CollectionOverdueRecordInfoService collectionOverdueRecordInfoService;
     @Resource
@@ -54,7 +48,7 @@ public class CollectionJob {
     @Resource
     private OverdueCollectionRefreshService overdueCollectionRefreshService;
 
-    @XxlJob("penaltyInterestJobHandler")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void penaltyInterestJobHandler() {
         log.info("PenaltyInterestJob, start.");
@@ -110,19 +104,13 @@ public class CollectionJob {
 
     /**
      * 生成逾期记录，超时三天开始生成，从逾期第一天开始，记录每天逾期金额，用于计算
-     **/
-    //@XxlJob("penaltyInterestJobHandler2")
+    **/
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     @Deprecated
-    public void penaltyInterestJobHandler2() {
+    public void penaltyInterestJobHandler2(LocalDate localDate) {
         try {
             log.info("PenaltyInterestJob2, start");
-            String param;
-            param = XxlJobHelper.getJobParam();
-            LocalDate localDate = LocalDate.now();
-            if (ObjectUtil.isNotEmpty(param)) {
-                localDate = LocalDateTimeUtil.parse(param, "yyyy-MM-dd").toLocalDate();
-            }
             //记录昨天逾期金额
             collectionOverdueHistoryService.overdueSnapshot(localDate);
             //查询某一天的逾期记录
@@ -252,17 +240,11 @@ public class CollectionJob {
     /**
      * 统一逻辑
      **/
-    @XxlJob("penaltyInterestJobHandler2")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
-    public void penaltyInterestJobHandler3(){
+    public void penaltyInterestJobHandler3(LocalDate localDate){
         try {
             log.info("PenaltyInterestJob3, start");
-            String param;
-            param = XxlJobHelper.getJobParam();
-            LocalDate localDate = LocalDate.now();
-            if (ObjectUtil.isNotEmpty(param)) {
-                localDate = LocalDateTimeUtil.parse(param, "yyyy-MM-dd").toLocalDate();
-            }
             //记录昨天逾期金额
             collectionOverdueHistoryService.overdueSnapshot(localDate);
             //查询某一天的逾期记录
@@ -280,7 +262,7 @@ public class CollectionJob {
         }
     }
 
-    @XxlJob("overdueSnapshotJob")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void overdueSnapshot() {
         try {
@@ -290,7 +272,7 @@ public class CollectionJob {
         }
     }
 
-    @XxlJob("updateClientPenaltyInterest")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void updateClientPenaltyInterest() {
         try {

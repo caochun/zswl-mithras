@@ -1,29 +1,25 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.collection;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.collection.application.job.CollectionBaseInfoMsgJobService;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.dto.message.MessageAddREQ;
+import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.service.config.redis.RedisDistLock;
+import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
-import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
-import cn.zswltech.mithras.message.service.MessageService;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -41,7 +37,7 @@ import static com.baomidou.mybatisplus.core.toolkit.ObjectUtils.isNotNull;
  */
 @Slf4j
 @Component
-public class CollectionBaseInfoJob {
+public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMsgJobService {
     private static final String LOCK_KEY = "CollectionBaseInfoJob";
     @Resource
     private RedisDistLock lock;
@@ -58,7 +54,7 @@ public class CollectionBaseInfoJob {
     @Resource
     private Id2NameService id2NameService;
 
-    @XxlJob(value = "collectionBaseInfoMsg")
+    @Override
     public void collectionBaseInfoMsg() {
         try {
             lock.tryLockWithoutReleaseTime(LOCK_KEY, 10000);

@@ -1,37 +1,36 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.collection;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
+import cn.zswltech.mithras.collection.application.job.CollectionRentToMailJobService;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.creditreport.model.CrRepayPlan;
 import cn.zswltech.mithras.creditreport.service.CreditRepayPlanService;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfo;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionBaseInfo;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
+import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
+import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpContactInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.email.CollectionRentEmailHandler;
 import cn.zswltech.mithras.service.util.StringUtils;
+import cn.zswltech.mithras.system.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +49,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class CollectionRentToMailJob {
+public class CollectionRentToMailJobServiceImpl implements CollectionRentToMailJobService {
 
     @Resource
     private CollectionBaseInfoService collectionBaseInfoService;
@@ -72,7 +71,7 @@ public class CollectionRentToMailJob {
     private CommonVersionMapper commonVersionMapper;
 
 
-    @XxlJob(value = "collectionRentToMailJob")
+    @Override
     public void collectionRent() {
         try {
             log.info("定时任务催收开始");
