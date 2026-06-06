@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.version.*;
 import cn.zswltech.mithras.associationreport.constant.MithrasConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.controller.datacompare.EditdataCompareController;
+import cn.zswltech.mithras.workflow.application.datacompare.api.EditdataCompareApplicationService;
 import cn.zswltech.mithras.projectprocess.convert.projreview.ProjReviewBaseInfoConverter;
 import cn.zswltech.mithras.projectprocess.convert.projreview.ProjReviewCashFlowPlanConverter;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
@@ -71,7 +71,7 @@ public class ProjReviewVersionServiceImpl extends CommonVersionService<ProjRevie
     @Resource
     private ProjReviewCashFlowPlanService reviewCashFlowPlanService;
     @Resource
-    private EditdataCompareController editdataCompareController;
+    private EditdataCompareApplicationService editdataCompareController;
 
     @Transactional(rollbackFor = Exception.class)
     public void reset(Long mainId) {

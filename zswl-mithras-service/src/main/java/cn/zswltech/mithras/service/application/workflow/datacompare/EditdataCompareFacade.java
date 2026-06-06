@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.datacompare;
+package cn.zswltech.mithras.service.application.workflow.datacompare;
 import cn.zswltech.mithras.contract.core.application.ContractAccountService;
 import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
 import cn.zswltech.mithras.contract.core.application.ContractPledgeService;
@@ -116,6 +116,7 @@ import cn.zswltech.mithras.dto.version.DiffFile;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.dto.version.DiffValueList;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.workflow.application.datacompare.api.EditdataCompareApplicationService;
 import cn.zswltech.mithras.kpi.application.KpiProjectDistributionWeightApplicationService;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.service.enums.datacompare.CompareFactoryEnum;
@@ -147,7 +148,7 @@ import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -161,8 +162,8 @@ import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibSe
  * @create: 2022-08-02
  **/
 
-@RestController
-public class EditdataCompareController implements EditdataCompareApi {
+@Service
+public class EditdataCompareFacade implements EditdataCompareApplicationService {
 
     @Resource
     private EditdataCompareFactoryCreator factoryCreator;
