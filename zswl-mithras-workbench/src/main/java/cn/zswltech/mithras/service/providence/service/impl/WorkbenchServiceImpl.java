@@ -6,7 +6,6 @@ import cn.zswltech.mithras.service.config.redis.RedisHelper;
 import cn.zswltech.mithras.service.providence.req.WorkbenchConfig;
 import cn.zswltech.mithras.service.providence.service.WorkbenchService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

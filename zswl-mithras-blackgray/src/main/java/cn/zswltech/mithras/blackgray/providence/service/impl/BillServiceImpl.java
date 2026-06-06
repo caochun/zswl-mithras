@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.providence.service.impl;
+package cn.zswltech.mithras.blackgray.providence.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;

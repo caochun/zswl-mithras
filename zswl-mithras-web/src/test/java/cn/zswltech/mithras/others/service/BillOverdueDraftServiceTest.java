@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service;
 
-import cn.zswltech.mithras.service.providence.service.impl.BillOverdueDraftService;
+import cn.zswltech.mithras.third.providence.service.impl.BillOverdueDraftService;
 import org.junit.Test;
 
 import javax.annotation.Resource;
