@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.afterlease.job;
+
+import cn.zswltech.mithras.afterlease.application.job.AfterLeaseCheckPlanJobService;
 import cn.zswltech.mithras.message.enums.MessageUrlEnum;
 import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
@@ -46,11 +48,8 @@ import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareS
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
@@ -67,7 +66,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class AfterLeaseCheckPlanJob {
+public class AfterLeaseCheckPlanJobServiceImpl implements AfterLeaseCheckPlanJobService {
     @Resource
     private AfterLeaseCheckPlanBaseService afterLeaseCheckPlanBaseService;
     @Resource
@@ -87,7 +86,7 @@ public class AfterLeaseCheckPlanJob {
     @Resource
     private CorpCommerceInfoService corpCommerceInfoService;
 
-    @XxlJob("startCheckPlan")
+    @Override
     public void startCheckPlan() {
         LambdaQueryWrapper<NewAfterLeaseCheckPlanBase> query = Wrappers.lambdaQuery();
         query.eq(NewAfterLeaseCheckPlanBase::getPlanStatus, AfterLeaseCheckPlanStatusEnum.PUBLISH.name());
@@ -128,7 +127,7 @@ public class AfterLeaseCheckPlanJob {
     }
 
     // XMX-34 租后检查计划代办-截止日前60天可见
-    @XxlJob("updateCheckPlanStatus")
+    @Override
     public void updateCheckPlanStatus() {
         List<CommonProcessPrepare> prepares = commonProcessPrepareService.list(Wrappers.<CommonProcessPrepare>lambdaQuery()
                 .eq(CommonProcessPrepare::getStatus, CommonProcessPrepareStatus.WAITING_PEND.name())
@@ -156,7 +155,7 @@ public class AfterLeaseCheckPlanJob {
     }
 
     //维护待发起数据
-    @XxlJob("checkPlanToBeInitiated")
+    @Override
     public void checkPlanToBeInitiated() {
         try {
             List<NewAfterLeaseCheckPlanClient> needContinuePlanClientList = afterLeaseCheckPlanClientService.list(Wrappers.<NewAfterLeaseCheckPlanClient>lambdaQuery()
@@ -338,14 +337,12 @@ public class AfterLeaseCheckPlanJob {
     }
 
     //租后检查报告（一般检查）与租后检查报告流程超时提醒
-    @XxlJob("afterLeaseCheckRemind")
-    @Transactional(rollbackFor = Throwable.class)
-    public void afterLeaseCheckRemind() {
+    @Override
+    public void afterLeaseCheckRemind(String jobParam) {
         try {
             log.info("afterLeaseCheckRemind start");
             StopWatch stopWatch = new StopWatch();
             stopWatch.start();
-            String jobParam = XxlJobHelper.getJobParam();
             // jobParam = "2067";
             afterLeaseCheckPlanVersionService.afterLeaseCheckRemind(jobParam);
             stopWatch.stop();
