@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.finance.job;
 import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollectionUtil;
@@ -15,6 +15,7 @@ import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
+import cn.zswltech.mithras.finance.application.job.FinanceJobService;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueReportBase;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
@@ -46,8 +47,6 @@ import cn.zswltech.mithras.third.jinkong.infrastructure.client.res.ReportBcmBala
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -67,7 +66,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class FinanceJob {
+public class FinanceJobServiceImpl implements FinanceJobService {
     private static final String INCOME_ACCOUNT_NO = "6001";
 
     @Resource
@@ -107,18 +106,18 @@ public class FinanceJob {
      * @deprecated 无需定时任务跑数据，用户点击按钮进行
      */
     @Deprecated
-//    @XxlJob("calculateProjectProfit")
-    public void calculateProjectProfit() {
+    @Override
+    public void calculateProjectProfit(String jobParam) {
         // 通过科目余额表的辅助表先获取合同信息，然后通过辅助id去科目余额表取对应的数据得到合同维度的主营收入和风险金余额
         // 主营收入 - 6001 主营业务收入 本年累计  贷方金额
         // 风险金余额 - 6702 信用减值损失 本年累计  借方金额
         // since 2023-10-13 需求变更 风险金从融租易系统取 不再使用苍穹数据
         try {
             LocalDate targetYearMonth;
-            if (StrUtil.isBlank(XxlJobHelper.getJobParam())) {
+            if (StrUtil.isBlank(jobParam)) {
                 targetYearMonth = LocalDate.now().minusMonths(1);
             } else {
-                targetYearMonth = LocalDateTimeUtil.parseDate(XxlJobHelper.getJobParam(), DatePattern.NORM_DATE_PATTERN);
+                targetYearMonth = LocalDateTimeUtil.parseDate(jobParam, DatePattern.NORM_DATE_PATTERN);
             }
             int targetYear = targetYearMonth.getYear();
             int targetMonth = targetYearMonth.getMonthValue();
@@ -196,7 +195,7 @@ public class FinanceJob {
     /**
      * 维护所有未反核销的收付款
      **/
-    @XxlJob("cancelWriteRecordAll")
+    @Override
     public void cancelWriteRecordAll() {
         try {
             //付款
@@ -424,7 +423,7 @@ public class FinanceJob {
     /**
      * 检查是否有上月逾期情况，无则发起
      **/
-    @XxlJob("fianceOverdueMaintenance")
+    @Override
     public void fianceOverdueMaintenance() {
         try {
             //付款

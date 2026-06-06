@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.FinanceJob;
+import cn.zswltech.mithras.finance.application.job.FinanceJobService;
 import cn.zswltech.mithras.service.job.FinancingRepayInfoJob;
 import org.junit.Test;
 
@@ -14,19 +14,19 @@ import javax.annotation.Resource;
  */
 public class FinanceJobTest extends ApplicationTest {
     @Resource
-    private FinanceJob financeJob;
+    private FinanceJobService financeJobService;
 
     @Resource
     private FinancingRepayInfoJob financingRepayInfoJob;
 
     @Test
     public void projectProfitCalTest() {
-        financeJob.calculateProjectProfit();
+        financeJobService.calculateProjectProfit(null);
     }
 
     @Test
     public void cancelWriteRecordAll() {
-        financeJob.cancelWriteRecordAll();
+        financeJobService.cancelWriteRecordAll();
     }
 
     @Test

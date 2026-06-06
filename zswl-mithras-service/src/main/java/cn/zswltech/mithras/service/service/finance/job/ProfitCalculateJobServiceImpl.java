@@ -1,16 +1,15 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.finance.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.system.service.ProfitCalculateResultService;
+import cn.zswltech.mithras.finance.application.job.ProfitCalculateJobService;
+import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.system.service.ProfitCalculateResultService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
@@ -28,17 +27,16 @@ import java.util.UUID;
  */
 @Slf4j
 @Component
-public class ProfitCalculateJob {
+public class ProfitCalculateJobServiceImpl implements ProfitCalculateJobService {
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
     private ProfitCalculateResultService profitCalculateResultService;
 
-    @XxlJob("profitCalculate")
-    public void profitCalculate() {
+    @Override
+    public void profitCalculate(String params) {
         log.info("会计利润测算测算任务 <<<<<<<<<<<<<<<< 开始");
         List<ContractBaseInfo> todoList;
-        String params = XxlJobHelper.getJobParam();
         if (StrUtil.isNotBlank(params)) {
             ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(Long.parseLong(params));
             todoList = Collections.singletonList(contractBaseInfo);
