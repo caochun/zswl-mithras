@@ -10,7 +10,6 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.ftp.*;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.job.FtpInterestJob;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpInterestBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
@@ -246,9 +245,6 @@ public class FtpInterestBaseInfoService extends ServiceImpl<FtpInterestBaseInfoM
         ftpInterestBaseInfo.setFinish(YesOrNoNumberEnum.NO.getCode());
         return ftpInterestBaseInfo;
     }
-
-    @Resource
-    private FtpInterestJob ftpInterestJob;
 
 //    public void recalculate(FtpInterestRecalculateReq req) {
 //        LocalDate interestDateFrom = LocalDateTimeUtil.parseDate(req.getInterestDate(), DateTimeFormatter.ofPattern(DatePattern.NORM_MONTH_PATTERN)).with(TemporalAdjusters.firstDayOfMonth());

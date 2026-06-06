@@ -3,8 +3,8 @@ package cn.zswltech.mithras.others.service.job;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
+import cn.zswltech.mithras.ftp.oldftp.service.job.FtpInterestJobService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.FtpInterestJob;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.ftp.oldftp.bo.CashFtpInfluenceBO;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class FtpInterestJobTest extends ApplicationTest {
     @Resource
-    private FtpInterestJob ftpInterestJob;
+    private FtpInterestJobService ftpInterestJobService;
     @Resource
     private FtpAssessmentInfoService ftpAssessmentInfoService;
     @Resource
@@ -60,7 +60,7 @@ public class FtpInterestJobTest extends ApplicationTest {
         Long ftpInterestId = 300L;
         LocalDate startDate = LocalDate.of(2025, 8, 17);
         LocalDate endDate = LocalDate.of(2025, 8, 18);
-        ftpInterestJob.calculateFtpInterest(ftpInterestId, startDate, endDate);
+        ftpInterestJobService.calculateFtpInterest(ftpInterestId, startDate, endDate);
     }
 
     @Test

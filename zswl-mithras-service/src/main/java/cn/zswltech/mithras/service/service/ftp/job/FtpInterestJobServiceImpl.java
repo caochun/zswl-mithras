@@ -1,14 +1,10 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.ftp.job;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.date.DatePattern;
-import cn.hutool.core.date.LocalDateTimeUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.collection.enums.CollectionRecordWriteOffStatus;
+import cn.zswltech.mithras.ftp.oldftp.service.job.FtpInterestJobService;
 import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
@@ -17,7 +13,6 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractReceiptService;
@@ -28,8 +23,6 @@ import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -46,7 +39,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class FtpInterestJob {
+public class FtpInterestJobServiceImpl implements FtpInterestJobService {
     @Resource
     private ContractReceiptService contractReceiptService;
     @Resource
@@ -62,37 +55,7 @@ public class FtpInterestJob {
     @Resource
     private CollectionRecordInfoService collectionRecordInfoService;
 
-    @XxlJob("calculateFtpInterest")
-    public void calculateFtpInterest() {
-        try {
-            LocalDate interestStartDate;
-            LocalDate interestEndDate;
-            Long targetFtpInterestId = null;
-            String param = XxlJobHelper.getJobParam();
-//            String param = "{\"ftpInterestId\":326,\"interestStartDate\":\"2023-10-01\",\"interestEndDate\":\"2023-10-31\"}";
-            if (StrUtil.isNotBlank(param)) {
-                log.info("FTP计息任务 - 控制台参数: {}", param);
-                JSONObject jsonObject = JSONUtil.parseObj(param);
-                targetFtpInterestId = jsonObject.getLong("ftpInterestId");
-                String interestStartDateStr = jsonObject.getStr("interestStartDate");
-                String interestEndDateStr = jsonObject.getStr("interestEndDate");
-                if (StrUtil.isBlank(interestStartDateStr) || StrUtil.isBlank(interestEndDateStr)) {
-                    log.error("FTP计息任务-手动调用控制台参数不符合要求[{}]", param);
-                    throw new MithrasException("FTP计息任务-手动调用控制台参数不符合要求");
-                }
-                interestStartDate = LocalDateTimeUtil.parseDate(interestStartDateStr, DatePattern.NORM_DATE_PATTERN);
-                interestEndDate = LocalDateTimeUtil.parseDate(interestEndDateStr, DatePattern.NORM_DATE_PATTERN);
-            } else {
-                LocalDate now = LocalDate.now();
-                interestStartDate = now;
-                interestEndDate = now;
-            }
-            this.calculateFtpInterest(targetFtpInterestId, interestStartDate, interestEndDate);
-        } catch (Exception e) {
-            log.error("FTP计息任务执行异常", e);
-        }
-    }
-
+    @Override
     public void calculateFtpInterest(Long targetFtpInterestId, LocalDate startDate, LocalDate endDate) {
         log.info("FTP计息任务开始执行，开始日期:{},结束日期:{}", startDate, endDate);
         // 分页处理

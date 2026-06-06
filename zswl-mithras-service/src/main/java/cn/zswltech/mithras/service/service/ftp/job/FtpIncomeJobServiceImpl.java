@@ -1,17 +1,13 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.ftp.job;
 
-import cn.hutool.core.date.DatePattern;
-import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
+import cn.zswltech.mithras.ftp.oldftp.service.job.FtpIncomeJobService;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptFlowDetailService;
 import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +25,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class FtpIncomeJob {
+public class FtpIncomeJobServiceImpl implements FtpIncomeJobService {
 
     @Resource
     private FundReceiptFlowDetailService fundReceiptFlowDetailService;
@@ -38,17 +34,10 @@ public class FtpIncomeJob {
     @Resource
     private FtpIncomeBaseInfoService ftpIncomeBaseInfoService;
 
-    @XxlJob("ftpIncomeMaintenanceJob")
+    @Override
     @Transactional(rollbackFor = Exception.class)
-    public void ftpIncomeMaintenanceJob() {
+    public void ftpIncomeMaintenance(LocalDate targetDateTime) {
         try {
-            LocalDate targetDateTime;
-            String jobParam = XxlJobHelper.getJobParam();
-            if (StrUtil.isNotBlank(jobParam)) {
-                targetDateTime = LocalDateTimeUtil.parse(jobParam, DatePattern.NORM_DATE_PATTERN).toLocalDate();
-            } else {
-                targetDateTime = LocalDate.now().minusDays(1);
-            }
             //查询昨天核销数据
             List<FundReceiptFlowDetail> list = fundReceiptFlowDetailService.list(Wrappers.<FundReceiptFlowDetail>lambdaQuery()
                     .ge(FundReceiptFlowDetail::getUpdateTime, targetDateTime));
