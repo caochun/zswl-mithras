@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.service.adapter.metric;
 
+import cn.zswltech.mithras.metric.application.job.JinKongSyncJobService;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorRefreshClient;
-import cn.zswltech.mithras.service.job.JinKongSyncJob;
 import cn.zswltech.mithras.service.service.third.jk.JinKongMonthlyReportService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ public class RiskMetricFactorRefreshClientAdapter implements RiskMetricFactorRef
     @Resource
     private JinKongMonthlyReportService jinKongMonthlyReportService;
     @Resource
-    private JinKongSyncJob jinKongSyncJob;
+    private JinKongSyncJobService jinKongSyncJobService;
 
     @Override
     public boolean refreshAsset(LocalDate date) {
@@ -64,6 +64,6 @@ public class RiskMetricFactorRefreshClientAdapter implements RiskMetricFactorRef
 
     @Override
     public void testProfitSync() {
-        jinKongSyncJob.jinKongSyncProfitJob();
+        jinKongSyncJobService.jinKongSyncProfitJob(null);
     }
 }

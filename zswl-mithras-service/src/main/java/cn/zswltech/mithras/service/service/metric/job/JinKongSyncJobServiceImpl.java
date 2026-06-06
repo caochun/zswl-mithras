@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.metric.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -7,6 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import cn.zswltech.mithras.metric.application.job.JinKongSyncJobService;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricCurrency;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorType;
@@ -23,8 +24,6 @@ import cn.zswltech.mithras.third.yunhu.infrastructure.client.res.ReportIndicator
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -41,7 +40,7 @@ import java.util.Optional;
 
 @Slf4j
 @Component
-public class JinKongSyncJob {
+public class JinKongSyncJobServiceImpl implements JinKongSyncJobService {
     @Resource
     private JinKongMonthlyReportService jinKongMonthlyReportService;
     @Resource
@@ -51,15 +50,14 @@ public class JinKongSyncJob {
     @Resource
     private YunHuReportIndicatorDataHandler yunHuReportIndicatorDataHandler;
 
-    @XxlJob("syncGZKB")
-    public void syncGZKB () {
+    @Override
+    public void syncGZKB(String param) {
         int year;
         int month;
         try {
-            String s = XxlJobHelper.getJobParam();
 //            String s = "{\"year\":2025,\"month\":8}";
-            if (StrUtil.isNotBlank(s)) {
-                JSONObject jsonObject = JSONUtil.parseObj(s);
+            if (StrUtil.isNotBlank(param)) {
+                JSONObject jsonObject = JSONUtil.parseObj(param);
                 year = jsonObject.getInt("year");
                 month = jsonObject.getInt("month");
             } else {
@@ -122,15 +120,14 @@ public class JinKongSyncJob {
         return riskMetricFactorMerge;
     }
 
-    @XxlJob("syncAccountBalance")
-    public void syncAccountBalance() {
+    @Override
+    public void syncAccountBalance(String param) {
         int year;
         int month;
         try {
-            String s = XxlJobHelper.getJobParam();
 //            String s = "{\"year\":2025,\"month\":4}";
-            if (StrUtil.isNotBlank(s)) {
-                JSONObject jsonObject = JSONUtil.parseObj(s);
+            if (StrUtil.isNotBlank(param)) {
+                JSONObject jsonObject = JSONUtil.parseObj(param);
                 year = jsonObject.getInt("year");
                 month = jsonObject.getInt("month");
             } else {
@@ -157,11 +154,10 @@ public class JinKongSyncJob {
         }
     }
 
-    @XxlJob("jinKongSyncAssetJob")
-    public void jinKongSyncAssetJob() {
+    @Override
+    public void jinKongSyncAssetJob(String jobParam) {
         try {
             LocalDate localDate = null;
-            String jobParam = XxlJobHelper.getJobParam();
             if (ObjectUtil.isNotEmpty(jobParam)) {
                 localDate = LocalDate.parse(jobParam, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
                         .with(TemporalAdjusters.firstDayOfMonth());
@@ -180,11 +176,10 @@ public class JinKongSyncJob {
         }
     }
 
-    @XxlJob("jinKongSyncProfitJob")
-    public void jinKongSyncProfitJob() {
+    @Override
+    public void jinKongSyncProfitJob(String jobParam) {
         try {
             LocalDate localDate = null;
-            String jobParam = XxlJobHelper.getJobParam();
             if (ObjectUtil.isNotEmpty(jobParam)) {
                 localDate = LocalDate.parse(jobParam, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
                         .with(TemporalAdjusters.firstDayOfMonth());
@@ -203,11 +198,10 @@ public class JinKongSyncJob {
         }
     }
 
-    @XxlJob("jinKongSyncCashflowJob")
-    public void jinKongSyncCashflowJob() {
+    @Override
+    public void jinKongSyncCashflowJob(String jobParam) {
         try {
             LocalDate localDate = null;
-            String jobParam = XxlJobHelper.getJobParam();
             if (ObjectUtil.isNotEmpty(jobParam)) {
                 localDate = LocalDate.parse(jobParam, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
                         .with(TemporalAdjusters.firstDayOfMonth());

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
+import cn.zswltech.mithras.metric.application.job.JinKongSyncJobService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.JinKongSyncJob;
 import org.junit.Test;
 
 import javax.annotation.Resource;
@@ -13,23 +13,23 @@ import javax.annotation.Resource;
  */
 public class JinKongSyncJobTest extends ApplicationTest {
     @Resource
-    private JinKongSyncJob jinKongSyncJob;
+    private JinKongSyncJobService jinKongSyncJobService;
 
     @Test
     public void syncGZKBTest() {
-        jinKongSyncJob.syncGZKB();
+        jinKongSyncJobService.syncGZKB(null);
     }
 
     @Test
     public void syncAccountBalanceTest() {
-        jinKongSyncJob.syncAccountBalance();
+        jinKongSyncJobService.syncAccountBalance(null);
     }
 
     @Test
     public void syncTest() {
-        jinKongSyncJob.jinKongSyncAssetJob();
-        jinKongSyncJob.jinKongSyncProfitJob();
-        jinKongSyncJob.jinKongSyncCashflowJob();
+        jinKongSyncJobService.jinKongSyncAssetJob(null);
+        jinKongSyncJobService.jinKongSyncProfitJob(null);
+        jinKongSyncJobService.jinKongSyncCashflowJob(null);
     }
 
 }
