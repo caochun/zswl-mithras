@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service.job;
 
-import cn.zswltech.mithras.service.job.ClientOverdueJob;
+import cn.zswltech.mithras.customer.application.client.ClientOverdueJobService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -20,10 +20,10 @@ import javax.annotation.Resource;
 public class ClientOverdueJobTest {
 
     @Resource
-    private ClientOverdueJob clientOverdueJob;
+    private ClientOverdueJobService clientOverdueJobService;
     @Test
     public void clientPromotionByMonth() {
-        clientOverdueJob.clientPromotionByMonth();
+        clientOverdueJobService.clientPromotionByMonth(null);
     }
 
 }

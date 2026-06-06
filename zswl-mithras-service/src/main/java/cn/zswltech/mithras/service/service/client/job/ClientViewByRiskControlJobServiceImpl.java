@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.client.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -9,6 +9,7 @@ import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.ProjItemStatus;
+import cn.zswltech.mithras.customer.application.client.ClientViewByRiskControlJobService;
 import cn.zswltech.mithras.customer.vwsync.infrastructure.mapper.ClientVwSyncMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientViewByRiskControl;
@@ -35,8 +36,6 @@ import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibSe
 import cn.zswltech.mithras.contract.versioning.application.ContractPledgeLibService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -53,7 +52,7 @@ import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibSe
 
 @Slf4j
 @Component
-public class ClientViewByRiskControlJob {
+public class ClientViewByRiskControlJobServiceImpl implements ClientViewByRiskControlJobService {
 
     @Resource
     private ClientService clientService;
@@ -87,37 +86,10 @@ public class ClientViewByRiskControlJob {
     private ClientVwSyncService clientVwSyncService;
 
     /**
-     * XXL-Job定时任务：同步监控客户数据
-     */
-    @XxlJob("syncMonitoringClientsJob") // 0 0 16 * * ?   每天16：00
-    public void syncMonitoringClientsJob() {
-        try {
-            // 记录任务开始
-            String jobParam = XxlJobHelper.getJobParam();
-            XxlJobHelper.log("开始执行监控客户数据同步任务，参数: {}", jobParam);
-
-            // 执行数据同步
-            boolean syncSuccess = syncMonitoringClients(jobParam);
-
-            if (syncSuccess) {
-                XxlJobHelper.handleSuccess("监控客户数据同步成功");
-                log.info("监控客户数据同步任务执行成功");
-            } else {
-                XxlJobHelper.handleFail("监控客户数据同步失败");
-                log.error("监控客户数据同步任务执行失败");
-            }
-
-        } catch (Exception e) {
-            XxlJobHelper.log("监控客户数据同步任务异常: {}", e.getMessage());
-            XxlJobHelper.handleFail("监控客户数据同步异常: " + e.getMessage());
-            log.error("监控客户数据同步任务异常", e);
-        }
-    }
-
-    /**
      * 同步监控客户数据
      * @return 是否同步成功
      */
+    @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean syncMonitoringClients(String jobParam) {
         long startTime = System.currentTimeMillis();

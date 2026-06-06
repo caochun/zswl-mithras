@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.hutool.core.date.StopWatch;
-import cn.zswltech.mithras.service.job.ClientJob;
+import cn.zswltech.mithras.customer.application.client.ClientJobService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -22,19 +22,19 @@ import java.util.concurrent.TimeUnit;
 public class ClientJobTest {
 
     @Resource
-    private ClientJob clientJob;
+    private ClientJobService clientJobService;
     @Test
     public void clientAuthTypeModify() {
         StopWatch st = new StopWatch();
         st.start();
-        clientJob.clientAuthTypeModify();
+        clientJobService.clientAuthTypeModify();
         st.stop();
         log.info(st.prettyPrint(TimeUnit.SECONDS));
     }
 
     @Test
     public void releaseClientJobTest() {
-        clientJob.releaseClientJob();
+        clientJobService.releaseClient(null);
     }
 
 }

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.client.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -8,6 +8,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareRegisterCustomREQ;
+import cn.zswltech.mithras.customer.application.client.ClientJobService;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientLevelEnum;
@@ -26,8 +27,6 @@ import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
@@ -49,7 +48,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Component
-public class ClientJob {
+public class ClientJobServiceImpl implements ClientJobService {
     @Resource
     private ClientService clientService;
     @Resource
@@ -73,7 +72,7 @@ public class ClientJob {
      * 每天定时查询到期的客户
      * 客户释放新增job执行，该job只做到期提醒（保留了老代码）
      */
-    @XxlJob("clientAuthTypeModify")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void clientAuthTypeModify() {
         try {
@@ -94,10 +93,9 @@ public class ClientJob {
         }
     }
 
-    @XxlJob("releaseClientJob")
-    public void releaseClientJob() {
+    @Override
+    public void releaseClient(String jobParam) {
         List<Long> targetClientIds;
-        String jobParam = XxlJobHelper.getJobParam();
 //        String jobParam = "4625";
         if (StrUtil.isNotBlank(jobParam)) {
             targetClientIds = Collections.singletonList(Long.valueOf(jobParam));
@@ -137,11 +135,9 @@ public class ClientJob {
         return clientAuthorityList.stream().map(ClientAuthority::getClientId).collect(Collectors.toList());
     }
 
-    @XxlJob("supplementClientCode")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
-    public void getClientCode() {
-        String clientName;
-        clientName = XxlJobHelper.getJobParam();
+    public void supplementClientCode(String clientName) {
         if (ObjectUtil.isEmpty(clientName)) {
             log.warn("getClientCode 入参为空");
             return;
