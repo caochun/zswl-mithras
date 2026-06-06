@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.creditreport.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.creditreport.enums.CreditSearchStatusEnum;
 import cn.zswltech.mithras.creditreport.mapper.dto.credit.XJCreditReportJsonDTO;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
 import cn.zswltech.mithras.creditreport.service.CreditReportApiService;
-import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
 import cn.zswltech.mithras.creditreport.service.CreditReportClientItemService;
+import cn.zswltech.mithras.creditreport.service.CreditReportResultApplicationService;
 import cn.zswltech.mithras.creditreport.service.resp.CreditReportObtainResultPDFResp;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -29,7 +29,7 @@ public class CreditReportJob {
     @Resource
     private CreditReportClientItemService creditReportClientItemService;
     @Resource
-    private CreditReportBaseInfoService creditReportBaseInfoService;
+    private CreditReportResultApplicationService creditReportResultApplicationService;
     @Resource
     private CreditReportApiService creditReportApiService;
 
@@ -51,10 +51,10 @@ public class CreditReportJob {
             clientItems.forEach(clientItem -> {
                 //解析json
                 XJCreditReportJsonDTO xjCreditReportJsonDTO = creditReportApiService.resultJSON(clientItem.getId());
-                boolean saveJson = creditReportBaseInfoService.importByXJCreditReportJsonDTO(xjCreditReportJsonDTO, clientItem.getCreditReportBaseInfoId(), clientItem.getId());
+                boolean saveJson = creditReportResultApplicationService.importByXJCreditReportJsonDTO(xjCreditReportJsonDTO, clientItem.getCreditReportBaseInfoId(), clientItem.getId());
                 //保存pdf
                 CreditReportObtainResultPDFResp creditReportObtainResultPDFResp = creditReportApiService.resultPDF(clientItem.getId());
-                boolean savePDf = creditReportBaseInfoService.importByXJCreditReportObtainResultPDFResp(creditReportObtainResultPDFResp, clientItem.getId());
+                boolean savePDf = creditReportResultApplicationService.importByXJCreditReportObtainResultPDFResp(creditReportObtainResultPDFResp, clientItem.getId());
                 if (saveJson && savePDf) {
                     clientItemIds.add(clientItem.getId());
                 } else {
@@ -62,8 +62,8 @@ public class CreditReportJob {
                 }
             });
             //回调状态
-            creditReportBaseInfoService.modifyClientItemStatus(clientItemIds, CreditSearchStatusEnum.SUCCESS.name());
-            creditReportBaseInfoService.modifyClientItemStatus(errorItemIds, CreditSearchStatusEnum.FAIL.name());
+            creditReportResultApplicationService.modifyClientItemStatus(clientItemIds, CreditSearchStatusEnum.SUCCESS.name());
+            creditReportResultApplicationService.modifyClientItemStatus(errorItemIds, CreditSearchStatusEnum.FAIL.name());
         } catch (Exception e) {
             log.error("查询征信结果任务执行异常", e);
         }
