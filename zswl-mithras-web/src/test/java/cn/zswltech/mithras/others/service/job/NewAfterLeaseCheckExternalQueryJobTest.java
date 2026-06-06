@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.AfterLeaseCheckExternalQueryJob;
+import cn.zswltech.mithras.afterlease.job.AfterLeaseCheckExternalQueryJob;
 import org.junit.Test;
 
 import javax.annotation.Resource;

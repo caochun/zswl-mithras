@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.bigbear;
 
-import cn.zswltech.mithras.service.job.data_init.AfterLeaseCheckInitJob;
+import cn.zswltech.mithras.afterlease.job.AfterLeaseCheckInitJob;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

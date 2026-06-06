@@ -28,6 +28,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.afterlease.*;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.afterlease.application.job.AfterLeaseCheckGuarantorInitJobService;
 import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckPlanProjectConvert;
 import cn.zswltech.mithras.service.enums.*;
 import cn.zswltech.mithras.afterlease.domain.enums.*;
@@ -91,7 +92,7 @@ import java.util.stream.Collectors;
  * @description
  */
 @Service
-public class AfterLeaseCheckPlanClientServiceImpl extends ServiceImpl<NewAfterLeaseCheckPlanClientMapper, NewAfterLeaseCheckPlanClient> implements AfterLeaseCheckPlanClientService {
+public class AfterLeaseCheckPlanClientServiceImpl extends ServiceImpl<NewAfterLeaseCheckPlanClientMapper, NewAfterLeaseCheckPlanClient> implements AfterLeaseCheckPlanClientService, AfterLeaseCheckGuarantorInitJobService {
     @Resource
     private OrgService orgService;
     @Resource
@@ -146,6 +147,49 @@ public class AfterLeaseCheckPlanClientServiceImpl extends ServiceImpl<NewAfterLe
     private UserDOMapper userDOMapper;
     @Resource
     private OrgDOMapper orgDOMapper;
+
+    @Override
+    public void initGuarantor() {
+        List<NewAfterLeaseCheckPlanClient> list = this.list();
+        Set<Long> collect = list.stream().map(NewAfterLeaseCheckPlanClient::getClientId).collect(Collectors.toSet());
+        Map<Long, Set<Long>> map = contractTenantryService.list(Wrappers.<ContractTenantry>lambdaQuery()
+                        .in(ContractTenantry::getLesseeId, collect)
+                        .eq(ContractTenantry::getLesseeType, LesseeTypeEnum.MAIN_LESSSEE.name()))
+                .stream().collect(Collectors.groupingBy(ContractTenantry::getLesseeId, Collectors.mapping(ContractTenantry::getContractId, Collectors.toSet())));
+        Map<Long, List<ContractGuarantor>> refMap = contractGuarantorService.list(Wrappers.<ContractGuarantor>lambdaQuery()
+                .in(ContractGuarantor::getContractId, map.values().stream().flatMap(Set::stream).collect(Collectors.toSet())))
+                .stream().collect(Collectors.groupingBy(ContractGuarantor::getContractId));
+
+        for (NewAfterLeaseCheckPlanClient planClient : list) {
+            Set<Long> contractIds = map.get(planClient.getClientId());
+            if (contractIds == null) {
+                continue;
+            }
+            for (Long contractId : contractIds) {
+                List<ContractGuarantor> contractGuarantors = refMap.get(contractId);
+                if (contractGuarantors == null) {
+                    continue;
+                }
+                Set<Long> guarantorIds = new HashSet<>();
+                for (ContractGuarantor contractGuarantor : contractGuarantors) {
+                    List<Long> longs = JSONUtil.toList(contractGuarantor.getGuarantorIds(), Long.class);
+                    guarantorIds.addAll(longs);
+                }
+                Map<Long, String> clientedId2Name = id2NameService.clientId2Name(guarantorIds);
+                NewAfterLeaseCheckPlanClient checkPlanClient = new NewAfterLeaseCheckPlanClient();
+                checkPlanClient.setGuaranteeIds(JSONUtil.toJsonStr(guarantorIds));
+                checkPlanClient.setGuaranteeNames(JSONUtil.toJsonStr(new HashSet<>(clientedId2Name.values())));
+                checkPlanClient.setId(planClient.getId());
+                this.updateById(checkPlanClient);
+
+                afterLeaseCheckPlanClientLibService.lambdaUpdate()
+                        .eq(NewAfterLeaseCheckPlanClientLib::getOriginId, planClient.getId())
+                        .set(NewAfterLeaseCheckPlanClientLib::getGuaranteeIds, JSONUtil.toJsonStr(guarantorIds))
+                        .set(NewAfterLeaseCheckPlanClientLib::getGuaranteeNames, JSONUtil.toJsonPrettyStr(new HashSet<>(clientedId2Name.values())))
+                        .update();
+            }
+        }
+    }
 
     @Override
     public AfterLeaseCheckClientInfoRSP getInfoById(Long checkPlanClientId, String version) {
