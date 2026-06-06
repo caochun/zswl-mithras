@@ -23,6 +23,7 @@ import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.basedata.service.BaseDataLprService;
 import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpFinancingCostPricingConfigMapper;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
+import cn.zswltech.mithras.ftp.newftp.service.job.NewFtpPricingJobService;
 import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.ftp.newftp.utils.DateUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
@@ -49,7 +50,7 @@ import java.util.stream.Collectors;
  * @createDate 2024-03-22 14:00:37
  */
 @Service
-public class NewFtpFinancingCostPricingConfigService extends ServiceImpl<NewFtpFinancingCostPricingConfigMapper, NewFtpFinancingCostPricingConfig> {
+public class NewFtpFinancingCostPricingConfigService extends ServiceImpl<NewFtpFinancingCostPricingConfigMapper, NewFtpFinancingCostPricingConfig> implements NewFtpPricingJobService {
 
     @Resource
     private FundFinancingBaseInfoLibMapper fundFinancingBaseInfoLibMapper;
@@ -61,6 +62,25 @@ public class NewFtpFinancingCostPricingConfigService extends ServiceImpl<NewFtpF
     private BaseDataLprService baseDataLprService;
     @Resource
     private FundDirectFinancingBaseInfoService directFinancingBaseInfoService;
+    @Resource
+    private NewFtpGuaranteeCostPricingConfigService guaranteeCostPricingConfigService;
+
+    @Override
+    public NewFtpFinancingCostPricingConfig latestFinancingCostPricingConfig() {
+        return this.getOne(Wrappers.<NewFtpFinancingCostPricingConfig>lambdaQuery()
+                .orderByDesc(NewFtpFinancingCostPricingConfig::getMonth)
+                .last(StringUtil.mysqlLimitOne()));
+    }
+
+    @Override
+    public void addFinancingCostPricingConfig(LocalDate localDate) {
+        this.add(localDate);
+    }
+
+    @Override
+    public void addGuaranteeCostPricingConfig(LocalDate localDate) {
+        guaranteeCostPricingConfigService.addConfig(localDate);
+    }
 
     /**
      * 添加或者更新

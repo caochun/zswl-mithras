@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingFlashREQ;
 import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingModifyREQ;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
-import cn.zswltech.mithras.service.job.NewFtpJob;
+import cn.zswltech.mithras.ftp.newftp.service.job.NewFtpPricingJobExecutor;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
@@ -113,7 +113,7 @@ public class NewFtpFinancingCostPricingConfigController implements NewFtpFinanci
 
     @Override
     public R<Void> flash(@Valid NewFtpFinancingCostPricingFlashREQ req) {
-        SpringContextHolder.getBean(NewFtpJob.class).calculateFtpFinancingCostPricing();
+        SpringContextHolder.getBean(NewFtpPricingJobExecutor.class).calculateFtpFinancingCostPricing();
         return R.ok();
     }
 

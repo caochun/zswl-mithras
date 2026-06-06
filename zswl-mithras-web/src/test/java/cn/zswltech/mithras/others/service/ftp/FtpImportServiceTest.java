@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.ftp.FtpQuarterlyGuidanceListReq;
 import cn.zswltech.mithras.dto.ftp.FtpQuarterlyGuidanceListRsp;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.NewFtpJob;
+import cn.zswltech.mithras.ftp.newftp.job.NewFtpJob;
 import cn.zswltech.mithras.service.service.ftp.FtpQuarterlyGuidanceService;
 import org.junit.Test;
 
