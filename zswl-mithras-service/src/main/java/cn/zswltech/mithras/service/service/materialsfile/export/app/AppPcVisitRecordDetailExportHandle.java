@@ -9,7 +9,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.app.AppPCVisitRecordREQ;
 import cn.zswltech.mithras.dto.app.AppPCVisitRecordRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.app.AppController;
+import cn.zswltech.mithras.customer.application.app.api.AppApplicationService;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.customer.domain.enums.app.VisitPhaseStatus;
 import cn.zswltech.mithras.customer.domain.enums.app.VisitTypeStatus;
@@ -29,7 +29,7 @@ import java.util.Objects;
 public class AppPcVisitRecordDetailExportHandle extends ExportHandle<AppPcVisitRecordDetailModel, AppPcVisitRecordDetailExcelExporter> {
 
     @Resource
-    private AppController appController;
+    private AppApplicationService appApplicationService;
 
     @Override
     public String getBusinessType() {
@@ -46,7 +46,7 @@ public class AppPcVisitRecordDetailExportHandle extends ExportHandle<AppPcVisitR
         AppPCVisitRecordREQ appPCVisitRecordREQ = BeanUtil.copyProperties(req.getExt(), AppPCVisitRecordREQ.class);
         appPCVisitRecordREQ.setPage(1);
         appPCVisitRecordREQ.setPageSize(Integer.MAX_VALUE);
-        R<PageR<AppPCVisitRecordRSP>> recordRsp = appController.pcList(appPCVisitRecordREQ);
+        R<PageR<AppPCVisitRecordRSP>> recordRsp = appApplicationService.pcList(appPCVisitRecordREQ);
         PageR<AppPCVisitRecordRSP> data = recordRsp.getData();
         List<AppPCVisitRecordRSP> lists = data.getList();
         if (ObjectUtil.isEmpty(lists)) {

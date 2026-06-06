@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.controller.app;
+package cn.zswltech.mithras.service.application.client.app;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -10,6 +10,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.app.AppApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.customer.application.app.api.AppApplicationService;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionListREQ;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionListRSP;
 import cn.zswltech.mithras.dto.app.*;
@@ -93,7 +94,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.RoundingMode;
@@ -113,8 +114,8 @@ import static cn.zswltech.mithras.service.util.FinancialUtil.calculateIRR;
  * @author luyi
  */
 @Slf4j
-@RestController
-public class AppController implements AppApi {
+@Service
+public class AppFacade implements AppApplicationService {
     @Resource
     private AppService appService;
     @Resource

@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.app.AppPCVisitSummaryRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationPayListRSP;
 import cn.zswltech.mithras.dto.file.FileExportREQ;
-import cn.zswltech.mithras.service.controller.app.AppController;
+import cn.zswltech.mithras.customer.application.app.api.AppApplicationService;
 import cn.zswltech.mithras.service.enums.FileExportEnum;
 import cn.zswltech.mithras.customer.excel.exporter.app.AppPcVisitRecordDetailExcelExporter;
 import cn.zswltech.mithras.customer.excel.exporter.app.AppPcVisitRecordSummaryExcelExporter;
@@ -38,7 +38,7 @@ import static cn.zswltech.mithras.dashboard.application.util.DashboardHelpUtil.*
 public class AppPcVisitRecordSummaryExportHandle extends ExportHandle<AppPcVisitRecordSummaryModel, AppPcVisitRecordSummaryExcelExporter> {
 
     @Resource
-    private AppController appController;
+    private AppApplicationService appApplicationService;
 
     @Override
     public String getBusinessType() {
@@ -53,7 +53,7 @@ public class AppPcVisitRecordSummaryExportHandle extends ExportHandle<AppPcVisit
     @Override
     public List<AppPcVisitRecordSummaryModel> req2ExportList(FileExportREQ req) {
         AppPCVisitSummaryREQ appPCVisitSummaryREQ = BeanUtil.copyProperties(req.getExt(), AppPCVisitSummaryREQ.class);
-        R<Map<String, Object>> mapR = appController.pcSummary(appPCVisitSummaryREQ);
+        R<Map<String, Object>> mapR = appApplicationService.pcSummary(appPCVisitSummaryREQ);
         Map<String, Object> data = mapR.getData();
         List<AppPCVisitSummaryRSP> lists = (List<AppPCVisitSummaryRSP>) data.get(RECORDS);
         if (ObjectUtil.isEmpty(lists)) {
