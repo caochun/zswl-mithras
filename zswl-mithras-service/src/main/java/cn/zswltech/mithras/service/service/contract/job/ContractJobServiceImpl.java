@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.contract.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -20,6 +20,7 @@ import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
 import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.contract.application.job.ContractJobService;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRemindRecord;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
@@ -39,7 +40,6 @@ import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.biz.model.ReturnT;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -54,7 +54,7 @@ import java.util.*;
  */
 @Slf4j
 @Component
-public class ContractJob {
+public class ContractJobServiceImpl implements ContractJobService {
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
@@ -74,7 +74,7 @@ public class ContractJob {
     @Resource
     private PaymentActualDetailService paymentActualDetailService;
 
-    @XxlJob("tryAutoStartRentJob")
+    @Override
     public void tryAutoStartRentJob() {
         // 寻找付款申请标记为结束投放的
         LambdaQueryWrapper<PaymentBaseInfo> query = Wrappers.lambdaQuery();
@@ -149,7 +149,7 @@ public class ContractJob {
         paymentBaseInfoService.finish(paymentBaseInfo.getId());
     }
 
-    @XxlJob("contractStartRentRemindJobHandler")
+    @Override
     public ReturnT<String> contractStartRentRemindJobHandler(String param) {
         log.info("开始执行【合同起租提醒记录】任务[控制台参数: {}]", param);
         LocalDateTime beginOfToday = LocalDateTimeUtil.beginOfDay(LocalDateTime.now());

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.ContractJob;
+import cn.zswltech.mithras.contract.job.ContractJob;
 import com.xxl.job.core.biz.model.ReturnT;
 import org.junit.Test;
 

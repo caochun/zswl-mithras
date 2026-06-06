@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.contract.job;
 
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -16,6 +16,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractSubTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
+import cn.zswltech.mithras.contract.application.job.ContractTextSignJobService;
 import cn.zswltech.mithras.service.gendoc.render.ContractActualRentRender;
 import cn.zswltech.mithras.service.gendoc.render.ContractSettleOwnerChangeRender;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTextManageMapper;
@@ -36,7 +37,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -54,7 +54,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Component
-public class ContractTextSignJob {
+public class ContractTextSignJobServiceImpl implements ContractTextSignJobService {
 
     @Resource
     private ContractSignInfoService contractSignInfoService;
@@ -78,7 +78,7 @@ public class ContractTextSignJob {
     private FlowProcessApiService flowProcessApiService;
 
 
-    @XxlJob("contractTextSign")
+    @Override
     public void contractTextSign() throws Exception {
         /*要求必须要传入参数  手动执行用印   暂定合同号*/
 
@@ -152,7 +152,7 @@ public class ContractTextSignJob {
      * 合同起租-实际租金表用印
      * @throws Exception
      */
-    @XxlJob("contractTextSignRent")
+    @Override
     public void contractTextSignRent() throws Exception {
         /*要求必须要传入参数  手动执行用印   暂定合同号*/
 
