@@ -3,6 +3,8 @@ package cn.zswltech.mithras.others.report;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
+import cn.zswltech.mithras.capital.job.CapitalBankFlowHotFixJob;
+import cn.zswltech.mithras.capital.job.ManualWriteOffReleaseBankFlowJob;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceBalanceREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceBalanceRSP;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoREQ;
@@ -86,11 +88,11 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
 public class TestFillClosedDate {
 
     @Resource
-    private HotFixJob hotFixJob;
+    private CapitalBankFlowHotFixJob capitalBankFlowHotFixJob;
 
     @Test
     public void setHotFixJob() {
-        hotFixJob.financeFlowRecordJob();
+        capitalBankFlowHotFixJob.financeFlowRecordJob();
     }
 
     @Resource

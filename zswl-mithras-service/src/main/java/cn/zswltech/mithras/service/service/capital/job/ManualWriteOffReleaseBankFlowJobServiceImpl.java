@@ -1,19 +1,18 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.capital.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
-import cn.hutool.json.JSONUtil;
+import cn.zswltech.mithras.capital.application.job.ManualWriteOffReleaseBankFlowJobService;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.service.service.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.third.mapper.FinanceFlowTabMainInfoMapper;
+import cn.zswltech.mithras.third.mapper.FinanceFlowTabRecordMapper;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabMainInfo;
 import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabRecord;
-import cn.zswltech.mithras.third.mapper.FinanceFlowTabMainInfoMapper;
-import cn.zswltech.mithras.third.mapper.FinanceFlowTabRecordMapper;
-import cn.zswltech.mithras.service.service.third.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.service.FinanceFlowTabMainInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -31,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class ManualWriteOffReleaseBankFlowJob {
+public class ManualWriteOffReleaseBankFlowJobServiceImpl implements ManualWriteOffReleaseBankFlowJobService {
 
     @Resource
     private FinanceFlowTabMainInfoService mainInfoService;
@@ -42,7 +41,7 @@ public class ManualWriteOffReleaseBankFlowJob {
     @Resource
     private FinanceFlowRecordService financeFlowRecordService;
 
-    @XxlJob(value = "manualWriteOffReleaseBankFlow")
+    @Override
     public void releaseBankFlow() {
         List<FinanceFlowTabMainInfo> mainInfos = mainInfoMapper.findWithLogicDelete(null);
         if (mainInfos.isEmpty()) {
