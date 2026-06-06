@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.policy.job;
 
 import cn.hutool.core.lang.TypeReference;
 import cn.hutool.core.util.ObjectUtil;
@@ -13,6 +13,7 @@ import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
+import cn.zswltech.mithras.policy.application.job.PolicyJobService;
 import cn.zswltech.mithras.policy.domain.enums.PolicyApprovalStatusEnum;
 import cn.zswltech.mithras.policy.domain.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.domain.enums.PolicyStatusEnum;
@@ -29,7 +30,6 @@ import cn.zswltech.mithras.service.service.policy.PolicyLedgerService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +47,7 @@ import static cn.hutool.json.JSONUtil.toBean;
 
 @Slf4j
 @Component
-public class PolicyJob {
+public class PolicyJobServiceImpl implements PolicyJobService {
 
     @Resource
     private PolicyInfoService policyInfoService;
@@ -70,7 +70,7 @@ public class PolicyJob {
 
     private final static String AUTO_COMMIT_MESSAGE = "超时未处理系统自动同意";
 
-    @XxlJob("policyAddJobHandler")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void policyAddJobHandler() {
         log.info("policyAddJob, start.");
@@ -117,7 +117,7 @@ public class PolicyJob {
         log.info("policyAddJob, end.");
     }
 
-    @XxlJob("policyNoticeHandler")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void policyNoticeHandler() {
         log.info("policyNoticeHandler, start.");
@@ -174,7 +174,7 @@ public class PolicyJob {
     }
 
     //发起保单到期提示流程
-    @XxlJob("policyStartReminderProcessHandler")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void policyStartReminderProcessHandler() {
         LocalDate now = LocalDate.now();
@@ -253,7 +253,7 @@ public class PolicyJob {
     }
 
     //节点到期自动提交
-    @XxlJob("policyNodeAutoCommit")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
     public void policyNodeAutoCommit() {
         //1.保单到期日当天项目经理/运营经办仍未提交的，系统将自动提交
