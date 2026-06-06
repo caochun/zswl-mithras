@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.associationreport.job;
 import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollectionUtil;
@@ -8,7 +8,6 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.associationreport.StoreDataSelector;
 import cn.zswltech.mithras.associationreport.service.AssociationReportApplyService;
-import cn.zswltech.mithras.associationreport.service.AssociationReportService;
 import cn.zswltech.mithras.associationreport.storedata.DataStore;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportCreateREQ;
 import cn.zswltech.mithras.service.enums.*;
@@ -18,10 +17,11 @@ import cn.zswltech.mithras.associationreport.enums.AssociationReportPeriodCatego
 import cn.zswltech.mithras.associationreport.enums.AssociationReportStatusEnum;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
+import cn.zswltech.mithras.associationreport.service.job.AssociationReportJobService;
+import cn.zswltech.mithras.associationreport.service.job.AssociationReportProcessPrepareService;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -45,13 +45,13 @@ import java.util.*;
 @Component
 public class AssociationReportJob {
     @Resource
-    private AssociationReportService associationReportService;
+    private AssociationReportJobService associationReportJobService;
     @Resource
     private TransactionTemplate transactionTemplate;
     @Resource
     private AssociationReportApplyService associationReportApplyService;
     @Resource
-    private CommonProcessPrepareService commonProcessPrepareService;
+    private AssociationReportProcessPrepareService processPrepareService;
     @Resource
     private SysUserService sysUserService;
 
@@ -102,7 +102,7 @@ public class AssociationReportJob {
                 req.setCheckExist(Boolean.FALSE);
                 transactionTemplate.executeWithoutResult(transactionStatus -> {
                     try {
-                        String reportInstanceId = associationReportService.create(req);
+                        String reportInstanceId = associationReportJobService.create(req);
                         StoreDataSelector.getInstance(reportCategoryEnum.name()).storeFromSystemJob(reportInstanceId);
                     } catch (Exception e) {
                         transactionStatus.setRollbackOnly();
@@ -129,7 +129,7 @@ public class AssociationReportJob {
         } else {
             throw new MithrasException("报表周期类型非月度或季度");
         }
-        return associationReportService.count(query) > 0;
+        return associationReportJobService.count(query) > 0;
     }
 
     private boolean isPrepareData(AssociationReportCategoryEnum reportCategoryEnum, LocalDate targetDate) {
@@ -227,7 +227,7 @@ public class AssociationReportJob {
                         .applyTime(LocalDateTime.now())
                         .status(CommonProcessPrepareStatus.PEND_COMMIT.name())
                         .build();
-                commonProcessPrepareService.save(commonProcessPrepare);
+                processPrepareService.save(commonProcessPrepare);
             } catch (Exception e) {
                 transactionStatus.setRollbackOnly();
                 log.error("金融局报送自动取值-评审会秘书待办数据保存异常", e);
@@ -277,7 +277,7 @@ public class AssociationReportJob {
                         .applyTime(LocalDateTime.now())
                         .status(CommonProcessPrepareStatus.PEND_COMMIT.name())
                         .build();
-                commonProcessPrepareService.save(commonProcessPrepare);
+                processPrepareService.save(commonProcessPrepare);
             } catch (Exception e) {
                 transactionStatus.setRollbackOnly();
                 log.error("金融局报送自动取值-财务经理月度待办数据保存异常", e);
@@ -344,7 +344,7 @@ public class AssociationReportJob {
                         .applyTime(LocalDateTime.now())
                         .status(CommonProcessPrepareStatus.PEND_COMMIT.name())
                         .build();
-                commonProcessPrepareService.save(commonProcessPrepare);
+                processPrepareService.save(commonProcessPrepare);
             } catch (Exception e) {
                 transactionStatus.setRollbackOnly();
                 log.error("金融局报送自动取值-财务经理月度待办数据保存异常", e);
@@ -358,7 +358,7 @@ public class AssociationReportJob {
         query.eq(AssociationReport::getReportPeriod, period);
         query.eq(AssociationReport::getReportStatus, AssociationReportStatusEnum.WAIT.name());
         query.eq(AssociationReport::getIsShow, YesOrNoNumberEnum.NO.getCode());
-        return associationReportService.list(query);
+        return associationReportJobService.list(query);
     }
 
     private boolean isQuarterFirstMonth(LocalDate localDate) {
@@ -370,6 +370,6 @@ public class AssociationReportJob {
         LambdaQueryWrapper<CommonProcessPrepare> query = Wrappers.lambdaQuery();
         query.eq(CommonProcessPrepare::getProcessType, processType);
         query.eq(CommonProcessPrepare::getStatus, CommonProcessPrepareStatus.PEND_COMMIT.name());
-        return commonProcessPrepareService.count(query) > 0;
+        return processPrepareService.count(query) > 0;
     }
 }

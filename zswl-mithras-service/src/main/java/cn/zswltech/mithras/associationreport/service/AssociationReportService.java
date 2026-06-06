@@ -37,6 +37,7 @@ import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportSort;
 import cn.zswltech.mithras.associationreport.service.application.AssociationReportApplicationService;
+import cn.zswltech.mithras.associationreport.service.job.AssociationReportJobService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.system.service.SysUserService;
@@ -70,7 +71,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class AssociationReportService extends ServiceImpl<AssociationReportMapper, AssociationReport> implements FlowEndEventProcessor, AssociationReportQueryService, AssociationReportApplicationService {
+public class AssociationReportService extends ServiceImpl<AssociationReportMapper, AssociationReport> implements FlowEndEventProcessor, AssociationReportQueryService, AssociationReportApplicationService, AssociationReportJobService {
     @Resource
     private MaterialsListService materialsListService;
     @Resource

@@ -20,6 +20,7 @@ import cn.zswltech.mithras.message.enums.MessageUrlEnum;
 import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
+import cn.zswltech.mithras.associationreport.service.job.AssociationReportProcessPrepareService;
 import cn.zswltech.mithras.message.mapper.message.MessageModel;
 import cn.zswltech.mithras.message.mapper.message.NoticeMessageBody;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
@@ -65,7 +66,7 @@ import static cn.zswltech.mithras.service.others.MithrasException.err;
  */
 @Slf4j
 @Service
-public class CommonProcessPrepareService extends ServiceImpl<CommonProcessPrepareMapper, CommonProcessPrepare> {
+public class CommonProcessPrepareService extends ServiceImpl<CommonProcessPrepareMapper, CommonProcessPrepare> implements AssociationReportProcessPrepareService {
     //综合管理部
     @Value("${mithras.org.generalManagementCode}")
     private String generalManagementOrgCode;

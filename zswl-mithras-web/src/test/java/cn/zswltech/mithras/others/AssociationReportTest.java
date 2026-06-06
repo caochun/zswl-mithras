@@ -6,7 +6,7 @@ import cn.zswltech.mithras.associationreport.service.AssociationFileHandleReport
 import cn.zswltech.mithras.associationreport.service.AssociationMainBusinessService;
 import cn.zswltech.mithras.associationreport.storedata.*;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.AssociationReportJob;
+import cn.zswltech.mithras.associationreport.job.AssociationReportJob;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationMainBusiness;
 import org.junit.Test;
 
