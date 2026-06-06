@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.controller.utils;
+package cn.zswltech.mithras.service.application.projectprocess.utils;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.utils.CashFlowGenerationApi;
 import cn.zswltech.mithras.dto.utils.*;
+import cn.zswltech.mithras.projectprocess.application.utils.api.CashFlowGenerationApplicationService;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
@@ -25,8 +25,8 @@ import cn.zswltech.mithras.service.util.LongUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -57,8 +57,8 @@ import static cn.zswltech.mithras.service.util.FinancialUtil.*;
  * @author yibin
  */
 @Slf4j
-@RestController
-public class CashFlowGenerationController implements CashFlowGenerationApi {
+@Service
+public class CashFlowGenerationFacade implements CashFlowGenerationApplicationService {
     @Autowired
     private HttpServletResponse response;
 

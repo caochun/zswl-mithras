@@ -1,11 +1,10 @@
-package cn.zswltech.mithras.service.controller.bridge;
+package cn.zswltech.mithras.service.application.system.bridge;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.app.AppApi;
-import cn.zswltech.mithras.api.bridge.BridgeApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.*;
@@ -80,6 +79,7 @@ import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewPriceService;
 import cn.zswltech.mithras.dashboard.application.util.DashboardHelpUtil;
 import cn.zswltech.mithras.service.util.HttpClientUtil;
+import cn.zswltech.mithras.system.application.bridge.api.BridgeApplicationService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -88,7 +88,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.RoundingMode;
@@ -109,8 +109,8 @@ import static cn.zswltech.mithras.service.util.FinancialUtil.calculateIRR;
  * @author luyi
  */
 @Slf4j
-@RestController
-public class BridgeController implements BridgeApi {
+@Service
+public class BridgeFacade implements BridgeApplicationService {
 
     @Value("${bridge.service.authUrl}")
     private String authUrl;

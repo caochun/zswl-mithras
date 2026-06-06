@@ -1,16 +1,16 @@
-package cn.zswltech.mithras.service.controller;
+package cn.zswltech.mithras.service.application.finance.profitcalculate;
 
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.api.ProfitCalculateResultApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.ProfitCalculateResultListREQ;
 import cn.zswltech.mithras.dto.ProfitCalculateResultListRSP;
+import cn.zswltech.mithras.finance.application.profitcalculate.api.ProfitCalculateResultApplicationService;
 import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.finance.excel.exporter.ProfitCalculateExcelExporter;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.system.service.ProfitCalculateResultService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -24,8 +24,8 @@ import java.nio.charset.StandardCharsets;
  * @description
  */
 @Slf4j
-@RestController
-public class ProfitCalculateResultController implements ProfitCalculateResultApi {
+@Service
+public class ProfitCalculateResultFacade implements ProfitCalculateResultApplicationService {
     @Resource
     private ProfitCalculateResultService profitCalculateResultService;
     @Resource
