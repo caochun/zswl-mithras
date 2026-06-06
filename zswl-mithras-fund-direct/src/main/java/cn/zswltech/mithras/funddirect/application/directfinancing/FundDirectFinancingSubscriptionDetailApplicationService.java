@@ -1,0 +1,6 @@
+package cn.zswltech.mithras.funddirect.application.directfinancing;
+
+import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingSubscriptionDetailApi;
+
+public interface FundDirectFinancingSubscriptionDetailApplicationService extends FundDirectFinancingSubscriptionDetailApi {
+}

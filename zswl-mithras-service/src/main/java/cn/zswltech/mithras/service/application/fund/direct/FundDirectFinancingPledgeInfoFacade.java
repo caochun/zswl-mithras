@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.service.fund.direct.controller;
+package cn.zswltech.mithras.service.application.fund.direct;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingPledgeInfoApi;
+import cn.zswltech.mithras.funddirect.application.directfinancing.FundDirectFinancingPledgeInfoApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinancingMainModifyAuthChecker;
@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingPledgeI
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -25,9 +25,10 @@ import java.nio.charset.StandardCharsets;
  * @description 直接融资-质押明细
  * @date 2023-06-17
  */
-@RestController
 @Slf4j
-public class FundDirectFinancingPledgeInfoController implements FundDirectFinancingPledgeInfoApi {
+
+@Service
+public class FundDirectFinancingPledgeInfoFacade implements FundDirectFinancingPledgeInfoApplicationService {
 
     @Resource
     private FundDirectFinancingPledgeInfoService fundDirectFinancingPledgeInfoService;

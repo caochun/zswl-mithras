@@ -99,7 +99,7 @@ import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import cn.zswltech.mithras.afterlease.excel.model.AfterLeaseCheckPlanLedgerListExcelModel;
 import cn.zswltech.mithras.afterlease.excel.model.AfterLeaseCheckPlanListExcelModel;
-import cn.zswltech.mithras.service.fund.direct.controller.FundDirectFinancingBaseInfoController;
+import cn.zswltech.mithras.service.application.fund.direct.FundDirectFinancingBaseInfoFacade;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
@@ -162,7 +162,7 @@ public class IndexDownloadFacade implements IndexDownloadApplicationService {
             Pair.of(FUND_CREDIT_LIMIT, Triple.of(FundCreditFacade.class, "limitDetail", of())),
             Pair.of(FUND_GUARANTEE_AGENCY_LIMIT, Triple.of(FundGuaranteeAgencyFacade.class, "limitDetail", of())),
             Pair.of(FUND_FINANCING, Triple.of(FundFinancingFacade.class, "pageList", of())),
-            Pair.of(FUND_DIRECT_FINANCING, Triple.of(FundDirectFinancingBaseInfoController.class, "list", of())),
+            Pair.of(FUND_DIRECT_FINANCING, Triple.of(FundDirectFinancingBaseInfoFacade.class, "list", of())),
             Pair.of(BUSINESS_FLOW_PROJ_PAY, Triple.of(CollectionFlowCenterController.class, "paymentList", of())),
             Pair.of(BUSINESS_FLOW_PROJ_COLLECT, Triple.of(CollectionFlowCenterController.class, "collectionList", of())),
             Pair.of(BUSINESS_FLOW_FINANCIAL_PAY, Triple.of(BusinessFlowFacade.class, "selectList", of())),

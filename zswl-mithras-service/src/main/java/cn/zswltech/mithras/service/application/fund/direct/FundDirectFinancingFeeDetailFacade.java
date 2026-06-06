@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.fund.direct.controller;
+package cn.zswltech.mithras.service.application.fund.direct;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingFeeDetailApi;
+import cn.zswltech.mithras.funddirect.application.directfinancing.FundDirectFinancingFeeDetailApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinancingMainModifyAuthChecker;
@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinanci
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingFeeDetailMapper;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingFeeDetailService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -18,8 +18,9 @@ import javax.annotation.Resource;
  * @description 直接融资-费用明细
  * @date 2023-06-17
  */
-@RestController
-public class FundDirectFinancingFeeDetailController implements FundDirectFinancingFeeDetailApi {
+
+@Service
+public class FundDirectFinancingFeeDetailFacade implements FundDirectFinancingFeeDetailApplicationService {
 
     @Resource
     private FundDirectFinancingFeeDetailService fundDirectFinancingFeeDetailService;

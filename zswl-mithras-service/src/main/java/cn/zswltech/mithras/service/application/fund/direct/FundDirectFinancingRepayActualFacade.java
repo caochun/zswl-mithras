@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.service.fund.direct.controller;
+package cn.zswltech.mithras.service.application.fund.direct;
 
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingRepayActualApi;
+import cn.zswltech.mithras.funddirect.application.directfinancing.FundDirectFinancingRepayActualApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.dto.fund.financing.SingleFinancingIdREQ;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayA
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualSplitService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -28,8 +28,9 @@ import java.util.List;
  * @date 2023-06-17
  */
 @Slf4j
-@RestController
-public class FundDirectFinancingRepayActualController implements FundDirectFinancingRepayActualApi {
+
+@Service
+public class FundDirectFinancingRepayActualFacade implements FundDirectFinancingRepayActualApplicationService {
 
     @Resource
     private FundDirectFinancingRepayActualSplitService fundDirectFinancingRepayActualSplitService;

@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.fund.direct.controller;
+package cn.zswltech.mithras.service.application.fund.direct;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingProductDetailApi;
+import cn.zswltech.mithras.funddirect.application.directfinancing.FundDirectFinancingProductDetailApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinancingMainModifyAuthChecker;
@@ -14,7 +14,7 @@ import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingProduc
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -28,9 +28,10 @@ import java.util.stream.Collectors;
  * @description 直接融资-产品明细
  * @date 2023-06-17
  */
-@RestController
 @Slf4j
-public class FundDirectFinancingProductDetailController implements FundDirectFinancingProductDetailApi {
+
+@Service
+public class FundDirectFinancingProductDetailFacade implements FundDirectFinancingProductDetailApplicationService {
 
     @Resource
     private FundDirectFinancingProductDetailService fundDirectFinancingProductDetailService;

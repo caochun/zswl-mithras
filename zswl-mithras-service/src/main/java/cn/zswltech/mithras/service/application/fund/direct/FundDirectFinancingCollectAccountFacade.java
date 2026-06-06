@@ -1,8 +1,7 @@
-package cn.zswltech.mithras.service.fund.direct.controller;
+package cn.zswltech.mithras.service.application.fund.direct;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingCollectAccountApi;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingCollectAccountApi;
+import cn.zswltech.mithras.funddirect.application.directfinancing.FundDirectFinancingCollectAccountApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinancingMainModifyAuthChecker;
@@ -10,8 +9,7 @@ import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinanci
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingCollectAccountMapper;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingCollectAccountService;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingCollectAccountService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -21,8 +19,10 @@ import java.util.List;
 * @author zhaozhengkang
 * @date 2023-06-17
 */
-@RestController
-public class FundDirectFinancingCollectAccountController implements FundDirectFinancingCollectAccountApi {
+
+
+@Service
+public class FundDirectFinancingCollectAccountFacade implements FundDirectFinancingCollectAccountApplicationService {
 
     @Resource
     private FundDirectFinancingCollectAccountService fundDirectFinancingCollectAccountService;

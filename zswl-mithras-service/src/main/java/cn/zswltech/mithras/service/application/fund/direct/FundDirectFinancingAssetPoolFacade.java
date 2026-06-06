@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.fund.direct.controller;
+package cn.zswltech.mithras.service.application.fund.direct;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingAssetPoolApi;
+import cn.zswltech.mithras.funddirect.application.directfinancing.FundDirectFinancingAssetPoolApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolDetailREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolDetailRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolModifyREQ;
@@ -9,7 +9,7 @@ import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingAssetPoolService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -18,8 +18,10 @@ import javax.annotation.Resource;
 * @author zhaozhengkang
 * @date 2023-06-17
 */
-@RestController
-public class FundDirectFinancingAssetPoolController implements FundDirectFinancingAssetPoolApi {
+
+
+@Service
+public class FundDirectFinancingAssetPoolFacade implements FundDirectFinancingAssetPoolApplicationService {
 
     @Resource
     private FundDirectFinancingAssetPoolService fundDirectFinancingAssetPoolService;

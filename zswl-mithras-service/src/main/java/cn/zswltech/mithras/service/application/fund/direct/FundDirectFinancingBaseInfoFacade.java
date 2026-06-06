@@ -1,14 +1,14 @@
-package cn.zswltech.mithras.service.fund.direct.controller;
+package cn.zswltech.mithras.service.application.fund.direct;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingBaseInfoApi;
+import cn.zswltech.mithras.funddirect.application.directfinancing.FundDirectFinancingBaseInfoApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -18,8 +18,10 @@ import javax.validation.Valid;
 * @author zhaozhengkang
 * @date 2023-06-17
 */
-@RestController
-public class FundDirectFinancingBaseInfoController implements FundDirectFinancingBaseInfoApi {
+
+
+@Service
+public class FundDirectFinancingBaseInfoFacade implements FundDirectFinancingBaseInfoApplicationService {
 
     @Resource
     private FundDirectFinancingBaseInfoService fundDirectFinancingBaseInfoService;

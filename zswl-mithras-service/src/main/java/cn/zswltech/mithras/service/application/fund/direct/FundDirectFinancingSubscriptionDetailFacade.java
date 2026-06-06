@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.service.fund.direct.controller;
+package cn.zswltech.mithras.service.application.fund.direct;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.fund.directfinancing.FundDirectFinancingSubscriptionDetailApi;
+import cn.zswltech.mithras.funddirect.application.directfinancing.FundDirectFinancingSubscriptionDetailApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.service.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.service.auth.checker.fund.financing.FundDirectFinancingMainModifyAuthChecker;
@@ -12,7 +12,7 @@ import cn.zswltech.mithras.service.fund.direct.mapper.FundDirectFinancingSubscri
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingSubscriptionDetailService;
 import cn.zswltech.mithras.service.others.MithrasException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -24,9 +24,10 @@ import java.nio.charset.StandardCharsets;
  * @author zhaozhengkang
  * @date 2023-06-17
  */
-@RestController
 @Slf4j
-public class FundDirectFinancingSubscriptionDetailController implements FundDirectFinancingSubscriptionDetailApi {
+
+@Service
+public class FundDirectFinancingSubscriptionDetailFacade implements FundDirectFinancingSubscriptionDetailApplicationService {
 
     @Resource
     private FundDirectFinancingSubscriptionDetailService fundDirectFinancingSubscriptionDetailService;
