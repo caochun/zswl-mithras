@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.process.prepare.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -9,7 +9,7 @@ import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.proc
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.service.service.process.prepare.handle.BillOverdueCommitHandle;
-import com.xxl.job.core.handler.annotation.XxlJob;
+import cn.zswltech.mithras.workflow.application.process.prepare.job.BillOverdueJobService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -24,13 +24,13 @@ import java.util.List;
  */
 @Slf4j
 @Component
-public class BillOverdueJob {
+public class BillOverdueJobServiceImpl implements BillOverdueJobService {
     @Resource
     private SysUserService sysUserService;
     @Resource
     private CommonProcessPrepareService commonProcessPrepareService;
 
-    @XxlJob("billOverdueDraftGenerateTodoJob")
+    @Override
     public void billOverdueDraftGenerateTodoJob() {
         // 找到评审会秘书人员
         JobEnum jobEnum = JobEnum.secretaryjury;

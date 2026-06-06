@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.BillOverdueJob;
+import cn.zswltech.mithras.workflow.application.process.prepare.job.BillOverdueJobService;
 import org.junit.Test;
 
 import javax.annotation.Resource;
@@ -13,10 +13,10 @@ import javax.annotation.Resource;
  */
 public class BillOverdueJobTest extends ApplicationTest {
     @Resource
-    private BillOverdueJob billOverdueJob;
+    private BillOverdueJobService billOverdueJobService;
 
     @Test
     public void billOverdueDraftGenerateTodoJobTest() {
-        billOverdueJob.billOverdueDraftGenerateTodoJob();
+        billOverdueJobService.billOverdueDraftGenerateTodoJob();
     }
 }
