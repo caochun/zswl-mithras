@@ -27,6 +27,7 @@ import cn.zswltech.mithras.service.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.customer.application.client.dto.ClientReleaseRemindDTO;
+import cn.zswltech.mithras.customer.application.client.ClientReleaseRemindJobService;
 import cn.zswltech.mithras.customer.application.client.dto.ReleaseRemindEmailInfoDTO;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
@@ -69,7 +70,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class ClientReleaseRemindService {
+public class ClientReleaseRemindService implements ClientReleaseRemindJobService {
 
     private static final String USERTASK_BIZDIVISIONLEADER = "userTask_bizDivisionLeader";
 

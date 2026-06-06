@@ -55,6 +55,7 @@ import cn.zswltech.mithras.factory.model.RatingClient;
 import cn.zswltech.mithras.factory.service.RatingClientService;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
 import cn.zswltech.mithras.service.constant.FlowConstants;
+import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
@@ -136,6 +137,8 @@ import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientSe
 import cn.zswltech.mithras.customer.application.bo.ClientAuthBO;
 import cn.zswltech.mithras.customer.application.bo.ClientBusinessHistoryBO;
 import cn.zswltech.mithras.customer.application.client.ClientBusinessHistoryService;
+import cn.zswltech.mithras.customer.application.client.ClientFocusOpinionSyncService;
+import cn.zswltech.mithras.customer.application.client.ClientMessageNoticeJobService;
 import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.service.service.contract.*;
 import cn.zswltech.mithras.service.service.flow.ExecutionService;
@@ -168,6 +171,7 @@ import cn.zswltech.mithras.third.tianyancha.application.TycService;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasBaseInfo;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasRelatedEnterpriseInfo;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasShareholderInfo;
+import cn.zswltech.mithras.third.riskopinion.application.RiskManageOpinionService;
 import cn.zswltech.mithras.service.util.ClientAuthorityUtil;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
@@ -181,6 +185,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
@@ -214,7 +219,7 @@ import static cn.zswltech.mithras.service.others.MithrasException.err;
  */
 @Slf4j
 @Service
-public class ClientService extends ServiceImpl<ClientMapper, Client> implements FlowEndEventProcessor, ClientRiskExposureResolver {
+public class ClientService extends ServiceImpl<ClientMapper, Client> implements FlowEndEventProcessor, ClientRiskExposureResolver, ClientMessageNoticeJobService, ClientFocusOpinionSyncService {
 
     @Resource
     private ClientMapper clientMapper;
@@ -234,6 +239,8 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
     private AddressDictionaryMapper addressDictionaryMapper;
     @Resource
     private TycService tycService;
+    @Resource
+    private RiskManageOpinionService riskManageOpinionService;
     @Resource
     private FlowProcessApiService processApiService;
     @Resource
@@ -486,6 +493,89 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
         ClientAuthority clientAuthority = clientAuthorityService.getSpecificClientManagerAuthority(clientId);
         //项目无进展
         projNoProgress(client, clientAuthority, clientAsMessageInfoDTO);
+    }
+
+    @Override
+    public void sendMessageNotice(String jobParam) {
+        List<Long> targetClientIds;
+        if (StrUtil.isNotBlank(jobParam)) {
+            targetClientIds = Collections.singletonList(Long.valueOf(jobParam));
+        } else {
+            targetClientIds = this.listHasManagerClientIds();
+        }
+        if (CollectionUtil.isEmpty(targetClientIds)) {
+            return;
+        }
+        for (Long clientId : targetClientIds) {
+            String traceSuffix = LocalDateTimeUtil.format(LocalDateTime.now(), DatePattern.PURE_DATETIME_MS_PATTERN);
+            try {
+                Client client = this.getById(clientId);
+                if (Objects.isNull(client)) {
+                    log.error("没有找到{}的客户信息", clientId);
+                    continue;
+                }
+                MDC.put(GlobalConstants.LOG_TRACE_ID, String.format("%s-%s", clientId, traceSuffix));
+                this.trySendClientNotice(client);
+            } catch (Exception e) {
+                log.error("释放客户发生异常[clientId:{}]", clientId, e);
+            } finally {
+                MDC.remove(GlobalConstants.LOG_TRACE_ID);
+            }
+        }
+        try {
+            this.projSettle(16);
+        } catch (Exception e) {
+            log.error("项目即将结清发生异常", e);
+        }
+        try {
+            this.newAfterLeaseCheckPlanClient(16);
+        } catch (Exception e) {
+            log.error("租后检查提醒发生异常", e);
+        }
+        try {
+            this.accountExpireNotice(16);
+        } catch (Exception e) {
+            log.error("账户到期提醒发生异常", e);
+        }
+        try {
+            this.fundReceiptRepayNotice(16);
+        } catch (Exception e) {
+            log.error("还本付息发生异常", e);
+        }
+    }
+
+    @Override
+    public void syncFocusOpinionToRiskSystem() {
+        log.info("同步舆情关注客户列表开始");
+        List<Client> list = this.list(Wrappers.<Client>lambdaQuery()
+                .eq(Client::getClientStatus, ClientStatus.TAKE_EFFECT)
+                .isNotNull(Client::getUscCode)
+                .eq(Client::getClientType, ClientType.CORPORATION.name()));
+        log.info("同步客户列表:[{}]", JSONUtil.toJsonStr(list.stream().map(Client::getId).collect(Collectors.toList())));
+        List<Client> releasedList = this.list(Wrappers.<Client>lambdaQuery()
+                .eq(Client::getClientStatus, ClientStatus.NEW)
+                .eq(Client::getIsReleased, YesOrNoNumberEnum.YES.getCode())
+                .isNotNull(Client::getUscCode)
+                .eq(Client::getClientType, ClientType.CORPORATION.name()));
+        if (ObjectUtil.isNotEmpty(releasedList)) {
+            list.addAll(releasedList);
+        }
+        Boolean result = riskManageOpinionService.registerClient(list);
+        if (Boolean.TRUE.equals(result)) {
+            log.info("同步舆情关注客户列表结束");
+        } else {
+            log.error("1-同步舆情关注客户列表失败");
+        }
+    }
+
+    private List<Long> listHasManagerClientIds() {
+        LambdaQueryWrapper<ClientAuthority> query = Wrappers.lambdaQuery();
+        query.eq(ClientAuthority::getLevel, ClientLevelEnum.MANAGE.getLevel());
+        List<ClientAuthority> clientAuthorityList = clientAuthorityService.list(query);
+        if (CollectionUtil.isEmpty(clientAuthorityList)) {
+            return Collections.emptyList();
+        }
+        return clientAuthorityList.stream().map(ClientAuthority::getClientId).collect(Collectors.toList());
     }
 
     private void projNoProgress(Client client, ClientAuthority clientAuthority, ClientAsMessageInfoDTO clientAsMessageInfoDTO) {

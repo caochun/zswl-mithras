@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.customer.job;
 
-import cn.zswltech.mithras.service.service.client.ClientTransferService;
+import cn.zswltech.mithras.customer.application.client.ClientTimedTransferService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class ClientTransferJob {
 
     @Autowired
-    private ClientTransferService clientTransferService;
+    private ClientTimedTransferService clientTransferService;
 
     /**
      * 1、客户移交，正式移交

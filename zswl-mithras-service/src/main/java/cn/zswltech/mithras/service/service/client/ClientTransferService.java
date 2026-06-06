@@ -61,6 +61,7 @@ import cn.zswltech.mithras.system.service.BizProcessDataService;
 import cn.zswltech.mithras.system.service.FlowAssistService;
 import cn.zswltech.mithras.system.service.Id2NameService;
 import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
+import cn.zswltech.mithras.customer.application.client.ClientTimedTransferService;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.customer.application.client.ClientTransferWeightService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
@@ -111,7 +112,7 @@ import static java.util.stream.Collectors.toList;
  */
 @Slf4j
 @Service
-public class ClientTransferService extends ServiceImpl<ClientTransferMapper, ClientTransfer> {
+public class ClientTransferService extends ServiceImpl<ClientTransferMapper, ClientTransfer> implements ClientTimedTransferService {
     @Resource
     private FlowProcessApiService processApiService;
     @Resource
