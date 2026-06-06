@@ -1,11 +1,13 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.notice.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.dto.metric.factor.RiskMetricFactorFileListReq;
+import cn.zswltech.mithras.message.application.job.MessageNoticeJobService;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorFile;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
+import cn.zswltech.mithras.projectprocess.application.job.ProjReviewNoticeJobService;
 import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.message.enums.MessageUrlEnum;
 import cn.zswltech.mithras.message.mapper.message.MessageModel;
@@ -14,8 +16,6 @@ import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.message.service.ZhfkNoticeService;
 import cn.zswltech.mithras.service.service.projreview.ProjReviewService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class NoticeJob {
+public class NoticeJobServiceImpl implements ProjReviewNoticeJobService, MessageNoticeJobService {
 
     @Resource
     private ProjReviewService projReviewService;
@@ -46,7 +46,7 @@ public class NoticeJob {
     private ZhfkNoticeService zhfkNoticeService;
 
     //项目立项提醒评审
-    @XxlJob("projReviewNotice")
+    @Override
     public void contractStartRentRemindJobHandler() {
         try {
             projReviewService.noticeClose();
@@ -59,9 +59,8 @@ public class NoticeJob {
     // 对接主数据接口后无需再进行导入提醒
     @Deprecated
 //    @XxlJob("noticeTreasurerMaintainReports")
-    public void noticeTreasurerMaintainReports() {
+    public void noticeTreasurerMaintainReports(String param) {
         try {
-            String param = XxlJobHelper.getJobParam();
             log.info("noticeTreasurerMaintainReports get param {}", param);
             //判断是否五号及以后
             DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -100,7 +99,7 @@ public class NoticeJob {
     }
 
     //同步redis已读消息至数据库
-    @XxlJob("syncMessage2DB")
+    @Override
     public void syncMessage2DB(){
         zhfkNoticeService.syncRedisFlag();
     }
