@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.document.job;
 
+import cn.zswltech.mithras.document.application.job.FileTemplateKeyInitJobService;
 import cn.zswltech.mithras.service.mapper.file.template.model.FileTemplate;
 import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.util.ChineseToPinyinUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -23,13 +23,13 @@ import java.util.stream.Collectors;
  */
 @Component
 @Slf4j
-public class FileTemplateKeyInitJob {
+public class FileTemplateKeyInitJobServiceImpl implements FileTemplateKeyInitJobService {
 
     @Resource
     private FileTemplateService fileTemplateService;
 
     // 初始化文件模版的Key 只能用一次
-    @XxlJob("fileTemplateKeyInitJob")
+    @Override
     public void init() {
         log.info("FileTemplateKeyInitJob init begin..........");
         List<FileTemplate> effectList = fileTemplateService.list(Wrappers.<FileTemplate>lambdaQuery()
