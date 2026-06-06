@@ -1,23 +1,24 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.collection.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
+import cn.zswltech.mithras.collection.application.job.RentExpireToMailJobService;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionBaseInfo;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
+import cn.zswltech.mithras.service.mapper.model.CommonVersion;
 import cn.zswltech.mithras.service.service.client.ClientService;
 import cn.zswltech.mithras.service.service.client.CorpContactInfoService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
@@ -28,7 +29,6 @@ import cn.zswltech.mithras.basedata.util.DateUtil;
 import cn.zswltech.mithras.service.util.StringUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,7 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  */
 @Slf4j
 @Component
-public class RentExpireToMailJob {
+public class RentExpireToMailJobServiceImpl implements RentExpireToMailJobService {
     @Resource
     private CollectionBaseInfoService collectionBaseInfoService;
     @Resource
@@ -69,7 +69,7 @@ public class RentExpireToMailJob {
     private ContractLeasePriceLibService leasePriceLibService;
 
 
-    @XxlJob(value = "rentExpireToMailJob")
+    @Override
     public void collectionRent() {
         try {
             log.info("租金到期提醒定时任务开始");

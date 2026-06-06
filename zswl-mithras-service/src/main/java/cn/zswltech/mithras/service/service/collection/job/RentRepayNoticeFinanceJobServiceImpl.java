@@ -1,32 +1,20 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.collection.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
-import cn.zswl.notice.model.message.MessageModel;
+import cn.zswltech.mithras.collection.application.job.RentRepayNoticeFinanceJobService;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.dto.message.MessageReadREQ;
 import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
-import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.system.service.SysUserService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
-import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
 import cn.zswltech.mithras.message.service.MessageService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
-import liquibase.pro.packaged.M;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -43,14 +31,12 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class RentRepayNoticeFinanceJob {
+public class RentRepayNoticeFinanceJobServiceImpl implements RentRepayNoticeFinanceJobService {
     private static final String LOCK_KEY = "RentRepayNoticeFinanceJob";
     @Resource
     private RedisDistLock lock;
     @Resource
     private MessageService messageService;
-    @Resource
-    private CollectionRecordInfoService collectionRecordInfoService;
     @Resource
     private CollectionBaseInfoService collectionBaseInfoService;
     @Resource
@@ -58,7 +44,7 @@ public class RentRepayNoticeFinanceJob {
     @Resource
     private SysUserService sysUserService;
 
-    @XxlJob(value = "rentRepayNoticeFinance")
+    @Override
     public void rentRepayNoticeFinance() {
         try {
             lock.tryLockWithoutReleaseTime(LOCK_KEY, 10000);

@@ -16,7 +16,6 @@ import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInf
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingPledgeInfoService;
-import cn.zswltech.mithras.service.job.RentExpireToMailJob;
 import cn.zswltech.mithras.basedata.mapper.BaseDataBankAccountMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
@@ -126,7 +125,7 @@ public class RentExpireEmailHandler extends AbstractSendEmailHandler<RentCollect
             HashMap<String, Object> stringObjectHashMap;
             //查询数据
             stringObjectHashMap = buildRenderMap(businessData.getCollectionId(), "");
-            XWPFTemplate template = XWPFTemplate.compile(RentExpireToMailJob.class.getResourceAsStream(PAYMENT_DOCX_NAME)).render(stringObjectHashMap);
+            XWPFTemplate template = XWPFTemplate.compile(RentExpireEmailHandler.class.getResourceAsStream(PAYMENT_DOCX_NAME)).render(stringObjectHashMap);
             NiceXWPFDocument niceXWPFDocument = template.getXWPFDocument();
             File tempFile = File.createTempFile("支付通知书",".docx");
             tempFile.deleteOnExit();
