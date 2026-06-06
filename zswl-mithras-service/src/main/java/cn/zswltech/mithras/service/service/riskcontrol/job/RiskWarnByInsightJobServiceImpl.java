@@ -1,22 +1,22 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.riskcontrol.job;
 
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
-import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.riskcontrol.application.job.RiskWarnByInsightJobService;
+import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
+import cn.zswltech.mithras.riskcontrol.util.WarnCodeGeneratorUtils;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitor;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorMapper;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlWarnMonitorService;
-import cn.zswltech.mithras.riskcontrol.util.WarnCodeGeneratorUtils;
 import cn.zswltech.mithras.xinsight.mapper.XinsightWarnMonitorMapper;
 import cn.zswltech.mithras.xinsight.model.XinsightWarnMonitor;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.google.common.collect.Lists;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class RiskWarnByInsightJob {
+public class RiskWarnByInsightJobServiceImpl implements RiskWarnByInsightJobService {
 
     @Resource
     private XinsightWarnMonitorMapper xinsightWarnMonitorMapper;
@@ -49,8 +49,8 @@ public class RiskWarnByInsightJob {
     @Resource
     private RiskControlOpinionVersionService riskControlOpinionVersionService;
 
-    @XxlJob("riskWarnDataSyncJob") // 0 0 8,15 * * ?   每天8:00和15:00执行
-    public void riskWarnDataSyncJob(){
+    @Override
+    public void syncWarnData() {
         log.info("------开始执行慧眼预警数据同步任务------");
 
         try {

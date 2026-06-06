@@ -1,23 +1,21 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.riskcontrol.job;
 
-import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.opinion.RiskControlOpinionNoticeReq;
+import cn.zswltech.mithras.datashare.mapper.model.DataShareManager;
+import cn.zswltech.mithras.datashare.service.DataShareManagerService;
+import cn.zswltech.mithras.riskcontrol.application.job.RiskControlJobService;
 import cn.zswltech.mithras.riskcontrol.application.RiskControlOpinionMonitorApplicationService;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
-import cn.zswltech.mithras.datashare.mapper.model.DataShareManager;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitor;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitorService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlWarnMonitorService;
-import cn.zswltech.mithras.datashare.service.DataShareManagerService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.google.common.collect.Lists;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 @Slf4j
-public class RiskControlJob {
+public class RiskControlJobServiceImpl implements RiskControlJobService {
 
 
     @Resource
@@ -50,8 +48,8 @@ public class RiskControlJob {
     /**
      * 1、增量同步风险数据
      */
-    @XxlJob("syncRiskControlHandler")
-    public void demoJobHandler() {
+    @Override
+    public void syncRiskControl() {
         try {
             log.info(">>>>>>>>>>>>>>syncRiskControlHandler began syncMerchants");
             DataShareManager shareManager = dataShareManagerService.getOne(Wrappers.<DataShareManager>lambdaQuery()
@@ -87,16 +85,10 @@ public class RiskControlJob {
     /**
      * 1、发起预警流程job
      */
-    @XxlJob("startWarnFlowJob")
-    public void startWarnFlowJob() {
+    @Override
+    public void startWarnFlow(LocalDate now) {
         try {
             log.info(">>>>>>>>>>>>>>startWarnFlowJob began");
-            String param;
-            param = XxlJobHelper.getJobParam();
-            LocalDate now = LocalDate.now();
-            if(ObjectUtil.isNotEmpty(param)) {
-                now = LocalDateTimeUtil.parse(param, "yyyy-MM-dd").toLocalDate();
-            }
             //riskControlWarnMonitorService.ignoreWarn();// 接通慧眼数据后，如果继续执行此任务，则需要去掉这行代码
             List<RiskControlWarnMonitor> list = riskControlWarnMonitorService.list(Wrappers.<RiskControlWarnMonitor>lambdaQuery()
                     .eq(RiskControlWarnMonitor::getHandleStatus, RiskControlOpinionHandleStatus.PEND_HANDLE.name())
@@ -116,14 +108,13 @@ public class RiskControlJob {
     }
 
     //舆情统一监测（已放款）流程超时提醒
-    @XxlJob("riskControlPaymentFlowJob")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
-    public void riskControlPaymentFlowJob() {
+    public void riskControlPaymentFlow(String jobParam) {
         try {
             log.info("riskControlPaymentFlowJob start");
             StopWatch stopWatch = new StopWatch();
             stopWatch.start();
-            String jobParam = XxlJobHelper.getJobParam();
             // jobParam = "2067";
             riskControlOpinionVersionService.riskRemind(jobParam);
             stopWatch.stop();

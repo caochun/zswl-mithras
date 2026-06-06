@@ -1,23 +1,23 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.riskcontrol.job;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.riskcontrol.application.job.RiskOpinionByInsightJobService;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlEmotionEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionEnum;
-import cn.zswltech.mithras.xinsight.mapper.XinsightInfoMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.xinsight.model.XinsightInfo;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;
+import cn.zswltech.mithras.riskcontrol.util.IdGeneratorUtils;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionMonitorService;
 import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
-import cn.zswltech.mithras.riskcontrol.util.IdGeneratorUtils;
+import cn.zswltech.mithras.xinsight.mapper.XinsightInfoMapper;
+import cn.zswltech.mithras.xinsight.model.XinsightInfo;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.google.common.collect.Lists;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class RiskOpinionByInsightJob {
+public class RiskOpinionByInsightJobServiceImpl implements RiskOpinionByInsightJobService {
 
 
     @Resource
@@ -57,8 +57,8 @@ public class RiskOpinionByInsightJob {
     private static final String RISK_TYPE_2 = "business";//工商舆情
 
 
-    @XxlJob("riskControlDataSyncJob") // 0 0 8,15 * * ?   每天8:00和15:00执行
-    public void riskControlDataSyncJo() {
+    @Override
+    public void syncOpinionData() {
         log.info("------开始执行慧眼舆情数据同步任务------");
 
         try {
