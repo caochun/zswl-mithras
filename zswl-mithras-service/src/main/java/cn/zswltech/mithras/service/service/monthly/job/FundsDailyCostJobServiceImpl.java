@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.monthly.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -10,6 +10,7 @@ import cn.zswltech.mithras.dto.monthly.MonthlyCostREQ;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingStatusEnum;
+import cn.zswltech.mithras.monthly.application.job.FundsDailyCostJobService;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingBaseInfoService;
@@ -22,8 +23,6 @@ import cn.zswltech.mithras.service.service.monthly.FundsDailyCostMainService;
 import cn.zswltech.mithras.service.service.monthly.FundsDailyCostService;
 import cn.zswltech.mithras.service.service.monthly.MonthlyManageService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -40,7 +39,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Component
-public class FundsDailyCostJob {
+public class FundsDailyCostJobServiceImpl implements FundsDailyCostJobService {
     @Resource
     private FundFinancingBaseInfoService financingBaseInfoService;
     @Resource
@@ -50,13 +49,12 @@ public class FundsDailyCostJob {
     @Resource
     private FundDirectFinancingRepayActualService fundDirectFinancingRepayActualService;
 
-    @XxlJob("fundsDailyCostMainFinishJob")
-    public void fundsDailyCostMainFinishJob() {
+    @Override
+    public void fundsDailyCostMainFinishJob(String param) {
         // 正常情况，定时任务设定在每个月的1号凌晨
-        String s = XxlJobHelper.getJobParam();
         LocalDate date;
-        if (StrUtil.isNotBlank(s)) {
-            date = LocalDateTimeUtil.parseDate(s, DatePattern.NORM_DATE_PATTERN);
+        if (StrUtil.isNotBlank(param)) {
+            date = LocalDateTimeUtil.parseDate(param, DatePattern.NORM_DATE_PATTERN);
         } else {
             date = LocalDate.now();
         }
@@ -94,14 +92,14 @@ public class FundsDailyCostJob {
         }
     }
 
-    @XxlJob("fundsDailyCostInit")
-    public void fundsDailyCostInit() {
-        String s = "2026-01-31";
-//        String s = XxlJobHelper.getJobParam();
-        if (StrUtil.isBlank(s)) {
+    @Override
+    public void fundsDailyCostInit(String param) {
+        String targetDateParam = "2026-01-31";
+//        String targetDateParam = param;
+        if (StrUtil.isBlank(targetDateParam)) {
             return;
         }
-        LocalDate targetEndDate = LocalDateTimeUtil.parseDate(s, DatePattern.NORM_DATE_PATTERN);
+        LocalDate targetEndDate = LocalDateTimeUtil.parseDate(targetDateParam, DatePattern.NORM_DATE_PATTERN);
 //        // 初始化主表
 //        this.initMain();
         // 初始化明细表

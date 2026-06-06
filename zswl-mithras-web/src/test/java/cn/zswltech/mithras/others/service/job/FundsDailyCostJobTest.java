@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.FundsDailyCostJob;
+import cn.zswltech.mithras.monthly.application.job.FundsDailyCostJobService;
 import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCost;
 import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCostMain;
 import cn.zswltech.mithras.service.service.monthly.FundsDailyCostMainService;
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  */
 public class FundsDailyCostJobTest extends ApplicationTest {
     @Resource
-    private FundsDailyCostJob fundsDailyCostJob;
+    private FundsDailyCostJobService fundsDailyCostJobService;
     @Resource
     private FundsDailyCostMainService fundsDailyCostMainService;
     @Resource
@@ -34,12 +34,12 @@ public class FundsDailyCostJobTest extends ApplicationTest {
 
     @Test
     public void fundsDailyCostInitJob() {
-        fundsDailyCostJob.fundsDailyCostInit();
+        fundsDailyCostJobService.fundsDailyCostInit(null);
     }
 
     @Test
     public void fundsDailyCostFinishJob() {
-        fundsDailyCostJob.fundsDailyCostMainFinishJob();
+        fundsDailyCostJobService.fundsDailyCostMainFinishJob(null);
     }
 
     @Test
