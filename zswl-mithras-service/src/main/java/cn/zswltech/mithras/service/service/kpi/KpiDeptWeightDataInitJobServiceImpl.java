@@ -1,20 +1,17 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.kpi;
 
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.kpi.application.job.KpiDeptWeightDataInitJobService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeight;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeightLib;
-import cn.zswltech.mithras.system.service.SysUserService;
-import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptWeightLibService;
-import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionDeptWeightService;
-import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;
 import cn.zswltech.mithras.kpi.service.lib.KpiProjectDistributionBaseInfoLibService;
+import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.system.service.SysUserService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +32,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class KpiDeptWeightDataInitJob {
+public class KpiDeptWeightDataInitJobServiceImpl implements KpiDeptWeightDataInitJobService {
 
     @Resource
     private KpiProjectDistributionService kpiProjectDistributionService;
@@ -50,9 +47,9 @@ public class KpiDeptWeightDataInitJob {
     @Resource
     private KpiProjectDistributionBaseInfoLibService kpiProjectDistributionBaseInfoLibService;
 
-    @XxlJob("kpiDeptWeightDataInitJob")
+    @Override
     @Transactional(rollbackFor = Throwable.class)
-    public void kpiDeptWeightDataInitJob() {
+    public void initDeptWeightData() {
         log.info("kpiDeptWeightDataInitJob start ......");
         List<KpiProjectDistribution> distributions = kpiProjectDistributionService.list();
         Map<Integer, List<KpiProjectDistribution>> listMap = distributions.stream().collect(Collectors.groupingBy(KpiProjectDistribution::getDistributionStatus));

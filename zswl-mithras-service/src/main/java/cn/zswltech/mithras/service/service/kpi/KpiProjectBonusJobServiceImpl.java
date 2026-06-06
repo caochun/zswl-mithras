@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.service.job;
+package cn.zswltech.mithras.service.service.kpi;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -6,12 +6,10 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
+import cn.zswltech.mithras.kpi.application.job.KpiProjectBonusJobService;
+import cn.zswltech.mithras.service.constant.GlobalConstants;
 import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitDetailService;
-import cn.zswltech.mithras.service.service.kpi.KpiProjGuessService;
-import com.xxl.job.core.context.XxlJobHelper;
-import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
@@ -28,16 +26,15 @@ import java.util.Objects;
  */
 @Slf4j
 @Component
-public class KpiJob {
+public class KpiProjectBonusJobServiceImpl implements KpiProjectBonusJobService {
     @Resource
     private FinanceProjectProfitDetailService financeProjectProfitDetailService;
     @Resource
     private KpiProjGuessService kpiProjGuessService;
 
-    @XxlJob("calculateKpiProjectBonus")
-    public void calculateKpiProjectBonus() {
+    @Override
+    public void calculateKpiProjectBonus(String param) {
         try {
-            String param = XxlJobHelper.getJobParam();
             if (StrUtil.isNotBlank(param)) {
                 this.executeByAdmin(param);
                 return;
