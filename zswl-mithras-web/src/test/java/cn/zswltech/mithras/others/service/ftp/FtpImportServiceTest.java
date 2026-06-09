@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.ftp.FtpQuarterlyGuidanceListReq;
 import cn.zswltech.mithras.dto.ftp.FtpQuarterlyGuidanceListRsp;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.ftp.newftp.job.NewFtpJob;
-import cn.zswltech.mithras.service.service.ftp.FtpQuarterlyGuidanceService;
+import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

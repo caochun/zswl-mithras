@@ -65,7 +65,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-service</artifactId>
+            <artifactId>zswl-mithras-application</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

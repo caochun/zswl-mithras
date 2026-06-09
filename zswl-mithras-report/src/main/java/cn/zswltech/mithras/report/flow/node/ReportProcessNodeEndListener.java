@@ -14,7 +14,7 @@ import cn.zswltech.mithras.report.mapper.model.CrModifyDataSnap;
 import cn.zswltech.mithras.report.service.BatchRecordService;
 import cn.zswltech.mithras.report.service.CrModifyDataSnapService;
 import cn.zswltech.mithras.report.service.draft.CrAccountDraftService;
-import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;

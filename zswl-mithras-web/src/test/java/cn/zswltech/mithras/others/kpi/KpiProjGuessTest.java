@@ -9,7 +9,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessDivide;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjGuessBaseInfoService;
 import cn.zswltech.mithras.kpi.service.KpiProjGuessDivideService;
 import cn.zswltech.mithras.service.service.kpi.KpiProjGuessService;

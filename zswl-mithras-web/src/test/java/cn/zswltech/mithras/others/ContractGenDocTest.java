@@ -12,7 +12,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledge;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import cn.zswltech.mithras.contract.core.application.ContractMortgageService;
 import cn.zswltech.mithras.contract.core.application.ContractPledgeService;

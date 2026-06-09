@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.ftp;
 
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.ftp.FtpMonthlyGuidanceService;
+import cn.zswltech.mithras.ftp.oldftp.service.FtpMonthlyGuidanceService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

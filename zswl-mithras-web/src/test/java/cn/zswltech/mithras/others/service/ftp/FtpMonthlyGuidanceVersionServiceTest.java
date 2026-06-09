@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.service.ftp.FtpMonthlyGuidanceVersionService;
+import cn.zswltech.mithras.ftp.oldftp.service.FtpMonthlyGuidanceVersionService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

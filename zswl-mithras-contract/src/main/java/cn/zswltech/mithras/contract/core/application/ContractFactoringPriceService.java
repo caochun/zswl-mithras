@@ -21,7 +21,11 @@ public interface ContractFactoringPriceService extends IService<ContractFactorin
 
     Long sumApplyByContractId(List<Long> ids);
 
+    ContractFactoringPrice getByContractId(ContractPriceDetailREQ req);
+
     ContractFactoringPrice getByContractId(Long contractId);
 
     List<ContractFactoringPrice> listByContractIds(List<Long> contractIds);
+
+    void add(ContractFactoringPrice price);
 }

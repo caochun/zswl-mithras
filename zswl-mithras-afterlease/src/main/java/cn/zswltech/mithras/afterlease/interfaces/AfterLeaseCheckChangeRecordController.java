@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckChangeRecordListREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckChangeRecordListRSP;
 import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.AfterLeaseCheckChangeRecord;
-import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckChangeRecordService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

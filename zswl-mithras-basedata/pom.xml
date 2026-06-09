@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-service-core</artifactId>
+            <artifactId>zswl-mithras-foundation</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

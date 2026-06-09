@@ -28,7 +28,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.afterlease.application.CollectionPenaltyReductionService;
 import cn.zswltech.mithras.afterlease.application.impl.CollectionPenaltyReductionRelationService;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionOverdueHistoryService;
+import cn.zswltech.mithras.collection.application.CollectionOverdueHistoryService;
 import cn.zswltech.mithras.service.service.contract.*;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingPledgeInfoService;

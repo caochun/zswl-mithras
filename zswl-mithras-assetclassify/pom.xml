@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-service-core</artifactId>
+            <artifactId>zswl-mithras-foundation</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -36,6 +36,43 @@
             <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-system</artifactId>
             <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-workflow</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-contract</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-payment</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-collection</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-margin</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech.flow</groupId>
+            <artifactId>core</artifactId>
+            <version>1.5.11-mithras-RELEASE</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.flywaydb</groupId>
+                    <artifactId>flyway-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>

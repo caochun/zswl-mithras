@@ -16,7 +16,7 @@
         </where>
         order by update_time desc
     </select>
-    <select id="flatTemplate" resultType="cn.zswltech.mithras.service.mapper.dto.ArchivesFlatTempalteDTO">
+    <select id="flatTemplate" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesFlatTempalteDTO">
         select
         c.belong_id archiveId,
         a.id typeId,
@@ -40,7 +40,7 @@
         </where>
     </select>
 
-    <select id="archiveFileList" resultType="cn.zswltech.mithras.service.mapper.dto.ArchivesFlatTempalteDTO">
+    <select id="archiveFileList" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesFlatTempalteDTO">
         select
         c.belong_id archiveId,
         a.id typeId,
@@ -64,7 +64,7 @@
         order by b.sort,a.sort asc
     </select>
 
-    <select id="mustFileCount" resultType="cn.zswltech.mithras.service.mapper.dto.ArchivesMastFileCountDTO">
+    <select id="mustFileCount" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesMastFileCountDTO">
         select
         c.belong_id archiveId,
         count(distinct a.id) count
@@ -80,7 +80,7 @@
         group by c.belong_id
     </select>
 
-    <select id="mustFileTypeCount" resultType="cn.zswltech.mithras.service.mapper.dto.ArchivesMastFileTypeCountDTO">
+    <select id="mustFileTypeCount" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesMastFileTypeCountDTO">
         select
         b.template_id templateId,
         count(a.id) count

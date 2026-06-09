@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.unittest.mapper;
 
-import cn.zswltech.mithras.factory.model.RatingClient;
-import cn.zswltech.mithras.factory.service.RatingClientService;
+import cn.zswltech.mithras.rating.model.RatingClient;
+import cn.zswltech.mithras.rating.service.RatingClientService;
 import com.baomidou.mybatisplus.test.autoconfigure.MybatisPlusTest;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

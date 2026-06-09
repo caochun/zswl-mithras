@@ -3,7 +3,7 @@ package cn.zswltech.mithras.dashboard.application.boss;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.service.config.guanyuan.GuanYuanConfigProperties;
+import cn.zswltech.mithras.dashboard.config.GuanYuanConfigProperties;
 import cn.zswltech.mithras.dashboard.domain.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.dashboard.application.GuanYuanDSInfoService;

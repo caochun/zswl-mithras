@@ -27,12 +27,12 @@ public class MaterialsListQueryService {
     }
 
     public List<MaterialsList> list(String businessType, List<String> materialsTypes, List<Long> belongIds) {
-        if (materialsTypes == null || materialsTypes.isEmpty() || belongIds == null || belongIds.isEmpty()) {
+        if (belongIds == null || belongIds.isEmpty()) {
             return Collections.emptyList();
         }
         return materialsListMapper.selectList(Wrappers.<MaterialsList>lambdaQuery()
                 .eq(MaterialsList::getBusinessType, businessType)
-                .in(MaterialsList::getMaterialsType, materialsTypes)
+                .in(materialsTypes != null && !materialsTypes.isEmpty(), MaterialsList::getMaterialsType, materialsTypes)
                 .in(MaterialsList::getBelongId, belongIds));
     }
 }

@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-service-core</artifactId>
+            <artifactId>zswl-mithras-foundation</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -35,6 +35,41 @@
         <dependency>
             <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-projectprocess</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-customer</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-workflow</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-contract</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-payment</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-fund</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-riskcontrol</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-system</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -61,6 +96,24 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>QLExpress</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech.flow</groupId>
+            <artifactId>core</artifactId>
+            <version>1.5.11-mithras-RELEASE</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.flywaydb</groupId>
+                    <artifactId>flyway-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>3.1.5</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>

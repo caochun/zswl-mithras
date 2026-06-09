@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.service;
 
-import cn.zswltech.mithras.factory.model.RatingClientAreaIndicatorConfig;
-import cn.zswltech.mithras.factory.service.RatingClientAreaIndicatorService;
+import cn.zswltech.mithras.rating.model.RatingClientAreaIndicatorConfig;
+import cn.zswltech.mithras.rating.service.RatingClientAreaIndicatorService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import org.junit.Test;
 

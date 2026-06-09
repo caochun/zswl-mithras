@@ -13,7 +13,7 @@ import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMet
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.system.user.Id2NameService;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.web.bind.annotation.GetMapping;

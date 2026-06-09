@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.riskcontrol;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.riskcontrol.RiskControlConcentrationClientService;
+import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationClientService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

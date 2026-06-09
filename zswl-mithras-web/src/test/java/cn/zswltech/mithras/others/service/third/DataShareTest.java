@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.third;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.datashare.service.DataShareService;
+import cn.zswltech.mithras.third.datashare.service.DataShareService;
 import org.junit.jupiter.api.Test;
 
 import javax.annotation.Resource;

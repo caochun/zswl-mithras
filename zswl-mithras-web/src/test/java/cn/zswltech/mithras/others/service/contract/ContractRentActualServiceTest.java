@@ -4,7 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentActualExportREQ;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.service.service.contract.ContractRentActualService;
 import org.junit.Test;
 

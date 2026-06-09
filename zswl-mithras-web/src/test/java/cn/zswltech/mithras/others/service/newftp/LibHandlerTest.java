@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
 import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.service.newftp.lib.impl.NewFtpMonthlyGuidanceLibHandler;
+import cn.zswltech.mithras.ftp.newftp.lib.impl.NewFtpMonthlyGuidanceLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.workbench;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.workbench.WorkbenchChartMetricService;
+import cn.zswltech.mithras.workbench.application.job.WorkbenchChartMetricService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

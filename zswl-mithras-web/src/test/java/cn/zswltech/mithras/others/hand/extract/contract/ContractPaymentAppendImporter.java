@@ -40,7 +40,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBase
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentPlanedDetailMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewLeasePriceMapper;
-import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.service.service.contract.ContractService;
 import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
 import cn.zswltech.mithras.payment.application.lib.libservice.impl.PaymentVersionServiceImpl;

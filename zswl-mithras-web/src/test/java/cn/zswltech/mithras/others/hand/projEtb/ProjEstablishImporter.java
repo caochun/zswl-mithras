@@ -27,7 +27,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstabli
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishLeasePriceMapper;
-import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.impl.ProjEstablishVersionServiceImpl;
 import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
 import cn.zswltech.mithras.web.MithrasApplication;

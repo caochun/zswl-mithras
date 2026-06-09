@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model;
 
-import cn.zswltech.mithras.service.enums.fund.receiptrepay.ProcessState;
+import cn.zswltech.mithras.workflow.application.flow.enums.ProcessState;
 import cn.zswltech.mithras.service.mapper.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

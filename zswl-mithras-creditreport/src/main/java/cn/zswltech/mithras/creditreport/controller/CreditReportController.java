@@ -16,7 +16,7 @@ import cn.zswltech.mithras.service.enums.JobEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.creditreport.service.CreditReportQueryService;
 import cn.zswltech.mithras.creditreport.service.CreditReportService;
 import lombok.extern.slf4j.Slf4j;

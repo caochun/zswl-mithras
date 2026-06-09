@@ -36,7 +36,7 @@ public class GeneratorMain {
     public static final String ENTITY_DIR = "/cn/zswltech/mithras/service/mapper/model/creditreport";
 
     public static final String genDir = System.getProperty("user.dir");
-    public static final String serviceGenDir = System.getProperty("user.dir") + "/zswl-mithras-service/src/main/java";
+    public static final String serviceGenDir = System.getProperty("user.dir") + "/zswl-mithras-application/src/main/java";
     public static final String apiGenDir = System.getProperty("user.dir") + "/zswl-mithras-api/src/main/java";
 
     public static void main(String[] args) throws TemplateException, IOException {

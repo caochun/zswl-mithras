@@ -47,7 +47,7 @@ import cn.zswltech.mithras.report.service.fullsnap.CrFiveClassFullSnapService;
 import cn.zswltech.mithras.report.service.procsnap.CrFiveClassProcSnapService;
 import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.report.util.ReportCompareUtil;
-import cn.zswltech.mithras.service.constant.FlowConstants;
+import cn.zswltech.mithras.workflow.application.flow.constant.FlowConstants;
 import cn.zswltech.mithras.service.constant.ResultMsg;
 import cn.zswltech.mithras.service.constant.VersionTypeConstants;
 import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
@@ -57,7 +57,7 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.others.MithrasException;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.contract.core.application.ContractAccountService;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;

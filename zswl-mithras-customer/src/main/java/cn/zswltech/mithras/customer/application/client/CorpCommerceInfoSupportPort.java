@@ -1,0 +1,24 @@
+package cn.zswltech.mithras.customer.application.client;
+
+import cn.zswltech.mithras.customer.application.bo.ClientAuthBO;
+import cn.zswltech.mithras.customer.application.bo.ClientBusinessHistoryBO;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpShareholderInfo;
+import cn.zswltech.mithras.dto.contract.ContractCompareBusinessRSP;
+
+import java.util.List;
+import java.util.Map;
+
+public interface CorpCommerceInfoSupportPort {
+
+    ClientAuthBO getClientAuthByProj(Long clientId, Long userId);
+
+    Map<Long, ClientBusinessHistoryBO> compareBusiness(List<Long> clientIds);
+
+    ContractCompareBusinessRSP buildContractCompareBusinessRsp(ClientBusinessHistoryBO bo,
+                                                               Client client,
+                                                               CorpCommerceInfo corpCommerceInfo,
+                                                               List<CorpShareholderInfo> corpShareholderInfos,
+                                                               String clientType);
+}

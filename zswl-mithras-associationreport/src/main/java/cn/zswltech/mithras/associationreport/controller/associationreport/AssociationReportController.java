@@ -36,7 +36,7 @@ import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportDataAccess;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.system.user.SysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.transaction.annotation.Transactional;

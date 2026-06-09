@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.third.xinsight.mapper.XinsightInfoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.third.xinsight.model.XinsightInfo">
+        <result column="TMSTAMP" property="tmStamp" />
+        <result column="CLIENTID" property="clientId" />
+        <result column="NEWSTITLE" property="newsTitle" />
+        <result column="SYMBOL" property="symbol" />
+        <result column="SJITNAME" property="sjitName" />
+        <result column="PUBLISHTIME" property="publishTime" />
+        <result column="XNEWSURL" property="xnewsUrl" />
+        <result column="RELETYPECODE" property="releTypeCode" />
+        <result column="RELETYPECN" property="releTypeCn" />
+        <result column="SYMBOLCOMP" property="symbolComp" />
+        <result column="MODULEID" property="moduleId" />
+        <result column="EMOTIONNAME" property="emotionName" />
+        <result column="XDFWDATE" property="xdfwDate" />
+        <result column="NEWSSOURCE" property="newsSource" />
+        <result column="CONFIGID" property="configId" />
+        <result column="ISDEL" property="isDel" />
+    </resultMap>
+
+    <select id="selectByTmStamp" resultMap="BaseResultMap">
+        SELECT
+            TMSTAMP,
+            CLIENTID,
+            NEWSTITLE,
+            SYMBOL,
+            SJITNAME,
+            PUBLISHTIME,
+            XNEWSURL,
+            RELETYPECODE,
+            RELETYPECN,
+            SYMBOLCOMP,
+            MODULEID,
+            EMOTIONNAME,
+            XDFWDATE,
+            NEWSSOURCE,
+            CONFIGID,
+            ISDEL
+        FROM XINSIGHT_NEW_ALLINFO
+        WHERE TMSTAMP > #{lastMaxId}
+        AND ISDEL != 1
+        AND EMOTIONNAME != '正面'
+        ORDER BY TMSTAMP ASC
+    </select>
+
+</mapper>

@@ -20,7 +20,7 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financin
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayBaseInfoService;

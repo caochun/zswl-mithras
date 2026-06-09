@@ -20,7 +20,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.Nor
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalBaseInfoMapper;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalSpouseMapper;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.client.CorpSubjectItemService;
+import cn.zswltech.mithras.customer.application.client.CorpSubjectItemService;
 import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
 import cn.zswltech.mithras.third.service.model.MithrasBaseInfo;
 import cn.zswltech.mithras.third.service.model.MithrasRelatedEnterpriseInfo;

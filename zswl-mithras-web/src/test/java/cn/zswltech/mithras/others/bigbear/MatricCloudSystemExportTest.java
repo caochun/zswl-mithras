@@ -27,9 +27,9 @@ import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptr
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.fund.application.FundFinancingCreditRefService;
 import cn.zswltech.mithras.fund.application.FundOrganizationService;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingBaseInfoService;

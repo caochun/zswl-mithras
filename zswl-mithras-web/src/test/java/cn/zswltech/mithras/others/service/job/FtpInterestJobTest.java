@@ -8,9 +8,9 @@ import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.ftp.oldftp.bo.CashFtpInfluenceBO;
 import cn.zswltech.mithras.service.service.ftp.FtpInterestBaseInfoService;
-import cn.zswltech.mithras.service.service.newftp.service.FtpService;
-import cn.zswltech.mithras.service.service.newftp.service.config.NewFtpFinancingCostPricingConfigService;
-import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpMonthlyGuidanceDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.FtpService;
+import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpFinancingCostPricingConfigService;
+import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpMonthlyGuidanceDraftService;
 import cn.zswltech.mithras.service.service.payment.FtpAssessmentInfoService;
 import org.junit.Test;
 

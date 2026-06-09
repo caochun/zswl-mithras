@@ -13,42 +13,29 @@
     <version>${revision}</version>
     <modules>
         <module>zswl-mithras-api</module>
-        <module>zswl-mithras-service-core</module>
+        <module>zswl-mithras-foundation</module>
         <module>zswl-mithras-creditreport</module>
-        <module>zswl-mithras-xinsight</module>
-        <module>zswl-mithras-ep</module>
-        <module>zswl-mithras-guanbao</module>
-        <module>zswl-mithras-log</module>
-        <module>zswl-mithras-async</module>
         <module>zswl-mithras-associationreport</module>
-        <module>zswl-mithras-factory</module>
+        <module>zswl-mithras-rating</module>
         <module>zswl-mithras-blackgray</module>
         <module>zswl-mithras-capital</module>
         <module>zswl-mithras-finance</module>
-        <module>zswl-mithras-fund-direct</module>
         <module>zswl-mithras-fund</module>
         <module>zswl-mithras-leaseholdproperty</module>
-        <module>zswl-mithras-datashare</module>
         <module>zswl-mithras-basedata</module>
         <module>zswl-mithras-margin</module>
-        <module>zswl-mithras-projlifecycle</module>
         <module>zswl-mithras-policy</module>
         <module>zswl-mithras-credit</module>
-        <module>zswl-mithras-monthly</module>
         <module>zswl-mithras-assetclassify</module>
-        <module>zswl-mithras-liquiditymanage</module>
         <module>zswl-mithras-liquidity</module>
         <module>zswl-mithras-filingmaterials</module>
         <module>zswl-mithras-archives</module>
-        <module>zswl-mithras-financeprojectdistribution</module>
         <module>zswl-mithras-ftp</module>
         <module>zswl-mithras-projectprocess</module>
-        <module>zswl-mithras-project</module>
         <module>zswl-mithras-payment</module>
         <module>zswl-mithras-afterlease</module>
         <module>zswl-mithras-budget</module>
         <module>zswl-mithras-customer</module>
-        <module>zswl-mithras-identity</module>
         <module>zswl-mithras-contract</module>
         <module>zswl-mithras-collection</module>
         <module>zswl-mithras-riskcontrol</module>
@@ -59,10 +46,9 @@
         <module>zswl-mithras-workflow</module>
         <module>zswl-mithras-document</module>
         <module>zswl-mithras-kpi</module>
-        <module>zswl-mithras-creditlimit</module>
         <module>zswl-mithras-metric</module>
         <module>zswl-mithras-system</module>
-        <module>zswl-mithras-service</module>
+        <module>zswl-mithras-application</module>
         <module>zswl-mithras-report</module>
         <module>zswl-mithras-web</module>
     </modules>

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseTaskMapper;
 import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseTaskService;
 import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

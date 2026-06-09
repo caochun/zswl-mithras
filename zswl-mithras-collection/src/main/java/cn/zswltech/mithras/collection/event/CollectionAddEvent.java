@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.collection.event;
 
 import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;

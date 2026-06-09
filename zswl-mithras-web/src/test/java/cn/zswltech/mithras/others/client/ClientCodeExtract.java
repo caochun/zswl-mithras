@@ -16,10 +16,10 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfo;
-import cn.zswltech.mithras.datashare.mapper.model.DataShareMerchants;
-import cn.zswltech.mithras.service.service.client.CorpContactInfoService;
-import cn.zswltech.mithras.datashare.service.DataShareMerchantsService;
-import cn.zswltech.mithras.datashare.service.DataShareService;
+import cn.zswltech.mithras.third.datashare.mapper.model.DataShareMerchants;
+import cn.zswltech.mithras.customer.application.client.CorpContactInfoService;
+import cn.zswltech.mithras.third.datashare.service.DataShareMerchantsService;
+import cn.zswltech.mithras.third.datashare.service.DataShareService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import cn.zswltech.mithras.web.MithrasApplication;

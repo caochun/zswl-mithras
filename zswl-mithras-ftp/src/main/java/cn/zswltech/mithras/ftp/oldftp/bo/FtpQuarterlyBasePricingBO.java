@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.oldftp.bo;
 
 import cn.zswltech.mithras.ftp.newftp.enums.AssetIndustryClassify;
-import cn.zswltech.mithras.service.enums.newftp.CustomerEntityClassify;
+import cn.zswltech.mithras.customer.domain.enums.client.CustomerEntityClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.RelatedTermRange;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
 import lombok.AllArgsConstructor;

@@ -61,7 +61,7 @@ public class CollectionBaseInfoController implements CollectionBaseInfoApi {
     }
 
 //    @Override
-//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = BusinessModuleEnum.PAYMENT)
+//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = "PAYMENT")
 //    public R<Void> updateRecord(@Valid CollectionBaseInfoUpdateREQ req) {
 //        collectionOverdueRecordInfoService.update(req);
 //        return R.ok();

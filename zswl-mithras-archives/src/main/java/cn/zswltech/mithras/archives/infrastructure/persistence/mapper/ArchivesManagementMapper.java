@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.archives.infrastructure.persistence.mapper;
 
 import cn.zswltech.mithras.dto.archives.ArchivesListREQ;
-import cn.zswltech.mithras.service.mapper.dto.ArchivesManagementDTO;
+import cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesManagementDTO;
 import cn.zswltech.mithras.archives.infrastructure.persistence.model.ArchivesManagement;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

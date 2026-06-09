@@ -1,0 +1,109 @@
+package cn.zswltech.mithras.collection.application.job.impl;
+
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.IdUtil;
+import cn.zswltech.mithras.collection.application.job.RentRepayNoticeFinanceJobService;
+import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
+import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.dto.message.MessageAddREQ;
+import cn.zswltech.mithras.message.convert.MessageConver;
+import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
+import cn.zswltech.mithras.message.service.MessageService;
+import cn.zswltech.mithras.service.config.redis.RedisDistLock;
+import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.service.enums.JobEnum;
+import cn.zswltech.mithras.system.user.SysUserService;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+/**
+ * @author yangxiong
+ * @date 2023/11/22/18:51
+ * @description 定时扫描租金还款表，提醒财务尽快核销
+ */
+@Slf4j
+@Component
+public class RentRepayNoticeFinanceJobServiceImpl implements RentRepayNoticeFinanceJobService {
+    private static final String LOCK_KEY = "RentRepayNoticeFinanceJob";
+    @Resource
+    private RedisDistLock lock;
+    @Resource
+    private MessageService messageService;
+    @Resource
+    private CollectionBaseInfoMapper collectionBaseInfoMapper;
+    @Resource
+    private MessageConver messageConver;
+    @Resource
+    private SysUserService sysUserService;
+
+    @Override
+    public void rentRepayNoticeFinance() {
+        try {
+            lock.tryLockWithoutReleaseTime(LOCK_KEY, 10000);
+            try {
+                log.info("定时任务租金还款通知财务开始了");
+                List<CollectionBaseInfo> list = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery()
+                        .eq(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name())
+                        .lt(CollectionBaseInfo::getPlanCollectionDate, LocalDate.now())
+                        .ne(CollectionBaseInfo::getWriteOffStatus, CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name()));
+
+                Map<String, List<CollectionBaseInfo>> baseInfoMap = Optional.ofNullable(list).orElse(Collections.emptyList()).stream()
+                        .collect(Collectors.groupingBy(CollectionBaseInfo::getContractCode));
+
+                //拼接通知格式
+                StringBuilder buffer = new StringBuilder();
+                Integer flag = 0;
+                if (CollUtil.isNotEmpty(baseInfoMap)) {
+                    for (Map.Entry<String, List<CollectionBaseInfo>> entry : baseInfoMap.entrySet()) {
+                        if (flag < 3) {
+                            buffer.append(entry.getKey()).append("、");
+                            flag++;
+                        } else {
+                            buffer = new StringBuilder(buffer.substring(0, buffer.length() - 1));
+                            buffer.append("等").append(baseInfoMap.size()).append("个合同");
+                            break;
+                        }
+                    }
+                }
+
+                //发送通知
+                Set<Long> userIds = new HashSet<>();
+                userIds.addAll(sysUserService.queryJobUserIds(JobEnum.cashier.name()));
+                userIds.addAll(sysUserService.queryJobUserIds(JobEnum.financialmanager.name()));
+                userIds.addAll(sysUserService.queryJobUserIds(JobEnum.financialofficer.name()));
+                if (CollUtil.isNotEmpty(userIds) && buffer.length() > 0) {
+                    for (Long userId : userIds) {
+                        MessageAddREQ addRequest = new MessageAddREQ();
+                        addRequest.setFrom("系统通知");
+                        addRequest.setTo(Collections.singletonList(userId));
+                        addRequest.setPcurl("/cpm/collectionWriteOff");
+                        addRequest.setContent("收款核销提醒");
+                        addRequest.setFlowid(IdUtil.getSnowflakeNextIdStr());
+                        addRequest.setRelation(String.format("合同编号为：%s已经过了收款时间还未核销，请尽快核销，否则可能造成逾期！", buffer));
+                        addRequest.setMessageType(MessageTypeEnum.COLLECTION_NOTICE.name());
+                        messageService.sendMessage(messageConver.reqToMessage(addRequest));
+                    }
+                }
+                log.info("定时任务租金还款通知财务结束了！待核销数量为：{}", baseInfoMap.size());
+            } catch (Exception e) {
+                log.error("定时任务租金还款通知财务出错了，错误信息：%s", e);
+            }
+        } catch (Exception e) {
+            log.warn("定时任务租金还款通知财务加锁失败，错误信息：%s", e);
+        } finally {
+            lock.unlock(LOCK_KEY);
+        }
+    }
+}

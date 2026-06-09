@@ -42,7 +42,7 @@ public class CollectionRecordInfoController implements CollectionRecordInfoApi {
     }
 
 //    @Override
-//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = BusinessModuleEnum.PAYMENT)
+//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = "PAYMENT")
 //    public R<String> addRecord(@Valid CollectionRecordAddREQ req,MultipartFile file) {
 //        if (req.getCollectionAmount() == 0 || req.getCollectionAmount() == null){
 //            return R.fail("实付金额不能为0！");
@@ -55,27 +55,27 @@ public class CollectionRecordInfoController implements CollectionRecordInfoApi {
 //    }
 //
 //    @Override
-//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = BusinessModuleEnum.PAYMENT)
+//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = "PAYMENT")
 //    public R<String> modifyRecord(@Valid CollectionRecordAddREQ req, MultipartFile file) {
 //
 //        return collectionRecordInfoService.modify(req,file);
 //    }
 //
 //    @Override
-//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = BusinessModuleEnum.PAYMENT)
+//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = "PAYMENT")
 //    public R<String> updateRecord(@Valid CollectionRecordUpdateREQ req) {
 //        return collectionRecordInfoService.writeOff(req);
 //    }
 //
 //    @Override
-//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = BusinessModuleEnum.PAYMENT)
+//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = "PAYMENT")
 //    public R<Void> off(@Valid CollectionWriteOffReq req) {
 //        collectionRecordInfoService.writeOff(req);
 //        return R.ok();
 //    }
 
 //    @Override
-//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = BusinessModuleEnum.PAYMENT)
+//    @DataAuthCheck(checkerClass = CollectionWriteOffAuthChecker.class, businessModule = "PAYMENT")
 //    public R<Void> undooff(@Valid CollectionUnWriteOffReq req) {
 //        collectionRecordInfoService.undoWriteOff(req.getId());
 //        return R.ok();

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.report.flow.listener.endhandler;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.report.handler.CrFacade;
-import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.flow.listener.endhandler.AbstractProcessEndHandler;
 import org.springframework.stereotype.Component;
 

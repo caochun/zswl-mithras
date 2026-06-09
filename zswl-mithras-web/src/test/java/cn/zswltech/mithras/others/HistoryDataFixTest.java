@@ -10,7 +10,7 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.clie
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.service.service.client.ClientService;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.projectprocess.service.lib.projestablish.ProjEstablishBaseInfoLibService;
 import cn.zswltech.mithras.service.service.projestablish.ProjEstablishBaseInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -59,7 +59,7 @@ public class HistoryDataFixTest extends ApplicationTest {
             info.setClientId(client.getId());
             info.setClientName(client.getClientName());
             info.setClientType(client.getClientType());
-            info.setStockRiskExposure(contractBaseInfoService.getStockRiskExposure(client.getId(), projEstablishBaseInfo.getId(), BusinessModuleEnum.PROJ_ESTABLISH));
+            info.setStockRiskExposure(contractBaseInfoService.getStockRiskExposure(client.getId(), projEstablishBaseInfo.getId(), BusinessModuleEnum.PROJ_ESTABLISH.name()));
             projEstablishBaseInfo.setCreditorInfo(JSONUtil.toJsonStr(Collections.singletonList(info)));
             projEstablishBaseInfoService.updateById(projEstablishBaseInfo);
         }
@@ -83,7 +83,7 @@ public class HistoryDataFixTest extends ApplicationTest {
             info.setClientId(client.getId());
             info.setClientName(client.getClientName());
             info.setClientType(client.getClientType());
-            info.setStockRiskExposure(contractBaseInfoService.getStockRiskExposure(client.getId(), projEstablishBaseInfoLib.getOriginId(), BusinessModuleEnum.PROJ_ESTABLISH));
+            info.setStockRiskExposure(contractBaseInfoService.getStockRiskExposure(client.getId(), projEstablishBaseInfoLib.getOriginId(), BusinessModuleEnum.PROJ_ESTABLISH.name()));
             projEstablishBaseInfoLib.setCreditorInfo(JSONUtil.toJsonStr(Collections.singletonList(info)));
             projEstablishBaseInfoLibService.updateById(projEstablishBaseInfoLib);
         }

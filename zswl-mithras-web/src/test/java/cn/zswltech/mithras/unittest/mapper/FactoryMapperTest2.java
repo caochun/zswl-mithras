@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.unittest.mapper;
 
-import cn.zswltech.mithras.factory.model.RatingClient;
-import cn.zswltech.mithras.factory.service.RatingClientService;
+import cn.zswltech.mithras.rating.model.RatingClient;
+import cn.zswltech.mithras.rating.service.RatingClientService;
 import cn.zswltech.mithras.report.mapper.model.CrModifyDataSnap;
 import cn.zswltech.mithras.report.service.CrModifyDataSnapService;
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;

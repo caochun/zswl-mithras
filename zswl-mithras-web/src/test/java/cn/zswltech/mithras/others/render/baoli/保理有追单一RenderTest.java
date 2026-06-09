@@ -6,7 +6,7 @@ import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTr
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferNotifyRender;
 import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferRegisterProtocolRender;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.service.service.contract.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;

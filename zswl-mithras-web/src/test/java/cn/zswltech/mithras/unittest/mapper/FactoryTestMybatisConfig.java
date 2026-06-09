@@ -28,7 +28,7 @@ import javax.sql.DataSource;
  * @author luyi
  */
 @EnableTransactionManagement
-@MapperScan(basePackages = "cn.zswltech.mithras.factory.mapper")
+@MapperScan(basePackages = "cn.zswltech.mithras.rating.mapper")
 public class FactoryTestMybatisConfig {
 
     @Bean(name = "testDataSource")

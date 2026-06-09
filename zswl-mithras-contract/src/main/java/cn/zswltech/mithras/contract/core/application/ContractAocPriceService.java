@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.contract.core.application;
 
 import cn.zswltech.mithras.dto.contract.price.ContractAocPriceModifyREQ;
+import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -16,6 +17,8 @@ public interface ContractAocPriceService extends IService<ContractAocPrice> {
     void modify(@Valid ContractAocPriceModifyREQ req);
 
     Long sumApplyByContractId(List<Long> ids);
+
+    ContractAocPrice getByContractId(ContractPriceDetailREQ req);
 
     ContractAocPrice getByContractId(Long contractId);
 

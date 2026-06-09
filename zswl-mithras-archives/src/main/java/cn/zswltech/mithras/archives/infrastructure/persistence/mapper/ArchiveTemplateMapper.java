@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.archives.infrastructure.persistence.mapper;
 
 import cn.zswltech.mithras.dto.archives.ArchiveTemplateListREQ;
-import cn.zswltech.mithras.service.mapper.dto.ArchivesFlatTempalteDTO;
-import cn.zswltech.mithras.service.mapper.dto.ArchivesMastFileCountDTO;
-import cn.zswltech.mithras.service.mapper.dto.ArchivesMastFileTypeCountDTO;
+import cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesFlatTempalteDTO;
+import cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesMastFileCountDTO;
+import cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesMastFileTypeCountDTO;
 import cn.zswltech.mithras.archives.infrastructure.persistence.model.ArchiveFileType;
 import cn.zswltech.mithras.archives.infrastructure.persistence.model.ArchiveTemplate;
 import cn.zswltech.mithras.service.plugin.CustomBaseMapper;

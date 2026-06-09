@@ -8,7 +8,7 @@ import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.HandProcessOperateRecordMapper;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.HandProcessOperateRecord;
-import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.system.user.SysUserService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import org.junit.Test;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service;
 
-import cn.zswltech.mithras.factory.service.RatingAmountService;
+import cn.zswltech.mithras.rating.service.RatingAmountService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

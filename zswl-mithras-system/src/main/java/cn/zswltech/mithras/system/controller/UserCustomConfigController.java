@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.usercustomconfig.UserCustomConfigDetailREQ;
 import cn.zswltech.mithras.dto.usercustomconfig.UserCustomConfigDetailRSP;
 import cn.zswltech.mithras.dto.usercustomconfig.UserCustomConfigSaveREQ;
-import cn.zswltech.mithras.system.service.UserCustomConfigService;
+import cn.zswltech.mithras.system.config.UserCustomConfigService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

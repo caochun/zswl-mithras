@@ -6,9 +6,9 @@ import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.mithras.service.constant.FlowConstants;
+import cn.zswltech.mithras.workflow.application.flow.constant.FlowConstants;
 import cn.zswltech.mithras.service.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.service.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.service.others.MithrasException;
 import org.springframework.stereotype.Service;
 

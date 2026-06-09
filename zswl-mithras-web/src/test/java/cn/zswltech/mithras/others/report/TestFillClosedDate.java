@@ -52,9 +52,9 @@ import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.Payme
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.service.others.Util;
 import cn.zswltech.mithras.service.service.collection.CollectionBaseInfoService;
-import cn.zswltech.mithras.service.service.collection.CollectionOverdueRecordInfoService;
+import cn.zswltech.mithras.collection.application.CollectionOverdueRecordInfoService;
 import cn.zswltech.mithras.service.service.dashboard.DashboardFundFinanceService;
-import cn.zswltech.mithras.service.service.file.template.FileTemplateService;
+import cn.zswltech.mithras.document.application.file.template.FileTemplateService;
 import cn.zswltech.mithras.service.service.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.service.util.ChineseToPinyinUtil;
 import cn.zswltech.mithras.web.MithrasApplication;

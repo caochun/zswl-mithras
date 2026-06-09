@@ -20,14 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @ServletComponentScan("cn.zswltech.mithras.guanbao.config")
 @MapperScan({"cn.zswltech.mithras.service.mapper",
+        "cn.zswltech.mithras.system.audit.mapper",
         "cn.zswltech.mithras.contract.mapper",
         "cn.zswltech.mithras.contract.overdue.infrastructure.dao.mapper",
-        "cn.zswltech.mithras.factory.mapper",
+        "cn.zswltech.mithras.rating.mapper",
         "cn.zswltech.mithras.third.providence.mapper",
         "cn.zswltech.lib.futurelog.save.mapper",
         "cn.zswltech.mithras.blackgray.mapper",
         "cn.zswltech.mithras.metric.financialcloudmetric.mapper",
-        "cn.zswltech.mithras.service.service.newftp.mapper",
+        "cn.zswltech.mithras.ftp.newftp.mapper",
         "cn.zswltech.mithras.service.fund.direct.mapper",
         "cn.zswltech.mithras.kpi.mapper",
         "cn.zswltech.mithras.finance.view.mapper"

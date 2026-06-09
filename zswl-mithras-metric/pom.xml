@@ -25,7 +25,12 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-service-core</artifactId>
+            <artifactId>zswl-mithras-foundation</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-third</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -60,17 +65,12 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-liquiditymanage</artifactId>
+            <artifactId>zswl-mithras-liquidity</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-kpi</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-fund-direct</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

@@ -1,4 +1,5 @@
 package cn.zswltech.mithras.associationreport.job;
+import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.domain.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollectionUtil;
@@ -21,7 +22,7 @@ import cn.zswltech.mithras.associationreport.service.job.AssociationReportJobSer
 import cn.zswltech.mithras.associationreport.service.job.AssociationReportProcessPrepareService;
 import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

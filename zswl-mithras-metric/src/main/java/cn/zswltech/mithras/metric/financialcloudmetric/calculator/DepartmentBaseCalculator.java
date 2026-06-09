@@ -9,7 +9,7 @@ import cn.zswltech.mithras.kpi.mapper.PerformanceMainInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.model.PerformanceBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.PerformanceMainInfo;
 import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.system.service.SysUserService;
+import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.service.util.LongUtil;
 import cn.zswltech.mithras.service.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

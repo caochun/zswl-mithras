@@ -3,7 +3,7 @@ package cn.zswltech.mithras.customer.domain.enums.client;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.newftp.CustomerEntityClassify;
+import cn.zswltech.mithras.customer.domain.enums.client.CustomerEntityClassify;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

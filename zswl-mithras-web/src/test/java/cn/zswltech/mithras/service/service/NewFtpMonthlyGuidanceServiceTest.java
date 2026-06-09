@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.system.service;
+package cn.zswltech.mithras.service.maintenance;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.io.FileUtil;
@@ -17,9 +17,9 @@ import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.Cli
 import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
 import cn.zswltech.mithras.service.others.SpringContextHolder;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
-import cn.zswltech.mithras.service.service.newftp.service.NewFtpBaseInfoService;
-import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpMonthlyGuidanceDraftService;
-import cn.zswltech.mithras.service.service.newftp.service.drift.NewFtpQuarterlyBasePricingDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.NewFtpBaseInfoService;
+import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpMonthlyGuidanceDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpQuarterlyBasePricingDraftService;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SystemUserOperateLogREQ;
 import cn.zswltech.mithras.dto.SystemUserOperateLogRSP;
-import cn.zswltech.mithras.system.service.SystemUserOperateLogService;
+import cn.zswltech.mithras.system.audit.SystemUserOperateLogService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

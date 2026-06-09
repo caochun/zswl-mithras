@@ -13,7 +13,7 @@ import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectBasicResult;
-import cn.zswltech.mithras.system.service.Id2NameService;
+import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 
 import javax.annotation.Resource;
