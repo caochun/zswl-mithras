@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.adapter.contract.job;
+package cn.zswltech.mithras.contract.adapter.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.StopWatch;

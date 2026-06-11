@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.adapter.contract.job;
+package cn.zswltech.mithras.contract.adapter.job;
 
 import cn.zswltech.mithras.contract.job.service.ContractDataInitJobService;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
