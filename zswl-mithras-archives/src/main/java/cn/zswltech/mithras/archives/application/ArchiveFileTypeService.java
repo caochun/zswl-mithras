@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.archives.application.template;
+package cn.zswltech.mithras.archives.application;
 
 import cn.zswltech.mithras.archives.mapper.ArchiveFileTypeMapper;
 import cn.zswltech.mithras.archives.model.ArchiveFileType;

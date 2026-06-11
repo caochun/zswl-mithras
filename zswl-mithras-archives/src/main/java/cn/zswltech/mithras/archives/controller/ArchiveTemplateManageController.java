@@ -1,10 +1,15 @@
-package cn.zswltech.mithras.archives.controller.template;
+package cn.zswltech.mithras.archives.controller;
 
 import cn.zswltech.mithras.api.archives.ArchiveTemplateManageApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.archives.*;
-import cn.zswltech.mithras.archives.application.template.ArchiveTemplateService;
+import cn.zswltech.mithras.dto.archives.ArchiveTemplateAddREQ;
+import cn.zswltech.mithras.dto.archives.ArchiveTemplateInfoREQ;
+import cn.zswltech.mithras.dto.archives.ArchiveTemplateInfoRSP;
+import cn.zswltech.mithras.dto.archives.ArchiveTemplateListREQ;
+import cn.zswltech.mithras.dto.archives.ArchiveTemplateListRSP;
+import cn.zswltech.mithras.dto.archives.ArchiveTemplateUpdateREQ;
+import cn.zswltech.mithras.archives.application.ArchiveTemplateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
