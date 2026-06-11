@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.mapper;
 
-import cn.zswltech.mithras.fund.mapper.model.FundFinancialSystemCallRecord;
+import cn.zswltech.mithras.fund.model.FundFinancialSystemCallRecord;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

@@ -2,12 +2,12 @@ package cn.zswltech.mithras.liquidity.service;
 
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterBaseDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexDetailRSP;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptFlowDetail;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptFlowPlan;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowPlan;
 import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.credit.creditlimit.service.bo.CreditLimitDetailBO;
 

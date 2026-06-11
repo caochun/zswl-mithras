@@ -17,7 +17,7 @@
     </select>
 
     <select id="getLastestByContractId"
-            resultType="cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPledgeInfoLib">
+            resultType="cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfoLib">
 
         SELECT p.*
         FROM fund_financing_pledge_info_lib p

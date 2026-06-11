@@ -14,7 +14,7 @@ import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModi
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.fund.application.financial.FundFinancialSystemService;

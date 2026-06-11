@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPledgeInf
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPledgeInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPledgeInfoListRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPledgeInfoModifyREQ;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.directfinancing.excel.directfinancing.FundDirectFinancingPledgeInfoExcelModel;
 import org.mapstruct.Mapper;
 

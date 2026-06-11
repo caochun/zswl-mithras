@@ -9,8 +9,8 @@ import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundReceiptRepa
 import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBorrowingMapper;
 import cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayBorrowingLibMapper;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBorrowing;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBorrowingLib;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBorrowing;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBorrowingLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.workbench.cardcal;
 
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayCashFlowService;
 import cn.zswltech.mithras.workbench.application.cardcal.WorkbenchCardFundRepayPort;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchFundRepayCashFlow;

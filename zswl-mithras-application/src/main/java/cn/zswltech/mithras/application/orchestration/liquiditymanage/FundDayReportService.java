@@ -15,7 +15,7 @@ import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
-import cn.zswltech.mithras.fund.mapper.model.FundOrganization;
+import cn.zswltech.mithras.fund.model.FundOrganization;
 import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.liquidity.service.FundDayReportApplicationService;
 import cn.zswltech.mithras.system.user.Id2NameService;

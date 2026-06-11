@@ -5,7 +5,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingAccountTypeEnum;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPayAccountMapper;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPayAccount;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPayAccount;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

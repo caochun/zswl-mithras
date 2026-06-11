@@ -10,7 +10,7 @@
         ffp.lpr_arrange_mode, ffp.lpr_adjustment_day, ffp.comprehensive_interest_rate_current, ffp.guarantee_info,
         ffp.ftp_yield_rate
     </sql>
-    <select id="queryEffectFloatPlan" resultType="cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPlan">
+    <select id="queryEffectFloatPlan" resultType="cn.zswltech.mithras.fund.model.financing.FundFinancingPlan">
         SELECT
         <include refid="allColumns"/>
         FROM fund_financing_plan ffp

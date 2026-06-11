@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.directfinancing.application.directfinancing.convert;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolDetailRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolModifyREQ;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingAssetPool;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingAssetPool;
 import org.mapstruct.Mapper;
 
 /**

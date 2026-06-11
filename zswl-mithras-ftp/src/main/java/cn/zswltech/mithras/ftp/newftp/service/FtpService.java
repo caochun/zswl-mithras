@@ -26,7 +26,7 @@ import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryE
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjectManageLevelEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
@@ -35,7 +35,7 @@ import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPledgeInfoMapper;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfoMapper;

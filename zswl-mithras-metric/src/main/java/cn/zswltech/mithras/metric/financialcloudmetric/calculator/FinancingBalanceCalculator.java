@@ -5,8 +5,8 @@ import cn.zswltech.mithras.capital.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptFlowDetailMapper;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptFlowDetail;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 
 import javax.annotation.Resource;

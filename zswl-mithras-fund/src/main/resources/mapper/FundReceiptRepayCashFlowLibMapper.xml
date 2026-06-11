@@ -4,7 +4,7 @@
 
 
     <select id="newestCashFlowLib"
-            resultType="cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashFlowLib">
+            resultType="cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashFlowLib">
 
         SELECT p.*
         FROM fund_receipt_repay_cash_flow_lib p

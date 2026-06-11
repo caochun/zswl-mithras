@@ -6,7 +6,7 @@ import cn.zswltech.mithras.foundation.auth.checker.IDataAuthChecker;
 import cn.zswltech.mithras.foundation.auth.DataAuthCreatorGuard;
 import cn.zswltech.mithras.foundation.auth.DataAuthProcessGuard;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

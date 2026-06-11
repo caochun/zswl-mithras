@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.application.financial;
 
 import cn.zswltech.mithras.fund.application.financial.FundFinancialSystemCallRecordService;
-import cn.zswltech.mithras.fund.mapper.model.FundFinancialSystemCallRecord;
+import cn.zswltech.mithras.fund.model.FundFinancialSystemCallRecord;
 import cn.zswltech.mithras.fund.application.financial.dto.FinancialSystemSubmitQuery;
 import cn.zswltech.mithras.fund.enums.financial.FundFinancialSystemEnum;
 import cn.zswltech.mithras.fund.application.financial.dto.FinancialSystemSubmitResult;

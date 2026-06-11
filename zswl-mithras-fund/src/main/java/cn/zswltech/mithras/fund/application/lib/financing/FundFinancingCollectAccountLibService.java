@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.application.lib.financing;
 
 import cn.zswltech.mithras.fund.mapper.lib.financing.FundFinancingCollectAccountLibMapper;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingCollectAccountLib;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingCollectAccountLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;

@@ -17,7 +17,7 @@
     </select>
 
     <select id="queryLastestVersionLibList"
-            resultType="cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfoLib">
+            resultType="cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfoLib">
         SELECT p.* FROM fund_financing_base_info_lib p
         INNER JOIN (SELECT main_id AS financing_id, MAX(version) AS version FROM common_version t1
         WHERE t1.module = 'FUND_FINANCING' AND version_type = 1
@@ -32,7 +32,7 @@
     </select>
 
     <select id="queryLastestVersionLibs"
-            resultType="cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfoLib">
+            resultType="cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfoLib">
         SELECT p.* FROM fund_financing_base_info_lib p
         INNER JOIN (SELECT main_id AS financing_id, MAX(version) AS version FROM common_version t1
         WHERE t1.module = 'FUND_FINANCING' AND version_type = 1

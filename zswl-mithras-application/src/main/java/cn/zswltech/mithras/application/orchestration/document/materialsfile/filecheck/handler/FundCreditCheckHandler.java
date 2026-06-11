@@ -5,7 +5,7 @@ import cn.hutool.core.lang.Pair;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.fund.mapper.model.FundCredit;
+import cn.zswltech.mithras.fund.model.FundCredit;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.fund.FundCreditService;

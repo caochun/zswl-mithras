@@ -8,7 +8,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.fund.application.process.prepare.FundProcessPrepareMaterialPort;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingMaterialsEnum;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingBaseInfoMapper;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;

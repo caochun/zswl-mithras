@@ -11,7 +11,7 @@ import cn.zswltech.mithras.fund.enums.financing.FundFinancingChangeSubTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingProcessStatus;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.application.financing.fms.FundFinancingBaseInfoStateMachine;

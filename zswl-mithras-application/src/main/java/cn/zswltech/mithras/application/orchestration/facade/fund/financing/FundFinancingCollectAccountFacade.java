@@ -9,7 +9,7 @@ import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModi
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingSubModifyAuthChecker;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingCollectAccountMapper;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingCollectAccount;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingCollectAccount;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingCollectAccountService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

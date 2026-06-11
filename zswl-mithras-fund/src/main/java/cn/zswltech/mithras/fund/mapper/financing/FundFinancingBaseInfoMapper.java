@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceBalanceRSP;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceLoanInfoRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.dayreport.RepayPrincipalInterestListREQ;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.fund.application.financing.dto.RepayPrincipalInterestDto;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

@@ -366,7 +366,7 @@
     </sql>
 
     <select id="advancedList"
-            resultType="cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfo">
+            resultType="cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo">
         select * from fund_receipt_repay_base_info
         <where>
             <if test="dto.financingOrgId != null">and financing_org_id = #{dto.financingOrgId}</if>

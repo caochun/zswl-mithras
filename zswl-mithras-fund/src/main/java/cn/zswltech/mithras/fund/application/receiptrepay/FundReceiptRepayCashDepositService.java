@@ -13,8 +13,8 @@ import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundReceiptRepa
 import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayCashDepositMapper;
 import cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayCashDepositLibMapper;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashDeposit;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashDepositLib;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashDeposit;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashDepositLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

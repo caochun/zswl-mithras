@@ -3,8 +3,8 @@ package cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundRepayAccountListRSP;
 import cn.zswltech.mithras.fund.enums.receiptrepay.FundReceiptRepayInfoModule;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundRepayAccount;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundRepayAccountLib;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundRepayAccount;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundRepayAccountLib;
 import cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import org.springframework.stereotype.Component;
 

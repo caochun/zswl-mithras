@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.fund.FundGuaranteeAgencyDetailRSP;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeAgencyListRSP;
 import cn.zswltech.mithras.dto.fund.FundGuaranteeAgencyModifyREQ;
 import cn.zswltech.mithras.foundation.convert.TypeConversionWorker;
-import cn.zswltech.mithras.fund.mapper.model.FundGuaranteeAgency;
+import cn.zswltech.mithras.fund.model.FundGuaranteeAgency;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

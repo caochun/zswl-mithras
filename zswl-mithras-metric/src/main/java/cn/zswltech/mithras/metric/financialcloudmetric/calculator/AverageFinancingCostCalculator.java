@@ -3,8 +3,8 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPlanMapper;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPlan;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 

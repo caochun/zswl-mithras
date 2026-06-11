@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.mapper.receiptrepay;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBatch;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBatch;
 
 /**
 * @description fund_receipt_repay_batch

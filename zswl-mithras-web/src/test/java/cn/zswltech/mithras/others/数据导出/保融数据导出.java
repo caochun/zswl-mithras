@@ -8,7 +8,7 @@ import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.fund.mapper.model.FundFinancialSystemCallRecord;
+import cn.zswltech.mithras.fund.model.FundFinancialSystemCallRecord;
 import cn.zswltech.mithras.fund.application.financial.FundFinancialSystemCallRecordService;
 import cn.zswltech.mithras.fund.application.financial.dto.FinancialSystemSubmitQuery;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

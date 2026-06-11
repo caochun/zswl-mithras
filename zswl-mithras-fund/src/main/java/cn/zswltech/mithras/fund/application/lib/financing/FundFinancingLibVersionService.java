@@ -10,7 +10,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.fund.application.lib.financing.handler.FundFinancingAbstractLibHandler;

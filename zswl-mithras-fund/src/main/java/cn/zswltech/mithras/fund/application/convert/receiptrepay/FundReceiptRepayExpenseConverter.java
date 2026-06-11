@@ -2,9 +2,9 @@ package cn.zswltech.mithras.fund.application.convert.receiptrepay;
 
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayExpenseListRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayExpenseModifyREQ;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingFeeDetail;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayExpense;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayExpenseLib;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingFeeDetail;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayExpense;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayExpenseLib;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

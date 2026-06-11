@@ -2,8 +2,8 @@ package cn.zswltech.mithras.fund.application.credit.convert;
 
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.fund.application.convert.FundTypeConversionWorker;
-import cn.zswltech.mithras.fund.mapper.model.FundCredit;
-import cn.zswltech.mithras.fund.mapper.model.FundCreditGuaranteeDetail;
+import cn.zswltech.mithras.fund.model.FundCredit;
+import cn.zswltech.mithras.fund.model.FundCreditGuaranteeDetail;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

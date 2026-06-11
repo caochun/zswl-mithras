@@ -2,8 +2,8 @@ package cn.zswltech.mithras.application.orchestration.job.ftp;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.ftp.oldftp.service.job.FtpIncomeJobService;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptFlowDetail;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptFlowDetailService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayBaseInfoService;

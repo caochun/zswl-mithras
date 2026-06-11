@@ -6,7 +6,7 @@ import cn.zswltech.flow.core.api.FlowProcessApiService;
 import cn.zswltech.flow.core.domain.req.StartProcessReq;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingBaseInfoMapper;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;

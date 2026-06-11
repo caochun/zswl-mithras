@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.mapper;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
-import cn.zswltech.mithras.fund.mapper.model.FundGuaranteeAgency;
+import cn.zswltech.mithras.fund.model.FundGuaranteeAgency;
 
 /**
 * @description fund_guarantee_agency

@@ -6,8 +6,8 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.fund.financing.pledge.FundFinancingPledgeListRSP;
 import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingDetailConverter;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingLibModelEnum;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPledgeInfoLib;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfoLib;
 import cn.zswltech.mithras.fund.application.lib.financing.handler.FundFinancingAbstractLibHandler;
 import org.springframework.stereotype.Component;
 

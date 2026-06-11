@@ -21,7 +21,7 @@ import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayAccountMappe
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundRepayAccountMapper;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.*;
+import cn.zswltech.mithras.fund.model.receiptrepay.*;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingService;

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.fund.application.lib.financing;
 
 import cn.zswltech.mithras.fund.mapper.lib.financing.FundFinancingPlanLibMapper;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPlan;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPlanLib;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPlan;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPlanLib;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

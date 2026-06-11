@@ -14,8 +14,8 @@ import cn.zswltech.mithras.fund.application.organization.FundOrganizationInstitu
 import cn.zswltech.mithras.fund.enums.OrganizationType;
 import cn.zswltech.mithras.fund.mapper.FundOrganizationMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.fund.mapper.model.FundOrganization;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingCreditRef;
+import cn.zswltech.mithras.fund.model.FundOrganization;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

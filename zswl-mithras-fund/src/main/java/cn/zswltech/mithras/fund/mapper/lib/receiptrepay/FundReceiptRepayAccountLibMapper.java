@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.mapper.lib.receiptrepay;
 
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayAccountLib;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayAccountLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

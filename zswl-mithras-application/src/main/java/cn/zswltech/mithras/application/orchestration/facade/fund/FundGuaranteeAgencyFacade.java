@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.fund.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.fund.mapper.model.FundGuaranteeAgency;
+import cn.zswltech.mithras.fund.model.FundGuaranteeAgency;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.fund.application.credit.FundCreditGuaranteeDetailService;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.application.financing;
 
-import cn.zswltech.mithras.fund.mapper.model.FundFinancingCollectRecord;
+import cn.zswltech.mithras.fund.model.FundFinancingCollectRecord;
 import cn.zswltech.mithras.fund.mapper.FundFinancingCollectRecordMapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

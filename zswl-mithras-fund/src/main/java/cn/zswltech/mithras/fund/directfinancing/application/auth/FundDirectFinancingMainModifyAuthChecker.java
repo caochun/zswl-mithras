@@ -4,7 +4,7 @@ package cn.zswltech.mithras.fund.directfinancing.application.auth;
 import cn.zswltech.mithras.foundation.auth.DataAuthBusinessModule;
 import cn.zswltech.mithras.foundation.auth.checker.IDataAuthChecker;
 import cn.zswltech.mithras.foundation.auth.DataAuthCreatorGuard;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

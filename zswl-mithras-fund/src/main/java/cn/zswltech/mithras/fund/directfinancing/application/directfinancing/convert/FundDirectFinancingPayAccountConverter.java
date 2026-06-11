@@ -2,7 +2,7 @@ package cn.zswltech.mithras.fund.directfinancing.application.directfinancing.con
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccountAddREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccountListRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccountModifyREQ;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingPayAccount;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPayAccount;
 import org.mapstruct.Mapper;
 
 import java.util.List;

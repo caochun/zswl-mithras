@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayBaseInfoLibMapper">
 
     <select id="getLastestDirectLib"
-            resultType="cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfoLib">
+            resultType="cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfoLib">
         SELECT p.*
         FROM fund_receipt_repay_base_info_lib p
                  INNER JOIN (SELECT main_id AS id, MAX(version) AS version

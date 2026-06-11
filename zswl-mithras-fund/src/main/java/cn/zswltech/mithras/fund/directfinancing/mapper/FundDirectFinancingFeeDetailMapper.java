@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.directfinancing.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingFeeDetail;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingFeeDetail;
 
 /**
 * @description 直接融资-费用明细

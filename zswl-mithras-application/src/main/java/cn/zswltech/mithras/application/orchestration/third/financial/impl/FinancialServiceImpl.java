@@ -41,7 +41,7 @@ import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.payment.enums.WriteOffTypeEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.fund.mapper.FinanceFlowWriteOffDetailMapper;
-import cn.zswltech.mithras.fund.mapper.model.FinanceFlowWriteOffDetail;
+import cn.zswltech.mithras.fund.model.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;

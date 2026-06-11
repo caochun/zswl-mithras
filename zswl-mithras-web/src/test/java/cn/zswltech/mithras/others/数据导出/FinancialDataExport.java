@@ -3,7 +3,7 @@
 //import cn.zswltech.mithras.dto.rating.RatingParamFieldRSP;
 //import cn.zswltech.mithras.dto.rating.ratingclient.RatingQualitativeRSP;
 //import cn.zswltech.mithras.others.service.ApplicationTest;
-//import cn.zswltech.mithras.fund.mapper.model.FundFinancialSystemCallRecord;
+//import cn.zswltech.mithras.fund.model.FundFinancialSystemCallRecord;
 //import cn.zswltech.mithras.fund.application.financial.FundFinancialSystemCallRecordService;
 //import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 //import lombok.extern.slf4j.Slf4j;

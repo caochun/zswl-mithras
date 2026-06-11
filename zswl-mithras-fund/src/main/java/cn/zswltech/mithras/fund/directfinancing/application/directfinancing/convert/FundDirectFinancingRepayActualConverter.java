@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.directfinancing.application.directfinancing.convert;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingRepayActualListRSP;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingRepayActual;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingRepayActual;
 import org.mapstruct.Mapper;
 
 import java.util.List;

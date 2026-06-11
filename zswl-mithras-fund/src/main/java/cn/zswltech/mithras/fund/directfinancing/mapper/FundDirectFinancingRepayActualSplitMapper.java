@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.directfinancing.mapper;
 
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingRepayActualSplit;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingRepayActualSplit;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

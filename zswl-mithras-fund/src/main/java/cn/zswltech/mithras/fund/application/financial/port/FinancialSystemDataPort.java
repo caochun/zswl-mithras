@@ -1,12 +1,12 @@
 package cn.zswltech.mithras.fund.application.financial.port;
 
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
-import cn.zswltech.mithras.fund.mapper.model.FundOrganization;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPlan;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingRepayActual;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptFlowDetail;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
+import cn.zswltech.mithras.fund.model.FundOrganization;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingPlan;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayActual;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashFlow;
 
 import java.time.LocalDate;
 import java.util.Collection;

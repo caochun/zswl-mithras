@@ -3,8 +3,8 @@ package cn.zswltech.mithras.fund.application.lib.financing.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.financing.FundFinancingCreditRefDetailRSP;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingLibModelEnum;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingCreditRef;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingCreditRefLib;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRefLib;
 import cn.zswltech.mithras.fund.application.lib.financing.handler.FundFinancingAbstractLibHandler;
 import org.springframework.stereotype.Component;
 

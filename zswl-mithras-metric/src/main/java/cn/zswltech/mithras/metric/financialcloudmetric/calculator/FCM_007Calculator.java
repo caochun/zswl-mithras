@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.fund.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingBaseInfoMapper;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

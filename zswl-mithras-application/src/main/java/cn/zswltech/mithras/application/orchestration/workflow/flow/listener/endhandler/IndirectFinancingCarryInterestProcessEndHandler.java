@@ -15,7 +15,7 @@ import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsInitiationMethod
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 //import cn.zswltech.mithras.application.orchestration.filingmaterials.FundFilingMaterialsService;

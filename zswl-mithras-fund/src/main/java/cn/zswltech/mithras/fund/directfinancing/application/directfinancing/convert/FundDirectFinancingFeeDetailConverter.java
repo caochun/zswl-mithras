@@ -2,7 +2,7 @@ package cn.zswltech.mithras.fund.directfinancing.application.directfinancing.con
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingFeeDetailAddREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingFeeDetailModifyREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingFeeDetailRSP;
-import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingFeeDetail;
+import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingFeeDetail;
 import org.mapstruct.Mapper;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.fund.mapper.model.FundGuaranteeInfo;
+import cn.zswltech.mithras.fund.model.FundGuaranteeInfo;
 
 /**
 * @description fund_guarantee_info

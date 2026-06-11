@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.application.lib.receiptrepay;
 
 import cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayAccountLibMapper;
-import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayAccountLib;
+import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayAccountLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
