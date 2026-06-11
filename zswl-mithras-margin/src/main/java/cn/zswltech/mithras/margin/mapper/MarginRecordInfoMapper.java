@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.margin.mapper;
 
-import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;
+import cn.zswltech.mithras.margin.model.MarginRecordInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

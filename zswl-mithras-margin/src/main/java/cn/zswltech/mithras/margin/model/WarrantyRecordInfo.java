@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.margin.mapper.model;
+package cn.zswltech.mithras.margin.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.*;
@@ -9,23 +9,23 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * 保证金核销记录明细表
- * @TableName margin_record_info
+ * 质保金核销记录明细表
+ * @TableName warranty_record_info
  */
 @EqualsAndHashCode(callSuper = true)
-@TableName(value ="margin_record_info")
+@TableName(value ="warranty_record_info")
 @Data
-public class MarginRecordInfo extends BaseModelWithLogicDelete implements Serializable {
+public class WarrantyRecordInfo extends BaseModelWithLogicDelete implements Serializable {
     /**
-     * 保证金核销记录明细id
+     * 质保金核销记录明细id
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 保证金明细id
+     * 质保金明细id
      */
-    private Long marginId;
+    private Long warrantyId;
 
     /**
      * 信息来源

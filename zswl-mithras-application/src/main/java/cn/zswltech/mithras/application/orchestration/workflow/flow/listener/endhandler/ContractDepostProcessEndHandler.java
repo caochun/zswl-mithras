@@ -27,7 +27,7 @@ import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractDeductRentInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
-import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleEvent;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

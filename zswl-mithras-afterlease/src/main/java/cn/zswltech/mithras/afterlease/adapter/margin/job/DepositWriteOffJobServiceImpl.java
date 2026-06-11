@@ -20,7 +20,7 @@ import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
 import cn.zswltech.mithras.margin.job.service.DepositWriteOffJobService;
-import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.model.MarginBaseInfo;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;

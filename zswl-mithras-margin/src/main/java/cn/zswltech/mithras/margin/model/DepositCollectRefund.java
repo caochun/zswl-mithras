@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.margin.mapper.model;
+package cn.zswltech.mithras.margin.model;
 
 import lombok.Data;
 

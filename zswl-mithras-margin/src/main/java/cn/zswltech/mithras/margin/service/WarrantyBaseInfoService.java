@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.margin.service;
 
 import cn.zswltech.mithras.margin.mapper.WarrantyBaseInfoMapper;
-import cn.zswltech.mithras.margin.mapper.model.WarrantyBaseInfo;
+import cn.zswltech.mithras.margin.model.WarrantyBaseInfo;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
