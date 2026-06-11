@@ -31,7 +31,7 @@ import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInf
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingFeeDetail;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPayAccount;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingRepayActual;
-import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.FundDirectFinancingPayAccountService;
+import cn.zswltech.mithras.fund.directfinancing.application.FundDirectFinancingPayAccountService;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.*;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.fund.mapper.lib.financing.FundFinancingBaseInfoLibMapper;

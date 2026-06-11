@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.convert.FundDirectFinancingSubscriptionDetailConverter;
+import cn.zswltech.mithras.fund.directfinancing.application.convert.FundDirectFinancingSubscriptionDetailConverter;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingProductDetail;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingSubscriptionDetail;
 import cn.zswltech.mithras.fund.directfinancing.excel.directfinancing.FundDirectFinancingSubscriptionDetailExcelModel;

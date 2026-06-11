@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.facade.fund.direct;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.FundDirectFinancingProductDetailApplicationService;
+import cn.zswltech.mithras.fund.directfinancing.application.FundDirectFinancingProductDetailApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingMainModifyAuthChecker;

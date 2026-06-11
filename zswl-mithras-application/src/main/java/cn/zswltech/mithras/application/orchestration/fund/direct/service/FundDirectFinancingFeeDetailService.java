@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.fund.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.convert.FundDirectFinancingFeeDetailConverter;
+import cn.zswltech.mithras.fund.directfinancing.application.convert.FundDirectFinancingFeeDetailConverter;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingFeeDetail;
 import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingFeeDetailMapper;

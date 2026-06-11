@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftDetailRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.convert.FundDirectFinancingProductDetailConverter;
+import cn.zswltech.mithras.fund.directfinancing.application.convert.FundDirectFinancingProductDetailConverter;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingProductDetail;
 import cn.zswltech.mithras.fund.directfinancing.excel.directfinancing.FundDirectFinancingProductDetailExcelModel;
