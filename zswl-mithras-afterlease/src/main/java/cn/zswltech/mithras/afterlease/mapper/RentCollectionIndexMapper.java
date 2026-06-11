@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.afterlease.mapper;
 
 
-import cn.zswltech.mithras.afterlease.mapper.dto.RentCollectionIndexListDTO;
-import cn.zswltech.mithras.afterlease.mapper.dto.RentCollectionIndexListParam;
+import cn.zswltech.mithras.afterlease.dto.RentCollectionIndexListDTO;
+import cn.zswltech.mithras.afterlease.dto.RentCollectionIndexListParam;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

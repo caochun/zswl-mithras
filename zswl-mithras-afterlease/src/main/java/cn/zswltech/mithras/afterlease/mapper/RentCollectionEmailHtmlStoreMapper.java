@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.mapper;
 
-import cn.zswltech.mithras.afterlease.mapper.model.RentCollectionEmailHtmlStore;
+import cn.zswltech.mithras.afterlease.model.RentCollectionEmailHtmlStore;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

@@ -1,5 +1,5 @@
 package cn.zswltech.mithras.afterlease.mapper;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckExternalQueryClientInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

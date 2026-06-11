@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.afterlease.application.lib;
 
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckReportDetailLibMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportDetail;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportDetailLib;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportDetail;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportDetailLib;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

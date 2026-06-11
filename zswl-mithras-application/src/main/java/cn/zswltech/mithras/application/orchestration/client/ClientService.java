@@ -123,8 +123,8 @@ import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayCashFlowMapp
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.customer.mapper.lib.client.*;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;

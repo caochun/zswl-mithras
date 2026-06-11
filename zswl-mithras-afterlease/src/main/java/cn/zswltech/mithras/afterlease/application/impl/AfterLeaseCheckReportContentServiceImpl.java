@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportCSREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportCSRSP;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportContentService;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckReportContentMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportContent;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportContent;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

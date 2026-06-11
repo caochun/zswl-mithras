@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.mapper.lib;
 
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportMetaLib;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportMetaLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

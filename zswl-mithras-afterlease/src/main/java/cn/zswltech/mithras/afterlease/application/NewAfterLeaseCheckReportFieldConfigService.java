@@ -2,7 +2,7 @@ package cn.zswltech.mithras.afterlease.application;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckReportFieldConfigMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportFieldConfig;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportFieldConfig;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

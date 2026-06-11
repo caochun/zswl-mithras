@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.document.gendoc.render.afterlease;
 
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTemplateVersionEnum;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;
 

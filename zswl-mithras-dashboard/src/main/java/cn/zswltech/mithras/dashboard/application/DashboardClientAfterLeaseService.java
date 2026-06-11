@@ -14,7 +14,7 @@ import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanTypeEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanBaseMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.dashboard.DashboardClientAfterLeaseCheckQuery;
+import cn.zswltech.mithras.afterlease.model.dashboard.DashboardClientAfterLeaseCheckQuery;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

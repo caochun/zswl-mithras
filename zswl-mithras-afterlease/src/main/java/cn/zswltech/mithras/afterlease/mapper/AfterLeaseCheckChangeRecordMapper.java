@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseCheckChangeRecord;
+import cn.zswltech.mithras.afterlease.model.AfterLeaseCheckChangeRecord;
 
 /**
 * @description 租后检查计划-基本信息表

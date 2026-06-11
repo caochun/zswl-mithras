@@ -92,7 +92,7 @@ import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.NoticeMessageBody;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
+import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.afterlease.mapper;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckLedgerListREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckLedgerListRSP;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

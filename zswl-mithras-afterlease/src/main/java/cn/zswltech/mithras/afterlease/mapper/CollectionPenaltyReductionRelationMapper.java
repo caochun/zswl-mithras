@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.mapper;
 
-import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionRelation;
+import cn.zswltech.mithras.afterlease.model.CollectionPenaltyReductionRelation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

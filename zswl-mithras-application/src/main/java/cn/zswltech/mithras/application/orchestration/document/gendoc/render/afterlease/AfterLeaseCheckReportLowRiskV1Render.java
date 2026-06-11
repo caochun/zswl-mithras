@@ -5,7 +5,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTemplateVersionEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
-import cn.zswltech.mithras.afterlease.mapper.model.*;
+import cn.zswltech.mithras.afterlease.model.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportMetaService;
 import com.deepoove.poi.XWPFTemplate;

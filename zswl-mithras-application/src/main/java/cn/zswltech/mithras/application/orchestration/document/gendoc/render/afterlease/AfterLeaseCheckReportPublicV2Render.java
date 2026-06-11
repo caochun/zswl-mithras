@@ -4,8 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTemplateVersionEnum;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportDetail;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportDetail;
 import org.springframework.stereotype.Component;
 
 import java.io.OutputStream;

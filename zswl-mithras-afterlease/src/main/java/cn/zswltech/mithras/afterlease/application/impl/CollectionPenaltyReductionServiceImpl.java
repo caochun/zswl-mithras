@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.afterlease.CollectionRelationContractREQ;
 import cn.zswltech.mithras.dto.afterlease.CollectionRelationContractRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.afterlease.mapper.CollectionPenaltyReductionInfoMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionInfo;
+import cn.zswltech.mithras.afterlease.model.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.afterlease.application.CollectionPenaltyReductionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

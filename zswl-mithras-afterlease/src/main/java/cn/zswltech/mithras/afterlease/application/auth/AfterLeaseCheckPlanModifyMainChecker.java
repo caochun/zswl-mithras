@@ -6,7 +6,7 @@ import cn.zswltech.mithras.foundation.auth.checker.IDataAuthChecker;
 import cn.zswltech.mithras.foundation.auth.DataAuthAssetManagerGuard;
 import cn.zswltech.mithras.foundation.auth.DataAuthProcessGuard;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanStatusEnum;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

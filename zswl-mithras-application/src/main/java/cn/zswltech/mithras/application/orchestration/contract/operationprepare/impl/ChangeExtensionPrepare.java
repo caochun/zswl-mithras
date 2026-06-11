@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
-import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
+import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseAdjustInfoService;

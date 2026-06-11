@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.afterlease.mapper.RentCollectionIndexMapper">
 
-    <select id="indexList" resultType="cn.zswltech.mithras.afterlease.mapper.dto.RentCollectionIndexListDTO">
+    <select id="indexList" resultType="cn.zswltech.mithras.afterlease.dto.RentCollectionIndexListDTO">
         SELECT *, GROUP_CONCAT(DISTINCT t2.collectionId) AS collectionIds FROM(
         SELECT p.receipt_id_final AS receiptId,
         c.id AS contractId,

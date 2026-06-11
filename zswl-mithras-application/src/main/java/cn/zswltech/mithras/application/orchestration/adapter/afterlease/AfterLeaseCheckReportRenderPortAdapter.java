@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.afterlease;
 
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportRenderPort;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.afterlease.AfterLeaseCheckReportRenderFactory;
 import org.springframework.stereotype.Component;
 

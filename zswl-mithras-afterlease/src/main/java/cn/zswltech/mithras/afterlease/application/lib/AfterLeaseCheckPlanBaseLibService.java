@@ -2,8 +2,8 @@ package cn.zswltech.mithras.afterlease.application.lib;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.afterlease.mapper.lib.NewAfterLeaseCheckPlanBaseLibMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBaseLib;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBaseLib;
 import cn.zswltech.mithras.afterlease.application.lib.handler.impl.AfterLeaseCheckPlanBaseLibHandler;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

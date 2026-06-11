@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportMeta;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportMeta;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Collection;

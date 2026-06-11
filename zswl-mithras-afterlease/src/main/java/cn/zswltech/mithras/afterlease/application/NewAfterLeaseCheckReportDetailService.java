@@ -15,7 +15,7 @@ import cn.zswltech.mithras.afterlease.enums.SaveTypeEnum;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportMetaService;
 import cn.zswltech.mithras.afterlease.application.NewAfterLeaseCheckReportFieldConfigService;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckReportDetailMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.*;
+import cn.zswltech.mithras.afterlease.model.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.afterlease.application.lib.NewAfterLeaseCheckReportDetailLibService;
 import cn.zswltech.mithras.afterlease.application.lib.handler.impl.NewAfterLeaseCheckReportDetailLibHandler;

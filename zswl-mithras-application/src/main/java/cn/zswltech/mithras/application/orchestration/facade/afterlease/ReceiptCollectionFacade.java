@@ -11,7 +11,7 @@ import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonM
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.document.enums.MaterialsEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
-import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionInfo;
+import cn.zswltech.mithras.afterlease.model.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;

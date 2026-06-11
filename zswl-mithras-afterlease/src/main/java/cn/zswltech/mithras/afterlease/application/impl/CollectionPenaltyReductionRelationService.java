@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.afterlease.application.impl;
 
 import cn.zswltech.mithras.afterlease.mapper.CollectionPenaltyReductionRelationMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionRelation;
+import cn.zswltech.mithras.afterlease.model.CollectionPenaltyReductionRelation;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

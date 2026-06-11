@@ -60,7 +60,7 @@ import cn.zswltech.mithras.afterlease.mapper.lib.NewAfterLeaseCheckPlanClientLib
 import cn.zswltech.mithras.afterlease.mapper.lib.NewAfterLeaseCheckReportMetaLibMapper;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.NoticeMessageBody;
-import cn.zswltech.mithras.afterlease.mapper.model.*;
+import cn.zswltech.mithras.afterlease.model.*;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;

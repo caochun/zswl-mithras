@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.afterlease.mapper.lib.NewAfterLeaseCheckReportMetaLibMapper">
 
     <select id="selectLatestListByPlanClientId"
-            resultType="cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportMetaLib">
+            resultType="cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportMetaLib">
         SELECT t1.*
         FROM new_after_lease_check_report_meta_lib t1
         INNER JOIN (

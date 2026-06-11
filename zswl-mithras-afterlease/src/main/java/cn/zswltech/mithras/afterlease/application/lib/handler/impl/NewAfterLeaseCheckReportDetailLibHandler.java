@@ -2,10 +2,10 @@ package cn.zswltech.mithras.afterlease.application.lib.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportCSRSP;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportContent;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportContentLib;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportDetail;
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportDetailLib;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportContent;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportContentLib;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportDetail;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportDetailLib;
 import cn.zswltech.mithras.afterlease.application.lib.handler.AfterLeaseCheckReportLibAbstractHandler;
 import org.springframework.stereotype.Component;
 

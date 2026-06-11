@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionInfo;
+import cn.zswltech.mithras.afterlease.model.CollectionPenaltyReductionInfo;
 
 /**
 * 租后-罚息减免基本表

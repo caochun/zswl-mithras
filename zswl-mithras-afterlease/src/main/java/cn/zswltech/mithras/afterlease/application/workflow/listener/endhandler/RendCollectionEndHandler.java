@@ -6,7 +6,7 @@ import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndH
 import cn.zswltech.mithras.projectprocess.flow.listener.endhandler.ILifecycleProcessor;
 import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProcessEventDescEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionInfo;
+import cn.zswltech.mithras.afterlease.model.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleEvent;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;

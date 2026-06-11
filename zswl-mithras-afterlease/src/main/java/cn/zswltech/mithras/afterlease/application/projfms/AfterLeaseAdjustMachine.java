@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.application.projfms;
 
-import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
+import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.foundation.state.ProjStateMachine;
 import org.springframework.stereotype.Service;
 

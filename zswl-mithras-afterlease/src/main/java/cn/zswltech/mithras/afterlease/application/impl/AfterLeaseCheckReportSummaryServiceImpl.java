@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportCSRSP;
 import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckReportConvert;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportAreaTypeEnum;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckReportSummaryMapper;
-import cn.zswltech.mithras.afterlease.mapper.model.*;
+import cn.zswltech.mithras.afterlease.model.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportMetaService;

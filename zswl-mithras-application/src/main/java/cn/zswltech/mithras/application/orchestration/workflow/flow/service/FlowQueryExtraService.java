@@ -9,7 +9,7 @@ import cn.zswltech.mithras.workflow.enums.trackevent.TrackTaskBizSourceEnum;
 import cn.zswltech.mithras.workflow.mapper.FlowQueryExtraMapper;
 import cn.zswltech.mithras.workflow.model.FlowQueryExtra;
 import cn.zswltech.mithras.workflow.model.FlowQueryExtraMissing;
-import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
+import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;

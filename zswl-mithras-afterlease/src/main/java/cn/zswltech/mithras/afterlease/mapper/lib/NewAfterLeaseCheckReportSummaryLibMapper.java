@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.mapper.lib;
 
-import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportSummaryLib;
+import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportSummaryLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
