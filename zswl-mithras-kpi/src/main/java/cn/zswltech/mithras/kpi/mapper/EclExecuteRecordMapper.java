@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.mapper;
 
-import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecord;
+import cn.zswltech.mithras.kpi.model.EclExecuteRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 

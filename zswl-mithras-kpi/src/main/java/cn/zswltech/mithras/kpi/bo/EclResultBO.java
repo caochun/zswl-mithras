@@ -2,7 +2,7 @@ package cn.zswltech.mithras.kpi.bo;
 
 import cn.zswltech.mithras.dto.kpi.KpiExpectedLossDecisionQuery;
 import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteEclResult;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProvisionDetail;
+import cn.zswltech.mithras.kpi.model.KpiProvisionDetail;
 import lombok.Data;
 
 /**

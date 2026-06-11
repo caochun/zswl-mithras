@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRecordListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRecordListRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRecordRemoveREQ;
 import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionWeightRecordService;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightRecord;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightRecord;
 
 import java.util.List;
 

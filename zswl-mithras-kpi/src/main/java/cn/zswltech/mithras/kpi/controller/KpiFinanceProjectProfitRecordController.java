@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.kpi.KpiFinanceProjectProfitRecordListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiFinanceProjectProfitRecordListRSP;
 import cn.zswltech.mithras.dto.kpi.KpiFinanceProjectProfitRecordModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiFinanceProjectProfitRecordRemoveREQ;
-import cn.zswltech.mithras.kpi.mapper.model.KpiFinanceProjectProfitRecord;
+import cn.zswltech.mithras.kpi.model.KpiFinanceProjectProfitRecord;
 import cn.zswltech.mithras.kpi.application.projguess.KpiFinanceProjectProfitRecordService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

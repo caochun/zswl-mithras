@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionRecordListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionRecordListRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionRecordRemoveREQ;
 import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionRecordService;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionRecord;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionRecord;
 
 import java.util.List;
 

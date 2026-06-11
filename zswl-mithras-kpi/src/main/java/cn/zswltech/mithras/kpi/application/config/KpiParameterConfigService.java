@@ -20,7 +20,7 @@ import cn.zswltech.mithras.kpi.enums.KpiProjectSourceEnum;
 import cn.zswltech.mithras.kpi.enums.config.TaxRateEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.kpi.mapper.KpiParameterConfigMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
+import cn.zswltech.mithras.kpi.model.KpiParameterConfig;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.fastjson.JSON;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfigRecord;
+import cn.zswltech.mithras.kpi.model.KpiParameterConfigRecord;
 
 /**
 * @description 绩效考核-参数设置-计算记录表

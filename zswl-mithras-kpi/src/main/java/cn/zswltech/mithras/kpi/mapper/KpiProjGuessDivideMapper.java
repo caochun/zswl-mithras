@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessDivide;
+import cn.zswltech.mithras.kpi.model.KpiProjGuessDivide;
 
 /**
 * @description 绩效-项目测算分配表

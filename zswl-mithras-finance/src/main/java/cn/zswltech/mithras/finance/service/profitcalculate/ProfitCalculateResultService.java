@@ -33,7 +33,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
-import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
+import cn.zswltech.mithras.kpi.model.KpiParameterConfig;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;

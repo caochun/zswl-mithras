@@ -2,7 +2,7 @@ package cn.zswltech.mithras.kpi.application.projguess;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.kpi.mapper.KpiProjGuessDivideMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessDivide;
+import cn.zswltech.mithras.kpi.model.KpiProjGuessDivide;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

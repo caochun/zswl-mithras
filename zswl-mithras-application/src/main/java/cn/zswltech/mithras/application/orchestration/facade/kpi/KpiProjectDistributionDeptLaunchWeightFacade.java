@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightListREQ
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightListRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptLaunchWeightRemoveREQ;
 import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionDeptLaunchWeightService;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptLaunchWeight;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptLaunchWeight;
 
 import java.util.List;
 

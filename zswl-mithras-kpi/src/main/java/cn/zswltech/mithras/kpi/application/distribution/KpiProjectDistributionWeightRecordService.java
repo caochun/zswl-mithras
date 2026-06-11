@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRecordListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRecordModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRecordRemoveREQ;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionWeightRecordMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightRecord;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightRecord;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

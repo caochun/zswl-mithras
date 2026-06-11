@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiPaymentAmountRecord;
+import cn.zswltech.mithras.kpi.model.KpiPaymentAmountRecord;
 
 /**
 * @description 绩效考核-投放信息记录表

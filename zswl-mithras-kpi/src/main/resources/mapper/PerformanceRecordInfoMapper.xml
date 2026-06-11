@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.kpi.mapper.PerformanceRecordInfoMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.kpi.mapper.model.PerformanceRecordInfo">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.kpi.model.PerformanceRecordInfo">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="performanceId" column="performance_id" jdbcType="BIGINT"/>
             <result property="month" column="month" jdbcType="INTEGER"/>
@@ -22,7 +22,7 @@
         create_time,update_by,update_time
     </sql>
 
-    <select id="queryTargetAmount" resultType="cn.zswltech.mithras.kpi.mapper.model.dto.PerformanceTargetResult">
+    <select id="queryTargetAmount" resultType="cn.zswltech.mithras.kpi.dto.persistence.PerformanceTargetResult">
         SELECT
         sum( record.target_amount ) AS target_amount,
         base.belong_dept_id AS biz_dept_id

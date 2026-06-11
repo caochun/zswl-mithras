@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightRecord;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightRecord;
 
 /**
 * @description 绩效考核-项目分配表-分配比重信息记录表

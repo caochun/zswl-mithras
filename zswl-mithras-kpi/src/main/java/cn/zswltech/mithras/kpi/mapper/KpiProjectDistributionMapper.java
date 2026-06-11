@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.kpi.mapper;
 
-import cn.zswltech.mithras.kpi.mapper.query.KpiProjectDistributionQuery;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
+import cn.zswltech.mithras.kpi.dto.persistence.KpiProjectDistributionQuery;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistribution;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.kpi.bo.KpiProjectDistributionBO;
 import org.apache.ibatis.annotations.Param;

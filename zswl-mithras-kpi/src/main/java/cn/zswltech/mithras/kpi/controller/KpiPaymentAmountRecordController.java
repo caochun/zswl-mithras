@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.kpi.KpiPaymentAmountRecordListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiPaymentAmountRecordListRSP;
 import cn.zswltech.mithras.dto.kpi.KpiPaymentAmountRecordRemoveREQ;
 import cn.zswltech.mithras.kpi.application.projguess.KpiPaymentAmountRecordService;
-import cn.zswltech.mithras.kpi.mapper.model.KpiPaymentAmountRecord;
+import cn.zswltech.mithras.kpi.model.KpiPaymentAmountRecord;
 
 import java.util.List;
 

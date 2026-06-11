@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.kpi.EclExecuteRecordRemoveREQ;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.kpi.mapper.EclExecuteRecordLibMapper;
-import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecordLib;
+import cn.zswltech.mithras.kpi.model.EclExecuteRecordLib;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

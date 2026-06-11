@@ -2,8 +2,8 @@ package cn.zswltech.mithras.kpi.application.distribution.lib.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfo;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfoLib;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionBaseInfo;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.kpi.application.distribution.lib.handler.KpiProjectDistributionAbstractLibHandler;
 import org.springframework.stereotype.Component;

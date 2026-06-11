@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.kpi.KpiParameterConfigListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiParameterConfigListRSP;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.*;
 import cn.zswltech.mithras.kpi.application.KpiParameterConfigApplicationService;
-import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
+import cn.zswltech.mithras.kpi.model.KpiParameterConfig;
 import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.kpi.application.auth.KpiParameterConfigModifyChecker;

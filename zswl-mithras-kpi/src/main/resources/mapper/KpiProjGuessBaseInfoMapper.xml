@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.kpi.mapper.KpiProjGuessBaseInfoMapper">
 
-    <resultMap id="detailMap" type="cn.zswltech.mithras.kpi.mapper.dto.KpiProjGuessDetailDTO">
+    <resultMap id="detailMap" type="cn.zswltech.mithras.kpi.dto.persistence.KpiProjGuessDetailDTO">
         <collection select="weightList" javaType="java.util.ArrayList" property="kpiProjGuessDivides"
-                    ofType="cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessDivide"
+                    ofType="cn.zswltech.mithras.kpi.model.KpiProjGuessDivide"
                     column="{kpi_proj_guess_id=id}">
         </collection>
     </resultMap>
 
-    <select id="getContractGuess" resultType="cn.zswltech.mithras.kpi.mapper.dto.KpiProjGuessContractDTO">
+    <select id="getContractGuess" resultType="cn.zswltech.mithras.kpi.dto.persistence.KpiProjGuessContractDTO">
         SELECT
         a.id id,
         a.contract_id contract_id,
@@ -97,11 +97,11 @@
     </select>
 
 
-    <select id="weightList" resultType="cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessDivide">
+    <select id="weightList" resultType="cn.zswltech.mithras.kpi.model.KpiProjGuessDivide">
         select * from kpi_proj_guess_divide where kpi_proj_guess_id = #{kpi_proj_guess_id}
     </select>
 
-    <select id="projManager" resultType="cn.zswltech.mithras.kpi.mapper.dto.KpiProjGuessProjDTO">
+    <select id="projManager" resultType="cn.zswltech.mithras.kpi.dto.persistence.KpiProjGuessProjDTO">
         select a.calculate_date_year,
                a.calculate_date_month,
                a.profit_current  as profitCurrent,
@@ -143,7 +143,7 @@
         order by calculate_date_year desc, calculate_date_month desc
     </select>
 
-    <select id="projManagerDetail" resultType="cn.zswltech.mithras.kpi.mapper.dto.KpiProjGuessProjDetailDTO">
+    <select id="projManagerDetail" resultType="cn.zswltech.mithras.kpi.dto.persistence.KpiProjGuessProjDetailDTO">
         SELECT a.dept_id,
         a.divide_type,
         a.divide_target as divide_target_id,
@@ -169,7 +169,7 @@
         order by a.dept_id desc, a.divide_type desc, a.divide_target desc
     </select>
 
-    <select id="projManagerDivideTypeDetail" resultType="cn.zswltech.mithras.kpi.mapper.dto.KpiProjGuessProjDetailDTO">
+    <select id="projManagerDivideTypeDetail" resultType="cn.zswltech.mithras.kpi.dto.persistence.KpiProjGuessProjDetailDTO">
         select a.dept_id,
         a.divide_type,
         a.divide_target divide_target_id,
@@ -204,7 +204,7 @@
     </select>
 
 
-    <select id="projManagerCompletion" resultType="cn.zswltech.mithras.kpi.mapper.dto.KpiProjGuessProjCompletionDTO">
+    <select id="projManagerCompletion" resultType="cn.zswltech.mithras.kpi.dto.persistence.KpiProjGuessProjCompletionDTO">
         select a.calculate_date_year divide_year,
                a.calculate_date_month divide_month,
                a.profit_current  as profitCurrent,
@@ -285,7 +285,7 @@
         order by a.calculate_date_year desc, a.calculate_date_month desc
     </select>
 
-    <select id="projManagerCompletionDetail" resultType="cn.zswltech.mithras.kpi.mapper.dto.KpiProjGuessProjCompletionDetailDTO">
+    <select id="projManagerCompletionDetail" resultType="cn.zswltech.mithras.kpi.dto.persistence.KpiProjGuessProjCompletionDetailDTO">
         SELECT
                a.dept_id deptId,
             a.kpi_proj_guess_id,
@@ -321,7 +321,7 @@
         group by a.dept_id, a.divide_type, a.divide_target
     </select>
 
-    <select id="deptPool" resultType="cn.zswltech.mithras.kpi.mapper.dto.KpiProjGuessDeptPooleDTO">
+    <select id="deptPool" resultType="cn.zswltech.mithras.kpi.dto.persistence.KpiProjGuessDeptPooleDTO">
         SELECT a.divide_year                                                              divide_year,
                a.divide_month                                                             divide_month,
                sum(a.profit_total)                                                     as profit_total,

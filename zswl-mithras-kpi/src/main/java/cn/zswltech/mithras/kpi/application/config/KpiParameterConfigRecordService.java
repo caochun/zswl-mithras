@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.kpi.parameterconfig.ProjectScaleRadioConfig;
 import cn.zswltech.mithras.dto.kpi.parameterconfig.ProjectTypeRadioConfig;
 import cn.zswltech.mithras.kpi.bo.KpiParameterConfigBo;
 import cn.zswltech.mithras.kpi.mapper.KpiParameterConfigRecordMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfigRecord;
+import cn.zswltech.mithras.kpi.model.KpiParameterConfigRecord;
 import cn.zswltech.mithras.kpi.convert.KpiParameterConfigConvert;
 import cn.zswltech.mithras.kpi.enums.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.foundation.util.StringUtil;

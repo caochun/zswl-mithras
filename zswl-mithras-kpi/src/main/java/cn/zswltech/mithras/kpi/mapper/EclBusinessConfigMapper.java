@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfig;
+import cn.zswltech.mithras.kpi.model.EclBusinessConfig;
 
 /**
 * @description ecl_业务配置表

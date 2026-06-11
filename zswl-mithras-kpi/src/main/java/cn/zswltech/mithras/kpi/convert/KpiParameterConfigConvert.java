@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.kpi.convert;
 
 import cn.zswltech.mithras.dto.kpi.parameterconfig.KpiParameterConfigBase;
-import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
-import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfigRecord;
+import cn.zswltech.mithras.kpi.model.KpiParameterConfig;
+import cn.zswltech.mithras.kpi.model.KpiParameterConfigRecord;
 
 /**
  * @author dingqi

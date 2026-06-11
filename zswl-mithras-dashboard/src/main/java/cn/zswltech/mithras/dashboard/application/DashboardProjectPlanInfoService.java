@@ -17,7 +17,7 @@ import cn.zswltech.mithras.dashboard.mapper.model.ContractOrgPlan;
 import cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPayInfoResult;
 import cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPlanInfoQuery;
 import cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPlanInfoResult;
-import cn.zswltech.mithras.kpi.mapper.model.PerformanceBaseInfo;
+import cn.zswltech.mithras.kpi.model.PerformanceBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentCollectionInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;

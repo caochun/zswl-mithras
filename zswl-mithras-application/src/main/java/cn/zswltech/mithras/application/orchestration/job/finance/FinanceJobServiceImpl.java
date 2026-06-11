@@ -24,8 +24,8 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueReportBase
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProvisionBaseInfo;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProvisionDetail;
+import cn.zswltech.mithras.kpi.model.KpiProvisionBaseInfo;
+import cn.zswltech.mithras.kpi.model.KpiProvisionDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;

@@ -4,7 +4,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecord;
+import cn.zswltech.mithras.kpi.model.EclExecuteRecord;
 import cn.zswltech.mithras.application.orchestration.kpi.EclExecuteRecordService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;

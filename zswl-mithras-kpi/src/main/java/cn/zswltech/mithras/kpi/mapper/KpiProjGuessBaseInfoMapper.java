@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.kpi.mapper;
 
-import cn.zswltech.mithras.kpi.mapper.dto.*;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessBaseInfo;
+import cn.zswltech.mithras.kpi.dto.persistence.*;
+import cn.zswltech.mithras.kpi.model.KpiProjGuessBaseInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

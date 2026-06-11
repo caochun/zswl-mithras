@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.kpi.KpiFinanceProjectProfitRecordListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiFinanceProjectProfitRecordModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiFinanceProjectProfitRecordRemoveREQ;
 import cn.zswltech.mithras.kpi.mapper.KpiFinanceProjectProfitRecordMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiFinanceProjectProfitRecord;
+import cn.zswltech.mithras.kpi.model.KpiFinanceProjectProfitRecord;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;

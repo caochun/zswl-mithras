@@ -36,7 +36,7 @@ import cn.zswltech.mithras.rating.service.RatingClientAreaIndicatorConfigService
 import cn.zswltech.mithras.rating.service.RatingClientAreaIndicatorService;
 import cn.zswltech.mithras.rating.service.RatingClientService;
 import cn.zswltech.mithras.rating.service.RatingSnapshotService;
-import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
+import cn.zswltech.mithras.kpi.model.KpiParameterConfig;
 import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
@@ -83,7 +83,7 @@ import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetailReceipt;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
-import cn.zswltech.mithras.kpi.mapper.model.*;
+import cn.zswltech.mithras.kpi.model.*;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.policy.model.PolicyInfo;

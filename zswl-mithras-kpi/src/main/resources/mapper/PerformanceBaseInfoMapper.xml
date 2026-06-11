@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.kpi.mapper.PerformanceBaseInfoMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.kpi.mapper.model.PerformanceBaseInfo">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.kpi.model.PerformanceBaseInfo">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="year" column="year" jdbcType="BIGINT"/>
             <result property="month" column="month" jdbcType="INTEGER"/>

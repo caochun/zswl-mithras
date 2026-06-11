@@ -15,7 +15,7 @@ import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.kpi.enums.KpiProvisionStatusEnum;
 import cn.zswltech.mithras.kpi.excel.exporter.KpiProvisionBaseInfoDetailExcelExporter;
 import cn.zswltech.mithras.kpi.excel.model.KpiProvisionBaseInfoDetailExcelModel;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProvisionBaseInfo;
+import cn.zswltech.mithras.kpi.model.KpiProvisionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionDetailService;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.kpi.KpiPaymentAmountRecordListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiPaymentAmountRecordModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiPaymentAmountRecordRemoveREQ;
 import cn.zswltech.mithras.kpi.mapper.KpiPaymentAmountRecordMapper;
-import cn.zswltech.mithras.kpi.mapper.model.KpiPaymentAmountRecord;
+import cn.zswltech.mithras.kpi.model.KpiPaymentAmountRecord;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;

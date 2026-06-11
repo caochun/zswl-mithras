@@ -9,9 +9,9 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionHistoryRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightInfo;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightInfoWithTag;
 import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfoLib;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeight;
-import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightLib;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionBaseInfoLib;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeight;
+import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 
 import java.util.*;
