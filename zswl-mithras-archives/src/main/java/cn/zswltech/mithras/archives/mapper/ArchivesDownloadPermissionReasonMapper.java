@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.archives.mapper;
 
-import cn.zswltech.mithras.archives.mapper.model.ArchivesDownloadPermissionReason;
+import cn.zswltech.mithras.archives.model.ArchivesDownloadPermissionReason;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

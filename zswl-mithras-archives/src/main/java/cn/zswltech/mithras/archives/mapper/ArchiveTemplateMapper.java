@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.archives.mapper;
 
 import cn.zswltech.mithras.dto.archives.ArchiveTemplateListREQ;
-import cn.zswltech.mithras.archives.mapper.dto.ArchivesFlatTempalteDTO;
-import cn.zswltech.mithras.archives.mapper.dto.ArchivesMastFileCountDTO;
-import cn.zswltech.mithras.archives.mapper.dto.ArchivesMastFileTypeCountDTO;
-import cn.zswltech.mithras.archives.mapper.model.ArchiveFileType;
-import cn.zswltech.mithras.archives.mapper.model.ArchiveTemplate;
+import cn.zswltech.mithras.archives.dto.persistence.ArchivesFlatTempalteDTO;
+import cn.zswltech.mithras.archives.dto.persistence.ArchivesMastFileCountDTO;
+import cn.zswltech.mithras.archives.dto.persistence.ArchivesMastFileTypeCountDTO;
+import cn.zswltech.mithras.archives.model.ArchiveFileType;
+import cn.zswltech.mithras.archives.model.ArchiveTemplate;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

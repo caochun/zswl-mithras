@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.archives.mapper.dto;
+package cn.zswltech.mithras.archives.dto.persistence;
 
 import lombok.Data;
 

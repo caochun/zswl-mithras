@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.archives.mapper;
 
-import cn.zswltech.mithras.archives.mapper.model.ArchiveTypeGroup;
+import cn.zswltech.mithras.archives.model.ArchiveTypeGroup;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
