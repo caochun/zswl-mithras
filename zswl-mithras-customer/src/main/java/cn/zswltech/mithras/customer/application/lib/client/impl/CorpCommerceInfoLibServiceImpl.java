@@ -12,7 +12,7 @@ import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpCommerceInfoLibHandlerImpl;
-import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.*;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
-import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.projectprocess.application.riskcontrol.dto.ProjReviewPriceDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;

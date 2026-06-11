@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.contract.core.ContractPriceService;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.customer.application.riskcontrol.ClientProvinceQueryService;
+import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryService;
 import cn.zswltech.mithras.dto.riskcontrol.ClientDetail;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
@@ -10,7 +10,7 @@ import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
-import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;

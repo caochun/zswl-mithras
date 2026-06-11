@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.application.riskcontrol.dto;
+package cn.zswltech.mithras.customer.application.lib.client.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

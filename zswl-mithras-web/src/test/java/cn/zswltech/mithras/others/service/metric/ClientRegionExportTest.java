@@ -7,7 +7,7 @@ import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalServiceImpl;
-import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpAddressInfoLibDto;
+import cn.zswltech.mithras.customer.application.lib.client.dto.CorpAddressInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

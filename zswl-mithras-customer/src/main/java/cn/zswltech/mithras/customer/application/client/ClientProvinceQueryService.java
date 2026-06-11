@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.application.riskcontrol;
+package cn.zswltech.mithras.customer.application.client;
 
 import java.util.List;
 import java.util.Set;

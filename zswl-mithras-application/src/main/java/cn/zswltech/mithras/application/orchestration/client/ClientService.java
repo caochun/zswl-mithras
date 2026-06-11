@@ -158,7 +158,7 @@ import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryB
 import cn.zswltech.mithras.customer.application.client.ClientBusinessHistoryService;
 import cn.zswltech.mithras.customer.application.client.ClientFocusOpinionSyncService;
 import cn.zswltech.mithras.customer.application.client.ClientMessageNoticeJobService;
-import cn.zswltech.mithras.customer.application.riskcontrol.ClientProvinceQueryService;
+import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryService;
 import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.application.orchestration.contract.*;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.ExecutionService;

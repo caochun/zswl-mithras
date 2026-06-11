@@ -9,7 +9,7 @@ import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.application.lib.client.CorpAddressInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpAddressInfoLibHandlerImpl;
-import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpAddressInfoLibDto;
+import cn.zswltech.mithras.customer.application.lib.client.dto.CorpAddressInfoLibDto;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.mapper.lib.client;
 
 import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib;
-import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpAddressInfoLibDto;
+import cn.zswltech.mithras.customer.application.lib.client.dto.CorpAddressInfoLibDto;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
