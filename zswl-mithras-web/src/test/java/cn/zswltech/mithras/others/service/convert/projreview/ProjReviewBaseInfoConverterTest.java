@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.convert.projreview;
 
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.projectprocess.convert.projreview.ProjReviewBaseInfoConverter;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -11,8 +11,8 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.projlifecycle.application.ProjLifecycleDataPort;
 import cn.zswltech.mithras.projectprocess.projlifecycle.application.model.ProjLifecycleSnapshot;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;

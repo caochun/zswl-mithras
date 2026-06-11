@@ -5,8 +5,8 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanListRSP;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlanLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlanLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.handler.ProjReviewLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

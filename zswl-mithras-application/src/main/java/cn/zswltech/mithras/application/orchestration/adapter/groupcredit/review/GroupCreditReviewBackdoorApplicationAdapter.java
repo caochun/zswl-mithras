@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.groupcredit.review
 import cn.zswltech.mithras.credit.application.groupcredit.review.GroupCreditReviewBackdoorApplicationService;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;

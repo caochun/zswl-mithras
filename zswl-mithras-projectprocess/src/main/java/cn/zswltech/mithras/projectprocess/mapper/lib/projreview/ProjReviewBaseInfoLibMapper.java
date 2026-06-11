@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.lib.projreview;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfoLib;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

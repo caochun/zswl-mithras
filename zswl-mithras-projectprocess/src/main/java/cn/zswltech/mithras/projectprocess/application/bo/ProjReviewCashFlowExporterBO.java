@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.application.bo;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
 import lombok.Data;
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.projectprocess.application.lib.projreview;
 
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfoLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

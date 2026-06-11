@@ -3,7 +3,7 @@ package cn.zswltech.mithras.projectprocess.application.projpricing;
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingAocPriceModifyREQ;
 import cn.zswltech.mithras.projectprocess.convert.projpricing.ProjPricingPriceConverter;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingAocPrice;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingAocPrice;
 import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingAocPriceMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.lib.projpricing;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfoLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

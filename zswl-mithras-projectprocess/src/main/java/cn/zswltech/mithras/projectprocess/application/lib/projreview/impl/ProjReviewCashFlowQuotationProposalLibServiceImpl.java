@@ -3,7 +3,7 @@ package cn.zswltech.mithras.projectprocess.application.lib.projreview.impl;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanListREQ;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanListRSP;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewCashFlowQuotationProposalLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowQuotationProposalLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowQuotationProposalLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewCashFlowQuotationProposalLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.handler.impl.ProjReviewCashFlowQuotationProposalLibHandler;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

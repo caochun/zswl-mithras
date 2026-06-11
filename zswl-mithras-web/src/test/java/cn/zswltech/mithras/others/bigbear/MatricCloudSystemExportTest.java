@@ -25,7 +25,7 @@ import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingRepayActual;
 import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;

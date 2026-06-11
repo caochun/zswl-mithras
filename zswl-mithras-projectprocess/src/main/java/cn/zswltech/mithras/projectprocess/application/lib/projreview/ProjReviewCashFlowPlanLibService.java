@@ -2,7 +2,7 @@ package cn.zswltech.mithras.projectprocess.application.lib.projreview;
 
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanListREQ;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanListRSP;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlanLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlanLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

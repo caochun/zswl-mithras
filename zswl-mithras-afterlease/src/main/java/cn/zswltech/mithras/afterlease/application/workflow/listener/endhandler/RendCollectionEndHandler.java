@@ -8,8 +8,8 @@ import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProcessEventDescEn
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleEvent;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleEvent;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.afterlease.application.CollectionPenaltyReductionService;
 import cn.zswltech.mithras.afterlease.application.ReceiptCollectionService;

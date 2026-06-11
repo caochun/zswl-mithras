@@ -19,8 +19,8 @@ import cn.zswltech.mithras.projectprocess.convert.projreview.ProjReviewCashFlowP
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.*;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.*;
+import cn.zswltech.mithras.projectprocess.model.projpricing.*;
+import cn.zswltech.mithras.projectprocess.model.projreview.*;
 import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

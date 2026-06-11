@@ -30,7 +30,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.projectprocess.application.bo.CashFlowBO;
 import cn.zswltech.mithras.projectprocess.application.bo.CashFlowCalculateBO;
 import cn.zswltech.mithras.projectprocess.application.bo.CashFlowIRRBO;

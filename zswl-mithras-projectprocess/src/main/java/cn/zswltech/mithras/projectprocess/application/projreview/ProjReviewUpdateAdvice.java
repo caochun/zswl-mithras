@@ -2,7 +2,7 @@ package cn.zswltech.mithras.projectprocess.application.projreview;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

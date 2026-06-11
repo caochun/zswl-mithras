@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingFactoringPriceRSP;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingFactoringPriceLibMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingFactoringPriceLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingFactoringPriceLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.ProjPricingEditionAdvice;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.ProjPricingFactoringPriceLibService;
 import cn.zswltech.mithras.projectprocess.application.projpricing.dto.ProjPricingPriceDto;

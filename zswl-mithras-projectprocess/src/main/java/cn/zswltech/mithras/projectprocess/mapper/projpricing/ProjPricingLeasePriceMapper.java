@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.projpricing;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingLeasePrice;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

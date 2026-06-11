@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.projestablish;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishTradeStructure;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishTradeStructure;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

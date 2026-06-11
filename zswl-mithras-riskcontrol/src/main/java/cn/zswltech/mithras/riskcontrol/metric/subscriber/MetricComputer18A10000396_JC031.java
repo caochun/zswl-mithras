@@ -8,7 +8,7 @@ import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewBaseIn
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewFactoringPriceLibMapper;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewLeasePriceLibMapper;
 import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.*;
+import cn.zswltech.mithras.projectprocess.model.projreview.*;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;

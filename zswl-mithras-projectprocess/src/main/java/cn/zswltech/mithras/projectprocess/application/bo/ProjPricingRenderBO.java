@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.application.bo;
 
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingMaterialsEnum;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

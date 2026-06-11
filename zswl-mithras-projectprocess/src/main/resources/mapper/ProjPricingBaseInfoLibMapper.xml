@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingBaseInfoLibMapper">
 
     <select id="listNewestPreviewByClientIds"
-            resultType="cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfoLib">
+            resultType="cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfoLib">
 
         SELECT p.* FROM proj_pricing_base_info_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1

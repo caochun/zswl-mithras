@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.liquidityrisk.ContractLastDate;
 import cn.zswltech.mithras.dto.liquidityrisk.ContractLastDateDTO;
 import cn.zswltech.mithras.contract.dto.persistence.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.contract.dto.persistence.ContractPrincipalQuery;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ClientOverdueInfoDto;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ClientRole;

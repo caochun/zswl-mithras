@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewLeasePriceModifyREQ;
 import cn.zswltech.mithras.projectprocess.convert.projreview.ProjReviewPriceConverter;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewLeasePriceMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.LongUtil;

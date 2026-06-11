@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.application.lib.projpricing;
 
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingLeasePriceRSP;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePriceLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingLeasePriceLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

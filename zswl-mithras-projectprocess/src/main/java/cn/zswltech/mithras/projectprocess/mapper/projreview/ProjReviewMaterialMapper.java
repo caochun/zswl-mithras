@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.projreview;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewMaterial;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewMaterial;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.springframework.stereotype.Repository;
 

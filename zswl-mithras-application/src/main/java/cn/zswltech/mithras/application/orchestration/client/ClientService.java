@@ -138,8 +138,8 @@ import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditRev
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.*;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.*;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBankAccountMapper;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBaseInfoMapper;
 import cn.zswltech.mithras.customer.mapper.normal.NormalSpouseMapper;

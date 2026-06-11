@@ -8,7 +8,7 @@
         where id=#{projectId}
     </update>
 
-    <select id="myList" resultType="cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo">
+    <select id="myList" resultType="cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo">
         select a.*
         from proj_pricing_base_info a
         <where>
@@ -72,7 +72,7 @@
         )
     </select>
 
-    <select id="listRelationByClients" resultType="cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo">
+    <select id="listRelationByClients" resultType="cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo">
         select *
         from proj_pricing_base_info
         where client_id = #{clientId}

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.projestablish;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishAocPrice;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishAocPrice;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

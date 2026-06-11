@@ -7,8 +7,8 @@ import cn.zswltech.mithras.ftp.oldftp.mapper.lib.FtpQuarterlyBasePricingLibMappe
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewLeasePriceLibMapper;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyBasePricing;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyBasePricingLib;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePriceLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePriceLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;

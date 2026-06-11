@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper">
 
-    <select id="myList" resultType="cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo">
+    <select id="myList" resultType="cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo">
         select proj.*
         from proj_establish_base_info proj left join proj_review_base_info pr on proj.id = pr.proj_establish_id and pr.proj_review_status !='CLOSED' and pr.proj_review_status != 'EXPIRE'
         <where>
@@ -291,7 +291,7 @@
         OR JSON_CONTAINS(mortgagor_info, JSON_OBJECT('clientId', #{clientId}))
         )
     </select>
-    <select id="listProjByAuthRole" resultType="cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo">
+    <select id="listProjByAuthRole" resultType="cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo">
         SELECT *
         from proj_establish_base_info
         WHERE proj_establish_status = 'TAKE_EFFECT'

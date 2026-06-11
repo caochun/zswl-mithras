@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.lib.projestablish;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishFactoringPriceLib;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishFactoringPriceLib;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

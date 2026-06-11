@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.lib.projreview;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePriceLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePriceLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.dto.ProjReviewPriceDto;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;

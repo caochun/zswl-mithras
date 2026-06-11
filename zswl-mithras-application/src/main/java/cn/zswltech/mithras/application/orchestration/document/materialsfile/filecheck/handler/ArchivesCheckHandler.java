@@ -12,7 +12,7 @@ import cn.zswltech.mithras.archives.mapper.ArchivesDownloadPermissionMapper;
 import cn.zswltech.mithras.archives.mapper.ArchivesManagementMapper;
 import cn.zswltech.mithras.archives.mapper.model.ArchivesDownloadPermission;
 import cn.zswltech.mithras.archives.mapper.model.ArchivesManagement;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

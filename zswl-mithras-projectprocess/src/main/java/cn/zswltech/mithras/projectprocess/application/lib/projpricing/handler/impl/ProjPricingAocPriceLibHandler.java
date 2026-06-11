@@ -3,8 +3,8 @@ package cn.zswltech.mithras.projectprocess.application.lib.projpricing.handler.i
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingAocPriceRSP;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingInfoModule;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingAocPrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingAocPriceLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingAocPrice;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingAocPriceLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.handler.ProjPricingLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

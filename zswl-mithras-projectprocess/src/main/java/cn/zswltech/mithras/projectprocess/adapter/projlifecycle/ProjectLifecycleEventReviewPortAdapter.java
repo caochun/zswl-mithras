@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.adapter.projlifecycle;
 
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.projlifecycle.application.ProjectLifecycleEventReviewPort;
 import cn.zswltech.mithras.projectprocess.projlifecycle.application.model.ProjectLifecycleEventProject;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.application.projfms.impl;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.foundation.state.ProjStateMachine;
 import org.springframework.stereotype.Service;
 

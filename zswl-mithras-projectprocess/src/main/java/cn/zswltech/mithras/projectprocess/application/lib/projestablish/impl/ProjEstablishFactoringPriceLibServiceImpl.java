@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.application.lib.projestablish.impl;
 
 import cn.zswltech.mithras.projectprocess.mapper.lib.projestablish.ProjEstablishFactoringPriceLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishFactoringPriceLib;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishFactoringPriceLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projestablish.ProjEstablishFactoringPriceLibService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

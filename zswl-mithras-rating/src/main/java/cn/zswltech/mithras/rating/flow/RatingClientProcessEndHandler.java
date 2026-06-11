@@ -4,7 +4,7 @@ import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.rating.service.RatingClientService;
 import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
 import cn.zswltech.mithras.projectprocess.flow.listener.endhandler.ILifecycleProcessor;
-import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleEvent;
+import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleEvent;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

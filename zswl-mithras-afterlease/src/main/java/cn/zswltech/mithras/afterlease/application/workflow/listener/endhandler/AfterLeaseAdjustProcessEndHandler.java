@@ -6,8 +6,8 @@ import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndH
 import cn.zswltech.mithras.projectprocess.flow.listener.endhandler.ILifecycleProcessor;
 import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProcessEventDescEnum;
 import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
-import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleEvent;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleEvent;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseAdjustInfoService;
 import org.springframework.stereotype.Component;

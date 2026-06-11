@@ -8,7 +8,7 @@ import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.policy.mapper.model.PolicyInfo;
 import cn.zswltech.mithras.policy.mapper.model.PolicyInfoLib;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.policy.application.lib.handler.PolicyAbstractHandler;
 import cn.zswltech.mithras.policy.application.lib.handler.PolicyInfoModule;

@@ -4,12 +4,12 @@ import cn.zswltech.mithras.dto.projestablish.priceaoc.ProjEstablishAocPriceRSP;
 import cn.zswltech.mithras.dto.projestablish.pricefactoring.ProjEstablishFactoringPriceRSP;
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceRSP;
 import cn.zswltech.mithras.dto.projreview.price.*;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingAocPrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingFactoringPrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewAocPrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFactoringPrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingAocPrice;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingFactoringPrice;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewAocPrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewFactoringPrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

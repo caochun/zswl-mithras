@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.application.lib.projreview;
 
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewLeasePriceRSP;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePriceLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePriceLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

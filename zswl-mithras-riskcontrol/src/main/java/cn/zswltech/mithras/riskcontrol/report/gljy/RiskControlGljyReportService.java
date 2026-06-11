@@ -17,7 +17,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClient;
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClientService;
 import cn.zswltech.mithras.payment.event.PaymentWriteOffEvent;

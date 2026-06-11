@@ -41,7 +41,7 @@ import cn.zswltech.mithras.filingmaterials.gendoc.render.BusinessMaterialsOtherR
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.filingmaterials.mapper.FilingMaterialsMapper;
 import cn.zswltech.mithras.filingmaterials.mapper.model.FilingMaterials;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.workflow.process.FlowAssistService;

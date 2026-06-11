@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.projreview;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

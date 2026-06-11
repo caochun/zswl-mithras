@@ -31,7 +31,7 @@ import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.dashboard.mapper.model.*;
 import cn.zswltech.mithras.kpi.mapper.model.dto.PerformanceTargetQuery;
 import cn.zswltech.mithras.kpi.mapper.model.dto.PerformanceTargetResult;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.system.user.SysUserService;

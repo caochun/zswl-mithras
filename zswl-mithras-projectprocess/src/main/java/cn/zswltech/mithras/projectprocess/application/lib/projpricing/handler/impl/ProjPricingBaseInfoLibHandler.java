@@ -10,8 +10,8 @@ import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingInfoModul
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.application.support.ProjectProcessNameResolver;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.handler.ProjPricingLibAbstractHandler;
 import com.alibaba.fastjson.JSON;

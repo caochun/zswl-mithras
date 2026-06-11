@@ -3,8 +3,8 @@ package cn.zswltech.mithras.projectprocess.application.lib.projreview.handler.im
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewFactoringPriceRSP;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFactoringPrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFactoringPriceLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewFactoringPrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewFactoringPriceLib;
 import cn.zswltech.mithras.projectprocess.application.support.ProjectProcessSurvivingContractResolver;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.handler.ProjReviewLibAbstractHandler;
 import org.springframework.stereotype.Service;

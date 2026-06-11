@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.application.lib.projestablish.impl;
 
 import cn.zswltech.mithras.projectprocess.mapper.lib.projestablish.ProjEstablishBaseInfoLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projestablish.ProjEstablishBaseInfoLibService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

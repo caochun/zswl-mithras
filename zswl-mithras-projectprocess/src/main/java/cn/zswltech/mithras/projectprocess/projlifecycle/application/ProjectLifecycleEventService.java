@@ -2,7 +2,7 @@ package cn.zswltech.mithras.projectprocess.projlifecycle.application;
 
 import cn.zswltech.mithras.projectprocess.projlifecycle.application.model.ProjectLifecycleEventProject;
 import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.ProjLifecycleEventMapper;
-import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleEvent;
+import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

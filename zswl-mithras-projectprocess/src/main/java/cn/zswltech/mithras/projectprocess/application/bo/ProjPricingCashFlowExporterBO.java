@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.application.bo;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingCashFlowPlan;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingCashFlowPlan;
 import lombok.Data;
 
 import java.util.List;

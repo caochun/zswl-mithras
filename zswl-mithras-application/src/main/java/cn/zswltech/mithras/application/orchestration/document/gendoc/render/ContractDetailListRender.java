@@ -17,7 +17,7 @@ import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractCon
 import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractGuarantorService;
 import cn.zswltech.mithras.contract.core.ContractLeasePriceService;

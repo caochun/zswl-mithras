@@ -6,7 +6,7 @@ import cn.zswltech.flow.core.domain.req.ModelPageReq;
 import cn.zswltech.flow.core.extension.event.NodeEndEvent;
 import cn.zswltech.flow.core.extension.event.NodeStartEvent;
 import cn.zswltech.flow.core.extension.event.context.NodeCommonContext;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.workflow.flow.ProjNodeTimeService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
 import lombok.extern.slf4j.Slf4j;

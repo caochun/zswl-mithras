@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.application.projfms.impl;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.foundation.state.ProjEvent;
 import cn.zswltech.mithras.foundation.state.ProjProcessState;
 import cn.zswltech.mithras.foundation.state.ProjStateMachine;

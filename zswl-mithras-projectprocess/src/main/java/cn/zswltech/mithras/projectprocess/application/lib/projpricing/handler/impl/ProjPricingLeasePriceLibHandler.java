@@ -3,8 +3,8 @@ package cn.zswltech.mithras.projectprocess.application.lib.projpricing.handler.i
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingLeasePriceRSP;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingInfoModule;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePriceLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingLeasePriceLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.handler.ProjPricingLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

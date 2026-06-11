@@ -12,7 +12,7 @@ import cn.zswltech.mithras.projectprocess.projlifecycle.application.ProjLifecycl
 import cn.zswltech.mithras.application.orchestration.auth.rule.special.ProjEstablishAuthViewRule;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProjStageEnum;
-import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleListDO;
+import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleListDO;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projlifecycle.ProjectLifecycleService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

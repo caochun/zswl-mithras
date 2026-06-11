@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceL
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceModifyREQ;
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishLeasePriceMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

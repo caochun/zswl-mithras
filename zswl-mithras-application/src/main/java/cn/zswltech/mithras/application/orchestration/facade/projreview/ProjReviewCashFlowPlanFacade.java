@@ -16,8 +16,8 @@ import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonA
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowQuotationProposal;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowQuotationProposal;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.foundation.exception.LackDataException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewCashFlowQuotationProposalService;

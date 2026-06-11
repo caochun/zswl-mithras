@@ -28,7 +28,7 @@ import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingRepayActualL
 import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.liquidity.mapper.model.risk.BaseAmountSetting;
 import cn.zswltech.mithras.liquidity.mapper.model.risk.FinancingDeliverDetailSetting;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingCreditRefService;

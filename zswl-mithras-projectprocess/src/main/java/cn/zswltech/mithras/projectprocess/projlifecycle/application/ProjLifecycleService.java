@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.projlifecycle.ProjStageTotalRSP;
 import cn.zswltech.mithras.dto.projlifecycle.ProjectLifecycleListREQ;
 import cn.zswltech.mithras.projectprocess.projlifecycle.application.model.ProjLifecycleSnapshot;
 import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.ProjLifecycleEventMapper;
-import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleListDO;
+import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleListDO;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;

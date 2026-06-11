@@ -2,7 +2,7 @@ package cn.zswltech.mithras.projectprocess.application.lib.projpricing.impl;
 
 import cn.zswltech.mithras.dto.projpricing.cashflowplan.ProjPricingCashFlowPlanListREQ;
 import cn.zswltech.mithras.dto.projpricing.cashflowplan.ProjPricingCashFlowPlanListRSP;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingCashFlowPlanLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingCashFlowPlanLib;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingCashFlowPlanLibMapper;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.ProjPricingCashFlowPlanLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.handler.impl.ProjPricingCashFlowPlanLibHandler;

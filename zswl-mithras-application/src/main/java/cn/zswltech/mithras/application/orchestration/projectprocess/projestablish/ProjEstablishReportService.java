@@ -17,7 +17,7 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishMater
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ProjEstablishReportRender;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.application.projestablish.ProjEstablishUpdateAdvice;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;

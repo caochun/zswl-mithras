@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.mapper.projreview;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewMeetMinuteBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewMeetMinuteBaseInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

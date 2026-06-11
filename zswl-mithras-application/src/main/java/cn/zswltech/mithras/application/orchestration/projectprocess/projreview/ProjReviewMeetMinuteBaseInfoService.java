@@ -28,9 +28,9 @@ import cn.zswltech.mithras.projectprocess.flow.dynamicform.projreview.SetMeeting
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewMeetMinuteBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewMeetMinuteBaseInfo;
 import cn.zswltech.mithras.workflow.model.TrackEventInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewMeetMinuteBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

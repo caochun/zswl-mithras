@@ -3,7 +3,7 @@ package cn.zswltech.mithras.projectprocess.mapper.projestablish;
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.foundation.persistence.dto.*;
 import cn.zswltech.mithras.projectprocess.dto.persistence.ProjEstablishListSelectDTO;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.projlifecycle.dto.persistence.ClientProjLifecycleListParam;
 import cn.zswltech.mithras.projectprocess.projlifecycle.dto.persistence.ProjLifecycleListDTO;
 import cn.zswltech.mithras.projectprocess.projlifecycle.dto.persistence.ProjLifecycleListSelectParam;

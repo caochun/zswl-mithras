@@ -2,7 +2,7 @@ package cn.zswltech.mithras.projectprocess.application.lib.projpricing;
 
 import cn.zswltech.mithras.dto.projpricing.cashflowplan.ProjPricingCashFlowPlanListREQ;
 import cn.zswltech.mithras.dto.projpricing.cashflowplan.ProjPricingCashFlowPlanListRSP;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingCashFlowPlanLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingCashFlowPlanLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

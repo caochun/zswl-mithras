@@ -25,8 +25,8 @@ import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientAuxilia
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfoLib;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPlan;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.*;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.*;
+import cn.zswltech.mithras.projectprocess.model.projestablish.*;
+import cn.zswltech.mithras.projectprocess.model.projreview.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyService;

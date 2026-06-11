@@ -5,8 +5,8 @@ import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoDetailRSP
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingBaseInfoLibMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.ProjPricingEditionAdvice;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.handler.impl.ProjPricingBaseInfoLibHandler;

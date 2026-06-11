@@ -9,7 +9,7 @@
         </foreach>
     </insert>
     <select id="mainList"
-            resultType="cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleListDO">
+            resultType="cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleListDO">
         select *
         from (select projBase.client_id,
         projBase.proj_name,
@@ -112,7 +112,7 @@
         </where>
     </select>
     <select id="getProjSettle"
-            resultType="cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.LifecycleProjDO">
+            resultType="cn.zswltech.mithras.projectprocess.projlifecycle.model.LifecycleProjDO">
         select * from lifecycle_proj_settle
         <where>
             <if test="reviewId!=null">AND proj_review_id=#{reviewId}</if>

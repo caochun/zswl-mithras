@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.application.lib.projestablish;
 
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishLeasePriceLib;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishLeasePriceLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

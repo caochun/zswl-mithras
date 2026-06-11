@@ -34,7 +34,7 @@ import cn.zswltech.mithras.budget.mapper.model.BudgetPlanPay;
 import cn.zswltech.mithras.budget.mapper.model.BudgetPlanPayDetail;
 import cn.zswltech.mithras.budget.mapper.model.BudgetPlanPayWeeklyReport;
 import cn.zswltech.mithras.budget.mapper.model.BudgetPlanPayWeeklyReportDetail;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;

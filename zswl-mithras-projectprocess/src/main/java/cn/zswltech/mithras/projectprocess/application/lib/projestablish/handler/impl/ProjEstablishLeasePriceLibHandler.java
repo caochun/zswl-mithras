@@ -3,8 +3,8 @@ package cn.zswltech.mithras.projectprocess.application.lib.projestablish.handler
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceRSP;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishInfoModule;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishLeasePrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishLeasePriceLib;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishLeasePrice;
+import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishLeasePriceLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projestablish.handler.ProjEstablishLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

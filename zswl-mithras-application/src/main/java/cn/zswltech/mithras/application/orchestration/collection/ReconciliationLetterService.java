@@ -22,7 +22,7 @@ import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.collection.application.bo.ReconciliationLetterBO;
 import cn.zswltech.mithras.collection.application.facade.CollectionReconciliationLetterApplicationService;
