@@ -1,7 +1,10 @@
 package cn.zswltech.mithras.projectprocess.versioning.projestablish.impl;
 
 import cn.zswltech.mithras.dto.projestablish.version.ProjEstablishVersionListRSP;
-import cn.zswltech.mithras.dto.version.*;
+import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
+import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
+import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
+import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
@@ -13,7 +16,11 @@ import cn.zswltech.mithras.projectprocess.versioning.projestablish.handler.ProjE
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author zhaozhengkang

@@ -11,7 +11,10 @@ import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanListREQ;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewCompareREQ;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailREQ;
-import cn.zswltech.mithras.dto.version.*;
+import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
+import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
+import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
+import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.workflow.datacompare.EditdataCompareApplicationService;
@@ -19,8 +22,14 @@ import cn.zswltech.mithras.projectprocess.convert.projreview.ProjReviewCashFlowP
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.projectprocess.model.projpricing.*;
-import cn.zswltech.mithras.projectprocess.model.projreview.*;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingCashFlowPlanLib;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewAocPrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewFactoringPrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
@@ -42,7 +51,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @description
