@@ -4,7 +4,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseFlowTaskConvertPort;
 import cn.zswltech.mithras.dto.flow.search.ReceiveTaskListRSP;
-import cn.zswltech.mithras.application.orchestration.workflow.flow.convert.FlowTaskConvert;
+import cn.zswltech.mithras.workflow.flow.convert.FlowTaskConvert;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

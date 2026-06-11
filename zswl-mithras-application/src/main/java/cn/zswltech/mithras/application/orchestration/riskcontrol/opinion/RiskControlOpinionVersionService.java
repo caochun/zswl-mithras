@@ -21,7 +21,7 @@ import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.foundation.constant.FinancialConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.application.orchestration.workflow.flow.convert.FlowTaskConvert;
+import cn.zswltech.mithras.workflow.flow.convert.FlowTaskConvert;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.message.enums.MessageUrlEnum;
