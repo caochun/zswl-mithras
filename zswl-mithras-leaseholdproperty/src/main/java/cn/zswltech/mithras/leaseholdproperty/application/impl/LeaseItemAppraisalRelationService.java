@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.leaseholdproperty.application.impl;
 
 import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemAppraisalRelationMapper;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemAppraisalRelation;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemAppraisalRelation;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

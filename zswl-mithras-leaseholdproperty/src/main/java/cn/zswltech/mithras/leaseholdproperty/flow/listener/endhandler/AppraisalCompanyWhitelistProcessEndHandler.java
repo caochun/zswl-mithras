@@ -13,7 +13,7 @@ import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.leaseholdproperty.enums.AppraisalCompanyWhitelistProcessStatusEnum;
 import cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.AppraisalCompanyWhitelist;
+import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.leaseholdproperty.application.AppraisalCompanyWhitelistService;
 import org.springframework.stereotype.Component;

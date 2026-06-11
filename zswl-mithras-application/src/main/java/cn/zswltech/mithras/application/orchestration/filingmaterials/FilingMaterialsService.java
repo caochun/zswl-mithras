@@ -89,7 +89,7 @@ import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo;
 import cn.zswltech.mithras.payment.mapper.model.pubinfo.PublicInfoQuery;

@@ -25,7 +25,7 @@ import cn.zswltech.mithras.leaseholdproperty.enums.AppraisalCompanyWhitelistProc
 import cn.zswltech.mithras.leaseholdproperty.mapper.AppraisalCompanyWhitelistMapper;
 import cn.zswltech.mithras.leaseholdproperty.mapper.TycAppraisalCompanyBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.*;
+import cn.zswltech.mithras.leaseholdproperty.model.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;

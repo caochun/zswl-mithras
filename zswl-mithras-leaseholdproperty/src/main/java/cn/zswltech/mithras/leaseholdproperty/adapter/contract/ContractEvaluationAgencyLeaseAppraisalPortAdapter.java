@@ -5,8 +5,8 @@ import cn.zswltech.mithras.contract.core.evaluation.ContractEvaluationAgencyLeas
 import cn.zswltech.mithras.contract.core.evaluation.ContractEvaluationAgencyLeaseAppraisalPort;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseAppraisalService;
 import cn.zswltech.mithras.leaseholdproperty.mapper.TycAppraisalCompanyBaseInfoMapper;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemAppraisalRelation;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.TycAppraisalCompanyBaseInfo;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemAppraisalRelation;
+import cn.zswltech.mithras.leaseholdproperty.model.TycAppraisalCompanyBaseInfo;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

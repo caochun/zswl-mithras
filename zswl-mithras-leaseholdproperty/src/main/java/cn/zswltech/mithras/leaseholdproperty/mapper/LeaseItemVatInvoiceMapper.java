@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.leaseholdproperty.mapper;
 
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseVatInvoiceQueryREQ;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemVatInvoice;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemVatInvoice;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

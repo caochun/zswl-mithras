@@ -3,7 +3,7 @@ package cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywh
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.AppraisalCompanyWhitelist;
+import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import org.springframework.stereotype.Service;

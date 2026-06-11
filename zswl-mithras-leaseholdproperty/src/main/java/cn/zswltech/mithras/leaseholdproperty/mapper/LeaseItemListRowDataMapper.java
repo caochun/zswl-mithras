@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.leaseholdproperty.mapper;
 
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemListRowData;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemListRowData;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

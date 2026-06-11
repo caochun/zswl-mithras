@@ -25,7 +25,7 @@ import cn.zswltech.mithras.leaseholdproperty.enums.LeaseOperateEnum;
 import cn.zswltech.mithras.leaseholdproperty.excel.exporter.LeaseItemVehicleRegistrationCertificateExcelExporter;
 import cn.zswltech.mithras.leaseholdproperty.excel.model.LeaseItemVehicleRegistrationCertificateExcelModel;
 import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemVehicleRegistrationCertificateMapper;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemVehicleRegistrationCertificate;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemVehicleRegistrationCertificate;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseVehicleRegistrationService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

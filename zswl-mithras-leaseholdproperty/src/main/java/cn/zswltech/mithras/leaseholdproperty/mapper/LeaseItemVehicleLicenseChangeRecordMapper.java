@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.leaseholdproperty.mapper;
 
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemVehicleLicenseChangeRecord;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemVehicleLicenseChangeRecord;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

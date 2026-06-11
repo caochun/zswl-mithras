@@ -50,7 +50,7 @@ import cn.zswltech.mithras.kpi.model.EclExecuteRecord;
 import cn.zswltech.mithras.kpi.model.KpiProvisionBaseInfo;
 import cn.zswltech.mithras.kpi.model.KpiProvisionDetail;
 import cn.zswltech.mithras.kpi.application.ecl.EclBusinessConfigService;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfoLib;

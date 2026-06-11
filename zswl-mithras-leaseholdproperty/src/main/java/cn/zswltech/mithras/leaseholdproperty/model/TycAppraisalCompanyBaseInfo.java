@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.leaseholdproperty.mapper.model;
+package cn.zswltech.mithras.leaseholdproperty.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -10,10 +10,11 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * <p>
- * 评估机构与租赁物关联表
+ * 天眼查-评估机构主表
  * </p>
  *
  * @author chenyifei
@@ -22,8 +23,8 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("lease_item_appraisal_relation")
-public class LeaseItemAppraisalRelation extends BaseModel implements Serializable {
+@TableName("tyc_appraisal_company_base_info")
+public class TycAppraisalCompanyBaseInfo extends BaseModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,34 +35,40 @@ public class LeaseItemAppraisalRelation extends BaseModel implements Serializabl
     private Long id;
 
     /**
-     * 评估机构id
+     * 机构名称
      */
-    @TableField("company_id")
-    private Long companyId;
+    @TableField("company_name")
+    private String companyName;
 
     /**
-     * 租赁物id
+     * 统一社会信用代码
      */
-    @TableField("lease_item_id")
-    private Long leaseItemId;
+    @TableField("credit_code")
+    private String creditCode;
 
     /**
-     * 用途
+     * 营业许可证到期日
      */
-    @TableField("purpose")
-    private String purpose;
+    @TableField("biz_license_end_date")
+    private LocalDate bizLicenseEndDate;
 
     /**
-     * 是否被选中
+     * 营业许可证是否为长期
      */
-    @TableField("select_type")
-    private String selectType;
+    @TableField("biz_licence_long_term")
+    private Boolean bizLicenceLongTerm;
 
     /**
-     * 是否白名单准入
+     * 业务范围
      */
-    @TableField("is_whitelist")
-    private Integer isWhitelist;
+    @TableField("biz_scope")
+    private String bizScope;
+
+    /**
+     * 成立日期
+     */
+    @TableField("establish_date")
+    private LocalDate establishDate;
 
     /**
      * 逻辑删除

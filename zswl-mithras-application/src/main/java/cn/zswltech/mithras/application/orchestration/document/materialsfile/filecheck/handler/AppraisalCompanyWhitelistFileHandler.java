@@ -16,7 +16,7 @@ import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.leaseholdproperty.enums.AppraisalCompanyWhitelistProcessStatusEnum;
 import cn.zswltech.mithras.leaseholdproperty.enums.LeaseAppraisalFileTypeEnum;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.AppraisalCompanyWhitelist;
+import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.leaseholdproperty.application.AppraisalCompanyWhitelistService;

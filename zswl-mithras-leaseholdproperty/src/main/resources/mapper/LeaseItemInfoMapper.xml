@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemInfoMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="projReviewId" column="proj_review_id" jdbcType="BIGINT"/>
             <result property="projName" column="proj_name" jdbcType="VARCHAR"/>
@@ -33,7 +33,7 @@
         update_by,update_time
     </sql>
     <select id="queryLastestListByContractId"
-            resultType="cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo">
+            resultType="cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo">
         SELECT
         <include refid="Base_Column_List"/>
         FROM lease_item_info

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.leaseholdproperty.application.impl;
 
 import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemVatInvoiceProductMapper;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemVatInvoiceProduct;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemVatInvoiceProduct;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemVatInvoiceProductService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.file.FileUploadRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
 import cn.zswltech.mithras.leaseholdproperty.enums.LeaseOperationTypeEnum;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.servlet.ServletOutputStream;

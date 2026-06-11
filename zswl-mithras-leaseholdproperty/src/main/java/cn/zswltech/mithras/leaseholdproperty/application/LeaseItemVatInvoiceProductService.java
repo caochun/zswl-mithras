@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.leaseholdproperty.application;
 
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemVatInvoiceProduct;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemVatInvoiceProduct;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

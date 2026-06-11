@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.leaseholdproperty.application.impl;
 
 import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemListRowDataMapper;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemListRowData;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemListRowData;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemListRowDataService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

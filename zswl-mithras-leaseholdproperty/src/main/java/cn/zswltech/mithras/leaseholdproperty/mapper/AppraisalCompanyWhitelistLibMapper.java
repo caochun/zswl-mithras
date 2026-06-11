@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.leaseholdproperty.mapper;
 
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.AppraisalCompanyWhitelistLib;
+import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelistLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

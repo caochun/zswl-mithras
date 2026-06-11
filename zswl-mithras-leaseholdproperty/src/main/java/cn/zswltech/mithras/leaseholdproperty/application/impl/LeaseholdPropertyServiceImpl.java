@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.leaseholdproperty.LeaseholdPropertyRSP;
 import cn.zswltech.mithras.leaseholdproperty.excel.importer.LeaseholdPropertyExcelImporter;
 import cn.zswltech.mithras.leaseholdproperty.excel.model.LeaseholdPropertyExcelModel;
 import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseholdPropertyMapper;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseholdProperty;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseholdProperty;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.basedata.dictionary.GeneralDictionaryService;

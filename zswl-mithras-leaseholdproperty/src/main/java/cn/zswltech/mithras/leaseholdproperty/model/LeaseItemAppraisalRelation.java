@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.leaseholdproperty.mapper.model;
+package cn.zswltech.mithras.leaseholdproperty.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -10,11 +10,10 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * <p>
- * 天眼查-评估机构主表
+ * 评估机构与租赁物关联表
  * </p>
  *
  * @author chenyifei
@@ -23,8 +22,8 @@ import java.time.LocalDate;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("tyc_appraisal_company_base_info")
-public class TycAppraisalCompanyBaseInfo extends BaseModel implements Serializable {
+@TableName("lease_item_appraisal_relation")
+public class LeaseItemAppraisalRelation extends BaseModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,40 +34,34 @@ public class TycAppraisalCompanyBaseInfo extends BaseModel implements Serializab
     private Long id;
 
     /**
-     * 机构名称
+     * 评估机构id
      */
-    @TableField("company_name")
-    private String companyName;
+    @TableField("company_id")
+    private Long companyId;
 
     /**
-     * 统一社会信用代码
+     * 租赁物id
      */
-    @TableField("credit_code")
-    private String creditCode;
+    @TableField("lease_item_id")
+    private Long leaseItemId;
 
     /**
-     * 营业许可证到期日
+     * 用途
      */
-    @TableField("biz_license_end_date")
-    private LocalDate bizLicenseEndDate;
+    @TableField("purpose")
+    private String purpose;
 
     /**
-     * 营业许可证是否为长期
+     * 是否被选中
      */
-    @TableField("biz_licence_long_term")
-    private Boolean bizLicenceLongTerm;
+    @TableField("select_type")
+    private String selectType;
 
     /**
-     * 业务范围
+     * 是否白名单准入
      */
-    @TableField("biz_scope")
-    private String bizScope;
-
-    /**
-     * 成立日期
-     */
-    @TableField("establish_date")
-    private LocalDate establishDate;
+    @TableField("is_whitelist")
+    private Integer isWhitelist;
 
     /**
      * 逻辑删除

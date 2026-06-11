@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.leaseholdproperty.mapper.model;
+package cn.zswltech.mithras.leaseholdproperty.model;
 
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;

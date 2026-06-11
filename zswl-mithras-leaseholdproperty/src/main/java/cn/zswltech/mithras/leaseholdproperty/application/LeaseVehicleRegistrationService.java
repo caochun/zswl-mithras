@@ -3,7 +3,7 @@ package cn.zswltech.mithras.leaseholdproperty.application;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemVehicleRegistrationCertificate;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemVehicleRegistrationCertificate;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

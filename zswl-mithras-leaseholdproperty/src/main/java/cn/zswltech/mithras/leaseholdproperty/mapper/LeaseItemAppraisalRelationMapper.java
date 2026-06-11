@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.leaseholdproperty.mapper;
 
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemAppraisalRelation;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemAppraisalRelation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

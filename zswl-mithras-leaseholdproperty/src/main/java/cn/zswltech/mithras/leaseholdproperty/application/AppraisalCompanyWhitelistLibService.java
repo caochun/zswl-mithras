@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.leaseholdproperty.application;
 
 import cn.zswltech.mithras.leaseholdproperty.mapper.AppraisalCompanyWhitelistLibMapper;
-import cn.zswltech.mithras.leaseholdproperty.mapper.model.AppraisalCompanyWhitelistLib;
+import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelistLib;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
