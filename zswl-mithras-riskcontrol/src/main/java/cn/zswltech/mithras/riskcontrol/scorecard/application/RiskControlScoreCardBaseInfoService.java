@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlAssertEnum;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardBaseInfo;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardBaseInfo;
 import cn.zswltech.mithras.riskcontrol.scorecard.mapper.RiskControlScoreCardBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

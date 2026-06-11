@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.riskcontrol.scorecard.mapper.model;
+package cn.zswltech.mithras.riskcontrol.scorecard.model;
 
 import cn.zswltech.mithras.riskcontrol.common.GradeEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.riskcontrol.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.assembler.RiskControlCardTargetConverter;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardTarget;
 import cn.zswltech.mithras.riskcontrol.scorecard.mapper.RiskControlScoreCardTargetMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

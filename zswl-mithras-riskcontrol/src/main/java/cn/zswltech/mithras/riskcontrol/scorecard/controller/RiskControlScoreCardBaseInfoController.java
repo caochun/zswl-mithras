@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.riskcontrol.RiskControlScoreCardBaseInfoApi;
 import cn.zswltech.mithras.dto.riskcontrol.*;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardBaseInfo;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardBaseInfo;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.RiskControlScoreCardBaseInfoService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

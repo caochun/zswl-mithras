@@ -6,8 +6,8 @@ import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalcula
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateDetailRSP;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateSaveREQ;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.assembler.RiskControlCardTargetConverter;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardAreaAndTarget;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardAreaAndTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardTarget;
 import cn.zswltech.mithras.riskcontrol.scorecard.mapper.RiskControlScoreCardAreaAndTargetMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

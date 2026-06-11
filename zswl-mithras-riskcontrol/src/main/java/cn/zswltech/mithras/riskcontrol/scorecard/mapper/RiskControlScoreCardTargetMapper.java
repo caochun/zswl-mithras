@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.riskcontrol.scorecard.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardTarget;
 
 /**
 * @description risk_control_score_card_target

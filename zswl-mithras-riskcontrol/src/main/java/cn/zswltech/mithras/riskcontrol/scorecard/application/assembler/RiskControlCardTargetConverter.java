@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetAddREQ;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetListRSP;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetModifyREQ;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlTypeConversionWorker;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardTarget;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.riskcontrol.common.AreaStatusEnum;
 import cn.zswltech.mithras.riskcontrol.common.AreaTypeEnum;
 import cn.zswltech.mithras.riskcontrol.common.GradeEnum;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardData;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardData;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import lombok.Data;
 

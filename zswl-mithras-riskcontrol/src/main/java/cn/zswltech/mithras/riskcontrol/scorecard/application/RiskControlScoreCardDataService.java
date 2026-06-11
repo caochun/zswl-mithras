@@ -2,7 +2,7 @@ package cn.zswltech.mithras.riskcontrol.scorecard.application;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.riskcontrol.common.TitleNameEnum;
-import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardData;
+import cn.zswltech.mithras.riskcontrol.scorecard.model.RiskControlScoreCardData;
 import cn.zswltech.mithras.riskcontrol.scorecard.mapper.RiskControlScoreCardDataMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
