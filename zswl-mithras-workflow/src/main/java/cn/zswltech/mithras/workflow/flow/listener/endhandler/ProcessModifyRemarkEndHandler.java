@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.workflow.flow.listener.endhandler;
 
-import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
-
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;
 import org.springframework.stereotype.Component;
@@ -9,7 +7,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 import static cn.hutool.core.text.CharSequenceUtil.equalsAny;
-import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.*;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.ContractModifyFlow;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.FundFinancingModifyFlow;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.GroupCreditEstablishModifyFlow;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.GroupCreditReviewCreateFlow;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.GroupCreditReviewModifyFlow;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.ProjReviewCreateFlow;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.ProjReviewModifyFlow;
 
 /**
  * @author yibin
