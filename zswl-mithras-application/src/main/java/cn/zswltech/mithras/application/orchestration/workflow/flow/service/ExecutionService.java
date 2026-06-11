@@ -63,7 +63,7 @@ import cn.zswltech.mithras.application.orchestration.contract.effectcheck.Contra
 import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
 import cn.zswltech.mithras.creditreport.service.CreditReportClientItemService;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FilingMaterialsService;
-import cn.zswltech.mithras.credit.application.groupcredit.establish.impl.GroupCreditEstablishService;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;

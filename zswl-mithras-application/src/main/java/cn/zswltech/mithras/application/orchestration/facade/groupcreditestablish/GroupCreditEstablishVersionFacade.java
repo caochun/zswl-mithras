@@ -23,7 +23,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;
 import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
-import cn.zswltech.mithras.credit.application.groupcredit.establish.impl.GroupCreditEstablishService;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishService;
 import cn.zswltech.mithras.credit.groupcredit.establish.versioning.GroupCreditEstablishVersionServiceImpl;
 import org.springframework.util.StringUtils;
 import org.springframework.stereotype.Service;

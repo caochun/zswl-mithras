@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.application.groupcredit.establish.impl;
+package cn.zswltech.mithras.credit.application.groupcredit.establish;
 
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.common.util.AccountUtil;

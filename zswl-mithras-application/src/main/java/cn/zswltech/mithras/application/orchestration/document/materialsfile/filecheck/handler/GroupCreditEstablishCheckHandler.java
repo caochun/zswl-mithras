@@ -11,7 +11,7 @@ import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstabli
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.credit.application.groupcredit.establish.impl.GroupCreditEstablishService;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.FileModuleCheck;
 import cn.zswltech.mithras.workflow.flow.util.FlowUtil;

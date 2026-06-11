@@ -4,7 +4,7 @@ import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndH
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.credit.application.groupcredit.establish.impl.GroupCreditEstablishService;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

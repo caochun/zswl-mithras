@@ -165,7 +165,7 @@ import cn.zswltech.mithras.application.orchestration.workflow.flow.service.Execu
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
-import cn.zswltech.mithras.credit.application.groupcredit.establish.impl.GroupCreditEstablishService;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.customer.versioning.impl.ClientVersionServiceImpl;
