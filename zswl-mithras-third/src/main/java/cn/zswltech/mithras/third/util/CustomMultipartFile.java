@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.datashare.service.util;
+package cn.zswltech.mithras.third.util;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,10 +12,6 @@ public class CustomMultipartFile implements MultipartFile {
     private final String contentType;
 
     public CustomMultipartFile(File file) throws IOException {
-        this.name = "file";
-        this.originalFilename = file.getName();
-        this.contentType = "application/octet-stream";
-
         try (FileInputStream fis = new FileInputStream(file);
              ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
             byte[] buffer = new byte[1024];
@@ -25,6 +21,16 @@ public class CustomMultipartFile implements MultipartFile {
             }
             this.fileContent = bos.toByteArray();
         }
+        this.name = "file";
+        this.originalFilename = file.getName();
+        this.contentType = "application/octet-stream";
+    }
+
+    public CustomMultipartFile(String name, String originalFilename, String contentType, byte[] fileContent) {
+        this.name = name;
+        this.originalFilename = originalFilename == null ? name : originalFilename;
+        this.contentType = contentType;
+        this.fileContent = fileContent == null ? new byte[0] : fileContent;
     }
 
     @Override

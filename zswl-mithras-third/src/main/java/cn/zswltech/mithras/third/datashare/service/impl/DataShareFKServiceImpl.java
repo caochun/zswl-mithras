@@ -16,7 +16,7 @@ import cn.zswltech.mithras.third.datashare.service.req.ArchivesReq;
 import cn.zswltech.mithras.third.datashare.service.req.CQ2AttachmentSaveReq;
 import cn.zswltech.mithras.third.datashare.service.req.DetailReq;
 import cn.zswltech.mithras.third.datashare.service.rsp.CQ2AcchmentSaveRsp;
-import cn.zswltech.mithras.third.datashare.service.util.CustomMultipartFile;
+import cn.zswltech.mithras.third.util.CustomMultipartFile;
 import cn.zswltech.mithras.third.datashare.service.util.HLYEnum;
 import cn.zswltech.mithras.third.datashare.service.util.HLYHttpUtil;
 import cn.zswltech.mithras.foundation.util.StringUtils;

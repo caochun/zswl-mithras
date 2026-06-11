@@ -6,6 +6,7 @@ import cn.zswltech.mithras.third.qiyuesuo.client.annotation.QiyuesuoApiLog;
 import cn.zswltech.mithras.third.qiyuesuo.client.config.QiyuesuoConfig;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.third.qiyuesuo.client.dto.*;
+import cn.zswltech.mithras.third.util.CustomMultipartFile;
 import com.alibaba.fastjson.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,6 @@ import net.qiyuesuo.v3sdk.model.v2contract.request.V2ContractSignbylegalpersonRe
 import okhttp3.*;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpHeaders;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -128,7 +128,7 @@ public class QiyuesuoService {
         Assert.notNull(response.body(), "下载合同文档请求失败！");
         // 将数据流转化为文件
         DownloadContractResponse downloadContractResponse = new DownloadContractResponse();
-        MockMultipartFile file = new MockMultipartFile("file", response.body().byteStream());
+        CustomMultipartFile file = new CustomMultipartFile("file", null, APPLICATION_OCTET_STREAM_VALUE, response.body().bytes());
         downloadContractResponse.setFile(file);
         return downloadContractResponse;
     }
