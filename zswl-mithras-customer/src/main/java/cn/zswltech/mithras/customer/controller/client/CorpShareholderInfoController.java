@@ -2,7 +2,11 @@ package cn.zswltech.mithras.customer.controller.client;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.client.shareholder.*;
+import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoAddREQ;
+import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoListREQ;
+import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoListRSP;
+import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoModifyREQ;
+import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoRemoveREQ;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import cn.zswltech.mithras.api.client.CorpShareholderInfoApi;

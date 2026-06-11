@@ -38,15 +38,36 @@ import javax.annotation.Resource;
 import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-import static cn.hutool.core.text.CharSequenceUtil.*;
-import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.foundation.constant.ResultMsg.*;
+import static cn.hutool.core.text.CharSequenceUtil.join;
+import static cn.hutool.core.text.CharSequenceUtil.isBlank;
+import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
+import static cn.hutool.core.util.ObjectUtil.equal;
+import static cn.hutool.core.util.ObjectUtil.isNotNull;
+import static cn.hutool.core.util.ObjectUtil.isNull;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.SUBJECT_EXCEL_TOO_MANY;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.SUBJECT_QUARTER_TYPE_ERROR;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.SUBJECT_REPORT_TYPE_ERROR;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.SUBJECT_YEAR_ERROR;
 import static cn.zswltech.mithras.customer.enums.GovernmentSubjectItemType.GOV_CAPITAL_BALANCE;
 import static cn.zswltech.mithras.customer.enums.GovernmentSubjectItemType.INCOME_EXPEND;
-import static cn.zswltech.mithras.customer.enums.SubjectItemType.*;
+import static cn.zswltech.mithras.customer.enums.SubjectItemType.BIZ_INDEX;
+import static cn.zswltech.mithras.customer.enums.SubjectItemType.CAPITAL_BALANCE;
+import static cn.zswltech.mithras.customer.enums.SubjectItemType.CASH_FLOW;
+import static cn.zswltech.mithras.customer.enums.SubjectItemType.PROFIT;
 
 /**
  * @author junke

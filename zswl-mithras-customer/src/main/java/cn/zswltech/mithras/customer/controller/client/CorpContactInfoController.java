@@ -2,7 +2,11 @@ package cn.zswltech.mithras.customer.controller.client;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.client.contactinfo.*;
+import cn.zswltech.mithras.dto.client.contactinfo.CorpContactAddInfoREQ;
+import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListREQ;
+import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListRSP;
+import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoModifyREQ;
+import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoRemoveREQ;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import cn.zswltech.mithras.api.client.CorpContactInfoApi;

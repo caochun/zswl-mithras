@@ -2,7 +2,12 @@ package cn.zswltech.mithras.customer.controller.client;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.client.bankaccount.*;
+import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountAddREQ;
+import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountListREQ;
+import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountListRSP;
+import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountModifyREQ;
+import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountRemoveREQ;
+import cn.zswltech.mithras.dto.client.bankaccount.CorpVersionedBankAccountListREQ;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import cn.zswltech.mithras.api.client.CorpBankAccountApi;

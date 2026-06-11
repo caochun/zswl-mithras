@@ -10,7 +10,10 @@ import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.model.client.*;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.IndustryType;
+import cn.zswltech.mithras.customer.model.client.NewCorpCommerceInfo;
+import cn.zswltech.mithras.customer.model.client.NewCorpCommerceInfoLib;
 import cn.zswltech.mithras.foundation.exception.LackDataException;
 import cn.zswltech.mithras.customer.versioning.handler.ClientLibAbstractHandler;
 import cn.hutool.core.collection.CollectionUtil;
@@ -18,7 +21,9 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author wangchuanhao

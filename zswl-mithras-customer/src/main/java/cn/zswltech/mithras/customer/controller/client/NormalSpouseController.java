@@ -2,7 +2,13 @@ package cn.zswltech.mithras.customer.controller.client;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.client.normal.*;
+import cn.zswltech.mithras.dto.client.normal.NormalSpouseAddREQ;
+import cn.zswltech.mithras.dto.client.normal.NormalSpouseListREQ;
+import cn.zswltech.mithras.dto.client.normal.NormalSpouseListRSP;
+import cn.zswltech.mithras.dto.client.normal.NormalSpouseModifyREQ;
+import cn.zswltech.mithras.dto.client.normal.NormalSpouseRemoveREQ;
+import cn.zswltech.mithras.dto.client.normal.NormalSpouseSelectREQ;
+import cn.zswltech.mithras.dto.client.normal.NormalSpouseSelectRSP;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import java.util.List;

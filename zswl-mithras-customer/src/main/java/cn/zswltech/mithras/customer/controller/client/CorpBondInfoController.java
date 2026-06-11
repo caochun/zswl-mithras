@@ -2,7 +2,11 @@ package cn.zswltech.mithras.customer.controller.client;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.client.bondinfo.*;
+import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoAddREQ;
+import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoListREQ;
+import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoListRSP;
+import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoModifyREQ;
+import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoRemoveREQ;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import cn.zswltech.mithras.api.client.CorpBondInfoApi;

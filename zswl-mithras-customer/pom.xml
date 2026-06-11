@@ -51,12 +51,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>cn.zswltech.lib</groupId>
-            <artifactId>oss-toolkit</artifactId>
-            <version>1.0.5-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>cn.zswltech</groupId>
             <artifactId>gruul-spring-boot-starter</artifactId>
             <version>3.5.2-mithras.RELEASE</version>
@@ -66,21 +60,6 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>de.odysseus.juel</groupId>
-            <artifactId>juel-api</artifactId>
-            <version>${juel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>de.odysseus.juel</groupId>
-            <artifactId>juel-impl</artifactId>
-            <version>${juel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>de.odysseus.juel</groupId>
-            <artifactId>juel-spi</artifactId>
-            <version>${juel.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>

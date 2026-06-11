@@ -2,7 +2,12 @@ package cn.zswltech.mithras.customer.controller.client;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SelectRSP;
-import cn.zswltech.mithras.dto.client.commerceinfo.*;
+import cn.zswltech.mithras.dto.client.commerceinfo.ClientCorpCommerceInfoValidREQ;
+import cn.zswltech.mithras.dto.client.commerceinfo.ClientCorpCommerceInfoValidRSP;
+import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoAddREQ;
+import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailREQ;
+import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoDetailRSP;
+import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoModifyREQ;
 import cn.zswltech.mithras.dto.contract.HighSeasCustomersREQ;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;

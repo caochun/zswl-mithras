@@ -1,6 +1,8 @@
 package cn.zswltech.mithras.customer.event;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
 
 /**

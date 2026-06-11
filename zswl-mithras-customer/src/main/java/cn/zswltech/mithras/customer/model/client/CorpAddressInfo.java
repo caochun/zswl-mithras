@@ -2,7 +2,9 @@ package cn.zswltech.mithras.customer.model.client;
 
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -8,14 +8,17 @@ import cn.zswltech.mithras.dto.client.contactinfo.NewCorpContactInfoListRSP;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.corp.CorpContactInfoMapper;
-import cn.zswltech.mithras.customer.model.client.*;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.NewCorpContactInfo;
+import cn.zswltech.mithras.customer.model.client.NewCorpContactInfoLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.versioning.handler.ClientLibAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 

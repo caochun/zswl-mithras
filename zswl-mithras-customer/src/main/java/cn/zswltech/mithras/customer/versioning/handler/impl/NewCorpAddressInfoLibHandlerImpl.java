@@ -10,7 +10,10 @@ import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.customer.model.client.*;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.customer.model.client.NewCorpAddressInfo;
+import cn.zswltech.mithras.customer.model.client.NewCorpAddressInfoLib;
 import cn.zswltech.mithras.foundation.exception.LackDataException;
 import cn.zswltech.mithras.customer.versioning.handler.ClientLibAbstractHandler;
 import cn.zswltech.mithras.customer.application.validator.CorpAddressInfoValidator;
@@ -19,7 +22,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**

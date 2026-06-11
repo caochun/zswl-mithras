@@ -4,7 +4,8 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.bankaccount.NewCorpBankAccountListRSP;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.customer.model.client.*;
+import cn.zswltech.mithras.customer.model.client.NewCorpBankAccount;
+import cn.zswltech.mithras.customer.model.client.NewCorpBankAccountLib;
 import cn.zswltech.mithras.customer.versioning.handler.ClientLibAbstractHandler;
 import org.springframework.stereotype.Component;
 

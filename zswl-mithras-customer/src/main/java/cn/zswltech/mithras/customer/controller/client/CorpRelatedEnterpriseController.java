@@ -2,7 +2,11 @@ package cn.zswltech.mithras.customer.controller.client;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.client.relatedenterprise.*;
+import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseAddREQ;
+import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseListREQ;
+import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseListRSP;
+import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseModifyREQ;
+import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseRemoveREQ;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import cn.zswltech.mithras.api.client.CorpRelatedEnterpriseApi;
