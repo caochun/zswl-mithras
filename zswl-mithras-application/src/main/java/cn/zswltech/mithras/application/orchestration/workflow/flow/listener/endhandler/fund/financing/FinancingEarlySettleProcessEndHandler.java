@@ -18,7 +18,7 @@ import cn.zswltech.mithras.fund.application.financing.fms.FundFinancingBaseInfoS
 import cn.zswltech.mithras.fund.application.financing.fms.FundFinancingContext;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingEvent;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayBaseInfoService;
-import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingLibVersionService;
+import cn.zswltech.mithras.fund.versioning.financing.FundFinancingLibVersionService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

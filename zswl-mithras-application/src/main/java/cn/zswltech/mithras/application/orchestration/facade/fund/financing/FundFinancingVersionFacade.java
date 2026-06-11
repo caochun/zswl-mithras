@@ -17,7 +17,7 @@ import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModi
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingService;
-import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingLibVersionService;
+import cn.zswltech.mithras.fund.versioning.financing.FundFinancingLibVersionService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 

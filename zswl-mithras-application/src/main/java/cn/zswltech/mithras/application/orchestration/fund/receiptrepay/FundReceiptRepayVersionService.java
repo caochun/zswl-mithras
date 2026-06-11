@@ -65,7 +65,7 @@ import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancin
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayPlanService;
 import cn.zswltech.mithras.fund.application.receiptrepay.port.FundReceiptRepayProcessQueryPort;
-import cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
+import cn.zswltech.mithras.fund.versioning.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import cn.zswltech.mithras.foundation.util.CompareUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.alibaba.fastjson.JSON;

@@ -39,7 +39,7 @@ import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibSe
 import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractPledgeLibService;
-import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingPledgeInfoLibService;
+import cn.zswltech.mithras.fund.versioning.financing.FundFinancingPledgeInfoLibService;
 import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionBaseInfoLibService;
 import cn.zswltech.mithras.payment.application.lib.service.PaymentBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;

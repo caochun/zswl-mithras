@@ -8,7 +8,7 @@ import cn.zswltech.mithras.fund.model.receiptrepay.FundRepayAccountLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.impl.FundRepayAccountLibHandler;
+import cn.zswltech.mithras.fund.versioning.receiptrepay.handler.impl.FundRepayAccountLibHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

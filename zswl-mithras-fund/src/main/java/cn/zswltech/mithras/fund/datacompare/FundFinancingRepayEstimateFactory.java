@@ -8,7 +8,7 @@ import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayEstimateLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.fund.application.lib.financing.handler.impl.FundFinancingRepayEstimateLibHandler;
+import cn.zswltech.mithras.fund.versioning.financing.handler.impl.FundFinancingRepayEstimateLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

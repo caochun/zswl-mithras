@@ -16,7 +16,7 @@ import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfoLib;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayBaseInfoService;
-import cn.zswltech.mithras.fund.application.lib.receiptrepay.FundReceiptRepayBaseInfoLibService;
+import cn.zswltech.mithras.fund.versioning.receiptrepay.FundReceiptRepayBaseInfoLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
 

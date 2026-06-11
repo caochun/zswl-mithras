@@ -43,7 +43,7 @@ import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundRecei
 import cn.zswltech.mithras.contract.versioning.application.ContractAocPriceLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
-import cn.zswltech.mithras.fund.application.lib.financing.handler.impl.FundFinancingBaseInfoLibHandler;
+import cn.zswltech.mithras.fund.versioning.financing.handler.impl.FundFinancingBaseInfoLibHandler;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.alibaba.fastjson.JSON;

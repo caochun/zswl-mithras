@@ -45,7 +45,7 @@ import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancin
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPlanService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayCashFlowService;
-import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingBaseInfoLibService;
+import cn.zswltech.mithras.fund.versioning.financing.FundFinancingBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
