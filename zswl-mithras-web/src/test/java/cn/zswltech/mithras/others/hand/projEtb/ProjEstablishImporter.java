@@ -28,7 +28,7 @@ import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishLease
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishLeasePriceMapper;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.impl.ProjEstablishVersionServiceImpl;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.impl.ProjEstablishVersionServiceImpl;
 import cn.zswltech.mithras.foundation.state.ProjProcessState;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

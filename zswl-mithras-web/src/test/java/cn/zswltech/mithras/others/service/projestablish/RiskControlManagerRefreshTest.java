@@ -14,7 +14,7 @@ import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBase
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishBaseInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.ProjEstablishBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.ProjEstablishBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

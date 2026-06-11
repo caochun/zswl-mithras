@@ -27,8 +27,8 @@ import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseI
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityService;
 import cn.zswltech.mithras.application.orchestration.client.ClientTransferService;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.ProjEstablishBaseInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.impl.ProjEstablishVersionServiceImpl;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.ProjEstablishBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.impl.ProjEstablishVersionServiceImpl;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishPriceService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishService;

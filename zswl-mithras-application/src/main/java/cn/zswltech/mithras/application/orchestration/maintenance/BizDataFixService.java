@@ -118,8 +118,8 @@ import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibS
 import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionWeightLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.ProjEstablishBaseInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.ProjEstablishBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.customer.application.client.ClientCreateRecordService;
 import cn.zswltech.mithras.customer.application.client.ClientUserRefService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

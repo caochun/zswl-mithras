@@ -71,7 +71,7 @@ import cn.zswltech.mithras.application.orchestration.contract.ContractIncomeShar
 import cn.zswltech.mithras.contract.core.ContractReceiptService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.handler.impl.ProjReviewBaseInfoLibHandler;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.handler.impl.ProjReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;

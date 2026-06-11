@@ -76,9 +76,9 @@ import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionS
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionWeightService;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckPlanClientLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.ProjEstablishBaseInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projpricing.ProjPricingBaseInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.ProjEstablishBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projpricing.ProjPricingBaseInfoService;

@@ -26,7 +26,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;
 import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityService;
 import cn.zswltech.mithras.application.orchestration.client.ClientTransferService;
-import cn.zswltech.mithras.projectprocess.application.lib.projpricing.impl.ProjPricingVersionServiceImpl;
+import cn.zswltech.mithras.projectprocess.versioning.projpricing.impl.ProjPricingVersionServiceImpl;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projpricing.ProjPricingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projpricing.ProjPricingService;
 import org.springframework.beans.factory.annotation.Autowired;

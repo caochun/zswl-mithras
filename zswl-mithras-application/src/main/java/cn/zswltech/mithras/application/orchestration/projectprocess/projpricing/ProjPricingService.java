@@ -36,7 +36,7 @@ import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projpricing.impl.ProjPricingVersionServiceImpl;
+import cn.zswltech.mithras.projectprocess.versioning.projpricing.impl.ProjPricingVersionServiceImpl;
 import cn.zswltech.mithras.foundation.state.ProjContext;
 import cn.zswltech.mithras.foundation.state.ProjEvent;
 import cn.zswltech.mithras.projectprocess.application.projfms.impl.ProjPricingStateMachine;

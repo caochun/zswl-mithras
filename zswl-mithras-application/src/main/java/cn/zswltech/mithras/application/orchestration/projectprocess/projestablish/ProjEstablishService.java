@@ -38,7 +38,7 @@ import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.impl.ProjEstablishVersionServiceImpl;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.impl.ProjEstablishVersionServiceImpl;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.foundation.state.ProjContext;
 import cn.zswltech.mithras.foundation.state.ProjEvent;

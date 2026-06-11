@@ -8,7 +8,7 @@ import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishAocPr
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.handler.impl.ProjEstablishAocPriceLibHandler;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.handler.impl.ProjEstablishAocPriceLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

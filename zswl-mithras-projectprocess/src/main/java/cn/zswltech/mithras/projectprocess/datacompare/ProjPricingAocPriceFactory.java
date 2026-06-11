@@ -8,7 +8,7 @@ import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingAocPriceL
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.projectprocess.application.lib.projpricing.handler.impl.ProjPricingAocPriceLibHandler;
+import cn.zswltech.mithras.projectprocess.versioning.projpricing.handler.impl.ProjPricingAocPriceLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

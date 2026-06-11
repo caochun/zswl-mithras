@@ -13,7 +13,7 @@ import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
 import cn.zswltech.mithras.ftp.oldftp.lib.handler.impl.quarterly.FtpQuarterlyBasePricingLibHandler;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.handler.impl.ProjReviewLeasePriceLibHandler;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.handler.impl.ProjReviewLeasePriceLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

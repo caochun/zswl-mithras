@@ -34,7 +34,7 @@ import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;
 import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityService;
 import cn.zswltech.mithras.application.orchestration.client.ClientTransferService;
 import cn.zswltech.mithras.application.orchestration.contract.impl.ContractBaseInfoServiceImpl;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.impl.ProjReviewVersionServiceImpl;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.impl.ProjReviewVersionServiceImpl;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewCashFlowPlanService;

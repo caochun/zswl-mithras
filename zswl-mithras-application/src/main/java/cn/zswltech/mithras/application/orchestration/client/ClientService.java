@@ -169,9 +169,9 @@ import cn.zswltech.mithras.credit.application.groupcredit.establish.impl.GroupCr
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.customer.versioning.impl.ClientVersionServiceImpl;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewAocPriceLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewFactoringPriceLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewLeasePriceLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewAocPriceLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewFactoringPriceLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewLeasePriceLibService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;

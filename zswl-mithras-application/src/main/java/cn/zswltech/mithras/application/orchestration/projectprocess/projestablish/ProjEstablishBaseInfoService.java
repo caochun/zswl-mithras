@@ -73,7 +73,7 @@ import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.ExecutionService;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.customer.versioning.impl.CorpAddressInfoLibServiceImpl;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.handler.impl.ProjEstablishBaseInfoLibHandler;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.handler.impl.ProjEstablishBaseInfoLibHandler;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.foundation.state.ProjContext;
 import cn.zswltech.mithras.foundation.state.ProjEvent;

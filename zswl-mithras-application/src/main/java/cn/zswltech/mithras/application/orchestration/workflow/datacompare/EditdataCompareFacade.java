@@ -133,8 +133,8 @@ import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCre
 import cn.zswltech.mithras.customer.versioning.CorpAddressInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.policy.application.lib.PolicyInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projpricing.ProjPricingBaseInfoLibService;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingBaseInfoLibService;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.FileService;
 import cn.zswltech.mithras.ftp.newftp.controller.draft.NewFtpLprPricingDraftController;
 import cn.zswltech.mithras.ftp.newftp.controller.draft.NewFtpShiborInterestRateDraftController;

@@ -31,7 +31,7 @@ import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBase
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishLeasePriceMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewLeasePriceMapper;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.impl.ProjReviewVersionServiceImpl;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.impl.ProjReviewVersionServiceImpl;
 import cn.zswltech.mithras.foundation.state.ProjProcessState;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewCashFlowPlanService;
 import cn.zswltech.mithras.web.MithrasApplication;

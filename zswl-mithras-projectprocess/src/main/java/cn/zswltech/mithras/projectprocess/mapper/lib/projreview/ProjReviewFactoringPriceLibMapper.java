@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.mapper.lib.projreview;
 
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewFactoringPriceLib;
-import cn.zswltech.mithras.projectprocess.application.lib.projreview.dto.ProjReviewPriceDto;
+import cn.zswltech.mithras.projectprocess.versioning.projreview.dto.ProjReviewPriceDto;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

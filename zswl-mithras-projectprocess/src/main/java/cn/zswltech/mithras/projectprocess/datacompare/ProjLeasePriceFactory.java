@@ -8,7 +8,7 @@ import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishLease
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.projectprocess.application.lib.projestablish.handler.impl.ProjEstablishLeasePriceLibHandler;
+import cn.zswltech.mithras.projectprocess.versioning.projestablish.handler.impl.ProjEstablishLeasePriceLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
