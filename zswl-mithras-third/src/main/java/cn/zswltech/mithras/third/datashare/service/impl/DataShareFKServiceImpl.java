@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.file.FileUploadREQ;
 import cn.zswltech.mithras.dto.file.FileUploadRSP;
 import cn.zswltech.mithras.foundation.cache.RedisHelper;
 import cn.zswltech.mithras.third.datashare.mapper.DataShareFkMapper;
-import cn.zswltech.mithras.third.datashare.mapper.model.DataShareFk;
+import cn.zswltech.mithras.third.datashare.model.DataShareFk;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;

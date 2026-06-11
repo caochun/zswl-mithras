@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.ep.mapper;
 
-import cn.zswltech.mithras.third.ep.mapper.model.EpCourtAnnounce;
+import cn.zswltech.mithras.third.ep.model.EpCourtAnnounce;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -1,36 +1,31 @@
-package cn.zswltech.mithras.third.financialshare.mapper.model;
+package cn.zswltech.mithras.third.financialshare.model;
 
 import cn.zswltech.mithras.foundation.annotation.NotCompareColumn;
-import com.baomidou.mybatisplus.annotation.FieldStrategy;
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  * @author vico
- * @description 财资平台流水记录-临时表
+ * @description 财资平台流水记录
  * @date 2024-05-15
  */
 @Data
-public class FinanceFlowTempRecord implements Serializable {
+@TableName("finance_flow_record")
+public class FinanceFlowRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    @TableId(type = IdType.AUTO)
-    private Long businessId;
-
-    @TableField("batch_id")
-    private String batchId;
 
     /**
      * id
      */
-    @TableField("id")
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -495,6 +490,39 @@ public class FinanceFlowTempRecord implements Serializable {
     @TableField("currency_name")
     private String currencyName;
 
+    /**
+     * 流水处理类别, 自动核销方法会打标记，理论上不能为空
+     * {@link BankFlowCenterTypeEnum}
+     */
+    @TableField("financing_flow_type")
+    private String financingFlowType;
+    /**
+     * 核销状态
+     * {@link FinancingFlowWriteOffStatusEnum}
+     */
+    @TableField("write_off_status")
+    private String writeOffStatus;
+
+    /**
+     * 苍穹是否已删除标识 默认是0 未删除， 1 已删除
+     */
+    @TableField("logic_delete_flag")
+    private Integer logicDeleteFlag;
+
+    /**
+     * 资金端业务端标识
+     * {@link FinancingProjectTypeEnum}
+     */
+    @TableField("financing_project_type")
+    private String financingProjectType;
+
+    /**
+     * 剩余可核销金额
+     */
+    @TableField("surplus_amount")
+    private Long surplusAmount;
+
+
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @NotCompareColumn
     @TableField(value = "data_create_time", updateStrategy = FieldStrategy.NEVER)
@@ -502,5 +530,29 @@ public class FinanceFlowTempRecord implements Serializable {
     @NotCompareColumn
     @TableField(value = "data_update_time", updateStrategy = FieldStrategy.NEVER)
     private LocalDateTime dataUpdateTime;
+
+    /**
+     * 是否在列表展示
+     */
+    @TableField("show_in_list")
+    private Integer showInList;
+
+    /**
+     * 核销类型
+     */
+    @TableField("write_off_type")
+    private String writeOffType;
+
+    /**
+     * 是否已推送标识 0 未推送， 1 已推送
+     */
+    @TableField("send_cq_flag")
+    private Integer sendCqFlag;
+
+    /**
+     * 排序字段
+     */
+    @TableField("sort")
+    private Integer sort;
 
 }

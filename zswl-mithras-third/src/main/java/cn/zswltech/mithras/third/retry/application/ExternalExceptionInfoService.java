@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.retry.application;
 
-import cn.zswltech.mithras.third.retry.mapper.model.ExternalExceptionInfo;
+import cn.zswltech.mithras.third.retry.model.ExternalExceptionInfo;
 import cn.zswltech.mithras.third.retry.mapper.ExternalExceptionInfoMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.creditreport.client.xj.handler;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.enums.ContentTypeEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditApplyXJUrlENUM;
-import cn.zswltech.mithras.third.retry.mapper.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.retry.application.ExceptionRequestRecordService;
 import cn.zswltech.mithras.creditreport.client.xj.CreditReportApiHandler;

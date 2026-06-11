@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.retry.mapper.model;
+package cn.zswltech.mithras.third.retry.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;

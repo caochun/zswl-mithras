@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.datashare.service.handle;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialDevUrlENUM;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialUrlENUM;
-import cn.zswltech.mithras.third.retry.mapper.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.retry.application.ExceptionRequestRecordService;
 import cn.zswltech.mithras.third.datashare.service.req.CQ2AttachmentSaveReq;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.ep.mapper;
 
-import cn.zswltech.mithras.third.ep.mapper.model.EpChangeInfo;
+import cn.zswltech.mithras.third.ep.model.EpChangeInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

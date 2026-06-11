@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.datashare.mapper.model;
+package cn.zswltech.mithras.third.datashare.model;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

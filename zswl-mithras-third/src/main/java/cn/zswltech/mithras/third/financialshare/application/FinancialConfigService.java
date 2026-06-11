@@ -4,7 +4,7 @@ package cn.zswltech.mithras.third.financialshare.application;
 import cn.hutool.core.util.ObjectUtil;
 
 import cn.zswltech.mithras.third.financialshare.enums.FinancialUrlENUM;
-import cn.zswltech.mithras.third.financialshare.mapper.model.CQRelatedMithrasInfo;
+import cn.zswltech.mithras.third.financialshare.model.CQRelatedMithrasInfo;
 import cn.zswltech.mithras.third.financialshare.client.handle.AccessTokenHandle;
 import cn.zswltech.mithras.third.financialshare.client.handle.AppTokenHandle;
 import cn.zswltech.mithras.third.financialshare.client.req.AccessTokenREQ;

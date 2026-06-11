@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.third.overduereport.enums.OverdueReportDevUrlENUM;
 import cn.zswltech.mithras.third.overduereport.enums.OverdueReportUrlENUM;
-import cn.zswltech.mithras.third.retry.mapper.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.retry.application.ExceptionRequestRecordService;
 import cn.zswltech.mithras.third.overduereport.client.OverdueReportApiHandler;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.financialshare.mapper.model;
+package cn.zswltech.mithras.third.financialshare.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;

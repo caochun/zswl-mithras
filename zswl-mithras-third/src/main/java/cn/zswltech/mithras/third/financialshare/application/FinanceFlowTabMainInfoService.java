@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.financialshare.application;
 
 import cn.zswltech.mithras.third.financialshare.mapper.FinanceFlowTabMainInfoMapper;
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowTabMainInfo;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowTabMainInfo;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

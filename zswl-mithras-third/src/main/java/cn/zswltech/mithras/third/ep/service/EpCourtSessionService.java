@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.ep.EpCourtSessionRSP;
 import cn.zswltech.mithras.dto.utils.BeanCopyUtils;
 import cn.zswltech.mithras.third.ep.mapper.EpCourtSessionMapper;
-import cn.zswltech.mithras.third.ep.mapper.model.EpCourtSession;
+import cn.zswltech.mithras.third.ep.model.EpCourtSession;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;

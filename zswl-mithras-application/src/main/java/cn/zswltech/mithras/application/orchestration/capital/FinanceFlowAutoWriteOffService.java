@@ -62,7 +62,7 @@ import cn.zswltech.mithras.margin.mapper.model.WarrantyRecordInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailUnconfirmedMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.third.financialshare.mapper.FinanceFlowRecordMapper;

@@ -5,8 +5,8 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.dto.capital.write_off.*;
 import cn.zswltech.mithras.third.enums.capital.DataSourceEnum;
 import cn.zswltech.mithras.capital.enums.writeoff.WriteOffBusinessModelEnum;
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowMatchResult;
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowMatchResult;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 
 import java.time.format.DateTimeFormatter;

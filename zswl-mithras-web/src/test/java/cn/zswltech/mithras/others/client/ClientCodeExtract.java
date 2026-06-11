@@ -16,7 +16,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfo;
-import cn.zswltech.mithras.third.datashare.mapper.model.DataShareMerchants;
+import cn.zswltech.mithras.third.datashare.model.DataShareMerchants;
 import cn.zswltech.mithras.customer.application.client.CorpContactInfoService;
 import cn.zswltech.mithras.third.datashare.service.DataShareMerchantsService;
 import cn.zswltech.mithras.third.datashare.service.DataShareService;

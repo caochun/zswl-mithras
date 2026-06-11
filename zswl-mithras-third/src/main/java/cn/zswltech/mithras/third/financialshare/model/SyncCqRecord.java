@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.financialshare.mapper.model;
+package cn.zswltech.mithras.third.financialshare.model;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

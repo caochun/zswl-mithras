@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.capital.BrFlowRecordCountRSP;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordListREQ;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordListRSP;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordRemoveREQ;
-import cn.zswltech.mithras.third.baorong.mapper.model.BrFlowRecord;
+import cn.zswltech.mithras.third.baorong.model.BrFlowRecord;
 import cn.zswltech.mithras.third.baorong.application.BrFlowRecordService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

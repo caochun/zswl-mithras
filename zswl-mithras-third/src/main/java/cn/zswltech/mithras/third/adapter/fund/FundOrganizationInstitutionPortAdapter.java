@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.adapter.fund;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.third.datashare.mapper.DataShareMerchantsMapper;
-import cn.zswltech.mithras.third.datashare.mapper.model.DataShareMerchants;
+import cn.zswltech.mithras.third.datashare.model.DataShareMerchants;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationInstitutionPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

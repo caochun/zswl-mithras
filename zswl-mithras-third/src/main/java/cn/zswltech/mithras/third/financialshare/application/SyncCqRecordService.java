@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.financialshare.application;
 
-import cn.zswltech.mithras.third.financialshare.mapper.model.SyncCqRecord;
+import cn.zswltech.mithras.third.financialshare.model.SyncCqRecord;
 import cn.zswltech.mithras.third.financialshare.mapper.SyncCqRecordMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.ep.EpChangeInfoRSP;
 import cn.zswltech.mithras.dto.utils.BeanCopyUtils;
 import cn.zswltech.mithras.third.ep.mapper.EpChangeInfoMapper;
-import cn.zswltech.mithras.third.ep.mapper.model.EpChangeInfo;
+import cn.zswltech.mithras.third.ep.model.EpChangeInfo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;

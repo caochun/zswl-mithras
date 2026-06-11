@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.retry.job.service.impl;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.third.retry.mapper.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;

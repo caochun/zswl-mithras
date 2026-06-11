@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.capital.BrFlowRecordListREQ;
 import cn.zswltech.mithras.dto.capital.BrFlowRecordRemoveREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.third.baorong.mapper.model.BrFlowRecord;
+import cn.zswltech.mithras.third.baorong.model.BrFlowRecord;
 import cn.zswltech.mithras.third.baorong.mapper.BrFlowRecordMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

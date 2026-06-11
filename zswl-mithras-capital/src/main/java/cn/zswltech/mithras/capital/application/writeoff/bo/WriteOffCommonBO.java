@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.capital.application.writeoff.bo;
 
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowMatchResult;
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowMatchResult;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

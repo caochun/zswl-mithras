@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.ep.mapper.model;
+package cn.zswltech.mithras.third.ep.model;
 
 import cn.zswltech.mithras.foundation.annotation.NotCompareColumn;
 import com.baomidou.mybatisplus.annotation.*;

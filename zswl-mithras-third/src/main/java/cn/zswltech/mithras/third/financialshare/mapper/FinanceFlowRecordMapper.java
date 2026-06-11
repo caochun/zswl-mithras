@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.financialshare.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 
 /**
 * @description 财资平台流水记录

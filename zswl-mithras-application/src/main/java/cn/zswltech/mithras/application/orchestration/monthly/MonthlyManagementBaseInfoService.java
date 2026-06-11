@@ -32,7 +32,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractIncomeSharing;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.monthly.mapper.model.*;
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 import cn.zswltech.mithras.monthly.mapper.FundsDailyCostMapper;
 import cn.zswltech.mithras.monthly.mapper.MonthlyManagementBaseInfoMapper;
 import cn.zswltech.mithras.monthly.mapper.MonthlyStampDutyMapper;

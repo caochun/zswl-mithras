@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.datashare.service.impl;
 import cn.hutool.core.io.IoUtil;
 import cn.zswltech.mithras.dto.client.share.DataShareREQ;
 import cn.zswltech.mithras.third.datashare.mapper.DataShareMerchantsMapper;
-import cn.zswltech.mithras.third.datashare.mapper.model.DataShareMerchants;
+import cn.zswltech.mithras.third.datashare.model.DataShareMerchants;
 import cn.zswltech.mithras.third.datashare.service.DataShareMerchantsService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

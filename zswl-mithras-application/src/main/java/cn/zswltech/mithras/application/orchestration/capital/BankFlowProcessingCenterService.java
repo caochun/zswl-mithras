@@ -62,7 +62,7 @@ import cn.zswltech.mithras.finance.service.capital.NettingRefundService;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailUnconfirmedMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;

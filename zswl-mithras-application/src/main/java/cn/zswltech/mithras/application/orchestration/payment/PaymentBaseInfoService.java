@@ -75,7 +75,7 @@ import cn.zswltech.mithras.payment.gendoc.render.PaymentApprovalZLRender;
 import cn.zswltech.mithras.third.retry.mapper.ExceptionRequestInfoMapper;
 import cn.zswltech.mithras.payment.mapper.dto.PaymentListDto;
 import cn.zswltech.mithras.document.model.FileTemplate;
-import cn.zswltech.mithras.third.retry.mapper.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;

@@ -6,7 +6,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.third.qiyuesuo.mapper.QiyuesuoInvokeLogMapper;
-import cn.zswltech.mithras.third.qiyuesuo.mapper.model.QiyuesuoInvokeLog;
+import cn.zswltech.mithras.third.qiyuesuo.model.QiyuesuoInvokeLog;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

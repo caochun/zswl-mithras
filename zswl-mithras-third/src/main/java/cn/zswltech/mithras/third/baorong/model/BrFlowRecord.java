@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.baorong.mapper.model;
+package cn.zswltech.mithras.third.baorong.model;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

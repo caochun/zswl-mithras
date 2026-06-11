@@ -12,7 +12,7 @@ import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpSubjectItemMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpSubjectItem;
-import cn.zswltech.mithras.third.dataminer.mapper.model.DmSubjectFieldMapping;
+import cn.zswltech.mithras.third.dataminer.model.DmSubjectFieldMapping;
 import cn.zswltech.mithras.third.dataminer.mapper.DmSubjectFieldMappingMapper;
 import cn.zswltech.mithras.customer.application.client.CorpSubjectItemService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
