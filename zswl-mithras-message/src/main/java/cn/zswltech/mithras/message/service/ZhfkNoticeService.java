@@ -12,7 +12,7 @@ import cn.zswltech.gruul.common.util.spring.SpringContextUtil;
 import cn.zswltech.gruul.dao.dal.dao.UserDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.message.mapper.ZhfkNoticeMapper;
-import cn.zswltech.mithras.message.mapper.model.ZhfkNotice;
+import cn.zswltech.mithras.message.model.ZhfkNotice;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

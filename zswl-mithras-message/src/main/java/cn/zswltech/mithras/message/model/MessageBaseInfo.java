@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.message.mapper.model;
+package cn.zswltech.mithras.message.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.message.mapper.EmailSendFailLogMapper;
 import cn.zswltech.mithras.system.mapper.model.SystemConfig;
-import cn.zswltech.mithras.message.mapper.model.EmailSendFailLog;
+import cn.zswltech.mithras.message.model.EmailSendFailLog;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import cn.zswltech.mithras.foundation.util.StringUtils;
 import cn.zswltech.mithras.message.client.email.TianyiEmailUtil;

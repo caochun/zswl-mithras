@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.message.MessageHandleREQ;
 import cn.zswltech.mithras.dto.message.MessageReadREQ;
 import cn.zswltech.mithras.message.enums.MessageChannelEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.message.mapper.model.ZhfkNoticeRelation;
+import cn.zswltech.mithras.message.model.ZhfkNoticeRelation;
 import cn.zswltech.mithras.message.mapper.ZhfkNoticeRelationMapper;
 import cn.zswltech.mithras.message.service.MessageService;
 import com.alibaba.fastjson.JSON;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.message.service;
 
-import cn.zswltech.mithras.message.mapper.model.ZhfkNoticeRelation;
+import cn.zswltech.mithras.message.model.ZhfkNoticeRelation;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

@@ -15,7 +15,7 @@ import cn.zswltech.mithras.message.enums.MessageChannelEnum;
 import cn.zswltech.mithras.message.enums.MessageType;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.TodoMessageBody;
-import cn.zswltech.mithras.message.mapper.model.ZhfkNoticeRelation;
+import cn.zswltech.mithras.message.model.ZhfkNoticeRelation;
 import cn.zswltech.mithras.message.service.AbstractMessageService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.message.service.ZhfkNoticeRelationService;

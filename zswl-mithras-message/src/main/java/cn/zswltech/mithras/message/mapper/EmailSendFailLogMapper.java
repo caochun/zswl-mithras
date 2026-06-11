@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.message.mapper;
 
-import cn.zswltech.mithras.message.mapper.model.EmailSendFailLog;
+import cn.zswltech.mithras.message.model.EmailSendFailLog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

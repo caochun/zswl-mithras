@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.message.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.message.mapper.model.ZhfkNoticeRelation;
+import cn.zswltech.mithras.message.model.ZhfkNoticeRelation;
 import cn.zswltech.mithras.message.mapper.ZhfkNoticeRelationMapper;
 import cn.zswltech.mithras.message.service.ZhfkNoticeRelationService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
