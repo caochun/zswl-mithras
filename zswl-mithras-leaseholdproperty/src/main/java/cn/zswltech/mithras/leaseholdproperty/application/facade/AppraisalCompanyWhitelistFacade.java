@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
 import cn.zswltech.mithras.leaseholdproperty.application.AppraisalCompanyWhitelistApplicationService;
 import cn.zswltech.mithras.leaseholdproperty.application.AppraisalCompanyWhitelistService;
-import cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
+import cn.zswltech.mithras.leaseholdproperty.versioning.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import org.springframework.stereotype.Service;
 

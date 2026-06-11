@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist;
+package cn.zswltech.mithras.leaseholdproperty.versioning.appraisalcompanywhitelist;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyDetailRSP;

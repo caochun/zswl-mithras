@@ -6,7 +6,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
+import cn.zswltech.mithras.leaseholdproperty.versioning.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
 import cn.zswltech.mithras.leaseholdproperty.mapper.AppraisalCompanyWhitelistMapper;
 import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.message.convert.MessageConver;
