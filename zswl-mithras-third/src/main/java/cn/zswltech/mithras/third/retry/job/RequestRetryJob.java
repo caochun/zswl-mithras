@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.job;
+package cn.zswltech.mithras.third.retry.job;
 
 import cn.zswltech.mithras.third.retry.job.service.RequestRetryJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
