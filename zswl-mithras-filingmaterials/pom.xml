@@ -43,6 +43,11 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-message</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
             <groupId>cn.zswltech.lib</groupId>
             <artifactId>oss-toolkit</artifactId>
             <version>1.0.5-SNAPSHOT</version>

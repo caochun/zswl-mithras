@@ -1,21 +1,22 @@
-package cn.zswltech.mithras.message.service.email;
+package cn.zswltech.mithras.filingmaterials.email;
 
 import cn.zswltech.mithras.dto.filingmaterials.FilingEmailDTO;
 import cn.zswltech.mithras.message.enums.EmailType;
+import cn.zswltech.mithras.message.service.email.AbstractSendEmailHandler;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 
 /**
- * @description: 项目资料归档待办催办邮件提醒
+ * @description: 项目资料归档补充资料即将超期提醒
  * @author: lllin
  * @date: 2025/12/08
  * @version: 1.0
  */
 @Service
-public class FilingFollowUpRemindEmailHandler extends AbstractSendEmailHandler<FilingEmailDTO>{
+public class FilingFollowUpSupplementRemindEmailHandler extends AbstractSendEmailHandler<FilingEmailDTO>{
 
-    private final static String FOLLOW_UP_ON_TITLE = "项目资料归档即将超期提醒";
+    private final static String FOLLOW_UP_ON_SUPPLEMENT_TITLE = "项目资料归档逾期通报";
 
 
     @Override
@@ -25,7 +26,7 @@ public class FilingFollowUpRemindEmailHandler extends AbstractSendEmailHandler<F
 
     @Override
     protected String generateEmailTitle() {
-        return FOLLOW_UP_ON_TITLE;
+        return FOLLOW_UP_ON_SUPPLEMENT_TITLE;
     }
 
     @Override
@@ -56,12 +57,12 @@ public class FilingFollowUpRemindEmailHandler extends AbstractSendEmailHandler<F
                         "    </style>\n" +
                         "</head>\n" +
                         "<body>\n" +
-                        "    <p>根据档案管理办法规定，项目经理应在项目放款审批结束后45个工作日内完成档案移交工作，%s合同当前距离项目投放已超38个工作日，请于%s前完成档案移交并提交项目资料归档流程。</p>\n" +
+                        "    <p>根据档案管理办法规定，项目经理应在项目放款审批结束后45个工作日内完成档案移交工作，" +
+                        "%s合同当前距离项目投放已超45个工作日，归档已逾期，请于十个工作日内完成档案移交并提交项目资料归档流程。</p>\n" +
                         "    <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration: none; color: #2980b9;\">融租易2.0</a>\n" + // 占位符2：动态系统链接（合法）
                         "</body>\n" +
                         "</html>",
                 filingEmailDTO.getContractCodeStr(),
-                filingEmailDTO.getDueDate(),
                 systemUrl
         );
         return html;
@@ -75,11 +76,11 @@ public class FilingFollowUpRemindEmailHandler extends AbstractSendEmailHandler<F
 
     @Override
     public boolean  needHandle(EmailType emailType){
-        return EmailType.FOLLOW_UP_REMIND_EMAIL.equals(emailType);
+        return EmailType.SUPPLEMENT_FOLLOW_UP_REMIND_EMAIL.equals(emailType);
     }
 
     @Override
     public EmailType getEmailType() {
-        return EmailType.FOLLOW_UP_REMIND_EMAIL;
+        return EmailType.SUPPLEMENT_FOLLOW_UP_REMIND_EMAIL;
     }
 }
