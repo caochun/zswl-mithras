@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.assetclassify.versioning;
 
 import cn.zswltech.mithras.assetclassify.mapper.lib.AssetClassifyLibMapper;
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyLib;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassify;
+import cn.zswltech.mithras.assetclassify.model.AssetClassify;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

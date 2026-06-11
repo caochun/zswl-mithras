@@ -24,7 +24,7 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.finance.excel.model.ProfitCalculateExcelModel;
 import cn.zswltech.mithras.finance.mapper.ProfitCalculateResultMapper;
 import cn.zswltech.mithras.finance.mapper.model.ProfitCalculateResult;
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientAuxiliaryLib;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyClientAuxiliaryLib;
 import cn.zswltech.mithras.collection.model.BillManagement;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;

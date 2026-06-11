@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.assetclassify.mapper.AssetClassifyClientMapper">
 
-    <select id="listByClientIds" resultType="cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient">
+    <select id="listByClientIds" resultType="cn.zswltech.mithras.assetclassify.model.AssetClassifyClient">
         select id, client_id, classify_result
         from asset_classify_client
         where id in (

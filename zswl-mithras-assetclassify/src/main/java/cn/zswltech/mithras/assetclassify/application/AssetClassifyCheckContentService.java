@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.assetclassify.AssetClassifyCheckContentREQ;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyCheckContentRSP;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyCheckContentMapper;
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyCheckContent;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyCheckContent;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyCheckContentAuxiliaryLibService;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyCheckContentLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

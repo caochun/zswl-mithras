@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.zswltech.mithras.assetclassify.application.AssetClassifyQueryService;
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassify;
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.model.AssetClassify;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;

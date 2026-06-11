@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.assetclassify.mapper.model;
+package cn.zswltech.mithras.assetclassify.model;
 
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
@@ -10,15 +10,14 @@ import lombok.EqualsAndHashCode;
 import java.time.LocalDateTime;
 
 /**
- * 五级分类检查报告
- * @author: jackerhe 
- * @date: 2023/1/8 10:11 上午
- **/
+ * @author dingqi
+ * @date 2023/1/5
+ * @description
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("asset_classify_check_content_lib")
-public class AssetClassifyCheckContentLib extends AssetClassifyCheckContent implements ILib {
-
+@TableName("asset_classify_node_record_lib")
+public class AssetClassifyNodeRecordLib extends AssetClassifyNodeRecord implements ILib {
     /**
      * 变更编号
      * 版本号
@@ -51,5 +50,4 @@ public class AssetClassifyCheckContentLib extends AssetClassifyCheckContent impl
      */
     @TableField("version_type")
     private Integer versionType;
-
 }

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.assetclassify.mapper;
 
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyNodeRecord;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyNodeRecord;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

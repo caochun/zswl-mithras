@@ -2,8 +2,8 @@ package cn.zswltech.mithras.assetclassify.versioning.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyNodeRecord;
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyNodeRecordLib;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyNodeRecord;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyNodeRecordLib;
 import cn.zswltech.mithras.assetclassify.versioning.handler.AssetClassifyAbstractLibHandler;
 import org.springframework.stereotype.Component;
 

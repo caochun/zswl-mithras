@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.assetclassify.mapper.model;
+package cn.zswltech.mithras.assetclassify.model;
 
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyBizNodeEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyStatusEnum;

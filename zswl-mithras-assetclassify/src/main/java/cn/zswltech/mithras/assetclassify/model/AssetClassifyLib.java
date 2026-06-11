@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.assetclassify.mapper.model;
+package cn.zswltech.mithras.assetclassify.model;
 
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("asset_classify_node_record_lib")
-public class AssetClassifyNodeRecordLib extends AssetClassifyNodeRecord implements ILib {
+@TableName("asset_classify_lib")
+public class AssetClassifyLib extends AssetClassify implements ILib {
     /**
      * 变更编号
      * 版本号

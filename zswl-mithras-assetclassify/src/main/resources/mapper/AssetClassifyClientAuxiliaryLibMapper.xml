@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.assetclassify.mapper.lib.AssetClassifyClientAuxiliaryLibMapper">
 
     <select id="newestClassifyClientLib"
-            resultType="cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientAuxiliaryLib">
+            resultType="cn.zswltech.mithras.assetclassify.model.AssetClassifyClientAuxiliaryLib">
         SELECT p.*
         FROM asset_classify_client_auxiliary_lib p
                  INNER JOIN (SELECT main_id AS id, MAX(version) AS version
@@ -15,7 +15,7 @@
     </select>
 
     <select id="listNewestClassifyLibByClientId"
-            resultType="cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientAuxiliaryLib">
+            resultType="cn.zswltech.mithras.assetclassify.model.AssetClassifyClientAuxiliaryLib">
         SELECT p.* FROM asset_classify_client_auxiliary_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
         WHERE t1.module = 'ASSET_CLASSIFY' AND t1.version_type = 1
@@ -31,7 +31,7 @@
     </select>
 
     <select id="listNewestClassifyLibByClientIdAndAssetClassifyId"
-            resultType="cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientAuxiliaryLib">
+            resultType="cn.zswltech.mithras.assetclassify.model.AssetClassifyClientAuxiliaryLib">
         SELECT p.* FROM asset_classify_client_auxiliary_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
         WHERE t1.module = 'ASSET_CLASSIFY' AND t1.version_type = 1

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.assetclassify.mapper.model;
+package cn.zswltech.mithras.assetclassify.model;
 
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
@@ -11,13 +11,13 @@ import java.time.LocalDateTime;
 
 /**
  * @author dingqi
- * @date 2023/1/9
+ * @date 2023/1/5
  * @description
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("asset_classify_check_content_auxiliary_lib")
-public class AssetClassifyCheckContentAuxiliaryLib extends AssetClassifyCheckContent implements ILib {
+@TableName("asset_classify_client_auxiliary_lib")
+public class AssetClassifyClientAuxiliaryLib extends AssetClassifyClient implements ILib {
     /**
      * 变更编号
      * 版本号

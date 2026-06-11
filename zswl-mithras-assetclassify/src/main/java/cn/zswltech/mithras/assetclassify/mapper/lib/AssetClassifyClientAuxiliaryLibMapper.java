@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.assetclassify.mapper.lib;
 
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientAuxiliaryLib;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyClientAuxiliaryLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

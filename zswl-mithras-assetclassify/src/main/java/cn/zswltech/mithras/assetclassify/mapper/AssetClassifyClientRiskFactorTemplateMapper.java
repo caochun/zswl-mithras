@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.assetclassify.mapper;
 
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientRiskFactorTemplate;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyClientRiskFactorTemplate;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.assetclassify.application;
 
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassify;
+import cn.zswltech.mithras.assetclassify.model.AssetClassify;
 
 import java.time.LocalDate;
 import java.util.Optional;

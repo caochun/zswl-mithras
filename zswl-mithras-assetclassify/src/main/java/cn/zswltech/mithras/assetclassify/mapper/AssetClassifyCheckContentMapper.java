@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.assetclassify.mapper;
 
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyCheckContent;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyCheckContent;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
