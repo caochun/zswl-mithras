@@ -8,7 +8,7 @@ import cn.zswltech.mithras.customer.model.client.NormalBankAccountLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NormalBankAccountLibHandlerImpl;
+import cn.zswltech.mithras.customer.versioning.handler.impl.NormalBankAccountLibHandlerImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -13,7 +13,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
-import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.dto.financialcloudmetric.ContractDetail;

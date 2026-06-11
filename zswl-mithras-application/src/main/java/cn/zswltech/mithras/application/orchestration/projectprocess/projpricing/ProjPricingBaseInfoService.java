@@ -70,8 +70,8 @@ import cn.zswltech.mithras.application.orchestration.workflow.flow.service.Execu
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.FlowQueryExtraService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpCommerceInfoLibHandlerImpl;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.handler.impl.CorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.handler.impl.ProjReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.projectprocess.application.projpricing.ProjPricingUpdateAdvice;

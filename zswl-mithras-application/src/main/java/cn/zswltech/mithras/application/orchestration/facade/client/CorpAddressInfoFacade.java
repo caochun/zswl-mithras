@@ -20,7 +20,7 @@ import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpAddressInfoService;
 import cn.zswltech.mithras.customer.application.client.NewCorpAddressInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpAddressInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpAddressInfoLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 

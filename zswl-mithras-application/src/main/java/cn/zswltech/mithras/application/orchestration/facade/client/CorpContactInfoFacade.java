@@ -19,7 +19,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpContactInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpContactInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpContactInfoLibService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.StringUtils;
 

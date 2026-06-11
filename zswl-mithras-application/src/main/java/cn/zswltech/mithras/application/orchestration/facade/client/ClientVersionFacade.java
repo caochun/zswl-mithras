@@ -14,7 +14,7 @@ import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
-import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
+import cn.zswltech.mithras.customer.versioning.impl.ClientVersionServiceImpl;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;

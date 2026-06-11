@@ -9,7 +9,7 @@ import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

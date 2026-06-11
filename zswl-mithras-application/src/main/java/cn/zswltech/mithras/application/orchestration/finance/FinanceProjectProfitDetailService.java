@@ -57,7 +57,7 @@ import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestDetailRecord
 import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionDetailService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostService;
 import cn.zswltech.mithras.application.orchestration.monthly.MonthlyStampDutyService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;

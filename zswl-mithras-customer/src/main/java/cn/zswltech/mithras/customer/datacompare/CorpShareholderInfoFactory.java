@@ -8,7 +8,7 @@ import cn.zswltech.mithras.customer.model.client.CorpShareholderInfoLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpShareholderInfoLibHandlerImpl;
+import cn.zswltech.mithras.customer.versioning.handler.impl.CorpShareholderInfoLibHandlerImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -33,7 +33,7 @@ import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
 import cn.zswltech.mithras.projectprocess.application.bo.ContractConstitutionFileBO;
 import cn.zswltech.mithras.application.orchestration.contract.*;
-import cn.zswltech.mithras.customer.application.lib.client.CorpContactInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpContactInfoLibService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.contract.util.ContractUtil;
 import com.alibaba.fastjson.JSON;

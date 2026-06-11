@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.client;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoCompareDTO;
+import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoCompareDTO;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.enums.client.DomesticOrAbroad;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;

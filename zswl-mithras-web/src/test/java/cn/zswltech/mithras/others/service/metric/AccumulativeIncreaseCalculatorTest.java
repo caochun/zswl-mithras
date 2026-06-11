@@ -2,8 +2,8 @@ package cn.zswltech.mithras.others.service.metric;
 
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease.AccumulativeIncreaseCalculator;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.customer.application.lib.client.CorpAddressInfoLibService;
-import cn.zswltech.mithras.customer.application.lib.client.dto.CorpAddressInfoLibDto;
+import cn.zswltech.mithras.customer.versioning.CorpAddressInfoLibService;
+import cn.zswltech.mithras.customer.versioning.dto.CorpAddressInfoLibDto;
 import org.junit.Test;
 
 import javax.annotation.Resource;

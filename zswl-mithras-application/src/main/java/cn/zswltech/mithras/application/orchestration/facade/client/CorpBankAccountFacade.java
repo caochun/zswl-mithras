@@ -17,7 +17,7 @@ import cn.zswltech.mithras.customer.model.client.CorpBankAccountLib;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpBankAccountService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpBankAccountLibService;
+import cn.zswltech.mithras.customer.versioning.CorpBankAccountLibService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.StringUtils;
 

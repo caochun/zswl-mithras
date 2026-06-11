@@ -19,7 +19,7 @@ import cn.zswltech.mithras.customer.model.client.NormalSpouseLib;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBaseInfoMapper;
 import cn.zswltech.mithras.customer.mapper.normal.NormalSpouseMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NormalSpouseLibHandlerImpl;
+import cn.zswltech.mithras.customer.versioning.handler.impl.NormalSpouseLibHandlerImpl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.StringUtils;

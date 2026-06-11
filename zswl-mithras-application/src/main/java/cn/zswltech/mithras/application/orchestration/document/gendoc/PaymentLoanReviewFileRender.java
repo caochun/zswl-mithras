@@ -39,7 +39,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.contract.*;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;

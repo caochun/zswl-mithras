@@ -32,7 +32,7 @@ import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.dashboard.model.DashboardCorpCommerceInfoLibDto;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.dashboard.application.util.DashboardOperationUtil;
 import cn.zswltech.mithras.basedata.util.DateUtil;

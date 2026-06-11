@@ -16,7 +16,7 @@ import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpShareHolderInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.impl.CorpShareholderInfoLibServiceImpl;
+import cn.zswltech.mithras.customer.versioning.impl.CorpShareholderInfoLibServiceImpl;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.StringUtils;

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.customer.model.client.NormalBankAccount;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBankAccountMapper;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
-import cn.zswltech.mithras.customer.application.lib.client.NormalBankAccountLibService;
+import cn.zswltech.mithras.customer.versioning.NormalBankAccountLibService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.StringUtils;
 

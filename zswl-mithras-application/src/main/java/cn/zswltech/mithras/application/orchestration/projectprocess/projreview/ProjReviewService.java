@@ -89,7 +89,7 @@ import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.review.LeaseReviewService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.impl.ProjPricingVersionServiceImpl;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.impl.ProjReviewVersionServiceImpl;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

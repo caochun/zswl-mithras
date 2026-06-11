@@ -130,7 +130,7 @@ import cn.zswltech.mithras.application.orchestration.contract.*;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactoryCreator;
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpAddressInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpAddressInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.policy.application.lib.PolicyInfoLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projpricing.ProjPricingBaseInfoLibService;

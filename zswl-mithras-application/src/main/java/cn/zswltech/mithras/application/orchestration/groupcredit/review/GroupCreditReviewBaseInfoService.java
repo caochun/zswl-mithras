@@ -52,7 +52,7 @@ import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityServi
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.credit.application.groupcredit.review.handler.impl.GroupCreditReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.foundation.state.ProjProcessState;

@@ -36,11 +36,11 @@ import cn.zswltech.mithras.fund.application.financing.FundFinancingBaseInfoServi
 import cn.zswltech.mithras.fund.application.financing.FundFinancingRepayActualService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptFlowDetailService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayBaseInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalServiceImpl;
-import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

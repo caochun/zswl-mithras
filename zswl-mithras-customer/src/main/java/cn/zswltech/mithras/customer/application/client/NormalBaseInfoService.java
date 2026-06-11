@@ -13,7 +13,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.NormalBaseInfo;
 import cn.zswltech.mithras.customer.model.client.NormalBaseInfoLib;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBaseInfoMapper;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NormalBaseInfoLibHandlerImpl;
+import cn.zswltech.mithras.customer.versioning.handler.impl.NormalBaseInfoLibHandlerImpl;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

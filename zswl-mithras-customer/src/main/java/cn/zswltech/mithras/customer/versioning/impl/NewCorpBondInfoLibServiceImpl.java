@@ -1,0 +1,41 @@
+package cn.zswltech.mithras.customer.versioning.impl;
+
+import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoListREQ;
+import cn.zswltech.mithras.dto.client.bondinfo.NewCorpBondInfoListRSP;
+import cn.zswltech.mithras.customer.mapper.lib.client.NewCorpBondInfoLibMapper;
+import cn.zswltech.mithras.customer.model.client.NewCorpBondInfoLib;
+import cn.zswltech.mithras.customer.versioning.NewCorpBondInfoLibService;
+import cn.zswltech.mithras.customer.versioning.handler.impl.NewCorpBondInfoLibHandlerImpl;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.stream.Collectors;
+
+/**
+ *
+ * @author wangchuanhao
+ * @date 2022/6/22 4:11 PM
+ */
+@Service
+public class NewCorpBondInfoLibServiceImpl extends ServiceImpl<NewCorpBondInfoLibMapper, NewCorpBondInfoLib> implements NewCorpBondInfoLibService {
+
+    @Resource
+    private NewCorpBondInfoLibHandlerImpl newCorpBondInfoLibHandler;
+    @Override
+    public PageR<NewCorpBondInfoListRSP> list(CorpBondInfoListREQ req) {
+        Page<NewCorpBondInfoLib> dataPage = baseMapper.selectPage(new Page<>(req.getPage(), req.getPageSize()),
+                Wrappers.<NewCorpBondInfoLib>lambdaQuery().eq(NewCorpBondInfoLib::getClientId, req.getClientId())
+                        .eq(NewCorpBondInfoLib::getVersion, req.getVersion())
+                        .orderByDesc(NewCorpBondInfoLib::getUpdateTime)
+        );
+        return PageR.of(dataPage.getRecords().stream().map(newCorpBondInfoLibHandler::actualLib2Rsp).collect(Collectors.toList()),
+                dataPage.getTotal(),
+                dataPage.getPages(),
+                dataPage.getCurrent(),
+                dataPage.getSize());
+    }
+}

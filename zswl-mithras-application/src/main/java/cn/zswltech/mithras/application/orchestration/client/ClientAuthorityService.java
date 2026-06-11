@@ -68,7 +68,7 @@ import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.system.user.bo.UserOrgJobInfoBO;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
-import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
+import cn.zswltech.mithras.customer.versioning.impl.ClientVersionServiceImpl;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.FileService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.batchdownload.AbstractFileBatchDownload;

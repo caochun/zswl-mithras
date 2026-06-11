@@ -4,7 +4,7 @@
 //import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 //import cn.zswltech.mithras.application.orchestration.enums.ClientVersionTypeEnum;
 //import cn.zswltech.mithras.application.orchestration.client.ClientService;
-//import cn.zswltech.mithras.customer.application.lib.client.ClientVersionService;
+//import cn.zswltech.mithras.customer.versioning.ClientVersionService;
 //import org.junit.Test;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;

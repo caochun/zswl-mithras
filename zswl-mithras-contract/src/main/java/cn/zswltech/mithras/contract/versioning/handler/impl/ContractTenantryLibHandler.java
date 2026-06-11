@@ -9,7 +9,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantryLib;
-import cn.zswltech.mithras.customer.application.lib.client.CorpContactInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpContactInfoLibService;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

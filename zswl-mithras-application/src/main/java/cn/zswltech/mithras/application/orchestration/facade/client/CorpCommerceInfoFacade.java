@@ -29,7 +29,7 @@ import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.foundation.util.StreamUtil;
 import cn.zswltech.mithras.customer.application.validator.InstitutionCreditCodeValidator;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

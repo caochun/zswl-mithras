@@ -98,7 +98,7 @@ import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.effectcheck.ContractEffectCheckFactory;
 import cn.zswltech.mithras.contract.core.operationprepare.ContractOperationPrepare;
 import cn.zswltech.mithras.contract.application.process.prepare.ContractOperationPrepareFactory;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;

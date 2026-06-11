@@ -5,7 +5,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMappe
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpContactInfoLibHandlerImpl;
+import cn.zswltech.mithras.customer.versioning.handler.impl.CorpContactInfoLibHandlerImpl;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

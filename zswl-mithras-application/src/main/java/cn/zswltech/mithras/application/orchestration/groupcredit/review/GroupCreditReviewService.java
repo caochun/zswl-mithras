@@ -38,7 +38,7 @@ import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.credit.application.groupcredit.review.handler.impl.GroupCreditReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.credit.application.groupcredit.review.impl.GroupCreditReviewVersionServiceImpl;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.handler.impl.ProjReviewBaseInfoLibHandler;

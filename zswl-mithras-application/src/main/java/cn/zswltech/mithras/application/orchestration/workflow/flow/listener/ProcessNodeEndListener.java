@@ -116,8 +116,8 @@ import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancin
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.impl.ClientVersionServiceImpl;
 import cn.zswltech.mithras.credit.application.groupcredit.review.handler.impl.GroupCreditReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;

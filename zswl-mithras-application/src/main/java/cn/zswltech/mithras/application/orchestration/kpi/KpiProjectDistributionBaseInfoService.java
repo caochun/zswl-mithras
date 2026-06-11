@@ -23,7 +23,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.workflow.flow.service.ProcessService;
-import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;
+import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionBaseInfoLibService;
 import cn.zswltech.mithras.kpi.application.distribution.lib.handler.impl.KpiProjectDistributionBaseInfoLibHandler;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
