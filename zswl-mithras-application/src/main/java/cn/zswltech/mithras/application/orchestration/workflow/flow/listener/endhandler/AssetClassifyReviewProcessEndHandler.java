@@ -12,7 +12,7 @@ import cn.zswltech.mithras.assetclassify.enums.AssetClassifyBizNodeEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyStatusEnum;
 import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyService;
 import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyVersionService;
-import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyLibVersionService;
+import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyLibVersionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionSynchronization;

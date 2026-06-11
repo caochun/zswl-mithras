@@ -12,7 +12,7 @@ import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyNodeRecord;
 import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyClientService;
 import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyNodeRecordService;
-import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyLibVersionService;
+import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyLibVersionService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

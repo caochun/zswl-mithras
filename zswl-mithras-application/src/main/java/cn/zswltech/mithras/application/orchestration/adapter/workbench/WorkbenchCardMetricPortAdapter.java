@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.workbench;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyClientAuxiliaryLibService;
+import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassify;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;

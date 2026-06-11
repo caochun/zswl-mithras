@@ -65,7 +65,7 @@ import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractReceiptService;
 import cn.zswltech.mithras.contract.core.ContractRentActualService;
 import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
-import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyLibVersionService;
+import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyLibVersionService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.assetclassify.application.lib;
+package cn.zswltech.mithras.assetclassify.versioning;
 
 import cn.zswltech.mithras.assetclassify.mapper.lib.AssetClassifyLibMapper;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyLib;

@@ -61,8 +61,8 @@ import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportSummarySe
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.assetclassify.application.lib.*;
-import cn.zswltech.mithras.assetclassify.application.lib.handler.impl.AssetClassifyClientAuxiliaryLibHandler;
+import cn.zswltech.mithras.assetclassify.versioning.*;
+import cn.zswltech.mithras.assetclassify.versioning.handler.impl.AssetClassifyClientAuxiliaryLibHandler;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;

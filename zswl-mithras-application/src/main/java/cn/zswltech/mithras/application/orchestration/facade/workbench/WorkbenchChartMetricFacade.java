@@ -57,7 +57,7 @@ import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassify
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyClientAuxiliaryLibService;
+import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewAocPriceLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewFactoringPriceLibService;

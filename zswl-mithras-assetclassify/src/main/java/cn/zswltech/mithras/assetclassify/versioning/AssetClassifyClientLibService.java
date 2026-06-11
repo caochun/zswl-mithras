@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.assetclassify.application.lib;
+package cn.zswltech.mithras.assetclassify.versioning;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -8,7 +8,7 @@ import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyClientMapper;
 import cn.zswltech.mithras.assetclassify.mapper.lib.AssetClassifyClientLibMapper;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientLib;
-import cn.zswltech.mithras.assetclassify.application.lib.handler.impl.AssetClassifyClientLibHandler;
+import cn.zswltech.mithras.assetclassify.versioning.handler.impl.AssetClassifyClientLibHandler;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

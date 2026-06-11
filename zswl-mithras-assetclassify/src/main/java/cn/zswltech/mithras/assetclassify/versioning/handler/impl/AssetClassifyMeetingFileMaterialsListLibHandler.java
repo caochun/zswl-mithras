@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.assetclassify.application.lib.handler.impl;
+package cn.zswltech.mithras.assetclassify.versioning.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.document.mapper.model.MaterialsList;
 import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
 import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.assetclassify.application.lib.handler.AssetClassifyReviewAbstractLibHandler;
+import cn.zswltech.mithras.assetclassify.versioning.handler.AssetClassifyAbstractLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,8 +18,8 @@ import java.util.List;
  * @date 2023/2/7 11:44 AM
  */
 @Service
-public class AssetClassifyReviewMaterialsListLibHandler
-        extends AssetClassifyReviewAbstractLibHandler<MaterialsListLib, MaterialsList, ListBaseRSP> implements FileCompareDeclaration {
+public class AssetClassifyMeetingFileMaterialsListLibHandler
+        extends AssetClassifyAbstractLibHandler<MaterialsListLib, MaterialsList, ListBaseRSP> implements FileCompareDeclaration {
 
     @Resource
     private MaterialsListLibHandlerProxy materialsListLibHandlerProxy;

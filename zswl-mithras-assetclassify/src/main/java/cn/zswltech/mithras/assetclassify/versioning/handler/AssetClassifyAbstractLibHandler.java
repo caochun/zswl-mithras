@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.assetclassify.application.lib.handler;
+package cn.zswltech.mithras.assetclassify.versioning.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
@@ -9,19 +9,19 @@ import java.util.Collections;
 import java.util.Set;
 
 /**
- * 
- * @author: jackerhe 
- * @date: 2023/1/5 7:30 下午
- **/
-public abstract class AssetClassifyReviewAbstractLibHandler<LIB extends ILib, ENTITY extends IEntity, RSP extends ListBaseRSP> extends LibAbstractHandler<LIB, ENTITY, RSP> {
+ * @author dingqi
+ * @date 2023/1/5
+ * @description
+ */
+public abstract class AssetClassifyAbstractLibHandler<LIB extends ILib, ENTITY extends IEntity, RSP extends ListBaseRSP> extends LibAbstractHandler<LIB, ENTITY, RSP> {
     @Override
     public String libMainIdFieldName() {
-        return "asset_classify_client_id";
+        return "asset_classify_id";
     }
 
     @Override
     public String entityMainIdFieldName() {
-        return "asset_classify_client_id";
+        return "asset_classify_id";
     }
 
     @Override
@@ -31,6 +31,6 @@ public abstract class AssetClassifyReviewAbstractLibHandler<LIB extends ILib, EN
 
     @Override
     protected String businessModuleName() {
-        return "ASSET_CLASSIFY_REVIEW";
+        return "ASSET_CLASSIFY";
     }
 }

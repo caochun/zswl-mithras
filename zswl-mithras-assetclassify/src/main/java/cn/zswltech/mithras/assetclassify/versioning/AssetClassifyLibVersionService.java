@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.assetclassify.application.lib;
+package cn.zswltech.mithras.assetclassify.versioning;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassify;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
-import cn.zswltech.mithras.assetclassify.application.lib.handler.AssetClassifyReviewAbstractLibHandler;
+import cn.zswltech.mithras.assetclassify.versioning.handler.AssetClassifyAbstractLibHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,15 +20,15 @@ import java.util.Map;
  * @description
  */
 @Component
-public class AssetClassifyReviewVersionService extends CommonVersionService<AssetClassifyClient> {
+public class AssetClassifyLibVersionService extends CommonVersionService<AssetClassify> {
     @Autowired
-    private List<AssetClassifyReviewAbstractLibHandler> libHandlerList;
+    private List<AssetClassifyAbstractLibHandler> libHandlerList;
 
     @Transactional(rollbackFor = Throwable.class)
     @Override
-    public void customFlushData(AssetClassifyClient assetClassify, String version, boolean needClearLastFlag, Integer versionType) {
+    public void customFlushData(AssetClassify assetClassify, String version, boolean needClearLastFlag, Integer versionType) {
         // 处理抄表逻辑
-        for (AssetClassifyReviewAbstractLibHandler libHandler : libHandlerList) {
+        for (AssetClassifyAbstractLibHandler libHandler : libHandlerList) {
             libHandler.flushData(version, assetClassify.getId(), needClearLastFlag, versionType);
         }
     }
@@ -40,9 +40,9 @@ public class AssetClassifyReviewVersionService extends CommonVersionService<Asse
 
     @Transactional(rollbackFor = Throwable.class)
     @Override
-    public void customReset(AssetClassifyClient assetClassify, CommonVersion commonVersion) {
+    public void customReset(AssetClassify assetClassify, CommonVersion commonVersion) {
         // 处理抄表逻辑
-        for (AssetClassifyReviewAbstractLibHandler libHandler : libHandlerList) {
+        for (AssetClassifyAbstractLibHandler libHandler : libHandlerList) {
             libHandler.reset(assetClassify.getId(), commonVersion.getVersion());
         }
     }
@@ -53,12 +53,12 @@ public class AssetClassifyReviewVersionService extends CommonVersionService<Asse
     }
 
     @Override
-    protected CommonVersionListRSP convertPageRsp(CommonVersion cv, AssetClassifyClient baseModel, Map<Long, String> userNameMap) {
+    protected CommonVersionListRSP convertPageRsp(CommonVersion cv, AssetClassify baseModel, Map<Long, String> userNameMap) {
         return null;
     }
 
     @Override
     protected String getBusinessModuleName() {
-        return "ASSET_CLASSIFY_REVIEW";
+        return "ASSET_CLASSIFY";
     }
 }
