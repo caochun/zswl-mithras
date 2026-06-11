@@ -2,11 +2,25 @@ package cn.zswltech.mithras.capital.controller;
 
 import cn.zswltech.mithras.api.capital.CapitalWriteOffApi;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.capital.write_off.*;
-import java.util.List;
 import cn.zswltech.mithras.capital.application.CapitalWriteOffApplicationService;
-import org.springframework.web.bind.annotation.RestController;
+import cn.zswltech.mithras.dto.capital.write_off.AddBusinessFlowREQ;
+import cn.zswltech.mithras.dto.capital.write_off.AddFlowREQ;
+import cn.zswltech.mithras.dto.capital.write_off.CheckBeforeImportREQ;
+import cn.zswltech.mithras.dto.capital.write_off.CheckBeforeImportRSP;
+import cn.zswltech.mithras.dto.capital.write_off.DeleteBusinessFlowREQ;
+import cn.zswltech.mithras.dto.capital.write_off.DeleteFlowREQ;
+import cn.zswltech.mithras.dto.capital.write_off.DeleteTabREQ;
+import cn.zswltech.mithras.dto.capital.write_off.FlowMatchResultRSP;
+import cn.zswltech.mithras.dto.capital.write_off.ManualWriteOffREQ;
+import cn.zswltech.mithras.dto.capital.write_off.ReleaseBankFlowREQ;
+import cn.zswltech.mithras.dto.capital.write_off.RematchTabREQ;
+import cn.zswltech.mithras.dto.capital.write_off.SingleTabREQ;
+import cn.zswltech.mithras.dto.capital.write_off.UpdateBusinessFlowREQ;
+
 import javax.annotation.Resource;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CapitalWriteOffController implements CapitalWriteOffApi {
