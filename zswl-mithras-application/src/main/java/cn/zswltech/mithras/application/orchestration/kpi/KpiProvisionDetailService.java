@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProvisionBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProvisionBaseInfoModifyREQ;
 import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteEclResult;
 import cn.zswltech.mithras.rating.feign.RatingManagementClient;
-import cn.zswltech.mithras.rating.lib.ratingclient.RatingClientLibService;
+import cn.zswltech.mithras.rating.versioning.ratingclient.RatingClientLibService;
 import cn.zswltech.mithras.rating.model.RatingClientLib;
 import cn.zswltech.mithras.rating.service.DecisionService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;

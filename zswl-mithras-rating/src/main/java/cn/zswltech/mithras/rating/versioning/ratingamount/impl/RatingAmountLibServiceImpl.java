@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.rating.lib.ratingamount.impl;
+package cn.zswltech.mithras.rating.versioning.ratingamount.impl;
 
 import cn.zswltech.mithras.dto.rating.ratingamount.RatingAmountDetailLibRSP;
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientDetailLibRSP;
-import cn.zswltech.mithras.rating.lib.ratingamount.RatingAmountLibService;
-import cn.zswltech.mithras.rating.lib.ratingamount.handler.impl.RatingAmountLibHandler;
+import cn.zswltech.mithras.rating.versioning.ratingamount.RatingAmountLibService;
+import cn.zswltech.mithras.rating.versioning.ratingamount.handler.impl.RatingAmountLibHandler;
 import cn.zswltech.mithras.rating.mapper.lib.RatingAmountLibMapper;
 import cn.zswltech.mithras.rating.mapper.lib.RatingClientLibMapper;
 import cn.zswltech.mithras.rating.model.RatingAmount;

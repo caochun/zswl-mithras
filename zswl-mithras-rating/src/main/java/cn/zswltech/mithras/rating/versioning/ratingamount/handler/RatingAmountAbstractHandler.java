@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.rating.lib.ratingclient.handler;
+package cn.zswltech.mithras.rating.versioning.ratingamount.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientDetailLibRSP;
+import cn.zswltech.mithras.dto.rating.ratingamount.RatingAmountDetailLibRSP;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.Set;
 
 
-public abstract class RatingClientAbstractHandler<LIB extends ILib, ENTITY extends IEntity, RSP extends ListBaseRSP>
+public abstract class RatingAmountAbstractHandler<LIB extends ILib, ENTITY extends IEntity, RSP extends ListBaseRSP>
         extends LibAbstractHandler<LIB, ENTITY, RSP> {
 
     @Override
@@ -48,7 +48,7 @@ public abstract class RatingClientAbstractHandler<LIB extends ILib, ENTITY exten
         return "rating_id";
     }
 
-    public abstract RatingClientDetailLibRSP getSubModule();
+    public abstract RatingAmountDetailLibRSP getSubModule();
 
     public abstract boolean needHandle(Long mainId);
 
@@ -59,7 +59,7 @@ public abstract class RatingClientAbstractHandler<LIB extends ILib, ENTITY exten
 
     @Override
     protected String businessModuleName() {
-        return "RATING_CLIENT";
+        return "RATING_AMOUNT";
     }
 
 }

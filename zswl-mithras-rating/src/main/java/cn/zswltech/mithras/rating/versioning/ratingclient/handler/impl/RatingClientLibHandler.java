@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.rating.lib.ratingclient.handler.impl;
+package cn.zswltech.mithras.rating.versioning.ratingclient.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientDetailLibRSP;
-import cn.zswltech.mithras.rating.lib.ratingclient.handler.RatingClientAbstractHandler;
+import cn.zswltech.mithras.rating.versioning.ratingclient.handler.RatingClientAbstractHandler;
 import cn.zswltech.mithras.rating.model.RatingClient;
 import cn.zswltech.mithras.rating.model.RatingClientLib;
 import org.springframework.stereotype.Service;

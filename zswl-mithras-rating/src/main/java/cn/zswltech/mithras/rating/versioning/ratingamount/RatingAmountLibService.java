@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.rating.lib.ratingamount;
+package cn.zswltech.mithras.rating.versioning.ratingamount;
 
 import cn.zswltech.mithras.dto.rating.ratingamount.RatingAmountDetailLibRSP;
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientDetailLibRSP;

@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.rating.lib.ratingamount.impl;
+package cn.zswltech.mithras.rating.versioning.ratingamount.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.payment.version.PaymentVersionListRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.rating.lib.ratingamount.RatingAmountLibService;
-import cn.zswltech.mithras.rating.lib.ratingamount.handler.RatingAmountAbstractHandler;
+import cn.zswltech.mithras.rating.versioning.ratingamount.RatingAmountLibService;
+import cn.zswltech.mithras.rating.versioning.ratingamount.handler.RatingAmountAbstractHandler;
 import cn.zswltech.mithras.rating.model.RatingAmount;
 import cn.zswltech.mithras.rating.model.RatingAmountLib;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;

@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.rating.lib.ratingclient.impl;
+package cn.zswltech.mithras.rating.versioning.ratingclient.impl;
 
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientDetailLibRSP;
-import cn.zswltech.mithras.rating.lib.ratingclient.RatingClientLibService;
-import cn.zswltech.mithras.rating.lib.ratingclient.handler.impl.RatingClientLibHandler;
+import cn.zswltech.mithras.rating.versioning.ratingclient.RatingClientLibService;
+import cn.zswltech.mithras.rating.versioning.ratingclient.handler.impl.RatingClientLibHandler;
 import cn.zswltech.mithras.rating.mapper.lib.RatingClientLibMapper;
 import cn.zswltech.mithras.rating.model.RatingClientLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
