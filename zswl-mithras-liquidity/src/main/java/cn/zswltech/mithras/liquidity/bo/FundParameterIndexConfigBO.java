@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.mapper.model.bo;
+package cn.zswltech.mithras.liquidity.bo;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

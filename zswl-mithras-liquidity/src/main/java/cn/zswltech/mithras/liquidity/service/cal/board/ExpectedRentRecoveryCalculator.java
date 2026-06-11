@@ -5,7 +5,7 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorBoardHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityBoardCalculatorBo;

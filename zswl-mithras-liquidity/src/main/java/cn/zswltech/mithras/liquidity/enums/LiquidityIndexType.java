@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.LiquidityBoardDeta
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.LiquidityIndexDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.LiquidityMismatchDetailRSP;
 import cn.zswltech.mithras.foundation.metadata.PullDown;
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

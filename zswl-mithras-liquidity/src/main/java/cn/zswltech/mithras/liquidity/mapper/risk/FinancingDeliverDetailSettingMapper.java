@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.liquidity.mapper.risk;
 
-import cn.zswltech.mithras.liquidity.mapper.model.risk.FinancingDeliverDetailSetting;
+import cn.zswltech.mithras.liquidity.model.risk.FinancingDeliverDetailSetting;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

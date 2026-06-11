@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.liquidity.service.cal.bo;
 
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

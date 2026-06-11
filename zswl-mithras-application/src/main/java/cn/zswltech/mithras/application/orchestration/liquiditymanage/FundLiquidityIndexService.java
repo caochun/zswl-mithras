@@ -32,7 +32,7 @@ import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowPlan;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.liquidity.mapper.model.FundFinancingAccountSetting;
+import cn.zswltech.mithras.liquidity.model.FundFinancingAccountSetting;
 import cn.zswltech.mithras.liquidity.service.FundLiquidityIndexApplicationService;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorMismatchHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;

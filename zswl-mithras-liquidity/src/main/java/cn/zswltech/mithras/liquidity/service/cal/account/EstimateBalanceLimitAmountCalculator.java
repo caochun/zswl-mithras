@@ -4,7 +4,7 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityAccountManualCalculatorBo;

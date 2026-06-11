@@ -15,7 +15,7 @@ import cn.zswltech.mithras.liquidity.excel.importer.AccountBalanceBaseInfoImport
 import cn.zswltech.mithras.liquidity.excel.model.AccountBalanceBaseInfoExcelModel;
 import cn.zswltech.mithras.liquidity.mapper.AccountBalanceBaseInfoMapper;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorBoardHolder;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorIndexHolder;

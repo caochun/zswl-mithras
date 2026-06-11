@@ -8,7 +8,7 @@ import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowPlan;
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.credit.creditlimit.service.bo.CreditLimitDetailBO;
 
 import java.time.LocalDate;

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.liquidity.mapper;
 
-import cn.zswltech.mithras.liquidity.mapper.model.FundFinancingAccountSetting;
-import cn.zswltech.mithras.liquidity.mapper.model.dto.AccountSettingListQueryDTO;
-import cn.zswltech.mithras.liquidity.mapper.model.dto.AccountSettingListResultDTO;
+import cn.zswltech.mithras.liquidity.model.FundFinancingAccountSetting;
+import cn.zswltech.mithras.liquidity.dto.AccountSettingListQueryDTO;
+import cn.zswltech.mithras.liquidity.dto.AccountSettingListResultDTO;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import java.util.List;
 

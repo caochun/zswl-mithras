@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.zswltech.mithras.liquidity.mapper.AccountBalanceBaseInfoMapper;
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

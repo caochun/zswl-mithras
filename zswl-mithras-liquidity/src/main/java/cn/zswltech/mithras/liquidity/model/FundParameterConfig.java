@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.mapper.model;
+package cn.zswltech.mithras.liquidity.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.TableField;

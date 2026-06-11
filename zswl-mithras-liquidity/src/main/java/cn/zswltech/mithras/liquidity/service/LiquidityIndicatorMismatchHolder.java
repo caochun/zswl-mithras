@@ -10,7 +10,7 @@ import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowPlan;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;

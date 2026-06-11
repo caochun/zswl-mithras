@@ -10,7 +10,7 @@ import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingRepayAc
 import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayActual;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowPlan;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.liquidity.mapper.model.FundFinancingAccountSetting;
+import cn.zswltech.mithras.liquidity.model.FundFinancingAccountSetting;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityAccountCalculatorBo;

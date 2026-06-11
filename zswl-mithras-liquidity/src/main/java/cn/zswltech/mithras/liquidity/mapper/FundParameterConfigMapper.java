@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.liquidity.mapper;
 
-import cn.zswltech.mithras.liquidity.mapper.model.FundParameterConfig;
+import cn.zswltech.mithras.liquidity.model.FundParameterConfig;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

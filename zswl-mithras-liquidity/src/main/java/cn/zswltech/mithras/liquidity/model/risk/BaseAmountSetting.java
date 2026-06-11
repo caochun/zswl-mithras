@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.mapper.model.risk;
+package cn.zswltech.mithras.liquidity.model.risk;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -9,46 +9,40 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * @create: 2023-05-16
- * 融资投放明细设置
- * financing_deliver_detail_setting
+ * 基础数据设置
+ * base_amount_setting
  */
 @EqualsAndHashCode(callSuper = true)
-@TableName(value = "financing_deliver_detail_setting")
+@TableName(value = "base_amount_setting")
 @Data
-public class FinancingDeliverDetailSetting extends BaseModel implements Serializable {
+public class BaseAmountSetting extends BaseModel implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
     /**
-     * 融资投放数据设置id
+     * 基础数据设置id
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     *融资/投放金额
+     *期初现金流余额
      **/
-    @TableField("amount")
-    private Long amount;
+    @TableField("begin_cashflow_amount")
+    private Long beginCashflowAmount;
 
     /**
-     *融资/投放日期
+     *其他收入
      **/
-    @TableField("date")
-    private LocalDate date;
+    @TableField("other_income")
+    private Long otherIncome;
 
     /**
-     *0 融资/ 1 投放
+     *其他支出
      **/
-    @TableField("type")
-    private Integer type;
+    @TableField("other_expenses")
+    private Long otherExpenses;
 
-    /**
-     *备注
-     **/
-    @TableField("remark")
-    private String remark;
 }

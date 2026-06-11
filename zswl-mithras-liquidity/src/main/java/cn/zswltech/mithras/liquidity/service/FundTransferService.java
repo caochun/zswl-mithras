@@ -13,7 +13,7 @@ import cn.zswltech.mithras.liquidity.enums.SettingTimeEnum;
 import cn.zswltech.mithras.basedata.mapper.BaseDataBankAccountMapper;
 import cn.zswltech.mithras.liquidity.mapper.AccountBalanceBaseInfoMapper;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
-import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

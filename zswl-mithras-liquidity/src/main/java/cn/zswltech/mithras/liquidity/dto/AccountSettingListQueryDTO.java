@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.mapper.model.dto;
+package cn.zswltech.mithras.liquidity.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
