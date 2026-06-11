@@ -21,7 +21,7 @@ import cn.zswltech.mithras.leaseholdproperty.enums.LeaseOperationTypeEnum;
 import cn.zswltech.mithras.leaseholdproperty.enums.LeaseTextFileEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeaseItemMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;

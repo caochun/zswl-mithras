@@ -39,11 +39,11 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEn
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.application.orchestration.document.file.impl.FundFinancingFileListProvider;
 import cn.zswltech.mithras.application.orchestration.document.onlyoffice.impl.ContractOoBizHandlerImpl;
-import cn.zswltech.mithras.document.mapper.dto.NewestMaterialsDto;
+import cn.zswltech.mithras.document.materialsfile.dto.NewestMaterialsDto;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
-import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;

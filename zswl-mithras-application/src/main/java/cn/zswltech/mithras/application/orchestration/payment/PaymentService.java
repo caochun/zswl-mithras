@@ -51,7 +51,7 @@ import cn.zswltech.mithras.workflow.flow.helper.CalBoardRuleHelper;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.PaymentLoanReviewFileRender;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.budget.mapper.model.BudgetPlanPayDetail;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;

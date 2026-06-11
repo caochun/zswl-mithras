@@ -43,8 +43,8 @@ import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileL
 import cn.zswltech.mithras.application.orchestration.document.file.FileListProviderFactory;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
-import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractConstitutionFile;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;

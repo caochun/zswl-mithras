@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.creditreport;
 
 import cn.zswltech.mithras.creditreport.service.CreditReportMaterialPort;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import org.springframework.stereotype.Component;
 

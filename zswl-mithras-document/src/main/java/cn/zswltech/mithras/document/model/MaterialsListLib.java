@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.mapper.model;
+package cn.zswltech.mithras.document.model;
 
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import com.baomidou.mybatisplus.annotation.TableField;

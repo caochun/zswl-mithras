@@ -20,7 +20,7 @@ import cn.zswltech.mithras.fund.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.filingmaterials.mapper.ArchivedMaterialsDownloadRecordMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.filingmaterials.mapper.model.ArchivedMaterialsDownloadRecord;
 import cn.zswltech.mithras.filingmaterials.mapper.model.FilingMaterials;
 import cn.zswltech.mithras.filingmaterials.mapper.model.FundDirectFinancingFilingMaterialsQuery;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.document.onlyoffice;
 
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.dto.onlyoffice.DocDetailRSP;
 
 /**

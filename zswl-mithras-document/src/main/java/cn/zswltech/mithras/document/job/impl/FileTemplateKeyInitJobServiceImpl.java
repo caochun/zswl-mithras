@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.document.job.impl;
 
 import cn.zswltech.mithras.document.job.FileTemplateKeyInitJobService;
-import cn.zswltech.mithras.document.mapper.model.FileTemplate;
+import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import cn.zswltech.mithras.document.util.ChineseToPinyinUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

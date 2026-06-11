@@ -10,7 +10,7 @@ import cn.zswltech.mithras.ftp.oldftp.enums.FtpMonthlyMaterialsEnum;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpQuarterlyMaterialsEnum;
 import cn.zswltech.mithras.ftp.oldftp.service.application.FtpMaterialsFileApplicationService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpMonthlyGuidanceService;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceService;

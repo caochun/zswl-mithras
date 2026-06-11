@@ -16,7 +16,7 @@ import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ProjEstablishReportRender;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.application.projestablish.ProjEstablishUpdateAdvice;

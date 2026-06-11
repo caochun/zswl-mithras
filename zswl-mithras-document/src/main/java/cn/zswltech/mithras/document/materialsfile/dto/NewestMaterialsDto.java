@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.mapper.dto;
+package cn.zswltech.mithras.document.materialsfile.dto;
 
 import lombok.Data;
 

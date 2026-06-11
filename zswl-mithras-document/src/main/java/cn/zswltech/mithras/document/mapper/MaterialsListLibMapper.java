@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.document.mapper;
 
 
-import cn.zswltech.mithras.document.mapper.dto.NewestMaterialsDto;
-import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.document.materialsfile.dto.NewestMaterialsDto;
+import cn.zswltech.mithras.document.model.MaterialsListLib;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 

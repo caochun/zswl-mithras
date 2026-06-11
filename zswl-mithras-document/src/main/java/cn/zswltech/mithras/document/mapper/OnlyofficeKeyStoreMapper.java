@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.document.mapper;
 
-import cn.zswltech.mithras.document.mapper.model.OnlyofficeKeyStore;
+import cn.zswltech.mithras.document.model.OnlyofficeKeyStore;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

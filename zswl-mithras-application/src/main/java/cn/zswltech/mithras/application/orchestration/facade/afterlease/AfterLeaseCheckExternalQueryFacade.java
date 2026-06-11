@@ -19,7 +19,7 @@ import cn.zswltech.mithras.afterlease.enums.ExternalQueryStatus;
 import cn.zswltech.mithras.afterlease.gendoc.render.AfterLeaseCheckExternalQueryRender;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckExternalQueryClientInfoMapper;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.mapper.model.*;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQueryClientInfoLib;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;

@@ -33,7 +33,7 @@ import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpShareholderInfoMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpShareholderInfo;

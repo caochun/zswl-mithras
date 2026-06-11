@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.core.file;
 
 import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

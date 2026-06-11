@@ -10,7 +10,7 @@ import cn.zswltech.mithras.document.enums.rating.RatingClientMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.file.IFileHandler;
 import cn.zswltech.mithras.document.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

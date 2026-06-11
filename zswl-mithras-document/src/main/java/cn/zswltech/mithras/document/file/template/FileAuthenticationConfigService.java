@@ -6,7 +6,7 @@ import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import cn.zswltech.mithras.dto.file.FileAuthenticationConfigREQ;
 import cn.zswltech.mithras.document.enums.OwnerTypeEnum;
 import cn.zswltech.mithras.document.mapper.FileAuthenticationConfigMapper;
-import cn.zswltech.mithras.document.mapper.model.FileAuthenticationConfig;
+import cn.zswltech.mithras.document.model.FileAuthenticationConfig;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;

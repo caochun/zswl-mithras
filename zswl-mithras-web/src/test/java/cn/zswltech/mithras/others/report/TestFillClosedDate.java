@@ -39,7 +39,7 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.application.orchestration.job.*;
 import cn.zswltech.mithras.projectprocess.job.data_init.ProjRiskControlIndustryTypeJob;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.document.mapper.model.FileTemplate;
+import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;

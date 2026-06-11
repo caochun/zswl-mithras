@@ -42,11 +42,11 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEn
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.document.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.document.mapper.dto.NewestMaterialsDto;
+import cn.zswltech.mithras.document.materialsfile.dto.NewestMaterialsDto;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
-import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.mapper.model.client.ClientAuthority;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;

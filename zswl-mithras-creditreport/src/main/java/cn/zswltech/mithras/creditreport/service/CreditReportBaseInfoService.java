@@ -45,7 +45,7 @@ import cn.zswltech.mithras.customer.mapper.corp.CorpShareholderInfoMapper;
 import cn.zswltech.mithras.creditreport.mapper.CreditReportBaseInfoMapper;
 import cn.zswltech.mithras.creditreport.mapper.CreditReportRecordDetailsMapper;
 import cn.zswltech.mithras.creditreport.mapper.dto.credit.XJCreditReportJsonDTO;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;

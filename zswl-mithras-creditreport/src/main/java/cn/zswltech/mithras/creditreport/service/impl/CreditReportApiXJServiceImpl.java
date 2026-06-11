@@ -11,7 +11,7 @@ import cn.zswltech.mithras.creditreport.enums.CreditReportMaterialTypeEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditSearchStatusEnum;
 import cn.zswltech.mithras.creditreport.enums.SearchGoalEnum;
 import cn.zswltech.mithras.creditreport.mapper.dto.credit.XJCreditReportJsonDTO;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

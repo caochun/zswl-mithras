@@ -19,7 +19,7 @@ import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.dashboard.mapper.DashboardProjectStageMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.dashboard.mapper.model.*;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.system.user.SysUserService;

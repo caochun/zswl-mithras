@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageListRSP;
 import cn.zswltech.mithras.contract.convert.contract.ContractMortgageConverter;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageLib;
 import cn.zswltech.mithras.foundation.port.ClientInfoResolver;

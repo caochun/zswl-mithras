@@ -20,7 +20,7 @@ import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingMaterials
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ProjPricingEarningsRateRender;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ProjPricingJDReportZLRender;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;

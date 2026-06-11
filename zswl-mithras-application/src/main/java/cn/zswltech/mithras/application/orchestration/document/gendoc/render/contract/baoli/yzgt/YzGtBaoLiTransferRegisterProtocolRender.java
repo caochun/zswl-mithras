@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.document.gendoc.render.con
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
-import cn.zswltech.mithras.document.mapper.model.FileTemplate;
+import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;

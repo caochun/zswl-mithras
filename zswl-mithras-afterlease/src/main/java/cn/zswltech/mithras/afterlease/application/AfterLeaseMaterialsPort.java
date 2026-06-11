@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;

@@ -82,8 +82,8 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractMortgageLibMappe
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractPledgeLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
-import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.customer.mapper.model.app.VisitRecord;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.filingmaterials.mapper.model.FilingMaterials;

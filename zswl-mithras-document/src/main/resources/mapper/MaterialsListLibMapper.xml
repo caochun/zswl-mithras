@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.document.mapper.MaterialsListLibMapper">
 
 
-    <select id="newestMaterials" resultType="cn.zswltech.mithras.document.mapper.model.MaterialsListLib">
+    <select id="newestMaterials" resultType="cn.zswltech.mithras.document.model.MaterialsListLib">
         SELECT p.* FROM materials_list_lib p
         INNER JOIN
         (SELECT main_id, MAX(version) AS version FROM common_version t1

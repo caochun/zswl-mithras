@@ -9,7 +9,7 @@ import cn.zswltech.mithras.assetclassify.enums.AssetClassifyCheckMaterialsEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
 import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 

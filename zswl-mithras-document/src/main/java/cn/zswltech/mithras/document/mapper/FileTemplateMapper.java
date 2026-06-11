@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.document.mapper;
 
-import cn.zswltech.mithras.document.mapper.model.FileTemplate;
+import cn.zswltech.mithras.document.model.FileTemplate;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

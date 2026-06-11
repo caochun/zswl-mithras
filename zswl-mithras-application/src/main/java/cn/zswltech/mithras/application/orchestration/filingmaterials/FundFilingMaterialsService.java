@@ -29,7 +29,7 @@ import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancing
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.filingmaterials.mapper.FilingMaterialsMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.filingmaterials.mapper.model.FilingMaterials;
 import cn.zswltech.mithras.fund.mapper.model.FundOrganization;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;

@@ -35,7 +35,7 @@ import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewProc
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.dto.GroupCreditReviewListSelectDTO;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoLibMapper;
-import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;

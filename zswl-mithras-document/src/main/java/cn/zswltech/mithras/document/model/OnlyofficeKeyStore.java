@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.mapper.model;
+package cn.zswltech.mithras.document.model;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
