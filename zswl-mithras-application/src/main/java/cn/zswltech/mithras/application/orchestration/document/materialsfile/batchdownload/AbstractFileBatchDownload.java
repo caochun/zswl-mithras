@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.document.materialsfile.bat
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.file.FileBatchDownLoadREQ;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.document.materialsfile.MaterialsListLibService;
+import cn.zswltech.mithras.document.versioning.MaterialsListLibService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import lombok.SneakyThrows;
 

@@ -37,7 +37,7 @@ import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.ContractSignInfoService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.FileService;
-import cn.zswltech.mithras.document.materialsfile.MaterialsListLibService;
+import cn.zswltech.mithras.document.versioning.MaterialsListLibService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.third.qiyuesuo.client.QiyuesuoService;
 import cn.zswltech.mithras.third.qiyuesuo.client.dto.*;

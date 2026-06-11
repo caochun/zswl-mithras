@@ -5,7 +5,7 @@ import cn.zswltech.mithras.ftp.oldftp.enums.FtpQuarterlyInfoModule;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
-import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.ftp.oldftp.lib.handler.AbstractFtpQuarterlyLibHandler;
 import org.springframework.stereotype.Service;
 

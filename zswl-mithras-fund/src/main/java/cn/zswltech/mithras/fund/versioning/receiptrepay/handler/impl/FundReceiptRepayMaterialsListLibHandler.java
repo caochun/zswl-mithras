@@ -5,7 +5,7 @@ import cn.zswltech.mithras.fund.enums.receiptrepay.FundReceiptRepayInfoModule;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
-import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.fund.versioning.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import org.springframework.stereotype.Component;
 

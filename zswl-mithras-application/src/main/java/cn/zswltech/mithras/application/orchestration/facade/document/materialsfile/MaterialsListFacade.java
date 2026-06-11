@@ -64,7 +64,7 @@ import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
-import cn.zswltech.mithras.document.materialsfile.MaterialsListLibService;
+import cn.zswltech.mithras.document.versioning.MaterialsListLibService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;

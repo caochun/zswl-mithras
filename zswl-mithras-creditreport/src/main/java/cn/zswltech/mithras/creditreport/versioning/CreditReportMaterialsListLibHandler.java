@@ -10,7 +10,7 @@ import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.creditreport.model.CreditReportClientItem;
 import cn.zswltech.mithras.creditreport.service.CreditReportClientItemService;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
-import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 

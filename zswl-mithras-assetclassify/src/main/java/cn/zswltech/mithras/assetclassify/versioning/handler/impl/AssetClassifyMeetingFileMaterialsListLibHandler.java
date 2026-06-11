@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
-import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.assetclassify.versioning.handler.AssetClassifyAbstractLibHandler;
 import org.springframework.stereotype.Service;
 

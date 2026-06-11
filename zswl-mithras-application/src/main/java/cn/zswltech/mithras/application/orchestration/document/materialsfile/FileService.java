@@ -36,7 +36,7 @@ import cn.zswltech.mithras.application.orchestration.document.convert.FileConver
 import cn.zswltech.mithras.application.orchestration.enums.*;
 import cn.zswltech.mithras.contract.enums.contract.ContractFileQueryType;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
-import cn.zswltech.mithras.document.materialsfile.MaterialsListLibService;
+import cn.zswltech.mithras.document.versioning.MaterialsListLibService;
 import cn.zswltech.mithras.document.enums.materialslist.FileTemplateEnum;
 import cn.zswltech.mithras.payment.enums.pubinfo.PublicInfoFileTypeEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
@@ -54,7 +54,7 @@ import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.ContractConstitutionFileService;
 import cn.zswltech.mithras.contract.core.ContractGuarantorService;
 import cn.zswltech.mithras.contract.core.ContractTenantryService;
-import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.batchdownload.AbstractFileBatchDownload;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.FileModuleCheck;
 import cn.zswltech.mithras.foundation.util.CompareUtil;

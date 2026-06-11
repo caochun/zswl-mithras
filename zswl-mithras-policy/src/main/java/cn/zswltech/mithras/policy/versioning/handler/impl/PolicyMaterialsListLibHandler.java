@@ -5,7 +5,7 @@ import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
-import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.policy.versioning.handler.PolicyAbstractHandler;
 import cn.zswltech.mithras.policy.versioning.handler.PolicyInfoModule;
 import org.springframework.stereotype.Service;

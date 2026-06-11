@@ -5,7 +5,7 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
-import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.handler.ProjReviewLibAbstractHandler;
 import org.springframework.stereotype.Component;
 

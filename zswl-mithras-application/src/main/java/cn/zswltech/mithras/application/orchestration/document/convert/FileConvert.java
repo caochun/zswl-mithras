@@ -9,7 +9,7 @@ import cn.zswltech.mithras.application.orchestration.metadata.enumscan.Materials
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.entity.Example;
