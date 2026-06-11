@@ -35,10 +35,10 @@ import cn.zswltech.mithras.fund.application.financing.FundFinancingPledgeInfoSer
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionDetailService;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractPledgeLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractMortgageLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractPledgeLibService;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingPledgeInfoLibService;
 import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionBaseInfoLibService;
 import cn.zswltech.mithras.payment.application.lib.service.PaymentBaseInfoLibService;

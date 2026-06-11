@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeasePriceMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractLeasePriceLibService;
 import cn.zswltech.mithras.dto.contract.price.ContractLeasePriceModifyREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

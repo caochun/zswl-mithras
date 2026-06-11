@@ -41,8 +41,8 @@ import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckReportBaseL
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckReportMetaLibService;
 import cn.zswltech.mithras.afterlease.application.lib.handler.impl.AfterLeaseCheckReportBaseLibHandler;
 import cn.zswltech.mithras.afterlease.application.lib.handler.impl.AfterLeaseCheckReportMetaLibHandler;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractRentActualLibService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

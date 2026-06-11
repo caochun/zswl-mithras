@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.versioning.application;
+package cn.zswltech.mithras.contract.versioning.service;
 
 import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageListRSP;

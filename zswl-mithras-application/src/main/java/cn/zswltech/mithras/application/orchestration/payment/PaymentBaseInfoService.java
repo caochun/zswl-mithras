@@ -41,9 +41,9 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.contract.receipt.ContractReceiptQueryActualTaxREQ;
-import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractPledgeLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractMortgageLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractPledgeLibService;
 import cn.zswltech.mithras.dto.flow.execution.ExecutionProcessBaseREQ;
 import cn.zswltech.mithras.dto.flow.search.ProcessListREQ;
 import cn.zswltech.mithras.dto.flow.search.ProcessListRSP;
@@ -106,7 +106,7 @@ import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.ExecutionService;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.MyTaskService;
 import cn.zswltech.mithras.workflow.flow.service.ProcessService;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.message.service.MessageService;
@@ -157,8 +157,8 @@ import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.hutool.extra.spring.SpringUtil.getBean;
 import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.foundation.exception.MithrasException.err;
-import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractTenantryLibService;
 
 
 /**

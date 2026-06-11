@@ -8,8 +8,8 @@ import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
-import cn.zswltech.mithras.contract.versioning.application.CollectionRentActualReceiptStatus;
-import cn.zswltech.mithras.contract.versioning.application.CollectionRentActualReceiptStatusResolver;
+import cn.zswltech.mithras.contract.versioning.service.CollectionRentActualReceiptStatus;
+import cn.zswltech.mithras.contract.versioning.service.CollectionRentActualReceiptStatusResolver;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 

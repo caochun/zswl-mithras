@@ -9,7 +9,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.core.dto.ContractActualCashFlowExporterBO;
 import cn.zswltech.mithras.contract.core.ContractRentActualService;
-import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractRentActualLibService;
 import cn.zswltech.mithras.projectprocess.excel.exporter.AbstractCashFlowExcelExporter;
 import org.springframework.stereotype.Component;
 

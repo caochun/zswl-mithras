@@ -28,7 +28,7 @@ import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyLibService;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyNodeRecordLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

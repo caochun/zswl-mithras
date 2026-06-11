@@ -6,9 +6,9 @@ import cn.zswltech.mithras.contract.core.ContractTenantryService;
 import cn.zswltech.mithras.contract.core.ContractPledgeService;
 import cn.zswltech.mithras.contract.core.ContractMortgageService;
 import cn.zswltech.mithras.contract.core.ContractGuarantorService;
-import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractPledgeLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractMortgageLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractPledgeLibService;
 import cn.zswltech.mithras.leaseholdproperty.application.contract.ContractLeaseItemService;
 
 import cn.hutool.core.collection.CollectionUtil;
@@ -131,7 +131,7 @@ import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactoryCreator;
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.customer.versioning.CorpAddressInfoLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
 import cn.zswltech.mithras.policy.application.lib.PolicyInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
@@ -156,9 +156,9 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.*;
 import java.util.stream.Collectors;
-import cn.zswltech.mithras.contract.versioning.application.ContractAccountLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractLeaseItemLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractTenantryLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractAccountLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractLeaseItemLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractTenantryLibService;
 import cn.zswltech.mithras.contract.core.ContractPriceService;
 
 /**

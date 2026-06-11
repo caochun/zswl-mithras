@@ -11,7 +11,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMappe
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantryLib;
-import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractLeasePriceLibService;
 import cn.zswltech.mithras.creditreport.model.CrRepayPlan;
 import cn.zswltech.mithras.creditreport.service.CreditRepayPlanService;
 import cn.zswltech.mithras.customer.model.client.Client;

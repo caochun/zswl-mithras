@@ -7,7 +7,7 @@ import cn.zswltech.mithras.report.mapper.formal.model.CrGuarantor;
 import cn.zswltech.mithras.report.service.formal.CrGuarantorService;
 import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
-import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

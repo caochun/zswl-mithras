@@ -13,7 +13,7 @@ import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfoLib
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projestablish.ProjEstablishBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;

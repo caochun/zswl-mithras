@@ -60,9 +60,9 @@ import cn.zswltech.mithras.fund.application.financing.FundFinancingCreditRefServ
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptFlowDetailService;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractRentActualLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractReceiptLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractRentActualLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

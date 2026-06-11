@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.versioning.application;
+package cn.zswltech.mithras.contract.versioning.service;
 
 import java.util.Map;
 import java.util.Set;

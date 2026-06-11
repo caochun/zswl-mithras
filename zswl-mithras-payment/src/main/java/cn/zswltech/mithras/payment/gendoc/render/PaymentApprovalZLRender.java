@@ -15,10 +15,10 @@ import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractMortgageLibService;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;
 

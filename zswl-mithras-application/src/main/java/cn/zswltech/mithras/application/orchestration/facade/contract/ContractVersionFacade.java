@@ -28,7 +28,7 @@ import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractPrepaymentService;
 import cn.zswltech.mithras.application.orchestration.contract.ContractService;
 import cn.zswltech.mithras.contract.core.ContractSettlePlanService;
-import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
+import cn.zswltech.mithras.contract.versioning.service.ContractVersionService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -30,7 +30,7 @@ import cn.zswltech.mithras.projectprocess.model.projreview.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyService;
-import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingBaseInfoLibService;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingPlanLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projestablish.ProjEstablishAocPriceLibService;

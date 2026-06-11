@@ -11,7 +11,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractFactoringPrice;
 import cn.zswltech.mithras.contract.core.dto.ContractActualCashFlowExporterBO;
 import cn.zswltech.mithras.contract.core.ContractFactoringPriceService;
-import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.foundation.excel.CashFlowExportUtil;
 import cn.zswltech.mithras.projectprocess.excel.payment.PaymentBaseInfoData;
 import org.springframework.stereotype.Component;

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractAocPriceMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractAocPrice;
 import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.contract.versioning.application.ContractAocPriceLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractAocPriceLibService;
 import cn.zswltech.mithras.dto.contract.price.ContractAocPriceModifyREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

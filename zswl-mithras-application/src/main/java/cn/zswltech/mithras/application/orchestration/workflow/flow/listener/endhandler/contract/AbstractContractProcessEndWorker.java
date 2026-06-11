@@ -40,7 +40,7 @@ import cn.zswltech.mithras.application.orchestration.contract.ContractSignInfoSe
 import cn.zswltech.mithras.application.orchestration.contract.text.ContractTextManageService;
 import cn.zswltech.mithras.application.orchestration.contract.text.ContractTextSignInfoService;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
+import cn.zswltech.mithras.contract.versioning.service.ContractVersionService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.finance.stampduty.ReportStampDutyService;
 import cn.zswltech.mithras.foundation.async.ThreadPoolUtil;

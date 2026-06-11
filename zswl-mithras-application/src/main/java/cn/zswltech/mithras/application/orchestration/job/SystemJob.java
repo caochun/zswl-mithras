@@ -19,7 +19,7 @@ import cn.zswltech.mithras.system.event.SystemSwitchRefreshEvent;
 import cn.zswltech.mithras.application.orchestration.budget.BudgetPlanPayFlowService;
 import cn.zswltech.mithras.application.orchestration.budget.BudgetPlanPayService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
+import cn.zswltech.mithras.contract.versioning.service.ContractVersionService;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingLibVersionService;
 import cn.zswltech.mithras.third.dataminer.application.DmImportService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

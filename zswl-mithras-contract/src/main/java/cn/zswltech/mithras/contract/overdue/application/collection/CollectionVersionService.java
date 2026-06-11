@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.overdue.application.collection;
 
 import cn.zswltech.mithras.contract.overdue.application.OverdueBusinessModule;
-import cn.zswltech.mithras.contract.overdue.application.lib.CollectionActionLibHandler;
+import cn.zswltech.mithras.contract.overdue.versioning.CollectionActionLibHandler;
 import cn.zswltech.mithras.contract.overdue.model.OverdueCollectionAction;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;

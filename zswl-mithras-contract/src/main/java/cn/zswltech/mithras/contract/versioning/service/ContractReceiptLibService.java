@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.versioning.application;
+package cn.zswltech.mithras.contract.versioning.service;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;

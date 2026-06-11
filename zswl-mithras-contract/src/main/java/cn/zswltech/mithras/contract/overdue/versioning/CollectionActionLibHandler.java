@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.overdue.application.lib;
+package cn.zswltech.mithras.contract.overdue.versioning;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.contract.overdue.application.OverdueBusinessModule;

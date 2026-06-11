@@ -47,7 +47,7 @@ import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractPriceService;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractReceiptLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishPriceService;

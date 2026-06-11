@@ -23,7 +23,7 @@ import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
 import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.message.service.MessageService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

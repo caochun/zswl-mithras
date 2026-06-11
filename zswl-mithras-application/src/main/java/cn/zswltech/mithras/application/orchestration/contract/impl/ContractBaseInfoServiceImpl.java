@@ -126,7 +126,7 @@ import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCre
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
 import cn.zswltech.mithras.foundation.version.LibCommonConvert;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
-import cn.zswltech.mithras.contract.versioning.application.ContractVersionService;
+import cn.zswltech.mithras.contract.versioning.service.ContractVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.collection.application.contractcp.ContractCollectionPaymentService;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingBaseInfoLibService;

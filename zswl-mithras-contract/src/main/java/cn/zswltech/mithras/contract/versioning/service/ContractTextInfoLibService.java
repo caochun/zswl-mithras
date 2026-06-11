@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.versioning.application;
+package cn.zswltech.mithras.contract.versioning.service;
 
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTextInfoLibMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractTextInfoLib;

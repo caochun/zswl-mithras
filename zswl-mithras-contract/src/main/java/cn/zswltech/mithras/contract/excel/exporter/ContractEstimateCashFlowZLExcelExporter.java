@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.core.dto.ContractEstimateCashFlowExporterBO;
 import cn.zswltech.mithras.contract.core.ContractLeasePriceService;
-import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractLeasePriceLibService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

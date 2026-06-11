@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.versioning.application;
+package cn.zswltech.mithras.contract.versioning.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;

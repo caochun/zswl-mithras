@@ -7,7 +7,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractReceiptService;
-import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;
+import cn.zswltech.mithras.contract.versioning.service.ContractReceiptLibService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
