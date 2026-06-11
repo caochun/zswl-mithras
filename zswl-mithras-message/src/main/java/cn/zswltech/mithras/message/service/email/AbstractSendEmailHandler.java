@@ -13,7 +13,7 @@ import cn.zswltech.mithras.foundation.util.StringUtils;
 import cn.zswltech.mithras.message.client.email.TianyiEmailUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import groovy.util.logging.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
