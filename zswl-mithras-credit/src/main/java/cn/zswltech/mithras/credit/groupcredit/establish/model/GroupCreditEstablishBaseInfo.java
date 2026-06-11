@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.groupcredit.establish.mapper.model;
+package cn.zswltech.mithras.credit.groupcredit.establish.model;
 
 import cn.zswltech.mithras.foundation.annotation.NotCompareColumn;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;

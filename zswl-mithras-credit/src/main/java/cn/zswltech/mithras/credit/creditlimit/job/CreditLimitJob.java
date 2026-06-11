@@ -2,7 +2,7 @@ package cn.zswltech.mithras.credit.creditlimit.job;
 
 import cn.zswltech.mithras.credit.creditlimit.service.CreditLimitService;
 import cn.zswltech.mithras.credit.creditlimit.enums.CreditLimitStatusEnum;
-import cn.zswltech.mithras.credit.creditlimit.mapper.model.CreditLimit;
+import cn.zswltech.mithras.credit.creditlimit.model.CreditLimit;
 import cn.zswltech.mithras.credit.creditlimit.service.port.FundCreditEffectiveStatusService;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

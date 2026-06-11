@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.groupcredit.review
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.credit.application.groupcredit.review.GroupCreditReviewBaseInfoApplicationService;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.dto.groupcreditestablish.GroupCreditEstablishVagueListREQ;
 import cn.zswltech.mithras.dto.groupcreditestablish.GroupCreditEstablishVagueListRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.GroupCreditReviewListREQ;

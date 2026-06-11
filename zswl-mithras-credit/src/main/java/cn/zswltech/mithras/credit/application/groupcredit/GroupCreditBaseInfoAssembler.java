@@ -2,8 +2,8 @@ package cn.zswltech.mithras.credit.application.groupcredit;
 
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.GroupCreditEstablishBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.baseinfo.GroupCreditReviewBaseInfoDetailRSP;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfoLib;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfoLib;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
 
 public interface GroupCreditBaseInfoAssembler {
 

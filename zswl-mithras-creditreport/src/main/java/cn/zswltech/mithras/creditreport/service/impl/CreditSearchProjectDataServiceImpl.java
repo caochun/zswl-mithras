@@ -6,9 +6,9 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractTradeStructureMapper
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTradeStructure;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.creditreport.service.CreditSearchProjectDataService;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.credit.application.groupcredit.establish;
 
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfoLib;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

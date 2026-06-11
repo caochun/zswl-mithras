@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.groupcredit.establish.mapper.model;
+package cn.zswltech.mithras.credit.groupcredit.review.model;
 
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
@@ -9,12 +9,12 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @description 集团授信立项基本信息表
+ * @description 集团授信评审基本信息表
  * @author wangchuanhao
  * @date 2022-11-11
  */
 @Data
-public class GroupCreditEstablishBaseInfoLib extends GroupCreditEstablishBaseInfo implements Serializable, ILib {
+public class GroupCreditReviewBaseInfoLib extends GroupCreditReviewBaseInfo implements Serializable, ILib {
 
     private static final long serialVersionUID = 1L;
 

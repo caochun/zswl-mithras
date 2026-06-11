@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.groupcredit.establish.mapper.dto;
+package cn.zswltech.mithras.credit.groupcredit.review.dto.persistence;
 
 import cn.zswltech.mithras.foundation.persistence.dto.BaseAuthDTO;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
  * @author junke
  */
 @Data
-public class GroupCreditEstablishListSelectDTO extends BaseAuthDTO {
+public class GroupCreditReviewListSelectDTO extends BaseAuthDTO {
 
     private Long clientId;
 
@@ -21,9 +21,9 @@ public class GroupCreditEstablishListSelectDTO extends BaseAuthDTO {
 
     private Long projSponsorUserId;
 
-    private String groupCreditEstablishStatus;
+    private String groupCreditReviewStatus;
 
-    private String groupCreditEstablishProcessStatus;
+    private String groupCreditReviewProcessStatus;
 
     private LocalDateTime createFrom;
 

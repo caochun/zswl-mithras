@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.credit.groupcredit.establish.mapper;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.dto.GroupCreditEstablishListSelectDTO;
+import cn.zswltech.mithras.credit.groupcredit.establish.dto.persistence.GroupCreditEstablishListSelectDTO;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

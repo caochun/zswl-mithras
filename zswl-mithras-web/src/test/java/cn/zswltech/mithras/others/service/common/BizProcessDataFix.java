@@ -17,8 +17,8 @@ import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQue
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;

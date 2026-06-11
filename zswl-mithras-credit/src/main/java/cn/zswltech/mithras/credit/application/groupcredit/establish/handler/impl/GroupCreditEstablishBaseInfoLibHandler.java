@@ -2,8 +2,8 @@ package cn.zswltech.mithras.credit.application.groupcredit.establish.handler.imp
 
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.GroupCreditEstablishBaseInfoDetailRSP;
 import cn.zswltech.mithras.credit.groupcredit.establish.enums.GroupCreditEstablishInfoModule;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfoLib;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
 import cn.zswltech.mithras.credit.application.groupcredit.GroupCreditBaseInfoAssembler;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.handler.GroupCreditEstablishLibAbstractHandler;
 import org.springframework.beans.BeanUtils;

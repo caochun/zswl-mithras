@@ -6,7 +6,7 @@ import cn.zswltech.mithras.contract.enums.contract.ProjItemStatus;
 import cn.zswltech.mithras.credit.application.groupcredit.review.GroupCreditReviewVersionApplicationService;
 import cn.zswltech.mithras.credit.application.groupcredit.review.impl.GroupCreditReviewVersionServiceImpl;
 import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewProcessStatus;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.groupcreditreview.GroupCreditReviewRatingCheckRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.version.GroupCreditReviewEffectREQ;

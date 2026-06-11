@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.credit.groupcredit.review.mapper;
 
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfoLib;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 

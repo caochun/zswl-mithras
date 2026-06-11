@@ -16,7 +16,7 @@ import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewMate
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;

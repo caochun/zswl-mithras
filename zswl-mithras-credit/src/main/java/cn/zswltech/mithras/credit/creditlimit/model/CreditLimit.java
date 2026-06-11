@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.creditlimit.mapper.model;
+package cn.zswltech.mithras.credit.creditlimit.model;
 
 import cn.zswltech.mithras.credit.creditlimit.enums.CreditLimitBizTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;

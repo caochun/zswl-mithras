@@ -18,8 +18,8 @@ import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjec
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionBaseInfo;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;

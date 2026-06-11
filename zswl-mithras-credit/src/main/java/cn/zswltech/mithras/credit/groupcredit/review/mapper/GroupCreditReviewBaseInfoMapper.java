@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.credit.groupcredit.review.mapper;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.dto.GroupCreditReviewListSelectDTO;
+import cn.zswltech.mithras.credit.groupcredit.review.dto.persistence.GroupCreditReviewListSelectDTO;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

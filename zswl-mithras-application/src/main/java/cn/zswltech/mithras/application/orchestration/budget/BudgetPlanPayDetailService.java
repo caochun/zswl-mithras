@@ -55,7 +55,7 @@ import cn.zswltech.mithras.budget.mapper.dto.BudgetPlanPayDetailExpenseGroupDTO;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.budget.mapper.model.*;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfoLib;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;

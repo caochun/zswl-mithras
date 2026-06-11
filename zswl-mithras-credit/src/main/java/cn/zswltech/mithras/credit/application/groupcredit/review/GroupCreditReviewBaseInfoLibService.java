@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.credit.application.groupcredit.review;
 
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfoLib;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

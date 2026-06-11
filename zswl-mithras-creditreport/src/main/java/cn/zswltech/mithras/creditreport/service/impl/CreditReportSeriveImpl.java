@@ -40,7 +40,7 @@ import cn.zswltech.mithras.customer.model.client.CorpShareholderInfo;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

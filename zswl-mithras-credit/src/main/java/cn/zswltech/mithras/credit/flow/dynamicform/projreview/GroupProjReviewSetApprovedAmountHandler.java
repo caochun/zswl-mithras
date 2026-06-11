@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.workflow.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

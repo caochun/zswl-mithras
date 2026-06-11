@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.credit.creditlimit.mapper;
 
-import cn.zswltech.mithras.credit.creditlimit.mapper.model.CreditLimitChangeRecord;
+import cn.zswltech.mithras.credit.creditlimit.model.CreditLimitChangeRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

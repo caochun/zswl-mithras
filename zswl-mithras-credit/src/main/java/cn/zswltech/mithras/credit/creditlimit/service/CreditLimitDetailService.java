@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.credit.creditlimit.service;
 
 import cn.zswltech.mithras.credit.creditlimit.mapper.CreditLimitDetailMapper;
-import cn.zswltech.mithras.credit.creditlimit.mapper.model.CreditLimitDetail;
+import cn.zswltech.mithras.credit.creditlimit.model.CreditLimitDetail;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

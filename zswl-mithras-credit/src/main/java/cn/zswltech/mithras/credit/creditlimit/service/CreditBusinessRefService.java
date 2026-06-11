@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.credit.creditlimit.enums.CreditLimitBizTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.credit.creditlimit.mapper.CreditBusinessRefMapper;
-import cn.zswltech.mithras.credit.creditlimit.mapper.model.CreditBusinessRef;
+import cn.zswltech.mithras.credit.creditlimit.model.CreditBusinessRef;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
