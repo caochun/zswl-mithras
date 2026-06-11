@@ -67,6 +67,7 @@ import cn.zswltech.mithras.third.financialshare.client.config.AppAuthConfig;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2CollectionVO;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2PaymentVO;
 import cn.zswltech.mithras.third.financialshare.application.dto.SyncCqReqBizInfo;
+import cn.zswltech.mithras.third.financialshare.enums.*;
 import cn.zswltech.mithras.foundation.util.BigDecimalUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.async.ThreadPoolUtil;

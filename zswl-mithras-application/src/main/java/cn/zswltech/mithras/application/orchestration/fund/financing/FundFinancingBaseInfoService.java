@@ -39,6 +39,8 @@ import cn.zswltech.mithras.fund.application.*;
 import cn.zswltech.mithras.application.orchestration.fund.FundCreditService;
 import cn.zswltech.mithras.application.orchestration.fund.FundGuaranteeAgencyService;
 import cn.zswltech.mithras.application.orchestration.fund.FundGuaranteeInfoService;
+import cn.zswltech.mithras.fund.application.credit.FundCreditGuaranteeDetailService;
+import cn.zswltech.mithras.fund.application.financing.FundFinancingCreditRefService;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;
 import cn.zswltech.mithras.fund.application.lib.financing.FundFinancingBaseInfoLibService;
 import cn.zswltech.mithras.fund.application.lib.financing.handler.impl.FundFinancingBaseInfoLibHandler;
