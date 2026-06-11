@@ -43,7 +43,7 @@ import cn.zswltech.mithras.workflow.flow.attention.ProcAttentionRecordService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
-import cn.zswltech.mithras.policy.application.lib.handler.PolicyAbstractHandler;
+import cn.zswltech.mithras.policy.versioning.handler.PolicyAbstractHandler;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

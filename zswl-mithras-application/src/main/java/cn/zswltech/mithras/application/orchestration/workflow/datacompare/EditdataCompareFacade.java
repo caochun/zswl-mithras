@@ -132,7 +132,7 @@ import cn.zswltech.mithras.application.orchestration.groupcredit.establish.Group
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.customer.versioning.CorpAddressInfoLibService;
 import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
-import cn.zswltech.mithras.policy.application.lib.PolicyInfoLibService;
+import cn.zswltech.mithras.policy.versioning.service.PolicyInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.FileService;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.policy.application.lib;
+package cn.zswltech.mithras.policy.versioning.service;
 
 import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
 import cn.zswltech.mithras.policy.model.PolicyInfoLib;

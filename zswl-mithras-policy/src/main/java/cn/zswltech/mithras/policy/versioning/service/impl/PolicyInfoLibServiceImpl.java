@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.policy.application.lib.impl;
+package cn.zswltech.mithras.policy.versioning.service.impl;
 
 import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
 import cn.zswltech.mithras.policy.mapper.PolicyInfoLibMapper;
 import cn.zswltech.mithras.policy.model.PolicyInfoLib;
-import cn.zswltech.mithras.policy.application.lib.PolicyInfoLibService;
-import cn.zswltech.mithras.policy.application.lib.handler.impl.PolicyInfoLibHandler;
+import cn.zswltech.mithras.policy.versioning.service.PolicyInfoLibService;
+import cn.zswltech.mithras.policy.versioning.handler.impl.PolicyInfoLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

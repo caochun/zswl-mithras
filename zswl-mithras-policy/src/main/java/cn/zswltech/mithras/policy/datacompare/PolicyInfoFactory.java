@@ -8,7 +8,7 @@ import cn.zswltech.mithras.policy.model.PolicyInfoLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.policy.application.lib.handler.impl.PolicyInfoLibHandler;
+import cn.zswltech.mithras.policy.versioning.handler.impl.PolicyInfoLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

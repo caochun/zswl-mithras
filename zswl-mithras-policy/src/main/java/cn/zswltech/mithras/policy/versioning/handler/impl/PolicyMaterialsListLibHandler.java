@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.policy.application.lib.handler.impl;
+package cn.zswltech.mithras.policy.versioning.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
@@ -6,8 +6,8 @@ import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.policy.application.lib.handler.PolicyAbstractHandler;
-import cn.zswltech.mithras.policy.application.lib.handler.PolicyInfoModule;
+import cn.zswltech.mithras.policy.versioning.handler.PolicyAbstractHandler;
+import cn.zswltech.mithras.policy.versioning.handler.PolicyInfoModule;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
