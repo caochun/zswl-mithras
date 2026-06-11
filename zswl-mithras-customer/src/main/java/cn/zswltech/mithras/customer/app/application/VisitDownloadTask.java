@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.application.app;
+package cn.zswltech.mithras.customer.app.application;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -8,11 +8,11 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.customer.mapper.app.VisitDownloadTaskRecordMapper;
-import cn.zswltech.mithras.customer.mapper.app.VisitRecordMapper;
+import cn.zswltech.mithras.customer.app.mapper.VisitDownloadTaskRecordMapper;
+import cn.zswltech.mithras.customer.app.mapper.VisitRecordMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.customer.model.app.VisitDownloadTaskRecord;
-import cn.zswltech.mithras.customer.model.app.VisitRecord;
+import cn.zswltech.mithras.customer.app.model.VisitDownloadTaskRecord;
+import cn.zswltech.mithras.customer.app.model.VisitRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.document.util.FileUriUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

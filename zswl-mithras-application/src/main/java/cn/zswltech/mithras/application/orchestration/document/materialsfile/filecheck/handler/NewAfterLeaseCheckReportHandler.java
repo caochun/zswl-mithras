@@ -15,13 +15,13 @@ import cn.zswltech.mithras.application.orchestration.document.convert.FileConver
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportMaterialsEnum;
 import cn.zswltech.mithras.afterlease.enums.NewAfterLeaseCheckMaterialsEnum;
-import cn.zswltech.mithras.customer.enums.app.VisitPhaseStatus;
-import cn.zswltech.mithras.customer.enums.app.VisitRecordStatus;
+import cn.zswltech.mithras.customer.app.enums.VisitPhaseStatus;
+import cn.zswltech.mithras.customer.app.enums.VisitRecordStatus;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;
-import cn.zswltech.mithras.customer.mapper.app.VisitRecordMapper;
+import cn.zswltech.mithras.customer.app.mapper.VisitRecordMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.customer.model.app.VisitRecord;
+import cn.zswltech.mithras.customer.app.model.VisitRecord;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;

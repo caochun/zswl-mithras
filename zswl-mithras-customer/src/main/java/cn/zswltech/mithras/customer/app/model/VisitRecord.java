@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.model.app;
+package cn.zswltech.mithras.customer.app.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.foundation.persistence.model.SponsorField;

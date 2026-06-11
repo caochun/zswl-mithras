@@ -1,24 +1,24 @@
-package cn.zswltech.mithras.customer.enums.app;
+package cn.zswltech.mithras.customer.app.enums;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 /**
  * @author luyi
  */
-public enum VisitTypeStatus implements PullDown {
+public enum VisitWayStatus implements PullDown {
 
-    CLIENT_VISIT("客户拜访"),
-    CHANNEL_VISIT("渠道拜访")
+    ON_SITE_VISIT("现场拜访"),
+    FORGET_CHECK_IN("漏打卡")
     ;
 
-    VisitTypeStatus(String display) {
+    VisitWayStatus(String display) {
         this.display = display;
     }
 
     public final String display;
 
-    public static VisitTypeStatus of(String code) {
-        for (VisitTypeStatus value : VisitTypeStatus.values()) {
+    public static VisitWayStatus of(String code) {
+        for (VisitWayStatus value : VisitWayStatus.values()) {
             if (value.name().equals(code)) {
                 return value;
             }

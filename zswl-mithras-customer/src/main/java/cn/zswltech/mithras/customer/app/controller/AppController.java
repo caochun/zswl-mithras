@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.customer.controller.app;
+package cn.zswltech.mithras.customer.app.controller;
 
 import cn.zswltech.mithras.api.app.AppApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.customer.application.app.AppApplicationService;
+import cn.zswltech.mithras.customer.app.application.AppApplicationService;
 import cn.zswltech.mithras.dto.app.AppAuthorityDetailREQ;
 import cn.zswltech.mithras.dto.app.AppAuthorityDetailRSP;
 import cn.zswltech.mithras.dto.app.AppCalendarDailyREQ;

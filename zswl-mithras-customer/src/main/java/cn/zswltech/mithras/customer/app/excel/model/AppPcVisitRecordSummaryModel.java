@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.excel.model.app;
+package cn.zswltech.mithras.customer.app.excel.model;
 
 import cn.zswltech.mithras.foundation.excel.annotation.SimpleExcelHeader;
 import cn.zswltech.mithras.foundation.excel.model.ExcelModel;

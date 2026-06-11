@@ -44,8 +44,8 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.document.convert.FileConvert;
 import cn.zswltech.mithras.workflow.flow.convert.FlowProcessConvert;
 import cn.zswltech.mithras.application.orchestration.enums.*;
-import cn.zswltech.mithras.customer.enums.app.VisitPhaseStatus;
-import cn.zswltech.mithras.customer.enums.app.VisitRecordStatus;
+import cn.zswltech.mithras.customer.app.enums.VisitPhaseStatus;
+import cn.zswltech.mithras.customer.app.enums.VisitRecordStatus;
 import cn.zswltech.mithras.customer.enums.client.ClientMaterialsDisplayEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
@@ -70,7 +70,7 @@ import cn.zswltech.mithras.filingmaterials.gendoc.render.BusinessMaterialsInnerO
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.BusinessMaterialsRender;
 import cn.zswltech.mithras.filingmaterials.gendoc.render.MaterialsApprovalSnapshootRender;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.customer.mapper.app.VisitRecordMapper;
+import cn.zswltech.mithras.customer.app.mapper.VisitRecordMapper;
 import cn.zswltech.mithras.contract.mapper.contract.*;
 import cn.zswltech.mithras.filingmaterials.mapper.FilingMaterialsMapper;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
@@ -84,7 +84,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMappe
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
-import cn.zswltech.mithras.customer.model.app.VisitRecord;
+import cn.zswltech.mithras.customer.app.model.VisitRecord;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;

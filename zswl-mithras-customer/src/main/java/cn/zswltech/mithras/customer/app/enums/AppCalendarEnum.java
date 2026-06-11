@@ -1,24 +1,24 @@
-package cn.zswltech.mithras.customer.enums.app;
+package cn.zswltech.mithras.customer.app.enums;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 /**
  * @author luyi
  */
-public enum VisitRecordStatus implements PullDown {
+public enum AppCalendarEnum implements PullDown {
 
-    PASSED("已通过"),
-    INVALID("已作废")
+    MYSELF("我的日历"),
+    TEAM("团队日历")
     ;
 
-    VisitRecordStatus(String display) {
+    AppCalendarEnum(String display) {
         this.display = display;
     }
 
     public final String display;
 
-    public static VisitRecordStatus of(String code) {
-        for (VisitRecordStatus value : VisitRecordStatus.values()) {
+    public static AppCalendarEnum of(String code) {
+        for (AppCalendarEnum value : AppCalendarEnum.values()) {
             if (value.name().equals(code)) {
                 return value;
             }
