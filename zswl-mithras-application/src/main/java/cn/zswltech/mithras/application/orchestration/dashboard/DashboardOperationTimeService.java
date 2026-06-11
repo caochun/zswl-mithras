@@ -19,7 +19,7 @@ import cn.zswltech.mithras.dashboard.enums.DashboardOperationTermEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.dashboard.mapper.DashboardDueDiligenceInfoMapper;
 import cn.zswltech.mithras.dashboard.mapper.DashboardOperationTimeMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.dashboard.application.GuanYuanOperationService;
 import cn.zswltech.mithras.dashboard.mapper.model.DashboardDueDiligenceInfo;

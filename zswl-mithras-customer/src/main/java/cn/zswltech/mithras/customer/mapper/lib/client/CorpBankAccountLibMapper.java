@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.mapper.lib.client;
 
-import cn.zswltech.mithras.customer.mapper.model.client.CorpBankAccountLib;
+import cn.zswltech.mithras.customer.model.client.CorpBankAccountLib;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

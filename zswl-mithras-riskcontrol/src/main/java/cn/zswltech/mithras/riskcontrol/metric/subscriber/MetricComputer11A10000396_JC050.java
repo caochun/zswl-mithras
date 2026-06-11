@@ -3,7 +3,7 @@ package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorValue;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;

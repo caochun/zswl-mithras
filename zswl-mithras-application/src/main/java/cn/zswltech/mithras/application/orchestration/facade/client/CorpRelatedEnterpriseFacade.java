@@ -13,7 +13,7 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientViewMainAuthCh
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.mapper.corp.CorpRelatedEnterpriseMapper;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpRelatedEnterpriseService;

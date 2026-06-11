@@ -2,7 +2,7 @@ package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycConsumptionRestrictionConvert;
 import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycConsumptionRestrictionMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycConsumptionRestriction;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycConsumptionRestriction;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycConsumptionRestrictionResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;

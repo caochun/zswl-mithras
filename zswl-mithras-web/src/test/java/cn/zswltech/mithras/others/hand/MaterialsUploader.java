@@ -8,7 +8,7 @@ import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.document.enums.MaterialsType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishMaterialsEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;

@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListRSP;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileL
 import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 

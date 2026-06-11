@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.third.enums.CQPaymentTypeENUM;
 import cn.zswltech.mithras.third.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.third.retry.mapper.model.ExceptionRequestInfo;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.mapper.corp;
 
-import cn.zswltech.mithras.customer.mapper.model.client.CorpShareholderInfo;
+import cn.zswltech.mithras.customer.model.client.CorpShareholderInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

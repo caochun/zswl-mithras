@@ -69,7 +69,7 @@ import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDir
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;

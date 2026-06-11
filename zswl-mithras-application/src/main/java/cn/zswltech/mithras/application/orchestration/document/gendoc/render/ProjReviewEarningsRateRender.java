@@ -28,7 +28,7 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEn
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;

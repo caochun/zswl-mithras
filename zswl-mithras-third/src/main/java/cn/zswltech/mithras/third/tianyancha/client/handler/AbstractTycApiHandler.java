@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Pair;
 import cn.hutool.core.map.MapUtil;
 import cn.zswltech.mithras.third.tianyancha.enums.TycErrorEnum;
 import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycMockDataMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycMockData;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycMockData;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
 import cn.zswltech.mithras.foundation.thirdparty.RequestModeEnum;
 import cn.zswltech.mithras.third.tianyancha.client.TycMockDataType;

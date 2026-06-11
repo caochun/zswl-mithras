@@ -21,7 +21,7 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;

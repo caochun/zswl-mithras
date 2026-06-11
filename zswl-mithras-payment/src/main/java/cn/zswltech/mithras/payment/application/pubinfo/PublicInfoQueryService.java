@@ -25,7 +25,7 @@ import cn.zswltech.mithras.contract.core.ContractTenantryService;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.payment.job.service.PaymentPublicInfoCopyRetryService;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;

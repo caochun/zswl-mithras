@@ -13,7 +13,7 @@ import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpShareholderInfoMapper;
 import cn.zswltech.mithras.customer.mapper.corp.NewCorpShareholderInfoMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;

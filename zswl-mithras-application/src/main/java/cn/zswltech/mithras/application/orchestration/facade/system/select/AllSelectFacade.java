@@ -93,7 +93,7 @@ import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowResultDTO;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
-import cn.zswltech.mithras.customer.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.model.client.IndustryType;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.system.user.SysUserService;

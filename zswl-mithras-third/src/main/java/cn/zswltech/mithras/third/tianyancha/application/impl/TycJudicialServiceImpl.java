@@ -2,7 +2,7 @@ package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycJudicialConvert;
 import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycJudicialMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycJudicial;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycJudicial;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycJudicialResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.customer.mapper.normal.NormalBaseInfoMapper">
 
-    <select id="availableSpouseList" resultType="cn.zswltech.mithras.customer.mapper.model.client.NormalBaseInfo">
+    <select id="availableSpouseList" resultType="cn.zswltech.mithras.customer.model.client.NormalBaseInfo">
         select a.*, b.client_name
         from normal_base_info a, client b
         <where>

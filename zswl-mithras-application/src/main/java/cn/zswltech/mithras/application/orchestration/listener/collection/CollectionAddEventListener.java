@@ -32,7 +32,7 @@ import cn.zswltech.mithras.third.financialshare.enums.FinancialChangeStateENUM;
 import cn.zswltech.mithras.finance.mapper.finance.ContractAssessDeptDetailMapper;
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.mapper.WarrantyBaseInfoMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;

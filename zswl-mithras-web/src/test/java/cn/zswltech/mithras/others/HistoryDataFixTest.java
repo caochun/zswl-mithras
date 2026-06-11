@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPers
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;

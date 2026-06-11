@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.job.riskcontrol;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.riskcontrol.application.job.RiskWarnByInsightJobService;
 import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;

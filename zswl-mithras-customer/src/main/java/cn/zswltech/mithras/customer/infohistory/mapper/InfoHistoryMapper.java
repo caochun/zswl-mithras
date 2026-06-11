@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.infohistory.mapper;
 
-import cn.zswltech.mithras.customer.infohistory.mapper.model.InfoHistory;
+import cn.zswltech.mithras.customer.infohistory.model.InfoHistory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

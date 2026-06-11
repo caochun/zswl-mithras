@@ -2,7 +2,7 @@ package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycZhixingInfoConvert;
 import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycZhixingInfoMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycZhixingInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycZhixingInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycZhixingInfoResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;

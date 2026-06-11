@@ -5,9 +5,9 @@ import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseLis
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpRelatedEnterprise;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpRelatedEnterpriseLib;
-import cn.zswltech.mithras.customer.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.model.client.CorpRelatedEnterprise;
+import cn.zswltech.mithras.customer.model.client.CorpRelatedEnterpriseLib;
+import cn.zswltech.mithras.customer.model.client.IndustryType;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;

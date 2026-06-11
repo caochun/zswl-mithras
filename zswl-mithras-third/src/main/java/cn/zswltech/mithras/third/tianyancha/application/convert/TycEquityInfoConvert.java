@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycEquityInfoRSP;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycEquityInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycEquityInfo;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycEquityInfoResp;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import com.alibaba.fastjson.JSON;

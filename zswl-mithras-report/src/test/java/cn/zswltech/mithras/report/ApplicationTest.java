@@ -2,7 +2,7 @@ package cn.zswltech.mithras.report;
 
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -24,7 +24,7 @@ import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckReportBaseMapper;
 import cn.zswltech.mithras.afterlease.mapper.model.*;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;

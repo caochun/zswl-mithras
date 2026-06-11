@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper;
 
-import cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper.model.EnvironmentPenalty;
+import cn.zswltech.mithras.customer.externaldata.environmentpenalty.model.EnvironmentPenalty;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

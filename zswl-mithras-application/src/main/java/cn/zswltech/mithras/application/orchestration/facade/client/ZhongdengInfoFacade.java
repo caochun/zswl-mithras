@@ -15,7 +15,7 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientModifySubAuthC
 import cn.zswltech.mithras.customer.application.client.auth.ClientRemoveSubAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper.ZhongdengInfoMapper;
-import cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper.model.ZhongdengInfo;
+import cn.zswltech.mithras.customer.externaldata.zhongdeng.model.ZhongdengInfo;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.externaldata.zhongdeng.application.ZhongdengInfoService;

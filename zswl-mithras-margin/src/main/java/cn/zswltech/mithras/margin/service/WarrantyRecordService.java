@@ -9,7 +9,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.margin.mapper.MarginWriteOffRecordMapper;
 import cn.zswltech.mithras.margin.mapper.WarrantyBaseInfoMapper;

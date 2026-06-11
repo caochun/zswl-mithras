@@ -7,7 +7,7 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycMockDataMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycMockData;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycMockData;
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycConvertor;
 import cn.zswltech.mithras.third.tianyancha.application.dto.*;
 import cn.zswltech.mithras.third.tianyancha.client.resp.*;

@@ -28,7 +28,7 @@ import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProjLifecycleEvent
 import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

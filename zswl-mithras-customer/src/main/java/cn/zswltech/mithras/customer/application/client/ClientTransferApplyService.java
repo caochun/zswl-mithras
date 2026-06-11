@@ -3,7 +3,7 @@ package cn.zswltech.mithras.customer.application.client;
 import cn.hutool.core.util.IdUtil;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.customer.mapper.client.ClientTransferApplyMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientTransferApply;
+import cn.zswltech.mithras.customer.model.client.ClientTransferApply;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

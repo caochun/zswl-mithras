@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper;
 
-import cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper.model.ZhongdengInfo;
+import cn.zswltech.mithras.customer.externaldata.zhongdeng.model.ZhongdengInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

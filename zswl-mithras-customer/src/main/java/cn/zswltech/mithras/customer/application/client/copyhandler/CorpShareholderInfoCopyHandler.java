@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.customer.application.client.copyhandler;
 
 import cn.zswltech.mithras.customer.enums.InfoModule;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpShareholderInfo;
-import cn.zswltech.mithras.customer.mapper.model.client.NewCorpShareholderInfo;
+import cn.zswltech.mithras.customer.model.client.CorpShareholderInfo;
+import cn.zswltech.mithras.customer.model.client.NewCorpShareholderInfo;
 import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.CorpShareHolderInfoService;
 import cn.zswltech.mithras.customer.application.client.NewCorpShareHolderInfoService;

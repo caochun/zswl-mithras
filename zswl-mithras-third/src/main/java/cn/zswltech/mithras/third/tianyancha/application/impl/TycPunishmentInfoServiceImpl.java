@@ -2,7 +2,7 @@ package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycPunishmentInfoConvert;
 import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycPunishmentInfoMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycPunishmentInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycPunishmentInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycPunishmentInfoResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;

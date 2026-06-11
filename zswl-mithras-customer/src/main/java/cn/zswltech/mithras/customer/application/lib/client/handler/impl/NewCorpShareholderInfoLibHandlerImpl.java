@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.shareholder.NewCorpShareholderInfoListRSP;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

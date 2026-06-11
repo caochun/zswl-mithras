@@ -5,7 +5,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.gruul.common.constant.OrgConstants;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.customer.mapper.client.ClientUserRefMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientUserRef;
+import cn.zswltech.mithras.customer.model.client.ClientUserRef;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

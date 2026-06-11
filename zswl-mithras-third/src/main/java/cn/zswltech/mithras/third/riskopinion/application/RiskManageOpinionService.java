@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.riskopinion.application;
 
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;

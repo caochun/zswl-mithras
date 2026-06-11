@@ -13,7 +13,7 @@ import cn.zswltech.mithras.afterlease.genhtml.PaymentNoticeHtmlRender;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;

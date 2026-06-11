@@ -6,7 +6,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.gruul.common.constant.OrgConstants;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.customer.mapper.client.ClientCreateRecordMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientCreateRecord;
+import cn.zswltech.mithras.customer.model.client.ClientCreateRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

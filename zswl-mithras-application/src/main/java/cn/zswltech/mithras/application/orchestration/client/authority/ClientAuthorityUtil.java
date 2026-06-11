@@ -34,7 +34,7 @@ import cn.zswltech.mithras.customer.mapper.client.ClientAuthorityMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.*;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;

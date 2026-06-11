@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.mapper.corp;
 
-import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.externaldata.common.mapper.model.ExternalDataBaseModel;
+import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.externaldata.common.model.ExternalDataBaseModel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.builder.MapperBuilderAssistant;
 

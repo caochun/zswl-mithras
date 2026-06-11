@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.externaldata.tianyancha.mapper;
 
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycMortgageInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycMortgageInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

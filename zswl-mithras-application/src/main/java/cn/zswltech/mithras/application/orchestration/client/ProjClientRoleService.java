@@ -11,7 +11,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.customer.mapper.client.ProjClientRoleMapper;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.customer.mapper.model.client.ProjClientRole;
+import cn.zswltech.mithras.customer.model.client.ProjClientRole;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;

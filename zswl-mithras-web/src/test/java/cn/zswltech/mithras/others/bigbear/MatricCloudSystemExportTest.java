@@ -16,8 +16,8 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Industry
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Region;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.capital.enums.FinanceCashFlowItemEnum;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingCreditRef;

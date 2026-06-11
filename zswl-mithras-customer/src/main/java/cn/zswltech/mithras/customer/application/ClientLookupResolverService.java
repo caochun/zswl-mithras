@@ -2,9 +2,9 @@ package cn.zswltech.mithras.customer.application;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.customer.hymx.mapper.ClientHymxMapper;
-import cn.zswltech.mithras.customer.hymx.mapper.model.ClientHymx;
+import cn.zswltech.mithras.customer.hymx.model.ClientHymx;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.foundation.port.ClientDeptResolver;
 import cn.zswltech.mithras.foundation.port.ClientInfoResolver;

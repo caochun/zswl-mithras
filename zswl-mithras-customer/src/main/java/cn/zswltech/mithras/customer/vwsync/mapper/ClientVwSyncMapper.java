@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.vwsync.mapper;
 
 
-import cn.zswltech.mithras.customer.vwsync.mapper.model.ClientVwSync;
+import cn.zswltech.mithras.customer.vwsync.model.ClientVwSync;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;

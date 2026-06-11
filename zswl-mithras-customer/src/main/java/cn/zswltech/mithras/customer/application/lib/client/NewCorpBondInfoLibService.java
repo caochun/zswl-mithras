@@ -3,7 +3,7 @@ package cn.zswltech.mithras.customer.application.lib.client;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoListREQ;
 import cn.zswltech.mithras.dto.client.bondinfo.NewCorpBondInfoListRSP;
-import cn.zswltech.mithras.customer.mapper.model.client.NewCorpBondInfoLib;
+import cn.zswltech.mithras.customer.model.client.NewCorpBondInfoLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

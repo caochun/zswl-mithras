@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountListREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountListRSP;
 import cn.zswltech.mithras.customer.mapper.lib.client.NormalBankAccountLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.NormalBankAccountLib;
+import cn.zswltech.mithras.customer.model.client.NormalBankAccountLib;
 import cn.zswltech.mithras.customer.application.lib.client.NormalBankAccountLibService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NormalBankAccountLibHandlerImpl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.client.share.DataShareUserREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareUserRSP;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareCodeDict;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareMerchants;

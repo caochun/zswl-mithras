@@ -5,7 +5,7 @@ import cn.zswltech.mithras.customer.application.client.ClientDataSaveCheckInterf
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountAddREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountListREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountModifyREQ;
-import cn.zswltech.mithras.customer.mapper.model.client.NormalBankAccount;
+import cn.zswltech.mithras.customer.model.client.NormalBankAccount;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBankAccountMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

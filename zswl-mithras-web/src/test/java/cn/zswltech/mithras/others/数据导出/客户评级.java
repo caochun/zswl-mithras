@@ -18,9 +18,9 @@ import cn.zswltech.mithras.application.orchestration.facade.client.CorpCommerceI
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.model.client.IndustryType;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

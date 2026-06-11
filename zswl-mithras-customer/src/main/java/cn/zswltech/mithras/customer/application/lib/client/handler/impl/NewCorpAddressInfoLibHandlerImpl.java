@@ -10,7 +10,7 @@ import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.exception.LackDataException;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import cn.zswltech.mithras.customer.application.validator.CorpAddressInfoValidator;

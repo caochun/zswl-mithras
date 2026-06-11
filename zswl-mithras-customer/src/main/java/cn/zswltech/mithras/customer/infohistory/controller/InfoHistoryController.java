@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.client.infohistory.InfoHistoryDetailREQ;
 import cn.zswltech.mithras.dto.client.infohistory.InfoHistoryDetailRSP;
 import cn.zswltech.mithras.dto.client.infohistory.InfoHistoryListREQ;
 import cn.zswltech.mithras.dto.client.infohistory.InfoHistoryListRSP;
-import cn.zswltech.mithras.customer.infohistory.mapper.model.InfoHistory;
+import cn.zswltech.mithras.customer.infohistory.model.InfoHistory;
 import cn.zswltech.mithras.customer.infohistory.application.InfoHistoryService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

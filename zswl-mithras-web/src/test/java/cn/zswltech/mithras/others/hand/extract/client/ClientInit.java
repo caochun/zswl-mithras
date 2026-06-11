@@ -11,7 +11,7 @@ import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.*;
 import cn.zswltech.mithras.customer.mapper.lib.client.*;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBankAccountMapper;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBaseInfoMapper;
 import cn.zswltech.mithras.customer.mapper.normal.NormalSpouseMapper;

@@ -18,7 +18,7 @@ import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryE
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamine;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamineBenefit;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamineBudgetExecute;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.system.user.SysUserService;

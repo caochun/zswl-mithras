@@ -5,7 +5,7 @@ import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryServic
 import cn.zswltech.mithras.dto.riskcontrol.ClientDetail;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.system.user.Id2NameService;

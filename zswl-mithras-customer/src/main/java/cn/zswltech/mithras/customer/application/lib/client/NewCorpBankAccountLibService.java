@@ -3,7 +3,7 @@ package cn.zswltech.mithras.customer.application.lib.client;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountListREQ;
 import cn.zswltech.mithras.dto.client.bankaccount.NewCorpBankAccountListRSP;
-import cn.zswltech.mithras.customer.mapper.model.client.NewCorpBankAccountLib;
+import cn.zswltech.mithras.customer.model.client.NewCorpBankAccountLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

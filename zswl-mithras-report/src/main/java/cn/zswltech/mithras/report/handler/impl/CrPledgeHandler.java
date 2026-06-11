@@ -25,7 +25,7 @@ import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractPledgeItemLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractPledgeLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeItemLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeLib;

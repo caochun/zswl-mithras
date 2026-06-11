@@ -25,7 +25,7 @@ import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projreview.*;
 import cn.zswltech.mithras.projectprocess.flow.dynamicform.projreview.SetMeetingPlanDateHandler;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;

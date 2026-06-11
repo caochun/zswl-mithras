@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoAddREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoModifyREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoRemoveREQ;
 import cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper.ZhongdengInfoMapper;
-import cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper.model.ZhongdengInfo;
+import cn.zswltech.mithras.customer.externaldata.zhongdeng.model.ZhongdengInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.externaldata.zhongdeng.application.ZhongdengInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

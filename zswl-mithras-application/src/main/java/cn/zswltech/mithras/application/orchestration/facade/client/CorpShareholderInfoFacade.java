@@ -12,7 +12,7 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientRemoveSubAuthC
 import cn.zswltech.mithras.customer.application.client.auth.ClientViewMainAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.mapper.corp.CorpShareholderInfoMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpShareHolderInfoService;

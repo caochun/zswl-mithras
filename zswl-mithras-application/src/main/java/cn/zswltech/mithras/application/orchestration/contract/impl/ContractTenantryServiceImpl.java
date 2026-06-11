@@ -22,7 +22,7 @@ import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpContactInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpContactInfoLib;
+import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

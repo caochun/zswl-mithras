@@ -20,8 +20,8 @@ import cn.zswltech.mithras.application.orchestration.auth.rule.special.ProjEstab
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

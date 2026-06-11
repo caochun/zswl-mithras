@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoListREQ;
 import cn.zswltech.mithras.dto.client.shareholder.NewCorpShareholderInfoListRSP;
 import cn.zswltech.mithras.customer.mapper.lib.client.NewCorpShareholderInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.NewCorpShareholderInfoLib;
+import cn.zswltech.mithras.customer.model.client.NewCorpShareholderInfoLib;
 import cn.zswltech.mithras.customer.application.lib.client.NewCorpShareholderInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NewCorpShareholderInfoLibHandlerImpl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

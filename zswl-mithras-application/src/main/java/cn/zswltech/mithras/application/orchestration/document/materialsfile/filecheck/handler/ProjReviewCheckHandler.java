@@ -16,7 +16,7 @@ import cn.zswltech.mithras.customer.enums.app.VisitRecordStatus;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.customer.mapper.app.VisitRecordMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.customer.mapper.model.app.VisitRecord;
+import cn.zswltech.mithras.customer.model.app.VisitRecord;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;

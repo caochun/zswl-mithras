@@ -42,7 +42,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.model.client.IndustryType;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.util.Util;

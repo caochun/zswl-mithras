@@ -28,7 +28,7 @@ import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckExternalQueryMapp
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQuery;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
 import cn.zswltech.mithras.afterlease.application.bo.AfterLeaseClientDataBO;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

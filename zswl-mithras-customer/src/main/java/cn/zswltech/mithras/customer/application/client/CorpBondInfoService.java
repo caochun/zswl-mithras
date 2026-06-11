@@ -14,7 +14,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpBondInfoMapper;
 import cn.zswltech.mithras.customer.mapper.corp.NewCorpBondInfoMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.mapper.corp;
 
-import cn.zswltech.mithras.customer.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.model.client.IndustryType;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

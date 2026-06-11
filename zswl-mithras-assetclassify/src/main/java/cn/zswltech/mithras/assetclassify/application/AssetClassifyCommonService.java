@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientListREQ;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.system.user.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

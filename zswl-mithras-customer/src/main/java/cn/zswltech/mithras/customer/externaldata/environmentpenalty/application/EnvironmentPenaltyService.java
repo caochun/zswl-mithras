@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.client.external.ExternalPageREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyAddREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyModifyREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyRemoveREQ;
-import cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper.model.EnvironmentPenalty;
+import cn.zswltech.mithras.customer.externaldata.environmentpenalty.model.EnvironmentPenalty;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

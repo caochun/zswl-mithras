@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.*;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.third.tianyancha.application.*;
 import lombok.extern.slf4j.Slf4j;

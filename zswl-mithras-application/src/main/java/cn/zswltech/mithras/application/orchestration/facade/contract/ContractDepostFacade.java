@@ -26,7 +26,7 @@ import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsProcessStatusEnu
 import cn.zswltech.mithras.application.orchestration.document.file.impl.ContarctDepositProviderCheck;
 import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractDeductRentInfo;

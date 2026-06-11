@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.document.gendoc.render;
 
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;

@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoListREQ;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoListRSP;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpBondInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpBondInfoLib;
+import cn.zswltech.mithras.customer.model.client.CorpBondInfoLib;
 import cn.zswltech.mithras.customer.application.lib.client.CorpBondInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpBondInfoLibHandlerImpl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

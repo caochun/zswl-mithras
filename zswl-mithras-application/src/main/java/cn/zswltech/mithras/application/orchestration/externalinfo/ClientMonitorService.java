@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.application.monitor.dto.*;
 import cn.zswltech.mithras.dto.client.client.ClientListREQ;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.externaldata.tianyancha.mapper;
 
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycAbnormal;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycAbnormal;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

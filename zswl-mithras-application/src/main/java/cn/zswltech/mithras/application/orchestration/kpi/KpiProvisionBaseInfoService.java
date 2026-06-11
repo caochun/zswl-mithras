@@ -21,7 +21,7 @@ import cn.zswltech.mithras.third.financialshare.enums.CQTaxRateENUM;
 import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.finance.mapper.finance.ContractAssessDeptDetailMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiProvisionBaseInfoMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.finance.mapper.model.finance.ContractAssessDeptDetail;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProvisionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

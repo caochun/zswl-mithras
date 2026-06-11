@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.customer.mapper.lib.client.NewCorpCommerceInfoLibMapper">
     <select id="listNewestCommerceInfo"
-            resultType="cn.zswltech.mithras.customer.mapper.model.client.NewCorpCommerceInfoLib">
+            resultType="cn.zswltech.mithras.customer.model.client.NewCorpCommerceInfoLib">
         SELECT p.*
         FROM new_corp_commerce_info_lib p
         INNER JOIN (SELECT main_id AS client_id, MAX(version) AS version FROM common_version t1
@@ -41,7 +41,7 @@
 
 
     <select id="intraGroupClients"
-            resultType="cn.zswltech.mithras.customer.mapper.model.client.NewCorpCommerceInfoLib">
+            resultType="cn.zswltech.mithras.customer.model.client.NewCorpCommerceInfoLib">
         SELECT p.client_id,
                p.belong_group_client_id,
                p.risk_control_industry_classify,

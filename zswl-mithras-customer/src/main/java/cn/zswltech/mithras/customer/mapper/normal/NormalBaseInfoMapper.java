@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.mapper.normal;
 
-import cn.zswltech.mithras.customer.mapper.model.client.NormalBaseInfo;
+import cn.zswltech.mithras.customer.model.client.NormalBaseInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

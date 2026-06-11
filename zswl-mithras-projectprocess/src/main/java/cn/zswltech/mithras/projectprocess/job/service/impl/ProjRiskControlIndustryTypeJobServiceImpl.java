@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.projectprocess.job.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.projectprocess.job.service.ProjRiskControlIndustryTypeJobService;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;

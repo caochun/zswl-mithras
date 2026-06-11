@@ -31,7 +31,7 @@
     </select>
 
     <select id="listNewestAddressByClientId"
-            resultType="cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib">
+            resultType="cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib">
         select client_id,province from (
         select a.client_id, a.province, a.address_type
         from corp_address_info_lib a
@@ -53,7 +53,7 @@
         group by client_id
     </select>
 
-    <select id="listAddressByClientIdAndType" resultType="cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib">
+    <select id="listAddressByClientIdAndType" resultType="cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib">
         SELECT p.*
         FROM corp_address_info_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version
@@ -76,7 +76,7 @@
     </select>
 
     <select id="listNewestCorpAddress"
-            resultType="cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib">
+            resultType="cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib">
         SELECT p.*
         FROM corp_address_info_lib p
                  INNER JOIN (SELECT main_id AS id, MAX(version) AS version

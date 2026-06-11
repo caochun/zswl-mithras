@@ -15,7 +15,7 @@ import cn.zswltech.mithras.customer.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import cn.zswltech.mithras.ftp.newftp.service.NewFtpBaseInfoService;

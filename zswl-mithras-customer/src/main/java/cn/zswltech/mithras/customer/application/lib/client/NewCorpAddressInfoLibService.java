@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.application.lib.client;
 
-import cn.zswltech.mithras.customer.mapper.model.client.NewCorpAddressInfoLib;
+import cn.zswltech.mithras.customer.model.client.NewCorpAddressInfoLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

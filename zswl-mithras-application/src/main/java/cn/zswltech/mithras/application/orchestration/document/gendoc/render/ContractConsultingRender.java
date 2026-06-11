@@ -17,7 +17,7 @@ import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.kpi.enums.config.TaxRateEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.document.model.FileTemplate;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;

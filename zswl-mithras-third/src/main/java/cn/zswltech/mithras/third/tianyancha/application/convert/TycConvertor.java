@@ -9,7 +9,7 @@ import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.zswltech.mithras.customer.enums.RelationshipType;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.model.client.IndustryType;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.third.tianyancha.application.dto.*;
 import cn.zswltech.mithras.third.tianyancha.client.resp.*;

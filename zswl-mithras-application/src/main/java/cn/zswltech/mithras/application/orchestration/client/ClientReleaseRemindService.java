@@ -32,8 +32,8 @@ import cn.zswltech.mithras.customer.application.client.dto.ReleaseRemindEmailInf
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.application.orchestration.client.dto.ClientAsLesseeInfoDTO;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientAuthority;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.ClientAuthority;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;

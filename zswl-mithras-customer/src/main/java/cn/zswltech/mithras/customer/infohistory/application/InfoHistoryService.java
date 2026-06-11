@@ -6,7 +6,7 @@ import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.foundation.enums.InfoOperation;
 import cn.zswltech.mithras.customer.infohistory.mapper.InfoHistoryMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.customer.infohistory.mapper.model.InfoHistory;
+import cn.zswltech.mithras.customer.infohistory.model.InfoHistory;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;

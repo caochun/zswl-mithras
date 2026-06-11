@@ -2,7 +2,7 @@ package cn.zswltech.mithras.customer.application.client.auth;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.dto.AuthBaseReq;
 import cn.zswltech.mithras.foundation.auth.DataAuthBusinessModule;
 import cn.zswltech.mithras.foundation.auth.checker.IDataAuthChecker;

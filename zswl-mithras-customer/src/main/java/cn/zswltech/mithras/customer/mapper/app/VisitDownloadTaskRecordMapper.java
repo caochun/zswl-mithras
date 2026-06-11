@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.mapper.app;
 
-import cn.zswltech.mithras.customer.mapper.model.app.VisitDownloadTaskRecord;
+import cn.zswltech.mithras.customer.model.app.VisitDownloadTaskRecord;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

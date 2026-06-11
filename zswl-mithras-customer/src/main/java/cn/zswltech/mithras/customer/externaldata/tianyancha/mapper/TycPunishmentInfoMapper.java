@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.externaldata.tianyancha.mapper;
 
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycPunishmentInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycPunishmentInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

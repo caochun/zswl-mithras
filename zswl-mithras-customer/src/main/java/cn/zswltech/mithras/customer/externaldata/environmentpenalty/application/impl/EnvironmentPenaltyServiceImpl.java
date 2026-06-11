@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyAdd
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyModifyREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyRemoveREQ;
 import cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper.EnvironmentPenaltyMapper;
-import cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper.model.EnvironmentPenalty;
+import cn.zswltech.mithras.customer.externaldata.environmentpenalty.model.EnvironmentPenalty;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.externaldata.environmentpenalty.application.EnvironmentPenaltyService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

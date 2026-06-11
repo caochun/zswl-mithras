@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.customer.application.lib.client;
 
 import cn.zswltech.mithras.dto.client.commerceinfo.NewCorpCommerceInfoDetailRSP;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.mapper.model.client.NewCorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.NewCorpCommerceInfoLib;
 import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
 import com.baomidou.mybatisplus.extension.service.IService;
 

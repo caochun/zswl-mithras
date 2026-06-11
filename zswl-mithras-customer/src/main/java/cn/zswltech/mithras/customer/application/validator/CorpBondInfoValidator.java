@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.application.validator;
 
-import cn.zswltech.mithras.customer.mapper.model.client.CorpBondInfo;
+import cn.zswltech.mithras.customer.model.client.CorpBondInfo;
 
 /**
  * 校验

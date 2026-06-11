@@ -2,9 +2,9 @@ package cn.zswltech.mithras.customer.application.client;
 
 import cn.zswltech.mithras.customer.application.client.bo.ClientAuthBO;
 import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryBO;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpShareholderInfo;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.model.client.CorpShareholderInfo;
 import cn.zswltech.mithras.dto.contract.ContractCompareBusinessRSP;
 
 import java.util.List;

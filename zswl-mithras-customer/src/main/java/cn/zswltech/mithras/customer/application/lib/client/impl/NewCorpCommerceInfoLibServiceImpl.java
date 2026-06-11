@@ -7,9 +7,9 @@ import cn.zswltech.mithras.customer.application.lib.client.NewCorpCommerceInfoLi
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.customer.mapper.lib.client.NewCorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.mapper.model.client.NewCorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.model.client.NewCorpCommerceInfoLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NewCorpCommerceInfoLibHandlerImpl;
 import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;

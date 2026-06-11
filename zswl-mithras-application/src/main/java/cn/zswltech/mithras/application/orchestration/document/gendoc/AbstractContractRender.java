@@ -14,7 +14,7 @@ import cn.zswltech.mithras.contract.enums.contract.GuaranteeMethodEnum;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.IContractSignInfo;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpContactInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;

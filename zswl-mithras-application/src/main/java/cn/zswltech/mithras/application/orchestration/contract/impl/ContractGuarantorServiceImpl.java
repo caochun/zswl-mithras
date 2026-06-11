@@ -24,7 +24,7 @@ import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.contract.mapper.contract.ContractGuarantorMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.CorpContactInfoLib;
+import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;

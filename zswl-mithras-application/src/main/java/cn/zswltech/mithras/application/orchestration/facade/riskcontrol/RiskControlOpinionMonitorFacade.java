@@ -26,7 +26,7 @@ import cn.zswltech.mithras.riskcontrol.flow.dynamicform.risk.opinion.RiskOpinion
 import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.system.mapper.model.SystemConfig;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;

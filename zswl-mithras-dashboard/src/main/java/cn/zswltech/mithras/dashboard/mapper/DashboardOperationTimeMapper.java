@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.dashboard.mapper;
 
-import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.dashboard.mapper.model.DashboardOperationCapacityQuery;
 import cn.zswltech.mithras.dashboard.mapper.model.DashboardOperationCapacityResult;
 import cn.zswltech.mithras.dashboard.mapper.model.DashboardOperationPayQuery;

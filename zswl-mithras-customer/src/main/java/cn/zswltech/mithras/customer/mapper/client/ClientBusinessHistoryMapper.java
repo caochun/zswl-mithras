@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.mapper.client;
 
-import cn.zswltech.mithras.customer.mapper.model.client.ClientBusinessHistory;
+import cn.zswltech.mithras.customer.model.client.ClientBusinessHistory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 

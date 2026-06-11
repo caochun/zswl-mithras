@@ -20,7 +20,7 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.file.FileHandlerFactory;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.file.IFileHandler;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientTransferApply;
+import cn.zswltech.mithras.customer.model.client.ClientTransferApply;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.customer.application.client.ClientTransferApplyService;

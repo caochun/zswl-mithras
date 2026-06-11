@@ -12,7 +12,7 @@ import cn.zswltech.mithras.riskcontrol.excel.importer.RelatedClientImporter;
 import cn.zswltech.mithras.riskcontrol.excel.model.RelatedClientExcelModel;
 import cn.zswltech.mithras.customer.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListREQ;
 import cn.zswltech.mithras.dto.client.contactinfo.NewCorpContactInfoListRSP;
 import cn.zswltech.mithras.customer.mapper.lib.client.NewCorpContactInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.NewCorpContactInfoLib;
+import cn.zswltech.mithras.customer.model.client.NewCorpContactInfoLib;
 import cn.zswltech.mithras.customer.application.lib.client.NewCorpContactInfoLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

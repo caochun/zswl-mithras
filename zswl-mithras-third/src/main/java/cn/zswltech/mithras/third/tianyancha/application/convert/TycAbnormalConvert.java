@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycAbnormalRSP;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycAbnormal;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycAbnormal;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycAbnormalResp;
 
 /**

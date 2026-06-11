@@ -3,7 +3,7 @@ package cn.zswltech.mithras.customer.application.lib.client.handler;
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import cn.zswltech.mithras.foundation.version.LibAbstractHandler;

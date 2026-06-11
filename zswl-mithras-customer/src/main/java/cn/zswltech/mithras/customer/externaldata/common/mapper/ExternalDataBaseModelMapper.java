@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.externaldata.common.mapper;
 
-import cn.zswltech.mithras.customer.externaldata.common.mapper.model.ExternalDataBaseModel;
+import cn.zswltech.mithras.customer.externaldata.common.model.ExternalDataBaseModel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.projectprocess.application.lib.projreview.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import cn.zswltech.mithras.foundation.version.LibAbstractHandler;

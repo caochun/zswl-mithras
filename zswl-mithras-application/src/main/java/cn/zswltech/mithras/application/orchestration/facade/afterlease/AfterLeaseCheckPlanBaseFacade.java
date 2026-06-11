@@ -25,7 +25,7 @@ import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;

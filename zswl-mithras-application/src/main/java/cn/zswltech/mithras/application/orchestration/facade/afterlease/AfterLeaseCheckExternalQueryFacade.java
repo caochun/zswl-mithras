@@ -23,7 +23,7 @@ import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.mapper.model.*;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQueryClientInfoLib;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
-import cn.zswltech.mithras.customer.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.customer.model.client.IndustryType;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryClientInfoService;

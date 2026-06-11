@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.mapper.app;
 
-import cn.zswltech.mithras.customer.mapper.dto.VisitRecordListParam;
-import cn.zswltech.mithras.customer.mapper.model.app.VisitRecord;
+import cn.zswltech.mithras.customer.dto.VisitRecordListParam;
+import cn.zswltech.mithras.customer.model.app.VisitRecord;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

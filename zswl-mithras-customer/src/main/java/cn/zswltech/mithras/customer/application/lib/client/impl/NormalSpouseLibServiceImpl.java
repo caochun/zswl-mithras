@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.lib.client.impl;
 
 import cn.zswltech.mithras.customer.mapper.lib.client.NormalSpouseLibMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.NormalSpouseLib;
+import cn.zswltech.mithras.customer.model.client.NormalSpouseLib;
 import cn.zswltech.mithras.customer.application.lib.client.NormalSpouseLibService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

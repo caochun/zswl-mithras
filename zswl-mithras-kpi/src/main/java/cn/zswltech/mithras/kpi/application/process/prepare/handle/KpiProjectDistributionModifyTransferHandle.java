@@ -9,7 +9,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.mapper.client.ClientTransferMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientTransfer;
+import cn.zswltech.mithras.customer.model.client.ClientTransfer;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
 import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionDeptWeightLibService;
 import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;

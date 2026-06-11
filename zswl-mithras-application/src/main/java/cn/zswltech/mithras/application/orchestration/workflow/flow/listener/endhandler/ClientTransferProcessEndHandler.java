@@ -9,7 +9,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProcessEventDescEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientTransfer;
+import cn.zswltech.mithras.customer.model.client.ClientTransfer;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleEvent;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.mapper.client;
 
-import cn.zswltech.mithras.customer.mapper.model.client.ClientUserRef;
+import cn.zswltech.mithras.customer.model.client.ClientUserRef;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

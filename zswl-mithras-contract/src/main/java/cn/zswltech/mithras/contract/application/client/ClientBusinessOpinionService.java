@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.client.ClientBusinessOpinionAddREQ;
 import cn.zswltech.mithras.dto.contract.ContractCompareBusinessRSP;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.mapper.client.ClientBusinessOpinionMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.ClientBusinessOpinion;
+import cn.zswltech.mithras.customer.model.client.ClientBusinessOpinion;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.foundation.util.StringUtil;

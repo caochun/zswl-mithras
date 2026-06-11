@@ -8,7 +8,7 @@ import cn.zswltech.mithras.contract.overdue.domain.acl.ClientRole;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractClientInfo;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.port.ClientRiskExposureResolver;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

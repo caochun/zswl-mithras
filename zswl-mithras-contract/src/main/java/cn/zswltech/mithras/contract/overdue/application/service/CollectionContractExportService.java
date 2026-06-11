@@ -8,7 +8,7 @@ import cn.zswltech.mithras.contract.dto.persistence.OcContractListDto;
 import cn.zswltech.mithras.contract.overdue.application.collection.CollectionContractQueryService;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import lombok.extern.slf4j.Slf4j;

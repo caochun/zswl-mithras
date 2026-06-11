@@ -2,8 +2,8 @@ package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.hutool.http.HtmlUtil;
 import cn.zswltech.mithras.dto.client.external.tyc.TycLawSuitRSP;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycLawSuit;
+import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycLawSuit;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitDetailResp;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitResp;
 import cn.hutool.core.date.LocalDateTimeUtil;

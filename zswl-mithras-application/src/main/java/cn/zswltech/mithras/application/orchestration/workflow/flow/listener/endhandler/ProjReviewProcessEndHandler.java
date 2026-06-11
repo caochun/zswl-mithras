@@ -15,7 +15,7 @@ import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.message.enums.MessageUrlEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProcessEventDescEnum;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleEvent;
 import cn.zswltech.mithras.projectprocess.event.ProjReviewApprovalPassEvent;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;

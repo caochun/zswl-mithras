@@ -28,7 +28,7 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.*;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractProjReviewReportRender;
-import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;

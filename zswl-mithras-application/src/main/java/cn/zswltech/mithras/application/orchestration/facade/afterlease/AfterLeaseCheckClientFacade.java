@@ -26,7 +26,7 @@ import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;

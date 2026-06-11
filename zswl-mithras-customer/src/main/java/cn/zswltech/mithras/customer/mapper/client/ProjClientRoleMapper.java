@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.mapper.client;
 
-import cn.zswltech.mithras.customer.mapper.model.client.ProjClientRole;
+import cn.zswltech.mithras.customer.model.client.ProjClientRole;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

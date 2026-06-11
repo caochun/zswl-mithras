@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPers
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;

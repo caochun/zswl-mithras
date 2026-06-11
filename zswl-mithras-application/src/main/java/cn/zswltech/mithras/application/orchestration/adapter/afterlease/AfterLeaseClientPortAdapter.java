@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.afterlease;
 
 import cn.zswltech.mithras.afterlease.application.AfterLeaseClientPort;
-import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import org.springframework.stereotype.Component;
 
