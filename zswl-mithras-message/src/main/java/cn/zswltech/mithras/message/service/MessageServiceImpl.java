@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.message.service.impl;
+package cn.zswltech.mithras.message.service;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -20,10 +20,7 @@ import cn.zswltech.mithras.message.enums.MessageType;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.TodoMessageBody;
 import cn.zswltech.mithras.message.model.ZhfkNoticeRelation;
-import cn.zswltech.mithras.message.service.AbstractMessageService;
 import cn.zswltech.mithras.message.service.factory.MessageFactory;
-import cn.zswltech.mithras.message.service.MessageService;
-import cn.zswltech.mithras.message.service.ZhfkNoticeRelationService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;

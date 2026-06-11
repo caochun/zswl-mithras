@@ -9,7 +9,6 @@ import com.github.pagehelper.PageInfo;
 
 import java.util.Collections;
 import java.util.List;
-//import cn.zswltech.mithras.message.service.impl.WebSocketServer;
 
 /**
  * @ClassName AbstractMessageService
