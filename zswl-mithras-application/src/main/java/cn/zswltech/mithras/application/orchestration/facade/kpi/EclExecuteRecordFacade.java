@@ -8,7 +8,7 @@ import cn.zswltech.mithras.kpi.application.EclExecuteRecordApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecord;
 import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecordLib;
-import cn.zswltech.mithras.kpi.service.EclExecuteRecordLibService;
+import cn.zswltech.mithras.kpi.application.ecl.EclExecuteRecordLibService;
 import cn.zswltech.mithras.application.orchestration.kpi.EclExecuteRecordService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

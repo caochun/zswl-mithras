@@ -16,7 +16,7 @@ import cn.zswltech.mithras.monthly.mapper.model.MonthlyManagementBaseInfo;
 import cn.zswltech.mithras.monthly.mapper.MonthlyManagementAirRecordMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;

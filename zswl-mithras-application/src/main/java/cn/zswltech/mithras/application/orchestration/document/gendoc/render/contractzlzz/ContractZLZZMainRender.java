@@ -17,7 +17,7 @@ import cn.zswltech.mithras.document.mapper.model.FileTemplate;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;
 

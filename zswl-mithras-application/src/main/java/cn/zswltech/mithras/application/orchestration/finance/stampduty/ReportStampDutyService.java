@@ -22,7 +22,7 @@ import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.stampduty.*;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;

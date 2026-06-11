@@ -37,7 +37,7 @@ import cn.zswltech.mithras.rating.service.RatingClientAreaIndicatorService;
 import cn.zswltech.mithras.rating.service.RatingClientService;
 import cn.zswltech.mithras.rating.service.RatingSnapshotService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.CorpAddressType;
@@ -104,7 +104,7 @@ import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestDetailRecord
 import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.kpi.application.KpiProjGuessBaseInfoService;
-import cn.zswltech.mithras.kpi.service.KpiProjGuessDivideService;
+import cn.zswltech.mithras.kpi.application.projguess.KpiProjGuessDivideService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjGuessService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionDetailService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;

@@ -24,7 +24,7 @@ import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceMainInfoService;
-import cn.zswltech.mithras.kpi.service.KpiPerformanceRecordInfoService;
+import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceRecordInfoService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

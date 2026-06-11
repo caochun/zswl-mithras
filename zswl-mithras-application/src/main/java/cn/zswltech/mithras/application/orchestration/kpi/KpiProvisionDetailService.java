@@ -18,7 +18,7 @@ import cn.zswltech.mithras.rating.versioning.ratingclient.RatingClientLibService
 import cn.zswltech.mithras.rating.model.RatingClientLib;
 import cn.zswltech.mithras.rating.service.DecisionService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;

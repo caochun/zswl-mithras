@@ -28,7 +28,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewMeetMinuteBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewMeetMinuteBaseInfoService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

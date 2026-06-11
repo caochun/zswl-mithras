@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.kpi.service;
+package cn.zswltech.mithras.kpi.application.config;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;

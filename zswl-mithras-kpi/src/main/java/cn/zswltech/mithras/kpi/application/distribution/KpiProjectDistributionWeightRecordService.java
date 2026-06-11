@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.kpi.service;
+package cn.zswltech.mithras.kpi.application.distribution;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRecordAddREQ;

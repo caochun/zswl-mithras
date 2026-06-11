@@ -28,7 +28,7 @@ import cn.zswltech.mithras.contract.core.ContractAocPriceService;
 import cn.zswltech.mithras.contract.core.ContractFactoringPriceService;
 import cn.zswltech.mithras.contract.core.ContractLeasePriceService;
 import cn.zswltech.mithras.contract.core.ContractRentActualService;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

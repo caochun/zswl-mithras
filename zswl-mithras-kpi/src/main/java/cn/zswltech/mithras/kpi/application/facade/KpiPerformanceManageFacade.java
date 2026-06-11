@@ -8,7 +8,7 @@ import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceMainInfoService;
-import cn.zswltech.mithras.kpi.service.KpiPerformanceRecordInfoService;
+import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceRecordInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

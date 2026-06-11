@@ -28,7 +28,7 @@ import cn.zswltech.mithras.kpi.mapper.model.KpiProvisionBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProvisionDetail;
 import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecord;
 import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecordLib;
-import cn.zswltech.mithras.kpi.service.EclExecuteRecordLibService;
+import cn.zswltech.mithras.kpi.application.ecl.EclExecuteRecordLibService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.kpi.bo.EclResultBO;

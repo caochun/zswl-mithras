@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.kpi.service;
+package cn.zswltech.mithras.kpi.application.performance;
 
 import cn.zswltech.mithras.kpi.mapper.PerformanceRecordInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.model.PerformanceRecordInfo;

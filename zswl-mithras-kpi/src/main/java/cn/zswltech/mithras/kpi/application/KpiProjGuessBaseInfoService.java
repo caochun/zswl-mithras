@@ -13,7 +13,7 @@ import cn.zswltech.mithras.kpi.mapper.dto.*;
 import cn.zswltech.mithras.kpi.mapper.KpiProjGuessBaseInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessDivide;
-import cn.zswltech.mithras.kpi.service.KpiProjGuessDivideService;
+import cn.zswltech.mithras.kpi.application.projguess.KpiProjGuessDivideService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.kpi.mapper.model.PerformanceBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.PerformanceRecordInfo;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceMainInfoService;
-import cn.zswltech.mithras.kpi.service.KpiPerformanceRecordInfoService;
+import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceRecordInfoService;
 import cn.zswltech.mithras.kpi.excel.model.CompanyExcelModel;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;

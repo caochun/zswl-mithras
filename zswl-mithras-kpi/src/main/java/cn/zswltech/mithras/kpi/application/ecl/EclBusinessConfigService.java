@@ -13,7 +13,7 @@ import cn.zswltech.mithras.kpi.enums.config.EclConfigEnum;
 import cn.zswltech.mithras.kpi.mapper.EclBusinessConfigMapper;
 import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfig;
 import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfigLib;
-import cn.zswltech.mithras.kpi.service.EclBusinessConfigLibService;
+import cn.zswltech.mithras.kpi.application.ecl.EclBusinessConfigLibService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.kpi.bo.EclBreachMappingBO;
 import cn.zswltech.mithras.kpi.bo.EclLossLgdBO;

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.contract.core.ContractLeasePriceService;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.data.*;
 import org.springframework.stereotype.Component;

@@ -54,7 +54,7 @@ import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.ContractIncomeSharingService;
 import cn.zswltech.mithras.contract.core.ContractRentActualService;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestDetailRecordService;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionDetailService;
 import cn.zswltech.mithras.customer.application.lib.client.CorpCommerceInfoLibService;

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessDivide;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.kpi.application.KpiProjGuessBaseInfoService;
-import cn.zswltech.mithras.kpi.service.KpiProjGuessDivideService;
+import cn.zswltech.mithras.kpi.application.projguess.KpiProjGuessDivideService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjGuessService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

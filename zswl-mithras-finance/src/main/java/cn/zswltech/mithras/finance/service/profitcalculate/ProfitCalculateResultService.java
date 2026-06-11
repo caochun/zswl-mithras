@@ -40,7 +40,7 @@ import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.finance.mapper.query.ProfitCalculateResultQuery;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.finance.bo.ProfitCalculateResultBO;
-import cn.zswltech.mithras.kpi.service.KpiParameterConfigService;
+import cn.zswltech.mithras.kpi.application.config.KpiParameterConfigService;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;

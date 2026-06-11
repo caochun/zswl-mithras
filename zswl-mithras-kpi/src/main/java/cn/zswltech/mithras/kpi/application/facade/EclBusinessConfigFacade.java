@@ -7,7 +7,7 @@ import cn.zswltech.mithras.kpi.application.EclBusinessConfigApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfig;
 import cn.zswltech.mithras.kpi.mapper.model.EclBusinessConfigLib;
-import cn.zswltech.mithras.kpi.service.EclBusinessConfigLibService;
+import cn.zswltech.mithras.kpi.application.ecl.EclBusinessConfigLibService;
 import cn.zswltech.mithras.kpi.application.ecl.EclBusinessConfigService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
