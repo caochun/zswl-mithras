@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.creditreport.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportLimit;
+import cn.zswltech.mithras.creditreport.model.CreditReportLimit;
 
 /**
 * @description 征信报告-信用额度表

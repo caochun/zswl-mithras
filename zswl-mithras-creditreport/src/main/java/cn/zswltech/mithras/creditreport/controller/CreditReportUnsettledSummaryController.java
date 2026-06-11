@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.creditreport.CreditReportUnsettledSummaryRemoveRE
 import cn.zswltech.mithras.creditreport.enums.CreditReportBusinessTypeEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditReportPaymentGuaranteeModuleEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditReportPaymentModuleEnum;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportUnsettledSummary;
+import cn.zswltech.mithras.creditreport.model.CreditReportUnsettledSummary;
 import cn.zswltech.mithras.creditreport.service.CreditReportUnsettledSummaryService;
 import org.springframework.web.bind.annotation.RestController;
 

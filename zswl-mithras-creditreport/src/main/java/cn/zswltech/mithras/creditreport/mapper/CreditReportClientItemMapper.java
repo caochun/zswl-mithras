@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.creditreport.mapper;
 
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
+import cn.zswltech.mithras.creditreport.model.CreditReportClientItem;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

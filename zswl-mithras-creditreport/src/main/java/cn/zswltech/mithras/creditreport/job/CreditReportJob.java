@@ -2,8 +2,8 @@ package cn.zswltech.mithras.creditreport.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.creditreport.enums.CreditSearchStatusEnum;
-import cn.zswltech.mithras.creditreport.mapper.dto.credit.XJCreditReportJsonDTO;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
+import cn.zswltech.mithras.creditreport.dto.credit.XJCreditReportJsonDTO;
+import cn.zswltech.mithras.creditreport.model.CreditReportClientItem;
 import cn.zswltech.mithras.creditreport.service.CreditReportApiService;
 import cn.zswltech.mithras.creditreport.service.CreditReportClientItemService;
 import cn.zswltech.mithras.creditreport.service.CreditReportResultApplicationService;

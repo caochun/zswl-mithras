@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.creditreport.mapper;
 
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItemLib;
+import cn.zswltech.mithras.creditreport.model.CreditReportClientItemLib;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

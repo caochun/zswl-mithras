@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.creditreport.CreditReportSummaryApi;
 import cn.zswltech.mithras.dto.creditreport.*;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportSummary;
+import cn.zswltech.mithras.creditreport.model.CreditReportSummary;
 import cn.zswltech.mithras.creditreport.service.CreditReportSummaryService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

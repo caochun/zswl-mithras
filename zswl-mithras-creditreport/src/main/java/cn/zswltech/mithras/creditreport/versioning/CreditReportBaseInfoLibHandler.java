@@ -2,8 +2,8 @@ package cn.zswltech.mithras.creditreport.versioning;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfoLib;
+import cn.zswltech.mithras.creditreport.model.CreditReportBaseInfo;
+import cn.zswltech.mithras.creditreport.model.CreditReportBaseInfoLib;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;

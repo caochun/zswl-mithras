@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.creditreport.CreditReportLimitListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportLimitListRSP;
 import cn.zswltech.mithras.dto.creditreport.CreditReportLimitModifyREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportLimitRemoveREQ;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportLimit;
+import cn.zswltech.mithras.creditreport.model.CreditReportLimit;
 import cn.zswltech.mithras.creditreport.service.CreditReportLimitService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

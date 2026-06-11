@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.creditreport.CreditReportRepaymentResponsibilityL
 import cn.zswltech.mithras.dto.creditreport.CreditReportRepaymentResponsibilityListRSP;
 import cn.zswltech.mithras.dto.creditreport.CreditReportRepaymentResponsibilityModifyREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportRepaymentResponsibilityRemoveREQ;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportRepaymentResponsibility;
+import cn.zswltech.mithras.creditreport.model.CreditReportRepaymentResponsibility;
 import cn.zswltech.mithras.creditreport.service.CreditReportRepaymentResponsibilityService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.creditreport.CreditReportListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportSaveCmd;
 import cn.zswltech.mithras.dto.creditreport.CreditReportSubmitCmd;
 import cn.zswltech.mithras.dto.creditreport.CreditReportSubmitDTO;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
+import cn.zswltech.mithras.creditreport.model.CreditReportBaseInfo;
 
 import javax.servlet.ServletOutputStream;
 import java.util.List;

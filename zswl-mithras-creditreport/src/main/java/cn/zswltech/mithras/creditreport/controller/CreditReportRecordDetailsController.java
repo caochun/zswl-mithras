@@ -3,7 +3,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.creditreport.CreditReportRecordDetailsApi;
 import cn.zswltech.mithras.dto.creditreport.*;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportRecordDetails;
+import cn.zswltech.mithras.creditreport.model.CreditReportRecordDetails;
 import cn.zswltech.mithras.creditreport.service.CreditReportRecordDetailsService;
 import org.springframework.web.bind.annotation.RestController;
 

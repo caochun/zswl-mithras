@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.creditreport.service;
 
 import cn.zswltech.mithras.creditreport.mapper.CreditReportClientItemLibMapper;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItemLib;
+import cn.zswltech.mithras.creditreport.model.CreditReportClientItemLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

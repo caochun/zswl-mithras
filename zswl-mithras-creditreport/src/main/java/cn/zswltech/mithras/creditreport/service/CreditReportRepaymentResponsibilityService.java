@@ -8,10 +8,10 @@ import cn.zswltech.mithras.dto.creditreport.CreditReportRepaymentResponsibilityR
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.creditreport.enums.CreditReportRepaymentLiabilityEnum;
 import cn.zswltech.mithras.creditreport.mapper.CreditReportRepaymentResponsibilityMapper;
-import cn.zswltech.mithras.creditreport.mapper.dto.credit.EB05A;
-import cn.zswltech.mithras.creditreport.mapper.dto.credit.EB05AH;
-import cn.zswltech.mithras.creditreport.mapper.dto.credit.XJCreditReportJsonDTO;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportRepaymentResponsibility;
+import cn.zswltech.mithras.creditreport.dto.credit.EB05A;
+import cn.zswltech.mithras.creditreport.dto.credit.EB05AH;
+import cn.zswltech.mithras.creditreport.dto.credit.XJCreditReportJsonDTO;
+import cn.zswltech.mithras.creditreport.model.CreditReportRepaymentResponsibility;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

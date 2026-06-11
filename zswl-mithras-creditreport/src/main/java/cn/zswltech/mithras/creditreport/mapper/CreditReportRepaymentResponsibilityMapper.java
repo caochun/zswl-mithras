@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.creditreport.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportRepaymentResponsibility;
+import cn.zswltech.mithras.creditreport.model.CreditReportRepaymentResponsibility;
 
 /**
 * @description 征信报告-相关还款责任信息概要表

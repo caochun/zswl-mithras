@@ -14,7 +14,7 @@ import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
+import cn.zswltech.mithras.creditreport.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.creditreport.service.CreditReportQueryService;

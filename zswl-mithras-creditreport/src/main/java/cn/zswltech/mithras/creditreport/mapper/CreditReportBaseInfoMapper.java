@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.creditreport.mapper;
 
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
+import cn.zswltech.mithras.creditreport.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

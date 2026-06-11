@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.creditreport.service;
 
-import cn.zswltech.mithras.creditreport.mapper.dto.credit.XJCreditReportJsonDTO;
+import cn.zswltech.mithras.creditreport.dto.credit.XJCreditReportJsonDTO;
 import cn.zswltech.mithras.creditreport.client.xj.resp.CreditReportObtainResultPDFResp;
 
 import java.util.List;
