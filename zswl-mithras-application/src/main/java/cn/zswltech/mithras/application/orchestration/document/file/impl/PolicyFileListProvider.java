@@ -11,7 +11,7 @@ import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileL
 import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
-import cn.zswltech.mithras.policy.mapper.model.PolicyInfo;
+import cn.zswltech.mithras.policy.model.PolicyInfo;
 import cn.zswltech.mithras.application.orchestration.policy.PolicyInfoService;
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

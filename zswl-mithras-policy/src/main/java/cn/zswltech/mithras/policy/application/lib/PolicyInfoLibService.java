@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.policy.application.lib;
 
 import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
-import cn.zswltech.mithras.policy.mapper.model.PolicyInfoLib;
+import cn.zswltech.mithras.policy.model.PolicyInfoLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

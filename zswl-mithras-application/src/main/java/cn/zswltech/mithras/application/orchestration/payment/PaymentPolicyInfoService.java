@@ -25,7 +25,7 @@ import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo;
-import cn.zswltech.mithras.policy.mapper.model.PolicyInfo;
+import cn.zswltech.mithras.policy.model.PolicyInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentPolicyInfoMapper;
 import cn.zswltech.mithras.policy.mapper.PolicyInfoMapper;

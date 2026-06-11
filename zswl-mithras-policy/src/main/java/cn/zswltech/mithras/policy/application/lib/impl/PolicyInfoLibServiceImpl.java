@@ -2,7 +2,7 @@ package cn.zswltech.mithras.policy.application.lib.impl;
 
 import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
 import cn.zswltech.mithras.policy.mapper.PolicyInfoLibMapper;
-import cn.zswltech.mithras.policy.mapper.model.PolicyInfoLib;
+import cn.zswltech.mithras.policy.model.PolicyInfoLib;
 import cn.zswltech.mithras.policy.application.lib.PolicyInfoLibService;
 import cn.zswltech.mithras.policy.application.lib.handler.impl.PolicyInfoLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

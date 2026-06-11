@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.policy.mapper.model;
+package cn.zswltech.mithras.policy.model;
 
 import cn.zswltech.mithras.policy.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.enums.PolicyStatusEnum;

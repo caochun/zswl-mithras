@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.policy.mapper;
 
 import cn.zswltech.mithras.dto.policy.PolicyInfoListREQ;
-import cn.zswltech.mithras.policy.mapper.model.PolicyInfo;
+import cn.zswltech.mithras.policy.model.PolicyInfo;
 import cn.zswltech.mithras.policy.dto.persistence.*;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.policy.mapper;
 
-import cn.zswltech.mithras.policy.mapper.model.PolicyInfoLib;
+import cn.zswltech.mithras.policy.model.PolicyInfoLib;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

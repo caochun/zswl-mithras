@@ -32,7 +32,7 @@ import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo;
-import cn.zswltech.mithras.policy.mapper.model.PolicyInfo;
+import cn.zswltech.mithras.policy.model.PolicyInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.policy.mapper.PolicyInfoMapper;
