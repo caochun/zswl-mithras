@@ -14,7 +14,7 @@ import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseRuleConfigMapper;
 import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRuleConfig;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService;
 import cn.zswltech.mithras.blackgray.service.RedisService;
-import cn.zswltech.mithras.blackgray.utils.StringUtils;
+import cn.zswltech.mithras.blackgray.util.StringUtils;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

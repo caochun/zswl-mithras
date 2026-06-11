@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.utils;
+package cn.zswltech.mithras.blackgray.util;
 
 /**
  * @ClassName StringUtils

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.blackgray.client;
 
 
-import cn.zswltech.mithras.blackgray.consts.RelationRedisKey;
+import cn.zswltech.mithras.blackgray.constant.RelationRedisKey;
 import cn.zswltech.mithras.blackgray.dto.external.EntDownHolderDTO;
 import cn.zswltech.mithras.blackgray.dto.external.HsCompanyInfoDTO;
 import cn.zswltech.mithras.blackgray.service.RedisService;

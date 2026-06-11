@@ -29,7 +29,7 @@ import cn.zswltech.mithras.blackgray.service.BlackGrayExternalDataService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRecordService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
-import cn.zswltech.mithras.blackgray.utils.StringUtils;
+import cn.zswltech.mithras.blackgray.util.StringUtils;
 import cn.zswltech.mithras.blackgray.vo.BlackGrayApplyReasonVo;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

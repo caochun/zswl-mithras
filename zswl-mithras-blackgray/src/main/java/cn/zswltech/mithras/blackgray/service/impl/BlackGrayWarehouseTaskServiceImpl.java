@@ -25,7 +25,7 @@ import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseTaskService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
 import cn.zswltech.mithras.blackgray.service.RedisService;
-import cn.zswltech.mithras.blackgray.utils.StringUtils;
+import cn.zswltech.mithras.blackgray.util.StringUtils;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.blackgray.dto.rsp;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.blackgray.annotation.DesensitizeField;
 import cn.zswltech.mithras.blackgray.enums.BusinessType;
-import cn.zswltech.mithras.blackgray.utils.EnterpriseRemarkUtil;
+import cn.zswltech.mithras.blackgray.util.EnterpriseRemarkUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

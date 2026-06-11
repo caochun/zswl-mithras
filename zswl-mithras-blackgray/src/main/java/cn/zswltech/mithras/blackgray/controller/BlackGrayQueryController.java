@@ -16,7 +16,7 @@ import cn.zswltech.mithras.blackgray.enums.BlackGrayTypeEnum;
 import cn.zswltech.mithras.blackgray.excel.ExcelUtil;
 import cn.zswltech.mithras.blackgray.service.BlackGrayLibraryService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
-import cn.zswltech.mithras.blackgray.utils.BlackDesensitizeUtil;
+import cn.zswltech.mithras.blackgray.util.BlackDesensitizeUtil;
 import cn.zswltech.mithras.blackgray.vo.BlackGrayLibraryDistinctExportVO;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;

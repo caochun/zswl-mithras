@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.consts;
+package cn.zswltech.mithras.blackgray.constant;
 
 
 import java.util.Arrays;

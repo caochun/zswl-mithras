@@ -12,7 +12,7 @@ import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
 
-import static cn.zswltech.mithras.blackgray.utils.EnterpriseRemarkUtil.getEnterpriseRemark;
+import static cn.zswltech.mithras.blackgray.util.EnterpriseRemarkUtil.getEnterpriseRemark;
 
 
 /**

@@ -32,7 +32,7 @@ import cn.zswltech.mithras.blackgray.service.*;
 import cn.zswltech.mithras.blackgray.client.JKBlackGrayCollisionLibraryHandle;
 import cn.zswltech.mithras.blackgray.client.dto.JKBlackGrayCollisionLibraryREQ;
 import cn.zswltech.mithras.blackgray.client.dto.JKBlackGrayCollisionLibraryRSP;
-import cn.zswltech.mithras.blackgray.utils.BlackDesensitizeUtil;
+import cn.zswltech.mithras.blackgray.util.BlackDesensitizeUtil;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.constant.FinancialConstants;

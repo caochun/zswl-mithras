@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.utils;
+package cn.zswltech.mithras.blackgray.util;
 
 import cn.zswltech.gruul.common.util.AESUtil;
 import cn.zswltech.mithras.blackgray.annotation.SensitiveField;
