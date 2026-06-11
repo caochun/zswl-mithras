@@ -62,7 +62,7 @@
         #{filingType}
     </select>
 
-    <select id="otherPageList" resultType="cn.zswltech.mithras.filingmaterials.mapper.model.FilingMaterials">
+    <select id="otherPageList" resultType="cn.zswltech.mithras.filingmaterials.model.FilingMaterials">
         select a.*
         from filing_materials a inner join proj_review_base_info b on a.object_id = b.id
         <where>
@@ -109,7 +109,7 @@
     </select>
 
     <select id="queryFundDirectFinancingFilingMaterials"
-            resultType="cn.zswltech.mithras.filingmaterials.mapper.model.FundDirectFinancingFilingMaterialsResult">
+            resultType="cn.zswltech.mithras.filingmaterials.model.FundDirectFinancingFilingMaterialsResult">
         SELECT DISTINCT
         fm.id as filingMaterialsId,
         fm.filing_type as filingType,
@@ -191,7 +191,7 @@
         </if>
     </select>
     <select id="queryFundFinancingFilingMaterials"
-            resultType="cn.zswltech.mithras.filingmaterials.mapper.model.FundFinancingFilingMaterialsResult">
+            resultType="cn.zswltech.mithras.filingmaterials.model.FundFinancingFilingMaterialsResult">
         SELECT DISTINCT
         fm.id as filingMaterialsId,
         fm.filing_type as filingType,
@@ -274,7 +274,7 @@
     </select>
 
     <select id="queryProjFilingMaterials"
-            resultType="cn.zswltech.mithras.filingmaterials.mapper.model.ProjFilingMaterialsResult">
+            resultType="cn.zswltech.mithras.filingmaterials.model.ProjFilingMaterialsResult">
         SELECT DISTINCT
         cbi.biz_dept_id AS bizDeptId,
         fm.client_id AS clientId,

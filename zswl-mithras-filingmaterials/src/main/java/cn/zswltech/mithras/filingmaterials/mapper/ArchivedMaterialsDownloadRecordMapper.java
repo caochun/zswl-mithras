@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.filingmaterials.mapper;
 
-import cn.zswltech.mithras.filingmaterials.mapper.model.ArchivedMaterialsDownloadRecord;
+import cn.zswltech.mithras.filingmaterials.model.ArchivedMaterialsDownloadRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 

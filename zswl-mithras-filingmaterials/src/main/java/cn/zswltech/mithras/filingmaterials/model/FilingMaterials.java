@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.filingmaterials.mapper.model;
+package cn.zswltech.mithras.filingmaterials.model;
 
 import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsProcessStatusEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;

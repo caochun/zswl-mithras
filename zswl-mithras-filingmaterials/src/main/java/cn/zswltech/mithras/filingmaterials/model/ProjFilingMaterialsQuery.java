@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.filingmaterials.mapper.model;
+package cn.zswltech.mithras.filingmaterials.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

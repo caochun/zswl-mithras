@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.filingmaterials.mapper.model;
+package cn.zswltech.mithras.filingmaterials.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FundFinancingFilingMaterialsResult {
+public class FundDirectFinancingFilingMaterialsResult {
+
     /**
      * 文件归档 id
      */
@@ -27,14 +28,14 @@ public class FundFinancingFilingMaterialsResult {
     private String financingCode;
 
     /**
-     * 业务类型
+     * 项目类别
      */
-    private String bizType;
+    private String projClassify;
 
     /**
-     * 融资机构 ID
+     * 产品名称
      */
-    private Long organizationId;
+    private String productName;
 
     /**
      * 融资状态

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.filingmaterials.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsBusinessTypeEnum;
-import cn.zswltech.mithras.filingmaterials.mapper.model.FilingMaterials;
+import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FilingMaterialsService;
