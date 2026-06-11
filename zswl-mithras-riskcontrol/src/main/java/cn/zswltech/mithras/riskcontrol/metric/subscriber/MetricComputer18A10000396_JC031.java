@@ -12,7 +12,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.*;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;
-import cn.zswltech.mithras.projectprocess.application.riskcontrol.dto.ProjReviewPriceDto;
+import cn.zswltech.mithras.projectprocess.application.lib.projreview.dto.ProjReviewPriceDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
 import cn.zswltech.mithras.basedata.util.DateUtil;

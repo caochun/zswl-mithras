@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.application.riskcontrol.dto;
+package cn.zswltech.mithras.projectprocess.application.lib.projreview.dto;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

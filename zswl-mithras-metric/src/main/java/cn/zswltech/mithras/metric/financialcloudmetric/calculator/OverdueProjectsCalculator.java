@@ -36,7 +36,7 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBase
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFactoringPriceLib;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePriceLib;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.application.riskcontrol.dto.ProjReviewPriceDto;
+import cn.zswltech.mithras.projectprocess.application.lib.projreview.dto.ProjReviewPriceDto;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.foundation.util.LongUtil;

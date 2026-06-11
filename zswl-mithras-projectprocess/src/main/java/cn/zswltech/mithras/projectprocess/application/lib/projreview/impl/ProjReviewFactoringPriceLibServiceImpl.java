@@ -7,7 +7,7 @@ import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFactoringPriceLib;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewEditionAdvice;
 import cn.zswltech.mithras.projectprocess.application.lib.projreview.ProjReviewFactoringPriceLibService;
-import cn.zswltech.mithras.projectprocess.application.riskcontrol.dto.ProjReviewPriceDto;
+import cn.zswltech.mithras.projectprocess.application.lib.projreview.dto.ProjReviewPriceDto;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
