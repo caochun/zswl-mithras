@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.credit.application.groupcredit.review.handler.impl;
+package cn.zswltech.mithras.credit.groupcredit.review.versioning.handler.impl;
 
 import cn.zswltech.mithras.dto.groupcreditreview.baseinfo.GroupCreditReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewInfoModule;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfoLib;
 import cn.zswltech.mithras.credit.application.groupcredit.GroupCreditBaseInfoAssembler;
-import cn.zswltech.mithras.credit.application.groupcredit.review.handler.GroupCreditReviewLibAbstractHandler;
+import cn.zswltech.mithras.credit.groupcredit.review.versioning.handler.GroupCreditReviewLibAbstractHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 

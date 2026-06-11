@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.application.groupcredit.review.handler;
+package cn.zswltech.mithras.credit.groupcredit.review.versioning.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewInfoModule;

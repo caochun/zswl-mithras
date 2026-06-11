@@ -8,7 +8,7 @@ import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstabli
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.credit.application.groupcredit.establish.handler.impl.GroupCreditEstablishBaseInfoLibHandler;
+import cn.zswltech.mithras.credit.groupcredit.establish.versioning.handler.impl.GroupCreditEstablishBaseInfoLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

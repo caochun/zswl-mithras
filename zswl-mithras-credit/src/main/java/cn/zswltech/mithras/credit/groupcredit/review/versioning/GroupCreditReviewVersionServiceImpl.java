@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.application.groupcredit.review.impl;
+package cn.zswltech.mithras.credit.groupcredit.review.versioning;
 
 import cn.zswltech.mithras.dto.groupcreditreview.version.GroupCreditReviewVersionListRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
-import cn.zswltech.mithras.credit.application.groupcredit.review.handler.GroupCreditReviewLibAbstractHandler;
+import cn.zswltech.mithras.credit.groupcredit.review.versioning.handler.GroupCreditReviewLibAbstractHandler;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

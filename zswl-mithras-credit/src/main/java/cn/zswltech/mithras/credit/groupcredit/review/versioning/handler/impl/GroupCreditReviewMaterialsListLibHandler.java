@@ -1,12 +1,12 @@
-package cn.zswltech.mithras.credit.application.groupcredit.establish.handler.impl;
+package cn.zswltech.mithras.credit.groupcredit.review.versioning.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.credit.groupcredit.establish.enums.GroupCreditEstablishInfoModule;
+import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewInfoModule;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
 import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.credit.application.groupcredit.establish.handler.GroupCreditEstablishLibAbstractHandler;
+import cn.zswltech.mithras.credit.groupcredit.review.versioning.handler.GroupCreditReviewLibAbstractHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -19,8 +19,8 @@ import java.util.List;
  * @date 2022/11/11 16:49 PM
  */
 @Component
-public class GroupCreditEstablishMaterialsListLibHandler
-        extends GroupCreditEstablishLibAbstractHandler<MaterialsListLib, MaterialsList, ListBaseRSP> implements FileCompareDeclaration {
+public class GroupCreditReviewMaterialsListLibHandler
+        extends GroupCreditReviewLibAbstractHandler<MaterialsListLib, MaterialsList, ListBaseRSP> implements FileCompareDeclaration {
 
     @Resource
     private MaterialsListLibHandlerProxy materialsListLibHandlerProxy;
@@ -61,8 +61,8 @@ public class GroupCreditEstablishMaterialsListLibHandler
     }
 
     @Override
-    public GroupCreditEstablishInfoModule getSubModule() {
-        return GroupCreditEstablishInfoModule.MATERIALS_LIST;
+    public GroupCreditReviewInfoModule getSubModule() {
+        return GroupCreditReviewInfoModule.MATERIALS_LIST;
     }
 
     @Override

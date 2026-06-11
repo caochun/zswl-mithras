@@ -74,7 +74,7 @@ import cn.zswltech.mithras.foundation.bo.*;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractPriceService;
 import cn.zswltech.mithras.application.orchestration.contract.impl.ContractRentActualServiceImpl;
-import cn.zswltech.mithras.credit.application.groupcredit.review.handler.impl.GroupCreditReviewBaseInfoLibHandler;
+import cn.zswltech.mithras.credit.groupcredit.review.versioning.handler.impl.GroupCreditReviewBaseInfoLibHandler;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;

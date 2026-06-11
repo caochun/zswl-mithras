@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.application.groupcredit.review.impl;
+package cn.zswltech.mithras.credit.groupcredit.review.versioning;
 
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoLibMapper;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfoLib;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.application.groupcredit.establish.handler;
+package cn.zswltech.mithras.credit.groupcredit.establish.versioning.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.credit.groupcredit.establish.enums.GroupCreditEstablishInfoModule;

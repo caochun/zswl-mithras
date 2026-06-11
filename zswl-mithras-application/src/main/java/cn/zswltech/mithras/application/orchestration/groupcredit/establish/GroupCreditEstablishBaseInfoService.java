@@ -63,7 +63,7 @@ import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
-import cn.zswltech.mithras.credit.application.groupcredit.establish.handler.impl.GroupCreditEstablishBaseInfoLibHandler;
+import cn.zswltech.mithras.credit.groupcredit.establish.versioning.handler.impl.GroupCreditEstablishBaseInfoLibHandler;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import com.alibaba.fastjson.JSON;

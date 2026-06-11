@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.credit.application.groupcredit.establish.impl;
+package cn.zswltech.mithras.credit.groupcredit.establish.versioning;
 
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoLibMapper;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
