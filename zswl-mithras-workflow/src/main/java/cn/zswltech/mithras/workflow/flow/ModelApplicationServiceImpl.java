@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workflow.flow.application;
+package cn.zswltech.mithras.workflow.flow;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
@@ -9,7 +9,6 @@ import cn.zswltech.mithras.dto.flow.model.ModelListREQ;
 import cn.zswltech.mithras.dto.flow.model.ModelListRSP;
 import cn.zswltech.mithras.dto.flow.model.SaveModelREQ;
 import cn.zswltech.mithras.foundation.annotation.AdminAuthCheck;
-import cn.zswltech.mithras.workflow.flow.ModelApplicationService;
 import cn.zswltech.mithras.workflow.flow.service.ModelService;
 import org.springframework.stereotype.Service;
 
