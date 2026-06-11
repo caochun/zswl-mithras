@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.enums;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
-import org.apache.logging.log4j.util.Strings;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
@@ -46,6 +46,6 @@ public enum DirectFinancingType implements PullDown {
         if (financingType != null){
             return financingType.display;
         }
-        return Strings.EMPTY;
+        return StringUtils.EMPTY;
     }
 }

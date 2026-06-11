@@ -3,7 +3,7 @@ package cn.zswltech.mithras.fund.enums.financing;
 import cn.zswltech.mithras.foundation.metadata.PullDown;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.apache.logging.log4j.util.Strings;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
@@ -51,6 +51,6 @@ public enum FundFinancingBizTypeEnum implements PullDown {
         if (financingType != null){
             return financingType.display;
         }
-        return Strings.EMPTY;
+        return StringUtils.EMPTY;
     }
 }
