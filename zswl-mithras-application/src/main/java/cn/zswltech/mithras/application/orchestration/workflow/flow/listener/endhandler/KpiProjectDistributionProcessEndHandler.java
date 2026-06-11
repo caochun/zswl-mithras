@@ -16,7 +16,7 @@ import cn.zswltech.mithras.kpi.model.KpiProjectDistributionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionService;
-import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionLibVersionService;
+import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionLibVersionService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

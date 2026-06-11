@@ -18,7 +18,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionWeightLibService;
+import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

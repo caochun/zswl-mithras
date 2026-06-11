@@ -6,7 +6,7 @@ import cn.hutool.core.lang.Pair;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.kpi.*;
-import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionDeptLaunchWeightLibService;
+import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionDeptLaunchWeightLibService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.kpi.application.distribution;
+package cn.zswltech.mithras.kpi.distribution.versioning;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;

@@ -117,7 +117,7 @@ import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibServic
 import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
 import cn.zswltech.mithras.contract.versioning.service.ContractVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
-import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionWeightLibService;
+import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projestablish.ProjEstablishBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.customer.application.client.ClientCreateRecordService;

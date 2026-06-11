@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.kpi.application.distribution.lib.handler;
+package cn.zswltech.mithras.kpi.distribution.versioning.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;

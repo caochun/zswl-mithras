@@ -11,7 +11,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.mapper.client.ClientTransferMapper;
 import cn.zswltech.mithras.customer.model.client.ClientTransfer;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
-import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionDeptWeightLibService;
+import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionDeptWeightLibService;
 import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionBaseInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionDeptWeightMapper;

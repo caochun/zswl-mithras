@@ -34,7 +34,7 @@ import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.finance.service.FinanceProjectProfitService;
-import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionBaseInfoLibService;
+import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewPriceService;

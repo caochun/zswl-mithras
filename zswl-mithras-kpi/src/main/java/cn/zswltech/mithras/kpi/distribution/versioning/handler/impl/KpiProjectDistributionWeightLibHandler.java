@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.kpi.application.distribution.lib.handler.impl;
+package cn.zswltech.mithras.kpi.distribution.versioning.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightInfo;
 import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeight;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightLib;
-import cn.zswltech.mithras.kpi.application.distribution.lib.handler.KpiProjectDistributionAbstractLibHandler;
+import cn.zswltech.mithras.kpi.distribution.versioning.handler.KpiProjectDistributionAbstractLibHandler;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import org.springframework.stereotype.Component;

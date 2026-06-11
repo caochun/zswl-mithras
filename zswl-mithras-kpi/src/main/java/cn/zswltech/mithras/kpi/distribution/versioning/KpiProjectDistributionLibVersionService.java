@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.kpi.application.distribution.lib;
+package cn.zswltech.mithras.kpi.distribution.versioning;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
@@ -6,7 +6,7 @@ import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistribution;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
-import cn.zswltech.mithras.kpi.application.distribution.lib.handler.KpiProjectDistributionAbstractLibHandler;
+import cn.zswltech.mithras.kpi.distribution.versioning.handler.KpiProjectDistributionAbstractLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

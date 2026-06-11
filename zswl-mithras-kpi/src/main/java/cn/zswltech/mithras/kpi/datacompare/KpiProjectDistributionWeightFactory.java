@@ -8,7 +8,7 @@ import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.kpi.application.distribution.lib.handler.impl.KpiProjectDistributionWeightLibHandler;
+import cn.zswltech.mithras.kpi.distribution.versioning.handler.impl.KpiProjectDistributionWeightLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

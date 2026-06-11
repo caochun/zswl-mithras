@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.kpi.application.distribution.lib;
+package cn.zswltech.mithras.kpi.distribution.versioning;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;

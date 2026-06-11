@@ -17,7 +17,7 @@ import cn.zswltech.mithras.kpi.application.projguess.KpiProjGuessDivideService;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.kpi.application.distribution.lib.KpiProjectDistributionWeightLibService;
+import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionWeightLibService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
