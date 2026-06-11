@@ -2,10 +2,10 @@ package cn.zswltech.mithras.others;
 
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.creditlimit.service.CreditLimitManagerService;
-import cn.zswltech.mithras.creditlimit.enums.CreditLimitBizTypeEnum;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.service.bo.*;
+import cn.zswltech.mithras.credit.creditlimit.service.CreditLimitManagerService;
+import cn.zswltech.mithras.credit.creditlimit.enums.CreditLimitBizTypeEnum;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.foundation.bo.*;
 import org.junit.Test;
 
 import javax.annotation.Resource;

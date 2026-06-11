@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto.ep;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
-import java.util.Date;
 
 /**
  * 开庭公告RSP

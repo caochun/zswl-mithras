@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.filingmaterials.application.process.prepare.handle;
 
-import cn.zswltech.mithras.workflow.application.process.prepare.handle.AbstractFlowCommitHandle;
+import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
 
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.filingmaterials.application.process.prepare.FilingMaterialsProcessPreparePort;
-import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

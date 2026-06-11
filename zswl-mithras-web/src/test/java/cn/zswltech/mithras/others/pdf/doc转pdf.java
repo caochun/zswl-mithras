@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 
-import static cn.zswltech.mithras.service.util.WatermarkUtil.doc2Pdf;
-import static cn.zswltech.mithras.service.util.WatermarkUtil.setPDFWaterMark;
+import static cn.zswltech.mithras.third.util.WatermarkUtil.doc2Pdf;
+import static cn.zswltech.mithras.third.util.WatermarkUtil.setPDFWaterMark;
 
 /**
  * @description:

@@ -24,7 +24,7 @@
             <if test="dto.collectionDateTo!=null">and a.collection_date <![CDATA[ <= ]]> #{dto.collectionDateTo}</if>
             <if test="dto.planCollectionDateFrom!=null">and a.plan_collection_date <![CDATA[ >= ]]> #{dto.planCollectionDateFrom}</if>
             <if test="dto.planCollectionDateTo!=null">and a.plan_collection_date <![CDATA[ <= ]]> #{dto.planCollectionDateTo}</if>
-            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
         </where>
         order by a.contract_code,a.plan_collection_date,a.code asc
     </select>
@@ -348,7 +348,7 @@
 <!--        </if>-->
 <!--    </select>-->
 
-    <select id="calculateRemainingPrincipalGroupByDeptId" resultType="cn.zswltech.mithras.collection.service.bo.DeptRemainingPrincipalBO">
+    <select id="calculateRemainingPrincipalGroupByDeptId" resultType="cn.zswltech.mithras.collection.application.bo.DeptRemainingPrincipalBO">
         select
             a.biz_dept_id as bizDeptId,
             sum(b.remaining_principal) as remainingPrincipal

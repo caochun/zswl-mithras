@@ -3,9 +3,9 @@ package cn.zswltech.mithras.others.render;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.gendoc.render.afterlease.AfterLeaseCheckReportPublicV2Render;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.afterlease.AfterLeaseCheckReportPublicV2Render;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.application.orchestration.afterlease.AfterLeaseCheckPlanClientService;
 import org.junit.Test;
 
 import java.io.OutputStream;

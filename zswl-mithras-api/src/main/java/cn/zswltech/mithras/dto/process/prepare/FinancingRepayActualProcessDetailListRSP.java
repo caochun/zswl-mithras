@@ -1,9 +1,5 @@
 package cn.zswltech.mithras.dto.process.prepare;
 
-import cn.zswltech.mithras.dto.version.DiffValue;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

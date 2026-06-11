@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.application.process.prepare.handle;
 
-import cn.zswltech.mithras.workflow.application.process.prepare.handle.AbstractFlowCommitHandle;
+import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
@@ -9,16 +9,16 @@ import cn.zswltech.flow.core.domain.req.StartProcessReq;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.contract.application.process.prepare.ContractBizProcessDataPort;
 import cn.zswltech.mithras.contract.application.process.prepare.ContractProcessPrepareAuthPort;
-import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
+import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
+import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean;
 import static java.lang.String.valueOf;
 
 /**

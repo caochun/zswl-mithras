@@ -3,7 +3,6 @@ package cn.zswltech.mithras.api.property;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyListREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyRSP;
-import cn.zswltech.mithras.dto.incomeSharing.IncomeSharingListREQ;
 import cn.zswltech.mithras.dto.property.PutPropertyBaseInfoListREQ;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

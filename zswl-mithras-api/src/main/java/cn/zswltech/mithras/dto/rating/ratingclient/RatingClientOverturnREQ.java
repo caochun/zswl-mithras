@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.rating.ratingclient;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

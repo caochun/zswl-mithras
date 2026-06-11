@@ -4,15 +4,12 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.rating.*;
 import cn.zswltech.mithras.dto.rating.ratingamount.*;
-import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientAddCheckRSP;
-import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientAddREQ;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Api(tags = "债项评级-基本信息接口")
 public interface RatingAmountApi {

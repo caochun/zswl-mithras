@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.report.excel.model;
 
-import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
-import cn.zswltech.mithras.service.excel.model.ExcelModel;
+import cn.zswltech.mithras.foundation.excel.annotation.SimpleExcelHeader;
+import cn.zswltech.mithras.foundation.excel.model.ExcelModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

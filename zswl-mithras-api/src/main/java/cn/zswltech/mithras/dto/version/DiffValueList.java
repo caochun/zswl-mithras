@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.dto.version;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

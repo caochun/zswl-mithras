@@ -5,9 +5,9 @@ import cn.zswltech.mithras.dto.client.external.ExternalPageREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoAddREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoModifyREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoRemoveREQ;
-import cn.zswltech.mithras.customer.externaldata.zhongdeng.infrastructure.mapper.ZhongdengInfoMapper;
-import cn.zswltech.mithras.customer.externaldata.zhongdeng.infrastructure.model.ZhongdengInfo;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper.ZhongdengInfoMapper;
+import cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper.model.ZhongdengInfo;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.externaldata.zhongdeng.application.ZhongdengInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * 中登网

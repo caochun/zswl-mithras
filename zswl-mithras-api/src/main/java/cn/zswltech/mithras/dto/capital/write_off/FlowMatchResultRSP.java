@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.capital.write_off;
 
-import cn.zswltech.mithras.dto.capital.base.BusinessFlowBaseModel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

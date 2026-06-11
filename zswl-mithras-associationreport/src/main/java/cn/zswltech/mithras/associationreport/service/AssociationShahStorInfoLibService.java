@@ -8,7 +8,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.associationreport.DeleteData;
 import cn.zswltech.mithras.dto.associationreport.*;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.associationreport.enums.AssociationDictionaryCategoryEnum;
 import cn.zswltech.mithras.associationreport.mapper.AssociationBasicSituationLibMapper;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationBasicSituationLib;
@@ -17,11 +17,11 @@ import cn.zswltech.mithras.associationreport.mapper.model.BasicAssociationReport
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.associationreport.mapper.AssociationShahStorInfoLibMapper;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationShahStorInfoLib;
 

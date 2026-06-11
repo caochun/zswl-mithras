@@ -4,7 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowMeetMinutePlanExportREQ;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.ProjReviewCashFlowPlanExportREQ;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.projreview.ProjReviewCashFlowPlanService;
+import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewCashFlowPlanService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.contract.overdue.application.dto;
 
-import cn.zswltech.mithras.contract.overdue.domain.litigation.LongId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

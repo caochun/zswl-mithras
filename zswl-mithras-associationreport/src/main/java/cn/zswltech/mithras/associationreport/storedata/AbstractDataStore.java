@@ -12,10 +12,10 @@ import cn.zswltech.mithras.associationreport.enums.AssociationReportPeriodCatego
 import cn.zswltech.mithras.associationreport.DeleteDataSelector;
 import cn.zswltech.mithras.associationreport.StoreDataSelector;
 import cn.zswltech.mithras.associationreport.service.AssociationReportQueryService;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.BasicAssociationReport;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;

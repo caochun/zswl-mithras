@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.ftp.oldftp.fms;
 
-import cn.zswltech.mithras.service.service.projfms.IStateMachineEntity;
+import cn.zswltech.mithras.foundation.state.IStateMachineEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 

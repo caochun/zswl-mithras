@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.oldftp.mapper;
 
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

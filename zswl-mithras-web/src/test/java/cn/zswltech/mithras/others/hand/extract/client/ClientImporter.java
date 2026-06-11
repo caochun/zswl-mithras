@@ -2,24 +2,24 @@ package cn.zswltech.mithras.others.hand.extract.client;
 
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.IdcardUtil;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.*;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.application.orchestration.enums.*;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientProcessStatus;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.*;
-import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.*;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.corp.*;
+import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
+import cn.zswltech.mithras.customer.mapper.lib.client.*;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
+import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalBankAccountMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalBaseInfoMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalSpouseMapper;
-import cn.zswltech.mithras.service.service.client.ClientService;
+import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.customer.mapper.normal.NormalBankAccountMapper;
+import cn.zswltech.mithras.customer.mapper.normal.NormalBaseInfoMapper;
+import cn.zswltech.mithras.customer.mapper.normal.NormalSpouseMapper;
+import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpSubjectItemService;
 import cn.zswltech.mithras.customer.application.lib.client.impl.ClientVersionServiceImpl;
 import cn.zswltech.mithras.third.service.model.MithrasBaseInfo;
@@ -44,7 +44,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.zswltech.mithras.customer.domain.enums.CorpAddressType.REGISTRY_ADDRESS;
-import static cn.zswltech.mithras.service.others.Const.ENUM_TYC_PROVINCE;
+import static cn.zswltech.mithras.foundation.util.Const.ENUM_TYC_PROVINCE;
 
 /**
  * 客户数据导入

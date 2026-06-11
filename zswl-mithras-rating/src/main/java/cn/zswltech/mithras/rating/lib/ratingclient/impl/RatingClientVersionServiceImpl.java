@@ -8,9 +8,9 @@ import cn.zswltech.mithras.rating.lib.ratingclient.RatingClientLibService;
 import cn.zswltech.mithras.rating.lib.ratingclient.handler.RatingClientAbstractHandler;
 import cn.zswltech.mithras.rating.model.RatingClient;
 import cn.zswltech.mithras.rating.model.RatingClientLib;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.service.lib.CommonVersionService;
+import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
+import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
+import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 

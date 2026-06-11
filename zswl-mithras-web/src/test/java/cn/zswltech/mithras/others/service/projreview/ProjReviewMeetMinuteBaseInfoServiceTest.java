@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.projreview;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.projreview.ProjReviewMeetMinuteBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewMeetMinuteBaseInfoService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

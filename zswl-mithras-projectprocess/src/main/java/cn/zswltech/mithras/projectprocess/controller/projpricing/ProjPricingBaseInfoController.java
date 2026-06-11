@@ -6,7 +6,6 @@ import cn.zswltech.mithras.dto.projpricing.ProjPricingButtonStatusRsp;
 import cn.zswltech.mithras.dto.projpricing.ProjPricingCreateREQ;
 import cn.zswltech.mithras.dto.projpricing.ProjPricingCreateRSP;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.*;
-import javax.validation.Valid;
 import cn.zswltech.mithras.api.projpricing.ProjPricingBaseInfoApi;
 import cn.zswltech.mithras.projectprocess.application.projpricing.ProjPricingBaseInfoApplicationService;
 import org.springframework.web.bind.annotation.RestController;

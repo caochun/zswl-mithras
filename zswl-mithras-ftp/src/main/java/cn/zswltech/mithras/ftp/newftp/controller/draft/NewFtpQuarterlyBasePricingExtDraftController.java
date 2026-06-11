@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.newftp.draft.NewFtpQuarterlyBasePricingExtDraftAp
 import cn.zswltech.mithras.dto.ftp.FtpGuidanceIdReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingExtDraftDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingExtDraftModifyREQ;
-import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpQuarterlyBasePricingExtDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpQuarterlyBasePricingExtDraftService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

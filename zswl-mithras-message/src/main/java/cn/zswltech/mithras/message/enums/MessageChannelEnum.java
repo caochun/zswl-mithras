@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.message.enums;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 public enum MessageChannelEnum implements PullDown {
     /*法人*/

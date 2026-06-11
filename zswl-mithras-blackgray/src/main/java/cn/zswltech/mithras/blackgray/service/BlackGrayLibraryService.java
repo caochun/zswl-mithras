@@ -3,7 +3,7 @@ package cn.zswltech.mithras.blackgray.service;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.blackgray.dto.req.*;
 import cn.zswltech.mithras.blackgray.dto.rsp.*;
-import cn.zswltech.mithras.blackgray.model.BlackGrayLibrary;
+import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayLibrary;
 
 import java.util.List;
 import java.util.Set;

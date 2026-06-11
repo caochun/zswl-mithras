@@ -26,20 +26,21 @@ import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.dto.OrgUserRSP;
 import cn.zswltech.mithras.dto.UserRSP;
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationBaseREQ;
-import cn.zswltech.mithras.service.enums.JobEnum;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.service.CurrentUserDataScopeResolver;
-import cn.zswltech.mithras.service.service.AdminAuthResolver;
-import cn.zswltech.mithras.service.service.CurrentUserJobResolver;
-import cn.zswltech.mithras.service.service.CurrentUserOrgResolver;
-import cn.zswltech.mithras.service.service.CurrentUserResolver;
-import cn.zswltech.mithras.service.service.JobUserResolver;
-import cn.zswltech.mithras.service.service.OrgJobUserResolver;
-import cn.zswltech.mithras.service.service.UserBizDeptResolver;
+import cn.zswltech.mithras.foundation.enums.JobEnum;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDeptCodeResolver;
+import cn.zswltech.mithras.foundation.port.AdminAuthResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserResolver;
+import cn.zswltech.mithras.foundation.port.JobUserResolver;
+import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
+import cn.zswltech.mithras.foundation.port.UserBizDeptResolver;
 import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.system.mapper.model.SystemConfig;
 import cn.zswltech.mithras.system.user.bo.UserOrgJobInfoBO;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.TypeReference;
@@ -59,7 +60,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
  */
 @Slf4j
 @Service
-public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataScopeResolver, CurrentUserResolver, CurrentUserJobResolver, AdminAuthResolver, UserBizDeptResolver, JobUserResolver, OrgJobUserResolver {
+public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCodeResolver, CurrentUserDataScopeResolver, CurrentUserResolver, CurrentUserJobResolver, AdminAuthResolver, UserBizDeptResolver, JobUserResolver, OrgJobUserResolver {
 
     @Resource
     private OrgDOMapper orgDOMapper;
@@ -259,6 +260,15 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDataSc
     @Override
     public List<OrgDO> getUserDeptList() {
         return this.getUserDeptList(AccountUtil.getLoginInfo());
+    }
+
+    @Override
+    public List<String> currentUserDeptCodes() {
+        List<OrgDO> orgList = this.getUserDeptList();
+        if (CollectionUtil.isEmpty(orgList)) {
+            return Collections.emptyList();
+        }
+        return orgList.stream().map(OrgDO::getCode).filter(Objects::nonNull).collect(Collectors.toList());
     }
 
     public List<OrgDO> getUserDeptList(AccountVO loginInfo) {

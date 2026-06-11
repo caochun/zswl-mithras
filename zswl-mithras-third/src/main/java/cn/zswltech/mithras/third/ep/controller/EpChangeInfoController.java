@@ -5,7 +5,6 @@ import cn.zswltech.mithras.api.ep.EpChangeInfoApi;
 import cn.zswltech.mithras.dto.ep.EpChangeInfoRSP;
 import cn.zswltech.mithras.third.ep.service.EpChangeInfoService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.enums.overdue;
 
-import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.IMaterialsTypeConvert;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 import lombok.Getter;
 
 /**

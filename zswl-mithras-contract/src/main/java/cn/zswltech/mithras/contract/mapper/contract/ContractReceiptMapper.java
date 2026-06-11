@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.contract.mapper.contract;
 
-import cn.zswltech.mithras.dto.incomeSharing.ReceiptConditionQuery;
-import cn.zswltech.mithras.dto.incomeSharing.ReceiptConditionResult;
+import cn.zswltech.mithras.dto.incomesharing.ReceiptConditionQuery;
+import cn.zswltech.mithras.dto.incomesharing.ReceiptConditionResult;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

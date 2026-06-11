@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
 
 @Api(tags = "档案管理台账-项目资料")
 @RequestMapping("/documentManagementLedger/proj")

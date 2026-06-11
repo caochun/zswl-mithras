@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.policy;
 
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 

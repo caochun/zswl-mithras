@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.kpi.mapper.query;
 
-import cn.zswltech.mithras.service.mapper.query.PageQuery;
-import io.swagger.annotations.ApiModelProperty;
+import cn.zswltech.mithras.foundation.persistence.query.PageQuery;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.job;
 
-import cn.zswltech.mithras.workflow.application.process.prepare.job.BillOverdueJobService;
+import cn.zswltech.mithras.workflow.process.prepare.job.BillOverdueJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

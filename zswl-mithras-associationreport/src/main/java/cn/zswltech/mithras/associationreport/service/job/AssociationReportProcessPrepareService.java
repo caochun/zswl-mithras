@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.associationreport.service.job;
 
-import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 
 /**

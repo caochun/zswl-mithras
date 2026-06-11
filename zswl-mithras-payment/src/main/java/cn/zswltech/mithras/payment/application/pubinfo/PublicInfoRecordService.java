@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.payment.application.pubinfo;
 
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.pubinfo.PublicInfoRecord;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.pubinfo.PublicInfoRecordMapper;
+import cn.zswltech.mithras.payment.mapper.model.pubinfo.PublicInfoRecord;
+import cn.zswltech.mithras.payment.mapper.pubinfo.PublicInfoRecordMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

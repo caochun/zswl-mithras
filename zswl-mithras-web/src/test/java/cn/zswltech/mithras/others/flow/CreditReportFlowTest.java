@@ -4,7 +4,7 @@ import cn.zswltech.flow.core.domain.req.SaveModelReq;
 import cn.zswltech.flow.core.enums.UserDefineTypeEnum;
 import cn.zswltech.flow.core.model.ext.GlobalExt;
 import cn.zswltech.flow.core.model.ext.UserTaskExt;
-import cn.zswltech.mithras.service.enums.JobEnum;
+import cn.zswltech.mithras.foundation.enums.JobEnum;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.flowable.bpmn.model.BpmnModel;
@@ -27,7 +27,7 @@ import static cn.zswltech.flow.core.enums.ApprovalButtonTypeEnum.SUBMIT;
 import static cn.zswltech.flow.core.enums.ApprovalMethodEnum.PARALLEL;
 import static cn.zswltech.flow.core.enums.ParallelApprovalMethedEnum.ONE;
 import static cn.zswltech.flow.core.enums.UserDefineTypeEnum.START_USER;
-import static cn.zswltech.mithras.service.constant.FlowConstants.START_USER_TASK;
+import static cn.zswltech.mithras.workflow.flow.constant.FlowConstants.START_USER_TASK;
 
 /**
  * 客户流程

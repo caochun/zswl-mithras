@@ -5,8 +5,8 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDeta
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
 import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 
 import java.time.LocalDate;
 import java.util.List;

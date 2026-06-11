@@ -2,9 +2,9 @@ package cn.zswltech.mithras.leaseholdproperty.application.lib.appraisalcompanywh
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyDetailRSP;
-import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.AppraisalCompanyWhitelist;
-import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.AppraisalCompanyWhitelistLib;
-import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
+import cn.zswltech.mithras.leaseholdproperty.mapper.model.AppraisalCompanyWhitelist;
+import cn.zswltech.mithras.leaseholdproperty.mapper.model.AppraisalCompanyWhitelistLib;
+import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;

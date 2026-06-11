@@ -2,7 +2,7 @@ package cn.zswltech.mithras.workbench.application.cardcal;
 
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchCollectionAmount;
-import cn.zswltech.mithras.service.util.LongUtil;
+import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Component;
 

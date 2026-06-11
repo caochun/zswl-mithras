@@ -1,16 +1,16 @@
 package cn.zswltech.mithras.third.tianyancha.application;
 
-import cn.zswltech.mithras.third.enums.TycErrorEnum;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.mapper.TycMockDataMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycMockData;
-import cn.zswltech.mithras.customer.externaldata.common.infrastructure.model.ExternalDataBaseModel;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
-import cn.zswltech.mithras.service.repository.PlatformApiHandler;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.TycMockDataType;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.req.TycBaseReq;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycListBaseResp;
+import cn.zswltech.mithras.third.tianyancha.enums.TycErrorEnum;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycMockDataMapper;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycMockData;
+import cn.zswltech.mithras.customer.externaldata.common.mapper.model.ExternalDataBaseModel;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
+import cn.zswltech.mithras.third.tianyancha.client.TycMockDataType;
+import cn.zswltech.mithras.third.tianyancha.client.req.TycBaseReq;
+import cn.zswltech.mithras.third.tianyancha.client.resp.TycListBaseResp;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

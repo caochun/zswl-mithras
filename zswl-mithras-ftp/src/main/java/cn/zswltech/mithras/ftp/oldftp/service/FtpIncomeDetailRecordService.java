@@ -2,10 +2,10 @@ package cn.zswltech.mithras.ftp.oldftp.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.ftp.FtpIncomeDetailRecordRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpIncomeDetailRecordMapper;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeDetailRecord;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

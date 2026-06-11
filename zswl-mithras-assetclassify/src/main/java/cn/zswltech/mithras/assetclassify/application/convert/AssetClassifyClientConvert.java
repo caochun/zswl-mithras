@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.assetclassify.application.convert;
 
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientListRSP;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
 
 /**
  * @author dingqi

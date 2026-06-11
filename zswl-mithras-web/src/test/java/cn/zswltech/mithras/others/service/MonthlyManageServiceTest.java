@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service;
 
-import cn.zswltech.mithras.message.mapper.message.ZhfkNoticeRelationMapper;
+import cn.zswltech.mithras.message.mapper.ZhfkNoticeRelationMapper;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;

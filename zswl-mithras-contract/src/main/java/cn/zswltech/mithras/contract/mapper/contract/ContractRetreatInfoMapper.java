@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.mapper.contract;
 
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.newftp.draft.NewFtpMonthlyGuidanceExtDraftApi;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftModifyREQ;
-import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpMonthlyGuidanceExtDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpMonthlyGuidanceExtDraftService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

@@ -2,11 +2,11 @@ package cn.zswltech.mithras.customer.infohistory.application;
 
 import cn.hutool.core.util.IdUtil;
 import cn.zswltech.mithras.dto.client.infohistory.InfoHistoryListREQ;
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
-import cn.zswltech.mithras.service.enums.InfoOperation;
-import cn.zswltech.mithras.customer.infohistory.infrastructure.mapper.InfoHistoryMapper;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.customer.infohistory.infrastructure.model.InfoHistory;
+import cn.zswltech.mithras.customer.enums.InfoModule;
+import cn.zswltech.mithras.foundation.enums.InfoOperation;
+import cn.zswltech.mithras.customer.infohistory.mapper.InfoHistoryMapper;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
+import cn.zswltech.mithras.customer.infohistory.mapper.model.InfoHistory;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +18,8 @@ import java.lang.reflect.Field;
 import static cn.hutool.core.util.ObjectUtil.equal;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.hutool.json.JSONUtil.toJsonStr;
-import static cn.zswltech.mithras.service.others.Const.INFO_HISTORY_CODE_PREFIX;
-import static cn.zswltech.mithras.service.others.Const.TABLE_FIELD_ID;
+import static cn.zswltech.mithras.foundation.util.Const.INFO_HISTORY_CODE_PREFIX;
+import static cn.zswltech.mithras.foundation.util.Const.TABLE_FIELD_ID;
 
 /**
  * @author luyi

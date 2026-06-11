@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.budget;
 
-import cn.hutool.core.lang.Pair;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

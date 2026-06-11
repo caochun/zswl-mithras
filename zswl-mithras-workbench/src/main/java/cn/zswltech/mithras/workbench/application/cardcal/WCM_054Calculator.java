@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.workbench.application.cardcal;
 
-import cn.zswltech.mithras.fund.domain.enums.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.service.util.LongUtil;
+import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
+import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchFundRepayCashFlow;
 import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Component;

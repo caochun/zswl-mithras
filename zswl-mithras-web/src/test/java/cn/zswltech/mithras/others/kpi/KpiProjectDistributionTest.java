@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.kpi;
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
-import cn.zswltech.mithras.service.service.kpi.KpiProjectDistributionService;
+import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;
 

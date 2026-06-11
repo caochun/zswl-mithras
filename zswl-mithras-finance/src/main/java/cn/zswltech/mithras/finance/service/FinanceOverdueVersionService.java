@@ -1,5 +1,5 @@
 package cn.zswltech.mithras.finance.service;
-import cn.zswltech.mithras.workflow.domain.enums.ProcessVarEnum;
+import cn.zswltech.mithras.workflow.enums.ProcessVarEnum;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -13,10 +13,10 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueIntegrationPushREQ;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueIntegrationPushRSP;
 import cn.zswltech.mithras.dto.finance.overdue.FinanceOverdueVersionSubmitREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.VersionTypeEnum;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.finance.enums.financeoverdue.OverduePlanStatueEnum;
 import cn.zswltech.mithras.finance.enums.financeoverdue.OverdueRecordStatueEnum;
 import cn.zswltech.mithras.finance.enums.financeoverdue.OverdueRecordTypeEnum;
@@ -26,9 +26,9 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueSettlement
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueVersionRelation;
 import cn.zswltech.mithras.finance.service.FinanceOverdueVersionApplicationService;
 import cn.zswltech.mithras.finance.service.FinanceOverdueVersionRelationService;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.finance.service.lib.finance.FinanceOverdueVersionManagerService;
-import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
+import cn.zswltech.mithras.foundation.state.ProjProcessState;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

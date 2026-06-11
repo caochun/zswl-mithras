@@ -2,8 +2,8 @@ package cn.zswltech.mithras.others.service.osstemplate;
 
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.enums.materialsList.FileTemplateEnum;
+import cn.zswltech.mithras.foundation.constant.GlobalConstants;
+import cn.zswltech.mithras.document.enums.materialslist.FileTemplateEnum;
 import org.junit.jupiter.api.Test;
 
 import javax.annotation.Resource;

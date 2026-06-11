@@ -6,8 +6,8 @@ import cn.zswltech.mithras.api.collection.CollectionReconciliationLetterApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.collection.CollectionReconciliationLetterREQ;
 import cn.zswltech.mithras.dto.collection.CollectionReconciliationLetterRSP;
-import cn.zswltech.mithras.collection.service.bo.ReconciliationLetterBO;
-import cn.zswltech.mithras.collection.service.CollectionReconciliationLetterApplicationService;
+import cn.zswltech.mithras.collection.application.bo.ReconciliationLetterBO;
+import cn.zswltech.mithras.collection.application.facade.CollectionReconciliationLetterApplicationService;
 import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.simple;
 
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.lang.Pair;
-import cn.zswltech.mithras.service.util.WatermarkUtil;
+import cn.zswltech.mithras.third.util.WatermarkUtil;
 import lombok.SneakyThrows;
 
 import java.io.FileNotFoundException;

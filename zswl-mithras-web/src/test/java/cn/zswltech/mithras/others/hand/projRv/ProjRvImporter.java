@@ -11,17 +11,17 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.gruul.dao.dal.query.UserQuery;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
+import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
+import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
-import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
+import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
@@ -31,9 +31,9 @@ import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBase
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishLeasePriceMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewLeasePriceMapper;
-import cn.zswltech.mithras.projectprocess.service.lib.projreview.impl.ProjReviewVersionServiceImpl;
-import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
-import cn.zswltech.mithras.service.service.projreview.ProjReviewCashFlowPlanService;
+import cn.zswltech.mithras.projectprocess.application.lib.projreview.impl.ProjReviewVersionServiceImpl;
+import cn.zswltech.mithras.foundation.state.ProjProcessState;
+import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewCashFlowPlanService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -58,7 +58,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.collection.ListUtil.toList;
 import static cn.hutool.json.JSONUtil.toJsonStr;
-import static cn.zswltech.mithras.service.others.Util.toMithrasUnit;
+import static cn.zswltech.mithras.foundation.util.Util.toMithrasUnit;
 
 /**
  * @author junke

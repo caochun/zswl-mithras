@@ -1,11 +1,9 @@
 package cn.zswltech.mithras.customer.application.client;
-import cn.zswltech.mithras.customer.domain.enums.CalcBizSubjectEnum;
-import cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemMenu;
-import cn.zswltech.mithras.customer.domain.enums.SubjectItemDisplayDimension;
-import cn.zswltech.mithras.customer.domain.enums.SubjectQuarterType;
-import cn.zswltech.mithras.customer.domain.enums.SubjectReportType;
-import cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemType;
-import cn.zswltech.mithras.customer.domain.enums.SubjectItemType;
+import cn.zswltech.mithras.customer.enums.CalcBizSubjectEnum;
+import cn.zswltech.mithras.customer.enums.GovernmentSubjectItemMenu;
+import cn.zswltech.mithras.customer.enums.SubjectItemDisplayDimension;
+import cn.zswltech.mithras.customer.enums.SubjectQuarterType;
+import cn.zswltech.mithras.customer.enums.SubjectReportType;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
@@ -15,13 +13,12 @@ import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListREQ;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemRemoveREQ;
-import cn.zswltech.mithras.service.enums.*;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpSubjectItemMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpSubjectItem;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.EvalUtil;
+import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
+import cn.zswltech.mithras.customer.mapper.corp.CorpSubjectItemMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpSubjectItem;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.customer.util.EvalUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -46,10 +43,10 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.text.CharSequenceUtil.*;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.service.constant.ResultMsg.*;
-import static cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemType.GOV_CAPITAL_BALANCE;
-import static cn.zswltech.mithras.customer.domain.enums.GovernmentSubjectItemType.INCOME_EXPEND;
-import static cn.zswltech.mithras.customer.domain.enums.SubjectItemType.*;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.*;
+import static cn.zswltech.mithras.customer.enums.GovernmentSubjectItemType.GOV_CAPITAL_BALANCE;
+import static cn.zswltech.mithras.customer.enums.GovernmentSubjectItemType.INCOME_EXPEND;
+import static cn.zswltech.mithras.customer.enums.SubjectItemType.*;
 
 /**
  * @author junke

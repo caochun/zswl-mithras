@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.fund.application.convert.receiptrepay;
 
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayCashDepositListRSP;
-import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashDeposit;
-import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashDepositLib;
+import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashDeposit;
+import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashDepositLib;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.collection.controller;
 import cn.zswltech.mithras.api.collection.CollectionRecordInfoApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.collection.*;
-import cn.zswltech.mithras.collection.service.CollectionRecordInfoApplicationService;
+import cn.zswltech.mithras.collection.application.facade.CollectionRecordInfoApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

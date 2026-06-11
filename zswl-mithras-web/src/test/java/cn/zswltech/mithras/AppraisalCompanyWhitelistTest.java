@@ -6,7 +6,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.leaseholdproperty.job.AppraisalWhitelistJob;
-import cn.zswltech.mithras.service.flow.listener.endhandler.AppraisalCompanyWhitelistProcessEndHandler;
+import cn.zswltech.mithras.workflow.flow.listener.endhandler.AppraisalCompanyWhitelistProcessEndHandler;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;

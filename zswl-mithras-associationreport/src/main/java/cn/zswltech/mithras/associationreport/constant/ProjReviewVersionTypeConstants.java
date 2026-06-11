@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.associationreport.constant;
 
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 
 /**
  * 项目评审 版本类型枚举

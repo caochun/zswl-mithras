@@ -4,12 +4,12 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlScoreCardTargetListRSP;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordAreaType;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordTryCalculateRSP;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.riskcontrol.common.AreaStatusEnum;
 import cn.zswltech.mithras.riskcontrol.common.AreaTypeEnum;
 import cn.zswltech.mithras.riskcontrol.common.GradeEnum;
-import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardData;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardData;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import lombok.Data;
 
 import java.math.BigDecimal;

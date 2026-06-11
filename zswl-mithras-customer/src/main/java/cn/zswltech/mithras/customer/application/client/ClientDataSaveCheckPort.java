@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.client;
 
-import cn.zswltech.mithras.customer.domain.enums.client.ClientProcessStatus;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
+import cn.zswltech.mithras.customer.enums.client.ClientProcessStatus;
+import cn.zswltech.mithras.customer.enums.client.ClientStatus;
 
 public interface ClientDataSaveCheckPort {
     boolean canSave(Long clientId);

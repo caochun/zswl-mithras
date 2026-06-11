@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.afterlease;
 
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

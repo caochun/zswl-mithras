@@ -4,7 +4,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.zswltech.mithras.dto.dashboard.boss.BusinessTransformFunnelListRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
-import cn.zswltech.mithras.dashboard.domain.enums.BossDashboardGuanYuanDataSourceKeyEnum;
+import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.BusinessStageStatisticsDTO;
 import cn.zswltech.sleipnir.toolkit.request.guanyuan.GuanYuanDSRequest;
 import lombok.extern.slf4j.Slf4j;

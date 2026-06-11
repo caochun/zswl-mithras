@@ -3,7 +3,6 @@ package cn.zswltech.mithras.dto.capital;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
 
 /**
  * @author yangxiong

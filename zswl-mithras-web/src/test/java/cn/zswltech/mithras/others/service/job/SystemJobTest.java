@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.job;
 
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.job.SystemJob;
+import cn.zswltech.mithras.application.orchestration.job.SystemJob;
 import com.xxl.job.core.biz.model.ReturnT;
 import org.junit.Test;
 

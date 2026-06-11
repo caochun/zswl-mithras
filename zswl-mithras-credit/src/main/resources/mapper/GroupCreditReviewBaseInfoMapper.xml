@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper">
+<mapper namespace="cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper">
 
-    <select id="myList" resultType="cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo">
+    <select id="myList" resultType="cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo">
         select a.*
         from group_credit_review_base_info a
         <where>
@@ -20,7 +20,7 @@
             <if test="dto.updateTo!=null">and a.update_time &lt;= #{dto.updateTo}</if>
             <if test="dto.creditAmountFrom!=null">and a.apply_credit_amount &gt;= #{dto.creditAmountFrom}</if>
             <if test="dto.creditAmountTo!=null">and a.apply_credit_amount &lt;= #{dto.creditAmountTo}</if>
-            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
         </where>
         order by update_time desc
     </select>

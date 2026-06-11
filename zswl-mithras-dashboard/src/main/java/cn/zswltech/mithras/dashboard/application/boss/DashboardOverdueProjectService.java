@@ -3,7 +3,7 @@ package cn.zswltech.mithras.dashboard.application.boss;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.dto.dashboard.boss.OverdueProjectListRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
-import cn.zswltech.mithras.dashboard.domain.enums.BossDashboardGuanYuanDataSourceKeyEnum;
+import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.OverdueProjectDTO;
 import cn.zswltech.sleipnir.toolkit.request.guanyuan.GuanYuanDSRequest;
 import lombok.extern.slf4j.Slf4j;

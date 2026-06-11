@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.riskcontrol.common;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 /**
  * 关联关系类型枚举类(源自慧眼系统枚举值)

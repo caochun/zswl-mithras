@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanPayDetailExpenseMapper">
-    <select id="listExpenseGroupByDetail" resultType="cn.zswltech.mithras.budget.infrastructure.persistence.mapper.dto.BudgetPlanPayDetailExpenseGroupDTO">
+<mapper namespace="cn.zswltech.mithras.budget.mapper.BudgetPlanPayDetailExpenseMapper">
+    <select id="listExpenseGroupByDetail" resultType="cn.zswltech.mithras.budget.mapper.dto.BudgetPlanPayDetailExpenseGroupDTO">
         select
             budget_plan_pay_detail_id as budgetPlanPayDetailId,
             sum(ifnull(stamp_tax,0) + ifnull(additional_tax,0)) as taxSum,

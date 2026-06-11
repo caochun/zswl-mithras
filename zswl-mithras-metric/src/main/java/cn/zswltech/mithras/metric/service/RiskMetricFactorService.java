@@ -50,7 +50,7 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.text.CharSequenceUtil.*;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.BANK_INTEREST_REPAY;
-import static cn.zswltech.mithras.service.others.MithrasException.err;
+import static cn.zswltech.mithras.foundation.exception.MithrasException.err;
 import static org.apache.poi.ss.usermodel.CellType.FORMULA;
 import static org.apache.poi.ss.usermodel.CellType.NUMERIC;
 

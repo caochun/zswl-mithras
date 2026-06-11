@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycAbnormalRSP;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycAbnormal;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycAbnormalResp;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycAbnormal;
+import cn.zswltech.mithras.third.tianyancha.client.resp.TycAbnormalResp;
 
 /**
  * 经营异常

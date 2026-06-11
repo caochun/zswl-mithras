@@ -12,7 +12,7 @@ import cn.zswltech.gruul.dao.dal.dao.UserDOMapper;
 import cn.zswltech.gruul.dao.dal.dao.UserOrgJobDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.gruul.dao.dal.entity.UserOrgJobDO;
-import cn.zswltech.mithras.service.enums.JobEnum;
+import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.Data;
 import lombok.experimental.Accessors;

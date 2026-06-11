@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.NewAfterLeaseCheckPlanClientMapper">
+<mapper namespace="cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper">
     <select id="queryAfterLeaseCheckPlanLedgerList" resultType="cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckLedgerListRSP">
         SELECT *
         FROM (
@@ -57,7 +57,7 @@
     </select>
 
     <select id="query2026ApprovePassPlanClient"
-            resultType="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient">
+            resultType="cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient">
         select a.* from new_after_lease_check_plan_client a inner join new_after_lease_check_plan_base b
         on a.plan_id  = b.id where a.approval_status ='APPROVAL_PASS' and b.approval_status ='FINISH_PASS'
         and DATE_FORMAT(b.update_time,'%Y-%m-%d') >= '2026-01-01'

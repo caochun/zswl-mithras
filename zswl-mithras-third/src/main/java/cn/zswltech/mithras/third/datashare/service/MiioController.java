@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.datashare.service;
 
-import cn.zswltech.mithras.service.config.redis.RedisHelper;
+import cn.zswltech.mithras.foundation.cache.RedisHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

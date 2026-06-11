@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.FtpAssessmentInfoMapper;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.FtpAssessmentInfo;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.payment.mapper.FtpAssessmentInfoMapper;
+import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

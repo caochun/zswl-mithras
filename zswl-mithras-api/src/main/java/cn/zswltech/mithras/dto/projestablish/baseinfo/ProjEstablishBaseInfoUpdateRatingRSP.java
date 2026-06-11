@@ -3,7 +3,6 @@ package cn.zswltech.mithras.dto.projestablish.baseinfo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
 
 @Data
 public class ProjEstablishBaseInfoUpdateRatingRSP {

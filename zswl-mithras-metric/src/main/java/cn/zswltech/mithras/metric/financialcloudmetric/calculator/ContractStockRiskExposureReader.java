@@ -9,11 +9,11 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
-import cn.zswltech.mithras.payment.domain.enums.WriteOffStatus;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.util.LongUtil;
+import cn.zswltech.mithras.payment.enums.WriteOffStatus;
+import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
+import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

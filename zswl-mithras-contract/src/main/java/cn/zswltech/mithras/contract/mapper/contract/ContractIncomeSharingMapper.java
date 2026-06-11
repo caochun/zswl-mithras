@@ -1,13 +1,13 @@
 package cn.zswltech.mithras.contract.mapper.contract;
 
-import cn.zswltech.mithras.dto.incomeSharing.IncomeSharingDetailREQ;
-import cn.zswltech.mithras.dto.incomeSharing.IncomeSharingListBO;
-import cn.zswltech.mithras.dto.incomeSharing.IncomeSharingListREQ;
-import cn.zswltech.mithras.dto.incomeSharing.IncomeSharingRSP;
+import cn.zswltech.mithras.dto.incomesharing.IncomeSharingDetailREQ;
+import cn.zswltech.mithras.dto.incomesharing.IncomeSharingListBO;
+import cn.zswltech.mithras.dto.incomesharing.IncomeSharingListREQ;
+import cn.zswltech.mithras.dto.incomesharing.IncomeSharingRSP;
 import cn.zswltech.mithras.dto.monthly.MonthlyQuery;
 import cn.zswltech.mithras.dto.monthly.MonthlyQueryResult;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractIncomeSharing;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

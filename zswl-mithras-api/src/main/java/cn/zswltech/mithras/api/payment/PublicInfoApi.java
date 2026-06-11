@@ -3,7 +3,6 @@ package cn.zswltech.mithras.api.payment;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.*;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

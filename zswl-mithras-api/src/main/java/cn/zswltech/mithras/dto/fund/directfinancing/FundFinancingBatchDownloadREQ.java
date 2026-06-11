@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.fund.directfinancing;
 
-import cn.zswltech.mithras.dto.filingmaterials.FilingBaseREQ;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

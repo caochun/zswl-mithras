@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.api.payment.dto;
 
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

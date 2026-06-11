@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.NewAfterLeaseCheckPlanBaseMapper">
+<mapper namespace="cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanBaseMapper">
 
     <select id="afterLeaseAssetStrategy" resultType="cn.zswltech.mithras.dto.afterlease.AfterLeaseAssetStrategyRSP">
         SELECT
@@ -56,7 +56,7 @@
     </select>
 
     <select id="pageList" resultType="cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckRSP"
-    parameterType="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.dashboard.DashboardClientAfterLeaseCheckQuery">
+    parameterType="cn.zswltech.mithras.afterlease.mapper.model.dashboard.DashboardClientAfterLeaseCheckQuery">
         SELECT CONCAT(ab.id, '_', c.id) AS idKey,
                c.id                     AS clientId,
                c.client_name            AS clientName,

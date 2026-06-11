@@ -8,7 +8,6 @@ import cn.zswltech.mithras.dto.fund.receiptrepay.version.BatchReceiptDownloadREQ
 import cn.zswltech.mithras.dto.fund.receiptrepay.version.BatchReceiptListRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.version.BatchSubmitREQ;
 import cn.zswltech.mithras.dto.fund.receiptrepay.version.CreateBatchREQ;
-import cn.zswltech.mithras.dto.groupcreditestablish.version.GroupCreditEstablishVersionDiffREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;

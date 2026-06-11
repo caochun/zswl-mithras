@@ -1,12 +1,10 @@
 package cn.zswltech.mithras.dto.contractcp;
 
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
-import java.util.List;
 import java.util.Set;
 
 /**

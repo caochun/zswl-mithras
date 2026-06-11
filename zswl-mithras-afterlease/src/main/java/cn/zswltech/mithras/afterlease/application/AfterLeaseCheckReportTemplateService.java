@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckReportTemplate;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportTemplate;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

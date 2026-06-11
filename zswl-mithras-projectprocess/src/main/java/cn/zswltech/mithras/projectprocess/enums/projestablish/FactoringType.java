@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.enums.projestablish;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 import lombok.Getter;
 
 import java.util.Map;

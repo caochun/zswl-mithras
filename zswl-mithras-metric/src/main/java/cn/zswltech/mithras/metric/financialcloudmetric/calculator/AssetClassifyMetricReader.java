@@ -1,12 +1,12 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyResultEnum;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.AssetClassifyMapper;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.lib.AssetClassifyClientAuxiliaryLibMapper;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassify;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
+import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyMapper;
+import cn.zswltech.mithras.assetclassify.mapper.lib.AssetClassifyClientAuxiliaryLibMapper;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassify;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

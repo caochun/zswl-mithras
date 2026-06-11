@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanPayDetailPriceMapper">
+<mapper namespace="cn.zswltech.mithras.budget.mapper.BudgetPlanPayDetailPriceMapper">
     <select id="calculatePrincipalBalance" resultType="long">
         select
             sum(ifnull(project_amount,0))

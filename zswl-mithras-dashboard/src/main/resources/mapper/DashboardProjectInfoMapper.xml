@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardProjectInfoMapper">
-    <select id="listSettleInThreeMonth" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectInfoSettleInThreeMonthResult">
+<mapper namespace="cn.zswltech.mithras.dashboard.mapper.DashboardProjectInfoMapper">
+    <select id="listSettleInThreeMonth" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectInfoSettleInThreeMonthResult">
         select
         a.id as mainId,
         a.id as contractId,
@@ -104,7 +104,7 @@
         limit 0,5000
     </select>
 
-    <select id="listOverdue" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectInfoOverdueResult">
+    <select id="listOverdue" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectInfoOverdueResult">
         select
         a.id as mainId,
         b.id as contractId,
@@ -180,7 +180,7 @@
         limit 0,5000
     </select>
 
-    <select id="listRentThisMonth" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectInfoRentThisMonthResult">
+    <select id="listRentThisMonth" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectInfoRentThisMonthResult">
         select
         b.proj_name as projName,
         b.proj_review_id as projReviewId,
@@ -262,7 +262,7 @@
     </select>
 
     <select id="listPayInfo"
-            resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectPayInfoResult">
+            resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPayInfoResult">
         SELECT bi.id AS paymentId,
         bi.payment_code AS paymentCode,
         c.id AS receiptId,
@@ -361,7 +361,7 @@
         LIMIT 0, 5000
     </select>
 
-<!--    <select id="listPayInfo" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectPayInfoResult">-->
+<!--    <select id="listPayInfo" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPayInfoResult">-->
 <!--        select-->
 <!--        a.client_id as clientId,-->
 <!--        h.client_name as clientName,-->
@@ -439,7 +439,7 @@
 <!--        limit 0,5000-->
 <!--    </select>-->
 
-    <select id="listPayNoSettle" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectPayNoSettleResult">
+    <select id="listPayNoSettle" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPayNoSettleResult">
         select
         a.proj_review_id as projReviewId,
         a.proj_name as projName,
@@ -557,7 +557,7 @@
         limit 0,5000
     </select>
 
-    <select id="listProvision" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProvisionResult">
+    <select id="listProvision" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProvisionResult">
         select
         c.id as clientId,
         c.client_name as clientName,
@@ -615,7 +615,7 @@
             )
         </if>
     </select>
-    <select id="listProjPledge" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectPledgeResult">
+    <select id="listProjPledge" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPledgeResult">
         select
         f.id as financing_id,
         'DK' as type,
@@ -1080,7 +1080,7 @@
     </select>
 
 
-    <!--<select id="listPlanInfo" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectPlanInfoResult">
+    <!--<select id="listPlanInfo" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPlanInfoResult">
 
     SELECT
         a.id AS contractId,
@@ -1168,7 +1168,7 @@
     </select>-->
 
 
-    <select id="listPlanInfo" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectPlanInfoResult">
+    <select id="listPlanInfo" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectPlanInfoResult">
 
         SELECT
         a.id AS contractId,

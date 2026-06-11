@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.dto.fund;
 
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.dto.fund.financing.FundFinancingListRSP;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

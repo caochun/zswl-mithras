@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.riskcontrol;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.riskcontrol.job.RiskControlJob;
-import cn.zswltech.mithras.service.service.riskcontrol.job.RiskControlStrategyFullComputeJob;
+import cn.zswltech.mithras.riskcontrol.job.RiskControlStrategyFullComputeJob;
 import org.junit.Test;
 
 import javax.annotation.Resource;

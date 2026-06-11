@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.enums.newftp;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalDivisionEnum;
 

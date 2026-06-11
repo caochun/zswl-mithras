@@ -5,7 +5,7 @@ import cn.zswltech.mithras.blackgray.dto.req.BlackGrayWarehouseTaskAddREQ;
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayWarehouseTaskListREQ;
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayWarehouseTaskModifyREQ;
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayWarehouseTaskRemoveREQ;
-import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask;
+import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseTask;
 
 /**
 * @description 黑灰名单任务表

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.kpi.bo;
 
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
+import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
+import cn.zswltech.mithras.foundation.enums.LeaseType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

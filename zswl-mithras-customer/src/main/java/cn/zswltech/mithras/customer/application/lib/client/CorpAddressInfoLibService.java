@@ -3,7 +3,7 @@ package cn.zswltech.mithras.customer.application.lib.client;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListREQ;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListRSP;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfoLib;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpAddressInfoLibDto;
 import com.baomidou.mybatisplus.extension.service.IService;
 

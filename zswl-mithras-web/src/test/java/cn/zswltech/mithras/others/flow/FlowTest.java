@@ -9,7 +9,7 @@ import cn.zswltech.flow.core.enums.UserDefineTypeEnum;
 import cn.zswltech.flow.core.model.ext.GlobalExt;
 import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.constant.FlowConstants;
+import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.flowable.bpmn.converter.BpmnXMLConverter;
 import org.flowable.bpmn.model.BpmnModel;

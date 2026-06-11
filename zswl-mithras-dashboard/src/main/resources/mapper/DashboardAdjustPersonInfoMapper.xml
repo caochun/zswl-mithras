@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardAdjustPersonInfoMapper">
+<mapper namespace="cn.zswltech.mithras.dashboard.mapper.DashboardAdjustPersonInfoMapper">
 
 
-    <select id="getLatest" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardAdjustPersonInfo">
+    <select id="getLatest" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardAdjustPersonInfo">
         select a.* from dashboard_adjust_person_info a join (
             select dept_id,max(batch_number) max_batch_number from dashboard_adjust_person_info group by dept_id
         )b on a.batch_number = b.max_batch_number and a.dept_id = b.dept_id

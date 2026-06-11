@@ -1,9 +1,5 @@
 package cn.zswltech.mithras.dto.rating.ratingamount;
 
-import cn.zswltech.mithras.dto.rating.ratingclient.RatingQualitativeRSP;
-import cn.zswltech.mithras.dto.rating.ratingclient.RatingQuantitativeRSP;
-import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientDetailRSP;
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

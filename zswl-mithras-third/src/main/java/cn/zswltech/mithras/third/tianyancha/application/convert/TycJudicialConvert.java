@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycJudicialRSP;
-import cn.zswltech.mithras.third.enums.TycJudicialTypeStateEnum;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycJudicial;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycJudicialResp;
+import cn.zswltech.mithras.third.tianyancha.enums.TycJudicialTypeStateEnum;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycJudicial;
+import cn.zswltech.mithras.third.tianyancha.client.resp.TycJudicialResp;
 
 /**
  * 司法协助

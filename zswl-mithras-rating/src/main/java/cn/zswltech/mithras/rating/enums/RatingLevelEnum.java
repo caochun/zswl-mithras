@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.rating.enums;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

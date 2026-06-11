@@ -4,7 +4,6 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.report.ReportChangeREQ;
 import cn.zswltech.mithras.dto.report.specialtrade.SpecialTradeListREQ;
-import cn.zswltech.mithras.dto.report.specialtrade.SpecialTradeListRSP;
 import cn.zswltech.mithras.dto.report.specialtrade.SpecialTradeModifyREQ;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import io.swagger.annotations.Api;

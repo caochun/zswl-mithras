@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.enums.contract;
 
-import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
+import cn.zswltech.mithras.foundation.metadata.IMaterialsTypeConvert;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.controller.riskcontrol;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.zswltech.mithras.service.application.riskcontrol.RiskControlOpinionMonitorFacade;
+import cn.zswltech.mithras.application.orchestration.facade.riskcontrol.RiskControlOpinionMonitorFacade;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.jupiter.api.Test;

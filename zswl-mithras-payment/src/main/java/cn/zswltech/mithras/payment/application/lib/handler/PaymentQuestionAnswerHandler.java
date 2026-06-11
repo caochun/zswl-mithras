@@ -3,8 +3,8 @@ package cn.zswltech.mithras.payment.application.lib.handler;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListRsp;
 import cn.zswltech.mithras.payment.application.lib.PaymentLibAssembler;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswer;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentQuestionnaireAnswerLib;
+import cn.zswltech.mithras.payment.mapper.model.PaymentQuestionnaireAnswer;
+import cn.zswltech.mithras.payment.mapper.model.PaymentQuestionnaireAnswerLib;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

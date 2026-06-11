@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.ftp.newftp.utils;
 
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.newftp.NewFtpParameterDTO;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.ql.util.express.DefaultContext;
 import com.ql.util.express.ExpressRunner;
 import org.springframework.stereotype.Component;

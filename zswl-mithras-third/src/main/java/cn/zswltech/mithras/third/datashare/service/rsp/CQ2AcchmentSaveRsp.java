@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.datashare.service.rsp;
 
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.resp.FinancialBaseRSP;
+import cn.zswltech.mithras.third.financialshare.client.resp.FinancialBaseRSP;
 import lombok.*;
 
 import java.util.List;

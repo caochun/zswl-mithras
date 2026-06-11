@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.finance.enums.financeoverdue;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 public enum OverdueRecordStatueEnum implements PullDown {
     NOT_REPORT("未推送苍穹"), REPORT_FAIL("苍穹推送失败"), REPORT_SUCCESS("苍穹推送成功");

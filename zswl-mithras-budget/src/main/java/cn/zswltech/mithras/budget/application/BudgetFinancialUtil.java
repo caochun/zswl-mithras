@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.budget.application;
 
-import cn.zswltech.mithras.service.enums.projestablish.LeaseType;
+import cn.zswltech.mithras.foundation.enums.LeaseType;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

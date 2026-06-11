@@ -2,9 +2,8 @@ package cn.zswltech.mithras.leaseholdproperty.application.contract;
 
 import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
 import cn.zswltech.mithras.dto.contract.leaseitem.*;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
-import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemInfo;
+import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.InputStream;

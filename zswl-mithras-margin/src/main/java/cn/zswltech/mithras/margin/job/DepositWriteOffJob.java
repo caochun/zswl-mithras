@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.margin.job;
 
-import cn.zswltech.mithras.margin.application.job.DepositWriteOffJobService;
+import cn.zswltech.mithras.margin.job.service.DepositWriteOffJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

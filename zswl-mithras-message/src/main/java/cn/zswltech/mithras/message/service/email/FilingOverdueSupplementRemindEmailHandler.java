@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.message.service.email;
 
 import cn.zswltech.mithras.dto.filingmaterials.FilingEmailDTO;
-import cn.zswltech.mithras.service.enums.EmailType;
+import cn.zswltech.mithras.message.enums.EmailType;
 import org.springframework.stereotype.Service;
 
 import java.io.File;

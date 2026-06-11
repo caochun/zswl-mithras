@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.ArchiveTemplateMapper">
+<mapper namespace="cn.zswltech.mithras.archives.mapper.ArchiveTemplateMapper">
 
-    <select id="pageList" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.model.ArchiveTemplate">
+    <select id="pageList" resultType="cn.zswltech.mithras.archives.mapper.model.ArchiveTemplate">
         select *
         from archive_template
         <where>
@@ -16,7 +16,7 @@
         </where>
         order by update_time desc
     </select>
-    <select id="flatTemplate" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesFlatTempalteDTO">
+    <select id="flatTemplate" resultType="cn.zswltech.mithras.archives.mapper.dto.ArchivesFlatTempalteDTO">
         select
         c.belong_id archiveId,
         a.id typeId,
@@ -40,7 +40,7 @@
         </where>
     </select>
 
-    <select id="archiveFileList" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesFlatTempalteDTO">
+    <select id="archiveFileList" resultType="cn.zswltech.mithras.archives.mapper.dto.ArchivesFlatTempalteDTO">
         select
         c.belong_id archiveId,
         a.id typeId,
@@ -64,7 +64,7 @@
         order by b.sort,a.sort asc
     </select>
 
-    <select id="mustFileCount" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesMastFileCountDTO">
+    <select id="mustFileCount" resultType="cn.zswltech.mithras.archives.mapper.dto.ArchivesMastFileCountDTO">
         select
         c.belong_id archiveId,
         count(distinct a.id) count
@@ -80,7 +80,7 @@
         group by c.belong_id
     </select>
 
-    <select id="mustFileTypeCount" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.mapper.dto.ArchivesMastFileTypeCountDTO">
+    <select id="mustFileTypeCount" resultType="cn.zswltech.mithras.archives.mapper.dto.ArchivesMastFileTypeCountDTO">
         select
         b.template_id templateId,
         count(a.id) count
@@ -97,7 +97,7 @@
         group by b.template_id
     </select>
 
-    <select id="noFileTypes" resultType="cn.zswltech.mithras.archives.infrastructure.persistence.model.ArchiveFileType">
+    <select id="noFileTypes" resultType="cn.zswltech.mithras.archives.mapper.model.ArchiveFileType">
        select a.type_name typeName,a.id
        from (select * from archive_file_type where need = 1 and group_id in (select id from archive_type_group where template_id = #{templateId})) a
        left join (select * from materials_list where business_type = "ARCHIVES" and belong_id = #{archiveId}) c

@@ -1,14 +1,12 @@
 package cn.zswltech.mithras.basedata.dictionary;
 
-import cn.zswltech.mithras.dto.SelectRSP;
-import cn.zswltech.mithras.basedata.mapper.corp.GeneralDictionaryMapper;
+import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
 import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * TODO

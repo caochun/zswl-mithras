@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.leaseholdproperty.LeaseFileNameComparisonREQ;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemVatInvoiceService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseOCRService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseVehicleRegistrationService;
-import cn.zswltech.mithras.leaseholdproperty.domain.enums.LeaseOCRTypeEnum;
+import cn.zswltech.mithras.leaseholdproperty.enums.LeaseOCRTypeEnum;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.workbench.application;
 
 import cn.zswltech.mithras.dto.workbench.WorkbenchShortcutsListRsp;
-import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.WorkbenchShortcutBaseInfoMapper;
-import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchShortcutBaseInfo;
+import cn.zswltech.mithras.workbench.mapper.WorkbenchShortcutBaseInfoMapper;
+import cn.zswltech.mithras.workbench.mapper.model.WorkbenchShortcutBaseInfo;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

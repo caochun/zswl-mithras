@@ -14,7 +14,7 @@ import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibSe
 import cn.zswltech.mithras.contract.versioning.application.ContractGuarantorLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractMortgageLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractPledgeLibService;
-import cn.zswltech.mithras.service.util.ContractUtil;
+import cn.zswltech.mithras.application.orchestration.contract.util.ContractUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

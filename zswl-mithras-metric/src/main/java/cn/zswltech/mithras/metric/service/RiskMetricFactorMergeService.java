@@ -18,7 +18,7 @@ import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorMerge;
 
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataExchangeRate;
 
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 
 import cn.zswltech.mithras.basedata.service.BaseDataExchangeRateService;
 

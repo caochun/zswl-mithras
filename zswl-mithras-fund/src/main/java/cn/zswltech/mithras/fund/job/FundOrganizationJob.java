@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.job;
 
-import cn.zswltech.mithras.fund.application.FundOrganizationInstitutionCodeSyncService;
+import cn.zswltech.mithras.fund.application.organization.FundOrganizationInstitutionCodeSyncService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.rating.mapper.RatingReportMapper;
 import cn.zswltech.mithras.rating.model.RatingAmount;
 import cn.zswltech.mithras.rating.model.RatingClient;
 import cn.zswltech.mithras.rating.model.RatingReport;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;

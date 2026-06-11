@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.customer.application.client;
 
-import cn.zswltech.mithras.customer.application.bo.ClientAuthBO;
-import cn.zswltech.mithras.customer.application.bo.ClientBusinessHistoryBO;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpShareholderInfo;
+import cn.zswltech.mithras.customer.application.client.bo.ClientAuthBO;
+import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryBO;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpShareholderInfo;
 import cn.zswltech.mithras.dto.contract.ContractCompareBusinessRSP;
 
 import java.util.List;

@@ -4,8 +4,6 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.client.clientversion.ClientVersionDiffREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
-import cn.zswltech.mithras.dto.client.clientversion.ClientVersionListREQ;
-import cn.zswltech.mithras.dto.client.clientversion.ClientVersionListRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import io.swagger.annotations.Api;

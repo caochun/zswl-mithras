@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.contract.receipt;
 
-import cn.zswltech.mithras.api.payment.dto.PaymentWrittenOffAmountRsp;
 import cn.zswltech.mithras.dto.newftp.FtpAssessInfo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

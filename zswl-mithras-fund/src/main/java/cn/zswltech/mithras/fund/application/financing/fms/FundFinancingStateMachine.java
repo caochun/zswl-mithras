@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingEvent.*;
-import static cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingProcessStatus.*;
+import static cn.zswltech.mithras.fund.enums.financing.FundFinancingEvent.*;
+import static cn.zswltech.mithras.fund.enums.financing.FundFinancingProcessStatus.*;
 
 /**
  * @description:

@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.kpi.controller;
 
-import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.kpi.KpiProjectDistributionBaseInfoApi;
 import cn.zswltech.mithras.kpi.application.KpiProjectDistributionBaseInfoApplicationService;

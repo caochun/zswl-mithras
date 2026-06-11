@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.finance.mapper.finance;
 
 import cn.zswltech.mithras.finance.mapper.model.finance.ContractAssessDeptDetail;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
  * @author lizhao

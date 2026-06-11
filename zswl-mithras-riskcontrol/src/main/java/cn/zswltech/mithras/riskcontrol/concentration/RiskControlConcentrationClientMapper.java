@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.riskcontrol.concentration;
 
 import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationClient;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
  * @author zhaozhengkang

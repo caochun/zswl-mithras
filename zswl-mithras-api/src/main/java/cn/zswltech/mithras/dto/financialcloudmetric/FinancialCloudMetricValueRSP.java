@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.dto.financialcloudmetric;
 
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.dto.metric.value.RiskMetricValueListRsp;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

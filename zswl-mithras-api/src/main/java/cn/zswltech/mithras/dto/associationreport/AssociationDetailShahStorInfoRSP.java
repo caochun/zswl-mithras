@@ -3,7 +3,6 @@ package cn.zswltech.mithras.dto.associationreport;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**

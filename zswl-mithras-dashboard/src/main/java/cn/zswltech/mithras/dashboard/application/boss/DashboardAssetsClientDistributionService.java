@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.dto.dashboard.boss.DistributionAssetsIndustryListRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.DistributionClientDepartmentListRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.DistributionClientStatisticsListRSP;
-import cn.zswltech.mithras.dashboard.domain.enums.BossDashboardGuanYuanDataSourceKeyEnum;
+import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.AssetsIndustryDistributionDTO;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.DeptClientStatisticsDTO;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.StageClientStatisticsDTO;

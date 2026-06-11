@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.archives;
 
-import cn.zswltech.mithras.dto.SelectRSP;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

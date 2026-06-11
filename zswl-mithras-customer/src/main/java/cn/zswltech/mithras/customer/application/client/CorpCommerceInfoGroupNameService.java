@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.client;
 
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

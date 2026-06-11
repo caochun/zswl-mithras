@@ -1,12 +1,9 @@
 package cn.zswltech.mithras.dto.projreview.baseinfo;
 
-import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 public class ProjReviewBaseInfoUpdateRatingREQ {

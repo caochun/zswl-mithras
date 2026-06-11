@@ -11,8 +11,8 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractLeasePriceLibMap
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePriceLib;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import lombok.SneakyThrows;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -29,7 +29,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static cn.zswltech.mithras.service.enums.common.ProjectBizType.ZZ;
+import static cn.zswltech.mithras.foundation.enums.common.ProjectBizType.ZZ;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 

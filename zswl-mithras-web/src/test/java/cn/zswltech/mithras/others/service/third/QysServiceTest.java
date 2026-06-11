@@ -4,11 +4,11 @@
 //import cn.hutool.http.HttpUtil;
 //import cn.zswl.oss.core.minio.MinioOssClient;
 //import cn.zswltech.mithras.others.service.ApplicationTest;
-//import cn.zswltech.mithras.service.config.qiyuesuo.QysConfig;
-//import cn.zswltech.mithras.service.config.qiyuesuo.QysProperties;
-//import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-//import cn.zswltech.mithras.service.others.MithrasException;
-//import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
+//import cn.zswltech.mithras.message.config.qiyuesuo.QysConfig;
+//import cn.zswltech.mithras.message.config.qiyuesuo.QysProperties;
+//import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+//import cn.zswltech.mithras.foundation.exception.MithrasException;
+//import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 //import lombok.extern.slf4j.Slf4j;
 //import net.qiyuesuo.sdk.api.ContractService;
 //import net.qiyuesuo.sdk.api.SignService;

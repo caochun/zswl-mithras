@@ -1,10 +1,8 @@
 package cn.zswltech.mithras.projectprocess.mapper.lib.projpricing;
 
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingAocPriceLib;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewAocPriceLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
-import cn.zswltech.mithras.projectprocess.service.projpricing.dto.ProjPricingPriceDto;
-import cn.zswltech.mithras.projectprocess.service.riskcontrol.dto.ProjReviewPriceDto;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.projectprocess.application.projpricing.dto.ProjPricingPriceDto;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.render;
 
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.gendoc.render.contractzlzz.*;
+import cn.zswltech.mithras.contract.gendoc.render.contractzlzz.*;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import org.junit.Test;
 

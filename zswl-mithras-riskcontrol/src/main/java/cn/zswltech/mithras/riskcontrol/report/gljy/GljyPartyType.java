@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.riskcontrol.report.gljy;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.config.enumscan.PullDownExt;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDownExt;
 
 /**
  * @author yibin

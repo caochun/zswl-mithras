@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.finance.mapper.model.finance;
 
 import cn.zswltech.mithras.finance.enums.financeoverdue.OverdueRecordStatueEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
+import cn.zswltech.mithras.foundation.state.ProjProcessState;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

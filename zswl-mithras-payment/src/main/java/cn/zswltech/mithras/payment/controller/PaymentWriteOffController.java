@@ -11,7 +11,6 @@ import cn.zswltech.mithras.api.payment.writeoff.*;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
-import java.util.List;
 import cn.zswltech.mithras.payment.application.PaymentWriteOffApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;

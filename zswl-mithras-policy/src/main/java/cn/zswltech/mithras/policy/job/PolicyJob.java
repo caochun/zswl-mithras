@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.policy.job;
 
-import cn.zswltech.mithras.policy.application.job.PolicyJobService;
+import cn.zswltech.mithras.policy.job.service.PolicyJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

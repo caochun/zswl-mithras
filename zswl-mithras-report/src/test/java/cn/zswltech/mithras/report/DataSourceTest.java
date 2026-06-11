@@ -2,8 +2,8 @@ package cn.zswltech.mithras.report;
 
 import cn.zswltech.mithras.report.mapper.base.CrClientBaseMapper;
 import cn.zswltech.mithras.report.mapper.base.model.CrClientBase;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;
 

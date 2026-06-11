@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.client;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.client.ClientService;
+import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

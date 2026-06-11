@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlRelatedTransactionPageReq;
 import cn.zswltech.mithras.dto.riskcontrol.RiskControlRelatedTransactionRsp;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.riskcontrol.RiskControlRelatedClientService;
+import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClientService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

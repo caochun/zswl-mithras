@@ -5,9 +5,9 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.PayType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
-import cn.zswltech.mithras.projectprocess.service.bo.CashFlowBO;
-import cn.zswltech.mithras.projectprocess.service.bo.CashFlowCalculateBO;
-import cn.zswltech.mithras.service.util.FinancialUtil;
+import cn.zswltech.mithras.projectprocess.application.bo.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.application.bo.CashFlowCalculateBO;
+import cn.zswltech.mithras.application.orchestration.util.FinancialUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

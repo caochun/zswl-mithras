@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.finance.enums.financeoverdue;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
+import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 
 public enum OverduePaymentNumberEnum implements PullDown {
     KX08("租赁款"), KX09("保证金");

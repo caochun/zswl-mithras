@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.creditreport.service;
 
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchClientQuery;
 

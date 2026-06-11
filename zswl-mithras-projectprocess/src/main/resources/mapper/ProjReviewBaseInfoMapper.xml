@@ -29,7 +29,7 @@
             <if test="dto.createTo!=null">and a.create_time &lt;= #{dto.createTo}</if>
             <if test="dto.updateFrom!=null">and a.update_time &gt;= #{dto.updateFrom}</if>
             <if test="dto.updateTo!=null">and a.update_time &lt;= #{dto.updateTo}</if>
-            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
         </where>
         order by update_time desc
     </select>

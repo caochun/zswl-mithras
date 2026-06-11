@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.filingmaterials;
 
-import lombok.Data;
 
 import java.io.File;
 

@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cn.zswltech.mithras.metric.aggregator.AggConst.TRANSPORTATION_INDUSTRY_CODE;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.foundation.util.StringUtil.mysqlLimit;
 
 /**
  * @author yibin

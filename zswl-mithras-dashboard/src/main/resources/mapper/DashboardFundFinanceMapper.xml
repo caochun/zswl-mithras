@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardFundFinanceMapper">
-    <select id="listRepay" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardFundRepayResult">
+<mapper namespace="cn.zswltech.mithras.dashboard.mapper.DashboardFundFinanceMapper">
+    <select id="listRepay" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardFundRepayResult">
         SELECT
         t.*
         FROM (
@@ -133,7 +133,7 @@
         ORDER BY t.financingCode
     </select>
 
-    <select id="listCredit" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardFundCreditResult">
+    <select id="listCredit" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardFundCreditResult">
         SELECT
         a.id,
         a.credit_code AS creditCode,
@@ -166,8 +166,8 @@
     </select>
 
     <select id="listCost"
-            parameterType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardFundCostQuery"
-            resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardFundCostResult">
+            parameterType="cn.zswltech.mithras.dashboard.mapper.model.DashboardFundCostQuery"
+            resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardFundCostResult">
         SELECT *
         FROM (SELECT
         base.id AS financing_id,
@@ -282,7 +282,7 @@
         )) AS total
         ORDER BY actual_loan_date DESC
     </select>
-    <select id="repayDateList" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardFundRepayDateResult">
+    <select id="repayDateList" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardFundRepayDateResult">
         select
             id AS financing_id,
             duration_FROM AS repay_date,

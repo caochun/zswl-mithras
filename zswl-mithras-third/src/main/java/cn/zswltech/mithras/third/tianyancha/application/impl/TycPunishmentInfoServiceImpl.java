@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycPunishmentInfoConvert;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.mapper.TycPunishmentInfoMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycPunishmentInfo;
-import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycPunishmentInfoResp;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycPunishmentInfoMapper;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycPunishmentInfo;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
+import cn.zswltech.mithras.third.tianyancha.client.resp.TycPunishmentInfoResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;
 import cn.zswltech.mithras.third.tianyancha.application.TycPunishmentInfoService;
 import lombok.extern.slf4j.Slf4j;

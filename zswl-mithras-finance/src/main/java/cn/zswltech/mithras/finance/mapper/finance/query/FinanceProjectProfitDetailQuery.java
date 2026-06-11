@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.finance.mapper.finance.query;
 
-import cn.zswltech.mithras.service.mapper.query.PageQuery;
+import cn.zswltech.mithras.foundation.persistence.query.PageQuery;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

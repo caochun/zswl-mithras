@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.dto.filingmaterials;
 
-import cn.zswltech.mithras.dto.materialsfile.MaterialsListListRSP;
-import cn.zswltech.mithras.dto.materialsfile.ProjMaterialsListListRSP;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

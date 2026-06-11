@@ -3,7 +3,7 @@ package cn.zswltech.mithras.assetclassify.application.job;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
-import cn.zswltech.mithras.service.delayed.RedisDelayedQueueListener;
+import cn.zswltech.mithras.foundation.cache.RedisDelayedQueueListener;
 import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

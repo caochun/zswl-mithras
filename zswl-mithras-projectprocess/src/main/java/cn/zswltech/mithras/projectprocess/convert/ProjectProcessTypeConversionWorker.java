@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
-import cn.zswltech.mithras.projectprocess.service.ProjectProcessNameResolver;
+import cn.zswltech.mithras.projectprocess.application.support.ProjectProcessNameResolver;
 import com.alibaba.fastjson.JSON;
 import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;

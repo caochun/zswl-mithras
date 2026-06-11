@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.newftp.config.NewFtpGuaranteeCostPricingConfigApi
 import cn.zswltech.mithras.dto.PageReq;
 import cn.zswltech.mithras.dto.newftp.*;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpGuaranteeCostPricingConfigService;
-import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpGuaranteeCostPricingDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpGuaranteeCostPricingDraftService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

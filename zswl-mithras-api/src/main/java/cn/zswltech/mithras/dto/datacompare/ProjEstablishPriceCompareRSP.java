@@ -1,14 +1,10 @@
 package cn.zswltech.mithras.dto.datacompare;
 
-import cn.zswltech.mithras.dto.projestablish.priceaoc.ProjEstablishAocPriceRSP;
-import cn.zswltech.mithras.dto.projestablish.pricefactoring.ProjEstablishFactoringPriceRSP;
-import cn.zswltech.mithras.dto.projestablish.pricelease.ProjEstablishLeasePriceRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.List;
 import java.util.Map;
 
 /**

@@ -2,9 +2,7 @@ package cn.zswltech.mithras.dto.riskcontrol.opinion;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
 
 /**
  * @author yangxiong

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workbench.application.cardcal;
 
-import cn.zswltech.mithras.service.util.LongUtil;
+import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchProjReviewPrice;
 import org.springframework.stereotype.Component;
 

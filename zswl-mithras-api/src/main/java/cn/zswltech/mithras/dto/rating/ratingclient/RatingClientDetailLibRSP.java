@@ -1,10 +1,6 @@
 package cn.zswltech.mithras.dto.rating.ratingclient;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.time.LocalDate;

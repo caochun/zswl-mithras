@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.projectprocess.mapper.projreview;
 
-import cn.zswltech.mithras.projectprocess.mapper.dto.ProjReviewListSelectDTO;
+import cn.zswltech.mithras.projectprocess.dto.persistence.ProjReviewListSelectDTO;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

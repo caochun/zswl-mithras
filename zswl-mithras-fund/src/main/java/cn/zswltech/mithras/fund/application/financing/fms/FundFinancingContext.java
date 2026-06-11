@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.fund.application.financing.fms;
 
 import cn.zswltech.mithras.fund.application.financing.fms.IFundFinancingStateMachineEntity;
-import cn.zswltech.mithras.fund.domain.enums.financing.FundFinancingEvent;
-import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
+import cn.zswltech.mithras.fund.enums.financing.FundFinancingEvent;
+import cn.zswltech.mithras.foundation.state.ProcessStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

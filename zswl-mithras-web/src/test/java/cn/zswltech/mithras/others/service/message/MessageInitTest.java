@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.message;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.message.service.job.MessageJob;
+import cn.zswltech.mithras.message.job.MessageJob;
 import org.junit.Test;
 
 import javax.annotation.Resource;

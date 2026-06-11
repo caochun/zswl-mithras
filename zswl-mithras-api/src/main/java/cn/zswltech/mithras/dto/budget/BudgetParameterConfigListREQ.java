@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto.budget;
 import lombok.Data;
 import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 /**
  * @description 预算管理-参数设置
  * @author vico

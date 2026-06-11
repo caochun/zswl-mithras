@@ -1,11 +1,9 @@
 package cn.zswltech.mithras.dto.leaseholdproperty;
 
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 
 @Data

@@ -7,13 +7,13 @@ import cn.zswltech.mithras.associationreport.excel.AssociationTop10ClientConcent
 import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.AssociationDetailTop10ClientConcentrationRSP;
 import cn.zswltech.mithras.dto.associationreport.AssociationTop10ClientConcentrationModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.associationreport.mapper.AssociationTop10ClientConcentrationMapper;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationTop10ClientConcentration;
 import cn.zswltech.mithras.associationreport.mapper.model.BasicAssociationReport;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.UpdateUtils;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.foundation.util.UpdateUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

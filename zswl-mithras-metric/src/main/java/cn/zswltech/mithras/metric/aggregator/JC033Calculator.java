@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType.PUBLIC_UTILITIES;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.foundation.util.StringUtil.mysqlLimit;
 
 /**
  * @author yibin

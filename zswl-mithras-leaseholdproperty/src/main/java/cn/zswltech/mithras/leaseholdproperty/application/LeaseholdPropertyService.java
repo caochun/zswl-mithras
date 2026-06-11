@@ -3,7 +3,7 @@ package cn.zswltech.mithras.leaseholdproperty.application;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseholdPropertyREQ;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseholdPropertyRSP;
-import cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseholdProperty;
+import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseholdProperty;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.InputStream;

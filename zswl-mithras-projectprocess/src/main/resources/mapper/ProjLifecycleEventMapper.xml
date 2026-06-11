@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.projlifecycle.mapper.ProjLifecycleEventMapper">
+<mapper namespace="cn.zswltech.mithras.projectprocess.projlifecycle.mapper.ProjLifecycleEventMapper">
     <insert id="insertList">
         insert into proj_lifecycle_event(event_time,event_type,event,operator,event_desc,proj_id)
         values
@@ -9,7 +9,7 @@
         </foreach>
     </insert>
     <select id="mainList"
-            resultType="cn.zswltech.mithras.projlifecycle.mapper.model.ProjLifecycleListDO">
+            resultType="cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleListDO">
         select *
         from (select projBase.client_id,
         projBase.proj_name,
@@ -112,7 +112,7 @@
         </where>
     </select>
     <select id="getProjSettle"
-            resultType="cn.zswltech.mithras.projlifecycle.mapper.model.LifecycleProjDO">
+            resultType="cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.LifecycleProjDO">
         select * from lifecycle_proj_settle
         <where>
             <if test="reviewId!=null">AND proj_review_id=#{reviewId}</if>

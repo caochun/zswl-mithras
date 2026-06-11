@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.contract;
 
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.contract.script.ContractMatcher;
+import cn.zswltech.mithras.contract.application.script.ContractMatcher;
 import org.junit.Test;
 
 import javax.annotation.Resource;

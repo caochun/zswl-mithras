@@ -12,7 +12,7 @@ import cn.zswltech.mithras.kpi.enums.KpiProjectWeightTypeEnum;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeight;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightLib;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 
 import java.util.*;
 

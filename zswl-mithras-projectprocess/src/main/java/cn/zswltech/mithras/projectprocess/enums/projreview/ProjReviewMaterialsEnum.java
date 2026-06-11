@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.projectprocess.enums.projreview;
 
-import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.workflow.application.flow.constant.FlowConstants;
+import cn.zswltech.mithras.foundation.metadata.IMaterialsTypeConvert;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
+import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

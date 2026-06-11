@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.customer.application.client.copyhandler;
 
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpRelatedEnterprise;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpRelatedEnterprise;
-import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.enums.InfoModule;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpRelatedEnterprise;
+import cn.zswltech.mithras.customer.mapper.model.client.NewCorpRelatedEnterprise;
+import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.CorpRelatedEnterpriseService;
 import cn.zswltech.mithras.customer.application.client.NewCorpRelatedEnterpriseService;
 import lombok.extern.slf4j.Slf4j;

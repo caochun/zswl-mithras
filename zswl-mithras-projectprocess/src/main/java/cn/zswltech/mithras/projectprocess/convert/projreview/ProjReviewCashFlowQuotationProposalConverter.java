@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.projectprocess.convert.projreview;
 
 import cn.hutool.core.util.NumberUtil;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
+import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewCashFlowQuotationProposal;
-import cn.zswltech.mithras.projectprocess.service.bo.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.application.bo.CashFlowBO;
 
 import java.util.Objects;
 

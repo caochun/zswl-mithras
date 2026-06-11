@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.dashboard;
 
-import cn.zswltech.mithras.dto.PageReq;
 import lombok.Data;
 
 /**

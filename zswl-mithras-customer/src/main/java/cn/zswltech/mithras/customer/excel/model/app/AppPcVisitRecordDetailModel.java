@@ -1,9 +1,7 @@
 package cn.zswltech.mithras.customer.excel.model.app;
 
-import cn.zswltech.mithras.service.excel.ColumnStyleEnum;
-import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
-import cn.zswltech.mithras.service.excel.model.ExcelModel;
-import io.swagger.annotations.ApiModelProperty;
+import cn.zswltech.mithras.foundation.excel.annotation.SimpleExcelHeader;
+import cn.zswltech.mithras.foundation.excel.model.ExcelModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

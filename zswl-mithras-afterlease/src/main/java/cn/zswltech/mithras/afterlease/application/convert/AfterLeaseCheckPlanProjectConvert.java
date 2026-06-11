@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.afterlease.application.convert;
 
 import cn.zswltech.mithras.dto.afterlease.*;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckWayEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
+import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
 
 import java.util.List;
 import java.util.Objects;

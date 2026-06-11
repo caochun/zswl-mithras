@@ -10,14 +10,14 @@ import cn.zswltech.mithras.dto.file.FileExportREQ;
 import cn.zswltech.mithras.dto.finance.accountage.FinanceAccountAgeItemListREQ;
 import cn.zswltech.mithras.dto.finance.accountage.FinanceAccountAgeItemListRSP;
 import cn.zswltech.mithras.finance.application.accountage.FinanceAccountAgeItemFacade;
-import cn.zswltech.mithras.service.enums.FileExportEnum;
+import cn.zswltech.mithras.foundation.enums.FileExportEnum;
 import cn.zswltech.mithras.finance.enums.third.FinancialAccountAgeSendStatusStatus;
 import cn.zswltech.mithras.finance.enums.third.FinancialAccountNumberENUM;
 import cn.zswltech.mithras.finance.enums.third.FinancialPaymentContentENUM;
 import cn.zswltech.mithras.finance.excel.exporter.FinanceAccountAgeItemExcelExporter;
 import cn.zswltech.mithras.finance.excel.model.FinanceAccountAgeItemCheckModel;
-import cn.zswltech.mithras.service.export.ExportHandle;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
+import cn.zswltech.mithras.foundation.export.ExportHandle;
+import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

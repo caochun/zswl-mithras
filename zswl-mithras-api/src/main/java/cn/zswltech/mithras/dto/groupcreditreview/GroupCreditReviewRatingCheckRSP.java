@@ -1,10 +1,8 @@
 package cn.zswltech.mithras.dto.groupcreditreview;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.List;
 
 /**
  * @author dingqi

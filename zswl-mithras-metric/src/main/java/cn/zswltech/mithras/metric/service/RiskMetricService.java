@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
-import static cn.zswltech.mithras.service.others.MithrasException.err;
+import static cn.zswltech.mithras.foundation.exception.MithrasException.err;
 
 /**
  * @author yibin

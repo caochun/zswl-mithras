@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.newftp.config.NewFtpLprPricingConfigApi;
 import cn.zswltech.mithras.dto.newftp.NewFtpLprPricingAddREQ;
 import cn.zswltech.mithras.dto.newftp.NewFtpLprPricingListRSP;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.basedata.service.BaseDataLprService;
 import org.springframework.web.bind.annotation.RestController;
 

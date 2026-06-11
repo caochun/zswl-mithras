@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.dashboard.excel.exporter;
 
-import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
+import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardOperationCapacityModel;
 import cn.zswltech.mithras.dashboard.excel.model.DashboardOperationPayModel;
 import org.apache.poi.ss.usermodel.Workbook;

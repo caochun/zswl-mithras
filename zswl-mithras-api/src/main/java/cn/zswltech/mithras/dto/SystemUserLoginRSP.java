@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto;
 
 import lombok.Data;
 
-import java.util.List;
 
 /**
  * @author zhouning

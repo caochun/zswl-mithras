@@ -1,15 +1,10 @@
 package cn.zswltech.mithras.dto.app;
 
-import cn.zswltech.mithras.dto.client.client.SponsorClientSubmitNewREQ;
-import cn.zswltech.mithras.dto.collection.CollectionBaseInfoListRSP;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**

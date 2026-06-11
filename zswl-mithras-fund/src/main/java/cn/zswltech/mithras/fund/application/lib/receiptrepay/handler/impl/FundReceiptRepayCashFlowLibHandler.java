@@ -2,10 +2,10 @@ package cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayCashFlowListRSP;
-import cn.zswltech.mithras.fund.domain.enums.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.fund.domain.enums.receiptrepay.FundReceiptRepayInfoModule;
-import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
-import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayCashFlowLib;
+import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
+import cn.zswltech.mithras.fund.enums.receiptrepay.FundReceiptRepayInfoModule;
+import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashFlow;
+import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayCashFlowLib;
 import cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

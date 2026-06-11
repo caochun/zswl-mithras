@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.others.service.riskcontrol;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.riskcontrol.eventbus.MetricComputeEvent;
-import cn.zswltech.mithras.service.service.riskcontrol.eventbus.MetricComputeEventBus;
+import cn.zswltech.mithras.application.orchestration.riskcontrol.eventbus.MetricComputeEvent;
+import cn.zswltech.mithras.application.orchestration.riskcontrol.eventbus.MetricComputeEventBus;
 import org.junit.Test;
 
 import javax.annotation.Resource;

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycConsumptionRestrictionRSP;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycConsumptionRestriction;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycConsumptionRestrictionResp;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycConsumptionRestriction;
+import cn.zswltech.mithras.third.tianyancha.client.resp.TycConsumptionRestrictionResp;
 import cn.hutool.core.date.LocalDateTimeUtil;
 
 import java.util.Objects;

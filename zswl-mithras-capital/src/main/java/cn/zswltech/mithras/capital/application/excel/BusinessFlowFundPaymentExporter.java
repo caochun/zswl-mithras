@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.capital.application.excel;
 
-import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
+import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelExporter;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;
 

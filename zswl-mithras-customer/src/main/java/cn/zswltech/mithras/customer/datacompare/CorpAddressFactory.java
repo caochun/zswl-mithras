@@ -1,0 +1,34 @@
+package cn.zswltech.mithras.customer.datacompare;
+
+import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListRSP;
+import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
+import cn.zswltech.mithras.customer.mapper.lib.client.CorpAddressInfoLibMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib;
+import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
+import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
+import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
+import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpAddressInfoLibHandlerImpl;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * @create: 2022-08-04
+ **/
+@Service("corpAddressInfo")
+public class CorpAddressFactory implements EditdataCompareFactory {
+
+    @Resource
+    private CorpAddressInfoLibMapper libMapper;
+    @Resource
+    private CorpAddressInfoLibHandlerImpl handler;
+    @Resource
+    private CommonVersionMapper commonVersionMapper;
+
+    @Override
+    public AbstractDataCompare createCompare(List rsps, String version) {
+        return new DefaultDataCompare<CorpAddressInfo, CorpAddressInfoLib, CorpAddressInfoListRSP>(rsps, libMapper, handler,commonVersionMapper, "CLIENT", version);
+    }
+}

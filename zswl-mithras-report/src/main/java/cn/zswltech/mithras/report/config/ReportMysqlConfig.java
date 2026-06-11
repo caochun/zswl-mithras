@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.report.config;
 
-import cn.zswltech.mithras.service.plugin.CustomSqlInjector;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomSqlInjector;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.MybatisXMLLanguageDriver;

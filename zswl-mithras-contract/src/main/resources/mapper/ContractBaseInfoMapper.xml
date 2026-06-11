@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper">
 
-    <select id="listContractPrincipal" resultType="cn.zswltech.mithras.contract.application.dto.ContractPrincipalBO">
+    <select id="listContractPrincipal" resultType="cn.zswltech.mithras.contract.core.dto.ContractPrincipalBO">
         select
         b.contract_id as contractId,
         sum(b.principal) as planPrincipal,
@@ -59,7 +59,7 @@
             <if test="dto.createTo!=null">and a.create_time &lt;= #{dto.createTo}</if>
             <if test="dto.updateFrom!=null">and a.update_time &gt;= #{dto.updateFrom}</if>
             <if test="dto.updateTo!=null">and a.update_time &lt;= #{dto.updateTo}</if>
-            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
         </where>
         order by update_time desc
     </select>
@@ -102,7 +102,7 @@
             <if test="dto.createTo!=null">and a.create_time &lt;= #{dto.createTo}</if>
             <if test="dto.updateFrom!=null">and a.update_time &gt;= #{dto.updateFrom}</if>
             <if test="dto.updateTo!=null">and a.update_time &lt;= #{dto.updateTo}</if>
-            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
             <if test="dto.projCosponsorUserIdList!=null and dto.projCosponsorUserIdList.size()>0">
                 and a.proj_sponsor_user_id IN
                 <foreach collection="dto.projCosponsorUserIdList" open="(" close=")" separator="," item="item">
@@ -178,7 +178,7 @@
 
     </select>
 
-    <select id="clientMaxLeaseMonth" resultType="cn.zswltech.mithras.customer.infrastructure.persistence.mapper.dto.ClientMaxLeaseMonthDTO">
+    <select id="clientMaxLeaseMonth" resultType="cn.zswltech.mithras.customer.mapper.dto.ClientMaxLeaseMonthDTO">
         SELECT
         a.client_id,
         max( a.lease_month_count ) AS lease_month_count
@@ -218,7 +218,7 @@
         a.client_id
     </select>
 
-    <select id="getContractExpirationDateByRent" resultType="cn.zswltech.mithras.contract.mapper.dto.ContractRentLastTimeDTO">
+    <select id="getContractExpirationDateByRent" resultType="cn.zswltech.mithras.contract.dto.persistence.ContractRentLastTimeDTO">
         select
         contract_id,
         max(cash_flow_date) endTime
@@ -245,7 +245,7 @@
     </select>
 
     <select id="getOverdueCollection"
-            resultType="cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection">
+            resultType="cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollection">
         select c.client_id            as clientId,
                cl.client_name         as clientName,
                cl.belong_sponsor_id as projectSponsor,
@@ -268,7 +268,7 @@
     </select>
 
 
-    <select id="ocContractList" resultType="cn.zswltech.mithras.contract.mapper.dto.OcContractListDto">
+    <select id="ocContractList" resultType="cn.zswltech.mithras.contract.dto.persistence.OcContractListDto">
         select a.id,
                a.contract_status as contractStatus,
                a.contract_code as contractCode,
@@ -307,7 +307,7 @@
                  left join bifrost_user user on user.id = a.proj_sponsor_user_id
         where a.client_id = #{clientId} and a.contract_status != 'INVALID';
     </select>
-    <select id="ocContractListByClientId" resultType="cn.zswltech.mithras.contract.mapper.dto.OcContractDto">
+    <select id="ocContractListByClientId" resultType="cn.zswltech.mithras.contract.dto.persistence.OcContractDto">
         select
             id,
             client_id as clientId,

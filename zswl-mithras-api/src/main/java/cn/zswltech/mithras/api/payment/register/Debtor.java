@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.api.payment.register;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**

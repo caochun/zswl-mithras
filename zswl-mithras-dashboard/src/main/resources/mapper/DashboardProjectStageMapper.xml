@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardProjectStageMapper">
-    <select id="listProjectOverviewEstablishStage" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectStageEstablishResult">
+<mapper namespace="cn.zswltech.mithras.dashboard.mapper.DashboardProjectStageMapper">
+    <select id="listProjectOverviewEstablishStage" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectStageEstablishResult">
         select
         t.*
         from (
@@ -135,7 +135,7 @@
         <include refid="commonLimitSql"></include>
     </select>
 
-    <select id="listProjectOverviewReviewStage" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectStageReviewResult">
+    <select id="listProjectOverviewReviewStage" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectStageReviewResult">
         select
         prbi.id as mainId,
         prbi.proj_review_status as projReviewStatus,
@@ -227,7 +227,7 @@
         <include refid="commonLimitSql"></include>
     </select>
 
-    <select id="listProjectOverviewContractStage" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectStageContractResult">
+    <select id="listProjectOverviewContractStage" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectStageContractResult">
         select
         cbi.id as mainId,
         cbi.contract_code as contractCode,
@@ -313,7 +313,7 @@
         <include refid="commonLimitSql"></include>
     </select>
 
-    <select id="listProjectOverviewPaymentStage" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectStagePaymentResult">
+    <select id="listProjectOverviewPaymentStage" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectStagePaymentResult">
         select
         pbi.id as mainId,
         pbi.payment_code as paymentCode,
@@ -415,7 +415,7 @@
         <include refid="commonLimitSql"></include>
     </select>
     
-    <select id="listProjectOverviewRepaymentStage" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardProjectStageRepaymentResult">
+    <select id="listProjectOverviewRepaymentStage" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectStageRepaymentResult">
         select
         t.*
         from (

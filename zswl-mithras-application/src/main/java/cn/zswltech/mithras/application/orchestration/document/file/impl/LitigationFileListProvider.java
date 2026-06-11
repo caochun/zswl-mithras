@@ -1,0 +1,41 @@
+package cn.zswltech.mithras.application.orchestration.document.file.impl;
+
+import cn.hutool.core.lang.Pair;
+import cn.zswltech.mithras.dto.file.FileListREQ;
+import cn.zswltech.mithras.dto.file.FileListRSP;
+import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.contract.enums.overdue.LitigationFileType;
+import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
+import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * @description:
+ * @author: zhaozhengkang
+ * @date: 2024/11/6 14:43
+ */
+@Component
+public class LitigationFileListProvider extends AbstractFileListProvider {
+    @Override
+    public BusinessModuleEnum getBusinessModule() {
+        return BusinessModuleEnum.LITIGATION_REGISTRATION;
+    }
+
+    @Override
+    public List<Pair<String, List<FileListRSP>>> listGroup(FileListREQ req) {
+        FileListExtQuery extQuery = new FileListExtQuery();
+        extQuery.setMaterialsTypes(Stream.of(LitigationFileType.values()).map(LitigationFileType::name).collect(Collectors.toList()));
+        return listGroup(req, extQuery);
+    }
+
+
+    @Override
+    protected int getGroupFileSort(FileListRSP rsp) {
+        return Optional.of(LitigationFileType.valueOf(rsp.getMaterialsType())).map(LitigationFileType::getSort).orElse(Integer.MAX_VALUE);
+    }
+}

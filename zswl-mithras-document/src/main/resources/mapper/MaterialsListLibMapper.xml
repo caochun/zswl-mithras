@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.service.mapper.MaterialsListLibMapper">
+<mapper namespace="cn.zswltech.mithras.document.mapper.MaterialsListLibMapper">
 
 
-    <select id="newestMaterials" resultType="cn.zswltech.mithras.service.mapper.model.MaterialsListLib">
+    <select id="newestMaterials" resultType="cn.zswltech.mithras.document.mapper.model.MaterialsListLib">
         SELECT p.* FROM materials_list_lib p
         INNER JOIN
         (SELECT main_id, MAX(version) AS version FROM common_version t1

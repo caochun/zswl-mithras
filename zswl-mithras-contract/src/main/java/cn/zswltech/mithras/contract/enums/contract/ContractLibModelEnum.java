@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.contract.enums.contract;
 
-import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
 
 /**
  * @ClassName ContractLibModelEnum

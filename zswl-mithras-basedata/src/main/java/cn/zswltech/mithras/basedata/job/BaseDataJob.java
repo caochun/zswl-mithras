@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.basedata.job;
 
-import cn.zswltech.mithras.basedata.application.job.BaseDataJobService;
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;

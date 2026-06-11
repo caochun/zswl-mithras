@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.job;
 
-import cn.zswltech.mithras.contract.application.job.NominalPriceInitJobService;
+import cn.zswltech.mithras.contract.job.service.NominalPriceInitJobService;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

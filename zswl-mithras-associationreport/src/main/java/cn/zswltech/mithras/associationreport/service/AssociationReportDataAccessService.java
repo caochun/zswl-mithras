@@ -8,10 +8,10 @@ import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessAddR
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessListREQ;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessModifyREQ;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportDataAccessRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.associationreport.mapper.AssociationReportDataAccessMapper;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportDataAccess;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

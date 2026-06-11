@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.collection.mapper.dto;
 
-import cn.zswltech.mithras.service.mapper.dto.BaseAuthDTO;
+import cn.zswltech.mithras.foundation.persistence.dto.BaseAuthDTO;
 import lombok.Data;
 
 @Data

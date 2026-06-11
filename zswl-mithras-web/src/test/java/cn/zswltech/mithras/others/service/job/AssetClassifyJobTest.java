@@ -2,16 +2,16 @@ package cn.zswltech.mithras.others.service.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyBizNodeEnum;
-import cn.zswltech.mithras.assetclassify.domain.enums.AssetClassifyStatusEnum;
-import cn.zswltech.mithras.service.enums.common.ProcessStatus;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
+import cn.zswltech.mithras.assetclassify.enums.AssetClassifyBizNodeEnum;
+import cn.zswltech.mithras.assetclassify.enums.AssetClassifyStatusEnum;
+import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.assetclassify.job.AssetClassifyJob;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyNodeRecord;
-import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientService;
-import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyNodeRecordService;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyNodeRecord;
+import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyClientService;
+import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyNodeRecordService;
 import cn.zswltech.mithras.assetclassify.application.lib.AssetClassifyLibVersionService;
 import org.junit.Test;
 

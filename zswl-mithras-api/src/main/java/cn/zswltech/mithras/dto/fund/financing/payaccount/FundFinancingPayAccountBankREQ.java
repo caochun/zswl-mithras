@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.fund.financing.payaccount;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.afterlease.application.convert;
 
 import cn.zswltech.mithras.dto.afterlease.*;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQuery;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQuery;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
 import cn.zswltech.mithras.afterlease.application.bo.AfterLeaseClientDataBO;
 import org.mapstruct.Mapper;
 

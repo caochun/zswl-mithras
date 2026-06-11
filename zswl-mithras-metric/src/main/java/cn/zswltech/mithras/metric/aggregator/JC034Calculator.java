@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.foundation.util.StringUtil.mysqlLimit;
 
 /**
  * @author yibin

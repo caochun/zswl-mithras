@@ -6,7 +6,6 @@ import cn.zswltech.mithras.dto.contract.ContractRelationREQ;
 import cn.zswltech.mithras.dto.contract.ContractRelationRSP;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;

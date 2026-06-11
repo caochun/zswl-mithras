@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto.groupcreditestablish.baseinfo;
 import cn.zswltech.mithras.dto.VersionBaseREQ;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
 
 import javax.validation.constraints.NotNull;

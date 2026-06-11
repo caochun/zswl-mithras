@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workbench.application;
 
-import cn.zswltech.mithras.workbench.domain.enums.WorkbenchMetricTimeScope;
+import cn.zswltech.mithras.workbench.enums.WorkbenchMetricTimeScope;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

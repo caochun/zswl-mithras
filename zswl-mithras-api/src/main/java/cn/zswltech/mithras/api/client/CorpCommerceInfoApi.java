@@ -3,7 +3,6 @@ package cn.zswltech.mithras.api.client;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.client.commerceinfo.*;
-import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.HighSeasCustomersREQ;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

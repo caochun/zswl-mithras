@@ -21,11 +21,11 @@ import cn.zswltech.mithras.report.service.CommonInfoService;
 import cn.zswltech.mithras.report.service.draft.CrAccountDraftService;
 import cn.zswltech.mithras.report.service.draft.CrRepayPlanDraftService;
 import cn.zswltech.mithras.report.service.formal.CrRepayPlanService;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.payment.domain.enums.PaymentStatusEnum;
-import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
+import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;
@@ -34,11 +34,11 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.others.Util;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.foundation.util.Util;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -54,7 +54,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
+import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean;
 
 /**
  * 征信报送-还款计划表

@@ -2,16 +2,16 @@ package cn.zswltech.mithras.rating.flow;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.rating.service.RatingClientService;
-import cn.zswltech.mithras.service.flow.listener.endhandler.AbstractProcessEndHandler;
-import cn.zswltech.mithras.service.flow.listener.endhandler.ILifecycleProcessor;
-import cn.zswltech.mithras.projlifecycle.mapper.model.ProjLifecycleEvent;
+import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
+import cn.zswltech.mithras.projectprocess.flow.listener.endhandler.ILifecycleProcessor;
+import cn.zswltech.mithras.projectprocess.projlifecycle.mapper.model.ProjLifecycleEvent;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
 import static cn.hutool.core.text.CharSequenceUtil.equalsAny;
-import static cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum.RatingClientCreateFlow;
-import static cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum.RatingClientUpdateFlow;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.RatingClientCreateFlow;
+import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.RatingClientUpdateFlow;
 
 @Component
 public class RatingClientProcessEndHandler extends AbstractProcessEndHandler implements ILifecycleProcessor {

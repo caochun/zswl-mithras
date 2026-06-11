@@ -4,7 +4,6 @@ import cn.zswltech.mithras.dto.rating.RatingParamFieldRSP;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**

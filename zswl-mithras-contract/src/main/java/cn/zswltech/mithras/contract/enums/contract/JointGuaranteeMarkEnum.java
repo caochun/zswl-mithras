@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.enums.contract;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

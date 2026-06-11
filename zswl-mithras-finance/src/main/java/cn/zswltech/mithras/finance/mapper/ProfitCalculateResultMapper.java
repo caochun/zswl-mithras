@@ -2,7 +2,7 @@ package cn.zswltech.mithras.finance.mapper;
 
 import cn.zswltech.mithras.finance.mapper.model.ProfitCalculateResult;
 import cn.zswltech.mithras.finance.mapper.query.ProfitCalculateResultQuery;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.finance.bo.ProfitCalculateResultBO;
 import org.apache.ibatis.annotations.Param;
 

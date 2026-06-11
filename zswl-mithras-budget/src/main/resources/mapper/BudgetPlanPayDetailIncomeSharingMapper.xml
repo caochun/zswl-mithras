@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanPayDetailIncomeSharingMapper">
-    <select id="listIncomeGroupByDetail" resultType="cn.zswltech.mithras.budget.infrastructure.persistence.mapper.dto.BudgetPlanPayDetailIncomeGroupDTO">
+<mapper namespace="cn.zswltech.mithras.budget.mapper.BudgetPlanPayDetailIncomeSharingMapper">
+    <select id="listIncomeGroupByDetail" resultType="cn.zswltech.mithras.budget.mapper.dto.BudgetPlanPayDetailIncomeGroupDTO">
         select
             budget_plan_pay_detail_id as budgetPlanPayDetailId,
             sum(ifnull(income,0)) as incomeSum

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.newftp.model.lib;
 
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.mapper.tag.ILib;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpShiborInterestRatePricingDraft;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

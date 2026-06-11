@@ -1,13 +1,13 @@
 package cn.zswltech.mithras.contract.versioning.datacompare;
 
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryListRSP;
-import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
+import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
-import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
-import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
-import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
+import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
+import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
+import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractTenantryLibHandler;
 import org.springframework.stereotype.Service;
 

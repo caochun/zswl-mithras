@@ -1,14 +1,14 @@
 package cn.zswltech.mithras.customer.application;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.mithras.customer.hymx.infrastructure.mapper.ClientHymxMapper;
-import cn.zswltech.mithras.customer.hymx.infrastructure.model.ClientHymx;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.hymx.mapper.ClientHymxMapper;
+import cn.zswltech.mithras.customer.hymx.mapper.model.ClientHymx;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.service.service.ClientDeptResolver;
-import cn.zswltech.mithras.service.service.ClientInfoResolver;
-import cn.zswltech.mithras.service.service.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.ClientDeptResolver;
+import cn.zswltech.mithras.foundation.port.ClientInfoResolver;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 

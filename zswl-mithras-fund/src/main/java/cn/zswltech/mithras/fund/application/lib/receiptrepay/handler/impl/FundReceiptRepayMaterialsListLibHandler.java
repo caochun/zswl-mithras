@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.fund.domain.enums.receiptrepay.FundReceiptRepayInfoModule;
-import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
-import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.fund.enums.receiptrepay.FundReceiptRepayInfoModule;
+import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
+import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.fund.application.lib.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import org.springframework.stereotype.Component;
 

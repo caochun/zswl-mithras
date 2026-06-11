@@ -19,14 +19,14 @@ public class BankFlowProcessingCenterPhaseListREQ {
     private Long receiptId;
 
     /**
-     * {@link cn.zswltech.mithras.capital.domain.enums.PaymentWriteOffOrderEnum}
-     * {@link cn.zswltech.mithras.capital.domain.enums.CollectionWriteOffOrderEnum}
+     * {@link cn.zswltech.mithras.capital.enums.PaymentWriteOffOrderEnum}
+     * {@link cn.zswltech.mithras.capital.enums.CollectionWriteOffOrderEnum}
      */
     @ApiModelProperty(value = "现金流项目")
     private String cashFlowItem;
 
     /**
-     * {@link cn.zswltech.mithras.capital.domain.enums.BankFlowPaymentCollectionTypeEnum}
+     * {@link cn.zswltech.mithras.capital.enums.BankFlowPaymentCollectionTypeEnum}
      */
     @ApiModelProperty(value = "付款或者收款枚举")
     @NotBlank(message = "付款或者收款类型不能为空")

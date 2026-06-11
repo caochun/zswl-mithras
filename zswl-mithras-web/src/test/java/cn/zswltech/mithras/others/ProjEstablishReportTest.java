@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.gendoc.render.ProjEstablishReportRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ProjEstablishReportRender;
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.data.RowRenderData;
 import com.deepoove.poi.data.Rows;

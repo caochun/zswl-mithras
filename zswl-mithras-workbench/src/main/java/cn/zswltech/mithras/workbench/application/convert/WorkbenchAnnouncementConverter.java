@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.workbench.WorkbenchAnnouncementAddReq;
 import cn.zswltech.mithras.dto.workbench.WorkbenchAnnouncementDetailRsp;
 import cn.zswltech.mithras.dto.workbench.WorkbenchAnnouncementListRsp;
 import cn.zswltech.mithras.dto.workbench.WorkbenchAnnouncementModifyReq;
-import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchAnnouncement;
+import cn.zswltech.mithras.workbench.mapper.model.WorkbenchAnnouncement;
 import org.mapstruct.Mapper;
 
 /**

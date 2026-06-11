@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.mapper.lib.contract;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItemLib;
-import cn.zswltech.mithras.contract.application.dto.ContractLeaseItemCountBO;
+import cn.zswltech.mithras.contract.core.dto.ContractLeaseItemCountBO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;

@@ -3,8 +3,8 @@ package cn.zswltech.mithras.assetclassify.application.lib.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyCheckContentRSP;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyCheckContent;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyCheckContentLib;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyCheckContent;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyCheckContentLib;
 import cn.zswltech.mithras.assetclassify.application.lib.handler.AssetClassifyReviewAbstractLibHandler;
 import org.springframework.stereotype.Component;
 

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.afterlease.application;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.afterlease.*;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.AfterLeaseAdjustInfo;
+import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

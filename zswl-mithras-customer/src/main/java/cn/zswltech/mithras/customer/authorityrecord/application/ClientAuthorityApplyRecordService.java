@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.authorityrecord.application;
 
-import cn.zswltech.mithras.customer.authorityrecord.infrastructure.mapper.ClientAuthorityApplyRecordMapper;
-import cn.zswltech.mithras.customer.authorityrecord.infrastructure.model.ClientAuthorityApplyRecord;
+import cn.zswltech.mithras.customer.authorityrecord.mapper.ClientAuthorityApplyRecordMapper;
+import cn.zswltech.mithras.customer.authorityrecord.mapper.model.ClientAuthorityApplyRecord;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanCostDetailProjectMapper">
-    <select id="selectGroupByYearMonth" resultType="cn.zswltech.mithras.budget.infrastructure.persistence.mapper.dto.BudgetPlanCostDetailProjectGroupMonthDTO">
+<mapper namespace="cn.zswltech.mithras.budget.mapper.BudgetPlanCostDetailProjectMapper">
+    <select id="selectGroupByYearMonth" resultType="cn.zswltech.mithras.budget.mapper.dto.BudgetPlanCostDetailProjectGroupMonthDTO">
         select
             year as year,
             month as month,

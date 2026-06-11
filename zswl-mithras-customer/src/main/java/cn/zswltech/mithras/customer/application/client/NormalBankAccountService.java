@@ -5,9 +5,9 @@ import cn.zswltech.mithras.customer.application.client.ClientDataSaveCheckInterf
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountAddREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountListREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountModifyREQ;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBankAccount;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalBankAccountMapper;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalBankAccount;
+import cn.zswltech.mithras.customer.mapper.normal.NormalBankAccountMapper;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author junke

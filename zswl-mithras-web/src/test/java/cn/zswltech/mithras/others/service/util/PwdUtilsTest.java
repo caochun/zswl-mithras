@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.others.service.util;
 
 import cn.zswltech.gruul.common.util.ShaUtil;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.util.PwdUtils;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.third.util.PwdUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

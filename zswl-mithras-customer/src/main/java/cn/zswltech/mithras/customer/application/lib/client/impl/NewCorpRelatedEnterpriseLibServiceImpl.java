@@ -2,15 +2,10 @@ package cn.zswltech.mithras.customer.application.lib.client.impl;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseListREQ;
-import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseListRSP;
 import cn.zswltech.mithras.dto.client.relatedenterprise.NewCorpRelatedEnterpriseListRSP;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpRelatedEnterpriseLibMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.NewCorpRelatedEnterpriseLibMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpRelatedEnterpriseLib;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpRelatedEnterpriseLib;
-import cn.zswltech.mithras.customer.application.lib.client.CorpRelatedEnterpriseLibService;
+import cn.zswltech.mithras.customer.mapper.lib.client.NewCorpRelatedEnterpriseLibMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.NewCorpRelatedEnterpriseLib;
 import cn.zswltech.mithras.customer.application.lib.client.NewCorpRelatedEnterpriseLibService;
-import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpRelatedEnterpriseLibHandlerImpl;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NewCorpRelatedEnterpriseLibHandlerImpl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -22,7 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.OrderByType.ascend;
+import static cn.zswltech.mithras.customer.enums.OrderByType.ascend;
 
 /**
  *

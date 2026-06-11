@@ -2,9 +2,9 @@ package cn.zswltech.mithras.others.client;
 
 import cn.zswltech.gruul.common.constant.OrgConstants;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.mithras.service.enums.JobEnum;
+import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.service.service.client.ClientTransferService;
+import cn.zswltech.mithras.application.orchestration.client.ClientTransferService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.others.MithrasException.err;
+import static cn.zswltech.mithras.foundation.exception.MithrasException.err;
 
 /**
  * @author yibin

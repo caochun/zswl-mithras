@@ -2,9 +2,9 @@ package cn.zswltech.mithras.finance.service.lib.finance;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.finance.enums.projreview.FinanceOverdueModule;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.mapper.tag.ILib;
-import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
+import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
+import cn.zswltech.mithras.foundation.persistence.tag.ILib;
+import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;

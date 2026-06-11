@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

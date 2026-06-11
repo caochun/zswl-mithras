@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import static cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable.CAPITAL_BALANCE;
-import static cn.zswltech.mithras.service.util.StringUtil.mysqlLimit;
+import static cn.zswltech.mithras.foundation.util.StringUtil.mysqlLimit;
 
 /**
  * @author yibin

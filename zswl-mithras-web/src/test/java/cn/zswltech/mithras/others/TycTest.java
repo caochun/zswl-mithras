@@ -1,21 +1,21 @@
-//import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.TycAbnormal;
-//import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.TycDishonest;
-//import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.TycEquityInfo;
-//import cn.zswltech.mithras.service.plugin.AutoAuditEntity;
-//import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-//import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
-//import cn.zswltech.mithras.service.repository.PlatformApiHandler;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.req.TycBaseReq;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycAbnormalResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycConsumptionRestrictionResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycDishonestResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycEquityInfoResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycHolderResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycJudicialResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycLawSuitResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycMortgageInfoResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycPunishmentInfoResp;
-//import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycZhixingInfoResp;
+//import cn.zswltech.mithras.customer.mapper.model.client.TycAbnormal;
+//import cn.zswltech.mithras.customer.mapper.model.client.TycDishonest;
+//import cn.zswltech.mithras.customer.mapper.model.client.TycEquityInfo;
+//import cn.zswltech.mithras.foundation.persistence.plugin.AutoAuditEntity;
+//import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
+//import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
+//import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
+//import cn.zswltech.mithras.third.tianyancha.client.req.TycBaseReq;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycAbnormalResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycConsumptionRestrictionResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycDishonestResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycEquityInfoResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycHolderResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycJudicialResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycMortgageInfoResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycPunishmentInfoResp;
+//import cn.zswltech.mithras.third.tianyancha.client.resp.TycZhixingInfoResp;
 //import cn.zswltech.mithras.third.tianyancha.application.TycAbnormalService;
 //import cn.zswltech.mithras.third.tianyancha.application.TycDishonestService;
 //import cn.zswltech.mithras.third.tianyancha.application.TycEquityInfoService;
@@ -34,7 +34,7 @@
 // * @author wangchuanhao
 // * @date 2022/6/20 3:21 PM
 // */
-//public class TycTest extends cn.zswltech.mithras.service.ApplicationTest {
+//public class TycTest extends cn.zswltech.mithras.others.ApplicationTest {
 //
 //    private static final Logger log = LoggerFactory.getLogger(TycTest.class);
 //

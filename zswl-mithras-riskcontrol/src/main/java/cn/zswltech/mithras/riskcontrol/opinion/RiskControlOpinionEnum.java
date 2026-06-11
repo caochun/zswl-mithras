@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.riskcontrol.opinion;
 
-import java.util.stream.Stream;
-
 public enum RiskControlOpinionEnum {
 
     CHANGE_INFO("企业变更","CHANGE_INFO"),

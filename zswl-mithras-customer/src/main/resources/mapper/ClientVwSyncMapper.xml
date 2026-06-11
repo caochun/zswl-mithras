@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.customer.vwsync.infrastructure.mapper.ClientVwSyncMapper">
+<mapper namespace="cn.zswltech.mithras.customer.vwsync.mapper.ClientVwSyncMapper">
 
-    <select id="selectAddListByRecord" resultType="cn.zswltech.mithras.customer.vwsync.infrastructure.model.ClientVwSync">
+    <select id="selectAddListByRecord" resultType="cn.zswltech.mithras.customer.vwsync.mapper.model.ClientVwSync">
         SELECT
             s.id,
             s.client_id,
@@ -14,7 +14,7 @@
         WHERE r.usc_code IS null
     </select>
 
-    <select id="selectWbClientByRecord" resultType="cn.zswltech.mithras.customer.vwsync.infrastructure.model.ClientVwSync">
+    <select id="selectWbClientByRecord" resultType="cn.zswltech.mithras.customer.vwsync.mapper.model.ClientVwSync">
         SELECT
         s.id,
         s.client_id,

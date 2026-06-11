@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.client;
 
 import cn.zswltech.mithras.customer.application.client.ClientDataSaveCheckInterface;
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.enums.InfoModule;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
@@ -9,22 +9,21 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoAddREQ;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListREQ;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpAddressInfoMapper;
-import cn.zswltech.mithras.basedata.mapper.corp.GeneralDictionaryMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.NewCorpAddressInfoMapper;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
+import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
+import cn.zswltech.mithras.customer.mapper.corp.NewCorpAddressInfoMapper;
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpAddressInfo;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.customer.mapper.model.client.NewCorpAddressInfo;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -39,9 +38,9 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
-import static cn.zswltech.mithras.customer.domain.enums.CorpAddressType.REGISTRY_ADDRESS;
-import static cn.zswltech.mithras.service.others.Const.ENUM_TYC_PROVINCE;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.customer.enums.CorpAddressType.REGISTRY_ADDRESS;
+import static cn.zswltech.mithras.foundation.util.Const.ENUM_TYC_PROVINCE;
 
 /**
  * @author luyi

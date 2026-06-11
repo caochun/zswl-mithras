@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto.budget;
 import lombok.Data;
 import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 /**
  * @description 资产减值预测表
  * @author vico

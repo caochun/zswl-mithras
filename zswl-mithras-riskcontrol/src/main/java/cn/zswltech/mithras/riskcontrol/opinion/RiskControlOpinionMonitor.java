@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.riskcontrol.opinion;
 
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;

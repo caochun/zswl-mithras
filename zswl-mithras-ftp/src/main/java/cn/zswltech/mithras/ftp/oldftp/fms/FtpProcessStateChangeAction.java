@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.ftp.oldftp.fms;
 
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
+import cn.zswltech.mithras.foundation.state.IStateMachineEntity;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpProcessStatus;
-import cn.zswltech.mithras.service.service.projfms.*;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import lombok.Data;

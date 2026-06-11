@@ -1,15 +1,12 @@
 package cn.zswltech.mithras.third.ep.mapper.model;
 
-import cn.zswltech.mithras.service.annotation.NotCompareColumn;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
+import cn.zswltech.mithras.foundation.annotation.NotCompareColumn;
 import com.baomidou.mybatisplus.annotation.*;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**

@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.api.fund.financing;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.contract.ContractBaseInfoRSP;
 import cn.zswltech.mithras.dto.fund.financing.pledge.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

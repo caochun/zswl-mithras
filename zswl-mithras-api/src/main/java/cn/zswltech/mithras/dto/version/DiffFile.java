@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +13,7 @@ public class DiffFile extends FileListRSP {
 
     /**
      * 变动类型
-     * @see cn.zswltech.mithras.service.enums.InfoOperation
+     * @see cn.zswltech.mithras.foundation.enums.InfoOperation
      */
     private String changeType;
 

@@ -1,14 +1,14 @@
 package cn.zswltech.mithras.third.datashare.service.impl;
 
-import cn.zswltech.mithras.basic.Constant;
+import cn.zswltech.mithras.foundation.constant.Constant;
 import cn.zswltech.mithras.dto.file.FileUploadREQ;
 import cn.zswltech.mithras.dto.file.FileUploadRSP;
-import cn.zswltech.mithras.service.config.redis.RedisHelper;
+import cn.zswltech.mithras.foundation.cache.RedisHelper;
 import cn.zswltech.mithras.third.datashare.mapper.DataShareFkMapper;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareFk;
-import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.service.repository.PlatformApiHandleFactory;
-import cn.zswltech.mithras.service.repository.PlatformApiHandler;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
 import cn.zswltech.mithras.third.datashare.service.DataShareFkService;
 import cn.zswltech.mithras.third.datashare.service.DataShareMaterialPort;
 import cn.zswltech.mithras.third.datashare.service.entity.AiResult;
@@ -19,7 +19,7 @@ import cn.zswltech.mithras.third.datashare.service.rsp.CQ2AcchmentSaveRsp;
 import cn.zswltech.mithras.third.datashare.service.util.CustomMultipartFile;
 import cn.zswltech.mithras.third.datashare.service.util.HLYEnum;
 import cn.zswltech.mithras.third.datashare.service.util.HLYHttpUtil;
-import cn.zswltech.mithras.service.util.StringUtils;
+import cn.zswltech.mithras.foundation.util.StringUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

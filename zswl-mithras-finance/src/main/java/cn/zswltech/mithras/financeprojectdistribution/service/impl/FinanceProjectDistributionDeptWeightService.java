@@ -9,7 +9,7 @@ import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistr
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptWeight;
 import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionDeptWeightApplicationService;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

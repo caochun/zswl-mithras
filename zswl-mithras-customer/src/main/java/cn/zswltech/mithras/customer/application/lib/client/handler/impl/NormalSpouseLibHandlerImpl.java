@@ -2,18 +2,17 @@ package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.normal.NormalSpouseListRSP;
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalSpouse;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalSpouseLib;
+import cn.zswltech.mithras.customer.enums.InfoModule;
+import cn.zswltech.mithras.customer.enums.client.ClientType;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalSpouse;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalSpouseLib;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 

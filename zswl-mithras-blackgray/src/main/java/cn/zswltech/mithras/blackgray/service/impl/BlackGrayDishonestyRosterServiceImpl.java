@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayDishonestyRosterREQ;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayDishonestyRosterRSP;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayDishonestyRosterMapper;
-import cn.zswltech.mithras.blackgray.model.BlackGrayDishonestyRosterDO;
+import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayDishonestyRosterDO;
 import cn.zswltech.mithras.blackgray.service.BlackGrayDishonestyRosterService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;

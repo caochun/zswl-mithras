@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.lib.NewAfterLeaseCheckReportMetaLibMapper">
+<mapper namespace="cn.zswltech.mithras.afterlease.mapper.lib.NewAfterLeaseCheckReportMetaLibMapper">
 
     <select id="selectLatestListByPlanClientId"
-            resultType="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckReportMetaLib">
+            resultType="cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportMetaLib">
         SELECT t1.*
         FROM new_after_lease_check_report_meta_lib t1
         INNER JOIN (

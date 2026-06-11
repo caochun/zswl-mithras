@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.enums.projpricing;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 public enum ProjPricingInfoModule implements PullDown {
 

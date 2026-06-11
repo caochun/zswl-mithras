@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.monthly.interfaces.interestpay;
 
-import cn.zswltech.mithras.api.InterestPay.InterestPayApi;
+import cn.zswltech.mithras.api.interestpay.InterestPayApi;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.interestPay.*;
+import cn.zswltech.mithras.dto.interestpay.*;
 import cn.zswltech.mithras.monthly.application.interestpay.InterestPayApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 

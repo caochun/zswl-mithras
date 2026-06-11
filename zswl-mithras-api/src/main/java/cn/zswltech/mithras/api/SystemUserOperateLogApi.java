@@ -2,7 +2,6 @@ package cn.zswltech.mithras.api;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.SystemUserAuthCodeRSP;
 import cn.zswltech.mithras.dto.SystemUserOperateLogREQ;
 import cn.zswltech.mithras.dto.SystemUserOperateLogRSP;
 import io.swagger.annotations.Api;

@@ -19,17 +19,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @ServletComponentScan("cn.zswltech.mithras.guanbao.config")
-@MapperScan({"cn.zswltech.mithras.service.mapper",
+@MapperScan({"cn.zswltech.mithras.document.mapper",
+        "cn.zswltech.mithras.customer.mapper",
+        "cn.zswltech.mithras.customer.authorityrecord.mapper",
+        "cn.zswltech.mithras.customer.externalcustomer.mapper",
+        "cn.zswltech.mithras.customer.externaldata.common.mapper",
+        "cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper",
+        "cn.zswltech.mithras.customer.externaldata.tianyancha.mapper",
+        "cn.zswltech.mithras.customer.externaldata.zhongdeng.mapper",
+        "cn.zswltech.mithras.customer.hymx.mapper",
+        "cn.zswltech.mithras.customer.infohistory.mapper",
+        "cn.zswltech.mithras.customer.sandrecord.mapper",
+        "cn.zswltech.mithras.customer.userref.mapper",
+        "cn.zswltech.mithras.customer.vwsync.mapper",
         "cn.zswltech.mithras.system.audit.mapper",
+        "cn.zswltech.mithras.message.mapper",
         "cn.zswltech.mithras.contract.mapper",
-        "cn.zswltech.mithras.contract.overdue.infrastructure.dao.mapper",
+        "cn.zswltech.mithras.contract.overdue.mapper",
         "cn.zswltech.mithras.rating.mapper",
-        "cn.zswltech.mithras.third.providence.mapper",
+        "cn.zswltech.mithras.third.**.mapper",
         "cn.zswltech.lib.futurelog.save.mapper",
         "cn.zswltech.mithras.blackgray.mapper",
         "cn.zswltech.mithras.metric.financialcloudmetric.mapper",
         "cn.zswltech.mithras.ftp.newftp.mapper",
-        "cn.zswltech.mithras.service.fund.direct.mapper",
+        "cn.zswltech.mithras.fund.direct.mapper",
         "cn.zswltech.mithras.kpi.mapper",
         "cn.zswltech.mithras.finance.view.mapper"
 })
@@ -56,5 +69,4 @@ public class MithrasApplication {
     }
 
 }
-
 

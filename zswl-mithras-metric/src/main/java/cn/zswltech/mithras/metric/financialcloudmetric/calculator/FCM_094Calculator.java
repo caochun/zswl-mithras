@@ -3,7 +3,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease.DepartmentPaymentCache;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -5,7 +5,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractAocPriceLibMappe
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPriceLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractAocPriceLibHandler;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

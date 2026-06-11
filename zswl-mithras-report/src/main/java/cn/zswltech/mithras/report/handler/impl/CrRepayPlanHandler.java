@@ -19,11 +19,11 @@ import cn.zswltech.mithras.report.service.draft.CrActualRepayDraftService;
 import cn.zswltech.mithras.report.service.draft.CrRepayPlanDraftService;
 import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.report.util.ReportCompareUtil;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
-import cn.zswltech.mithras.payment.domain.enums.PaymentWriteOffStatus;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
+import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;
@@ -33,11 +33,11 @@ import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActualLib;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
-import cn.zswltech.mithras.service.util.StreamUtil;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.foundation.context.SpringContextHolder;
+import cn.zswltech.mithras.foundation.util.StreamUtil;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -54,7 +54,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
+import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean;
 
 /**
  * 征信报送-还款计划表

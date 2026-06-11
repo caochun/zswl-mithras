@@ -7,16 +7,16 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.CreditorDebtorTypeEnum;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.service.service.client.ClientService;
+import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractTenantryService;
-import cn.zswltech.mithras.service.service.projreview.ProjReviewBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum.MAIN_LESSSEE;
-import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
+import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean;
 
 /**
  * @author yibin

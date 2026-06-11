@@ -8,8 +8,8 @@ import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.monthly.application.job.FundsDailyCostJobService;
 import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCost;
 import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCostMain;
-import cn.zswltech.mithras.service.service.monthly.FundsDailyCostMainService;
-import cn.zswltech.mithras.service.service.monthly.FundsDailyCostService;
+import cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostMainService;
+import cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;
 

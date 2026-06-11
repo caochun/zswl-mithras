@@ -7,7 +7,7 @@ import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpShiborInterestRateConf
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRateConfig;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpShiborInterestRatePricingConfig;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpShiborInterestRatePricingConfigService;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

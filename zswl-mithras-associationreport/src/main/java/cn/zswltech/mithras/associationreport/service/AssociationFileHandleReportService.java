@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.associationreport.service;
 
 import cn.zswltech.mithras.associationreport.excel.CsvColumn;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;

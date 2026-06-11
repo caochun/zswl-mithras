@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 
 /**
  * @description:

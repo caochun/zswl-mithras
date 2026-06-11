@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.fund.receipt;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.fund.receiptrepay.FundReceiptRepayBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

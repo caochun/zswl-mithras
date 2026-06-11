@@ -13,18 +13,18 @@ import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.client.share.DataShareRegisterCustomREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareUserREQ;
 import cn.zswltech.mithras.dto.client.share.DataShareUserRSP;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.enums.client.ClientType;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareCodeDict;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareMerchants;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareOrg;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
 import cn.zswltech.mithras.third.datashare.service.DataShareMerchantsService;
 import cn.zswltech.mithras.third.datashare.service.DataShareService;
-import cn.zswltech.mithras.service.util.PwdUtils;
+import cn.zswltech.mithras.third.util.PwdUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -39,7 +39,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.annotation.Resource;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -161,7 +160,7 @@ public class DataShareServiceImpl implements DataShareService {
         //获取管理信息信息
         DataShareManager dataShareManager = dataShareManagerService.getOne(Wrappers.<DataShareManager>lambdaQuery()
                 .eq(DataShareManager::getModelName, MERCHANT_MODEL)
-                .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                .last(cn.zswltech.mithras.foundation.util.StringUtil.mysqlLimitOne()));
         if (ObjectUtil.isEmpty(dataShareManager)) {
             //无记录，第一次查询，全量获取
             //重试三次
@@ -215,7 +214,7 @@ public class DataShareServiceImpl implements DataShareService {
         //获取管理信息信息
         DataShareManager dataShareManager = dataShareManagerService.getOne(Wrappers.<DataShareManager>lambdaQuery()
                 .eq(DataShareManager::getModelName, MAIN_CODE)
-                .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                .last(cn.zswltech.mithras.foundation.util.StringUtil.mysqlLimitOne()));
 
         if (ObjectUtil.isEmpty(dataShareManager)) {
             //无记录，第一次查询，全量获取
@@ -270,7 +269,7 @@ public class DataShareServiceImpl implements DataShareService {
         DataShareCodeDict codeDict = dataShareCodeDictService.getOne(Wrappers.<DataShareCodeDict>lambdaQuery()
                 .eq(DataShareCodeDict::getPhone, realPhone)
                 .orderByDesc(DataShareCodeDict::getUpdateTime)
-                .last(cn.zswltech.mithras.service.util.StringUtil.mysqlLimitOne()));
+                .last(cn.zswltech.mithras.foundation.util.StringUtil.mysqlLimitOne()));
         if (ObjectUtil.isNotNull(codeDict)) {
             userDO.setId(req.getUserId());
             userDO.setMainCode(codeDict.getUserId());

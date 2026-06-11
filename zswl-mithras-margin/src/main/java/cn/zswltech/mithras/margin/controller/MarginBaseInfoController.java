@@ -4,10 +4,10 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.margin.MarginBaseInfoApi;
 import cn.zswltech.mithras.dto.margin.*;
-import cn.zswltech.mithras.service.constant.GlobalConstants;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.margin.service.MarginBaseInfoApplicationService;
-import cn.zswltech.mithras.margin.service.MarginRecordApplicationService;
+import cn.zswltech.mithras.foundation.constant.GlobalConstants;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.margin.application.MarginBaseInfoApplicationService;
+import cn.zswltech.mithras.margin.application.MarginRecordApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

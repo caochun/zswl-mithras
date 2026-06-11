@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.dto.contract.pledge;
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageListRSP;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

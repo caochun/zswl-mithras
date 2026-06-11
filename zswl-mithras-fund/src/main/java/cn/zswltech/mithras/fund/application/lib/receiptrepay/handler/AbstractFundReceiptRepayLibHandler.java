@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.fund.application.lib.receiptrepay.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.fund.domain.enums.receiptrepay.FundReceiptRepayInfoModule;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.mapper.tag.ILib;
-import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
+import cn.zswltech.mithras.fund.enums.receiptrepay.FundReceiptRepayInfoModule;
+import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
+import cn.zswltech.mithras.foundation.persistence.tag.ILib;
+import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
 
 import java.util.Collections;
 import java.util.Set;

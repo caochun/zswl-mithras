@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.report.enums.biz;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.config.enumscan.PullDownExt;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDownExt;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

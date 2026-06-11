@@ -2,11 +2,11 @@ package cn.zswltech.mithras.others.service.riskcontrol;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.application.riskcontrol.RiskControlOpinionMonitorFacade;
+import cn.zswltech.mithras.application.orchestration.facade.riskcontrol.RiskControlOpinionMonitorFacade;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitorMapper;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorMapper;
-import cn.zswltech.mithras.service.service.riskcontrol.RiskControlOpinionVersionService;
+import cn.zswltech.mithras.application.orchestration.riskcontrol.opinion.RiskControlOpinionVersionService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;
 

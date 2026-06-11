@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.workbench.application.convert;
 
 import cn.zswltech.mithras.dto.workbench.WorkbenchCardMetricListRsp;
-import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchCardMetric;
+import cn.zswltech.mithras.workbench.mapper.model.WorkbenchCardMetric;
 import org.mapstruct.Mapper;
 
 /**

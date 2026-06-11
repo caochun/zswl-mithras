@@ -87,7 +87,7 @@
         ORDER BY clientName,contractCode,actualLeaseDate
     </select>
 
-    <resultMap id="queryListResultMap" type="cn.zswltech.mithras.dto.incomeSharing.IncomeSharingListBO">
+    <resultMap id="queryListResultMap" type="cn.zswltech.mithras.dto.incomesharing.IncomeSharingListBO">
         <result column="receipt_id" property="receiptId"/>
         <result column="receipt_code" property="receiptCode"/>
         <result column="client_name" property="clientName"/>
@@ -102,7 +102,7 @@
         <result column="confirm_time" property="confirmTime"/>
     </resultMap>
     <select id="queryList" resultMap="queryListResultMap"
-            parameterType="cn.zswltech.mithras.dto.incomeSharing.IncomeSharingListREQ">
+            parameterType="cn.zswltech.mithras.dto.incomesharing.IncomeSharingListREQ">
         SELECT
         income.receipt_id,
         receipt.receipt_code,
@@ -143,7 +143,7 @@
         </if>
     </select>
 
-    <resultMap id="detailResultMap" type="cn.zswltech.mithras.dto.incomeSharing.IncomeSharingRSP">
+    <resultMap id="detailResultMap" type="cn.zswltech.mithras.dto.incomesharing.IncomeSharingRSP">
         <result column="receipt_code" property="receiptCode"/>
         <result column="contract_code" property="contractCode"/>
         <result column="income_date" property="incomeDate"/>
@@ -157,7 +157,7 @@
         <result column="is_confirmed" property="isConfirmed"/>
     </resultMap>
     <select id="queryDetail" resultMap="detailResultMap"
-            parameterType="cn.zswltech.mithras.dto.incomeSharing.IncomeSharingDetailREQ">
+            parameterType="cn.zswltech.mithras.dto.incomesharing.IncomeSharingDetailREQ">
         SELECT receipt.receipt_code,
                base.contract_code,
                income.income_date,

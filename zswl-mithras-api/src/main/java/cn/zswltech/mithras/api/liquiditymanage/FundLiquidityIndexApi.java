@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.api.liquiditymanage;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.liquiditymanage.liquidityIndex.*;
+import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;

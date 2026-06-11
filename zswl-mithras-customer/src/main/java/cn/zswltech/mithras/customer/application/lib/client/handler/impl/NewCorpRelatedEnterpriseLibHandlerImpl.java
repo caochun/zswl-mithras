@@ -1,12 +1,11 @@
 package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.mithras.dto.client.relatedenterprise.CorpRelatedEnterpriseListRSP;
 import cn.zswltech.mithras.dto.client.relatedenterprise.NewCorpRelatedEnterpriseListRSP;
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
+import cn.zswltech.mithras.customer.enums.InfoModule;
+import cn.zswltech.mithras.customer.enums.client.ClientType;
+import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.*;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;

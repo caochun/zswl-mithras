@@ -1,9 +1,7 @@
 package cn.zswltech.mithras.contract.overdue.application.docprinting;
 
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.contract.overdue.application.dto.LitigationListDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.PrintingListDto;
-import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuery;
 import cn.zswltech.mithras.contract.overdue.application.query.PrintingPageQuery;
 
 /**

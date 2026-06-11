@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.contract.overdue.domain.collection;
 
 import cn.zswltech.mithras.contract.overdue.common.OverdueTypeConversionWorker;
-import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionAction;
-import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionActionLib;
+import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollectionAction;
+import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollectionActionLib;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

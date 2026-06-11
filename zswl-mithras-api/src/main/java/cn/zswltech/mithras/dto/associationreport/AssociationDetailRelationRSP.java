@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.associationreport;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

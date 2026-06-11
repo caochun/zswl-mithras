@@ -7,7 +7,7 @@ import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
 import cn.zswltech.mithras.creditreport.service.CreditReportApiService;
 import cn.zswltech.mithras.creditreport.service.CreditReportClientItemService;
 import cn.zswltech.mithras.creditreport.service.CreditReportResultApplicationService;
-import cn.zswltech.mithras.creditreport.service.resp.CreditReportObtainResultPDFResp;
+import cn.zswltech.mithras.creditreport.client.xj.resp.CreditReportObtainResultPDFResp;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

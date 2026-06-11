@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.RentCollectionIndexMapper">
+<mapper namespace="cn.zswltech.mithras.afterlease.mapper.RentCollectionIndexMapper">
 
-    <select id="indexList" resultType="cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.dto.RentCollectionIndexListDTO">
+    <select id="indexList" resultType="cn.zswltech.mithras.afterlease.mapper.dto.RentCollectionIndexListDTO">
         SELECT *, GROUP_CONCAT(DISTINCT t2.collectionId) AS collectionIds FROM(
         SELECT p.receipt_id_final AS receiptId,
         c.id AS contractId,
@@ -36,7 +36,7 @@
         <if test="dto.filterFinishFlag==true">AND co.write_off_status != 'WRITE_OFF_COMPLETED'</if>
         <if test="dto.overdueFlag==true">AND co.write_off_status != 'WRITE_OFF_COMPLETED' AND co.plan_collection_date &lt; SUBDATE(CURDATE(),3)</if>
         <if test="dto.notNoticeYetFlag==true">AND co.write_off_status != 'WRITE_OFF_COMPLETED' AND co.email_notice_count = 0 AND co.plan_collection_date &lt;= date_add(CURDATE(), INTERVAL 7 DAY) AND co.plan_collection_date >= CURDATE()</if>
-        <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+        <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
         ) t2
         GROUP BY t2.receiptId
 

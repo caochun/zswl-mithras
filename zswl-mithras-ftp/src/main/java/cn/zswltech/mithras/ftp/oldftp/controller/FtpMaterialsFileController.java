@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.ftp.FtpBatchIdsReq;
 import cn.zswltech.mithras.dto.ftp.FtpMaterialListRSP;
 import cn.zswltech.mithras.dto.ftp.FtpMaterialListReq;
 import cn.zswltech.mithras.ftp.oldftp.service.application.FtpMaterialsFileApplicationService;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 

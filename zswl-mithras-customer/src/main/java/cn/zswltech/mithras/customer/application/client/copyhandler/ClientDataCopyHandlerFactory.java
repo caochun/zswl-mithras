@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.application.client.copyhandler;
 
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.enums.InfoModule;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

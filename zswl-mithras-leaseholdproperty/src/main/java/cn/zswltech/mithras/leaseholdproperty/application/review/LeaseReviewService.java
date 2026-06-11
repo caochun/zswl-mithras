@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.leaseholdproperty.application.review;
 
-import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 
 public interface LeaseReviewService {
 

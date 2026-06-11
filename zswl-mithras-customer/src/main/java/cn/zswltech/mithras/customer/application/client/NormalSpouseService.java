@@ -4,22 +4,21 @@ package cn.zswltech.mithras.customer.application.client;
 import cn.zswltech.mithras.customer.application.client.ClientDataSaveCheckInterface;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.client.normal.NormalSpouseAddREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalSpouseListREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalSpouseListRSP;
 import cn.zswltech.mithras.dto.client.normal.NormalSpouseModifyREQ;
-import cn.zswltech.mithras.customer.domain.enums.GenderType;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.NormalSpouseLibMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.Client;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBaseInfo;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalSpouse;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalSpouseLib;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalBaseInfoMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.normal.NormalSpouseMapper;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.customer.enums.GenderType;
+import cn.zswltech.mithras.customer.enums.client.ClientType;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.lib.client.NormalSpouseLibMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.Client;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalBaseInfo;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalSpouse;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalSpouseLib;
+import cn.zswltech.mithras.customer.mapper.normal.NormalBaseInfoMapper;
+import cn.zswltech.mithras.customer.mapper.normal.NormalSpouseMapper;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.NormalSpouseLibHandlerImpl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -27,7 +26,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +34,7 @@ import java.util.stream.Collectors;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author junke

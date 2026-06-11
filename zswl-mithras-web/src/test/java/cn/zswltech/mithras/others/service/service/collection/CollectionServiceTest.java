@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.service.collection;
 
 import cn.zswltech.mithras.collection.job.CollectionJob;
-import cn.zswltech.mithras.service.service.collection.CollectionService;
+import cn.zswltech.mithras.application.orchestration.collection.CollectionService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

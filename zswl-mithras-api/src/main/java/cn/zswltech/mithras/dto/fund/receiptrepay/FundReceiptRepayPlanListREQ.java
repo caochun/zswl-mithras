@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto.fund.receiptrepay;
 import lombok.Data;
 import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 /**
  * @description 还款计划
  * @author zhaozhengkang

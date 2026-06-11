@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.dashboard.boss.AssetsOverviewDetailListRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.BalanceOverviewRSP;
 import cn.zswltech.mithras.dto.dashboard.boss.LoanOverviewRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
-import cn.zswltech.mithras.dashboard.domain.enums.BossDashboardGuanYuanDataSourceKeyEnum;
+import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.AssetsOverviewByCityDTO;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.AssetsOverviewItemDTO;
 import cn.zswltech.sleipnir.toolkit.request.guanyuan.GuanYuanDSRequest;

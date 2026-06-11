@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.job;
 
-import cn.zswltech.mithras.contract.application.job.ContractJobService;
+import cn.zswltech.mithras.contract.job.service.ContractJobService;
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

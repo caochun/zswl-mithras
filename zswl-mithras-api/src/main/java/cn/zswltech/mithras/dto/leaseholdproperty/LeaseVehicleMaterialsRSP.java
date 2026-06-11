@@ -3,7 +3,6 @@ package cn.zswltech.mithras.dto.leaseholdproperty;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.io.InputStream;
 
 /**
  * @author zhouning

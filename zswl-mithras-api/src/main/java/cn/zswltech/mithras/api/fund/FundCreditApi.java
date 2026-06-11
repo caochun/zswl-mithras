@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.api.fund;
 
-import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.fund.*;

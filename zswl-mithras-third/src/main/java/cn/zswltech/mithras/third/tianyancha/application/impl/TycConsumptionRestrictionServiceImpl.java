@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.third.tianyancha.application.impl;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycConsumptionRestrictionConvert;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.mapper.TycConsumptionRestrictionMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycConsumptionRestriction;
-import cn.zswltech.mithras.service.repository.PlatformApiEnum;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.TycConsumptionRestrictionResp;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycConsumptionRestrictionMapper;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycConsumptionRestriction;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
+import cn.zswltech.mithras.third.tianyancha.client.resp.TycConsumptionRestrictionResp;
 import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;
 import cn.zswltech.mithras.third.tianyancha.application.TycConsumptionRestrictionService;
 import lombok.extern.slf4j.Slf4j;

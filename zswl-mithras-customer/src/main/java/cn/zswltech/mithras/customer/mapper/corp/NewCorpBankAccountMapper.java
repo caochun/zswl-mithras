@@ -1,0 +1,11 @@
+package cn.zswltech.mithras.customer.mapper.corp;
+
+import cn.zswltech.mithras.customer.mapper.model.client.NewCorpBankAccount;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
+
+/**
+ * @author luyi
+ */
+public interface NewCorpBankAccountMapper extends CustomBaseMapper<NewCorpBankAccount> {
+
+}

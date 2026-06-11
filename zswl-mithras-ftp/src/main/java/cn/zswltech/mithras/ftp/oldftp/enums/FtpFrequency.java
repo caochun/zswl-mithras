@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.ftp.oldftp.enums;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 public enum FtpFrequency implements PullDown {
     DAY("天"),MONTH("月"), SEASON("季"), HALF_YEAR("半年"), YEAR("年");

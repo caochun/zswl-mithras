@@ -7,7 +7,7 @@ import cn.zswltech.mithras.contract.overdue.domain.litigation.CaseProgress;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.Defendant;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.Litigation;
 import cn.zswltech.mithras.contract.overdue.domain.litigation.TrialInfo;
-import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.LitigationRegistration;
+import cn.zswltech.mithras.contract.overdue.mapper.model.LitigationRegistration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

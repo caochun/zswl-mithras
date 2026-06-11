@@ -6,10 +6,10 @@ import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalcula
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateDetailRSP;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.RiskControlScoreCordCalculateSaveREQ;
 import cn.zswltech.mithras.riskcontrol.scorecard.application.assembler.RiskControlCardTargetConverter;
-import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardAreaAndTarget;
-import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.model.RiskControlScoreCardTarget;
-import cn.zswltech.mithras.riskcontrol.scorecard.infrastructure.mapper.RiskControlScoreCardAreaAndTargetMapper;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardAreaAndTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.mapper.model.RiskControlScoreCardTarget;
+import cn.zswltech.mithras.riskcontrol.scorecard.mapper.RiskControlScoreCardAreaAndTargetMapper;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

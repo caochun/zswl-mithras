@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.service.fund.receipt;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectRepayActualSplitRSP;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.fund.direct.service.FundDirectFinancingRepayActualSplitService;
+import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingRepayActualSplitService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

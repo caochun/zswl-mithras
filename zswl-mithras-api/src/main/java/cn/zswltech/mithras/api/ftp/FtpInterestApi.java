@@ -2,7 +2,6 @@ package cn.zswltech.mithras.api.ftp;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.ftp.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

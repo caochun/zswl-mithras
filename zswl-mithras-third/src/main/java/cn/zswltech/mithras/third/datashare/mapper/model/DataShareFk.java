@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.datashare.mapper.model;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModelWithLogicDelete;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
+import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

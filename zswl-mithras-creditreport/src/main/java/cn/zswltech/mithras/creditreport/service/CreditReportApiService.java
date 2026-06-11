@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.creditreport.service;
 
 import cn.zswltech.mithras.creditreport.mapper.dto.credit.XJCreditReportJsonDTO;
-import cn.zswltech.mithras.creditreport.service.resp.CreditReportObtainResultPDFResp;
+import cn.zswltech.mithras.creditreport.client.xj.resp.CreditReportObtainResultPDFResp;
 import org.springframework.stereotype.Service;
 
 /**

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.riskcontrol.common;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 /**
  * @description:

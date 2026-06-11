@@ -3,9 +3,7 @@ package cn.zswltech.mithras.dto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotNull;
 
 /**
  * @author junke

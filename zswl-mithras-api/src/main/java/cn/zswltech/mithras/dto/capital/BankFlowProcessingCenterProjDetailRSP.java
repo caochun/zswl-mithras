@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.capital;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;

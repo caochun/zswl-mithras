@@ -3,7 +3,6 @@ package cn.zswltech.mithras.dto.dashboard;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.ToString;
 
 import java.math.BigDecimal;
 

@@ -2,7 +2,6 @@ package cn.zswltech.mithras.api.filingmaterials;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SelectRSP;
-import cn.zswltech.mithras.dto.file.FileDownLoadRSP;
 import cn.zswltech.mithras.dto.filingmaterials.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

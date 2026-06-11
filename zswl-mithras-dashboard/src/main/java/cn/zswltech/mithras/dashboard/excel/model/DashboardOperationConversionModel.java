@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.dashboard.excel.model;
 
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
-import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
-import cn.zswltech.mithras.service.excel.model.ExcelModel;
+import cn.zswltech.mithras.foundation.excel.annotation.SimpleExcelHeader;
+import cn.zswltech.mithras.foundation.excel.model.ExcelModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

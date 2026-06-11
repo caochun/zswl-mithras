@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.client;
 
 import cn.zswltech.mithras.customer.application.client.ClientDataSaveCheckInterface;
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.enums.InfoModule;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
@@ -10,13 +10,13 @@ import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoAddREQ;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoListREQ;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoModifyREQ;
 import cn.zswltech.mithras.dto.client.bondinfo.CorpBondInfoRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpBondInfoMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.NewCorpBondInfoMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.corp.CorpBondInfoMapper;
+import cn.zswltech.mithras.customer.mapper.corp.NewCorpBondInfoMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;
 import cn.zswltech.mithras.customer.application.client.ClientAuthorityDataPort;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -33,7 +33,7 @@ import java.util.Optional;
 
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author luyi

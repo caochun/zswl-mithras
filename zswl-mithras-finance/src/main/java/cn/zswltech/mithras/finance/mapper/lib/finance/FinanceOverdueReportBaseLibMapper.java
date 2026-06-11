@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.finance.mapper.lib.finance;
 
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueReportBaseLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
  * @description:

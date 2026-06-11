@@ -10,12 +10,12 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
 import cn.zswltech.mithras.policy.excel.model.PaymentPolicyExcelModel;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.dto.PaymentListDto;
+import cn.zswltech.mithras.payment.mapper.dto.PaymentListDto;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentBaseInfoLib;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPolicyInfo;
+import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfoLib;
+import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

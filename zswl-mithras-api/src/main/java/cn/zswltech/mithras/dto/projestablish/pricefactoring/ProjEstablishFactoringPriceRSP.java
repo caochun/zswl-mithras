@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.projestablish.pricefactoring;
 
-import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.contract.ContractBaseInfoRSP;
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import io.swagger.annotations.ApiModel;

@@ -3,9 +3,9 @@ package cn.zswltech.mithras.payment.application.pubinfo;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.payment.domain.enums.pubinfo.PublicInfoFileTypeEnum;
-import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.payment.enums.pubinfo.PublicInfoFileTypeEnum;
+import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 
 import java.io.IOException;
 import java.io.InputStream;

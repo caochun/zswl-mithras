@@ -2,8 +2,8 @@ package cn.zswltech.mithras.workbench.application.job;
 
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
-import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchHyperlink;
-import cn.zswltech.mithras.workbench.infrastructure.persistence.mapper.model.WorkbenchShortcuts;
+import cn.zswltech.mithras.workbench.mapper.model.WorkbenchHyperlink;
+import cn.zswltech.mithras.workbench.mapper.model.WorkbenchShortcuts;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.workbench.application.WorkbenchHyperlinkService;
 import cn.zswltech.mithras.workbench.application.WorkbenchShortcutsService;

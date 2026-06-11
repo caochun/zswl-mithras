@@ -1,10 +1,8 @@
 package cn.zswltech.mithras.contract.overdue.application.command;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.Set;
 
 /**
  * @description:

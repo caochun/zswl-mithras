@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.blackgray.mapper.BlackGrayLibraryMapper">
-  <resultMap id="BaseResultMap" type="cn.zswltech.mithras.blackgray.model.BlackGrayLibrary">
+  <resultMap id="BaseResultMap" type="cn.zswltech.mithras.blackgray.mapper.model.BlackGrayLibrary">
     <!--
       WARNING - @mbg.generated
     -->
@@ -220,7 +220,7 @@
         GROUP BY black_gray_type_num
     </select>
 
-    <select id="singleEntList" resultType="cn.zswltech.mithras.blackgray.model.BlackGrayLibrary">
+    <select id="singleEntList" resultType="cn.zswltech.mithras.blackgray.mapper.model.BlackGrayLibrary">
         select bgl.id, bgl.unified_social_credit_code, bgl.enterprise_name,
         IF(MAX(bgl.black_gray_type_num)=2, 'BLACK_LIST', 'GRAY_LIST') as black_gray_type
         from black_gray_library bgl
@@ -310,7 +310,7 @@
         GROUP BY bgl.enterprise_name
         ORDER BY bgl.update_time desc
     </select>
-    <select id="selectAllList" resultType="cn.zswltech.mithras.blackgray.model.BlackGrayLibrary">
+    <select id="selectAllList" resultType="cn.zswltech.mithras.blackgray.mapper.model.BlackGrayLibrary">
 
         select enterprise_name,unified_social_credit_code,black_gray_type,apply_organization from black_gray_library
         where warehouse_time &lt;= curdate() and plan_outbound_time &gt;= curdate() order by black_gray_type desc;

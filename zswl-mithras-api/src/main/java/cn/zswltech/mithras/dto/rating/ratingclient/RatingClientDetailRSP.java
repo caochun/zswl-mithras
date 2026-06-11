@@ -1,10 +1,8 @@
 package cn.zswltech.mithras.dto.rating.ratingclient;
 
-import cn.zswltech.mithras.dto.ListBaseRSP;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data

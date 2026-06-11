@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.DashboardOperationPayMapper">
+<mapper namespace="cn.zswltech.mithras.dashboard.mapper.DashboardOperationPayMapper">
 
 
-    <select id="payList" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardOperationPayResult">
+    <select id="payList" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardOperationPayResult">
         SELECT
         sum(ifnull( b.total_pay_amount, 0 )) AS actualPayAmountLong,
         a.biz_dept_id AS bizDeptId
@@ -47,7 +47,7 @@
 
 
     </select>
-    <select id="capacityList" resultType="cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardOperationCapacityResult">
+    <select id="capacityList" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardOperationCapacityResult">
         <if test="projStage == 'PROJECT_STAGE_ESTABLISH'">
             (
             SELECT

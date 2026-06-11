@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.filingmaterials.job;
 
-import cn.zswltech.mithras.filingmaterials.application.job.FilingMaterialEmailJobService;
+import cn.zswltech.mithras.filingmaterials.job.service.FilingMaterialEmailJobService;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

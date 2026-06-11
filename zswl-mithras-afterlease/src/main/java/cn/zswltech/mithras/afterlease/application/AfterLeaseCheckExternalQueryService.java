@@ -2,8 +2,8 @@ package cn.zswltech.mithras.afterlease.application;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryListReq;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryListStatisticsRsp;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQuery;
-import cn.zswltech.mithras.workflow.application.flow.port.FlowEndEventProcessor;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQuery;
+import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

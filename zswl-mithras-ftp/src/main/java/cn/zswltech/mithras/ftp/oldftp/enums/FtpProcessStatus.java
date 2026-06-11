@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.oldftp.enums;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
+import cn.zswltech.mithras.foundation.state.ProcessStatus;
 
 /**
  * @description:

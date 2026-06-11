@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.zswltech.mithras.metric.financialcloudmetric.model.FinancialCloudMetricValue;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

@@ -2,11 +2,11 @@ package cn.zswltech.mithras.others.render;
 
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.gendoc.render.ContractMainShipTradeZLHZRender;
-import cn.zswltech.mithras.service.gendoc.render.ContractMainShipZLHZRender;
-import cn.zswltech.mithras.service.gendoc.render.ContractShipPromiseRender;
-import cn.zswltech.mithras.service.gendoc.render.contractzlzz.ContractZLZZShipMainRender;
-import cn.zswltech.mithras.service.gendoc.render.contractzlzz.ContractZLZZShipTradeRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ContractMainShipTradeZLHZRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ContractMainShipZLHZRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ContractShipPromiseRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contractzlzz.ContractZLZZShipMainRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contractzlzz.ContractZLZZShipTradeRender;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import org.junit.Test;

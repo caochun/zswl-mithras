@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.associationreport;
 
 import cn.zswltech.mithras.associationreport.enums.AssociationReportPeriodCategoryEnum;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

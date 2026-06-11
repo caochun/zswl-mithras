@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.client;
 
 import cn.zswltech.mithras.customer.application.client.ClientDataSaveCheckInterface;
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
+import cn.zswltech.mithras.customer.enums.InfoModule;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
@@ -10,15 +10,15 @@ import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountAddREQ;
 import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountListREQ;
 import cn.zswltech.mithras.dto.client.bankaccount.CorpBankAccountModifyREQ;
 import cn.zswltech.mithras.dto.client.bankaccount.CorpVersionedBankAccountListREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.CorpBankAccountMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.NewCorpBankAccountMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpBankAccountLibMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.*;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.mapper.corp.CorpBankAccountMapper;
+import cn.zswltech.mithras.customer.mapper.corp.NewCorpBankAccountMapper;
+import cn.zswltech.mithras.customer.mapper.lib.client.CorpBankAccountLibMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.*;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;
 import cn.zswltech.mithras.customer.application.client.ClientAuthorityDataPort;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -36,7 +36,7 @@ import java.util.Optional;
 import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * @author luyi

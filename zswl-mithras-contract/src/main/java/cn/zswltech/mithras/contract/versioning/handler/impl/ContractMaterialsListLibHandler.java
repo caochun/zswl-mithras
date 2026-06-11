@@ -2,10 +2,10 @@ package cn.zswltech.mithras.contract.versioning.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
-import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
+import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

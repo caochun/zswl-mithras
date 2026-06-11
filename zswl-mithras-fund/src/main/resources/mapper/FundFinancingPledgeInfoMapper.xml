@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.fund.infrastructure.persistence.mapper.financing.FundFinancingPledgeInfoMapper">
+<mapper namespace="cn.zswltech.mithras.fund.mapper.financing.FundFinancingPledgeInfoMapper">
 
     <select id="getFundSupervisedBo"
-            resultType="cn.zswltech.mithras.fund.application.capital.write_off.bo.FundPledgeSupervisedBO">
+            resultType="cn.zswltech.mithras.fund.application.financing.bo.FundPledgeSupervisedBO">
         SELECT ffp.contract_id AS contractId,
         ffp.contract_code AS contractCode,
         ffp.account_name AS accountName,

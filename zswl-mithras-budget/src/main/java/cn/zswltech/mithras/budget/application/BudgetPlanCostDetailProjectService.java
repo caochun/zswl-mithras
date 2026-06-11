@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.budget.application;
 
-import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanCostDetailProjectMapper;
-import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanCostDetailProject;
+import cn.zswltech.mithras.budget.mapper.BudgetPlanCostDetailProjectMapper;
+import cn.zswltech.mithras.budget.mapper.model.BudgetPlanCostDetailProject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

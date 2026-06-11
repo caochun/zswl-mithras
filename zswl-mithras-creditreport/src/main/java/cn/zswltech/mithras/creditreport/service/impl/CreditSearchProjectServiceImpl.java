@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.creditreport.CreditReportListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportProjectReviewAddDTO;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchProjectCmd;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchProjectQuery;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

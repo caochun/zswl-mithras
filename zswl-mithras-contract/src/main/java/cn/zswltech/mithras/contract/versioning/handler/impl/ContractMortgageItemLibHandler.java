@@ -1,11 +1,8 @@
 package cn.zswltech.mithras.contract.versioning.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.mithras.dto.contract.leaseitem.ContractLeaseItemListRSP;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageItemListRSP;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItemLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageItem;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageItemLib;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;

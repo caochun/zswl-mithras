@@ -4,10 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
-import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.ftp.FtpIncomeDetailRecordListREQ;
-import cn.zswltech.mithras.dto.ftp.FtpIncomeDetailRecordListRSP;
 import cn.zswltech.mithras.dto.ftp.FtpIncomeDetailRecordRemoveREQ;
 
 /**

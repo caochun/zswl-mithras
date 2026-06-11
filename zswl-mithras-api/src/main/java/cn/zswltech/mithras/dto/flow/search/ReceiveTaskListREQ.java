@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.flow.search;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 

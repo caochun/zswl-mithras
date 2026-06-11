@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.enums.projestablish;
 
-import cn.zswltech.mithras.service.config.enumscan.IMaterialsTypeConvert;
-import cn.zswltech.mithras.customer.domain.enums.client.CorporationClientMaterialTypeEnum;
+import cn.zswltech.mithras.foundation.metadata.IMaterialsTypeConvert;
+import cn.zswltech.mithras.customer.enums.client.CorporationClientMaterialTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

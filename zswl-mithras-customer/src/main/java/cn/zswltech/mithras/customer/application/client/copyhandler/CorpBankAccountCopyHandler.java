@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.customer.application.client.copyhandler;
 
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpBankAccount;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpBankAccount;
-import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.enums.InfoModule;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpBankAccount;
+import cn.zswltech.mithras.customer.mapper.model.client.NewCorpBankAccount;
+import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.CorpBankAccountService;
 import cn.zswltech.mithras.customer.application.client.NewCorpBankAccountService;
 import lombok.extern.slf4j.Slf4j;

@@ -10,7 +10,7 @@
     </select>
 
 
-    <select id="queryReceiptCondition" resultType="cn.zswltech.mithras.dto.incomeSharing.ReceiptConditionResult">
+    <select id="queryReceiptCondition" resultType="cn.zswltech.mithras.dto.incomesharing.ReceiptConditionResult">
         SELECT
         a.id AS receiptId,
         IFNULL(d.overdueType,'NOT_OVERDUE') AS overdueType,

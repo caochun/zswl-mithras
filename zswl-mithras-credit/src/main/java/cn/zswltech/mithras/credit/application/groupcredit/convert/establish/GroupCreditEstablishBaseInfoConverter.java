@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.credit.application.groupcredit.convert.establish;
 
 import cn.zswltech.mithras.credit.application.groupcredit.convert.GroupCreditTypeConversionWorker;
-import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.GroupCreditEstablishBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.GroupCreditEstablishBaseInfoModifyREQ;
 import org.mapstruct.Mapper;

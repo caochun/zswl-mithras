@@ -7,7 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.basedata.enums.BaseDataSpecialDateTypeEnum;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 
 import java.time.LocalDate;

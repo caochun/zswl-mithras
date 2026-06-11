@@ -2,8 +2,8 @@ package cn.zswltech.mithras.afterlease.application;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckChangeRecordListREQ;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.AfterLeaseCheckChangeRecordMapper;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.AfterLeaseCheckChangeRecord;
+import cn.zswltech.mithras.afterlease.mapper.AfterLeaseCheckChangeRecordMapper;
+import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseCheckChangeRecord;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

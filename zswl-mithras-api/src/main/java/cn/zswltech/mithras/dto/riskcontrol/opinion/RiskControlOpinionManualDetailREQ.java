@@ -1,11 +1,9 @@
 package cn.zswltech.mithras.dto.riskcontrol.opinion;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 
 @Data
 @ApiModel("人工录入舆情-保存按钮-请求体")

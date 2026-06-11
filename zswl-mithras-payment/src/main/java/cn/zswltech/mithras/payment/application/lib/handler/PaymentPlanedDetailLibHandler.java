@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.payment.application.lib.handler;
 
 import cn.zswltech.mithras.api.payment.dto.PlanedDetailDto;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPlanedDetail;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPlanedDetailLib;
+import cn.zswltech.mithras.payment.mapper.model.PaymentPlanedDetail;
+import cn.zswltech.mithras.payment.mapper.model.PaymentPlanedDetailLib;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

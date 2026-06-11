@@ -2,7 +2,7 @@ package cn.zswltech.mithras.api.liquiditymanage;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.liquiditymanage.dayReport.*;
+import cn.zswltech.mithras.dto.liquiditymanage.dayreport.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;

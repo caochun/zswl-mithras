@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.others.service.capital;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.capital.FinanceFlowAutoWriteOffService;
-import cn.zswltech.mithras.service.service.collection.CollectionRecordInfoService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowAutoWriteOffService;
+import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;
 import org.junit.jupiter.api.Test;
 
 import javax.annotation.Resource;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.financialshare.application.dto;
 
-import cn.zswltech.mithras.third.enums.CQCollectionTypeENUM;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.req.CQ2CommonReq;
+import cn.zswltech.mithras.third.financialshare.enums.CQCollectionTypeENUM;
+import cn.zswltech.mithras.third.financialshare.client.req.CQ2CommonReq;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

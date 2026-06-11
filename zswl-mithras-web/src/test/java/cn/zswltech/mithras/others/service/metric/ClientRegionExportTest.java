@@ -2,11 +2,11 @@ package cn.zswltech.mithras.others.service.metric;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpAddressInfoLibMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfoLib;
+import cn.zswltech.mithras.customer.mapper.lib.client.CorpAddressInfoLibMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.service.service.riskcontrol.RemainingPrincipalServiceImpl;
+import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalServiceImpl;
 import cn.zswltech.mithras.customer.application.riskcontrol.dto.CorpAddressInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import com.alibaba.fastjson.JSON;

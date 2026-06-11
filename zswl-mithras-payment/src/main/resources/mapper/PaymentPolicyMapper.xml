@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentPolicyInfoMapper">
+<mapper namespace="cn.zswltech.mithras.payment.mapper.PaymentPolicyInfoMapper">
     <select id="countPolicyCode" resultType="int">
         select count(1)
         from payment_policy_info p
@@ -9,7 +9,7 @@
           and b.payment_status != 'CLOSED'
     </select>
 
-    <select id="listPolicyCode" resultType="cn.zswltech.mithras.payment.infrastructure.persistence.mapper.model.PaymentPolicyInfo">
+    <select id="listPolicyCode" resultType="cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo">
         select *
         from payment_policy_info p
         INNER JOIN payment_base_info b on p.payment_id = b.id

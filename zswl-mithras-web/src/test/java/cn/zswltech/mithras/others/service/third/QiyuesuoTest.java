@@ -3,16 +3,16 @@ package cn.zswltech.mithras.others.service.third;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.third.config.QiyuesuoConfig;
-import cn.zswltech.mithras.service.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.mapper.model.MaterialsList;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextSignInfo;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.contract.text.ContractTextManageService;
-import cn.zswltech.mithras.service.service.contract.text.ContractTextSignInfoService;
-import cn.zswltech.mithras.service.service.materialsfile.FileService;
-import cn.zswltech.mithras.service.service.materialsfile.MaterialsListService;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.application.orchestration.contract.text.ContractTextManageService;
+import cn.zswltech.mithras.application.orchestration.contract.text.ContractTextSignInfoService;
+import cn.zswltech.mithras.application.orchestration.document.materialsfile.FileService;
+import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.third.service.QiyuesuoService;
 import cn.zswltech.mithras.third.service.model.qiyuesuo.*;
-import cn.zswltech.mithras.service.util.WatermarkUtil;
+import cn.zswltech.mithras.third.util.WatermarkUtil;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.io.ByteStreams;
@@ -38,7 +38,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.util.List;
 
-import static cn.zswltech.mithras.service.service.contract.text.ContractTextSignInfoService.containsKeyword;
+import static cn.zswltech.mithras.application.orchestration.contract.text.ContractTextSignInfoService.containsKeyword;
 
 /**
  * @author bigbear

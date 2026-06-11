@@ -13,7 +13,7 @@ import cn.zswltech.mithras.associationreport.service.AssociationSeniorExecutiveI
 import cn.zswltech.mithras.associationreport.enums.AssociationDictionaryCategoryEnum;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationSeniorExecutiveInfo;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

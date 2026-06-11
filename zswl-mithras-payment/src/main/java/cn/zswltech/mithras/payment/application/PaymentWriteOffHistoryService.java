@@ -9,10 +9,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentWriteOffHistoryMapper;
-import cn.zswltech.mithras.payment.infrastructure.persistence.mapper.PaymentWriteOffHistory;
+import cn.zswltech.mithras.payment.mapper.PaymentWriteOffHistoryMapper;
+import cn.zswltech.mithras.payment.mapper.model.PaymentWriteOffHistory;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 /**

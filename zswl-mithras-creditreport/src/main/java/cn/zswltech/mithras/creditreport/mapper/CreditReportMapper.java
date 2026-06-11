@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.system.mapper;
+package cn.zswltech.mithras.creditreport.mapper;
 
 import org.apache.ibatis.annotations.Param;
 

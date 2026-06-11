@@ -1,13 +1,13 @@
 package cn.zswltech.mithras.web;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.service.job.NextMonthRentNotify;
+import cn.zswltech.mithras.application.orchestration.job.NextMonthRentNotify;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
+import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean;
 
 /**
  * @author luyi

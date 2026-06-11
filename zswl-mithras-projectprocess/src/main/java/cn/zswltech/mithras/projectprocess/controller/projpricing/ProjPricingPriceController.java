@@ -5,7 +5,6 @@ import cn.zswltech.mithras.dto.projpricing.price.ProjPricingIRRSaveREQ;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailREQ;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailRSP;
 import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceModifyREQ;
-import javax.validation.Valid;
 import cn.zswltech.mithras.api.projpricing.ProjPricingPriceApi;
 import cn.zswltech.mithras.projectprocess.application.projpricing.ProjPricingPriceApplicationService;
 import org.springframework.web.bind.annotation.RestController;

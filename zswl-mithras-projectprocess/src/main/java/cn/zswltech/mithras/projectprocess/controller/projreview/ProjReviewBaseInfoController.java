@@ -12,7 +12,6 @@ import cn.zswltech.mithras.dto.projreview.CorpSubjectItemCheckResult;
 import cn.zswltech.mithras.dto.projreview.CorpSubjectItemCheckResultDetail;
 import cn.zswltech.mithras.dto.projreview.ProjReviewButtonStatusRsp;
 import cn.zswltech.mithras.dto.projreview.baseinfo.*;
-import javax.validation.Valid;
 import java.util.List;
 import cn.zswltech.mithras.api.projreview.ProjReviewBaseInfoApi;
 import cn.zswltech.mithras.projectprocess.application.projreview.ProjReviewBaseInfoApplicationService;

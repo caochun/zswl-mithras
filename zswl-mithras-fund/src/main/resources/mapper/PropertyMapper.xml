@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.service.mapper.lib.PropertyMapper">
+<mapper namespace="cn.zswltech.mithras.fund.direct.mapper.PropertyMapper">
 
     <select id="getPropertyListByFinancingCode" resultType="cn.zswltech.mithras.dto.fund.directfinancing.FundFinancingPropertyRSP">
         select padu.financing_code as financingCode ,cbi.id as contractId ,cbi.contract_code as contractCode ,

@@ -2,9 +2,7 @@ package cn.zswltech.mithras.api.liquiditymanage;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListREQ;
-import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListRSP;
-import cn.zswltech.mithras.dto.liquiditymanage.fundTransfer.*;
+import cn.zswltech.mithras.dto.liquiditymanage.fundtransfer.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;

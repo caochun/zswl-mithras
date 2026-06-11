@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * @description 股东股权信息一览表-股东股权信息

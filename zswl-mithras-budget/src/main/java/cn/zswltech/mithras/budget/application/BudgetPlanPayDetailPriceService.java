@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanPayDetailPriceMapper;
-import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayDetailPrice;
+import cn.zswltech.mithras.budget.mapper.BudgetPlanPayDetailPriceMapper;
+import cn.zswltech.mithras.budget.mapper.model.BudgetPlanPayDetailPrice;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;

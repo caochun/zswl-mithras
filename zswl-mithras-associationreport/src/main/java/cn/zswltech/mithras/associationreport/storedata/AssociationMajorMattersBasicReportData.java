@@ -10,7 +10,7 @@ import cn.zswltech.mithras.associationreport.service.AssociationDictionaryServic
 import cn.zswltech.mithras.associationreport.service.AssociationMajorMattersBasicReportService;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationMajorMattersBasicReport;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

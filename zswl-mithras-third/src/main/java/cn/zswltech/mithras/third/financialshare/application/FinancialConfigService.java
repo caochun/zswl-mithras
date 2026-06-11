@@ -3,16 +3,16 @@ package cn.zswltech.mithras.third.financialshare.application;
 
 import cn.hutool.core.util.ObjectUtil;
 
-import cn.zswltech.mithras.third.enums.FinancialUrlENUM;
-import cn.zswltech.mithras.third.mapper.model.CQRelatedMithrasInfo;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.handle.AccessTokenHandle;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.handle.AppTokenHandle;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.req.AccessTokenREQ;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.req.AppTokenREQ;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.resp.AccessTokenRSP;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.resp.AppTokenRSP;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.resp.FinancialCommonRSP;
-import cn.zswltech.mithras.third.financialshare.infrastructure.client.config.AppAuthConfig;
+import cn.zswltech.mithras.third.financialshare.enums.FinancialUrlENUM;
+import cn.zswltech.mithras.third.financialshare.mapper.model.CQRelatedMithrasInfo;
+import cn.zswltech.mithras.third.financialshare.client.handle.AccessTokenHandle;
+import cn.zswltech.mithras.third.financialshare.client.handle.AppTokenHandle;
+import cn.zswltech.mithras.third.financialshare.client.req.AccessTokenREQ;
+import cn.zswltech.mithras.third.financialshare.client.req.AppTokenREQ;
+import cn.zswltech.mithras.third.financialshare.client.resp.AccessTokenRSP;
+import cn.zswltech.mithras.third.financialshare.client.resp.AppTokenRSP;
+import cn.zswltech.mithras.third.financialshare.client.resp.FinancialCommonRSP;
+import cn.zswltech.mithras.third.financialshare.client.config.AppAuthConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

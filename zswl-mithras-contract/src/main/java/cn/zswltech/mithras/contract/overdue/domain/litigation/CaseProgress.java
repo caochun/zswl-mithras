@@ -4,7 +4,6 @@ import cn.zswltech.mithras.contract.enums.overdue.LitigationStatus;
 import cn.zswltech.mithras.contract.overdue.domain.share.Entity;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**

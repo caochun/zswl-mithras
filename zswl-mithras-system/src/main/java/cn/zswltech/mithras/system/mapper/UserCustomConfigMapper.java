@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.system.mapper;
 
 import cn.zswltech.mithras.system.mapper.model.UserCustomConfig;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

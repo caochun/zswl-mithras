@@ -15,16 +15,16 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpBusinessModule;
-import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.others.AuthCheckException;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.lib.CommonVersionService;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
+import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
+import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
+import cn.zswltech.mithras.foundation.exception.AuthCheckException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.ftp.newftp.controller.NewFtpBaseInfoController;
 import cn.zswltech.mithras.ftp.newftp.fms.DefaultNewFtpStateMachine;
 import cn.zswltech.mithras.ftp.newftp.fms.NewFtpContext;
@@ -43,8 +43,8 @@ import java.time.LocalDate;
 import java.util.*;
 
 import static cn.zswltech.mithras.ftp.newftp.enums.NewFtpBusinessModule.NEW_FTP_GUIDANCE;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.NEW;
-import static cn.zswltech.mithras.service.enums.common.RecordStatus.TAKE_EFFECT;
+import static cn.zswltech.mithras.foundation.enums.common.RecordStatus.NEW;
+import static cn.zswltech.mithras.foundation.enums.common.RecordStatus.TAKE_EFFECT;
 
 /**
  * @description:

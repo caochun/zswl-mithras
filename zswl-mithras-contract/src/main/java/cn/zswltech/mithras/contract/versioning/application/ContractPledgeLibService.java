@@ -3,7 +3,6 @@ package cn.zswltech.mithras.contract.versioning.application;
 import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeListRSP;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractPledgeLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledge;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractPledgeLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 /**

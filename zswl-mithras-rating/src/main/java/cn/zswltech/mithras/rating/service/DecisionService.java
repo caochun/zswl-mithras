@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteEclResult;
 import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteResult;
 import cn.zswltech.mithras.rating.enums.RatingFetchMethodEnum;
 import cn.zswltech.mithras.rating.feign.DecisionApiClient;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;

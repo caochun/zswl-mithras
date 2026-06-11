@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.externalcustomer.application;
 
-import cn.zswltech.mithras.customer.externalcustomer.infrastructure.mapper.ExternalCustomerMapper;
-import cn.zswltech.mithras.customer.externalcustomer.infrastructure.model.ExternalCustomer;
+import cn.zswltech.mithras.customer.externalcustomer.mapper.ExternalCustomerMapper;
+import cn.zswltech.mithras.customer.externalcustomer.mapper.model.ExternalCustomer;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

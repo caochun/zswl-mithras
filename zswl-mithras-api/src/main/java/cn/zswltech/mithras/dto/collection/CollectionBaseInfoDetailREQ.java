@@ -1,11 +1,9 @@
 package cn.zswltech.mithras.dto.collection;
 
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 /**
  * @create: 2022-08-15

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.document.onlyoffice;
 
-import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.api.dto.onlyoffice.DocDetailRSP;
+import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.dto.onlyoffice.DocDetailRSP;
 
 /**
  * onlyoffice业务权限校验

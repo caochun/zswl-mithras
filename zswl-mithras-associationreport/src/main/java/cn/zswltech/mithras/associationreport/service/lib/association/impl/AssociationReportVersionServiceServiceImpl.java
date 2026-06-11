@@ -2,9 +2,9 @@ package cn.zswltech.mithras.associationreport.service.lib.association.impl;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
+import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
-import cn.zswltech.mithras.service.service.lib.CommonVersionService;
+import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.associationreport.service.lib.association.handler.AssociationReportLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

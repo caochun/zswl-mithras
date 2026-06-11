@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.contract.versioning.datacompare;
 
-import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
-import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
-import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
+import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
+import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
+import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

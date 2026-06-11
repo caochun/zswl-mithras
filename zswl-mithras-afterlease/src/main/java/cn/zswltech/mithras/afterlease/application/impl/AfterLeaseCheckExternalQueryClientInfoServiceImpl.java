@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.afterlease.application.impl;
 
-import cn.zswltech.mithras.afterlease.domain.enums.ClientRole;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.NewAfterLeaseCheckExternalQueryClientInfoMapper;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
+import cn.zswltech.mithras.afterlease.enums.ClientRole;
+import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckExternalQueryClientInfoMapper;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQueryClientInfo;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryClientInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

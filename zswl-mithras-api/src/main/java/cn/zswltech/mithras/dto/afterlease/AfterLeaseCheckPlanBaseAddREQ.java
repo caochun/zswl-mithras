@@ -70,7 +70,7 @@ public class AfterLeaseCheckPlanBaseAddREQ {
     private Long stockRiskExposure;
 
     /**
-     * 检查报告模板类型 {@link cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckReportTypeEnum#name()}
+     * 检查报告模板类型 {@link cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTypeEnum#name()}
      */
     @ApiModelProperty("检查报告模板类型@AfterLeaseCheckReportTypeEnum#name")
     private String reportType;

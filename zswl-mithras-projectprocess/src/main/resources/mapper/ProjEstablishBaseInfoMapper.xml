@@ -24,12 +24,12 @@
             <if test="dto.createTo!=null">and proj.create_time &lt;= #{dto.createTo}</if>
             <if test="dto.updateFrom!=null">and proj.update_time &gt;= #{dto.updateFrom}</if>
             <if test="dto.updateTo!=null">and proj.update_time &lt;= #{dto.updateTo}</if>
-            <include refid="cn.zswltech.mithras.CommonMapper.authSqlSpecial2" />
+            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSqlSpecial2" />
         </where>
         order by update_time desc
     </select>
 
-    <select id="lifecycleList" resultType="cn.zswltech.mithras.projlifecycle.mapper.dto.ProjLifecycleListDTO">
+    <select id="lifecycleList" resultType="cn.zswltech.mithras.projectprocess.projlifecycle.dto.persistence.ProjLifecycleListDTO">
         select
         proj.*,
         GROUP_CONCAT(distinct c.contract_status) as contractStatuses,
@@ -89,7 +89,7 @@
         proj.projStatus != 'PEND_TAKE_EFFECT'
         and proj.projStatus != 'CLOSED'
         and (proj.projReviewId is null or proj.projReviewStatus != 'PEND_TAKE_EFFECT')
-        <include refid="cn.zswltech.mithras.CommonMapper.authSqlSpecial3" />
+        <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSqlSpecial3" />
         <if test="dto.clientId!=null">and proj.clientId=#{dto.clientId}</if>
         <if test="dto.projName!=null and dto.projName!=''">and proj.projName like CONCAT('%',#{dto.projName},'%')</if>
         <if test="dto.bizType!=null and dto.bizType!=''">and proj.bizType = #{dto.bizType}</if>
@@ -117,7 +117,7 @@
         proj.id desc
     </select>
 
-    <select id="clientLifecycleList" resultType="cn.zswltech.mithras.projlifecycle.mapper.dto.ProjLifecycleListDTO">
+    <select id="clientLifecycleList" resultType="cn.zswltech.mithras.projectprocess.projlifecycle.dto.persistence.ProjLifecycleListDTO">
         select
         proj.*,
         GROUP_CONCAT(distinct c.contract_status) as contractStatuses,
@@ -186,7 +186,7 @@
         proj.clientId desc
     </select>
 
-    <select id="lifecycleStatistics" resultType="cn.zswltech.mithras.projlifecycle.mapper.dto.ProjLifecycleStatisticsDTO">
+    <select id="lifecycleStatistics" resultType="cn.zswltech.mithras.projectprocess.projlifecycle.dto.persistence.ProjLifecycleStatisticsDTO">
         select
         COUNT(*) AS totalCount,
         COUNT(IF(prId IS NULL, true, null)) AS establishCount,
@@ -258,7 +258,7 @@
         where proj.projStatus != 'PEND_TAKE_EFFECT'
         and proj.projStatus != 'CLOSED'
         and (proj.projReviewId is null or proj.projReviewStatus != 'PEND_TAKE_EFFECT')
-        <include refid="cn.zswltech.mithras.CommonMapper.authSqlSpecial3" />
+        <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSqlSpecial3" />
         group by proj.`key`
         ) t
     </select>

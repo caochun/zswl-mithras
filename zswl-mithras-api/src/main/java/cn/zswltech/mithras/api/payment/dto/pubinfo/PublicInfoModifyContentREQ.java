@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.api.payment.dto.pubinfo;
 
-import cn.zswltech.mithras.dto.file.FileListRSP;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

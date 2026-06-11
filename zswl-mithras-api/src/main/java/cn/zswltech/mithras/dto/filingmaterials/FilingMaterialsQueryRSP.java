@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.dto.filingmaterials;
 
-import cn.hutool.core.lang.Pair;
-import cn.zswltech.mithras.dto.file.FileListRSP;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

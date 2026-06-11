@@ -1,12 +1,10 @@
 package cn.zswltech.mithras.dto.capital.write_off;
 
-import cn.zswltech.mithras.dto.capital.BankFlowCenterListDTO;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 /**
  * @author bigbear

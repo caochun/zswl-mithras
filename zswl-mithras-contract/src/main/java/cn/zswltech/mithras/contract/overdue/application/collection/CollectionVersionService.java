@@ -2,11 +2,11 @@ package cn.zswltech.mithras.contract.overdue.application.collection;
 
 import cn.zswltech.mithras.contract.overdue.application.OverdueBusinessModule;
 import cn.zswltech.mithras.contract.overdue.application.lib.CollectionActionLibHandler;
-import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollectionAction;
+import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollectionAction;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.service.service.lib.CommonVersionService;
+import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
+import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

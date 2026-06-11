@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.creditreport;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;

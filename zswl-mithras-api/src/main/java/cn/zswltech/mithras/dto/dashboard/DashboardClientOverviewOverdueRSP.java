@@ -2,9 +2,7 @@ package cn.zswltech.mithras.dto.dashboard;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-import java.util.List;
 
 /**
  * @author dingqi

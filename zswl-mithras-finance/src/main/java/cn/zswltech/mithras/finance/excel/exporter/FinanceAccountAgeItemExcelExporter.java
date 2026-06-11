@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.finance.excel.exporter;
 
-import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
+import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.finance.excel.model.FinanceAccountAgeItemCheckModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.context.annotation.Primary;

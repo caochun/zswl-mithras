@@ -1,15 +1,11 @@
 package cn.zswltech.mithras.contract.mapper.model.contract;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
+import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 /**
  * @author dingqi

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.riskcontrol.relation;
 
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClient;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
 * @description 金控关联方名录

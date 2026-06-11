@@ -3,7 +3,6 @@ package cn.zswltech.mithras.kpi.mapper.model.dto;
 import cn.zswltech.mithras.kpi.enums.BelongTypeEnum;
 import cn.zswltech.mithras.kpi.enums.BusinessTypeEnum;
 import lombok.Data;
-import org.apache.tomcat.jni.Local;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;

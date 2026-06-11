@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.job;
 
-import cn.zswltech.mithras.kpi.application.job.KpiDeptWeightDataInitJobService;
+import cn.zswltech.mithras.kpi.job.service.KpiDeptWeightDataInitJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -1,10 +1,7 @@
 package cn.zswltech.mithras.dto.process.prepare;
 
-import cn.zswltech.mithras.dto.version.DiffValue;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.List;
 
 /**
  * @author luyi

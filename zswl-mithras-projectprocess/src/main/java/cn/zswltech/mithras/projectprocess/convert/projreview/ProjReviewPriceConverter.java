@@ -10,7 +10,6 @@ import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingLe
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewAocPrice;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewFactoringPrice;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;
-import org.mapstruct.MapMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

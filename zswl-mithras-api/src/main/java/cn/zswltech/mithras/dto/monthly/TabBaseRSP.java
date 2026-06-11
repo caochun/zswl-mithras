@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.dto.monthly;
 
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiOperation;
 import lombok.Data;
 
 /**

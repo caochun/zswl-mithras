@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.datashare.service.job;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.basic.Constant;
+import cn.zswltech.mithras.foundation.constant.Constant;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareFk;
 import cn.zswltech.mithras.third.datashare.mapper.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.service.DataShareFkService;

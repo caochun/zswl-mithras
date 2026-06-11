@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.customer.application.client;
 
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.NewCorpAddressInfoMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpAddressInfo;
+import cn.zswltech.mithras.customer.mapper.corp.NewCorpAddressInfoMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
+import cn.zswltech.mithras.customer.mapper.model.client.NewCorpAddressInfo;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientNewDataHelper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

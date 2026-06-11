@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.assetclassify.application.lib;
 
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.lib.AssetClassifyCheckContentAuxiliaryLibMapper;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyCheckContent;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyCheckContentAuxiliaryLib;
+import cn.zswltech.mithras.assetclassify.mapper.lib.AssetClassifyCheckContentAuxiliaryLibMapper;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyCheckContent;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyCheckContentAuxiliaryLib;
 import cn.zswltech.mithras.assetclassify.application.lib.handler.impl.AssetClassifyCheckContentAuxiliaryLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

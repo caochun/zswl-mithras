@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.payment.application.lib.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
-import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
+import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -2,8 +2,8 @@ package cn.zswltech.mithras.capital.application.writeoff.strategy;
 
 import cn.hutool.core.lang.Assert;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.capital.domain.enums.write_off.WriteOffBusinessModelEnum;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.capital.enums.writeoff.WriteOffBusinessModelEnum;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.mapper.projreview;
 
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewMeetMinuteBaseInfo;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
 * @description 项目评审会议纪要表

@@ -1,15 +1,15 @@
 package cn.zswltech.mithras.others.service.ftp;
 
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.dto.interestPay.InterestPayREQ;
+import cn.zswltech.mithras.dto.interestpay.InterestPayREQ;
 import cn.zswltech.mithras.dto.monthly.MonthlyCostREQ;
 import cn.zswltech.mithras.ftp.oldftp.job.FtpIncomeJob;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.fund.domain.enums.financing.FinancingTypeEnum;
-import cn.zswltech.mithras.service.service.ftp.FtpIncomeBaseInfoService;
-import cn.zswltech.mithras.service.service.interestPay.InterestPayService;
-import cn.zswltech.mithras.service.service.monthly.FundsDailyCostMainService;
-import cn.zswltech.mithras.service.service.monthly.MonthlyManageService;
+import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
+import cn.zswltech.mithras.application.orchestration.ftp.FtpIncomeBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.finance.interestpay.InterestPayService;
+import cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostMainService;
+import cn.zswltech.mithras.application.orchestration.monthly.MonthlyManageService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

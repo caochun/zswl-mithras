@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto.contract.tenantry;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

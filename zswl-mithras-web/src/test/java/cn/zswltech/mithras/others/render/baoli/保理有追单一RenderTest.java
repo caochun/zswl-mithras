@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.others.render.baoli;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiBizRender;
-import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferConfirmRender;
-import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferNotifyRender;
-import cn.zswltech.mithras.service.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferRegisterProtocolRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.yzdy.YzDyBaoLiBizRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferConfirmRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferNotifyRender;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.yzdy.YzDyBaoLiTransferRegisterProtocolRender;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

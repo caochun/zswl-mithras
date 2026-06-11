@@ -5,9 +5,9 @@ import cn.zswltech.mithras.dto.client.external.ExternalPageREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyAddREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyModifyREQ;
 import cn.zswltech.mithras.dto.client.external.environment.EnvironmentPenaltyRemoveREQ;
-import cn.zswltech.mithras.customer.externaldata.environmentpenalty.infrastructure.mapper.EnvironmentPenaltyMapper;
-import cn.zswltech.mithras.customer.externaldata.environmentpenalty.infrastructure.model.EnvironmentPenalty;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper.EnvironmentPenaltyMapper;
+import cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper.model.EnvironmentPenalty;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.customer.externaldata.environmentpenalty.application.EnvironmentPenaltyService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 import static cn.hutool.core.util.ObjectUtil.isNull;
-import static cn.zswltech.mithras.service.constant.ResultMsg.RECORD_NOT_EXIST;
+import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
 
 /**
  * 中登网

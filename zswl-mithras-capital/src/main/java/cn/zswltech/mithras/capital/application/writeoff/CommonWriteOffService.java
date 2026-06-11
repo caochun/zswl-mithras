@@ -2,14 +2,13 @@ package cn.zswltech.mithras.capital.application.writeoff;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.third.mapper.model.FinanceFlowMatchResult;
-import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
-import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabMainInfo;
-import cn.zswltech.mithras.third.mapper.model.FinanceFlowTabRecord;
-import cn.zswltech.mithras.third.service.FinanceFlowMatchResultService;
-import cn.zswltech.mithras.third.service.FinanceFlowTabRecordService;
-import cn.zswltech.mithras.service.util.LongUtil;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowMatchResult;
+import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowTabMainInfo;
+import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowTabRecord;
+import cn.zswltech.mithras.third.financialshare.application.FinanceFlowMatchResultService;
+import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabRecordService;
+import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.tuple.Triple;
 

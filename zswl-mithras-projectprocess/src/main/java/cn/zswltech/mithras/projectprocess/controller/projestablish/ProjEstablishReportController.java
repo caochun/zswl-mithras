@@ -10,7 +10,6 @@ import cn.zswltech.mithras.dto.projestablish.report.ProjEstablishReportListRSP;
 import cn.zswltech.mithras.dto.projestablish.report.ProjEstablishReportRemoveREQ;
 import cn.zswltech.mithras.dto.projestablish.report.ProjEstablishReportUploadREQ;
 import org.springframework.web.multipart.MultipartFile;
-import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 import cn.zswltech.mithras.api.projestablish.ProjEstablishReportApi;

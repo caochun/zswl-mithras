@@ -12,8 +12,8 @@ import cn.zswltech.mithras.dto.log.SysOperLogModifyREQ;
 import cn.zswltech.mithras.dto.log.SysOperLogListREQ;
 import cn.zswltech.mithras.dto.log.SysOperLogListRSP;
 import cn.zswltech.mithras.dto.log.SysOperLogRemoveREQ;
-import cn.zswltech.mithras.system.audit.service.SysOperLogService;
-import cn.zswltech.mithras.system.audit.model.SysOperLog;
+import cn.zswltech.mithras.system.audit.application.SysOperLogService;
+import cn.zswltech.mithras.system.audit.persistence.model.SysOperLog;
 
 /**
 * @description 操作日志记录

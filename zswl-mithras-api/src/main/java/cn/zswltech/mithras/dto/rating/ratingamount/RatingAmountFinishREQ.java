@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.dto.rating.ratingamount;
 
 import cn.zswltech.mithras.dto.rating.RatingParamRSP;
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

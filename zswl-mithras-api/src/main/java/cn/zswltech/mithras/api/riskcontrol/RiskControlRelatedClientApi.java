@@ -26,7 +26,7 @@ public interface RiskControlRelatedClientApi {
     /**
      * @param file
      * @return
-     * @see cn.zswltech.mithras.service.service.riskcontrol.RiskControlGljyReportService#syncRelatedClient
+     * @see cn.zswltech.mithras.riskcontrol.report.gljy.RiskControlGljyReportService#syncRelatedClient
      */
     @Deprecated
     @ApiOperation("导入金控关联方名录")

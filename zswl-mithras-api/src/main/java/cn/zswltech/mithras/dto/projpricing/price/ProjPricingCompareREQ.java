@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.projpricing.price;
 
-import cn.zswltech.mithras.dto.VersionBaseREQ;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

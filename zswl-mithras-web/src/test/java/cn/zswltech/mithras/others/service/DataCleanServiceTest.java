@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service;
 
-import cn.zswltech.mithras.application.maintenance.DataCleanService;
+import cn.zswltech.mithras.application.orchestration.maintenance.DataCleanService;
 import org.junit.jupiter.api.Test;
 
 import javax.annotation.Resource;

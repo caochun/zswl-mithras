@@ -2,11 +2,10 @@ package cn.zswltech.mithras.customer.application.lib.client.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.normal.NormalBankAccountListRSP;
-import cn.zswltech.mithras.customer.domain.enums.InfoModule;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBankAccount;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBankAccountLib;
+import cn.zswltech.mithras.customer.enums.InfoModule;
+import cn.zswltech.mithras.customer.enums.client.ClientType;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalBankAccount;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalBankAccountLib;
 import cn.zswltech.mithras.customer.application.lib.client.handler.ClientLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

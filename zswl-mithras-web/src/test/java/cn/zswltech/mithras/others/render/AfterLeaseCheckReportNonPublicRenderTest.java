@@ -2,9 +2,9 @@
 //
 //import cn.hutool.core.io.FileUtil;
 //import cn.zswltech.mithras.others.service.ApplicationTest;
-//import cn.zswltech.mithras.service.gendoc.render.AfterLeaseCheckReportNonPublicRender;
-//import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanClient;
-//import cn.zswltech.mithras.service.service.afterlese.AfterLeaseCheckPlanClientService;
+//import cn.zswltech.mithras.contract.gendoc.render.AfterLeaseCheckReportNonPublicRender;
+//import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
+//import cn.zswltech.mithras.application.orchestration.afterlease.AfterLeaseCheckPlanClientService;
 //import org.junit.Test;
 //
 //import javax.annotation.Resource;

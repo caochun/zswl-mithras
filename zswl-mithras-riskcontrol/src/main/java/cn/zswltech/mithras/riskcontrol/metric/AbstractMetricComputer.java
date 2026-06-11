@@ -12,7 +12,7 @@ import cn.zswltech.mithras.riskcontrol.strategy.RiskControlMetricStrategyService
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshot;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshotService;
-import cn.zswltech.mithras.service.enums.JobEnum;
+import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.system.user.SysUserService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.slf4j.Logger;

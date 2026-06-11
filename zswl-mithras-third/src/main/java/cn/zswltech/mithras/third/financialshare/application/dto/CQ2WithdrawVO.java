@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.financialshare.application.dto;
 
-import cn.zswltech.mithras.third.enums.ExceptionSourceENUM;
-import cn.zswltech.mithras.service.repository.PlatformApiEnum;
+import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
+import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import lombok.Data;
 
 

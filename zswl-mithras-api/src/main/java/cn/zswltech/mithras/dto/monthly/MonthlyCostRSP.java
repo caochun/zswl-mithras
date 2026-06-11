@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.monthly;
 
-import cn.zswltech.mithras.dto.PageReq;
 import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

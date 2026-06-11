@@ -6,11 +6,11 @@ import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.mapper.TycMockDataMapper;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycMockData;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycMockDataMapper;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycMockData;
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycConvertor;
 import cn.zswltech.mithras.third.tianyancha.application.dto.*;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.*;
+import cn.zswltech.mithras.third.tianyancha.client.resp.*;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,15 +19,12 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
 import static cn.hutool.core.util.ObjectUtil.isNotNull;
 import static cn.hutool.core.util.ObjectUtil.notEqual;
-import static cn.zswltech.mithras.third.enums.TycErrorEnum.NO_DATA;
-import static cn.zswltech.mithras.third.enums.TycErrorEnum.SUCCESS;
+import static cn.zswltech.mithras.third.tianyancha.enums.TycErrorEnum.NO_DATA;
+import static cn.zswltech.mithras.third.tianyancha.enums.TycErrorEnum.SUCCESS;
 import static cn.zswltech.mithras.third.tianyancha.application.TycService.TycMockDataType.*;
 
 /**

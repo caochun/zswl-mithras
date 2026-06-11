@@ -1,8 +1,6 @@
 package cn.zswltech.mithras.api.collection;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.payment.writeoff.ActualDetailOperateReq;
-import cn.zswltech.mithras.api.payment.writeoff.PaymentWriteOffReq;
 import cn.zswltech.mithras.dto.collection.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

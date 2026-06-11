@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.customer.application.validator;
 
-import cn.zswltech.mithras.customer.domain.constant.LackDataMsg;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.service.others.Const;
-import cn.zswltech.mithras.service.others.LackDataException;
+import cn.zswltech.mithras.customer.constant.LackDataMsg;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfo;
+import cn.zswltech.mithras.foundation.util.Const;
+import cn.zswltech.mithras.foundation.exception.LackDataException;
 import org.apache.commons.lang3.StringUtils;
 
 /**

@@ -2,9 +2,7 @@ package cn.zswltech.mithras.dto.rating.ratingclient;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 /**
  * @author dingqi

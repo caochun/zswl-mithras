@@ -4,9 +4,8 @@ import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoDetailRSP
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoListREQ;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoListRSP;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoModifyREQ;
-import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.projectprocess.convert.ProjectProcessTypeConversionWorker;
-import cn.zswltech.mithras.projectprocess.mapper.dto.ProjPricingListSelectDTO;
+import cn.zswltech.mithras.projectprocess.dto.persistence.ProjPricingListSelectDTO;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfoLib;
 import org.mapstruct.Mapper;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.ftp.newftp.enums;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 /**
  * @description: ftp 基础数据参数类别枚举

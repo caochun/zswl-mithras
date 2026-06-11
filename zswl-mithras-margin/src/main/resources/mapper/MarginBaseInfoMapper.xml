@@ -16,7 +16,7 @@
             <if test="dto.amountTo!=null">and a.collection_amount <![CDATA[ <= ]]> #{dto.amountTo}</if>
             <if test="dto.collectionDateFrom!=null">and a.collection_date <![CDATA[ >= ]]> #{dto.collectionDateFrom}</if>
             <if test="dto.collectionDateTo!=null">and a.collection_date <![CDATA[ <= ]]> #{dto.collectionDateTo}</if>
-            <include refid="cn.zswltech.mithras.CommonMapper.authSql" />
+            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
         </where>
         order by a.create_time desc
     </select>

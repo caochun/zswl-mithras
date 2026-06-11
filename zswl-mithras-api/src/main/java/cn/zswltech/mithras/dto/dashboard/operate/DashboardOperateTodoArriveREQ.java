@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.dto.dashboard.operate;
 
-import cn.zswltech.mithras.dto.AccountReq;
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
-import java.util.List;
 
 @Data
 @Builder

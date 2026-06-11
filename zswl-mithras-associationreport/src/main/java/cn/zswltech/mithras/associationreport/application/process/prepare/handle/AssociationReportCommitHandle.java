@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.associationreport.application.process.prepare.handle;
 
-import cn.zswltech.mithras.workflow.application.process.prepare.handle.AbstractFlowCommitHandle;
+import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
@@ -10,13 +10,13 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.associationreport.mapper.AssociationReportMapper;
 import cn.zswltech.mithras.associationreport.service.AssociationReportApplyService;
-import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.associationreport.enums.AssociationProcessStatusEnum;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
-import cn.zswltech.mithras.workflow.infrastructure.persistence.mapper.model.process.prepare.CommonProcessPrepare;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.overdue.application.collection;
 
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.dto.OcContractListDto;
+import cn.zswltech.mithras.contract.dto.persistence.OcContractListDto;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import org.springframework.stereotype.Service;
 

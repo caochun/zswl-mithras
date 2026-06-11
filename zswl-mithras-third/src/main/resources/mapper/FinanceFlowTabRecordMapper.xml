@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.third.mapper.FinanceFlowTabRecordMapper">
+<mapper namespace="cn.zswltech.mithras.third.financialshare.mapper.FinanceFlowTabRecordMapper">
 
     <select id="findWithLogicDelete"
-            resultType="cn.zswltech.mithras.third.mapper.model.FinanceFlowTabRecord">
+            resultType="cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowTabRecord">
         SELECT *
         FROM finance_flow_tab_record
         WHERE deleted IN (0, 1)

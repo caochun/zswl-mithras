@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.riskcontrol.opinion;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 /**
  * @author yibin

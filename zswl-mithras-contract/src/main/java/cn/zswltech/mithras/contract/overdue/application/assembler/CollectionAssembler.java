@@ -5,7 +5,7 @@ import cn.zswltech.mithras.contract.overdue.application.dto.CollectionDetailDto;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
 import cn.zswltech.mithras.contract.overdue.domain.collection.Collection;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionAction;
-import cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection;
+import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollection;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

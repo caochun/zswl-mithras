@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.dto.projreview.meet;
 
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.dto.trackEvent.TrackEventListRSP;
+import cn.zswltech.mithras.dto.trackevent.TrackEventListRSP;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

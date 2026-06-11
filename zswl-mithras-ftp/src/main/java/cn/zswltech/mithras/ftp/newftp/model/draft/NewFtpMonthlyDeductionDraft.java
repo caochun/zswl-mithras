@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.ftp.newftp.model.draft;
 
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.util.BigDecimalUtil;
-import cn.zswltech.mithras.service.util.LongUtil;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
+import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
+import cn.zswltech.mithras.foundation.util.BigDecimalUtil;
+import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

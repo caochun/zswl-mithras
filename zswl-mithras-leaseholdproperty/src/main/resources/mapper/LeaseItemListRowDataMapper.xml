@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.LeaseItemListRowDataMapper">
-    <select id="listFreeItem" resultType="cn.zswltech.mithras.leaseholdproperty.infrastructure.persistence.mapper.model.LeaseItemListRowData">
+<mapper namespace="cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemListRowDataMapper">
+    <select id="listFreeItem" resultType="cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemListRowData">
         select
         id as id,
         lease_item_info_id as leaseItemInfoId,

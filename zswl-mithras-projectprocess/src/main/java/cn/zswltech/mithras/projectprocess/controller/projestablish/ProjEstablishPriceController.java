@@ -4,7 +4,6 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.projestablish.ProjEstablishPriceDetailREQ;
 import cn.zswltech.mithras.dto.projestablish.ProjEstablishPriceDetailRSP;
 import cn.zswltech.mithras.dto.projestablish.ProjEstablishPriceModifyREQ;
-import javax.validation.Valid;
 import cn.zswltech.mithras.api.projestablish.ProjEstablishPriceApi;
 import cn.zswltech.mithras.projectprocess.application.projestablish.ProjEstablishPriceApplicationService;
 import org.springframework.web.bind.annotation.RestController;

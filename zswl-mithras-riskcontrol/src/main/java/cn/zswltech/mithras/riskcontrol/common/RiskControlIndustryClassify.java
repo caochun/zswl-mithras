@@ -2,7 +2,7 @@ package cn.zswltech.mithras.riskcontrol.common;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 import java.util.HashMap;
 import java.util.List;

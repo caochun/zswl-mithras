@@ -1,10 +1,9 @@
 //import cn.zswltech.flow.core.api.FlowExecutionApiService;
 //import cn.zswltech.flow.core.domain.req.execution.ExecutionBackToStepReq;
 //import cn.zswltech.flow.core.domain.req.execution.ExecutionTaskBaseReq;
-//import cn.zswltech.mithras.service.constant.FlowConstants;
-//import cn.zswltech.mithras.service.enums.ClientVersionTypeEnum;
-//import cn.zswltech.mithras.service.mapper.model.ClientVersion;
-//import cn.zswltech.mithras.service.service.client.ClientService;
+//import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
+//import cn.zswltech.mithras.application.orchestration.enums.ClientVersionTypeEnum;
+//import cn.zswltech.mithras.application.orchestration.client.ClientService;
 //import cn.zswltech.mithras.customer.application.lib.client.ClientVersionService;
 //import org.junit.Test;
 //import org.slf4j.Logger;
@@ -19,7 +18,7 @@
 // * @author wangchuanhao
 // * @date 2022/6/22 12:27 PM
 // */
-//public class ClientEffectTest extends cn.zswltech.mithras.service.ApplicationTest {
+//public class ClientEffectTest extends cn.zswltech.mithras.others.ApplicationTest {
 //
 //    private static final Logger log = LoggerFactory.getLogger(ClientEffectTest.class);
 //

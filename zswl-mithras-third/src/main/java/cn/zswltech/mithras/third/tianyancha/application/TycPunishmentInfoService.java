@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application;
 
-import cn.zswltech.mithras.customer.externaldata.tianyancha.infrastructure.model.TycPunishmentInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.model.TycPunishmentInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

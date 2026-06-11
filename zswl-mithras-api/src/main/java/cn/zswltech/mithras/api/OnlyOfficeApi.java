@@ -1,12 +1,11 @@
 package cn.zswltech.mithras.api;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.api.dto.onlyoffice.DocDetailRSP;
-import cn.zswltech.mithras.api.dto.onlyoffice.GetDocDetailREQ;
+import cn.zswltech.mithras.dto.onlyoffice.DocDetailRSP;
+import cn.zswltech.mithras.dto.onlyoffice.GetDocDetailREQ;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

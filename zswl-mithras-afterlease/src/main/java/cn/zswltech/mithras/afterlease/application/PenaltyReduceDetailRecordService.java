@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.PenaltyReduceDetailRecordMapper;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.PenaltyReduceDetailRecord;
+import cn.zswltech.mithras.afterlease.mapper.PenaltyReduceDetailRecordMapper;
+import cn.zswltech.mithras.afterlease.mapper.model.PenaltyReduceDetailRecord;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

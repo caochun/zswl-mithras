@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.excel.model;
 
-import cn.zswltech.mithras.service.excel.model.ExcelModel;
+import cn.zswltech.mithras.foundation.excel.model.ExcelModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

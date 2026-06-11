@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.enums.app;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 /**
  * @author luyi

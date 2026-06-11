@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.newftp.draft.NewFtpMonthlyDeductionDraftApi;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyDeductionListREQ;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyDeductionListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyDeductionModifyREQ;
-import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpMonthlyDeductionDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpMonthlyDeductionDraftService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

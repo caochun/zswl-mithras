@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto.log;
 import lombok.Data;
 import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 /**
  * @description 操作日志记录
  * @author hspcadmin

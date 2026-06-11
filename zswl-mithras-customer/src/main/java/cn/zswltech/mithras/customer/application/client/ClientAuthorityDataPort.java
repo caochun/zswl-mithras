@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.customer.application.client;
 
-import cn.zswltech.mithras.customer.application.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
 
 public interface ClientAuthorityDataPort {
 

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.blackgray.dto.req.BlackGrayBreakBusinessModifyREQ;
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayBreakBusinessRemoveREQ;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBreakBusinessDetailRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBreakBusinessListRSP;
-import cn.zswltech.mithras.blackgray.model.BlackGrayBreakBusiness;
+import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayBreakBusiness;
 
 import java.util.List;
 

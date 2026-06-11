@@ -7,11 +7,11 @@ import cn.zswltech.mithras.api.newftp.draft.NewFtpQuarterlyBasePricingDraftApi;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingDetailRsp;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingModifyREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import cn.zswltech.mithras.ftp.newftp.service.NewFtpBaseInfoService;
-import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpQuarterlyBasePricingDraftService;
+import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpQuarterlyBasePricingDraftService;
 import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.RestController;
 

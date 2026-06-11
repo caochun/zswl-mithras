@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.customer.excel.exporter.app;
 
-import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
-import cn.zswltech.mithras.customer.excel.model.app.AppPcVisitRecordDetailModel;
+import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.customer.excel.model.app.AppPcVisitRecordSummaryModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;

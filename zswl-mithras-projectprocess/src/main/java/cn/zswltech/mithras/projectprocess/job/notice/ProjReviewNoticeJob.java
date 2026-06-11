@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.job.notice;
 
-import cn.zswltech.mithras.projectprocess.application.job.ProjReviewNoticeJobService;
+import cn.zswltech.mithras.projectprocess.job.service.ProjReviewNoticeJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

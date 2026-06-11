@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.financialshare.application.dto;
 
-import cn.zswltech.mithras.third.enums.FinancialChangeStateENUM;
+import cn.zswltech.mithras.third.financialshare.enums.FinancialChangeStateENUM;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

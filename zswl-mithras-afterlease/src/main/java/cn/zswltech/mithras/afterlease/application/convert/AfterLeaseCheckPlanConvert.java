@@ -5,8 +5,8 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckPlanDetailRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckPlanListRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckSummaryReportRSP;
-import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanBase;
+import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
 
 /**
  * @author dingqi

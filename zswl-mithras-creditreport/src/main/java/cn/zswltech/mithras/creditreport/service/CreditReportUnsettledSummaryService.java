@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.creditreport.CreditReportUnsettledSummaryListREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportUnsettledSummaryModifyREQ;
 import cn.zswltech.mithras.dto.creditreport.CreditReportUnsettledSummaryRemoveREQ;
-import cn.zswltech.mithras.service.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.creditreport.enums.CreditReportBusinessTypeEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditReportPaymentGuaranteeModuleEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditReportPaymentModuleEnum;
@@ -13,7 +13,7 @@ import cn.zswltech.mithras.creditreport.enums.CreditReportQualityClassificationE
 import cn.zswltech.mithras.creditreport.mapper.CreditReportUnsettledSummaryMapper;
 import cn.zswltech.mithras.creditreport.mapper.dto.credit.*;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportUnsettledSummary;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.hutool.core.lang.Pair;
-import cn.zswltech.mithras.riskcontrol.application.RemainingPrincipalService;
+import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;

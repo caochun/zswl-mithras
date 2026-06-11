@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.dto.kpi;
 
 import cn.zswltech.mithras.dto.PageReq;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

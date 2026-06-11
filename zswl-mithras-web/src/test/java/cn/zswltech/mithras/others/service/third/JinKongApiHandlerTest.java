@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.third;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.third.jk.JinKongMonthlyReportService;
+import cn.zswltech.mithras.finance.service.third.jk.JinKongMonthlyReportService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.application.financial;
 
-import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.FundFinancialSystemCallRecordMapper;
-import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.FundFinancialSystemCallRecord;
+import cn.zswltech.mithras.fund.mapper.FundFinancialSystemCallRecordMapper;
+import cn.zswltech.mithras.fund.mapper.model.FundFinancialSystemCallRecord;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

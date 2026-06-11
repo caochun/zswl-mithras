@@ -2,10 +2,8 @@ package cn.zswltech.mithras.customer.application.lib.client;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListREQ;
-import cn.zswltech.mithras.dto.client.contactinfo.CorpContactInfoListRSP;
 import cn.zswltech.mithras.dto.client.contactinfo.NewCorpContactInfoListRSP;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpContactInfoLib;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NewCorpContactInfoLib;
+import cn.zswltech.mithras.customer.mapper.model.client.NewCorpContactInfoLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

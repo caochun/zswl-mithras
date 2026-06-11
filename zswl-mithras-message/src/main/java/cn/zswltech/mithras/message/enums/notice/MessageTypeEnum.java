@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.message.enums.notice;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 import java.util.HashSet;
 import java.util.Map;

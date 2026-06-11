@@ -3,7 +3,7 @@ package cn.zswltech.mithras.metric.aggregator;
 import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricUnit;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetric;
 import cn.zswltech.mithras.metric.service.RiskMetricService;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
+import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import de.odysseus.el.ExpressionFactoryImpl;
 import de.odysseus.el.util.SimpleContext;

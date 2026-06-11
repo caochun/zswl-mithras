@@ -2,7 +2,7 @@ package cn.zswltech.mithras.kpi.excel.importer;
 
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.cell.CellEditor;
-import cn.zswltech.mithras.service.excel.AbstractSimpleExcelImporter;
+import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelImporter;
 import cn.zswltech.mithras.kpi.excel.model.EclExecuteRecordExcelModel;
 import org.springframework.stereotype.Component;
 

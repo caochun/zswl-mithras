@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.lib.client.impl;
 
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.NormalBaseInfoLibMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.NormalBaseInfoLib;
+import cn.zswltech.mithras.customer.mapper.lib.client.NormalBaseInfoLibMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.NormalBaseInfoLib;
 import cn.zswltech.mithras.customer.application.lib.client.NormalBaseInfoLibService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

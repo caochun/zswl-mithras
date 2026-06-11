@@ -9,7 +9,6 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import javax.validation.Valid;
-import java.util.List;
 import cn.zswltech.mithras.payment.application.PaymentVersionApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;

@@ -4,8 +4,8 @@ import cn.zswltech.mithras.api.collection.CollectionBaseInfoApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.collection.*;
-import cn.zswltech.mithras.collection.service.CollectionBaseInfoApplicationService;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.collection.application.facade.CollectionBaseInfoApplicationService;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

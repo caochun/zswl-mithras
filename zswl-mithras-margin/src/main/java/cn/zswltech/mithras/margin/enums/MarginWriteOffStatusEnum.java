@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.margin.enums;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
 
 /**
  * @create: 2022-08-18

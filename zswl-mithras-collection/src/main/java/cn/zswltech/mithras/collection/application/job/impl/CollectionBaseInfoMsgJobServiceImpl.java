@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.collection.application.job.impl;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
@@ -15,8 +14,8 @@ import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.message.service.MessageService;
-import cn.zswltech.mithras.service.config.redis.RedisDistLock;
-import cn.zswltech.mithras.service.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.foundation.cache.RedisDistLock;
+import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;

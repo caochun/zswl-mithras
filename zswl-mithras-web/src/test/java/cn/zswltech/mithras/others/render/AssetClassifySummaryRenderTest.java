@@ -2,8 +2,8 @@ package cn.zswltech.mithras.others.render;
 
 import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.gendoc.render.AssetClassifySummaryRender;
-import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyService;
+import cn.zswltech.mithras.application.orchestration.document.gendoc.render.AssetClassifySummaryRender;
+import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.creditreport.service;
 
 import cn.zswltech.mithras.dto.creditreport.CreditSearchCompareBusinessDTO;
-import cn.zswltech.mithras.workflow.application.flow.port.FlowEndEventProcessor;
+import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 
 import java.util.List;
 

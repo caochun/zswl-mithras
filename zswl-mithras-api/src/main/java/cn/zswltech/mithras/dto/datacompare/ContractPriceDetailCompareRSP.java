@@ -1,8 +1,5 @@
 package cn.zswltech.mithras.dto.datacompare;
 
-import cn.zswltech.mithras.dto.contract.price.ContractAocPriceDetailRSP;
-import cn.zswltech.mithras.dto.contract.price.ContractFactoringPriceDetailRSP;
-import cn.zswltech.mithras.dto.contract.price.ContractLeasePriceDetailRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.api.fund.receiptrepay;
 
-import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.financing.pledge.FundFinancingPledgeListRSP;

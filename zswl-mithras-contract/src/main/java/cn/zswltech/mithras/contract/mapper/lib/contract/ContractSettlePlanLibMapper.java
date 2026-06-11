@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.mapper.lib.contract;
 
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlanLib;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

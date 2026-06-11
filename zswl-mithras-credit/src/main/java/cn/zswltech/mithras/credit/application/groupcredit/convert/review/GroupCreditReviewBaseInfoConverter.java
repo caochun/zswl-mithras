@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.credit.application.groupcredit.convert.review;
 
 import cn.zswltech.mithras.credit.application.groupcredit.convert.GroupCreditTypeConversionWorker;
-import cn.zswltech.mithras.credit.infrastructure.persistence.groupcredit.review.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.dto.groupcreditreview.baseinfo.GroupCreditReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.groupcreditreview.baseinfo.GroupCreditReviewBaseInfoModifyREQ;
 import org.mapstruct.Mapper;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractMortgageItemMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractPledgeItemMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageItem;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeItem;
-import cn.zswltech.mithras.service.others.Util;
+import cn.zswltech.mithras.foundation.util.Util;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.Test;
 

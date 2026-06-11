@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.rating.mapper;
 
 import cn.zswltech.mithras.rating.model.RatingClientAreaIndicator;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
  * @author dingqi

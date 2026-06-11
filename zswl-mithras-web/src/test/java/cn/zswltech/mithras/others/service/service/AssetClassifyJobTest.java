@@ -3,9 +3,9 @@ package cn.zswltech.mithras.others.service.service;
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.assetclassify.application.AssetClassifyCheckContentService;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyCheckContent;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
-import cn.zswltech.mithras.service.service.assetclassify.AssetClassifyClientService;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyCheckContent;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.application.orchestration.assetclassify.AssetClassifyClientService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.junit.jupiter.api.Test;
 

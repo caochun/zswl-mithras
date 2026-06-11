@@ -2,7 +2,7 @@ package cn.zswltech.mithras.kpi.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.kpi.EclExecuteRecordRemoveREQ;
-import cn.zswltech.mithras.service.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.kpi.mapper.EclExecuteRecordLibMapper;
 import cn.zswltech.mithras.kpi.mapper.model.EclExecuteRecordLib;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

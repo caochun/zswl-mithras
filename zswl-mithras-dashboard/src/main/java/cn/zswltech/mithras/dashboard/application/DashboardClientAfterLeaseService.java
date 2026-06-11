@@ -8,13 +8,13 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckRSP;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseStatisticsRSP;
-import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckPlanProcessStatusEnum;
-import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckPlanStatusEnum;
-import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckPlanTypeEnum;
-import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckWayEnum;
-import cn.zswltech.mithras.dashboard.domain.enums.DashboardCardGroupEnum;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.NewAfterLeaseCheckPlanBaseMapper;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.dashboard.DashboardClientAfterLeaseCheckQuery;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanProcessStatusEnum;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanStatusEnum;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanTypeEnum;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
+import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
+import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanBaseMapper;
+import cn.zswltech.mithras.afterlease.mapper.model.dashboard.DashboardClientAfterLeaseCheckQuery;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.others.SpringContextHolder.getBean;
+import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean;
 
 /**
  * @author yangxiong

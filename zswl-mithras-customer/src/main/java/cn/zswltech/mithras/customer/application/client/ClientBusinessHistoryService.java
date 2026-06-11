@@ -3,10 +3,10 @@ package cn.zswltech.mithras.customer.application.client;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.client.ClientBusinessHistoryMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.ClientBusinessHistory;
-import cn.zswltech.mithras.customer.application.bo.ClientBusinessHistoryBO;
-import cn.zswltech.mithras.customer.service.model.MithrasShareholderInfo;
+import cn.zswltech.mithras.customer.mapper.client.ClientBusinessHistoryMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.ClientBusinessHistory;
+import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryBO;
+import cn.zswltech.mithras.customer.application.client.dto.MithrasShareholderInfo;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

@@ -2,10 +2,10 @@ package cn.zswltech.mithras.assetclassify.application.lib;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
-import cn.zswltech.mithras.assetclassify.infrastructure.persistence.mapper.model.AssetClassifyClient;
-import cn.zswltech.mithras.service.service.lib.CommonVersionService;
+import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
+import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
+import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
+import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.assetclassify.application.lib.handler.AssetClassifyReviewAbstractLibHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

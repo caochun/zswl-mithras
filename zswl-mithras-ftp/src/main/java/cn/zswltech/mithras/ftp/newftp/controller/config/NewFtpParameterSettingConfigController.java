@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpParameterSettingConfigListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpParameterSettingListREQ;
 import cn.zswltech.mithras.dto.newftp.NewFtpParameterSettingModifyREQ;
 import cn.zswltech.mithras.ftp.newftp.enums.ParamCategory;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpParameterSettingConfig;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpParameterSettingConfigService;
 import org.springframework.web.bind.annotation.RestController;

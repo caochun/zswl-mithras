@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.finance.view.service;
 
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceCreditInfoRSP;
-import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardFundCreditQuery;
+import cn.zswltech.mithras.dashboard.mapper.model.DashboardFundCreditQuery;
 import com.baomidou.mybatisplus.extension.service.IService;
 import cn.zswltech.mithras.finance.view.entity.DashboardFvCreditInfoSnapshot;
 

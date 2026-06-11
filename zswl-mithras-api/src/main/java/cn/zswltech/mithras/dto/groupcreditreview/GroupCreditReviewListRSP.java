@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.groupcreditreview;
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import io.swagger.annotations.ApiModel;

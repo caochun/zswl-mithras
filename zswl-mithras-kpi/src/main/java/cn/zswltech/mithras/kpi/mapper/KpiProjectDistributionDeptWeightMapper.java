@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.kpi.mapper;
 
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionDeptWeight;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
  * @author bigbear

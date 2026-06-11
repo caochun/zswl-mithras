@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.credit.application.groupcredit.establish.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.credit.domain.groupcredit.establish.enums.GroupCreditEstablishInfoModule;
-import cn.zswltech.mithras.service.mapper.model.MaterialsList;
-import cn.zswltech.mithras.service.mapper.model.MaterialsListLib;
-import cn.zswltech.mithras.service.service.lib.FileCompareDeclaration;
-import cn.zswltech.mithras.service.service.lib.MaterialsListLibHandlerProxy;
+import cn.zswltech.mithras.credit.groupcredit.establish.enums.GroupCreditEstablishInfoModule;
+import cn.zswltech.mithras.document.mapper.model.MaterialsList;
+import cn.zswltech.mithras.document.mapper.model.MaterialsListLib;
+import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
+import cn.zswltech.mithras.document.materialsfile.lib.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.handler.GroupCreditEstablishLibAbstractHandler;
 import org.springframework.stereotype.Component;
 

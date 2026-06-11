@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.budget;
 
 import cn.zswltech.mithras.dto.budget.BudgetExamineBenefitAddREQ;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.budget.BudgetExamineBenefitService;
+import cn.zswltech.mithras.application.orchestration.budget.BudgetExamineBenefitService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

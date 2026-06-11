@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.application.bo;
 
-import cn.zswltech.mithras.service.fund.direct.entity.FundDirectFinancingRepayActual;
-import cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.financing.FundFinancingRepayActual;
+import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingRepayActual;
+import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingRepayActual;
 import lombok.Data;
 
 import java.time.LocalDate;

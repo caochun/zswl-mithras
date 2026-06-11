@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.zswltech.mithras.service.service.kpi.KpiProvisionDetailService;
+import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionDetailService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.dashboard.application.util;
 
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationBaseREQ;
-import cn.zswltech.mithras.dashboard.domain.enums.DashboardAdjustPositionEnum;
+import cn.zswltech.mithras.dashboard.enums.DashboardAdjustPositionEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.dashboard.infrastructure.persistence.mapper.model.DashboardAdjustPersonInfo;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.dashboard.mapper.model.DashboardAdjustPersonInfo;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 
 import java.math.BigDecimal;

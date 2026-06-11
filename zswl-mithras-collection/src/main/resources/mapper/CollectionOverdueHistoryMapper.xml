@@ -14,7 +14,7 @@
     </select>
 
     <select id="getOverdueCollection"
-            resultType="cn.zswltech.mithras.contract.overdue.infrastructure.dao.model.OverdueCollection">
+            resultType="cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollection">
         select a.client_id           as clientId,
                max(a.overdue_days)   as curMaxOverdueDays,
                sum(a.overdue_amount) as overdueRent,

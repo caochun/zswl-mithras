@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.dto.groupcreditreview.baseinfo;
 import lombok.Data;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import io.swagger.annotations.ApiModel;

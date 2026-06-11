@@ -7,7 +7,6 @@ import cn.zswltech.mithras.dto.filingmaterials.FilingBaseREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FilingFileDownloadREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FundFilingMaterialsBatchDownloadREQ;
 import javax.validation.Valid;
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import cn.zswltech.mithras.filingmaterials.application.FundFilingMaterialsApplicationService;

@@ -1,0 +1,26 @@
+package cn.zswltech.mithras.liquidity.service.cal.bo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+
+/**
+ * LiquidityCalculatorBo
+ *
+ * @author chenyifei
+ * @since 2024/12/15
+ */
+@EqualsAndHashCode(callSuper = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class LiquidityAccountCalculatorBo extends LiquidityBaseCalculatorBo{
+
+    private LocalDate localDate;
+
+    private Long accountBankId;
+
+}

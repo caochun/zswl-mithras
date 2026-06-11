@@ -5,13 +5,13 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.NumberUtil;
 import cn.zswltech.mithras.dto.budget.BudgetPlanPayDetailDynamicTableRSP;
-import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.dto.BudgetPlanPayDetailExpenseGroupDTO;
+import cn.zswltech.mithras.budget.mapper.dto.BudgetPlanPayDetailExpenseGroupDTO;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
-import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.BudgetPlanPayDetailExpenseMapper;
-import cn.zswltech.mithras.budget.infrastructure.persistence.mapper.model.BudgetPlanPayDetailExpense;
+import cn.zswltech.mithras.budget.mapper.BudgetPlanPayDetailExpenseMapper;
+import cn.zswltech.mithras.budget.mapper.model.BudgetPlanPayDetailExpense;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;

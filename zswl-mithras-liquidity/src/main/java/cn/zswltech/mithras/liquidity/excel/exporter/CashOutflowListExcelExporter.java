@@ -5,7 +5,7 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
-import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
+import cn.zswltech.mithras.foundation.excel.annotation.SimpleExcelHeader;
 import cn.zswltech.mithras.liquidity.excel.model.AssetsCashOutflowListExcelModel;
 import cn.zswltech.mithras.liquidity.excel.model.FundsCashOutflowListExcelModel;
 import org.springframework.stereotype.Component;

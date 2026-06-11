@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.workflow.application.process.prepare.job.BillOverdueJobService;
+import cn.zswltech.mithras.workflow.process.prepare.job.BillOverdueJobService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

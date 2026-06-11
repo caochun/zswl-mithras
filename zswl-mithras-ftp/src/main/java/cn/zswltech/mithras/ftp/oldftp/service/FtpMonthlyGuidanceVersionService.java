@@ -7,13 +7,13 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
-import cn.zswltech.mithras.service.constant.ResultMsg;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
+import cn.zswltech.mithras.foundation.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpMonthlyGuidanceMapper;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
+import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyGuidance;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.service.service.lib.CommonVersionService;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.ftp.oldftp.lib.handler.AbstractFtpMonthlyLibHandler;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.contract.application.incomesharing;
 
-import cn.zswltech.mithras.api.incomeSharing.IncomeSharingApi;
-import cn.zswltech.mithras.dto.incomeSharing.IncomeSharingDetailREQ;
-import cn.zswltech.mithras.dto.incomeSharing.IncomeSharingListREQ;
+import cn.zswltech.mithras.api.incomesharing.IncomeSharingApi;
+import cn.zswltech.mithras.dto.incomesharing.IncomeSharingDetailREQ;
+import cn.zswltech.mithras.dto.incomesharing.IncomeSharingListREQ;
 
 import javax.servlet.ServletOutputStream;
 

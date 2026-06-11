@@ -1,15 +1,15 @@
 package cn.zswltech.mithras.projectprocess.mapper.model.projpricing;
 
-import cn.zswltech.mithras.service.enums.common.RecordStatus;
+import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjectManageLevelEnum;
-import cn.zswltech.mithras.service.mapper.model.BaseModel;
-import cn.zswltech.mithras.service.mapper.model.SponsorField;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.plugin.IncludeNull;
-import cn.zswltech.mithras.service.service.projfms.IStateMachineEntity;
-import cn.zswltech.mithras.service.service.projfms.ProcessStatus;
-import cn.zswltech.mithras.service.service.projfms.ProjProcessState;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
+import cn.zswltech.mithras.foundation.persistence.model.SponsorField;
+import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
+import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;
+import cn.zswltech.mithras.foundation.state.IStateMachineEntity;
+import cn.zswltech.mithras.foundation.state.ProcessStatus;
+import cn.zswltech.mithras.foundation.state.ProjProcessState;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

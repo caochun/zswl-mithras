@@ -12,7 +12,6 @@ import cn.zswltech.mithras.dto.contract.ContractFlowBasicREQ;
 import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseCheckRepeatRSP;
-import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.util.*;
 import cn.zswltech.mithras.payment.application.PaymentApplicationService;

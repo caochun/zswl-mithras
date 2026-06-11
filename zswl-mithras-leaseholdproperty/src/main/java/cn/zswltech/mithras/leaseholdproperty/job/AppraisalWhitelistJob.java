@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.leaseholdproperty.job;
 
-import cn.zswltech.mithras.leaseholdproperty.application.job.AppraisalWhitelistJobService;
+import cn.zswltech.mithras.leaseholdproperty.job.service.AppraisalWhitelistJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

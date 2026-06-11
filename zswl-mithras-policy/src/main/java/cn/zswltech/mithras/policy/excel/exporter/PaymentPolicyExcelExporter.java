@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.policy.excel.exporter;
 
-import cn.zswltech.mithras.service.excel.AbstractSimpleExcelExporter;
+import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.policy.excel.model.PaymentPolicyExcelModel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;

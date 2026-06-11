@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.kpi.excel.model;
 
-import cn.zswltech.mithras.service.excel.ColumnStyleEnum;
-import cn.zswltech.mithras.service.excel.annotation.SimpleExcelHeader;
-import cn.zswltech.mithras.service.excel.model.ExcelModel;
+import cn.zswltech.mithras.foundation.excel.ColumnStyleEnum;
+import cn.zswltech.mithras.foundation.excel.annotation.SimpleExcelHeader;
+import cn.zswltech.mithras.foundation.excel.model.ExcelModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

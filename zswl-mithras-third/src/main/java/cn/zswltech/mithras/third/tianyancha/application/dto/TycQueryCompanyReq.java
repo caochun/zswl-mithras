@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.third.tianyancha.application.dto;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data

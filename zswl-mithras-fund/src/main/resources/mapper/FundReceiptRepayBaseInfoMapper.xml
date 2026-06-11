@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.fund.infrastructure.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper">
-    <select id="richInfoPageList" resultType="cn.zswltech.mithras.fund.application.dto.FundReceiptBaseRichDTO">
+<mapper namespace="cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper">
+    <select id="richInfoPageList" resultType="cn.zswltech.mithras.fund.application.receiptrepay.dto.FundReceiptBaseRichDTO">
         select
         a.id,
         case a.financing_type when 'DIRECT' then c.product_name else b.organization_name end as financingName,
@@ -17,7 +17,7 @@
         </if>
     </select>
 
-    <select id="collectPageList" resultType="cn.zswltech.mithras.fund.application.dto.FundPlanFlowResultDTO">
+    <select id="collectPageList" resultType="cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowResultDTO">
         select
                t.is_direct,
                t.identifier as identifier,
@@ -40,7 +40,7 @@
         order by t.plan_cash_flow_date
     </select>
 
-    <select id="paymentPageList" resultType="cn.zswltech.mithras.fund.application.dto.FundPlanFlowResultDTO">
+    <select id="paymentPageList" resultType="cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowResultDTO">
         select
             t.is_direct,
             t.identifier as identifier,
@@ -366,7 +366,7 @@
     </sql>
 
     <select id="advancedList"
-            resultType="cn.zswltech.mithras.fund.infrastructure.persistence.mapper.model.receiptrepay.FundReceiptRepayBaseInfo">
+            resultType="cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfo">
         select * from fund_receipt_repay_base_info
         <where>
             <if test="dto.financingOrgId != null">and financing_org_id = #{dto.financingOrgId}</if>

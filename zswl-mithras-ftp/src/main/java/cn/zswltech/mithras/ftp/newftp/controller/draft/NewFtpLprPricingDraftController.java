@@ -6,8 +6,8 @@ import cn.zswltech.mithras.api.newftp.draft.NewFtpLprPricingDraftApi;
 import cn.zswltech.mithras.dto.newftp.NewFtpCommonDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailLprPricingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpLprPricingModifyREQ;
-import cn.zswltech.mithras.service.others.MithrasException;
-import cn.zswltech.mithras.ftp.newftp.service.drift.NewFtpLprPricingDraftService;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpLprPricingDraftService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

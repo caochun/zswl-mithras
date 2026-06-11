@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.report.enums.biz;
 
-import cn.zswltech.mithras.service.config.enumscan.PullDown;
-import cn.zswltech.mithras.service.config.enumscan.PullDownExt;
+import cn.zswltech.mithras.foundation.metadata.PullDown;
+import cn.zswltech.mithras.foundation.metadata.PullDownExt;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.FactoringType;
 import com.alibaba.fastjson.JSONArray;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
-import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -8,12 +7,12 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
-import cn.zswltech.mithras.customer.domain.enums.RelationshipType;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.IndustryType;
-import cn.zswltech.mithras.service.others.SpringContextHolder;
+import cn.zswltech.mithras.customer.enums.RelationshipType;
+import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.IndustryType;
+import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.third.tianyancha.application.dto.*;
-import cn.zswltech.mithras.third.tianyancha.infrastructure.client.resp.*;
+import cn.zswltech.mithras.third.tianyancha.client.resp.*;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
 
@@ -29,7 +28,7 @@ import java.util.stream.Collectors;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.text.CharSequenceUtil.split;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.customer.domain.enums.ShareholderType.*;
+import static cn.zswltech.mithras.customer.enums.ShareholderType.*;
 
 /**
  * @author luyi

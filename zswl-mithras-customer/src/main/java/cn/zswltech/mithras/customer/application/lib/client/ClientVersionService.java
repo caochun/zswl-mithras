@@ -4,9 +4,9 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.client.clientversion.ClientVersionListREQ;
 import cn.zswltech.mithras.dto.client.clientversion.ClientVersionListRSP;
-import cn.zswltech.mithras.service.enums.VersionTypeEnum;
-import cn.zswltech.mithras.service.mapper.dto.ChangeDTO;
-import cn.zswltech.mithras.service.mapper.model.CommonVersion;
+import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
+import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
+import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 
 /**
  *

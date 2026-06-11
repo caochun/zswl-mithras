@@ -1,12 +1,8 @@
 package cn.zswltech.mithras.dto.dashboard;
 
 import cn.zswltech.mithras.dto.PageReq;
-import cn.zswltech.mithras.dto.flow.search.ProcessTaskExtra;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.time.LocalDate;
-import java.util.List;
 
 /**
  * 任务列表查询

@@ -2,9 +2,9 @@ package cn.zswltech.mithras.ftp.newftp.lib;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpSubModule;
-import cn.zswltech.mithras.service.mapper.tag.IEntity;
-import cn.zswltech.mithras.service.mapper.tag.ILib;
-import cn.zswltech.mithras.service.service.lib.LibAbstractHandler;
+import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
+import cn.zswltech.mithras.foundation.persistence.tag.ILib;
+import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import org.springframework.transaction.annotation.Transactional;
 

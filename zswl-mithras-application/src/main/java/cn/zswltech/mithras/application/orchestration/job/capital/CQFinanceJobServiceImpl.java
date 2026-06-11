@@ -1,0 +1,135 @@
+package cn.zswltech.mithras.application.orchestration.job.capital;
+
+
+import cn.hutool.core.date.DatePattern;
+import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.capital.job.service.CQFinanceJobService;
+import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
+import cn.zswltech.mithras.third.datashare.mapper.model.DataShareManager;
+import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowAutoWriteOffService;
+import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.third.baorong.client.handle.BRFlowQueryHandle;
+import cn.zswltech.mithras.third.baorong.client.req.BRFlowHistoryReq;
+import cn.zswltech.mithras.third.baorong.client.req.CwgsApiAppUser;
+import cn.zswltech.mithras.third.baorong.client.req.CwgsHead;
+import cn.zswltech.mithras.third.baorong.client.rsp.BRFlowHistoryRsp;
+import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ *  维护苍穹推送拉取数据job
+ * @author: jackerhe
+ * @date: 2024/6/4 3:40 下午
+ **/
+@Slf4j
+@Component
+public class CQFinanceJobServiceImpl implements CQFinanceJobService {
+
+    @Resource
+    private FinanceFlowRecordService financeFlowRecordService;
+    @Resource
+    private FinanceFlowAutoWriteOffService financeFlowAutoWriteOffService;
+    @Resource
+    private DataShareManagerService dataShareManagerService;
+    @Resource
+    private BRFlowQueryHandle brFlowQueryHandle;
+
+    private Integer MAX = 5;
+
+    private final static String BR_FLOW_FULL = "br_flow_full";
+
+    @Override
+    public void sendWriteOffNotice() {
+          try {
+              List<FinanceFlowRecord> list = financeFlowRecordService.list(Wrappers.<FinanceFlowRecord>lambdaQuery()
+                      .eq(FinanceFlowRecord::getSendCqFlag, YesOrNoNumberEnum.NO.getCode())
+                      .eq(FinanceFlowRecord::getWriteOffStatus, FinancingFlowWriteOffStatusEnum.PART_WRITE_OFF.name()));
+              if (ObjectUtil.isNotEmpty(list)) {
+                  list.forEach(record -> {
+                      financeFlowAutoWriteOffService.writeOffNotice(Collections.singletonList(record.getId()));
+                  });
+              }
+          } catch (Exception e) {
+            log.error("银行流水核销发生异常", e);
+        }
+    }
+
+    @Override
+    public void fullFlowRecord() {
+        try {
+            financeFlowRecordService.fullSync(LocalDateTime.now().minusMonths(3), LocalDateTime.now());
+        } catch (Exception e) {
+            log.error("每日拉取本月银行流水发生异常", e);
+        }
+    }
+
+    @Override
+    public void fullBRFlowRecord() {
+        try {
+            //获取管理信息信息
+            DataShareManager dataShareManager = dataShareManagerService.getOne(Wrappers.<DataShareManager>lambdaQuery()
+                    .eq(DataShareManager::getModelName, BR_FLOW_FULL)
+                    .last(cn.zswltech.mithras.foundation.util.StringUtil.mysqlLimitOne()));
+            LocalDateTime now = LocalDateTime.now();
+            if (ObjectUtil.isEmpty(dataShareManager)) {
+                dataShareManager = new DataShareManager();
+                dataShareManager.setEndTime(now.withDayOfMonth(1));
+                dataShareManager.setPageNum(1);
+                dataShareManager.setPageSize(100);
+                dataShareManager.setModelName(BR_FLOW_FULL);
+                dataShareManagerService.save(dataShareManager);
+            }
+            BRFlowHistoryReq req = buildBRFlowHistoryReq(now, dataShareManager.getPageNum(), dataShareManager.getPageSize());
+            BRFlowHistoryRsp rsp = brFlowQueryHandle.execute(req);
+            while (checkRspResult(rsp) && req.getBody().get_pageSize() < MAX && req.getBody().get_pageIndex() < MAX) {
+                req.getBody().set_pageSize(req.getBody().get_pageSize() + 1);
+                rsp = brFlowQueryHandle.execute(req);
+            }
+        } catch (Exception e) {
+            log.error("拉取保融银行流水发生异常", e);
+        }
+    }
+
+    private boolean checkRspResult(BRFlowHistoryRsp rsp) {
+        return rsp != null && rsp.getBody() != null && rsp.getBody().getList() != null && rsp.getBody().getList().size() > 0;
+    }
+
+    private BRFlowHistoryReq buildBRFlowHistoryReq(LocalDateTime startTime, Integer page, Integer pageSize) {
+        BRFlowHistoryReq req = new BRFlowHistoryReq();
+        CwgsHead head = new CwgsHead();
+        BRFlowHistoryReq.BRFlowHistoryReqBody body = req.new BRFlowHistoryReqBody();
+        CwgsApiAppUser cwgsApiAppUser = new CwgsApiAppUser();
+        head.setServiceCode("CWGS001");
+        head.setServiceNo("10001001");
+        head.setConsumerCode("10001");
+        head.setConsumerId("001");
+        head.setChannelType("ESB");
+        //服务编号+消费端编码+时间戳
+        head.setReqSequence(String.join(head.getServiceNo(), head.getConsumerCode(), String.valueOf(System.currentTimeMillis())));
+        head.setTrandate(startTime.format(DateTimeFormatter.ofPattern(DatePattern.PURE_DATE_PATTERN)));
+        head.setTrantime(startTime.format(DateTimeFormatter.ofPattern(DatePattern.PURE_TIME_PATTERN)));
+
+        cwgsApiAppUser.setOperator("ZJZSRZZLYXGS");
+        cwgsApiAppUser.setOrgan("ZJZSRZZL");
+
+        body.setTradedate(startTime.format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
+        body.set_pageSize(page);
+        body.set_pageIndex(pageSize);
+
+        req.setCwgsHead(head);
+        req.setCwgsApiAppUser(cwgsApiAppUser);
+        req.setBody(body);
+        return req;
+    }
+
+}

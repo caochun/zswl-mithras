@@ -67,7 +67,7 @@ or dependencies still show migration residue:
 
 | Area | Current State | Target Direction |
 | --- | --- | --- |
-| `service` package roots inside domain modules | Many migrated files still keep old `cn.zswltech.mithras.service.*` packages. | Rename gradually into the owning module package when touching each domain. |
+| Legacy `service` package roots | Main source code has been moved out of the old service-root package; keep new code under the owning module package. | Continue shrinking orchestration residue in `application` and avoid reintroducing service roots. |
 | `zswl-mithras-application` | Still contains a large amount of old service orchestration. | Keep only cross-domain composition; push single-domain logic back to the owning module. |
 | `zswl-mithras-report` | Depends on `application`, so it is an entry/report assembly layer. | Avoid adding domain calculations here; calculations should live in domain/metric modules. |
 | `metric`, `dashboard`, `workbench` | All are cross-domain read-side capabilities, but at different levels. | `metric` owns reusable calculations, `dashboard` owns dashboard read models, `workbench` owns user-facing widgets. |

@@ -2,8 +2,8 @@ package cn.zswltech.mithras.afterlease.application;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.afterlease.*;
-import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckReportTypeEnum;
-import cn.zswltech.mithras.afterlease.infrastructure.persistence.mapper.model.NewAfterLeaseCheckPlanBase;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTypeEnum;
+import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.time.LocalDate;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.contract;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.service.contract.impl.ContractPriceServiceImpl;
+import cn.zswltech.mithras.application.orchestration.contract.impl.ContractPriceServiceImpl;
 import org.junit.Test;
 
 import javax.annotation.Resource;

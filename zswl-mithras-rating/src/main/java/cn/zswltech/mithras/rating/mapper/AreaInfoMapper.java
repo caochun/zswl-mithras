@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.rating.mapper;
 
 import cn.zswltech.mithras.rating.model.AreaInfo;
-import cn.zswltech.mithras.service.util.StringUtil;
+import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

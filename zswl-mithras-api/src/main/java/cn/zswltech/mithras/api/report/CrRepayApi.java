@@ -3,7 +3,6 @@ package cn.zswltech.mithras.api.report;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.report.repay.RepayListREQ;
-import cn.zswltech.mithras.dto.report.repay.RepayListRSP;
 import cn.zswltech.mithras.dto.report.repay.RepayModifyREQ;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import io.swagger.annotations.Api;

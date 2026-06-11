@@ -1,12 +1,10 @@
 package cn.zswltech.mithras.dto.monthly;
 
-import cn.zswltech.mithras.dto.PageReq;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data

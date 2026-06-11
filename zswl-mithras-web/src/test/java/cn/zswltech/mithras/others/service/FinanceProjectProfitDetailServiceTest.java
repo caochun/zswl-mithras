@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service;
 
 import cn.zswltech.mithras.dto.finance.FinanceProjectCalculationREQ;
-import cn.zswltech.mithras.service.service.finance.FinanceProjectProfitDetailService;
+import cn.zswltech.mithras.application.orchestration.finance.FinanceProjectProfitDetailService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

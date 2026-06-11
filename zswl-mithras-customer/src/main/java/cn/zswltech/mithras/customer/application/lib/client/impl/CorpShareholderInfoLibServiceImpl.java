@@ -3,8 +3,8 @@ package cn.zswltech.mithras.customer.application.lib.client.impl;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoListREQ;
 import cn.zswltech.mithras.dto.client.shareholder.CorpShareholderInfoListRSP;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.lib.client.CorpShareholderInfoLibMapper;
-import cn.zswltech.mithras.customer.infrastructure.persistence.mapper.model.client.CorpShareholderInfoLib;
+import cn.zswltech.mithras.customer.mapper.lib.client.CorpShareholderInfoLibMapper;
+import cn.zswltech.mithras.customer.mapper.model.client.CorpShareholderInfoLib;
 import cn.zswltech.mithras.customer.application.lib.client.CorpShareholderInfoLibService;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpShareholderInfoLibHandlerImpl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.service.enums.OrderByType.ascend;
+import static cn.zswltech.mithras.customer.enums.OrderByType.ascend;
 
 /**
  *

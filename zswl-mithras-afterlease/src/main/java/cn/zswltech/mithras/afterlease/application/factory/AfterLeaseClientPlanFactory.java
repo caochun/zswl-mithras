@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.afterlease.application.factory;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseClientPlanRSP;
-import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckTermEnum;
-import cn.zswltech.mithras.afterlease.domain.enums.AfterLeaseCheckWayEnum;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckTermEnum;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.service.util.BigDecimalUtil;
+import cn.zswltech.mithras.foundation.util.BigDecimalUtil;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

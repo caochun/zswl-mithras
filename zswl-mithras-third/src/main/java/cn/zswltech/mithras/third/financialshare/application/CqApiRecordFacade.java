@@ -2,7 +2,7 @@ package cn.zswltech.mithras.third.financialshare.application;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.third.financialshare.application.api.CqApiRecordApplicationService;
+import cn.zswltech.mithras.third.financialshare.application.CqApiRecordApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.third.financial.CqApiRecordREQ;
 import cn.zswltech.mithras.dto.third.financial.CqApiRecordRSP;

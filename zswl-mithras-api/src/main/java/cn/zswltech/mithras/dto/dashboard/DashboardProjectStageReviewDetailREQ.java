@@ -2,7 +2,6 @@ package cn.zswltech.mithras.dto.dashboard;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotNull;
 

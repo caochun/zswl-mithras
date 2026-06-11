@@ -2,8 +2,8 @@ package cn.zswltech.mithras.others.service.ftp;
 
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.service.constant.VersionTypeConstants;
-import cn.zswltech.mithras.service.enums.VersionTypeEnum;
+import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceVersionService;
 import org.junit.Test;
 

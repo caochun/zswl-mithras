@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.ftp.newftp.enums;
 
-import cn.zswltech.mithras.workflow.application.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

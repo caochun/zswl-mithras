@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service.job;
 
-import cn.zswltech.mithras.third.application.job.RequestRetryJobService;
+import cn.zswltech.mithras.third.retry.job.service.RequestRetryJobService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,19 +1,14 @@
 package cn.zswltech.mithras.contract.versioning.datacompare;
 
 import cn.zswltech.mithras.dto.contract.price.ContractAocPriceDetailRSP;
-import cn.zswltech.mithras.dto.projreview.price.ProjReviewAocPriceRSP;
-import cn.zswltech.mithras.service.mapper.lib.CommonVersionMapper;
+import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractAocPriceLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewAocPriceLibMapper;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPriceLib;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewAocPrice;
-import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewAocPriceLib;
-import cn.zswltech.mithras.service.service.datacompare.AbstractDataCompare;
-import cn.zswltech.mithras.service.service.datacompare.EditdataCompareFactory;
-import cn.zswltech.mithras.service.service.datacompare.compare.DefaultDataCompare;
+import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
+import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
+import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractAocPriceLibHandler;
-import cn.zswltech.mithras.projectprocess.service.lib.projreview.handler.impl.ProjReviewAocPriceLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

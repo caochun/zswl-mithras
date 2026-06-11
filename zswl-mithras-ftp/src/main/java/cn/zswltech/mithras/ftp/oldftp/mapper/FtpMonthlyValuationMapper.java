@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.oldftp.mapper;
 
 import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyValuation;
-import cn.zswltech.mithras.service.plugin.CustomBaseMapper;
+import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
 * @description 月度计价指导

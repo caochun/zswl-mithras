@@ -9,7 +9,7 @@ import cn.zswltech.mithras.contract.overdue.domain.collection.CollectLetterCode;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionAction;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionActionId;
 import cn.zswltech.mithras.contract.overdue.domain.collection.CollectionRepository;
-import cn.zswltech.mithras.service.others.MithrasException;
+import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.overdue.application.collection.CollectionLetterGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

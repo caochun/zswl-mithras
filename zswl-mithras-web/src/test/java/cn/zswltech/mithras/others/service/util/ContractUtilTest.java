@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.util;
 
-import cn.zswltech.mithras.service.enums.common.ProjectBizType;
-import cn.zswltech.mithras.service.util.ContractUtil;
+import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
+import cn.zswltech.mithras.application.orchestration.contract.util.ContractUtil;
 import org.junit.jupiter.api.Test;
 
 class ContractUtilTest {

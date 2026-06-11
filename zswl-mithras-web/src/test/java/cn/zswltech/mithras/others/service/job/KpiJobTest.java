@@ -2,8 +2,8 @@ package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.kpi.job.KpiJob;
-import cn.zswltech.mithras.service.service.monthly.MonthlyManageService;
-import cn.zswltech.mithras.service.service.monthly.MonthlySendCqService;
+import cn.zswltech.mithras.application.orchestration.monthly.MonthlyManageService;
+import cn.zswltech.mithras.application.orchestration.monthly.MonthlySendCqService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

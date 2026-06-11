@@ -2,9 +2,9 @@ package cn.zswltech.mithras.capital.job;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.zswltech.mithras.capital.domain.enums.FinancingFlowWriteOffStatusEnum;
-import cn.zswltech.mithras.third.mapper.model.FinanceFlowRecord;
-import cn.zswltech.mithras.third.mapper.FinanceFlowRecordMapper;
+import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
+import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.mapper.FinanceFlowRecordMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

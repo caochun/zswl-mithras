@@ -1,12 +1,10 @@
 package cn.zswltech.mithras.dto.report.fiveclass;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 
 /**
  * 征信报送-五级分类表删除入参
