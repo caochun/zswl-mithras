@@ -5,7 +5,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.client.client.ClientListREQ;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
+import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;

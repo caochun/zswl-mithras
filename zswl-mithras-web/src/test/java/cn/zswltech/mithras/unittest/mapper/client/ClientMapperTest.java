@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.unittest.mapper.client;
 
-import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
+import cn.zswltech.mithras.customer.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.dto.ClientListParam;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;

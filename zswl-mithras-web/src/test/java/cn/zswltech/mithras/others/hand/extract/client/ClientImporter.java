@@ -4,9 +4,9 @@ import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.IdcardUtil;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.application.orchestration.enums.*;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientProcessStatus;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientStatus;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
+import cn.zswltech.mithras.customer.enums.client.ClientProcessStatus;
+import cn.zswltech.mithras.customer.enums.client.ClientStatus;
+import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.*;
@@ -43,7 +43,7 @@ import java.nio.charset.Charset;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.zswltech.mithras.customer.domain.enums.CorpAddressType.REGISTRY_ADDRESS;
+import static cn.zswltech.mithras.customer.enums.CorpAddressType.REGISTRY_ADDRESS;
 import static cn.zswltech.mithras.foundation.util.Const.ENUM_TYC_PROVINCE;
 
 /**

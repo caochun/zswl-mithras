@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.service.metric;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Industry;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.customer.domain.enums.client.ClientType;
+import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;

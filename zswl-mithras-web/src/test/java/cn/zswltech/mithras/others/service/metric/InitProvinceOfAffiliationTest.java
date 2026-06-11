@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.metric;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.customer.domain.enums.CorpAddressType;
+import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpAddressInfoLibMapper;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;

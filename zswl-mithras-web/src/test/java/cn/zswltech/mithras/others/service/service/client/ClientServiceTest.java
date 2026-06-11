@@ -7,7 +7,7 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.client.client.ClientSyncRSP;
-import cn.zswltech.mithras.customer.domain.enums.ClientAuthEnum;
+import cn.zswltech.mithras.customer.enums.ClientAuthEnum;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfo;
