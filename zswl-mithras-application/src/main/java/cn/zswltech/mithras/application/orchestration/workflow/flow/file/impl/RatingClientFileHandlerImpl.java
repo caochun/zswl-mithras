@@ -1,23 +1,18 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.file.impl;
 
-import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
-import cn.zswltech.mithras.document.enums.rating.RatingClientMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.file.IFileHandler;
-import cn.zswltech.mithras.document.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
+import cn.zswltech.mithras.rating.enums.RatingClientMaterialsEnum;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
