@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.margin;
 
-import cn.zswltech.mithras.margin.service.MarginViewAuthPort;
+import cn.zswltech.mithras.margin.application.port.MarginViewAuthPort;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonViewMainAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import org.springframework.stereotype.Component;

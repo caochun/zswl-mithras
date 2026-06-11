@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.margin.service;
+package cn.zswltech.mithras.margin.application.port;
 
-import cn.zswltech.mithras.margin.service.model.MarginCollectionInfo;
+import cn.zswltech.mithras.margin.application.port.model.MarginCollectionInfo;
 
 import java.time.LocalDate;
 import java.util.Collection;

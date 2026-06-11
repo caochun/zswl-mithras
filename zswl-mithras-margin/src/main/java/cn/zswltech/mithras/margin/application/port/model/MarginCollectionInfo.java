@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.margin.service.model;
+package cn.zswltech.mithras.margin.application.port.model;
 
 import lombok.Data;
 

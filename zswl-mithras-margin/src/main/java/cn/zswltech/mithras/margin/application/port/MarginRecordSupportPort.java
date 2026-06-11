@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.margin.service;
+package cn.zswltech.mithras.margin.application.port;
 
-import cn.zswltech.mithras.margin.service.model.MarginCollectionRecordInfo;
+import cn.zswltech.mithras.margin.application.port.model.MarginCollectionRecordInfo;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2PaymentVO;
 
 import java.util.Collection;
