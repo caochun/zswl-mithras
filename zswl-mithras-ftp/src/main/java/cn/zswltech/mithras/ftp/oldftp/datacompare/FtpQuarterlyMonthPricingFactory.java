@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.datacompare;
+package cn.zswltech.mithras.ftp.oldftp.datacompare;
 
 import cn.zswltech.mithras.dto.ftp.FtpQuarterlyBasePricingRsp;
 import cn.zswltech.mithras.dto.ftp.FtpQuarterlyMonthPricingRsp;

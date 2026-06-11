@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.adapter;
+package cn.zswltech.mithras.ftp.newftp.adapter;
 
 import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpFileTemplatePort;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;

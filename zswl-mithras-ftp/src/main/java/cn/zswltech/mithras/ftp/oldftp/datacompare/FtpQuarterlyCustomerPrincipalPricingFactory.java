@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.datacompare;
+package cn.zswltech.mithras.ftp.oldftp.datacompare;
 
 import cn.zswltech.mithras.dto.ftp.FtpQuarterlyCustomerPrincipalPricingRsp;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;

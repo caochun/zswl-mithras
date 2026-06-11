@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.datacompare;
+package cn.zswltech.mithras.ftp.newftp.datacompare;
 
 import cn.zswltech.mithras.dto.newftp.NewFtpDescriptionTextListRsp;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
