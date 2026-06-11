@@ -126,7 +126,7 @@ import cn.zswltech.mithras.customer.mapper.lib.client.*;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.model.client.*;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.third.datashare.model.DataShareMerchants;
 import cn.zswltech.mithras.fund.model.FundOrganization;

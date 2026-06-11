@@ -6,7 +6,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.collection.application.job.CollectionBaseInfoMsgJobService;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;

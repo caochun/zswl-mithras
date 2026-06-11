@@ -27,7 +27,7 @@ import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialDevUrlENUM;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractIncomeSharing;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;

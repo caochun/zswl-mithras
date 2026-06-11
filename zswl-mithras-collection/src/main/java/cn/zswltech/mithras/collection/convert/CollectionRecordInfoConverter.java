@@ -2,7 +2,7 @@ package cn.zswltech.mithras.collection.convert;
 
 
 import cn.zswltech.mithras.dto.third.financial.ThirdCollectionRecordREQ;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

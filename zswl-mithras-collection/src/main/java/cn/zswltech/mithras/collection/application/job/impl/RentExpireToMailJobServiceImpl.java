@@ -5,7 +5,7 @@ import cn.zswltech.mithras.collection.application.job.CollectionMailJobSupportPo
 import cn.zswltech.mithras.collection.application.job.RentExpireToMailJobService;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.model.client.Client;

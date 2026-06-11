@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.collection.mapper;
 
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

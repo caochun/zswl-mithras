@@ -22,7 +22,7 @@ import cn.zswltech.mithras.finance.mapper.finance.FinanceAccountAgeBaseInfoMappe
 import cn.zswltech.mithras.finance.mapper.finance.FinanceAccountAgeItemMapper;
 import cn.zswltech.mithras.finance.mapper.finance.query.FinanceAccountAgeitemCountQuery;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceAccountAgeBaseInfo;

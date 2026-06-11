@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientWithdrawalRatioM
 import cn.zswltech.mithras.dto.assetclassify.WithdrawalRatioWrapper;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractRentActualMapper;

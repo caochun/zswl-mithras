@@ -46,7 +46,7 @@ import cn.zswltech.mithras.projectprocess.excel.model.IRRCalculateExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractRentActualMapper;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;

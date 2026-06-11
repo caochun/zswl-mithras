@@ -43,7 +43,7 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.budget.mapper.EclExecutePredictBaseInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.EclExecuteRecordMapper;
 import cn.zswltech.mithras.budget.mapper.model.*;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.kpi.model.EclBusinessConfig;
 import cn.zswltech.mithras.kpi.model.EclExecuteRecord;

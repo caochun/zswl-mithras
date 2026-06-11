@@ -28,7 +28,7 @@ import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.model.MarginBaseInfo;

@@ -29,7 +29,7 @@ import cn.zswltech.mithras.application.orchestration.job.NextMonthRentNotify;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.PopUpNotificationBody;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractPrice;
 import cn.zswltech.mithras.fund.model.FundCredit;

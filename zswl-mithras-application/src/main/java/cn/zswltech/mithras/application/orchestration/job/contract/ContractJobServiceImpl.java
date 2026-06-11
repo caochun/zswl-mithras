@@ -19,7 +19,7 @@ import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.job.service.ContractJobService;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRemindRecord;

@@ -41,7 +41,7 @@ import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;

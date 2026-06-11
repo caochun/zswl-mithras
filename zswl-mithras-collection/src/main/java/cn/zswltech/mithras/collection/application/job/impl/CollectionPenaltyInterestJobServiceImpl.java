@@ -8,9 +8,9 @@ import cn.zswltech.mithras.collection.application.job.CollectionPenaltyInterestJ
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionOverdueRecordInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueHistory;
-import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionOverdueHistory;
+import cn.zswltech.mithras.collection.model.CollectionOverdueRecordInfo;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

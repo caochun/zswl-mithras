@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.collection.mapper.CollectionOverdueHistoryMapper">
 
 
-    <select id="getHistoryByDay" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionOverdueHistory">
+    <select id="getHistoryByDay" resultType="cn.zswltech.mithras.collection.model.CollectionOverdueHistory">
         select *
         from collection_overdue_history
         where collection_id = #{collectionId}

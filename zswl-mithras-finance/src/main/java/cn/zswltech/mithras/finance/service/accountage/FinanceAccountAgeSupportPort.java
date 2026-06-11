@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.finance.service.accountage;
 
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.third.financialshare.client.req.CQ2AccountAgeAddREQ;
 
 import java.time.LocalDate;

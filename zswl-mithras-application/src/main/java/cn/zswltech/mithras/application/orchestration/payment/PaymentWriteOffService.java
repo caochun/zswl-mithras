@@ -38,7 +38,7 @@ import cn.zswltech.mithras.third.financialshare.enums.CQPaymentMethodENUM;
 import cn.zswltech.mithras.third.financialshare.enums.CQPaymentTypeENUM;
 import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;

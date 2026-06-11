@@ -27,7 +27,7 @@ import cn.zswltech.mithras.payment.enums.PaymentMethod;
 import cn.zswltech.mithras.payment.enums.WriteOffTypeEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPledgeInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowMatchResult;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;

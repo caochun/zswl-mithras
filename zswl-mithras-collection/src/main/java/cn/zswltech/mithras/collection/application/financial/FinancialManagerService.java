@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.collection.application.financial;
 
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 
 import java.util.List;
 

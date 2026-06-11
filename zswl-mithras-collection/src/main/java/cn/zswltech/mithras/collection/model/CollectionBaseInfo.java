@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.collection.mapper.model;
+package cn.zswltech.mithras.collection.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;

@@ -20,7 +20,7 @@ import cn.zswltech.mithras.afterlease.mapper.RentCollectionEmailRecordMapper;
 import cn.zswltech.mithras.afterlease.mapper.model.RentCollectionEmailHtmlStore;
 import cn.zswltech.mithras.afterlease.mapper.model.RentCollectionEmailRecord;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;

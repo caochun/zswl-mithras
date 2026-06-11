@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.finance;
 
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.finance.service.accountage.FinanceAccountAgeSupportPort;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.third.financial.impl.FinancialManagerServiceImpl2;

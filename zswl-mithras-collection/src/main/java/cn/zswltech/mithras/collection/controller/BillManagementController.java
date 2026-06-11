@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.collection.BillManagementApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.collection.*;
-import cn.zswltech.mithras.collection.mapper.model.BillManagement;
+import cn.zswltech.mithras.collection.model.BillManagement;
 import cn.zswltech.mithras.collection.application.facade.BillManagementApplicationService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;

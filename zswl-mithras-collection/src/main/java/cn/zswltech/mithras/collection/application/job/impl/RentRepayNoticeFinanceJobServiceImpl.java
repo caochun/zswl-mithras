@@ -5,7 +5,7 @@ import cn.hutool.core.util.IdUtil;
 import cn.zswltech.mithras.collection.application.job.RentRepayNoticeFinanceJobService;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;

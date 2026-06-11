@@ -26,8 +26,8 @@ import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewFactor
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewLeasePriceLibMapper;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientAuxiliaryLib;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractGuarantorLib;

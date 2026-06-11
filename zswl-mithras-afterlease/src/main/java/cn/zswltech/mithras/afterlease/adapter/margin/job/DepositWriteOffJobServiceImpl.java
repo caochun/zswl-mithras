@@ -16,7 +16,7 @@ import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsProcessStatusEnum;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
 import cn.zswltech.mithras.margin.job.service.DepositWriteOffJobService;

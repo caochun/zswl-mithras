@@ -8,7 +8,7 @@ import cn.zswltech.mithras.report.mapper.draft.model.CrAccountDraft;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractLeasePriceLibMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePriceLib;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;

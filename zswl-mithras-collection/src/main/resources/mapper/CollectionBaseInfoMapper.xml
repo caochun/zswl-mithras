@@ -9,7 +9,7 @@
         </foreach>
     </insert>
 
-    <select id="pageList" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+    <select id="pageList" resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         select a.*
         from collection_base_info a,contract_base_info b
         <where>
@@ -29,7 +29,7 @@
         order by a.contract_code,a.plan_collection_date,a.code asc
     </select>
 
-    <select id="overdueList" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+    <select id="overdueList" resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         select *
         from collection_base_info
         where DATE_FORMAT(plan_collection_date, '%Y-%m-%d') <![CDATA[ < ]]> SUBDATE(CURDATE(), 3)
@@ -37,7 +37,7 @@
           AND write_off_status != 'WRITE_OFF_COMPLETED'
     </select>
 
-    <select id="overdueListWithoutGracePeriod" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+    <select id="overdueListWithoutGracePeriod" resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         select *
         from collection_base_info
         where plan_collection_date &lt; concat(substr(now(),1,10),' 00:00:00')
@@ -46,7 +46,7 @@
         and (ifnull(principal,0) + ifnull(interest,0)) > (ifnull(collection_principal,0) + ifnull(collection_interest,0))
     </select>
 
-    <select id="getEndTimeByReceipt" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+    <select id="getEndTimeByReceipt" resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         select receipt_id, max(plan_collection_date) plan_collection_date from collection_base_info
         where cash_flow_item = 'RENT'
         and receipt_id in
@@ -59,7 +59,7 @@
 
 
     <select id="specifyClientOverdueList"
-            resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+            resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         select *
         from collection_base_info
         where DATE_FORMAT(plan_collection_date, '%Y-%m-%d') <![CDATA[ < ]]> SUBDATE(CURDATE(), 3)
@@ -69,7 +69,7 @@
     </select>
 
     <select id="getLastRentDateByContractIds"
-            resultType="cn.zswltech.mithras.collection.mapper.dto.CollectionContractSettleDTO">
+            resultType="cn.zswltech.mithras.collection.dto.CollectionContractSettleDTO">
         select contract_id contractId,
         max(plan_collection_date) settleDate
         FROM
@@ -84,7 +84,7 @@
     </select>
 
     <select id="getLastRentByContractIdsAndTime"
-            resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+            resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         SELECT
         a.receipt_id receipt_id,
         max( a.plan_collection_date ) plan_collection_date,
@@ -112,7 +112,7 @@
         a.receipt_id
     </select>
 
-    <select id="sumAmount" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+    <select id="sumAmount" resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         SELECT
             cash_flow_item,
             sum( plan_collection_amount ) plan_collection_amount,
@@ -125,7 +125,7 @@
             cash_flow_item
     </select>
 
-    <select id="sumContractAmount" resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+    <select id="sumContractAmount" resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         SELECT
             DISTINCT (b.id) id,
                      b.apply_credit_amount plan_collection_amount
@@ -365,8 +365,8 @@
     </select>
 
     <select id="contractNextRentList"
-            parameterType="cn.zswltech.mithras.collection.mapper.dto.CollectionNextRentParam"
-            resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+            parameterType="cn.zswltech.mithras.collection.dto.CollectionNextRentParam"
+            resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         select p.* from
         (select min(plan_collection_date) as plan_collection_date, contract_id from collection_base_info
         where cash_flow_item = 'RENT' and write_off_status != 'WRITE_OFF_COMPLETED'
@@ -390,7 +390,7 @@
 
 
     <select id="getReceiptNextRent"
-            resultType="cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo">
+            resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         SELECT
         b.*
         FROM

@@ -65,7 +65,7 @@ import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckExternalQue
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;

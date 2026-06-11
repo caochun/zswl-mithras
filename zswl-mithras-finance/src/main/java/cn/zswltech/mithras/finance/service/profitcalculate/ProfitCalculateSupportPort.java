@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.finance.service.profitcalculate;
 
-import cn.zswltech.mithras.collection.mapper.model.BillManagement;
+import cn.zswltech.mithras.collection.model.BillManagement;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;

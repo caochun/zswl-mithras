@@ -32,7 +32,7 @@ import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractPrice;
 import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;

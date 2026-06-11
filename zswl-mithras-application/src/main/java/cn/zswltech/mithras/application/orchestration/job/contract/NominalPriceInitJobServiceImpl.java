@@ -5,7 +5,7 @@ import cn.zswltech.mithras.contract.job.service.NominalPriceInitJobService;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

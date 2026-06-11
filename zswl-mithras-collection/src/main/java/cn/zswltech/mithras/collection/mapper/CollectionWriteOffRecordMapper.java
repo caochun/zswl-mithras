@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.collection.mapper;
 
-import cn.zswltech.mithras.collection.mapper.model.CollectionWriteOffRecord;
+import cn.zswltech.mithras.collection.model.CollectionWriteOffRecord;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

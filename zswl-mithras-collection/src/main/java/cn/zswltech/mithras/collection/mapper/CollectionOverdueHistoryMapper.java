@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.collection.mapper;
 
-import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueHistory;
+import cn.zswltech.mithras.collection.model.CollectionOverdueHistory;
 import cn.zswltech.mithras.contract.overdue.model.OverdueCollection;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;

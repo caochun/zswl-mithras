@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.projlifecycle;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.core.ContractAocPriceService;
 import cn.zswltech.mithras.contract.core.ContractFactoringPriceService;
 import cn.zswltech.mithras.contract.core.ContractLeasePriceService;

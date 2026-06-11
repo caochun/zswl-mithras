@@ -18,9 +18,9 @@ import cn.zswltech.mithras.collection.excel.exporter.CollectionListExcelExporter
 import cn.zswltech.mithras.collection.excel.model.CollectionListExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
-import cn.zswltech.mithras.collection.mapper.dto.CollectionNextRentParam;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.dto.CollectionNextRentParam;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;

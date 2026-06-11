@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.listener.timeout;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.contract.enums.TimeoutTypeEnum;
 import cn.zswltech.mithras.contract.event.timeout.TimeoutNotifyEvent;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;

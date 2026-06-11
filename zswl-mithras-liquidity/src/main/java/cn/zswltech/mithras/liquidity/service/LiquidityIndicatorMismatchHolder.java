@@ -2,7 +2,7 @@ package cn.zswltech.mithras.liquidity.service;
 
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPledgeInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.fund.model.FundOrganization;

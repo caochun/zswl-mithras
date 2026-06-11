@@ -28,7 +28,7 @@ import cn.zswltech.mithras.fund.directfinancing.excel.directfinancing.NewFundDir
 import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.PopUpNotificationBody;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

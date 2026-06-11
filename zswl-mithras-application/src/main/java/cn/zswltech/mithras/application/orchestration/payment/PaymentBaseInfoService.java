@@ -78,7 +78,7 @@ import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.margin.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.model.FtpAssessmentInfo;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.collection.adapter.workflow;
 
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.workflow.process.prepare.ProcessPrepareCollectionInfo;
 import cn.zswltech.mithras.workflow.process.prepare.ProcessPrepareCollectionPort;
 import org.springframework.stereotype.Component;

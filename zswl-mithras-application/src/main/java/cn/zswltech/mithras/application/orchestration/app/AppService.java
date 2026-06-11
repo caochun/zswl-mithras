@@ -69,7 +69,7 @@ import cn.zswltech.mithras.customer.model.app.AppContractSign;
 import cn.zswltech.mithras.customer.model.app.VisitDownloadTaskRecord;
 import cn.zswltech.mithras.customer.model.app.VisitRecord;
 import cn.zswltech.mithras.customer.model.client.*;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractSignInfo;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;

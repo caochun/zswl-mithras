@@ -17,7 +17,7 @@ import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeasePriceMapper;
 import cn.zswltech.mithras.afterlease.mapper.dto.RentCollectionIndexListDTO;
 import cn.zswltech.mithras.afterlease.mapper.dto.RentCollectionIndexListParam;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;

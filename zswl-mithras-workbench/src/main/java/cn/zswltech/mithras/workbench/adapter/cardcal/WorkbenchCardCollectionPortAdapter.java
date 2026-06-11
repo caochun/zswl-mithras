@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workbench.adapter.cardcal;
 
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.workbench.application.cardcal.WorkbenchCardCollectionPort;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchCollectionAmount;

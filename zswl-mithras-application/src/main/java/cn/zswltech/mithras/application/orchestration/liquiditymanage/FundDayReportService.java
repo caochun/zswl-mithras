@@ -12,7 +12,7 @@ import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.fund.model.FundOrganization;

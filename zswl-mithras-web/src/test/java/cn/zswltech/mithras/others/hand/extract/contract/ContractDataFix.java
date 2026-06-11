@@ -26,8 +26,8 @@ import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewBaseIn
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewLeasePriceLibMapper;
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.mapper.MarginRecordInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.margin.model.MarginBaseInfo;
 import cn.zswltech.mithras.margin.model.MarginRecordInfo;

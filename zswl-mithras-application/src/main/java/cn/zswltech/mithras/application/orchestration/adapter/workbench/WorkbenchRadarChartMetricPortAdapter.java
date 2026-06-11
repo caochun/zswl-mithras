@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.workbench;
 
 import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.core.ContractPriceService;
 import cn.zswltech.mithras.contract.model.contract.ContractAocPriceLib;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;

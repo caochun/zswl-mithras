@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.collection.application.job;
 
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueHistory;
-import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionOverdueHistory;
+import cn.zswltech.mithras.collection.model.CollectionOverdueRecordInfo;
 
 import java.time.LocalDate;
 import java.util.List;

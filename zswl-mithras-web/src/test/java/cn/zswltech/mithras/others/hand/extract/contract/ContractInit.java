@@ -26,7 +26,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractRentActualMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractAccount;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;

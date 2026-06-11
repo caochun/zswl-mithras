@@ -10,7 +10,7 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;

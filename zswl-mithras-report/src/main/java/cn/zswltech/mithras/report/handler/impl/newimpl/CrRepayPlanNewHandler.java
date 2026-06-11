@@ -29,7 +29,7 @@ import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;

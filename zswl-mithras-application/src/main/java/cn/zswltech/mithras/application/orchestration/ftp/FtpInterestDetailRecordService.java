@@ -22,9 +22,9 @@ import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPledgeI
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpInterestDetailRecordMapper;
-import cn.zswltech.mithras.collection.mapper.model.BillManagement;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.model.BillManagement;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;

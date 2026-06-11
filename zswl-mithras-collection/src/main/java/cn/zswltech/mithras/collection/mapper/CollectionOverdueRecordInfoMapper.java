@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.collection.mapper;
 
-import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionOverdueRecordInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

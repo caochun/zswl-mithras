@@ -34,7 +34,7 @@ import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckReportMeta;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;

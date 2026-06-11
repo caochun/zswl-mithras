@@ -23,7 +23,7 @@ import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;

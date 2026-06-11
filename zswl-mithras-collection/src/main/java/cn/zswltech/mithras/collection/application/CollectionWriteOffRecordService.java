@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.collection.CollectionwriteOffListRSP;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionWriteOffRecordMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.collection.mapper.model.CollectionWriteOffRecord;
+import cn.zswltech.mithras.collection.model.CollectionWriteOffRecord;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

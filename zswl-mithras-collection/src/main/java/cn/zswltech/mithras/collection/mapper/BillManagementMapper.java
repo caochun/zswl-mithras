@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.collection.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.collection.mapper.model.BillManagement;
+import cn.zswltech.mithras.collection.model.BillManagement;
 
 /**
 * @description 票据管理表

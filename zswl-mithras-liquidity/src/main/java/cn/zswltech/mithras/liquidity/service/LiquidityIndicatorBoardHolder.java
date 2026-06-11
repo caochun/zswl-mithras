@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.liquidity.service;
 
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterBaseDetailRSP;
-import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
+import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.liquidity.mapper.model.AccountBalanceBaseInfo;
 
 import java.time.LocalDate;

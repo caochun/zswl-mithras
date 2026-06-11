@@ -18,7 +18,7 @@ import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.margin.model.MarginRecordInfo;

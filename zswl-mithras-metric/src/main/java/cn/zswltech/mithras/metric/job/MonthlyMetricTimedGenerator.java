@@ -4,7 +4,7 @@ import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.metric.service.RiskMetricDictService;

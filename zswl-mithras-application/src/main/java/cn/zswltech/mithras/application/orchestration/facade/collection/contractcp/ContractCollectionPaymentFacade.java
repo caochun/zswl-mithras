@@ -30,7 +30,7 @@ import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.system.mapper.model.SystemConfig;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;

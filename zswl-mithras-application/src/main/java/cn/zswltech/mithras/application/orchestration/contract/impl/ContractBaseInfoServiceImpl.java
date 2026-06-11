@@ -97,7 +97,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpShareholderInfo;
-import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
