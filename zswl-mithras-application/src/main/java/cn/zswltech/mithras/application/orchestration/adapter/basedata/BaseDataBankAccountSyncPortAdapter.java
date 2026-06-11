@@ -12,7 +12,7 @@ import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundRepayAccount;
 import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;
 import cn.zswltech.mithras.margin.service.MarginRecordService;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetailUnconfirmed;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundRepayAccountService;

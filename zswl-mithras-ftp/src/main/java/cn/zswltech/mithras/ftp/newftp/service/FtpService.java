@@ -26,8 +26,8 @@ import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryE
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjectManageLevelEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingPledgeInfo;
-import cn.zswltech.mithras.fund.direct.mapper.FundDirectFinancingPledgeInfoMapper;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.mapper.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.mapper.model.client.CorpAddressInfo;

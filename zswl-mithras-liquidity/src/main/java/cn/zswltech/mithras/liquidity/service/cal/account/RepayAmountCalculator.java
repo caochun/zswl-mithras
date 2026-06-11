@@ -6,7 +6,7 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingAccountTypeEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingRepayActual;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingRepayActual;
 import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptFlowPlan;
 import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;

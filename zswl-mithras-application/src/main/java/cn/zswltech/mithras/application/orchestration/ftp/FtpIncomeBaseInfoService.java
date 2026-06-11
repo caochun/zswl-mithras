@@ -15,9 +15,9 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectRepayActualSplitRS
 import cn.zswltech.mithras.capital.enums.FinancePaymentWriteOffOrderEnum;
 import cn.zswltech.mithras.fund.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingProductDetail;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingRepayActualSplitRecord;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingProductDetail;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingRepayActualSplitRecord;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingProductDetailService;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingRepayActualSplitRecordService;

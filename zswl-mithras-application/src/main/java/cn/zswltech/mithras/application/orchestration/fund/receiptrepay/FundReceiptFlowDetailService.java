@@ -19,7 +19,7 @@ import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayCashDep
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayExpenseService;
 import cn.zswltech.mithras.third.financialshare.enums.CQCollectionTypeENUM;
 import cn.zswltech.mithras.third.financialshare.enums.CQPaymentMethodENUM;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptFlowDetailMapper;
 import cn.zswltech.mithras.fund.mapper.model.FundCredit;

@@ -6,7 +6,7 @@ import cn.zswltech.mithras.rating.mapper.RatingAmountMapper;
 import cn.zswltech.mithras.rating.mapper.RatingClientMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiParameterConfigMapper;
 import cn.zswltech.mithras.foundation.metadata.PullDown;
-import cn.zswltech.mithras.fund.direct.mapper.FundDirectFinancingBaseInfoMapper;
+import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingBaseInfoMapper;
 import cn.zswltech.mithras.afterlease.mapper.*;
 import cn.zswltech.mithras.customer.mapper.app.VisitRecordMapper;
 import cn.zswltech.mithras.archives.mapper.ArchivesManagementMapper;

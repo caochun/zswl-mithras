@@ -25,7 +25,7 @@ import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.filingmaterials.enums.*;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.filingmaterials.mapper.FilingMaterialsMapper;

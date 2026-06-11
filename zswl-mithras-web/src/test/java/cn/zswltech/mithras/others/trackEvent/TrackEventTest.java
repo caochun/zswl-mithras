@@ -16,7 +16,7 @@ import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.application.orchestration.facade.riskcontrol.RiskControlOpinionMonitorFacade;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingRepayActualService;
 import cn.zswltech.mithras.application.orchestration.job.NextMonthRentNotify;

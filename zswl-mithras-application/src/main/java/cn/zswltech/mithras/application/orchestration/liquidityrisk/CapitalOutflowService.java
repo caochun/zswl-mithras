@@ -17,7 +17,7 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataTyp
 import cn.zswltech.mithras.liquidity.excel.exporter.CashOutflowListExcelExporter;
 import cn.zswltech.mithras.liquidity.excel.model.AssetsCashOutflowListExcelModel;
 import cn.zswltech.mithras.liquidity.excel.model.FundsCashOutflowListExcelModel;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.fund.application.financing.dto.FundFinancingRepayActualDTO;

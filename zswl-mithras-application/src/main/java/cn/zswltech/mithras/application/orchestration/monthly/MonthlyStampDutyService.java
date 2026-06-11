@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.fund.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.monthly.enums.StampDutyTypeEnum;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;

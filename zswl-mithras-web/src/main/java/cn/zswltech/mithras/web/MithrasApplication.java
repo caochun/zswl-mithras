@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.blackgray.mapper",
         "cn.zswltech.mithras.metric.financialcloudmetric.mapper",
         "cn.zswltech.mithras.ftp.newftp.mapper",
-        "cn.zswltech.mithras.fund.direct.mapper",
+        "cn.zswltech.mithras.fund.directfinancing.mapper",
         "cn.zswltech.mithras.kpi.mapper",
         "cn.zswltech.mithras.finance.view.mapper"
 })

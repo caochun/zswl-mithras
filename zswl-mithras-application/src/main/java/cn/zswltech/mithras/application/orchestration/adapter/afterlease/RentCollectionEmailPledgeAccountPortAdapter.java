@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailPledgeAccountPort;
 import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListRSP;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import org.springframework.stereotype.Component;
 

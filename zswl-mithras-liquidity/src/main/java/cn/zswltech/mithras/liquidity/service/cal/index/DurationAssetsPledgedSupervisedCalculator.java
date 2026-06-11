@@ -5,7 +5,7 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPledgeInfo;

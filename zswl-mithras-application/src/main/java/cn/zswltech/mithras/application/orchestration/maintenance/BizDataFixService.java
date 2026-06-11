@@ -64,7 +64,7 @@ import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelImporter;
 import cn.zswltech.mithras.foundation.excel.model.ExcelModel;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;

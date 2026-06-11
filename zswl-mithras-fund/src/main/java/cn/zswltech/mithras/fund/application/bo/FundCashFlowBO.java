@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.application.bo;
 
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingRepayActual;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingRepayActual;
 import lombok.Data;
 

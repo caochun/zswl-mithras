@@ -5,7 +5,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.capital.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayCashDepositService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayExpenseService;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingRepayActual;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingRepayActualService;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptFlowPlanMapper;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;

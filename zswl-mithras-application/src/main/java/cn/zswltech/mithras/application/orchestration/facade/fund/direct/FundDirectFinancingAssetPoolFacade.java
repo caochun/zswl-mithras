@@ -1,14 +1,14 @@
 package cn.zswltech.mithras.application.orchestration.facade.fund.direct;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.fund.direct.application.directfinancing.FundDirectFinancingAssetPoolApplicationService;
+import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.FundDirectFinancingAssetPoolApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolDetailREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolDetailRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolModifyREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.fund.direct.application.auth.FundDirectFinancingMainModifyAuthChecker;
+import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.fund.direct.application.directfinancing.FundDirectFinancingAssetPoolService;
+import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.FundDirectFinancingAssetPoolService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -23,7 +23,7 @@ import cn.zswltech.mithras.fund.excel.exporter.FundFinancingRepayActualExporter;
 import cn.zswltech.mithras.fund.excel.importer.FundFinancingRepayImporter;
 import cn.zswltech.mithras.fund.excel.model.FundFinancingRepayActualExcelModel;
 import cn.zswltech.mithras.fund.excel.model.FundFinancingRepayEstimateExcelModel;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingRepayActual;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingRepayActualMapper;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPlan;

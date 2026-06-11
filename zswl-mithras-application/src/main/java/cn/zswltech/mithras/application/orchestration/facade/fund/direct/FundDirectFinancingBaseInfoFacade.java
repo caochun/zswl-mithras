@@ -2,10 +2,10 @@ package cn.zswltech.mithras.application.orchestration.facade.fund.direct;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.fund.direct.application.directfinancing.FundDirectFinancingBaseInfoApplicationService;
+import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.FundDirectFinancingBaseInfoApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.fund.direct.application.auth.FundDirectFinancingMainModifyAuthChecker;
+import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import org.springframework.stereotype.Service;

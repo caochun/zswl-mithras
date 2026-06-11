@@ -22,7 +22,7 @@ import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingTimeLimitTypeEnum;
 import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.fund.direct.mapper.model.*;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.*;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.*;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingPlan;

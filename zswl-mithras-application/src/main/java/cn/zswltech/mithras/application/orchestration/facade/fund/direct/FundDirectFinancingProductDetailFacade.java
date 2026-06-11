@@ -1,15 +1,15 @@
 package cn.zswltech.mithras.application.orchestration.facade.fund.direct;
 
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.fund.direct.application.directfinancing.FundDirectFinancingProductDetailApplicationService;
+import cn.zswltech.mithras.fund.directfinancing.application.directfinancing.FundDirectFinancingProductDetailApplicationService;
 import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.fund.direct.application.auth.FundDirectFinancingMainModifyAuthChecker;
-import cn.zswltech.mithras.fund.direct.application.auth.FundDirectFinancingSubModifyAuthChecker;
+import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingMainModifyAuthChecker;
+import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingSubModifyAuthChecker;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.fund.direct.mapper.model.FundDirectFinancingProductDetail;
-import cn.zswltech.mithras.fund.direct.mapper.FundDirectFinancingProductDetailMapper;
+import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancingProductDetail;
+import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingProductDetailMapper;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingProductDetailService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
