@@ -37,7 +37,7 @@ import cn.zswltech.mithras.application.orchestration.enums.*;
 import cn.zswltech.mithras.contract.enums.contract.ContractFileQueryType;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.document.versioning.MaterialsListLibService;
-import cn.zswltech.mithras.document.enums.materialslist.FileTemplateEnum;
+import cn.zswltech.mithras.document.enums.FileTemplateEnum;
 import cn.zswltech.mithras.payment.enums.pubinfo.PublicInfoFileTypeEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
 import cn.zswltech.mithras.application.orchestration.document.file.FileListProviderFactory;

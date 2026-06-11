@@ -1,6 +1,4 @@
 package cn.zswltech.mithras.document.job;
-
-import cn.zswltech.mithras.document.job.FileTemplateKeyInitJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

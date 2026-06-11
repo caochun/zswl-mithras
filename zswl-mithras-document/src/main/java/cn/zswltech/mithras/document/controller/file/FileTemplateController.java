@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.controller.file.template;
+package cn.zswltech.mithras.document.controller.file;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.enums.materialslist;
+package cn.zswltech.mithras.document.enums;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
 
