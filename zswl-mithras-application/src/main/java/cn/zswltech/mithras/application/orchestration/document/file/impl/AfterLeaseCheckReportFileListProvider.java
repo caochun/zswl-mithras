@@ -9,7 +9,7 @@ import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustMaterialsEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportMaterialsEnum;
 import cn.zswltech.mithras.afterlease.enums.NewAfterLeaseCheckMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
-import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
+import cn.zswltech.mithras.document.file.query.FileListExtQuery;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;

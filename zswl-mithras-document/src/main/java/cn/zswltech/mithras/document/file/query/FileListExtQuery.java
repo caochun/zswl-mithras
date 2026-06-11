@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.file.bo;
+package cn.zswltech.mithras.document.file.query;
 
 import lombok.Data;
 

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.document.enums.MaterialsType;
 import cn.zswltech.mithras.document.enums.NormalMaterialsType;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
-import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
+import cn.zswltech.mithras.document.file.query.FileListExtQuery;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.Client;

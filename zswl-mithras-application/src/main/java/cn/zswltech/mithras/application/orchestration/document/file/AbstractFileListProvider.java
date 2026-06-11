@@ -19,7 +19,7 @@ import cn.zswltech.mithras.document.enums.FileTypeEnum;
 import cn.zswltech.mithras.document.enums.ImageTypeEnum;
 import cn.zswltech.mithras.document.enums.PreviewTypeEnum;
 import cn.zswltech.mithras.document.enums.VideoTypeEnum;
-import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
+import cn.zswltech.mithras.document.file.query.FileListExtQuery;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;

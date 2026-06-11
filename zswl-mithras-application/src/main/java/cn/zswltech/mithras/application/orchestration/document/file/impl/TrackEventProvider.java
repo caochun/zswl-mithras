@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.workflow.enums.trackevent.TrackEventMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
-import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
+import cn.zswltech.mithras.document.file.query.FileListExtQuery;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

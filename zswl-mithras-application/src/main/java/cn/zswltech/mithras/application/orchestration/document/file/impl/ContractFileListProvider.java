@@ -9,7 +9,7 @@ import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractFileQueryType;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
-import cn.zswltech.mithras.document.file.bo.FileListExtQuery;
+import cn.zswltech.mithras.document.file.query.FileListExtQuery;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
