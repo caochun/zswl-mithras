@@ -16,7 +16,7 @@ import cn.zswltech.mithras.finance.view.service.DashboardFvRepayPrincipalInteres
 import cn.zswltech.mithras.finance.view.service.DashboardFvRepayPrincipalInterestSubService;
 import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardFundRepayQuery;
+import cn.zswltech.mithras.dashboard.model.DashboardFundRepayQuery;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

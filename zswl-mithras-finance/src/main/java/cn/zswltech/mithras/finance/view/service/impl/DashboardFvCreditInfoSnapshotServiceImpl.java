@@ -16,7 +16,7 @@ import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider
 import cn.zswltech.mithras.finance.view.service.dto.DashboardFundFinanceCreditSnapshotData;
 import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardFundCreditQuery;
+import cn.zswltech.mithras.dashboard.model.DashboardFundCreditQuery;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

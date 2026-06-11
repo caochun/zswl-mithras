@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.dashboard.mapper;
 
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardAdjustPersonInfo;
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardAdjustPersonLatestQuery;
+import cn.zswltech.mithras.dashboard.model.DashboardAdjustPersonInfo;
+import cn.zswltech.mithras.dashboard.model.DashboardAdjustPersonLatestQuery;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;

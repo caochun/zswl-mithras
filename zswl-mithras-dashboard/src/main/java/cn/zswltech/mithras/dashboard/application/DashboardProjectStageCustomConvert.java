@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.dashboard.application;
 
 import cn.zswltech.mithras.dto.dashboard.DashboardProjectBasicRSP;
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectBasicResult;
+import cn.zswltech.mithras.dashboard.model.DashboardProjectBasicResult;
 
 /**
  * @author dingqi

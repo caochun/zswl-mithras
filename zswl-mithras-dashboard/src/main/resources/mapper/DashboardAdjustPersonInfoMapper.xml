@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.dashboard.mapper.DashboardAdjustPersonInfoMapper">
 
 
-    <select id="getLatest" resultType="cn.zswltech.mithras.dashboard.mapper.model.DashboardAdjustPersonInfo">
+    <select id="getLatest" resultType="cn.zswltech.mithras.dashboard.model.DashboardAdjustPersonInfo">
         select a.* from dashboard_adjust_person_info a join (
             select dept_id,max(batch_number) max_batch_number from dashboard_adjust_person_info group by dept_id
         )b on a.batch_number = b.max_batch_number and a.dept_id = b.dept_id

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.dashboard.mapper;
 
-import cn.zswltech.mithras.dashboard.mapper.model.*;
+import cn.zswltech.mithras.dashboard.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

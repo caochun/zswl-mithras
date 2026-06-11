@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.dashboard.mapper;
 
-import cn.zswltech.mithras.dashboard.mapper.model.GuanyuanDsInfo;
+import cn.zswltech.mithras.dashboard.model.GuanyuanDsInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.guanbao.mapper;
 
-import cn.zswltech.mithras.guanbao.mapper.model.ManagementReport;
+import cn.zswltech.mithras.guanbao.model.ManagementReport;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

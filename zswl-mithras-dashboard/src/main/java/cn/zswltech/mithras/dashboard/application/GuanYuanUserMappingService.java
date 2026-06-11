@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.dashboard.application;
 
 import cn.zswltech.mithras.dashboard.mapper.GuanYuanUserMappingMapper;
-import cn.zswltech.mithras.dashboard.mapper.model.GuanyuanUserMapping;
+import cn.zswltech.mithras.dashboard.model.GuanyuanUserMapping;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

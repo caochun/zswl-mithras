@@ -28,7 +28,7 @@ import cn.zswltech.mithras.dashboard.excel.model.DashboardVisitModel;
 import cn.zswltech.mithras.dashboard.mapper.*;
 import cn.zswltech.mithras.kpi.mapper.PerformanceRecordInfoMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.dashboard.mapper.model.*;
+import cn.zswltech.mithras.dashboard.model.*;
 import cn.zswltech.mithras.kpi.dto.persistence.PerformanceTargetQuery;
 import cn.zswltech.mithras.kpi.dto.persistence.PerformanceTargetResult;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;

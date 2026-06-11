@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.dashboard.application.boss;
 
 import cn.zswltech.mithras.dashboard.mapper.DashboardAuthorityConfigMapper;
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardAuthorityConfig;
+import cn.zswltech.mithras.dashboard.model.DashboardAuthorityConfig;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -21,8 +21,8 @@ import cn.zswltech.mithras.finance.view.service.DashboardFvFinancingCostSnapshot
 import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.dashboard.mapper.DashboardFundFinanceMapper;
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardFundCostQuery;
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardFundCostResult;
+import cn.zswltech.mithras.dashboard.model.DashboardFundCostQuery;
+import cn.zswltech.mithras.dashboard.model.DashboardFundCostResult;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

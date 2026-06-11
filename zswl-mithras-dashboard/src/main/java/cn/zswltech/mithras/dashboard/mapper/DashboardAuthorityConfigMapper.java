@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.dashboard.mapper;
 
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardAuthorityConfig;
+import cn.zswltech.mithras.dashboard.model.DashboardAuthorityConfig;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

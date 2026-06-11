@@ -29,7 +29,7 @@ import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptFlowDetailMapper;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
-import cn.zswltech.mithras.dashboard.mapper.model.*;
+import cn.zswltech.mithras.dashboard.model.*;
 import cn.zswltech.mithras.fund.model.FundCredit;
 import cn.zswltech.mithras.fund.model.FundOrganization;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;

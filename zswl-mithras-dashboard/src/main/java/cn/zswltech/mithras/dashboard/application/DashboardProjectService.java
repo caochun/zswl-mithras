@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.dashboard.mapper.model.DashboardProjectBasicResult;
+import cn.zswltech.mithras.dashboard.model.DashboardProjectBasicResult;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.core.ContractGuarantorService;
 

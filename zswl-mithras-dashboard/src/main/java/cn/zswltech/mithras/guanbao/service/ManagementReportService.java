@@ -16,7 +16,7 @@ import cn.zswltech.mithras.dto.ReportSelectRSP;
 import cn.zswltech.mithras.dashboard.config.GuanYuanConfigProperties;
 import cn.zswltech.mithras.guanbao.enums.ManagementReportSourceEnum;
 import cn.zswltech.mithras.guanbao.mapper.ManagementReportMapper;
-import cn.zswltech.mithras.guanbao.mapper.model.ManagementReport;
+import cn.zswltech.mithras.guanbao.model.ManagementReport;
 import cn.zswltech.mithras.guanbao.util.GuanYuanSsoUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
