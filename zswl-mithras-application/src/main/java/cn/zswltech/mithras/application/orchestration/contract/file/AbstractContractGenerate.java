@@ -1,5 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.contract.file;
 
+import cn.zswltech.mithras.contract.application.file.ContractGenerateAction;
 import cn.zswltech.mithras.contract.application.file.SharedResources;
 
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
@@ -47,7 +48,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.function.ThrowingConsumer;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -1207,8 +1207,8 @@ public abstract class AbstractContractGenerate implements ContractGenerate {
 
     @SneakyThrows
     protected void contractAutoGenerate(ContractBaseInfo contractBaseInfo, String bizType) {
-        Map<String, Map<String, ThrowingConsumer<ContractBaseInfo>>> sharedMap = SharedResources.sharedMap;
-        Map<String, ThrowingConsumer<ContractBaseInfo>> consumerMap = sharedMap.get(bizType);
+        Map<String, Map<String, ContractGenerateAction<ContractBaseInfo>>> sharedMap = SharedResources.sharedMap;
+        Map<String, ContractGenerateAction<ContractBaseInfo>> consumerMap = sharedMap.get(bizType);
         if (CollectionUtils.isEmpty(consumerMap)) {
             return;
         }

@@ -1,8 +1,5 @@
 package cn.zswltech.mithras.contract.enums.contract;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 /**
  * 合同特殊交易
  *

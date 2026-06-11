@@ -11,10 +11,10 @@ import cn.zswltech.mithras.application.orchestration.document.gendoc.render.cont
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.contract.file.AbstractContractGenerate;
+import cn.zswltech.mithras.contract.application.file.ContractGenerateAction;
 import cn.zswltech.mithras.contract.application.file.SharedResources;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.function.ThrowingConsumer;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -71,8 +71,8 @@ public class BLWZContractGenerator extends AbstractContractGenerate {
     @Override
     @PostConstruct
     public void init() {
-        Map<String, Map<String, ThrowingConsumer<ContractBaseInfo>>> sharedMap = SharedResources.sharedMap;
-        Map<String, ThrowingConsumer<ContractBaseInfo>> map = new ConcurrentHashMap<>();
+        Map<String, Map<String, ContractGenerateAction<ContractBaseInfo>>> sharedMap = SharedResources.sharedMap;
+        Map<String, ContractGenerateAction<ContractBaseInfo>> map = new ConcurrentHashMap<>();
         map.put(ContractTypeEnum.GUARANTEE_CONTRACT.name(), this::generateGuarantorContract);
         map.put(ContractTypeEnum.MORTGAGE_CONTRACT.name(), this::generateMortgageContract);
         map.put(ContractTypeEnum.PLEDGE_CONTRACT.name(), this::generatePledgeContract);
