@@ -1,12 +1,19 @@
-package cn.zswltech.mithras.third.tianyancha.application.impl;
+package cn.zswltech.mithras.third.tianyancha.application;
 
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.*;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycAbnormal;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycConsumptionRestriction;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycDishonest;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycEquityInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycJudicial;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycLawSuit;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycMortgageInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycPunishmentInfo;
+import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycZhixingInfo;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.third.tianyancha.application.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

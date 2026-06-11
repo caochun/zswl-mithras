@@ -19,7 +19,7 @@
 //import cn.zswltech.mithras.third.tianyancha.application.TycAbnormalService;
 //import cn.zswltech.mithras.third.tianyancha.application.TycDishonestService;
 //import cn.zswltech.mithras.third.tianyancha.application.TycEquityInfoService;
-//import cn.zswltech.mithras.third.tianyancha.application.impl.TycExecutionService;
+//import cn.zswltech.mithras.third.tianyancha.application.TycExecutionService;
 //import com.alibaba.fastjson.JSON;
 //import org.junit.Test;
 //import org.slf4j.Logger;

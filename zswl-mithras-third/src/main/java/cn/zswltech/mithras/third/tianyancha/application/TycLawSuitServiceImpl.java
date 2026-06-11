@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.tianyancha.application.impl;
+package cn.zswltech.mithras.third.tianyancha.application;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycLawSuitConvert;
 import cn.zswltech.mithras.third.tianyancha.enums.TycErrorEnum;
@@ -13,8 +13,6 @@ import cn.zswltech.mithras.third.tianyancha.client.TycMockDataType;
 import cn.zswltech.mithras.third.tianyancha.client.req.TycLawSuitDetailReq;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitDetailResp;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitResp;
-import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;
-import cn.zswltech.mithras.third.tianyancha.application.TycLawSuitService;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

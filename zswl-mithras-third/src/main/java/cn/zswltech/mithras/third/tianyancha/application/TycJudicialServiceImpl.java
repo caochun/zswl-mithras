@@ -1,12 +1,10 @@
-package cn.zswltech.mithras.third.tianyancha.application.impl;
+package cn.zswltech.mithras.third.tianyancha.application;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycJudicialConvert;
 import cn.zswltech.mithras.customer.externaldata.tianyancha.mapper.TycJudicialMapper;
 import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycJudicial;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycJudicialResp;
-import cn.zswltech.mithras.third.tianyancha.application.TycAbstractService;
-import cn.zswltech.mithras.third.tianyancha.application.TycJudicialService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
