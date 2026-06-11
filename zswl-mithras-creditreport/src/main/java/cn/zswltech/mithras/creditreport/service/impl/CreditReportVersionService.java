@@ -7,7 +7,7 @@ import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
-import cn.zswltech.mithras.creditreport.service.lib.creditreport.CreditReportLibAbstractHandler;
+import cn.zswltech.mithras.creditreport.versioning.CreditReportLibAbstractHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

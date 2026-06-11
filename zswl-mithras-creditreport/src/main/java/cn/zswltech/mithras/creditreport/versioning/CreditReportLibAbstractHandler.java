@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.creditreport.service.lib.creditreport;
+package cn.zswltech.mithras.creditreport.versioning;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;

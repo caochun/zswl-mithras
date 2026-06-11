@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.creditreport.service.lib.creditreport;
+package cn.zswltech.mithras.creditreport.versioning;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;

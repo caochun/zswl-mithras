@@ -71,7 +71,6 @@ import cn.zswltech.mithras.creditreport.service.CreditReportQueryService;
 import cn.zswltech.mithras.creditreport.service.CreditReportResultApplicationService;
 import cn.zswltech.mithras.projectprocess.application.projestablish.ProjEstablishTradeStructureService;
 import cn.zswltech.mithras.projectprocess.application.projreview.ProjReviewTradeStructureService;
-import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
@@ -290,8 +289,8 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
     }
 
     public PageR<CreditReportListDTO> list(CreditReportListREQ req) {
-        req.setSearchTimeFrom(DateUtil.startOfDay(req.getCreateFrom()));
-        req.setSearchTimeTo(DateUtil.endOfDay(req.getCreateTo()));
+        req.setSearchTimeFrom(startOfDay(req.getCreateFrom()));
+        req.setSearchTimeTo(endOfDay(req.getCreateTo()));
 
         // 需要按照不同登陆角色处理
         Set<Long> targetClientIds = new HashSet<>();
@@ -418,6 +417,20 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
         });
 
         return PageR.of(creditReportListDTOs, page.getTotal(), page.getCurrent(), page.getSize());
+    }
+
+    private LocalDateTime startOfDay(LocalDate date) {
+        if (date == null) {
+            return null;
+        }
+        return date.atStartOfDay();
+    }
+
+    private LocalDateTime endOfDay(LocalDate date) {
+        if (date == null) {
+            return null;
+        }
+        return date.atTime(23, 59, 59);
     }
 
     @Transactional(rollbackFor = Throwable.class)
