@@ -4,7 +4,7 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.dto.contract.settle.ContractSettlePlanDetailRSP;
 import cn.zswltech.mithras.dto.contract.settle.ContractSettlePlanNormalREQ;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlan;
+import cn.zswltech.mithras.contract.model.contract.ContractSettlePlan;
 
 import java.util.Objects;
 

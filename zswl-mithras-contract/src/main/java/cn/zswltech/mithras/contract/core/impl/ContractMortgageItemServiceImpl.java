@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.core.impl;
 
 import cn.zswltech.mithras.contract.mapper.contract.ContractMortgageItemMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageItem;
+import cn.zswltech.mithras.contract.model.contract.ContractMortgageItem;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractMortgageItemService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

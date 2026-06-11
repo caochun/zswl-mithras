@@ -20,7 +20,7 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.*;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;

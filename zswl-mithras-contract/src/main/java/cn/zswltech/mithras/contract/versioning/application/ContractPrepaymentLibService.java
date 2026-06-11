@@ -2,8 +2,8 @@ package cn.zswltech.mithras.contract.versioning.application;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractPrepaymentLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepayment;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepaymentLib;
+import cn.zswltech.mithras.contract.model.contract.ContractPrepayment;
+import cn.zswltech.mithras.contract.model.contract.ContractPrepaymentLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractPrepaymentLibHandler;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

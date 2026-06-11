@@ -7,7 +7,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.contract.versioning.application.ContractBaseInfoLibService;
 import com.deepoove.poi.XWPFTemplate;

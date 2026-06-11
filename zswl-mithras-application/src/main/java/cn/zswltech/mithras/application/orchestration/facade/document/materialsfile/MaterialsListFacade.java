@@ -45,7 +45,7 @@ import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapp
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;

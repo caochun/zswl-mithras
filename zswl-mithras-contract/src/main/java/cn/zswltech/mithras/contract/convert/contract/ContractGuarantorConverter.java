@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorAddREQ;
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorListRSP;
 import cn.zswltech.mithras.dto.contract.guarantor.ContractGuarantorModifyREQ;
 import cn.zswltech.mithras.contract.convert.contract.ContractTypeConversionWorker;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
+import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

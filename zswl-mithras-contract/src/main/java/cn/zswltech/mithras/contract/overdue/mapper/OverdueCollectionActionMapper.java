@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.overdue.mapper;
 
-import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollectionAction;
+import cn.zswltech.mithras.contract.overdue.model.OverdueCollectionAction;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

@@ -3,8 +3,8 @@ package cn.zswltech.mithras.contract.versioning.handler;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.contract.account.ContractAccountListRSP;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccountLib;
+import cn.zswltech.mithras.contract.model.contract.ContractAccount;
+import cn.zswltech.mithras.contract.model.contract.ContractAccountLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 
 import java.util.List;

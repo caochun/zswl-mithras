@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.contract.mapper.lib.contract.ContractAocPriceLibMapper">
 
     <select id="queryNewestLib"
-            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPriceLib">
+            resultType="cn.zswltech.mithras.contract.model.contract.ContractAocPriceLib">
 
         SELECT p.* FROM contract_aoc_price_lib p
         INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1

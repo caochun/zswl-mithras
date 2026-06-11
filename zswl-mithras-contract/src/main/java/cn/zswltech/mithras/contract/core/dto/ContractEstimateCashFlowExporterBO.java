@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.core.dto;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractRentEstimate;
 import lombok.Data;
 
 import java.util.List;

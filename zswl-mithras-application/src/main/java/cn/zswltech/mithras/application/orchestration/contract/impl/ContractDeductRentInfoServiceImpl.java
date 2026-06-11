@@ -17,9 +17,9 @@ import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsProcessStatusEnu
 import cn.zswltech.mithras.contract.mapper.contract.ContractDeductRentInfoMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractDeductRentInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractDeductRentInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
 import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;

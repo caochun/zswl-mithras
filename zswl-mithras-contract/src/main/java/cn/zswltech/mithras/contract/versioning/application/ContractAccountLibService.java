@@ -3,7 +3,7 @@ package cn.zswltech.mithras.contract.versioning.application;
 import cn.zswltech.mithras.dto.contract.account.ContractAccountListREQ;
 import cn.zswltech.mithras.dto.contract.account.ContractAccountListRSP;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractAccountLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccountLib;
+import cn.zswltech.mithras.contract.model.contract.ContractAccountLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.versioning.handler.AbstractContractAccountLibHandler;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

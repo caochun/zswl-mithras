@@ -31,7 +31,7 @@ import cn.zswltech.mithras.third.financialshare.enums.CQPaymentMethodENUM;
 import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.third.retry.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;

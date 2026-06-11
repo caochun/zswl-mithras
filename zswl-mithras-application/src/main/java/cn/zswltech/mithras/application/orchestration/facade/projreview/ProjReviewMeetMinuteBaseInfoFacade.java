@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.trackevent.TrackEventListRSP;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.MeetMinuteStatuesEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.VotingResultTypeEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

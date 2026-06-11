@@ -3,8 +3,8 @@ package cn.zswltech.mithras.contract.versioning.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.contract.prepayment.ContractPrepaymentDetailRSP;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepayment;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepaymentLib;
+import cn.zswltech.mithras.contract.model.contract.ContractPrepayment;
+import cn.zswltech.mithras.contract.model.contract.ContractPrepaymentLib;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

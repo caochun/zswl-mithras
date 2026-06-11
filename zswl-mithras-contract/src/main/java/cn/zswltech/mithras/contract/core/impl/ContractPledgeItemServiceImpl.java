@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.core.impl;
 
 import cn.zswltech.mithras.contract.mapper.contract.ContractPledgeItemMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeItem;
+import cn.zswltech.mithras.contract.model.contract.ContractPledgeItem;
 import cn.zswltech.mithras.contract.core.ContractPledgeItemService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -15,8 +15,8 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMappe
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.workflow.model.RentCollectionMonthDetail;
 import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
 import cn.zswltech.mithras.foundation.util.FreeMarkerUtil;

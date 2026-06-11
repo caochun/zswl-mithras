@@ -4,9 +4,9 @@ import cn.zswltech.mithras.dto.contract.price.*;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewAocPriceRSP;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewFactoringPriceRSP;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewLeasePriceRSP;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.model.contract.ContractAocPrice;
+import cn.zswltech.mithras.contract.model.contract.ContractFactoringPrice;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

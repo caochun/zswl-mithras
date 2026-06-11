@@ -3,8 +3,8 @@ package cn.zswltech.mithras.contract.overdue.application.lib;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.contract.overdue.application.OverdueBusinessModule;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionActionDto;
-import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollectionAction;
-import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollectionActionLib;
+import cn.zswltech.mithras.contract.overdue.model.OverdueCollectionAction;
+import cn.zswltech.mithras.contract.overdue.model.OverdueCollectionActionLib;
 import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
 import org.springframework.stereotype.Service;
 

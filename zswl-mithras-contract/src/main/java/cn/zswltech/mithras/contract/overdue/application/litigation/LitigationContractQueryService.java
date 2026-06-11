@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.overdue.application.litigation;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ClientOverdueInfoDto;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ClientRole;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractClientInfo;

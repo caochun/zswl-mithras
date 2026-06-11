@@ -12,7 +12,7 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.DepartmentPerC
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.FinancialCloudMetricCalculator;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.ConditionKey;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;

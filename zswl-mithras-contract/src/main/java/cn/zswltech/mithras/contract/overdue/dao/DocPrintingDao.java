@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.overdue.dao;
 
 import cn.zswltech.mithras.contract.overdue.mapper.DocPrintingMapper;
-import cn.zswltech.mithras.contract.overdue.mapper.model.DocPrinting;
+import cn.zswltech.mithras.contract.overdue.model.DocPrinting;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

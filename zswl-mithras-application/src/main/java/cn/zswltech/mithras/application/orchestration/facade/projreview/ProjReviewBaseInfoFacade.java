@@ -32,7 +32,7 @@ import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialCommentsEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewMaterial;

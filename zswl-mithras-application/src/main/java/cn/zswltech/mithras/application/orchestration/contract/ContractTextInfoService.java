@@ -13,7 +13,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractTextTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTextInfoMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractTextInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

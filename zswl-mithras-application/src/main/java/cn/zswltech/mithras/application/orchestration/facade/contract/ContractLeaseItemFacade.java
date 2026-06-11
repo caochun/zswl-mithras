@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.application.auth.ContractLeaseItemAuthChecke
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

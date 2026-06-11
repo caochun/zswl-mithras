@@ -1,5 +1,5 @@
 package cn.zswltech.mithras.contract.mapper.contract;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItemName;
+import cn.zswltech.mithras.contract.model.contract.ContractLeaseItemName;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 

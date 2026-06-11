@@ -3,7 +3,7 @@ package cn.zswltech.mithras.contract.convert.contract;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryModifyREQ;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 
 /**
  * @author dingqi

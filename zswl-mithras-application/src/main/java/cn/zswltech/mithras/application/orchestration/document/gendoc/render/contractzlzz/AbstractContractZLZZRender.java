@@ -11,10 +11,10 @@ import cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractLeaseItem;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import com.deepoove.poi.data.*;
 import lombok.Data;
 

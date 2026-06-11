@@ -2,7 +2,7 @@ package cn.zswltech.mithras.afterlease.adapter;
 
 import cn.zswltech.mithras.afterlease.application.AfterLeaseContractPort;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

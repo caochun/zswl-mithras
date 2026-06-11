@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.others.service.service.contract.impl;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.jupiter.api.Test;

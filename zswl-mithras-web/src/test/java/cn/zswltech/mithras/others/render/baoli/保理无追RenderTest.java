@@ -5,7 +5,7 @@ import cn.zswltech.mithras.application.orchestration.document.gendoc.render.cont
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.wz.WzBaoLiTransferConfirmRender;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.wz.WzBaoLiTransferNotifyRender;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.wz.WzBaoLiTransferRegisterProtocolRender;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;

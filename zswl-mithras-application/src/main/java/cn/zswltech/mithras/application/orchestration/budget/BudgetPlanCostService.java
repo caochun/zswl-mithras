@@ -37,7 +37,7 @@ import cn.zswltech.mithras.budget.mapper.dto.BudgetPlanCostDetailFundGroupMonthD
 import cn.zswltech.mithras.budget.mapper.dto.BudgetPlanCostDetailProjectGroupMonthDTO;
 import cn.zswltech.mithras.budget.mapper.model.*;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayActual;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;

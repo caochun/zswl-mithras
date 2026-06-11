@@ -9,7 +9,7 @@ import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractCon
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.IContractSignInfo;
 import cn.zswltech.mithras.contract.mapper.contract.ContractSignInfoMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSignInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractSignInfo;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

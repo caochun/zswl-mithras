@@ -3,7 +3,7 @@ package cn.zswltech.mithras.contract.overdue.application.collection;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.overdue.application.job.SchedulingJobService;
 import cn.zswltech.mithras.contract.overdue.dao.OverdueCollectionRecordDao;
-import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollection;
+import cn.zswltech.mithras.contract.overdue.model.OverdueCollection;
 import cn.zswltech.mithras.foundation.port.ClientRiskExposureResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;

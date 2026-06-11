@@ -28,7 +28,7 @@
         group by b.contract_id
     </select>
 
-    <select id="myList" resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo">
+    <select id="myList" resultType="cn.zswltech.mithras.contract.model.contract.ContractBaseInfo">
         select a.*
         from contract_base_info a
         <where>
@@ -70,7 +70,7 @@
         </foreach>
     </select>
 
-    <select id="fuzzyList" resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo">
+    <select id="fuzzyList" resultType="cn.zswltech.mithras.contract.model.contract.ContractBaseInfo">
         select a.*
         from contract_base_info a
         <where>
@@ -245,7 +245,7 @@
     </select>
 
     <select id="getOverdueCollection"
-            resultType="cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollection">
+            resultType="cn.zswltech.mithras.contract.overdue.model.OverdueCollection">
         select c.client_id            as clientId,
                cl.client_name         as clientName,
                cl.belong_sponsor_id as projectSponsor,
@@ -484,7 +484,7 @@
 
 
     <select id="listByClientIds"
-            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo">
+            resultType="cn.zswltech.mithras.contract.model.contract.ContractBaseInfo">
         select
             a.id,a.contract_code
         from contract_base_info a
@@ -524,7 +524,7 @@
         </foreach>
     </select>
 
-    <select id="contractSearchList" resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo">
+    <select id="contractSearchList" resultType="cn.zswltech.mithras.contract.model.contract.ContractBaseInfo">
         select *
         from contract_base_info cbi
         where cbi.contract_status in ('TAKE_EFFECT', 'START_RENT')

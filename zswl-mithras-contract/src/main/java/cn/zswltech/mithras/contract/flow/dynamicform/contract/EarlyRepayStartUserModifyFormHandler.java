@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.workflow.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.workflow.enums.ProcessVarEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepayment;
+import cn.zswltech.mithras.contract.model.contract.ContractPrepayment;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import cn.zswltech.mithras.contract.core.ContractPrepaymentService;

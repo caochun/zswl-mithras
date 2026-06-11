@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.core;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractEvaluationAgencyEffect;
+import cn.zswltech.mithras.contract.model.contract.ContractEvaluationAgencyEffect;
 import cn.zswltech.mithras.contract.mapper.contract.ContractEvaluationAgencyEffectMapper;
 import org.springframework.stereotype.Service;
 

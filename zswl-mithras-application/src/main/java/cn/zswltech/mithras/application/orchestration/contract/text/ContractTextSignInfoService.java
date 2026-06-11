@@ -29,9 +29,9 @@ import cn.zswltech.mithras.application.orchestration.document.gendoc.render.Cont
 import cn.zswltech.mithras.contract.mapper.contract.ContractTextSignInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSignInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextSignInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractSignInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractTextSignInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

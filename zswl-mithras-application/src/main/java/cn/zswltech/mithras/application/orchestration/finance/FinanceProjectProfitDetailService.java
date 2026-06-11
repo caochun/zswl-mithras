@@ -30,8 +30,8 @@ import cn.zswltech.mithras.finance.mapper.finance.query.FinanceProjectProfitDeta
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractIncomeSharing;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractIncomeSharing;
 import cn.zswltech.mithras.finance.mapper.model.finance.ContractAssessDeptDetail;
 import cn.zswltech.mithras.finance.service.ContractAssessDeptDetailService;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;

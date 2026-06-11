@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.versioning.application;
 
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractConstitutionFileLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractConstitutionFileLib;
+import cn.zswltech.mithras.contract.model.contract.ContractConstitutionFileLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

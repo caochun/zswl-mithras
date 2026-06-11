@@ -14,7 +14,7 @@ import cn.zswltech.mithras.customer.vwsync.mapper.ClientVwSyncMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.ClientViewByRiskControl;
 import cn.zswltech.mithras.customer.vwsync.model.ClientVwSync;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;

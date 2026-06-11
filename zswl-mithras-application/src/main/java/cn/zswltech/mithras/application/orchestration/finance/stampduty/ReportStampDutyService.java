@@ -42,7 +42,7 @@ import cn.zswltech.mithras.finance.excel.importer.StampDutyExcelImporter;
 import cn.zswltech.mithras.finance.excel.model.StampDutyExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.fund.model.FundOrganization;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;

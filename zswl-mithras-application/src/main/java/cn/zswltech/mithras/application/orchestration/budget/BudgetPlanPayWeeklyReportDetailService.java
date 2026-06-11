@@ -28,7 +28,7 @@ import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.budget.mapper.BudgetPlanPayWeeklyReportDetailMapper;
 import cn.zswltech.mithras.budget.mapper.BudgetPlanPayWeeklyReportMapper;
 import cn.zswltech.mithras.budget.mapper.model.*;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

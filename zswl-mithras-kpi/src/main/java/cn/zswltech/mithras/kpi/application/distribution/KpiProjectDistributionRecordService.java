@@ -14,7 +14,7 @@ import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightRecord;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

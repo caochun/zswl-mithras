@@ -17,7 +17,7 @@ import cn.zswltech.mithras.finance.mapper.finance.FinanceProjectProfitDetailMapp
 import cn.zswltech.mithras.finance.mapper.finance.FinanceProjectProfitMapper;
 import cn.zswltech.mithras.kpi.mapper.PerformanceBaseInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.PerformanceMainInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.kpi.mapper.model.PerformanceBaseInfo;

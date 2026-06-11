@@ -36,8 +36,8 @@ import cn.zswltech.mithras.customer.model.dashboard.DashboardClientOverviewAllQu
 import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.IndustryType;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.dashboard.mapper.model.*;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.system.user.Id2NameService;

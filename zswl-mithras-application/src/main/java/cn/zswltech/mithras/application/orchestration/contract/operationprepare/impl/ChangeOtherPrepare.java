@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.contract.operationprepare.
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.application.orchestration.contract.ContractTextInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.operationprepare.AbstractContractChangePrepare;
 import org.springframework.stereotype.Component;

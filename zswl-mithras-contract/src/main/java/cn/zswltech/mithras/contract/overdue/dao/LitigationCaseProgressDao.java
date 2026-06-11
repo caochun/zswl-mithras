@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.overdue.dao;
 
 import cn.zswltech.mithras.contract.overdue.mapper.LitigationCaseProgressMapper;
-import cn.zswltech.mithras.contract.overdue.mapper.model.LitigationCaseProgress;
+import cn.zswltech.mithras.contract.overdue.model.LitigationCaseProgress;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.application.resolver;
 
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.dto.contract.ContractInfo;
 import cn.zswltech.mithras.foundation.port.ContractInfoResolver;
 import cn.zswltech.mithras.foundation.port.ContractNameResolver;

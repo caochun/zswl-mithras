@@ -1,11 +1,11 @@
 package cn.zswltech.mithras.application.orchestration.adapter.workbench;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPriceLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPriceLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePriceLib;
+import cn.zswltech.mithras.contract.model.contract.ContractAocPriceLib;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractFactoringPriceLib;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePriceLib;
 import cn.zswltech.mithras.contract.versioning.application.ContractAocPriceLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;

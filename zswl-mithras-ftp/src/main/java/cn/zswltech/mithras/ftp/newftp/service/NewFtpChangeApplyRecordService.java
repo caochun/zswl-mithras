@@ -15,7 +15,7 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.payment.mapper.FtpAssessmentInfoMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;

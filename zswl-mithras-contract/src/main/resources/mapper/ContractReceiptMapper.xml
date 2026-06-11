@@ -78,7 +78,7 @@
         ORDER BY a.create_time DESC
     </select>
     <select id="queryNewestReceiptIrr"
-            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib">
+            resultType="cn.zswltech.mithras.contract.model.contract.ContractReceiptLib">
         SELECT c.* FROM contract_receipt_lib c
         INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1
         WHERE t1.module = 'CONTRACT' AND t1.version_type = 1

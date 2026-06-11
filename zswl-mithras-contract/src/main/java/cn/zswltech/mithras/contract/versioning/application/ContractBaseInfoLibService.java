@@ -3,7 +3,7 @@ package cn.zswltech.mithras.contract.versioning.application;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.versioning.application.ContractPriceAmountResolver;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.foundation.util.LongUtil;

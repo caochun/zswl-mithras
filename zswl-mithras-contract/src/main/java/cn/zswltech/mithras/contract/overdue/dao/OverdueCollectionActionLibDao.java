@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.overdue.dao;
 
 import cn.zswltech.mithras.contract.overdue.mapper.OverdueCollectionActionLibMapper;
-import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollectionActionLib;
+import cn.zswltech.mithras.contract.overdue.model.OverdueCollectionActionLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

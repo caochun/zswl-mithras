@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.contract.versioning.application;
 
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentEstimateLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimateLib;
+import cn.zswltech.mithras.contract.model.contract.ContractRentEstimate;
+import cn.zswltech.mithras.contract.model.contract.ContractRentEstimateLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractRentEstimateLibHandle;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

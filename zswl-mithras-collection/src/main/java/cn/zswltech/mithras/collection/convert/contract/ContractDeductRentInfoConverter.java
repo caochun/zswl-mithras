@@ -5,8 +5,8 @@ import cn.zswltech.mithras.dto.contract.depost.ContractDeductRentInfoRSP;
 import cn.zswltech.mithras.dto.contract.depost.ContractRetreatSubmitREQ;
 import cn.zswltech.mithras.foundation.convert.TypeConversionWorker;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractDeductRentInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractDeductRentInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
 import org.mapstruct.Mapper;
 
 @Mapper(uses = TypeConversionWorker.class, componentModel = "spring")

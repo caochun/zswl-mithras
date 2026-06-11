@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.versioning.application;
 
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractMortgageItemLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgageItemLib;
+import cn.zswltech.mithras.contract.model.contract.ContractMortgageItemLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

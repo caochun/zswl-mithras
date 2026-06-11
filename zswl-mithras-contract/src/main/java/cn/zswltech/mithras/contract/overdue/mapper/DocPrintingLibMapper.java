@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.overdue.mapper;
 
-import cn.zswltech.mithras.contract.overdue.mapper.model.DocPrintingLib;
+import cn.zswltech.mithras.contract.overdue.model.DocPrintingLib;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

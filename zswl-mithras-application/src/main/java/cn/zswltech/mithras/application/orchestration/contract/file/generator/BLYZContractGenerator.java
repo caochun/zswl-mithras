@@ -12,7 +12,7 @@ import cn.zswltech.mithras.application.orchestration.document.gendoc.render.cont
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.yzgt.YzGtBaoLiTransferConfirmRender;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.yzgt.YzGtBaoLiTransferNotifyRender;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contract.baoli.yzgt.YzGtBaoLiTransferRegisterProtocolRender;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractTenantryService;
 import cn.zswltech.mithras.application.orchestration.contract.file.AbstractContractGenerate;

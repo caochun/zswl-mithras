@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 
 import java.util.List;
 import java.util.Set;

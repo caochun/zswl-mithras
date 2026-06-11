@@ -4,7 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.application.orchestration.maintenance.BizDataFixService;

@@ -7,7 +7,7 @@ import cn.zswltech.flow.core.domain.req.StartProcessReq;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.mapper.client.ClientTransferMapper;
 import cn.zswltech.mithras.customer.model.client.ClientTransfer;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;

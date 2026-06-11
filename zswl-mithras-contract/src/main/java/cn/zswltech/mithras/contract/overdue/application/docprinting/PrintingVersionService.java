@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.overdue.application.docprinting;
 
 import cn.zswltech.mithras.contract.overdue.application.OverdueBusinessModule;
 import cn.zswltech.mithras.contract.overdue.application.lib.PrintingLibHandler;
-import cn.zswltech.mithras.contract.overdue.mapper.model.DocPrinting;
+import cn.zswltech.mithras.contract.overdue.model.DocPrinting;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;

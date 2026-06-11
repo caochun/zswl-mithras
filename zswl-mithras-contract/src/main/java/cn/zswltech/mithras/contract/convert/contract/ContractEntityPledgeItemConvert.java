@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.convert.contract;
 
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.contract.excel.model.ContractEntityPledgeItemExcelModel;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeItem;
+import cn.zswltech.mithras.contract.model.contract.ContractPledgeItem;
 
 import java.math.BigDecimal;
 import java.util.Objects;

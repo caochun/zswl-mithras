@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.collection.application.job;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfo;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionBaseInfo;

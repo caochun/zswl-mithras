@@ -2,8 +2,8 @@ package cn.zswltech.mithras.contract.versioning.application;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractAocPriceLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPriceLib;
+import cn.zswltech.mithras.contract.model.contract.ContractAocPrice;
+import cn.zswltech.mithras.contract.model.contract.ContractAocPriceLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractAocPriceLibHandler;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

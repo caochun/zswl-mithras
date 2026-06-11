@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.contract.core;
 
 import cn.hutool.core.lang.Pair;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrice;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.model.contract.ContractPrice;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceModifyREQ;

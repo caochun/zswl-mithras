@@ -7,7 +7,7 @@ import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractSettlePlanService;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractSettlePlanMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlan;
+import cn.zswltech.mithras.contract.model.contract.ContractSettlePlan;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

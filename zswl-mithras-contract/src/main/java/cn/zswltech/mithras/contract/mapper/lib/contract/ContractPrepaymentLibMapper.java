@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.mapper.lib.contract;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepaymentLib;
+import cn.zswltech.mithras.contract.model.contract.ContractPrepaymentLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

@@ -7,7 +7,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
+import cn.zswltech.mithras.contract.model.contract.ContractLeaseItem;
 import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo;
 import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemListRowData;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;

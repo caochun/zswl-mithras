@@ -8,8 +8,8 @@ import cn.zswltech.mithras.contract.overdue.domain.litigation.LongId;
 import cn.zswltech.mithras.contract.overdue.domain.share.diff.EntityDiff;
 import cn.zswltech.mithras.contract.overdue.dao.DocPrintingDao;
 import cn.zswltech.mithras.contract.overdue.dao.DocPrintingLibDao;
-import cn.zswltech.mithras.contract.overdue.mapper.model.DocPrinting;
-import cn.zswltech.mithras.contract.overdue.mapper.model.DocPrintingLib;
+import cn.zswltech.mithras.contract.overdue.model.DocPrinting;
+import cn.zswltech.mithras.contract.overdue.model.DocPrintingLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

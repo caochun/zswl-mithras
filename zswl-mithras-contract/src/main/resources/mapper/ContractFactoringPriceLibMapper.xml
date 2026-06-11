@@ -4,7 +4,7 @@
 
 
     <select id="queryNewestLib"
-            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPriceLib">
+            resultType="cn.zswltech.mithras.contract.model.contract.ContractFactoringPriceLib">
 
         SELECT p.* FROM contract_factoring_price_lib p
         INNER JOIN (SELECT main_id AS contract_id, MAX(version) AS version FROM common_version t1

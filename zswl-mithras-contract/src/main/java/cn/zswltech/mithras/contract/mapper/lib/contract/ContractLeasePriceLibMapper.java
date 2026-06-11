@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.mapper.lib.contract;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePriceLib;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePriceLib;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

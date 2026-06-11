@@ -3,7 +3,7 @@
 <mapper namespace="cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper">
 
     <select id="listNewestContractByPreviewIds"
-            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib">
+            resultType="cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib">
 
         SELECT p.* FROM contract_base_info_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
@@ -21,7 +21,7 @@
 
 
     <select id="listNewestContractByContractIds"
-            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib">
+            resultType="cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib">
         SELECT p.* FROM contract_base_info_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
         WHERE t1.module = 'CONTRACT' AND t1.version_type = 1
@@ -36,7 +36,7 @@
         </where>
     </select>
     <select id="listNewestContractByClientIds"
-            resultType="cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib">
+            resultType="cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib">
         SELECT p.* FROM contract_base_info_lib p
         INNER JOIN (SELECT main_id AS id, MAX(version) AS version FROM common_version t1
         WHERE t1.module = 'CONTRACT' AND t1.version_type = 1

@@ -17,7 +17,7 @@ import cn.zswltech.mithras.report.service.draft.CrSpecialTradeDraftService;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractSpecialTradeMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSpecialTrade;
+import cn.zswltech.mithras.contract.model.contract.ContractSpecialTrade;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.util.Util;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

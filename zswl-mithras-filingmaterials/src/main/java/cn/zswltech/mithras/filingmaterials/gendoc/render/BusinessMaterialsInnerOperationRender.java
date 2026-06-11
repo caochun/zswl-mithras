@@ -8,7 +8,7 @@ import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.filingmaterials.enums.BusinessMaterialsDocNameEnum;
 import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

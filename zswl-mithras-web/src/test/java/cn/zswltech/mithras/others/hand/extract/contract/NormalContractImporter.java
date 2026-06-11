@@ -14,9 +14,9 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeasePriceMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import org.junit.Test;
 
 import javax.annotation.Resource;

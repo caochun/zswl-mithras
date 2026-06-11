@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.afterlease.adapter;
 
 import cn.zswltech.mithras.afterlease.application.AfterLeaseContractRentActualPort;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
+import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.core.ContractRentActualService;
 import org.springframework.stereotype.Component;
 

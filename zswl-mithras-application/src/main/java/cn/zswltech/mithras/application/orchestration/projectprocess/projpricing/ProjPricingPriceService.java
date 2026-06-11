@@ -21,8 +21,8 @@ import cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingAocP
 import cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingFactoringPriceLibMapper;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projpricing.ProjPricingLeasePriceLibMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.projectprocess.model.projpricing.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.overdue.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
 import cn.zswltech.mithras.contract.overdue.application.collection.CollectionQueryService;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.contract.convert.contract;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.dto.contract.mortgage.ContractMortgageModifyREQ;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractMortgage;
+import cn.zswltech.mithras.contract.model.contract.ContractMortgage;
 
 /**
  * @author dingqi

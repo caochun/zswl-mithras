@@ -24,7 +24,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueVersionRelation;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

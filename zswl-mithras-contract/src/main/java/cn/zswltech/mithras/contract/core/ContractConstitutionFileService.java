@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.core;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractConstitutionFile;
+import cn.zswltech.mithras.contract.model.contract.ContractConstitutionFile;
 import cn.zswltech.mithras.projectprocess.application.bo.ContractConstitutionFileBO;
 import com.baomidou.mybatisplus.extension.service.IService;
 

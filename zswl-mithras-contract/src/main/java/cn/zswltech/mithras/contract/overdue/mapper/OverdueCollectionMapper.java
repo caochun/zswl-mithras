@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.overdue.mapper;
 
 import cn.zswltech.mithras.contract.overdue.application.dto.CollectionListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.CollectionPageQuery;
-import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollection;
+import cn.zswltech.mithras.contract.overdue.model.OverdueCollection;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

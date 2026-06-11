@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentEstimateExportREQ;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentEstimateGenerateREQ;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.IRRCalculateResultRSP;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
+import cn.zswltech.mithras.contract.model.contract.ContractRentEstimate;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;
 

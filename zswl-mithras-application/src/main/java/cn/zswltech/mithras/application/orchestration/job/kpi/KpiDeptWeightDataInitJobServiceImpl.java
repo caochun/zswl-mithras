@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.job.kpi;
 
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.kpi.job.service.KpiDeptWeightDataInitJobService;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfoLib;

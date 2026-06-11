@@ -7,8 +7,8 @@ import cn.zswltech.mithras.contract.enums.contract.ContractLeaseItemFileTypeEnum
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

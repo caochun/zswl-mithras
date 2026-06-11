@@ -6,7 +6,7 @@ import cn.zswltech.mithras.foundation.auth.DataAuthBusinessModule;
 import cn.zswltech.mithras.foundation.auth.DataAuthViewGuard;
 import cn.zswltech.mithras.foundation.auth.checker.IDataAuthChecker;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

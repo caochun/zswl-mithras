@@ -49,9 +49,9 @@ import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyClientRiskFac
 import cn.zswltech.mithras.assetclassify.mapper.model.AssetClassifyNodeRecord;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

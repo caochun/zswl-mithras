@@ -2,8 +2,8 @@ package cn.zswltech.mithras.contract.versioning.application;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
+import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

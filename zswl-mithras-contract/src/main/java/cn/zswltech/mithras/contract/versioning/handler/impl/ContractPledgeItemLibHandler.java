@@ -3,8 +3,8 @@ package cn.zswltech.mithras.contract.versioning.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeItemListRSP;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeItem;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeItemLib;
+import cn.zswltech.mithras.contract.model.contract.ContractPledgeItem;
+import cn.zswltech.mithras.contract.model.contract.ContractPledgeItemLib;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

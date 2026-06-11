@@ -33,7 +33,7 @@ import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;

@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.contract.enums.contract.ContractOperationEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.application.process.prepare.AbstractContractOperationPrepare;
 import org.springframework.stereotype.Component;

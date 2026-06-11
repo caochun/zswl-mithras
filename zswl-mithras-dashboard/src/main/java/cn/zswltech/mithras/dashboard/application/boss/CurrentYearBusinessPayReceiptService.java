@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.dashboard.boss.CurrentYearBusinessPayReceiptRateL
 import cn.zswltech.mithras.dto.dashboard.boss.CurrentYearBusinessPayReceiptRateListRSP;
 import cn.zswltech.mithras.dashboard.enums.DashBoardQueryTypeEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.system.user.SysUserService;

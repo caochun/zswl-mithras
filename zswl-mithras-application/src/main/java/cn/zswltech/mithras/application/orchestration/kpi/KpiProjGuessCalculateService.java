@@ -11,7 +11,7 @@ import cn.zswltech.mithras.kpi.bo.*;
 import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.kpi.enums.KpiProjectSourceDistributionEnum;
 import cn.zswltech.mithras.kpi.application.KpiProjGuessCollectService;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjGuessDivide;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

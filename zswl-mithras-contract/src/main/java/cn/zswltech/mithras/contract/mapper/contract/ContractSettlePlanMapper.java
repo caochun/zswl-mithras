@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.mapper.contract;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlan;
+import cn.zswltech.mithras.contract.model.contract.ContractSettlePlan;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

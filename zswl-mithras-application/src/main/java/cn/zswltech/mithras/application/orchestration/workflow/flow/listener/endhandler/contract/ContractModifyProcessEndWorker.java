@@ -19,8 +19,8 @@ import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDir
 import cn.zswltech.mithras.afterlease.mapper.model.PenaltyReduceBaseInfo;
 import cn.zswltech.mithras.afterlease.mapper.model.PenaltyReduceDetailRecord;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPrepayment;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractPrepayment;
 import cn.zswltech.mithras.application.orchestration.afterlease.PenaltyReduceBaseInfoService;
 import cn.zswltech.mithras.afterlease.application.PenaltyReduceDetailRecordService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;

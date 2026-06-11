@@ -11,7 +11,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.contract.enums.contract.CreditorDebtorTypeEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTradeStructureMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

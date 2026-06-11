@@ -2,9 +2,9 @@ package cn.zswltech.mithras.contract.adapter.job;
 
 import cn.zswltech.mithras.contract.job.service.ContractDataInitJobService;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceiptLib;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractReceiptService;
 import cn.zswltech.mithras.contract.versioning.application.ContractReceiptLibService;

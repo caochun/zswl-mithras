@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.mapper.contract;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
+import cn.zswltech.mithras.contract.model.contract.ContractLeaseItem;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import cn.zswltech.mithras.contract.core.dto.ContractLeaseItemCountBO;
 import org.apache.ibatis.annotations.Param;

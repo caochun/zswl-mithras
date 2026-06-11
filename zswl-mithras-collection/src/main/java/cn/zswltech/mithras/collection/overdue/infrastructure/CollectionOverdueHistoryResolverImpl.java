@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.collection.overdue.infrastructure;
 
 import cn.zswltech.mithras.contract.overdue.application.collection.CollectionOverdueHistoryResolver;
-import cn.zswltech.mithras.contract.overdue.mapper.model.OverdueCollection;
+import cn.zswltech.mithras.contract.overdue.model.OverdueCollection;
 import cn.zswltech.mithras.collection.mapper.CollectionOverdueHistoryMapper;
 import org.springframework.stereotype.Component;
 

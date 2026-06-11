@@ -5,7 +5,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.contract.enums.contract.ContractModelEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractGuarantorService;
 import cn.zswltech.mithras.contract.core.application.ContractMortgageService;

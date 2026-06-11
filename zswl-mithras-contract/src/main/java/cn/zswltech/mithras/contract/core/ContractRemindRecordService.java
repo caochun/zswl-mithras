@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.core;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRemindRecord;
+import cn.zswltech.mithras.contract.model.contract.ContractRemindRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

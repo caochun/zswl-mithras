@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.payment;
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.payment.application.pubinfo.PaymentPublicInfoSupportPort;
 import cn.zswltech.mithras.payment.enums.pubinfo.PublicInfoFileTypeEnum;

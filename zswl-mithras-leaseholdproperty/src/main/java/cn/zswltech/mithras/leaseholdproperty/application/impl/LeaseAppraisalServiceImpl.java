@@ -11,7 +11,7 @@ import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemInfoMapper;
 import cn.zswltech.mithras.leaseholdproperty.mapper.TycAppraisalCompanyBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.mapper.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemAppraisalRelation;
 import cn.zswltech.mithras.leaseholdproperty.mapper.model.LeaseItemInfo;

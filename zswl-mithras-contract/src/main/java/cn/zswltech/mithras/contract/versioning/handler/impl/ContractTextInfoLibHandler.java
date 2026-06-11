@@ -5,8 +5,8 @@ import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.contract.file.ContractTextInfoRSP;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextInfoLib;
+import cn.zswltech.mithras.contract.model.contract.ContractTextInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractTextInfoLib;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Component;
 

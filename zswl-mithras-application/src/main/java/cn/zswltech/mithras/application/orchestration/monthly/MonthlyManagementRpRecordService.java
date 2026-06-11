@@ -15,7 +15,7 @@ import cn.zswltech.mithras.kpi.enums.config.TaxRateEnum;
 import cn.zswltech.mithras.monthly.enums.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.contract.mapper.contract.ContractIncomeSharingMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.kpi.mapper.model.KpiParameterConfig;
 import cn.zswltech.mithras.monthly.mapper.model.MonthlyManageBaseModel;
 import cn.zswltech.mithras.monthly.mapper.model.MonthlyManagementBaseInfo;

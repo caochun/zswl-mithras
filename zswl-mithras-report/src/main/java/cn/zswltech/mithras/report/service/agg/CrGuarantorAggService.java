@@ -40,7 +40,7 @@ import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.report.util.ReportCompareUtil;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.util.Util;

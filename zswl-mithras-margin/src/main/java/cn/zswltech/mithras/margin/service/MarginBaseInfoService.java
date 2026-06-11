@@ -22,7 +22,7 @@ import cn.zswltech.mithras.margin.excel.exporter.MarginListExcelExporter;
 import cn.zswltech.mithras.margin.excel.model.MarginBaseInfoListExcelModel;
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.mapper.MarginRecordInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.margin.mapper.model.DepositCollectRefund;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.margin.mapper.model.MarginRecordInfo;

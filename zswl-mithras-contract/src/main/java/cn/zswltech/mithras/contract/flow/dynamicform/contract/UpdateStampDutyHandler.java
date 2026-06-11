@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.flow.form.UpdateStampDutyFormRSP;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.workflow.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.core.ContractReceiptService;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.application.file;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

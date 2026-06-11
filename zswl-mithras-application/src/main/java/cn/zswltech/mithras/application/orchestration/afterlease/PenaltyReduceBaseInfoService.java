@@ -35,7 +35,7 @@ import cn.zswltech.mithras.afterlease.mapper.model.PenaltyReduceBaseInfo;
 import cn.zswltech.mithras.afterlease.mapper.model.PenaltyReduceDetailRecord;
 import cn.zswltech.mithras.afterlease.application.PenaltyReduceDetailRecordService;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.policy.application.staging;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpAddREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpListREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpModifyREQ;

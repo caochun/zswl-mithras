@@ -6,7 +6,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ResolutionTypeEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.document.model.FileTemplate;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

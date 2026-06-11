@@ -4,8 +4,8 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.contract.convert.contract.ContractRentConvert;
 import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.projectprocess.excel.model.CashFlowRichExcelModel;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentEstimate;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractRentEstimate;
 import cn.zswltech.mithras.contract.core.dto.ContractEstimateCashFlowExporterBO;
 import cn.zswltech.mithras.projectprocess.excel.exporter.AbstractCashFlowExcelExporter;
 

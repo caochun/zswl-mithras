@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.contract.overdue.domain.litigation;
 
 import cn.zswltech.mithras.contract.overdue.common.OverdueTypeConversionWorker;
-import cn.zswltech.mithras.contract.overdue.mapper.model.LitigationCaseProgress;
-import cn.zswltech.mithras.contract.overdue.mapper.model.LitigationDefendant;
-import cn.zswltech.mithras.contract.overdue.mapper.model.LitigationRegistration;
-import cn.zswltech.mithras.contract.overdue.mapper.model.LitigationTrialInfo;
+import cn.zswltech.mithras.contract.overdue.model.LitigationCaseProgress;
+import cn.zswltech.mithras.contract.overdue.model.LitigationDefendant;
+import cn.zswltech.mithras.contract.overdue.model.LitigationRegistration;
+import cn.zswltech.mithras.contract.overdue.model.LitigationTrialInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

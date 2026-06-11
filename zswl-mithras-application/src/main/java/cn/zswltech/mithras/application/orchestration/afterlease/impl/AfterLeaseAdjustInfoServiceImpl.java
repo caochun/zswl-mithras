@@ -28,7 +28,7 @@ import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProjLifecycleEvent
 import cn.zswltech.mithras.workflow.flow.helper.CalBoardRuleHelper;
 import cn.zswltech.mithras.afterlease.mapper.AfterLeaseAdjustInfoMapper;
 import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

@@ -7,7 +7,7 @@ import cn.zswltech.mithras.contract.overdue.application.dto.PrintingListDto;
 import cn.zswltech.mithras.contract.overdue.application.query.PrintingPageQuery;
 import cn.zswltech.mithras.contract.overdue.application.docprinting.PrintingQueryService;
 import cn.zswltech.mithras.contract.overdue.dao.DocPrintingDao;
-import cn.zswltech.mithras.contract.overdue.mapper.model.DocPrinting;
+import cn.zswltech.mithras.contract.overdue.model.DocPrinting;
 import cn.zswltech.mithras.foundation.port.ProcessStartUserResolver;
 import cn.zswltech.mithras.foundation.port.UserBizDeptResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;

@@ -122,9 +122,9 @@ import cn.zswltech.mithras.workflow.datacompare.EditdataCompareApplicationServic
 import cn.zswltech.mithras.kpi.application.KpiProjectDistributionWeightApplicationService;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.workflow.datacompare.enums.CompareFactoryEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItem;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractLeaseItemLib;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.model.contract.ContractLeaseItem;
+import cn.zswltech.mithras.contract.model.contract.ContractLeaseItemLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.contract.*;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactoryCreator;

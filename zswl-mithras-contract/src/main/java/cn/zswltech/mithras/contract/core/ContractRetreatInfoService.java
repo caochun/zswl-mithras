@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.core;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;

@@ -27,7 +27,7 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.ContractBusinessMo
 import cn.zswltech.mithras.projectprocess.enums.projestablish.FactoringType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ZrType;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.dashboard.application.boss.GuanYuanBasicService;

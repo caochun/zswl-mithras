@@ -35,10 +35,10 @@ import cn.zswltech.mithras.contract.excel.importer.ContractEntityItemPladgeExcel
 import cn.zswltech.mithras.contract.excel.model.ContractEntityPledgeItemExcelModel;
 import cn.zswltech.mithras.contract.mapper.contract.ContractPledgeMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledge;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeItem;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
+import cn.zswltech.mithras.contract.model.contract.ContractPledge;
+import cn.zswltech.mithras.contract.model.contract.ContractPledgeItem;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;

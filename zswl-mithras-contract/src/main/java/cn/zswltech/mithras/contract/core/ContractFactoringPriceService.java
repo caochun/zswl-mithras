@@ -2,7 +2,7 @@ package cn.zswltech.mithras.contract.core;
 
 import cn.zswltech.mithras.dto.contract.price.ContractFactoringPriceModifyREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractFactoringPrice;
+import cn.zswltech.mithras.contract.model.contract.ContractFactoringPrice;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

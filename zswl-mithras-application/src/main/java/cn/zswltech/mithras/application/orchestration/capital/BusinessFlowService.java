@@ -41,7 +41,7 @@ import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapp
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.fund.model.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.collection.mapper.model.BillManagement;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.model.FundOrganization;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;

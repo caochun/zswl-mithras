@@ -6,7 +6,7 @@ import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.core.ContractTenantryService;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import com.deepoove.poi.XWPFTemplate;

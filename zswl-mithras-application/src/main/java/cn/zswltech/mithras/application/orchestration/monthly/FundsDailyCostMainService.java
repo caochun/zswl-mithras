@@ -15,7 +15,7 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingPledgeInfoService;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.model.FundOrganization;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;

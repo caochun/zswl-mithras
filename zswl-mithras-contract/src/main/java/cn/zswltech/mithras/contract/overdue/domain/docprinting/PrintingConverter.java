@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.overdue.domain.docprinting;
 
-import cn.zswltech.mithras.contract.overdue.mapper.model.DocPrinting;
-import cn.zswltech.mithras.contract.overdue.mapper.model.DocPrintingLib;
+import cn.zswltech.mithras.contract.overdue.model.DocPrinting;
+import cn.zswltech.mithras.contract.overdue.model.DocPrintingLib;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import cn.zswltech.mithras.contract.overdue.domain.docprinting.Printing;

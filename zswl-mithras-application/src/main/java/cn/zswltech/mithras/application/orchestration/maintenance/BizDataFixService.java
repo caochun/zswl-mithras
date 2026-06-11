@@ -70,7 +70,7 @@ import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.*;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;

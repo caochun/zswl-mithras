@@ -24,7 +24,7 @@ import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
 import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import cn.zswltech.mithras.customer.model.client.*;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

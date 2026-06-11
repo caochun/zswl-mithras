@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.core;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractPledgeItem;
+import cn.zswltech.mithras.contract.model.contract.ContractPledgeItem;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

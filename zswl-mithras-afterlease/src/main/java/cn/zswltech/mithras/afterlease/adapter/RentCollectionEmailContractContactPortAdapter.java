@@ -2,8 +2,8 @@ package cn.zswltech.mithras.afterlease.adapter;
 
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailContractContactPort;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.customer.application.lib.client.handler.impl.CorpContactInfoLibHandlerImpl;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;

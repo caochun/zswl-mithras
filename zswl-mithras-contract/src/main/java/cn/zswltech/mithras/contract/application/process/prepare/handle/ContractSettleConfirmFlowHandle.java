@@ -10,7 +10,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.contract.application.process.prepare.ContractBizProcessDataPort;
 import cn.zswltech.mithras.contract.application.process.prepare.ContractProcessPrepareAuthPort;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import lombok.extern.slf4j.Slf4j;

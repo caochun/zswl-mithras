@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.overdue.mapper;
 
-import cn.zswltech.mithras.contract.overdue.mapper.model.LetterIndex;
+import cn.zswltech.mithras.contract.overdue.model.LetterIndex;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

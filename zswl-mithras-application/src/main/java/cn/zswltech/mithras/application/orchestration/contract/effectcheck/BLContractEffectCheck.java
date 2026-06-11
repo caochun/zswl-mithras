@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.contract.effectcheck;
 
 import cn.hutool.core.lang.Assert;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import org.springframework.stereotype.Component;
 

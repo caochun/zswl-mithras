@@ -4,8 +4,8 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.contract.settle.ContractSettlePlanDetailRSP;
 import cn.zswltech.mithras.contract.convert.contract.ContractSettlePlanConvert;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlan;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSettlePlanLib;
+import cn.zswltech.mithras.contract.model.contract.ContractSettlePlan;
+import cn.zswltech.mithras.contract.model.contract.ContractSettlePlanLib;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Component;
 

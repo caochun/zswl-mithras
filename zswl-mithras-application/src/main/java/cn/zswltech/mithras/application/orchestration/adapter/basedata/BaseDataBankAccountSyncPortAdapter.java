@@ -4,7 +4,7 @@ import cn.zswltech.mithras.basedata.application.bankaccount.BaseDataBankAccountS
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.core.ContractAccountService;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
+import cn.zswltech.mithras.contract.model.contract.ContractAccount;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingPayAccountService;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPayAccount;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;

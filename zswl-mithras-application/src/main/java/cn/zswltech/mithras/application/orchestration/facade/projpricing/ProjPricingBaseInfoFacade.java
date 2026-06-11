@@ -16,7 +16,7 @@ import cn.zswltech.mithras.dto.projpricing.baseinfo.*;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

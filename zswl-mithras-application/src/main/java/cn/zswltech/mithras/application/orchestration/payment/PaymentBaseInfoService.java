@@ -79,7 +79,7 @@ import cn.zswltech.mithras.third.retry.mapper.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;

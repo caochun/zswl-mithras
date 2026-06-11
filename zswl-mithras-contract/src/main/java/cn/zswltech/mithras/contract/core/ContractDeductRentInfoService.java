@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.contract.core;
 
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractDeductRentInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRetreatInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractDeductRentInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Map;

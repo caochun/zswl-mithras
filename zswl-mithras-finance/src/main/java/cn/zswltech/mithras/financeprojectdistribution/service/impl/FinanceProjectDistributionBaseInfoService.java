@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.financeprojectdistribution.FinanceProjectDistribu
 import cn.zswltech.mithras.dto.financeprojectdistribution.FinanceProjectDistributionBaseInfoRSP;
 import cn.zswltech.mithras.dto.utils.BeanCopyUtils;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionBaseInfo;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistributionBaseInfoMapper;

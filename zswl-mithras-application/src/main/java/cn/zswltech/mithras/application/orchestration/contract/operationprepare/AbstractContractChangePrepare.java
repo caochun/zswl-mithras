@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.contract.operationprepare;
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.contract.enums.contract.ContractChangeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.contract.ContractService;
 import cn.zswltech.mithras.contract.application.process.prepare.AbstractContractOperationPrepare;

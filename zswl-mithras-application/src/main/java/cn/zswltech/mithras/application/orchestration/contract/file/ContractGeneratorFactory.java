@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.contract.file;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.contract.core.file.ContractGenerate;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.contract.file.generator.*;
 

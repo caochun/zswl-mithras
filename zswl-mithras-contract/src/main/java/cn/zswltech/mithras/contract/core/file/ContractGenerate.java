@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.core.file;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 
 /**
  * @author dingqi

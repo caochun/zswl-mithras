@@ -8,9 +8,9 @@ import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractCon
 import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAccount;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantry;
+import cn.zswltech.mithras.contract.model.contract.ContractAccount;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.contract.core.ContractAccountService;
 import cn.zswltech.mithras.contract.core.ContractTenantryService;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.contract.core;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractReceipt;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRentActual;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
+import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentActualExportREQ;
 import cn.zswltech.mithras.dto.contract.rent.ContractRentActualImportREQ;
 import cn.zswltech.mithras.dto.projreview.cashflowplan.IRRCalculateResultRSP;

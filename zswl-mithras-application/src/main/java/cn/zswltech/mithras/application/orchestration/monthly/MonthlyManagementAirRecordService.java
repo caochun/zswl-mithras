@@ -9,7 +9,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.IncomeConfirmTypeEnum;
 import cn.zswltech.mithras.monthly.enums.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractIncomeSharingMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.monthly.mapper.model.MonthlyManageBaseModel;
 import cn.zswltech.mithras.monthly.mapper.model.MonthlyManagementAirRecord;
 import cn.zswltech.mithras.monthly.mapper.model.MonthlyManagementBaseInfo;

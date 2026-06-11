@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.contract.versioning.handler.AbstractContractAccountLibHandler;

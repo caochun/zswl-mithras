@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.budget.mapper.model.BudgetPlanPay;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.maintenance.BizDataFixService;
 import cn.zswltech.mithras.system.event.SystemSwitchRefreshEvent;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.contract.core.impl;
 import cn.zswltech.mithras.contract.core.ContractRemindRecordService;
 import cn.zswltech.mithras.contract.core.delayqueue.DelayQueueService;
 import cn.zswltech.mithras.contract.mapper.contract.ContractRemindRecordMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractRemindRecord;
+import cn.zswltech.mithras.contract.model.contract.ContractRemindRecord;
 import cn.zswltech.mithras.contract.enums.TimeoutTypeEnum;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

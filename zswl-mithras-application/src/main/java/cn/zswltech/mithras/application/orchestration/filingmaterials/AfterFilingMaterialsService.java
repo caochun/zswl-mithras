@@ -45,7 +45,7 @@ import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.mapper.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.model.app.VisitRecord;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.filingmaterials.mapper.model.FilingMaterials;
 import cn.zswltech.mithras.workflow.mapper.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

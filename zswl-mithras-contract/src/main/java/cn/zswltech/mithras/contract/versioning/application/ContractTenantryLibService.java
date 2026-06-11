@@ -4,7 +4,7 @@ package cn.zswltech.mithras.contract.versioning.application;
 import cn.zswltech.mithras.dto.contract.ContractIdListREQ;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryListRSP;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTenantryLib;
+import cn.zswltech.mithras.contract.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractTenantryLibHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

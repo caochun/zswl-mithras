@@ -35,7 +35,7 @@ import cn.zswltech.mithras.margin.mapper.WarrantyBaseInfoMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.margin.mapper.model.MarginBaseInfo;
 import cn.zswltech.mithras.margin.mapper.model.WarrantyBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.core;
 
 import cn.zswltech.mithras.contract.mapper.contract.ContractSpecialTradeMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractSpecialTrade;
+import cn.zswltech.mithras.contract.model.contract.ContractSpecialTrade;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

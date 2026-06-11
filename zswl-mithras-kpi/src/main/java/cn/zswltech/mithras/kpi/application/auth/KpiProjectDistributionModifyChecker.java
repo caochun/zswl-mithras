@@ -6,7 +6,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.foundation.auth.checker.IDataAuthChecker;
 import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import cn.zswltech.mithras.foundation.auth.DataAuthBusinessModule;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.mapper.model.KpiProjectDistributionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;

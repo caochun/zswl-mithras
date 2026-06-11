@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.mapper.contract;
 
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
+import cn.zswltech.mithras.contract.model.contract.ContractAocPrice;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

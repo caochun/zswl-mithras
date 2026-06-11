@@ -24,7 +24,7 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectPolicyTypeEnum
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.document.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.*;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewMeetMinuteBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;

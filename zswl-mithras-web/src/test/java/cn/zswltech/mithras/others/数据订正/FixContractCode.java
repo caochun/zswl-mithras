@@ -15,7 +15,7 @@ import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionInf
 import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionRelation;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionOverdueHistory;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfoLib;

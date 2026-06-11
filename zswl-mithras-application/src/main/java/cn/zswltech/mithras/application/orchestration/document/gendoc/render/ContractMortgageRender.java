@@ -13,7 +13,7 @@ import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.customer.model.client.*;
-import cn.zswltech.mithras.contract.mapper.model.contract.*;
+import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractMortgageItemService;
 import cn.zswltech.mithras.contract.core.ContractRentEstimateService;

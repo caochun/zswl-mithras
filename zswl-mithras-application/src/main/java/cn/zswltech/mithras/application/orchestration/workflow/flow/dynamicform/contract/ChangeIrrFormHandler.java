@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.contract.ContractIrrRSP;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.workflow.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.ContractService;
 import org.springframework.stereotype.Component;

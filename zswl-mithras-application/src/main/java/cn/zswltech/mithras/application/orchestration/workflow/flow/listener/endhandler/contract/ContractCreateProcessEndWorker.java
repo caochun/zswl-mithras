@@ -4,7 +4,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.core.evaluation.ContractEvaluationAgencyDraftService;
 import cn.zswltech.mithras.financeprojectdistribution.service.impl.FinanceProjectDistributionService;
 import org.springframework.stereotype.Component;

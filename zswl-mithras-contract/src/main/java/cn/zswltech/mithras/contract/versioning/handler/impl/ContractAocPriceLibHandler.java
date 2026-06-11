@@ -6,8 +6,8 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.contract.price.ContractAocPriceDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.StructuredInterest;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPrice;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractAocPriceLib;
+import cn.zswltech.mithras.contract.model.contract.ContractAocPrice;
+import cn.zswltech.mithras.contract.model.contract.ContractAocPriceLib;
 import cn.zswltech.mithras.contract.versioning.handler.ContractLibAbstractHandler;
 import org.springframework.stereotype.Service;
 

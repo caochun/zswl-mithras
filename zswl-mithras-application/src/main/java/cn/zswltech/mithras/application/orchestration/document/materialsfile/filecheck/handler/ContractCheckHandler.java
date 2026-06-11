@@ -22,7 +22,7 @@ import cn.zswltech.mithras.payment.enums.LendingMaterialType;
 import cn.zswltech.mithras.customer.mapper.app.AppContractSignMapper;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.app.AppContractSign;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractTextInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractTextInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.contract.file.generator;
 
 import cn.zswltech.mithras.contract.enums.contract.ContractBizTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.application.orchestration.contract.file.AbstractContractGenerate;
 import cn.zswltech.mithras.contract.application.file.ContractGenerateAction;
 import cn.zswltech.mithras.contract.application.file.SharedResources;

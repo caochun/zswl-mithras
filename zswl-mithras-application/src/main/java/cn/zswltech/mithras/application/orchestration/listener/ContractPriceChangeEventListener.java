@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewAocPrice;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewFactoringPrice;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;

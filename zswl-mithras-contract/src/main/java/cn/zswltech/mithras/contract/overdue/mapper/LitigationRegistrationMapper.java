@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.overdue.mapper;
 
 import cn.zswltech.mithras.contract.overdue.application.query.LitigationPageQuery;
-import cn.zswltech.mithras.contract.overdue.mapper.model.LitigationRegistration;
+import cn.zswltech.mithras.contract.overdue.model.LitigationRegistration;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

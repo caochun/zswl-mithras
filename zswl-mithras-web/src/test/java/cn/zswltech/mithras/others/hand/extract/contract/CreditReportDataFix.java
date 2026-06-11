@@ -77,7 +77,7 @@ import cn.zswltech.mithras.report.mapper.procsnap.model.CrPledgeProcSnap;
 import cn.zswltech.mithras.report.mapper.procsnap.model.CrRepayPlanProcSnap;
 import cn.zswltech.mithras.report.mapper.procsnap.model.CrSpecialTradeProcSnap;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.flow.execution.ExecutionProcessBaseREQ;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.policy.mapper.model.PolicyInfo;
 import cn.zswltech.mithras.policy.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.system.user.SysUserService;

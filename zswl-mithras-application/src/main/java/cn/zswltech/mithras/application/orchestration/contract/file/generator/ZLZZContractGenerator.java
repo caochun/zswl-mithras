@@ -7,7 +7,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractBizTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractSubTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.contractzlzz.*;
-import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.contract.ContractSignInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.file.AbstractContractGenerate;
