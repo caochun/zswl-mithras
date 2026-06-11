@@ -32,7 +32,7 @@
     </select>
 
     <select id="queryByTaskNum"
-            resultType="cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseTask">
+            resultType="cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask">
         select * from black_gray_warehouse_task where task_num = #{taskNum}
     </select>
 

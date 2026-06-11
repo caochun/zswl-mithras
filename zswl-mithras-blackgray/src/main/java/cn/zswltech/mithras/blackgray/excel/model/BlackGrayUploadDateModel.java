@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.dto.excel;
+package cn.zswltech.mithras.blackgray.excel.model;
 
 import cn.zswltech.mithras.blackgray.excel.Excel;
 import lombok.Data;

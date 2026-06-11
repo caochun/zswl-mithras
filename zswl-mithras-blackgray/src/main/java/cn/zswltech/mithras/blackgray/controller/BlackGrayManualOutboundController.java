@@ -5,7 +5,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.blackgray.dto.excel.BlackGrayOutboundRecordExport;
+import cn.zswltech.mithras.blackgray.excel.model.BlackGrayOutboundRecordExport;
 import cn.zswltech.mithras.blackgray.dto.req.*;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayManualOutboundDetailRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayManualOutboundListRSP;

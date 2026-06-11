@@ -7,7 +7,7 @@ import cn.zswltech.gruul.biz.service.OrgService;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.blackgray.dto.excel.BlackGrayBaseInfoRecordExport;
+import cn.zswltech.mithras.blackgray.excel.model.BlackGrayBaseInfoRecordExport;
 import cn.zswltech.mithras.blackgray.dto.req.*;
 import cn.zswltech.mithras.blackgray.dto.rsp.*;
 import cn.zswltech.mithras.blackgray.enums.BlackGrayBusinessTypeEnum;

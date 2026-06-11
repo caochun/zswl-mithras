@@ -11,7 +11,7 @@ import cn.zswltech.mithras.blackgray.dto.req.*;
 import cn.zswltech.mithras.blackgray.enums.BlackGrayOrgEnum;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseRecordMapper;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseRuleConfigMapper;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseRuleConfig;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRuleConfig;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService;
 import cn.zswltech.mithras.blackgray.service.RedisService;
 import cn.zswltech.mithras.blackgray.utils.StringUtils;

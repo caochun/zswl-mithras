@@ -2,7 +2,7 @@ package cn.zswltech.mithras.blackgray.service;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.blackgray.dto.req.*;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseRuleConfig;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRuleConfig;
 
 import java.util.List;
 import java.util.Map;

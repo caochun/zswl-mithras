@@ -8,7 +8,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.blackgray.dto.req.*;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseRuleConfigDetailRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseRuleConfigListRSP;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseRuleConfig;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRuleConfig;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

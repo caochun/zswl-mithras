@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.dto.excel;
+package cn.zswltech.mithras.blackgray.excel.model;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;

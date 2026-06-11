@@ -6,8 +6,8 @@ import cn.zswltech.mithras.blackgray.dto.req.*;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBusinessTypeRsp;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseRecordDetailRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseRecordListRSP;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseRecord;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseRuleConfig;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRecord;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRuleConfig;
 import cn.zswltech.mithras.blackgray.vo.BlackGrayApplyReasonVo;
 
 import java.util.List;

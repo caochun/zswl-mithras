@@ -17,7 +17,7 @@ import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBreakBusinessListRSP;
 import cn.zswltech.mithras.blackgray.enums.AuditStatusEnum;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayBreakBusinessMapper;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayLibraryMapper;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayBreakBusiness;
+import cn.zswltech.mithras.blackgray.model.BlackGrayBreakBusiness;
 import cn.zswltech.mithras.blackgray.service.BlackGrayBreakBusinessService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;

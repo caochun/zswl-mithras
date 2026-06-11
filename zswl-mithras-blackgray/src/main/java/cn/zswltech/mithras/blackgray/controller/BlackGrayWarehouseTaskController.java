@@ -9,7 +9,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.blackgray.dto.req.*;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseTaskDetailRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseTaskListRSP;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseTask;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseTaskService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

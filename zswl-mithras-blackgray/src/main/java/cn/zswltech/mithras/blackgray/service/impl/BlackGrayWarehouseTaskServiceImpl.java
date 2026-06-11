@@ -21,7 +21,7 @@ import cn.zswltech.mithras.blackgray.enums.BlackGrayBusinessTaskTypeEnum;
 import cn.zswltech.mithras.blackgray.enums.BlackGrayOrgEnum;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseRecordMapper;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseTaskMapper;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseTask;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseTaskService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
 import cn.zswltech.mithras.blackgray.service.RedisService;

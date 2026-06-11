@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.mapper.model;
+package cn.zswltech.mithras.blackgray.model;
 
 import cn.zswltech.gruul.dao.dal.tkmybatis.IEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -14,8 +14,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-@TableName(value = "black_gray_warehouse_record")
-public class BlackGrayWarehouseRecord extends IEntity {
+@TableName(value = "black_gray_library")
+public class BlackGrayLibrary extends IEntity {
     /**
      * id
      */
@@ -38,27 +38,22 @@ public class BlackGrayWarehouseRecord extends IEntity {
 
     /**
      * 业务类型
+     *
      */
     @Column(name = "`business_type`")
     private String businessType;
 
     /**
-     * 金融企业业务类型业务类型
-     **/
-    @Column(name = "customise_business_type")
-    private String customiseBusinessType;
+     * 黑灰名单数据摘要（企业名称+统一社会信用代码+业务类型）加密后获得
+     */
+    @Column(name = "data_digest")
+    private String dataDigest;
 
     /**
      * 观察期
      */
     @Column(name = "period_under_observation")
     private String periodUnderObservation;
-
-    /**
-     * 任务编号
-     **/
-    @Column(name = "task_num")
-    private String taskNum;
 
     /**
      * 风险规模（万元）
@@ -88,7 +83,7 @@ public class BlackGrayWarehouseRecord extends IEntity {
      * 集团是否纳入黑名单
      */
     @Column(name = "blacklist_status")
-    private Integer blacklistStatus;
+    private Boolean blacklistStatus;
 
     /**
      * 申请原因类型
@@ -97,7 +92,7 @@ public class BlackGrayWarehouseRecord extends IEntity {
     private String applyReasonType;
 
     /**
-     * 申请原因
+     * 申请原因 = 入库原因
      */
     @Column(name = "apply_reason")
     private String applyReason;
@@ -110,8 +105,19 @@ public class BlackGrayWarehouseRecord extends IEntity {
     private String blackGrayType;
 
     /**
+     * 黑灰标识数字，BLACK=2, GRAY=1，用于聚合、排序，方便查询
+     */
+    @Column(name = "black_gray_type_num")
+    private Integer blackGrayTypeNum;
+
+    /**
+     * 优先级排序，越小优先级越高
+     */
+    @Column(name = "black_gray_sort")
+    private Integer blackGraySort;
+
+    /**
      * 集团黑灰标识
-     *
      */
     @Column(name = "group_black_gray_type")
     private String groupBlackGrayType;
@@ -147,17 +153,21 @@ public class BlackGrayWarehouseRecord extends IEntity {
     private Date planOutboundTime;
 
     /**
-     * 入库原因
+     * 黑灰记录id
      */
-    /*@Column(name = "warehouse_reason")
-    private String warehouseReason;*/
+    @Column(name = "record_id")
+    private Long recordId;
 
     /**
-     * 记录状态
-     * {@link AuditStatusEnum#name()}
-     */
-    @Column(name = "audit_status")
-    private Integer auditStatus;
+     * 0在库，1出库
+     **/
+    @Column(name = "stock_status")
+    private Integer stockStatus;
+    /**
+     * 共享类型 0金融企业黑名单， 1金控黑名单
+     **/
+    @Column(name = "share_type")
+    private Integer shareType;
 
     /**
      * 来源
@@ -203,7 +213,7 @@ public class BlackGrayWarehouseRecord extends IEntity {
     private String rectifyFileKeys;
 
     /**
-     * 是否报送 0 不报送， 1报送
+     * 报送标识 0不报送，1已报送
      */
     @Column(name = "report_flag")
     private Integer reportFlag;
@@ -218,23 +228,29 @@ public class BlackGrayWarehouseRecord extends IEntity {
 
     public static final String BUSINESS_TYPE = "businessType";
 
-    public static final String RECORD_STATUS = "auditStatus";
+    public static final String STOCK_STATUS = "stockStatus";
 
     public static final String BLACK_GRAY_TYPE = "blackGrayType";
 
     public static final String SOURCE = "source";
+    public static final String UPDATE_TIME = "updateTime";
 
     public static final String APPLY_TIME = "applyTime";
+
+    public static final String AUDIT_STATUS = "auditStatus";
 
     public static final String WAREHOUSE_TIME = "warehouseTime";
 
     public static final String PLAN_OUTBOUND_TIME = "planOutboundTime";
 
-    public static final String TASK_NUM = "taskNum";
+    public static final String RECORD_ID = "recordId";
 
     public static final String APPLY_REASON_TYPE = "applyReasonType";
 
     public static final String MEMBERSHIP_GROUP = "membershipGroup";
     public static final String GROUP_CREDIT_CODE = "groupCreditCode";
     public static final String GROUP_LEADER_FLAG = "groupLeaderFlag";
+
+    public static final String BLACK_GRAY_SORT = "blackGraySort";
+
 }

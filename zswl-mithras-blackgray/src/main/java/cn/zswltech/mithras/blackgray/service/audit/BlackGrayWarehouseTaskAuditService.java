@@ -13,7 +13,7 @@ import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayApprovalSubmitRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseTaskApprovalTaskRSP;
 import cn.zswltech.mithras.blackgray.enums.AuditStatusEnum;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseTaskMapper;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseTask;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseTaskService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;

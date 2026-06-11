@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.blackgray.dto.rsp;
 
-import cn.zswltech.mithras.blackgray.dto.excel.BlackGrayUploadModel;
+import cn.zswltech.mithras.blackgray.excel.model.BlackGrayUploadModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

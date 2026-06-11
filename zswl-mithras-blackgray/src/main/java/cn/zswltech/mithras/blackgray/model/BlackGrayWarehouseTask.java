@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.mapper.model;
+package cn.zswltech.mithras.blackgray.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

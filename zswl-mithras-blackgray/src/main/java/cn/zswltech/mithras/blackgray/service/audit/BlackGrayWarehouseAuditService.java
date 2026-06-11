@@ -14,7 +14,7 @@ import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayApprovalSubmitRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseApprovalTaskRSP;
 import cn.zswltech.mithras.blackgray.enums.AuditStatusEnum;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseRecordMapper;
-import cn.zswltech.mithras.blackgray.mapper.model.BlackGrayWarehouseRecord;
+import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRecord;
 import cn.zswltech.mithras.blackgray.service.BlackGrayLibraryService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRecordService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
