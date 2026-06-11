@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.job.data_init;
+package cn.zswltech.mithras.projectprocess.job.datainit;
 
 import cn.zswltech.mithras.projectprocess.job.service.ProjRiskControlIndustryTypeJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
