@@ -41,8 +41,8 @@ import cn.zswltech.mithras.application.orchestration.payment.FtpAssessmentInfoSe
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
-import cn.zswltech.mithras.third.application.financial.FinancialExtraService;
-import cn.zswltech.mithras.third.application.financial.FinancialService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialExtraService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialService;
 import cn.zswltech.mithras.application.orchestration.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.third.financialshare.application.dto.FinancialPaymentVO;
 import cn.zswltech.mithras.foundation.util.LongUtil;

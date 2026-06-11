@@ -16,7 +16,7 @@ import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
 import cn.zswltech.mithras.third.retry.application.ExceptionRequestRecordService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProvisionDetailService;
-import cn.zswltech.mithras.third.application.financial.SyncReceiveProvisionService;
+import cn.zswltech.mithras.third.financialshare.application.SyncReceiveProvisionService;
 import cn.zswltech.mithras.third.financialshare.client.req.ReceiveProvisionREQ;
 import cn.zswltech.mithras.third.financialshare.client.resp.FinancialCommonRSP;
 import cn.zswltech.mithras.foundation.util.LongUtil;

@@ -26,7 +26,7 @@ import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.collection.application.CollectionOverdueRecordInfoService;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
-import cn.zswltech.mithras.third.application.financial.FinancialService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.web.MithrasApplication;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

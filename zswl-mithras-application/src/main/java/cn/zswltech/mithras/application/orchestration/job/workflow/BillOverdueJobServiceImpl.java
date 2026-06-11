@@ -8,7 +8,7 @@ import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;
-import cn.zswltech.mithras.third.application.process.prepare.handle.BillOverdueCommitHandle;
+import cn.zswltech.mithras.third.providence.process.prepare.handle.BillOverdueCommitHandle;
 import cn.zswltech.mithras.workflow.process.prepare.job.BillOverdueJobService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

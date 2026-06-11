@@ -59,7 +59,7 @@ import cn.zswltech.mithras.ftp.newftp.service.FtpService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
-import cn.zswltech.mithras.third.application.financial.FinancialService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.excel.EasyExcel;

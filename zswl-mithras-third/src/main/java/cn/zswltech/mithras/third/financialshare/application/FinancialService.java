@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.application.financial;
+package cn.zswltech.mithras.third.financialshare.application;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.third.financial.InnerCollectionRecordREQ;

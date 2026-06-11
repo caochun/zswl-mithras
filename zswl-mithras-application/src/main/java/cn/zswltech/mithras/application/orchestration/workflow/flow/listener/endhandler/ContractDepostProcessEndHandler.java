@@ -38,7 +38,7 @@ import cn.zswltech.mithras.contract.core.ContractDeductRentInfoService;
 import cn.zswltech.mithras.contract.core.ContractRetreatInfoService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
-import cn.zswltech.mithras.third.application.financial.FinancialService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

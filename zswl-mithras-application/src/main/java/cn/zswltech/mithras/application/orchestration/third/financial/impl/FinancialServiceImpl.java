@@ -70,7 +70,7 @@ import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoServ
 import cn.zswltech.mithras.application.orchestration.payment.PaymentWriteOffService;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEventBus;
-import cn.zswltech.mithras.third.application.financial.FinancialService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialService;
 import cn.zswltech.mithras.payment.event.PaymentWriteOffEvent;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;

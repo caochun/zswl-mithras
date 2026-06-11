@@ -42,7 +42,7 @@ import cn.zswltech.mithras.contract.versioning.application.ContractVersionServic
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.collection.application.financial.FinancialManagerService;
-import cn.zswltech.mithras.third.application.financial.FinancialService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialService;
 import cn.zswltech.mithras.third.financialshare.client.req.CQBillPaymentREQ;
 import cn.zswltech.mithras.third.financialshare.client.req.CQReceiveREQ;
 import cn.zswltech.mithras.third.financialshare.client.req.CQReceiveRentREQ;

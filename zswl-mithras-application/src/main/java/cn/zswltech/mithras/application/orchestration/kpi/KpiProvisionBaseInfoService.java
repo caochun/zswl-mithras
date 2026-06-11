@@ -28,7 +28,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
-import cn.zswltech.mithras.third.application.financial.SyncReceiveProvisionService;
+import cn.zswltech.mithras.third.financialshare.application.SyncReceiveProvisionService;
 import cn.zswltech.mithras.application.orchestration.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2AccountApplicationVO;
 import cn.zswltech.mithras.foundation.util.LongUtil;

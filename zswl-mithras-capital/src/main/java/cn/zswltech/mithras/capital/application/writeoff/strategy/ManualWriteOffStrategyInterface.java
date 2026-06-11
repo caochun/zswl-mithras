@@ -8,7 +8,6 @@ import cn.zswltech.mithras.capital.enums.writeoff.WriteOffBusinessModelEnum;
 import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowMatchResult;
 import cn.zswltech.mithras.third.financialshare.mapper.model.FinanceFlowRecord;
 import cn.zswltech.mithras.foundation.util.LongUtil;
-import org.jetbrains.annotations.NotNull;
 
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -115,7 +114,6 @@ public interface ManualWriteOffStrategyInterface {
         return result;
     }
 
-    @NotNull
     static BankFlowCenterListBO getListBO(FinanceFlowRecord dto) {
         BankFlowCenterListBO rsp = new BankFlowCenterListBO();
         rsp.setId(dto.getId());

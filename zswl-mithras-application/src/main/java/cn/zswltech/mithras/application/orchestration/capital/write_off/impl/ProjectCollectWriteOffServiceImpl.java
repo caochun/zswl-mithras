@@ -44,7 +44,7 @@ import cn.zswltech.mithras.third.financialshare.application.FinanceFlowMatchResu
 import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabMainInfoService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabRecordService;
-import cn.zswltech.mithras.third.application.financial.FinancialService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

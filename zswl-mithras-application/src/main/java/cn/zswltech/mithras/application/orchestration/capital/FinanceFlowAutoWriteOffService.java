@@ -86,8 +86,8 @@ import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetail
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailUnconfirmedService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentWriteOffService;
 import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
-import cn.zswltech.mithras.third.application.financial.FinancialExtraService;
-import cn.zswltech.mithras.third.application.financial.FinancialService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialExtraService;
+import cn.zswltech.mithras.third.financialshare.application.FinancialService;
 import cn.zswltech.mithras.application.orchestration.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2CollectionVO;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2PaymentVO;
