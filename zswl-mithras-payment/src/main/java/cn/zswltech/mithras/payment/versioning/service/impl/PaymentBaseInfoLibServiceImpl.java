@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.payment.application.lib.service.impl;
+package cn.zswltech.mithras.payment.versioning.service.impl;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
-import cn.zswltech.mithras.payment.application.lib.handler.PaymentBaseInfoLibHandler;
+import cn.zswltech.mithras.payment.versioning.handler.PaymentBaseInfoLibHandler;
 import cn.zswltech.mithras.payment.mapper.lib.PaymentBaseInfoLibMapper;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
-import cn.zswltech.mithras.payment.application.lib.service.PaymentBaseInfoLibService;
+import cn.zswltech.mithras.payment.versioning.service.PaymentBaseInfoLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

@@ -41,7 +41,7 @@ import cn.zswltech.mithras.contract.versioning.service.ContractMortgageLibServic
 import cn.zswltech.mithras.contract.versioning.service.ContractPledgeLibService;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingPledgeInfoLibService;
 import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionBaseInfoLibService;
-import cn.zswltech.mithras.payment.application.lib.service.PaymentBaseInfoLibService;
+import cn.zswltech.mithras.payment.versioning.service.PaymentBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.util.ContractUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

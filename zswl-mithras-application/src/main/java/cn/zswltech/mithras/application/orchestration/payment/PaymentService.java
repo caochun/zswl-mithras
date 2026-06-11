@@ -72,7 +72,7 @@ import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.budget.BudgetPlanPayDetailService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
-import cn.zswltech.mithras.payment.application.lib.service.impl.PaymentVersionServiceImpl;
+import cn.zswltech.mithras.payment.versioning.service.impl.PaymentVersionServiceImpl;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

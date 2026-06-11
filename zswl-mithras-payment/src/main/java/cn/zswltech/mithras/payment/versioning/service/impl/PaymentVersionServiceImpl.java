@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.application.lib.service.impl;
+package cn.zswltech.mithras.payment.versioning.service.impl;
 
 import cn.zswltech.mithras.api.payment.version.PaymentVersionListRSP;
 import cn.zswltech.mithras.dto.version.*;
@@ -11,7 +11,7 @@ import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
-import cn.zswltech.mithras.payment.application.lib.handler.PaymentAbstractHandler;
+import cn.zswltech.mithras.payment.versioning.handler.PaymentAbstractHandler;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 

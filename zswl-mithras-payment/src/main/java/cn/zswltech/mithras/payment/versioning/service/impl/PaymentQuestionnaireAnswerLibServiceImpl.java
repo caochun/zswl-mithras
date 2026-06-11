@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.payment.application.lib.service.impl;
+package cn.zswltech.mithras.payment.versioning.service.impl;
 
 import cn.zswltech.mithras.payment.mapper.lib.PaymentQuestionnaireAnswerLibMapper;
 import cn.zswltech.mithras.payment.model.PaymentQuestionnaireAnswerLib;
-import cn.zswltech.mithras.payment.application.lib.service.PaymentQuestionnaireAnswerLibService;
+import cn.zswltech.mithras.payment.versioning.service.PaymentQuestionnaireAnswerLibService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

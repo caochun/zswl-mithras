@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.payment.application.lib.service.impl;
+package cn.zswltech.mithras.payment.versioning.service.impl;
 
 import cn.zswltech.mithras.payment.mapper.lib.PaymentPolicyInfoLibMapper;
 import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;
 import cn.zswltech.mithras.payment.model.PaymentPolicyInfoLib;
-import cn.zswltech.mithras.payment.application.lib.service.PaymentPolicyInfoLibService;
+import cn.zswltech.mithras.payment.versioning.service.PaymentPolicyInfoLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

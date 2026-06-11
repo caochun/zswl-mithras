@@ -21,7 +21,7 @@ import cn.zswltech.mithras.application.orchestration.contract.ContractRentActual
 import cn.zswltech.mithras.application.orchestration.contract.impl.ContractRentActualServiceImpl;
 import cn.zswltech.mithras.contract.archive.service.ContractReceiptLibService;
 import cn.zswltech.mithras.contract.archive.service.ContractRentActualLibService;
-import cn.zswltech.mithras.payment.application.lib.service.PaymentBaseInfoLibService;
+import cn.zswltech.mithras.payment.versioning.service.PaymentBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.util.ContractUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

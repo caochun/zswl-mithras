@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.payment.application.lib.handler;
+package cn.zswltech.mithras.payment.versioning.handler;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
-import cn.zswltech.mithras.payment.application.lib.PaymentLibAssembler;
+import cn.zswltech.mithras.payment.versioning.PaymentLibAssembler;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
 import org.springframework.stereotype.Service;

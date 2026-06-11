@@ -8,7 +8,7 @@ import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.payment.application.lib.handler.PaymentBaseInfoLibHandler;
+import cn.zswltech.mithras.payment.versioning.handler.PaymentBaseInfoLibHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

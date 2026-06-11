@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.application.lib.handler;
+package cn.zswltech.mithras.payment.versioning.handler;
 
 import cn.zswltech.mithras.api.payment.dto.PlanedDetailDto;
 import cn.zswltech.mithras.payment.model.PaymentPlanedDetail;

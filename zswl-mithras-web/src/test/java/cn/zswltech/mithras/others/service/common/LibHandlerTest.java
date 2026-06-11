@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.common;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.contract.archive.handler.impl.ContractBaseInfoLibHandler;
-import cn.zswltech.mithras.payment.application.lib.handler.PaymentPlanedDetailLibHandler;
+import cn.zswltech.mithras.payment.versioning.handler.PaymentPlanedDetailLibHandler;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 

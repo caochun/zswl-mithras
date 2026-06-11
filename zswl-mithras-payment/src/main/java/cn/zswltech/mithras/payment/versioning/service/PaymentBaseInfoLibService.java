@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.application.lib.service;
+package cn.zswltech.mithras.payment.versioning.service;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;

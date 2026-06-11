@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.payment;
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListRsp;
 import cn.zswltech.mithras.payment.application.PaymentQuestionnaireAnswerService;
-import cn.zswltech.mithras.payment.application.lib.PaymentLibAssembler;
+import cn.zswltech.mithras.payment.versioning.PaymentLibAssembler;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
 import cn.zswltech.mithras.payment.model.PaymentQuestionnaireAnswer;

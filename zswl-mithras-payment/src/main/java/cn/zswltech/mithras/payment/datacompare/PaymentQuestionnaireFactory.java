@@ -8,7 +8,7 @@ import cn.zswltech.mithras.payment.model.PaymentQuestionnaireAnswerLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;
-import cn.zswltech.mithras.payment.application.lib.handler.PaymentQuestionAnswerHandler;
+import cn.zswltech.mithras.payment.versioning.handler.PaymentQuestionAnswerHandler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

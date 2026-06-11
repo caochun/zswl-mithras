@@ -28,7 +28,7 @@ import cn.zswltech.mithras.payment.mapper.PaymentPolicyInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.financeprojectdistribution.service.impl.FinanceProjectDistributionService;
 import cn.zswltech.mithras.payment.application.PaymentPlanedDetailService;
-import cn.zswltech.mithras.payment.application.lib.service.impl.PaymentVersionServiceImpl;
+import cn.zswltech.mithras.payment.versioning.service.impl.PaymentVersionServiceImpl;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentService;
