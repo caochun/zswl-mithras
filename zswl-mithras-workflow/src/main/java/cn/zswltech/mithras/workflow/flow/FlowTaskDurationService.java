@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.workflow.flow;
 
 import cn.zswltech.mithras.workflow.mapper.FlowTaskDurationMapper;
-import cn.zswltech.mithras.workflow.mapper.model.FlowTaskDuration;
+import cn.zswltech.mithras.workflow.model.FlowTaskDuration;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

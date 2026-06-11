@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workflow.mapper.model;
+package cn.zswltech.mithras.workflow.model;
 
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;

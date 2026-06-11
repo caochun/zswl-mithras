@@ -7,7 +7,7 @@ import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDist
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.ExecutionService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.mapper.CommonProcessPrepareMapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import org.springframework.stereotype.Component;

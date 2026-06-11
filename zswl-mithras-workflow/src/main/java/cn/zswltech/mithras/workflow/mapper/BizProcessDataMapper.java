@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.mapper;
 
-import cn.zswltech.mithras.workflow.mapper.model.BizProcessData;
+import cn.zswltech.mithras.workflow.model.BizProcessData;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

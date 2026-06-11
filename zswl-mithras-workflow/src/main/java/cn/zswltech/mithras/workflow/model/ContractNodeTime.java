@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workflow.mapper.model;
+package cn.zswltech.mithras.workflow.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -14,17 +14,15 @@ import java.io.Serializable;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("flow_proj_node_time")
-public class ProjNodeTime extends BaseModel implements Serializable {
+@TableName("flow_contract_node_time")
+public class ContractNodeTime extends BaseModel implements Serializable {
     private static final long serialVersionUID = 2129843017182169873L;
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private Long establishId;
-
-    private Integer establishType;
-
     private Long reviewId;
+
+    private Long contractId;
 
     private String timeJson;
 

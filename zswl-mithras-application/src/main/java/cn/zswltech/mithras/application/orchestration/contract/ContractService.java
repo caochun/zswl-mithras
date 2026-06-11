@@ -70,13 +70,13 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;
 import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.workflow.mapper.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.model.ProcessModifyRemark;
 import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.customer.mapper.model.client.Client;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.projectprocess.mapper.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewLeasePrice;

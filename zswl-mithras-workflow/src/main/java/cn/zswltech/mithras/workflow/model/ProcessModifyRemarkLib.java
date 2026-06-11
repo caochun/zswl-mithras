@@ -1,16 +1,20 @@
-package cn.zswltech.mithras.workflow.mapper.model;
+package cn.zswltech.mithras.workflow.model;
 
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * @author yibin
+ */
 @Data
-public class TrackEventInfoLib extends TrackEventInfo implements ILib {
-
-    private static final long serialVersionUID = 1L;
+@TableName(value = "process_modify_remark_lib", autoResultMap = true)
+public class ProcessModifyRemarkLib extends ProcessModifyRemark implements Serializable, ILib {
 
     /**
      * 变更编号
@@ -44,5 +48,4 @@ public class TrackEventInfoLib extends TrackEventInfo implements ILib {
      */
     @TableField("version_type")
     private Integer versionType;
-
 }

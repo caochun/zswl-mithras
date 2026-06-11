@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.core.ContractGuarantorService;
 import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.enums.ClientAuthEnum;
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
-import cn.zswltech.mithras.workflow.mapper.model.BizProcessData;
+import cn.zswltech.mithras.workflow.model.BizProcessData;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -137,7 +137,7 @@ import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCredit
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.projectprocess.mapper.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.*;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBankAccountMapper;

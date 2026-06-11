@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.mapper;
 
-import cn.zswltech.mithras.workflow.mapper.model.FlowTaskDuration;
+import cn.zswltech.mithras.workflow.model.FlowTaskDuration;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

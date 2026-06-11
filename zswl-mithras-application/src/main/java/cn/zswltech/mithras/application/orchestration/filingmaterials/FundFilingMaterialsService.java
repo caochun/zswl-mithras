@@ -33,7 +33,7 @@ import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.filingmaterials.mapper.model.FilingMaterials;
 import cn.zswltech.mithras.fund.mapper.model.FundOrganization;
 import cn.zswltech.mithras.fund.mapper.model.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.mapper.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;

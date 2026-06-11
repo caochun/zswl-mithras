@@ -4,7 +4,7 @@ import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHan
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.third.providence.service.impl.BillOverdueDraftService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

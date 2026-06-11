@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.workflow.mapper;
 
-import cn.zswltech.mithras.workflow.mapper.model.FlowQueryExtra;
-import cn.zswltech.mithras.workflow.mapper.model.FlowQueryExtraMissing;
+import cn.zswltech.mithras.workflow.model.FlowQueryExtra;
+import cn.zswltech.mithras.workflow.model.FlowQueryExtraMissing;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

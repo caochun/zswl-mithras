@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workflow.mapper.model;
+package cn.zswltech.mithras.workflow.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -40,7 +40,7 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialCom
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandlerFactory;
 import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.workflow.mapper.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.model.ProcessModifyRemark;
 import cn.zswltech.mithras.contract.mapper.model.contract.*;
 import cn.zswltech.mithras.creditreport.mapper.model.CreditReportClientItem;
 import cn.zswltech.mithras.policy.mapper.model.PolicyInfo;

@@ -9,8 +9,8 @@ import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.process.prepare.RentCollectionMonthDetailService;
 import cn.zswltech.mithras.workflow.process.prepare.WorkflowUserJobPort;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
-import cn.zswltech.mithras.workflow.mapper.model.RentCollectionMonthDetail;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.RentCollectionMonthDetail;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

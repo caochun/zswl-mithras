@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.process.prepare.handle;
 
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 
 /**
  * @ClassName FlowCommit

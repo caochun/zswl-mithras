@@ -28,7 +28,7 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.workflow.mapper.ToDoOperateRecordMapper;
 import cn.zswltech.mithras.guanbao.mapper.managereport.*;
-import cn.zswltech.mithras.workflow.mapper.model.OperateRecord;
+import cn.zswltech.mithras.workflow.model.OperateRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.dashboard.application.DashboardOperateTodoService;

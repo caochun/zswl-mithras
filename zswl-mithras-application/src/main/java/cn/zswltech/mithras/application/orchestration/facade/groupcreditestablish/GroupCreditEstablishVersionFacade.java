@@ -17,7 +17,7 @@ import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.contract.enums.contract.ProjItemStatus;
 import cn.zswltech.mithras.credit.groupcredit.establish.enums.GroupCreditEstablishProcessStatus;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
-import cn.zswltech.mithras.workflow.mapper.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.model.ProcessModifyRemark;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.mapper;
 
-import cn.zswltech.mithras.workflow.mapper.model.ProcAttentionRecord;
+import cn.zswltech.mithras.workflow.model.ProcAttentionRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workflow.mapper.model;
+package cn.zswltech.mithras.workflow.model;
 
 /**
  * @description:

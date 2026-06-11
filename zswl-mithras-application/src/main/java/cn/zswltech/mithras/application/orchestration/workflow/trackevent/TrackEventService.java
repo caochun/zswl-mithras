@@ -32,7 +32,7 @@ import cn.zswltech.mithras.customer.mapper.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.mapper.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.workflow.mapper.model.TrackEventInfo;
+import cn.zswltech.mithras.workflow.model.TrackEventInfo;
 import cn.zswltech.mithras.workflow.mapper.TrackEventMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;

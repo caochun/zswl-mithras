@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.mapper;
 
-import cn.zswltech.mithras.workflow.mapper.model.ProjNodeTime;
+import cn.zswltech.mithras.workflow.model.ProjNodeTime;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

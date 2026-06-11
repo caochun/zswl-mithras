@@ -28,7 +28,7 @@ import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjec
 import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionApplicationService;
 import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionProcessPrepareService;
 import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionSupportPort;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptWeight;
 import cn.zswltech.mithras.workflow.mapper.CommonProcessPrepareMapper;

@@ -45,7 +45,7 @@ import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBaseInfoMapp
 import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBorrowingMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.workflow.mapper.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.model.ProcessModifyRemark;
 import cn.zswltech.mithras.fund.mapper.model.FundCredit;
 import cn.zswltech.mithras.fund.mapper.model.FundCreditGuaranteeDetail;
 import cn.zswltech.mithras.fund.mapper.model.FundGuaranteeAgency;
@@ -53,7 +53,7 @@ import cn.zswltech.mithras.fund.mapper.model.FundOrganization;
 import cn.zswltech.mithras.fund.mapper.model.financing.*;
 import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.mapper.model.receiptrepay.FundReceiptRepayBorrowing;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.mapper.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

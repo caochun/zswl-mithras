@@ -24,7 +24,7 @@ import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityServi
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewService;
 import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;
-import cn.zswltech.mithras.workflow.mapper.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.model.ProcessModifyRemark;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 

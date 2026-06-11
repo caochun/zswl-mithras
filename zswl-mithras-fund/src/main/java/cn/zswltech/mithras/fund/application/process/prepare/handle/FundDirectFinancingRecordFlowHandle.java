@@ -12,7 +12,7 @@ import cn.zswltech.mithras.fund.directfinancing.mapper.model.FundDirectFinancing
 import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

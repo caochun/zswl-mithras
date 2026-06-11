@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.mapper;
 
-import cn.zswltech.mithras.workflow.mapper.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.model.ProcessModifyRemark;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

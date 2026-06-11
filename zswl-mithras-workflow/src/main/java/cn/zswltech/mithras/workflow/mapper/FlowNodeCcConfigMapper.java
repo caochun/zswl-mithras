@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.mapper;
 
-import cn.zswltech.mithras.workflow.mapper.model.FlowNodeCcConfig;
+import cn.zswltech.mithras.workflow.model.FlowNodeCcConfig;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

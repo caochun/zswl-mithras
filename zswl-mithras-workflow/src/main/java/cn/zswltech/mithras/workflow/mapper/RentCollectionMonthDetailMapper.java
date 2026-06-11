@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.mapper;
 
-import cn.zswltech.mithras.workflow.mapper.model.RentCollectionMonthDetail;
+import cn.zswltech.mithras.workflow.model.RentCollectionMonthDetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

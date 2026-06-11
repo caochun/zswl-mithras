@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.workflow.mapper;
 
 
-import cn.zswltech.mithras.workflow.mapper.model.HandProcessOperateRecord;
+import cn.zswltech.mithras.workflow.model.HandProcessOperateRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

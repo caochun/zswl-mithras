@@ -16,7 +16,7 @@ import cn.zswltech.mithras.finance.mapper.finance.FinanceOverdueReportBaseMapper
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueReportBase;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueSettlement;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.mapper.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.state.ProjProcessState;

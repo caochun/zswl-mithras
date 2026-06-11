@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cn.zswltech.mithras.workflow.mapper.ContractNodeTimeMapper;
-import cn.zswltech.mithras.workflow.mapper.model.ContractNodeTime;
+import cn.zswltech.mithras.workflow.model.ContractNodeTime;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

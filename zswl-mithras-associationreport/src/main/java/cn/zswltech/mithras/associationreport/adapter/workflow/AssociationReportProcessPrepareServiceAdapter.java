@@ -2,7 +2,7 @@ package cn.zswltech.mithras.associationreport.adapter.workflow;
 
 import cn.zswltech.mithras.associationreport.service.job.AssociationReportProcessPrepareService;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;
-import cn.zswltech.mithras.workflow.mapper.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.springframework.stereotype.Component;
 
