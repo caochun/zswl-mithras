@@ -44,7 +44,7 @@ import cn.zswltech.mithras.rating.mapper.RatingClientMapper;
 import cn.zswltech.mithras.rating.mapper.RatingReportMapper;
 import cn.zswltech.mithras.rating.mapper.RzyDmCalculateIndicatorMapper;
 import cn.zswltech.mithras.rating.model.*;
-import cn.zswltech.mithras.rating.service.RatingClientApplicationService;
+import cn.zswltech.mithras.rating.application.RatingClientApplicationService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.JobEnum;

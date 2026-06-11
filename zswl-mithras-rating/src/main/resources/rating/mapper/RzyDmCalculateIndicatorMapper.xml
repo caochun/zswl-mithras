@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.rating.mapper.RzyDmCalculateIndicatorMapper">
 
-    <select id="selectCityModelInfo" resultType="cn.zswltech.mithras.rating.model.result.CityModelResult">
+    <select id="selectCityModelInfo" resultType="cn.zswltech.mithras.rating.dto.CityModelResult">
 
         SELECT
             max(case t.indicator_code WHEN 'gp_budget_revenue' THEN (case WHEN t.indicator_value is null then 0
@@ -40,7 +40,7 @@
     </select>
 
 
-    <select id="selectAreaModelInfo" resultType="cn.zswltech.mithras.rating.model.result.AreaModelResult">
+    <select id="selectAreaModelInfo" resultType="cn.zswltech.mithras.rating.dto.AreaModelResult">
 
         SELECT
             max(case t.indicator_code WHEN 'gp_budget_revenue' THEN (case WHEN t.indicator_value is null then 0

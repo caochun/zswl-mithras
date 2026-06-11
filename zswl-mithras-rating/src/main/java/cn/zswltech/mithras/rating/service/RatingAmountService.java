@@ -29,7 +29,7 @@ import cn.zswltech.mithras.rating.mapper.AreaInfoMapper;
 import cn.zswltech.mithras.rating.mapper.RatingAmountMapper;
 import cn.zswltech.mithras.rating.mapper.RatingReportMapper;
 import cn.zswltech.mithras.rating.model.*;
-import cn.zswltech.mithras.rating.service.RatingAmountApplicationService;
+import cn.zswltech.mithras.rating.application.RatingAmountApplicationService;
 import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteResult;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;

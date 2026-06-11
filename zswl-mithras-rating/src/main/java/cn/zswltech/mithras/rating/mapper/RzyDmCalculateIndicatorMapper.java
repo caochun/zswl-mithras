@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.rating.mapper;
 
 import cn.zswltech.mithras.rating.model.RzyDmCalculateIndicator;
-import cn.zswltech.mithras.rating.model.result.AreaModelResult;
-import cn.zswltech.mithras.rating.model.result.CityModelResult;
+import cn.zswltech.mithras.rating.dto.AreaModelResult;
+import cn.zswltech.mithras.rating.dto.CityModelResult;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

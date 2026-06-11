@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.rating.service;
+package cn.zswltech.mithras.rating.application;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.rating.RatingExecuteREQ;

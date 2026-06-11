@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.rating.model.result;
+package cn.zswltech.mithras.rating.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
