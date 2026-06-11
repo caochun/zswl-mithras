@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.policy.application.staging.impl;
+package cn.zswltech.mithras.policy.application.staging;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -11,8 +11,6 @@ import cn.zswltech.mithras.dto.policy.PolicyInfoTmpListRSP;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpModifyREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpRemoveREQ;
 import cn.zswltech.mithras.dto.policy.PolicyTmpExportREQ;
-import cn.zswltech.mithras.policy.application.staging.PolicyInfoTmpApplicationService;
-import cn.zswltech.mithras.policy.application.staging.PolicyInfoTmpService;
 import cn.zswltech.mithras.policy.application.port.PolicyOperatorNamePort;
 import cn.zswltech.mithras.policy.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.enums.PolicyTypeEnum;
