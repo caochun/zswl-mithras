@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.message.service.impl;
+package cn.zswltech.mithras.message.client.notice;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswl.notice.core.hook.WebSocketHook;

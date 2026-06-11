@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.message.service.impl;
+package cn.zswltech.mithras.message.service.factory;
 
 import cn.zswltech.mithras.message.service.AbstractMessageService;
 import cn.zswltech.mithras.message.service.MessageService;

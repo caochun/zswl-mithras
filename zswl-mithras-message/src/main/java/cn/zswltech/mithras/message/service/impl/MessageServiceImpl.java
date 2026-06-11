@@ -17,6 +17,7 @@ import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.TodoMessageBody;
 import cn.zswltech.mithras.message.model.ZhfkNoticeRelation;
 import cn.zswltech.mithras.message.service.AbstractMessageService;
+import cn.zswltech.mithras.message.service.factory.MessageFactory;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.message.service.ZhfkNoticeRelationService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
