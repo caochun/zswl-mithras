@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyDeductionListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyDeductionModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.projectprocess.enums.newftp.RegionalClassify;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataLpr;

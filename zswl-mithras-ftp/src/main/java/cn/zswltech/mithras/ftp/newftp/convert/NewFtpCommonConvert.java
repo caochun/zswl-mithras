@@ -2,7 +2,7 @@ package cn.zswltech.mithras.ftp.newftp.convert;
 
 import cn.zswltech.mithras.ftp.newftp.enums.AssetIndustryClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.RiskIndustryClassify;
-import cn.zswltech.mithras.projectprocess.enums.newftp.RegionalClassify;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 
 import java.util.Optional;
 

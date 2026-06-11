@@ -29,7 +29,7 @@ import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.enums.client.EnterpriseNatureEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.projectprocess.enums.newftp.RegionalClassify;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.PricingApproveAuthEnum;

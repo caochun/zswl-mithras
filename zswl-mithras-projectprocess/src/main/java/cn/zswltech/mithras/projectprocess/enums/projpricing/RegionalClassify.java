@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.enums.newftp;
+package cn.zswltech.mithras.projectprocess.enums.projpricing;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;

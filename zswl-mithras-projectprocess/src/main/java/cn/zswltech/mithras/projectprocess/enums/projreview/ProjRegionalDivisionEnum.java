@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.projectprocess.enums.projreview;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.zswltech.mithras.projectprocess.enums.newftp.RegionalClassify;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.List;

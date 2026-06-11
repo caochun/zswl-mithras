@@ -18,7 +18,7 @@ import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.ftp.newftp.enums.AssetIndustryClassify;
 import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
-import cn.zswltech.mithras.projectprocess.enums.newftp.RegionalClassify;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;

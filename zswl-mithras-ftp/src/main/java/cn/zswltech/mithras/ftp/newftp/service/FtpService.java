@@ -19,7 +19,7 @@ import cn.zswltech.mithras.customer.enums.client.OwnershipTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
-import cn.zswltech.mithras.projectprocess.enums.newftp.RegionalClassify;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;

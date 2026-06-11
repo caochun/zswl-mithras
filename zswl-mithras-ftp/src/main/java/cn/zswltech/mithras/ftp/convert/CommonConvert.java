@@ -4,7 +4,7 @@ import cn.hutool.core.text.CharSequenceUtil;
 import cn.zswltech.mithras.dto.PageReq;
 import cn.zswltech.mithras.dto.TreeSelectRSP;
 import cn.zswltech.mithras.ftp.newftp.enums.AssetIndustryClassify;
-import cn.zswltech.mithras.projectprocess.enums.newftp.RegionalClassify;
+import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.RiskIndustryClassify;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
