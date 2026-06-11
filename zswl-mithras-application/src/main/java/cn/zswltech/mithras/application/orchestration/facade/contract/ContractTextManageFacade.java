@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.facade.contract;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.contract.application.contract.ContractTextManageApplicationService;
+import cn.zswltech.mithras.contract.application.ContractTextManageApplicationService;
 import cn.zswltech.mithras.dto.contract.text.*;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.application.orchestration.contract.text.ContractTextManageService;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.facade.contract;
 
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.contract.application.contract.ContractLeaseItemApplicationService;
+import cn.zswltech.mithras.contract.application.ContractLeaseItemApplicationService;
 import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
 import cn.zswltech.mithras.dto.contract.leaseitem.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;

@@ -5,7 +5,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.contract.application.contract.ContractReceiptApplicationService;
+import cn.zswltech.mithras.contract.application.ContractReceiptApplicationService;
 import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
 import cn.zswltech.mithras.dto.contract.receipt.*;
 import cn.zswltech.mithras.dto.contract.rent.ContractReceiptComputeActualTaxRSP;

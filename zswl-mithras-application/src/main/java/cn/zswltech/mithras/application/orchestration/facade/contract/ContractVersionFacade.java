@@ -4,7 +4,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.contract.application.contract.ContractVersionApplicationService;
+import cn.zswltech.mithras.contract.application.ContractVersionApplicationService;
 import cn.zswltech.mithras.dto.contract.*;
 import cn.zswltech.mithras.dto.projreview.ProjReviewVersionDiffREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;

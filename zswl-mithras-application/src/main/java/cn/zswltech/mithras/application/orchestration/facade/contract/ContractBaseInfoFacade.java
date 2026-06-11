@@ -11,7 +11,7 @@ import cn.zswltech.flow.core.util.ApplicationContextUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.contract.application.contract.ContractBaseInfoApplicationService;
+import cn.zswltech.mithras.contract.application.ContractBaseInfoApplicationService;
 import cn.zswltech.mithras.dto.contract.ContractCompareBusinessREQ;
 import cn.zswltech.mithras.dto.contract.ContractCompareBusinessRSP;
 import cn.zswltech.mithras.dto.contract.ContractOperationPrepareREQ;
