@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.payment.application.lib.handler;
 
 import cn.zswltech.mithras.dto.payment.lib.PaymentPolicyInfoListRSP;
-import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo;
-import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfoLib;
+import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;
+import cn.zswltech.mithras.payment.model.PaymentPolicyInfoLib;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

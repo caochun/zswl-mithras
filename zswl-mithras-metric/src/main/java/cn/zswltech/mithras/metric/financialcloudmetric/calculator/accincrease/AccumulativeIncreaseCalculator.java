@@ -18,7 +18,7 @@ import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.customer.application.lib.client.dto.CorpCommerceInfoLibDto;

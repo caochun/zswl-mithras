@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.mapper.model.CollectionRecordInfo;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.util.Util;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

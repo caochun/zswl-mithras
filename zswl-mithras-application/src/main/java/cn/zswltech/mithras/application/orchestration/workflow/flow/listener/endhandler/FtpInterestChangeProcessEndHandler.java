@@ -8,7 +8,7 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;
+import cn.zswltech.mithras.payment.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.ftp.newftp.service.NewFtpChangeApplyRecordService;

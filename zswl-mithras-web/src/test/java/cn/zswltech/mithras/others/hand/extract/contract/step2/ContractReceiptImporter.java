@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.model.contract.ContractReceiptLib;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActualLib;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.application.orchestration.contract.ContractRentActualService;
 import cn.zswltech.mithras.contract.archive.service.ContractRentActualLibService;

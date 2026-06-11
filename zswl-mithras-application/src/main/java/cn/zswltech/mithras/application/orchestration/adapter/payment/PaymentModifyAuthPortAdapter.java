@@ -5,7 +5,7 @@ import cn.zswltech.mithras.payment.application.PaymentModifyAuthPort;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonModifySubAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

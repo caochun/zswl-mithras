@@ -19,7 +19,7 @@ import cn.zswltech.mithras.afterlease.mapper.model.CollectionPenaltyReductionInf
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;

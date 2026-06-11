@@ -9,7 +9,7 @@
           and b.payment_status != 'CLOSED'
     </select>
 
-    <select id="listPolicyCode" resultType="cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo">
+    <select id="listPolicyCode" resultType="cn.zswltech.mithras.payment.model.PaymentPolicyInfo">
         select *
         from payment_policy_info p
         INNER JOIN payment_base_info b on p.payment_id = b.id

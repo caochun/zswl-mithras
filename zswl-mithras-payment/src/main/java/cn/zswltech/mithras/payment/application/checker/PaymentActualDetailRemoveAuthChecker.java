@@ -8,7 +8,7 @@ import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailUnconfirmedMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetailUnconfirmed;
+import cn.zswltech.mithras.payment.model.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.flow.service.ProcessService;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

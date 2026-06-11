@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.mapper.model.pubinfo;
+package cn.zswltech.mithras.payment.model.pubinfo;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper">
 
-    <select id="myList" resultType="cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo">
+    <select id="myList" resultType="cn.zswltech.mithras.payment.model.PaymentBaseInfo">
         select a.*, b.biz_dept_id as biz_dept_id
         from payment_base_info a,contract_base_info b
         <where>
@@ -256,7 +256,7 @@
     </select>
 
     <!-- 查询审批通过的付款申请列表 -->
-    <select id="queryListWithContractId" resultType="cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo">
+    <select id="queryListWithContractId" resultType="cn.zswltech.mithras.payment.model.PaymentBaseInfo">
         select t.*
         from payment_base_info t
         left join ACT_HI_PROCINST t1 on t.id = t1.BUSINESS_KEY_

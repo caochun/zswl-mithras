@@ -29,7 +29,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractPledgeItemLib;
 import cn.zswltech.mithras.contract.model.contract.ContractPledgeLib;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.foundation.util.StreamUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;

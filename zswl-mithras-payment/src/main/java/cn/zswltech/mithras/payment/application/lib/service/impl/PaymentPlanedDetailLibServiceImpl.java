@@ -2,7 +2,7 @@ package cn.zswltech.mithras.payment.application.lib.service.impl;
 
 import cn.zswltech.mithras.api.payment.dto.PlanedDetailDto;
 import cn.zswltech.mithras.payment.mapper.lib.PaymentPlanedDetailLibMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentPlanedDetailLib;
+import cn.zswltech.mithras.payment.model.PaymentPlanedDetailLib;
 import cn.zswltech.mithras.payment.application.lib.service.PaymentPlanedDetailLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

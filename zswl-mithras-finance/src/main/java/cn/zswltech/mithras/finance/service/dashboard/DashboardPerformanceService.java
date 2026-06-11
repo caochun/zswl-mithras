@@ -22,7 +22,7 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.kpi.model.PerformanceBaseInfo;
 import cn.zswltech.mithras.kpi.model.PerformanceMainInfo;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;

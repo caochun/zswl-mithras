@@ -11,8 +11,8 @@ import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPric
 import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishAocPrice;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishAocPriceLib;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;

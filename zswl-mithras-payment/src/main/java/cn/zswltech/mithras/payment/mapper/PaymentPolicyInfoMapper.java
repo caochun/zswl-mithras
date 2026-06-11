@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.payment.mapper;
 
-import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo;
+import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

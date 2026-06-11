@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.mapper.dto;
+package cn.zswltech.mithras.payment.dto;
 
 import lombok.Data;
 

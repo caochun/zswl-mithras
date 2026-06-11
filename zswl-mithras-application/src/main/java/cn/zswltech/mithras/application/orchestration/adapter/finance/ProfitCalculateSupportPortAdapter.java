@@ -6,8 +6,8 @@ import cn.zswltech.mithras.finance.service.profitcalculate.ProfitCalculateSuppor
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
 import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.application.orchestration.collection.BillManagementService;
 import cn.zswltech.mithras.application.orchestration.finance.FinanceProjectProfitDetailService;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestBaseInfoService;

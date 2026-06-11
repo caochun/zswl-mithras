@@ -16,7 +16,7 @@ import cn.zswltech.mithras.payment.application.checker.PaymentActualDetailOperat
 import cn.zswltech.mithras.payment.application.checker.PaymentWriteOffAuthChecker;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.payment.mapper.model.PaymentCollectionInfo;
+import cn.zswltech.mithras.payment.model.PaymentCollectionInfo;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailUnconfirmedService;

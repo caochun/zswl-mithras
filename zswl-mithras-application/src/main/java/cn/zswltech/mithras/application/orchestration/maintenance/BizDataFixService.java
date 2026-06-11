@@ -84,8 +84,8 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDeta
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.kpi.model.*;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.policy.model.PolicyInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.system.user.SysUserService;

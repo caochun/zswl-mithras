@@ -2,8 +2,8 @@ package cn.zswltech.mithras.payment.mapper;
 
 import cn.zswltech.mithras.dto.collection.CollectionFlowCenterBusinessPaymentListREQ;
 import cn.zswltech.mithras.dto.collection.CollectionFlowCenterBusinessPaymentListRSP;
-import cn.zswltech.mithras.payment.mapper.dto.PaymentListDto;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.dto.PaymentListDto;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

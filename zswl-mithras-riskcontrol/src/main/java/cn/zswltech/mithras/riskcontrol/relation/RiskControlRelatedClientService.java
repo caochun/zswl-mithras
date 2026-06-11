@@ -16,7 +16,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.model.CollectionBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClient;
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClientMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

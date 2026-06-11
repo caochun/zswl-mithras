@@ -15,7 +15,7 @@ import cn.zswltech.mithras.policy.enums.PolicyTypeEnum;
 import cn.zswltech.mithras.policy.excel.importer.PaymentPolicyExcelImporter;
 import cn.zswltech.mithras.policy.excel.model.PaymentPolicyItemExcelModel;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.policy.model.PolicyInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

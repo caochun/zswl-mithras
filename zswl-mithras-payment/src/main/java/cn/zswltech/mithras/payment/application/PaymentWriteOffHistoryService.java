@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.zswltech.mithras.payment.mapper.PaymentWriteOffHistoryMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentWriteOffHistory;
+import cn.zswltech.mithras.payment.model.PaymentWriteOffHistory;
 
 import java.util.stream.Collectors;
 

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
-import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;
+import cn.zswltech.mithras.payment.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.system.user.Id2NameService;

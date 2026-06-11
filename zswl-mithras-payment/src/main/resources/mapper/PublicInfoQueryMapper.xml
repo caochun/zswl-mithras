@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.zswltech.mithras.payment.mapper.pubinfo.PublicInfoQueryMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.payment.mapper.model.pubinfo.PublicInfoQuery">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.payment.model.pubinfo.PublicInfoQuery">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="paymentId" column="payment_id" jdbcType="BIGINT"/>
             <result property="clientId" column="client_id" jdbcType="BIGINT"/>

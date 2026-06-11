@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.payment.mapper;
 
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetailUnconfirmed;
+import cn.zswltech.mithras.payment.model.PaymentActualDetailUnconfirmed;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

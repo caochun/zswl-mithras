@@ -33,7 +33,7 @@ import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.liquidity.mapper.model.risk.BaseAmountSetting;
 import cn.zswltech.mithras.liquidity.mapper.model.risk.FinancingDeliverDetailSetting;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.util.Util;

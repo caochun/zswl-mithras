@@ -28,7 +28,7 @@ import cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.foundation.util.StreamUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;

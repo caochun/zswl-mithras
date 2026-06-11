@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.payment.mapper;
 
-import cn.zswltech.mithras.payment.mapper.model.PaymentQuestionnaireAnswer;
+import cn.zswltech.mithras.payment.model.PaymentQuestionnaireAnswer;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

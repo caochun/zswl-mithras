@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.rating.feign.PublicInfoApiClient;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.payment.mapper.model.pubinfo.PublicInfoQuery;
+import cn.zswltech.mithras.payment.model.pubinfo.PublicInfoQuery;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.OuterPublicQueryReq;
 import cn.zswltech.mithras.third.providence.entity.OuterInfoRecord;

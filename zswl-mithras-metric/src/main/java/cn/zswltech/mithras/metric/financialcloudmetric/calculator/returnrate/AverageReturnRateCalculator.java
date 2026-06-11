@@ -13,8 +13,8 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Conditio
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.TimeDimension;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 

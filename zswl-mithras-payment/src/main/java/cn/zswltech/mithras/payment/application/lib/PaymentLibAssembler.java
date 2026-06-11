@@ -2,9 +2,9 @@ package cn.zswltech.mithras.payment.application.lib;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentQuestionListRsp;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfoLib;
-import cn.zswltech.mithras.payment.mapper.model.PaymentQuestionnaireAnswer;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
+import cn.zswltech.mithras.payment.model.PaymentQuestionnaireAnswer;
 
 /**
  * Assembly boundary for payment lib handlers.

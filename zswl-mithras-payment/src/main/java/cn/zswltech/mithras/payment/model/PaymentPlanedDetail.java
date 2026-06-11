@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.mapper.model;
+package cn.zswltech.mithras.payment.model;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.*;

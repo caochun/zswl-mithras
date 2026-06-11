@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.payment.application.lib.service;
 
-import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfo;
-import cn.zswltech.mithras.payment.mapper.model.PaymentPolicyInfoLib;
+import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;
+import cn.zswltech.mithras.payment.model.PaymentPolicyInfoLib;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

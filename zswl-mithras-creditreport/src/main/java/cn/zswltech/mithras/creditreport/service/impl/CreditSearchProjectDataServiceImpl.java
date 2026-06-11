@@ -18,7 +18,7 @@ import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.dto.creditreport.CreditReportClientInfo;
 import cn.zswltech.mithras.dto.creditreport.CreditReportProjectReviewAddDTO;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishTradeStructureMapper;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;

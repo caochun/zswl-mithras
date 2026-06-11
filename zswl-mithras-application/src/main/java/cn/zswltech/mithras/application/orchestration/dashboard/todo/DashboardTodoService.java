@@ -25,7 +25,7 @@ import cn.zswltech.mithras.dashboard.enums.TodoKeyEnum;
 import cn.zswltech.mithras.dashboard.enums.TodoProcessEnum;
 import cn.zswltech.mithras.workflow.mapper.ToDoOperateRecordMapper;
 import cn.zswltech.mithras.workflow.model.OperateRecord;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;

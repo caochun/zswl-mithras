@@ -1,13 +1,13 @@
 package cn.zswltech.mithras.payment.mapper.pubinfo;
 
-import cn.zswltech.mithras.payment.mapper.model.pubinfo.PublicInfoQuery;
+import cn.zswltech.mithras.payment.model.pubinfo.PublicInfoQuery;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * @author bigbear
  * @description 针对表【public_info_query(公开信息查询结果表)】的数据库操作Mapper
  * @createDate 2024-09-10 19:54:34
- * @Entity cn.zswltech.mithras.payment.mapper.model.pubinfo.PublicInfoQuery
+ * @Entity cn.zswltech.mithras.payment.model.pubinfo.PublicInfoQuery
  */
 public interface PublicInfoQueryMapper extends BaseMapper<PublicInfoQuery> {
 

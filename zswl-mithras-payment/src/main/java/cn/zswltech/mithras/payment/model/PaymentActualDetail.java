@@ -1,26 +1,29 @@
-package cn.zswltech.mithras.payment.mapper.model;
+package cn.zswltech.mithras.payment.model;
 
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
-import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
+import cn.zswltech.mithras.payment.enums.WriteOffTypeEnum;
+import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * @author dingqi
- * @date 2023/12/14
- * @description
+ * @author zhaozhengkang
+ * @description 实际付款记录表
+ * @date 2022-08-16
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("payment_actual_detail_unconfirmed")
-public class PaymentActualDetailUnconfirmed extends BaseModel {
+public class PaymentActualDetail extends BaseModelWithLogicDelete implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     /**
      * 主键id
      */
@@ -99,7 +102,7 @@ public class PaymentActualDetailUnconfirmed extends BaseModel {
     private String writeOffStatus;
 
     /**
-     *流水id
+     * 流水id
      **/
     @TableField("flow_id")
     private String flowId;
@@ -120,20 +123,46 @@ public class PaymentActualDetailUnconfirmed extends BaseModel {
     private Long cancelWriteOffId;
 
     /**
-     * 关联付款核销确认流程id
+     * 操作日期
      */
-    @TableField("process_instance_id")
-    private String processInstanceId;
+    @TableField(value = "operation_date")
+    private LocalDate operationDate;
+
+    /**
+     * 核销方式 自动核销，手工核销
+     * {@link WriteOffTypeEnum#name()}
+     **/
+    @TableField(value = "write_off_type")
+    private String writeOffType;
+
+    /**
+     * 资金流水ID
+     */
+    @TableField("finance_flow_id")
+    private Long financeFlowId;
+
+    /**
+     * 收款对应银行流水号
+     */
+    @TableField(value = "bank_detail_no")
+    private String bankDetailNo;
+
+    /**
+     * 关联un_confirmed表id
+     */
+    @TableField(value = "un_confirmed_id")
+    private Long unConfirmedId;
 
     /**
      * 资金来源
      */
-    @TableField("capital_source")
+    @TableField(value = "capital_source")
     private String capitalSource;
 
     /**
      * 融资编号
      */
-    @TableField("financing_code")
+    @TableField(value = "financing_code")
     private String financingCode;
+
 }

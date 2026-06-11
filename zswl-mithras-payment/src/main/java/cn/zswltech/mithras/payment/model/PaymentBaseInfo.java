@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.mapper.model;
+package cn.zswltech.mithras.payment.model;
 
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;

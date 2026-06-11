@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.payment.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentWriteOffHistory;
+import cn.zswltech.mithras.payment.model.PaymentWriteOffHistory;
 
 /**
 * @description payment_write_off_history

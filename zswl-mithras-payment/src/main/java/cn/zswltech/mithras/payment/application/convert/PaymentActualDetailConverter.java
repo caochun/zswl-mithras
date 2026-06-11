@@ -2,8 +2,8 @@ package cn.zswltech.mithras.payment.application.convert;
 
 import cn.zswltech.mithras.api.payment.writeoff.ActualDetailPostReq;
 import cn.zswltech.mithras.api.payment.writeoff.ActualDetailDto;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetailUnconfirmed;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentActualDetailUnconfirmed;
 import org.mapstruct.Mapper;
 
 import java.util.List;

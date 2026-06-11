@@ -25,7 +25,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.model.contract.ContractPrepayment;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;

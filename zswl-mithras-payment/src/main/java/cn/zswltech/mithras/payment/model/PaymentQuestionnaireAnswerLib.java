@@ -1,21 +1,19 @@
-package cn.zswltech.mithras.payment.mapper.model;
+package cn.zswltech.mithras.payment.model;
 
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @description 计划付款明细表（付款申请 1:n付款明细）
- * @author zhaozhengkang
- * @date 2022-08-12
+ * @description:
+ * @author: zhaozhengkang
+ * @date: 2022/8/20 15:18
  */
 @Data
-public class PaymentPlanedDetailLib extends PaymentPlanedDetail implements Serializable, ILib {
-
+public class PaymentQuestionnaireAnswerLib extends PaymentQuestionnaireAnswer implements ILib {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -50,5 +48,6 @@ public class PaymentPlanedDetailLib extends PaymentPlanedDetail implements Seria
      */
     @TableField("version_type")
     private Integer versionType;
+
 
 }

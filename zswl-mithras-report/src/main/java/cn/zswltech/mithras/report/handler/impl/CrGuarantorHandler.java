@@ -27,7 +27,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractGuarantorLibMapp
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.*;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;

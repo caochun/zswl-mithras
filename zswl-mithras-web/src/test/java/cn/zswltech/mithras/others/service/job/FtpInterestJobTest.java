@@ -5,7 +5,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.ftp.oldftp.service.job.FtpInterestJobService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;
+import cn.zswltech.mithras.payment.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.ftp.oldftp.bo.CashFtpInfluenceBO;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.ftp.newftp.service.FtpService;

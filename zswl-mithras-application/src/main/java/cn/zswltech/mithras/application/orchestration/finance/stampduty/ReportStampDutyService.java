@@ -47,7 +47,7 @@ import cn.zswltech.mithras.fund.model.FundOrganization;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.finance.mapper.model.stampduty.StampDutyDetail;
 import cn.zswltech.mithras.finance.mapper.stampduty.StampDutyMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

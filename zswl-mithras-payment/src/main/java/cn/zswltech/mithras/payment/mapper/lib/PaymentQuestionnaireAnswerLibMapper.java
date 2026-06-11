@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.payment.mapper.lib;
 
-import cn.zswltech.mithras.payment.mapper.model.PaymentQuestionnaireAnswerLib;
+import cn.zswltech.mithras.payment.model.PaymentQuestionnaireAnswerLib;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

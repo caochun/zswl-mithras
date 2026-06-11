@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.mapper.model;
+package cn.zswltech.mithras.payment.model;
 import lombok.Data;
 import java.io.Serializable;
 import com.baomidou.mybatisplus.annotation.IdType;

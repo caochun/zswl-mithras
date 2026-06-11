@@ -2,7 +2,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

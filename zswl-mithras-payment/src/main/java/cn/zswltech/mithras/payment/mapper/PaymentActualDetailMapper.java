@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.payment.mapper;
 
-import cn.zswltech.mithras.payment.mapper.dto.ContractPayInfoDTO;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.dto.ContractPayInfoDTO;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

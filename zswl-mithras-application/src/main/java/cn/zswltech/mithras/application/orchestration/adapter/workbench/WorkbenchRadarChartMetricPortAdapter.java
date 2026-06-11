@@ -12,7 +12,7 @@ import cn.zswltech.mithras.contract.versioning.application.ContractAocPriceLibSe
 import cn.zswltech.mithras.contract.versioning.application.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.contract.versioning.application.ContractLeasePriceLibService;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;

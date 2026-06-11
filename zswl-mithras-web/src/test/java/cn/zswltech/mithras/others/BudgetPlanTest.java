@@ -22,7 +22,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
-import cn.zswltech.mithras.payment.mapper.model.FtpAssessmentInfo;
+import cn.zswltech.mithras.payment.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.system.user.SysUserService;

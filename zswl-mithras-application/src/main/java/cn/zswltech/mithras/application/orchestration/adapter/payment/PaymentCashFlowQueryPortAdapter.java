@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.payment;
 
-import cn.zswltech.mithras.payment.mapper.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentActualDetail;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.excel.payment.PaymentActualDetailData;
 import cn.zswltech.mithras.projectprocess.excel.payment.PaymentBaseInfoData;
 import cn.zswltech.mithras.projectprocess.excel.payment.PaymentCashFlowQueryPort;

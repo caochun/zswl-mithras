@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.payment.application.lib.service;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfoLib;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

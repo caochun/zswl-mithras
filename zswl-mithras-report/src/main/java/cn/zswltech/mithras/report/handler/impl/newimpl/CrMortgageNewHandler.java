@@ -25,7 +25,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractMortgageItemLib;
 import cn.zswltech.mithras.contract.model.contract.ContractMortgageLib;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.foundation.util.StreamUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.fastjson.JSON;

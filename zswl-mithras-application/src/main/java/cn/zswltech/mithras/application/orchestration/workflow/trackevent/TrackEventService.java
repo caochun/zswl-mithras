@@ -30,7 +30,7 @@ import cn.zswltech.mithras.afterlease.mapper.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.workflow.model.TrackEventInfo;
 import cn.zswltech.mithras.workflow.mapper.TrackEventMapper;

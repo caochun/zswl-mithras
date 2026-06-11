@@ -3,7 +3,7 @@ package cn.zswltech.mithras.payment.application.lib.service.impl;
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
 import cn.zswltech.mithras.payment.application.lib.handler.PaymentBaseInfoLibHandler;
 import cn.zswltech.mithras.payment.mapper.lib.PaymentBaseInfoLibMapper;
-import cn.zswltech.mithras.payment.mapper.model.PaymentBaseInfoLib;
+import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
 import cn.zswltech.mithras.payment.application.lib.service.PaymentBaseInfoLibService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

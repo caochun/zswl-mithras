@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.payment.mapper.model;
+package cn.zswltech.mithras.payment.model;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.io.Serializable;

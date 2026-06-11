@@ -23,7 +23,7 @@ import cn.zswltech.mithras.dto.budget.BudgetExamineBenefitListRSP;
 import cn.zswltech.mithras.dto.budget.BudgetExamineBenefitModifyREQ;
 import cn.zswltech.mithras.budget.enums.BudgetExamineBenefitEnum;
 import cn.zswltech.mithras.budget.mapper.BudgetExamineBenefitMapper;
-import cn.zswltech.mithras.payment.mapper.dto.ContractPayInfoDTO;
+import cn.zswltech.mithras.payment.dto.ContractPayInfoDTO;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamine;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamineBenefit;
 import cn.zswltech.mithras.finance.mapper.finance.FinanceProjectProfitDetailMapper;
