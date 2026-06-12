@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.tianyancha.application;
 
 import cn.zswltech.mithras.third.tianyancha.enums.TycErrorEnum;
-import cn.zswltech.mithras.third.externaldata.tianyancha.mapper.TycMockDataMapper;
-import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycMockData;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.mapper.TycMockDataMapper;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.model.TycMockData;
 import cn.zswltech.mithras.third.externaldata.common.persistence.model.ExternalDataBaseModel;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;

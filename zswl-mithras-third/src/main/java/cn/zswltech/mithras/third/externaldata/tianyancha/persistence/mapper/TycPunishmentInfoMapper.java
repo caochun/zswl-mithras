@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.externaldata.tianyancha.mapper;
+package cn.zswltech.mithras.third.externaldata.tianyancha.persistence.mapper;
 
-import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycPunishmentInfo;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.model.TycPunishmentInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

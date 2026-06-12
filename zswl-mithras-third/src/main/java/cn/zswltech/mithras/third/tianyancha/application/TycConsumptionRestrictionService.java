@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application;
 
-import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycConsumptionRestriction;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.model.TycConsumptionRestriction;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

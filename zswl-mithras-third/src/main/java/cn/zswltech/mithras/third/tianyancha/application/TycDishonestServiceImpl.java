@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.tianyancha.application;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycDishonestConvert;
-import cn.zswltech.mithras.third.externaldata.tianyancha.mapper.TycDishonestMapper;
-import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycDishonest;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.mapper.TycDishonestMapper;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.model.TycDishonest;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycDishonestResp;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
-import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycLawSuit;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.model.TycLawSuit;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitResp;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import com.alibaba.fastjson.JSON;

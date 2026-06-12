@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.externaldata.tianyancha.model;
+package cn.zswltech.mithras.third.externaldata.tianyancha.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

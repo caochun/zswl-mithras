@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.third.tianyancha.application;
 
 import cn.zswltech.mithras.third.tianyancha.application.convert.TycEquityInfoConvert;
-import cn.zswltech.mithras.third.externaldata.tianyancha.mapper.TycEquityInfoMapper;
-import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycEquityInfo;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.mapper.TycEquityInfoMapper;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.model.TycEquityInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycEquityInfoResp;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.externaldata.tianyancha.mapper;
+package cn.zswltech.mithras.third.externaldata.tianyancha.persistence.mapper;
 
-import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycZhixingInfo;
+import cn.zswltech.mithras.third.externaldata.tianyancha.persistence.model.TycZhixingInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
