@@ -156,7 +156,7 @@ public class FinancialManagerServiceImpl implements FinancialManagerService {
                 List<CQReceiveRentREQ> cqReceiveRentREQS = rentHandle(contractBaseInfo.getId(), orgCode,
                         customer, contractBaseInfo.getProjSponsorUserName(), contractBaseInfo.getContractCode(),
                         NumberUtil.div(LongUtil.tenThousand2Dollar(NumberUtil.add(detail.getLprPercent(), detail.getLprAddPercent()).toString()).toString(), "100", 10, RoundingMode.HALF_UP),
-                        FinancialChangeStateENUM.changeCqStatus(processModelTypeEnum, ObjectUtil.isNull(contractSettlePlan) ? null :
+                        FinancialChangeStateENUM.changeCqStatus(processModelTypeEnum.name(), ObjectUtil.isNull(contractSettlePlan) ? null :
                                 contractSettlePlan.getIsEarnestDeduction()), processModelTypeEnum);
                 if (ObjectUtil.isEmpty(cqReceiveRentREQS)) {
                     return;

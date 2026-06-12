@@ -3,7 +3,6 @@ package cn.zswltech.mithras.third.financialshare.enums;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.fund.enums.financing.FundFinancingTimeLimitTypeEnum;
 import lombok.Getter;
 
 import java.util.Map;
@@ -88,7 +87,7 @@ public enum CQCollectionTypeENUM {
     }
 
     public static CQCollectionTypeENUM getCQTypeByCapital(String timeLimitType, boolean isPrincipal) {
-        if (FundFinancingTimeLimitTypeEnum.LONG_TERM_LOAN.name().equals(timeLimitType)) {
+        if ("LONG_TERM_LOAN".equals(timeLimitType)) {
             if (isPrincipal) {
                 return SCENARIO7;
             } else {

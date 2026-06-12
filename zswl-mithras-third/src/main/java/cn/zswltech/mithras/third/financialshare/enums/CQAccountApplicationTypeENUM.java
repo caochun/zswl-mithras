@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.third.financialshare.enums;
 
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import lombok.Getter;
 
 /**
@@ -26,23 +25,23 @@ public enum CQAccountApplicationTypeENUM {
         this.display = display;
     }
 
-    public static CQAccountApplicationTypeENUM getCqBusinessType(ProcessModelTypeEnum modelTypeEnum){
-        if(modelTypeEnum == null){
+    public static CQAccountApplicationTypeENUM getCqBusinessType(String modelType){
+        if(modelType == null){
             return null;
         }
-        switch (modelTypeEnum){
-            case ContractStartRentAutoFlow:
-            case ContractStartRentFlow:
-            case ContractAddNewReceiptFlow:
-            case ContractAddNewReceiptAutoFlow:
+        switch (modelType){
+            case "ContractStartRentAutoFlow":
+            case "ContractStartRentFlow":
+            case "ContractAddNewReceiptFlow":
+            case "ContractAddNewReceiptAutoFlow":
                 return PROJECT_LEASE_START;
-            case ContractModifyFlow:
-            case ContractEarlySettleFlow:
-            case ContractNormalSettleFlow:
-            case ContractLPRChangeFlow:
-            case ContractExtensionFlow:
-            case ContractEarlyRepayFlow:
-            case ContractChangeRepayPlanFlow:
+            case "ContractModifyFlow":
+            case "ContractEarlySettleFlow":
+            case "ContractNormalSettleFlow":
+            case "ContractLPRChangeFlow":
+            case "ContractExtensionFlow":
+            case "ContractEarlyRepayFlow":
+            case "ContractChangeRepayPlanFlow":
                 return PROJECT_CHANGE;
             default:
                return null;

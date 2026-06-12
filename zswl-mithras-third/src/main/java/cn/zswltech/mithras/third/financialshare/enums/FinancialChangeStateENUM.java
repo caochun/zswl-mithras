@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.third.financialshare.enums;
 
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,24 +20,27 @@ public enum FinancialChangeStateENUM {
     private String message;
 
 
-    public static FinancialChangeStateENUM changeCqStatus(ProcessModelTypeEnum processModelTypeEnum, Integer deductio){
-        switch (processModelTypeEnum){
-            case ContractLPRChangeFlow:
+    public static FinancialChangeStateENUM changeCqStatus(String processModelType, Integer deductio){
+        if (processModelType == null) {
+            return null;
+        }
+        switch (processModelType){
+            case "ContractLPRChangeFlow":
                 return FinancialChangeStateENUM.LPR_CHANGE;
-            case ContractEarlyRepayFlow:
+            case "ContractEarlyRepayFlow":
                 return FinancialChangeStateENUM.EARLY_REPAYMENT;
-            case ContractChangeRepayPlanFlow:
+            case "ContractChangeRepayPlanFlow":
                 return FinancialChangeStateENUM.CHANGE_REPAY_PLAN;
-            case ContractExtensionFlow:
+            case "ContractExtensionFlow":
                 return FinancialChangeStateENUM.EXTENSION;
-            case ContractEarlySettleFlow:
+            case "ContractEarlySettleFlow":
                 //提前结清抵扣
                 if(YesOrNoNumberEnum.YES.getCode().equals(deductio)){
                     return FinancialChangeStateENUM.ContractEarlySettle_Deductio;
                 }else {
                     return FinancialChangeStateENUM.ContractEarlySettle;
                 }
-            case ContractNormalSettleFlow:
+            case "ContractNormalSettleFlow":
                 if(YesOrNoNumberEnum.YES.getCode().equals(deductio)){
                     return FinancialChangeStateENUM.ContractNormalSettle;
                 }

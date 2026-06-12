@@ -1,9 +1,6 @@
 package cn.zswltech.mithras.third.financialshare.enums;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.fund.enums.DirectFinancingType;
-import cn.zswltech.mithras.fund.enums.OrganizationType;
-import cn.zswltech.mithras.fund.enums.financing.FundFinancingTimeLimitTypeEnum;
 import lombok.Getter;
 
 /**
@@ -32,8 +29,8 @@ public enum CQCostDescribeENUM {
     public static CQCostDescribeENUM getCqBusinessType(String leaseType, String originType, String timeLimitType){
        if("DK".equalsIgnoreCase(leaseType)) {
            //间融
-           if(ObjectUtil.equals(OrganizationType.BANK.name(), originType)) {
-               if(ObjectUtil.equals(timeLimitType, FundFinancingTimeLimitTypeEnum.LONG_TERM_LOAN.name())) {
+           if(ObjectUtil.equals("BANK", originType)) {
+               if(ObjectUtil.equals(timeLimitType, "LONG_TERM_LOAN")) {
                    return LOAN_LONG;
                } else
                    return LOAN_SHORT;
@@ -41,13 +38,13 @@ public enum CQCostDescribeENUM {
                return OTHER;
            }
        } else {
-           if(ObjectUtil.equals(DirectFinancingType.SCP.name(), originType)) {
+           if(ObjectUtil.equals("SCP", originType)) {
                return SCP;
-           } else if(ObjectUtil.equals(DirectFinancingType.ABS.name(), originType)) {
+           } else if(ObjectUtil.equals("ABS", originType)) {
                return ABS;
-           }else if(ObjectUtil.equals(DirectFinancingType.PRIVATE_BOND.name(), originType)) {
+           }else if(ObjectUtil.equals("PRIVATE_BOND", originType)) {
                return PRIVATE_BOND;
-           }else if(ObjectUtil.equals(DirectFinancingType.MTN.name(), originType)) {
+           }else if(ObjectUtil.equals("MTN", originType)) {
                return MTN;
            } else {
                return OTHER;

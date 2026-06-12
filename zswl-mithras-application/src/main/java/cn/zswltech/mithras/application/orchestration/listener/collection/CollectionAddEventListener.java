@@ -177,7 +177,7 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
         //查询最新合同结清方案
         ContractSettlePlan contractSettlePlan = contractSettlePlanService.getLatestContractSettlePlan(contractId);
         //根据流程判断是否修改期次等
-        FinancialChangeStateENUM financialChangeStateENUM = FinancialChangeStateENUM.changeCqStatus(processModelTypeEnum, isNull(contractSettlePlan) ? null :
+        FinancialChangeStateENUM financialChangeStateENUM = FinancialChangeStateENUM.changeCqStatus(processModelTypeEnum.name(), isNull(contractSettlePlan) ? null :
                 contractSettlePlan.getIsEarnestDeduction());
         for (String key : allKeySet) {
             //实际租金表
@@ -326,7 +326,7 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
         LocalDate now = LocalDate.now();
         String nowFormat = now.format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN));
         CQ2AccountApplicationVO vo = new CQ2AccountApplicationVO();
-        vo.setDescription(Optional.ofNullable(CQAccountApplicationTypeENUM.getCqBusinessType(processModelTypeEnum)).map(CQAccountApplicationTypeENUM::getDisplay).orElse(null));
+        vo.setDescription(Optional.ofNullable(CQAccountApplicationTypeENUM.getCqBusinessType(processModelTypeEnum.name())).map(CQAccountApplicationTypeENUM::getDisplay).orElse(null));
         vo.setBizdate(nowFormat);
         vo.setTallydate(vo.getBizdate());
         vo.setCico_customer(bizInfo.getCustomerName());
