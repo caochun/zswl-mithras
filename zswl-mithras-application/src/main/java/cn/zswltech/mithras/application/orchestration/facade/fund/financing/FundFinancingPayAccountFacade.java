@@ -8,8 +8,6 @@ import cn.zswltech.mithras.dto.fund.financing.payaccount.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingSubModifyAuthChecker;
-import cn.zswltech.mithras.fund.application.convert.financing.FundFinancingConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPayAccountMapper;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPayAccount;
@@ -40,8 +38,6 @@ public class FundFinancingPayAccountFacade implements FundFinancingPayAccountApp
     @Resource
     private BaseDataBankAccountService baseDataBankAccountService;
     @Resource
-    private FundFinancingConverter fundFinancingConverter;
-    @Resource
     private FundFinancingBaseInfoService fundFinancingBaseInfoService;
 
     @Override
@@ -70,9 +66,20 @@ public class FundFinancingPayAccountFacade implements FundFinancingPayAccountApp
         }
         List<FundFinancingPayAccountBankRSP> rsps = new ArrayList<>();
         bankAccounts.forEach(base ->{
-            rsps.add(fundFinancingConverter.modifyReq2Entity(base));
+            rsps.add(toBankRsp(base));
         });
         return R.ok(rsps);
+    }
+
+    private FundFinancingPayAccountBankRSP toBankRsp(BaseDataBankAccount bankAccount) {
+        FundFinancingPayAccountBankRSP rsp = new FundFinancingPayAccountBankRSP();
+        rsp.setBankAccountId(bankAccount.getId());
+        rsp.setAccountType(bankAccount.getAccountType());
+        rsp.setAccountName(bankAccount.getAccountName());
+        rsp.setAccountNumber(bankAccount.getAccountNumber());
+        rsp.setAccountBank(bankAccount.getAccountBank());
+        rsp.setAccountOpeningDate(bankAccount.getOpeningDate());
+        return rsp;
     }
 
     @DataAuthCheck(keyFieldName = "financingId", checkerClass = FundFinancingMainModifyAuthChecker.class, businessModule = "FUND_FINANCING")

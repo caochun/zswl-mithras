@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.fund.model.financing;
 
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingAccountTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
@@ -35,7 +34,7 @@ public class FundFinancingPayAccount extends BaseModel implements IEntity {
     private Long bankAccountId;
 
     /**
-     * 账户类型 {@link BaseDataBankAccountTypeEnum#name()}
+     * 账户类型
      */
     @TableField("account_type")
     private String accountType;

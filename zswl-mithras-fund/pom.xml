@@ -29,11 +29,6 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-basedata</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-workflow</artifactId>
             <version>${revision}</version>
         </dependency>
