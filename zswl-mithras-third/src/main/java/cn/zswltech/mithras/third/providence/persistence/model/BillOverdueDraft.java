@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.providence.entity;
+package cn.zswltech.mithras.third.providence.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

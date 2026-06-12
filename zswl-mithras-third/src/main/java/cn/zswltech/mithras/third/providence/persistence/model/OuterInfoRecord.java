@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.providence.entity;
+package cn.zswltech.mithras.third.providence.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.TableField;

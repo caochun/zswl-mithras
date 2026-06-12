@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.providence.mapper;
+package cn.zswltech.mithras.third.providence.persistence.mapper;
 
-import cn.zswltech.mithras.third.providence.entity.BillOverdue;
+import cn.zswltech.mithras.third.providence.persistence.model.BillOverdue;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;

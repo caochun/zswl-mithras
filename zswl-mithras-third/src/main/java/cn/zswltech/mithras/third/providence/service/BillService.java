@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.providence.service;
 
-import cn.zswltech.mithras.third.providence.entity.BillOverdue;
+import cn.zswltech.mithras.third.providence.persistence.model.BillOverdue;
 import cn.zswltech.mithras.third.providence.req.BillOverdueReq;
 import cn.zswltech.mithras.third.providence.rsp.BillOverdueRsp;
 import com.zswltec.providence.dto.base.PageR;

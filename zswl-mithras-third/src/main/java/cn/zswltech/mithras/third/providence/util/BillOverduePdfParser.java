@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.providence.util;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.third.providence.entity.BillOverdue;
+import cn.zswltech.mithras.third.providence.persistence.model.BillOverdue;
 import cn.zswltech.mithras.third.providence.enums.OrgTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.pdfbox.pdmodel.PDDocument;

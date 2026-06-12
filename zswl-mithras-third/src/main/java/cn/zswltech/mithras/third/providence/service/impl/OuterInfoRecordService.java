@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.providence.service.impl;
 
-import cn.zswltech.mithras.third.providence.entity.OuterInfoRecord;
-import cn.zswltech.mithras.third.providence.mapper.OuterInfoRecordMapper;
+import cn.zswltech.mithras.third.providence.persistence.model.OuterInfoRecord;
+import cn.zswltech.mithras.third.providence.persistence.mapper.OuterInfoRecordMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

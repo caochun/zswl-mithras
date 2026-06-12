@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.providence.mapper;
+package cn.zswltech.mithras.third.providence.persistence.mapper;
 
-import cn.zswltech.mithras.third.providence.entity.OuterInfoRecord;
+import cn.zswltech.mithras.third.providence.persistence.model.OuterInfoRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

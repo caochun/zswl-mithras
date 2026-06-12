@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.providence.mapper;
+package cn.zswltech.mithras.third.providence.persistence.mapper;
 
-import cn.zswltech.mithras.third.providence.entity.BillOverdueDraft;
+import cn.zswltech.mithras.third.providence.persistence.model.BillOverdueDraft;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

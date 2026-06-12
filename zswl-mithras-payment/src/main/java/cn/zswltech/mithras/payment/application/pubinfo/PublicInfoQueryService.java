@@ -61,7 +61,7 @@ import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
-import cn.zswltech.mithras.third.providence.entity.OuterInfoRecord;
+import cn.zswltech.mithras.third.providence.persistence.model.OuterInfoRecord;
 import cn.zswltech.mithras.third.providence.service.impl.OuterInfoRecordService;
 import com.alibaba.excel.EasyExcelFactory;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
