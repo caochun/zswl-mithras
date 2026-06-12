@@ -3,7 +3,7 @@ package cn.zswltech.mithras.capital.controller;
 import cn.zswltech.mithras.api.capital.BusinessFlowApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.capital.application.BusinessFlowApplicationService;
+import cn.zswltech.mithras.capital.service.BusinessFlowApplicationService;
 import cn.zswltech.mithras.dto.capital.BusinessFlowFinanceDetailListREQ;
 import cn.zswltech.mithras.dto.capital.BusinessFlowFinanceDetailListRSP;
 import cn.zswltech.mithras.dto.capital.BusinessFlowFinanceDetailSaveREQ;

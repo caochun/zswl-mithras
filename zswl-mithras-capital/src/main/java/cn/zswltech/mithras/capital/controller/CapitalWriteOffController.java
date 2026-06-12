@@ -2,7 +2,7 @@ package cn.zswltech.mithras.capital.controller;
 
 import cn.zswltech.mithras.api.capital.CapitalWriteOffApi;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.capital.application.CapitalWriteOffApplicationService;
+import cn.zswltech.mithras.capital.service.CapitalWriteOffApplicationService;
 import cn.zswltech.mithras.dto.capital.write_off.AddBusinessFlowREQ;
 import cn.zswltech.mithras.dto.capital.write_off.AddFlowREQ;
 import cn.zswltech.mithras.dto.capital.write_off.CheckBeforeImportREQ;

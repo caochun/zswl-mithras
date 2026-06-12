@@ -3,12 +3,11 @@ package cn.zswltech.mithras.application.orchestration.facade.capital;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.capital.application.CapitalWriteOffApplicationService;
+import cn.zswltech.mithras.capital.service.CapitalWriteOffApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.capital.write_off.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.capital.enums.writeoff.WriteOffBusinessModelEnum;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowTabMainInfo;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowTabRecord;
@@ -19,14 +18,10 @@ import cn.zswltech.mithras.application.orchestration.capital.write_off.strategy.
 import cn.zswltech.mithras.application.orchestration.capital.write_off.strategy.ManualWriteOffStrategyInterface;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabMainInfoService;
-import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabRecordService;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import liquibase.pro.packaged.D;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 

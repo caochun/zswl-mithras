@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.capital.application;
+package cn.zswltech.mithras.capital.service;
 
 import cn.zswltech.mithras.api.capital.BankFlowProcessingCenterProjectApi;
 

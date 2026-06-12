@@ -2,7 +2,7 @@ package cn.zswltech.mithras.capital.controller;
 
 import cn.zswltech.mithras.api.capital.BankFlowProcessingCenterFinanceApi;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.capital.application.BankFlowProcessingCenterFinanceApplicationService;
+import cn.zswltech.mithras.capital.service.BankFlowProcessingCenterFinanceApplicationService;
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableFinanceListREQ;
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableFinanceListRSP;
 import cn.zswltech.mithras.dto.capital.BankFlowProcessingCenterFinanceCashFlowREQ;

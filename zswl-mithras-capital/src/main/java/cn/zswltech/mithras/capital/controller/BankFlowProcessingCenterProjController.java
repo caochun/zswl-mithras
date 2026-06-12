@@ -3,7 +3,7 @@ package cn.zswltech.mithras.capital.controller;
 import cn.zswltech.mithras.api.capital.BankFlowProcessingCenterProjectApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.capital.application.BankFlowProcessingCenterProjApplicationService;
+import cn.zswltech.mithras.capital.service.BankFlowProcessingCenterProjApplicationService;
 import cn.zswltech.mithras.dto.MultiplePkREQ;
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableProjectListREQ;
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableProjectListRSP;
