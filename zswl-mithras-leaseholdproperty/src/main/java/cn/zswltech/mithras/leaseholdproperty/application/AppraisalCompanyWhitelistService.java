@@ -15,7 +15,13 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.SinglePkREQ;
-import cn.zswltech.mithras.dto.leaseholdproperty.*;
+import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyDetailRSP;
+import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyWhitelistAddREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyWhitelistModifyREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyWhitelistPageREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyWhitelistPageRSP;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalAddREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalLastedREQ;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
@@ -25,7 +31,11 @@ import cn.zswltech.mithras.leaseholdproperty.enums.AppraisalCompanyWhitelistProc
 import cn.zswltech.mithras.leaseholdproperty.mapper.AppraisalCompanyWhitelistMapper;
 import cn.zswltech.mithras.leaseholdproperty.mapper.TycAppraisalCompanyBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.leaseholdproperty.model.*;
+import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelist;
+import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelistLib;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemAppraisalRelation;
+import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
+import cn.zswltech.mithras.leaseholdproperty.model.TycAppraisalCompanyBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
@@ -42,7 +52,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**

@@ -2,7 +2,17 @@ package cn.zswltech.mithras.leaseholdproperty.application;
 
 
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.dto.leaseholdproperty.*;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalAddREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalCompanyListREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalCompanyListRSP;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalDetailREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalDetailRSP;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalItemListREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalItemListRSP;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalLastedREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalQueryCompanyREQ;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalQueryCompanyRSP;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalRelationREQ;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemAppraisalRelation;
 
 import javax.validation.constraints.NotNull;
