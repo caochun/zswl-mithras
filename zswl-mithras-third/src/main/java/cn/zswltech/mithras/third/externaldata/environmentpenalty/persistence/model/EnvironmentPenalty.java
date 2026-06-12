@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.externaldata.environmentpenalty.model;
+package cn.zswltech.mithras.third.externaldata.environmentpenalty.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.TableField;

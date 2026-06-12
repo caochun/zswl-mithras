@@ -13,7 +13,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.third.externaldata.environmentpenalty.model.EnvironmentPenalty;
+import cn.zswltech.mithras.third.externaldata.environmentpenalty.persistence.model.EnvironmentPenalty;
 import cn.zswltech.mithras.third.externaldata.tianyancha.model.*;
 import cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.model.ZhongdengInfo;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListREQ;

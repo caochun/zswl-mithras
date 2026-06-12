@@ -7,7 +7,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.third.externaldata.environmentpenalty.model.EnvironmentPenalty;
+import cn.zswltech.mithras.third.externaldata.environmentpenalty.persistence.model.EnvironmentPenalty;
 import cn.zswltech.mithras.third.externaldata.tianyancha.model.*;
 import cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.model.ZhongdengInfo;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
