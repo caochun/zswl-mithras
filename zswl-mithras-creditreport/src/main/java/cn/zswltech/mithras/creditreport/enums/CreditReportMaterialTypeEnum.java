@@ -6,7 +6,7 @@ import cn.zswltech.mithras.foundation.metadata.PullDown;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.*;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor

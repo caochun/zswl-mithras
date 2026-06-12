@@ -12,7 +12,14 @@ import cn.zswltech.mithras.creditreport.client.xj.req.CreditReportQueryEntFourEl
 import cn.zswltech.mithras.creditreport.client.xj.resp.CreditReportQueryEntFourEleAuthResp;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import okhttp3.*;
+import okhttp3.FormBody;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
