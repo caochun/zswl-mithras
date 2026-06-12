@@ -1,5 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.facade.client;
 
+import cn.hutool.http.HtmlUtil;
 import cn.zswltech.mithras.customer.application.client.TycApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
@@ -12,15 +13,19 @@ import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.customer.application.client.auth.ClientModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.third.tianyancha.application.convert.*;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.application.orchestration.externalinfo.TycExecutionService;
+import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitDetailResp;
+import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitResp;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.Collections;
@@ -142,7 +147,7 @@ public class TycFacade implements TycApplicationService {
         }
         Page<TycLawSuit> page = tycLawSuitMapper.selectPage(new Page<>(req.getPage(), req.getPageSize()),
                 Wrappers.<TycLawSuit>lambdaQuery().eq(TycLawSuit::getClientId, req.getClientId()));
-        List<TycLawSuitRSP> rspList = page.getRecords().stream().map(e -> TycLawSuitConvert.entity2RSP(e, client)).collect(Collectors.toList());
+        List<TycLawSuitRSP> rspList = page.getRecords().stream().map(e -> entity2RSP(e, client)).collect(Collectors.toList());
         return R.ok(PageR.of(rspList, page.getTotal(),
                 page.getPages(),
                 page.getCurrent(),
@@ -196,6 +201,36 @@ public class TycFacade implements TycApplicationService {
     public R<Void> externalSync(ExternalSyncREQ req) {
         tycExecutionService.syncExternal(req.getClientId());
         return R.ok();
+    }
+
+    private static TycLawSuitRSP entity2RSP(TycLawSuit entity, Client client) {
+        TycLawSuitRSP tycLawSuitRSP = new TycLawSuitRSP();
+        tycLawSuitRSP.setId(entity.getId());
+        tycLawSuitRSP.setTitle(entity.getTitle());
+        tycLawSuitRSP.setCaseReason(entity.getCaseReason());
+        tycLawSuitRSP.setCaseMoney(entity.getCaseMoney());
+        tycLawSuitRSP.setDetailUrl(entity.getLawsuitUrl());
+        if (StringUtils.isNotBlank(entity.getCasePersonsJson())) {
+            String clientTycName = StringUtils.isNotBlank(client.getTycName()) ? client.getTycName() : client.getClientName();
+            List<TycLawSuitResp.CasePersonsDTO> clientCasePersonList = JSONArray.parseArray(entity.getCasePersonsJson())
+                    .toJavaList(TycLawSuitResp.CasePersonsDTO.class)
+                    .stream()
+                    .filter(p -> Objects.equals(clientTycName, p.getName()))
+                    .collect(Collectors.toList());
+            tycLawSuitRSP.setIdentity(clientCasePersonList.stream()
+                    .map(TycLawSuitResp.CasePersonsDTO::getRole)
+                    .distinct()
+                    .collect(Collectors.joining(";")));
+            tycLawSuitRSP.setResultTag(clientCasePersonList.stream()
+                    .map(TycLawSuitResp.CasePersonsDTO::getResult)
+                    .distinct()
+                    .collect(Collectors.joining(";")));
+        }
+        if (StringUtils.isNotBlank(entity.getDetailJson())) {
+            TycLawSuitDetailResp.Result detail = JSONObject.parseObject(entity.getDetailJson(), TycLawSuitDetailResp.Result.class);
+            tycLawSuitRSP.setJudgeResult(StringUtils.isNotBlank(detail.getJudgeResult()) ? HtmlUtil.unescape(HtmlUtil.cleanHtmlTag(detail.getJudgeResult())) : "");
+        }
+        return tycLawSuitRSP;
     }
 
 }
