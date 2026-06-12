@@ -2,18 +2,11 @@ package cn.zswltech.mithras.leaseholdproperty.job.service;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.leaseholdproperty.versioning.appraisalcompanywhitelist.AppraisalCompanyWhitelistVersionService;
 import cn.zswltech.mithras.leaseholdproperty.mapper.AppraisalCompanyWhitelistMapper;
 import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelist;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.dto.message.MessageUrlEnum;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
@@ -47,7 +40,7 @@ public class AppraisalWhitelistJobServiceImpl implements AppraisalWhitelistJobSe
     @Resource
     private AppraisalCompanyWhitelistMapper appraisalCompanyWhitelistMapper;
     @Resource
-    private MessageService messageService;
+    private AppraisalWhitelistNotificationPort notificationPort;
     @Resource
     private SysUserService sysUserService;
     @Resource
@@ -105,21 +98,8 @@ public class AppraisalWhitelistJobServiceImpl implements AppraisalWhitelistJobSe
         if (CollectionUtil.isEmpty(toIds)) {
             return;
         }
-        // 发送通知
-        MessageAddREQ messageAddREQ = new MessageAddREQ();
-        MessageUrlEnum messageUrlEnum = MessageUrlEnum.APPRAISAL_COMPANY_WHITELIST_EXPIRE;
-        messageAddREQ.setFrom("系统通知");
-        messageAddREQ.setTo(toIds);
-        messageAddREQ.setContent(String.valueOf(appraisalCompanyWhitelist.getId()));
-        messageAddREQ.setFlowid(String.valueOf(appraisalCompanyWhitelist.getId()));
-        messageAddREQ.setRelation(String.format(MESSAGE_NOTIFY_TEMPLATE, id2NameService.deptId2NameSingle(appraisalCompanyWhitelist.getDeptId()), appraisalCompanyWhitelist.getCompanyName(), days));
-        messageAddREQ.setNeedOa(Boolean.FALSE);
-        messageAddREQ.setNoticeSource(NoticeSourceENUM.APPRAISAL_COMPANY_WHITELIST_EXPIRE.name());
-        messageAddREQ.setMessageType(MessageTypeEnum.APPRAISAL_COMPANY_WHITELIST_EXPIRE.name());
-        messageAddREQ.setPcurl(String.format(messageUrlEnum.pcUrl, appraisalCompanyWhitelist.getId()));
-        messageAddREQ.setAppurl(messageUrlEnum.appUrl);
-        messageAddREQ.setBusinessId(String.valueOf(appraisalCompanyWhitelist.getId()));
-        List<Long> msgIds = messageService.sendMessage(SpringUtil.getBean(MessageConver.class).reqToTodoMessage(messageAddREQ));
-        log.info("评估机构白名单准入到期通知发送完成[content:{}, msgIds:{}]", JSONUtil.toJsonStr(messageAddREQ), JSONUtil.toJsonStr(msgIds));
+        String relation = String.format(MESSAGE_NOTIFY_TEMPLATE, id2NameService.deptId2NameSingle(appraisalCompanyWhitelist.getDeptId()), appraisalCompanyWhitelist.getCompanyName(), days);
+        notificationPort.sendExpireRemind(appraisalCompanyWhitelist.getId(), toIds, relation);
+        log.info("评估机构白名单准入到期通知发送完成[whitelistId:{}, toIds:{}]", appraisalCompanyWhitelist.getId(), JSONUtil.toJsonStr(toIds));
     }
 }
