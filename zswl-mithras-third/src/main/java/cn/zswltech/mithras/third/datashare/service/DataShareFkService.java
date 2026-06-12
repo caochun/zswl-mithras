@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.datashare.service;
 
-import cn.zswltech.mithras.third.datashare.model.DataShareFk;
+import cn.zswltech.mithras.third.datashare.persistence.model.DataShareFk;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.servlet.http.HttpServletResponse;

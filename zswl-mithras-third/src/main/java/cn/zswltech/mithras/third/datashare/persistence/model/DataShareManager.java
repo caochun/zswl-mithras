@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.datashare.model;
+package cn.zswltech.mithras.third.datashare.persistence.model;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.io.Serializable;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.job.riskcontrol;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.opinion.RiskControlOpinionNoticeReq;
-import cn.zswltech.mithras.third.datashare.model.DataShareManager;
+import cn.zswltech.mithras.third.datashare.persistence.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
 import cn.zswltech.mithras.riskcontrol.application.job.RiskControlJobService;
 import cn.zswltech.mithras.riskcontrol.application.RiskControlOpinionMonitorApplicationService;

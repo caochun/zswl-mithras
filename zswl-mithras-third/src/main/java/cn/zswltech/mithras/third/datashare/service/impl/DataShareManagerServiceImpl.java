@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.datashare.service.impl;
 
-import cn.zswltech.mithras.third.datashare.mapper.DataShareManagerMapper;
-import cn.zswltech.mithras.third.datashare.model.DataShareManager;
+import cn.zswltech.mithras.third.datashare.persistence.mapper.DataShareManagerMapper;
+import cn.zswltech.mithras.third.datashare.persistence.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

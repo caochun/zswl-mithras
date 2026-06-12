@@ -2,8 +2,8 @@ package cn.zswltech.mithras.third.datashare.service.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.constant.Constant;
-import cn.zswltech.mithras.third.datashare.model.DataShareFk;
-import cn.zswltech.mithras.third.datashare.model.DataShareManager;
+import cn.zswltech.mithras.third.datashare.persistence.model.DataShareFk;
+import cn.zswltech.mithras.third.datashare.persistence.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.service.DataShareFkService;
 import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
 import com.alibaba.fastjson.JSONObject;

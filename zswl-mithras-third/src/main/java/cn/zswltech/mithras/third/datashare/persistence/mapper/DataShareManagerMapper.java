@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.third.datashare.mapper;
+package cn.zswltech.mithras.third.datashare.persistence.mapper;
 
 
-import cn.zswltech.mithras.third.datashare.model.DataShareManager;
+import cn.zswltech.mithras.third.datashare.persistence.model.DataShareManager;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

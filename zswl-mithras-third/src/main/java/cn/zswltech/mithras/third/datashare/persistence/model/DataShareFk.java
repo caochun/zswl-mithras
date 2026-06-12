@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.datashare.model;
+package cn.zswltech.mithras.third.datashare.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;

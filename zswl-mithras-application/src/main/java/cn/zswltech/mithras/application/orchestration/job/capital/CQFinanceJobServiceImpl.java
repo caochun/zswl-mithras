@@ -5,7 +5,7 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.capital.job.port.CQFinanceJobService;
 import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
-import cn.zswltech.mithras.third.datashare.model.DataShareManager;
+import cn.zswltech.mithras.third.datashare.persistence.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowAutoWriteOffService;
