@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.qiyuesuo.model;
+package cn.zswltech.mithras.third.qiyuesuo.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;
