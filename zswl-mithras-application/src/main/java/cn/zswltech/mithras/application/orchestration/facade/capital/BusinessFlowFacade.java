@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.facade.capital;
 
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.zswltech.mithras.capital.service.BusinessFlowApplicationService;
+import cn.zswltech.mithras.capital.service.api.BusinessFlowApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.capital.*;
