@@ -7,6 +7,8 @@ import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.system.user.SysUserService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -22,6 +24,10 @@ public class ArchivesSupportPortAdapter implements ArchivesSupportPort {
     private ProjEstablishBaseInfoService projEstablishBaseInfoService;
     @Resource
     private MaterialsListService materialsListService;
+    @Resource
+    private SysUserService sysUserService;
+    @Resource
+    private Id2NameService id2NameService;
 
     @Override
     public Map<String, ProjEstablishVagueListRSP> vagueQuery(ProjEstablishVagueListREQ req) {
@@ -59,6 +65,26 @@ public class ArchivesSupportPortAdapter implements ArchivesSupportPort {
                 .stream()
                 .map(this::toMaterialInfo)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Long> canViewDeptIds() {
+        return sysUserService.canViewDeptIds();
+    }
+
+    @Override
+    public Map<Long, String> clientId2Name(Collection<Long> clientIds) {
+        return id2NameService.clientId2Name(clientIds);
+    }
+
+    @Override
+    public Map<Long, String> sysUserId2Name(Collection<Long> userIds) {
+        return id2NameService.sysUserId2Name(userIds);
+    }
+
+    @Override
+    public Map<Long, String> deptId2Name(Collection<Long> deptIds) {
+        return id2NameService.deptId2Name(deptIds);
     }
 
     private ProjectInfo toProjectInfo(ProjEstablishBaseInfo source) {

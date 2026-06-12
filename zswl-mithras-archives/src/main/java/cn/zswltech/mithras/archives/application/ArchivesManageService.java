@@ -40,7 +40,6 @@ import cn.zswltech.mithras.archives.port.ArchivesNotificationPort;
 import cn.zswltech.mithras.archives.port.ArchivesSupportPort;
 import cn.zswltech.mithras.archives.port.ArchivesWorkflowPort;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -52,7 +51,6 @@ import cn.zswltech.mithras.archives.dto.persistence.ArchivesFlatTempalteDTO;
 import cn.zswltech.mithras.archives.dto.persistence.ArchivesManagementDTO;
 import cn.zswltech.mithras.archives.dto.persistence.ArchivesMastFileCountDTO;
 import cn.zswltech.mithras.archives.dto.persistence.ArchivesMastFileTypeCountDTO;
-import cn.zswltech.mithras.system.user.Id2NameService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -92,16 +90,10 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     private ArchivesDownloadPermissionReasonMapper archivesDownloadPermissionReasonMapper;
 
     @Resource
-    private Id2NameService id2NameService;
-
-    @Resource
     private ArchiveTemplateMapper archiveTemplateMapper;
 
     @Resource
     private ArchivesManagementMapper archivesManagementMapper;
-
-    @Resource
-    private SysUserService sysUserService;
 
     @Resource
     private ArchivesSupportPort archivesSupportPort;
@@ -119,7 +111,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     }
 
     public PageR<ArchivesListRSP> list(ArchivesListREQ req){
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = archivesSupportPort.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         req.setIsBizUser(isBizUser);
         req.setDeptIdList(canViewDeptIds);
@@ -176,9 +168,9 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                 clientIds.add(dto.getClientId());
                 deptIds.add(dto.getBizDeptId());
             }
-            Map<Long, String> clientMap = id2NameService.clientId2Name(clientIds);
-            Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(sysUserIds);
-            Map<Long, String> deptMap = id2NameService.deptId2Name(deptIds);
+            Map<Long, String> clientMap = archivesSupportPort.clientId2Name(clientIds);
+            Map<Long, String> sysUserMap = archivesSupportPort.sysUserId2Name(sysUserIds);
+            Map<Long, String> deptMap = archivesSupportPort.deptId2Name(deptIds);
             for (ArchivesManagementDTO dto : records) {
                 ArchivesListRSP rsp = new ArchivesListRSP();
                 rsp.setId(dto.getId());
@@ -397,7 +389,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             return ListUtil.empty();
         }
         List<Long> ids = flatFiles.stream().map(ArchivesFlatTempalteDTO::getUploadUser).distinct().collect(Collectors.toList());
-        Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(ids);
+        Map<Long, String> sysUserMap = archivesSupportPort.sysUserId2Name(ids);
         Map<Long, List<ArchivesDownloadPermission>> filePermission = new HashMap<>();
         AccountVO loginInfo = AccountUtil.getLoginInfo();
         List<Long> fileIds = flatFiles.stream().map(ArchivesFlatTempalteDTO::getFileId).distinct().collect(Collectors.toList());

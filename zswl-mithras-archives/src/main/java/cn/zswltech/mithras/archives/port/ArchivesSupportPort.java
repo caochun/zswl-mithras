@@ -20,6 +20,14 @@ public interface ArchivesSupportPort {
 
     List<MaterialInfo> getMaterialsByIds(Collection<Long> recordIds);
 
+    List<Long> canViewDeptIds();
+
+    Map<Long, String> clientId2Name(Collection<Long> clientIds);
+
+    Map<Long, String> sysUserId2Name(Collection<Long> userIds);
+
+    Map<Long, String> deptId2Name(Collection<Long> deptIds);
+
     class MaterialInfo {
         private Long id;
         private String materialsType;
