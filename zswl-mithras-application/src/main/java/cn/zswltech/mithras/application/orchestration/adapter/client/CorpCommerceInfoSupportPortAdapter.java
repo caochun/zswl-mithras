@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.client;
 
-import cn.zswltech.mithras.customer.application.client.bo.ClientAuthBO;
-import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientAuthBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientBusinessHistoryBO;
 import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoSupportPort;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;

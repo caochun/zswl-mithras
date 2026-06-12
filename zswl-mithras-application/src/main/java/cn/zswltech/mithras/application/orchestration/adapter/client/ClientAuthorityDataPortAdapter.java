@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.client;
 
-import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.ClientAuthorityDataPort;
 import cn.zswltech.mithras.application.orchestration.client.authority.ClientAuthorityUtil;
 import org.springframework.stereotype.Component;

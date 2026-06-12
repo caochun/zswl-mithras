@@ -37,7 +37,7 @@ import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientCopyInfoBO;
 import cn.zswltech.mithras.application.orchestration.client.*;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientDataCopyHandlerFactory;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;

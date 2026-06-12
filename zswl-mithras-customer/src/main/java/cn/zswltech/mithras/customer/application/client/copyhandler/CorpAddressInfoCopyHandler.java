@@ -3,7 +3,7 @@ package cn.zswltech.mithras.customer.application.client.copyhandler;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.model.client.NewCorpAddressInfo;
-import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.CorpAddressInfoService;
 import cn.zswltech.mithras.customer.application.client.NewCorpAddressInfoService;
 import lombok.extern.slf4j.Slf4j;

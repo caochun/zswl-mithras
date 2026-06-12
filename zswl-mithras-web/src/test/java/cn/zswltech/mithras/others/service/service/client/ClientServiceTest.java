@@ -11,7 +11,7 @@ import cn.zswltech.mithras.customer.enums.ClientAuthEnum;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.application.client.bo.ClientAuthBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientAuthBO;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewService;
 import cn.zswltech.mithras.third.service.TycService;

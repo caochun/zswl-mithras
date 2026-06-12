@@ -58,7 +58,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientBusinessHistoryBO;
 import cn.zswltech.mithras.customer.application.client.ClientBusinessHistoryService;
 import cn.zswltech.mithras.contract.core.ContractTradeStructureService;
 import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;

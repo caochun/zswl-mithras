@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.creditreport.service;
 
-import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientBusinessHistoryBO;
 
 import java.util.List;
 import java.util.Map;

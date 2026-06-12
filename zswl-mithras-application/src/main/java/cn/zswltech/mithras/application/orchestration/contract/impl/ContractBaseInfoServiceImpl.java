@@ -115,7 +115,7 @@ import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseAdjustInfoService;
-import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientBusinessHistoryBO;
 import cn.zswltech.mithras.contract.core.dto.ContractPrincipalBO;
 import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityService;
 import cn.zswltech.mithras.customer.application.client.ClientBusinessHistoryService;

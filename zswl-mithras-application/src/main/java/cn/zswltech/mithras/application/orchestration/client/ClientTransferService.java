@@ -69,7 +69,7 @@ import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.customer.application.client.ClientTransferWeightService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanClientService;
-import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientCopyInfoBO;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionDeptWeightService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionService;

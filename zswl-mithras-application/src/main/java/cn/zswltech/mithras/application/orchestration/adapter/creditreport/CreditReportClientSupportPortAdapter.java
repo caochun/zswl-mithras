@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.creditreport;
 
 import cn.zswltech.mithras.creditreport.service.CreditReportClientSupportPort;
-import cn.zswltech.mithras.customer.application.client.bo.ClientBusinessHistoryBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientBusinessHistoryBO;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import org.springframework.stereotype.Component;
 

@@ -22,7 +22,7 @@ import cn.zswltech.mithras.customer.model.client.CorpBankAccount;
 import cn.zswltech.mithras.customer.model.client.CorpBankAccountLib;
 import cn.zswltech.mithras.customer.model.client.NewCorpBankAccount;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;
 import cn.zswltech.mithras.customer.application.client.ClientAuthorityDataPort;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

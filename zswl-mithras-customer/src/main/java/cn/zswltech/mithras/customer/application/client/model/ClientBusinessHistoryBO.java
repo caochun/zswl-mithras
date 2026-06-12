@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.application.client.bo;
+package cn.zswltech.mithras.customer.application.client.model;
 
 import cn.zswltech.mithras.customer.model.client.ClientBusinessHistory;
 import cn.zswltech.mithras.customer.application.client.dto.MithrasShareholderInfo;

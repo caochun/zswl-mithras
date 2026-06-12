@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.application.client.bo;
+package cn.zswltech.mithras.customer.application.client.model;
 
 import cn.zswltech.mithras.customer.enums.ClientAuthEnum;
 import lombok.Data;

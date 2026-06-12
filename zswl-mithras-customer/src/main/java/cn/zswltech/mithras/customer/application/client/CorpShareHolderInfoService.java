@@ -18,7 +18,7 @@ import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.model.client.CorpShareholderInfo;
 import cn.zswltech.mithras.customer.model.client.NewCorpShareholderInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientCopyInfoBO;
 import cn.zswltech.mithras.customer.application.client.copyhandler.ClientOldDataHelper;
 import cn.zswltech.mithras.customer.application.client.ClientAuthorityDataPort;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

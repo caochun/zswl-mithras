@@ -65,7 +65,7 @@ import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.workflow.process.FlowAssistService;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.customer.application.client.bo.ClientCopyInfoBO;
+import cn.zswltech.mithras.customer.application.client.model.ClientCopyInfoBO;
 import cn.zswltech.mithras.system.user.bo.UserOrgJobInfoBO;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import cn.zswltech.mithras.customer.versioning.impl.ClientVersionServiceImpl;
