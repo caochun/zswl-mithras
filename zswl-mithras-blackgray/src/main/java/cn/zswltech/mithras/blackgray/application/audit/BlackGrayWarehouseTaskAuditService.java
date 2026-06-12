@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.service.audit;
+package cn.zswltech.mithras.blackgray.application.audit;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;

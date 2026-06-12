@@ -9,7 +9,7 @@ import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayLibraryMapper;
 import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayManualOutboundMapper;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayLibrary;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayManualOutbound;
-import cn.zswltech.mithras.blackgray.service.audit.BlackGrayOutboundAuditService;
+import cn.zswltech.mithras.blackgray.application.audit.BlackGrayOutboundAuditService;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayWarehouseRecord
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayLibrary;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseRecord;
 import cn.zswltech.mithras.blackgray.service.BlackGrayLibraryService;
-import cn.zswltech.mithras.blackgray.service.audit.BlackGrayWarehouseAuditService;
+import cn.zswltech.mithras.blackgray.application.audit.BlackGrayWarehouseAuditService;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;

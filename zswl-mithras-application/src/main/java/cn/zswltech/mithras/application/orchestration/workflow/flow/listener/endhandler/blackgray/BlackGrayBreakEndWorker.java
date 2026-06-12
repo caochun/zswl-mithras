@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.workflow.flow.listener.end
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.blackgray.enums.AuditStatusEnum;
-import cn.zswltech.mithras.blackgray.service.audit.BlackGrayWarehouseAuditService;
+import cn.zswltech.mithras.blackgray.application.audit.BlackGrayWarehouseAuditService;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
 import org.springframework.stereotype.Component;

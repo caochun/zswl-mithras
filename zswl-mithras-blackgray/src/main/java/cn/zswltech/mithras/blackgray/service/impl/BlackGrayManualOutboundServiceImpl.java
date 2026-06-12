@@ -24,7 +24,7 @@ import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayManualOutbound;
 import cn.zswltech.mithras.blackgray.service.BlackGrayManualOutboundService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
-import cn.zswltech.mithras.blackgray.service.audit.BlackGrayOutboundAuditService;
+import cn.zswltech.mithras.blackgray.application.audit.BlackGrayOutboundAuditService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import com.github.pagehelper.PageHelper;
