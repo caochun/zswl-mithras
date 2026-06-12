@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.message.MessageListREQ;
 import cn.zswltech.mithras.dto.message.MessageListRSP;
 import cn.zswltech.mithras.dto.message.MessageReadREQ;
 import cn.zswltech.mithras.dto.message.OAAuthREQ;
-import cn.zswltech.mithras.message.application.MessageApplicationService;
+import cn.zswltech.mithras.message.service.api.MessageApplicationService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -14,7 +14,7 @@ import cn.zswltech.gruul.common.util.RequestUtil;
 import cn.zswltech.gruul.common.util.ShaUtil;
 import cn.zswltech.gruul.dao.dal.dao.UserDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
-import cn.zswltech.mithras.message.application.MessageApplicationService;
+import cn.zswltech.mithras.message.service.api.MessageApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.message.*;

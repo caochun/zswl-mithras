@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.message.application;
+package cn.zswltech.mithras.message.service.api;
 
 import cn.zswltech.gruul.common.result.Response;
 import cn.zswltech.mithras.api.MessageApi;
