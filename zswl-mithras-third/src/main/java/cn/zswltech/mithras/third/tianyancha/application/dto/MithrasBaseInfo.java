@@ -1,15 +1,13 @@
 package cn.zswltech.mithras.third.tianyancha.application.dto;
 
-import cn.zswltech.flow.core.util.ApplicationContextUtil;
-import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author luyi
@@ -17,7 +15,44 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 public class MithrasBaseInfo {
-    private static final String ENUM_TYC_PROVINCE = "tycProvince";
+    private static final Map<String, String> TYC_PROVINCE_DISPLAY_MAP = new HashMap<>();
+
+    static {
+        TYC_PROVINCE_DISPLAY_MAP.put("gz", "贵州省");
+        TYC_PROVINCE_DISPLAY_MAP.put("heb", "河北省");
+        TYC_PROVINCE_DISPLAY_MAP.put("sx", "山西省");
+        TYC_PROVINCE_DISPLAY_MAP.put("tj", "天津市");
+        TYC_PROVINCE_DISPLAY_MAP.put("nmg", "内蒙古自治区");
+        TYC_PROVINCE_DISPLAY_MAP.put("hlj", "黑龙江省");
+        TYC_PROVINCE_DISPLAY_MAP.put("bj", "北京市");
+        TYC_PROVINCE_DISPLAY_MAP.put("ln", "辽宁省");
+        TYC_PROVINCE_DISPLAY_MAP.put("sh", "上海市");
+        TYC_PROVINCE_DISPLAY_MAP.put("jl", "吉林省");
+        TYC_PROVINCE_DISPLAY_MAP.put("js", "江苏省");
+        TYC_PROVINCE_DISPLAY_MAP.put("ah", "安徽省");
+        TYC_PROVINCE_DISPLAY_MAP.put("zj", "浙江省");
+        TYC_PROVINCE_DISPLAY_MAP.put("jx", "江西省");
+        TYC_PROVINCE_DISPLAY_MAP.put("fj", "福建省");
+        TYC_PROVINCE_DISPLAY_MAP.put("sd", "山东省");
+        TYC_PROVINCE_DISPLAY_MAP.put("hen", "河南省");
+        TYC_PROVINCE_DISPLAY_MAP.put("gx", "广西壮族自治区");
+        TYC_PROVINCE_DISPLAY_MAP.put("hun", "湖南省");
+        TYC_PROVINCE_DISPLAY_MAP.put("gd", "广东省");
+        TYC_PROVINCE_DISPLAY_MAP.put("hub", "湖北省");
+        TYC_PROVINCE_DISPLAY_MAP.put("yn", "云南省");
+        TYC_PROVINCE_DISPLAY_MAP.put("sc", "四川省");
+        TYC_PROVINCE_DISPLAY_MAP.put("han", "海南省");
+        TYC_PROVINCE_DISPLAY_MAP.put("cq", "重庆市");
+        TYC_PROVINCE_DISPLAY_MAP.put("snx", "陕西省");
+        TYC_PROVINCE_DISPLAY_MAP.put("xz", "西藏自治区");
+        TYC_PROVINCE_DISPLAY_MAP.put("gs", "甘肃省");
+        TYC_PROVINCE_DISPLAY_MAP.put("qh", "青海省");
+        TYC_PROVINCE_DISPLAY_MAP.put("nx", "宁夏回族自治区");
+        TYC_PROVINCE_DISPLAY_MAP.put("xj", "新疆维吾尔自治区");
+        TYC_PROVINCE_DISPLAY_MAP.put("tw", "台湾省");
+        TYC_PROVINCE_DISPLAY_MAP.put("hk", "香港特别行政区");
+        TYC_PROVINCE_DISPLAY_MAP.put("mo", "澳门特别行政区");
+    }
 
     @ApiModelProperty("是否三证合一")
     private Boolean tripleCertInOne;
@@ -159,22 +194,13 @@ public class MithrasBaseInfo {
     private String clientName;
 
     public String getRegLocation() {
-        GeneralDictionaryMapper generalDictionaryMapper = ApplicationContextUtil.getBean(GeneralDictionaryMapper.class);
-        GeneralDictionary tycProvince = generalDictionaryMapper.selectOne(Wrappers.<GeneralDictionary>lambdaQuery()
-                .eq(GeneralDictionary::getDictKey, ENUM_TYC_PROVINCE)
-                .eq(GeneralDictionary::getCode, base)
-        );
-        if (tycProvince != null) {
-            if (regLocation.startsWith(tycProvince.getDisplay())) {
-                regLocation = regLocation.substring(tycProvince.getDisplay().length());
-            }
-            if (regLocation.startsWith(city)) {
-                regLocation = regLocation.substring(city.length());
-            }
-            if (regLocation.startsWith(district)) {
-                regLocation = regLocation.substring(district.length());
-            }
+        return removePrefix(removePrefix(removePrefix(regLocation, TYC_PROVINCE_DISPLAY_MAP.get(base)), city), district);
+    }
+
+    private static String removePrefix(String value, String prefix) {
+        if (value == null || prefix == null || !value.startsWith(prefix)) {
+            return value;
         }
-        return regLocation;
+        return value.substring(prefix.length());
     }
 }
