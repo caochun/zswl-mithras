@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.workflow.process;
 
-import cn.zswltech.mithras.workflow.mapper.ProcessModifyRemarkLibMapper;
-import cn.zswltech.mithras.workflow.model.ProcessModifyRemarkLib;
+import cn.zswltech.mithras.workflow.persistence.mapper.ProcessModifyRemarkLibMapper;
+import cn.zswltech.mithras.workflow.persistence.model.ProcessModifyRemarkLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

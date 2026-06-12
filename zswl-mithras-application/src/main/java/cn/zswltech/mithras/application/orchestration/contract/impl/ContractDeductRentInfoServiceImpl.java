@@ -20,7 +20,7 @@ import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractDeductRentInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
-import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

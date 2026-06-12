@@ -49,7 +49,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptWeight;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeight;
-import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.projlifecycle.model.ProjLifecycleEvent;

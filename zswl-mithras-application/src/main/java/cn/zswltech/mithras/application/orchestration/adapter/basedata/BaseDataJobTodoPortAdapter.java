@@ -4,7 +4,7 @@ import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.basedata.job.BaseDataJobTodoPort;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
-import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

@@ -10,8 +10,8 @@ import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
-import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
-import cn.zswltech.mithras.workflow.mapper.CommonProcessPrepareMapper;
+import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.mapper.CommonProcessPrepareMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

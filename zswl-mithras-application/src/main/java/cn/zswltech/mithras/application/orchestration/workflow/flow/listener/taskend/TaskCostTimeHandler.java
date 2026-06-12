@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.workflow.flow.listener.tas
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.flow.core.flowlistener.task.TaskCompleteAction;
-import cn.zswltech.mithras.workflow.model.FlowTaskDuration;
+import cn.zswltech.mithras.workflow.persistence.model.FlowTaskDuration;
 import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import cn.zswltech.mithras.workflow.flow.FlowTaskDurationService;

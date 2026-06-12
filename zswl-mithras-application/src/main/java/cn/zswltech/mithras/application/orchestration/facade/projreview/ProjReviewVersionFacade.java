@@ -27,7 +27,7 @@ import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
-import cn.zswltech.mithras.workflow.model.ProcessModifyRemark;
+import cn.zswltech.mithras.workflow.persistence.model.ProcessModifyRemark;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;

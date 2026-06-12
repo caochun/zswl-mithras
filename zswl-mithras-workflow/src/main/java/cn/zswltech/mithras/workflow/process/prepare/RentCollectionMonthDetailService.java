@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.workflow.process.prepare;
 
 import cn.zswltech.mithras.dto.process.prepare.RentCollectionMonthModifyAccountREQ;
-import cn.zswltech.mithras.workflow.model.RentCollectionMonthDetail;
-import cn.zswltech.mithras.workflow.mapper.RentCollectionMonthDetailMapper;
+import cn.zswltech.mithras.workflow.persistence.model.RentCollectionMonthDetail;
+import cn.zswltech.mithras.workflow.persistence.mapper.RentCollectionMonthDetailMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;

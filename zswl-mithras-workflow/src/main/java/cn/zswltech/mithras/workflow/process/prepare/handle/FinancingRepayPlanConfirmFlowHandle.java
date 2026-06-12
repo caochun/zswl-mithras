@@ -7,8 +7,8 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.prepare.FinancingRepayActualProcessDetailService;
-import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
-import cn.zswltech.mithras.workflow.model.FinancingRepayActualProcessDetail;
+import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.FinancingRepayActualProcessDetail;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

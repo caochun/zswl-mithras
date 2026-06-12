@@ -11,7 +11,7 @@ import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.NoticeMessageBody;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.workflow.process.prepare.ProcessPrepareMessagePort;
-import cn.zswltech.mithras.workflow.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
