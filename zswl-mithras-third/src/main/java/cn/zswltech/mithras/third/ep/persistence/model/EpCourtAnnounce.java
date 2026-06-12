@@ -1,23 +1,20 @@
-package cn.zswltech.mithras.third.ep.model;
+package cn.zswltech.mithras.third.ep.persistence.model;
 
 import cn.zswltech.mithras.foundation.annotation.NotCompareColumn;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author ZHANGXIN
- * 立案信息
  */
 @Data
 @Accessors(chain = true)
-@TableName("ep_caseinfo")
-public class EpCaseInfo implements Serializable {
+@TableName("ep_courtannounce")
+public class EpCourtAnnounce {
 
-    private static final long serialVersionUID = 1L;
 
     /**
      * ID
@@ -26,73 +23,73 @@ public class EpCaseInfo implements Serializable {
     private Long id;
 
     /**
-     * 案号
+     * 公告类型。
+     */
+    @TableId("announcement_type")
+    private String announcementType;
+
+    /**
+     * 案件号。
      */
     @TableId("case_number")
     private String caseNumber;
 
     /**
-     * 法院名称
+     * 法院名称。
      */
     @TableId("court_name")
     private String courtName;
 
     /**
-     * 法官
+     * 当事人名称。
      */
-    @TableId("judge")
-    private String judge;
+    @TableId("party_name")
+    private String partyName;
 
     /**
-     * 法官助理
+     * 原告。
      */
-    @TableId("judge_assistant")
-    private String judgeAssistant;
+    @TableId("plaintiff")
+    private String plaintiff;
 
     /**
-     * 立案日期
+     * 省份信息。
      */
-    @TableId("case_date")
-    private Date caseDate;
+    @TableId("state")
+    private String state;
 
     /**
-     * 开庭日期
+     * 省份代码。
      */
-    @TableId("session_date")
-    private Date sessionDate;
+    @TableId("state_code")
+    private Integer stateCode;
 
     /**
-     * 结案日期
+     * 发布日期。
      */
-    @TableId("end_date")
-    private Date endDate;
+    @TableId("publ_date")
+    private Date publDate;
 
     /**
-     * 地区
+     * 发布页码。
      */
-    @TableId("area")
-    private String area;
+    @TableId("publ_page")
+    private String publPage;
 
     /**
-     * 案件状态描述
+     * 法律程序级别。
      */
-    @TableId("case_status_desc")
-    private String caseStatusDesc;
+    @TableId("process_level")
+    private String processLevel;
 
     /**
-     * 案件状态代码
+     * 法官姓名。
      */
-    @TableId("case_status")
-    private Integer caseStatus;
+    @TableId("judge_name")
+    private String judgeName;
 
     /**
-     * 链接地址
-     */
-    @TableId("link_address")
-    private String linkAddress;
-
-    /**
-     * 插入时间
+     * 插入时间。
      */
     @TableId("insert_time")
     private Date insertTime;
@@ -104,22 +101,29 @@ public class EpCaseInfo implements Serializable {
     private Date msgUpdateTime;
 
     /**
-     * 公司名称
+     * 公告内容。
+     */
+
+    @TableId("content")
+    private String content;
+
+    /**
+     * 公司名称。
      */
     @TableId("company_name")
     private String companyName;
 
     /**
-     * 信用代码
+     * 信用代码。
      */
     @TableId("credit_code")
     private String creditCode;
 
     /**
-     * 唯一标识符
+     * 唯一标识符。
      */
     @TableId("jsid")
-    private Long jsid;
+    private Integer jsid;
 
     /**
      * 消息id
@@ -134,6 +138,5 @@ public class EpCaseInfo implements Serializable {
     @NotCompareColumn
     @TableField("update_by")
     private Long updateBy;
-
 
 }

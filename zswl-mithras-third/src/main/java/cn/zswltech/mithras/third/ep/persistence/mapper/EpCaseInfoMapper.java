@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.ep.mapper;
+package cn.zswltech.mithras.third.ep.persistence.mapper;
 
-import cn.zswltech.mithras.third.ep.model.EpCaseInfo;
+import cn.zswltech.mithras.third.ep.persistence.model.EpCaseInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
