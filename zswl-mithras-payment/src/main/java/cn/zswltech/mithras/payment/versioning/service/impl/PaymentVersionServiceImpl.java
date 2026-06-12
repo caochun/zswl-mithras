@@ -1,7 +1,10 @@
 package cn.zswltech.mithras.payment.versioning.service.impl;
 
 import cn.zswltech.mithras.api.payment.version.PaymentVersionListRSP;
-import cn.zswltech.mithras.dto.version.*;
+import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
+import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
+import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
+import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.payment.mapper.lib.PaymentBaseInfoLibMapper;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
@@ -16,7 +19,11 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @description:

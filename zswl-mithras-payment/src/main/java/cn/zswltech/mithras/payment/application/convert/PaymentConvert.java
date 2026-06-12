@@ -1,6 +1,12 @@
 package cn.zswltech.mithras.payment.application.convert;
 
-import cn.zswltech.mithras.api.payment.dto.*;
+import cn.zswltech.mithras.api.payment.dto.PaymentAddReq;
+import cn.zswltech.mithras.api.payment.dto.PaymentContractListReq;
+import cn.zswltech.mithras.api.payment.dto.PaymentContractListRsp;
+import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
+import cn.zswltech.mithras.api.payment.dto.PaymentListReq;
+import cn.zswltech.mithras.api.payment.dto.PaymentListRsp;
+import cn.zswltech.mithras.api.payment.dto.PaymentModifyReq;
 import cn.zswltech.mithras.api.payment.writeoff.ActualDetailListRsp;
 import cn.zswltech.mithras.api.payment.writeoff.PaymentWriteOffDetailRsp;
 import cn.zswltech.mithras.api.payment.writeoff.PaymentWriteOffListReq;
