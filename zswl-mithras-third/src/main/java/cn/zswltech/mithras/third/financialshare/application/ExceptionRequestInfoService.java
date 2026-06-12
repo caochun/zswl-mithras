@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.third.financial.CqApiRecordRSP;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.persistence.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;

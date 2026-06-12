@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.third.retry.mapper.ExceptionRequestInfoMapper">
+<mapper namespace="cn.zswltech.mithras.third.retry.persistence.mapper.ExceptionRequestInfoMapper">
 
-    <select id="listLastRequest" resultType="cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo">
+    <select id="listLastRequest" resultType="cn.zswltech.mithras.third.retry.persistence.model.ExceptionRequestInfo">
         select *
         from exception_request_info
         where id in (select max(id)

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.retry.model;
+package cn.zswltech.mithras.third.retry.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

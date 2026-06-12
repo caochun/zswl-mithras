@@ -15,7 +15,7 @@ import cn.zswltech.mithras.monthly.enums.MonthlyModuleTypeEnum;
 import cn.zswltech.mithras.third.financialshare.enums.CQPaymentMethodENUM;
 import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialDevUrlENUM;
-import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.persistence.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.margin.model.MarginRecordInfo;

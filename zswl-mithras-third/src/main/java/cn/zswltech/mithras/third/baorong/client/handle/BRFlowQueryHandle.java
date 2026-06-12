@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.baorong.client.handle;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialUrlENUM;
-import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.persistence.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.third.baorong.persistence.model.BrFlowRecord;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.retry.application.ExceptionRequestRecordService;

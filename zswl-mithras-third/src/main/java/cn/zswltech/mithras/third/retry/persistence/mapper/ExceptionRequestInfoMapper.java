@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.retry.mapper;
+package cn.zswltech.mithras.third.retry.persistence.mapper;
 
-import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.persistence.model.ExceptionRequestInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 

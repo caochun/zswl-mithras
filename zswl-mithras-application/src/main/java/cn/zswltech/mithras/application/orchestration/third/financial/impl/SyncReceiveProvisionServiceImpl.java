@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProvisionBaseInfoDetailREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProvisionBaseInfoDetailRSP;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
+import cn.zswltech.mithras.third.retry.persistence.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
