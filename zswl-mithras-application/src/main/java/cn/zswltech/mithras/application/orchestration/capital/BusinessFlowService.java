@@ -41,7 +41,7 @@ import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.fund.persistence.model.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.collection.model.BillManagement;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.*;

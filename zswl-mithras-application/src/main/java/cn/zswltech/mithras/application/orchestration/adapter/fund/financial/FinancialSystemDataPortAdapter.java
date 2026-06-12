@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.fund.financial;
 
 import cn.zswltech.mithras.fund.application.financial.port.FinancialSystemDataPort;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingRepayActual;

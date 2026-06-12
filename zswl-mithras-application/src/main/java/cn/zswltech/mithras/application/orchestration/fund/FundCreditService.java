@@ -32,7 +32,7 @@ import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundCreditGuaranteeDetail;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundGuaranteeAgency;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;

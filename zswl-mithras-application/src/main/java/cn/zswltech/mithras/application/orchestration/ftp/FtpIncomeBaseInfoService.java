@@ -26,7 +26,7 @@ import cn.zswltech.mithras.ftp.oldftp.mapper.FtpIncomeBaseInfoMapper;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpIncomeDetailRecord;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpIncomeDetailRecordService;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;

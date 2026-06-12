@@ -30,7 +30,7 @@ import cn.zswltech.mithras.associationreport.mapper.model.AssociationExternalFin
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingPlanMapper;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;

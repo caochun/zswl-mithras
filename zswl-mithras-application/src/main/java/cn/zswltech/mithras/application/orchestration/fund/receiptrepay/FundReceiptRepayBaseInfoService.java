@@ -37,7 +37,7 @@ import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingBa
 import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingPlanLibMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingRepayActualLibMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.lib.receiptrepay.FundReceiptRepayBaseInfoLibMapper;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.*;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

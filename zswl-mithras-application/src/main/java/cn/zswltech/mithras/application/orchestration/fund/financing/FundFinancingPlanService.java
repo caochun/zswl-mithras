@@ -27,7 +27,7 @@ import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingPlanMa
 import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundCreditGuaranteeDetail;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundGuaranteeAgency;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

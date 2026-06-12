@@ -15,7 +15,7 @@ import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingEarlyS
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptFlowDetailMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingEarlySettlePlan;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingEarlySettlePlanLib;

@@ -27,7 +27,7 @@ import cn.zswltech.mithras.filingmaterials.model.FundDirectFinancingFilingMateri
 import cn.zswltech.mithras.filingmaterials.model.FundDirectFinancingFilingMaterialsResult;
 import cn.zswltech.mithras.filingmaterials.model.FundFinancingFilingMaterialsQuery;
 import cn.zswltech.mithras.filingmaterials.model.FundFinancingFilingMaterialsResult;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;

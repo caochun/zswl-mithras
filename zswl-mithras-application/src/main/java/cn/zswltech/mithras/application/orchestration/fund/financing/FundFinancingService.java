@@ -49,7 +49,7 @@ import cn.zswltech.mithras.workflow.persistence.model.ProcessModifyRemark;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundCreditGuaranteeDetail;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundGuaranteeAgency;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.*;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBorrowing;

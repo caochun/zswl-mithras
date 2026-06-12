@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.fund.FundOrganizationDetailRSP;
 import cn.zswltech.mithras.dto.fund.FundOrganizationListRSP;
 import cn.zswltech.mithras.dto.fund.FundOrganizationModifyREQ;
 import cn.zswltech.mithras.fund.application.convert.FundTypeConversionWorker;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

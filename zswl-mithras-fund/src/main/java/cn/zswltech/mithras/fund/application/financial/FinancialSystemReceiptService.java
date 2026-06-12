@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.fund.application.financial.port.FinancialSystemDataPort;
 import cn.zswltech.mithras.fund.enums.financial.FundFinancialSystemEnum;
 import cn.zswltech.mithras.fund.enums.financing.*;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

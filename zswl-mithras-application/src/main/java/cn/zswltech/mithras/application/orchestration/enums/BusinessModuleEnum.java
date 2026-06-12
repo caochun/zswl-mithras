@@ -26,7 +26,7 @@ import cn.zswltech.mithras.ftp.oldftp.mapper.FtpMonthlyGuidanceMapper;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpQuarterlyGuidanceMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.credit.FundCreditMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.credit.FundGuaranteeAgencyMapper;
-import cn.zswltech.mithras.fund.persistence.mapper.FundOrganizationMapper;
+import cn.zswltech.mithras.fund.persistence.mapper.organization.FundOrganizationMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayBatchMapper;

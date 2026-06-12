@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.persistence.model;
+package cn.zswltech.mithras.fund.persistence.model.financial;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

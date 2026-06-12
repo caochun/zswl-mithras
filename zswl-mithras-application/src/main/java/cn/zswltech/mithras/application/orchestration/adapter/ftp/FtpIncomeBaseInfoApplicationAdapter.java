@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.ftp.FtpIncomeDetailRecordListRSP;
 import cn.zswltech.mithras.dto.ftp.FtpIncomeOrganizationListREQ;
 import cn.zswltech.mithras.dto.ftp.FtpIncomeOrganizationListRSP;
 import cn.zswltech.mithras.ftp.oldftp.service.application.FtpIncomeBaseInfoApplicationService;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;
 import org.springframework.stereotype.Service;

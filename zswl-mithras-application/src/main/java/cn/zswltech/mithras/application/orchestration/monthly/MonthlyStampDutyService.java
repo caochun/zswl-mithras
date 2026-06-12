@@ -8,7 +8,7 @@ import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFina
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.monthly.mapper.model.MonthlyStampDuty;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;

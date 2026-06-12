@@ -28,7 +28,7 @@ import cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowResultD
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayCashDepositService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayExpenseService;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingFeeDetail;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingRepayActual;

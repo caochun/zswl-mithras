@@ -13,7 +13,7 @@ import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingPayAcc
 import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingRepayActualMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingBaseInfoLibMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingRepayActualLibMapper;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.*;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;

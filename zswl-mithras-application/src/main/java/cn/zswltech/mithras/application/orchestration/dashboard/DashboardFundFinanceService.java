@@ -31,7 +31,7 @@ import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepay
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
 import cn.zswltech.mithras.dashboard.model.*;
 import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
-import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptFlowDetail;
