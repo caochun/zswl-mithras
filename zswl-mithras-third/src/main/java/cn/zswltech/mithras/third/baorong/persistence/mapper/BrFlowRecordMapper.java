@@ -1,5 +1,5 @@
-package cn.zswltech.mithras.third.baorong.mapper;
-import cn.zswltech.mithras.third.baorong.model.BrFlowRecord;
+package cn.zswltech.mithras.third.baorong.persistence.mapper;
+import cn.zswltech.mithras.third.baorong.persistence.model.BrFlowRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
