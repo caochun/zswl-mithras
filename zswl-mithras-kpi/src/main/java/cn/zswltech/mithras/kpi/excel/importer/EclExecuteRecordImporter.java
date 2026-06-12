@@ -7,7 +7,7 @@ import cn.zswltech.mithras.kpi.excel.model.EclExecuteRecordExcelModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EclEcecuteRecordmporter extends AbstractSimpleExcelImporter<EclExecuteRecordExcelModel> {
+public class EclExecuteRecordImporter extends AbstractSimpleExcelImporter<EclExecuteRecordExcelModel> {
     @Override
     protected ExcelConfig config(ExcelReader excelReader) {
         return new ExcelConfig(0, 1, null);

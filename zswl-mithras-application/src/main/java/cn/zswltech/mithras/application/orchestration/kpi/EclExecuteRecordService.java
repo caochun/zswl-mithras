@@ -16,7 +16,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.kpi.excel.importer.EclEcecuteRecordmporter;
+import cn.zswltech.mithras.kpi.excel.importer.EclExecuteRecordImporter;
 import cn.zswltech.mithras.kpi.excel.model.EclExecuteRecordExcelModel;
 import cn.zswltech.mithras.kpi.dto.persistence.EclExecuteRecordParam;
 import cn.zswltech.mithras.kpi.mapper.EclExecuteRecordLibMapper;
@@ -100,7 +100,7 @@ public class EclExecuteRecordService extends ServiceImpl<EclExecuteRecordMapper,
     @Resource
     private EclExecuteRecordLibMapper eclExecuteRecordLibMapper;
     @Resource
-    private EclEcecuteRecordmporter eclEcecuteRecordmporter;
+    private EclExecuteRecordImporter eclExecuteRecordImporter;
     @Resource
     private DecisionService decisionService;
     @Resource
@@ -305,7 +305,7 @@ public class EclExecuteRecordService extends ServiceImpl<EclExecuteRecordMapper,
     public void importFile(EclExecuteRecordImportREQ req) {
         List<EclExecuteRecordExcelModel> parse;
         try {
-           parse = eclEcecuteRecordmporter.parse(req.getFile().getInputStream());
+           parse = eclExecuteRecordImporter.parse(req.getFile().getInputStream());
         } catch (IOException e) {
             throw new MithrasException("文件解析异常");
         }
@@ -319,7 +319,7 @@ public class EclExecuteRecordService extends ServiceImpl<EclExecuteRecordMapper,
     public Set<String> importFileCheck(EclExecuteRecordImportREQ req) {
         List<EclExecuteRecordExcelModel> parse;
         try {
-            parse = eclEcecuteRecordmporter.parse(req.getFile().getInputStream());
+            parse = eclExecuteRecordImporter.parse(req.getFile().getInputStream());
         } catch (IOException e) {
             throw new MithrasException("文件解析异常");
         }
