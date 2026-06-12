@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.client;
+package cn.zswltech.mithras.blackgray.external;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

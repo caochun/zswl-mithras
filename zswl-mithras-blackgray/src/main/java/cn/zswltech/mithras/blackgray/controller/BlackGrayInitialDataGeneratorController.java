@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
  * <br/>created on 2022/7/20 14:31
  */
 @RestController
-public class BlackGrayInitialDataGeneratorTest {
+public class BlackGrayInitialDataGeneratorController {
 
 
     @Resource

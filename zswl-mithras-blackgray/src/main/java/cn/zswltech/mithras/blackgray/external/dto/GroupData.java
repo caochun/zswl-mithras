@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.client.dto;
+package cn.zswltech.mithras.blackgray.external.dto;
 
 import lombok.Data;
 

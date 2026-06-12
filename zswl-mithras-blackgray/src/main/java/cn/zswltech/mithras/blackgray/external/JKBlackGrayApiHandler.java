@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.blackgray.client;
+package cn.zswltech.mithras.blackgray.external;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.blackgray.client.dto.JKBaseRSP;
+import cn.zswltech.mithras.blackgray.external.dto.JKBaseRSP;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialRSPENUM;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
 import cn.zswltech.mithras.foundation.thirdparty.RequestModeEnum;

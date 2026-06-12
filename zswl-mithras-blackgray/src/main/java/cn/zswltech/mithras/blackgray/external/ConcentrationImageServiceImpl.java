@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.blackgray.client;
+package cn.zswltech.mithras.blackgray.external;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.blackgray.constant.ConcentrationConstans;
 import cn.zswltech.mithras.blackgray.service.RedisService;
-import cn.zswltech.mithras.blackgray.client.dto.GroupData;
-import cn.zswltech.mithras.blackgray.client.dto.ImageTableQry;
-import cn.zswltech.mithras.blackgray.client.dto.OuterGroupResponse;
+import cn.zswltech.mithras.blackgray.external.dto.GroupData;
+import cn.zswltech.mithras.blackgray.external.dto.ImageTableQry;
+import cn.zswltech.mithras.blackgray.external.dto.OuterGroupResponse;
 import cn.zswltech.mithras.blackgray.util.ConcentrationRemoteUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

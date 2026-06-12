@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.blackgray.util;
 
-import cn.zswltech.mithras.blackgray.client.HsAuthToken;
+import cn.zswltech.mithras.blackgray.external.HsAuthToken;
+
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

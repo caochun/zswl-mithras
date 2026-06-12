@@ -5,7 +5,8 @@ import cn.zswltech.mithras.blackgray.constant.PortraitRedisKeyConstants;
 import cn.zswltech.mithras.blackgray.dto.external.SearchEnterpriseDTO;
 import cn.zswltech.mithras.blackgray.service.PortraitService;
 import cn.zswltech.mithras.blackgray.service.RedisService;
-import cn.zswltech.mithras.blackgray.client.HsAuthToken;
+import cn.zswltech.mithras.blackgray.external.HsAuthToken;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.netty.util.concurrent.DefaultThreadFactory;

@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.blackgray.client;
+package cn.zswltech.mithras.blackgray.external;
 
 import cn.hutool.core.map.MapUtil;
-import cn.zswltech.mithras.blackgray.client.dto.JKBlackGrayCollisionLibraryREQ;
-import cn.zswltech.mithras.blackgray.client.dto.JKBlackGrayCollisionLibraryRSP;
+import cn.zswltech.mithras.blackgray.external.dto.JKBlackGrayCollisionLibraryREQ;
+import cn.zswltech.mithras.blackgray.external.dto.JKBlackGrayCollisionLibraryRSP;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Component;

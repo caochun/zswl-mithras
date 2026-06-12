@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.blackgray.client;
+package cn.zswltech.mithras.blackgray.external;
 
 import cn.zswltech.gruul.common.util.StringUtil;
 import cn.zswltech.mithras.blackgray.service.RedisService;
-import cn.zswltech.mithras.blackgray.client.dto.AccessToken;
+import cn.zswltech.mithras.blackgray.external.dto.AccessToken;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;

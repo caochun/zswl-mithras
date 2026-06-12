@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.client;
+package cn.zswltech.mithras.blackgray.external;
 
 
 import cn.zswltech.mithras.blackgray.constant.RelationRedisKey;
