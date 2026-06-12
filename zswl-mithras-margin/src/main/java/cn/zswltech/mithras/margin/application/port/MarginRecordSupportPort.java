@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.margin.application.port;
 
 import cn.zswltech.mithras.margin.application.port.model.MarginCollectionRecordInfo;
-import cn.zswltech.mithras.third.financialshare.application.dto.CQ2PaymentVO;
+import cn.zswltech.mithras.margin.application.port.model.MarginRefundPaymentInfo;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,7 +34,7 @@ public interface MarginRecordSupportPort {
 
     void contractSettle(Long contractId);
 
-    void pushMarginRefundPayments(Long contractId, List<CQ2PaymentVO> payments);
+    void pushMarginRefundPayments(Long contractId, List<MarginRefundPaymentInfo> payments);
 
     void withdrawBankFlow(Long recordId, String recordMainTable, Long amount);
 }

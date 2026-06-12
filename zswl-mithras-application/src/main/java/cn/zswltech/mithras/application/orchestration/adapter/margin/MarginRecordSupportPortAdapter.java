@@ -2,22 +2,29 @@ package cn.zswltech.mithras.application.orchestration.adapter.margin;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.collection.ListUtil;
+import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.date.DatePattern;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
+import cn.zswltech.gruul.common.util.UUIDUtil;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
+import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
+import cn.zswltech.mithras.foundation.constant.FinancialConstants;
 import cn.zswltech.mithras.margin.persistence.mapper.MarginRecordInfoMapper;
 import cn.zswltech.mithras.margin.application.port.MarginRecordSupportPort;
 import cn.zswltech.mithras.margin.application.port.model.MarginCollectionRecordInfo;
+import cn.zswltech.mithras.margin.application.port.model.MarginRefundPaymentInfo;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
@@ -26,6 +33,8 @@ import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonV
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonViewSubAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.foundation.enums.LeaseType;
+import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.application.orchestration.listener.collection.CollectionAddEventListener;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
@@ -35,6 +44,9 @@ import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2PaymentVO;
+import cn.zswltech.mithras.third.financialshare.enums.CQBusinessTypeENUM;
+import cn.zswltech.mithras.third.financialshare.enums.CQPaymentTypeENUM;
+import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
@@ -43,6 +55,7 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -56,6 +69,8 @@ public class MarginRecordSupportPortAdapter implements MarginRecordSupportPort {
     private CollectionRecordInfoMapper collectionRecordInfoMapper;
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
+    @Resource
+    private ClientMapper clientMapper;
     @Resource
     private FinancialManagerServiceImpl2 financialManagerServiceImpl2;
     @Resource
@@ -212,8 +227,19 @@ public class MarginRecordSupportPortAdapter implements MarginRecordSupportPort {
     }
 
     @Override
-    public void pushMarginRefundPayments(Long contractId, List<CQ2PaymentVO> payments) {
-        financialManagerServiceImpl2.cq2PaymentExec(collectionAddEventListener.getBizInfo(contractId), payments);
+    public void pushMarginRefundPayments(Long contractId, List<MarginRefundPaymentInfo> payments) {
+        ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(contractId);
+        if (ObjectUtil.isEmpty(contractBaseInfo)) {
+            return;
+        }
+        Client client = clientMapper.selectById(contractBaseInfo.getClientId());
+        if (ObjectUtil.isEmpty(client)) {
+            return;
+        }
+        List<CQ2PaymentVO> vos = payments.stream()
+                .map(payment -> buildPayment(contractBaseInfo, client, payment))
+                .collect(Collectors.toList());
+        financialManagerServiceImpl2.cq2PaymentExec(collectionAddEventListener.getBizInfo(contractId), vos);
     }
 
     @Override
@@ -247,6 +273,40 @@ public class MarginRecordSupportPortAdapter implements MarginRecordSupportPort {
         info.setCollectionInterest(collectionBaseInfo.getCollectionInterest());
         info.setCollectionPenaltyInterest(collectionBaseInfo.getCollectionPenaltyInterest());
         return info;
+    }
+
+    private CQ2PaymentVO buildPayment(ContractBaseInfo contractBaseInfo, Client client, MarginRefundPaymentInfo payment) {
+        String leaseTypeCode = null;
+        if (ProjectBizType.ZL.name().equals(contractBaseInfo.getBizType())) {
+            if (Objects.equals(contractBaseInfo.getLeaseType(), LeaseType.hui_zu.name())) {
+                leaseTypeCode = CQBusinessTypeENUM.SALE_AND_LEASEBACK.getCode();
+            } else if (Objects.equals(contractBaseInfo.getLeaseType(), LeaseType.zhi_zu.name())) {
+                leaseTypeCode = CQBusinessTypeENUM.FINANCE_LEASING.getCode();
+            }
+        }
+        CQ2PaymentVO vo = new CQ2PaymentVO();
+        vo.setCico_payzh_number(payment.getOurAccountNumber());
+        vo.setApplydate(payment.getCollectionDate().format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
+        vo.setCico_srcbillno(String.join("-", payment.getMarginCode(), UUIDUtil.genUuid()));
+        CQ2PaymentVO.CQ2PaymentVOEntry entry = vo.new CQ2PaymentVOEntry();
+        entry.setE_paymenttype_number(CQPaymentTypeENUM.FK05_004.getCode());
+        entry.setE_asstacttype(FinancialConstants.BD_SUPPLIER);
+        entry.setE_applyamount(LongUtil.tenThousand2Dollar(String.valueOf(LongUtil.null2zero(payment.getCollectionAmount()))));
+        entry.setE_asstact_name(client.getClientName());
+        entry.setCico_pay_bank_number_number(payment.getOurAccountNumber());
+        entry.setCico_pay_bank_name_name(payment.getOurAccountBank());
+        entry.setE_settlementtype_number(payment.getCollectionType());
+        entry.setE_asstact(client.getClientCode());
+        entry.setCico_businesstype_number(leaseTypeCode);
+        vo.setEntry(CollectionUtil.toList(entry));
+        vo.setCico_paynum_rby(payment.getBankDetailNo());
+        vo.setBilltype_number(FinancialConstants.AP_PAYAPPLY_BT_ZB);
+        vo.setApplycause(String.format("%s:%s,%s", id2NameService.deptId2NameSingle(contractBaseInfo.getBizDeptId()), client.getClientName(),
+                Optional.of(ProjectBizType.valueOf(contractBaseInfo.getBizType())).map(ProjectBizType::display).orElse(null)));
+        vo.setSource(ExceptionSourceENUM.BUSINESS_MARGIN.name());
+        vo.setBusinessKey(String.valueOf(payment.getMarginId()));
+        vo.setBusinessTitle(payment.getMarginCode());
+        return vo;
     }
 
     private MarginCollectionRecordInfo toInfo(CollectionRecordInfo recordInfo) {
