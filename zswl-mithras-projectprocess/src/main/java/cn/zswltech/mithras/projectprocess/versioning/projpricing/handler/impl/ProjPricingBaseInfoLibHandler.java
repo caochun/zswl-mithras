@@ -8,15 +8,13 @@ import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.projpricing.baseinfo.ProjPricingBaseInfoDetailRSP;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingInfoModule;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfoLib;
+import cn.zswltech.mithras.projectprocess.application.support.ProjectProcessDictionaryPort;
 import cn.zswltech.mithras.projectprocess.application.support.ProjectProcessNameResolver;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.handler.ProjPricingLibAbstractHandler;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -43,7 +41,7 @@ public class ProjPricingBaseInfoLibHandler
     private ProjectProcessNameResolver id2NameService;
 
     @Resource
-    private AddressDictionaryMapper addressDictionaryMapper;
+    private ProjectProcessDictionaryPort projectProcessDictionaryPort;
 
     @Override
     public Set<String> compareIgnoreFieldNames() {
@@ -205,8 +203,7 @@ public class ProjPricingBaseInfoLibHandler
         ProjectType of = ProjectType.of(f.getProjectType());
         rsp.setProjectType( of == null ? null :of.name());
         rsp.setId(f.getOriginId());
-        Map<String, String> nameMap = addressDictionaryMapper.selectList(Wrappers.<AddressDictionary>lambdaQuery().in(AddressDictionary::getCode, ListUtil.toList(rsp.getProvince(), rsp.getCity(), rsp.getDistrict())))
-                .stream().collect(Collectors.toMap(AddressDictionary::getCode, AddressDictionary::getDisplay, (a, b) -> a));
+        Map<String, String> nameMap = projectProcessDictionaryPort.addressCode2Display(ListUtil.toList(rsp.getProvince(), rsp.getCity(), rsp.getDistrict()));
         if(ObjectUtil.isNotEmpty(nameMap)){
             StringBuilder st = new StringBuilder();
             if(ObjectUtil.isNotNull(nameMap.get(rsp.getProvince()))){
