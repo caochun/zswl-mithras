@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.filingmaterials.email;
+package cn.zswltech.mithras.application.orchestration.email.filingmaterials;
 
 import cn.zswltech.mithras.dto.filingmaterials.FilingEmailDTO;
 import cn.zswltech.mithras.message.enums.EmailType;
