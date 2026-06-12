@@ -29,11 +29,6 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-customer</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>sleipnir-toolkit</artifactId>
             <version>1.1.7-SNAPSHOT</version>
         </dependency>

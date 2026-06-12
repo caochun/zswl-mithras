@@ -4,16 +4,12 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
-import cn.zswltech.mithras.customer.enums.RelationshipType;
-import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.model.client.IndustryType;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.third.tianyancha.application.dto.*;
+import cn.zswltech.mithras.third.tianyancha.application.port.TycIndustryTypePort;
 import cn.zswltech.mithras.third.tianyancha.client.resp.*;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
@@ -21,20 +17,23 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.text.CharSequenceUtil.split;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.zswltech.mithras.customer.enums.ShareholderType.*;
 
 /**
  * @author luyi
  */
 public class TycConvertor {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("([1-9]\\d*\\.?\\d*)|(0\\.\\d*[1-9])");
+    private static final String RELATIONSHIP_INVEST = "INVEST";
+    private static final String SHAREHOLDER_LEGAL_PERSON = "LEGAL_PERSON";
+    private static final String SHAREHOLDER_NORMAL_PERSON = "NORMAL_PERSON";
+    private static final String SHAREHOLDER_OTHER = "OTHER";
 
     private static Long toMithrasUnit(BigDecimal value) {
         if (value == null) {
@@ -177,65 +176,11 @@ public class TycConvertor {
     }
 
     private static String toIndustryCode(TycBaseInfo.IndustryAll industryAll) {
-        if(industryAll == null){
-            return null;
-        }
-        String code = null;
-        IndustryTypeMapper industryTypeMapper = SpringContextHolder.getBean(IndustryTypeMapper.class);
-        String category = industryAll.getCategory();
-        IndustryType industryType1 = industryTypeMapper.selectOne(Wrappers.<IndustryType>lambdaQuery().eq(IndustryType::getDisplay, category).eq(IndustryType::getLevel, 1));
-        if (null != industryType1) {
-            code = industryType1.getCode();
-            IndustryType industryType2 = industryTypeMapper.selectOne(Wrappers.<IndustryType>lambdaQuery().eq(IndustryType::getDisplay, industryAll.getCategoryBig()).eq(IndustryType::getParentId, industryType1.getId()));
-            if (null != industryType2) {
-                code = industryType2.getCode();
-                IndustryType industryType3 = industryTypeMapper.selectOne(Wrappers.<IndustryType>lambdaQuery().eq(IndustryType::getDisplay, industryAll.getCategoryMiddle()).eq(IndustryType::getParentId, industryType2.getId()));
-                if (null != industryType3) {
-                    code = industryType3.getCode();
-                    IndustryType industryType4 = industryTypeMapper.selectOne(Wrappers.<IndustryType>lambdaQuery().eq(IndustryType::getDisplay, industryAll.getCategorySmall()).eq(IndustryType::getParentId, industryType3.getId()));
-                    if (null != industryType4) {
-                        code = industryType4.getCode();
-                    }
-                }
-            }
-        }
-        return code;
+        return SpringContextHolder.getBean(TycIndustryTypePort.class).toIndustryCode(industryAll);
     }
 
     private static List<String> findAllParent(String industryType) {
-        if (StrUtil.isBlank(industryType)) {
-            return Collections.emptyList();
-        }
-        IndustryTypeMapper industryTypeMapper = SpringUtil.getBean(IndustryTypeMapper.class);
-        List<IndustryType> all = industryTypeMapper.selectList(Wrappers.lambdaQuery());
-        if (CollectionUtil.isEmpty(all)) {
-            return Collections.emptyList();
-        }
-        Deque<String> deque = new LinkedList<>();
-        IndustryType dbModel = null;
-        Map<Long, IndustryType> industryTypeMap = new HashMap<>(all.size() + all.size() / 2);
-        for (IndustryType it : all) {
-            if (Objects.equals(it.getCode(), industryType)) {
-                dbModel = it;
-            }
-            industryTypeMap.put(it.getId(), it);
-        }
-        if (Objects.isNull(dbModel)) {
-            return Collections.emptyList();
-        }
-        deque.offer(industryType);
-        // 寻找父节点
-        do {
-            dbModel = industryTypeMap.get(dbModel.getParentId());
-            if (Objects.nonNull(dbModel)) {
-                deque.offer(dbModel.getCode());
-            }
-        } while (Objects.nonNull(dbModel));
-        List<String> result = new LinkedList<>();
-        while (!deque.isEmpty()) {
-            result.add(deque.pollLast());
-        }
-        return result;
+        return SpringContextHolder.getBean(TycIndustryTypePort.class).findAllParentCodes(industryType);
     }
 
 
@@ -257,7 +202,7 @@ public class TycConvertor {
     }
 
     public static List<MithrasRelatedEnterpriseInfo> relatedEnterpriseInfo(JSONObject result) {
-        IndustryTypeMapper industryTypeMapper = SpringContextHolder.getBean(IndustryTypeMapper.class);
+        TycIndustryTypePort industryTypePort = SpringContextHolder.getBean(TycIndustryTypePort.class);
         List<MithrasRelatedEnterpriseInfo> list = new ArrayList<>();
         if (isNotNull(result)) {
             JSONArray items = result.getJSONArray("items");
@@ -265,7 +210,7 @@ public class TycConvertor {
                 JSONObject item = items.getJSONObject(i);
                 MithrasRelatedEnterpriseInfo info = new MithrasRelatedEnterpriseInfo();
                 info.setEnterpriseName(item.getStr("name"));
-                info.setRelationship(RelationshipType.INVEST.name());
+                info.setRelationship(RELATIONSHIP_INVEST);
 
                 //天眼查的单位是万元，所以扩大一万倍
                 BigDecimal amount = item.getBigDecimal("amount");
@@ -280,13 +225,10 @@ public class TycConvertor {
                 info.setShareholdingRatio(toMithrasUnit(returnBigDecimal(item.getStr("percent"))));
                 info.setContinuousStatus(continuousStatus(item.getStr("regStatus")));
                 info.setEstablishDate(Optional.ofNullable(item.getLong("estiblishTime")).map(LocalDateTimeUtil::of).map(LocalDateTime::toLocalDate).orElse(null));
-                List<IndustryType> category = industryTypeMapper.selectList(
-                        Wrappers.<IndustryType>lambdaQuery()
-                                .eq(IndustryType::getDisplay, item.getStr("category"))
-                );
                 info.setIndustryTypeName(item.getStr("category"));
-                if (isNotNull(category)) {
-                    info.setIndustryType(category.get(0).getCode());
+                String industryCode = industryTypePort.findIndustryCodeByDisplay(item.getStr("category"));
+                if (StringUtils.isNotBlank(industryCode)) {
+                    info.setIndustryType(industryCode);
                 }
                 list.add(info);
             }
@@ -305,7 +247,7 @@ public class TycConvertor {
                 info.setShareholderName(item.getStr("name"));
                 //
                 Integer type = item.getInt("type");
-                String shareholderType = equal(type, 1) ? LEGAL_PERSON.name() : equal(type, 2) ? NORMAL_PERSON.name() : OTHER.name();
+                String shareholderType = equal(type, 1) ? SHAREHOLDER_LEGAL_PERSON : equal(type, 2) ? SHAREHOLDER_NORMAL_PERSON : SHAREHOLDER_OTHER;
                 info.setShareholderType(shareholderType);
                 //实缴金额
                 JSONArray capitalActlJsonArray = item.getJSONArray("capitalActl");
@@ -364,4 +306,3 @@ public class TycConvertor {
         }).collect(Collectors.toList());
     }
 }
-
