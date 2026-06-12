@@ -1,6 +1,6 @@
 package cn.zswltech.mithras;
 
-import cn.zswltech.mithras.customer.application.app.VisitDownloadTask;
+import cn.zswltech.mithras.customer.mobile.application.VisitDownloadTask;
 import cn.zswltech.mithras.web.MithrasApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;

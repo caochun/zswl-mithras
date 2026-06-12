@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.app.application;
+package cn.zswltech.mithras.customer.mobile.application;
 
 import cn.zswltech.mithras.api.app.AppApi;
 

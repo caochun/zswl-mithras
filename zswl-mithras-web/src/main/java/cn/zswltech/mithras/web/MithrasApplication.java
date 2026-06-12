@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.third.externaldata.zhongdeng.mapper",
         "cn.zswltech.mithras.customer.hymx.mapper",
         "cn.zswltech.mithras.customer.infohistory.mapper",
+        "cn.zswltech.mithras.customer.mobile.mapper",
         "cn.zswltech.mithras.customer.sandrecord.mapper",
         "cn.zswltech.mithras.customer.userref.mapper",
         "cn.zswltech.mithras.customer.vwsync.mapper",
@@ -69,4 +70,3 @@ public class MithrasApplication {
     }
 
 }
-

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.afterlease.RentCollectionListREQ;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionListRSP;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.afterlease.enums.*;
-import cn.zswltech.mithras.customer.app.enums.AppCalendarEnum;
+import cn.zswltech.mithras.customer.mobile.enums.AppCalendarEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.afterlease.mapper.RentCollectionIndexMapper;

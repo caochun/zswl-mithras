@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.app.enums;
+package cn.zswltech.mithras.customer.mobile.enums;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
 import lombok.AllArgsConstructor;

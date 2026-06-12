@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.app.model;
+package cn.zswltech.mithras.customer.mobile.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;
