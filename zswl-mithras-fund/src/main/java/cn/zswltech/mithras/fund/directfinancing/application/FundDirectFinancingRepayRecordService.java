@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.directfinancing.application;
 
-import cn.zswltech.mithras.fund.model.FundDirectFinancingRepayRecord;
-import cn.zswltech.mithras.fund.mapper.FundDirectFinancingRepayRecordMapper;
+import cn.zswltech.mithras.fund.persistence.model.FundDirectFinancingRepayRecord;
+import cn.zswltech.mithras.fund.persistence.mapper.FundDirectFinancingRepayRecordMapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

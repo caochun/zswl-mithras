@@ -2,7 +2,7 @@ package cn.zswltech.mithras.fund.application.convert.financing;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailAddREQ;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailModifyREQ;
 import cn.zswltech.mithras.dto.fund.financing.fee.FundFinancingFeeDetailRSP;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingFeeDetail;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingFeeDetail;
 import org.mapstruct.Mapper;
 
 import java.util.List;

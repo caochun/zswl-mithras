@@ -5,8 +5,8 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPool
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingAssetPoolModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.fund.directfinancing.application.convert.FundDirectFinancingAssetPoolConverter;
-import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingAssetPool;
-import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingAssetPoolMapper;
+import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingAssetPool;
+import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingAssetPoolMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -9,10 +9,10 @@ import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundReceiptRepa
 import cn.zswltech.mithras.fund.application.receiptrepay.port.FundReceiptFlowDetailAmountPort;
 import cn.zswltech.mithras.fund.application.receiptrepay.port.FundReceiptRepayStateUpdatePort;
 import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayExpenseMapper;
-import cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayExpenseLibMapper;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayExpense;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayExpenseLib;
+import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayExpenseMapper;
+import cn.zswltech.mithras.fund.persistence.mapper.lib.receiptrepay.FundReceiptRepayExpenseLibMapper;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayExpense;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayExpenseLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

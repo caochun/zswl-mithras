@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.application.cashflow;
 
-import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingRepayActual;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayActual;
+import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingRepayActual;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingRepayActual;
 import lombok.Data;
 
 import java.time.LocalDate;

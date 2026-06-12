@@ -84,7 +84,7 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalDivisionE
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
 import cn.zswltech.mithras.riskcontrol.report.jzd.JzdReportCreateType;
 import cn.zswltech.mithras.riskcontrol.report.jzd.JzdReportStatus;
-import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
@@ -94,7 +94,7 @@ import cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowResultD
 import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
 import cn.zswltech.mithras.basedata.persistence.model.GeneralDictionary;
 import cn.zswltech.mithras.customer.model.client.IndustryType;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.system.application.select.AllSelectApplicationService;

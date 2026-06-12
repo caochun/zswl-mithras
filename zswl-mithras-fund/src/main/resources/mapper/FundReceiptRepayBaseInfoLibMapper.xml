@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayBaseInfoLibMapper">
+<mapper namespace="cn.zswltech.mithras.fund.persistence.mapper.lib.receiptrepay.FundReceiptRepayBaseInfoLibMapper">
 
     <select id="getLastestDirectLib"
-            resultType="cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfoLib">
+            resultType="cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfoLib">
         SELECT p.*
         FROM fund_receipt_repay_base_info_lib p
                  INNER JOIN (SELECT main_id AS id, MAX(version) AS version

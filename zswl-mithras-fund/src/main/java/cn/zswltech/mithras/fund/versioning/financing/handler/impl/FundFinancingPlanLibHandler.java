@@ -4,8 +4,8 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.fund.financing.plan.FundFinancingPlanDetailRSP;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingDetailConverter;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingLibModelEnum;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingPlan;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingPlanLib;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlanLib;
 import cn.zswltech.mithras.fund.versioning.financing.handler.FundFinancingAbstractLibHandler;
 import org.springframework.stereotype.Component;
 

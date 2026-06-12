@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.fund.mapper.lib.financing.FundFinancingPledgeInfoLibMapper">
+<mapper namespace="cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingPledgeInfoLibMapper">
 
     <select id="queryLastestVersionLibIdList" resultType="java.lang.Long">
         SELECT p.id FROM fund_financing_pledge_info_lib p
@@ -17,7 +17,7 @@
     </select>
 
     <select id="getLastestByContractId"
-            resultType="cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfoLib">
+            resultType="cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfoLib">
 
         SELECT p.*
         FROM fund_financing_pledge_info_lib p

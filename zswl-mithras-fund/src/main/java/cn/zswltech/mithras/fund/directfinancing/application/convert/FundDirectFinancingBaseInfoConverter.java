@@ -3,7 +3,7 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingBaseInfoA
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingBaseInfoListRSP;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingBaseInfoModifyREQ;
-import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
+import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
 import org.mapstruct.Mapper;
 
 /**

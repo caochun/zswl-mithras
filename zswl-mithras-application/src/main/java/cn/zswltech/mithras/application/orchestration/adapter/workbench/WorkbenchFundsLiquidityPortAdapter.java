@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.workbench;
 
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashFlow;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayCashFlowService;

@@ -12,10 +12,10 @@ import cn.zswltech.mithras.fund.application.organization.convert.FundOrganizatio
 import cn.zswltech.mithras.fund.application.financing.FundFinancingCreditRefService;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationInstitutionCodeSyncService;
 import cn.zswltech.mithras.fund.enums.OrganizationType;
-import cn.zswltech.mithras.fund.mapper.FundOrganizationMapper;
+import cn.zswltech.mithras.fund.persistence.mapper.FundOrganizationMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.fund.model.FundOrganization;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;
+import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

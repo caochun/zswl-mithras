@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.fund.mapper.financing.FundFinancingPlanMapper">
+<mapper namespace="cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingPlanMapper">
 
     <sql id="allColumns">
         ffp.id, ffp.financing_id, ffp.financing_amount, ffp.interest_amount, ffp.financing_month, ffp.service_charge_amount,
@@ -10,7 +10,7 @@
         ffp.lpr_arrange_mode, ffp.lpr_adjustment_day, ffp.comprehensive_interest_rate_current, ffp.guarantee_info,
         ffp.ftp_yield_rate
     </sql>
-    <select id="queryEffectFloatPlan" resultType="cn.zswltech.mithras.fund.model.financing.FundFinancingPlan">
+    <select id="queryEffectFloatPlan" resultType="cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan">
         SELECT
         <include refid="allColumns"/>
         FROM fund_financing_plan ffp

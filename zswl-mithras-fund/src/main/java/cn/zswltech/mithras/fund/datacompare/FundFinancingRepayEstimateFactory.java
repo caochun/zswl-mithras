@@ -2,9 +2,9 @@ package cn.zswltech.mithras.fund.datacompare;
 
 import cn.zswltech.mithras.dto.fund.financing.repay.FundFinancingRepayEstimateListRSP;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
-import cn.zswltech.mithras.fund.mapper.lib.financing.FundFinancingRepayEstimateLibMapper;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayEstimate;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayEstimateLib;
+import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingRepayEstimateLibMapper;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingRepayEstimate;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingRepayEstimateLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;

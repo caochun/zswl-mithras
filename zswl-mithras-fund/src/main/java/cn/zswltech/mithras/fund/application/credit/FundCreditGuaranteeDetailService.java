@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.fund.application.credit;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.zswltech.mithras.fund.mapper.FundCreditGuaranteeDetailMapper;
-import cn.zswltech.mithras.fund.model.FundCreditGuaranteeDetail;
+import cn.zswltech.mithras.fund.persistence.mapper.FundCreditGuaranteeDetailMapper;
+import cn.zswltech.mithras.fund.persistence.model.FundCreditGuaranteeDetail;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

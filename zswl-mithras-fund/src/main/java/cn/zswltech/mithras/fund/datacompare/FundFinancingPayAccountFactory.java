@@ -2,9 +2,9 @@ package cn.zswltech.mithras.fund.datacompare;
 
 import cn.zswltech.mithras.dto.fund.financing.payaccount.FundFinancingPayAccountListRSP;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
-import cn.zswltech.mithras.fund.mapper.lib.financing.FundFinancingPayAccountLibMapper;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingPayAccount;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingPayAccountLib;
+import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingPayAccountLibMapper;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPayAccount;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPayAccountLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;

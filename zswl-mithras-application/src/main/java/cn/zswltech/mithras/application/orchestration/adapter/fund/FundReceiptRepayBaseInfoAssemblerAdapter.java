@@ -6,9 +6,9 @@ import cn.zswltech.mithras.dto.fund.financing.baseinfo.FundFinancingBaseInfoDeta
 import cn.zswltech.mithras.dto.fund.financing.plan.FundFinancingPlanDetailRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBaseInfoDetailRSP;
 import cn.zswltech.mithras.fund.versioning.receiptrepay.FundReceiptRepayBaseInfoAssembler;
-import cn.zswltech.mithras.fund.model.FundOrganization;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfoLib;
+import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfoLib;
 import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundReceiptRepayConverter;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;

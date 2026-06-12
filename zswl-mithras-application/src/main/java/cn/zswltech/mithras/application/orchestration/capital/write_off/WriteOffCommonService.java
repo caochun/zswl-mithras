@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.capital.write_off;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
-import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPledgeInfoMapper;
+import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingPledgeInfoMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;

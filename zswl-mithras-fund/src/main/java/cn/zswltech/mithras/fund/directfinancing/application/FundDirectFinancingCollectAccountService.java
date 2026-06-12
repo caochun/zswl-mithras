@@ -7,8 +7,8 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingCollectAc
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingCollectAccountModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.fund.directfinancing.application.convert.FundDirectFinancingCollectAccountConverter;
-import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingCollectAccount;
-import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingCollectAccountMapper;
+import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingCollectAccount;
+import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingCollectAccountMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

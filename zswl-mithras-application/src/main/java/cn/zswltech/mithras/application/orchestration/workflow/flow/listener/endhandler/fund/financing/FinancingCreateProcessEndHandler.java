@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingProcessStatus;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.credit.creditlimit.service.bo.CreditLimitReleaseBO;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;

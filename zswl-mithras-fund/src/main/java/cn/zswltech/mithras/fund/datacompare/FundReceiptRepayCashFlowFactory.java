@@ -2,9 +2,9 @@ package cn.zswltech.mithras.fund.datacompare;
 
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayCashFlowListRSP;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
-import cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayCashFlowLibMapper;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashFlow;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayCashFlowLib;
+import cn.zswltech.mithras.fund.persistence.mapper.lib.receiptrepay.FundReceiptRepayCashFlowLibMapper;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayCashFlow;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayCashFlowLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;

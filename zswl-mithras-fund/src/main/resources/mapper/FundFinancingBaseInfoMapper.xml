@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.fund.mapper.financing.FundFinancingBaseInfoMapper">
+<mapper namespace="cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingBaseInfoMapper">
 
     <select id="unionSelectAllPlan" resultType="cn.zswltech.mithras.dto.capital.UnionSelectAllPlanDTO"
     parameterType="cn.zswltech.mithras.dto.capital.BusinessFlowFinanceListREQ">

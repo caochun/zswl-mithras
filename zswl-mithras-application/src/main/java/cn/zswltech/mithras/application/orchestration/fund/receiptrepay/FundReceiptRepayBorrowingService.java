@@ -7,10 +7,10 @@ import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBorrowingListRS
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBorrowingModifyREQ;
 import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundReceiptRepayBorrowingConverter;
 import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.fund.mapper.receiptrepay.FundReceiptRepayBorrowingMapper;
-import cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayBorrowingLibMapper;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBorrowing;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBorrowingLib;
+import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayBorrowingMapper;
+import cn.zswltech.mithras.fund.persistence.mapper.lib.receiptrepay.FundReceiptRepayBorrowingLibMapper;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBorrowing;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBorrowingLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

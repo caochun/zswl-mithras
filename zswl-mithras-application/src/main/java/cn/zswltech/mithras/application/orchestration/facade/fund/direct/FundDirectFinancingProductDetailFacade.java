@@ -8,8 +8,8 @@ import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinan
 import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingSubModifyAuthChecker;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingProductDetail;
-import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingProductDetailMapper;
+import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingProductDetail;
+import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingProductDetailMapper;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingProductDetailService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

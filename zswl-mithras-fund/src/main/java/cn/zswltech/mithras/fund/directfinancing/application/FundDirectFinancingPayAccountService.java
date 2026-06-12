@@ -8,8 +8,8 @@ import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccoun
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingPayAccountModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.fund.directfinancing.application.convert.FundDirectFinancingPayAccountConverter;
-import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPayAccount;
-import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingPayAccountMapper;
+import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingPayAccount;
+import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingPayAccountMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

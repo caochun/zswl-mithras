@@ -7,7 +7,7 @@ import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingSubModifyAuthChecker;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingFeeDetailMapper;
+import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingFeeDetailMapper;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingFeeDetailService;
 import org.springframework.stereotype.Service;
 

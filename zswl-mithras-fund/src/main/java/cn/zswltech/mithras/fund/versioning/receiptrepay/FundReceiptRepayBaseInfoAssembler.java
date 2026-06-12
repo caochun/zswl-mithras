@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.fund.versioning.receiptrepay;
 
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBaseInfoDetailRSP;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfoLib;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfoLib;
 
 public interface FundReceiptRepayBaseInfoAssembler {
 

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.versioning.receiptrepay;
 
-import cn.zswltech.mithras.fund.mapper.lib.receiptrepay.FundReceiptRepayBorrowingLibMapper;
-import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBorrowingLib;
+import cn.zswltech.mithras.fund.persistence.mapper.lib.receiptrepay.FundReceiptRepayBorrowingLibMapper;
+import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBorrowingLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

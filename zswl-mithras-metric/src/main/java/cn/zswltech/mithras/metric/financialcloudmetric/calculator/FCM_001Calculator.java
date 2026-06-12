@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingTimeLimitTypeEnum;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

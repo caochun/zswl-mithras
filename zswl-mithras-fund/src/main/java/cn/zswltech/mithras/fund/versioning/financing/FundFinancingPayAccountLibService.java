@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.versioning.financing;
 
-import cn.zswltech.mithras.fund.mapper.lib.financing.FundFinancingPayAccountLibMapper;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingPayAccountLib;
+import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingPayAccountLibMapper;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPayAccountLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;

@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.fund.mapper.FundFinancingCollectRecordMapper">
+<mapper namespace="cn.zswltech.mithras.fund.persistence.mapper.FundFinancingCollectRecordMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.fund.model.FundFinancingCollectRecord">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.fund.persistence.model.FundFinancingCollectRecord">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="cashFlowItem" column="cash_flow_item" jdbcType="VARCHAR"/>
             <result property="collectionAmount" column="collection_amount" jdbcType="BIGINT"/>

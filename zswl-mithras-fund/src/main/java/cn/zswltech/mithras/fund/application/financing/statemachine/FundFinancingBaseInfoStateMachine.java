@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.fund.application.financing.statemachine;
 
-import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import org.springframework.stereotype.Service;
 
 /**

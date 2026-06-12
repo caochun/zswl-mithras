@@ -6,10 +6,10 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.fund.financing.FundFinancingListRSP;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingPlan;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;
+import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
 
 import java.util.List;
 import java.util.Objects;

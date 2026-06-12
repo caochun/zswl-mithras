@@ -3,7 +3,7 @@ package cn.zswltech.mithras.fund.directfinancing.application.convert;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingProductDetailAddREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingProductDetailModifyREQ;
 import cn.zswltech.mithras.dto.fund.directfinancing.FundDirectFinancingProductDetailRSP;
-import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingProductDetail;
+import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingProductDetail;
 import cn.zswltech.mithras.fund.directfinancing.excel.directfinancing.FundDirectFinancingProductDetailExcelModel;
 import org.mapstruct.Mapper;
 

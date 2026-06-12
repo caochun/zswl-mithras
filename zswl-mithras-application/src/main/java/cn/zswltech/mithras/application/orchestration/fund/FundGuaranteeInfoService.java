@@ -11,11 +11,11 @@ import cn.zswltech.mithras.fund.application.credit.convert.FundGuaranteeInfoConv
 import cn.zswltech.mithras.document.enums.SpecialFileBusinessType;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.fund.application.credit.FundCreditGuaranteeDetailService;
-import cn.zswltech.mithras.fund.mapper.FundGuaranteeInfoMapper;
+import cn.zswltech.mithras.fund.persistence.mapper.FundGuaranteeInfoMapper;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
-import cn.zswltech.mithras.fund.model.FundCredit;
-import cn.zswltech.mithras.fund.model.FundGuaranteeAgency;
-import cn.zswltech.mithras.fund.model.FundGuaranteeInfo;
+import cn.zswltech.mithras.fund.persistence.model.FundCredit;
+import cn.zswltech.mithras.fund.persistence.model.FundGuaranteeAgency;
+import cn.zswltech.mithras.fund.persistence.model.FundGuaranteeInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.credit.creditlimit.service.bo.CreditLimitDetailBO;
