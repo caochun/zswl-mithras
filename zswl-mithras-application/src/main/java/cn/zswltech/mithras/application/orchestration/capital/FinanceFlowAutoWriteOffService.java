@@ -10,7 +10,10 @@ import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
+import cn.zswltech.gruul.common.util.UUIDUtil;
 import cn.zswltech.gruul.biz.service.SystemConfigService;
+import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
+import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.common.ResultCode;
 import cn.zswltech.mithras.dto.capital.*;
@@ -20,6 +23,7 @@ import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.foundation.constant.FinancialConstants;
 import cn.zswltech.mithras.capital.enums.BankFlowPaymentCollectionTypeEnum;
 import cn.zswltech.mithras.capital.enums.BankFlowWriteOffTypeEnum;
 import cn.zswltech.mithras.capital.enums.CollectionWriteOffOrderEnum;
@@ -39,6 +43,9 @@ import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.payment.enums.*;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.third.financialshare.enums.CQCollectionTypeENUM;
+import cn.zswltech.mithras.third.financialshare.enums.CQBusinessTypeENUM;
+import cn.zswltech.mithras.third.financialshare.enums.CQPaymentTypeENUM;
+import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingFeeDetail;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.*;
@@ -73,6 +80,7 @@ import cn.zswltech.mithras.application.orchestration.capital.write_off.model.Fin
 import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.FundCreditService;
+import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingFeeDetailService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPlanService;
@@ -167,6 +175,14 @@ public class FinanceFlowAutoWriteOffService {
     private WarrantyRecordService warrantyRecordService;
     @Resource
     private WarrantyBaseInfoService warrantyBaseInfoService;
+    @Resource
+    private ContractBaseInfoService contractBaseInfoService;
+    @Resource
+    private ClientMapper clientMapper;
+    @Resource
+    private OrgDOMapper orgDOMapper;
+    @Resource
+    private Id2NameService id2NameService;
 
 
     @Transactional(rollbackFor = Throwable.class)
@@ -622,7 +638,7 @@ public class FinanceFlowAutoWriteOffService {
                     {
                         WarrantyRecordInfo warrantyRecordInfo = warrantyRecordService.getById(warrantyRecordId);
                         WarrantyBaseInfo warrantyBaseInfo = warrantyBaseInfoService.getById(warrantyRecordInfo.getWarrantyId());
-                        CQ2PaymentVO cq2PaymentVO = warrantyRecordService.buildPayment(warrantyBaseInfo, warrantyRecordInfo);
+                        CQ2PaymentVO cq2PaymentVO = buildWarrantyPayment(warrantyBaseInfo, warrantyRecordInfo);
                         if (ObjectUtil.isNotEmpty(cq2PaymentVO)) {
                             cq2PaymentVOWarrantyS.add(cq2PaymentVO);
                         }
@@ -701,6 +717,50 @@ public class FinanceFlowAutoWriteOffService {
         CQ2PaymentVO.CQ2PaymentVOEntry cq2CollectionVOBody = BeanUtil.copyProperties(entry.get(0), CQ2PaymentVO.CQ2PaymentVOEntry.class);
         cq2CollectionVOBody.setE_applyamount(LongUtil.tenThousand2Dollar(String.valueOf(LongUtil.null2zero(flowRecord.getSurplusAmount()))));
         entry.add(cq2CollectionVOBody);
+    }
+
+    private CQ2PaymentVO buildWarrantyPayment(WarrantyBaseInfo baseInfo, WarrantyRecordInfo detail) {
+        ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(baseInfo.getContractId());
+        if (ObjectUtil.isEmpty(contractBaseInfo)) {
+            return null;
+        }
+        Client client = clientMapper.selectById(contractBaseInfo.getClientId());
+        if (ObjectUtil.isEmpty(client)) {
+            return null;
+        }
+        String leaseTypeCode = null;
+        if (ProjectBizType.ZL.name().equals(contractBaseInfo.getBizType())) {
+            if (Objects.equals(contractBaseInfo.getLeaseType(), LeaseType.hui_zu.name())) {
+                leaseTypeCode = CQBusinessTypeENUM.SALE_AND_LEASEBACK.getCode();
+            } else if (Objects.equals(contractBaseInfo.getLeaseType(), LeaseType.zhi_zu.name())) {
+                leaseTypeCode = CQBusinessTypeENUM.FINANCE_LEASING.getCode();
+            }
+        }
+        CQ2PaymentVO vo = new CQ2PaymentVO();
+        vo.setCico_payzh_number(detail.getOurAccountNumber());
+        OrgDO orgDO = orgDOMapper.selectByPrimaryKey(contractBaseInfo.getBizDeptId());
+        vo.setCico_dept_number(ObjectUtil.isNull(orgDO) ? null : String.valueOf(orgDO.getMainOrgId()));
+        vo.setApplydate(detail.getCollectionDate().format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
+        vo.setCico_srcbillno(String.join("-", baseInfo.getWarrantyCode(), UUIDUtil.genUuid()));
+        CQ2PaymentVO.CQ2PaymentVOEntry entry = vo.new CQ2PaymentVOEntry();
+        entry.setE_paymenttype_number(CQPaymentTypeENUM.FK05_006.getCode());
+        entry.setE_asstacttype(FinancialConstants.BD_SUPPLIER);
+        entry.setE_applyamount(LongUtil.tenThousand2Dollar(String.valueOf(LongUtil.null2zero(detail.getCollectionAmount()))));
+        entry.setE_asstact_name(client.getClientName());
+        entry.setCico_pay_bank_number_number(detail.getOurAccountNumber());
+        entry.setCico_pay_bank_name_name(detail.getOurAccountBank());
+        entry.setE_settlementtype_number(detail.getCollectionType());
+        entry.setE_asstact(client.getClientCode());
+        entry.setCico_businesstype_number(leaseTypeCode);
+        vo.setEntry(CollectionUtil.toList(entry));
+        vo.setCico_paynum_rby(detail.getBankDetailNo());
+        vo.setBilltype_number(FinancialConstants.AP_PAYAPPLY_BT_ZB);
+        vo.setApplycause(String.format("%s:%s,%s", id2NameService.deptId2NameSingle(contractBaseInfo.getBizDeptId()), client.getClientName(),
+                Optional.of(ProjectBizType.valueOf(contractBaseInfo.getBizType())).map(ProjectBizType::display).orElse(null)));
+        vo.setSource(ExceptionSourceENUM.BUSINESS_WARRANTY.name());
+        vo.setBusinessKey(String.valueOf(baseInfo.getId()));
+        vo.setBusinessTitle(baseInfo.getWarrantyCode());
+        return vo;
     }
 
     //补充未核销完毕的金额
