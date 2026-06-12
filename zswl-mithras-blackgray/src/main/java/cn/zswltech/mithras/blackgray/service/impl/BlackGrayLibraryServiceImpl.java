@@ -20,6 +20,7 @@ import cn.zswltech.mithras.blackgray.dto.external.AssociatedEnterpriseSearchREQ;
 import cn.zswltech.mithras.blackgray.dto.external.AssociatedEnterpriseSearchRSP;
 import cn.zswltech.mithras.blackgray.dto.req.*;
 import cn.zswltech.mithras.blackgray.dto.rsp.*;
+import cn.zswltech.mithras.blackgray.constant.BlackGrayOrgConstants;
 import cn.zswltech.mithras.blackgray.enums.AuditStatusEnum;
 import cn.zswltech.mithras.blackgray.enums.BlackGrayBusinessTypeEnum;
 import cn.zswltech.mithras.blackgray.enums.BlackGraySourceEnum;
@@ -849,7 +850,7 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
         List<BlackGrayLibrary> blackGrayLibraryList = blackGrayLibraryMapper.selectByExample(example);
         if (ObjectUtil.isNotEmpty(blackGrayLibraryList)) {
             blackGrayLibraryList.forEach(bean -> {
-                if (bean.getApplyOrganization().equals(blackGrayLibrary.getApplyOrganization()) || (!SystemSupportService.ZSJK_CODE.equals(blackGrayLibrary.getApplyOrganization()) && SystemSupportService.ZSJK_CODE.equals(blackGrayLibrary.getApplyOrganization()))) {
+                if (bean.getApplyOrganization().equals(blackGrayLibrary.getApplyOrganization()) || (!BlackGrayOrgConstants.ZSJK_CODE.equals(blackGrayLibrary.getApplyOrganization()) && BlackGrayOrgConstants.ZSJK_CODE.equals(blackGrayLibrary.getApplyOrganization()))) {
                     //出自己企业 金融企业出金控
                     blackGrayLibrary.setId(bean.getId());
                     blackGrayLibrary.setStockStatus(1);
@@ -1274,7 +1275,7 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
                 BlackGrayWarehouseRuleConfig blackGrayWarehouseRuleConfig = stringBlackGrayWarehouseRuleConfigMap.get(num);
                 if (ObjectUtil.isNotEmpty(blackGrayWarehouseRuleConfig) && ObjectUtil.isNotEmpty(blackGrayWarehouseRuleConfig.getSuitOrg())) {
                     List<String> orgs = JSONUtil.toList(blackGrayWarehouseRuleConfig.getSuitOrg(), String.class);
-                    if (orgs.contains(SystemSupportService.ZSJK_CODE)) {
+                    if (orgs.contains(BlackGrayOrgConstants.ZSJK_CODE)) {
                         blackGrayLibrary.setShareType(1);
                         return;
                     }

@@ -25,7 +25,7 @@ import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseTask;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseTaskService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
 import cn.zswltech.mithras.blackgray.service.RedisService;
-import cn.zswltech.mithras.blackgray.util.StringUtils;
+import cn.zswltech.mithras.blackgray.persistence.support.SqlLimit;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
@@ -150,7 +150,7 @@ public class BlackGrayWarehouseTaskServiceImpl implements BlackGrayWarehouseTask
         BlackGrayWarehouseTask blackGrayWarehouseTask = blackGrayWarehouseTaskMapper.selectOne(Wrappers.<BlackGrayWarehouseTask>lambdaQuery()
                 .between(BlackGrayWarehouseTask::getGmtCreate, LocalDate.now().atStartOfDay(), LocalDate.now().plusDays(1).atStartOfDay())
                 .orderByDesc(BlackGrayWarehouseTask::getTaskNumSequence)
-                .last(StringUtils.mysqlLimitOne()));
+                .last(SqlLimit.one()));
         String oldTaskNum = blackGrayWarehouseTask == null ? null : blackGrayWarehouseTask.getTaskNumSequence();
         String taskNum;
         String taskNumSequence;

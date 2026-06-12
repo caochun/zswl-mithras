@@ -14,7 +14,7 @@ import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayWarehouseRuleCo
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseRuleConfig;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService;
 import cn.zswltech.mithras.blackgray.service.RedisService;
-import cn.zswltech.mithras.blackgray.util.StringUtils;
+import cn.zswltech.mithras.blackgray.persistence.support.SqlLimit;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
@@ -162,7 +162,7 @@ public class BlackGrayWarehouseRuleConfigServiceImpl implements BlackGrayWarehou
                 .eq(BlackGrayWarehouseRuleConfig::getSource, info.getSource())
                 .eq(BlackGrayWarehouseRuleConfig::getBlackGrayType, info.getBlackGrayType())
                 .orderByDesc(BlackGrayWarehouseRuleConfig::getRuleSequence)
-                .last(StringUtils.mysqlLimitOne()));
+                .last(SqlLimit.one()));
         Integer ruleSequence = record == null ? 0 : record.getRuleSequence();
         ++ruleSequence;
         String ruleNum = String.format("%s%s%s%06d", info.getSource().charAt(0), info.getBlackGrayType().charAt(0), LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")), ruleSequence);

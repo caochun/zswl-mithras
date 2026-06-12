@@ -29,7 +29,7 @@ import cn.zswltech.mithras.blackgray.service.BlackGrayExternalDataService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRecordService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
-import cn.zswltech.mithras.blackgray.util.StringUtils;
+import cn.zswltech.mithras.blackgray.persistence.support.SqlLimit;
 import cn.zswltech.mithras.blackgray.vo.BlackGrayApplyReasonVo;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
@@ -530,7 +530,7 @@ public class BlackGrayWarehouseRecordServiceImpl implements BlackGrayWarehouseRe
         BlackGrayWarehouseRuleConfig blackGrayWarehouseRuleConfig = blackGrayWarehouseRuleConfigMapper.selectOne(Wrappers.<BlackGrayWarehouseRuleConfig>lambdaQuery()
                 .eq(BlackGrayWarehouseRuleConfig::getStatus, 1)
                 .eq(BlackGrayWarehouseRuleConfig::getRuleNumber, applyReasonCode)
-                .last(StringUtils.mysqlLimitOne()));
+                .last(SqlLimit.one()));
         return blackGrayWarehouseRuleConfig ;
     }
 
@@ -542,7 +542,7 @@ public class BlackGrayWarehouseRecordServiceImpl implements BlackGrayWarehouseRe
         BlackGrayWarehouseRuleConfig blackGrayWarehouseRuleConfig = blackGrayWarehouseRuleConfigMapper.selectOne(Wrappers.<BlackGrayWarehouseRuleConfig>lambdaQuery()
                 .eq(BlackGrayWarehouseRuleConfig::getStatus, 1)
                 .eq(BlackGrayWarehouseRuleConfig::getRuleNumber, applyReasonCode)
-                .last(StringUtils.mysqlLimitOne()));
+                .last(SqlLimit.one()));
         return blackGrayWarehouseRuleConfig == null ? null : blackGrayWarehouseRuleConfig.getRuleName();
 
     }
