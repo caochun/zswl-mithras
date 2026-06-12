@@ -44,7 +44,7 @@ import cn.zswltech.mithras.dto.utils.CashFlowGenerationIrrREQ;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.afterlease.enums.RentCollectionIndexFilterConditionType;
 import cn.zswltech.mithras.payment.enums.app.AppPaymentStatus;
-import cn.zswltech.mithras.projectprocess.enums.app.AppProjStageStatus;
+import cn.zswltech.mithras.projectprocess.enums.mobile.AppProjStageStatus;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.PayType;

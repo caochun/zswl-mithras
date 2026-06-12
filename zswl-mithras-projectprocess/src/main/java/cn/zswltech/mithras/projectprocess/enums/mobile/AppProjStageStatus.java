@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.enums.app;
+package cn.zswltech.mithras.projectprocess.enums.mobile;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
 

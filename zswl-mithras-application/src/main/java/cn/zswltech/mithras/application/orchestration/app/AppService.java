@@ -41,7 +41,7 @@ import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.projectprocess.enums.app.*;
+import cn.zswltech.mithras.projectprocess.enums.mobile.*;
 import cn.zswltech.mithras.customer.enums.client.DomesticOrAbroad;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;

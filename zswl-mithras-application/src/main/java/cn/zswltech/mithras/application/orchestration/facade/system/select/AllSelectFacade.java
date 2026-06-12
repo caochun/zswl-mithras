@@ -52,7 +52,7 @@ import cn.zswltech.mithras.application.orchestration.metadata.enumscan.PullDownE
 import cn.zswltech.mithras.ftp.convert.CommonConvert;
 import cn.zswltech.mithras.application.orchestration.enums.*;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckStatusEnum;
-import cn.zswltech.mithras.projectprocess.enums.app.*;
+import cn.zswltech.mithras.projectprocess.enums.mobile.*;
 import cn.zswltech.mithras.associationreport.enums.*;
 import cn.zswltech.mithras.customer.enums.client.*;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;

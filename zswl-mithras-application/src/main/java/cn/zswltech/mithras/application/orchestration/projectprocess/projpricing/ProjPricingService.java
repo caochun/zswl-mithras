@@ -39,7 +39,7 @@ import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.impl.ProjPricingVersionServiceImpl;
 import cn.zswltech.mithras.foundation.state.ProjContext;
 import cn.zswltech.mithras.foundation.state.ProjEvent;
-import cn.zswltech.mithras.projectprocess.application.projfms.impl.ProjPricingStateMachine;
+import cn.zswltech.mithras.projectprocess.application.statemachine.ProjPricingStateMachine;
 import cn.zswltech.mithras.projectprocess.projlifecycle.application.ProjectLifecycleEventService;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

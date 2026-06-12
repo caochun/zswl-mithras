@@ -20,7 +20,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.workflow.flow.convert.FlowProcessConvert;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.afterlease.enums.ClientRole;
-import cn.zswltech.mithras.projectprocess.enums.app.AppProjStageStatus;
+import cn.zswltech.mithras.projectprocess.enums.mobile.AppProjStageStatus;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projreview.*;
