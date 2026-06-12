@@ -14,7 +14,7 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.model.FlowQueryExtra;
 import cn.zswltech.mithras.workflow.model.BizProcessData;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.workflow.flow.port.WorkflowNameQueryPort;
 import cn.zswltech.mithras.workflow.mapper.FlowQueryExtraMapper;
 import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -47,7 +47,7 @@ import java.util.stream.Stream;
 public class FlowTaskConvert {
 
     @Resource
-    private Id2NameService id2NameService;
+    private WorkflowNameQueryPort workflowNameQueryPort;
     @Resource
     private BizProcessDataService bizProcessDataService;
     @Resource
@@ -142,13 +142,13 @@ public class FlowTaskConvert {
         }
         // 部门列表
         Set<Long> deptIdSet = rspList.stream().map(TaskListRSP::getStartUserDeptId).filter(Objects::nonNull).collect(Collectors.toSet());
-        Map<Long, String> deptNameMap = id2NameService.deptId2Name(deptIdSet);
+        Map<Long, String> deptNameMap = workflowNameQueryPort.deptId2Name(deptIdSet);
         // 填充客户id
         Map<String, Long> clientProcessIdMap = bizProcessDataService.getBaseMapper().selectList(Wrappers.<BizProcessData>lambdaQuery()
                         .in(BizProcessData::getProcessInstanceId, rspList.stream().map(TaskListRSP::getProcessInstanceId).collect(Collectors.toSet())))
                 .stream().filter(b -> Objects.nonNull(b.getClientId()))
                 .collect(Collectors.toMap(BizProcessData::getProcessInstanceId, BizProcessData::getClientId, (k1, k2) -> k1));
-        Map<Long, String> clientNameMap = id2NameService.clientId2Name(clientProcessIdMap.values());
+        Map<Long, String> clientNameMap = workflowNameQueryPort.clientId2Name(clientProcessIdMap.values());
 
 
         // 人列表
@@ -163,7 +163,7 @@ public class FlowTaskConvert {
                 .flatMap(Collection::stream)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(userIdSet);
+        Map<Long, String> userNameMap = workflowNameQueryPort.sysUserId2Name(userIdSet);
         //extra表字段
         List<String> instanceIdList = rspList.stream().map(TaskListRSP::getProcessInstanceId).collect(Collectors.toList());
         List<FlowQueryExtra> extraList = flowQueryExtraMapper.selectList(Wrappers.<FlowQueryExtra>lambdaQuery().in(FlowQueryExtra::getInstanceId, instanceIdList));
@@ -192,13 +192,13 @@ public class FlowTaskConvert {
         }
         // 部门列表
         Set<Long> deptIdSet = rspList.stream().map(TaskListRSP::getStartUserDeptId).filter(Objects::nonNull).collect(Collectors.toSet());
-        Map<Long, String> deptNameMap = id2NameService.deptId2Name(deptIdSet);
+        Map<Long, String> deptNameMap = workflowNameQueryPort.deptId2Name(deptIdSet);
         // 填充客户id
         Map<String, Long> clientProcessIdMap = bizProcessDataService.getBaseMapper().selectList(Wrappers.<BizProcessData>lambdaQuery()
                         .in(BizProcessData::getProcessInstanceId, rspList.stream().map(BackToStepTaskListRSP::getProcessInstanceId).collect(Collectors.toSet())))
                 .stream().filter(b -> Objects.nonNull(b.getClientId()))
                 .collect(Collectors.toMap(BizProcessData::getProcessInstanceId, BizProcessData::getClientId, (k1, k2) -> k1));
-        Map<Long, String> clientNameMap = id2NameService.clientId2Name(clientProcessIdMap.values());
+        Map<Long, String> clientNameMap = workflowNameQueryPort.clientId2Name(clientProcessIdMap.values());
 
 
         // 人列表
@@ -214,7 +214,7 @@ public class FlowTaskConvert {
                 .flatMap(Collection::stream)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(userIdSet);
+        Map<Long, String> userNameMap = workflowNameQueryPort.sysUserId2Name(userIdSet);
 
         //extra表字段
         List<String> instanceIdList = rspList.stream().map(TaskListRSP::getProcessInstanceId).collect(Collectors.toList());
@@ -245,16 +245,16 @@ public class FlowTaskConvert {
         }
         // 部门列表
         Set<Long> deptIdSet = rspList.stream().map(TaskListRSP::getStartUserDeptId).filter(Objects::nonNull).collect(Collectors.toSet());
-        Map<Long, String> deptNameMap = id2NameService.deptId2Name(deptIdSet);
+        Map<Long, String> deptNameMap = workflowNameQueryPort.deptId2Name(deptIdSet);
         // 填充客户id
         Map<String, Long> clientProcessIdMap = bizProcessDataService.getBaseMapper().selectList(Wrappers.<BizProcessData>lambdaQuery()
                         .in(BizProcessData::getProcessInstanceId, rspList.stream().map(ReceiveTaskListRSP::getProcessInstanceId).collect(Collectors.toSet())))
                 .stream().filter(b -> Objects.nonNull(b.getClientId()))
                 .collect(Collectors.toMap(BizProcessData::getProcessInstanceId, BizProcessData::getClientId, (k1, k2) -> k1));
-        Map<Long, String> clientNameMap = id2NameService.clientId2Name(clientProcessIdMap.values());
+        Map<Long, String> clientNameMap = workflowNameQueryPort.clientId2Name(clientProcessIdMap.values());
         // 客户所属部门
-        Map<Long, Long> clientDeptIdMap = id2NameService.clientId2DeptId(clientProcessIdMap.values());
-        Map<Long, String> clientBelongDeptMap = id2NameService.deptId2Name(clientDeptIdMap.values());
+        Map<Long, Long> clientDeptIdMap = workflowNameQueryPort.clientId2DeptId(clientProcessIdMap.values());
+        Map<Long, String> clientBelongDeptMap = workflowNameQueryPort.deptId2Name(clientDeptIdMap.values());
 
         // 人列表
         Set<Long> userIdSet = rspList.stream()
@@ -271,7 +271,7 @@ public class FlowTaskConvert {
                 .flatMap(Collection::stream)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(userIdSet);
+        Map<Long, String> userNameMap = workflowNameQueryPort.sysUserId2Name(userIdSet);
         //extra表字段
         List<String> instanceIdList = rspList.stream().map(TaskListRSP::getProcessInstanceId).collect(Collectors.toList());
         List<FlowQueryExtra> extraList = flowQueryExtraMapper.selectList(Wrappers.<FlowQueryExtra>lambdaQuery().in(FlowQueryExtra::getInstanceId, instanceIdList));

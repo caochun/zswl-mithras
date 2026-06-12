@@ -3,16 +3,12 @@ package cn.zswltech.mithras.message.service.email;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.message.enums.EmailType;
-import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.message.mapper.EmailSendFailLogMapper;
-import cn.zswltech.mithras.system.mapper.model.SystemConfig;
 import cn.zswltech.mithras.message.model.EmailSendFailLog;
-import cn.zswltech.mithras.foundation.util.StringUtil;
 import cn.zswltech.mithras.foundation.util.StringUtils;
 import cn.zswltech.mithras.message.client.email.TianyiEmailUtil;
+import cn.zswltech.mithras.message.port.MessageSystemConfigPort;
 import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
@@ -220,12 +216,7 @@ public abstract class AbstractSendEmailHandler<T> {
 
     private Set<String> getConfigSet(String configKey){
         Set<String> toSet = new HashSet<>();
-        SystemConfig config = getBean(SystemConfigMapper.class).selectOne(Wrappers.<SystemConfig>lambdaQuery()
-                .select(SystemConfig::getConfigValue)
-                .eq(SystemConfig::getConfigKey, configKey)
-                .eq(SystemConfig::getStatus, YesOrNoNumberEnum.YES.getCode())
-                .last(StringUtil.mysqlLimitOne()));
-        String configValue = config.getConfigValue();
+        String configValue = getBean(MessageSystemConfigPort.class).getEnabledConfigValue(configKey);
         if (Objects.nonNull(configValue) && !configValue.trim().isEmpty()) {
             Arrays.stream(configValue.split(","))
                     .map(String::trim)

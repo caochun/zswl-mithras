@@ -10,7 +10,7 @@ import cn.zswltech.gruul.common.result.Response;
 import cn.zswltech.gruul.dao.dal.query.UserQuery;
 import cn.zswltech.gruul.dao.dal.tkmybatis.Page;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.workflow.flow.port.WorkflowNameQueryPort;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class UserProviderImpl implements UserProvider {
     @Qualifier("userServiceAPI")
     private UserService userServiceAPI;
     @Resource
-    private Id2NameService id2NameService;
+    private WorkflowNameQueryPort workflowNameQueryPort;
 
     /**
      * 获取某个节点的审批人数据
@@ -90,7 +90,7 @@ public class UserProviderImpl implements UserProvider {
         if (CollectionUtils.isEmpty(userIds)) {
             return new HashMap<>();
         }
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(userIds.stream().map(Long::valueOf).collect(Collectors.toSet()));
+        Map<Long, String> userNameMap = workflowNameQueryPort.sysUserId2Name(userIds.stream().map(Long::valueOf).collect(Collectors.toSet()));
         Map<String, UserResp> userRespMap = new HashMap<>();
         userNameMap.entrySet().forEach(e -> {
             userRespMap.put(String.valueOf(e.getKey()), new UserResp(String.valueOf(e.getKey()), e.getValue()));

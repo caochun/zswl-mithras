@@ -29,11 +29,6 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-system</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
             <groupId>cn.zswl.mithras</groupId>
             <artifactId>notice-spring-boot-starter</artifactId>
             <version>${notice.version}</version>
