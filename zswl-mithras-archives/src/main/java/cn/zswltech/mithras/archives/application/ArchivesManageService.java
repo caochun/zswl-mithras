@@ -44,7 +44,6 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.google.common.collect.Lists;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.api.common.PageR;
@@ -208,7 +207,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                                 archive.setGroupId(dto1.getGroupId());
                                 archive.setGroupKey(dto.getId() + "_" + dto1.getGroupId());
                                 archive.setGroupName(dto1.getGroupName());
-                                archive.setFiles(Lists.newArrayList());
+                                archive.setFiles(new ArrayList<>());
                                 archive.setSort(dto1.getSort());
                                 archiveMap.put(dto1.getGroupId(), archive);
                             }
@@ -403,7 +402,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             if (!rsps.containsKey(dto.getGroupId())){
                 ArchivesSearchRSP archive = new ArchivesSearchRSP();
                 archive.setGroupName(dto.getGroupName());
-                archive.setFiles(Lists.newArrayList());
+                archive.setFiles(new ArrayList<>());
                 archive.setSort(dto.getSort());
                 rsps.put(dto.getGroupId(),archive);
             }
