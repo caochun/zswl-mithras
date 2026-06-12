@@ -1,12 +1,9 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.listener.endhandler.archives;
 
-import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
-
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
-import cn.zswltech.mithras.archives.persistence.mapper.ArchivesDownloadPermissionMapper;
-import cn.zswltech.mithras.archives.persistence.model.ArchivesDownloadPermission;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import cn.zswltech.mithras.archives.application.ArchivesManageService;
+import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -21,7 +18,7 @@ import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.Archi
 public class ArchivesDownloadEndHandler extends AbstractProcessEndHandler {
 
     @Resource
-    private ArchivesDownloadPermissionMapper archivesDownloadPermissionMapper;
+    private ArchivesManageService archivesManageService;
 
     @Override
     public boolean needHandle(ProcessEndContext endContext) {
@@ -30,16 +27,9 @@ public class ArchivesDownloadEndHandler extends AbstractProcessEndHandler {
 
     @Override
     public void handle(ProcessEndContext endContext) {
-        if(ProcessBusinessStatusEnum.CANCEL.getType().equals(endContext.getEndType())){
-            archivesDownloadPermissionMapper.delete(Wrappers.<ArchivesDownloadPermission>lambdaUpdate().eq(ArchivesDownloadPermission::getBatch,endContext.getBusinessKey()));
-            return;
-        }
-        boolean processPass = ProcessBusinessStatusEnum.success(endContext.getEndType());
-        ArchivesDownloadPermission permission = new ArchivesDownloadPermission();
-        permission.setStatus(2);
-        if (processPass) {
-            permission.setStatus(1);
-        }
-        archivesDownloadPermissionMapper.update(permission, Wrappers.<ArchivesDownloadPermission>lambdaUpdate().eq(ArchivesDownloadPermission::getBatch,endContext.getBusinessKey()));
+        archivesManageService.completeDownloadApproval(
+                endContext.getBusinessKey(),
+                ProcessBusinessStatusEnum.success(endContext.getEndType()),
+                ProcessBusinessStatusEnum.CANCEL.getType().equals(endContext.getEndType()));
     }
 }

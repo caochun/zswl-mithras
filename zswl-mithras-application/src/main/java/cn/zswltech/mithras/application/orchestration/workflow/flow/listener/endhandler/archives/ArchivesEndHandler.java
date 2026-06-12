@@ -1,14 +1,9 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.listener.endhandler.archives;
 
-import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
-
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
-import cn.zswltech.mithras.archives.enums.ArchivesFlowStatusEnum;
-import cn.zswltech.mithras.archives.enums.ArchivesStatusEnum;
-import cn.zswltech.mithras.archives.persistence.mapper.ArchivesManagementMapper;
-import cn.zswltech.mithras.archives.persistence.model.ArchivesManagement;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import cn.zswltech.mithras.archives.application.ArchivesManageService;
+import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -23,7 +18,7 @@ import static cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum.Archi
 public class ArchivesEndHandler extends AbstractProcessEndHandler {
 
     @Resource
-    private ArchivesManagementMapper archivesManagementMapper;
+    private ArchivesManageService archivesManageService;
 
     @Override
     public boolean needHandle(ProcessEndContext endContext) {
@@ -32,17 +27,9 @@ public class ArchivesEndHandler extends AbstractProcessEndHandler {
 
     @Override
     public void handle(ProcessEndContext endContext) {
-        boolean processPass = ProcessBusinessStatusEnum.success(endContext.getEndType());
-        ArchivesManagement management1 = archivesManagementMapper.selectById(endContext.getBusinessKey());
-        ArchivesManagement management = new ArchivesManagement();
-        if (processPass) {
-            management.setFlowStatus(management1.getType() == 1 ? ArchivesFlowStatusEnum.APPROVAL_PASS.name() : ArchivesFlowStatusEnum.SYS_APPROVAL_PASS.name());
-            management.setStatus(ArchivesStatusEnum.OVER.name());
-        }else if(ProcessBusinessStatusEnum.CANCEL.getType().equals(endContext.getEndType())){
-            management.setFlowStatus(management1.getType() == 1 ? ArchivesFlowStatusEnum.APPROVAL_CLOSE.name() : ArchivesFlowStatusEnum.SYS_APPROVAL_CLOSE.name());
-        } else {
-            management.setFlowStatus(management1.getType() == 1 ? ArchivesFlowStatusEnum.REJECT.name() : ArchivesFlowStatusEnum.SYS_REJECT.name());
-        }
-        archivesManagementMapper.update(management, Wrappers.<ArchivesManagement>lambdaUpdate().eq(ArchivesManagement::getId,endContext.getBusinessKey()));
+        archivesManageService.completeArchivesApproval(
+                Long.valueOf(endContext.getBusinessKey()),
+                ProcessBusinessStatusEnum.success(endContext.getEndType()),
+                ProcessBusinessStatusEnum.CANCEL.getType().equals(endContext.getEndType()));
     }
 }

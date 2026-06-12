@@ -249,6 +249,35 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     }
 
     @Transactional(rollbackFor = Exception.class)
+    public void completeArchivesApproval(Long archivesId, boolean processPass, boolean processCancel) {
+        ArchivesManagement current = archivesManagementMapper.selectById(archivesId);
+        ArchivesManagement update = new ArchivesManagement();
+        update.setId(archivesId);
+        if (processPass) {
+            update.setFlowStatus(current.getType() == 1 ? ArchivesFlowStatusEnum.APPROVAL_PASS.name() : ArchivesFlowStatusEnum.SYS_APPROVAL_PASS.name());
+            update.setStatus(ArchivesStatusEnum.OVER.name());
+        } else if (processCancel) {
+            update.setFlowStatus(current.getType() == 1 ? ArchivesFlowStatusEnum.APPROVAL_CLOSE.name() : ArchivesFlowStatusEnum.SYS_APPROVAL_CLOSE.name());
+        } else {
+            update.setFlowStatus(current.getType() == 1 ? ArchivesFlowStatusEnum.REJECT.name() : ArchivesFlowStatusEnum.SYS_REJECT.name());
+        }
+        archivesManagementMapper.updateById(update);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void completeDownloadApproval(String batch, boolean processPass, boolean processCancel) {
+        if (processCancel) {
+            archivesDownloadPermissionMapper.delete(Wrappers.<ArchivesDownloadPermission>lambdaUpdate()
+                    .eq(ArchivesDownloadPermission::getBatch, batch));
+            return;
+        }
+        ArchivesDownloadPermission permission = new ArchivesDownloadPermission();
+        permission.setStatus(processPass ? 1 : 2);
+        archivesDownloadPermissionMapper.update(permission, Wrappers.<ArchivesDownloadPermission>lambdaUpdate()
+                .eq(ArchivesDownloadPermission::getBatch, batch));
+    }
+
+    @Transactional(rollbackFor = Exception.class)
     public Void downloadEffect(ArchiveDownloadEffectREQ req){
         List<ArchivesManagement> archivesManagements = archivesManagementMapper.selectList(Wrappers.<ArchivesManagement>lambdaQuery().in(ArchivesManagement::getId, req.getArchivesIds()).ne(ArchivesManagement::getFlowStatus, ArchivesFlowStatusEnum.APPROVAL_PASS.name()));
         if (CollectionUtil.isNotEmpty(archivesManagements)){
