@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.application.orchestration.third;
+package cn.zswltech.mithras.application.orchestration.capital;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
@@ -23,7 +23,6 @@ import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
 import cn.zswltech.mithras.basedata.service.BaseDataBankAccountService;
 import cn.zswltech.mithras.third.baorong.application.BrFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowRecordTempService;
-import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowAutoWriteOffService;
 import cn.zswltech.mithras.third.financialshare.client.req.CQ2FlowQueryReq;
 import cn.zswltech.mithras.third.financialshare.client.resp.CQ2FlowQueryRsp;
 import cn.zswltech.mithras.foundation.util.LongUtil;
@@ -33,9 +32,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronization;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
@@ -62,10 +59,6 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
     private FinanceFlowRecordTempService financeFlowRecordTempService;
     @Resource
     private FinanceFlowWriteOffDetailMapper financeFlowWriteOffDetailMapper;
-    @Resource
-    private TransactionDefinition transactionDefinition;
-    @Resource
-    private DataSourceTransactionManager transactionManager;
     @Value("${mithras.remote.authOrg}")
     private String orgCode;
 

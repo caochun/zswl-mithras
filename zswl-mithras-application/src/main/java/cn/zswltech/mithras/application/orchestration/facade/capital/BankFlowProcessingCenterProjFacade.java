@@ -14,7 +14,7 @@ import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.capital.BankFlowProcessingCenterService;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowAutoWriteOffService;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;

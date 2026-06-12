@@ -17,7 +17,7 @@ import cn.zswltech.mithras.dto.capital.write_off.RematchTabREQ;
 import cn.zswltech.mithras.dto.capital.write_off.SingleTabREQ;
 import cn.zswltech.mithras.dto.capital.write_off.UpdateBusinessFlowREQ;
 import cn.zswltech.mithras.foundation.util.LongUtil;
-import cn.zswltech.mithras.third.enums.capital.DataSourceEnum;
+import cn.zswltech.mithras.capital.enums.DataSourceEnum;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowMatchResult;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 

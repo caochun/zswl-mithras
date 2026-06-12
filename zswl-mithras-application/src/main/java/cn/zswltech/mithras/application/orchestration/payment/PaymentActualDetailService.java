@@ -41,7 +41,7 @@ import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractPriceService;
 import cn.zswltech.mithras.message.service.MessageService;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.fastjson.JSON;

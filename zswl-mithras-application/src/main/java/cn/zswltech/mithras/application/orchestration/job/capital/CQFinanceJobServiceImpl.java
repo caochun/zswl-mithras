@@ -9,7 +9,7 @@ import cn.zswltech.mithras.third.datashare.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowAutoWriteOffService;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.baorong.client.handle.BRFlowQueryHandle;
 import cn.zswltech.mithras.third.baorong.client.req.BRFlowHistoryReq;
 import cn.zswltech.mithras.third.baorong.client.req.CwgsApiAppUser;

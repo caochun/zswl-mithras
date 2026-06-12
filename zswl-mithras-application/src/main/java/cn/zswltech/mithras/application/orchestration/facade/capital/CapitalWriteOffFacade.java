@@ -17,7 +17,7 @@ import cn.zswltech.mithras.third.financialshare.mapper.FinanceFlowTabRecordMappe
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.capital.application.writeoff.strategy.ManualWriteOffStrategyContext;
 import cn.zswltech.mithras.capital.application.writeoff.strategy.ManualWriteOffStrategyInterface;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabMainInfoService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabRecordService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

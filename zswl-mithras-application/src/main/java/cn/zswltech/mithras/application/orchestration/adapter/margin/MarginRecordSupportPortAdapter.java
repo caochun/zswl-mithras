@@ -29,7 +29,7 @@ import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.application.orchestration.listener.collection.CollectionAddEventListener;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.application.orchestration.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.system.user.Id2NameService;

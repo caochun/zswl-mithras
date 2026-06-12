@@ -60,7 +60,7 @@ import cn.zswltech.mithras.fund.application.organization.FundOrganizationService
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.*;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.application.orchestration.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.third.financialshare.client.config.AppAuthConfig;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2CollectionVO;

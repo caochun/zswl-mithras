@@ -76,7 +76,7 @@ import cn.zswltech.mithras.contract.core.ContractTenantryService;
 import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEventBus;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.application.orchestration.third.financial.impl.FinancialManagerServiceImpl2;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2CollectionVO;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2PlanCollectionVO;

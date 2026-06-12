@@ -32,7 +32,7 @@ import cn.zswltech.mithras.application.orchestration.capital.write_off.impl.Proj
 import cn.zswltech.mithras.capital.application.writeoff.strategy.ManualWriteOffStrategyInterface;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowMatchResultService;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabMainInfoService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabRecordService;
 import cn.zswltech.mithras.foundation.util.LongUtil;

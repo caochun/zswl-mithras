@@ -32,7 +32,7 @@ import cn.zswltech.mithras.application.orchestration.fund.FundCreditService;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingCreditRefService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingService;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.application.dto.CQ2CollectionVO;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;

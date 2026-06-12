@@ -43,7 +43,7 @@ import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancin
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingFeeDetailService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingRepayActualService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.*;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

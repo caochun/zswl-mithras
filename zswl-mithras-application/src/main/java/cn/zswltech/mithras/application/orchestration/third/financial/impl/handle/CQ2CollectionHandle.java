@@ -9,7 +9,7 @@ import cn.zswltech.mithras.third.financialshare.enums.FinancialUrlENUM;
 import cn.zswltech.mithras.third.retry.model.ExceptionRequestInfo;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.retry.application.ExceptionRequestRecordService;
-import cn.zswltech.mithras.application.orchestration.third.FinanceFlowRecordService;
+import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.client.FinancialApiHandler;
 import cn.zswltech.mithras.third.financialshare.application.FinancialConfigService;
 import cn.zswltech.mithras.third.financialshare.client.req.CQ2CollectionReq;
