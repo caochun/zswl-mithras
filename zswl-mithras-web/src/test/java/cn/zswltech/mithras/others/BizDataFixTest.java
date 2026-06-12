@@ -18,7 +18,7 @@ import cn.zswltech.mithras.application.orchestration.projectprocess.projestablis
 import cn.zswltech.mithras.projectprocess.application.projestablish.ProjEstablishTradeStructureService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewTradeStructureService;
-import cn.zswltech.mithras.third.dataminer.application.DmImportService;
+import cn.zswltech.mithras.application.orchestration.externalinfo.dataminer.DmImportService;
 import org.junit.Test;
 
 import javax.annotation.Resource;

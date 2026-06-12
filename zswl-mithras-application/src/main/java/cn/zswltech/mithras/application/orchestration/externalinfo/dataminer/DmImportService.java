@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.dataminer.application;
+package cn.zswltech.mithras.application.orchestration.externalinfo.dataminer;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DateTime;
