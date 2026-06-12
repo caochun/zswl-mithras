@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.sandrecord.model;
+package cn.zswltech.mithras.customer.sandrecord.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

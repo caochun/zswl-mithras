@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.authorityrecord.model;
+package cn.zswltech.mithras.customer.authorityrecord.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;

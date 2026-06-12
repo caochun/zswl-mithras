@@ -28,7 +28,7 @@ import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.customer.application.client.CorpContactInfoService;
 import cn.zswltech.mithras.customer.authorityrecord.application.ClientAuthorityApplyRecordService;
-import cn.zswltech.mithras.customer.authorityrecord.model.ClientAuthorityApplyRecord;
+import cn.zswltech.mithras.customer.authorityrecord.persistence.model.ClientAuthorityApplyRecord;
 import cn.zswltech.mithras.dto.client.client.ClientApplyOccupyREQ;
 import cn.zswltech.mithras.dto.client.client.ClientApplyOccupyRSP;
 import cn.zswltech.mithras.dto.client.client.ClientApplyStatusREQ;

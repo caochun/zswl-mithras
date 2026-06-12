@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.externalcustomer.model;
+package cn.zswltech.mithras.customer.externalcustomer.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

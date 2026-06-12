@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.customer.authorityrecord.mapper;
+package cn.zswltech.mithras.customer.authorityrecord.persistence.mapper;
 
-import cn.zswltech.mithras.customer.authorityrecord.model.ClientAuthorityApplyRecord;
+import cn.zswltech.mithras.customer.authorityrecord.persistence.model.ClientAuthorityApplyRecord;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
