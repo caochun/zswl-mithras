@@ -22,7 +22,7 @@ import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
 import cn.zswltech.mithras.third.datashare.service.DataShareMerchantsService;
 import cn.zswltech.mithras.third.datashare.service.DataShareService;
 import cn.zswltech.mithras.third.datashare.service.port.DataShareClientCodeSyncPort;
-import cn.zswltech.mithras.third.util.PwdUtils;
+import cn.zswltech.mithras.third.datashare.service.util.PwdUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

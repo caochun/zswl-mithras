@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.util;
+package cn.zswltech.mithras.third.datashare.service.util;
 
 import javax.crypto.Cipher;
 import java.nio.charset.StandardCharsets;

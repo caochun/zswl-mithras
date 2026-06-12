@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.aop;
+package cn.zswltech.mithras.third.qiyuesuo.client.aop;
 
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.util.RandomUtil;
