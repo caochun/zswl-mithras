@@ -10,8 +10,6 @@ import cn.zswltech.mithras.fund.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayActual;
-import cn.zswltech.mithras.projectprocess.application.model.CashFlowBO;
 
 import java.util.List;
 import java.util.Objects;
@@ -70,18 +68,5 @@ public class FundFinancingConvert {
             rsp.setUpdateTime(LocalDateTimeUtil.format(baseInfo.getUpdateTime(), DatePattern.NORM_DATETIME_PATTERN));
         }
         return rsp;
-    }
-
-
-    public static CashFlowBO toCashFlowBO(FundFinancingRepayActual repayActual) {
-        CashFlowBO cashFlowBO = new CashFlowBO();
-        cashFlowBO.setCashFlowDate(repayActual.getRepayDate());
-        cashFlowBO.setCashFlowPhase(repayActual.getPhase());
-        cashFlowBO.setCashFlowAmount(repayActual.getRepayAmount());
-        cashFlowBO.setRent(repayActual.getPrincipleAmount());
-        cashFlowBO.setInterest(repayActual.getInterestAmount());
-        cashFlowBO.setPrincipal(repayActual.getRepayAmount());
-        cashFlowBO.setRemainingPrincipal(repayActual.getRemainingPrincipleAmount());
-        return cashFlowBO;
     }
 }

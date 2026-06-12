@@ -18,7 +18,6 @@ import cn.zswltech.mithras.dto.fund.financing.plan.FundFinancingPlanDetailRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.*;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.fund.application.convert.financing.FundFinancingConvert;
 import cn.zswltech.mithras.fund.application.convert.receiptrepay.FundReceiptRepayConverter;
 import cn.zswltech.mithras.capital.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
@@ -1059,7 +1058,7 @@ public class FundReceiptRepayBaseInfoService
                             .map(item -> BeanUtil.copyProperties(item, FundFinancingRepayActual.class)).collect(Collectors.toList());
                 }
             }
-            List<CashFlowBO> cashFlowBOList = repayActualList.stream().map(FundFinancingConvert::toCashFlowBO).collect(Collectors.toList());
+            List<CashFlowBO> cashFlowBOList = repayActualList.stream().map(this::toCashFlowBO).collect(Collectors.toList());
             FundFinancingPlan fundFinancingPlan = fundFinancingPlanService.getOneByFinancingId(financingBaseInfo.getId());
             Assert.isTrue(Objects.nonNull(fundFinancingPlan.getFinancingMonth()) && Objects.nonNull(fundFinancingPlan.getRepayFrequency()), () -> MithrasException.newException("需补充融资期限及还款频率"));
             RepayRateEnum repayRateEnum = RepayRateEnum.of(fundFinancingPlan.getRepayFrequency());
@@ -1185,7 +1184,7 @@ public class FundReceiptRepayBaseInfoService
 //                            .map(item -> BeanUtil.copyProperties(item, FundFinancingRepayActual.class)).collect(Collectors.toList());
 //                }
 //            }
-//            List<CashFlowBO> cashFlowBOList = repayActualList.stream().map(FundFinancingConvert::toCashFlowBO).collect(Collectors.toList());
+//            List<CashFlowBO> cashFlowBOList = repayActualList.stream().map(this::toCashFlowBO).collect(Collectors.toList());
 //            FundFinancingPlan fundFinancingPlan = fundFinancingPlanService.getOneByFinancingId(financingBaseInfo.getId());
 //            Assert.isTrue(Objects.nonNull(fundFinancingPlan.getFinancingMonth()) && Objects.nonNull(fundFinancingPlan.getRepayFrequency()), () -> MithrasException.newException("需补充融资期限及还款频率"));
 //            RepayRateEnum repayRateEnum = RepayRateEnum.of(fundFinancingPlan.getRepayFrequency());
@@ -1457,7 +1456,7 @@ public class FundReceiptRepayBaseInfoService
 //            if (CollectionUtil.isEmpty(repayActualList)) {
 //                return null;
 //            }
-//            List<CashFlowBO> cashFlowBOList = repayActualList.stream().map(FundFinancingConvert::toCashFlowBO).collect(Collectors.toList());
+//            List<CashFlowBO> cashFlowBOList = repayActualList.stream().map(this::toCashFlowBO).collect(Collectors.toList());
 //            FundFinancingPlan fundFinancingPlan = fundFinancingPlanService.getOneByFinancingId(financingBaseInfo.getId());
 //            RepayRateEnum repayRateEnum = RepayRateEnum.of(fundFinancingPlan.getRepayFrequency());
 //            // 补充第0期
@@ -1928,6 +1927,18 @@ public class FundReceiptRepayBaseInfoService
             map.put(financingId, repayId2Detail.get(financingId2RepayId.get(financingId)));
         });
         return map;
+    }
+
+    private CashFlowBO toCashFlowBO(FundFinancingRepayActual repayActual) {
+        CashFlowBO cashFlowBO = new CashFlowBO();
+        cashFlowBO.setCashFlowDate(repayActual.getRepayDate());
+        cashFlowBO.setCashFlowPhase(repayActual.getPhase());
+        cashFlowBO.setCashFlowAmount(repayActual.getRepayAmount());
+        cashFlowBO.setRent(repayActual.getPrincipleAmount());
+        cashFlowBO.setInterest(repayActual.getInterestAmount());
+        cashFlowBO.setPrincipal(repayActual.getRepayAmount());
+        cashFlowBO.setRemainingPrincipal(repayActual.getRemainingPrincipleAmount());
+        return cashFlowBO;
     }
 
     public List<FundReceiptFlowPlan> getFinancingRepayFlowPlan(Long financingId, String financingType) {

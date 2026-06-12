@@ -1,26 +1,26 @@
-package cn.zswltech.mithras.fund.versioning.financing.handler.impl;
+package cn.zswltech.mithras.application.orchestration.adapter.fund.versioning;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.fund.enums.financing.FundFinancingLibModelEnum;
+import cn.zswltech.mithras.fund.enums.receiptrepay.FundReceiptRepayInfoModule;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.document.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
 import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
-import cn.zswltech.mithras.fund.versioning.financing.handler.FundFinancingAbstractLibHandler;
+import cn.zswltech.mithras.fund.versioning.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 融资管理版本处理器
+ * 资金收付款版本处理器
  *
  * @author wangchuanhao
  * @date 2022/2/20 16:49 PM
  */
 @Component
-public class FundFinancingMaterialsListLibHandler
-        extends FundFinancingAbstractLibHandler<MaterialsListLib, MaterialsList, ListBaseRSP> implements FileCompareDeclaration {
+public class FundReceiptRepayMaterialsListLibHandler
+        extends AbstractFundReceiptRepayLibHandler<MaterialsListLib, MaterialsList, ListBaseRSP> implements FileCompareDeclaration {
 
     @Resource
     private MaterialsListLibHandlerProxy materialsListLibHandlerProxy;
@@ -61,12 +61,8 @@ public class FundFinancingMaterialsListLibHandler
     }
 
     @Override
-    public FundFinancingLibModelEnum getSubModule() {
-        return FundFinancingLibModelEnum.MATERIALS_LIST;
+    public FundReceiptRepayInfoModule getSubModule() {
+        return FundReceiptRepayInfoModule.MATERIALS_LIST;
     }
 
-    @Override
-    public boolean needHandle(Long mainId) {
-        return true;
-    }
 }
