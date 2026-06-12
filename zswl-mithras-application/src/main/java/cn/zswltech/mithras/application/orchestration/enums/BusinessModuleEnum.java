@@ -38,7 +38,7 @@ import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemInfoMapper;
 import cn.zswltech.mithras.leaseholdproperty.mapper.TycAppraisalCompanyBaseInfoMapper;
 import cn.zswltech.mithras.liquidity.mapper.AccountBalanceBaseInfoMapper;
 import cn.zswltech.mithras.liquidity.mapper.FundFinancingAccountSettingMapper;
-import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
+import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.mapper.pubinfo.PublicInfoRecordMapper;
 import cn.zswltech.mithras.policy.mapper.PolicyInfoMapper;

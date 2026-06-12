@@ -15,7 +15,7 @@ import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.margin.mapper.MarginRecordInfoMapper;
+import cn.zswltech.mithras.margin.persistence.mapper.MarginRecordInfoMapper;
 import cn.zswltech.mithras.margin.application.port.MarginRecordSupportPort;
 import cn.zswltech.mithras.margin.application.port.model.MarginCollectionRecordInfo;
 import cn.zswltech.mithras.message.convert.MessageConver;

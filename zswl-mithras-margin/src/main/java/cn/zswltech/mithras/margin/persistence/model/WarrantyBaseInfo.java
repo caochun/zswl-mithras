@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.margin.model;
+package cn.zswltech.mithras.margin.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -11,14 +11,14 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * 保证金明细表
- * @TableName margin_base_info
+ * 质保金明细表
+ * @TableName warranty_base_info
  */
-@TableName(value ="margin_base_info")
+@TableName(value ="warranty_base_info")
 @Data
-public class MarginBaseInfo extends BaseModel implements Serializable {
+public class WarrantyBaseInfo extends BaseModel implements Serializable {
     /**
-     * 保证金id
+     * 质保金id
      */
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -26,7 +26,7 @@ public class MarginBaseInfo extends BaseModel implements Serializable {
     /**
      * 编号
      */
-    private String marginCode;
+    private String warrantyCode;
 
     /**
      * 合同id
@@ -49,7 +49,7 @@ public class MarginBaseInfo extends BaseModel implements Serializable {
     private LocalDate collectionDate;
 
     /**
-     * 保证金金额
+     * 质保金金额
      */
     private Long collectionAmount;
 
@@ -66,12 +66,12 @@ public class MarginBaseInfo extends BaseModel implements Serializable {
     /**
      * 计划收款金额
      */
-    private Long planMarginAmount;
+    private Long planWarrantyAmount;
 
     /**
      * 计划收款日期
      */
-    private LocalDate planMarginDate;
+    private LocalDate planWarrantyDate;
 
     /**
      * 合同是否结清

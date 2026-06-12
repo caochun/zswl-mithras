@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.margin.mapper;
+package cn.zswltech.mithras.margin.persistence.mapper;
 
-import cn.zswltech.mithras.margin.model.MarginWriteOffRecord;
+import cn.zswltech.mithras.margin.persistence.model.MarginWriteOffRecord;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

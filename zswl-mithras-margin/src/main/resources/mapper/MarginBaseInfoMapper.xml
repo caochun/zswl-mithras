@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper">
+<mapper namespace="cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper">
     <update id="updateStatus">
         UPDATE margin_base_info SET  contract_is_settle=1 WHERE contract_id = #{id}
     </update>
 
-    <select id="pageList" resultType="cn.zswltech.mithras.margin.model.MarginBaseInfo">
+    <select id="pageList" resultType="cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo">
         select a.*
         from margin_base_info a,contract_base_info b
         <where>
@@ -21,7 +21,7 @@
         order by a.create_time desc
     </select>
 
-    <select id="getMargins" resultType="cn.zswltech.mithras.margin.model.DepositCollectRefund">
+    <select id="getMargins" resultType="cn.zswltech.mithras.margin.persistence.model.DepositCollectRefund">
         select b.contract_id as contractId, a.record_type as recordType,
                sum(a.collection_amount) as amount from margin_record_info a
            left join margin_base_info b on a.margin_id = b.id

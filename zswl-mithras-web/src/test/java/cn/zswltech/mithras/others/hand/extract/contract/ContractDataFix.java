@@ -24,13 +24,13 @@ import cn.zswltech.mithras.projectprocess.mapper.lib.projestablish.ProjEstablish
 import cn.zswltech.mithras.projectprocess.mapper.lib.projestablish.ProjEstablishLeasePriceLibMapper;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewBaseInfoLibMapper;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewLeasePriceLibMapper;
-import cn.zswltech.mithras.margin.mapper.MarginBaseInfoMapper;
-import cn.zswltech.mithras.margin.mapper.MarginRecordInfoMapper;
+import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
+import cn.zswltech.mithras.margin.persistence.mapper.MarginRecordInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
-import cn.zswltech.mithras.margin.model.MarginBaseInfo;
-import cn.zswltech.mithras.margin.model.MarginRecordInfo;
+import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.persistence.model.MarginRecordInfo;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;

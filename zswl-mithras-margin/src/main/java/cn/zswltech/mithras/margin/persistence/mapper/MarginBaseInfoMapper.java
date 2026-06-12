@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.margin.mapper;
+package cn.zswltech.mithras.margin.persistence.mapper;
 
 import cn.zswltech.mithras.dto.margin.MarginBaseInfoListREQ;
-import cn.zswltech.mithras.margin.model.DepositCollectRefund;
-import cn.zswltech.mithras.margin.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.persistence.model.DepositCollectRefund;
+import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;

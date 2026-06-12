@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.margin.mapper;
+package cn.zswltech.mithras.margin.persistence.mapper;
 
-import cn.zswltech.mithras.margin.model.WarrantyBaseInfo;
+import cn.zswltech.mithras.margin.persistence.model.WarrantyBaseInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

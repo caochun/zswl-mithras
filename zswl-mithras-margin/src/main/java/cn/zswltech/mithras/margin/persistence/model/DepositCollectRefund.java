@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.margin.model;
+package cn.zswltech.mithras.margin.persistence.model;
 
 import lombok.Data;
 
