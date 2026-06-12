@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.job.capital;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
-import cn.zswltech.mithras.capital.job.service.ManualWriteOffReleaseBankFlowJobService;
+import cn.zswltech.mithras.capital.job.port.ManualWriteOffReleaseBankFlowJobService;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.mapper.FinanceFlowTabMainInfoMapper;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.capital.job.service;
+package cn.zswltech.mithras.capital.job.port;
 
 public interface ManualWriteOffReleaseBankFlowJobService {
 

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.capital.application.writeoff.bo;
+package cn.zswltech.mithras.capital.application.writeoff.model;
 
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowMatchResult;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
