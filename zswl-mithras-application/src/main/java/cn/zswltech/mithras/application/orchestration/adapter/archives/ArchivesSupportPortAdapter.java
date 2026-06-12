@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.archives;
 
-import cn.zswltech.mithras.archives.application.ArchivesSupportPort;
+import cn.zswltech.mithras.archives.port.ArchivesSupportPort;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListRSP;
 import cn.zswltech.mithras.document.model.MaterialsList;
@@ -44,16 +44,21 @@ public class ArchivesSupportPortAdapter implements ArchivesSupportPort {
     }
 
     @Override
-    public List<MaterialsList> listMaterialsByBelongId(String businessType, Long belongId) {
-        return materialsListService.listBy(businessType, belongId);
+    public List<MaterialInfo> listMaterialsByBelongId(String businessType, Long belongId) {
+        return materialsListService.listBy(businessType, belongId).stream()
+                .map(this::toMaterialInfo)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<MaterialsList> getMaterialsByIds(Collection<Long> recordIds) {
+    public List<MaterialInfo> getMaterialsByIds(Collection<Long> recordIds) {
         if (recordIds == null || recordIds.isEmpty()) {
             return Collections.emptyList();
         }
-        return materialsListService.getByIds(recordIds instanceof List ? (List<Long>) recordIds : new java.util.ArrayList<>(recordIds));
+        return materialsListService.getByIds(recordIds instanceof List ? (List<Long>) recordIds : new java.util.ArrayList<>(recordIds))
+                .stream()
+                .map(this::toMaterialInfo)
+                .collect(Collectors.toList());
     }
 
     private ProjectInfo toProjectInfo(ProjEstablishBaseInfo source) {
@@ -65,6 +70,15 @@ public class ArchivesSupportPortAdapter implements ArchivesSupportPort {
         info.setBizDeptId(source.getBizDeptId());
         info.setBizDeptLeaderId(source.getBizDeptLeaderId());
         info.setProjSponsorUserId(source.getProjSponsorUserId());
+        return info;
+    }
+
+    private MaterialInfo toMaterialInfo(MaterialsList source) {
+        MaterialInfo info = new MaterialInfo();
+        info.setId(source.getId());
+        info.setMaterialsType(source.getMaterialsType());
+        info.setFilename(source.getFilename());
+        info.setBelongId(source.getBelongId());
         return info;
     }
 }

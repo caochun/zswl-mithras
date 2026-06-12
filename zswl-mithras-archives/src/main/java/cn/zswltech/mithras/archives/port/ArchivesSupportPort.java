@@ -1,8 +1,7 @@
-package cn.zswltech.mithras.archives.application;
+package cn.zswltech.mithras.archives.port;
 
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListRSP;
-import cn.zswltech.mithras.document.model.MaterialsList;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,9 +16,48 @@ public interface ArchivesSupportPort {
 
     Map<Long, ProjectInfo> getProjectInfoMap(Collection<Long> projectIds);
 
-    List<MaterialsList> listMaterialsByBelongId(String businessType, Long belongId);
+    List<MaterialInfo> listMaterialsByBelongId(String businessType, Long belongId);
 
-    List<MaterialsList> getMaterialsByIds(Collection<Long> recordIds);
+    List<MaterialInfo> getMaterialsByIds(Collection<Long> recordIds);
+
+    class MaterialInfo {
+        private Long id;
+        private String materialsType;
+        private String filename;
+        private Long belongId;
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getMaterialsType() {
+            return materialsType;
+        }
+
+        public void setMaterialsType(String materialsType) {
+            this.materialsType = materialsType;
+        }
+
+        public String getFilename() {
+            return filename;
+        }
+
+        public void setFilename(String filename) {
+            this.filename = filename;
+        }
+
+        public Long getBelongId() {
+            return belongId;
+        }
+
+        public void setBelongId(Long belongId) {
+            this.belongId = belongId;
+        }
+    }
 
     class ProjectInfo {
         private Long id;

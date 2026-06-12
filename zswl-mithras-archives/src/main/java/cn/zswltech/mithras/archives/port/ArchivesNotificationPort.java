@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.archives.application;
+package cn.zswltech.mithras.archives.port;
 
 public interface ArchivesNotificationPort {
 

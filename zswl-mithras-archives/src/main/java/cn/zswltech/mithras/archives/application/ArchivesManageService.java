@@ -30,13 +30,15 @@ import cn.zswltech.mithras.archives.mapper.ArchiveTypeGroupMapper;
 import cn.zswltech.mithras.archives.mapper.ArchivesDownloadPermissionMapper;
 import cn.zswltech.mithras.archives.mapper.ArchivesDownloadPermissionReasonMapper;
 import cn.zswltech.mithras.archives.mapper.ArchivesManagementMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.archives.model.ArchiveFileType;
 import cn.zswltech.mithras.archives.model.ArchiveTemplate;
 import cn.zswltech.mithras.archives.model.ArchiveTypeGroup;
 import cn.zswltech.mithras.archives.model.ArchivesDownloadPermission;
 import cn.zswltech.mithras.archives.model.ArchivesDownloadPermissionReason;
 import cn.zswltech.mithras.archives.model.ArchivesManagement;
+import cn.zswltech.mithras.archives.port.ArchivesNotificationPort;
+import cn.zswltech.mithras.archives.port.ArchivesSupportPort;
+import cn.zswltech.mithras.archives.port.ArchivesWorkflowPort;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
@@ -348,8 +350,8 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         List<Long> ids = typeGroups.stream().map(ArchiveTypeGroup::getId).collect(Collectors.toList());
         List<ArchiveFileType> fileTypes = archiveFileTypeMapper.selectList(Wrappers.<ArchiveFileType>lambdaQuery().in(ArchiveFileType::getGroupId, ids).orderByAsc(ArchiveFileType::getGroupId,ArchiveFileType::getSort));
         Map<Long, List<ArchiveFileType>> listMap = fileTypes.stream().collect(Collectors.groupingBy(ArchiveFileType::getGroupId));
-        List<MaterialsList> materialsLists = archivesSupportPort.listMaterialsByBelongId(ArchivesSupportPort.BUSINESS_TYPE_ARCHIVES, management.getId());
-        Map<String, List<MaterialsList>> fileMap = materialsLists.stream().collect(Collectors.groupingBy(MaterialsList::getMaterialsType));
+        List<ArchivesSupportPort.MaterialInfo> materialsLists = archivesSupportPort.listMaterialsByBelongId(ArchivesSupportPort.BUSINESS_TYPE_ARCHIVES, management.getId());
+        Map<String, List<ArchivesSupportPort.MaterialInfo>> fileMap = materialsLists.stream().collect(Collectors.groupingBy(ArchivesSupportPort.MaterialInfo::getMaterialsType));
         List<ArchivesUploadSelectRsp> uploadGroups = new ArrayList<>();
         for (ArchiveTypeGroup group : typeGroups){
             ArchivesUploadSelectRsp groups = new ArchivesUploadSelectRsp();
@@ -364,10 +366,10 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                 }else {
                     tmp.setRequired(0);
                 }
-                List<MaterialsList> materialsLists1 = fileMap.get(fileType.getId().toString());
+                List<ArchivesSupportPort.MaterialInfo> materialsLists1 = fileMap.get(fileType.getId().toString());
                 if (CollectionUtil.isNotEmpty(materialsLists1)) {
                     List<ArchivesUploadSelectRsp.FileInfo> files = new ArrayList<>();
-                    for (MaterialsList materialsList : materialsLists1) {
+                    for (ArchivesSupportPort.MaterialInfo materialsList : materialsLists1) {
                         ArchivesUploadSelectRsp.FileInfo file = new ArchivesUploadSelectRsp.FileInfo();
                         file.setFileId(materialsList.getId());
                         file.setFileName(materialsList.getFilename());
@@ -460,7 +462,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                 }
             }
         }else {
-            List<MaterialsList> list = archivesSupportPort.listMaterialsByBelongId(ArchivesSupportPort.BUSINESS_TYPE_ARCHIVES, management.getId());
+            List<ArchivesSupportPort.MaterialInfo> list = archivesSupportPort.listMaterialsByBelongId(ArchivesSupportPort.BUSINESS_TYPE_ARCHIVES, management.getId());
             if (CollectionUtil.isEmpty(list)){
                 throw new MithrasException("无归档数据,无法审批");
             }
@@ -491,12 +493,12 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         ArchiveDownloadFlowRSP rsp = new ArchiveDownloadFlowRSP();
         rsp.setReason(reason.getReason());
         List<Long> fileIds = downloadPermissions.stream().map(ArchivesDownloadPermission::getMaterialsId).distinct().collect(Collectors.toList());
-        List<MaterialsList> files = archivesSupportPort.getMaterialsByIds(fileIds);
-        Map<String, List<MaterialsList>> fileMap = files.stream().collect(Collectors.groupingBy(MaterialsList::getMaterialsType));
+        List<ArchivesSupportPort.MaterialInfo> files = archivesSupportPort.getMaterialsByIds(fileIds);
+        Map<String, List<ArchivesSupportPort.MaterialInfo>> fileMap = files.stream().collect(Collectors.groupingBy(ArchivesSupportPort.MaterialInfo::getMaterialsType));
         List<Long> fileTypeIds = files.stream().map(o -> Long.parseLong(o.getMaterialsType())).distinct().collect(Collectors.toList());
         List<ArchiveFileType> fileTypes = archiveFileTypeMapper.selectList(Wrappers.<ArchiveFileType>lambdaQuery().in(ArchiveFileType::getId, fileTypeIds).orderByAsc(ArchiveFileType::getGroupId,ArchiveFileType::getSort));
         Map<Long, List<ArchiveFileType>> fileTypeMap = fileTypes.stream().collect(Collectors.groupingBy(ArchiveFileType::getGroupId));
-        List<Long> archivesIds = files.stream().map(MaterialsList::getBelongId).distinct().collect(Collectors.toList());
+        List<Long> archivesIds = files.stream().map(ArchivesSupportPort.MaterialInfo::getBelongId).distinct().collect(Collectors.toList());
         List<ArchivesManagement> archivesManagements = archivesManagementMapper.selectList(Wrappers.<ArchivesManagement>lambdaQuery().in(ArchivesManagement::getId, archivesIds));
         List<Long> projIds = archivesManagements.stream().map(ArchivesManagement::getProjId).distinct().collect(Collectors.toList());
         Map<Long, ArchivesSupportPort.ProjectInfo> projMap = archivesSupportPort.getProjectInfoMap(projIds);
@@ -519,8 +521,8 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                     materials.setKey(projectInfo.getId()+"_"+group.getId());
                     List<ArchiveDownloadFlowRSP.FileInfo> infos = new ArrayList<>();
                     for (ArchiveFileType o : fileTypes1){
-                        List<MaterialsList> file = fileMap.get(o.getId().toString());
-                        for (MaterialsList o2 : file){
+                        List<ArchivesSupportPort.MaterialInfo> file = fileMap.get(o.getId().toString());
+                        for (ArchivesSupportPort.MaterialInfo o2 : file){
                             ArchiveDownloadFlowRSP.FileInfo info = new ArchiveDownloadFlowRSP.FileInfo();
                             info.setFileId(o2.getId());
                             info.setFileName(o2.getFilename());
@@ -546,8 +548,8 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         ArchivesFlowRSP rsp = new ArchivesFlowRSP();
         rsp.setTemplateId(template.getId());
         rsp.setTemplateName(template.getTemplateName());
-        List<MaterialsList> materialsLists = archivesSupportPort.listMaterialsByBelongId(ArchivesSupportPort.BUSINESS_TYPE_ARCHIVES, management.getId());
-        Map<String, List<MaterialsList>> fileMap = materialsLists.stream().collect(Collectors.groupingBy(MaterialsList::getMaterialsType));
+        List<ArchivesSupportPort.MaterialInfo> materialsLists = archivesSupportPort.listMaterialsByBelongId(ArchivesSupportPort.BUSINESS_TYPE_ARCHIVES, management.getId());
+        Map<String, List<ArchivesSupportPort.MaterialInfo>> fileMap = materialsLists.stream().collect(Collectors.groupingBy(ArchivesSupportPort.MaterialInfo::getMaterialsType));
         List<Long> fileTypeIds = materialsLists.stream().map(o -> Long.parseLong(o.getMaterialsType())).distinct().collect(Collectors.toList());
         List<ArchiveFileType> fileTypes = archiveFileTypeMapper.selectList(Wrappers.<ArchiveFileType>lambdaQuery().in(ArchiveFileType::getId, fileTypeIds).orderByAsc(ArchiveFileType::getGroupId,ArchiveFileType::getSort));
         Map<Long, List<ArchiveFileType>> fileTypeMap = fileTypes.stream().collect(Collectors.groupingBy(ArchiveFileType::getGroupId));
@@ -571,13 +573,13 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                     typesTmp.setFileTypeName(o.getTypeName());
                     typesTmp.setKey(materials.getKey()+"_"+o.getId());
                     typesTmp.setGrey(true);
-                    List<MaterialsList> file = fileMap.get(o.getId().toString());
+                    List<ArchivesSupportPort.MaterialInfo> file = fileMap.get(o.getId().toString());
                     List<ArchivesFlowRSP.FileInfo> infos = new ArrayList<>();
                     if (CollUtil.isNotEmpty(file)) {
                         typesTmp.setSize(file.size());
                         materials.setSize(materials.getSize()+file.size());
                         typesTmp.setGrey(false);
-                        for (MaterialsList o2 : file) {
+                        for (ArchivesSupportPort.MaterialInfo o2 : file) {
                             ArchivesFlowRSP.FileInfo info = new ArchivesFlowRSP.FileInfo();
                             info.setFileId(o2.getId());
                             info.setFileName(o2.getFilename());
