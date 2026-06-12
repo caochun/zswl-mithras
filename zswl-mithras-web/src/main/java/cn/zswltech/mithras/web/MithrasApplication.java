@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.customer.infohistory.mapper",
         "cn.zswltech.mithras.customer.mobile.mapper",
         "cn.zswltech.mithras.customer.sandrecord.mapper",
-        "cn.zswltech.mithras.customer.userref.mapper",
+        "cn.zswltech.mithras.customer.userref.persistence.mapper",
         "cn.zswltech.mithras.customer.vwsync.mapper",
         "cn.zswltech.mithras.system.audit.mapper",
         "cn.zswltech.mithras.message.persistence.mapper",

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.userref.application;
 
-import cn.zswltech.mithras.customer.userref.mapper.NewClientUserRefMapper;
-import cn.zswltech.mithras.customer.userref.model.NewClientUserRef;
+import cn.zswltech.mithras.customer.userref.persistence.mapper.NewClientUserRefMapper;
+import cn.zswltech.mithras.customer.userref.persistence.model.NewClientUserRef;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

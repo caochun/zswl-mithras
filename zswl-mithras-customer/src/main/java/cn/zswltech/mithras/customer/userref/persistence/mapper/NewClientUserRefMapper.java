@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.customer.userref.mapper;
+package cn.zswltech.mithras.customer.userref.persistence.mapper;
 
-import cn.zswltech.mithras.customer.userref.model.NewClientUserRef;
+import cn.zswltech.mithras.customer.userref.persistence.model.NewClientUserRef;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
