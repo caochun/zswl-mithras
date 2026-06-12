@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.externaldata.common.model;
+package cn.zswltech.mithras.third.externaldata.common.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.TableField;

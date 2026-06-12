@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.externaldata.zhongdeng.model;
 
-import cn.zswltech.mithras.third.externaldata.common.model.ExternalDataBaseModel;
+import cn.zswltech.mithras.third.externaldata.common.persistence.model.ExternalDataBaseModel;
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;

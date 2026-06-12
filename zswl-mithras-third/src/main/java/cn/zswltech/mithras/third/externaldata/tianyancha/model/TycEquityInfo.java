@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.externaldata.tianyancha.model;
 
-import cn.zswltech.mithras.third.externaldata.common.model.ExternalDataBaseModel;
+import cn.zswltech.mithras.third.externaldata.common.persistence.model.ExternalDataBaseModel;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
