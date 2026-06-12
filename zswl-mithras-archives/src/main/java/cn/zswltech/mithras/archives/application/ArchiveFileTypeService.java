@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.archives.application;
 
-import cn.zswltech.mithras.archives.mapper.ArchiveFileTypeMapper;
-import cn.zswltech.mithras.archives.model.ArchiveFileType;
+import cn.zswltech.mithras.archives.persistence.mapper.ArchiveFileTypeMapper;
+import cn.zswltech.mithras.archives.persistence.model.ArchiveFileType;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

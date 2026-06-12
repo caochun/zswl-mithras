@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.archives.mapper.ArchivesManagementMapper">
+<mapper namespace="cn.zswltech.mithras.archives.persistence.mapper.ArchivesManagementMapper">
 
-    <select id="pageList" resultType="cn.zswltech.mithras.archives.dto.persistence.ArchivesManagementDTO">
+    <select id="pageList" resultType="cn.zswltech.mithras.archives.persistence.dto.ArchivesManagementDTO">
         select
         a.id,
         a.proj_id projId,

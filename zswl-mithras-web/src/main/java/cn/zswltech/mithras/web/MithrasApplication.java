@@ -45,7 +45,8 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.ftp.newftp.mapper",
         "cn.zswltech.mithras.fund.directfinancing.mapper",
         "cn.zswltech.mithras.kpi.mapper",
-        "cn.zswltech.mithras.finance.view.mapper"
+        "cn.zswltech.mithras.finance.view.mapper",
+        "cn.zswltech.mithras.archives.persistence.mapper"
 })
 @EnableTransactionManagement
 @SpringBootApplication(scanBasePackages = {"cn.zswltech"})

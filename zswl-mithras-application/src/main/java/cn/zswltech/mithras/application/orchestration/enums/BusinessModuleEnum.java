@@ -9,7 +9,7 @@ import cn.zswltech.mithras.foundation.metadata.PullDown;
 import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingBaseInfoMapper;
 import cn.zswltech.mithras.afterlease.mapper.*;
 import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
-import cn.zswltech.mithras.archives.mapper.ArchivesManagementMapper;
+import cn.zswltech.mithras.archives.persistence.mapper.ArchivesManagementMapper;
 import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyClientMapper;
 import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyMapper;
 import cn.zswltech.mithras.associationreport.mapper.AssociationReportApplyMapper;

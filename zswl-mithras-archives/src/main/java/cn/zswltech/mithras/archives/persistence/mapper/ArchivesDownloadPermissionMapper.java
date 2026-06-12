@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.archives.mapper;
+package cn.zswltech.mithras.archives.persistence.mapper;
 
-import cn.zswltech.mithras.archives.model.ArchivesDownloadPermission;
+import cn.zswltech.mithras.archives.persistence.model.ArchivesDownloadPermission;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 

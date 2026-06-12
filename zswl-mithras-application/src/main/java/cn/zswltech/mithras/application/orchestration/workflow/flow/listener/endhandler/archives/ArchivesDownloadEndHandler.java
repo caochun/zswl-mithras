@@ -4,8 +4,8 @@ import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndH
 
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
-import cn.zswltech.mithras.archives.mapper.ArchivesDownloadPermissionMapper;
-import cn.zswltech.mithras.archives.model.ArchivesDownloadPermission;
+import cn.zswltech.mithras.archives.persistence.mapper.ArchivesDownloadPermissionMapper;
+import cn.zswltech.mithras.archives.persistence.model.ArchivesDownloadPermission;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

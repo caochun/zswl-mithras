@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.archives.model;
+package cn.zswltech.mithras.archives.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -11,12 +11,12 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 
- * @TableName archive_file_type
+ * @TableName archive_template
  */
 @EqualsAndHashCode(callSuper = true)
-@TableName(value ="archive_file_type")
+@TableName(value ="archive_template")
 @Data
-public class ArchiveFileType extends BaseModel implements Serializable {
+public class ArchiveTemplate extends BaseModel implements Serializable {
     /**
      * id
      */
@@ -24,28 +24,23 @@ public class ArchiveFileType extends BaseModel implements Serializable {
     private Long id;
 
     /**
-     * 文档类型
+     * 模版名称
      */
-    @TableField(value = "type_name")
-    private String typeName;
+    @TableField(value = "template_name")
+    private String templateName;
 
     /**
-     * 0 不必传 1 必传
+     * 适用业务类型
      */
-    @TableField(value = "need")
-    private Integer need;
+    @TableField(value = "template_type")
+    private String templateType;
 
     /**
-     * 分组id
+     * 禁用 启用
      */
-    @TableField(value = "group_id")
-    private Long groupId;
+    @TableField(value = "status")
+    private String status;
 
-    /**
-     * 排序
-     */
-    @TableField(value = "sort")
-    private Integer sort;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

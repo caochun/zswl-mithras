@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.archives.model;
+package cn.zswltech.mithras.archives.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
