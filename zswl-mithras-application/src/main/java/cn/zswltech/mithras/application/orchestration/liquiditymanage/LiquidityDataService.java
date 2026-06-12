@@ -45,7 +45,7 @@ import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorMismatchHolder;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.basedata.service.BaseDataBankAccountService;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
-import cn.zswltech.mithras.fund.application.financing.bo.FundPledgeSupervisedBO;
+import cn.zswltech.mithras.fund.application.financing.model.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

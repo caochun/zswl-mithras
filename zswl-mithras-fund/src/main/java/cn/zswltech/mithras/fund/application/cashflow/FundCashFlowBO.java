@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.application.bo;
+package cn.zswltech.mithras.fund.application.cashflow;
 
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayActual;

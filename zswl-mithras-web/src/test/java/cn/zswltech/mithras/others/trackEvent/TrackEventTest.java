@@ -23,7 +23,7 @@ import cn.zswltech.mithras.application.orchestration.job.NextMonthRentNotify;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.fund.application.financing.bo.ComprehensiveFinancingCostBO;
+import cn.zswltech.mithras.fund.application.financing.model.ComprehensiveFinancingCostBO;
 import cn.zswltech.mithras.dashboard.application.GuanYuanOperationService;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.BusinessContractSummaryDTO;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.PayIncomeDTO;

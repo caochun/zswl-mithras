@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.application.financing.fms;
+package cn.zswltech.mithras.fund.application.financing.statemachine;
 
 /**
  * @description:

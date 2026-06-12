@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.application.financing.bo;
+package cn.zswltech.mithras.fund.application.financing.model;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

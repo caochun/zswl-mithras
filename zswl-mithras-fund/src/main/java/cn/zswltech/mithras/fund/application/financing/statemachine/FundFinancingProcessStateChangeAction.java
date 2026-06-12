@@ -1,6 +1,5 @@
-package cn.zswltech.mithras.fund.application.financing.fms;
+package cn.zswltech.mithras.fund.application.financing.statemachine;
 
-import cn.zswltech.mithras.fund.application.financing.fms.IFundFinancingStateMachineEntity;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingEvent;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingProcessStatus;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;

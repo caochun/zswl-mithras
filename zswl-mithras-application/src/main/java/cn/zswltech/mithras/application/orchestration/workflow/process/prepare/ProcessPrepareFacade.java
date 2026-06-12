@@ -27,7 +27,7 @@ import cn.zswltech.mithras.workflow.model.FinancingRepayActualProcessDetail;
 import cn.zswltech.mithras.workflow.model.RentCollectionMonthDetail;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.fund.application.financing.bo.FundPledgeSupervisedBO;
+import cn.zswltech.mithras.fund.application.financing.model.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;

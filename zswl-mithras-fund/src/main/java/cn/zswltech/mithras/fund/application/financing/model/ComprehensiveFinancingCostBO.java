@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.application.financing.bo;
+package cn.zswltech.mithras.fund.application.financing.model;
 
 import cn.zswltech.mithras.fund.enums.OrganizationType;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;

@@ -32,7 +32,7 @@ import cn.zswltech.mithras.fund.model.financing.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.util.Util;
-import cn.zswltech.mithras.fund.application.financing.bo.ComprehensiveFinancingCostBO;
+import cn.zswltech.mithras.fund.application.financing.model.ComprehensiveFinancingCostBO;
 import cn.zswltech.mithras.credit.creditlimit.service.bo.CreditLimitDetailBO;
 import cn.zswltech.mithras.fund.application.*;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingPlanRateAdjustService;

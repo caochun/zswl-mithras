@@ -45,7 +45,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.projectprocess.application.model.CashFlowBO;
 import cn.zswltech.mithras.projectprocess.application.model.CashFlowIRRBO;
-import cn.zswltech.mithras.fund.application.financing.bo.ComprehensiveFinancingCostBO;
+import cn.zswltech.mithras.fund.application.financing.model.ComprehensiveFinancingCostBO;
 import cn.zswltech.mithras.projectprocess.application.model.DailyDiscountRateCalcResultBO;
 import cn.zswltech.mithras.fund.application.financing.FundFinancingCreditRefService;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;

@@ -43,7 +43,7 @@ import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.fund.application.financing.bo.ComprehensiveFinancingCostBO;
+import cn.zswltech.mithras.fund.application.financing.model.ComprehensiveFinancingCostBO;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FilingMaterialsService;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;

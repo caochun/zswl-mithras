@@ -1,6 +1,5 @@
-package cn.zswltech.mithras.fund.application.financing.fms;
+package cn.zswltech.mithras.fund.application.financing.statemachine;
 
-import cn.zswltech.mithras.fund.application.financing.fms.IFundFinancingStateMachineEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 

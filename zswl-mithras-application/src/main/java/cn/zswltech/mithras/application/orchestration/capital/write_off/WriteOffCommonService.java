@@ -8,7 +8,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
 import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.fund.application.financing.bo.FundPledgeSupervisedBO;
+import cn.zswltech.mithras.fund.application.financing.model.FundPledgeSupervisedBO;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractTenantryService;

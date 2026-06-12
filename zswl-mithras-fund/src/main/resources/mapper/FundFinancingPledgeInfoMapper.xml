@@ -5,7 +5,7 @@
 <mapper namespace="cn.zswltech.mithras.fund.mapper.financing.FundFinancingPledgeInfoMapper">
 
     <select id="getFundSupervisedBo"
-            resultType="cn.zswltech.mithras.fund.application.financing.bo.FundPledgeSupervisedBO">
+            resultType="cn.zswltech.mithras.fund.application.financing.model.FundPledgeSupervisedBO">
         SELECT ffp.contract_id AS contractId,
         ffp.contract_code AS contractCode,
         ffp.account_name AS accountName,
