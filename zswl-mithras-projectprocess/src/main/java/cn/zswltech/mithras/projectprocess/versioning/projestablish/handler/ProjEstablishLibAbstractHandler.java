@@ -2,7 +2,6 @@ package cn.zswltech.mithras.projectprocess.versioning.projestablish.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishInfoModule;
-import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
@@ -52,9 +51,6 @@ public abstract class ProjEstablishLibAbstractHandler<LIB extends ILib, ENTITY e
     @Override
     public String entityMainIdFieldName() {
         return "proj_establish_id";
-    }
-
-    public void validateData(Client client) {
     }
 
     public abstract ProjEstablishInfoModule getSubModule();

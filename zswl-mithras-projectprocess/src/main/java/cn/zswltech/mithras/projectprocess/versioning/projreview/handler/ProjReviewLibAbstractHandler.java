@@ -2,7 +2,6 @@ package cn.zswltech.mithras.projectprocess.versioning.projreview.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
-import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import cn.zswltech.mithras.foundation.persistence.tag.ILib;
 import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
@@ -52,9 +51,6 @@ public abstract class ProjReviewLibAbstractHandler<LIB extends ILib, ENTITY exte
     @Override
     public String entityMainIdFieldName() {
         return "project_id";
-    }
-
-    public void validateData(Client client) {
     }
 
     public abstract ProjReviewInfoModule getSubModule();
