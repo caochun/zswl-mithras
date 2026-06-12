@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.workflow.persistence.mapper.ProcAttentionRecordMapper">
+<mapper namespace="cn.zswltech.mithras.workflow.persistence.mapper.attention.ProcAttentionRecordMapper">
 
     <insert id="insertOrUpdate">
         INSERT IGNORE INTO proc_attention_record(process_instance_id, user_id, attention_type)

@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.basedata.persistence.model.BaseDataExchangeRate;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.basedata.service.BaseDataExchangeRateService;
 import lombok.extern.slf4j.Slf4j;

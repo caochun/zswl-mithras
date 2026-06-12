@@ -37,8 +37,8 @@ import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeI
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
-import cn.zswltech.mithras.workflow.persistence.model.RentCollectionMonthDetail;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.RentCollectionMonthDetail;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

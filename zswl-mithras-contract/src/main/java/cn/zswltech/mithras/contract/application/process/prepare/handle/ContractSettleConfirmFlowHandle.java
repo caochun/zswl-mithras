@@ -12,7 +12,7 @@ import cn.zswltech.mithras.contract.application.process.prepare.ContractProcessP
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

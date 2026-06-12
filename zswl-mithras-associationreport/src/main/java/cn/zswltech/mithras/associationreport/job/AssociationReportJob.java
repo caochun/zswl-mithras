@@ -22,7 +22,7 @@ import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
 import cn.zswltech.mithras.associationreport.service.job.AssociationReportJobService;
 import cn.zswltech.mithras.associationreport.service.job.AssociationReportProcessPrepareService;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.basedata.util.DateUtil;

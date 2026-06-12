@@ -24,7 +24,7 @@ import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingBaseIn
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.AfterFilingMaterialsService;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FilingMaterialsService;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FundFilingMaterialsService;

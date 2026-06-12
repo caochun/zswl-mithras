@@ -17,7 +17,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantryLib;
-import cn.zswltech.mithras.workflow.persistence.model.RentCollectionMonthDetail;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.RentCollectionMonthDetail;
 import cn.zswltech.mithras.contract.versioning.service.ContractLeasePriceLibService;
 import cn.zswltech.mithras.foundation.util.FreeMarkerUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

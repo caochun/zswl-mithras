@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.third.providence;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.third.providence.service.impl.BillOverdueDraftService;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

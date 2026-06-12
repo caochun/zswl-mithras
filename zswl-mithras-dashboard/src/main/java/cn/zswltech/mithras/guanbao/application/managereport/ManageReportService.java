@@ -26,9 +26,9 @@ import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnu
 import cn.zswltech.mithras.dashboard.enums.BusinessGroupEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.workflow.persistence.mapper.ToDoOperateRecordMapper;
+import cn.zswltech.mithras.workflow.persistence.mapper.flow.ToDoOperateRecordMapper;
 import cn.zswltech.mithras.guanbao.mapper.managereport.*;
-import cn.zswltech.mithras.workflow.persistence.model.OperateRecord;
+import cn.zswltech.mithras.workflow.persistence.model.flow.OperateRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.dashboard.application.DashboardOperateTodoService;

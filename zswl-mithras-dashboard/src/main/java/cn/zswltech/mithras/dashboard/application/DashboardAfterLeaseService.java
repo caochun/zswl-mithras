@@ -24,7 +24,7 @@ import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.afterlease.model.dashboard.DashboardClientAfterLeaseCheckQuery;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;

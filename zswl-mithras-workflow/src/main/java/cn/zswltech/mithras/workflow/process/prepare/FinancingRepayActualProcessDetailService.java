@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.workflow.process.prepare;
 
-import cn.zswltech.mithras.workflow.persistence.model.FinancingRepayActualProcessDetail;
-import cn.zswltech.mithras.workflow.persistence.mapper.FinancingRepayActualProcessDetailMapper;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.FinancingRepayActualProcessDetail;
+import cn.zswltech.mithras.workflow.persistence.mapper.prepare.FinancingRepayActualProcessDetailMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;

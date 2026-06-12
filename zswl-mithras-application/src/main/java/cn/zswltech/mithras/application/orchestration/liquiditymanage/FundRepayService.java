@@ -8,8 +8,8 @@ import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFin
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingRepayActualService;
 import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingRepayActualMapper;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingRepayActual;
-import cn.zswltech.mithras.workflow.persistence.model.FinancingRepayActualProcessDetail;
-import cn.zswltech.mithras.workflow.persistence.mapper.FinancingRepayActualProcessDetailMapper;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.FinancingRepayActualProcessDetail;
+import cn.zswltech.mithras.workflow.persistence.mapper.prepare.FinancingRepayActualProcessDetailMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingRepayActualService;
 import cn.zswltech.mithras.workflow.process.prepare.FinancingRepayActualProcessDetailService;

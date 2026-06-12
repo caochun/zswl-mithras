@@ -16,8 +16,8 @@ import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingRe
 import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.*;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
-import cn.zswltech.mithras.workflow.persistence.model.FinancingRepayActualProcessDetail;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.FinancingRepayActualProcessDetail;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.SysUserService;

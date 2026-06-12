@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.foundation.util.StringUtil;

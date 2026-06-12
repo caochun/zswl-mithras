@@ -31,7 +31,7 @@ import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBase
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewMeetMinuteBaseInfo;
-import cn.zswltech.mithras.workflow.persistence.model.TrackEventInfo;
+import cn.zswltech.mithras.workflow.persistence.model.trackevent.TrackEventInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewMeetMinuteBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

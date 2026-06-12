@@ -2,7 +2,7 @@ package cn.zswltech.mithras.others.service.common;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.application.orchestration.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.workflow.persistence.mapper.BizProcessDataMapper;
+import cn.zswltech.mithras.workflow.persistence.mapper.flow.BizProcessDataMapper;
 import cn.zswltech.mithras.afterlease.mapper.AfterLeaseAdjustInfoMapper;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckExternalQueryMapper;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;
@@ -11,7 +11,7 @@ import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
-import cn.zswltech.mithras.workflow.persistence.model.BizProcessData;
+import cn.zswltech.mithras.workflow.persistence.model.flow.BizProcessData;
 import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckExternalQuery;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;

@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.workflow.flow.attention;
 
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.workflow.persistence.mapper.ProcAttentionRecordMapper;
-import cn.zswltech.mithras.workflow.persistence.model.ProcAttentionRecord;
+import cn.zswltech.mithras.workflow.persistence.mapper.attention.ProcAttentionRecordMapper;
+import cn.zswltech.mithras.workflow.persistence.model.attention.ProcAttentionRecord;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.lang.Nullable;

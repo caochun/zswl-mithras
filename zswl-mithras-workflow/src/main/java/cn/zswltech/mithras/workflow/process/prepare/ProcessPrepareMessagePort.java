@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.workflow.process.prepare;
 
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 
 public interface ProcessPrepareMessagePort {
 

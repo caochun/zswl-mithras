@@ -10,7 +10,7 @@ import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInf
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
-import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
+import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

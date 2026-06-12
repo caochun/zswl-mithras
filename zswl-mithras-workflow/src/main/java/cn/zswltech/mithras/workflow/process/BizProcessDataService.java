@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.workflow.process;
 
 import cn.zswltech.mithras.dto.flow.search.ProcessTaskExtra;
-import cn.zswltech.mithras.workflow.persistence.mapper.BizProcessDataMapper;
-import cn.zswltech.mithras.workflow.persistence.model.BizProcessData;
+import cn.zswltech.mithras.workflow.persistence.mapper.flow.BizProcessDataMapper;
+import cn.zswltech.mithras.workflow.persistence.model.flow.BizProcessData;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
