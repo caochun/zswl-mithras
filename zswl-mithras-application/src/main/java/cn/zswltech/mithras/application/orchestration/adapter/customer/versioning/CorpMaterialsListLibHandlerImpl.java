@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.versioning.handler.impl;
+package cn.zswltech.mithras.application.orchestration.adapter.customer.versioning;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;

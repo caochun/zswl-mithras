@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.versioning.handler.impl;
+package cn.zswltech.mithras.application.orchestration.adapter.customer.versioning;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.customer.versioning.handler.ClientLibAbstractHandler;

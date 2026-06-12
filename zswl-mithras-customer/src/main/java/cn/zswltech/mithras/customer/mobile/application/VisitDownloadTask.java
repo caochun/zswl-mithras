@@ -4,18 +4,16 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswl.oss.core.OssClient;
-import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
+import cn.zswltech.mithras.customer.mobile.VisitRecordMaterialPort;
 import cn.zswltech.mithras.customer.mobile.mapper.VisitDownloadTaskRecordMapper;
 import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.customer.mobile.model.VisitDownloadTaskRecord;
 import cn.zswltech.mithras.customer.mobile.model.VisitRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.document.util.FileUriUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,8 +39,6 @@ import static cn.hutool.core.text.CharSequenceUtil.join;
 @AllArgsConstructor
 @Slf4j
 public class VisitDownloadTask implements Runnable {
-    private static final String VISIT_RECORD = "VISIT_RECORD";
-
     private Long taskId;
 
     @Override
@@ -56,12 +52,8 @@ public class VisitDownloadTask implements Runnable {
         List<VisitRecord> visitRecordList = SpringUtil.getBean(VisitRecordMapper.class).selectBatchIds(visitRecordIds);
         Map<String, List<VisitRecord>> visitRecordMap = visitRecordList.stream().collect(Collectors.groupingBy(VisitRecord::getClientName));
         // 查询文件信息
-        List<MaterialsList> fileList = SpringUtil.getBean(MaterialsListMapper.class).selectList(
-                Wrappers.<MaterialsList>lambdaQuery()
-                        .eq(MaterialsList::getBusinessType, VISIT_RECORD)
-                        .in(MaterialsList::getBelongId, visitRecordIds)
-        );
-        Map<Long, List<MaterialsList>> fileMap = fileList.stream().collect(Collectors.groupingBy(MaterialsList::getBelongId));
+        List<VisitRecordMaterialPort.VisitRecordMaterial> fileList = SpringUtil.getBean(VisitRecordMaterialPort.class).listByVisitRecordIds(visitRecordIds);
+        Map<Long, List<VisitRecordMaterialPort.VisitRecordMaterial>> fileMap = fileList.stream().collect(Collectors.groupingBy(VisitRecordMaterialPort.VisitRecordMaterial::getBelongId));
         String localFilePath = "/tmp/" + taskRecord.getFileName();
         OutputStream outputStream = FileUtil.getOutputStream(localFilePath);
         try {
@@ -72,18 +64,18 @@ public class VisitDownloadTask implements Runnable {
             for (Map.Entry<String, List<VisitRecord>> entry : visitRecordMap.entrySet()) {
                 entry.getValue().sort(Comparator.comparing(VisitRecord::getCheckInDate));
                 for (VisitRecord visitRecord : entry.getValue()) {
-                    List<MaterialsList> mList = fileMap.get(visitRecord.getId());
+                    List<VisitRecordMaterialPort.VisitRecordMaterial> mList = fileMap.get(visitRecord.getId());
                     if (CollectionUtil.isEmpty(mList)) {
                         continue;
                     }
                     String date = LocalDateTimeUtil.format(visitRecord.getCheckInDate(), DatePattern.PURE_DATETIME_PATTERN);
-                    for (MaterialsList m : mList) {
+                    for (VisitRecordMaterialPort.VisitRecordMaterial m : mList) {
                         try {
                             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                             SpringUtil.getBean(OssClient.class).downLoad(byteArrayOutputStream, join("/", m.getOssFilename()));
                             byte[] buffer = byteArrayOutputStream.toByteArray();
                             String originPath = rootPath + "/" + entry.getKey() + "/" + date + "/" + m.getFilename();
-                            String finalPath = FileUriUtil.fileNameDeduplication(pathSet, originPath);
+                            String finalPath = fileNameDeduplication(pathSet, originPath);
                             ZipEntry zipEntry = new ZipEntry(finalPath);
                             zipOutputStream.putNextEntry(zipEntry);
                             zipOutputStream.write(buffer);
@@ -106,5 +98,25 @@ public class VisitDownloadTask implements Runnable {
             // 删除本地文件
             FileUtil.del(localFilePath);
         }
+    }
+
+    private static String fileNameDeduplication(Set<String> pathSet, String filePath) {
+        return getNewFileNameDeduplication(pathSet, filePath, filePath, 1);
+    }
+
+    private static String getNewFileNameDeduplication(Set<String> pathSet, String filePath, String newFilePath, int i) {
+        String fileUrl = filePath;
+        if (!pathSet.contains(newFilePath)) {
+            pathSet.add(newFilePath);
+            return newFilePath;
+        }
+        String suffix = FileNameUtil.getSuffix(fileUrl);
+        int indexOf = fileUrl.lastIndexOf(suffix);
+        if (indexOf == fileUrl.length()) {
+            fileUrl = fileUrl + "(" + i + ")";
+        } else {
+            fileUrl = fileUrl.substring(0, indexOf - 1) + "(" + i + ")" + fileUrl.substring(indexOf - 1);
+        }
+        return getNewFileNameDeduplication(pathSet, filePath, fileUrl, ++i);
     }
 }
