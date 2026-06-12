@@ -15,9 +15,9 @@ import cn.zswltech.mithras.dto.version.CommonVersionDiffBO;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
+import cn.zswltech.mithras.api.datacompare.EditdataCompareApi;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.workflow.datacompare.EditdataCompareApplicationService;
 import cn.zswltech.mithras.projectprocess.convert.projpricing.ProjPricingCashFlowPlanConverter;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
@@ -72,7 +72,7 @@ public class ProjPricingVersionServiceImpl extends CommonVersionService<ProjPric
     @Resource
     private ProjReviewBaseInfoLibService reviewBaseInfoLibService;
     @Resource
-    private EditdataCompareApplicationService editdataCompareController;
+    private EditdataCompareApi editdataCompareController;
 
     @Transactional(rollbackFor = Exception.class)
     public void reset(Long mainId) {

@@ -2,7 +2,6 @@ package cn.zswltech.mithras.projectprocess.enums.projreview;
 
 import cn.zswltech.mithras.foundation.metadata.IMaterialsTypeConvert;
 import cn.zswltech.mithras.foundation.metadata.PullDown;
-import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -23,7 +22,6 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Getter
 public enum ProjReviewMaterialsEnum implements PullDown, IMaterialsTypeConvert {
-
     // 尽调报告（改名为项目报告 since 2022.09.13）
     // 又改回为尽调报告 since 2022.09.15）
     DUE_DILIGENCE_REPORT("尽调报告", new ArrayList<>(), 0),
@@ -32,9 +30,9 @@ public enum ProjReviewMaterialsEnum implements PullDown, IMaterialsTypeConvert {
     // 业务定价会议纪要
 //    BUSINESS_PRICING_APPROVAL_MEETING_REPORT("业务定价会议纪要", Collections.singletonList("userTask_financeOfficer_2"), 10),
     // 审查报告
-    RISK_REVIEW_REPORT("审查报告", Arrays.asList(FlowConstants.PARALLEL_RISK_MANAGER, FlowConstants.PARALLEL_RISK_MANAGER_BACK), 20),
+    RISK_REVIEW_REPORT("审查报告", Arrays.asList("userTask_riskManager", "userTask_riskManager_back"), 20),
     // 法律合规意见书
-    LEGAL_COMPLIANCE_REPORT("法律合规意见书", Arrays.asList(FlowConstants.PARALLEL_LAW_MANAGER, FlowConstants.PARALLEL_LAW_MANAGER_BACK, FlowConstants.PARALLEL_LAW_MANAGER_REVIEW, FlowConstants.PARALLEL_LAW_MANAGER_BACK_REVIEW), 30),
+    LEGAL_COMPLIANCE_REPORT("法律合规意见书", Arrays.asList("userTask_lawManager", "userTask_lawManager_back", "userTask_lawManager_review", "userTask_lawManager_back_review"), 30),
     //专职评审意见
     PROFESSIONAL_REVIEW_COMMENTS("专职评审意见", Collections.singletonList("userTask_fullReviewCommittee"), 35),
     // 项目收益率审查意见书

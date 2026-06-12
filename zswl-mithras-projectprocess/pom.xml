@@ -43,11 +43,6 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-workflow</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
             <groupId>cn.zswltech.flow</groupId>
             <artifactId>core</artifactId>
             <version>1.5.11-mithras-RELEASE</version>
