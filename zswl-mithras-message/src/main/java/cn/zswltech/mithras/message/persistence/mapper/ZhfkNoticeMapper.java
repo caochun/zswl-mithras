@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.message.mapper;
+package cn.zswltech.mithras.message.persistence.mapper;
 
 import cn.zswl.notice.model.CommonQry;
-import cn.zswltech.mithras.message.model.ZhfkNotice;
+import cn.zswltech.mithras.message.persistence.model.ZhfkNotice;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

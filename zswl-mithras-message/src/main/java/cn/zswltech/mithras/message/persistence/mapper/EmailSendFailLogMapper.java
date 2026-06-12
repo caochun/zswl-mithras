@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.message.mapper;
+package cn.zswltech.mithras.message.persistence.mapper;
 
-import cn.zswltech.mithras.message.model.EmailSendFailLog;
+import cn.zswltech.mithras.message.persistence.model.EmailSendFailLog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

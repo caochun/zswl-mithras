@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.message.service;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.message.model.ZhfkNoticeRelation;
-import cn.zswltech.mithras.message.mapper.ZhfkNoticeRelationMapper;
+import cn.zswltech.mithras.message.persistence.model.ZhfkNoticeRelation;
+import cn.zswltech.mithras.message.persistence.mapper.ZhfkNoticeRelationMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

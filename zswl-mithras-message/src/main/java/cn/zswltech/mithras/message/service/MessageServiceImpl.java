@@ -19,7 +19,7 @@ import cn.zswltech.mithras.message.enums.MessageChannelEnum;
 import cn.zswltech.mithras.message.enums.MessageType;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.TodoMessageBody;
-import cn.zswltech.mithras.message.model.ZhfkNoticeRelation;
+import cn.zswltech.mithras.message.persistence.model.ZhfkNoticeRelation;
 import cn.zswltech.mithras.message.service.factory.MessageFactory;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageInfo;

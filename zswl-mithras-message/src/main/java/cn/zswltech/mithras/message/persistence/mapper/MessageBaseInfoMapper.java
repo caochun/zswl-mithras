@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.message.mapper;
+package cn.zswltech.mithras.message.persistence.mapper;
 
-import cn.zswltech.mithras.message.model.MessageBaseInfo;
+import cn.zswltech.mithras.message.persistence.model.MessageBaseInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
