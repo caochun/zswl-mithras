@@ -3,7 +3,7 @@ package cn.zswltech.mithras.document.controller.materialsfile;
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.materialsfile.MaterialsListApi;
-import cn.zswltech.mithras.document.materialsfile.MaterialsListApplicationService;
+import cn.zswltech.mithras.document.service.api.MaterialsListApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.file.FileDownLoadRSP;
 import cn.zswltech.mithras.dto.file.FileListRSP;

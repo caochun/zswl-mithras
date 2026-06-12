@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.file;
+package cn.zswltech.mithras.document.service.api;
 
 import cn.zswltech.mithras.api.FileApi;
 

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.document.controller.migrate;
 
 import cn.zswltech.mithras.api.MigrateFileApi;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.document.file.MigrateFileApplicationService;
+import cn.zswltech.mithras.document.service.api.MigrateFileApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

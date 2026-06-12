@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.document.materialsfile.MaterialsListQueryService;
-import cn.zswltech.mithras.document.file.FileTemplateApplicationService;
+import cn.zswltech.mithras.document.service.api.FileTemplateApplicationService;
 import cn.zswltech.mithras.dto.file.template.FileTemplateAddREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateHistoryListREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateHistoryListRSP;

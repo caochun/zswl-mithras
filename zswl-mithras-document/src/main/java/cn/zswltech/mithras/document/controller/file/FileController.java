@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.api.FileApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.document.file.FileApplicationService;
+import cn.zswltech.mithras.document.service.api.FileApplicationService;
 import cn.zswltech.mithras.dto.file.FileBatchDownLoadREQ;
 import cn.zswltech.mithras.dto.file.FileBatchRemoveREQ;
 import cn.zswltech.mithras.dto.file.FileDownLoadREQ;
