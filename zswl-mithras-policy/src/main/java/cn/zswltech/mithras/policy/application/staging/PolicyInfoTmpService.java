@@ -2,11 +2,11 @@ package cn.zswltech.mithras.policy.application.staging;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpAddREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpListREQ;
 import cn.zswltech.mithras.dto.policy.PolicyInfoTmpModifyREQ;
+import cn.zswltech.mithras.policy.application.port.PolicyContractInfoPort;
+import cn.zswltech.mithras.policy.application.port.model.PolicyContractInfo;
 import cn.zswltech.mithras.policy.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.enums.PolicyTypeEnum;
 import cn.zswltech.mithras.policy.excel.importer.PaymentPolicyExcelImporter;
@@ -42,7 +42,7 @@ public class PolicyInfoTmpService extends ServiceImpl<PolicyInfoTmpMapper, Polic
     @Resource
     private PolicyInfoTmpMapper policyInfoTmpMapper;
     @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
+    private PolicyContractInfoPort policyContractInfoPort;
     @Resource
     private PaymentPolicyExcelImporter paymentPolicyExcelImporter;
 
@@ -71,8 +71,8 @@ public class PolicyInfoTmpService extends ServiceImpl<PolicyInfoTmpMapper, Polic
 
     @Transactional(rollbackFor = Throwable.class)
     public String importExcel(InputStream inputStream, Long contractId) {
-        ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(contractId);
-        if (ObjectUtil.isEmpty(contractBaseInfo)) {
+        PolicyContractInfo contractInfo = policyContractInfoPort.getById(contractId);
+        if (ObjectUtil.isEmpty(contractInfo)) {
             throw new MithrasException("合同信息为空");
         }
         List<PaymentPolicyItemExcelModel> policyItemExcelModels = paymentPolicyExcelImporter.parse(inputStream);
@@ -88,8 +88,8 @@ public class PolicyInfoTmpService extends ServiceImpl<PolicyInfoTmpMapper, Polic
             tmpPolicy.setPolicyAmount(LongUtil.other2Long(paymentPolicyItemExcelModel.getPolicyAmount().toString()));
             PolicyTypeEnum policyType = PolicyTypeEnum.find(paymentPolicyItemExcelModel.getPolicyType());
             tmpPolicy.setPolicyType(policyType == null ? null : policyType.name());
-            tmpPolicy.setContractId(contractBaseInfo.getId());
-            tmpPolicy.setContractCode(contractBaseInfo.getContractCode());
+            tmpPolicy.setContractId(contractInfo.getId());
+            tmpPolicy.setContractCode(contractInfo.getContractCode());
             saveBeans.add(tmpPolicy);
         }
         saveBatch(saveBeans);

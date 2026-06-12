@@ -4,16 +4,13 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.TypeReference;
 import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.model.client.Client;
+import cn.zswltech.mithras.policy.application.port.PolicyProjectClientInfoPort;
+import cn.zswltech.mithras.policy.application.port.model.PolicyProjectClientInfo;
 import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.policy.persistence.model.PolicyInfoLib;
-import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.policy.versioning.handler.PolicyAbstractHandler;
 import cn.zswltech.mithras.policy.versioning.handler.PolicyInfoModule;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -33,9 +30,7 @@ public class PolicyInfoLibHandler
         PolicyInfoDetailRSP> {
 
     @Resource
-    private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
-    @Resource
-    private ClientMapper clientMapper;
+    private PolicyProjectClientInfoPort policyProjectClientInfoPort;
     @Resource
     private UserNameResolver userNameResolver;
 
@@ -60,38 +55,32 @@ public class PolicyInfoLibHandler
 
     @Override
     protected PolicyInfoDetailRSP lib2Rsp(PolicyInfoLib f) {
-        ProjReviewBaseInfo projInfo = projReviewBaseInfoMapper.selectById(f.getProjId());
+        PolicyProjectClientInfo projInfo = policyProjectClientInfoPort.getByProjectId(f.getProjId());
         PolicyInfoDetailRSP rsp = new PolicyInfoDetailRSP();
         rsp.setId(f.getOriginId());
         rsp.setPolicyCode(f.getPolicyCode());
         rsp.setProjId(f.getProjId());
-        rsp.setProjName(projInfo.getProjName());
-        rsp.setProjCode(projInfo.getProjCode());
+        rsp.setProjName(projInfo.getProjectName());
+        rsp.setProjCode(projInfo.getProjectCode());
         rsp.setClientId(projInfo.getClientId());
         rsp.setInsuranceStartDate(f.getInsuranceStartDate());
         rsp.setInsuranceEndDate(f.getInsuranceEndDate());
         rsp.setInsuranceCompany(f.getInsuranceCompany());
         rsp.setPolicyAmount(f.getPolicyAmount());
-        rsp.setProjSponsorUserId(projInfo.getProjSponsorUserId());
+        rsp.setProjSponsorUserId(projInfo.getProjectSponsorUserId());
         Set<Long> sysUserIds = new HashSet<>();
-        Set<Long> clientIds = new HashSet<>();
-        rsp.setProjCosponsorUserIds(isBlank(projInfo.getProjCosponsorUserIds()) ? null : toBean(projInfo.getProjCosponsorUserIds(), new TypeReference<List<Long>>() {
+        rsp.setProjCosponsorUserIds(isBlank(projInfo.getProjectCosponsorUserIds()) ? null : toBean(projInfo.getProjectCosponsorUserIds(), new TypeReference<List<Long>>() {
         }, true));
         sysUserIds.add(rsp.getProjSponsorUserId());
         if (CollUtil.isNotEmpty(rsp.getProjCosponsorUserIds())) {
             sysUserIds.addAll(rsp.getProjCosponsorUserIds());
         }
-        clientIds.add(rsp.getClientId());
-        Map<Long, String> clientMap = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
-                        .in(Client::getId, clientIds))
-                .stream()
-                .collect(Collectors.toMap(Client::getId, Client::getClientName));
         Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(sysUserIds);
         rsp.setProjSponsorUserName(sysUserMap.get(rsp.getProjSponsorUserId()));
         if (CollUtil.isNotEmpty(rsp.getProjCosponsorUserIds())) {
             rsp.setProjCosponsorUserNames(rsp.getProjCosponsorUserIds().stream().map(sysUserMap::get).collect(Collectors.toList()));
         }
-        rsp.setClientName(clientMap.get(rsp.getClientId()));
+        rsp.setClientName(projInfo.getClientName());
         return rsp;
     }
 
