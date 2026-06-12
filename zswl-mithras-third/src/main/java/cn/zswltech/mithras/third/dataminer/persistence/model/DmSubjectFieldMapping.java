@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.dataminer.model;
+package cn.zswltech.mithras.third.dataminer.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

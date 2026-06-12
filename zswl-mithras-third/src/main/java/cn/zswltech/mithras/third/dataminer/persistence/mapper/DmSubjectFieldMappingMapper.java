@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.dataminer.mapper;
+package cn.zswltech.mithras.third.dataminer.persistence.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.third.dataminer.model.DmSubjectFieldMapping;
+import cn.zswltech.mithras.third.dataminer.persistence.model.DmSubjectFieldMapping;
 
 /**
 * @description dm财报科目字段映射表
