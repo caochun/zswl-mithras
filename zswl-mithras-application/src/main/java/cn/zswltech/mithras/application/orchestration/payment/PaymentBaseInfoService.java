@@ -27,7 +27,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.payment.dto.*;
 import cn.zswltech.mithras.api.payment.version.PaymentEffectREQ;
-import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibraryREQ;
+import cn.zswltech.mithras.blackgray.dto.req.BlackGrayLibraryREQ;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibraryRSP;
 import cn.zswltech.mithras.blackgray.enums.BlackGrayTypeEnum;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayLibraryMapper;

@@ -15,7 +15,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibraryREQ;
+import cn.zswltech.mithras.blackgray.dto.req.BlackGrayLibraryREQ;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibraryRSP;
 import cn.zswltech.mithras.blackgray.service.BlackGrayLibraryService;
 import cn.zswltech.mithras.dto.AccountReq;
