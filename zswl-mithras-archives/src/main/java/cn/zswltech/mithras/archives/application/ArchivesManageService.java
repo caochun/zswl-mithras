@@ -2,16 +2,8 @@ package cn.zswltech.mithras.archives.application;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.lang.Pair;
-import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.flow.core.api.FlowProcessApiService;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.StartProcessReq;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.archives.ArchiveDownloadEffectREQ;
@@ -27,18 +19,11 @@ import cn.zswltech.mithras.dto.archives.ArchivesRSP;
 import cn.zswltech.mithras.dto.archives.ArchivesSearchREQ;
 import cn.zswltech.mithras.dto.archives.ArchivesSearchRSP;
 import cn.zswltech.mithras.dto.archives.ArchivesUploadSelectRsp;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListRSP;
-import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.archives.enums.ArchiveTemplateStatusEnum;
 import cn.zswltech.mithras.archives.enums.ArchivesFlowStatusEnum;
 import cn.zswltech.mithras.archives.enums.ArchivesStatusEnum;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.archives.mapper.ArchiveFileTypeMapper;
 import cn.zswltech.mithras.archives.mapper.ArchiveTemplateMapper;
 import cn.zswltech.mithras.archives.mapper.ArchiveTypeGroupMapper;
@@ -52,14 +37,9 @@ import cn.zswltech.mithras.archives.model.ArchiveTypeGroup;
 import cn.zswltech.mithras.archives.model.ArchivesDownloadPermission;
 import cn.zswltech.mithras.archives.model.ArchivesDownloadPermissionReason;
 import cn.zswltech.mithras.archives.model.ArchivesManagement;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.common.collect.Lists;
@@ -81,14 +61,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -99,9 +76,6 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper, ArchivesManagement> {
-
-    @Resource
-    private FlowTaskApiService taskApiService;
 
     @Resource
     private ArchiveFileTypeMapper archiveFileTypeMapper;
@@ -119,28 +93,20 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     private Id2NameService id2NameService;
 
     @Resource
-    private ProjEstablishBaseInfoMapper projEstablishBaseInfoMapper;
-
-    @Resource
     private ArchiveTemplateMapper archiveTemplateMapper;
 
     @Resource
     private ArchivesManagementMapper archivesManagementMapper;
 
     @Resource
-    private FlowProcessApiService processApiService;
-
-    @Resource
-    private MessageService messageService;
-    @Resource
-    private MessageConver messageConvert;
-    @Resource
     private SysUserService sysUserService;
-    @Resource
-    private BizProcessDataService bizProcessDataService;
 
     @Resource
     private ArchivesSupportPort archivesSupportPort;
+    @Resource
+    private ArchivesWorkflowPort archivesWorkflowPort;
+    @Resource
+    private ArchivesNotificationPort archivesNotificationPort;
 
     public cn.zswltech.mithras.api.common.R<List<ProjEstablishVagueListRSP>> vague(ProjEstablishVagueListREQ req) {
         Map<String, ProjEstablishVagueListRSP> vagueMap = archivesSupportPort.vagueQuery(req);
@@ -312,15 +278,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             downloadPermissions.add(permission);
         }
         archivesDownloadPermissionMapper.insertList(downloadPermissions);
-        StartProcessReq startProcessReq = new StartProcessReq();
-        startProcessReq.setModelKey(ProcessModelTypeEnum.ArchivesDownloadFlow.name());
-        startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo())
-                .map(AccountVO::getId)
-                .map(String::valueOf)
-                .orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
-        startProcessReq.setBusinessKey(uuid);
-        startProcessReq.setProcessInstanceName("借阅审批");
-        processApiService.start(startProcessReq);
+        archivesWorkflowPort.startDownloadApproval(uuid);
         return null;
     }
 
@@ -332,7 +290,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         }
         ArchivesManagement management = new ArchivesManagement();
         management.setProjId(req.getProjId());
-        ProjEstablishBaseInfo baseInfo = projEstablishBaseInfoMapper.selectById(req.getProjId());
+        ArchivesSupportPort.ProjectInfo baseInfo = archivesSupportPort.getProjectInfo(req.getProjId());
         ArchiveTemplate template = archiveTemplateMapper.selectOne(Wrappers.<ArchiveTemplate>lambdaQuery().eq(ArchiveTemplate::getStatus, ArchiveTemplateStatusEnum.ENABLE.name()).apply("FIND_IN_SET(\"" + baseInfo.getBizType() + "\"," + "template_type)").last(StringUtil.mysqlLimitOne()));
         if (template == null){
             throw new MithrasException("无可用模版！");
@@ -354,7 +312,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
 
     public ArchivesInfoRSP archivesInfo(ArchivesInfoREQ req){
         ArchivesManagement management = archivesManagementMapper.selectById(req.getId());
-        ProjEstablishBaseInfo baseInfo = projEstablishBaseInfoMapper.selectById(management.getProjId());
+        ArchivesSupportPort.ProjectInfo baseInfo = archivesSupportPort.getProjectInfo(management.getProjId());
         List<ArchivesMastFileCountDTO> fileCounts = archiveTemplateMapper.mustFileCount(CollectionUtil.newArrayList(req.getId()));
         List<ArchivesMastFileTypeCountDTO> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(CollectionUtil.newArrayList(management.getTemplateId()));
 
@@ -484,22 +442,8 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
 
     public Void remind(ArchivesInfoREQ req){
         ArchivesManagement management = archivesManagementMapper.selectById(req.getId());
-        ProjEstablishBaseInfo baseInfo = projEstablishBaseInfoMapper.selectById(management.getProjId());
-        MessageAddREQ message = new MessageAddREQ();
-        message.setFrom("系统通知");
-        Set<Long> to = new HashSet<>();
-        if (baseInfo.getProjSponsorUserId() != null) {
-            to.add(baseInfo.getProjSponsorUserId());
-        }
-        message.setTo(new ArrayList<>(to));
-        message.setRelation(baseInfo.getProjName());
-        message.setContent(baseInfo.getProjName());
-        message.setNeedOa(false);
-        message.setNoticeSource(NoticeSourceENUM.ARCHIVES.name());
-        message.setMessageType(MessageTypeEnum.ARCHIVES.name());
-        message.setPcurl(StringUtils.format(MessageUrlEnum.ARCHIVES.pcUrl,req.getId()));
-        message.setBusinessId(String.valueOf(management.getId()));
-        messageService.sendMessage(messageConvert.reqToMessage(message));
+        ArchivesSupportPort.ProjectInfo baseInfo = archivesSupportPort.getProjectInfo(management.getProjId());
+        archivesNotificationPort.sendRemind(management.getId(), baseInfo.getProjName(), baseInfo.getProjSponsorUserId());
         return null;
     }
 
@@ -522,45 +466,23 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             }
 
         }
-        if(isInProcess(req.getId(), ArchivesSupportPort.ARCHIVES_MODEL_KEYS)){
+        if(archivesWorkflowPort.isArchivesApprovalRunning(req.getId())){
             throw new MithrasException("该用户已处于流程中，无法提交数据");
         }
 
-        ProjEstablishBaseInfo baseInfo = projEstablishBaseInfoMapper.selectById(management.getProjId());
-        StartProcessReq startProcessReq = new StartProcessReq();
-        startProcessReq.setModelKey(ProcessModelTypeEnum.ArchivesFlow.name());
-        startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo())
-                .map(AccountVO::getId)
-                .map(String::valueOf)
-                .orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
-        startProcessReq.setVariables(MapUtil.of(
-                Pair.of("bizDeptLeader", Objects.nonNull(baseInfo.getBizDeptLeaderId()) ?
-                        ListUtil.toList(String.valueOf(baseInfo.getBizDeptLeaderId())) : new ArrayList<>())
-        ));
-        startProcessReq.setBusinessKey(String.valueOf(management.getId()));
-        startProcessReq.setProcessInstanceName(baseInfo.getProjName()+"归档审批");
-
-        startProcessReq.setStartUserDeptId(Optional.ofNullable(baseInfo.getBizDeptId())
-                .map(String::valueOf).orElse(null));
-        String processInstanceId = processApiService.start(startProcessReq);
-        bizProcessDataService.recordBizData(processInstanceId, baseInfo.getClientId());
+        ArchivesSupportPort.ProjectInfo baseInfo = archivesSupportPort.getProjectInfo(management.getProjId());
+        ArchivesWorkflowPort.ArchivesApprovalStartContext context = new ArchivesWorkflowPort.ArchivesApprovalStartContext();
+        context.setArchivesId(management.getId());
+        context.setProjName(baseInfo.getProjName());
+        context.setClientId(baseInfo.getClientId());
+        context.setBizDeptId(baseInfo.getBizDeptId());
+        context.setBizDeptLeaderId(baseInfo.getBizDeptLeaderId());
+        archivesWorkflowPort.startArchivesApproval(context);
         ArchivesManagement update = new ArchivesManagement();
         update.setId(management.getId());
         update.setFlowStatus(ArchivesFlowStatusEnum.UNDER_APPROVAL.name());
         archivesManagementMapper.updateById(update);
         return null;
-    }
-
-    private boolean isInProcess(Long mainId, List<String> modelKeys) {
-        ProcessPageReq req = new ProcessPageReq();
-        req.setBusinessKey(String.valueOf(mainId));
-        req.setPageIndex(1);
-        req.setPageSize(1);
-        req.setModelKeyList(modelKeys);
-        req.setProcessStatusList(Collections.singletonList(ProcessBusinessStatusEnum.RUNNING.getType()));
-        ProcessResp processResp = taskApiService.queryProcess(req).getContents()
-                .stream().findFirst().orElse(null);
-        return !Objects.isNull(processResp);
     }
 
     public ArchiveDownloadFlowRSP downloadFlowInfo(ArchivesFlowInfoREQ req) {
@@ -577,17 +499,16 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         List<Long> archivesIds = files.stream().map(MaterialsList::getBelongId).distinct().collect(Collectors.toList());
         List<ArchivesManagement> archivesManagements = archivesManagementMapper.selectList(Wrappers.<ArchivesManagement>lambdaQuery().in(ArchivesManagement::getId, archivesIds));
         List<Long> projIds = archivesManagements.stream().map(ArchivesManagement::getProjId).distinct().collect(Collectors.toList());
-        List<ProjEstablishBaseInfo> projEstablishBaseInfos = projEstablishBaseInfoMapper.selectList(Wrappers.<ProjEstablishBaseInfo>lambdaQuery().in(ProjEstablishBaseInfo::getId, projIds));
-        Map<Long, List<ProjEstablishBaseInfo>> projMap = projEstablishBaseInfos.stream().collect(Collectors.groupingBy(ProjEstablishBaseInfo::getId));
+        Map<Long, ArchivesSupportPort.ProjectInfo> projMap = archivesSupportPort.getProjectInfoMap(projIds);
         List<Long> templateIds = archivesManagements.stream().map(ArchivesManagement::getTemplateId).distinct().collect(Collectors.toList());
         List<ArchiveTypeGroup> archiveTypeGroups = archiveTypeGroupMapper.selectList(Wrappers.<ArchiveTypeGroup>lambdaQuery().in(ArchiveTypeGroup::getTemplateId, templateIds).orderByAsc(ArchiveTypeGroup::getTemplateId,ArchiveTypeGroup::getSort));
         Map<Long, List<ArchiveTypeGroup>> templateMap = archiveTypeGroups.stream().collect(Collectors.groupingBy(ArchiveTypeGroup::getTemplateId));
         List<ArchiveDownloadFlowRSP.MaterialsData> materialsData = new ArrayList<>();
         for (ArchivesManagement management : archivesManagements){
-            List<ProjEstablishBaseInfo> projEstablishBaseInfos1 = projMap.get(management.getProjId());
+            ArchivesSupportPort.ProjectInfo projectInfo = projMap.get(management.getProjId());
             ArchiveDownloadFlowRSP.MaterialsData tmp = new ArchiveDownloadFlowRSP.MaterialsData();
-            tmp.setProjName(projEstablishBaseInfos1.get(0).getProjName());
-            tmp.setKey(projEstablishBaseInfos1.get(0).getId());
+            tmp.setProjName(projectInfo.getProjName());
+            tmp.setKey(projectInfo.getId());
             List<ArchiveDownloadFlowRSP.Materials> grouplist = new ArrayList<>();
             List<ArchiveTypeGroup> groups = templateMap.get(management.getTemplateId());
             for (ArchiveTypeGroup group : groups){
@@ -595,7 +516,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                 if (CollectionUtil.isNotEmpty(fileTypes1)) {
                     ArchiveDownloadFlowRSP.Materials materials = new ArchiveDownloadFlowRSP.Materials();
                     materials.setMaterialsName(group.getGroupName());
-                    materials.setKey(projEstablishBaseInfos1.get(0).getId()+"_"+group.getId());
+                    materials.setKey(projectInfo.getId()+"_"+group.getId());
                     List<ArchiveDownloadFlowRSP.FileInfo> infos = new ArrayList<>();
                     for (ArchiveFileType o : fileTypes1){
                         List<MaterialsList> file = fileMap.get(o.getId().toString());
@@ -630,7 +551,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         List<Long> fileTypeIds = materialsLists.stream().map(o -> Long.parseLong(o.getMaterialsType())).distinct().collect(Collectors.toList());
         List<ArchiveFileType> fileTypes = archiveFileTypeMapper.selectList(Wrappers.<ArchiveFileType>lambdaQuery().in(ArchiveFileType::getId, fileTypeIds).orderByAsc(ArchiveFileType::getGroupId,ArchiveFileType::getSort));
         Map<Long, List<ArchiveFileType>> fileTypeMap = fileTypes.stream().collect(Collectors.groupingBy(ArchiveFileType::getGroupId));
-        ProjEstablishBaseInfo baseInfo = projEstablishBaseInfoMapper.selectById(management.getProjId());
+        ArchivesSupportPort.ProjectInfo baseInfo = archivesSupportPort.getProjectInfo(management.getProjId());
         ArchivesFlowRSP.MaterialsData materialsData = new ArchivesFlowRSP.MaterialsData();
         materialsData.setProjName(baseInfo.getProjName());
         materialsData.setKey(baseInfo.getId());

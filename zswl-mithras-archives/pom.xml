@@ -24,40 +24,13 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-projectprocess</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-workflow</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-system</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-message</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-document</artifactId>
             <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech.flow</groupId>
-            <artifactId>core</artifactId>
-            <version>1.5.11-mithras-RELEASE</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.flywaydb</groupId>
-                    <artifactId>flyway-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
