@@ -6,7 +6,7 @@ import cn.zswltech.mithras.third.financialshare.enums.FinancialDevUrlENUM;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialRSPENUM;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialUrlENUM;
 import cn.zswltech.mithras.third.retry.persistence.model.ExceptionRequestInfo;
-import cn.zswltech.mithras.third.financialshare.model.SyncCqRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.model.SyncCqRecord;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.third.retry.application.ExceptionRequestRecordService;
 import cn.zswltech.mithras.third.financialshare.client.FinancialApiHandler;

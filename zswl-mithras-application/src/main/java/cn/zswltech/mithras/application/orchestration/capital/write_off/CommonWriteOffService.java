@@ -2,10 +2,10 @@ package cn.zswltech.mithras.application.orchestration.capital.write_off;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowMatchResult;
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowTabMainInfo;
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowTabRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowMatchResult;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowTabMainInfo;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowTabRecord;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowMatchResultService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowTabRecordService;
 import cn.zswltech.mithras.foundation.util.LongUtil;

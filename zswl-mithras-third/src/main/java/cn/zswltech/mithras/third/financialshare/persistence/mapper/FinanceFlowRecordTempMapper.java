@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.financialshare.mapper;
+package cn.zswltech.mithras.third.financialshare.persistence.mapper;
 
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowTempRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowTempRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

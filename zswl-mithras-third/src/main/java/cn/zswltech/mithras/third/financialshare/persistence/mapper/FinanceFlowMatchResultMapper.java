@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.third.financialshare.mapper;
+package cn.zswltech.mithras.third.financialshare.persistence.mapper;
 
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowMatchResult;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowMatchResult;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -10,7 +10,7 @@ import java.util.List;
 * @author bigbear
 * @description 针对表【finance_flow_match_result(自动核销预核销记录表)】的数据库操作Mapper
 * @createDate 2024-09-24 16:40:33
-* @Entity cn.zswltech.mithras.third.financialshare.model.FinanceFlowMatchResult
+* @Entity cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowMatchResult
 */
 public interface FinanceFlowMatchResultMapper extends BaseMapper<FinanceFlowMatchResult> {
 

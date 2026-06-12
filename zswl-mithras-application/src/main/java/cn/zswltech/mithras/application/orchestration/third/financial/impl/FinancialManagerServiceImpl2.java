@@ -20,7 +20,7 @@ import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.margin.model.MarginRecordInfo;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.third.financialshare.model.SyncCqRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.model.SyncCqRecord;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;

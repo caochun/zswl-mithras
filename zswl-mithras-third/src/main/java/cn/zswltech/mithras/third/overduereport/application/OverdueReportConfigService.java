@@ -3,7 +3,7 @@ package cn.zswltech.mithras.third.overduereport.application;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.third.overduereport.enums.OverdueReportUrlENUM;
-import cn.zswltech.mithras.third.financialshare.model.CQRelatedMithrasInfo;
+import cn.zswltech.mithras.third.financialshare.persistence.model.CQRelatedMithrasInfo;
 import cn.zswltech.mithras.third.financialshare.application.CQRelatedMithrasInfoService;
 import cn.zswltech.mithras.third.financialshare.client.resp.FinancialCommonRSP;
 import cn.zswltech.mithras.third.overduereport.client.handle.OverdueReportAccessTokenHandle;

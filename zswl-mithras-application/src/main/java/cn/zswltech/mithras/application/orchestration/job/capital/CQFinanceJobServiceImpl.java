@@ -15,7 +15,7 @@ import cn.zswltech.mithras.third.baorong.client.req.BRFlowHistoryReq;
 import cn.zswltech.mithras.third.baorong.client.req.CwgsApiAppUser;
 import cn.zswltech.mithras.third.baorong.client.req.CwgsHead;
 import cn.zswltech.mithras.third.baorong.client.rsp.BRFlowHistoryRsp;
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowRecord;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

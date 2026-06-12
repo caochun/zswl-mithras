@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.capital.job.port.CapitalBankFlowHotFixJobService;
 import cn.zswltech.mithras.capital.enums.BankFlowCenterTypeEnum;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowRecord;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

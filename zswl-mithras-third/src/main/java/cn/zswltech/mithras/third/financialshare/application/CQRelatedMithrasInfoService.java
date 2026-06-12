@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.financialshare.application;
 
-import cn.zswltech.mithras.third.financialshare.model.CQRelatedMithrasInfo;
-import cn.zswltech.mithras.third.financialshare.mapper.CQRelatedMithrasInfoMapper;
+import cn.zswltech.mithras.third.financialshare.persistence.model.CQRelatedMithrasInfo;
+import cn.zswltech.mithras.third.financialshare.persistence.mapper.CQRelatedMithrasInfoMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

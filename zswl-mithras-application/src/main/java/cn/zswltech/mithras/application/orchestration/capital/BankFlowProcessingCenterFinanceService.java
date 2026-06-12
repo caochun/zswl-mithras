@@ -33,7 +33,7 @@ import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingFeeDetail;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayActual;
 import cn.zswltech.mithras.fund.model.receiptrepay.*;
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;

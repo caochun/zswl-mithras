@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.financialshare.application;
 
-import cn.zswltech.mithras.third.financialshare.mapper.FinanceFlowTabRecordMapper;
-import cn.zswltech.mithras.third.financialshare.model.FinanceFlowTabRecord;
+import cn.zswltech.mithras.third.financialshare.persistence.mapper.FinanceFlowTabRecordMapper;
+import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowTabRecord;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
