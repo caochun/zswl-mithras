@@ -3,6 +3,7 @@ package cn.zswltech.mithras.archives.application;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
@@ -102,12 +103,12 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     @Resource
     private ArchivesNotificationPort archivesNotificationPort;
 
-    public cn.zswltech.mithras.api.common.R<List<ProjEstablishVagueListRSP>> vague(ProjEstablishVagueListREQ req) {
+    public List<ProjEstablishVagueListRSP> vague(ProjEstablishVagueListREQ req) {
         Map<String, ProjEstablishVagueListRSP> vagueMap = archivesSupportPort.vagueQuery(req);
-        if (cn.hutool.core.util.ObjectUtil.isEmpty(vagueMap)) {
-            return cn.zswltech.mithras.api.common.R.ok();
+        if (ObjectUtil.isEmpty(vagueMap)) {
+            return ListUtil.empty();
         }
-        return cn.zswltech.mithras.api.common.R.ok(new ArrayList<>(vagueMap.values()));
+        return new ArrayList<>(vagueMap.values());
     }
 
     public PageR<ArchivesListRSP> list(ArchivesListREQ req){
