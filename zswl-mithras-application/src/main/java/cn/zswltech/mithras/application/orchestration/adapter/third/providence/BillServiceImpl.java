@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.adapter.providence;
+package cn.zswltech.mithras.application.orchestration.adapter.third.providence;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;

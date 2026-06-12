@@ -28,13 +28,12 @@ import cn.zswltech.mithras.blackgray.mapper.BlackGrayLibraryMapper;
 import cn.zswltech.mithras.blackgray.model.BlackGrayLibrary;
 import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRecord;
 import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRuleConfig;
+import cn.zswltech.mithras.blackgray.port.BlackGrayCustomerPort;
 import cn.zswltech.mithras.blackgray.service.*;
 import cn.zswltech.mithras.blackgray.external.JKBlackGrayCollisionLibraryHandle;
 import cn.zswltech.mithras.blackgray.external.dto.JKBlackGrayCollisionLibraryREQ;
 import cn.zswltech.mithras.blackgray.external.dto.JKBlackGrayCollisionLibraryRSP;
 import cn.zswltech.mithras.blackgray.util.BlackDesensitizeUtil;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.constant.FinancialConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
@@ -87,7 +86,7 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
     @Resource
     private CurrentUserOrgResolver currentUserOrgResolver;
     @Resource
-    private ClientMapper clientMapper;
+    private BlackGrayCustomerPort blackGrayCustomerPort;
     @Resource
     private JKBlackGrayCollisionLibraryHandle jkBlackGrayCollisionLibraryHandle;
 
@@ -231,12 +230,12 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
     public BlackGrayLibraryRSP libraryRecord(BlackGrayLibraryREQ req) {
         //补充客户信息
         if(ObjectUtil.isNotEmpty(req.getClientId())) {
-            Client client = clientMapper.selectById(req.getClientId());
-            if (ObjectUtil.isEmpty(client)) {
+            BlackGrayCustomerPort.CustomerInfo customerInfo = blackGrayCustomerPort.getById(req.getClientId());
+            if (ObjectUtil.isEmpty(customerInfo)) {
                 throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
             }
-            req.setEnterpriseName(client.getClientName());
-            req.setUnifiedSocialCreditCode(client.getUscCode());
+            req.setEnterpriseName(customerInfo.getName());
+            req.setUnifiedSocialCreditCode(customerInfo.getUnifiedSocialCreditCode());
         }
         if (ObjectUtil.isEmpty(req.getEnterpriseName()) || ObjectUtil.isEmpty(req.getUnifiedSocialCreditCode())) {
             return null;

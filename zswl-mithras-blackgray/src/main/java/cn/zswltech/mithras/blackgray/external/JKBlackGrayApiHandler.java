@@ -2,7 +2,6 @@ package cn.zswltech.mithras.blackgray.external;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.blackgray.external.dto.JKBaseRSP;
-import cn.zswltech.mithras.third.financialshare.enums.FinancialRSPENUM;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
 import cn.zswltech.mithras.foundation.thirdparty.RequestModeEnum;
 import cn.zswltech.mithras.foundation.util.HttpUtil;
@@ -16,6 +15,7 @@ import java.util.Map;
 
 public abstract class JKBlackGrayApiHandler<T, F extends JKBaseRSP> implements PlatformApiHandler<T, F> {
 
+    private static final String SUCCESS_STATE = "success";
 
     @Value("${spring.profiles.active}")
     protected String active;
@@ -66,7 +66,7 @@ public abstract class JKBlackGrayApiHandler<T, F extends JKBaseRSP> implements P
     public boolean isExecuteSuccess(F resData) {
         // 权限验证成功
         if(ObjectUtil.isNotEmpty(resData)){
-            if (FinancialRSPENUM.SUCCESS.getResult().equals(resData.getState()) || ObjectUtil.equals(resData.getSuccess(), Boolean.TRUE) || ObjectUtil.equals(Boolean.TRUE, resData.getStatus())) {
+            if (SUCCESS_STATE.equals(resData.getState()) || ObjectUtil.equals(resData.getSuccess(), Boolean.TRUE) || ObjectUtil.equals(Boolean.TRUE, resData.getStatus())) {
                 return Boolean.TRUE;
             } else {
                 log.info("FinancialApiHandler {} execute error errorCode : {} message : {}", platformApi().apiName, resData.getErrorCode(), resData.getMessage());
