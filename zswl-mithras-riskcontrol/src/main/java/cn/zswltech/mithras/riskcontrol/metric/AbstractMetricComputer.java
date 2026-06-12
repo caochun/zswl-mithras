@@ -1,11 +1,6 @@
 package cn.zswltech.mithras.riskcontrol.metric;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.dto.message.MessageUrlEnum;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.riskcontrol.common.AlertState;
 import cn.zswltech.mithras.riskcontrol.common.MetricUnit;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlMetricStrategyService;
@@ -38,7 +33,6 @@ import static cn.zswltech.mithras.riskcontrol.common.AlertState.WARNING;
  * @date: 2023/2/10 15:00
  */
 public abstract class AbstractMetricComputer {
-    private static final String RISK_MONITOR_MODULE = "RISK_MONITOR";
     /**
      * 亿元转换因子
      */
@@ -60,11 +54,9 @@ public abstract class AbstractMetricComputer {
     @Resource
     private RiskControlStrategySnapshotService riskControlStrategySnapshotService;
     @Resource
-    private MessageService messageService;
-    @Resource
     private SysUserService userService;
     @Resource
-    private MessageConver messageConver;
+    private RiskControlNotificationPort notificationPort;
 
     @PostConstruct
     public void init() {
@@ -166,21 +158,7 @@ public abstract class AbstractMetricComputer {
     private void sendMessage(AlertState alertState, RiskControlStrategy theOne) {
         Set<String> jobCodes = new HashSet<>(Arrays.asList(JobEnum.riskdeptmanager.name(), JobEnum.chiefriskofficer.name(), JobEnum.assetmanagement.name()));
         List<Long> to = userService.jobUsers(jobCodes);
-        MessageAddREQ addReq = new MessageAddREQ();
-        addReq.setTo(to);
-        addReq.setMessageType(MessageTypeEnum.INDICATOR_WARNING.name());
-        addReq.setNeedOa(true);
-        addReq.setNoticeSource(RISK_MONITOR_MODULE);
-        addReq.setPcurl(String.format(MessageUrlEnum.INDICATOR_WARNING.pcUrl, theOne.getId()));
-        addReq.setFrom("风险监控");
-        if (alertState.equals(WARNING)) {
-            addReq.setRelation(theOne.getMetricCode() + "指标预警");
-            addReq.setContent(theOne.getMetricCode());
-        } else {
-            addReq.setRelation(theOne.getMetricCode() + "指标超限");
-            addReq.setContent(theOne.getMetricCode());
-        }
-        messageService.sendMessage(messageConver.reqToMessage(addReq));
+        notificationPort.sendIndicatorWarning(to, theOne.getId(), theOne.getMetricCode(), alertState);
     }
 
     protected abstract String getMetricCode();
