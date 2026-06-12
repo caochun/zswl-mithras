@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.model;
+package cn.zswltech.mithras.document.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

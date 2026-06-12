@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.document.job;
 
-import cn.zswltech.mithras.document.model.FileTemplate;
+import cn.zswltech.mithras.document.persistence.model.FileTemplate;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import cn.zswltech.mithras.document.util.ChineseToPinyinUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

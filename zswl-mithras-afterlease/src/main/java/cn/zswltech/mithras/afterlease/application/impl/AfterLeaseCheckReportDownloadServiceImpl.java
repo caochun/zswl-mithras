@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.afterlease.enums.NewAfterLeaseCheckMaterialsEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportMeta;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

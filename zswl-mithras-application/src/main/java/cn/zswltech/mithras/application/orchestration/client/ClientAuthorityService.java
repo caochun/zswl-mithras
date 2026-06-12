@@ -57,7 +57,7 @@ import cn.zswltech.mithras.customer.mapper.client.ClientFileInfoMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

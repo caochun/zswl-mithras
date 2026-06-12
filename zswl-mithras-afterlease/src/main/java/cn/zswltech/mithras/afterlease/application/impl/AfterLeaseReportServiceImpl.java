@@ -10,7 +10,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustMaterialsEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.afterlease.mapper.AfterLeaseAdjustInfoMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

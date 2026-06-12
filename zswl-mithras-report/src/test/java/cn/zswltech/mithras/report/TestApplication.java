@@ -24,7 +24,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @ServletComponentScan("cn.zswltech.mithras.guanbao.config")
-@MapperScan({"cn.zswltech.mithras.document.mapper", "cn.zswltech.lib.futurelog.save.mapper"})
+@MapperScan({"cn.zswltech.mithras.document.persistence.mapper", "cn.zswltech.lib.futurelog.save.mapper"})
 @EnableTransactionManagement
 @SpringBootApplication(scanBasePackages = {"cn.zswltech"})
 @EnableSwagger2

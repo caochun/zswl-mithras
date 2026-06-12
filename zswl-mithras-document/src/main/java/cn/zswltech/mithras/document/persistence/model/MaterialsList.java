@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.model;
+package cn.zswltech.mithras.document.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;

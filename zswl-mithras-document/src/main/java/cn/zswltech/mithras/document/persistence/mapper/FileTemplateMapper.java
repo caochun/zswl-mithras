@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.document.mapper;
+package cn.zswltech.mithras.document.persistence.mapper;
 
-import cn.zswltech.mithras.document.model.FileTemplate;
+import cn.zswltech.mithras.document.persistence.model.FileTemplate;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

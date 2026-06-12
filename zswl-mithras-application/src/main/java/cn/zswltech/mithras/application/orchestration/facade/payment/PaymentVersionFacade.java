@@ -20,7 +20,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.enums.PaymentTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;

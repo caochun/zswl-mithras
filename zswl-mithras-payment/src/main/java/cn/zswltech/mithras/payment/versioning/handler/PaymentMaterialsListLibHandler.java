@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.payment.versioning.handler;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.document.model.MaterialsListLib;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
 import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import org.springframework.stereotype.Service;

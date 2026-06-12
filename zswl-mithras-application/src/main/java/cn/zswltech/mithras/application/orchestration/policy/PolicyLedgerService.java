@@ -32,7 +32,7 @@ import cn.zswltech.mithras.policy.dto.persistence.PolicyCodeCountDTO;
 import cn.zswltech.mithras.policy.dto.persistence.PolicyListDTO;
 import cn.zswltech.mithras.policy.dto.persistence.PolicyListParam;
 import cn.zswltech.mithras.foundation.persistence.dto.*;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;

@@ -6,7 +6,7 @@
 //import cn.zswltech.mithras.others.service.ApplicationTest;
 //import cn.zswltech.mithras.message.config.qiyuesuo.QysConfig;
 //import cn.zswltech.mithras.message.config.qiyuesuo.QysProperties;
-//import cn.zswltech.mithras.document.model.MaterialsList;
+//import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 //import cn.zswltech.mithras.foundation.exception.MithrasException;
 //import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 //import lombok.extern.slf4j.Slf4j;

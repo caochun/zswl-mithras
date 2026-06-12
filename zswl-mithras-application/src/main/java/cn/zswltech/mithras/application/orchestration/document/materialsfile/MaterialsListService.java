@@ -40,13 +40,13 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishMater
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingMaterialsEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.document.mapper.MaterialsListLibMapper;
-import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListLibMapper;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.document.materialsfile.dto.NewestMaterialsDto;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.document.model.MaterialsListLib;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.ClientAuthority;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;

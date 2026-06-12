@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.document.versioning;
 
 
-import cn.zswltech.mithras.document.mapper.MaterialsListLibMapper;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.document.materialsfile.dto.NewestMaterialsDto;
-import cn.zswltech.mithras.document.model.MaterialsListLib;
+import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

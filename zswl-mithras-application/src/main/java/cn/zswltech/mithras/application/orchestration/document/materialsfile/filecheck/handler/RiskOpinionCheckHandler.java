@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.document.materialsfile.fil
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;

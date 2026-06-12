@@ -13,7 +13,7 @@ import cn.zswltech.mithras.credit.creditlimit.service.CreditLimitService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.credit.creditlimit.enums.CreditLimitBizTypeEnum;
 import cn.zswltech.mithras.fund.enums.FundCreditMaterialsEnum;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.fund.model.FundCredit;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;

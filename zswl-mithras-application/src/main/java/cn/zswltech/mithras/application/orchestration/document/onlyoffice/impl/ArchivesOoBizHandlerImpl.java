@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.document.onlyoffice.impl;
 import cn.zswltech.mithras.dto.onlyoffice.DocDetailRSP;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.document.onlyoffice.OoBizHandler;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import org.springframework.stereotype.Component;
 
 

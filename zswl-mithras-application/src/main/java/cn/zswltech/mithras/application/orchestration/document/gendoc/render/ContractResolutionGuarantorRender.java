@@ -11,7 +11,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ResolutionTypeEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
-import cn.zswltech.mithras.document.model.FileTemplate;
+import cn.zswltech.mithras.document.persistence.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;

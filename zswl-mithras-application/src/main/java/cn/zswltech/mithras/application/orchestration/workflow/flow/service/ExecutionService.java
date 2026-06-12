@@ -39,7 +39,7 @@ import cn.zswltech.mithras.leaseholdproperty.enums.LeaseFileTypeEnums;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialCommentsEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandlerFactory;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.workflow.persistence.model.ProcessModifyRemark;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.creditreport.model.CreditReportClientItem;

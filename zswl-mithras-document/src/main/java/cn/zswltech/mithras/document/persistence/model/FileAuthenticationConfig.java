@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.model;
+package cn.zswltech.mithras.document.persistence.model;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

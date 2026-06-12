@@ -2,8 +2,8 @@ package cn.zswltech.mithras.projectprocess.versioning.projreview.handler.impl;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewInfoModule;
-import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.document.model.MaterialsListLib;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.FileCompareDeclaration;
 import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.handler.ProjReviewLibAbstractHandler;

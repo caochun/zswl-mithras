@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.document.mapper.FileAuthenticationConfigMapper">
+<mapper namespace="cn.zswltech.mithras.document.persistence.mapper.FileAuthenticationConfigMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.document.model.FileAuthenticationConfig">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.document.persistence.model.FileAuthenticationConfig">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
             <result property="fileType" column="file_type" jdbcType="VARCHAR"/>

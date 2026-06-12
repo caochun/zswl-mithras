@@ -2,10 +2,10 @@ package cn.zswltech.mithras.document.versioning.handler;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.document.mapper.MaterialsListLibMapper;
-import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.document.model.MaterialsListLib;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListLibMapper;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

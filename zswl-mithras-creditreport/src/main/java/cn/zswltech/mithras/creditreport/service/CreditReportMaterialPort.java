@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.creditreport.service;
 
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 
 import java.io.InputStream;
 import java.util.Collection;

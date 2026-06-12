@@ -15,7 +15,7 @@ import cn.zswltech.mithras.customer.mobile.enums.VisitPhaseStatus;
 import cn.zswltech.mithras.customer.mobile.enums.VisitRecordStatus;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.customer.mobile.model.VisitRecord;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;

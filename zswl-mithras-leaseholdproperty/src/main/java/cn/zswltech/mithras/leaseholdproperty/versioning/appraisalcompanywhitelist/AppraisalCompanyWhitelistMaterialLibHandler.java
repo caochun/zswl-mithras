@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.leaseholdproperty.versioning.appraisalcompanywhitelist;
 
 import cn.zswltech.mithras.dto.ListBaseRSP;
-import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.document.model.MaterialsListLib;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import cn.zswltech.mithras.foundation.version.LibAbstractHandler;
 import cn.zswltech.mithras.document.versioning.handler.MaterialsListLibHandlerProxy;
 import org.springframework.stereotype.Component;

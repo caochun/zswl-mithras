@@ -13,7 +13,7 @@ import cn.zswltech.mithras.contract.application.auth.ContractBaseModifyMainAuthC
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractChangeMaterialEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.file.ContractFileService;
 import cn.zswltech.mithras.application.orchestration.contract.ContractTextInfoService;

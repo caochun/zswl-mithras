@@ -12,7 +12,7 @@ import cn.zswltech.mithras.document.enums.SpecialFileBusinessType;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.fund.application.credit.FundCreditGuaranteeDetailService;
 import cn.zswltech.mithras.fund.mapper.FundGuaranteeInfoMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.fund.model.FundCredit;
 import cn.zswltech.mithras.fund.model.FundGuaranteeAgency;
 import cn.zswltech.mithras.fund.model.FundGuaranteeInfo;

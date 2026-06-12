@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.service.third;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.third.config.QiyuesuoConfig;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractTextSignInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.contract.text.ContractTextManageService;

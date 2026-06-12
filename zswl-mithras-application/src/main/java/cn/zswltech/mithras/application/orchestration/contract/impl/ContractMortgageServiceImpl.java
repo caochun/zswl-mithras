@@ -33,7 +33,7 @@ import cn.zswltech.mithras.contract.enums.contract.MortgageTypeEnum;
 import cn.zswltech.mithras.contract.excel.importer.ContractEntityItemMortgageExcelImporter;
 import cn.zswltech.mithras.contract.excel.model.ContractEntityMortgageItemExcelModel;
 import cn.zswltech.mithras.contract.mapper.contract.ContractMortgageMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractMortgage;
 import cn.zswltech.mithras.contract.model.contract.ContractMortgageItem;

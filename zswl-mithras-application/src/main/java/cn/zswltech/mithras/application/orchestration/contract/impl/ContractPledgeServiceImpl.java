@@ -34,7 +34,7 @@ import cn.zswltech.mithras.contract.enums.contract.PledgeTypeEnum;
 import cn.zswltech.mithras.contract.excel.importer.ContractEntityItemPladgeExcelImporter;
 import cn.zswltech.mithras.contract.excel.model.ContractEntityPledgeItemExcelModel;
 import cn.zswltech.mithras.contract.mapper.contract.ContractPledgeMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.contract.model.contract.ContractPledge;

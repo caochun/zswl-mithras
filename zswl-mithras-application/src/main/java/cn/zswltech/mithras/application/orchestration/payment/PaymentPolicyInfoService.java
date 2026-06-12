@@ -21,7 +21,7 @@ import cn.zswltech.mithras.policy.excel.importer.PaymentPolicyExcelImporter;
 import cn.zswltech.mithras.policy.excel.model.PaymentPolicyExcelModel;
 import cn.zswltech.mithras.policy.excel.model.PaymentPolicyItemExcelModel;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;

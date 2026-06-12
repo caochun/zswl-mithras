@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.workbench;
 
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.workbench.application.WorkbenchAnnouncementMaterial;
 import cn.zswltech.mithras.workbench.application.WorkbenchAnnouncementMaterialPort;

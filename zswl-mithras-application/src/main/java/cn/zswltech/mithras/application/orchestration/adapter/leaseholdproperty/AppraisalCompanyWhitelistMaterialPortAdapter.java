@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.leaseholdproperty;
 
 import cn.zswltech.mithras.leaseholdproperty.application.AppraisalCompanyWhitelistMaterialPort;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

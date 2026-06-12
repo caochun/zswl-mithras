@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.payment.application.convert;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsListRsp;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyMaterialsEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyMeetingFileMaterialsEnum;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

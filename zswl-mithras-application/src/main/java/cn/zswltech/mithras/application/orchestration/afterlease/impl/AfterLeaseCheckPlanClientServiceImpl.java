@@ -43,7 +43,7 @@ import cn.zswltech.mithras.contract.enums.contract.CreditorDebtorTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;
 import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.*;
 import cn.zswltech.mithras.customer.mobile.model.VisitRecord;
 import cn.zswltech.mithras.customer.model.client.Client;

@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
-import cn.zswltech.mithras.document.model.FileTemplate;
+import cn.zswltech.mithras.document.persistence.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;

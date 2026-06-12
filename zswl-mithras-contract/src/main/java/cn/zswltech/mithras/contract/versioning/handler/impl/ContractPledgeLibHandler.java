@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeListRSP;
 import cn.zswltech.mithras.contract.convert.contract.ContractPledgeConverter;
 import cn.zswltech.mithras.contract.enums.contract.ContractLibModelEnum;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractPledge;
 import cn.zswltech.mithras.contract.model.contract.ContractPledgeLib;
 import cn.zswltech.mithras.foundation.port.ClientInfoResolver;

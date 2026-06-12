@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.document.gendoc.render.con
 
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
-import cn.zswltech.mithras.document.model.FileTemplate;
+import cn.zswltech.mithras.document.persistence.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;

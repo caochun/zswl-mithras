@@ -2,8 +2,8 @@ package cn.zswltech.mithras.application.orchestration.adapter.associationreport;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.associationreport.application.AssociationReportTemplateFilePort;
-import cn.zswltech.mithras.document.model.FileTemplate;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.FileTemplate;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

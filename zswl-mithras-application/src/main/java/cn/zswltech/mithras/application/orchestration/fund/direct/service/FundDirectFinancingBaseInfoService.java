@@ -32,9 +32,9 @@ import cn.zswltech.mithras.fund.directfinancing.application.FundDirectFinancingA
 import cn.zswltech.mithras.fund.directfinancing.application.FundDirectFinancingPayAccountService;
 import cn.zswltech.mithras.fund.directfinancing.model.*;
 import cn.zswltech.mithras.fund.directfinancing.mapper.FundDirectFinancingBaseInfoMapper;
-import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.fund.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.persistence.mapper.CommonProcessPrepareMapper;

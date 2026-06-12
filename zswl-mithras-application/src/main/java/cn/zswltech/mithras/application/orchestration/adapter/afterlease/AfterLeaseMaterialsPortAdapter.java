@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.afterlease;
 
 import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialsPort;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;

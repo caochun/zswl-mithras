@@ -21,7 +21,7 @@ import cn.zswltech.mithras.document.enums.FileTypeEnum;
 import cn.zswltech.mithras.payment.enums.LendingMaterialType;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTextManageMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractSignInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTextManage;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.document.materialsfile.convert;
 
-import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.document.model.MaterialsListLib;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

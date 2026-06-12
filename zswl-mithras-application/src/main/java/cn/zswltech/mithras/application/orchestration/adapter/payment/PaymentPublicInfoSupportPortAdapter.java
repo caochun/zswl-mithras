@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.payment.application.pubinfo.PaymentPublicInfoSupportPort;
 import cn.zswltech.mithras.payment.enums.pubinfo.PublicInfoFileTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.FileService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.system.user.Id2NameService;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.document.materialsfile;
 
-import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 

@@ -19,7 +19,7 @@ import cn.zswltech.mithras.customer.mobile.enums.VisitPhaseStatus;
 import cn.zswltech.mithras.customer.mobile.enums.VisitRecordStatus;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;
 import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.mobile.model.VisitRecord;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;

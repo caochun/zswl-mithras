@@ -5,7 +5,7 @@ import cn.zswltech.mithras.foundation.constant.Constant;
 import cn.zswltech.mithras.third.datashare.service.DataShareMaterialPort;
 import cn.zswltech.mithras.dto.file.FileUploadREQ;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

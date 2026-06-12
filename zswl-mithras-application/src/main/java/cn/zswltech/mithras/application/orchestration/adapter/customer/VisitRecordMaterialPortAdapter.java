@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.application.orchestration.adapter.customer;
 
 import cn.zswltech.mithras.customer.mobile.VisitRecordMaterialPort;
-import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

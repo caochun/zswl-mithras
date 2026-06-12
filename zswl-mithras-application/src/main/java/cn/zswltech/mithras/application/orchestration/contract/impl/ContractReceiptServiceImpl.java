@@ -32,7 +32,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ContractActualRentRender;
 import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
-import cn.zswltech.mithras.document.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;

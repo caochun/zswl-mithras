@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.projectprocess.application.model;
 
 import cn.zswltech.mithras.dto.MaterialsListIdType;
-import cn.zswltech.mithras.document.model.MaterialsList;
-import cn.zswltech.mithras.document.model.MaterialsListLib;
+import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

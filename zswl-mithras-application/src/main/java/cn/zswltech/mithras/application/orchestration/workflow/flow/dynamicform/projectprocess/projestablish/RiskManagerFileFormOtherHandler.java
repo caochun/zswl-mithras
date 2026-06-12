@@ -5,7 +5,7 @@ import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.workflow.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.document.mapper.MaterialsListMapper;
+import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
