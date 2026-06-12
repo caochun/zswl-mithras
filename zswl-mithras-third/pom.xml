@@ -218,18 +218,6 @@
             <artifactId>providence-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.zswltech.flow</groupId>
-            <artifactId>core</artifactId>
-            <version>1.5.11-mithras-RELEASE</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.flywaydb</groupId>
-                    <artifactId>flyway-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>net.qiyuesuo.sdk</groupId>
             <artifactId>private-java-sdk</artifactId>
             <version>4.3.4</version>
