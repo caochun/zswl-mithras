@@ -15,11 +15,11 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientModifySubAuthC
 import cn.zswltech.mithras.customer.application.client.auth.ClientRemoveSubAuthCheckerNew;
 import cn.zswltech.mithras.customer.application.client.auth.ClientViewMainAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.customer.externaldata.environmentpenalty.mapper.EnvironmentPenaltyMapper;
-import cn.zswltech.mithras.customer.externaldata.environmentpenalty.model.EnvironmentPenalty;
+import cn.zswltech.mithras.third.externaldata.environmentpenalty.mapper.EnvironmentPenaltyMapper;
+import cn.zswltech.mithras.third.externaldata.environmentpenalty.model.EnvironmentPenalty;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
-import cn.zswltech.mithras.customer.externaldata.environmentpenalty.application.EnvironmentPenaltyService;
+import cn.zswltech.mithras.third.externaldata.environmentpenalty.application.EnvironmentPenaltyService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import javax.annotation.Resource;

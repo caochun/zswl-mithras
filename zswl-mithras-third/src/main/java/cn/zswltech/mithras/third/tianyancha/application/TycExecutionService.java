@@ -1,14 +1,14 @@
 package cn.zswltech.mithras.third.tianyancha.application;
 
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycAbnormal;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycConsumptionRestriction;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycDishonest;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycEquityInfo;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycJudicial;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycLawSuit;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycMortgageInfo;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycPunishmentInfo;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycZhixingInfo;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycAbnormal;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycConsumptionRestriction;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycDishonest;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycEquityInfo;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycJudicial;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycLawSuit;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycMortgageInfo;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycPunishmentInfo;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycZhixingInfo;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;

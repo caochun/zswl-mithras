@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.third.tianyancha.application.convert;
 
 import cn.zswltech.mithras.dto.client.external.tyc.TycDishonestRSP;
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycDishonest;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycDishonest;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycDishonestResp;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import com.alibaba.fastjson.JSON;

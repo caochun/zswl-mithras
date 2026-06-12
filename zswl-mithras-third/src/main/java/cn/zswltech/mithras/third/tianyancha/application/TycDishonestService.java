@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.tianyancha.application;
 
-import cn.zswltech.mithras.customer.externaldata.tianyancha.model.TycDishonest;
+import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycDishonest;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
