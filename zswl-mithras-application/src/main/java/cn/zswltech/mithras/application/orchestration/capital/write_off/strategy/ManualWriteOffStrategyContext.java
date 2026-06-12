@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.capital.application.writeoff.strategy;
+package cn.zswltech.mithras.application.orchestration.capital.write_off.strategy;
 
 import cn.hutool.core.lang.Assert;
 import cn.hutool.extra.spring.SpringUtil;

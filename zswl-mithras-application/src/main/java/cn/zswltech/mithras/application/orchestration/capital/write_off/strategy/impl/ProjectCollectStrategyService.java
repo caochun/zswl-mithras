@@ -29,7 +29,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowAutoWriteOffService;
 import cn.zswltech.mithras.application.orchestration.capital.write_off.impl.ProjectCollectWriteOffServiceImpl;
-import cn.zswltech.mithras.capital.application.writeoff.strategy.ManualWriteOffStrategyInterface;
+import cn.zswltech.mithras.application.orchestration.capital.write_off.strategy.ManualWriteOffStrategyInterface;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.third.financialshare.application.FinanceFlowMatchResultService;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;

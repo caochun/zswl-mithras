@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.capital.application.writeoff.model;
+package cn.zswltech.mithras.application.orchestration.capital.write_off.model;
 
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableFinanceListRSP;
 import cn.zswltech.mithras.dto.capital.BankCenterSubTableProjectListRSP;

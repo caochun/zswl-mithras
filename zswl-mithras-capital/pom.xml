@@ -23,11 +23,6 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-third</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <scope>provided</scope>

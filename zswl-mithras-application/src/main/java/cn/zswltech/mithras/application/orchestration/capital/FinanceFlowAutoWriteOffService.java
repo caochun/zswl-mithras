@@ -69,7 +69,7 @@ import cn.zswltech.mithras.third.financialshare.mapper.FinanceFlowRecordMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.capital.application.writeoff.model.FinanceFlowWriteOffBO;
+import cn.zswltech.mithras.application.orchestration.capital.write_off.model.FinanceFlowWriteOffBO;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.FundCreditService;

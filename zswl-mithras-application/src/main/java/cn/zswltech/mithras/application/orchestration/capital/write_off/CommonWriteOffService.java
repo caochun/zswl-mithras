@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.capital.application.writeoff;
+package cn.zswltech.mithras.application.orchestration.capital.write_off;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.extra.spring.SpringUtil;
