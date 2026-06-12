@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 
 @Data
-public class ArchivesFlatTempalteDTO {
+public class ArchivesFlatTemplateDTO {
 
     private Long archiveId;
 

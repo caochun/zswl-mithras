@@ -4,9 +4,9 @@ import lombok.Data;
 
 
 @Data
-public class ArchivesMastFileTypeCountDTO {
+public class ArchivesMustFileCountDTO {
 
-    private Long templateId;
+    private Long archiveId;
 
     private Long count;
 }

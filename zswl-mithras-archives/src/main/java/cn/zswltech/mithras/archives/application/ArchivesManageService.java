@@ -47,10 +47,10 @@ import com.google.common.collect.Lists;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.archives.dto.persistence.ArchivesFlatTempalteDTO;
+import cn.zswltech.mithras.archives.dto.persistence.ArchivesFlatTemplateDTO;
 import cn.zswltech.mithras.archives.dto.persistence.ArchivesManagementDTO;
-import cn.zswltech.mithras.archives.dto.persistence.ArchivesMastFileCountDTO;
-import cn.zswltech.mithras.archives.dto.persistence.ArchivesMastFileTypeCountDTO;
+import cn.zswltech.mithras.archives.dto.persistence.ArchivesMustFileCountDTO;
+import cn.zswltech.mithras.archives.dto.persistence.ArchivesMustFileTypeCountDTO;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -120,11 +120,11 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             //防止sql in报错
             canViewDeptIds.add(Long.MIN_VALUE);
         }
-        List<ArchivesFlatTempalteDTO> flatTemplates = null;
+        List<ArchivesFlatTemplateDTO> flatTemplates = null;
         if (StrUtil.isNotEmpty(req.getFileType())){
             flatTemplates = archiveTemplateMapper.flatTemplate(null, req.getFileType());
             if (CollectionUtil.isNotEmpty(flatTemplates)){
-                req.setArchivesId(flatTemplates.stream().map(ArchivesFlatTempalteDTO::getArchiveId).distinct().collect(Collectors.toList()));
+                req.setArchivesId(flatTemplates.stream().map(ArchivesFlatTemplateDTO::getArchiveId).distinct().collect(Collectors.toList()));
             }
             if (CollectionUtil.isEmpty(req.getArchivesId())){
                 PageR.empty(req.getPage(), req.getPageSize());
@@ -142,24 +142,24 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             }else {
                 flatTemplates = archiveTemplateMapper.flatTemplate(templateIds, req.getFileType());
             }
-            List<ArchivesMastFileCountDTO> fileCounts = archiveTemplateMapper.mustFileCount(archivesIds);
-            List<ArchivesMastFileTypeCountDTO> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(templateIds);
-            Map<Long, List<ArchivesFlatTempalteDTO>> archivesMap = new HashMap<>();
+            List<ArchivesMustFileCountDTO> fileCounts = archiveTemplateMapper.mustFileCount(archivesIds);
+            List<ArchivesMustFileTypeCountDTO> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(templateIds);
+            Map<Long, List<ArchivesFlatTemplateDTO>> archivesMap = new HashMap<>();
             AccountVO loginInfo = AccountUtil.getLoginInfo();
             Map<Long, List<ArchivesDownloadPermission>> filePermission = new HashMap<>();
             if (CollectionUtil.isNotEmpty(flatTemplates)) {
-                archivesMap = flatTemplates.stream().collect(Collectors.groupingBy(ArchivesFlatTempalteDTO::getArchiveId));
-                List<Long> fileIds = flatTemplates.stream().map(ArchivesFlatTempalteDTO::getFileId).distinct().collect(Collectors.toList());
+                archivesMap = flatTemplates.stream().collect(Collectors.groupingBy(ArchivesFlatTemplateDTO::getArchiveId));
+                List<Long> fileIds = flatTemplates.stream().map(ArchivesFlatTemplateDTO::getFileId).distinct().collect(Collectors.toList());
                 List<ArchivesDownloadPermission> permissions = archivesDownloadPermissionMapper.selectList(Wrappers.<ArchivesDownloadPermission>lambdaQuery().in(ArchivesDownloadPermission::getMaterialsId, fileIds).ge(ArchivesDownloadPermission::getExpires, LocalDateTime.now()).eq(ArchivesDownloadPermission::getUserId,loginInfo.getId()).ne(ArchivesDownloadPermission::getStatus,2));
                 if (CollectionUtil.isNotEmpty(permissions)){
                     filePermission = permissions.stream().collect(Collectors.groupingBy(ArchivesDownloadPermission::getMaterialsId));
                 }
             }
-            Map<Long, List<ArchivesMastFileCountDTO>> fileCountMap = new HashMap<>();
+            Map<Long, List<ArchivesMustFileCountDTO>> fileCountMap = new HashMap<>();
             if (CollectionUtil.isNotEmpty(fileCounts)){
-                fileCountMap = fileCounts.stream().collect(Collectors.groupingBy(ArchivesMastFileCountDTO::getArchiveId));
+                fileCountMap = fileCounts.stream().collect(Collectors.groupingBy(ArchivesMustFileCountDTO::getArchiveId));
             }
-            Map<Long, List<ArchivesMastFileTypeCountDTO>> fileTypeCountMap = fileTypeCounts.stream().collect(Collectors.groupingBy(ArchivesMastFileTypeCountDTO::getTemplateId));
+            Map<Long, List<ArchivesMustFileTypeCountDTO>> fileTypeCountMap = fileTypeCounts.stream().collect(Collectors.groupingBy(ArchivesMustFileTypeCountDTO::getTemplateId));
             Set<Long> sysUserIds = new HashSet<>();
             Set<Long> clientIds = new HashSet<>();
             Set<Long> deptIds = new HashSet<>();
@@ -199,9 +199,9 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                 rsp.setUpdateTime(dto.getUpdateTime());
                 if (ArchivesFlowStatusEnum.APPROVAL_PASS.name().equals(dto.getFlowStatus())) {
                     Map<Long, ArchivesListRSP.Archives> archiveMap = new HashMap<>();
-                    List<ArchivesFlatTempalteDTO> tempalteDTOS = archivesMap.get(dto.getId());
-                    if (CollectionUtil.isNotEmpty(tempalteDTOS)) {
-                        for (ArchivesFlatTempalteDTO dto1 : tempalteDTOS) {
+                    List<ArchivesFlatTemplateDTO> templateDTOS = archivesMap.get(dto.getId());
+                    if (CollectionUtil.isNotEmpty(templateDTOS)) {
+                        for (ArchivesFlatTemplateDTO dto1 : templateDTOS) {
                             if (!archiveMap.containsKey(dto1.getGroupId())) {
                                 ArchivesListRSP.Archives archive = new ArchivesListRSP.Archives();
                                 archive.setGroupId(dto1.getGroupId());
@@ -307,8 +307,8 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     public ArchivesInfoRSP archivesInfo(ArchivesInfoREQ req){
         ArchivesManagement management = archivesManagementMapper.selectById(req.getId());
         ArchivesSupportPort.ProjectInfo baseInfo = archivesSupportPort.getProjectInfo(management.getProjId());
-        List<ArchivesMastFileCountDTO> fileCounts = archiveTemplateMapper.mustFileCount(CollectionUtil.newArrayList(req.getId()));
-        List<ArchivesMastFileTypeCountDTO> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(CollectionUtil.newArrayList(management.getTemplateId()));
+        List<ArchivesMustFileCountDTO> fileCounts = archiveTemplateMapper.mustFileCount(CollectionUtil.newArrayList(req.getId()));
+        List<ArchivesMustFileTypeCountDTO> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(CollectionUtil.newArrayList(management.getTemplateId()));
 
         List<ArchiveFileType> types = archiveTemplateMapper.noFileTypes(req.getId(), management.getTemplateId());
         ArchivesInfoRSP rsp = new ArchivesInfoRSP();
@@ -384,21 +384,21 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         if (!ArchivesFlowStatusEnum.APPROVAL_PASS.name().equals(management.getFlowStatus())){
             return ListUtil.empty();
         }
-        List<ArchivesFlatTempalteDTO> flatFiles = archiveTemplateMapper.archiveFileList(req.getId(),req.getContent(),req.getGroupName());
+        List<ArchivesFlatTemplateDTO> flatFiles = archiveTemplateMapper.archiveFileList(req.getId(),req.getContent(),req.getGroupName());
         if (CollectionUtil.isEmpty(flatFiles)){
             return ListUtil.empty();
         }
-        List<Long> ids = flatFiles.stream().map(ArchivesFlatTempalteDTO::getUploadUser).distinct().collect(Collectors.toList());
+        List<Long> ids = flatFiles.stream().map(ArchivesFlatTemplateDTO::getUploadUser).distinct().collect(Collectors.toList());
         Map<Long, String> sysUserMap = archivesSupportPort.sysUserId2Name(ids);
         Map<Long, List<ArchivesDownloadPermission>> filePermission = new HashMap<>();
         AccountVO loginInfo = AccountUtil.getLoginInfo();
-        List<Long> fileIds = flatFiles.stream().map(ArchivesFlatTempalteDTO::getFileId).distinct().collect(Collectors.toList());
+        List<Long> fileIds = flatFiles.stream().map(ArchivesFlatTemplateDTO::getFileId).distinct().collect(Collectors.toList());
         List<ArchivesDownloadPermission> permissions = archivesDownloadPermissionMapper.selectList(Wrappers.<ArchivesDownloadPermission>lambdaQuery().in(ArchivesDownloadPermission::getMaterialsId, fileIds).ge(ArchivesDownloadPermission::getExpires, LocalDateTime.now()).eq(ArchivesDownloadPermission::getUserId,loginInfo.getId()).ne(ArchivesDownloadPermission::getStatus,2));
         if (CollectionUtil.isNotEmpty(permissions)){
             filePermission = permissions.stream().collect(Collectors.groupingBy(ArchivesDownloadPermission::getMaterialsId));
         }
         Map<Long,ArchivesSearchRSP> rsps = new HashMap<>();
-        for (ArchivesFlatTempalteDTO dto : flatFiles){
+        for (ArchivesFlatTemplateDTO dto : flatFiles){
             if (!rsps.containsKey(dto.getGroupId())){
                 ArchivesSearchRSP archive = new ArchivesSearchRSP();
                 archive.setGroupName(dto.getGroupName());
