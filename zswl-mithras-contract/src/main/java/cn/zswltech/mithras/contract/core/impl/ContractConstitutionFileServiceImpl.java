@@ -6,7 +6,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractConstitutionFileTypeE
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractConstitutionFileMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractConstitutionFile;
-import cn.zswltech.mithras.projectprocess.application.bo.ContractConstitutionFileBO;
+import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

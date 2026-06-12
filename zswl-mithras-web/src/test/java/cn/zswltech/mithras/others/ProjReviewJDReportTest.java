@@ -6,7 +6,7 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEn
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ProjReviewEarningsRateRender;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ProjReviewJDReportZLRender;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.projectprocess.application.bo.ProjReviewRenderBO;
+import cn.zswltech.mithras.projectprocess.application.model.ProjReviewRenderBO;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
 import org.junit.Test;
 

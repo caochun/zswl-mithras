@@ -38,7 +38,7 @@ import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPla
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewLeasePriceMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.projectprocess.application.bo.ProjReviewRenderBO;
+import cn.zswltech.mithras.projectprocess.application.model.ProjReviewRenderBO;
 import cn.zswltech.mithras.foundation.bo.ProjectBizTypeBO;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewCashFlowPlanService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

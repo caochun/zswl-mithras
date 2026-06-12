@@ -11,7 +11,7 @@ import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingRepayActual;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowBO;
 
 import java.util.List;
 import java.util.Objects;

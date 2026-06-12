@@ -14,7 +14,7 @@ import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewAocPriceLib
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.projectprocess.application.bo.ProjReviewCashFlowExporterBO;
+import cn.zswltech.mithras.projectprocess.application.model.ProjReviewCashFlowExporterBO;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewAocPriceLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.handler.impl.ProjReviewAocPriceLibHandler;
 import cn.zswltech.mithras.projectprocess.application.projreview.ProjReviewAocPriceService;

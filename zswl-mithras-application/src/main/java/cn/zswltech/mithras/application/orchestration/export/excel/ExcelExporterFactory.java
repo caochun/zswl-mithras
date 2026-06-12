@@ -7,8 +7,8 @@ import cn.zswltech.mithras.projectprocess.excel.exporter.*;
 import cn.zswltech.mithras.contract.excel.exporter.*;
 import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.contract.excel.model.ContractRentActualExcelModel;
-import cn.zswltech.mithras.projectprocess.application.bo.ProjPricingCashFlowExporterBO;
-import cn.zswltech.mithras.projectprocess.application.bo.ProjReviewCashFlowExporterBO;
+import cn.zswltech.mithras.projectprocess.application.model.ProjPricingCashFlowExporterBO;
+import cn.zswltech.mithras.projectprocess.application.model.ProjReviewCashFlowExporterBO;
 
 /**
  * @author dingqi

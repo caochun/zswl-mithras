@@ -7,7 +7,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.document.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.projectprocess.application.bo.FileBO;
+import cn.zswltech.mithras.projectprocess.application.model.FileBO;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

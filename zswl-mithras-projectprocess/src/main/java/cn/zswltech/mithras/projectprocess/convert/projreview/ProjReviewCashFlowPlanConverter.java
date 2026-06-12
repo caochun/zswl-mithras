@@ -8,8 +8,8 @@ import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewCashFlowPlan;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowBO;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowCalculateBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowCalculateBO;
 
 import java.util.Objects;
 

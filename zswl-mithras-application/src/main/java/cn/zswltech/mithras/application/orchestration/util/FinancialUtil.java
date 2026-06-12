@@ -16,11 +16,11 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.Util;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowBO;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowCalculateBO;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowIRRBO;
-import cn.zswltech.mithras.projectprocess.application.bo.DailyDiscountRateCalcResultBO;
-import cn.zswltech.mithras.projectprocess.application.bo.IncomeSharingCashFlowBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowCalculateBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowIRRBO;
+import cn.zswltech.mithras.projectprocess.application.model.DailyDiscountRateCalcResultBO;
+import cn.zswltech.mithras.projectprocess.application.model.IncomeSharingCashFlowBO;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;

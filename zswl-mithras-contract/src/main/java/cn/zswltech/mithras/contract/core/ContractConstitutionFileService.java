@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.core;
 
 import cn.zswltech.mithras.contract.model.contract.ContractConstitutionFile;
-import cn.zswltech.mithras.projectprocess.application.bo.ContractConstitutionFileBO;
+import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.IOException;

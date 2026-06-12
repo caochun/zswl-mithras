@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.file;
 
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.projectprocess.application.bo.FileBO;
+import cn.zswltech.mithras.projectprocess.application.model.FileBO;
 
 import java.util.List;
 

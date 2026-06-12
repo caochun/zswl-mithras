@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.application.bo;
+package cn.zswltech.mithras.projectprocess.application.model;
 
 import cn.zswltech.mithras.dto.MaterialsListIdType;
 import cn.zswltech.mithras.document.model.MaterialsList;

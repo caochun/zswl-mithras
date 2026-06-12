@@ -26,7 +26,7 @@ import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfo
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.projectprocess.application.bo.ProjPricingRenderBO;
+import cn.zswltech.mithras.projectprocess.application.model.ProjPricingRenderBO;
 import cn.zswltech.mithras.projectprocess.application.projpricing.ProjPricingUpdateAdvice;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.workflow.flow.util.FlowUtil;

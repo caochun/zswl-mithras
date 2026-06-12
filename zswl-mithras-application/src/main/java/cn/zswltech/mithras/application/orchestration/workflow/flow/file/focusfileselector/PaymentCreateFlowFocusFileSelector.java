@@ -5,7 +5,7 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.projectprocess.application.bo.FileBO;
+import cn.zswltech.mithras.projectprocess.application.model.FileBO;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import org.springframework.stereotype.Component;
 

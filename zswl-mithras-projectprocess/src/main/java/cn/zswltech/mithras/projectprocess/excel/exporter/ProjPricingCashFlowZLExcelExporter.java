@@ -16,7 +16,7 @@ import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingCashFlowP
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingLeasePrice;
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingLeasePriceLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.projectprocess.application.bo.ProjPricingCashFlowExporterBO;
+import cn.zswltech.mithras.projectprocess.application.model.ProjPricingCashFlowExporterBO;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingLeasePriceLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.handler.impl.ProjPricingLeasePriceLibHandler;
 import cn.zswltech.mithras.projectprocess.application.projpricing.ProjPricingLeasePriceService;

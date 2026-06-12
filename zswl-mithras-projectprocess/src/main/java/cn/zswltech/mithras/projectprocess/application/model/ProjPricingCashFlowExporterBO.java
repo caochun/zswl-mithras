@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.application.bo;
+package cn.zswltech.mithras.projectprocess.application.model;
 
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingCashFlowPlan;

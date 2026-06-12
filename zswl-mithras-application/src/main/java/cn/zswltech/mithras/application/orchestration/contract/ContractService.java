@@ -89,7 +89,7 @@ import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseAdjustInfoService;
-import cn.zswltech.mithras.projectprocess.application.bo.ContractConstitutionFileBO;
+import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
 import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.application.orchestration.client.ClientTransferService;

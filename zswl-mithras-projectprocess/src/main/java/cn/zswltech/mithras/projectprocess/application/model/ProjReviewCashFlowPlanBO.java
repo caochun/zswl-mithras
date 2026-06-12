@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.application.bo;
+package cn.zswltech.mithras.projectprocess.application.model;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import lombok.Data;
  * @description
  */
 @Data
-public class ProjPricingCashFlowPlanBO {
+public class ProjReviewCashFlowPlanBO {
     private Long id;
 
     /**

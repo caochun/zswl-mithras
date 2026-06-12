@@ -58,9 +58,9 @@ import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishLease
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.afterlease.application.impl.RentCollectionIndexServiceImpl;
 import cn.zswltech.mithras.application.orchestration.app.AppService;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowBO;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowCalculateBO;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowIRRBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowCalculateBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowIRRBO;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;

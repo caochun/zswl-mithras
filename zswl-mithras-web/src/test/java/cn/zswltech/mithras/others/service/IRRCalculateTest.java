@@ -4,8 +4,8 @@ import cn.hutool.core.io.FileUtil;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.projectprocess.excel.exporter.IRRCalculateExcelExporter;
 import cn.zswltech.mithras.projectprocess.excel.model.IRRCalculateExcelModel;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowBO;
-import cn.zswltech.mithras.projectprocess.application.bo.CashFlowIRRBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowBO;
+import cn.zswltech.mithras.projectprocess.application.model.CashFlowIRRBO;
 import cn.zswltech.mithras.application.orchestration.util.FinancialUtil;
 import org.junit.Test;
 

@@ -25,7 +25,7 @@ import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMa
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.projectprocess.application.bo.ProjReviewRenderBO;
+import cn.zswltech.mithras.projectprocess.application.model.ProjReviewRenderBO;
 import cn.zswltech.mithras.projectprocess.application.projreview.ProjReviewUpdateAdvice;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
