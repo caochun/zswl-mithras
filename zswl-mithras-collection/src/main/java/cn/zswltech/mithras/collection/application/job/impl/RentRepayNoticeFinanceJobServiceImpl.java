@@ -1,15 +1,11 @@
 package cn.zswltech.mithras.collection.application.job.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.IdUtil;
+import cn.zswltech.mithras.collection.application.job.CollectionNotificationPort;
 import cn.zswltech.mithras.collection.application.job.RentRepayNoticeFinanceJobService;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
@@ -40,11 +36,9 @@ public class RentRepayNoticeFinanceJobServiceImpl implements RentRepayNoticeFina
     @Resource
     private RedisDistLock lock;
     @Resource
-    private MessageService messageService;
-    @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
-    private MessageConver messageConver;
+    private CollectionNotificationPort notificationPort;
     @Resource
     private SysUserService sysUserService;
 
@@ -84,16 +78,9 @@ public class RentRepayNoticeFinanceJobServiceImpl implements RentRepayNoticeFina
                 userIds.addAll(sysUserService.queryJobUserIds(JobEnum.financialmanager.name()));
                 userIds.addAll(sysUserService.queryJobUserIds(JobEnum.financialofficer.name()));
                 if (CollUtil.isNotEmpty(userIds) && buffer.length() > 0) {
+                    String relation = String.format("合同编号为：%s已经过了收款时间还未核销，请尽快核销，否则可能造成逾期！", buffer);
                     for (Long userId : userIds) {
-                        MessageAddREQ addRequest = new MessageAddREQ();
-                        addRequest.setFrom("系统通知");
-                        addRequest.setTo(Collections.singletonList(userId));
-                        addRequest.setPcurl("/cpm/collectionWriteOff");
-                        addRequest.setContent("收款核销提醒");
-                        addRequest.setFlowid(IdUtil.getSnowflakeNextIdStr());
-                        addRequest.setRelation(String.format("合同编号为：%s已经过了收款时间还未核销，请尽快核销，否则可能造成逾期！", buffer));
-                        addRequest.setMessageType(MessageTypeEnum.COLLECTION_NOTICE.name());
-                        messageService.sendMessage(messageConver.reqToMessage(addRequest));
+                        notificationPort.sendRentRepayOverdueRemind(userId, relation);
                     }
                 }
                 log.info("定时任务租金还款通知财务结束了！待核销数量为：{}", baseInfoMap.size());

@@ -1,24 +1,18 @@
 package cn.zswltech.mithras.collection.application.job.impl;
 
-import cn.hutool.core.util.IdUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.collection.application.job.CollectionBaseInfoMsgJobService;
+import cn.zswltech.mithras.collection.application.job.CollectionNotificationPort;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -48,11 +42,9 @@ public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMs
     @Resource
     private RedisDistLock lock;
     @Resource
-    private MessageService messageService;
-    @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
-    private MessageConver messageConver;
+    private CollectionNotificationPort notificationPort;
     @Resource
     private SysUserService sysUserService;
     @Resource
@@ -113,18 +105,9 @@ public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMs
                     if (isNotNull(detail.getBizDeptLeaderId())) {
                         newUserIds.add(detail.getBizDeptLeaderId());
                     }
-                    MessageAddREQ addRequest = new MessageAddREQ();
-                    addRequest.setFrom("系统通知");
-                    addRequest.setTo(new ArrayList<>(newUserIds));
-                    addRequest.setPcurl(StringUtils.format("/cpm/collectionWriteOff/detail/%s", info.getId()));
-                    addRequest.setContent(info.getCode());
-                    addRequest.setFlowid(IdUtil.getSnowflakeNextIdStr());
-                    addRequest.setNeedOa(false);
-                    addRequest.setRelation(String.format("%s-%s第%s期租金即将于%s到期",
-                            clientMap.get(detail.getClientId()), detail.getContractCode(), info.getPhase(), info.getPlanCollectionDate()));
-                    addRequest.setMessageType(MessageTypeEnum.RENT.name());
-                    addRequest.setNoticeSource(NoticeSourceENUM.RENT.name());
-                    messageService.sendMessage(messageConver.reqToMessage(addRequest));
+                    String relation = String.format("%s-%s第%s期租金即将于%s到期",
+                            clientMap.get(detail.getClientId()), detail.getContractCode(), info.getPhase(), info.getPlanCollectionDate());
+                    notificationPort.sendRentDueRemind(new ArrayList<>(newUserIds), info.getId(), info.getCode(), relation);
                 }
                 log.info("定时任务收租提醒结束了！待核销数量为：{}", list.size());
             } catch (Exception e) {

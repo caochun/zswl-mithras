@@ -64,11 +64,6 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-message</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
