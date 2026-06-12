@@ -9,10 +9,8 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewMaterialsEnum;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingMaterialsEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.document.materialsfile.MaterialsListQueryService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -29,7 +27,7 @@ import java.util.Optional;
 public class SetFinanceFileHandler implements DynamicFormHandler {
 
     @Resource
-    private MaterialsListMapper materialsListMapper;
+    private MaterialsListQueryService materialsListQueryService;
 
     @Override
     public void check(Map<String, Object> formMap, TaskResp taskResp, UserTaskExt userTaskExt) {
@@ -38,21 +36,11 @@ public class SetFinanceFileHandler implements DynamicFormHandler {
                 .map(BusinessModuleEnum::of)
                 .orElseThrow(() -> new MithrasException("modelKey未登记，请联系管理员进行处理"));
         if (BusinessModuleEnum.PROJ_PRICING.equals(businessModuleEnum)) {
-            Integer fileCount = materialsListMapper.selectCount(Wrappers.<MaterialsList>lambdaQuery()
-                    .eq(MaterialsList::getBelongId, Long.valueOf(taskResp.getBusinessKey()))
-                    .eq(MaterialsList::getMaterialsType, ProjPricingMaterialsEnum.YIELD_REVIEW_REPORT.name())
-                    .eq(MaterialsList::getBusinessType, BusinessModuleEnum.PROJ_PRICING.name())
-            );
-            if (fileCount == 0) {
+            if (!materialsListQueryService.exists(BusinessModuleEnum.PROJ_PRICING.name(), ProjPricingMaterialsEnum.YIELD_REVIEW_REPORT.name(), Long.valueOf(taskResp.getBusinessKey()))) {
                 throw new MithrasException("请上传" + ProjPricingMaterialsEnum.YIELD_REVIEW_REPORT.getDisplay());
             }
         } else if (BusinessModuleEnum.GROUP_CREDIT_REVIEW.equals(businessModuleEnum)) {
-            Integer fileCount = materialsListMapper.selectCount(Wrappers.<MaterialsList>lambdaQuery()
-                    .eq(MaterialsList::getBelongId, Long.valueOf(taskResp.getBusinessKey()))
-                    .eq(MaterialsList::getMaterialsType, GroupCreditReviewMaterialsEnum.YIELD_REVIEW_REPORT.name())
-                    .eq(MaterialsList::getBusinessType, BusinessModuleEnum.GROUP_CREDIT_REVIEW.name())
-            );
-            if (fileCount == 0) {
+            if (!materialsListQueryService.exists(BusinessModuleEnum.GROUP_CREDIT_REVIEW.name(), GroupCreditReviewMaterialsEnum.YIELD_REVIEW_REPORT.name(), Long.valueOf(taskResp.getBusinessKey()))) {
                 throw new MithrasException("请上传" + GroupCreditReviewMaterialsEnum.YIELD_REVIEW_REPORT.getDisplay());
             }
         }

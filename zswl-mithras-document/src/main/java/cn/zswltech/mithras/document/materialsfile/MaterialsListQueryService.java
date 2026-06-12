@@ -35,4 +35,14 @@ public class MaterialsListQueryService {
                 .in(materialsTypes != null && !materialsTypes.isEmpty(), MaterialsList::getMaterialsType, materialsTypes)
                 .in(MaterialsList::getBelongId, belongIds));
     }
+
+    public boolean exists(String businessType, String materialsType, Long belongId) {
+        if (businessType == null || materialsType == null || belongId == null) {
+            return false;
+        }
+        return materialsListMapper.selectCount(Wrappers.<MaterialsList>lambdaQuery()
+                .eq(MaterialsList::getBusinessType, businessType)
+                .eq(MaterialsList::getMaterialsType, materialsType)
+                .eq(MaterialsList::getBelongId, belongId)) > 0;
+    }
 }

@@ -10,11 +10,8 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewMaterialsEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import cn.zswltech.mithras.document.materialsfile.MaterialsListQueryService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -29,7 +26,7 @@ import java.util.Optional;
 @Component
 public class SetMeetingRecordHandler implements DynamicFormHandler {
     @Resource
-    private MaterialsListService materialsListService;
+    private MaterialsListQueryService materialsListQueryService;
 
     @Override
     public void check(Map<String, Object> formMap, TaskResp taskResp, UserTaskExt userTaskExt) {
@@ -38,19 +35,9 @@ public class SetMeetingRecordHandler implements DynamicFormHandler {
                 .map(BusinessModuleEnum::of)
                 .orElseThrow(() -> new MithrasException("modelKey未登记，请联系管理员进行处理"));
         if (BusinessModuleEnum.PROJ_REVIEW.equals(businessModuleEnum)) {
-            LambdaQueryWrapper<MaterialsList> query = Wrappers.lambdaQuery();
-            query.eq(MaterialsList::getBusinessType, BusinessModuleEnum.PROJ_REVIEW.name());
-            query.eq(MaterialsList::getBelongId, Long.valueOf(taskResp.getBusinessKey()));
-            query.eq(MaterialsList::getMaterialsType, ProjReviewMaterialsEnum.MEETING_REVIEW_RECORD.name());
-            int count = materialsListService.count(query);
-            Assert.isTrue(count > 0, () -> MithrasException.newException("请先上传评审会会议记录"));
+            Assert.isTrue(materialsListQueryService.exists(BusinessModuleEnum.PROJ_REVIEW.name(), ProjReviewMaterialsEnum.MEETING_REVIEW_RECORD.name(), Long.valueOf(taskResp.getBusinessKey())), () -> MithrasException.newException("请先上传评审会会议记录"));
         } else if (BusinessModuleEnum.GROUP_CREDIT_REVIEW.equals(businessModuleEnum)) {
-            LambdaQueryWrapper<MaterialsList> query = Wrappers.lambdaQuery();
-            query.eq(MaterialsList::getBusinessType, BusinessModuleEnum.GROUP_CREDIT_REVIEW.name());
-            query.eq(MaterialsList::getBelongId, Long.valueOf(taskResp.getBusinessKey()));
-            query.eq(MaterialsList::getMaterialsType, GroupCreditReviewMaterialsEnum.MEETING_REVIEW_RECORD.name());
-            int count = materialsListService.count(query);
-            Assert.isTrue(count > 0, () -> MithrasException.newException("请先上传评审会会议记录"));
+            Assert.isTrue(materialsListQueryService.exists(BusinessModuleEnum.GROUP_CREDIT_REVIEW.name(), GroupCreditReviewMaterialsEnum.MEETING_REVIEW_RECORD.name(), Long.valueOf(taskResp.getBusinessKey())), () -> MithrasException.newException("请先上传评审会会议记录"));
         }
     }
 
