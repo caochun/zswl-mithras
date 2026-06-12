@@ -9,7 +9,7 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.third.externaldata.environmentpenalty.model.EnvironmentPenalty;
 import cn.zswltech.mithras.third.externaldata.tianyancha.model.*;
-import cn.zswltech.mithras.third.externaldata.zhongdeng.model.ZhongdengInfo;
+import cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.model.ZhongdengInfo;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
 import cn.zswltech.mithras.customer.enums.RelationshipType;
 import cn.zswltech.mithras.customer.enums.ShareholderType;

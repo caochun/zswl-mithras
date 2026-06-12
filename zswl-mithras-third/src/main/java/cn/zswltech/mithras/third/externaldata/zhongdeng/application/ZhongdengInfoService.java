@@ -4,7 +4,7 @@ import cn.zswltech.mithras.dto.client.external.ExternalPageREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoAddREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoModifyREQ;
 import cn.zswltech.mithras.dto.client.external.zhongdeng.ZhongdengInfoRemoveREQ;
-import cn.zswltech.mithras.third.externaldata.zhongdeng.model.ZhongdengInfo;
+import cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.model.ZhongdengInfo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

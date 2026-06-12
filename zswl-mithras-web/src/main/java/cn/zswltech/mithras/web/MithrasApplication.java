@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.third.externaldata.common.persistence.mapper",
         "cn.zswltech.mithras.third.externaldata.environmentpenalty.mapper",
         "cn.zswltech.mithras.third.externaldata.tianyancha.mapper",
-        "cn.zswltech.mithras.third.externaldata.zhongdeng.mapper",
+        "cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.mapper",
         "cn.zswltech.mithras.customer.hymx.mapper",
         "cn.zswltech.mithras.customer.infohistory.mapper",
         "cn.zswltech.mithras.customer.mobile.mapper",

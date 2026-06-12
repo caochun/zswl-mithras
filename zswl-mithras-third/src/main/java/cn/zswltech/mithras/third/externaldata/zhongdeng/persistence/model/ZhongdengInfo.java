@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.externaldata.zhongdeng.model;
+package cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.model;
 
 import cn.zswltech.mithras.third.externaldata.common.persistence.model.ExternalDataBaseModel;
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;

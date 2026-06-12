@@ -11,8 +11,8 @@ import cn.zswltech.mithras.third.externaldata.environmentpenalty.mapper.Environm
 import cn.zswltech.mithras.third.externaldata.environmentpenalty.model.EnvironmentPenalty;
 import cn.zswltech.mithras.third.externaldata.tianyancha.mapper.*;
 import cn.zswltech.mithras.third.externaldata.tianyancha.model.*;
-import cn.zswltech.mithras.third.externaldata.zhongdeng.mapper.ZhongdengInfoMapper;
-import cn.zswltech.mithras.third.externaldata.zhongdeng.model.ZhongdengInfo;
+import cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.mapper.ZhongdengInfoMapper;
+import cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.model.ZhongdengInfo;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
 import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
