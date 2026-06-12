@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.persistence.model;
+package cn.zswltech.mithras.fund.persistence.model.financing;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -12,14 +12,14 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 间融资金收款记录
+ * 间融资金还款记录
  * @author yangxiong
- * @TableName fund_financing_collect_record
+ * @TableName fund_financing_repay_record
  */
 @Data
-@TableName(value ="fund_financing_collect_record")
+@TableName(value ="fund_financing_repay_record")
 @EqualsAndHashCode(callSuper = true)
-public class FundFinancingCollectRecord extends BaseModelWithLogicDelete implements Serializable {
+public class FundFinancingRepayRecord extends BaseModelWithLogicDelete implements Serializable {
     /**
      * 主键
      */
@@ -27,22 +27,28 @@ public class FundFinancingCollectRecord extends BaseModelWithLogicDelete impleme
     private Long id;
 
     /**
-     * 资金主表ID
+     * 现金流项目
      */
-    @TableField(value = "financing_id")
-    private String financingId;
+    @TableField(value = "cash_flow_item")
+    private String cashFlowItem;
+
+    /**
+     * 期项
+     */
+    @TableField(value = "phase")
+    private Integer phase;
 
     /**
      * 收款金额，存毫厘
      */
-    @TableField(value = "collection_amount")
-    private Long collectionAmount;
+    @TableField(value = "pay_amount")
+    private Long payAmount;
 
     /**
      * 收款日期
      */
-    @TableField(value = "collection_date")
-    private LocalDateTime collectionDate;
+    @TableField(value = "pay_date")
+    private LocalDateTime payDate;
 
     /**
      * 收款对应流水ID

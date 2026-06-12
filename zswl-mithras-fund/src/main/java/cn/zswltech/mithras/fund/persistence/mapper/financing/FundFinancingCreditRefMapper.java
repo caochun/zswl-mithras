@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.persistence.mapper;
+package cn.zswltech.mithras.fund.persistence.mapper.financing;
 
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;

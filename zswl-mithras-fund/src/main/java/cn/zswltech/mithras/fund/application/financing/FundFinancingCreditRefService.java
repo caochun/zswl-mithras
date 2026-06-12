@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.fund.application.financing;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.zswltech.mithras.fund.persistence.mapper.FundFinancingCreditRefMapper;
+import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingCreditRefMapper;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
