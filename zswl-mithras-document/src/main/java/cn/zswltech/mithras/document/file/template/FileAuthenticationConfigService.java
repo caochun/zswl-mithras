@@ -1,8 +1,6 @@
 package cn.zswltech.mithras.document.file.template;
 
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import cn.zswltech.mithras.dto.file.FileAuthenticationConfigREQ;
 import cn.zswltech.mithras.document.enums.OwnerTypeEnum;
 import cn.zswltech.mithras.document.mapper.FileAuthenticationConfigMapper;
@@ -10,8 +8,6 @@ import cn.zswltech.mithras.document.model.FileAuthenticationConfig;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
-import cn.zswltech.mithras.foundation.util.StringUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +27,7 @@ import java.util.Optional;
 public class FileAuthenticationConfigService extends ServiceImpl<FileAuthenticationConfigMapper, FileAuthenticationConfig> {
 
     @Resource
-    private GeneralDictionaryMapper generalDictionaryMapper;
+    private DocumentDictionaryPort documentDictionaryPort;
     @Resource
     private CurrentUserResolver currentUserResolver;
     @Resource
@@ -44,10 +40,7 @@ public class FileAuthenticationConfigService extends ServiceImpl<FileAuthenticat
         }
 
         if (CharSequenceUtil.isNotBlank(param.getPost())) {
-            GeneralDictionary post = generalDictionaryMapper.selectOne(Wrappers.<GeneralDictionary>lambdaQuery()
-                    .eq(GeneralDictionary::getCode, param.getPost())
-                    .last(StringUtil.mysqlLimitOne()));
-            if (Objects.isNull(post)) {
+            if (!documentDictionaryPort.existsByCode(param.getPost())) {
                 throw new MithrasException("参数非法！岗位不存在！");
             }
             FileAuthenticationConfig fileAuthenticationConfig = buildConfig(param, OwnerTypeEnum.POST);
@@ -78,7 +71,5 @@ public class FileAuthenticationConfigService extends ServiceImpl<FileAuthenticat
     }
 
 }
-
-
 
 

@@ -10,8 +10,6 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswl.oss.core.OssClient;
 import cn.zswl.oss.core.minio.MinioOssClient;
 import cn.zswl.oss.model.OssInfo;
-import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import cn.zswltech.mithras.dto.file.template.FileTemplateHistoryListREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateListREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateUpdateREQ;
@@ -64,7 +62,7 @@ public class FileTemplateService extends ServiceImpl<FileTemplateMapper, FileTem
     private static final int NO = 0;
 
     @Resource
-    private GeneralDictionaryMapper generalDictionaryMapper;
+    private DocumentDictionaryPort documentDictionaryPort;
     @Resource
     private FileAuthenticationConfigMapper fileAuthenticationConfigMapper;
     @Resource
@@ -85,27 +83,16 @@ public class FileTemplateService extends ServiceImpl<FileTemplateMapper, FileTem
 
     @Transactional(rollbackFor = Exception.class)
     public void addTemplateType(String name) {
-        List<GeneralDictionary> list = generalDictionaryMapper.selectList(
-                Wrappers.<GeneralDictionary>lambdaQuery().eq(GeneralDictionary::getDictKey, DICK_KEY)
-        );
-        if (list.stream().anyMatch(e -> e.getCode().matches(name))) {
+        List<String> list = documentDictionaryPort.listCodesByDictKey(DICK_KEY);
+        if (list.stream().anyMatch(e -> e.matches(name))) {
             err("已存在的文件模板类型");
         }
-        GeneralDictionary dict = new GeneralDictionary();
-        dict.setDictDesc(DICK_DESC);
-        dict.setDictKey(DICK_KEY);
-        dict.setCode(name);
-        dict.setDisplay(name);
-        dict.setSort(list.size());
-        generalDictionaryMapper.insert(dict);
+        documentDictionaryPort.add(DICK_KEY, DICK_DESC, name, name, list.size());
     }
 
     @Transactional(rollbackFor = Exception.class)
     public void removeTemplateType(String name) {
-        generalDictionaryMapper.delete(
-                Wrappers.<GeneralDictionary>lambdaQuery().eq(GeneralDictionary::getDictKey, DICK_KEY)
-                        .eq(GeneralDictionary::getCode, name)
-        );
+        documentDictionaryPort.deleteByDictKeyAndCode(DICK_KEY, name);
     }
 
     public List<String> listTemplateTypes() {
