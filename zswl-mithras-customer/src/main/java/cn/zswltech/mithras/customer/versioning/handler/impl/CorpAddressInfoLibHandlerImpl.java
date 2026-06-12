@@ -3,15 +3,13 @@ package cn.zswltech.mithras.customer.versioning.handler.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListRSP;
+import cn.zswltech.mithras.customer.application.client.CustomerDictionaryPort;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.versioning.handler.ClientLibAbstractHandler;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -19,7 +17,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * @author wangchuanhao
@@ -29,7 +26,7 @@ import java.util.stream.Collectors;
 public class CorpAddressInfoLibHandlerImpl extends ClientLibAbstractHandler<CorpAddressInfoLib, CorpAddressInfo, CorpAddressInfoListRSP> {
 
     @Resource
-    private AddressDictionaryMapper addressDictionaryMapper;
+    private CustomerDictionaryPort customerDictionaryPort;
 
     @Override
     protected CorpAddressInfoLib entity2Lib(CorpAddressInfo corpAddressInfo) {
@@ -77,8 +74,7 @@ public class CorpAddressInfoLibHandlerImpl extends ClientLibAbstractHandler<Corp
             codeSet.add(e.getDistrict());
         });
         if (!codeSet.isEmpty()) {
-            Map<String, String> nameMap = addressDictionaryMapper.selectList(Wrappers.<AddressDictionary>lambdaQuery().in(AddressDictionary::getCode, codeSet))
-                    .stream().collect(Collectors.toMap(AddressDictionary::getCode, AddressDictionary::getDisplay));
+            Map<String, String> nameMap = customerDictionaryPort.addressCode2Display(codeSet);
             list.forEach(e -> {
                 e.setCountryName(nameMap.get(e.getCountry()));
                 e.setProvinceName(nameMap.get(e.getProvince()));

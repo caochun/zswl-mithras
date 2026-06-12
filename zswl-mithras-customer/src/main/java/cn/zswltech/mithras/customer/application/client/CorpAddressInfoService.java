@@ -10,14 +10,9 @@ import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoAddREQ;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoListREQ;
 import cn.zswltech.mithras.dto.client.addressinfo.CorpAddressInfoModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
-import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
 import cn.zswltech.mithras.customer.mapper.corp.NewCorpAddressInfoMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
@@ -44,7 +39,6 @@ import static cn.hutool.core.bean.BeanUtil.copyProperties;
 import static cn.hutool.core.util.ObjectUtil.isNull;
 import static cn.zswltech.mithras.foundation.constant.ResultMsg.RECORD_NOT_EXIST;
 import static cn.zswltech.mithras.customer.enums.CorpAddressType.REGISTRY_ADDRESS;
-import static cn.zswltech.mithras.foundation.util.Const.ENUM_TYC_PROVINCE;
 
 /**
  * @author luyi
@@ -57,13 +51,11 @@ public class CorpAddressInfoService extends ServiceImpl<CorpAddressInfoMapper, C
     @Resource
     private NewCorpAddressInfoMapper newAddressInfoMapper;
     @Resource
-    private AddressDictionaryMapper addressDictionaryMapper;
-    @Resource
-    private GeneralDictionaryMapper generalDictionaryMapper;
-    @Resource
     private ClientMapper clientMapper;
     @Resource
     private ClientAuthorityDataPort authorityUtil;
+    @Resource
+    private CustomerDictionaryPort customerDictionaryPort;
 
     public Map<Long, List<CorpAddressInfo>> getRegistryAddressMap(Collection<Long> clientIds) {
         LambdaQueryWrapper<CorpAddressInfo> query = Wrappers.lambdaQuery();
@@ -212,38 +204,13 @@ public class CorpAddressInfoService extends ServiceImpl<CorpAddressInfoMapper, C
             NewCorpAddressInfo info = new NewCorpAddressInfo();
             info.setCountry("156");//默认中国
             info.setAddressType(REGISTRY_ADDRESS.name());
-            GeneralDictionary tycProvince = generalDictionaryMapper.selectOne(Wrappers.<GeneralDictionary>lambdaQuery()
-                    .eq(GeneralDictionary::getDictKey, ENUM_TYC_PROVINCE)
-                    .eq(GeneralDictionary::getCode, mithrasBaseInfo.getBase())
-            );
-            if (null != tycProvince) {
-                AddressDictionary province = addressDictionaryMapper.selectOne(
-                        Wrappers.<AddressDictionary>lambdaQuery()
-                                .eq(AddressDictionary::getDisplay, tycProvince.getDisplay())
-                                .eq(AddressDictionary::getHistory, YesOrNoNumberEnum.NO.getCode())
-                );
-                if (null != province) {
-                    info.setProvince(province.getCode());
-                    AddressDictionary city = addressDictionaryMapper.selectOne(
-                            Wrappers.<AddressDictionary>lambdaQuery()
-                                    .eq(AddressDictionary::getParentId, province.getId())
-                                    .eq(AddressDictionary::getDisplay, mithrasBaseInfo.getCity())
-                                    .eq(AddressDictionary::getHistory, YesOrNoNumberEnum.NO.getCode())
-                    );
-                    if (null != city) {
-                        info.setCity(city.getCode());
-                        AddressDictionary district = addressDictionaryMapper.selectOne(
-                                Wrappers.<AddressDictionary>lambdaQuery()
-                                        .eq(AddressDictionary::getParentId, city.getId())
-                                        .eq(AddressDictionary::getDisplay, mithrasBaseInfo.getDistrict())
-                                        .eq(AddressDictionary::getHistory, YesOrNoNumberEnum.NO.getCode())
-                        );
-                        if (null != district) {
-                            info.setDistrict(district.getCode());
-                            info.setRegionCode(district.getCode());
-                        }
-                    }
-                }
+            CustomerDictionaryPort.TycAddress tycAddress = customerDictionaryPort.resolveTycAddress(
+                    mithrasBaseInfo.getBase(), mithrasBaseInfo.getCity(), mithrasBaseInfo.getDistrict());
+            if (tycAddress != null) {
+                info.setProvince(tycAddress.getProvinceCode());
+                info.setCity(tycAddress.getCityCode());
+                info.setDistrict(tycAddress.getDistrictCode());
+                info.setRegionCode(tycAddress.getRegionCode());
             }
             info.setDetail(mithrasBaseInfo.getRegLocation());
             info.setClientId(clientId);

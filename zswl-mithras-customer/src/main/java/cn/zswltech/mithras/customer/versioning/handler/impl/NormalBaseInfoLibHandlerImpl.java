@@ -2,11 +2,10 @@ package cn.zswltech.mithras.customer.versioning.handler.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.dto.client.normal.NormalBaseInfoDetailRSP;
+import cn.zswltech.mithras.customer.application.client.CustomerDictionaryPort;
 import cn.zswltech.mithras.customer.constant.LackDataMsg;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.NormalBaseInfo;
@@ -33,7 +32,7 @@ public class NormalBaseInfoLibHandlerImpl extends ClientLibAbstractHandler<Norma
     @Resource
     private ClientMapper clientMapper;
     @Resource
-    private AddressDictionaryMapper addressDictionaryMapper;
+    private CustomerDictionaryPort customerDictionaryPort;
 
     @Override
     protected NormalBaseInfoLib entity2Lib(NormalBaseInfo normalBaseInfo) {
@@ -78,11 +77,7 @@ public class NormalBaseInfoLibHandlerImpl extends ClientLibAbstractHandler<Norma
             rsp.setCertNumber(client.getCertNumber());
             rsp.setCertType(client.getCertType());
         }
-        AddressDictionary addressDictionary = addressDictionaryMapper
-                .selectOne(Wrappers.<AddressDictionary>lambdaQuery().eq(AddressDictionary::getCode, rsp.getCountry()));
-        if (isNotNull(addressDictionary)) {
-            rsp.setCountryName(addressDictionary.getDisplay());
-        }
+        rsp.setCountryName(customerDictionaryPort.addressCode2Display(rsp.getCountry()));
         return rsp;
     }
 

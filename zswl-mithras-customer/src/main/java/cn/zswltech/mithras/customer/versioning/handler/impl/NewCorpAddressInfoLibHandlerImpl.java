@@ -4,12 +4,11 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.client.addressinfo.NewCorpAddressInfoListRSP;
+import cn.zswltech.mithras.customer.application.client.CustomerDictionaryPort;
 import cn.zswltech.mithras.customer.constant.LackDataMsg;
 import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.enums.InfoModule;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.model.client.NewCorpAddressInfo;
@@ -36,7 +35,7 @@ import java.util.stream.Collectors;
 public class NewCorpAddressInfoLibHandlerImpl extends ClientLibAbstractHandler<NewCorpAddressInfoLib, NewCorpAddressInfo, NewCorpAddressInfoListRSP> {
 
     @Resource
-    private AddressDictionaryMapper addressDictionaryMapper;
+    private CustomerDictionaryPort customerDictionaryPort;
 
     @Override
     protected NewCorpAddressInfoLib entity2Lib(NewCorpAddressInfo newCorpAddressInfo) {
@@ -96,8 +95,7 @@ public class NewCorpAddressInfoLibHandlerImpl extends ClientLibAbstractHandler<N
             codeSet.add(e.getDistrict());
         });
         if (!codeSet.isEmpty()) {
-            Map<String, String> nameMap = addressDictionaryMapper.selectList(Wrappers.<AddressDictionary>lambdaQuery().in(AddressDictionary::getCode, codeSet))
-                    .stream().collect(Collectors.toMap(AddressDictionary::getCode, AddressDictionary::getDisplay));
+            Map<String, String> nameMap = customerDictionaryPort.addressCode2Display(codeSet);
             list.forEach(e -> {
                 e.setCountryName(nameMap.get(e.getCountry()));
                 e.setProvinceName(nameMap.get(e.getProvince()));

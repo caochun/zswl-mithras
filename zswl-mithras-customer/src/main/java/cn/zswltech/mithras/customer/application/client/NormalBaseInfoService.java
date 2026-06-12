@@ -5,10 +5,8 @@ import cn.zswltech.mithras.customer.application.client.ClientDataSaveCheckInterf
 import cn.zswltech.mithras.dto.client.normal.NormalBaseInfoAddREQ;
 import cn.zswltech.mithras.dto.client.normal.NormalBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.client.normal.NormalBaseInfoModifyREQ;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.NormalBaseInfoLibMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.NormalBaseInfo;
 import cn.zswltech.mithras.customer.model.client.NormalBaseInfoLib;
@@ -42,11 +40,11 @@ public class NormalBaseInfoService implements ClientDataSaveCheckInterface<Norma
     @Resource
     private ClientMapper clientMapper;
     @Resource
-    private AddressDictionaryMapper addressDictionaryMapper;
-    @Resource
     private NormalBaseInfoLibMapper baseInfoLibMapper;
     @Resource
     private NormalBaseInfoLibHandlerImpl baseInfoLibHandler;
+    @Resource
+    private CustomerDictionaryPort customerDictionaryPort;
 
 
     @Transactional(rollbackFor = Throwable.class)
@@ -88,11 +86,7 @@ public class NormalBaseInfoService implements ClientDataSaveCheckInterface<Norma
                 rsp.setCertNumber(client.getCertNumber());
                 rsp.setCertType(client.getCertType());
             }
-            AddressDictionary addressDictionary = addressDictionaryMapper
-                    .selectOne(Wrappers.<AddressDictionary>lambdaQuery().eq(AddressDictionary::getCode, rsp.getCountry()));
-            if (isNotNull(addressDictionary)) {
-                rsp.setCountryName(addressDictionary.getDisplay());
-            }
+            rsp.setCountryName(customerDictionaryPort.addressCode2Display(rsp.getCountry()));
             return rsp;
         } else {
             NormalBaseInfoLib versionLib = Optional.ofNullable(baseInfoLibMapper.selectOne(Wrappers.<NormalBaseInfoLib>lambdaQuery().eq(NormalBaseInfoLib::getClientId, clientId).eq(NormalBaseInfoLib::getVersion, version).last("LIMIT 1")))
