@@ -16,11 +16,11 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.client.client.ClientListRSP;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.rating.*;
 import cn.zswltech.mithras.dto.rating.ratingamount.*;
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientProjDetailRSP;
 import cn.zswltech.mithras.rating.application.RatingClientSupportPort;
+import cn.zswltech.mithras.rating.application.RatingNotificationPort;
 import cn.zswltech.mithras.rating.enums.RatingDataTypeEnum;
 import cn.zswltech.mithras.rating.enums.RatingModelTypeEnum;
 import cn.zswltech.mithras.rating.versioning.ratingamount.RatingAmountLibService;
@@ -33,10 +33,7 @@ import cn.zswltech.mithras.rating.application.RatingAmountApplicationService;
 import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteResult;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
@@ -60,7 +57,6 @@ import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.foundation.util.VersionUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -127,9 +123,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
     @Resource
     private CorpCommerceInfoMapper ccfMapper;
     @Resource
-    private MessageService messageService;
-    @Resource
-    private MessageConver messageConver;
+    private RatingNotificationPort ratingNotificationPort;
     @Resource
     private RatingAmountMapper ratingAmountMapper;
     @Resource
@@ -1154,40 +1148,24 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
                 .isNull(RatingClient::getAbandonTime));
         if(CollectionUtils.isNotEmpty(informAmountList)){
             for (RatingAmount ratingAmount : informAmountList) {
-                MessageAddREQ messageAddREQ = new MessageAddREQ();
-                messageAddREQ.setFrom("系统通知");
-                messageAddREQ.setTo(Collections.singletonList(ratingAmount.getBelongSponsorUserId()));
-                messageAddREQ.setFlowid(String.valueOf(ratingAmount.getId()));
                 String clientId = id2NameService.clientId2NameSingle(ratingAmount.getEvaluationSubjectId());
                 ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoMapper.selectById(ratingAmount.getProjReviewId());
-                messageAddREQ.setContent(String.format("%s项目评估主体为%s的债项评级将在一个月后过期,请及时更新",Optional.ofNullable(projReviewBaseInfo).map(ProjReviewBaseInfo::getProjName).orElse(""),clientId));
-                messageAddREQ.setNeedOa(false);
-                messageAddREQ.setRelation(String.format("%s的债项评级将在一个月后过期",clientId));
-                messageAddREQ.setNoticeSource(NoticeSourceENUM.RATING_AMOUNT_UPDATE.name());
-                messageAddREQ.setMessageType(MessageTypeEnum.RATING_AMOUNT_OVER_DUE.name());
-                if(projReviewBaseInfo != null) {
-                    messageAddREQ.setPcurl(String.format("/project/review/detail/%s?typeId=review&bizType=%s&modal=amount",
-                            ratingAmount.getProjReviewId(),projReviewBaseInfo.getBizType()));
-                }
-                messageAddREQ.setBusinessId(String.valueOf(ratingAmount.getId()));
-                messageService.sendMessage(messageConver.reqToMessage(messageAddREQ));
+                ratingNotificationPort.sendRatingAmountOverdueRemind(
+                        ratingAmount.getBelongSponsorUserId(),
+                        ratingAmount.getId(),
+                        Optional.ofNullable(projReviewBaseInfo).map(ProjReviewBaseInfo::getProjName).orElse(""),
+                        clientId,
+                        ratingAmount.getProjReviewId(),
+                        Optional.ofNullable(projReviewBaseInfo).map(ProjReviewBaseInfo::getBizType).orElse(null));
             }
         }
         if(CollectionUtils.isNotEmpty(informClientList)){
             for (RatingClient ratingClient : informClientList) {
-                MessageAddREQ messageAddREQ = new MessageAddREQ();
-                messageAddREQ.setFrom("系统通知");
-                messageAddREQ.setTo(Collections.singletonList(ratingClient.getBelongSponsorUserId()));
-                messageAddREQ.setFlowid(String.valueOf(ratingClient.getId()));
                 String clientName = id2NameService.clientId2NameSingle(ratingClient.getClientId());
-                messageAddREQ.setContent(String.format("%s的客户评级将在一个月后过期,请及时更新",clientName));
-                messageAddREQ.setNeedOa(false);
-                messageAddREQ.setRelation(String.format("%s的客户评级将在一个月后过期",clientName));
-                messageAddREQ.setNoticeSource(NoticeSourceENUM.RATING_CLIENT_UPDATE.name());
-                messageAddREQ.setMessageType(MessageTypeEnum.RATING_CLIENT_OVER_DUE.name());
-                messageAddREQ.setPcurl(String.format("/customer/customerRat?search={\"clientName\":\"%s\"}",clientName));
-                messageAddREQ.setBusinessId(String.valueOf(ratingClient.getId()));
-                messageService.sendMessage(messageConver.reqToMessage(messageAddREQ));
+                ratingNotificationPort.sendRatingClientOverdueRemind(
+                        ratingClient.getBelongSponsorUserId(),
+                        ratingClient.getId(),
+                        clientName);
             }
         }
 
