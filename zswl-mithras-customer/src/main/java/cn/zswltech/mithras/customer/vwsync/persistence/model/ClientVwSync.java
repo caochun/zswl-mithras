@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.vwsync.model;
+package cn.zswltech.mithras.customer.vwsync.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

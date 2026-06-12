@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.customer.hymx.mapper;
+package cn.zswltech.mithras.customer.hymx.persistence.mapper;
 
-import cn.zswltech.mithras.customer.hymx.model.ClientHymx;
+import cn.zswltech.mithras.customer.hymx.persistence.model.ClientHymx;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;

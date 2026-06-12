@@ -21,7 +21,7 @@ import cn.zswltech.mithras.customer.application.client.ClientApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.customer.hymx.application.ClientHymxService;
-import cn.zswltech.mithras.customer.hymx.model.ClientHymx;
+import cn.zswltech.mithras.customer.hymx.persistence.model.ClientHymx;
 import cn.zswltech.mithras.dto.client.client.*;
 import cn.zswltech.mithras.customer.application.client.ClientTransferWeightService;
 import cn.zswltech.mithras.dto.client.commerceinfo.CorpCommerceInfoAddREQ;

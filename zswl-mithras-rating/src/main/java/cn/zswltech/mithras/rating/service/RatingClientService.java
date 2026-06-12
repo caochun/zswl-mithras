@@ -29,7 +29,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.foundation.constant.Constant;
-import cn.zswltech.mithras.customer.hymx.model.ClientHymx;
+import cn.zswltech.mithras.customer.hymx.persistence.model.ClientHymx;
 import cn.zswltech.mithras.dto.client.client.ClientUnifiedRatingHistoryRSP;
 import cn.zswltech.mithras.dto.rating.*;
 import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteResult;

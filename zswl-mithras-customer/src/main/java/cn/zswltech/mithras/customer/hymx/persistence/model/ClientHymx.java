@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.hymx.model;
+package cn.zswltech.mithras.customer.hymx.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
