@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.facade.capital;
 
-import cn.zswltech.mithras.capital.service.api.BankFlowProcessingCenterFinanceApplicationService;
+import cn.zswltech.mithras.capital.application.BankFlowProcessingCenterFinanceApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.capital.*;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingRepayActualSplitRecordService;

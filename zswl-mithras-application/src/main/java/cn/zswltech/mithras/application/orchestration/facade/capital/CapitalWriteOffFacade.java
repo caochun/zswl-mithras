@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.facade.capital;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.capital.service.api.CapitalWriteOffApplicationService;
+import cn.zswltech.mithras.capital.application.CapitalWriteOffApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.capital.write_off.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.facade.capital;
 
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.capital.service.api.BankFlowProcessingCenterProjApplicationService;
+import cn.zswltech.mithras.capital.application.BankFlowProcessingCenterProjApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.MultiplePkREQ;
