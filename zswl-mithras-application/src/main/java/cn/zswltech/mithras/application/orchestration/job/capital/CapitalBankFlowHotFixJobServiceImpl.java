@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.job.capital;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.zswltech.mithras.capital.job.port.CapitalBankFlowHotFixJobService;
+import cn.zswltech.mithras.capital.job.service.CapitalBankFlowHotFixJobService;
 import cn.zswltech.mithras.capital.enums.BankFlowCenterTypeEnum;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowRecord;

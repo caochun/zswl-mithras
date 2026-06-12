@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.capital.job;
 
-import cn.zswltech.mithras.capital.job.port.FinanceAutoWriteOffJobService;
+import cn.zswltech.mithras.capital.job.service.FinanceAutoWriteOffJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

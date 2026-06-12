@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.job.capital;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
-import cn.zswltech.mithras.capital.job.port.FinanceAutoWriteOffJobService;
+import cn.zswltech.mithras.capital.job.service.FinanceAutoWriteOffJobService;
 import cn.zswltech.mithras.third.financialshare.persistence.mapper.FinanceFlowRecordMapper;
 import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowRecord;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
