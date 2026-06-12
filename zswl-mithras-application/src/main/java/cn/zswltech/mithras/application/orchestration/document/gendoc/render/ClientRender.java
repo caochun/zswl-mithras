@@ -27,7 +27,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.workflow.datacompare.enums.CompareFactoryEnum.contractTenantry;
+import static cn.zswltech.mithras.application.orchestration.workflow.datacompare.enums.CompareFactoryEnum.contractTenantry;
 
 /**
  * @author dingqi

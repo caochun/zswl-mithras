@@ -61,7 +61,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static cn.zswltech.mithras.workflow.datacompare.enums.CompareFactoryEnum.contractTenantry;
+import static cn.zswltech.mithras.application.orchestration.workflow.datacompare.enums.CompareFactoryEnum.contractTenantry;
 import cn.zswltech.mithras.contract.core.ContractPledgeItemService;
 import cn.zswltech.mithras.contract.core.ContractPriceService;
 

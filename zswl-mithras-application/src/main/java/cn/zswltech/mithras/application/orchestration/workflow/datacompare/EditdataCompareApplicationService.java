@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workflow.datacompare;
+package cn.zswltech.mithras.application.orchestration.workflow.datacompare;
 
 import cn.zswltech.mithras.api.datacompare.EditdataCompareApi;
 

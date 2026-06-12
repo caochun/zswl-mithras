@@ -1,7 +1,6 @@
-package cn.zswltech.mithras.workflow.controller.datacompare;
+package cn.zswltech.mithras.application.orchestration.workflow.datacompare;
 
 import cn.zswltech.mithras.api.datacompare.EditdataCompareApi;
-import cn.zswltech.mithras.workflow.datacompare.EditdataCompareApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

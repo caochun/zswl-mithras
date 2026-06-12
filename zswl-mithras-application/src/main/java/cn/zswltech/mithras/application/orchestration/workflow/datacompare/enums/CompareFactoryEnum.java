@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workflow.datacompare.enums;
+package cn.zswltech.mithras.application.orchestration.workflow.datacompare.enums;
 
 /**
  * @create: 2022-08-03
