@@ -1,12 +1,8 @@
 package cn.zswltech.mithras.blackgray.service.audit;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.flow.core.api.FlowProcessApiService;
-import cn.zswltech.flow.core.domain.req.StartProcessReq;
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayApprovalSubmitREQ;
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayApprovalTaskREQ;
@@ -15,10 +11,11 @@ import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseApprovalTaskRSP;
 import cn.zswltech.mithras.blackgray.enums.AuditStatusEnum;
 import cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseRecordMapper;
 import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRecord;
+import cn.zswltech.mithras.blackgray.port.BlackGrayApprovalProcessPort;
+import cn.zswltech.mithras.blackgray.port.BlackGrayApprovalProcessType;
 import cn.zswltech.mithras.blackgray.service.BlackGrayLibraryService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRecordService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import com.github.pagehelper.PageHelper;
@@ -29,7 +26,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * 黑灰名单审批-入库申请
@@ -49,7 +45,7 @@ public class BlackGrayWarehouseAuditService {
     @Resource
     private CurrentUserOrgResolver currentUserOrgResolver;
     @Resource
-    private FlowProcessApiService processApiService;
+    private BlackGrayApprovalProcessPort blackGrayApprovalProcessPort;
 
     @Transactional(rollbackFor = Throwable.class)
     public BlackGrayApprovalSubmitRSP approvalSubmit(BlackGrayApprovalSubmitREQ req) {
@@ -61,34 +57,11 @@ public class BlackGrayWarehouseAuditService {
         checkSubmit(req);
         //修改业务状态
         changeBusinessStatus(req.getId(), (int) AuditStatusEnum.AUDIT.getCode());
-        // 生成流程实例
-        StartProcessReq startProcessReq = buildCommonStartProcessReq(blackGrayWarehouseRecord);
-        startProcessReq.setModelKey(ProcessModelTypeEnum.BLACK_GRAY_WAREHOUSE.name());
-        processApiService.start(startProcessReq);
+        blackGrayApprovalProcessPort.start(BlackGrayApprovalProcessType.WAREHOUSE,
+                blackGrayWarehouseRecord.getId(), blackGrayWarehouseRecord.getEnterpriseName(),
+                blackGrayWarehouseRecord.getApplyDept());
 
         return BeanUtil.copyProperties(null, BlackGrayApprovalSubmitRSP.class);
-    }
-
-
-    /**
-     * 构建通用的启动流程参数
-     * 还需自己填充 subModule 和 modelKey
-     *
-     * @return
-     */
-    private StartProcessReq buildCommonStartProcessReq(BlackGrayWarehouseRecord blackGrayWarehouseRecord) {
-        StartProcessReq startProcessReq = new StartProcessReq();
-        startProcessReq.setBusinessKey(String.valueOf(blackGrayWarehouseRecord.getId()));
-        startProcessReq.setProcessInstanceName(blackGrayWarehouseRecord.getEnterpriseName());
-        startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo())
-                .map(AccountVO::getId)
-                .map(String::valueOf)
-                .orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
-        startProcessReq.setStartUserDeptId(Optional.ofNullable(blackGrayWarehouseRecord.getApplyDept()).orElse(null));
-        //增加法律合规部负责人
-        startProcessReq.setVariables(MapUtil.of(
-        ));
-        return startProcessReq;
     }
 
     private void checkSubmit(BlackGrayApprovalSubmitREQ req){
