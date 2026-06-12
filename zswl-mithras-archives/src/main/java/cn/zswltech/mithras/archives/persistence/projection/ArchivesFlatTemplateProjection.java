@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.archives.persistence.dto;
+package cn.zswltech.mithras.archives.persistence.projection;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 
 @Data
-public class ArchivesFlatTemplateDTO {
+public class ArchivesFlatTemplateProjection {
 
     private Long archiveId;
 

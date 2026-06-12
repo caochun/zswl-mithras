@@ -48,10 +48,10 @@ import com.google.common.collect.Lists;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.archives.persistence.dto.ArchivesFlatTemplateDTO;
-import cn.zswltech.mithras.archives.persistence.dto.ArchivesManagementDTO;
-import cn.zswltech.mithras.archives.persistence.dto.ArchivesMustFileCountDTO;
-import cn.zswltech.mithras.archives.persistence.dto.ArchivesMustFileTypeCountDTO;
+import cn.zswltech.mithras.archives.persistence.projection.ArchivesFlatTemplateProjection;
+import cn.zswltech.mithras.archives.persistence.projection.ArchivesManagementProjection;
+import cn.zswltech.mithras.archives.persistence.projection.ArchivesMustFileCountProjection;
+import cn.zswltech.mithras.archives.persistence.projection.ArchivesMustFileTypeCountProjection;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -121,50 +121,50 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             //防止sql in报错
             canViewDeptIds.add(Long.MIN_VALUE);
         }
-        List<ArchivesFlatTemplateDTO> flatTemplates = null;
+        List<ArchivesFlatTemplateProjection> flatTemplates = null;
         if (StrUtil.isNotEmpty(req.getFileType())){
             flatTemplates = archiveTemplateMapper.flatTemplate(null, req.getFileType());
             if (CollectionUtil.isNotEmpty(flatTemplates)){
-                req.setArchivesId(flatTemplates.stream().map(ArchivesFlatTemplateDTO::getArchiveId).distinct().collect(Collectors.toList()));
+                req.setArchivesId(flatTemplates.stream().map(ArchivesFlatTemplateProjection::getArchiveId).distinct().collect(Collectors.toList()));
             }
             if (CollectionUtil.isEmpty(req.getArchivesId())){
                 PageR.empty(req.getPage(), req.getPageSize());
             }
         }
 
-        Page<ArchivesManagementDTO> pageList = archivesManagementMapper.pageList(new Page<>(req.getPage(), req.getPageSize()), req);
+        Page<ArchivesManagementProjection> pageList = archivesManagementMapper.pageList(new Page<>(req.getPage(), req.getPageSize()), req);
         List<ArchivesListRSP> rsps = new ArrayList<>();
-        List<ArchivesManagementDTO> records = pageList.getRecords();
+        List<ArchivesManagementProjection> records = pageList.getRecords();
         if (CollectionUtil.isNotEmpty(records)) {
-            List<Long> templateIds = records.stream().map(ArchivesManagementDTO::getTemplateId).distinct().collect(Collectors.toList());
-            List<Long> archivesIds = records.stream().map(ArchivesManagementDTO::getId).collect(Collectors.toList());
+            List<Long> templateIds = records.stream().map(ArchivesManagementProjection::getTemplateId).distinct().collect(Collectors.toList());
+            List<Long> archivesIds = records.stream().map(ArchivesManagementProjection::getId).collect(Collectors.toList());
             if (CollectionUtil.isNotEmpty(flatTemplates)) {
                 flatTemplates = flatTemplates.stream().filter(o -> templateIds.contains(o.getTemplateId())).collect(Collectors.toList());
             }else {
                 flatTemplates = archiveTemplateMapper.flatTemplate(templateIds, req.getFileType());
             }
-            List<ArchivesMustFileCountDTO> fileCounts = archiveTemplateMapper.mustFileCount(archivesIds);
-            List<ArchivesMustFileTypeCountDTO> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(templateIds);
-            Map<Long, List<ArchivesFlatTemplateDTO>> archivesMap = new HashMap<>();
+            List<ArchivesMustFileCountProjection> fileCounts = archiveTemplateMapper.mustFileCount(archivesIds);
+            List<ArchivesMustFileTypeCountProjection> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(templateIds);
+            Map<Long, List<ArchivesFlatTemplateProjection>> archivesMap = new HashMap<>();
             AccountVO loginInfo = AccountUtil.getLoginInfo();
             Map<Long, List<ArchivesDownloadPermission>> filePermission = new HashMap<>();
             if (CollectionUtil.isNotEmpty(flatTemplates)) {
-                archivesMap = flatTemplates.stream().collect(Collectors.groupingBy(ArchivesFlatTemplateDTO::getArchiveId));
-                List<Long> fileIds = flatTemplates.stream().map(ArchivesFlatTemplateDTO::getFileId).distinct().collect(Collectors.toList());
+                archivesMap = flatTemplates.stream().collect(Collectors.groupingBy(ArchivesFlatTemplateProjection::getArchiveId));
+                List<Long> fileIds = flatTemplates.stream().map(ArchivesFlatTemplateProjection::getFileId).distinct().collect(Collectors.toList());
                 List<ArchivesDownloadPermission> permissions = archivesDownloadPermissionMapper.selectList(Wrappers.<ArchivesDownloadPermission>lambdaQuery().in(ArchivesDownloadPermission::getMaterialsId, fileIds).ge(ArchivesDownloadPermission::getExpires, LocalDateTime.now()).eq(ArchivesDownloadPermission::getUserId,loginInfo.getId()).ne(ArchivesDownloadPermission::getStatus,2));
                 if (CollectionUtil.isNotEmpty(permissions)){
                     filePermission = permissions.stream().collect(Collectors.groupingBy(ArchivesDownloadPermission::getMaterialsId));
                 }
             }
-            Map<Long, List<ArchivesMustFileCountDTO>> fileCountMap = new HashMap<>();
+            Map<Long, List<ArchivesMustFileCountProjection>> fileCountMap = new HashMap<>();
             if (CollectionUtil.isNotEmpty(fileCounts)){
-                fileCountMap = fileCounts.stream().collect(Collectors.groupingBy(ArchivesMustFileCountDTO::getArchiveId));
+                fileCountMap = fileCounts.stream().collect(Collectors.groupingBy(ArchivesMustFileCountProjection::getArchiveId));
             }
-            Map<Long, List<ArchivesMustFileTypeCountDTO>> fileTypeCountMap = fileTypeCounts.stream().collect(Collectors.groupingBy(ArchivesMustFileTypeCountDTO::getTemplateId));
+            Map<Long, List<ArchivesMustFileTypeCountProjection>> fileTypeCountMap = fileTypeCounts.stream().collect(Collectors.groupingBy(ArchivesMustFileTypeCountProjection::getTemplateId));
             Set<Long> sysUserIds = new HashSet<>();
             Set<Long> clientIds = new HashSet<>();
             Set<Long> deptIds = new HashSet<>();
-            for (ArchivesManagementDTO dto : records) {
+            for (ArchivesManagementProjection dto : records) {
                 sysUserIds.add(dto.getProjSponsorUserId());
                 clientIds.add(dto.getClientId());
                 deptIds.add(dto.getBizDeptId());
@@ -172,7 +172,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             Map<Long, String> clientMap = archivesSupportPort.clientId2Name(clientIds);
             Map<Long, String> sysUserMap = archivesSupportPort.sysUserId2Name(sysUserIds);
             Map<Long, String> deptMap = archivesSupportPort.deptId2Name(deptIds);
-            for (ArchivesManagementDTO dto : records) {
+            for (ArchivesManagementProjection dto : records) {
                 ArchivesListRSP rsp = new ArchivesListRSP();
                 rsp.setId(dto.getId());
                 rsp.setProjName(dto.getProjName());
@@ -200,9 +200,9 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
                 rsp.setUpdateTime(dto.getUpdateTime());
                 if (ArchivesFlowStatusEnum.APPROVAL_PASS.name().equals(dto.getFlowStatus())) {
                     Map<Long, ArchivesListRSP.Archives> archiveMap = new HashMap<>();
-                    List<ArchivesFlatTemplateDTO> templateDTOS = archivesMap.get(dto.getId());
+                    List<ArchivesFlatTemplateProjection> templateDTOS = archivesMap.get(dto.getId());
                     if (CollectionUtil.isNotEmpty(templateDTOS)) {
-                        for (ArchivesFlatTemplateDTO dto1 : templateDTOS) {
+                        for (ArchivesFlatTemplateProjection dto1 : templateDTOS) {
                             if (!archiveMap.containsKey(dto1.getGroupId())) {
                                 ArchivesListRSP.Archives archive = new ArchivesListRSP.Archives();
                                 archive.setGroupId(dto1.getGroupId());
@@ -308,8 +308,8 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     public ArchivesInfoRSP archivesInfo(ArchivesInfoREQ req){
         ArchivesManagement management = archivesManagementMapper.selectById(req.getId());
         ArchivesSupportPort.ProjectInfo baseInfo = archivesSupportPort.getProjectInfo(management.getProjId());
-        List<ArchivesMustFileCountDTO> fileCounts = archiveTemplateMapper.mustFileCount(CollectionUtil.newArrayList(req.getId()));
-        List<ArchivesMustFileTypeCountDTO> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(CollectionUtil.newArrayList(management.getTemplateId()));
+        List<ArchivesMustFileCountProjection> fileCounts = archiveTemplateMapper.mustFileCount(CollectionUtil.newArrayList(req.getId()));
+        List<ArchivesMustFileTypeCountProjection> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(CollectionUtil.newArrayList(management.getTemplateId()));
 
         List<ArchiveFileType> types = archiveTemplateMapper.noFileTypes(req.getId(), management.getTemplateId());
         ArchivesInfoRSP rsp = new ArchivesInfoRSP();
@@ -385,21 +385,21 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         if (!ArchivesFlowStatusEnum.APPROVAL_PASS.name().equals(management.getFlowStatus())){
             return ListUtil.empty();
         }
-        List<ArchivesFlatTemplateDTO> flatFiles = archiveTemplateMapper.archiveFileList(req.getId(),req.getContent(),req.getGroupName());
+        List<ArchivesFlatTemplateProjection> flatFiles = archiveTemplateMapper.archiveFileList(req.getId(),req.getContent(),req.getGroupName());
         if (CollectionUtil.isEmpty(flatFiles)){
             return ListUtil.empty();
         }
-        List<Long> ids = flatFiles.stream().map(ArchivesFlatTemplateDTO::getUploadUser).distinct().collect(Collectors.toList());
+        List<Long> ids = flatFiles.stream().map(ArchivesFlatTemplateProjection::getUploadUser).distinct().collect(Collectors.toList());
         Map<Long, String> sysUserMap = archivesSupportPort.sysUserId2Name(ids);
         Map<Long, List<ArchivesDownloadPermission>> filePermission = new HashMap<>();
         AccountVO loginInfo = AccountUtil.getLoginInfo();
-        List<Long> fileIds = flatFiles.stream().map(ArchivesFlatTemplateDTO::getFileId).distinct().collect(Collectors.toList());
+        List<Long> fileIds = flatFiles.stream().map(ArchivesFlatTemplateProjection::getFileId).distinct().collect(Collectors.toList());
         List<ArchivesDownloadPermission> permissions = archivesDownloadPermissionMapper.selectList(Wrappers.<ArchivesDownloadPermission>lambdaQuery().in(ArchivesDownloadPermission::getMaterialsId, fileIds).ge(ArchivesDownloadPermission::getExpires, LocalDateTime.now()).eq(ArchivesDownloadPermission::getUserId,loginInfo.getId()).ne(ArchivesDownloadPermission::getStatus,2));
         if (CollectionUtil.isNotEmpty(permissions)){
             filePermission = permissions.stream().collect(Collectors.groupingBy(ArchivesDownloadPermission::getMaterialsId));
         }
         Map<Long,ArchivesSearchRSP> rsps = new HashMap<>();
-        for (ArchivesFlatTemplateDTO dto : flatFiles){
+        for (ArchivesFlatTemplateProjection dto : flatFiles){
             if (!rsps.containsKey(dto.getGroupId())){
                 ArchivesSearchRSP archive = new ArchivesSearchRSP();
                 archive.setGroupName(dto.getGroupName());
