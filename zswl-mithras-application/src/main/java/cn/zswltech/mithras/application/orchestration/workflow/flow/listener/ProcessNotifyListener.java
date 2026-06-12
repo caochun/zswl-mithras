@@ -10,7 +10,7 @@ import cn.zswltech.flow.core.service.impl.FlowCacheService;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;

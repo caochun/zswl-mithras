@@ -10,7 +10,7 @@ import cn.zswltech.mithras.leaseholdproperty.versioning.appraisalcompanywhitelis
 import cn.zswltech.mithras.leaseholdproperty.mapper.AppraisalCompanyWhitelistMapper;
 import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.message.service.MessageService;

@@ -17,7 +17,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.payment.application.convert.PaymentActualDetailConverter;
 import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.document.enums.SpecialFileBusinessType;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.capital.enums.FinanceFlowDetailTableEnum;

@@ -24,7 +24,7 @@ import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.workflow.flow.convert.FlowTaskConvert;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;

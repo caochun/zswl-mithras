@@ -5,7 +5,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;

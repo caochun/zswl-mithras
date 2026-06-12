@@ -15,7 +15,7 @@ import cn.zswltech.mithras.contract.core.ContractMortgageService;
 import cn.zswltech.mithras.contract.core.ContractGuarantorService;
 import cn.zswltech.mithras.contract.core.ContractTradeStructureService;
 import cn.zswltech.mithras.leaseholdproperty.application.contract.ContractLeaseItemService;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;

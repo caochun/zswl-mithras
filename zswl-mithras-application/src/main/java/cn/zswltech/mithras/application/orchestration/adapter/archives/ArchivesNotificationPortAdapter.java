@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.archives;
 import cn.zswltech.mithras.archives.application.ArchivesNotificationPort;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.message.service.MessageService;

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.kpi;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;

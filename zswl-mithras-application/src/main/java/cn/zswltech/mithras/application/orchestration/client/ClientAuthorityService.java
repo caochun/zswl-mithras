@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.client;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.customer.enums.CorpAddressType;
 
 import cn.hutool.core.collection.CollectionUtil;

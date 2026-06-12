@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.message.enums;
+package cn.zswltech.mithras.dto.message;
 
 /**
  *

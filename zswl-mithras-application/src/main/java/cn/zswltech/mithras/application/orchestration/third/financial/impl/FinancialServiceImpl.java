@@ -35,7 +35,7 @@ import cn.zswltech.mithras.capital.enums.FinanceFlowDetailTableEnum;
 import cn.zswltech.mithras.collection.enums.BillTypeEnum;
 import cn.zswltech.mithras.margin.enums.MarginWriteOffStatusEnum;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.payment.enums.WriteOffTypeEnum;

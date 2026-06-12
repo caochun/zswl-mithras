@@ -22,7 +22,7 @@ import cn.zswltech.mithras.foundation.constant.FinancialConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;

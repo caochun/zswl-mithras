@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.policy.PolicyMaintenanceREQ;
 import cn.zswltech.mithras.dto.policy.PolicyMaintenanceRSP;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorFile;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
 import cn.zswltech.mithras.projectprocess.job.service.ProjReviewNoticeJobService;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.NoticeMessageBody;
 import cn.zswltech.mithras.message.service.MessageService;

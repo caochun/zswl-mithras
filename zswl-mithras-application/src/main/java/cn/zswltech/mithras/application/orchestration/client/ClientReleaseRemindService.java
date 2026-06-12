@@ -19,7 +19,7 @@ import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.message.enums.EmailType;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.message.enums.MessageUrlEnum;
+import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientRemindContentEnum;
