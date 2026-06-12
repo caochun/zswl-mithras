@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.facade.document.file;
 
 import cn.hutool.core.lang.Pair;
-import cn.zswltech.mithras.document.service.api.FileApplicationService;
+import cn.zswltech.mithras.document.application.FileApplicationService;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.file.*;

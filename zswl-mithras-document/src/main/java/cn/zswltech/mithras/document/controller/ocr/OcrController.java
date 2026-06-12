@@ -2,7 +2,7 @@ package cn.zswltech.mithras.document.controller.ocr;
 
 import cn.zswltech.mithras.api.OcrApi;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.document.service.api.OcrApplicationService;
+import cn.zswltech.mithras.document.application.OcrApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 

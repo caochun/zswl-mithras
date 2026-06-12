@@ -3,7 +3,7 @@ package cn.zswltech.mithras.document.controller.file;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.file.template.FileTemplateApi;
-import cn.zswltech.mithras.document.service.api.FileTemplateApplicationService;
+import cn.zswltech.mithras.document.application.FileTemplateApplicationService;
 import cn.zswltech.mithras.dto.file.template.FileTemplateAddREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateHistoryListREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateHistoryListRSP;

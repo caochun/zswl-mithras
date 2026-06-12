@@ -6,7 +6,7 @@ import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import cn.hutool.poi.excel.style.StyleUtil;
-import cn.zswltech.mithras.document.service.api.OcrApplicationService;
+import cn.zswltech.mithras.document.application.OcrApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;

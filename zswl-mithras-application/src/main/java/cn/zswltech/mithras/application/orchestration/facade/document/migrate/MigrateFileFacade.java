@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.facade.document.migrate;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
-import cn.zswltech.mithras.document.service.api.MigrateFileApplicationService;
+import cn.zswltech.mithras.document.application.MigrateFileApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
