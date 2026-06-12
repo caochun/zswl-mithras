@@ -27,7 +27,7 @@ import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
-import cn.zswltech.mithras.fund.persistence.model.FundCredit;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPayAccount;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;

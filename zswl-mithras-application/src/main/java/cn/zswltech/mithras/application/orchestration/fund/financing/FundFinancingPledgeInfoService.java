@@ -32,7 +32,7 @@ import cn.zswltech.mithras.message.model.PopUpNotificationBody;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractPrice;
-import cn.zswltech.mithras.fund.persistence.model.FundCredit;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
 import cn.zswltech.mithras.fund.persistence.model.financing.*;
 import cn.zswltech.mithras.workflow.persistence.model.RentCollectionMonthDetail;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;

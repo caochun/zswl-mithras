@@ -17,12 +17,12 @@ import cn.zswltech.mithras.fund.application.organization.FundOrganizationService
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.fund.persistence.mapper.FundGuaranteeAgencyMapper;
+import cn.zswltech.mithras.fund.persistence.mapper.credit.FundGuaranteeAgencyMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.fund.persistence.model.FundCredit;
-import cn.zswltech.mithras.fund.persistence.model.FundCreditGuaranteeDetail;
-import cn.zswltech.mithras.fund.persistence.model.FundGuaranteeAgency;
-import cn.zswltech.mithras.fund.persistence.model.FundGuaranteeInfo;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundCreditGuaranteeDetail;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundGuaranteeAgency;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundGuaranteeInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.fund.persistence.mapper;
+package cn.zswltech.mithras.fund.persistence.mapper.credit;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
-import cn.zswltech.mithras.fund.persistence.model.FundGuaranteeAgency;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundGuaranteeAgency;
 
 /**
 * @description fund_guarantee_agency

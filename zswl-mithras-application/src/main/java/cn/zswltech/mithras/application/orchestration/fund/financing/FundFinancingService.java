@@ -46,9 +46,9 @@ import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepay
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.workflow.persistence.model.ProcessModifyRemark;
-import cn.zswltech.mithras.fund.persistence.model.FundCredit;
-import cn.zswltech.mithras.fund.persistence.model.FundCreditGuaranteeDetail;
-import cn.zswltech.mithras.fund.persistence.model.FundGuaranteeAgency;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundCreditGuaranteeDetail;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundGuaranteeAgency;
 import cn.zswltech.mithras.fund.persistence.model.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.*;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;

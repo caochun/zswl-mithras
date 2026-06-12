@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.persistence.model;
+package cn.zswltech.mithras.fund.persistence.model.credit;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;

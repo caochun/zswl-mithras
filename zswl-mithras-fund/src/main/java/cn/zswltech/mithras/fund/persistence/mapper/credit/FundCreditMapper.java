@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.fund.persistence.mapper;
+package cn.zswltech.mithras.fund.persistence.mapper.credit;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.fund.persistence.model.FundCredit;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
 
 /**
 * @description fund_credit

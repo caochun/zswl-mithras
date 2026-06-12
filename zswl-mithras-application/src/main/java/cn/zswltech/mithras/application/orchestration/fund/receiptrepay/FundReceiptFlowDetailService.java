@@ -22,7 +22,7 @@ import cn.zswltech.mithras.third.financialshare.enums.CQPaymentMethodENUM;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptFlowDetailMapper;
-import cn.zswltech.mithras.fund.persistence.model.FundCredit;
+import cn.zswltech.mithras.fund.persistence.model.credit.FundCredit;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingCreditRef;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptFlowDetail;
