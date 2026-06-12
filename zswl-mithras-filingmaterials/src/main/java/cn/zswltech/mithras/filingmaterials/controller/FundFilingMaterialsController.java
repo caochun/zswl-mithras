@@ -6,12 +6,14 @@ import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.filingmaterials.FilingBaseREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FilingFileDownloadREQ;
 import cn.zswltech.mithras.dto.filingmaterials.FundFilingMaterialsBatchDownloadREQ;
-import javax.validation.Valid;
-import java.io.IOException;
-import java.util.*;
 import cn.zswltech.mithras.filingmaterials.application.FundFilingMaterialsApplicationService;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class FundFilingMaterialsController implements FundFilingMaterialsApi {

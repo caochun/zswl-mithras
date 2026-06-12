@@ -4,13 +4,21 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.filingmaterials.OtherFilingMaterialsApi;
 import cn.zswltech.mithras.dto.SelectRSP;
-import cn.zswltech.mithras.dto.filingmaterials.*;
+import cn.zswltech.mithras.filingmaterials.application.OtherFilingMaterialsApplicationService;
+import cn.zswltech.mithras.dto.filingmaterials.FilingBaseREQ;
+import cn.zswltech.mithras.dto.filingmaterials.FilingBasicRemoveREQ;
+import cn.zswltech.mithras.dto.filingmaterials.FundFilingMaterialsBatchDownloadREQ;
+import cn.zswltech.mithras.dto.filingmaterials.OtherPageListREQ;
+import cn.zswltech.mithras.dto.filingmaterials.OtherPageListRSP;
+import cn.zswltech.mithras.dto.filingmaterials.OtherProjectListRESP;
+import cn.zswltech.mithras.dto.filingmaterials.OtherSaveMaterialsDescREQ;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.*;
-import cn.zswltech.mithras.filingmaterials.application.OtherFilingMaterialsApplicationService;
-import org.springframework.web.bind.annotation.RestController;
-import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class OtherFilingMaterialsController implements OtherFilingMaterialsApi {

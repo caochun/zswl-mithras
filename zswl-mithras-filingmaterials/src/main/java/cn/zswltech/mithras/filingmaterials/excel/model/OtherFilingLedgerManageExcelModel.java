@@ -2,7 +2,11 @@ package cn.zswltech.mithras.filingmaterials.excel.model;
 
 import cn.zswltech.mithras.foundation.excel.annotation.SimpleExcelHeader;
 import cn.zswltech.mithras.foundation.excel.model.ExcelModel;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
