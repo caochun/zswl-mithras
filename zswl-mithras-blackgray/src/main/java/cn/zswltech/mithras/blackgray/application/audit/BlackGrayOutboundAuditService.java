@@ -41,21 +41,6 @@ public class BlackGrayOutboundAuditService  {
 
     @Transactional(rollbackFor = Throwable.class)
     public BlackGrayApprovalSubmitRSP approvalSubmit(BlackGrayApprovalSubmitREQ req) {
-        /*List<AuditTask> auditTasks = auditTaskService.getAuditTasksByBizIds(AuditBizTypeEnum.BLACK_GRAY_MANUAL_OUTBOUND.getType(), Collections.singletonList(req.getId()));
-        Long auditTaskId = null;
-        if (CollectionUtils.isNotEmpty(auditTasks) && auditTasks.get(0) != null) {
-            auditTaskId = auditTasks.get(0).getId();
-        }
-        BlackGrayManualOutboundDetailRSP detail = blackGrayManualOutboundService.detail(req.getId());
-        List<BaseAuditCmd.BizInstance> submit = this.submit(BaseAuditCmd
-                .builder()
-                .instances(Lists.newArrayList(new BaseAuditCmd.BizInstance(req.getId(), auditTaskId)))
-                .bizType(AuditBizTypeEnum.BLACK_GRAY_MANUAL_OUTBOUND.getType())
-                .auditUser(req.getAuditUser())
-                .build(), FlowModelKeyConstant.BLACK_GRAY_MANUAL_OUTBOUND);
-        //修改业务状态
-        changeBusinessStatus(req.getId(), (int) AuditStatusEnum.AUDIT.getCode());
-        */
         BlackGrayManualOutboundDetailRSP detail = blackGrayManualOutboundService.detail(req.getId());
         if (ObjectUtil.isEmpty(detail)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);

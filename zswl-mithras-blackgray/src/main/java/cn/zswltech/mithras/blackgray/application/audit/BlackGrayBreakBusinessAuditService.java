@@ -42,20 +42,6 @@ public class BlackGrayBreakBusinessAuditService  {
 
     @Transactional(rollbackFor = Throwable.class)
     public BlackGrayApprovalSubmitRSP approvalSubmit(BlackGrayApprovalSubmitREQ req) {
-        /*List<AuditTask> auditTasks = auditTaskService.getAuditTasksByBizIds(AuditBizTypeEnum.BLACK_GRAY_BUSINESS_BREAK.getType(), Collections.singletonList(req.getId()));
-        Long auditTaskId = null;
-        if (CollectionUtils.isNotEmpty(auditTasks) && auditTasks.get(0) != null) {
-            auditTaskId = auditTasks.get(0).getId();
-        }
-        List<BaseAuditCmd.BizInstance> submit = this.submit(BaseAuditCmd
-                .builder()
-                .instances(Lists.newArrayList(new BaseAuditCmd.BizInstance(req.getId(), auditTaskId)))
-                .bizType(AuditBizTypeEnum.BLACK_GRAY_BUSINESS_BREAK.getType())
-                .auditUser(req.getAuditUser())
-                .build(), FlowModelKeyConstant.BLACK_GRAY_BUSINESS_BREAK);
-        //修改业务状态
-        changeBusinessStatus(req.getId(), (int) AuditStatusEnum.AUDIT.getCode());
-        return BeanUtil.copyProperties(submit, BlackGrayApprovalSubmitRSP.class);*/
         BlackGrayBreakBusinessDetailRSP detail = blackGrayBreakBusinessService.detail(req.getId());
         if(ObjectUtil.isEmpty(detail)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);

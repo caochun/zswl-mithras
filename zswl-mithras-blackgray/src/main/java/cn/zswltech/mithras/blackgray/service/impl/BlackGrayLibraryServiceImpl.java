@@ -1044,7 +1044,7 @@ public class BlackGrayLibraryServiceImpl implements BlackGrayLibraryService {
                         .setGrayCount(countDTO.getGrayCount());
             }
         }
-        List<BlackGrayLibCountDTO> showCardList = Lists.newArrayList(showCardMap.values());
+        List<BlackGrayLibCountDTO> showCardList = new ArrayList<>(showCardMap.values());
 
         if (ifJinkongAccount) {
                     *//*

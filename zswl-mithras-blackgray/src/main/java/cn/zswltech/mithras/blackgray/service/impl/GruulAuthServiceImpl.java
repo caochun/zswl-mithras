@@ -11,7 +11,6 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.gruul.dao.dal.entity.UserOrgRoleDO;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.blackgray.service.GruulAuthService;
-import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
@@ -58,7 +57,7 @@ public class GruulAuthServiceImpl implements GruulAuthService {
         if ( roleIdCodeMaps.isEmpty()){
             return Collections.emptyMap();
         }
-        Map<Long, List<UserVO>> roleIdUserMap = getUserByRoleIds(Lists.newArrayList(roleIdCodeMaps.keySet()));
+        Map<Long, List<UserVO>> roleIdUserMap = getUserByRoleIds(new ArrayList<>(roleIdCodeMaps.keySet()));
 
         return roleIdUserMap.entrySet().stream().collect(Collectors.toMap(t -> roleIdCodeMaps.get(t.getKey()), Map.Entry::getValue, (k1,k2)->k1));
     }
@@ -69,7 +68,7 @@ public class GruulAuthServiceImpl implements GruulAuthService {
         example.createCriteria().andIn("roleId", roleIds);
         List<UserOrgRoleDO> userOrgRoleDOList = userOrgRoleDOMapper.selectByExample(example);
         Set<Long> userIds = userOrgRoleDOList.stream().map(UserOrgRoleDO::getUserId).collect(Collectors.toSet());
-        Map<Long, UserVO> userMap = userServiceImpl.getUserInfoByIds(Lists.newArrayList(userIds))
+        Map<Long, UserVO> userMap = userServiceImpl.getUserInfoByIds(new ArrayList<>(userIds))
                 .stream().collect(Collectors.toMap(UserDO::getId, Function.identity(), (k1,k2)->k1));
 
         Map<Long, List<UserVO>> res = userOrgRoleDOList.stream()
