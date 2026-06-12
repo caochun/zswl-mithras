@@ -35,7 +35,7 @@ import java.util.List;
 @Slf4j
 @Data
 @Configuration
-@MapperScan(basePackages = "cn.zswltech.mithras.third.xinsight.mapper", sqlSessionFactoryRef = "xinsightSqlSessionFactory")
+@MapperScan(basePackages = "cn.zswltech.mithras.third.xinsight.persistence.mapper", sqlSessionFactoryRef = "xinsightSqlSessionFactory")
 public class XinsightMySqlConfig {
 
     @Autowired

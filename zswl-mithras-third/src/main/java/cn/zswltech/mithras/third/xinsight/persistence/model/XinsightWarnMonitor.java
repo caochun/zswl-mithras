@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.xinsight.model;
+package cn.zswltech.mithras.third.xinsight.persistence.model;
 
 import lombok.Data;
 

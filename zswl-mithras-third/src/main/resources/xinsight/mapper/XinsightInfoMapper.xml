@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.third.xinsight.mapper.XinsightInfoMapper">
+<mapper namespace="cn.zswltech.mithras.third.xinsight.persistence.mapper.XinsightInfoMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.third.xinsight.model.XinsightInfo">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.third.xinsight.persistence.model.XinsightInfo">
         <result column="TMSTAMP" property="tmStamp" />
         <result column="CLIENTID" property="clientId" />
         <result column="NEWSTITLE" property="newsTitle" />
