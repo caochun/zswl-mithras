@@ -26,21 +26,21 @@ import cn.zswltech.mithras.policy.enums.PolicyStatusEnum;
 import cn.zswltech.mithras.policy.excel.exporter.PolicyLedgerListExcelExporter;
 import cn.zswltech.mithras.policy.excel.model.PolicyLedgerExcelModel;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.policy.dto.persistence.NearPolicyEndTimeDTO;
-import cn.zswltech.mithras.policy.dto.persistence.PaymentPolicyEndTimeDTO;
-import cn.zswltech.mithras.policy.dto.persistence.PolicyCodeCountDTO;
-import cn.zswltech.mithras.policy.dto.persistence.PolicyListDTO;
-import cn.zswltech.mithras.policy.dto.persistence.PolicyListParam;
+import cn.zswltech.mithras.policy.persistence.projection.NearPolicyEndTimeProjection;
+import cn.zswltech.mithras.policy.persistence.projection.PaymentPolicyEndTimeProjection;
+import cn.zswltech.mithras.policy.persistence.projection.PolicyCodeCountProjection;
+import cn.zswltech.mithras.policy.persistence.projection.PolicyListProjection;
+import cn.zswltech.mithras.policy.persistence.projection.PolicyListParam;
 import cn.zswltech.mithras.foundation.persistence.dto.*;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;
-import cn.zswltech.mithras.policy.model.PolicyInfo;
-import cn.zswltech.mithras.policy.model.PolicyInfoTmp;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfoTmp;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.policy.mapper.PolicyInfoMapper;
+import cn.zswltech.mithras.policy.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
@@ -210,7 +210,7 @@ public class PolicyLedgerService {
         List<String> policyCodes = list.stream().map(PolicyInfoTmp::getPolicyCode).collect(Collectors.toList());
         List<Long> policyTmpIds = list.stream().map(PolicyInfoTmp::getId).collect(Collectors.toList());
         Map<String, Long> tmpPolicyCode2Id = list.stream().collect(Collectors.toMap(PolicyInfoTmp::getPolicyCode, PolicyInfoTmp::getId, (a, b) -> a));
-        Map<String, Integer> policyCodeCountDTOMap = policyInfoMapper.countPolicyCodes(policyCodes).stream().collect(Collectors.toMap(PolicyCodeCountDTO::getPolicyCode, PolicyCodeCountDTO::getPolicyNum, Integer::sum));
+        Map<String, Integer> policyCodeCountDTOMap = policyInfoMapper.countPolicyCodes(policyCodes).stream().collect(Collectors.toMap(PolicyCodeCountProjection::getPolicyCode, PolicyCodeCountProjection::getPolicyNum, Integer::sum));
         //检查保单号唯一性
         StringBuilder sb = new StringBuilder();
 //        policyCodes.forEach(code -> {
@@ -333,7 +333,7 @@ public class PolicyLedgerService {
     public PageR<PolicyLedgerListRSP> list(PolicyLedgerListREQ req) {
         PolicyListParam param = req2param(req);
         checkAuth(param);
-        Page<PolicyListDTO> page = policyInfoMapper.ledgerList(new Page<>(req.getPage(), req.getPageSize()), param);
+        Page<PolicyListProjection> page = policyInfoMapper.ledgerList(new Page<>(req.getPage(), req.getPageSize()), param);
         List<PolicyLedgerListRSP> rsps = getPolicyLedgerListRSPS(page);
         //todo 逾期天数
         return PageR.of(rsps, page.getTotal(), page.getPages(), page.getCurrent(), page.getSize());
@@ -354,12 +354,12 @@ public class PolicyLedgerService {
     }
 
     @NotNull
-    private List<PolicyLedgerListRSP> getPolicyLedgerListRSPS(Page<PolicyListDTO> page) {
+    private List<PolicyLedgerListRSP> getPolicyLedgerListRSPS(Page<PolicyListProjection> page) {
         List<PolicyLedgerListRSP> rsps = new ArrayList<>();
         if (CollUtil.isNotEmpty(page.getRecords())) {
             Set<Long> sysUserIds = new HashSet<>();
             Set<Long> clientIds = new HashSet<>();
-            for (PolicyListDTO record : page.getRecords()) {
+            for (PolicyListProjection record : page.getRecords()) {
                 clientIds.add(record.getClientId());
                 sysUserIds.add(record.getProjSponsorUserId());
                 List<Long> ids = isBlank(record.getProjCosponsorUserIds()) ? null : toBean(record.getProjCosponsorUserIds(), new TypeReference<List<Long>>() {
@@ -373,7 +373,7 @@ public class PolicyLedgerService {
             Map<Long, LocalDate> overdueDaysByPolicyIds = policyInfoService.getOverdueDaysByPolicyIds(page.getRecords());
             Map<Long, String> clientMap = id2NameService.clientId2Name(clientIds);
             Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(sysUserIds);
-            for (PolicyListDTO record : page.getRecords()) {
+            for (PolicyListProjection record : page.getRecords()) {
                 PolicyLedgerListRSP rsp = new PolicyLedgerListRSP();
                 rsp.setPolicyCode(record.getPolicyCode());
                 rsp.setProjId(record.getProjId());
@@ -522,9 +522,9 @@ public class PolicyLedgerService {
         PolicyListParam param = req2param(req);
         param.setPaymentPolicyIds(req.getPaymentExportIds());
         param.setPolicyIds(req.getPolicyExportIds());
-        Page<PolicyListDTO> page = policyInfoMapper.ledgerList(new Page<>(1, Integer.MAX_VALUE), param);
+        Page<PolicyListProjection> page = policyInfoMapper.ledgerList(new Page<>(1, Integer.MAX_VALUE), param);
         //  全量数据
-        Page<PolicyListDTO> pageTotal = policyInfoMapper.ledgerList(new Page<>(1, Integer.MAX_VALUE), new PolicyListParam());
+        Page<PolicyListProjection> pageTotal = policyInfoMapper.ledgerList(new Page<>(1, Integer.MAX_VALUE), new PolicyListParam());
         List<PolicyLedgerListRSP> rsps = getPolicyLedgerListRSPS(page);
         //全量和部分导出层级设置
         if (!ObjectUtils.isEmpty(page.getTotal()) && !ObjectUtils.isEmpty(pageTotal.getTotal()) && page.getTotal() == pageTotal.getTotal()) {
@@ -619,18 +619,18 @@ public class PolicyLedgerService {
         }
         LocalDate end = LocalDate.now().plusDays(15);
         Map<Long, LocalDate> projEndDate;
-        List<NearPolicyEndTimeDTO> endTimeList = policyInfoMapper.nearPolicyEndTimeList(end);
+        List<NearPolicyEndTimeProjection> endTimeList = policyInfoMapper.nearPolicyEndTimeList(end);
         Map<Long, LocalDate> dateMap = null;
-        Map<Long, List<PaymentPolicyEndTimeDTO>> pmap = null;
+        Map<Long, List<PaymentPolicyEndTimeProjection>> pmap = null;
         if (CollUtil.isNotEmpty(endTimeList)) {
-            dateMap = endTimeList.stream().collect(Collectors.toMap(NearPolicyEndTimeDTO::getProjId, NearPolicyEndTimeDTO::getMaxDate));
-            List<Long> npIds = endTimeList.stream().map(NearPolicyEndTimeDTO::getProjId).collect(Collectors.toList());
-            List<PaymentPolicyEndTimeDTO> paymentMaxTimeList = policyInfoMapper.paymentMaxTimeList(npIds);
-            pmap = paymentMaxTimeList.stream().collect(Collectors.groupingBy(PaymentPolicyEndTimeDTO::getProjId));
+            dateMap = endTimeList.stream().collect(Collectors.toMap(NearPolicyEndTimeProjection::getProjId, NearPolicyEndTimeProjection::getMaxDate));
+            List<Long> npIds = endTimeList.stream().map(NearPolicyEndTimeProjection::getProjId).collect(Collectors.toList());
+            List<PaymentPolicyEndTimeProjection> paymentMaxTimeList = policyInfoMapper.paymentMaxTimeList(npIds);
+            pmap = paymentMaxTimeList.stream().collect(Collectors.groupingBy(PaymentPolicyEndTimeProjection::getProjId));
             projEndDate = getProjEndDate(npIds);
             Set<Long> noSettleProj = policyInfoService.noSettleProj();
             Map<Long, LocalDate> finalProjEndDate = projEndDate;
-            needAdd.addAll(endTimeList.stream().filter(o -> finalProjEndDate.get(o.getProjId()) != null && o.getMaxDate().isBefore(finalProjEndDate.get(o.getProjId())) && noSettleProj.contains(o.getProjId())).map(NearPolicyEndTimeDTO::getProjId).collect(Collectors.toList()));
+            needAdd.addAll(endTimeList.stream().filter(o -> finalProjEndDate.get(o.getProjId()) != null && o.getMaxDate().isBefore(finalProjEndDate.get(o.getProjId())) && noSettleProj.contains(o.getProjId())).map(NearPolicyEndTimeProjection::getProjId).collect(Collectors.toList()));
         }
         if (needAdd.size() > 0) {
             Page<ProjReviewBaseInfo> page = projReviewBaseInfoMapper.selectPage(new Page<>(req.getPage(), req.getPageSize()), Wrappers.<ProjReviewBaseInfo>lambdaQuery().in(ProjReviewBaseInfo::getId, needAdd).eq(ProjReviewBaseInfo::getProjReviewStatus, RecordStatus.TAKE_EFFECT.name()).and(e -> e.eq(ProjReviewBaseInfo::getProjSponsorUserId, AccountUtil.getLoginInfo().getId()).or().apply(" json_contains(proj_cosponsor_user_ids, CONVERT ({0}, CHAR ))", AccountUtil.getLoginInfo().getId())));
@@ -665,8 +665,8 @@ public class PolicyLedgerService {
                         }
                     }
                     if (CollUtil.isNotEmpty(dateMap) && dateMap.containsKey(record.getId()) && CollUtil.isNotEmpty(pmap) && pmap.containsKey(record.getId())) {
-                        List<PaymentPolicyEndTimeDTO> paymentPolicyEndTimeDTOS = pmap.get(record.getId());
-                        for (PaymentPolicyEndTimeDTO dto : paymentPolicyEndTimeDTOS) {
+                        List<PaymentPolicyEndTimeProjection> paymentPolicyEndTimeDTOS = pmap.get(record.getId());
+                        for (PaymentPolicyEndTimeProjection dto : paymentPolicyEndTimeDTOS) {
                             if (dto.getMaxDate().equals(dateMap.get(record.getId()))) {
                                 rsp.setPaymentCode(dto.getPaymentCode());
                                 break;
@@ -731,7 +731,7 @@ public class PolicyLedgerService {
             rsps = rsps.stream().filter(f -> noSettleContractId.contains(f.getContractId())).collect(Collectors.toList());
             ContractBaseInfo orDefault;
             //<policyId, 逾期天数>
-            Map<Long, LocalDate> overdueDaysByPolicyIdsMap = policyInfoService.getOverdueDaysByPolicyIds(BeanUtil.copyToList(records, PolicyListDTO.class));
+            Map<Long, LocalDate> overdueDaysByPolicyIdsMap = policyInfoService.getOverdueDaysByPolicyIds(BeanUtil.copyToList(records, PolicyListProjection.class));
             for (PolicyMaintenanceRSP base : rsps) {
                 orDefault = contractBaseInfoMap.getOrDefault(base.getContractId(), new ContractBaseInfo());
                 base.setClientId(orDefault.getClientId());
@@ -762,7 +762,7 @@ public class PolicyLedgerService {
             });
         }
         //查询待维护保单
-        List<PolicyListDTO> policyInfos = null;
+        List<PolicyListProjection> policyInfos = null;
         if (ObjectUtil.isAllEmpty(req.getPolicyCode(), req.getInsuranceCompany(), req.getInsuranceStartDateFrom(), req.getInsuranceStartDateTo(), req.getInsuranceEndDateFrom(), req.getInsuranceEndDateTo(), req.getIdentificationInformation()) && !(CollectionUtil.isNotEmpty(policyIds) && CollectionUtil.isEmpty(paymentPolicyIds))) {
             policyInfos = policyInfoMapper.listPaymentNeedRenewInsurance(paymentPolicyIds, req.getContractCode(), ContractStatus.SETTLE.name());
         }
@@ -777,7 +777,7 @@ public class PolicyLedgerService {
                     sysUserIds.addAll(ids);
                 }
             });
-            Map<Long, String> clientId2Name = id2NameService.clientId2Name(policyInfos.stream().map(PolicyListDTO::getClientId).collect(Collectors.toList()));
+            Map<Long, String> clientId2Name = id2NameService.clientId2Name(policyInfos.stream().map(PolicyListProjection::getClientId).collect(Collectors.toList()));
             Map<Long, String> systemId2Name = id2NameService.sysUserId2Name(sysUserIds);
             policyMaintenanceRSPS.forEach(base -> {
                 base.setClientName(clientId2Name.get(base.getClientId()));

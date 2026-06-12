@@ -17,10 +17,10 @@ import cn.zswltech.mithras.policy.job.service.PolicyJobService;
 import cn.zswltech.mithras.policy.enums.PolicyApprovalStatusEnum;
 import cn.zswltech.mithras.policy.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.enums.PolicyStatusEnum;
-import cn.zswltech.mithras.policy.dto.persistence.NearPolicyEndTimeDTO;
-import cn.zswltech.mithras.policy.model.PolicyInfo;
+import cn.zswltech.mithras.policy.persistence.projection.NearPolicyEndTimeProjection;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.policy.mapper.PolicyInfoMapper;
+import cn.zswltech.mithras.policy.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.ExecutionService;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.MyTaskService;
 import cn.zswltech.mithras.message.service.MessageService;
@@ -75,11 +75,11 @@ public class PolicyJobServiceImpl implements PolicyJobService {
     public void policyAddJobHandler() {
         log.info("policyAddJob, start.");
         LocalDate end = LocalDate.now().plusDays(15);
-        List<NearPolicyEndTimeDTO> endTimeList = policyInfoMapper.nearPolicyEndTimeList(end);
+        List<NearPolicyEndTimeProjection> endTimeList = policyInfoMapper.nearPolicyEndTimeList(end);
         Set<Long> noSettleProj = policyInfoService.noSettleProj();
-        List<Long> npIds = endTimeList.stream().map(NearPolicyEndTimeDTO::getProjId).collect(Collectors.toList());
+        List<Long> npIds = endTimeList.stream().map(NearPolicyEndTimeProjection::getProjId).collect(Collectors.toList());
         Map<Long, LocalDate> projEndDate = policyLedgerService.getProjEndDate(npIds);
-        List<Long> ids = endTimeList.stream().filter(o -> projEndDate.get(o.getProjId()) != null && o.getMaxDate().isBefore(projEndDate.get(o.getProjId())) && noSettleProj.contains(o.getProjId())).map(NearPolicyEndTimeDTO::getProjId).collect(Collectors.toList());
+        List<Long> ids = endTimeList.stream().filter(o -> projEndDate.get(o.getProjId()) != null && o.getMaxDate().isBefore(projEndDate.get(o.getProjId())) && noSettleProj.contains(o.getProjId())).map(NearPolicyEndTimeProjection::getProjId).collect(Collectors.toList());
         List<PolicyInfo> policyInfos = policyInfoMapper.selectList(Wrappers.<PolicyInfo>lambdaQuery().eq(PolicyInfo::getAutomatic, 1).eq(PolicyInfo::getApprovalStatus, PolicyApprovalStatusEnum.NEW_UN_SUBMIT));
         Set<Long> idset = policyInfos.stream().map(PolicyInfo::getProjId).collect(Collectors.toSet());
         List<Long> needAdd = ids.stream().filter(o -> !idset.contains(o)).collect(Collectors.toList());

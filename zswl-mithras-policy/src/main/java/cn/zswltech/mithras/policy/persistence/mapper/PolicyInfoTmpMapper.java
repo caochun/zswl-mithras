@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.policy.mapper;
+package cn.zswltech.mithras.policy.persistence.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import cn.zswltech.mithras.policy.model.PolicyInfoTmp;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfoTmp;
 
 /**
 * @description 保单暂存表c

@@ -16,7 +16,7 @@ import cn.zswltech.mithras.policy.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.enums.PolicyTypeEnum;
 import cn.zswltech.mithras.policy.excel.exporter.PaymentPolicyExcelExporter;
 import cn.zswltech.mithras.policy.excel.model.PaymentPolicyExcelModel;
-import cn.zswltech.mithras.policy.model.PolicyInfoTmp;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfoTmp;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.LongUtil;

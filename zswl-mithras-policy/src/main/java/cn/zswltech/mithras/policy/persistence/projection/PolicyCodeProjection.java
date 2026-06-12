@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.policy.dto.persistence;
+package cn.zswltech.mithras.policy.persistence.projection;
 
 import lombok.Data;
 
 @Data
-public class PolicyCodeDTO {
+public class PolicyCodeProjection {
 
     /**
      * 保单编号

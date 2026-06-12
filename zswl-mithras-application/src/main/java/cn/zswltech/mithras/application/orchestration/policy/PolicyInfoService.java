@@ -25,17 +25,17 @@ import cn.zswltech.mithras.policy.excel.importer.PaymentPolicyExcelImporter;
 import cn.zswltech.mithras.policy.excel.model.PaymentPolicyItemExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.policy.dto.persistence.PolicyCodeDTO;
-import cn.zswltech.mithras.policy.dto.persistence.PolicyListDTO;
+import cn.zswltech.mithras.policy.persistence.projection.PolicyCodeProjection;
+import cn.zswltech.mithras.policy.persistence.projection.PolicyListProjection;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;
-import cn.zswltech.mithras.policy.model.PolicyInfo;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.policy.mapper.PolicyInfoMapper;
+import cn.zswltech.mithras.policy.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
@@ -386,11 +386,11 @@ public class PolicyInfoService extends ServiceImpl<PolicyInfoMapper, PolicyInfo>
         }
     }
 
-    public Map<Long, LocalDate> getOverdueDaysByPolicyIds(List<PolicyListDTO> policyListDTOS) {
+    public Map<Long, LocalDate> getOverdueDaysByPolicyIds(List<PolicyListProjection> policyListDTOS) {
         if (CollUtil.isEmpty(policyListDTOS)) {
             return MapUtil.empty();
         }
-        List<Long> policyIds = policyListDTOS.stream().filter(policyListDTO -> "policy".equals(policyListDTO.getDataSource())).map(PolicyListDTO::getId).collect(Collectors.toList());
+        List<Long> policyIds = policyListDTOS.stream().filter(policyListDTO -> "policy".equals(policyListDTO.getDataSource())).map(PolicyListProjection::getId).collect(Collectors.toList());
         Map<Long, LocalDate> nextPolicy = new HashMap<>();
         Map<Long, LocalDate> rspMap = new HashMap<>();
         if (CollUtil.isNotEmpty(policyIds)) {
@@ -425,7 +425,7 @@ public class PolicyInfoService extends ServiceImpl<PolicyInfoMapper, PolicyInfo>
         if (ObjectUtils.isEmpty(list)) {
             return null;
         }
-        return policyInfoMapper.countPolicyCodeNum(list).stream().collect(Collectors.toMap(PolicyCodeDTO::getPolicyCode, PolicyCodeDTO::getCodeNum,
+        return policyInfoMapper.countPolicyCodeNum(list).stream().collect(Collectors.toMap(PolicyCodeProjection::getPolicyCode, PolicyCodeProjection::getCodeNum,
                 (a, b) -> a));
     }
 

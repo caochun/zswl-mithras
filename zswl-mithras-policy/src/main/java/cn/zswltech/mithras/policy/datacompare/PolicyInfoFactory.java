@@ -2,9 +2,9 @@ package cn.zswltech.mithras.policy.datacompare;
 
 import cn.zswltech.mithras.dto.policy.PolicyInfoDetailRSP;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
-import cn.zswltech.mithras.policy.mapper.PolicyInfoLibMapper;
-import cn.zswltech.mithras.policy.model.PolicyInfo;
-import cn.zswltech.mithras.policy.model.PolicyInfoLib;
+import cn.zswltech.mithras.policy.persistence.mapper.PolicyInfoLibMapper;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfoLib;
 import cn.zswltech.mithras.foundation.datacompare.AbstractDataCompare;
 import cn.zswltech.mithras.foundation.datacompare.EditdataCompareFactory;
 import cn.zswltech.mithras.foundation.datacompare.compare.DefaultDataCompare;

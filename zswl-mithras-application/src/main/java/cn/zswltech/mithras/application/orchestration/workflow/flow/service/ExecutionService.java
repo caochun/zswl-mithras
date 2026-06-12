@@ -43,7 +43,7 @@ import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.workflow.persistence.model.ProcessModifyRemark;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.creditreport.model.CreditReportClientItem;
-import cn.zswltech.mithras.policy.model.PolicyInfo;
+import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewMaterial;

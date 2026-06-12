@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.policy.dto.persistence;
+package cn.zswltech.mithras.policy.persistence.projection;
 
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
-public class PaymentPolicyEndTimeDTO {
+public class PaymentPolicyEndTimeProjection {
 
     private Long projId;
 

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.policy.dto.persistence;
+package cn.zswltech.mithras.policy.persistence.projection;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-public class PolicyListDTO {
+public class PolicyListProjection {
 
     //保单id
     private Long id;
