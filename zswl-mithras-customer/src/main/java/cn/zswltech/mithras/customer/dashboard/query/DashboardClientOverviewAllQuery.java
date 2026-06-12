@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.model.dashboard;
+package cn.zswltech.mithras.customer.dashboard.query;
 
 import lombok.Data;
 

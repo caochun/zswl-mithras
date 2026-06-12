@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.customer.model.temp;
+package cn.zswltech.mithras.customer.project.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.TableField;

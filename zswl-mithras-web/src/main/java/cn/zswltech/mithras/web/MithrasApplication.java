@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @ServletComponentScan("cn.zswltech.mithras.guanbao.config")
 @MapperScan({"cn.zswltech.mithras.document.persistence.mapper",
         "cn.zswltech.mithras.customer.mapper",
+        "cn.zswltech.mithras.customer.project.persistence.mapper",
         "cn.zswltech.mithras.customer.authorityrecord.persistence.mapper",
         "cn.zswltech.mithras.customer.externalcustomer.persistence.mapper",
         "cn.zswltech.mithras.third.externaldata.common.persistence.mapper",

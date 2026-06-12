@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.customer.application.project;
 
-import cn.zswltech.mithras.customer.mapper.TmpClientProjectMapper;
-import cn.zswltech.mithras.customer.model.temp.TmpClientProject;
+import cn.zswltech.mithras.customer.project.persistence.mapper.TmpClientProjectMapper;
+import cn.zswltech.mithras.customer.project.persistence.model.TmpClientProject;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
