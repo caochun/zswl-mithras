@@ -44,10 +44,10 @@ import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFina
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.*;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.fund.persistence.mapper.FinanceFlowWriteOffDetailMapper;
+import cn.zswltech.mithras.capital.persistence.mapper.writeoff.FinanceFlowWriteOffDetailMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
 import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
-import cn.zswltech.mithras.fund.persistence.model.FinanceFlowWriteOffDetail;
+import cn.zswltech.mithras.capital.persistence.model.writeoff.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;

@@ -35,10 +35,10 @@ import cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowQueryDT
 import cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowResultDTO;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayCashDepositService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayExpenseService;
-import cn.zswltech.mithras.fund.persistence.mapper.FinanceFlowWriteOffDetailMapper;
+import cn.zswltech.mithras.capital.persistence.mapper.writeoff.FinanceFlowWriteOffDetailMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.fund.persistence.model.FinanceFlowWriteOffDetail;
+import cn.zswltech.mithras.capital.persistence.model.writeoff.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.collection.model.BillManagement;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;

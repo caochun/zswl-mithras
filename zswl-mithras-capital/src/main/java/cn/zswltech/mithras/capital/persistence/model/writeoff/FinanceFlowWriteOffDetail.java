@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.fund.persistence.model;
+package cn.zswltech.mithras.capital.persistence.model.writeoff;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
