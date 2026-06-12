@@ -192,6 +192,7 @@ import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasBaseInfo;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasRelatedEnterpriseInfo;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasShareholderInfo;
 import cn.zswltech.mithras.third.riskopinion.application.RiskManageOpinionService;
+import cn.zswltech.mithras.third.riskopinion.client.req.RiskControlOpinionRegisterItem;
 import cn.zswltech.mithras.application.orchestration.client.authority.ClientAuthorityUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
@@ -582,7 +583,13 @@ public class ClientService extends ServiceImpl<ClientMapper, Client> implements 
         if (ObjectUtil.isNotEmpty(releasedList)) {
             list.addAll(releasedList);
         }
-        Boolean result = riskManageOpinionService.registerClient(list);
+        List<RiskControlOpinionRegisterItem> itemList = list.stream().map(e -> {
+            RiskControlOpinionRegisterItem item = new RiskControlOpinionRegisterItem();
+            item.setCompanyName(e.getClientName());
+            item.setCreditCode(e.getUscCode());
+            return item;
+        }).collect(Collectors.toList());
+        Boolean result = riskManageOpinionService.registerClient(itemList);
         if (Boolean.TRUE.equals(result)) {
             log.info("同步舆情关注客户列表结束");
         } else {

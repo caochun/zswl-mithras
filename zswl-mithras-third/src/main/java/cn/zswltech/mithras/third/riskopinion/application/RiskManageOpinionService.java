@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.third.riskopinion.application;
 
-import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @ClassName RiskManageOpinionService
@@ -26,16 +24,10 @@ public class RiskManageOpinionService {
     private PlatformApiHandleFactory platformApiHandleFactory;
 
     /**
-     * @param clientList 客户列表
+     * @param itemList 客户注册项
      **/
-    public Boolean registerClient(List<Client> clientList) {
+    public Boolean registerClient(List<RiskControlOpinionRegisterItem> itemList) {
         PlatformApiHandler<List<RiskControlOpinionRegisterItem>, RiskControlCommRSP> platformApiHandler = platformApiHandleFactory.getPlatformApiHandler(PlatformApiEnum.PO_REGISTER);
-        List<RiskControlOpinionRegisterItem> itemList = clientList.stream().map(e -> {
-            RiskControlOpinionRegisterItem item = new RiskControlOpinionRegisterItem();
-            item.setCompanyName(e.getClientName());
-            item.setCreditCode(e.getUscCode());
-            return item;
-        }).collect(Collectors.toList());
         RiskControlCommRSP execute = platformApiHandler.execute(itemList);
         return platformApiHandler.isExecuteSuccess(execute);
     }

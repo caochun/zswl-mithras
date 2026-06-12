@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.tianyancha.application;
+package cn.zswltech.mithras.application.orchestration.externalinfo;
 
 import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycAbnormal;
 import cn.zswltech.mithras.third.externaldata.tianyancha.model.TycConsumptionRestriction;
@@ -14,6 +14,15 @@ import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.third.tianyancha.application.TycAbnormalService;
+import cn.zswltech.mithras.third.tianyancha.application.TycConsumptionRestrictionService;
+import cn.zswltech.mithras.third.tianyancha.application.TycDishonestService;
+import cn.zswltech.mithras.third.tianyancha.application.TycEquityInfoService;
+import cn.zswltech.mithras.third.tianyancha.application.TycJudicialService;
+import cn.zswltech.mithras.third.tianyancha.application.TycLawSuitService;
+import cn.zswltech.mithras.third.tianyancha.application.TycMortgageInfoService;
+import cn.zswltech.mithras.third.tianyancha.application.TycPunishmentInfoService;
+import cn.zswltech.mithras.third.tianyancha.application.TycZhixingInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

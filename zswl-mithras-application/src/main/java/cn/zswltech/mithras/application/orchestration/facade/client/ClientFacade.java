@@ -68,7 +68,7 @@ import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.P
 import cn.zswltech.mithras.third.tianyancha.application.TycService;
 import cn.zswltech.mithras.third.tianyancha.application.dto.*;
 import cn.zswltech.mithras.third.tianyancha.client.resp.*;
-import cn.zswltech.mithras.third.tianyancha.application.TycExecutionService;
+import cn.zswltech.mithras.application.orchestration.externalinfo.TycExecutionService;
 import cn.zswltech.mithras.application.orchestration.client.authority.ClientAuthorityUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
