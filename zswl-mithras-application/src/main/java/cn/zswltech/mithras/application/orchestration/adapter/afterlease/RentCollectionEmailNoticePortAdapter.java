@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.afterlease.adapter;
+package cn.zswltech.mithras.application.orchestration.adapter.afterlease;
 
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailNoticePort;
 import cn.zswltech.mithras.afterlease.genhtml.PaymentNoticeHtmlRender;

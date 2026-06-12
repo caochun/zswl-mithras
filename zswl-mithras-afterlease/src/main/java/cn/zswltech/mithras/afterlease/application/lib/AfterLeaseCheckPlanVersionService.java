@@ -6,24 +6,18 @@ import cn.zswltech.flow.core.domain.req.task.TaskSystemPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.util.Page;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseNotificationPort;
 import cn.zswltech.mithras.dto.flow.search.ReceiveTaskListRSP;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.afterlease.application.lib.handler.AfterLeaseCheckPlanLibAbstractHandler;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.basedata.util.DateUtil;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -47,9 +41,7 @@ public class AfterLeaseCheckPlanVersionService extends CommonVersionService<NewA
     @Resource
     private AfterLeaseFlowTaskConvertPort flowTaskConvert;
     @Resource
-    private MessageService messageService;
-    @Resource
-    private MessageConver messageConvert;
+    private AfterLeaseNotificationPort notificationPort;
 
     @Override
     public void customFlushData(NewAfterLeaseCheckPlanBase newAfterLeaseCheckPlanBase, String version, boolean needClearLastFlag, Integer versionType) {
@@ -116,22 +108,14 @@ public class AfterLeaseCheckPlanVersionService extends CommonVersionService<NewA
             for (ReceiveTaskListRSP rsp : rspList) {
                 //针对超过2个工作日的处理人发起消息提醒
                 if (DateUtil.countWorkdayNumber(rsp.getTaskCreateTime().toLocalDate(), LocalDate.now()) == 3 && rsp.getAssignee() != null) {
-                    MessageAddREQ messageAddREQ = new MessageAddREQ();
-                    messageAddREQ.setFrom("系统通知");
-                    messageAddREQ.setTo(Collections.singletonList(rsp.getAssignee()));
-                    messageAddREQ.setFlowid(rsp.getTaskId());
-                    messageAddREQ.setRelation("【" + rsp.getClientName() + "】的租后检查报告审批流程"+rsp.getModelName());
-                    // 只有特定流程产生的消息才发到oa系统
-                    messageAddREQ.setNeedOa(false);
-                    messageAddREQ.setNoticeSource(NoticeSourceENUM.APPROVAL_PROCESS.name());
-                    messageAddREQ.setMessageType(MessageTypeEnum.UNDER_APPROVAL.name());
-                    // 前端我收到的界面路径
-                    MessageUrlEnum noticeContextEnum = MessageUrlEnum.NOTICE_CONTEXT;
-                    messageAddREQ.setAppurl(StringUtils.format(noticeContextEnum.appUrl, rsp.getTaskId()));
-                    messageAddREQ.setPcurl(StringUtils.format(noticeContextEnum.pcUrl, rsp.getTaskId(), rsp.getBusinessKey(), rsp.getSubModule()));
-                    messageAddREQ.setTaskId(rsp.getTaskId());
-                    messageAddREQ.setContent(rsp.getProcessInstanceId());
-                    messageService.sendMessageAsync(messageConvert.reqToTodoMessage(messageAddREQ));
+                    notificationPort.sendReportApprovalRemind(
+                            rsp.getAssignee(),
+                            rsp.getTaskId(),
+                            rsp.getBusinessKey(),
+                            rsp.getSubModule(),
+                            rsp.getClientName(),
+                            rsp.getModelName(),
+                            rsp.getProcessInstanceId());
                 }
             }
 

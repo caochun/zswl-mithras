@@ -3,18 +3,13 @@ package cn.zswltech.mithras.afterlease.application.job;
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.dto.message.MessageUrlEnum;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseNotificationPort;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanClientService;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.context.XxlJobHelper;
@@ -44,9 +39,7 @@ public class CheckPlanTimeOutNotifyTask {
     @Resource
     private AfterLeaseCheckPlanBaseService afterLeaseCheckPlanBaseService;
     @Resource
-    private MessageService messageService;
-    @Resource
-    private MessageConver messageConver;
+    private AfterLeaseNotificationPort notificationPort;
 
     @XxlJob("checkPlanTimeOutNotifyTask")
     public void checkPlanTimeOutNotifyTask() {
@@ -68,28 +61,18 @@ public class CheckPlanTimeOutNotifyTask {
 
         toBeNotifyPalns.forEach(client -> {
             NewAfterLeaseCheckPlanBase plan = afterLeaseCheckPlanBaseService.getOne(Wrappers.<NewAfterLeaseCheckPlanBase>lambdaQuery().eq(NewAfterLeaseCheckPlanBase::getId, client.getPlanId()));
-            MessageAddREQ messageAddREQ = new MessageAddREQ();
-            messageAddREQ.setFrom("系统提醒");
-            messageAddREQ.setFlowid(String.valueOf(client.getId()));
+            String relation;
             try{
-                messageAddREQ.setRelation(String.format("距%s的【%s】第【%s】次租后检查现场打卡已超10日，请在【%s】前完成报告提交。",
+                relation = String.format("距%s的【%s】第【%s】次租后检查现场打卡已超10日，请在【%s】前完成报告提交。",
                         client.getClientName(),
                         StrUtil.sub(plan.getPlanName(), -13, -9),
                         StrUtil.sub(plan.getPlanName(), -5, -4),
-                        plan.getDeadLine()));
+                        plan.getDeadLine());
             }catch (Exception e){
-                messageAddREQ.setRelation(String.format("距%s租后检查现场打卡已超10日，请及时完成报告提交。",
-                        client.getClientName()));
+                relation = String.format("距%s租后检查现场打卡已超10日，请及时完成报告提交。",
+                        client.getClientName());
             }
-            messageAddREQ.setNeedOa(false);
-            messageAddREQ.setContent(String.valueOf(client.getId()));
-            messageAddREQ.setNoticeSource("催办通知");
-            messageAddREQ.setMessageType(MessageTypeEnum.CLIENT_PLAN_CHECK_SPONSOR.name());
-            messageAddREQ.setPcurl(String.format(MessageUrlEnum.CLIENT_PLAN_CHECK.pcUrl, client.getId()));
-            messageAddREQ.setAppurl(MessageUrlEnum.CLIENT_PLAN_CHECK.appUrl);
-            messageAddREQ.setTo(Collections.singletonList(client.getBelongSponsorId()));
-            MessageModel messageModel = messageConver.reqToMessage(messageAddREQ);
-            messageService.sendMessage(messageModel);
+            notificationPort.sendCheckPlanTimeoutRemind(client.getBelongSponsorId(), client.getId(), relation);
             client.setIsNotify(true);
         });
         afterLeaseCheckClientService.updateBatchById(toBeNotifyPalns);
