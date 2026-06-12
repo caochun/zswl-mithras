@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.blackgray.mapper;
+package cn.zswltech.mithras.blackgray.persistence.mapper;
 
 import cn.zswltech.gruul.dao.dal.tkmybatis.IMapper;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBusinessTypeRsp;
-import cn.zswltech.mithras.blackgray.model.BlackGrayBusinessDict;
+import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayBusinessDict;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

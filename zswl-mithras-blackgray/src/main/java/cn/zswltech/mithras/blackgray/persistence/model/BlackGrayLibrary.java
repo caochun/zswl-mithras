@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.model;
+package cn.zswltech.mithras.blackgray.persistence.model;
 
 import cn.zswltech.gruul.dao.dal.tkmybatis.IEntity;
 import com.baomidou.mybatisplus.annotation.IdType;

@@ -8,7 +8,7 @@ import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayApprovalSubmitRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBreakBusinessApprovalTaskRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayBreakBusinessDetailRSP;
 import cn.zswltech.mithras.blackgray.enums.AuditStatusEnum;
-import cn.zswltech.mithras.blackgray.mapper.BlackGrayBreakBusinessMapper;
+import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayBreakBusinessMapper;
 import cn.zswltech.mithras.blackgray.port.BlackGrayApprovalProcessPort;
 import cn.zswltech.mithras.blackgray.port.BlackGrayApprovalProcessType;
 import cn.zswltech.mithras.blackgray.service.BlackGrayBreakBusinessService;

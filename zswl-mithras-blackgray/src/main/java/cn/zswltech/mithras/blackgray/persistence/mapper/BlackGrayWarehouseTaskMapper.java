@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.blackgray.mapper;
+package cn.zswltech.mithras.blackgray.persistence.mapper;
 
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayWarehouseApprovalTaskREQ;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseTaskApprovalTaskRSP;
-import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask;
+import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseTask;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

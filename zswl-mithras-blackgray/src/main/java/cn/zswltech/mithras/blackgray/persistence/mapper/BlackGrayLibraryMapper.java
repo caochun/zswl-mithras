@@ -1,11 +1,11 @@
-package cn.zswltech.mithras.blackgray.mapper;
+package cn.zswltech.mithras.blackgray.persistence.mapper;
 
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayGroupListREQ;
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayLibraryDistinctListREQ;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayGroupListRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibCountDTO;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibraryDistinctListRSP;
-import cn.zswltech.mithras.blackgray.model.BlackGrayLibrary;
+import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayLibrary;
 import cn.zswltech.mithras.blackgray.vo.BlackGrayLibAllCountVo;
 import cn.zswltech.mithras.blackgray.vo.GroupCompanyInStockCountVo;
 import cn.zswltech.gruul.dao.dal.tkmybatis.IMapper;

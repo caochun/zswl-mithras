@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.blackgray.mapper.BlackGrayWarehouseTaskMapper">
+<mapper namespace="cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayWarehouseTaskMapper">
     <select id="queryForAudit" resultType="cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseTaskApprovalTaskRSP">
         select i.id, i.task_num, i.time_point, i.org_code, i.task_type, i.deadline, i.gmt_update,
         a.audit_status, a.biz_type, a.latest_msg, a.id as audit_task_id, a.current_operator, a.pre_operator, a.gmt_create, a.gmt_update
@@ -32,7 +32,7 @@
     </select>
 
     <select id="queryByTaskNum"
-            resultType="cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseTask">
+            resultType="cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseTask">
         select * from black_gray_warehouse_task where task_num = #{taskNum}
     </select>
 

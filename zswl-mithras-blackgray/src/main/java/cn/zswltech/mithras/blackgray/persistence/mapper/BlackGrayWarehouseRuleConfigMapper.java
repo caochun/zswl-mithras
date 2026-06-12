@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.blackgray.mapper;
+package cn.zswltech.mithras.blackgray.persistence.mapper;
 
 import cn.zswltech.mithras.blackgray.dto.req.BlackGrayWarehouseRuleConfigListREQ;
-import cn.zswltech.mithras.blackgray.model.BlackGrayWarehouseRuleConfig;
+import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseRuleConfig;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 

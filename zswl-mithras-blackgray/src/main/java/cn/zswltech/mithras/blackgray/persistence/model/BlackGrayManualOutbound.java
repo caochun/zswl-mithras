@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.blackgray.model;
+package cn.zswltech.mithras.blackgray.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -9,21 +9,20 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-@TableName(value = "black_gray_break_business")
-public class BlackGrayBreakBusiness {
-
+@TableName(value =  "black_gray_manual_outbound")
+//@Table(name = "black_gray_manual_outbound")
+public class BlackGrayManualOutbound {
+    /**
+     * id
+     */
     @Id
     @TableId(type = IdType.AUTO)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /**
-     * 黑灰名单ID
-     */
     @Column(name = "black_gray_id")
     private Long blackGrayId;
 
@@ -39,32 +38,35 @@ public class BlackGrayBreakBusiness {
     @Column(name = "unified_social_credit_code")
     private String unifiedSocialCreditCode;
 
+    /**
+     * 业务类型
+     */
+    @Column(name = "`business_type`")
+    private String businessType;
 
     /**
      * 黑灰标识
-     * {@link BlackGrayTypeEnum#name()}
      */
     @Column(name = "black_gray_type")
     private String blackGrayType;
 
-
     /**
-     * 拟开展业务类型
+     * 入库时间
      */
-    @Column(name = "proposed_business_type")
-    private String proposedBusinessType;
+    @Column(name = "warehouse_time")
+    private Date warehouseTime;
 
     /**
-     * 原计划出库时间
+     * 出库时间
      */
     @Column(name = "plan_outbound_time")
     private Date planOutboundTime;
 
     /**
-     * 拟开展业务规模（万元）
+     * 实际出库时间
      */
-    @Column(name = "propose_business_scale")
-    private BigDecimal proposeBusinessScale;
+    @Column(name = "actual_outbound_time")
+    private Date actualOutboundTime;
 
     /**
      * 申请原因
@@ -78,23 +80,33 @@ public class BlackGrayBreakBusiness {
     @Column(name = "apply_organization")
     private String applyOrganization;
 
+    @Column(name = "warehouse_organization")
+    private String warehouseOrganization;
+
     /**
      * 申请部门
      */
     @Column(name = "apply_dept")
     private String applyDept;
 
+
     /**
-     * 文件
+     * 申请文件keys
      */
     @Column(name = "apply_file_keys")
     private String applyFileKeys;
 
     /**
-     * 突破流程状态
+     * 出库状态
      */
     @Column(name = "audit_status")
     private Integer auditStatus;
+
+    @Column(name = "source")
+    private String source;
+
+    @Column(name = "message")
+    private String message;
 
     /**
      * 创建人、发起人
@@ -123,9 +135,15 @@ public class BlackGrayBreakBusiness {
     @Column(name = "report_flag")
     private Integer reportFlag;
 
+    public static final String ID = "id";
+
     public static final String APPLY_ORGANIZATION = "applyOrganization";
 
-    public static final String BUSINESS_TYPE = "proposedBusinessType";
+    public static final String ENTERPRISE_NAME = "enterpriseName";
+
+    public static final String UNIFIED_SOCIAL_CREDIT_CODE = "unifiedSocialCreditCode";
+
+    public static final String BUSINESS_TYPE = "businessType";
 
     public static final String AUDIT_STATUS = "auditStatus";
 
@@ -133,8 +151,7 @@ public class BlackGrayBreakBusiness {
 
     public static final String BLACK_GRAY_TYPE = "blackGrayType";
 
-    public static final String ENTERPRISE_NAME = "enterpriseName";
+    public static final String PLAN_OUTBOUND_TIME = "planOutboundTime";
 
-    public static final String PROPOSED_BUSINESS_TYPE = "proposedBusinessType";
 
 }

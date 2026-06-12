@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.blackgray.mapper;
+package cn.zswltech.mithras.blackgray.persistence.mapper;
 
 import cn.zswltech.gruul.dao.dal.tkmybatis.IMapper;
-import cn.zswltech.mithras.blackgray.model.BlackGrayDishonestyRosterDO;
+import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayDishonestyRosterDO;
 import org.springframework.stereotype.Repository;
 
 @Repository

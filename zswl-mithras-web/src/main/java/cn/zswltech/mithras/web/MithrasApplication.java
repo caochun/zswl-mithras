@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.rating.mapper",
         "cn.zswltech.mithras.third.**.mapper",
         "cn.zswltech.lib.futurelog.save.mapper",
-        "cn.zswltech.mithras.blackgray.mapper",
+        "cn.zswltech.mithras.blackgray.persistence.mapper",
         "cn.zswltech.mithras.metric.financialcloudmetric.mapper",
         "cn.zswltech.mithras.ftp.newftp.mapper",
         "cn.zswltech.mithras.fund.directfinancing.mapper",

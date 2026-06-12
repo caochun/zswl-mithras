@@ -31,7 +31,7 @@ import java.util.List;
 
 @Configuration
 @Slf4j
-@MapperScan(value = "cn.zswltech.mithras.blackgray.mapper", sqlSessionFactoryRef = "blackSqlSessionFactory")
+@MapperScan(value = "cn.zswltech.mithras.blackgray.persistence.mapper", sqlSessionFactoryRef = "blackSqlSessionFactory")
 public class BlackMysqlConfig {
 
     @Autowired
