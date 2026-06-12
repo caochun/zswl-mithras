@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.basedata.mapper;
+package cn.zswltech.mithras.basedata.persistence.mapper;
 
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataExchangeRate;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataExchangeRate;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**

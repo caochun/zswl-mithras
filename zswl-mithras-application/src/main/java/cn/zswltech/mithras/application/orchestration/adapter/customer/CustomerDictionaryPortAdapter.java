@@ -1,9 +1,9 @@
 package cn.zswltech.mithras.application.orchestration.adapter.customer;
 
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
-import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
+import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
+import cn.zswltech.mithras.basedata.persistence.mapper.GeneralDictionaryMapper;
+import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
+import cn.zswltech.mithras.basedata.persistence.model.GeneralDictionary;
 import cn.zswltech.mithras.customer.application.client.CustomerDictionaryPort;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

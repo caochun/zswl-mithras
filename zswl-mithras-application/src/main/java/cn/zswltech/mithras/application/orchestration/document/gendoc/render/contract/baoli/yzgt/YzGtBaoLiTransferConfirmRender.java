@@ -6,7 +6,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.AbstractContractRender;
 import cn.zswltech.mithras.document.model.FileTemplate;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataLpr;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataLpr;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfoLib;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;

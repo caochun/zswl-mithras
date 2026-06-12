@@ -12,9 +12,9 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientModifySubAuthC
 import cn.zswltech.mithras.customer.application.client.auth.ClientRemoveSubAuthCheckerNew;
 import cn.zswltech.mithras.customer.application.client.auth.ClientViewMainAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
+import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
+import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
 import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;

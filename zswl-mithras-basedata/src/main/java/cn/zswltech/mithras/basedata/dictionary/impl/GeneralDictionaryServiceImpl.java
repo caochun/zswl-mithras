@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.basedata.dictionary.impl;
 
-import cn.zswltech.mithras.basedata.mapper.GeneralDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
+import cn.zswltech.mithras.basedata.persistence.mapper.GeneralDictionaryMapper;
+import cn.zswltech.mithras.basedata.persistence.model.GeneralDictionary;
 import cn.zswltech.mithras.basedata.dictionary.GeneralDictionaryService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

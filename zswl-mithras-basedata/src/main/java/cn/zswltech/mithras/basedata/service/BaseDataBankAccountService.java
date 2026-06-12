@@ -10,8 +10,8 @@ import cn.zswltech.mithras.basedata.application.bankaccount.BaseDataBankAccountS
 import cn.zswltech.mithras.basedata.application.bankaccount.BaseDataBankAccountUserPort;
 import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountStatusEnum;
 import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
-import cn.zswltech.mithras.basedata.mapper.BaseDataBankAccountMapper;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.persistence.mapper.BaseDataBankAccountMapper;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListREQ;
 import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListRSP;
 import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountQueryREQ;

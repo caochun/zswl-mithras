@@ -19,7 +19,7 @@ import cn.zswltech.mithras.afterlease.mapper.RentCollectionEmailHtmlStoreMapper;
 import cn.zswltech.mithras.afterlease.mapper.RentCollectionEmailRecordMapper;
 import cn.zswltech.mithras.afterlease.model.RentCollectionEmailHtmlStore;
 import cn.zswltech.mithras.afterlease.model.RentCollectionEmailRecord;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

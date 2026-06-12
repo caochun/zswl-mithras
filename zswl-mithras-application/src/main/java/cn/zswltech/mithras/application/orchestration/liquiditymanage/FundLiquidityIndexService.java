@@ -21,8 +21,8 @@ import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInf
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingBaseInfoMapper;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataSpecialDate;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.fund.enums.financing.FundFinancingAccountTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.fund.directfinancing.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.fund.model.FundOrganization;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPayAccount;

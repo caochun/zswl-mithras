@@ -11,7 +11,7 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientAddSubAuthChec
 import cn.zswltech.mithras.customer.application.client.auth.ClientModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.customer.application.client.auth.ClientViewMainAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
+import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.customer.application.client.NormalBaseInfoService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;

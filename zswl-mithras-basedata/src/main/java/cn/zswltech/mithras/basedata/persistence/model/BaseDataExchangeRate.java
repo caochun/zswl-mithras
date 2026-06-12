@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.basedata.mapper.model;
+package cn.zswltech.mithras.basedata.persistence.model;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import com.baomidou.mybatisplus.annotation.IdType;

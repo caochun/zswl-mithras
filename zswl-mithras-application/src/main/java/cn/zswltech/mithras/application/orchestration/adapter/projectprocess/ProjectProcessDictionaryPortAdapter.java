@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.projectprocess;
 
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
+import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
+import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
 import cn.zswltech.mithras.projectprocess.application.support.ProjectProcessDictionaryPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

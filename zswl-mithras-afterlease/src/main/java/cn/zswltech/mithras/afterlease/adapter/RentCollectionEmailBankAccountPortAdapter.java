@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.afterlease.adapter;
 
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailBankAccountPort;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.basedata.service.BaseDataBankAccountService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;

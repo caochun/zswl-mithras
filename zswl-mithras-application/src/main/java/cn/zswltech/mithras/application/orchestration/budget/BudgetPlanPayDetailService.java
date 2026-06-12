@@ -50,9 +50,9 @@ import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryE
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
+import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.budget.mapper.dto.BudgetPlanPayDetailExpenseGroupDTO;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
+import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
 import cn.zswltech.mithras.budget.mapper.model.*;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfoLib;

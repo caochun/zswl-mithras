@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.basedata.util;
 
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataSpecialDate;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 
 import java.time.DayOfWeek;

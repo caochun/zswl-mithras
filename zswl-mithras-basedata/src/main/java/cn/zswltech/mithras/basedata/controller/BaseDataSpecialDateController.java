@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.basedata.BaseDataSpecialDateApi;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.basedata.BaseDataSpecialDateInitREQ;
 import cn.zswltech.mithras.dto.basedata.BaseDataSpecialDateSaveREQ;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataSpecialDate;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataSpecialDate;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;

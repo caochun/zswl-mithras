@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.basedata.dictionary;
 
-import cn.zswltech.mithras.basedata.mapper.model.GeneralDictionary;
+import cn.zswltech.mithras.basedata.persistence.model.GeneralDictionary;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

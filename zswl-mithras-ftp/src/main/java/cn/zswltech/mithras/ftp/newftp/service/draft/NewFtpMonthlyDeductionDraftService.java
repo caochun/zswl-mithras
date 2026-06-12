@@ -13,7 +13,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataLpr;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataLpr;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

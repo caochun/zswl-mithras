@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.basedata.mapper.model;
+package cn.zswltech.mithras.basedata.persistence.model;
 
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountStatusEnum;

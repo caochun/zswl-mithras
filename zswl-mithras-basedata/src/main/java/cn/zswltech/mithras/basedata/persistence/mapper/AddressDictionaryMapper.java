@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.basedata.mapper;
+package cn.zswltech.mithras.basedata.persistence.mapper;
 
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
+import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

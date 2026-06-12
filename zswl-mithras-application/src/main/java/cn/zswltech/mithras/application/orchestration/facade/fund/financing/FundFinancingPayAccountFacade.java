@@ -9,7 +9,7 @@ import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingSubModifyAuthChecker;
 import cn.zswltech.mithras.fund.mapper.financing.FundFinancingPayAccountMapper;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.fund.model.financing.FundFinancingPayAccount;
 import cn.zswltech.mithras.basedata.service.BaseDataBankAccountService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;

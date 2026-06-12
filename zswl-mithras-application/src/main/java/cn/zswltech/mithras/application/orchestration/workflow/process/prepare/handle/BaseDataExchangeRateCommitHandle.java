@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.workflow.process.prepare.h
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataExchangeRate;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataExchangeRate;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;
 import cn.zswltech.mithras.workflow.persistence.model.CommonProcessPrepare;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

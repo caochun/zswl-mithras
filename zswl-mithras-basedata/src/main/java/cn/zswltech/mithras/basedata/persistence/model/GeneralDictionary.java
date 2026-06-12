@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.basedata.mapper.model;
+package cn.zswltech.mithras.basedata.persistence.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

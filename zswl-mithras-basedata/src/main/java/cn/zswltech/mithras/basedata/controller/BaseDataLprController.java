@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.basedata.BaseDataLprDetailRSP;
 import cn.zswltech.mithras.dto.basedata.BaseDataLprSaveREQ;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataLpr;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataLpr;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.basedata.service.BaseDataLprService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

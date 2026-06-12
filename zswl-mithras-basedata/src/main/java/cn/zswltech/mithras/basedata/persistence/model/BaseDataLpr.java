@@ -1,6 +1,5 @@
-package cn.zswltech.mithras.basedata.mapper.model;
+package cn.zswltech.mithras.basedata.persistence.model;
 
-import cn.zswltech.mithras.basedata.enums.BaseDataSpecialDateTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -13,13 +12,13 @@ import java.time.LocalDate;
 
 /**
  * @author dingqi
- * @date 2022/9/24
+ * @date 2022/9/16
  * @description
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("base_data_special_date")
-public class BaseDataSpecialDate extends BaseModel {
+@TableName("base_data_lpr")
+public class BaseDataLpr extends BaseModel {
     /**
      * 主键id
      */
@@ -28,26 +27,20 @@ public class BaseDataSpecialDate extends BaseModel {
     private Long id;
 
     /**
-     * 年份
+     * LPR报价日
      */
-    @TableField("year")
-    private Integer year;
+    @TableField("lpr_date")
+    private LocalDate lprDate;
 
     /**
-     * 月份
+     * 1年期LPR，单位：百分比
      */
-    @TableField("month")
-    private Integer month;
+    @TableField("one_year")
+    private String oneYear;
 
     /**
-     * 日期
+     * 5年期LPR，单位：百分比
      */
-    @TableField("special_date")
-    private LocalDate specialDate;
-
-    /**
-     * 特殊类型 {@link BaseDataSpecialDateTypeEnum#name()}
-     */
-    @TableField("special_type")
-    private String specialType;
+    @TableField("five_year")
+    private String fiveYear;
 }

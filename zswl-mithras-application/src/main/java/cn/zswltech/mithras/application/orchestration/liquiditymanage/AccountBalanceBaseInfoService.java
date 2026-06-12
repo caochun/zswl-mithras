@@ -14,7 +14,7 @@ import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.excel.importer.AccountBalanceBaseInfoImporter;
 import cn.zswltech.mithras.liquidity.excel.model.AccountBalanceBaseInfoExcelModel;
 import cn.zswltech.mithras.liquidity.mapper.AccountBalanceBaseInfoMapper;
-import cn.zswltech.mithras.basedata.mapper.model.BaseDataBankAccount;
+import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorBoardHolder;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;

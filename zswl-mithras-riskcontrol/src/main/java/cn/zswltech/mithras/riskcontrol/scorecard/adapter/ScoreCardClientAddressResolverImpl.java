@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.riskcontrol.scorecard.adapter;
 
-import cn.zswltech.mithras.basedata.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.basedata.mapper.model.AddressDictionary;
+import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
+import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
 import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
 import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
