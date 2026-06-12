@@ -27,6 +27,7 @@ import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.fund.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
@@ -64,7 +65,7 @@ import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancin
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPledgeInfoService;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayPlanService;
-import cn.zswltech.mithras.fund.application.receiptrepay.port.FundReceiptRepayProcessQueryPort;
+import cn.zswltech.mithras.fund.application.receiptrepay.port.FundReceiptRepayProcessEditablePort;
 import cn.zswltech.mithras.fund.versioning.receiptrepay.handler.AbstractFundReceiptRepayLibHandler;
 import cn.zswltech.mithras.foundation.util.CompareUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
@@ -93,7 +94,7 @@ import static cn.zswltech.mithras.foundation.util.CompareUtil.MODULE_CHANGED_FLA
  * @date 2023/2/20 10:55 AM
  */
 @Service
-public class FundReceiptRepayVersionService extends CommonVersionService<FundReceiptRepayBaseInfo> implements FundReceiptRepayProcessQueryPort {
+public class FundReceiptRepayVersionService extends CommonVersionService<FundReceiptRepayBaseInfo> implements FundReceiptRepayProcessEditablePort {
 
     @Resource
     private FlowTaskApiService taskApiService;
@@ -243,6 +244,18 @@ public class FundReceiptRepayVersionService extends CommonVersionService<FundRec
         }
         cn.zswltech.flow.core.util.Page<ProcessResp> batchProcessRespPage = taskApiService.queryProcess(batchProcessReq);
         return batchProcessRespPage.getContents().stream().findFirst().orElse(null);
+    }
+
+    @Override
+    public boolean canEditRelatedProcess(Long fundReceiptRepayId) {
+        ProcessResp processResp = findRelatedProcess(fundReceiptRepayId);
+        return Objects.isNull(processResp) || FlowUtil.isStartUserNode(processResp);
+    }
+
+    @Override
+    public boolean canEditBatchProcess(Long batchId) {
+        ProcessResp processResp = findBatchProcess(ListUtil.toList(batchId), Arrays.asList(ProcessBusinessStatusEnum.RUNNING.getType()));
+        return Objects.isNull(processResp) || FlowUtil.isStartUserNode(processResp);
     }
 
     /**
