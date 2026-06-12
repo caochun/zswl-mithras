@@ -60,13 +60,13 @@ import cn.zswltech.mithras.projectprocess.enums.projreview.MeetMinuteStatuesEnum
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
+import cn.zswltech.mithras.customer.mobile.persistence.mapper.VisitRecordMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpSubjectItemMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
-import cn.zswltech.mithras.customer.mobile.model.VisitRecord;
+import cn.zswltech.mithras.customer.mobile.persistence.model.VisitRecord;
 import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;

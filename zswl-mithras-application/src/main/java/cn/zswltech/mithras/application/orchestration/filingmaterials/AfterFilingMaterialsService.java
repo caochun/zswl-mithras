@@ -39,12 +39,12 @@ import cn.zswltech.mithras.filingmaterials.gendoc.render.BusinessMaterialsAfterR
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanBaseMapper;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;
-import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
+import cn.zswltech.mithras.customer.mobile.persistence.mapper.VisitRecordMapper;
 import cn.zswltech.mithras.filingmaterials.mapper.FilingMaterialsMapper;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
-import cn.zswltech.mithras.customer.mobile.model.VisitRecord;
+import cn.zswltech.mithras.customer.mobile.persistence.model.VisitRecord;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
 import cn.zswltech.mithras.workflow.persistence.mapper.CommonProcessPrepareMapper;

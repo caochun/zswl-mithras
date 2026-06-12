@@ -3,9 +3,9 @@ package cn.zswltech.mithras.application.orchestration.document.materialsfile.fil
 
 import cn.zswltech.mithras.application.orchestration.document.convert.FileConvert;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
+import cn.zswltech.mithras.customer.mobile.persistence.mapper.VisitRecordMapper;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
-import cn.zswltech.mithras.customer.mobile.model.VisitRecord;
+import cn.zswltech.mithras.customer.mobile.persistence.model.VisitRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.FileModuleCheck;

@@ -70,7 +70,7 @@ import cn.zswltech.mithras.filingmaterials.gendoc.render.BusinessMaterialsInnerO
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.BusinessMaterialsRender;
 import cn.zswltech.mithras.filingmaterials.gendoc.render.MaterialsApprovalSnapshootRender;
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.customer.mobile.mapper.VisitRecordMapper;
+import cn.zswltech.mithras.customer.mobile.persistence.mapper.VisitRecordMapper;
 import cn.zswltech.mithras.contract.mapper.contract.*;
 import cn.zswltech.mithras.filingmaterials.mapper.FilingMaterialsMapper;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
@@ -84,7 +84,7 @@ import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMappe
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
-import cn.zswltech.mithras.customer.mobile.model.VisitRecord;
+import cn.zswltech.mithras.customer.mobile.persistence.model.VisitRecord;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;

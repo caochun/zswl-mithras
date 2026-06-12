@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.third.externaldata.zhongdeng.persistence.mapper",
         "cn.zswltech.mithras.customer.hymx.persistence.mapper",
         "cn.zswltech.mithras.customer.infohistory.persistence.mapper",
-        "cn.zswltech.mithras.customer.mobile.mapper",
+        "cn.zswltech.mithras.customer.mobile.persistence.mapper",
         "cn.zswltech.mithras.customer.sandrecord.persistence.mapper",
         "cn.zswltech.mithras.customer.userref.persistence.mapper",
         "cn.zswltech.mithras.customer.vwsync.persistence.mapper",

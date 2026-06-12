@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.customer.mobile.mapper;
+package cn.zswltech.mithras.customer.mobile.persistence.mapper;
 
-import cn.zswltech.mithras.customer.mobile.model.AppContractSign;
+import cn.zswltech.mithras.customer.mobile.persistence.model.AppContractSign;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
