@@ -24,7 +24,7 @@ public class MithrasRedisConfig extends CachingConfigurerSupport {
     private String hostName;
     @Value("${spring.redis.port}")
     private String port;
-    @Value("${spring.redis.password}")
+    @Value("${spring.redis.password:}")
     private String password;
     @Value("${spring.redis.database}")
     private Integer database;

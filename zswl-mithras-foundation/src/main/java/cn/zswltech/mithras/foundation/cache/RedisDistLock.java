@@ -5,7 +5,9 @@ import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.redisson.config.SingleServerConfig;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +30,12 @@ public class RedisDistLock {
     public void init() {
 
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://" + redisHost + ":" + redisPort).setUsername("default").setPassword(redisPasswd).setDatabase(database);
+        SingleServerConfig singleServerConfig = config.useSingleServer()
+            .setAddress("redis://" + redisHost + ":" + redisPort)
+            .setDatabase(database);
+        if (StringUtils.hasText(redisPasswd)) {
+            singleServerConfig.setUsername("default").setPassword(redisPasswd);
+        }
         redissonClient = Redisson.create(config);
 
     }
