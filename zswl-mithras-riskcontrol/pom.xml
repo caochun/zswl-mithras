@@ -69,16 +69,6 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-margin</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-system</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>gruul-spring-boot-starter</artifactId>
             <version>3.5.2-mithras.RELEASE</version>
             <scope>provided</scope>

@@ -4,34 +4,38 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.constant.OrgConstants;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.gruul.dao.dal.entity.UserDO;
+import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
+import cn.zswltech.mithras.foundation.port.DeptUserResolver;
+import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
 import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationUserScopeService;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.system.user.SysUserService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 public class RiskControlConcentrationUserScopeServiceAdapter implements RiskControlConcentrationUserScopeService {
 
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
+    @Resource
+    private OrgJobUserResolver orgJobUserResolver;
+    @Resource
+    private DeptUserResolver deptUserResolver;
 
     @Override
     public Set<Long> bizUserIds() {
         Set<Long> userIds = new HashSet<>();
         Long currentUserId = AccountUtil.getLoginInfo().getId();
-        List<OrgDO> orgList = sysUserService.getUserDeptList();
+        List<OrgDO> orgList = currentUserOrgResolver.getUserDeptList();
         for (OrgDO org : orgList) {
             if (ObjectUtil.equal(org.getType(), OrgConstants.BUSINESS_DEPT)) {
-                Long leaderId = sysUserService.getUserIdByOrgJob(org.getId(), JobEnum.businesshead.name());
+                Long leaderId = firstOrgJobUser(org.getId(), JobEnum.businesshead.name());
                 if (ObjectUtil.equal(leaderId, currentUserId)) {
-                    userIds.addAll(sysUserService.getUserByDeptCode(org.getCode()).stream().map(UserDO::getId).collect(Collectors.toList()));
+                    userIds.addAll(deptUserResolver.userIdsByDeptCode(org.getCode()));
                 } else {
                     userIds.add(currentUserId);
                 }
@@ -40,5 +44,13 @@ public class RiskControlConcentrationUserScopeServiceAdapter implements RiskCont
             }
         }
         return userIds;
+    }
+
+    private Long firstOrgJobUser(Long orgId, String jobCode) {
+        List<Long> userIds = orgJobUserResolver.orgJobUsers(orgId, jobCode);
+        if (ObjectUtil.isEmpty(userIds)) {
+            return null;
+        }
+        return userIds.get(0);
     }
 }

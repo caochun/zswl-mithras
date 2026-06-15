@@ -20,7 +20,7 @@ import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.projectprocess.convert.projestablish.ProjEstablishBaseInfoConverter;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfoLib;

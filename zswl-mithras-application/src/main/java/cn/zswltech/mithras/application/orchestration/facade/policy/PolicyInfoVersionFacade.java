@@ -15,11 +15,10 @@ import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.policy.enums.PolicyApprovalStatusEnum;
+import cn.zswltech.mithras.policy.application.info.PolicyInfoSupportService;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.policy.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.policy.PolicyInfoService;
@@ -52,7 +51,7 @@ public class PolicyInfoVersionFacade implements PolicyInfoVersionApplicationServ
     @Resource
     private PolicyInfoVersionService policyInfoVersionService;
     @Resource
-    private PolicyInfoMapper policyInfoMapper;
+    private PolicyInfoSupportService policyInfoSupportService;
     @Resource
     private PolicyInfoService policyInfoService;
     @Resource
@@ -69,7 +68,7 @@ public class PolicyInfoVersionFacade implements PolicyInfoVersionApplicationServ
             throw new MithrasException(CONCURRENT_OPERATION);
         }
         try {
-            PolicyInfo baseInfo = policyInfoMapper.selectById(req.getId());
+            PolicyInfo baseInfo = policyInfoSupportService.getById(req.getId());
             if (isNull(baseInfo)) {
                 throw new MithrasException(RECORD_NOT_EXIST);
             }
@@ -94,7 +93,7 @@ public class PolicyInfoVersionFacade implements PolicyInfoVersionApplicationServ
 
     @Override
     public R<Void> cancel(@Valid PolicyInfoCancelREQ req) {
-        PolicyInfo info = policyInfoMapper.selectById(req.getId());
+        PolicyInfo info = policyInfoSupportService.getById(req.getId());
         Assert.notNull(info, () -> MithrasException.newException("保单信息不存在"));
         if (info.getApprovalStatus().equals(PolicyApprovalStatusEnum.NEW_UN_SUBMIT.name())){
             if (info.getAutomatic() == 0) {
@@ -102,12 +101,7 @@ public class PolicyInfoVersionFacade implements PolicyInfoVersionApplicationServ
                 remove.setId(req.getId());
                 policyInfoService.remove(remove);
             }else {
-                info.setInsuranceCompany(null);
-                info.setInsuranceEndDate(null);
-                info.setInsuranceStartDate(null);
-                info.setPolicyAmount(null);
-                info.setPolicyCode(null);
-                policyInfoMapper.updateAnnotationIncludeNullById(info);
+                policyInfoSupportService.clearAutomaticUnSubmitPolicy(req.getId());
                 materialsListService.remove(Wrappers.<MaterialsList>lambdaQuery().eq(MaterialsList::getBelongId,req.getId()).eq(MaterialsList::getBusinessType,BusinessModuleEnum.POLICY.name()).eq(MaterialsList::getMaterialsType,"POLICY"));
             }
         }else if (info.getApprovalStatus().equals(PolicyApprovalStatusEnum.CHANGING_UN_SUBMIT.name())){

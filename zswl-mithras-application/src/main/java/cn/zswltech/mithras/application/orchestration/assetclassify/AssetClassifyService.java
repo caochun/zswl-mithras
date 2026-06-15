@@ -35,7 +35,7 @@ import cn.zswltech.mithras.assetclassify.application.AssetClassifyClientRiskFact
 import cn.zswltech.mithras.kpi.enums.config.ProvisionRadioEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.AssetClassifySummaryRender;
 import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;

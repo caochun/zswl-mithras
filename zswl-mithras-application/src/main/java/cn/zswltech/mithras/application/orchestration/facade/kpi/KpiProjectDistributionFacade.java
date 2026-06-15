@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.kpi.application.KpiProjectDistributionApplicationService;
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.kpi.application.auth.KpiProjectDistributionModifyChecker;
+import cn.zswltech.mithras.application.orchestration.auth.kpi.KpiProjectDistributionModifyChecker;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionService;

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorValue;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.riskcontrol.metric.subscriber.RiskControlClassifyMetricComputer;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;

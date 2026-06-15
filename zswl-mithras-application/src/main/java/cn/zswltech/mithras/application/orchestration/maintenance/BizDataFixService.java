@@ -60,7 +60,7 @@ import cn.zswltech.mithras.policy.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.enums.PolicyStatusEnum;
 import cn.zswltech.mithras.policy.enums.PolicyTypeEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelExporter;
 import cn.zswltech.mithras.foundation.excel.AbstractSimpleExcelImporter;
 import cn.zswltech.mithras.foundation.excel.model.ExcelModel;

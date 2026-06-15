@@ -22,8 +22,7 @@ public class BankFlowProcessingCenterListREQ extends PageReq {
     private List<Long> financingFlowIdList;
 
     /**
-     * {@link cn.zswltech.mithras.capital.enums.BankFlowCenterTypeEnum}
-     * tab类型
+     * tab 类型枚举 name
      */
     @NotBlank(message = "tab类型不能为空")
     private String tabType;
@@ -58,9 +57,6 @@ public class BankFlowProcessingCenterListREQ extends PageReq {
      */
     private String bankName;
 
-    /**
-     * {@link cn.zswltech.mithras.capital.enums.BankFlowPaymentCollectionTypeEnum}
-     */
     /**
      * 收付款类型
      */

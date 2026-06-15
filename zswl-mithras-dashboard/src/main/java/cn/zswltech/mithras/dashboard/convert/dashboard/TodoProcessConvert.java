@@ -12,7 +12,9 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.persistence.model.flow.FlowQueryExtra;
 import cn.zswltech.mithras.workflow.persistence.model.flow.BizProcessData;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.workflow.persistence.mapper.flow.FlowQueryExtraMapper;
 import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -40,7 +42,11 @@ import java.util.stream.Stream;
 public class TodoProcessConvert {
 
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private UserNameResolver userNameResolver;
     @Resource
     private BizProcessDataService bizProcessDataService;
     @Resource
@@ -74,13 +80,13 @@ public class TodoProcessConvert {
         }
         // 部门列表
         Set<Long> deptIdSet = rspList.stream().map(DashboardTodoProcessRSP::getStartUserDeptId).filter(Objects::nonNull).collect(Collectors.toSet());
-        Map<Long, String> deptNameMap = id2NameService.deptId2Name(deptIdSet);
+        Map<Long, String> deptNameMap = deptNameResolver.deptId2Name(deptIdSet);
         // 填充客户id
         Map<String, Long> clientProcessIdMap = bizProcessDataService.getBaseMapper().selectList(Wrappers.<BizProcessData>lambdaQuery()
                         .in(BizProcessData::getProcessInstanceId, rspList.stream().map(DashboardTodoProcessRSP::getProcessInstanceId).collect(Collectors.toSet())))
                 .stream().filter(b -> Objects.nonNull(b.getClientId()))
                 .collect(Collectors.toMap(BizProcessData::getProcessInstanceId, BizProcessData::getClientId, (k1, k2) -> k1));
-        Map<Long, String> clientNameMap = id2NameService.clientId2Name(clientProcessIdMap.values());
+        Map<Long, String> clientNameMap = clientNameResolver.clientId2Name(clientProcessIdMap.values());
 
 
         // 人列表
@@ -98,7 +104,7 @@ public class TodoProcessConvert {
                 .flatMap(Collection::stream)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(userIdSet);
+        Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(userIdSet);
         //extra表字段
         List<String> instanceIdList = rspList.stream().map(DashboardTodoProcessRSP::getProcessInstanceId).collect(Collectors.toList());
         List<FlowQueryExtra> extraList = flowQueryExtraMapper.selectList(Wrappers.<FlowQueryExtra>lambdaQuery().in(FlowQueryExtra::getInstanceId, instanceIdList));
@@ -164,13 +170,13 @@ public class TodoProcessConvert {
         }
         // 部门列表
         Set<Long> deptIdSet = rspList.stream().map(DashBoardProcessCcListRSP::getStartUserDeptId).filter(Objects::nonNull).collect(Collectors.toSet());
-        Map<Long, String> deptNameMap = id2NameService.deptId2Name(deptIdSet);
+        Map<Long, String> deptNameMap = deptNameResolver.deptId2Name(deptIdSet);
         // 填充客户id
         Map<String, Long> clientProcessIdMap = bizProcessDataService.getBaseMapper().selectList(Wrappers.<BizProcessData>lambdaQuery()
                         .in(BizProcessData::getProcessInstanceId, rspList.stream().map(DashBoardProcessCcListRSP::getProcessInstanceId).collect(Collectors.toSet())))
                 .stream().filter(b -> Objects.nonNull(b.getClientId()))
                 .collect(Collectors.toMap(BizProcessData::getProcessInstanceId, BizProcessData::getClientId, (k1, k2) -> k1));
-        Map<Long, String> clientNameMap = id2NameService.clientId2Name(clientProcessIdMap.values());
+        Map<Long, String> clientNameMap = clientNameResolver.clientId2Name(clientProcessIdMap.values());
 
         // 人列表
         Set<Long> userIdSet = rspList.stream()
@@ -184,7 +190,7 @@ public class TodoProcessConvert {
                 .flatMap(Collection::stream)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(userIdSet);
+        Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(userIdSet);
         //extra表字段
         List<String> instanceIdList = rspList.stream().map(DashBoardProcessCcListRSP::getProcessInstanceId).collect(Collectors.toList());
         List<FlowQueryExtra> extraList = flowQueryExtraMapper.selectList(Wrappers.<FlowQueryExtra>lambdaQuery().in(FlowQueryExtra::getInstanceId, instanceIdList));

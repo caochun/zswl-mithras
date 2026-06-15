@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.ftp.newftp.enums;
 
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,8 +11,8 @@ import java.util.List;
 public enum NewFtpBusinessModule {
 
     NEW_FTP_GUIDANCE(Arrays.asList(
-            ProcessModelTypeEnum.FtpMonthlyGuidanceCreateFlow.name(),
-            ProcessModelTypeEnum.FtpMonthlyGuidanceModifyFlow.name()));
+            NewFtpWorkflowKey.FTP_MONTHLY_GUIDANCE_CREATE,
+            NewFtpWorkflowKey.FTP_MONTHLY_GUIDANCE_MODIFY));
 
     private final List<String> modelKeyList;
 }

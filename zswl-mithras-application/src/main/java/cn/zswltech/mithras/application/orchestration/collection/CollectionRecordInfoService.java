@@ -34,6 +34,7 @@ import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.capital.enums.FinanceFlowDetailTableEnum;
+import cn.zswltech.mithras.capital.service.FinanceFlowWriteOffDetailService;
 import cn.zswltech.mithras.collection.enums.BillTypeEnum;
 import cn.zswltech.mithras.collection.enums.CollectionRecordWriteOffStatus;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
@@ -51,9 +52,6 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionWriteOffRecordMapper;
-import cn.zswltech.mithras.capital.persistence.mapper.writeoff.FinanceFlowWriteOffDetailMapper;
-import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
-import cn.zswltech.mithras.capital.persistence.model.writeoff.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
@@ -61,6 +59,7 @@ import cn.zswltech.mithras.collection.model.CollectionWriteOffRecord;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.contract.overdue.application.collection.OverdueCollectionRefreshService;
@@ -124,7 +123,7 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
     @Resource
     private CollectionWriteOffRecordMapper collectionWriteOffRecordMapper;
     @Resource
-    private MarginBaseInfoMapper marginBaseInfoMapper;
+    private MarginBaseInfoService marginBaseInfoService;
     //    @Resource
 //    private ApplicationContext applicationContext;
     @Resource
@@ -152,6 +151,8 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
     private SysUserService sysUserService;
     @Resource
     private FinanceFlowRecordService financeFlowRecordService;
+    @Resource
+    private FinanceFlowWriteOffDetailService financeFlowWriteOffDetailService;
     @Resource
     private ContractRentActualService contractRentActualService;
     @Resource
@@ -359,12 +360,7 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
     }
 
     private void addCollectionToFinanceWriteOffDetail(String tableName, CollectionRecordInfo info) {
-        FinanceFlowWriteOffDetail financeFlowWriteOffDetail = new FinanceFlowWriteOffDetail();
-        financeFlowWriteOffDetail.setRecordMainTable(tableName);
-        financeFlowWriteOffDetail.setMainId(info.getId());
-        financeFlowWriteOffDetail.setBankDetailNo(info.getBankDetailNo());
-        financeFlowWriteOffDetail.setFinanceFlowId(info.getFinanceFlowId());
-        getBean(FinanceFlowWriteOffDetailMapper.class).insert(financeFlowWriteOffDetail);
+        financeFlowWriteOffDetailService.create(tableName, info.getId(), info.getBankDetailNo(), info.getFinanceFlowId());
     }
 
     //这里单条核销打标
@@ -571,8 +567,7 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
             Integer count = collectionBaseInfoMapper.selectCount(Wrappers.<CollectionBaseInfo>lambdaQuery()
                     .eq(CollectionBaseInfo::getContractId, baseInfo.getContractId())
                     .ne(CollectionBaseInfo::getWriteOffStatus, CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED));
-            MarginBaseInfo info = marginBaseInfoMapper.selectOne(Wrappers.<MarginBaseInfo>lambdaQuery()
-                    .eq(MarginBaseInfo::getContractId, baseInfo.getContractId()));
+            MarginBaseInfo info = marginBaseInfoService.getMarginBaseInfoByContractId(baseInfo.getContractId());
             if (count == 0 && (info == null || info.getCollectionAmount() <= 0)) {
                 log.info("收款核销完毕，通知合同执行结清操作[contractId: {}]", baseInfo.getContractId());
                 //这里修改为正常结清通过可结清，提前结清的需在结清确认流程中
@@ -1295,14 +1290,8 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
 //        long collectionAmount = 0,principal = 0,interest = 0, penaltyInterest = 0;
         CollectionBaseInfo baseInfo = collectionBaseInfoMapper.selectById(req.getId());
         //现金流编号转合同编号
-        Map<Long, String> marginBaseId2ContractCode = new HashMap<>();
         Set<Long> marginBaseIdSet = infoList.stream().map(CollectionRecordInfo::getDeductionMarginBaseId).filter(ObjectUtil::isNotEmpty).collect(Collectors.toSet());
-        if (ObjectUtil.isNotEmpty(marginBaseIdSet)) {
-            List<MarginBaseInfo> marginBaseInfos = marginBaseInfoMapper.selectBatchIds(marginBaseIdSet);
-            if (ObjectUtil.isNotEmpty(marginBaseInfos)) {
-                marginBaseId2ContractCode.putAll(marginBaseInfos.stream().collect(Collectors.toMap(MarginBaseInfo::getId, MarginBaseInfo::getContractCode, (a, b) -> a)));
-            }
-        }
+        Map<Long, String> marginBaseId2ContractCode = marginBaseInfoService.getContractCodeByIds(marginBaseIdSet);
         for (CollectionRecordInfo o : infoList) {
             CollectionRecordListRSP.Records rsp = new CollectionRecordListRSP.Records();
             BeanUtil.copyProperties(o, rsp);

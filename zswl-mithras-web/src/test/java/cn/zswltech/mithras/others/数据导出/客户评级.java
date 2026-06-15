@@ -16,7 +16,7 @@ import cn.zswltech.mithras.rating.service.RatingClientService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.application.orchestration.facade.client.CorpCommerceInfoFacade;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;

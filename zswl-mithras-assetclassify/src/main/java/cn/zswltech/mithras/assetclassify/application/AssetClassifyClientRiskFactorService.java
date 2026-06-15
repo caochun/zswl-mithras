@@ -11,15 +11,13 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyClientRiskFactorEnum;
 import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyClientMapper;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
-import cn.zswltech.mithras.system.mapper.model.SystemConfig;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClientRiskFactorTemplate;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.foundation.util.StringUtil;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.SystemConfigResolver;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -30,7 +28,6 @@ import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static cn.hutool.extra.spring.SpringUtil.getBean;
 /**
  * @description:
  * @author: zhaozhengkang
@@ -46,7 +43,9 @@ public class AssetClassifyClientRiskFactorService {
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private SystemConfigResolver systemConfigResolver;
     private static final String configKey = "express_clients";
 
     public List<AssetClassifyClientRiskFactorRSP> listRiskFactor(SinglePkREQ req) {
@@ -94,7 +93,7 @@ public class AssetClassifyClientRiskFactorService {
                     query.eq(AssetClassifyClientRiskFactorTemplate::getRiskFactorType, AssetClassifyClientRiskFactorEnum.OPERATION_LEASE.name());
                 }else {
                     // 3. 判断所属部门是否为航运
-                    Map<Long, String> deptMap = id2NameService.deptId2Name(Collections.singletonList(classifyClient.getBelongDeptId()));
+                    Map<Long, String> deptMap = deptNameResolver.deptId2Name(Collections.singletonList(classifyClient.getBelongDeptId()));
                     if (deptMap.get(classifyClient.getBelongDeptId()).equals("航运业务部")){
                         return Lists.emptyList();
                     }
@@ -147,16 +146,10 @@ public class AssetClassifyClientRiskFactorService {
      */
     private Set<String> getClientsConfig(String configKey){
         Set<String> clients = new HashSet<>();
-        SystemConfig config = getBean(SystemConfigMapper.class).selectOne(Wrappers.<SystemConfig>lambdaQuery()
-                .select(SystemConfig::getConfigValue)
-                .eq(SystemConfig::getConfigKey, configKey)
-                .eq(SystemConfig::getStatus, YesOrNoNumberEnum.YES.getCode())
-                .last(StringUtil.mysqlLimitOne()));
-        String configValue = config.getConfigValue();
+        String configValue = systemConfigResolver.getConfigValue(configKey);
         if (Objects.nonNull(configValue) && !configValue.trim().isEmpty()) {
             clients = new HashSet<>(JSON.parseArray(configValue, String.class));
         }
         return clients;
     }
 }
-

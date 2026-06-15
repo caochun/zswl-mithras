@@ -13,11 +13,10 @@ import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlMarginPort;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.foundation.util.LongUtil;
@@ -51,7 +50,7 @@ public class RemainingPrincipalServiceImpl implements RemainingPrincipalService 
     @Resource
     private PaymentActualDetailMapper paymentActualDetailMapper;
     @Resource
-    private MarginBaseInfoService marginBaseInfoService;
+    private RiskControlMarginPort riskControlMarginPort;
     @Resource
     private CollectionRecordInfoMapper collectionRecordInfoMapper;
 
@@ -454,43 +453,15 @@ public class RemainingPrincipalServiceImpl implements RemainingPrincipalService 
     }
 
     public BigDecimal totalDepositByClientIds(Set<Long> targetClients) {
-        return marginBaseInfoService.list(Wrappers.<MarginBaseInfo>lambdaQuery()
-                        .in(MarginBaseInfo::getClientId, targetClients)).stream()
-                .map(MarginBaseInfo::getCollectionAmount)
-                .map(LongUtil::null2zero)
-                .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
+        return riskControlMarginPort.totalDepositByClientIds(targetClients);
     }
 
     public Map<Long, BigDecimal> totalDepositGroupByClientIds(Set<Long> targetClients) {
-        Map<Long, List<MarginBaseInfo>> group = marginBaseInfoService.list(Wrappers.<MarginBaseInfo>lambdaQuery()
-                        .in(MarginBaseInfo::getClientId, targetClients)).stream()
-                .collect(Collectors.groupingBy(MarginBaseInfo::getClientId));
-        if (group.isEmpty()) {
-            return Collections.emptyMap();
-        }
-        Map<Long, BigDecimal> res = new HashMap<>();
-        for (Map.Entry<Long, List<MarginBaseInfo>> entry : group.entrySet()) {
-            BigDecimal oneClientDeposit = entry.getValue().stream().map(MarginBaseInfo::getCollectionAmount).map(LongUtil::null2zero)
-                    .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
-            res.put(entry.getKey(), oneClientDeposit);
-        }
-        return res;
+        return riskControlMarginPort.totalDepositGroupByClientIds(targetClients);
     }
 
     public Map<Long, Long> depositGroupByClientId(Set<Long> targetClients) {
-        Map<Long, List<MarginBaseInfo>> group = marginBaseInfoService.list(Wrappers.<MarginBaseInfo>lambdaQuery()
-                        .in(MarginBaseInfo::getClientId, targetClients)).stream()
-                .collect(Collectors.groupingBy(MarginBaseInfo::getClientId));
-        if (group.isEmpty()) {
-            return Collections.emptyMap();
-        }
-        Map<Long, Long> res = new HashMap<>();
-        for (Map.Entry<Long, List<MarginBaseInfo>> entry : group.entrySet()) {
-            long oneClientDeposit = entry.getValue().stream().map(MarginBaseInfo::getCollectionAmount).map(LongUtil::null2zero)
-                    .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add).longValue();
-            res.put(entry.getKey(), oneClientDeposit);
-        }
-        return res;
+        return riskControlMarginPort.depositGroupByClientId(targetClients);
     }
 
     @Override
@@ -499,4 +470,3 @@ public class RemainingPrincipalServiceImpl implements RemainingPrincipalService 
         preRemainingPrincipalMap.clear();
     }
 }
-

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.kpi.enums.KpiProjectSourceDistributionEnum;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjSourceType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionBaseInfoMapper;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;

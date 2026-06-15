@@ -1,23 +1,12 @@
 package cn.zswltech.mithras.ftp.newftp.service;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.lang.Assert;
-import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
-import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.customer.enums.client.EnterpriseNatureEnum;
-import cn.zswltech.mithras.customer.enums.client.OwnershipTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
-import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
@@ -25,53 +14,29 @@ import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjectManageLevelEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingPledgeInfo;
-import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingPledgeInfoMapper;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.contract.model.contract.*;
-import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingPledgeInfoMapper;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.payment.model.FtpAssessmentInfo;
-import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.oldftp.bo.BillFtpBO;
 import cn.zswltech.mithras.ftp.oldftp.bo.CashFtpInfluenceBO;
 import cn.zswltech.mithras.ftp.oldftp.bo.FtpQuarterlyBasePricingBO;
-import cn.zswltech.mithras.customer.application.client.CorpAddressInfoService;
-import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoService;
-import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.core.ContractPriceService;
-import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.versioning.service.ContractTenantryLibService;
 import cn.zswltech.mithras.ftp.newftp.lib.impl.NewFtpQuarterlyBasePricingLibHandler;
 import cn.zswltech.mithras.ftp.newftp.mapper.draft.NewFtpQuarterlyBasePricingDraftMapper;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceDraft;
-import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceExtDraft;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpQuarterlyBasePricingDraft;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpQuarterlyBasePricingExtDraft;
-import cn.zswltech.mithras.ftp.newftp.model.lib.NewFtpMonthlyGuidanceExtLib;
 import cn.zswltech.mithras.ftp.newftp.model.lib.NewFtpMonthlyGuidanceLib;
 import cn.zswltech.mithras.ftp.newftp.model.lib.NewFtpQuarterlyBasePricingLib;
 import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpQuarterlyBasePricingExtDraftService;
-import cn.zswltech.mithras.ftp.newftp.service.lib.NewFtpMonthlyGuidanceExtLibService;
 import cn.zswltech.mithras.ftp.newftp.service.lib.NewFtpMonthlyGuidanceLibService;
+import cn.zswltech.mithras.ftp.newftp.service.port.FtpPricingContextPort;
+import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpCustomerFactPort;
+import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpFundDataPort;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -89,60 +54,33 @@ import java.util.stream.Collectors;
 @Service
 public class FtpService {
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
-    @Resource
-    private ContractPriceService contractPriceService;
-    @Resource
-    private CorpCommerceInfoService corpCommerceInfoService;
-    @Resource
-    private CorpAddressInfoService corpAddressInfoService;
-    @Resource
-    private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
-    @Resource
     private NewFtpBaseInfoService newFtpBaseInfoService;
     @Resource
     private NewFtpMonthlyGuidanceLibService newFtpMonthlyGuidanceLibService;
-    @Resource
-    private NewFtpMonthlyGuidanceExtLibService newFtpMonthlyGuidanceExtLibService;
     @Resource
     private NewFtpQuarterlyBasePricingDraftMapper newFtpQuarterlyBasePricingDraftMapper;
     @Resource
     private NewFtpQuarterlyBasePricingLibHandler newFtpQuarterlyBasePricingLibHandler;
     @Resource
-    private FundFinancingPledgeInfoMapper fundFinancingPledgeInfoMapper;
+    private FtpPricingContextPort ftpPricingContextPort;
     @Resource
-    private FundDirectFinancingPledgeInfoMapper fundDirectFinancingPledgeInfoMapper;
+    private FtpEffectiveGuidanceQueryService ftpEffectiveGuidanceQueryService;
     @Resource
-    private ProjPricingBaseInfoMapper projPricingBaseInfoMapper;
+    private BillFtpPricingService billFtpPricingService;
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
+    private NewFtpFundDataPort newFtpFundDataPort;
+    @Resource
+    private NewFtpCustomerFactPort newFtpCustomerFactPort;
+    @Resource
+    private NewFtpQuarterlyBasePricingExtDraftService newFtpQuarterlyBasePricingExtDraftService;
 
 
     public BillFtpBO getBillFtp(LocalDate targetDate) {
-        NewFtpBaseInfo effectOne = newFtpBaseInfoService.getOne(Wrappers.<NewFtpBaseInfo>lambdaQuery()
-                .eq(NewFtpBaseInfo::getFtpRecordStatus, "TAKE_EFFECT")
-                .le(NewFtpBaseInfo::getMonth, targetDate)
-                .orderByDesc(NewFtpBaseInfo::getMonth).last("limit 1"));
-        if (effectOne == null) {
-            throw new MithrasException("未找到生效的FTP");
-        }
-        NewFtpMonthlyGuidanceExtLib ext = newFtpMonthlyGuidanceExtLibService.getOne(Wrappers.<NewFtpMonthlyGuidanceExtLib>lambdaQuery()
-                .eq(NewFtpMonthlyGuidanceExtDraft::getFtpId, effectOne.getId())
-                .eq(NewFtpMonthlyGuidanceExtLib::getVersion, effectOne.getNewestVersion())
-                .last("limit 1"));
-        return new BillFtpBO(ext.getSellingPrice(), ext.getBuyingPrice());
+        return billFtpPricingService.getBillFtp(targetDate);
     }
 
     public Integer getCashFtp(CashFtpInfluenceBO cashFtpInfluenceBO, Set<Long> contractIds) {
-        // 取最新生效的FTP
-        NewFtpBaseInfo newFtpBaseInfo = newFtpBaseInfoService.getOne(Wrappers.<NewFtpBaseInfo>lambdaQuery()
-                .eq(NewFtpBaseInfo::getFtpRecordStatus, RecordStatus.TAKE_EFFECT.name())
-                .le(NewFtpBaseInfo::getMonth, cashFtpInfluenceBO.getTargetDate())
-                .orderByDesc(NewFtpBaseInfo::getMonth)
-                .last(StringUtil.mysqlLimitOne()));
-        if (newFtpBaseInfo == null) {
-            throw new MithrasException("未找到生效的FTP");
-        }
+        NewFtpBaseInfo newFtpBaseInfo = ftpEffectiveGuidanceQueryService.getEffectiveMonthlyOrThrow(cashFtpInfluenceBO.getTargetDate());
         if (Objects.equals(newFtpBaseInfo.getFtpBusinessVersion(), FtpBusinessVersion.V2.name())) {
             // 使用老方法兼容老数据
             return this.getCashFtpDeprecated(newFtpBaseInfo, cashFtpInfluenceBO, contractIds);
@@ -159,20 +97,16 @@ public class FtpService {
         }
         // 评估主体的“是否关联方” = 是的话直接取协同类租赁业务
         if (Objects.nonNull(cashFtpInfluenceBO.getEvaluationSubjectId())) {
-            List<CorpCommerceInfo> corpCommerceInfoList = SpringUtil.getBean(CorpCommerceInfoService.class).findByClientId(cashFtpInfluenceBO.getEvaluationSubjectId());
-            if (CollectionUtil.isNotEmpty(corpCommerceInfoList)) {
-                CorpCommerceInfo corpCommerceInfo = corpCommerceInfoList.get(0);
-                if (Objects.equals(corpCommerceInfo.getIsRelated(), YesOrNoNumberEnum.YES.getCode())) {
-                    NewFtpMonthlyGuidanceLib newFtpMonthlyGuidanceLib = SpringUtil.getBean(NewFtpMonthlyGuidanceLibService.class).getOne(
-                            Wrappers.<NewFtpMonthlyGuidanceLib>lambdaQuery()
-                                    .eq(NewFtpMonthlyGuidanceDraft::getFtpId, newFtpBaseInfo.getId())
-                                    .eq(NewFtpMonthlyGuidanceDraft::getRiskIndustryClassify, RiskIndustryClassify.COLLABORATIVE_LEASING_BUSINESS.name())
-                                    .eq(NewFtpMonthlyGuidanceDraft::getTermRange, termRange)
-                                    .eq(NewFtpMonthlyGuidanceLib::getVersion, newFtpBaseInfo.getNewestVersion())
-                                    .last(StringUtil.mysqlLimitOne())
-                    );
-                    return Optional.ofNullable(newFtpMonthlyGuidanceLib).map(NewFtpMonthlyGuidanceDraft::getValue).orElse(0);
-                }
+            if (newFtpCustomerFactPort.isRelatedClient(cashFtpInfluenceBO.getEvaluationSubjectId())) {
+                NewFtpMonthlyGuidanceLib newFtpMonthlyGuidanceLib = newFtpMonthlyGuidanceLibService.getOne(
+                        Wrappers.<NewFtpMonthlyGuidanceLib>lambdaQuery()
+                                .eq(NewFtpMonthlyGuidanceDraft::getFtpId, newFtpBaseInfo.getId())
+                                .eq(NewFtpMonthlyGuidanceDraft::getRiskIndustryClassify, RiskIndustryClassify.COLLABORATIVE_LEASING_BUSINESS.name())
+                                .eq(NewFtpMonthlyGuidanceDraft::getTermRange, termRange)
+                                .eq(NewFtpMonthlyGuidanceLib::getVersion, newFtpBaseInfo.getNewestVersion())
+                                .last(StringUtil.mysqlLimitOne())
+                );
+                return Optional.ofNullable(newFtpMonthlyGuidanceLib).map(NewFtpMonthlyGuidanceDraft::getValue).orElse(0);
             }
         }
         FtpIndustryCategoryEnum ftpIndustryCategoryEnum = FtpIndustryCategoryEnum.getByName(cashFtpInfluenceBO.getFtpIndustryCategory());
@@ -182,7 +116,8 @@ public class FtpService {
         // 资产行业分类
         AssetIndustryClassify assetIndustryClassify = AssetIndustryClassify.getByProjectClassify(ProjectClassify.find(cashFtpInfluenceBO.getAssetIndustryClassify()));
         // 客户主体分类
-        CustomerEntityClassify customerEntityClassify = this.getCEntityClassifyByMainTenantryId(cashFtpInfluenceBO.getTenantId(), cashFtpInfluenceBO.getGuarantorIdList(), newFtpBaseInfo);
+        CustomerEntityClassify customerEntityClassify = CustomerEntityClassify.valueOf(newFtpCustomerFactPort.getCustomerEntityClassify(
+                cashFtpInfluenceBO.getTenantId(), cashFtpInfluenceBO.getGuarantorIdList(), newFtpBaseInfo.getFtpBusinessVersion()));
         // 地区分类
         RegionalClassify regionalClassify;
         if (ftpIndustryCategoryEnum == FtpIndustryCategoryEnum.FTP_OTHER_INDUSTRY) {
@@ -261,7 +196,8 @@ public class FtpService {
 //            }
 //        }
 
-        CustomerEntityClassify customerEntityClassify = getCEntityClassifyByMainTenantryId(cashFtpInfluenceBO.getTenantId(), cashFtpInfluenceBO.getGuarantorIdList(), effectOne);
+        CustomerEntityClassify customerEntityClassify = CustomerEntityClassify.valueOf(newFtpCustomerFactPort.getCustomerEntityClassify(
+                cashFtpInfluenceBO.getTenantId(), cashFtpInfluenceBO.getGuarantorIdList(), effectOne.getFtpBusinessVersion()));
         RegionalClassify regionalClassify = null;
         if (cashFtpInfluenceBO.getZhejiang()) {
             regionalClassify = RegionalClassify.ZHEJIANG;
@@ -380,191 +316,8 @@ public class FtpService {
         return 0;
     }
 
-    /**
-     * 20240822版本-判断客户是否为上市公司时，需按上述流程图中的逻辑进行判断
-     * /* 1、判断承租人的企业性质是否是上市公司
-     * /*     A. 是：属于上市公司
-     * /*     B. 否：判断“上市公司控股类型”
-     * /*          1）直接控股：属于上市公司
-     * /*          2）非控股：不属于上市公司
-     * /*          3）间接控股：查看担保人是否为上市公司
-     * /*              a. 是：属于上市公司
-     * /*              b. 否：不属于上市公司
-     **/
-    public CustomerEntityClassify getCEntityClassifyByMainTenantryId(Long mainTenantryId, List<Long> guarantorIdList, NewFtpBaseInfo newFtpBaseInfo) {
-        CorpCommerceInfoLib commerceInfoLib = corpCommerceInfoLibMapper.selectOne(Wrappers.<CorpCommerceInfoLib>lambdaQuery()
-                .eq(ClientBaseModel::getClientId, mainTenantryId)
-                .eq(CorpCommerceInfoLib::getVersionType, VersionTypeConstants.NORMAL)
-                .orderByDesc(CorpCommerceInfoLib::getVersion)
-                .last(StringUtil.mysqlLimitOne()));
-        if (Objects.isNull(commerceInfoLib)) {
-            throw MithrasException.newException("客户工商信息不存在");
-        }
-        //根据上述规则找到客户真正的企业性质
-        if (CharSequenceUtil.isBlank(commerceInfoLib.getEnterpriseNature())) {
-            throw MithrasException.newException("企业性质信息为空");
-        }
-        EnterpriseNatureEnum enterpriseNatureEnum = EnterpriseNatureEnum.of(commerceInfoLib.getEnterpriseNature());
-        if (Objects.isNull(enterpriseNatureEnum)) {
-            throw MithrasException.newException("企业性质信息错误");
-        }
-        FtpBusinessVersion ftpBusinessVersion = FtpBusinessVersion.getByName(newFtpBaseInfo.getFtpBusinessVersion());
-        switch (enterpriseNatureEnum) {
-            case myqtss:
-                return CustomerEntityClassify.CUSTOMER_OTHER_LISTED;
-            case myss:
-            case gyss:
-                if (ftpBusinessVersion == FtpBusinessVersion.V3) {
-                    return CustomerEntityClassify.CUSTOMER_LISTED_STATE_OWNED;
-                } else {
-                    return CustomerEntityClassify.LISTED_COMPANY;
-                }
-            case gyfss:
-                if (ftpBusinessVersion == FtpBusinessVersion.V3) {
-                    return CustomerEntityClassify.CUSTOMER_LISTED_STATE_OWNED;
-                }
-            case myfss:
-            case other:
-                // 找到控股类型
-                if (CharSequenceUtil.isBlank(commerceInfoLib.getOwnershipType())) {
-                    throw new MithrasException("客户的控股类型为空");
-                }
-                OwnershipTypeEnum ownershipTypeEnum = OwnershipTypeEnum.ofName(commerceInfoLib.getOwnershipType());
-                if (Objects.isNull(ownershipTypeEnum)) {
-                    throw MithrasException.newException("客户的控股类型错误");
-                }
-                switch (ownershipTypeEnum) {
-                    case DIRECT:
-                        return CustomerEntityClassify.LISTED_COMPANY;
-                    case NON:
-                        if (enterpriseNatureEnum.equals(EnterpriseNatureEnum.gyfss)) {
-                            return CustomerEntityClassify.STATE_OWNED_ENTERPRISE;
-                        }
-                        return CustomerEntityClassify.OTHER;
-                    case INDIRECT:
-                        // 间接控股，找到担保人的企业性质
-                        return getEntityClassify(guarantorIdList, enterpriseNatureEnum);
-                }
-                break;
-            default:
-                break;
-        }
-        throw MithrasException.newException("客户类型错误");
-    }
-
-    private CustomerEntityClassify getEntityClassify(List<Long> guarantorIdList, EnterpriseNatureEnum enterpriseNatureEnum) {
-        if (CollectionUtils.isEmpty(guarantorIdList)) {
-            switch (enterpriseNatureEnum) {
-                case gyss:
-                    return CustomerEntityClassify.LISTED_COMPANY;
-                case gyfss:
-                    return CustomerEntityClassify.STATE_OWNED_ENTERPRISE;
-                case myfss:
-                    return CustomerEntityClassify.OTHER;
-                default:
-                    return CustomerEntityClassify.OTHER;
-            }
-        }
-        for (Long guarantorId : guarantorIdList) {
-            CorpCommerceInfoLib corpCommerceInfoLib = corpCommerceInfoLibMapper.selectOne(Wrappers.<CorpCommerceInfoLib>lambdaQuery()
-                    .eq(ClientBaseModel::getClientId, guarantorId)
-                    .eq(CorpCommerceInfoLib::getVersionType, VersionTypeConstants.NORMAL)
-                    .orderByDesc(CorpCommerceInfoLib::getVersion)
-                    .last(StringUtil.mysqlLimitOne()));
-            if (Objects.isNull(corpCommerceInfoLib)) {
-                throw MithrasException.newException("客户工商信息不存在");
-            }
-            if (CharSequenceUtil.isBlank(corpCommerceInfoLib.getEnterpriseNature())) {
-                throw MithrasException.newException("企业性质信息为空");
-            }
-            EnterpriseNatureEnum enterpriseNature = EnterpriseNatureEnum.of(corpCommerceInfoLib.getEnterpriseNature());
-            if (Objects.isNull(enterpriseNature)) {
-                throw MithrasException.newException("担保人企业性质信息错误");
-            }
-            switch (enterpriseNature) {
-                case myss:
-                case gyss:
-                    return CustomerEntityClassify.LISTED_COMPANY;
-                case gyfss:
-                case myfss:
-                case other:
-                    if (enterpriseNatureEnum.equals(EnterpriseNatureEnum.gyfss)) {
-                        return CustomerEntityClassify.STATE_OWNED_ENTERPRISE;
-                    }
-                    return CustomerEntityClassify.OTHER;
-                default:
-                    break;
-            }
-        }
-        throw MithrasException.newException("担保人的企业性质信息错误");
-    }
-
     public CashFtpInfluenceBO getCashFtpInfluence(Long contractId, LocalDate targetDate) {
-        ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(contractId);
-        Assert.notNull(contractBaseInfo, () -> MithrasException.newException("合同信息不存在"));
-        CashFtpInfluenceBO cashFtpInfluenceBO = new CashFtpInfluenceBO();
-        cashFtpInfluenceBO.setBizType(contractBaseInfo.getBizType());
-        // 查询合同报价方案
-        ContractPriceDetailREQ req = new ContractPriceDetailREQ();
-        req.setContractId(contractId);
-        ContractPriceDetailRSP contractPriceDetailRSP = contractPriceService.detail(req);
-        if (Objects.nonNull(contractPriceDetailRSP)) {
-            cashFtpInfluenceBO.setContractMonthCount(contractPriceDetailRSP.getMonthCount());
-        }
-        // 查询客户工商信息
-//        CorpCommerceInfo corpCommerceInfo = corpCommerceInfoService.detail(contractBaseInfo.getClientId(), null);
-        List<CorpCommerceInfo> corpCommerceInfoList = corpCommerceInfoService.findByClientId(contractBaseInfo.getClientId());
-        if (CollectionUtil.isNotEmpty(corpCommerceInfoList)) {
-            CorpCommerceInfo corpCommerceInfo = corpCommerceInfoList.get(0);
-            cashFtpInfluenceBO.setRiskControlIndustryClassify(corpCommerceInfo.getRiskControlIndustryClassify());
-            cashFtpInfluenceBO.setEnterpriseNature(corpCommerceInfo.getEnterpriseNature());
-        }
-        // 确定客户地址是否在浙江
-        cashFtpInfluenceBO.setZhejiang(this.isZhejiang(contractBaseInfo.getClientId()));
-        // 查询项目评审信息
-        ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoMapper.selectById(contractBaseInfo.getProjReviewId());
-        if (Objects.nonNull(projReviewBaseInfo)) {
-//            cashFtpInfluenceBO.setAssetIndustryClassify(projReviewBaseInfo.getProjectClassify());
-//            cashFtpInfluenceBO.setRegionClassify(projReviewBaseInfo.getRegionalProjectClassify());
-            // 查定价
-            ProjPricingBaseInfo projPricingBaseInfo = getPricingByReview(projReviewBaseInfo);
-            if (Objects.nonNull(projPricingBaseInfo)) {
-                cashFtpInfluenceBO.setFtpIndustryCategory(projPricingBaseInfo.getFtpIndustryCategory());
-                cashFtpInfluenceBO.setAssetIndustryClassify(projPricingBaseInfo.getProjectClassify());
-                cashFtpInfluenceBO.setRegionClassify(projPricingBaseInfo.getRegionalProjectClassify());
-                cashFtpInfluenceBO.setRegionalDivision(projPricingBaseInfo.getRegionalDivision());
-                cashFtpInfluenceBO.setProjectManageLevel(projPricingBaseInfo.getProjectManageLevel());
-                cashFtpInfluenceBO.setIsAAA(projPricingBaseInfo.getIsAAA());
-                cashFtpInfluenceBO.setEvaluationSubjectId(projPricingBaseInfo.getEvaluationSubjectId());
-            }
-        }
-        cashFtpInfluenceBO.setTargetDate(targetDate);
-
-        // 尝试填充担保人人信息和主承租人信息，这个只在合同阶段使用
-        ContractTenantryLib tenantryLib = SpringUtil.getBean(ContractTenantryLibService.class).getOne(Wrappers.<ContractTenantryLib>lambdaQuery()
-                .eq(ContractTenantryLib::getContractId, contractId)
-                .eq(ContractTenantry::getLesseeType, LesseeTypeEnum.MAIN_LESSSEE.name())
-                .eq(ContractTenantryLib::getVersionType, VersionTypeConstants.NORMAL)
-                .orderByDesc(ContractTenantryLib::getVersion)
-                .last(StringUtil.mysqlLimitOne()));
-        if (Objects.nonNull(tenantryLib)) {
-            cashFtpInfluenceBO.setTenantId(tenantryLib.getLesseeId());
-        }
-
-        ContractGuarantorLib contractGuarantorLib = SpringUtil.getBean(ContractGuarantorLibService.class).getOne(Wrappers.<ContractGuarantorLib>lambdaQuery()
-                .eq(ContractGuarantorLib::getContractId, contractId)
-                .eq(ContractGuarantorLib::getVersionType, VersionTypeConstants.NORMAL)
-                .eq(ContractGuarantor::getGuarantorType, ClientType.CORPORATION.name())
-                .orderByDesc(ContractGuarantorLib::getVersion)
-                .last(StringUtil.mysqlLimitOne())
-        );
-        if (Objects.nonNull(contractGuarantorLib) && StrUtil.isNotBlank(contractGuarantorLib.getGuarantorIds())) {
-            List<Long> ids = JSONUtil.toList(contractGuarantorLib.getGuarantorIds(), Long.class);
-            if (CollectionUtil.isNotEmpty(ids)) {
-                cashFtpInfluenceBO.setGuarantorIdList(ids);
-            }
-        }
-        return cashFtpInfluenceBO;
+        return ftpPricingContextPort.assembleCashFtpInfluence(contractId, targetDate);
     }
 
     //获取最新项目季度最低收益率
@@ -585,7 +338,7 @@ public class FtpService {
             return 0;
         }
         if (ftpQuarterlyBasePricingBO.isRelated()) {
-            NewFtpQuarterlyBasePricingExtDraft newFtpQuarterlyBasePricingExtDraft = SpringUtil.getBean(NewFtpQuarterlyBasePricingExtDraftService.class).getOne(
+            NewFtpQuarterlyBasePricingExtDraft newFtpQuarterlyBasePricingExtDraft = newFtpQuarterlyBasePricingExtDraftService.getOne(
                     Wrappers.<NewFtpQuarterlyBasePricingExtDraft>lambdaQuery()
                             .eq(NewFtpQuarterlyBasePricingExtDraft::getFtpId, newFtpBaseInfo.getId())
                             .last(StringUtil.mysqlLimitOne())
@@ -612,71 +365,18 @@ public class FtpService {
         return 0;
     }
 
-    private boolean isZhejiang(Long clientId) {
-        // 查询客户地址
-        List<CorpAddressInfo> corpAddressInfoList = corpAddressInfoService.listCorpAddressInfo(clientId);
-        if (CollectionUtil.isNotEmpty(corpAddressInfoList)) {
-            Map<String, List<CorpAddressInfo>> map = corpAddressInfoList.stream().collect(Collectors.groupingBy(CorpAddressInfo::getAddressType));
-            List<CorpAddressInfo> workAddressList = map.get(CorpAddressType.WORK_ADDRESS.name());
-            List<CorpAddressInfo> registryAddressList = map.get(CorpAddressType.REGISTRY_ADDRESS.name());
-            if (CollectionUtil.isNotEmpty(workAddressList)) {
-                for (CorpAddressInfo corpAddressInfo : workAddressList) {
-                    if (Objects.equals(corpAddressInfo.getProvince(), "330000")) {
-                        return true;
-                    }
-                }
-                for (CorpAddressInfo corpAddressInfo : registryAddressList) {
-                    if (Objects.equals(corpAddressInfo.getProvince(), "330000")) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
     public boolean isPledge(Set<Long> contractIds) {
         if (CollectionUtil.isEmpty(contractIds)) {
             return false;
         }
-        boolean isPledge = false;
-        List<FundFinancingPledgeInfo> fundFinancingPledgeInfoList = fundFinancingPledgeInfoMapper.selectList(Wrappers.<FundFinancingPledgeInfo>lambdaQuery().in(FundFinancingPledgeInfo::getContractId, contractIds));
-        if (CollectionUtil.isEmpty(fundFinancingPledgeInfoList)) {
-            return isPledge;
-        }
-        for (FundFinancingPledgeInfo fundFinancingPledgeInfo : fundFinancingPledgeInfoList) {
-            if (fundFinancingPledgeInfo.getIsPledge().equals(true)) {
-                isPledge = true;
-                break;
-            }
-        }
-        return isPledge;
+        return newFtpFundDataPort.existsPledge(contractIds);
     }
 
     public boolean isDirectPledge(Set<Long> contractIds) {
         if (CollectionUtil.isEmpty(contractIds)) {
             return false;
         }
-        boolean isDirectPledge = false;
-        List<FundDirectFinancingPledgeInfo> directFinancingPledgeInfoList = fundDirectFinancingPledgeInfoMapper.selectList(Wrappers.<FundDirectFinancingPledgeInfo>lambdaQuery().in(FundDirectFinancingPledgeInfo::getContractId, contractIds));
-        if (CollectionUtil.isEmpty(directFinancingPledgeInfoList)) {
-            return isDirectPledge;
-        }
-        for (FundDirectFinancingPledgeInfo fundDirectFinancingPledgeInfo : directFinancingPledgeInfoList) {
-            if (fundDirectFinancingPledgeInfo.getIsPledge().equals(true)) {
-                isDirectPledge = true;
-                break;
-            }
-        }
-        return isDirectPledge;
-    }
-
-    private ProjPricingBaseInfo getPricingByReview(ProjReviewBaseInfo reviewBaseInfo) {
-        return projPricingBaseInfoMapper.selectOne(Wrappers.<ProjPricingBaseInfo>lambdaQuery()
-                .eq(reviewBaseInfo.getProjEstablishId() != null, ProjPricingBaseInfo::getProjEstablishId, reviewBaseInfo.getProjEstablishId())
-                .eq(reviewBaseInfo.getGroupCreditReviewId() != null, ProjPricingBaseInfo::getGroupCreditReviewId, reviewBaseInfo.getGroupCreditReviewId())
-                .eq(ProjPricingBaseInfo::getProjName, reviewBaseInfo.getProjName())
-                .ne(ProjPricingBaseInfo::getProjPricingStatus, RecordStatus.CLOSED.name()));
+        return newFtpFundDataPort.existsDirectPledge(contractIds);
     }
 
 //    @Transactional(rollbackFor = Throwable.class)

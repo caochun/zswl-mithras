@@ -3,7 +3,7 @@ package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.Department;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
@@ -27,7 +27,7 @@ public abstract class DepartmentPerCapitalCalculator implements FinancialCloudMe
     @Resource
     private OrgDOMapper orgDOMapper;
     @Resource
-    private SysUserService sysUserService;
+    private BizDeptResolver bizDeptResolver;
 
     private static final Map<String, Long> DEPT_ID_CODE = new HashMap<>();
     private final Object lock = new Object();
@@ -70,7 +70,7 @@ public abstract class DepartmentPerCapitalCalculator implements FinancialCloudMe
             }
         }
         // 计算部门人数并调用子类方法进行除法计算
-        int personCount = sysUserService.countUserByDeptId(DEPT_ID_CODE.get(departmentCode()));
+        int personCount = bizDeptResolver.countUserByDeptId(DEPT_ID_CODE.get(departmentCode()));
         // 如果部门下没有人，那么将值设置成1，防止计算平均数除法出现ArithmeticException
         if (personCount == 0) {
             log.warn("部门{}下的人数为0，计算指标报错，兼容成1", departmentCode());

@@ -1,18 +1,16 @@
 package cn.zswltech.mithras.projectprocess.job.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
+import cn.zswltech.mithras.projectprocess.job.service.ProjectRiskControlIndustryPort;
 import cn.zswltech.mithras.projectprocess.job.service.ProjRiskControlIndustryTypeJobService;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfoLib;
-import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.versioning.projestablish.ProjEstablishBaseInfoLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
-import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -43,7 +41,7 @@ public class ProjRiskControlIndustryTypeJobServiceImpl implements ProjRiskContro
     @Resource
     private ProjEstablishBaseInfoLibService projEstablishBaseInfoLibService;
     @Resource
-    private CorpCommerceInfoMapper corpCommerceInfoMapper;
+    private ProjectRiskControlIndustryPort projectRiskControlIndustryPort;
 
 
     @Override
@@ -89,20 +87,19 @@ public class ProjRiskControlIndustryTypeJobServiceImpl implements ProjRiskContro
             log.info("projRiskControlIndustryTypeJob nonList size:{}", nonList.size());
             List<ProjReviewBaseInfo> reviewBaseInfos = new ArrayList<>();
             // 说明立项那边一定没有，直接取客户的更新, 这种从立项到评审全部刷一遍就好了
-            List<CorpCommerceInfo> list = corpCommerceInfoMapper.selectList(Wrappers.<CorpCommerceInfo>lambdaQuery()
-                    .in(ClientBaseModel::getClientId, nonList.stream().map(ProjReviewBaseInfo::getClientId).collect(Collectors.toList())));
-            if (CollUtil.isNotEmpty(list)) {
-                Map<Long, CorpCommerceInfo> corpCommerceInfoMap = list.stream().collect(Collectors.toMap(CorpCommerceInfo::getClientId, Function.identity(), (k1, k2) -> k1));
+            Map<Long, String> riskControlIndustryClassifyMap = projectRiskControlIndustryPort.mapRiskControlIndustryClassify(
+                    nonList.stream().map(ProjReviewBaseInfo::getClientId).collect(Collectors.toList()));
+            if (!riskControlIndustryClassifyMap.isEmpty()) {
                 for (ProjReviewBaseInfo projReviewBaseInfo : nonList) {
-                    CorpCommerceInfo corpCommerceInfo = corpCommerceInfoMap.get(projReviewBaseInfo.getClientId());
-                    if (corpCommerceInfo != null) {
+                    String riskControlIndustryClassify = riskControlIndustryClassifyMap.get(projReviewBaseInfo.getClientId());
+                    if (riskControlIndustryClassify != null) {
                         ProjReviewBaseInfo info = new ProjReviewBaseInfo();
                         info.setId(projReviewBaseInfo.getId());
-                        info.setRiskControlIndustryClassify(corpCommerceInfo.getRiskControlIndustryClassify());
+                        info.setRiskControlIndustryClassify(riskControlIndustryClassify);
                         reviewBaseInfos.add(info);
                         // 更新立项版本数据
                         projEstablishBaseInfoLibService.lambdaUpdate()
-                                .set(ProjEstablishBaseInfoLib::getRiskControlIndustryClassify, corpCommerceInfo.getRiskControlIndustryClassify())
+                                .set(ProjEstablishBaseInfoLib::getRiskControlIndustryClassify, riskControlIndustryClassify)
                                 .eq(ProjEstablishBaseInfoLib::getOriginId, projReviewBaseInfo.getProjEstablishId())
                                 .update();
 
@@ -111,7 +108,7 @@ public class ProjRiskControlIndustryTypeJobServiceImpl implements ProjRiskContro
 
                         // 更新评审版本数据
                         projReviewBaseInfoLibService.lambdaUpdate()
-                                .set(ProjReviewBaseInfoLib::getRiskControlIndustryClassify, corpCommerceInfo.getRiskControlIndustryClassify())
+                                .set(ProjReviewBaseInfoLib::getRiskControlIndustryClassify, riskControlIndustryClassify)
                                 .eq(ProjReviewBaseInfoLib::getOriginId, projReviewBaseInfo.getId())
                                 .update();
                     }

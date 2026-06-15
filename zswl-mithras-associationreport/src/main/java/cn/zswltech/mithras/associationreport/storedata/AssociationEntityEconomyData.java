@@ -14,7 +14,7 @@ import cn.zswltech.mithras.customer.enums.OrgScaleType;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.associationreport.service.AssociationEntityEconomyServiceService;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationEntityEconomyService;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;

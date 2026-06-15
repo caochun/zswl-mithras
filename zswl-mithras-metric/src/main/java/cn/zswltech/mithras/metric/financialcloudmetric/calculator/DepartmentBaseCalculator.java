@@ -9,7 +9,7 @@ import cn.zswltech.mithras.kpi.mapper.PerformanceMainInfoMapper;
 import cn.zswltech.mithras.kpi.model.PerformanceBaseInfo;
 import cn.zswltech.mithras.kpi.model.PerformanceMainInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -39,7 +39,7 @@ public abstract class DepartmentBaseCalculator implements FinancialCloudMetricCa
     @Resource
     protected PerformanceBaseInfoMapper performanceBaseInfoMapper;
     @Resource
-    private SysUserService sysUserService;
+    private BizDeptResolver bizDeptResolver;
 
     private static final Object lock = new Object();
 
@@ -111,7 +111,7 @@ public abstract class DepartmentBaseCalculator implements FinancialCloudMetricCa
                     targetCache.putAll(map);
                 }
                 if (orgCache.isEmpty()) {
-                    orgCache.putAll(sysUserService.listBizDept().stream().collect(Collectors.toMap(OrgDO::getCode, Function.identity())));
+                    orgCache.putAll(bizDeptResolver.listBizDept().stream().collect(Collectors.toMap(OrgDO::getCode, Function.identity())));
                 }
             }
         }

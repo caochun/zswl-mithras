@@ -6,10 +6,9 @@ import cn.zswltech.mithras.dto.filingmaterials.AfterLeasingRenderDTO;
 import cn.zswltech.mithras.filingmaterials.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.filingmaterials.enums.BusinessMaterialsDocNameEnum;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import com.deepoove.poi.XWPFTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -29,18 +28,17 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  */
 @Component
 @Slf4j
-public class BusinessMaterialsAfterRender extends AbstractBasicRender<HashMap> {
+public class BusinessMaterialsAfterRender {
     @Resource
-    Id2NameService id2NameService;
+    UserNameResolver userNameResolver;
 
-    @Override
     public String render(OutputStream outputStream, HashMap map) throws Exception {
         Assert.notNull(map.get(FilingMaterialsConstants.OBJECT), () -> MithrasException.newException("租后资料归档-基础资料模板填充失败，填充参数对象不存在"));
         Assert.notNull(map.get(FilingMaterialsConstants.TEMPLATE_TYPE), () -> MithrasException.newException("租后资料归档-基础资料模板填充失败，不存在模板"));
         AfterLeasingRenderDTO afterLeasingRenderDTO = (AfterLeasingRenderDTO) map.get(FilingMaterialsConstants.OBJECT);
         Map<String, Object> renderMap = new HashMap<>();
         renderMap.put(FilingMaterialsConstants.CONTRACT_CODE, afterLeasingRenderDTO.getContractCode());
-        String belongName = id2NameService.sysUserId2NameSingle(afterLeasingRenderDTO.getAssetUserId());
+        String belongName = userNameResolver.sysUserId2NameSingle(afterLeasingRenderDTO.getAssetUserId());
         renderMap.put(FilingMaterialsConstants.BELONG_NAME, belongName);
         //项目名称不填充，业务手动填写
 //        renderMap.put(FilingMaterialsConstants.PROJ_NAME, afterLeasingRenderDTO.getProjName());

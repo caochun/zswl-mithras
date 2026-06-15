@@ -38,7 +38,7 @@ import cn.zswltech.mithras.assetclassify.application.AssetClassifyCommonService;
 import cn.zswltech.mithras.assetclassify.application.AssetClassifyNodeRecordService;
 import cn.zswltech.mithras.assetclassify.enums.*;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyClientMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;

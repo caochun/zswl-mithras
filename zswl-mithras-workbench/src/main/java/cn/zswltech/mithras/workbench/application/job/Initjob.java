@@ -2,9 +2,9 @@ package cn.zswltech.mithras.workbench.application.job;
 
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
+import cn.zswltech.mithras.foundation.port.UserRoleResolver;
 import cn.zswltech.mithras.workbench.mapper.model.WorkbenchHyperlink;
 import cn.zswltech.mithras.workbench.mapper.model.WorkbenchShortcuts;
-import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.workbench.application.WorkbenchHyperlinkService;
 import cn.zswltech.mithras.workbench.application.WorkbenchShortcutsService;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -60,7 +60,7 @@ public class Initjob {
     }
 
     @Resource
-    private SysUserService sysUserService;
+    private UserRoleResolver userRoleResolver;
 
     private void initWorkbenchShortcuts(Set<Long> userIds) {
         Set<Long> dbUserIds = workbenchShortcutsService.list().stream().map(WorkbenchShortcuts::getUserId).collect(Collectors.toSet());
@@ -69,19 +69,19 @@ public class Initjob {
             if (dbUserIds.contains(userId)) {
                 continue;
             }
-            if (sysUserService.userIsSpecificRole(userId, "XMJL")) {
+            if (userRoleResolver.userIsSpecificRole(userId, "XMJL")) {
                 WorkbenchShortcuts workbenchShortcuts = new WorkbenchShortcuts();
                 workbenchShortcuts.setUserId(userId);
                 workbenchShortcuts.setMenuIds("[6,8,12,20]");
                 workbenchShortcuts.setFunctionFlag(1);
                 shortcuts.add(workbenchShortcuts);
-            } else if (sysUserService.userIsSpecificRole(userId, "COMPREHENSIVE_MANAGEMENT")) {
+            } else if (userRoleResolver.userIsSpecificRole(userId, "COMPREHENSIVE_MANAGEMENT")) {
                 WorkbenchShortcuts workbenchShortcuts = new WorkbenchShortcuts();
                 workbenchShortcuts.setUserId(userId);
                 workbenchShortcuts.setMenuIds("[6,208,11]");
                 workbenchShortcuts.setFunctionFlag(1);
                 shortcuts.add(workbenchShortcuts);
-            } else if (sysUserService.userIsSpecificRole(userId, "JSSYB_BDS", "HGJCYWB_BDS", "JXHJGYWB_BDS", "JCSSYWB_BDS", "LLWLTD_BDS", "XJZZHXJJTD_BDS", "JTYSYWB_BDS", "GGSY_BDS")) {
+            } else if (userRoleResolver.userIsSpecificRole(userId, "JSSYB_BDS", "HGJCYWB_BDS", "JXHJGYWB_BDS", "JCSSYWB_BDS", "LLWLTD_BDS", "XJZZHXJJTD_BDS", "JTYSYWB_BDS", "GGSY_BDS")) {
                 WorkbenchShortcuts workbenchShortcuts = new WorkbenchShortcuts();
                 workbenchShortcuts.setUserId(userId);
                 workbenchShortcuts.setMenuIds("[6,98,11]");

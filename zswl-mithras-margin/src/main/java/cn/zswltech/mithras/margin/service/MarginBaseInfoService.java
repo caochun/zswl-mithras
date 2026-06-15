@@ -16,26 +16,27 @@ import cn.zswltech.mithras.dto.margin.MarginBaseInfoRSP;
 import cn.zswltech.mithras.margin.application.MarginBaseInfoApplicationService;
 import cn.zswltech.mithras.margin.convert.MarginConvert;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.margin.application.port.MarginCollectionPort;
+import cn.zswltech.mithras.margin.application.port.MarginContractInfoPort;
+import cn.zswltech.mithras.margin.application.port.MarginPaymentReceiptPort;
 import cn.zswltech.mithras.margin.application.port.MarginViewAuthPort;
 import cn.zswltech.mithras.margin.excel.exporter.MarginListExcelExporter;
 import cn.zswltech.mithras.margin.excel.model.MarginBaseInfoListExcelModel;
 import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.persistence.mapper.MarginRecordInfoMapper;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.margin.persistence.model.DepositCollectRefund;
 import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.margin.persistence.model.MarginRecordInfo;
 import cn.zswltech.mithras.margin.application.port.model.MarginCollectionInfo;
-import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.margin.application.port.model.MarginContractInfo;
+import cn.zswltech.mithras.margin.application.port.model.MarginPaymentReceiptInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -77,21 +78,25 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
     @Resource
     private MarginBaseInfoMapper marginBaseInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
     @Resource
     private MarginListExcelExporter marginListExcelExporter;
     @Resource
-    private ContractBaseInfoLibHandler baseInfoLibHandler;
-    @Resource
-    private SysUserService sysUserService;
-    @Resource
-    private PaymentBaseInfoMapper paymentBaseInfoMapper;
+    private CurrentUserDataScopeResolver currentUserDataScopeResolver;
     @Resource
     private MarginRecordInfoMapper marginRecordInfoMapper;
     @Resource
     private MarginViewAuthPort marginViewAuthPort;
     @Resource
     private MarginCollectionPort marginCollectionPort;
+    @Resource
+    private MarginContractInfoPort marginContractInfoPort;
+    @Resource
+    private MarginPaymentReceiptPort marginPaymentReceiptPort;
 
     public MarginBaseInfo getMarginBaseInfoByContractId(Long contractId) {
         LambdaQueryWrapper<MarginBaseInfo> query = Wrappers.lambdaQuery();
@@ -139,6 +144,44 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
         return balancesMap;
     }
 
+    public Map<Long, Long> getCollectionAmountByContractIds(Collection<Long> contractIds) {
+        if (CollectionUtil.isEmpty(contractIds)) {
+            return MapUtil.empty();
+        }
+        List<MarginBaseInfo> marginBaseInfoList = marginBaseInfoMapper.selectList(
+                Wrappers.<MarginBaseInfo>lambdaQuery().in(MarginBaseInfo::getContractId, contractIds));
+        if (CollectionUtil.isEmpty(marginBaseInfoList)) {
+            return MapUtil.empty();
+        }
+        return marginBaseInfoList.stream().collect(Collectors.groupingBy(MarginBaseInfo::getContractId,
+                Collectors.summingLong(e -> LongUtil.null2zero(e.getCollectionAmount()))));
+    }
+
+    public Long sumReportMarginAmount(Collection<Long> contractIds) {
+        if (CollectionUtil.isEmpty(contractIds)) {
+            return 0L;
+        }
+        MarginBaseInfo one = marginBaseInfoMapper.selectOne(Wrappers.<MarginBaseInfo>query()
+                .select("SUM(collection_amount+back_amount+deduct_amount) as collection_amount")
+                .in("contract_id", contractIds));
+        return one == null ? 0L : LongUtil.null2zero(one.getCollectionAmount());
+    }
+
+    public void updateContractSettleStatus(Long contractId) {
+        marginBaseInfoMapper.updateStatus(contractId);
+    }
+
+    public Map<Long, String> getContractCodeByIds(Collection<Long> marginBaseIds) {
+        if (CollectionUtil.isEmpty(marginBaseIds)) {
+            return MapUtil.empty();
+        }
+        List<MarginBaseInfo> marginBaseInfos = marginBaseInfoMapper.selectBatchIds(marginBaseIds);
+        if (CollectionUtil.isEmpty(marginBaseInfos)) {
+            return MapUtil.empty();
+        }
+        return marginBaseInfos.stream().collect(Collectors.toMap(MarginBaseInfo::getId, MarginBaseInfo::getContractCode, (a, b) -> a));
+    }
+
     @Transactional(rollbackFor = Exception.class)
     public String add(MarginBaseInfoAddREQ req) {
         MarginBaseInfo info = new MarginBaseInfo();
@@ -158,7 +201,7 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
 
     @Override
     public PageR<MarginBaseInfoListRSP> list(MarginBaseInfoListREQ req) {
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         req.setIsBizUser(isBizUser);
         req.setDeptIdList(canViewDeptIds);
@@ -178,7 +221,7 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
     @NonNull
     private List<MarginBaseInfoListRSP> getMarginBaseInfoListRSPS(List<MarginBaseInfo> list) {
         List<Long> ids = list.stream().map(MarginBaseInfo::getClientId).distinct().collect(Collectors.toList());
-        Map<Long, String> clientMap = id2NameService.clientId2Name(ids);
+        Map<Long, String> clientMap = clientNameResolver.clientId2Name(ids);
         List<MarginBaseInfoListRSP> rsps = new LinkedList<>();
         for (MarginBaseInfo o : list) {
             MarginBaseInfoListRSP tmp = new MarginBaseInfoListRSP();
@@ -217,10 +260,10 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
     public MarginBaseInfoRSP detail(MarginBaseInfoDetailREQ req) {
         marginViewAuthPort.checkView(req.getId());
         MarginBaseInfo info = marginBaseInfoMapper.selectById(req.getId());
-        ContractBaseInfoLib detail = baseInfoLibHandler.queryLatestDataByOriginId(info.getContractId());
-        Map<Long, String> clientMap = id2NameService.clientId2Name(Collections.singleton(detail.getClientId()));
-        Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(Collections.singleton(detail.getProjSponsorUserId()));
-        Map<Long, String> deptMap = id2NameService.deptId2Name(Collections.singleton(detail.getBizDeptId()));
+        MarginContractInfo detail = marginContractInfoPort.getLatestContractInfo(info.getContractId());
+        Map<Long, String> clientMap = clientNameResolver.clientId2Name(Collections.singleton(detail.getClientId()));
+        Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(Collections.singleton(detail.getProjSponsorUserId()));
+        Map<Long, String> deptMap = deptNameResolver.deptId2Name(Collections.singleton(detail.getBizDeptId()));
         MarginBaseInfoRSP rsp = new MarginBaseInfoRSP();
         MarginBaseInfoRSP.ContractInfo contractInfo = new MarginBaseInfoRSP.ContractInfo();
         contractInfo.setContractId(info.getContractId());
@@ -236,7 +279,7 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
         contractInfo.setClientName(clientMap.get(detail.getClientId()));
         contractInfo.setProjName(detail.getProjName());
         contractInfo.setProjSponsorUserName(sysUserMap.get(detail.getProjSponsorUserId()));
-        contractInfo.setContractStatus(Objects.requireNonNull(ContractStatus.of(detail.getContractStatus())).display);
+        contractInfo.setContractStatus(detail.getContractStatus());
         rsp.setContractInfo(contractInfo);
         rsp.setMarginAmount(info.getCollectionAmount());
         rsp.setPlanMarginAmount(info.getPlanMarginAmount());
@@ -272,21 +315,20 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
         if (CollectionUtil.isEmpty(receiptIds)) {
             return MapUtil.empty();
         }
-        List<PaymentBaseInfo> paymentBaseInfosAll = paymentBaseInfoMapper.selectList(Wrappers.<PaymentBaseInfo>lambdaQuery()
-                .in(PaymentBaseInfo::getReceiptIdFinal, receiptIds));
+        List<MarginPaymentReceiptInfo> paymentBaseInfosAll = marginPaymentReceiptPort.listByReceiptIds(receiptIds);
         //查询合同对应付款 <付款id, 合同id>
-        Map<Long, Long> paymentId2ContractId = paymentBaseInfosAll.stream().collect(Collectors.toMap(PaymentBaseInfo::getId, PaymentBaseInfo::getContractId, (a, b) -> a));
+        Map<Long, Long> paymentId2ContractId = paymentBaseInfosAll.stream().collect(Collectors.toMap(MarginPaymentReceiptInfo::getId, MarginPaymentReceiptInfo::getContractId, (a, b) -> a));
         //<付款id, 借据ID>
-        Map<Long, Long> paymentId2ReceiptIdMap = paymentBaseInfosAll.stream().collect(Collectors.toMap(PaymentBaseInfo::getId, PaymentBaseInfo::getReceiptIdFinal, (a, b) -> a));
+        Map<Long, Long> paymentId2ReceiptIdMap = paymentBaseInfosAll.stream().collect(Collectors.toMap(MarginPaymentReceiptInfo::getId, MarginPaymentReceiptInfo::getReceiptId, (a, b) -> a));
         Map<Long, Set<Long>> contractId2ReceiptIds = new HashMap<>();
         Set<Long> longs;
-        for (PaymentBaseInfo paymentBaseInfo : paymentBaseInfosAll) {
+        for (MarginPaymentReceiptInfo paymentBaseInfo : paymentBaseInfosAll) {
             longs = contractId2ReceiptIds.get(paymentBaseInfo.getContractId());
             if (CollectionUtil.isEmpty(longs)) {
                 longs = new HashSet<>();
                 contractId2ReceiptIds.put(paymentBaseInfo.getContractId(), longs);
             }
-            longs.add(paymentBaseInfo.getReceiptIdFinal());
+            longs.add(paymentBaseInfo.getReceiptId());
         }
         List<MarginCollectionInfo> collectionBaseInfos = marginCollectionPort.listEarnestMoneyWrittenOffByContractIds(paymentId2ContractId.values());
         if(CollectionUtil.isEmpty(collectionBaseInfos)){

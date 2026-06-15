@@ -30,12 +30,11 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
-import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlMarginPort;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -92,7 +91,7 @@ public class RiskControlJzdReportService extends ServiceImpl<RiskControlJzdRepor
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
-    private MarginBaseInfoMapper marginBaseInfoMapper;
+    private RiskControlMarginPort riskControlMarginPort;
     @Resource
     private PaymentActualDetailMapper paymentActualDetailMapper;
 
@@ -229,14 +228,7 @@ public class RiskControlJzdReportService extends ServiceImpl<RiskControlJzdRepor
     }
 
     private Long calcBzjValue(List<ContractBaseInfo> contractList) {
-        QueryWrapper<MarginBaseInfo> q = new QueryWrapper<>();
-        q.select("SUM(collection_amount+back_amount+deduct_amount) as collection_amount")
-                .in("contract_id", contractList.stream().map(ContractBaseInfo::getId).collect(Collectors.toList()));
-        MarginBaseInfo one = marginBaseInfoMapper.selectOne(q);
-        if (null != one) {
-            return one.getCollectionAmount();
-        }
-        return 0L;
+        return riskControlMarginPort.sumReportMarginAmount(contractList.stream().map(ContractBaseInfo::getId).collect(Collectors.toList()));
     }
 
     private LocalDate getBizEndDate(List<ContractBaseInfo> list) {
@@ -376,4 +368,3 @@ public class RiskControlJzdReportService extends ServiceImpl<RiskControlJzdRepor
         err(isNotBlank(error), error);
     }
 }
-

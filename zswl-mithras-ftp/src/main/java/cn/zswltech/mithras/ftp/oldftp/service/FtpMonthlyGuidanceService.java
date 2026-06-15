@@ -1,16 +1,6 @@
 package cn.zswltech.mithras.ftp.oldftp.service;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.flow.core.api.FlowProcessApiService;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.StartProcessReq;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
-import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
-import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.ftp.FtpGuidanceIdReq;
 import cn.zswltech.mithras.dto.ftp.FtpMonthlyGuidanceDetailRsp;
@@ -20,7 +10,6 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.ftp.oldftp.FtpGuidance;
 import cn.zswltech.mithras.ftp.oldftp.convert.FtpMonthlyGuidanceConverter;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.ftp.oldftp.enums.CreditTerm;
 import cn.zswltech.mithras.ftp.oldftp.enums.EnterpriseType;
@@ -35,13 +24,14 @@ import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyPricing;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyValuation;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
+import cn.zswltech.mithras.foundation.port.AdminAuthResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDeptResolver;
 import cn.zswltech.mithras.ftp.oldftp.fms.FtpContext;
 import cn.zswltech.mithras.ftp.oldftp.fms.FtpEvent;
 import cn.zswltech.mithras.ftp.oldftp.fms.FtpMonthlyGuidanceStateMachine;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
+import cn.zswltech.mithras.ftp.oldftp.service.port.FtpGuidanceProcessInfo;
+import cn.zswltech.mithras.ftp.oldftp.service.port.FtpGuidanceWorkflowPort;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.write.metadata.WriteSheet;
@@ -74,13 +64,10 @@ import static cn.zswltech.mithras.foundation.enums.common.RecordStatus.TAKE_EFFE
  * @date 2023-01-10
  */
 @Service
-public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMapper, FtpMonthlyGuidance> implements FlowEndEventProcessor, FtpGuidance {
-    private static final List<String> MODEL_KEYS = Arrays.asList(
-            ProcessModelTypeEnum.FtpMonthlyGuidanceCreateFlow.name(),
-            ProcessModelTypeEnum.FtpMonthlyGuidanceModifyFlow.name());
+public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMapper, FtpMonthlyGuidance> implements FtpGuidance {
 
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
     @Resource
     private FtpMonthlyGuidanceConverter mainConverter;
     @Resource
@@ -88,20 +75,18 @@ public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMap
     @Resource
     private FtpMonthlyPricingService pricingService;
     @Resource
-    private FlowTaskApiService flowTaskApiService;
-    @Resource
-    private FlowProcessApiService processApiService;
-    @Resource
     private FtpMonthlyGuidanceStateMachine stateMachine;
     @Resource
     private FtpMonthlyGuidanceVersionService versionService;
     @Resource
     private FtpMonthlyGuidanceLibMapper libMapper;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDeptResolver currentUserDeptResolver;
+    
+    private AdminAuthResolver adminAuthResolver;
 
     @Resource
-    private FlowTaskApiService taskApiService;
+    private FtpGuidanceWorkflowPort ftpGuidanceWorkflowPort;
 
     private static Map<String, String> rowMap = new HashMap<>();
     private static Map<String, String> columnMap = new HashMap<>();
@@ -147,9 +132,9 @@ public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMap
                 .le(ObjectUtil.isNotEmpty(req.getUpdateDateTo()), FtpMonthlyGuidance::getUpdateTime,
                         endOfDay(req.getUpdateDateTo()));
 
-        if (!sysUserService.currentUserIsSpecificDept("JHCWB","ZJGLB")
-                && !sysUserService.currentUserIsSpecificDept("DJWYH")
-                && !sysUserService.adminAuth()) {
+        if (!currentUserDeptResolver.currentUserIsSpecificDept("JHCWB","ZJGLB")
+                && !currentUserDeptResolver.currentUserIsSpecificDept("DJWYH")
+                && !adminAuthResolver.adminAuth()) {
             qw.in(FtpMonthlyGuidance::getGuidanceProcessStatus, Arrays.asList(FtpProcessStatus.NEW_APPROVAL_PASS.name(),
                     FtpProcessStatus.CHANGING_APPROVAL_PASS.name()));
         }
@@ -158,7 +143,7 @@ public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMap
         List<FtpMonthlyGuidanceListRsp> rspList = new ArrayList<>();
         List<Long> userIds = page.getRecords().stream().map(BaseModel::getCreateBy)
                 .collect(Collectors.toList());
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(userIds);
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(userIds);
         page.getRecords().forEach(guidance -> {
             FtpMonthlyGuidanceListRsp rsp = mainConverter.entity2ListRsp(guidance);
             rsp.setTimeDisplay(guidance.getYear() + "年" + guidance.getMonth() + "月");
@@ -168,27 +153,21 @@ public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMap
         return PageR.of(page, rspList);
     }
 
-    public ProcessResp findRelatedProcess(Long guidanceId) {
-        ProcessPageReq processPageReq = new ProcessPageReq();
-        processPageReq.setPageIndex(1);
-        processPageReq.setPageSize(1);
-        processPageReq.setBusinessKey(String.valueOf(guidanceId));
-        processPageReq.setModelKeyList(MODEL_KEYS);
-        processPageReq.setProcessStatusList(Arrays.asList(ProcessBusinessStatusEnum.RUNNING.getType(), ProcessBusinessStatusEnum.SUSPEND.getType()));
-        cn.zswltech.flow.core.util.Page<ProcessResp> processRespPage = taskApiService.queryProcess(processPageReq);
-        return processRespPage.getContents().stream().findFirst().orElse(null);
+    public FtpGuidanceProcessInfo findRelatedProcess(Long guidanceId) {
+        return ftpGuidanceWorkflowPort.findMonthlyGuidanceProcess(guidanceId);
+    }
+
+    private void checkEditableInProcess(Long guidanceId) {
+        FtpGuidanceProcessInfo processInfo = findRelatedProcess(guidanceId);
+        if (Objects.nonNull(processInfo) && !processInfo.isStartUserNode()) {
+            throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
+        }
     }
 
     @Transactional(rollbackFor = Throwable.class)
     public void importExcel(InputStream inputStream, Long guidanceId) throws IOException {
         FtpMonthlyGuidance guidance = baseMapper.selectById(guidanceId);
-        ProcessResp processResp = findRelatedProcess(guidanceId);
-        if (Objects.nonNull(processResp)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(processResp);
-            if (!isStartUserNode) {
-                throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
-            }
-        }
+        checkEditableInProcess(guidanceId);
         XSSFWorkbook sheets = new XSSFWorkbook(inputStream);
         Sheet sheet = sheets.getSheetAt(0);
         int[] valuationRows = new int[]{3, 4, 5};
@@ -359,9 +338,6 @@ public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMap
         }
     }
 
-    @Resource
-    private OrgDOMapper orgDOMapper;
-
     @Transactional(rollbackFor = Throwable.class)
     public void submit(Long id) {
         FtpMonthlyGuidance guidance = baseMapper.selectById(id);
@@ -369,37 +345,24 @@ public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMap
         if (ObjectUtil.isEmpty(pricings)) {
             throw new MithrasException("请先导入数据");
         }
-        StartProcessReq startProcessReq = new StartProcessReq();
         // 判断使用创建流程还是修改流程
         if (NEW.name().equals(guidance.getGuidanceRecordStatus())) {
-            startProcessReq.setModelKey(ProcessModelTypeEnum.FtpMonthlyGuidanceCreateFlow.name());
+            ftpGuidanceWorkflowPort.startMonthlyGuidanceCreateFlow(id, guidance.getYear(), guidance.getMonth());
         } else {
-            startProcessReq.setModelKey(ProcessModelTypeEnum.FtpMonthlyGuidanceModifyFlow.name());
+            ftpGuidanceWorkflowPort.startMonthlyGuidanceModifyFlow(id, guidance.getYear(), guidance.getMonth());
         }
-        startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo())
-                .map(AccountVO::getId)
-                .map(String::valueOf)
-                .orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
-        startProcessReq.setBusinessKey(String.valueOf(id));
-        startProcessReq.setProcessInstanceName(guidance.getYear() + "年" + guidance.getMonth() + "月ftp定价指导");
-        OrgDO jhcwb = orgDOMapper.queryByCode("JHCWB");
-        startProcessReq.setStartUserDeptId(Optional.ofNullable(jhcwb).map(OrgDO::getId)
-                .map(String::valueOf).orElse(null));
-        processApiService.start(startProcessReq);
         stateMachine.execute(FtpContext.of(guidance, FtpEvent.SUBMIT_APPROVAL, guidance.getProcessStatus()));
     }
 
-    @Override
     @Transactional(rollbackFor = Throwable.class)
-    public void processEnd(Long id, Integer endType, Long startUserId, String processInstanceId, String modelKey) {
-        boolean processPass = ProcessBusinessStatusEnum.success(endType);
+    public void processEnd(Long id, boolean processPass, boolean processCancel, Long startUserId, String processInstanceId) {
         FtpMonthlyGuidance guidance = baseMapper.selectById(id);
         // 修改状态
         if (processPass) {
             // 审批通过 新增版本
             stateMachine.execute(FtpContext.of(guidance, FtpEvent.APPROVAL_PASS, guidance.getProcessStatus()));
         } else {
-            if (ProcessBusinessStatusEnum.CANCEL.getType().equals(endType)) {
+            if (processCancel) {
                 if (TAKE_EFFECT.name().equals(guidance.getGuidanceRecordStatus())) {
                     stateMachine.execute(FtpContext.of(guidance, FtpEvent.MODIFY_WITHDRAW, guidance.getProcessStatus()));
                 } else {
@@ -411,7 +374,7 @@ public class FtpMonthlyGuidanceService extends ServiceImpl<FtpMonthlyGuidanceMap
         int versionType = processPass ? VersionTypeConstants.NORMAL : VersionTypeConstants.INVALID;
         versionService.recordVersion(id, VersionTypeEnum.APPROVAL, startUserId, processInstanceId, versionType);
 
-        if (!processPass && ProcessBusinessStatusEnum.CANCEL.getType().equals(endType)) {
+        if (!processPass && processCancel) {
             versionService.reset(id);
         }
     }

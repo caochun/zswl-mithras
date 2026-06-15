@@ -15,7 +15,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.kpi.enums.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +44,7 @@ public class KpiParameterBaseFacade implements KpiParameterBaseApplicationServic
     private KpiParameterConfigService kpiParameterConfigService;
 
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
     @Override
     public R<Long> add(KpiParameterBaseAddREQ req) {
@@ -68,7 +68,7 @@ public class KpiParameterBaseFacade implements KpiParameterBaseApplicationServic
         Page<KpiParameterBase> data = kpiParameterBaseService.list(req);
         List<KpiParameterBaseListRSP> list = BeanUtil.copyToList(data.getRecords(), KpiParameterBaseListRSP.class);
         if(ObjectUtil.isNotEmpty(list)) {
-            Map<Long, String> longStringMap = id2NameService.sysUserId2Name(list.stream().map(KpiParameterBaseListRSP::getCreateBy).collect(Collectors.toList()));
+            Map<Long, String> longStringMap = userNameResolver.sysUserId2Name(list.stream().map(KpiParameterBaseListRSP::getCreateBy).collect(Collectors.toList()));
             list.forEach( e -> {
                 e.setCreateByName(longStringMap.get(e.getCreateBy()));
             });

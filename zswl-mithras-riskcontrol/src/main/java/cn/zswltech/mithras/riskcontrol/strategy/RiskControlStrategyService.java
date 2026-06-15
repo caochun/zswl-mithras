@@ -15,7 +15,7 @@ import cn.zswltech.mithras.foundation.convert.TypeConversionWorker;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategyConverter;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;

@@ -15,6 +15,8 @@ import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestDetailRecord
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
+import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
+import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +40,8 @@ public class ProfitCalculateSupportPortAdapter implements ProfitCalculateSupport
     private PaymentActualDetailService paymentActualDetailService;
     @Resource
     private PaymentBaseInfoService paymentBaseInfoService;
+    @Resource
+    private MarginBaseInfoService marginBaseInfoService;
 
     @Override
     public KpiProjectClassifyEnum ensureProjClassify(String clientRiskControlIndustryClassify) {
@@ -80,5 +84,14 @@ public class ProfitCalculateSupportPortAdapter implements ProfitCalculateSupport
     @Override
     public List<PaymentBaseInfo> listEffectPaymentByContractId(Long contractId) {
         return paymentBaseInfoService.listEffectPaymentByContractId(contractId);
+    }
+
+    @Override
+    public Long getMarginCollectionAmountByContractId(Long contractId) {
+        MarginBaseInfo marginBaseInfo = marginBaseInfoService.getMarginBaseInfoByContractId(contractId);
+        if (marginBaseInfo == null) {
+            return null;
+        }
+        return marginBaseInfo.getCollectionAmount();
     }
 }

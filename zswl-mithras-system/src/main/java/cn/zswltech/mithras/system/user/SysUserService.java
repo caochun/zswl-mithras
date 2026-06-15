@@ -28,15 +28,30 @@ import cn.zswltech.mithras.dto.UserRSP;
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationBaseREQ;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.foundation.port.CurrentUserBusinessDeptFlagResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserBizDeptResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserDeptCodeResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDeptResolver;
 import cn.zswltech.mithras.foundation.port.AdminAuthResolver;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserRoleResolver;
+import cn.zswltech.mithras.foundation.port.DeptUserResolver;
 import cn.zswltech.mithras.foundation.port.JobUserResolver;
 import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
+import cn.zswltech.mithras.foundation.port.OrgCodeResolver;
+import cn.zswltech.mithras.foundation.port.OrgResolver;
+import cn.zswltech.mithras.foundation.port.RiskManagerUserResolver;
+import cn.zswltech.mithras.foundation.port.SortedBizDeptResolver;
 import cn.zswltech.mithras.foundation.port.UserBizDeptResolver;
+import cn.zswltech.mithras.foundation.port.UserBizDeptInfoResolver;
+import cn.zswltech.mithras.foundation.port.UserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.UserDeptResolver;
+import cn.zswltech.mithras.foundation.port.UserJobOrgResolver;
+import cn.zswltech.mithras.foundation.port.UserRoleResolver;
 import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.system.mapper.model.SystemConfig;
 import cn.zswltech.mithras.system.user.bo.UserOrgJobInfoBO;
@@ -60,7 +75,7 @@ import static cn.hutool.core.util.ObjectUtil.isNotEmpty;
  */
 @Slf4j
 @Service
-public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCodeResolver, CurrentUserDataScopeResolver, CurrentUserResolver, CurrentUserJobResolver, AdminAuthResolver, UserBizDeptResolver, JobUserResolver, OrgJobUserResolver {
+public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCodeResolver, CurrentUserDeptResolver, CurrentUserDataScopeResolver, UserDataScopeResolver, CurrentUserBizDeptResolver, CurrentUserResolver, CurrentUserJobResolver, CurrentUserBusinessDeptFlagResolver, AdminAuthResolver, BizDeptResolver, SortedBizDeptResolver, OrgResolver, OrgCodeResolver, UserBizDeptResolver, UserBizDeptInfoResolver, UserRoleResolver, CurrentUserRoleResolver, JobUserResolver, DeptUserResolver, UserDeptResolver, OrgJobUserResolver, UserJobOrgResolver, RiskManagerUserResolver {
 
     @Resource
     private OrgDOMapper orgDOMapper;
@@ -162,6 +177,11 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
             return Collections.emptyList();
         }
         return orgDOMapper.selectByIds(userOrgJobDOList.stream().map(UserOrgJobDO::getOrgId).collect(Collectors.toList()), null);
+    }
+
+    @Override
+    public List<Long> userOrgIdsByJob(Long userId, String jobCode) {
+        return listOrgByJob(userId, jobCode).stream().map(OrgDO::getId).collect(Collectors.toList());
     }
 
 
@@ -308,6 +328,11 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
     }
 
     @Override
+    public Set<Long> userIdsByDeptCode(String deptCode) {
+        return getUserByDeptCode(deptCode).stream().map(UserDO::getId).collect(Collectors.toSet());
+    }
+
+    @Override
     public OrgDO getUserDept() {
         List<OrgDO> orgList = this.getUserDeptList();
         if (CollectionUtil.isEmpty(orgList)) {
@@ -322,6 +347,12 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
         return orgDOMapper.selectByIds(orgIds, null);
     }
 
+    @Override
+    public List<OrgDO> userDeptList(Long userId) {
+        return getSpecificUserDeptList(userId);
+    }
+
+    @Override
     public OrgDO getBizDeptByUserId(Long userId) {
         List<OrgDO> orgList = this.getSpecificUserDeptList(userId);
         if (CollectionUtil.isEmpty(orgList)) {
@@ -341,6 +372,7 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
         return Objects.isNull(orgDO) ? null : orgDO.getName();
     }
 
+    @Override
     public boolean currentUserIsSpecificDept(String... deptCodes) {
         AccountVO loginInfo = AccountUtil.getLoginInfo();
         Long userId = loginInfo.getId();
@@ -415,6 +447,11 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
                 .stream().map(UserDO::getId).distinct().collect(Collectors.toList());
     }
 
+    @Override
+    public List<Long> jobUsers(String jobCode) {
+        return queryJobUserIds(jobCode);
+    }
+
     public boolean currentUserIsSpecificJob(String... jobNames) {
         AccountVO loginInfo = AccountUtil.getLoginInfo();
         Long userId = loginInfo.getId();
@@ -464,6 +501,7 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
         return false;
     }
 
+    @Override
     public boolean currentUserIsBizDept() {
         List<OrgDO> orgList = this.getUserDeptList();
         if (CollectionUtil.isEmpty(orgList)) {
@@ -587,6 +625,11 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
         return userDOMapper.selectByExample(example);
     }
 
+    @Override
+    public Set<Long> allRiskControlManagerIds() {
+        return getAllRiskControlManagerIds();
+    }
+
     public Set<Long> getAllRiskControlManagerIds() {
         UserOrgJobDO userOrgJobDO = new UserOrgJobDO();
         userOrgJobDO.setJobCode(JobEnum.riskmanager.name());
@@ -596,6 +639,11 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
     }
 
     //获取部门对应的风控经理
+    @Override
+    public Map<Long, List<String>> riskManagerIdsOrderByDeptId() {
+        return getRiskManagerIdsOrderByDeptId();
+    }
+
     public Map<Long, List<String>> getRiskManagerIdsOrderByDeptId() {
         SystemConfig systemConfig = SpringUtil.getBean(SystemConfigMapper.class)
                 .selectOne(Wrappers.<SystemConfig>lambdaQuery()
@@ -747,6 +795,11 @@ public class SysUserService implements CurrentUserOrgResolver, CurrentUserDeptCo
                 .andIn("id", roleIds);
         List<RoleDO> roleDOS = roleService.selectByExample(example);
         return roleDOS.stream().map(RoleDO::getCode).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> currentUserRoles() {
+        return getCurrentUserRoles();
     }
 
     public Long getOrgIdByCode(String orgCode) {

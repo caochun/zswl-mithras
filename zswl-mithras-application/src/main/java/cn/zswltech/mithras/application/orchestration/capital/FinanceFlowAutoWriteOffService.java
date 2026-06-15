@@ -51,10 +51,9 @@ import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFina
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.*;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.capital.persistence.mapper.writeoff.FinanceFlowWriteOffDetailMapper;
+import cn.zswltech.mithras.capital.service.FinanceFlowWriteOffDetailService;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayCashFlowMapper;
 import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
-import cn.zswltech.mithras.capital.persistence.model.writeoff.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
@@ -138,7 +137,7 @@ public class FinanceFlowAutoWriteOffService {
     @Resource
     private FinanceFlowRecordService financeFlowRecordService;
     @Resource
-    private FinanceFlowWriteOffDetailMapper financeFlowWriteOffDetailMapper;
+    private FinanceFlowWriteOffDetailService financeFlowWriteOffDetailService;
     @Resource
     private CollectionRecordInfoService collectionRecordInfoService;
     @Resource
@@ -575,16 +574,14 @@ public class FinanceFlowAutoWriteOffService {
         if (ObjectUtil.isEmpty(flowRecords)) {
             return;
         }
-        Map<String, List<FinanceFlowWriteOffDetail>> writeOffDetailMap = financeFlowWriteOffDetailMapper.selectList(Wrappers.<FinanceFlowWriteOffDetail>lambdaQuery()
-                .in(FinanceFlowWriteOffDetail::getFinanceFlowId, financeFlowRecordIds)).stream().collect(Collectors.groupingBy(FinanceFlowWriteOffDetail::getRecordMainTable));
+        Map<String, List<Long>> writeOffDetailMap = financeFlowWriteOffDetailService.groupMainIdsByMainTable(financeFlowRecordIds);
         //获取流水下所有记录，并拼接为CQ2PlanCollectionVO
         //List<CQ2PlanCollectionVO> planCollectionVOs = new ArrayList<>();
         List<CQ2CollectionVO> collectionVOs = new ArrayList<>();
-        for (Map.Entry<String, List<FinanceFlowWriteOffDetail>> e : writeOffDetailMap.entrySet()) {
+        for (Map.Entry<String, List<Long>> e : writeOffDetailMap.entrySet()) {
             String recordMainTable = e.getKey();
-            List<FinanceFlowWriteOffDetail> writeOffDetails = e.getValue();
             FinanceFlowDetailTableEnum financeFlowDetailTableEnum = FinanceFlowDetailTableEnum.valueOf(recordMainTable);
-            List<Long> mainIds = writeOffDetails.stream().map(FinanceFlowWriteOffDetail::getMainId).collect(Collectors.toList());
+            List<Long> mainIds = e.getValue();
             switch (financeFlowDetailTableEnum) {
                 case COLLECTION_RECORD_INFO:
                     ///planCollectionVOs.addAll(collectionRecordInfoService.getPlanCollectionVO(mainIds));

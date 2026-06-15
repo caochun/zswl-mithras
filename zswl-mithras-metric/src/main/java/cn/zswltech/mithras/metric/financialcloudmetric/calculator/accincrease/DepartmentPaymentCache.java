@@ -9,7 +9,7 @@ import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptLaunchWeight;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -40,7 +40,7 @@ public class DepartmentPaymentCache {
     private final ConcurrentHashMap<Long, List<PaymentActualDetail>> MONTH_PAYMENT_ACTUAL_CACHE = new ConcurrentHashMap<>();
 
     @Resource
-    private SysUserService sysUserService;
+    private BizDeptResolver bizDeptResolver;
     @Resource
     private KpiProjectDistributionMapper kpiProjectDistributionMapper;
     @Resource
@@ -89,7 +89,7 @@ public class DepartmentPaymentCache {
                         .le(PaymentActualDetail::getPaidInDate, dateTime.with(TemporalAdjusters.lastDayOfMonth())))
                 .stream().collect(Collectors.groupingBy(PaymentActualDetail::getContractId)));
 
-        ORG_MAP.putAll(sysUserService.listBizDept().stream().collect(Collectors.toMap(OrgDO::getCode, Function.identity())));
+        ORG_MAP.putAll(bizDeptResolver.listBizDept().stream().collect(Collectors.toMap(OrgDO::getCode, Function.identity())));
 
         MONTH_PAYMENT_ACTUAL_CACHE.putAll(paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
                         .eq(PaymentActualDetail::getWriteOffStatus, WriteOffStatus.WRITTEN_OFF.name())

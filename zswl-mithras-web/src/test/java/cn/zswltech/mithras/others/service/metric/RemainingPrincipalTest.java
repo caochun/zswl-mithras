@@ -6,7 +6,7 @@ import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.ClientBaseModel;

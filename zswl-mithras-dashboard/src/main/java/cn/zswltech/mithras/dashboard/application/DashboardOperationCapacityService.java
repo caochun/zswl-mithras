@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dashboard.model.DashboardAdjustPersonInfo;
 import cn.zswltech.mithras.dashboard.model.DashboardAdjustPersonLatestQuery;
 import cn.zswltech.mithras.dashboard.model.DashboardOperationCapacityQuery;
 import cn.zswltech.mithras.dashboard.model.DashboardOperationCapacityResult;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.SortedBizDeptResolver;
 import cn.zswltech.mithras.dashboard.application.util.DashboardAmountUtil;
 import cn.zswltech.mithras.dashboard.application.util.DashboardOperationUtil;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
@@ -33,7 +33,7 @@ public class DashboardOperationCapacityService implements DashboardOperationCapa
     @Resource
     private DashboardAdjustPersonInfoMapper adjustPersonInfoMapper;
     @Resource
-    private SysUserService sysUserService;
+    private SortedBizDeptResolver sortedBizDeptResolver;
 
     public List<DashboardOperationCapacityListRSP> capacityList(DashboardOperationCapacityListREQ req) {
         DashboardOperationCapacityQuery query = buildQuery(req);
@@ -49,7 +49,7 @@ public class DashboardOperationCapacityService implements DashboardOperationCapa
                 .collect(Collectors.groupingBy(DashboardOperationCapacityResult::getBizDeptId));
         List<DashboardAdjustPersonInfo> latest = adjustPersonInfoMapper.getLatest(new DashboardAdjustPersonLatestQuery(req.getType(), query.getBizDeptIdList()));
         Map<Long, BigDecimal> adjustPersonMap = DashboardOperationUtil.getAdjustPerson(latest);
-        for (OrgDO orgDO : sysUserService.listBizDeptSort(req.getType())) {
+        for (OrgDO orgDO : sortedBizDeptResolver.listBizDeptSort(req.getType())) {
             if (Objects.equals(orgDO.getState(), YesOrNoNumberEnum.NO.getCode())) {
                 continue;
             }
@@ -95,7 +95,7 @@ public class DashboardOperationCapacityService implements DashboardOperationCapa
         Map<Long, List<DashboardOperationCapacityResult>> last = resultMap.get("LAST");
         List<DashboardAdjustPersonInfo> latest = adjustPersonInfoMapper.getLatest(new DashboardAdjustPersonLatestQuery(req.getType(), query.getBizDeptIdList()));
         Map<Long, BigDecimal> adjustPersonMap = DashboardOperationUtil.getAdjustPerson(latest);
-        for (OrgDO orgDO : sysUserService.listBizDeptSort(req.getType())) {
+        for (OrgDO orgDO : sortedBizDeptResolver.listBizDeptSort(req.getType())) {
             if (Objects.equals(orgDO.getState(), YesOrNoNumberEnum.NO.getCode())) {
                 continue;
             }
@@ -148,7 +148,7 @@ public class DashboardOperationCapacityService implements DashboardOperationCapa
             List<String> riskControlIndustryClassify = DashboardOperationUtil.getRiskControlIndustryClassify(req);
             query.setRiskControlList(riskControlIndustryClassify);
             if(DashboardOperationBaseREQ.publicType.equals(req.getType())) {
-                List<OrgDO> orgDOList = sysUserService.listBizDeptSort(req.getType());
+                List<OrgDO> orgDOList = sortedBizDeptResolver.listBizDeptSort(req.getType());
                 List<Long> orgIdList = orgDOList.stream().filter(f -> Arrays.asList("浙江业务部", "公用事业业务部").contains(f.getName()))
                         .map(OrgDO::getId).collect(Collectors.toList());
                 query.setBizDeptIdList((orgIdList));

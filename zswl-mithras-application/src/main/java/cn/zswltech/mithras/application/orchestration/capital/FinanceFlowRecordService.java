@@ -10,8 +10,7 @@ import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.capital.enums.BankFlowCenterTypeEnum;
 import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
-import cn.zswltech.mithras.capital.persistence.mapper.writeoff.FinanceFlowWriteOffDetailMapper;
-import cn.zswltech.mithras.capital.persistence.model.writeoff.FinanceFlowWriteOffDetail;
+import cn.zswltech.mithras.capital.service.FinanceFlowWriteOffDetailService;
 import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowRecord;
 import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowTempRecord;
@@ -26,7 +25,6 @@ import cn.zswltech.mithras.third.financialshare.application.FinanceFlowRecordTem
 import cn.zswltech.mithras.third.financialshare.client.req.CQ2FlowQueryReq;
 import cn.zswltech.mithras.third.financialshare.client.resp.CQ2FlowQueryRsp;
 import cn.zswltech.mithras.foundation.util.LongUtil;
-import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -58,7 +56,7 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
     @Resource
     private FinanceFlowRecordTempService financeFlowRecordTempService;
     @Resource
-    private FinanceFlowWriteOffDetailMapper financeFlowWriteOffDetailMapper;
+    private FinanceFlowWriteOffDetailService financeFlowWriteOffDetailService;
     @Value("${mithras.remote.authOrg}")
     private String orgCode;
 
@@ -255,19 +253,12 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
     //反核销付款数据
     @Transactional(rollbackFor = Throwable.class)
     public void withdrawBankFlow(Long mainId, String recordMainTable, Long amount) {
-        FinanceFlowWriteOffDetail financeFlowWriteOffDetail = financeFlowWriteOffDetailMapper.selectOne(Wrappers.<FinanceFlowWriteOffDetail>lambdaQuery()
-                .eq(FinanceFlowWriteOffDetail::getRecordMainTable, recordMainTable)
-                .eq(FinanceFlowWriteOffDetail::getMainId, mainId)
-                .last(StringUtil.mysqlLimitOne()));
-        if (ObjectUtil.isEmpty(financeFlowWriteOffDetail)) {
+        Long financeFlowId = financeFlowWriteOffDetailService.logicalDeleteFirstByMainTableAndMainId(recordMainTable, mainId);
+        if (ObjectUtil.isEmpty(financeFlowId)) {
             return;
         }
 
-        LambdaUpdateWrapper<FinanceFlowWriteOffDetail> updateWrapper = new LambdaUpdateWrapper<>();
-        updateWrapper.set(FinanceFlowWriteOffDetail::getDeleted, YesOrNoNumberEnum.YES.getCode());
-        updateWrapper.eq(FinanceFlowWriteOffDetail::getId, financeFlowWriteOffDetail.getId());
-        financeFlowWriteOffDetailMapper.update(null, updateWrapper);
-        FinanceFlowRecord financeFlowRecord = baseMapper.selectById(financeFlowWriteOffDetail.getFinanceFlowId());
+        FinanceFlowRecord financeFlowRecord = baseMapper.selectById(financeFlowId);
         financeFlowRecord.setSendCqFlag(YesOrNoNumberEnum.NO.getCode());
         financeFlowRecord.setSurplusAmount(LongUtil.null2zero(financeFlowRecord.getSurplusAmount()) + LongUtil.null2zero(amount));
         //记录金额

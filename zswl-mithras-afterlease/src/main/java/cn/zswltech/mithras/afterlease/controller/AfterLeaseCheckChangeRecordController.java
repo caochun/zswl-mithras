@@ -7,7 +7,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckChangeRecordListREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckChangeRecordListRSP;
 import cn.zswltech.mithras.afterlease.model.AfterLeaseCheckChangeRecord;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckChangeRecordService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +28,7 @@ public class AfterLeaseCheckChangeRecordController implements AfterLeaseCheckCha
     @Resource
     private AfterLeaseCheckChangeRecordService afterLeaseCheckChangeRecordService;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
 
     @Override
@@ -36,7 +36,7 @@ public class AfterLeaseCheckChangeRecordController implements AfterLeaseCheckCha
         Page<AfterLeaseCheckChangeRecord> data = afterLeaseCheckChangeRecordService.list(req);
         List<AfterLeaseCheckChangeRecordListRSP> list = BeanUtil.copyToList(data.getRecords(), AfterLeaseCheckChangeRecordListRSP.class);
         if(CollectionUtil.isNotEmpty(list)){
-            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(list.stream().map(AfterLeaseCheckChangeRecordListRSP::getCreateBy).collect(Collectors.toList()));
+            Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(list.stream().map(AfterLeaseCheckChangeRecordListRSP::getCreateBy).collect(Collectors.toList()));
             list.forEach(e -> {
                 e.setCreateByName(userId2Name.get(e.getCreateBy()));
             });

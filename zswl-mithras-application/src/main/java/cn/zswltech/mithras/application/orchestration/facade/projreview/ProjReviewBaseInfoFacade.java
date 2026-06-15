@@ -30,7 +30,7 @@ import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialCommentsEnum;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;

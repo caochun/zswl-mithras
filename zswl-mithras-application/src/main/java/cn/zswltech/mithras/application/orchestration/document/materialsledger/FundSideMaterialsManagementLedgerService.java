@@ -19,7 +19,6 @@ import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsProcessStatusEnu
 import cn.zswltech.mithras.fund.enums.DirectFinancingType;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.filingmaterials.mapper.ArchivedMaterialsDownloadRecordMapper;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.filingmaterials.model.ArchivedMaterialsDownloadRecord;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
@@ -33,6 +32,7 @@ import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FilingMaterialsService;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FundFilingMaterialsService;
+import cn.zswltech.mithras.filingmaterials.service.ArchivedMaterialsDownloadRecordService;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.basedata.util.DateUtil;
@@ -87,7 +87,7 @@ public class FundSideMaterialsManagementLedgerService extends AbstractMaterialsM
     private FundFilingMaterialsService fundFilingMaterialsService;
 
     @Resource
-    private ArchivedMaterialsDownloadRecordMapper archivedMaterialsDownloadRecordMapper;
+    private ArchivedMaterialsDownloadRecordService archivedMaterialsDownloadRecordService;
 
     @Resource
     private OssClient ossClient;
@@ -107,7 +107,7 @@ public class FundSideMaterialsManagementLedgerService extends AbstractMaterialsM
             fundFinancingQuery.setArchiveDateFrom(DateUtil.startOfDay(req.getArchiveDateFrom()));
             fundFinancingQuery.setArchiveDateTo(DateUtil.endOfDay(req.getArchiveDateTo()));
             List<FundFinancingFilingMaterialsResult> fundFinancingResults =
-                    filingMaterialsService.getBaseMapper().queryFundFinancingFilingMaterials(fundFinancingQuery);
+                    filingMaterialsService.queryFundFinancingFilingMaterials(fundFinancingQuery);
             if (CollUtil.isNotEmpty(fundFinancingResults)) {
                 List<FundSideArchivedMaterialsQueryRSP> fundSideArchivedMaterialsQueryRSPS = convertToFundingResponse(
                         fundFinancingResults, FilingMaterialsFilingTypeEnum.FUND_FINANCING.display);
@@ -121,7 +121,7 @@ public class FundSideMaterialsManagementLedgerService extends AbstractMaterialsM
             fundDirectQuery.setArchiveDateFrom(DateUtil.startOfDay(req.getArchiveDateFrom()));
             fundDirectQuery.setArchiveDateTo(DateUtil.endOfDay(req.getArchiveDateTo()));
             List<FundDirectFinancingFilingMaterialsResult> fundDirectResults =
-                    filingMaterialsService.getBaseMapper().queryFundDirectFinancingFilingMaterials(fundDirectQuery);
+                    filingMaterialsService.queryFundDirectFinancingFilingMaterials(fundDirectQuery);
             if (CollUtil.isNotEmpty(fundDirectResults)) {
                 List<FundSideArchivedMaterialsQueryRSP> fundSideArchivedMaterialsQueryRSPS = convertToFundingResponse(
                         fundDirectResults, FilingMaterialsFilingTypeEnum.FUND_DIRECT_FINANCING.display);
@@ -180,10 +180,7 @@ public class FundSideMaterialsManagementLedgerService extends AbstractMaterialsM
         });
 
         // 6. 登记到归档资料下载记录
-        ArchivedMaterialsDownloadRecord downloadRecord = new ArchivedMaterialsDownloadRecord();
-        downloadRecord.setDownloadStatus(DownloadStatusEnum.IN_PROGRESS.name());
-        downloadRecord.setFileName(rootPath + ".zip");
-        archivedMaterialsDownloadRecordMapper.insert(downloadRecord);
+        ArchivedMaterialsDownloadRecord downloadRecord = archivedMaterialsDownloadRecordService.create(rootPath + ".zip", DownloadStatusEnum.IN_PROGRESS.name());
 
         // 7、异步执行文件打包和上传
         ThreadPoolUtil.getCommonPool().execute(() -> processDownloadAsync(
@@ -214,8 +211,7 @@ public class FundSideMaterialsManagementLedgerService extends AbstractMaterialsM
      * 查询归档资料下载记录
      */
     public PageR<FundSideArchivedMaterialsDownloadRecordsQueryRSP> recordsQuery(PageReq req) {
-        Page<ArchivedMaterialsDownloadRecord> records = archivedMaterialsDownloadRecordMapper.selectPage(new Page<>(req.getPage(), req.getPageSize()),
-                Wrappers.<ArchivedMaterialsDownloadRecord>lambdaQuery().orderByDesc(ArchivedMaterialsDownloadRecord::getCreateTime));
+        Page<ArchivedMaterialsDownloadRecord> records = archivedMaterialsDownloadRecordService.pageOrderByCreateTimeDesc(req.getPage(), req.getPageSize());
         if (CollUtil.isEmpty(records.getRecords())) {
             return PageR.empty(0, 0);
         }
@@ -320,8 +316,8 @@ public class FundSideMaterialsManagementLedgerService extends AbstractMaterialsM
                                       Map<String, String> dirCode2dirNameMap,
                                       Map<Long, String> filingMaterialsId2OverrideFileNameMap,
                                       Long recordId) {
-        ArchivedMaterialsDownloadRecord downloadRecord = new ArchivedMaterialsDownloadRecord();
-        downloadRecord.setId(recordId);
+        String downloadStatus = DownloadStatusEnum.FAILED.name();
+        String filePath = null;
         try {
             // 创建ZIP 并打包文件
             byte[] zipContent = createZipContent(filingMaterialsIdAddMaterialsType2MaterialsListTable, rootPath, dirCode2dirNameMap,
@@ -333,15 +329,14 @@ public class FundSideMaterialsManagementLedgerService extends AbstractMaterialsM
             log.info("批量下载归档文档成功，OSS路径: {}，文件大小: {} 字节", ossPath, zipContent.length);
 
             // 更新归档资料下载记录 - 成功
-            downloadRecord.setDownloadStatus(DownloadStatusEnum.SUCCESS.name());
-            downloadRecord.setFilePath(ossPath);
+            downloadStatus = DownloadStatusEnum.SUCCESS.name();
+            filePath = ossPath;
         } catch (Exception e) {
             log.error("批量下载归档文档失败", e);
             // 更新归档资料下载记录 - 失败
-            downloadRecord.setDownloadStatus(DownloadStatusEnum.FAILED.name());
         } finally {
             try {
-                archivedMaterialsDownloadRecordMapper.updateById(downloadRecord);
+                archivedMaterialsDownloadRecordService.updateResult(recordId, downloadStatus, filePath);
             } catch (Exception e) {
                 log.error("更新下载记录失败", e);
             }
@@ -460,7 +455,7 @@ public class FundSideMaterialsManagementLedgerService extends AbstractMaterialsM
 
     @Override
     protected void init() {
-        List<FundFinancingFilingMaterialsResult> fundFinancingResults = filingMaterialsService.getBaseMapper().queryFundFinancingFilingMaterials(new FundFinancingFilingMaterialsQuery());
+        List<FundFinancingFilingMaterialsResult> fundFinancingResults = filingMaterialsService.queryFundFinancingFilingMaterials(new FundFinancingFilingMaterialsQuery());
         List<Long> orgIds = fundFinancingResults.stream().map(FundFinancingFilingMaterialsResult::getOrganizationId).collect(Collectors.toList());
         orgId2NameMap.putAll(organizationService.getNamesByIds(orgIds));
     }

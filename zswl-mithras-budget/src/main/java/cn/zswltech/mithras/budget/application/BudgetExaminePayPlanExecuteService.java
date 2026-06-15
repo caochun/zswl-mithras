@@ -11,7 +11,6 @@ import cn.zswltech.mithras.budget.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.budget.BudgetExaminePayPlanExecuteAddREQ;
 import cn.zswltech.mithras.dto.budget.BudgetExaminePayPlanExecuteListREQ;
@@ -32,8 +31,8 @@ import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
@@ -61,7 +60,9 @@ public class BudgetExaminePayPlanExecuteService extends ServiceImpl<BudgetExamin
     @Resource
     private BudgetExaminePayPlanExecuteMapper budgetExaminePayPlanExecuteMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private BizDeptResolver bizDeptResolver;
     @Resource
     private PaymentActualDetailMapper paymentActualDetailMapper;
     @Resource
@@ -120,7 +121,7 @@ public class BudgetExaminePayPlanExecuteService extends ServiceImpl<BudgetExamin
         Map<Long, Integer> dept2WeekDelayNum = getDept2WeekDelayNum(monthWeeks, monthDetailWeeks);
         Map<Long, Integer> dept2WeekDelayCount = getDept2WeekDelayCount(monthWeeks, monthDetailWeeks);
 
-        List<OrgDO> orgList = SpringUtil.getBean(SysUserService.class).listBizDept();
+        List<OrgDO> orgList = bizDeptResolver.listBizDept();
         orgList.sort(Comparator.comparing(OrgDO::getId));
         for (OrgDO org : orgList) {
             Long deptId = org.getId();
@@ -257,7 +258,7 @@ public class BudgetExaminePayPlanExecuteService extends ServiceImpl<BudgetExamin
         }
         Map<Long, List<BudgetPlanPayDetail>> deptId2PayDetail = planPayDetails.stream().collect(Collectors.groupingBy(BudgetPlanPayDetail::getBelongDeptId));
         Map<Long, List<BudgetPlanPayDetail>> deptId2PayAdjustDetailMap = budgetPlanAdjustDetail.stream().collect(Collectors.groupingBy(BudgetPlanPayDetail::getBelongDeptId));
-        List<OrgDO> orgList = SpringUtil.getBean(SysUserService.class).listBizDept();
+        List<OrgDO> orgList = bizDeptResolver.listBizDept();
         for (OrgDO org : orgList) {
             long amount1 = Optional.ofNullable(deptId2PayDetail.get(org.getId())).map(list -> list.stream().filter(item -> Objects.nonNull(item.getPlanPayAmount())).mapToLong(BudgetPlanPayDetail::getPlanPayAmount).sum()).orElse(0L);
             long amount2 = Optional.ofNullable(deptId2PayAdjustDetailMap.get(org.getId())).map(list -> list.stream().filter(item -> Objects.nonNull(item.getPlanPayAmount())).mapToLong(BudgetPlanPayDetail::getPlanPayAmount).sum()).orElse(0L);
@@ -410,7 +411,7 @@ public class BudgetExaminePayPlanExecuteService extends ServiceImpl<BudgetExamin
             e.setDelayDaysFundingPlan(Optional.ofNullable(e.getDelayDaysFundingPlan()).map(num -> num * 10000).orElse(null));
             e.setDelayDaysWeek(Optional.ofNullable(e.getDelayDaysWeek()).map(num -> num * 10000).orElse(null));
         }).collect(Collectors.toMap(BudgetExaminePayPlanExecute::getBelongDeptId, e -> e, (a, b) -> a));
-        Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptId2ExaminePayPlan.keySet());
+        Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptId2ExaminePayPlan.keySet());
         deptId2ExaminePayPlan.forEach((deptId, payPlan) -> {
             BudgetExaminePayPlanExecuteListRSP rsp = new BudgetExaminePayPlanExecuteListRSP();
             rsp.setDeptId(deptId);

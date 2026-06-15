@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.workbench.application.cardcal;
 
-import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchFundRepayCashFlow;
 import com.alibaba.fastjson.JSON;
@@ -21,6 +20,8 @@ import java.util.List;
  */
 @Component
 public class WCM_054Calculator implements CardCalculator {
+    private static final String WRITTEN_OFF = "WRITTEN_OFF";
+
     @Resource
     private WorkbenchCardFundRepayPort workbenchCardFundRepayPort;
 
@@ -38,7 +39,7 @@ public class WCM_054Calculator implements CardCalculator {
         BigDecimal repaid = BigDecimal.ZERO;
         BigDecimal remain = BigDecimal.ZERO;
         for (WorkbenchFundRepayCashFlow cashFlow : cashFlows) {
-            if (CashFlowState.WRITTEN_OFF.name().equals(cashFlow.getWriteOffState())) {
+            if (WRITTEN_OFF.equals(cashFlow.getWriteOffState())) {
                 repaid = repaid.add(new BigDecimal(LongUtil.null2zero(cashFlow.getRepayAmount())));
             } else {
                 remain = remain.add(new BigDecimal(LongUtil.null2zero(cashFlow.getRepayAmount())));

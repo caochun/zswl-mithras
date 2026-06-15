@@ -5,10 +5,9 @@ import cn.zswltech.mithras.dto.filingmaterials.OtherFilingRenderDTO;
 import cn.zswltech.mithras.filingmaterials.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.filingmaterials.enums.BusinessMaterialsDocNameEnum;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import com.deepoove.poi.XWPFTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -28,17 +27,16 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  */
 @Component
 @Slf4j
-public class BusinessMaterialsOtherRender extends AbstractBasicRender<HashMap> {
+public class BusinessMaterialsOtherRender {
     @Resource
-    Id2NameService id2NameService;
+    UserNameResolver userNameResolver;
 
-    @Override
     public String render(OutputStream outputStream, HashMap map) throws Exception {
         Assert.notNull(map.get(FilingMaterialsConstants.OBJECT), () -> MithrasException.newException("其他资料归档-基础资料模板填充失败，填充参数对象不存在"));
         Assert.notNull(map.get(FilingMaterialsConstants.TEMPLATE_TYPE), () -> MithrasException.newException("其他资料归档-基础资料模板填充失败，不存在模板"));
         OtherFilingRenderDTO otherFilingRenderDTO = (OtherFilingRenderDTO) map.get(FilingMaterialsConstants.OBJECT);
         Map<String, Object> renderMap = new HashMap<>();
-        String belongName = id2NameService.sysUserId2NameSingle(otherFilingRenderDTO.getBelongUserId());
+        String belongName = userNameResolver.sysUserId2NameSingle(otherFilingRenderDTO.getBelongUserId());
         renderMap.put(FilingMaterialsConstants.BELONG_NAME, belongName);
         renderMap.put(FilingMaterialsConstants.PROJ_NAME, otherFilingRenderDTO.getProjName());
 

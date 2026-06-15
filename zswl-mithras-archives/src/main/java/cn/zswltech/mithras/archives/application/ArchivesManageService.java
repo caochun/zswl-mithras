@@ -561,6 +561,35 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         return rsp;
     }
 
+    public Long getProjectId(Long archivesId) {
+        ArchivesManagement management = archivesManagementMapper.selectById(archivesId);
+        if (management == null) {
+            throw new MithrasException("档案不存在");
+        }
+        return management.getProjId();
+    }
+
+    public void checkDownloadPermission(List<Long> fileIds) {
+        AccountVO loginInfo = AccountUtil.getLoginInfo();
+        List<ArchivesDownloadPermission> permissions = archivesDownloadPermissionMapper.selectList(Wrappers.<ArchivesDownloadPermission>lambdaQuery()
+                .in(ArchivesDownloadPermission::getMaterialsId, fileIds)
+                .ge(ArchivesDownloadPermission::getExpires, LocalDateTime.now())
+                .eq(ArchivesDownloadPermission::getUserId, loginInfo.getId())
+                .eq(ArchivesDownloadPermission::getStatus, 1));
+        if (CollectionUtil.isEmpty(permissions)) {
+            throw new MithrasException("无权下载文件！");
+        }
+        Set<Long> permittedFileIds = permissions.stream()
+                .map(ArchivesDownloadPermission::getMaterialsId)
+                .collect(Collectors.toSet());
+        List<Long> noPermission = fileIds.stream()
+                .filter(fileId -> !permittedFileIds.contains(fileId))
+                .collect(Collectors.toList());
+        if (CollectionUtil.isNotEmpty(noPermission)) {
+            throw new MithrasException("部分文件无权下载！");
+        }
+    }
+
     public ArchivesFlowRSP archivesFlow(ArchivesInfoREQ req) {
         ArchivesManagement management = archivesManagementMapper.selectById(req.getId());
         ArchiveTemplate template = archiveTemplateMapper.selectById(management.getTemplateId());

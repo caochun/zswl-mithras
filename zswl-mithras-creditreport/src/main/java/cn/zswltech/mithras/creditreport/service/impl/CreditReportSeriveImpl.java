@@ -56,8 +56,11 @@ import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBase
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.customer.application.client.model.ClientBusinessHistoryBO;
 import cn.zswltech.mithras.customer.application.client.ClientBusinessHistoryService;
 import cn.zswltech.mithras.contract.core.ContractTradeStructureService;
@@ -119,10 +122,16 @@ public class CreditReportSeriveImpl implements CreditReportService {
     private FlowProcessApiService processApiService;
 
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private BizDeptResolver bizDeptResolver;
 
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
 
     //客户相关
     @Resource
@@ -159,7 +168,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
         AccountVO loginInfo = AccountUtil.getLoginInfo();
         Long userId = loginInfo.getId();
         creditReportDO.setApplyUser(userId);
-        OrgDO orgDO = sysUserService.getUserDeptList().get(0);
+        OrgDO orgDO = currentUserOrgResolver.getUserDeptList().get(0);
         creditReportDO.setApplyOrg(orgDO.getId());
         creditReportDO.setApplyStatus(ProcessState.UN_SUBMIT.name());
         String creditCode = generateCreditCodeSimple();
@@ -205,7 +214,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
             return new ArrayList<>();
         }
         // 过滤出业务部门的岗位
-        List<OrgDO> orgList = SpringUtil.getBean(SysUserService.class).listBizDept();
+        List<OrgDO> orgList = bizDeptResolver.listBizDept();
         Set<Long> bizDeptIds = orgList.stream().map(OrgDO::getId).collect(Collectors.toSet());
         userOrgJobList.removeIf(e -> !bizDeptIds.contains(e.getOrgId()));
         Map<String, List<UserOrgJobDO>> userOrgMap = userOrgJobList.stream().collect(Collectors.groupingBy(UserOrgJobDO::getJobCode));
@@ -346,7 +355,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
         //获取登录信息
         AccountVO loginInfo = AccountUtil.getLoginInfo();
         Long userId = loginInfo.getId();
-        OrgDO orgDO = sysUserService.getUserDeptList().get(0);
+        OrgDO orgDO = currentUserOrgResolver.getUserDeptList().get(0);
 
         //处理主客户
         CreditReportClientInfo primaryClient = clientInfos.get(0);
@@ -503,7 +512,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
         List<CreditReportMaterialSubTypeEnum> requiredSubTypes = CreditReportMaterialSubTypeEnum.listSub(CreditReportMaterialTypeEnum.ENTERPRISE_CREDIT_REPORT);
         for (Long clientId : clientIds) {
             CreditReportSubmitDTO creditReportSubmitDTO = new CreditReportSubmitDTO();
-            String clientName = id2NameService.clientId2NameSingle(clientId);
+            String clientName = clientNameResolver.clientId2NameSingle(clientId);
             creditReportSubmitDTO.setClientName(clientName);
             LambdaQueryWrapper<MaterialsList> wrapper = Wrappers.<MaterialsList>lambdaQuery().eq(MaterialsList::getMaterialsType, materialsType).eq(MaterialsList::getBusinessType, businessType).eq(MaterialsList::getBelongId, id)
                     .eq(MaterialsList::getSourceBusinessKey, clientId);
@@ -545,7 +554,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
             return new PageR<>();
         }
         // 过滤出业务部门的岗位
-        List<OrgDO> orgList = SpringUtil.getBean(SysUserService.class).listBizDept();
+        List<OrgDO> orgList = bizDeptResolver.listBizDept();
         Set<Long> bizDeptIds = orgList.stream().map(OrgDO::getId).collect(Collectors.toSet());
         userOrgJobList.removeIf(e -> !bizDeptIds.contains(e.getOrgId()));
         Map<String, List<UserOrgJobDO>> userOrgMap = userOrgJobList.stream().collect(Collectors.groupingBy(UserOrgJobDO::getJobCode));
@@ -832,8 +841,8 @@ public class CreditReportSeriveImpl implements CreditReportService {
                 .collect(Collectors.toSet());
 
         // 2. 批量获取用户名和部门名
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(userIdList);
-        Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptIdList);
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(userIdList);
+        Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptIdList);
 
         // 3. 提取所有 creditReportId，用于批量查询 CreditReportItemDO
         List<Long> reportIds = credits.stream()
@@ -958,7 +967,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
         startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo()).map(AccountVO::getId).map(String::valueOf).orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
         startProcessReq.setBusinessKey(String.valueOf(id));
         startProcessReq.setProcessInstanceName(String.format("%s征信报告查询", LocalDateTimeUtil.format(LocalDate.now(), "yyyyMMdd")));
-        startProcessReq.setStartUserDeptId(Optional.ofNullable(sysUserService.getUserDept()).map(OrgDO::getId).map(Objects::toString).orElse(""));
+        startProcessReq.setStartUserDeptId(Optional.ofNullable(currentUserOrgResolver.getUserDept()).map(OrgDO::getId).map(Objects::toString).orElse(""));
         processApiService.start(startProcessReq);
     }
 

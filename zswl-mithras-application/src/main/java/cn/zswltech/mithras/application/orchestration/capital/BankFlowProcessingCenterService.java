@@ -21,6 +21,7 @@ import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
 import cn.zswltech.mithras.capital.enums.PaymentWriteOffOrderEnum;
 import cn.zswltech.mithras.capital.enums.BankFlowCenterTypeEnum;
 import cn.zswltech.mithras.capital.enums.DataSourceEnum;
+import cn.zswltech.mithras.capital.service.FinanceFlowWriteOffDetailService;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
@@ -36,14 +37,12 @@ import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractRentActualMapper;
-import cn.zswltech.mithras.capital.persistence.mapper.writeoff.FinanceFlowWriteOffDetailMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingCollectRecordMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptFlowDetailMapper;
 import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.margin.persistence.mapper.MarginRecordInfoMapper;
 import cn.zswltech.mithras.margin.persistence.mapper.WarrantyBaseInfoMapper;
 import cn.zswltech.mithras.margin.persistence.mapper.WarrantyRecordInfoMapper;
-import cn.zswltech.mithras.capital.persistence.model.writeoff.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
@@ -129,7 +128,7 @@ public class BankFlowProcessingCenterService {
     @Resource
     private FinanceFlowRecordService financeFlowRecordService;
     @Resource
-    private FinanceFlowWriteOffDetailMapper financeFlowWriteOffDetailMapper;
+    private FinanceFlowWriteOffDetailService financeFlowWriteOffDetailService;
     @Resource
     private CollectionRecordInfoService collectionRecordInfoService;
     @Resource
@@ -849,40 +848,36 @@ public class BankFlowProcessingCenterService {
         //核销收款金额和
         Long collectionAmount = LongUtil.other2Long(String.valueOf(collectionFinanceFlowRecord.getCreditamount()));
         Long collectionSurplusAmount = ObjectUtil.isNull(collectionFinanceFlowRecord.getSurplusAmount()) ? 0L : collectionFinanceFlowRecord.getSurplusAmount();
-        List<FinanceFlowWriteOffDetail> collectionFinanceDetailList = financeFlowWriteOffDetailMapper.selectList(Wrappers.<FinanceFlowWriteOffDetail>lambdaQuery()
-                .eq(FinanceFlowWriteOffDetail::getFinanceFlowId, collectionFinanceFlowRecord.getId())
-                .eq(FinanceFlowWriteOffDetail::getRecordMainTable, FinanceFlowDetailTableEnum.COLLECTION_RECORD_INFO.name()));
-        List<FinanceFlowWriteOffDetail> collectionNettingRefundList = financeFlowWriteOffDetailMapper.selectList(Wrappers.<FinanceFlowWriteOffDetail>lambdaQuery()
-                .eq(FinanceFlowWriteOffDetail::getFinanceFlowId, collectionFinanceFlowRecord.getId())
-                .eq(FinanceFlowWriteOffDetail::getRecordMainTable, FinanceFlowDetailTableEnum.NETTING_REFUND.name()));
+        List<Long> collectionFinanceDetailIds = financeFlowWriteOffDetailService.listMainIdsByFinanceFlowIdAndMainTable(
+                collectionFinanceFlowRecord.getId(), FinanceFlowDetailTableEnum.COLLECTION_RECORD_INFO.name());
+        List<Long> collectionNettingRefundIds = financeFlowWriteOffDetailService.listMainIdsByFinanceFlowIdAndMainTable(
+                collectionFinanceFlowRecord.getId(), FinanceFlowDetailTableEnum.NETTING_REFUND.name());
         long totalCollectionFee = 0L;
         long totalCollectionNettingRefund = 0L;
-        if (!collectionFinanceDetailList.isEmpty()) {
-            List<CollectionRecordInfo> collectionRecordInfoList = collectionRecordInfoService.listByIds(collectionFinanceDetailList.stream().map(FinanceFlowWriteOffDetail::getMainId).collect(Collectors.toSet()));
+        if (!collectionFinanceDetailIds.isEmpty()) {
+            List<CollectionRecordInfo> collectionRecordInfoList = collectionRecordInfoService.listByIds(collectionFinanceDetailIds);
             totalCollectionFee = collectionRecordInfoList.stream().mapToLong(CollectionRecordInfo::getCollectionAmount).sum();
         }
-        if (!collectionNettingRefundList.isEmpty()) {
-            List<NettingRefund> nettingRefundList = nettingRefundService.listByIds(collectionNettingRefundList.stream().map(FinanceFlowWriteOffDetail::getMainId).collect(Collectors.toSet()));
+        if (!collectionNettingRefundIds.isEmpty()) {
+            List<NettingRefund> nettingRefundList = nettingRefundService.listByIds(collectionNettingRefundIds);
             totalCollectionNettingRefund = nettingRefundList.stream().mapToLong(NettingRefund::getNettingAmount).sum();
         }
 
         //核销付款金额和
         Long paymentAmount = LongUtil.other2Long(String.valueOf(paymentFinanceFlowRecord.getDebitamount()));
         Long paymentSurplusAmount = ObjectUtil.isNull(paymentFinanceFlowRecord.getSurplusAmount()) ? 0L : paymentFinanceFlowRecord.getSurplusAmount();
-        List<FinanceFlowWriteOffDetail> paymentFinanceDetailList = financeFlowWriteOffDetailMapper.selectList(Wrappers.<FinanceFlowWriteOffDetail>lambdaQuery()
-                .eq(FinanceFlowWriteOffDetail::getFinanceFlowId, paymentFinanceFlowRecord.getId())
-                .eq(FinanceFlowWriteOffDetail::getRecordMainTable, FinanceFlowDetailTableEnum.PAYMENT_ACTUAL_DETAIL.name()));
-        List<FinanceFlowWriteOffDetail> paymentNettingRefundList = financeFlowWriteOffDetailMapper.selectList(Wrappers.<FinanceFlowWriteOffDetail>lambdaQuery()
-                .eq(FinanceFlowWriteOffDetail::getFinanceFlowId, paymentFinanceFlowRecord.getId())
-                .eq(FinanceFlowWriteOffDetail::getRecordMainTable, FinanceFlowDetailTableEnum.NETTING_REFUND.name()));
+        List<Long> paymentFinanceDetailIds = financeFlowWriteOffDetailService.listMainIdsByFinanceFlowIdAndMainTable(
+                paymentFinanceFlowRecord.getId(), FinanceFlowDetailTableEnum.PAYMENT_ACTUAL_DETAIL.name());
+        List<Long> paymentNettingRefundIds = financeFlowWriteOffDetailService.listMainIdsByFinanceFlowIdAndMainTable(
+                paymentFinanceFlowRecord.getId(), FinanceFlowDetailTableEnum.NETTING_REFUND.name());
         long totalPaymentFee = 0L;
         long totalPaymentNettingRefund = 0L;
-        if (!paymentFinanceDetailList.isEmpty()) {
-            List<PaymentActualDetail> paymentActualDetailList = paymentActualDetailService.listByIds(paymentFinanceDetailList.stream().map(FinanceFlowWriteOffDetail::getMainId).collect(Collectors.toSet()));
+        if (!paymentFinanceDetailIds.isEmpty()) {
+            List<PaymentActualDetail> paymentActualDetailList = paymentActualDetailService.listByIds(paymentFinanceDetailIds);
             totalPaymentFee = paymentActualDetailList.stream().mapToLong(PaymentActualDetail::getPaidInAmount).sum();
         }
-        if (!paymentNettingRefundList.isEmpty()) {
-            List<NettingRefund> nettingRefundList = nettingRefundService.listByIds(paymentNettingRefundList.stream().map(FinanceFlowWriteOffDetail::getMainId).collect(Collectors.toSet()));
+        if (!paymentNettingRefundIds.isEmpty()) {
+            List<NettingRefund> nettingRefundList = nettingRefundService.listByIds(paymentNettingRefundIds);
             totalPaymentNettingRefund = nettingRefundList.stream().mapToLong(NettingRefund::getNettingAmount).sum();
         }
 
@@ -947,14 +942,13 @@ public class BankFlowProcessingCenterService {
     }
 
     private void saveFinanceFlowWriteOffDetail(NettingRefund nettingRefund) {
-        FinanceFlowWriteOffDetail financeFlowWriteOffDetail = new FinanceFlowWriteOffDetail();
-        financeFlowWriteOffDetail.setBankDetailNo(nettingRefund.getBankDetailNo());
-        financeFlowWriteOffDetail.setFinanceFlowId(nettingRefund.getFinanceFlowId());
-        financeFlowWriteOffDetail.setMainId(nettingRefund.getId());
-        financeFlowWriteOffDetail.setRecordMainTable(FinanceFlowDetailTableEnum.NETTING_REFUND.name());
-        financeFlowWriteOffDetail.setCreateBy(AccountUtil.getLoginInfo().getId());
-        financeFlowWriteOffDetail.setUpdateBy(AccountUtil.getLoginInfo().getId());
-        financeFlowWriteOffDetailMapper.insert(financeFlowWriteOffDetail);
+        financeFlowWriteOffDetailService.create(
+                FinanceFlowDetailTableEnum.NETTING_REFUND.name(),
+                nettingRefund.getId(),
+                nettingRefund.getBankDetailNo(),
+                nettingRefund.getFinanceFlowId(),
+                AccountUtil.getLoginInfo().getId(),
+                AccountUtil.getLoginInfo().getId());
     }
 
 
@@ -977,20 +971,18 @@ public class BankFlowProcessingCenterService {
         Long collectionAmount = LongUtil.other2Long(String.valueOf(collectionFinanceFlowRecord.getCreditamount()));
         //剩余可用金额
         Long collectionSurplusAmount = ObjectUtil.isNull(collectionFinanceFlowRecord.getSurplusAmount()) ? 0L : collectionFinanceFlowRecord.getSurplusAmount();
-        List<FinanceFlowWriteOffDetail> collectionFinanceDetailList = financeFlowWriteOffDetailMapper.selectList(Wrappers.<FinanceFlowWriteOffDetail>lambdaQuery()
-                .eq(FinanceFlowWriteOffDetail::getFinanceFlowId, collectionFinanceFlowRecord.getId())
-                .eq(FinanceFlowWriteOffDetail::getRecordMainTable, FinanceFlowDetailTableEnum.COLLECTION_RECORD_INFO.name()));
-        List<FinanceFlowWriteOffDetail> collectionNettingRefundList = financeFlowWriteOffDetailMapper.selectList(Wrappers.<FinanceFlowWriteOffDetail>lambdaQuery()
-                .eq(FinanceFlowWriteOffDetail::getFinanceFlowId, collectionFinanceFlowRecord.getId())
-                .eq(FinanceFlowWriteOffDetail::getRecordMainTable, FinanceFlowDetailTableEnum.NETTING_REFUND.name()));
+        List<Long> collectionFinanceDetailIds = financeFlowWriteOffDetailService.listMainIdsByFinanceFlowIdAndMainTable(
+                collectionFinanceFlowRecord.getId(), FinanceFlowDetailTableEnum.COLLECTION_RECORD_INFO.name());
+        List<Long> collectionNettingRefundIds = financeFlowWriteOffDetailService.listMainIdsByFinanceFlowIdAndMainTable(
+                collectionFinanceFlowRecord.getId(), FinanceFlowDetailTableEnum.NETTING_REFUND.name());
         long totalCollectionFee = 0L;
         long totalCollectionNettingRefund = 0L;
-        if (!collectionFinanceDetailList.isEmpty()) {
-            List<CollectionRecordInfo> collectionRecordInfoList = collectionRecordInfoService.listByIds(collectionFinanceDetailList.stream().map(FinanceFlowWriteOffDetail::getMainId).collect(Collectors.toSet()));
+        if (!collectionFinanceDetailIds.isEmpty()) {
+            List<CollectionRecordInfo> collectionRecordInfoList = collectionRecordInfoService.listByIds(collectionFinanceDetailIds);
             totalCollectionFee = collectionRecordInfoList.stream().mapToLong(CollectionRecordInfo::getCollectionAmount).sum();
         }
-        if (!collectionNettingRefundList.isEmpty()) {
-            List<NettingRefund> nettingRefundList = nettingRefundService.listByIds(collectionNettingRefundList.stream().map(FinanceFlowWriteOffDetail::getMainId).collect(Collectors.toSet()));
+        if (!collectionNettingRefundIds.isEmpty()) {
+            List<NettingRefund> nettingRefundList = nettingRefundService.listByIds(collectionNettingRefundIds);
             totalCollectionNettingRefund = nettingRefundList.stream().mapToLong(NettingRefund::getNettingAmount).sum();
         }
 
@@ -1078,14 +1070,13 @@ public class BankFlowProcessingCenterService {
         collectionRecordInfoService.save(collectionRecordInfo);
 
         //资金流水核销详情关联
-        FinanceFlowWriteOffDetail financeFlowWriteOffDetail = new FinanceFlowWriteOffDetail();
-        financeFlowWriteOffDetail.setBankDetailNo(collectionFinanceFlowRecord.getBillno());
-        financeFlowWriteOffDetail.setFinanceFlowId(collectionFinanceFlowRecord.getId());
-        financeFlowWriteOffDetail.setMainId(collectionRecordInfo.getId());
-        financeFlowWriteOffDetail.setRecordMainTable(FinanceFlowDetailTableEnum.COLLECTION_RECORD_INFO.name());
-        financeFlowWriteOffDetail.setCreateBy(AccountUtil.getLoginInfo().getId());
-        financeFlowWriteOffDetail.setUpdateBy(AccountUtil.getLoginInfo().getId());
-        financeFlowWriteOffDetailMapper.insert(financeFlowWriteOffDetail);
+        financeFlowWriteOffDetailService.create(
+                FinanceFlowDetailTableEnum.COLLECTION_RECORD_INFO.name(),
+                collectionRecordInfo.getId(),
+                collectionFinanceFlowRecord.getBillno(),
+                collectionFinanceFlowRecord.getId(),
+                AccountUtil.getLoginInfo().getId(),
+                AccountUtil.getLoginInfo().getId());
 
         //折现率的重算
         LambdaUpdateWrapper<ContractReceipt> contractReceiptWrapper = new LambdaUpdateWrapper<>();

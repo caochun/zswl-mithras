@@ -17,7 +17,7 @@ import cn.zswltech.mithras.budget.mapper.model.BudgetExamine;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceSubjectBalanceAssist;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -54,7 +54,7 @@ public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, Budge
     @Resource
     private BudgetExamineFlowService budgetExamineFlowService;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
     @Transactional(rollbackFor = Throwable.class)
     public void add(BudgetExamineAddREQ req) {
@@ -146,7 +146,7 @@ public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, Budge
         Page<BudgetExamine> data = this.list(req);
         List<BudgetExamineListRSP> list = BeanUtil.copyToList(data.getRecords(), BudgetExamineListRSP.class);
         if (ObjectUtil.isNotEmpty(list)) {
-            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(list.stream().map(BudgetExamineListRSP::getSubmitUserId).collect(Collectors.toList()));
+            Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(list.stream().map(BudgetExamineListRSP::getSubmitUserId).collect(Collectors.toList()));
             list.forEach(e -> e.setSubmitUserName(userId2Name.get(e.getSubmitUserId())));
         }
         return PageR.of(list, data.getTotal(), data.getPages(), data.getCurrent(), data.getSize());

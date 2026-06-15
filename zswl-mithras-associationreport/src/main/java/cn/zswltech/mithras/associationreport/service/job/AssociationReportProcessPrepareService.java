@@ -1,14 +1,13 @@
 package cn.zswltech.mithras.associationreport.service.job;
 
-import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import java.util.List;
 
 /**
  * 金融局报送任务生成待办时依赖的流程准备记录端口。
  */
 public interface AssociationReportProcessPrepareService {
 
-    boolean save(CommonProcessPrepare commonProcessPrepare);
+    boolean saveTodo(AssociationReportTodoType todoType, Long applyId, String formName, String currentNode, List<Long> assigneeIds);
 
-    int count(Wrapper<CommonProcessPrepare> queryWrapper);
+    boolean hasPendingTodo(AssociationReportTodoType todoType);
 }

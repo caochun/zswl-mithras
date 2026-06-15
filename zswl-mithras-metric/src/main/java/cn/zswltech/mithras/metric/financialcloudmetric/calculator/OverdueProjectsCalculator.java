@@ -38,7 +38,7 @@ import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePriceL
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.dto.ProjReviewPriceDto;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -73,7 +73,7 @@ public class OverdueProjectsCalculator {
     @Resource
     private ContractStockRiskExposureReader stockRiskExposureReader;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
     @Resource
     private AssetClassifyClientAuxiliaryLibMapper assetClassifyClientAuxiliaryLibMapper;
     @Resource
@@ -195,7 +195,7 @@ public class OverdueProjectsCalculator {
 
         // 获取客户id
         Set<Long> lessees = contractBaseInfoLibs.stream().map(ContractBaseInfo::getClientId).collect(Collectors.toSet());
-        Map<Long, String> lesseeName = id2NameService.clientId2Name(lessees);
+        Map<Long, String> lesseeName = clientNameResolver.clientId2Name(lessees);
         // 查询客户的五级分类
         Map<Long, AssetClassifyClientAuxiliaryLib> classifyResult = new HashMap<>();
         List<AssetClassifyClientAuxiliaryLib> assetClassifyClientAuxiliaryLibs = assetClassifyClientAuxiliaryLibMapper.selectList(Wrappers.<AssetClassifyClientAuxiliaryLib>lambdaQuery()
@@ -260,7 +260,7 @@ public class OverdueProjectsCalculator {
                     return new ArrayList<>();
                 }
                 return JSON.parseArray(contractGuarantorLib.getGuarantorIds(), Long.class);
-            }).forEach(longs -> projectInfo.getGuaranteeNames().addAll(id2NameService.clientId2Name(longs).values().stream().distinct().collect(Collectors.toList())));
+            }).forEach(longs -> projectInfo.getGuaranteeNames().addAll(clientNameResolver.clientId2Name(longs).values().stream().distinct().collect(Collectors.toList())));
             // 更新剩余本金和利息
             if (remainingAmount.containsKey(contract.getOriginId())) {
                 Pair<BigDecimal, BigDecimal> pair = prePrincipalInterest.get(contract.getOriginId());

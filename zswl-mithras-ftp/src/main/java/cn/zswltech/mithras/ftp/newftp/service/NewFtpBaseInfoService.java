@@ -3,23 +3,20 @@ package cn.zswltech.mithras.ftp.newftp.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.newftp.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
-import cn.zswltech.mithras.ftp.oldftp.enums.FtpProcessStatus;
+import cn.zswltech.mithras.ftp.newftp.enums.NewFtpProcessStatus;
 import cn.zswltech.mithras.ftp.newftp.enums.PricingFrequencyEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
+import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDeptResolver;
 import cn.zswltech.mithras.ftp.newftp.convert.NewFtpBaseInfoConverter;
 import cn.zswltech.mithras.ftp.newftp.fms.DefaultNewFtpStateMachine;
 import cn.zswltech.mithras.ftp.newftp.fms.NewFtpContext;
@@ -40,6 +37,8 @@ import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpTreasuryBondYieldDraft
 import cn.zswltech.mithras.ftp.newftp.service.lib.*;
 import cn.zswltech.mithras.ftp.newftp.service.config.*;
 import cn.zswltech.mithras.ftp.newftp.service.draft.*;
+import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpProcessInfo;
+import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpWorkflowPort;
 import cn.zswltech.mithras.basedata.util.DateUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -51,13 +50,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static cn.zswltech.mithras.ftp.newftp.enums.NewFtpBusinessModule.NEW_FTP_GUIDANCE;
 
 /**
  * @author zhaozhengkang
@@ -77,7 +73,7 @@ public class NewFtpBaseInfoService extends ServiceImpl<NewFtpBaseInfoMapper, New
     @Resource
     private NewFtpBaseInfoConverter baseInfoConverter;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
     @Resource
     private NewFtpDescriptionTextDraftService descriptionTextDraftService;
     @Resource
@@ -95,17 +91,17 @@ public class NewFtpBaseInfoService extends ServiceImpl<NewFtpBaseInfoMapper, New
     private NewFtpFinancingCostPricingDraftService financingCostPricingDraftService;
 
     @Resource
-    private FlowTaskApiService taskApiService;
+    private NewFtpWorkflowPort newFtpWorkflowPort;
 
-    public ProcessResp findRelatedProcess(Long mainId) {
-        ProcessPageReq processPageReq = new ProcessPageReq();
-        processPageReq.setPageIndex(1);
-        processPageReq.setPageSize(1);
-        processPageReq.setBusinessKey(String.valueOf(mainId));
-        processPageReq.setModelKeyList(NEW_FTP_GUIDANCE.getModelKeyList());
-        processPageReq.setProcessStatusList(Arrays.asList(ProcessBusinessStatusEnum.RUNNING.getType(), ProcessBusinessStatusEnum.SUSPEND.getType()));
-        cn.zswltech.flow.core.util.Page<ProcessResp> processRespPage = taskApiService.queryProcess(processPageReq);
-        return processRespPage.getContents().stream().findFirst().orElse(null);
+    public NewFtpProcessInfo findRelatedProcess(Long mainId) {
+        return newFtpWorkflowPort.findGuidanceProcess(mainId);
+    }
+
+    public void checkEditableInProcess(Long mainId) {
+        NewFtpProcessInfo relatedProcess = findRelatedProcess(mainId);
+        if (ObjectUtil.isNotEmpty(relatedProcess) && !relatedProcess.isStartUserNode()) {
+            throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
+        }
     }
 
     public PageR<NewFtpBaseInfoListRSP> list(NewFtpBaseInfoListREQ req) {
@@ -137,7 +133,7 @@ public class NewFtpBaseInfoService extends ServiceImpl<NewFtpBaseInfoMapper, New
         queryWrapper.orderByDesc("create_time");
         Page<NewFtpBaseInfo> page = page(new Page<>(req.getPage(), req.getPageSize()), queryWrapper);
         Set<Long> createByIds = page.getRecords().stream().map(BaseModel::getCreateBy).collect(Collectors.toSet());
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(createByIds);
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(createByIds);
 
         List<NewFtpBaseInfoListRSP> rspList = page.getRecords().stream().map(info -> {
             NewFtpBaseInfoListRSP rsp = baseInfoConverter.entity2ListRsp(info);
@@ -149,7 +145,7 @@ public class NewFtpBaseInfoService extends ServiceImpl<NewFtpBaseInfoMapper, New
     }
 
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDeptResolver currentUserDeptResolver;
 
     /**
      * 计划财务部及定价委员会成员
@@ -157,7 +153,7 @@ public class NewFtpBaseInfoService extends ServiceImpl<NewFtpBaseInfoMapper, New
      * @return true
      */
     private boolean specialUser() {
-        return sysUserService.currentUserIsSpecificDept("JHCWB", "DJWYH");
+        return currentUserDeptResolver.currentUserIsSpecificDept("JHCWB", "DJWYH");
     }
 
     @Transactional(rollbackFor = Throwable.class)
@@ -173,7 +169,7 @@ public class NewFtpBaseInfoService extends ServiceImpl<NewFtpBaseInfoMapper, New
         LocalDate thisMonth = req.getMonth();
         NewFtpBaseInfo info = new NewFtpBaseInfo();
         info.setMonth(thisMonth);
-        info.setFtpProcessStatus(FtpProcessStatus.NEW_UN_SUBMIT.name());
+        info.setFtpProcessStatus(NewFtpProcessStatus.NEW_UN_SUBMIT.name());
         info.setFtpRecordStatus(RecordStatus.NEW.name());
         PricingFrequencyEnum frequencyEnum = PricingFrequencyEnum.ofName(req.getPricingFrequency());
         if (frequencyEnum != null) {

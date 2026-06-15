@@ -29,7 +29,7 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceAccountAgeBaseInf
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceAccountAgeItem;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.contract.core.ContractTenantryService;
 import cn.zswltech.mithras.third.financialshare.client.req.CQ2AccountAgeAddREQ;
 import cn.zswltech.mithras.foundation.util.LongUtil;
@@ -72,7 +72,7 @@ public class FinanceAccountAgeItemService extends ServiceImpl<FinanceAccountAgeI
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
 
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
 
     @Resource
     private ContractReceiptMapper contractReceiptMapper;
@@ -224,7 +224,7 @@ public class FinanceAccountAgeItemService extends ServiceImpl<FinanceAccountAgeI
         List<FinanceAccountAgeItem> items = new ArrayList<FinanceAccountAgeItem>();
         //获取租金往来方
         Map<Long, String> clientId2RentConcatAccount = contractTenantryService.listRentConcatAccountByContractId(allCollectionBaseList.stream().map(CollectionBaseInfo::getContractId).collect(Collectors.toList()));
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientId2RentConcatAccount.values().stream().map(Long::parseLong).collect(Collectors.toList()));
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientId2RentConcatAccount.values().stream().map(Long::parseLong).collect(Collectors.toList()));
         allCollectionBaseList.forEach(collectionBaseInfo -> {
             FinanceAccountAgeItem item = new FinanceAccountAgeItem();
             item.setAccountAgeId(financeAccountAgeBaseInfo.getId());

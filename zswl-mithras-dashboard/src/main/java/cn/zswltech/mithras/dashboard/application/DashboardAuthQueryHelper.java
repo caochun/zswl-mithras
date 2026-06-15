@@ -7,7 +7,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.dashboard.model.CommonAuthQuery;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.UserDataScopeResolver;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public final class DashboardAuthQueryHelper {
         if (ObjectUtil.isEmpty(loginInfo)) {
             throw new MithrasException(ResultMsg.USER_NOT_LOGIN);
         }
-        List<Long> deptIds = SpringContextHolder.getBean(SysUserService.class).canViewDeptIds(loginInfo);
+        List<Long> deptIds = SpringContextHolder.getBean(UserDataScopeResolver.class).canViewDeptIds(loginInfo);
         if (deptIds == null) {
             return;
         }

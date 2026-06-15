@@ -25,12 +25,12 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.dashboard.enums.BusinessGroupEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.workflow.persistence.mapper.flow.ToDoOperateRecordMapper;
 import cn.zswltech.mithras.guanbao.mapper.managereport.*;
 import cn.zswltech.mithras.workflow.persistence.model.flow.OperateRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.dashboard.application.DashboardOperateTodoService;
 import cn.zswltech.mithras.dashboard.application.boss.GuanYuanBasicService;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.ZLHeTongShiXiaoDTO;
@@ -69,7 +69,7 @@ public class ManageReportService extends GuanYuanBasicService {
     @Resource
     private ToDoOperateRecordMapper toDoOperateRecordMapper;
     @Resource
-    private SysUserService sysUserService;
+    private BizDeptResolver bizDeptResolver;
 
     public List<HeTongShiXiaoStatisticRSP> statisticHeTongShiXiao(HeTongShiXiaoStatisticREQ req) {
         // 复用明细接口数据
@@ -77,7 +77,7 @@ public class ManageReportService extends GuanYuanBasicService {
         // 按照部门id分组
         Map<Long, List<HeTongShiXiaoDetailRSP>> deptGroupMap = detailList.stream().collect(Collectors.groupingBy(HeTongShiXiaoDetailRSP::getBizDeptId));
         // 获取生效业务部门
-        List<OrgDO> orgList = sysUserService.listBizDept();
+        List<OrgDO> orgList = bizDeptResolver.listBizDept();
         orgList.removeIf(e -> Objects.equals(e.getState(), YesOrNoNumberEnum.NO.getCode()));
         // 统计并组装返回结果
         List<HeTongShiXiaoStatisticRSP> result = new LinkedList<>();

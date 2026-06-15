@@ -13,7 +13,7 @@ import cn.zswltech.mithras.kpi.model.PerformanceMainInfo;
 import cn.zswltech.mithras.kpi.model.PerformanceRecordInfo;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceRecordInfoService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.kpi.excel.model.CompanyExcelModel;
 import cn.zswltech.mithras.kpi.excel.model.DeptExcelModel;
 import cn.zswltech.mithras.kpi.excel.model.PersonalExcelModel;
@@ -58,6 +58,8 @@ public class KpiPerformanceMainInfoService extends ServiceImpl<PerformanceMainIn
     private KpiPerformanceBaseInfoService kpiPerformanceBaseInfoService;
     @Resource
     private KpiPerformanceRecordInfoService kpiPerformanceRecordInfoService;
+    @Resource
+    private UserNameResolver userNameResolver;
 
     @Transactional(rollbackFor = Throwable.class)
     public void add(KpiPerformanceManageAddREQ req) {
@@ -156,7 +158,7 @@ public class KpiPerformanceMainInfoService extends ServiceImpl<PerformanceMainIn
         //提前查出用户相关数据
         List<Long> userIds = records.stream().map(PerformanceMainInfo::getCreateBy).collect(Collectors.toList());
         userIds.addAll(records.stream().map(PerformanceMainInfo::getUpdateBy).collect(Collectors.toList()));
-        Map<Long, String> longStringMap = getBean(Id2NameService.class).sysUserId2Name(userIds);
+        Map<Long, String> longStringMap = userNameResolver.sysUserId2Name(userIds);
         return records.stream().map(performanceMainInfo -> {
             KpiPerformanceManageMainListRSP rsp = new KpiPerformanceManageMainListRSP();
             rsp.setId(performanceMainInfo.getId());

@@ -6,8 +6,8 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
+import cn.zswltech.mithras.ftp.newftp.enums.NewFtpWorkflowKey;
 import cn.zswltech.mithras.payment.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestBaseInfoService;
@@ -40,7 +40,7 @@ public class FtpInterestChangeProcessEndHandler extends AbstractProcessEndHandle
 
     @Override
     public boolean needHandle(ProcessEndContext endContext) {
-        return Objects.equals(endContext.getModelKey(), ProcessModelTypeEnum.FtpInterestChangeApplyFlow.name());
+        return Objects.equals(endContext.getModelKey(), NewFtpWorkflowKey.FTP_INTEREST_CHANGE_APPLY);
     }
 
     @Override

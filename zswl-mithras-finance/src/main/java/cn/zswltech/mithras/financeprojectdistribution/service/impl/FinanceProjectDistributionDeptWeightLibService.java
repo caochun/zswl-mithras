@@ -8,7 +8,7 @@ import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistr
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptWeightLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 public class FinanceProjectDistributionDeptWeightLibService extends ServiceImpl<FinanceProjectDistributionDeptWeightLibMapper, FinanceProjectDistributionDeptWeightLib> {
 
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
     @Resource
     private FinanceProjectDistributionService financeProjectDistributionService;
 
@@ -62,7 +62,7 @@ public class FinanceProjectDistributionDeptWeightLibService extends ServiceImpl<
         if (CollUtil.isEmpty(financeProjectDistributionDeptWeightLibs)) {
             return Collections.emptyList();
         }
-        Map<Long, String> deptId2NameMap = id2NameService.deptId2Name(financeProjectDistributionDeptWeightLibs.stream()
+        Map<Long, String> deptId2NameMap = deptNameResolver.deptId2Name(financeProjectDistributionDeptWeightLibs.stream()
                 .map(FinanceProjectDistributionDeptWeightLib::getWeightTarget).collect(Collectors.toList()));
 
         List<FinanceProjectDistributionDeptWeightInfo> collect = financeProjectDistributionDeptWeightLibs.stream().map(lib -> {

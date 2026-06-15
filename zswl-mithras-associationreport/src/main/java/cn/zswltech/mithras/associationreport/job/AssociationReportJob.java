@@ -1,6 +1,4 @@
 package cn.zswltech.mithras.associationreport.job;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
@@ -22,9 +20,9 @@ import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
 import cn.zswltech.mithras.associationreport.service.job.AssociationReportJobService;
 import cn.zswltech.mithras.associationreport.service.job.AssociationReportProcessPrepareService;
-import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
+import cn.zswltech.mithras.associationreport.service.job.AssociationReportTodoType;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.JobUserResolver;
 import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -56,7 +54,7 @@ public class AssociationReportJob {
     @Resource
     private AssociationReportProcessPrepareService processPrepareService;
     @Resource
-    private SysUserService sysUserService;
+    private JobUserResolver jobUserResolver;
 
     @XxlJob("collectDataFromSystem")
     public void collectDataFromSystem() {
@@ -191,12 +189,12 @@ public class AssociationReportJob {
 
     private void generateSecretaryjuryMonthTodo(LocalDate jobExecDate) {
         // 判断是否存在待办，存在的话就不生成了
-        if (this.isExistTodo(ProcessModelTypeEnum.AssociationReportMainBusinessFlow.name())) {
+        if (processPrepareService.hasPendingTodo(AssociationReportTodoType.MAIN_BUSINESS)) {
             log.info("金融局报送-自动取值-发送评审会秘书待办-存在待提交的待办，不执行逻辑");
             return;
         }
         // 评审会秘书待办
-        List<Long> userIds = sysUserService.jobUsers(Collections.singleton(JobEnum.secretaryjury.name()));
+        List<Long> userIds = jobUserResolver.jobUsers(JobEnum.secretaryjury.name());
         if (CollectionUtil.isEmpty(userIds)) {
             log.error("金融局报送-自动取值-发送评审会秘书待办-没有找到岗位为评审会秘书的用户");
             return;
@@ -221,16 +219,12 @@ public class AssociationReportJob {
                 associationReportApply.setApprovalStatus(AssociationProcessStatusEnum.UN_SUBMIT.name());
                 associationReportApplyService.save(associationReportApply);
                 // 生成待办
-                CommonProcessPrepare commonProcessPrepare = CommonProcessPrepare.builder()
-                        .processType(ProcessModelTypeEnum.AssociationReportMainBusinessFlow.name())
-                        .businessId(associationReportApply.getId().toString())
-                        .formName(String.format("%s年%s月金融局报送-评审会秘书待办", targetDate.getYear(), targetDate.getMonthValue()))
-                        .currentNode("评审会秘书确认")
-                        .currentAssignee(userIds.toString())
-                        .applyTime(LocalDateTime.now())
-                        .status(CommonProcessPrepareStatus.PEND_COMMIT.name())
-                        .build();
-                processPrepareService.save(commonProcessPrepare);
+                processPrepareService.saveTodo(
+                        AssociationReportTodoType.MAIN_BUSINESS,
+                        associationReportApply.getId(),
+                        String.format("%s年%s月金融局报送-评审会秘书待办", targetDate.getYear(), targetDate.getMonthValue()),
+                        "评审会秘书确认",
+                        userIds);
             } catch (Exception e) {
                 transactionStatus.setRollbackOnly();
                 log.error("金融局报送自动取值-评审会秘书待办数据保存异常", e);
@@ -240,12 +234,12 @@ public class AssociationReportJob {
 
     private void generateFinancialmanagerMonthTodo(LocalDate jobExecDate) {
         // 判断是否存在待办，存在的话就不生成了
-        if (this.isExistTodo(ProcessModelTypeEnum.AssociationReportQuarterMonthFlow.name())) {
+        if (processPrepareService.hasPendingTodo(AssociationReportTodoType.QUARTER_MONTH)) {
             log.info("金融局报送-自动取值-发送财务经理月度待办-存在待提交的待办，不执行逻辑");
             return;
         }
         // 财务经理待办
-        List<Long> userIds = sysUserService.jobUsers(Collections.singleton(JobEnum.financialmanager.name()));
+        List<Long> userIds = jobUserResolver.jobUsers(JobEnum.financialmanager.name());
         if (CollectionUtil.isEmpty(userIds)) {
             log.error("金融局报送-自动取值-发送财务经理月度待办-没有找到岗位为财务经理的用户");
             return;
@@ -271,16 +265,12 @@ public class AssociationReportJob {
                 associationReportApply.setApprovalStatus(AssociationProcessStatusEnum.UN_SUBMIT.name());
                 associationReportApplyService.save(associationReportApply);
                 // 生成待办
-                CommonProcessPrepare commonProcessPrepare = CommonProcessPrepare.builder()
-                        .processType(ProcessModelTypeEnum.AssociationReportQuarterMonthFlow.name())
-                        .businessId(associationReportApply.getId().toString())
-                        .formName(String.format("%s年%s月金融局报送-财务经理待办", targetDate.getYear(), targetDate.getMonthValue()))
-                        .currentNode("财务经理确认")
-                        .currentAssignee(userIds.toString())
-                        .applyTime(LocalDateTime.now())
-                        .status(CommonProcessPrepareStatus.PEND_COMMIT.name())
-                        .build();
-                processPrepareService.save(commonProcessPrepare);
+                processPrepareService.saveTodo(
+                        AssociationReportTodoType.QUARTER_MONTH,
+                        associationReportApply.getId(),
+                        String.format("%s年%s月金融局报送-财务经理待办", targetDate.getYear(), targetDate.getMonthValue()),
+                        "财务经理确认",
+                        userIds);
             } catch (Exception e) {
                 transactionStatus.setRollbackOnly();
                 log.error("金融局报送自动取值-财务经理月度待办数据保存异常", e);
@@ -290,11 +280,11 @@ public class AssociationReportJob {
 
     private void generateFinancialmanagerQuarterTodo(LocalDate jobExecDate) {
         // 判断是否存在待办，存在的话就不生成了
-        if (this.isExistTodo(ProcessModelTypeEnum.AssociationReportQuarterMonthFlow.name())) {
+        if (processPrepareService.hasPendingTodo(AssociationReportTodoType.QUARTER_MONTH)) {
             log.info("金融局报送-自动取值-发送财务经理季度待办-存在待提交的待办，不执行逻辑");
             return;
         }
-        List<Long> userIds = sysUserService.jobUsers(Collections.singleton(JobEnum.financialmanager.name()));
+        List<Long> userIds = jobUserResolver.jobUsers(JobEnum.financialmanager.name());
         if (CollectionUtil.isEmpty(userIds)) {
             log.error("金融局报送-自动取值-发送财务经理季度待办-没有找到岗位为财务经理的用户");
             return;
@@ -338,16 +328,12 @@ public class AssociationReportJob {
                 associationReportApply.setApprovalStatus(AssociationProcessStatusEnum.UN_SUBMIT.name());
                 associationReportApplyService.save(associationReportApply);
                 // 生成待办
-                CommonProcessPrepare commonProcessPrepare = CommonProcessPrepare.builder()
-                        .processType(ProcessModelTypeEnum.AssociationReportQuarterMonthFlow.name())
-                        .businessId(associationReportApply.getId().toString())
-                        .formName(String.format("%s年%s季度金融局报送-财务经理待办", targetQuarterDate.getYear(), DateUtil.ensureQuarter(targetQuarterDate.getMonthValue())))
-                        .currentNode("财务经理确认")
-                        .currentAssignee(userIds.toString())
-                        .applyTime(LocalDateTime.now())
-                        .status(CommonProcessPrepareStatus.PEND_COMMIT.name())
-                        .build();
-                processPrepareService.save(commonProcessPrepare);
+                processPrepareService.saveTodo(
+                        AssociationReportTodoType.QUARTER_MONTH,
+                        associationReportApply.getId(),
+                        String.format("%s年%s季度金融局报送-财务经理待办", targetQuarterDate.getYear(), DateUtil.ensureQuarter(targetQuarterDate.getMonthValue())),
+                        "财务经理确认",
+                        userIds);
             } catch (Exception e) {
                 transactionStatus.setRollbackOnly();
                 log.error("金融局报送自动取值-财务经理月度待办数据保存异常", e);
@@ -369,10 +355,4 @@ public class AssociationReportJob {
         return quarterFirstDay.getMonthValue() == localDate.getMonthValue();
     }
 
-    private boolean isExistTodo(String processType) {
-        LambdaQueryWrapper<CommonProcessPrepare> query = Wrappers.lambdaQuery();
-        query.eq(CommonProcessPrepare::getProcessType, processType);
-        query.eq(CommonProcessPrepare::getStatus, CommonProcessPrepareStatus.PEND_COMMIT.name());
-        return processPrepareService.count(query) > 0;
-    }
 }

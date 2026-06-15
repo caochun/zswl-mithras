@@ -6,15 +6,13 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionRecordAddREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionRecordListREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionRecordModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionRecordRemoveREQ;
+import cn.zswltech.mithras.kpi.application.distribution.port.KpiProjectDistributionContractPort;
 import cn.zswltech.mithras.kpi.bo.KpiProjectDistributionRecordBo;
 import cn.zswltech.mithras.kpi.bo.KpiProjectDistributionWeightInfoRecordBo;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionRecordMapper;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionRecord;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightRecord;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
@@ -48,7 +46,7 @@ public class KpiProjectDistributionRecordService extends ServiceImpl<KpiProjectD
     @Resource
     private KpiProjectDistributionWeightLibService kpiProjectDistributionWeightLibService;
     @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
+    private KpiProjectDistributionContractPort kpiProjectDistributionContractPort;
 
     @Transactional(rollbackFor = Throwable.class)
     public void add(KpiProjectDistributionRecordAddREQ req) {
@@ -110,10 +108,8 @@ public class KpiProjectDistributionRecordService extends ServiceImpl<KpiProjectD
         if (ObjectUtil.isEmpty(distributionListRSP)) {
             return;
         }
-        Map<String, Long> contractCode2Id = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
-                .in(ContractBaseInfo::getContractCode, distributionListRSP.stream().map(KpiProjectDistributionBaseInfoLib::getContractCode).collect(Collectors.toList()))
-        .notIn(ContractBaseInfo::getContractStatus, ContractStatus.INVALID.name(), ContractStatus.CLOSED.name()))
-                .stream().collect(Collectors.toMap(ContractBaseInfo::getContractCode, ContractBaseInfo::getId, (a, b) -> a));
+        Map<String, Long> contractCode2Id = kpiProjectDistributionContractPort.mapEffectiveContractIdsByCodes(
+                distributionListRSP.stream().map(KpiProjectDistributionBaseInfoLib::getContractCode).collect(Collectors.toList()));
 
         List<KpiProjectDistributionRecord> records = new ArrayList<>();
         distributionListRSP.forEach(e -> {

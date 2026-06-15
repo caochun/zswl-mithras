@@ -14,7 +14,7 @@ import cn.zswltech.mithras.leaseholdproperty.excel.model.LeaseholdPropertyExcelM
 import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseholdPropertyMapper;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseholdProperty;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.basedata.dictionary.GeneralDictionaryService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseholdPropertyService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -42,7 +42,7 @@ public class LeaseholdPropertyServiceImpl extends ServiceImpl<LeaseholdPropertyM
     private static final String OTHER = "其他租赁物";
 
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
     @Resource
     private GeneralDictionaryService generalDictionaryService;
@@ -102,7 +102,7 @@ public class LeaseholdPropertyServiceImpl extends ServiceImpl<LeaseholdPropertyM
         List<Long> updateIds = page.getRecords().stream().map(LeaseholdProperty::getUpdateBy).collect(Collectors.toList());
         HashSet<Long> ids = new HashSet<>(createIds);
         ids.addAll(updateIds);
-        return id2NameService.sysUserId2Name(ids);
+        return userNameResolver.sysUserId2Name(ids);
     }
 
     /**
@@ -124,6 +124,5 @@ public class LeaseholdPropertyServiceImpl extends ServiceImpl<LeaseholdPropertyM
         });
     }
 }
-
 
 

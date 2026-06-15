@@ -13,8 +13,6 @@ import cn.zswltech.mithras.dto.workbench.*;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProjStageEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workbench.application.WorkbenchChartMetricApplicationService;
 import cn.zswltech.mithras.workbench.application.WorkbenchExportApplicationService;
@@ -26,8 +24,10 @@ import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -38,6 +38,23 @@ import java.util.Optional;
  */
 @Service
 public class WorkbenchExportFacade implements WorkbenchExportApplicationService {
+    private static final Map<String, String> PROJECT_STAGE_DISPLAY = new HashMap<>();
+    private static final Map<String, String> CONTRACT_STATUS_DISPLAY = new HashMap<>();
+
+    static {
+        PROJECT_STAGE_DISPLAY.put("PROJESTABLISH_STAGE", "立项阶段");
+        PROJECT_STAGE_DISPLAY.put("PROJREVIEW_STAGE", "评审阶段");
+        PROJECT_STAGE_DISPLAY.put("CONTRACT_STAGE", "合同与投放阶段");
+        PROJECT_STAGE_DISPLAY.put("CONTRACTSETTLE_STAGE", "结清阶段");
+
+        CONTRACT_STATUS_DISPLAY.put("NEW", "新建");
+        CONTRACT_STATUS_DISPLAY.put("CLOSED", "已关闭");
+        CONTRACT_STATUS_DISPLAY.put("INVALID", "作废");
+        CONTRACT_STATUS_DISPLAY.put("SETTLE", "结清");
+        CONTRACT_STATUS_DISPLAY.put("START_RENT", "起租");
+        CONTRACT_STATUS_DISPLAY.put("TAKE_EFFECT", "生效");
+    }
+
     @Resource
     private WorkbenchChartMetricApplicationService workbenchChartMetricApplicationService;
     @Resource
@@ -70,7 +87,7 @@ public class WorkbenchExportFacade implements WorkbenchExportApplicationService 
                     rsp.getProjectName(),
                     toYuan(rsp.getApplyCreditAmount()),
                     toYuan(rsp.getContractAmount()),
-                    Optional.ofNullable(ProjStageEnum.find(rsp.getProjStage())).map(ProjStageEnum::display).orElse(""),
+                    projectStageDisplay(rsp.getProjStage()),
                     rsp.getBizType(),
                     rsp.getBizDeptName(),
                     rsp.getProjSponsorUserName())
@@ -185,7 +202,7 @@ public class WorkbenchExportFacade implements WorkbenchExportApplicationService 
                     rsp.getProjectName(),
                     rsp.getClientName(),
                     toYuan(rsp.getContractAmount()),
-                    Optional.ofNullable(ContractStatus.of(rsp.getContractStatus())).map(ContractStatus::display).orElse(""),
+                    contractStatusDisplay(rsp.getContractStatus()),
                     Optional.ofNullable(rsp.getActualLeaseDate()).map(e -> LocalDateTimeUtil.format(e, DatePattern.NORM_DATE_PATTERN)).orElse(""),
                     Optional.ofNullable(ProjectBizType.of(rsp.getBizType())).map(ProjectBizType::display).orElse(""),
                     rsp.getBizDeptName(),
@@ -372,5 +389,13 @@ public class WorkbenchExportFacade implements WorkbenchExportApplicationService 
         }
         BigDecimal yuan = NumberUtil.div(amount.toString(), String.valueOf(Long.parseLong(GlobalConstants.MONEY_MULTIPLE)));
         return NumberUtil.decimalFormat(",##0.00##", yuan);
+    }
+
+    private String projectStageDisplay(String code) {
+        return Optional.ofNullable(PROJECT_STAGE_DISPLAY.get(code)).orElse("");
+    }
+
+    private String contractStatusDisplay(String code) {
+        return Optional.ofNullable(CONTRACT_STATUS_DISPLAY.get(code)).orElse("");
     }
 }

@@ -22,7 +22,7 @@ import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.enums.client.EnterpriseNatureEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.projectprocess.projlifecycle.enums.ProjStageEnum;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.dto.ClientListParam;

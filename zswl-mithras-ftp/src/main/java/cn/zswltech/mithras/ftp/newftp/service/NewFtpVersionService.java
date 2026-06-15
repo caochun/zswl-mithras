@@ -1,13 +1,7 @@
 package cn.zswltech.mithras.ftp.newftp.service;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.zswltech.flow.core.api.FlowProcessApiService;
-import cn.zswltech.flow.core.domain.req.StartProcessReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
-import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.newftp.NewFtpDetailReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpVersionListRsp;
@@ -18,7 +12,6 @@ import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpBusinessModule;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
@@ -34,12 +27,12 @@ import cn.zswltech.mithras.ftp.newftp.lib.impl.NewFtpMonthlyGuidanceLibHandler;
 import cn.zswltech.mithras.ftp.newftp.lib.impl.NewFtpQuarterlyBasePricingLibHandler;
 import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import cn.zswltech.mithras.basedata.util.DateUtil;
+import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpWorkflowPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
 import java.util.*;
 
 import static cn.zswltech.mithras.ftp.newftp.enums.NewFtpBusinessModule.NEW_FTP_GUIDANCE;
@@ -58,11 +51,9 @@ public class NewFtpVersionService extends CommonVersionService<NewFtpBaseInfo> {
     @Resource
     private NewFtpBaseInfoService baseInfoService;
     @Resource
-    private OrgDOMapper orgDOMapper;
-    @Resource
-    private FlowProcessApiService processApiService;
-    @Resource
     private DefaultNewFtpStateMachine defaultNewFtpStateMachine;
+    @Resource
+    private NewFtpWorkflowPort newFtpWorkflowPort;
 
 
     @Override
@@ -192,11 +183,9 @@ public class NewFtpVersionService extends CommonVersionService<NewFtpBaseInfo> {
 
     public void submit(Long mainId) {
         NewFtpBaseInfo baseInfo = baseInfoService.getById(mainId);
-        ProcessResp processResp = baseInfoService.findRelatedProcess(mainId);
-        if (Objects.nonNull(processResp)) {
+        if (Objects.nonNull(baseInfoService.findRelatedProcess(mainId))) {
             throw new AuthCheckException("该数据处于流程中，不允许提交");
         }
-        StartProcessReq startProcessReq = new StartProcessReq();
         // 判断是否有变动
         ChangeDTO changeDTO = checkActualChange(mainId);
         if (!changeDTO.getChangeFlag()) {
@@ -204,34 +193,22 @@ public class NewFtpVersionService extends CommonVersionService<NewFtpBaseInfo> {
         }
         // 判断使用创建流程还是修改流程
         if (NEW.name().equals(baseInfo.getFtpRecordStatus())) {
-            startProcessReq.setModelKey(ProcessModelTypeEnum.FtpMonthlyGuidanceCreateFlow.name());
+            newFtpWorkflowPort.startGuidanceCreateFlow(mainId, baseInfo.getMonth());
         } else {
-            startProcessReq.setModelKey(ProcessModelTypeEnum.FtpMonthlyGuidanceModifyFlow.name());
+            newFtpWorkflowPort.startGuidanceModifyFlow(mainId, baseInfo.getMonth());
         }
-        startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo())
-                .map(AccountVO::getId)
-                .map(String::valueOf)
-                .orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
-        startProcessReq.setBusinessKey(String.valueOf(mainId));
-        LocalDate month = baseInfo.getMonth();
-        startProcessReq.setProcessInstanceName(month.getYear() + "年" + month.getMonthValue() + "月FTP定价指导审批流程");
-        OrgDO jhcwb = orgDOMapper.queryByCode("JHCWB");
-        startProcessReq.setStartUserDeptId(Optional.ofNullable(jhcwb).map(OrgDO::getId)
-                .map(String::valueOf).orElse(null));
-        processApiService.start(startProcessReq);
         defaultNewFtpStateMachine.execute(NewFtpContext.of(baseInfo, NewFtpEvent.SUBMIT_APPROVAL, baseInfo.getProcessStatus()));
     }
 
     @Transactional(rollbackFor = Throwable.class)
-    public void processEnd(Long id, Integer endType, Long startUserId, String processInstanceId) {
-        boolean processPass = ProcessBusinessStatusEnum.success(endType);
+    public void processEnd(Long id, boolean processPass, boolean processCancel, Long startUserId, String processInstanceId) {
         NewFtpBaseInfo baseInfo = baseInfoService.getById(id);
         // 修改状态
         if (processPass) {
             // 审批通过 新增版本
             defaultNewFtpStateMachine.execute(NewFtpContext.of(baseInfo, NewFtpEvent.APPROVAL_PASS, baseInfo.getProcessStatus()));
         } else {
-            if (ProcessBusinessStatusEnum.CANCEL.getType().equals(endType)) {
+            if (processCancel) {
                 if (TAKE_EFFECT.name().equals(baseInfo.getFtpRecordStatus())) {
                     defaultNewFtpStateMachine.execute(NewFtpContext.of(baseInfo, NewFtpEvent.MODIFY_WITHDRAW, baseInfo.getProcessStatus()));
                 } else {
@@ -247,7 +224,7 @@ public class NewFtpVersionService extends CommonVersionService<NewFtpBaseInfo> {
             baseInfoService.copyConfig();
         }
 
-        if (!processPass && ProcessBusinessStatusEnum.CANCEL.getType().equals(endType)) {
+        if (!processPass && processCancel) {
             reset(id);
         }
     }

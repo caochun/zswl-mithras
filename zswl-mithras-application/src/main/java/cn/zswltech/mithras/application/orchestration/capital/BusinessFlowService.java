@@ -17,6 +17,7 @@ import cn.zswltech.mithras.foundation.constant.FinancialConstants;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.capital.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.capital.enums.FinanceFlowDetailTableEnum;
+import cn.zswltech.mithras.capital.service.FinanceFlowWriteOffDetailService;
 import cn.zswltech.mithras.collection.enums.BillTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.fund.enums.DirectFinancingType;
@@ -35,10 +36,8 @@ import cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowQueryDT
 import cn.zswltech.mithras.fund.application.receiptrepay.dto.FundPlanFlowResultDTO;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayCashDepositService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundReceiptRepayExpenseService;
-import cn.zswltech.mithras.capital.persistence.mapper.writeoff.FinanceFlowWriteOffDetailMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.capital.persistence.model.writeoff.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.collection.model.BillManagement;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
@@ -126,6 +125,8 @@ public class BusinessFlowService {
     private BusinessFlowFundPaymentExporter flowFundPaymentExporter;
     @Resource
     private BusinessFlowFundCollectExporter flowFundCollectExporter;
+    @Resource
+    private FinanceFlowWriteOffDetailService financeFlowWriteOffDetailService;
 
     @Transactional(rollbackFor = Throwable.class)
     public void manualPushRepay(Collection<String> cashFlowCodeList) {
@@ -705,12 +706,11 @@ public class BusinessFlowService {
             detail.setSettleMethod(paymentMethod.getDisplay());
         }
         fundReceiptFlowDetailService.save(detail);
-        FinanceFlowWriteOffDetail financeFlowWriteOffDetail = new FinanceFlowWriteOffDetail();
-        financeFlowWriteOffDetail.setBankDetailNo(req.getBankDetailNo());
-        financeFlowWriteOffDetail.setFinanceFlowId(req.getFinanceFlowId());
-        financeFlowWriteOffDetail.setMainId(detail.getId());
-        financeFlowWriteOffDetail.setRecordMainTable(FinanceFlowDetailTableEnum.FUND_RECEIPT_FLOW_DETAIL.name());
-        getBean(FinanceFlowWriteOffDetailMapper.class).insert(financeFlowWriteOffDetail);
+        financeFlowWriteOffDetailService.create(
+                FinanceFlowDetailTableEnum.FUND_RECEIPT_FLOW_DETAIL.name(),
+                detail.getId(),
+                req.getBankDetailNo(),
+                req.getFinanceFlowId());
         if (Objects.equals(req.getSettleMethod(), PaymentMethod.PJ.name())) {
             BillManagementAddREQ billReq = req.getBillManagementAddREQ();
             // 如果是票据，保存票据信息

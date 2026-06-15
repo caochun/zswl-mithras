@@ -8,7 +8,6 @@ import cn.zswltech.mithras.dto.payment.lib.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.payment.application.PaymentUpdateAdvice;
-import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
@@ -85,8 +84,6 @@ public class PaymentPolicyInfoService extends ServiceImpl<PaymentPolicyInfoMappe
     private MessageConver messageConver;
     @Resource
     private Id2NameService id2NameService;
-    @Resource
-    private PaymentConvert paymentConvert;
     @Resource
     private PaymentPolicyExcelExporter paymentPolicyExcelExporter;
 
@@ -165,7 +162,14 @@ public class PaymentPolicyInfoService extends ServiceImpl<PaymentPolicyInfoMappe
         Map<Long, String> userId2Name = id2NameService.sysUserId2Name(list.stream().map(PaymentPolicyInfo::getCreateBy).collect(Collectors.toSet()));
         List<PaymentPolicyExcelModel> paymentPolicyExcelModel = new ArrayList<>();
         list.forEach(base -> {
-            PaymentPolicyExcelModel model = paymentConvert.base2PaymentPolicyExport(base);
+            PaymentPolicyExcelModel model = new PaymentPolicyExcelModel();
+            model.setPolicyCode(base.getPolicyCode());
+            model.setInsuranceCompany(base.getInsuranceCompany());
+            model.setInsuranceStartDate(ObjectUtil.isNull(base.getInsuranceStartDate()) ? null : base.getInsuranceStartDate().toString());
+            model.setInsuranceEndDate(ObjectUtil.isNull(base.getInsuranceEndDate()) ? null : base.getInsuranceEndDate().toString());
+            model.setRemark(base.getRemark());
+            model.setCreateBy(base.getCreateBy());
+            model.setCreateTime(ObjectUtil.isNull(base.getCreateTime()) ? null : base.getCreateTime().toLocalDate());
 
             model.setCreateByName(userId2Name.get(base.getCreateBy()));
             PolicyTypeEnum of = PolicyTypeEnum.of(base.getPolicyType());

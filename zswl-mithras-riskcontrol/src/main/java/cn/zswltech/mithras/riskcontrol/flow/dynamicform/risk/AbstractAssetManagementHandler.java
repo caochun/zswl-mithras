@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 public abstract class AbstractAssetManagementHandler implements DynamicFormHandler, InitializingBean {
 
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
     @Autowired
     @Qualifier("userServiceAPI")
@@ -91,7 +91,7 @@ public abstract class AbstractAssetManagementHandler implements DynamicFormHandl
                         .value(u)
                         .build())
                 .collect(Collectors.toList());
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(selectUserList.stream().map(SelectUserRSP::getUserId).collect(Collectors.toSet()));
+        Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(selectUserList.stream().map(SelectUserRSP::getUserId).collect(Collectors.toSet()));
         selectUserList.forEach(s -> {
             s.setUserName(userNameMap.get(s.getUserId()));
             s.setLabel(userNameMap.get(s.getUserId()));

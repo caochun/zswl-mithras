@@ -45,6 +45,8 @@ import org.springframework.web.bind.annotation.RestController;
         "cn.zswltech.mithras.margin.persistence.mapper",
         "cn.zswltech.mithras.metric.financialcloudmetric.mapper",
         "cn.zswltech.mithras.ftp.newftp.mapper",
+        "cn.zswltech.mithras.ftp.oldftp.mapper",
+        "cn.zswltech.mithras.ftp.oldftp.mapper",
         "cn.zswltech.mithras.capital.persistence.mapper.writeoff",
         "cn.zswltech.mithras.fund.persistence.mapper.credit",
         "cn.zswltech.mithras.fund.persistence.mapper.financial",

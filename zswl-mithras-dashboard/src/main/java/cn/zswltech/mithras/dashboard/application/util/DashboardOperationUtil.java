@@ -2,7 +2,7 @@ package cn.zswltech.mithras.dashboard.application.util;
 
 import cn.zswltech.mithras.dto.dashboard.operation.DashboardOperationBaseREQ;
 import cn.zswltech.mithras.dashboard.enums.DashboardAdjustPositionEnum;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.dashboard.model.DashboardAdjustPersonInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;

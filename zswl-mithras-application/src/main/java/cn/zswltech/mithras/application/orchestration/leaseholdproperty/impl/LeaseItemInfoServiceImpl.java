@@ -14,6 +14,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.ZipUtil;
 import cn.hutool.json.JSONConfig;
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
@@ -30,13 +31,14 @@ import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.file.FileUploadRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.foundation.constant.Constant;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.leaseholdproperty.enums.*;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.leaseholdproperty.excel.exporter.LeaseLedgerManageExcelExporter;
 import cn.zswltech.mithras.leaseholdproperty.excel.model.LeaseLedgerManageExcelModel;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.LeaseItemTextRender;
@@ -83,6 +85,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
+import static cn.zswltech.mithras.foundation.constant.Constant.approveStatusMap;
+import static cn.zswltech.mithras.foundation.constant.Constant.leaseItemDedupTypeParam;
 
 /**
  * @author yangxiong
@@ -310,6 +314,127 @@ public class LeaseItemInfoServiceImpl extends ServiceImpl<LeaseItemInfoMapper, L
         }
 
         return rsps;
+    }
+
+    @Override
+    public LeaseItemRedupRSP dedup(LeaseItemListREQ req) {
+        LeaseItemRedupRSP rsp = new LeaseItemRedupRSP();
+        Map<Long, Set<String>> matchDetailSet = new HashMap<>();
+        Set<Long> matchProjSet = new HashSet<>();
+        rsp.setLeaseItemListRowData(matchDetailSet);
+
+        LeaseItemInfo leaseItemInfo = this.getById(req.getId());
+        List<String> leaseItemTypes = JSONUtil.toList(leaseItemInfo.getLeaseItemTypes(), String.class);
+
+        LambdaUpdateWrapper<LeaseItemListRowData> updateRowDataWrapper = new LambdaUpdateWrapper<>();
+        updateRowDataWrapper.in(LeaseItemListRowData::getLeaseItemInfoId, leaseItemInfo.getId())
+                .set(LeaseItemListRowData::getMatchColumns, null);
+        leaseItemListRowDataService.update(updateRowDataWrapper);
+
+        for (String type : leaseItemTypes) {
+            if (!leaseItemDedupTypeParam.containsKey(type)) {
+                log.debug("租赁物内部查重不包含该类型:" + type);
+                continue;
+            }
+            Map<String, Set<String>> newDetailMap = getMapByIds(Collections.singletonList(leaseItemInfo.getId()), type);
+
+            LambdaQueryWrapper<LeaseItemInfo> wrapper = new LambdaQueryWrapper<>();
+            wrapper.like(LeaseItemInfo::getLeaseItemTypes, type);
+            wrapper.notIn(LeaseItemInfo::getId, leaseItemInfo.getId());
+            List<LeaseItemInfo> rowDataList = baseMapper.selectList(wrapper);
+            List<Long> ids = new ArrayList<>();
+            for (int i = 0; i < rowDataList.size(); i++) {
+                LeaseItemInfo info = rowDataList.get(i);
+                ids.add(info.getId());
+                if ((i + 1) % 100 == 0) {
+                    Map<String, Set<String>> detailMap = getMapByIds(ids, type);
+                    match(newDetailMap, detailMap, matchDetailSet, matchProjSet);
+                    ids = new ArrayList<>();
+                }
+            }
+            if (!ids.isEmpty()) {
+                Map<String, Set<String>> detailMap = getMapByIds(ids, type);
+                match(newDetailMap, detailMap, matchDetailSet, matchProjSet);
+            }
+        }
+        if (!matchProjSet.isEmpty()) {
+            rsp.setMatchFlag(true);
+            for (Map.Entry<Long, Set<String>> entry : matchDetailSet.entrySet()) {
+                LambdaUpdateWrapper<LeaseItemListRowData> updateWrapper = new LambdaUpdateWrapper<>();
+                updateWrapper.in(LeaseItemListRowData::getId, entry.getKey())
+                        .set(LeaseItemListRowData::getMatchColumns, String.join(",", entry.getValue()));
+                leaseItemListRowDataService.update(updateWrapper);
+            }
+
+            LambdaQueryWrapper<LeaseItemInfo> wrapper = new LambdaQueryWrapper<>();
+            wrapper.in(LeaseItemInfo::getId, matchProjSet);
+            List<LeaseItemInfo> rowDataList = baseMapper.selectList(wrapper);
+            for (LeaseItemInfo info : rowDataList) {
+                LeaseItemRedupRSP.ProjModel projModel = new LeaseItemRedupRSP.ProjModel();
+                projModel.setId(info.getId());
+                projModel.setProjName(info.getProjName());
+                projModel.setFlowId(info.getFlowId());
+                projModel.setApprovalStatus(approveStatusMap.get(info.getApprovalStatus()));
+                rsp.addProjList(projModel);
+            }
+        }
+        return rsp;
+    }
+
+    private void match(Map<String, Set<String>> newDetailMap,
+                       Map<String, Set<String>> detailMap,
+                       Map<Long, Set<String>> matchDetailMap,
+                       Set<Long> matchProjSet) {
+        for (Map.Entry<String, Set<String>> entry : newDetailMap.entrySet()) {
+            if (detailMap.containsKey(entry.getKey())) {
+                Set<String> newDetailSet = entry.getValue();
+                Set<String> detailSet = detailMap.get(entry.getKey());
+                for (String newDetailLine : newDetailSet) {
+                    String detailId = newDetailLine.split(Constant.splitLine)[0];
+                    for (String detailLine : detailSet) {
+                        String leaseItemInfoId = detailLine.split(Constant.splitLine)[1];
+                        Set<String> matchColumnSet = matchDetailMap.get(Long.parseLong(detailId));
+                        if (matchColumnSet == null) {
+                            matchColumnSet = new HashSet<>();
+                            matchDetailMap.put(Long.valueOf(detailId), matchColumnSet);
+                        }
+                        matchColumnSet.add(entry.getKey().split(Constant.splitLine)[0]);
+                        matchProjSet.add(Long.valueOf(leaseItemInfoId));
+                        log.debug("match keys " + entry.getKey()
+                                + " in lease_item_list_row_data newId " + detailId
+                                + " -> oldId " + detailLine.split(Constant.splitLine)[0]
+                                + " leaseItemInfoId is " + leaseItemInfoId);
+                    }
+                }
+            }
+        }
+    }
+
+    private Map<String, Set<String>> getMapByIds(List<Long> ids, String type) {
+        Map<String, Set<String>> result = new HashMap<>();
+        LambdaQueryWrapper<LeaseItemListRowData> wrapper = new LambdaQueryWrapper<>();
+        wrapper.in(LeaseItemListRowData::getLeaseItemInfoId, ids);
+        List<LeaseItemListRowData> lines = leaseItemListRowDataService.list(wrapper);
+        for (LeaseItemListRowData line : lines) {
+            JSONObject row = JSONUtil.parseObj(line.getRowData());
+            Map<String, Object> map = row.entrySet().stream()
+                    .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().toString()));
+
+            List<String> paramList = leaseItemDedupTypeParam.get(type);
+            String idMsg = line.getId() + Constant.splitLine + line.getLeaseItemInfoId();
+            for (String param : paramList) {
+                Object value = map.get(param);
+                if (value == null) {
+                    value = map.get(param + "*");
+                }
+                if (value == null || value.toString().trim().isEmpty() || "/".equals(value.toString())) {
+                    continue;
+                }
+                String key = param + Constant.splitLine + value;
+                result.computeIfAbsent(key, k -> new HashSet<>()).add(idMsg);
+            }
+        }
+        return result;
     }
 
     @Override
@@ -890,7 +1015,4 @@ public class LeaseItemInfoServiceImpl extends ServiceImpl<LeaseItemInfoMapper, L
         return query;
     }
 }
-
-
-
 

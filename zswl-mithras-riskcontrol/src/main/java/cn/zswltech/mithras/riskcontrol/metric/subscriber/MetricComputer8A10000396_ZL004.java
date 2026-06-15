@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;

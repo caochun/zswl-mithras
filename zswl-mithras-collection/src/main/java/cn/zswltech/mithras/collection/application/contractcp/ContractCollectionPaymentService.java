@@ -24,17 +24,19 @@ import cn.zswltech.mithras.collection.excel.model.ContractcpListExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
+import cn.zswltech.mithras.collection.application.contractcp.port.ContractCollectionMarginInfo;
+import cn.zswltech.mithras.collection.application.contractcp.port.ContractCollectionMarginPort;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -66,20 +68,24 @@ public class ContractCollectionPaymentService {
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
     @Resource
-    private MarginBaseInfoMapper marginBaseInfoMapper;
+    private ContractCollectionMarginPort contractCollectionMarginPort;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
     @Resource
     private ContractcpCashDetailExcelExporter contractcpCashDetailExcelExporter;
     @Resource
     private ContractcpListExcelExporter contractcpListExcelExporter;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDataScopeResolver currentUserDataScopeResolver;
     @Resource
     private ContractBaseInfoLibHandler baseInfoLibHandler;
 
     public PageR<ContractCollectionPaymentListRSP> list(ContractCollectionPaymentListREQ req) {
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         if (isBizUser && canViewDeptIds.isEmpty()) {
             //防止sql in报错
@@ -108,8 +114,8 @@ public class ContractCollectionPaymentService {
     public ContractInfoRSP contractInfo(ContractcpContractDetailREQ req) {
         ContractBaseInfoLib o = baseInfoLibHandler.queryLatestDataByOriginId(req.getContractId());
 //        ContractBaseInfo o = contractBaseInfoMapper.selectById(req.getContractId());
-        Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(Collections.singleton(o.getProjSponsorUserId()));
-        Map<Long, String> deptMap = id2NameService.deptId2Name(Collections.singleton(o.getBizDeptId()));
+        Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(Collections.singleton(o.getProjSponsorUserId()));
+        Map<Long, String> deptMap = deptNameResolver.deptId2Name(Collections.singleton(o.getBizDeptId()));
         ContractInfoRSP tmp = new ContractInfoRSP();
         tmp.setProjCode(o.getProjCode());
         tmp.setProjName(o.getProjName());
@@ -148,7 +154,7 @@ public class ContractCollectionPaymentService {
         tmp.setOverdueInterest(overdueInterest);
         tmp.setReceivedOverdueInterest(receivedOverdueInterest);
         tmp.setUncollectedOverdueInterest(overdueInterest - receivedOverdueInterest);
-        MarginBaseInfo info = marginBaseInfoMapper.selectOne(Wrappers.<MarginBaseInfo>lambdaQuery().eq(MarginBaseInfo::getContractId, o.getOriginId()));
+        ContractCollectionMarginInfo info = contractCollectionMarginPort.getByContractId(o.getOriginId());
         if (info != null) {
             tmp.setLastMargin(info.getCollectionAmount());
         }
@@ -174,8 +180,8 @@ public class ContractCollectionPaymentService {
         ContractInfoReceiptRSP tmp = new ContractInfoReceiptRSP();
         List<CollectionBaseInfo> baseInfos = new ArrayList<>();
         if (o != null) {
-            Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(Collections.singleton(o.getProjSponsorUserId()));
-            Map<Long, String> deptMap = id2NameService.deptId2Name(Collections.singleton(o.getBizDeptId()));
+            Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(Collections.singleton(o.getProjSponsorUserId()));
+            Map<Long, String> deptMap = deptNameResolver.deptId2Name(Collections.singleton(o.getBizDeptId()));
             tmp.setProjCode(o.getProjCode());
             tmp.setProjName(o.getProjName());
             tmp.setBizDept(deptMap.get(o.getBizDeptId()));
@@ -215,9 +221,9 @@ public class ContractCollectionPaymentService {
         tmp.setOverdueInterest(overdueInterest);
         tmp.setReceivedOverdueInterest(receivedOverdueInterest);
         tmp.setUncollectedOverdueInterest(overdueInterest - receivedOverdueInterest);
-        MarginBaseInfo info = null;
+        ContractCollectionMarginInfo info = null;
         if (o != null) {
-            info = marginBaseInfoMapper.selectOne(Wrappers.<MarginBaseInfo>lambdaQuery().eq(MarginBaseInfo::getContractId, o.getOriginId()));
+            info = contractCollectionMarginPort.getByContractId(o.getOriginId());
         }
         if (info != null) {
             tmp.setLastMargin(info.getCollectionAmount());
@@ -229,13 +235,13 @@ public class ContractCollectionPaymentService {
     public PageR<ContractRentActualInfoRSP> cashDetail(ContractCollectionPaymentDetailREQ req) {
         List<PaymentBaseInfo> paymentBaseInfos = null;
         List<CollectionBaseInfo> collectionBaseInfos = null;
-        List<MarginBaseInfo> marginBaseInfos = null;
+        List<ContractCollectionMarginInfo> marginBaseInfos = null;
         if (req.getCashtype() == null || CashSelectTypeEnum.ALL.name().equals(req.getCashtype())) {
             paymentBaseInfos = paymentBaseInfoMapper.selectList(Wrappers.<PaymentBaseInfo>lambdaQuery().eq(PaymentBaseInfo::getContractId, req.getContractId()).eq(PaymentBaseInfo::getPaymentStatus, RecordStatus.TAKE_EFFECT.name()));
             collectionBaseInfos = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery().eq(CollectionBaseInfo::getContractId, req.getContractId()));
-            marginBaseInfos = marginBaseInfoMapper.selectList(Wrappers.<MarginBaseInfo>lambdaQuery().eq(MarginBaseInfo::getContractId, req.getContractId()));
+            marginBaseInfos = contractCollectionMarginPort.listByContractId(req.getContractId());
         } else if (CashSelectTypeEnum.EARNEST_MONEY.name().equals(req.getCashtype())) {
-            marginBaseInfos = marginBaseInfoMapper.selectList(Wrappers.<MarginBaseInfo>lambdaQuery().eq(MarginBaseInfo::getContractId, req.getContractId()));
+            marginBaseInfos = contractCollectionMarginPort.listByContractId(req.getContractId());
         } else if (CashSelectTypeEnum.FIRST_RENT.name().equals(req.getCashtype()) || CashSelectTypeEnum.OTHERAMOUNT.name().equals(req.getCashtype()) || CashSelectTypeEnum.NOMINAL_PRICE.name().equals(req.getCashtype()) || CashSelectTypeEnum.EARLY_STOP_COMPENSATION.name().equals(req.getCashtype())) {
             collectionBaseInfos = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery().eq(CollectionBaseInfo::getContractId, req.getContractId())
                     .eq(CollectionBaseInfo::getCashFlowItem, req.getCashtype()));
@@ -261,7 +267,7 @@ public class ContractCollectionPaymentService {
             }
         }
         if (marginBaseInfos != null) {
-            for (MarginBaseInfo baseInfo : marginBaseInfos) {
+            for (ContractCollectionMarginInfo baseInfo : marginBaseInfos) {
                 ContractRentActualInfoRSP rsp = marginBaseInfo2ContractRentActualInfoRSP(baseInfo);
                 rsp.setRecordSource(RecordSourceEnum.MARGIN.name());
                 all.add(rsp);
@@ -298,7 +304,7 @@ public class ContractCollectionPaymentService {
     public void exportCashDetail(ContractCollectionPaymentDetailExportREQ req, ServletOutputStream outputStream) {
         List<PaymentBaseInfo> paymentBaseInfos = paymentBaseInfoMapper.selectList(Wrappers.<PaymentBaseInfo>lambdaQuery().in(PaymentBaseInfo::getPaymentCode, req.getExportRentCodeList()));
         List<CollectionBaseInfo> collectionBaseInfos = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery().in(CollectionBaseInfo::getCode, req.getExportRentCodeList()));
-        List<MarginBaseInfo> marginBaseInfos = marginBaseInfoMapper.selectList(Wrappers.<MarginBaseInfo>lambdaQuery().in(MarginBaseInfo::getMarginCode, req.getExportRentCodeList()));
+        List<ContractCollectionMarginInfo> marginBaseInfos = contractCollectionMarginPort.listByMarginCodes(req.getExportRentCodeList());
         List<ContractRentActualInfoRSP> rsps = new ArrayList<>();
         rsps.addAll(paymentBaseInfos.stream().map(this::paymentBaseInfo2ContractRentActualInfoRSP).collect(Collectors.toList()));
         rsps.addAll(collectionBaseInfos.stream().map(this::collectionBaseInfo2ContractRentActualInfoRSP).collect(Collectors.toList()));
@@ -335,7 +341,7 @@ public class ContractCollectionPaymentService {
         return rsp;
     }
 
-    private ContractRentActualInfoRSP marginBaseInfo2ContractRentActualInfoRSP(MarginBaseInfo baseInfo) {
+    private ContractRentActualInfoRSP marginBaseInfo2ContractRentActualInfoRSP(ContractCollectionMarginInfo baseInfo) {
         ContractRentActualInfoRSP rsp = new ContractRentActualInfoRSP();
         rsp.setCashItem(CashFlowItemEnum.EARNEST_MONEY.getDisplay());
         rsp.setCashFlowAmount(baseInfo.getPlanMarginAmount());
@@ -366,9 +372,9 @@ public class ContractCollectionPaymentService {
             clientIds.add(record.getClientId());
             deptIds.add(record.getBizDeptId());
         }
-        Map<Long, String> clientMap = id2NameService.clientId2Name(clientIds);
-        Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(sysUserIds);
-        Map<Long, String> deptMap = id2NameService.deptId2Name(deptIds);
+        Map<Long, String> clientMap = clientNameResolver.clientId2Name(clientIds);
+        Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(sysUserIds);
+        Map<Long, String> deptMap = deptNameResolver.deptId2Name(deptIds);
 
         for (ContractBaseInfoLib o : infos) {
             ContractCollectionPaymentListRSP tmp = new ContractCollectionPaymentListRSP();
@@ -440,7 +446,7 @@ public class ContractCollectionPaymentService {
                 break;
             }
             case EARNEST_MONEY: {
-                MarginBaseInfo marginBaseInfo = marginBaseInfoMapper.selectOne(Wrappers.<MarginBaseInfo>lambdaQuery().eq(MarginBaseInfo::getContractId, contractId));
+                ContractCollectionMarginInfo marginBaseInfo = contractCollectionMarginPort.getByContractId(contractId);
                 if (marginBaseInfo == null) {
                     break;
                 }
@@ -481,12 +487,12 @@ public class ContractCollectionPaymentService {
                 break;
             }
             case EARNEST_MONEY: {
-                List<MarginBaseInfo> marginBaseInfos =
-                        marginBaseInfoMapper.selectList(Wrappers.<MarginBaseInfo>lambdaQuery().in(MarginBaseInfo::getContractId, contractIds));
+                List<ContractCollectionMarginInfo> marginBaseInfos =
+                        contractCollectionMarginPort.listByContractIds(contractIds);
                 if (marginBaseInfos == null) {
                     break;
                 }
-                for (MarginBaseInfo base : marginBaseInfos) {
+                for (ContractCollectionMarginInfo base : marginBaseInfos) {
                     collection = collection + base.getCollectionAmount();
                 }
                 break;

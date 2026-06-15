@@ -15,9 +15,12 @@ import cn.zswltech.mithras.kpi.model.KpiProjGuessBaseInfo;
 import cn.zswltech.mithras.kpi.model.KpiProjGuessDivide;
 import cn.zswltech.mithras.kpi.application.projguess.KpiProjGuessDivideService;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionWeightLib;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionWeightLibService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.ContractNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -43,9 +46,15 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
     @Resource
     private KpiProjGuessBaseInfoMapper kpiProjGuessBaseInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
     @Resource
-    private SysUserService sysUserService;
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private ContractNameResolver contractNameResolver;
+    @Resource
+    private CurrentUserJobResolver currentUserJobResolver;
     @Resource
     private KpiProjGuessDivideService kpiProjGuessDivideService;
     @Resource
@@ -81,10 +90,10 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
         List<KpiProjGuessContractIndexRSP> rsps = new ArrayList<>();
         if(ObjectUtil.isNotEmpty(contractGuess.getRecords())){
             //id2name
-            Map<Long, String> receiptId2Name = id2NameService.receiptId2Name(contractGuess.getRecords().stream().map(KpiProjGuessContractDTO::getReceiptId).collect(Collectors.toSet()));
+            Map<Long, String> receiptId2Name = contractNameResolver.receiptId2Name(contractGuess.getRecords().stream().map(KpiProjGuessContractDTO::getReceiptId).collect(Collectors.toSet()));
             rsps = BeanUtil.copyToList(contractGuess.getRecords(), KpiProjGuessContractIndexRSP.class);
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(rsps.stream().map(KpiProjGuessContractIndexRSP::getBelongDeptId).collect(Collectors.toList()));
-            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(rsps.stream().map(KpiProjGuessContractIndexRSP::getSponsorUserId).collect(Collectors.toList()));
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(rsps.stream().map(KpiProjGuessContractIndexRSP::getBelongDeptId).collect(Collectors.toList()));
+            Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(rsps.stream().map(KpiProjGuessContractIndexRSP::getSponsorUserId).collect(Collectors.toList()));
             rsps.forEach(base -> {
                 base.setBelongDeptName(deptId2Name.get(base.getBelongDeptId()));
                 base.setSponsorUserName(userId2Name.get(base.getSponsorUserId()));
@@ -96,7 +105,7 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
     }
 
     private Long authCheck(){
-       return sysUserService.currentUserIsSpecificJob(XMJL) ? AccountUtil.getLoginInfo().getId() : null;
+       return currentUserJobResolver.currentUserIsSpecificJob(XMJL) ? AccountUtil.getLoginInfo().getId() : null;
     }
 
     //时间列表 一月一条
@@ -187,8 +196,8 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
                     }
                 }
             });
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptSet);
-            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(userSet);
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptSet);
+            Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(userSet);
             rsps = new ArrayList<>();
             if(ObjectUtil.isNotEmpty(deptRspMap.values())){
                 rsps.addAll(deptRspMap.values());
@@ -268,7 +277,7 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
        Page<KpiProjGuessDetailDTO> detailGuessList = kpiProjGuessBaseInfoMapper.getDetailGuess(new Page<>(req.getPage(), req.getPageSize()), kpiProjDetailParam);
        List<KpiProjGuessDetailRSP> rsps = buildKpiProjGuessDetailRSP(detailGuessList.getRecords());
        //id2name
-       Map<Long, String> receiptId2Name = id2NameService.receiptId2Name(rsps.stream().map(KpiProjGuessDetailRSP::getReceiptId).collect(Collectors.toSet()));
+       Map<Long, String> receiptId2Name = contractNameResolver.receiptId2Name(rsps.stream().map(KpiProjGuessDetailRSP::getReceiptId).collect(Collectors.toSet()));
        rsps.forEach(e -> {
            e.setReceiptCode(receiptId2Name.get(e.getReceiptId()));
        });
@@ -307,8 +316,8 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
                     userSet.add(rsp.getDivideTarget());
                 }
             });
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptSet);
-            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(userSet);
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptSet);
+            Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(userSet);
             kpiProjGuessPeopleDetailRSPS.forEach(rsp -> {
                 if(KpiProjectWeightTypeEnum.BUSINESS_DEPT.name().equals(rsp.getDivideType())){
                     rsp.setDivideTargetName(deptId2Name.get(rsp.getDivideTarget()));
@@ -378,8 +387,8 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
                 longs.add(datail.getProjectDistributionId());
                 versionProjDistributionIdMap.put(datail.getVersion(), longs);
             });
-            Map<Long, String> deptId2NameMap = id2NameService.deptId2Name(deptIdSet);
-            Map<Long, String> userId2NameMap = id2NameService.sysUserId2Name(userSet);
+            Map<Long, String> deptId2NameMap = deptNameResolver.deptId2Name(deptIdSet);
+            Map<Long, String> userId2NameMap = userNameResolver.sysUserId2Name(userSet);
             //查询占比数据
             Map<String, Integer> weightMap = new HashMap<>();
             List<KpiProjectDistributionWeightLib> weights = new ArrayList<>();
@@ -486,7 +495,7 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
         List<KpiProjGuessProjManageDetailRSP> detailDeptRSPS = BeanUtil.copyToList(kpiProjGuessBaseInfoMapper.projManagerDivideTypeDetail(BeanUtil.copyProperties(req, KpiProjGuessProjDetailParam.class)), KpiProjGuessProjManageDetailRSP.class);
         Map<Long, List<KpiProjGuessProjManageDetailRSP>> deptMap = new HashMap<>();
         if(ObjectUtil.isNotEmpty(detailDeptRSPS)) {
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(detailDeptRSPS.stream().map(KpiProjGuessProjManageDetailRSP::getDeptId).collect(Collectors.toList()));
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(detailDeptRSPS.stream().map(KpiProjGuessProjManageDetailRSP::getDeptId).collect(Collectors.toList()));
             detailDeptRSPS.stream().filter(ObjectUtil::isNotEmpty).forEach( e -> {
                 e.setDeptName(deptId2Name.get(e.getDeptId()));
                 e.setDivideTargetName(BMC);
@@ -495,8 +504,8 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
         }
 
         if (ObjectUtil.isNotEmpty(kpiProjGuessProjManageDetailRSPS)) {
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(kpiProjGuessProjManageDetailRSPS.stream().map(KpiProjGuessProjManageDetailRSP::getDeptId).collect(Collectors.toList()));
-            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(kpiProjGuessProjManageDetailRSPS.stream().map(KpiProjGuessProjManageDetailRSP::getDivideTargetId).collect(Collectors.toList()));
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(kpiProjGuessProjManageDetailRSPS.stream().map(KpiProjGuessProjManageDetailRSP::getDeptId).collect(Collectors.toList()));
+            Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(kpiProjGuessProjManageDetailRSPS.stream().map(KpiProjGuessProjManageDetailRSP::getDivideTargetId).collect(Collectors.toList()));
             kpiProjGuessProjManageDetailRSPS.stream().filter(ObjectUtil::isNotEmpty).forEach(e -> {
                 e.setDeptName(deptId2Name.get(e.getDeptId()));
                 e.setDivideTargetName(userId2Name.get(e.getDivideTargetId()));
@@ -609,8 +618,8 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
         this.getOther(deptIds, clientIds, nibp);
 
 
-        Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptIds);
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientIds);
+        Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptIds);
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIds);
         //填充本年存量公共事业类
         if(ObjectUtil.isNotEmpty(hpps)) {
             hpps.forEach(e -> {
@@ -895,7 +904,7 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
             resultRsps.add(addKpiProjGuessProjManagerCompletionDetailRSP(details));
         });
         this.sumKpiProjGuessProjManagerCompletionDetailRSP(resultRsps);
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(resultRsps.stream().map(KpiProjGuessProjManagerCompletionDetailRSP::getDivideTarget).collect(Collectors.toList()));
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(resultRsps.stream().map(KpiProjGuessProjManagerCompletionDetailRSP::getDivideTarget).collect(Collectors.toList()));
         resultRsps.forEach(e -> {
             e.setDivideTargetName(userId2Name.get(e.getDivideTarget()));
         });
@@ -976,8 +985,8 @@ public class KpiProjGuessBaseInfoService extends ServiceImpl<KpiProjGuessBaseInf
         });
         List<KpiProjGuessDeptPooleDetailRSP> kpiProjGuessDeptPooleDetailRSPS = new ArrayList<>(sponsorMap.values());
         if (ObjectUtil.isNotEmpty(kpiProjGuessDeptPooleDetailRSPS)) {
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(kpiProjGuessDeptPooleDetailRSPS.stream().map(KpiProjGuessDeptPooleDetailRSP::getDeptId).collect(Collectors.toList()));
-            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(kpiProjGuessDeptPooleDetailRSPS.stream().map(KpiProjGuessDeptPooleDetailRSP::getDivideTarget).collect(Collectors.toList()));
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(kpiProjGuessDeptPooleDetailRSPS.stream().map(KpiProjGuessDeptPooleDetailRSP::getDeptId).collect(Collectors.toList()));
+            Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(kpiProjGuessDeptPooleDetailRSPS.stream().map(KpiProjGuessDeptPooleDetailRSP::getDivideTarget).collect(Collectors.toList()));
             kpiProjGuessDeptPooleDetailRSPS.forEach(e -> {
                 e.setDeptName(deptId2Name.get(e.getDeptId()));
                 e.setDivideTargetName(userId2Name.get(e.getDivideTarget()));

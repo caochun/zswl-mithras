@@ -10,7 +10,7 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.OrgCodeResolver;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.pricing.dto.ContractPriceQueryDto;
 import cn.zswltech.mithras.foundation.util.LongUtil;
@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
 public class CurrentYearBusinessPayReceiptService implements CurrentYearBusinessPayReceiptApplicationService {
 
     @Resource
-    private SysUserService sysUserService;
+    private OrgCodeResolver orgCodeResolver;
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
@@ -71,8 +71,8 @@ public class CurrentYearBusinessPayReceiptService implements CurrentYearBusiness
         paymentActualDetails = paymentActualDetails.stream().filter(item -> queryPriceDtoList.stream().map(ContractPriceQueryDto::getContractId).collect(Collectors.toList()).contains(item.getContractId())  &&
                 Objects.nonNull(finalIrrMap.get(item.getContractId()))).collect(Collectors.toList());
         // 将浙江业务部和公用事业业务部找到
-        Long zjDept = sysUserService.getOrgIdByCode("JCSSYWB");
-        Long ggDept = sysUserService.getOrgIdByCode("GGSY");
+        Long zjDept = orgCodeResolver.getOrgIdByCode("JCSSYWB");
+        Long ggDept = orgCodeResolver.getOrgIdByCode("GGSY");
         List<Long> zjAndGgDeptList = CollUtil.newArrayList(zjDept, ggDept);
         CurrentYearBusinessPayReceiptRateListRSP rsp = new CurrentYearBusinessPayReceiptRateListRSP();
         // 4、根据月份分组，计算出月度投放金额，月度投放完成率

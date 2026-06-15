@@ -19,16 +19,14 @@ public class CashFlowCodeListREQ {
     private Long contractId;
 
     /**
-     * {@link cn.zswltech.mithras.capital.enums.BankFlowPaymentCollectionTypeEnum}
+     * 收付款类型枚举 name
      */
     @ApiModelProperty(value = "收付款类型")
     @NotBlank(message = "收款类型不能为空")
     private String writeOffType;
 
     /**
-     * 现金流项目枚举name
-     * {@link cn.zswltech.mithras.capital.enums.FinanceCollectionWriteOffOrderEnum}
-     * {@link cn.zswltech.mithras.capital.enums.FinancePaymentWriteOffOrderEnum}
+     * 收款/付款现金流项目枚举 name
      */
     @ApiModelProperty(value = "现金流项目枚举name")
     @NotBlank(message = "现金流项目不能为空")

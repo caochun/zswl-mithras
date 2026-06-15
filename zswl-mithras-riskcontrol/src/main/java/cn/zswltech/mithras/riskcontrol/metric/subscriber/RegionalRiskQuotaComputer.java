@@ -3,7 +3,7 @@ package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.ClientDetail;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
 import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewBaseInfoLibMapper;
@@ -11,7 +11,7 @@ import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
@@ -41,7 +41,7 @@ public abstract class RegionalRiskQuotaComputer extends AbstractMetricComputer {
     @Resource
     private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
 
     protected abstract List<ProjRegionalClassify > getRegionalProjectClassify();
 
@@ -98,7 +98,7 @@ public abstract class RegionalRiskQuotaComputer extends AbstractMetricComputer {
         if (clientIdToDeposit != null) {
             clientIds.addAll(clientIdToDeposit.keySet());
         }
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientIds);
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIds);
         // 生成客户明细数据
         Map<Long, ClientDetail> clientId2Detail = new HashMap<>();
         clientIdToRemaining.forEach((clientId, remaining) -> {

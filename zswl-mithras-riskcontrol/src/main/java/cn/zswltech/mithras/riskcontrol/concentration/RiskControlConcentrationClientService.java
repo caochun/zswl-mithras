@@ -7,7 +7,7 @@ import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorValue;
 import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationClientConverter;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.assetclassify.mapper.lib.AssetClassifyClientAuxiliaryLibMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpAddressInfoLibMapper;
@@ -19,8 +19,8 @@ import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlMetricStrategyService;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlMarginPort;
 import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -64,7 +64,7 @@ public class RiskControlConcentrationClientService
     @Resource
     private RiskControlConcentrationClientConverter baseConverter;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
     @Resource
     private RiskMetricFactorQueryService factorService;
     @Resource
@@ -76,7 +76,7 @@ public class RiskControlConcentrationClientService
     @Resource
     private ClientMapper clientMapper;
     @Resource
-    private MarginBaseInfoService marginBaseInfoService;
+    private RiskControlMarginPort riskControlMarginPort;
 
     @XxlJob("riskControlConcentrationClientJobHandler")
     public void riskControlConcentrationClientJobHandler() {
@@ -93,7 +93,7 @@ public class RiskControlConcentrationClientService
                     clientIds.add(corpCommerceInfoLib.getBelongGroupClientId());
                 }
             });
-            Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientIds);
+            Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIds);
 
             Map<Long, CorpCommerceInfoLib> clientsMap = corpCommerceInfoLibs.stream()
                     .collect(Collectors.toMap(ClientBaseModel::getClientId, item -> item, (k1, k2) -> k2));
@@ -115,7 +115,7 @@ public class RiskControlConcentrationClientService
             // 计算所有存在逾期的客户的逾期金额
             Map<Long, Long> clientIdToOverdueAmount = remainingPrincipalService.overdueAmountGroupByClient();
             // 计算所有客户的保证金余额
-            Map<Long, Long> clientIdToMargin = marginBaseInfoService.getClientMarginBalances(clientsMap.keySet());
+            Map<Long, Long> clientIdToMargin = riskControlMarginPort.getClientMarginBalances(clientsMap.keySet());
             //获取客户信息
             Map<Long, Long> clientSponsorMap = clientMapper.selectBatchIds(clientsMap.keySet()).stream().filter(e -> Objects.nonNull(e.getBelongSponsorId())).collect(Collectors.toMap(Client::getId, Client::getBelongSponsorId));
             // 查询当月数据

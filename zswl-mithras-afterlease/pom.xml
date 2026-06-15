@@ -64,17 +64,7 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-system</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-riskcontrol</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-margin</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

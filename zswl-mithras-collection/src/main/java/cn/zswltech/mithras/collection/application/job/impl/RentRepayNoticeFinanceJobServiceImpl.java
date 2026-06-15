@@ -9,7 +9,7 @@ import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.JobUserResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -40,7 +40,7 @@ public class RentRepayNoticeFinanceJobServiceImpl implements RentRepayNoticeFina
     @Resource
     private CollectionNotificationPort notificationPort;
     @Resource
-    private SysUserService sysUserService;
+    private JobUserResolver jobUserResolver;
 
     @Override
     public void rentRepayNoticeFinance() {
@@ -74,9 +74,9 @@ public class RentRepayNoticeFinanceJobServiceImpl implements RentRepayNoticeFina
 
                 //发送通知
                 Set<Long> userIds = new HashSet<>();
-                userIds.addAll(sysUserService.queryJobUserIds(JobEnum.cashier.name()));
-                userIds.addAll(sysUserService.queryJobUserIds(JobEnum.financialmanager.name()));
-                userIds.addAll(sysUserService.queryJobUserIds(JobEnum.financialofficer.name()));
+                userIds.addAll(jobUserResolver.jobUsers(JobEnum.cashier.name()));
+                userIds.addAll(jobUserResolver.jobUsers(JobEnum.financialmanager.name()));
+                userIds.addAll(jobUserResolver.jobUsers(JobEnum.financialofficer.name()));
                 if (CollUtil.isNotEmpty(userIds) && buffer.length() > 0) {
                     String relation = String.format("合同编号为：%s已经过了收款时间还未核销，请尽快核销，否则可能造成逾期！", buffer);
                     for (Long userId : userIds) {

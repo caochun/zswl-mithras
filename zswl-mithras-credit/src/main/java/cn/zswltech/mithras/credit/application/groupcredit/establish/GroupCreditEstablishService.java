@@ -1,22 +1,12 @@
 package cn.zswltech.mithras.credit.application.groupcredit.establish;
 
 import cn.hutool.core.collection.ListUtil;
-import cn.hutool.core.lang.Pair;
-import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.flow.core.api.FlowProcessApiService;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.StartProcessReq;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
-import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.credit.groupcredit.establish.enums.GroupCreditEstablishProcessStatus;
@@ -25,8 +15,6 @@ import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstabl
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfoLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.workflow.process.BizProcessDataService;
-import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.credit.groupcredit.establish.versioning.GroupCreditEstablishVersionServiceImpl;
 import cn.zswltech.mithras.validation.ControllerMissParamException;
 import com.alibaba.fastjson.JSON;
@@ -41,7 +29,6 @@ import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,72 +49,47 @@ public class GroupCreditEstablishService {
     @Resource
     private GroupCreditEstablishVersionServiceImpl groupCreditEstablishVersionService;
     @Resource
-    private FlowProcessApiService processApiService;
-    @Resource
-    private FlowTaskApiService taskApiService;
-
-    @Resource
     private GroupCreditEstablishContractPort groupCreditEstablishContractPort;
     @Resource
-    private BizProcessDataService bizProcessDataService;
-    @Resource
-    private SysUserService sysUserService;
+    private GroupCreditEstablishProcessPort groupCreditEstablishProcessPort;
 
     @Transactional(rollbackFor = Throwable.class)
     public void effect(@NotNull Long groupCreditEstablishId) {
         GroupCreditEstablishBaseInfo baseInfo = groupCreditEstablishBaseInfoMapper.selectById(groupCreditEstablishId);
-        StartProcessReq startProcessReq = new StartProcessReq();
-        // 判断使用创建流程还是修改流程
-        if (RecordStatus.NEW.name().equals(baseInfo.getGroupCreditEstablishStatus())) {
-            startProcessReq.setModelKey(ProcessModelTypeEnum.GroupCreditEstablishCreateFlow.name());
-        } else {
-            startProcessReq.setModelKey(ProcessModelTypeEnum.GroupCreditEstablishModifyFlow.name());
-        }
-
         List<String> riskControlManagerIds = new ArrayList<>();
         if (ObjectUtil.isNotEmpty(baseInfo.getRiskControlManagerId())) {
             riskControlManagerIds.addAll(JSON.parseObject(baseInfo.getRiskControlManagerId(), new TypeReference<List<String>>() {
             }));
         }
-        startProcessReq.setVariables(MapUtil.of(
-                Pair.of("projEstablishApprovalType", baseInfo.getApprovalType()),
-                Pair.of("bizDeptLeader", Objects.nonNull(baseInfo.getBizDeptLeaderId()) ? ListUtil.toList(String.valueOf(baseInfo.getBizDeptLeaderId())) : new ArrayList<>()),
-                Pair.of("bizDivisionLeader", Objects.nonNull(baseInfo.getBizDivisionLeaderId()) ? ListUtil.toList(String.valueOf(baseInfo.getBizDivisionLeaderId())) : new ArrayList<>()),
-                Pair.of("riskControlManager", riskControlManagerIds)
-        ));
-        startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo())
+        GroupCreditEstablishProcessStartCommand command = new GroupCreditEstablishProcessStartCommand();
+        command.setCreateFlow(RecordStatus.NEW.name().equals(baseInfo.getGroupCreditEstablishStatus()));
+        command.setApprovalType(baseInfo.getApprovalType());
+        command.setBizDeptLeaderIds(Objects.nonNull(baseInfo.getBizDeptLeaderId()) ? ListUtil.toList(String.valueOf(baseInfo.getBizDeptLeaderId())) : new ArrayList<>());
+        command.setBizDivisionLeaderIds(Objects.nonNull(baseInfo.getBizDivisionLeaderId()) ? ListUtil.toList(String.valueOf(baseInfo.getBizDivisionLeaderId())) : new ArrayList<>());
+        command.setRiskControlManagerIds(riskControlManagerIds);
+        command.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo())
                 .map(AccountVO::getId)
                 .map(String::valueOf)
                 .orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
-        startProcessReq.setBusinessKey(String.valueOf(groupCreditEstablishId));
-        startProcessReq.setSubModule("DEFAULT");
-        startProcessReq.setProcessInstanceName(baseInfo.getProjName());
-        startProcessReq.setCcUserIdList(StringUtils.isBlank(baseInfo.getProjCosponsorUserIds()) ? new ArrayList<>() : JSONUtil.parseArray(baseInfo.getProjCosponsorUserIds()).toList(String.class));
-        startProcessReq.setStartUserDeptId(Optional.ofNullable(baseInfo.getBizDeptId()).map(String::valueOf).orElse(null));
-        String processInstanceId = processApiService.start(startProcessReq);
-        bizProcessDataService.recordBizData(processInstanceId, baseInfo.getClientId());
+        command.setBusinessKey(String.valueOf(groupCreditEstablishId));
+        command.setSubModule("DEFAULT");
+        command.setProcessInstanceName(baseInfo.getProjName());
+        command.setCcUserIdList(StringUtils.isBlank(baseInfo.getProjCosponsorUserIds()) ? new ArrayList<>() : JSONUtil.parseArray(baseInfo.getProjCosponsorUserIds()).toList(String.class));
+        command.setStartUserDeptId(Optional.ofNullable(baseInfo.getBizDeptId()).map(String::valueOf).orElse(null));
+        command.setClientId(baseInfo.getClientId());
+        groupCreditEstablishProcessPort.start(command);
 
         recordEstablishStatus(groupCreditEstablishId, null, RecordStatus.NEW.name().equals(baseInfo.getGroupCreditEstablishStatus())
                 ? GroupCreditEstablishProcessStatus.NEW_UNDER_APPROVAL : GroupCreditEstablishProcessStatus.CHANGING_UNDER_APPROVAL);
     }
 
-    public ProcessResp findRelatedProcess(Long groupCreditEstablishId) {
-        ProcessPageReq processPageReq = new ProcessPageReq();
-        processPageReq.setPageIndex(1);
-        processPageReq.setPageSize(1);
-        processPageReq.setBusinessKey(String.valueOf(groupCreditEstablishId));
-        processPageReq.setModelKeyList(Arrays.asList(
-                ProcessModelTypeEnum.GroupCreditEstablishCreateFlow.name(),
-                ProcessModelTypeEnum.GroupCreditEstablishModifyFlow.name()
-        ));
-        processPageReq.setProcessStatusList(Arrays.asList(ProcessBusinessStatusEnum.RUNNING.getType(), ProcessBusinessStatusEnum.SUSPEND.getType()));
-        cn.zswltech.flow.core.util.Page<ProcessResp> processRespPage = taskApiService.queryProcess(processPageReq);
-        return processRespPage.getContents().stream().findFirst().orElse(null);
+    public GroupCreditEstablishProcessInfo findRelatedProcess(Long groupCreditEstablishId) {
+        return groupCreditEstablishProcessPort.findRelatedProcess(groupCreditEstablishId);
     }
 
     @Transactional(rollbackFor = Exception.class)
     public void processEnd(String modelKey, Long groupCreditEstablishId, Integer endType, Long startUserId, String processInstanceId) {
-        boolean processPass = ProcessBusinessStatusEnum.success(endType);
+        boolean processPass = groupCreditEstablishProcessPort.isProcessPass(endType);
         GroupCreditEstablishBaseInfo baseInfo = groupCreditEstablishBaseInfoMapper.selectById(groupCreditEstablishId);
         // 填充风险敞口
         baseInfo.setClientRiskExposure(groupCreditEstablishContractPort.getGroupCreditStockRiskExposure(baseInfo.getClientId()));
@@ -188,12 +150,12 @@ public class GroupCreditEstablishService {
         if (Objects.isNull(loginUser)) {
             return false;
         }
-        ProcessResp processResp = findRelatedProcess(groupCreditEstablishId);
+        GroupCreditEstablishProcessInfo processResp = findRelatedProcess(groupCreditEstablishId);
         if (processResp == null) {
             // 运行中流程为空 可以保存
             return true;
         }
-        if (!FlowConstants.START_USER_TASK.equals(processResp.getCurTaskActivityIds())) {
+        if (!groupCreditEstablishProcessPort.isStartUserTask(processResp)) {
             // 有运行中流程 不在发起人节点 不能保存
             return false;
         }
@@ -202,6 +164,10 @@ public class GroupCreditEstablishService {
             return false;
         }
         return true;
+    }
+
+    public boolean isStartUserNode(GroupCreditEstablishProcessInfo processInfo) {
+        return groupCreditEstablishProcessPort.isStartUserTask(processInfo);
     }
 
     public boolean clientRelatedGroupCreditEstablish(Long clientId) {

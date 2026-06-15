@@ -1,18 +1,16 @@
 package cn.zswltech.mithras.filingmaterials.gendoc.render;
 
 import cn.hutool.core.lang.Assert;
-import cn.zswl.oss.core.OssClient;
 import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.filingmaterials.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.filingmaterials.application.port.FilingMaterialsContractInfoPort;
+import cn.zswltech.mithras.filingmaterials.application.port.model.FilingMaterialsContractInfo;
 import cn.zswltech.mithras.filingmaterials.enums.BusinessMaterialsDocNameEnum;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.config.Configure;
 import com.deepoove.poi.plugin.table.LoopRowTableRenderPolicy;
@@ -37,31 +35,30 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  */
 @Component
 @Slf4j
-public class BusinessMaterialsInnerOperationRender extends AbstractBasicRender<HashMap> {
+public class BusinessMaterialsInnerOperationRender {
     @Resource
-    Id2NameService id2NameService;
+    UserNameResolver userNameResolver;
     @Resource
-    private OssClient ossClient;
+    private FilingMaterialsContractInfoPort filingMaterialsContractInfoPort;
 
-    @Override
     public String render(OutputStream outputStream, HashMap map) throws Exception {
         Assert.notNull(map.get(FilingMaterialsConstants.CONTRACT_ID), () -> MithrasException.newException("资料归档-业务资料-基础资料模板填充失败，不存在合同ID"));
         Assert.notNull(map.get(FilingMaterialsConstants.TEMPLATE_TYPE), () -> MithrasException.newException("资料归档-业务资料-基础资料模板填充失败，不存在模板"));
         Long contractId = Long.valueOf(map.get(FilingMaterialsConstants.CONTRACT_ID).toString());
         BusinessMaterialsDocNameEnum templateType = (BusinessMaterialsDocNameEnum) map.get(FilingMaterialsConstants.TEMPLATE_TYPE);
-        ContractBaseInfo contractBaseInfo = getBean(ContractBaseInfoService.class).getById(contractId);
-        Assert.notNull(contractBaseInfo, () -> MithrasException.newException("资料归档-业务资料-基础资料模板填充失败,合同信息不存在"));
+        FilingMaterialsContractInfo contractInfo = filingMaterialsContractInfoPort.getById(contractId);
+        Assert.notNull(contractInfo, () -> MithrasException.newException("资料归档-业务资料-基础资料模板填充失败,合同信息不存在"));
 
         Map<String, Object> renderMap = new HashMap<>();
-        renderMap.put(FilingMaterialsConstants.CONTRACT_CODE, contractBaseInfo.getContractCode());
+        renderMap.put(FilingMaterialsConstants.CONTRACT_CODE, contractInfo.getContractCode());
         /*项目主办*/
-        String belongName = id2NameService.sysUserId2NameSingle(contractBaseInfo.getProjSponsorUserId());
+        String belongName = userNameResolver.sysUserId2NameSingle(contractInfo.getProjSponsorUserId());
         if(map.containsKey(FilingMaterialsConstants.GENERATE_MANAGE_FLAG)
                 && Objects.equals(YesOrNoNumberEnum.NO.getCode(),Integer.valueOf(map.get(FilingMaterialsConstants.GENERATE_MANAGE_FLAG).toString()))){
             belongName = "   ";
         }
         renderMap.put(FilingMaterialsConstants.BELONG_NAME, belongName);
-        renderMap.put(FilingMaterialsConstants.PROJ_NAME, contractBaseInfo.getProjName());
+        renderMap.put(FilingMaterialsConstants.PROJ_NAME, contractInfo.getProjName());
         /*动态生成表格额外处理*/
         List<SelectRSP> list = (List<SelectRSP>) map.get("innerTableList");
         list.removeIf(selectRSP -> Objects.equals(FilingMaterialsConstants.BASIC_INFORMATION, selectRSP.getValue()));

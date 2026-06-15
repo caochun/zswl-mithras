@@ -5,7 +5,7 @@ import cn.zswltech.mithras.dto.riskcontrol.ClientDetail;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
@@ -36,7 +36,7 @@ public abstract class RiskControlClassifyMetricComputer extends AbstractMetricCo
     @Resource
     private RemainingPrincipalService remainingPrincipalServiceImpl;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
 
     public abstract List<String> getIndustryClassify();
 
@@ -81,7 +81,7 @@ public abstract class RiskControlClassifyMetricComputer extends AbstractMetricCo
         if (clientIdToDeposit != null) {
             clientIds.addAll(clientIdToDeposit.keySet());
         }
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientIds);
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIds);
         // 生成客户明细数据
         Map<Long, ClientDetail> clientId2Detail = new HashMap<>();
         clientIdToRemaining.forEach((clientId, remaining) -> {

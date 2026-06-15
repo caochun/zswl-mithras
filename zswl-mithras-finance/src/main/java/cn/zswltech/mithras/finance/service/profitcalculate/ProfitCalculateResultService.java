@@ -34,7 +34,6 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDeta
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestBaseInfo;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpInterestDetailRecord;
 import cn.zswltech.mithras.kpi.model.KpiParameterConfig;
-import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.finance.mapper.query.ProfitCalculateResultQuery;
@@ -45,7 +44,6 @@ import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliary
 import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
 import cn.zswltech.mithras.contract.versioning.service.ContractReceiptLibService;
 import cn.zswltech.mithras.contract.versioning.service.ContractRentActualLibService;
-import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -79,8 +77,6 @@ public class ProfitCalculateResultService extends ServiceImpl<ProfitCalculateRes
     private ContractReceiptLibService contractReceiptLibService;
     @Resource
     private ContractRentActualLibService contractRentActualLibService;
-    @Resource
-    private MarginBaseInfoService marginBaseInfoService;
     @Resource
     private KpiParameterConfigService kpiParameterConfigService;
     @Resource
@@ -561,13 +557,13 @@ public class ProfitCalculateResultService extends ServiceImpl<ProfitCalculateRes
     }
 
     private Long calculateRemainingEarnestEndOfThisYearSingleReceipt(ContractReceiptLib contractReceiptLib) {
-        MarginBaseInfo marginBaseInfo = marginBaseInfoService.getMarginBaseInfoByContractId(contractReceiptLib.getContractId());
-        if (Objects.nonNull(marginBaseInfo) && Objects.nonNull(marginBaseInfo.getCollectionAmount())) {
+        Long marginCollectionAmount = profitCalculateSupportPort.getMarginCollectionAmountByContractId(contractReceiptLib.getContractId());
+        if (Objects.nonNull(marginCollectionAmount)) {
             // 按照付款比例进行拆分
             List<PaymentBaseInfo> allPayment = profitCalculateSupportPort.listEffectPaymentByContractId(contractReceiptLib.getContractId());
             double total = allPayment.stream().mapToDouble(item -> Optional.ofNullable(item.getEarnestMoney()).orElse(0L)).sum();
             double currentReceipt = allPayment.stream().filter(item -> Objects.equals(item.getReceiptId(), contractReceiptLib.getOriginId())).mapToDouble(item -> Optional.ofNullable(item.getEarnestMoney()).orElse(0L)).sum();
-            return mithrasLongDecimalTwo((long) (marginBaseInfo.getCollectionAmount() * (currentReceipt / total)));
+            return mithrasLongDecimalTwo((long) (marginCollectionAmount * (currentReceipt / total)));
         }
         return 0L;
     }

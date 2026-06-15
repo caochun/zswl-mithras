@@ -2,7 +2,6 @@ package cn.zswltech.mithras.ftp.oldftp.service.application.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswl.oss.core.OssClient;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.ftp.FtpGuidanceIdReq;
 import cn.zswltech.mithras.dto.ftp.FtpQuarterlyBasePricingRsp;
@@ -24,13 +23,14 @@ import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyGuidance;
 import cn.zswltech.mithras.ftp.oldftp.service.application.FtpQuarterlyGuidanceApplicationService;
 import cn.zswltech.mithras.ftp.oldftp.service.application.FtpQuarterlyGuidanceExportInfo;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceVersionService;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.ftp.oldftp.service.port.FtpGuidanceProcessInfo;
+import cn.zswltech.mithras.foundation.port.AdminAuthResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDeptResolver;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -55,7 +55,9 @@ public class FtpQuarterlyGuidanceApplicationServiceImpl implements FtpQuarterlyG
     @Resource
     private FtpQuarterlyGuidanceVersionService quarterlyGuidanceVersionService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDeptResolver currentUserDeptResolver;
+    
+    private AdminAuthResolver adminAuthResolver;
 
     @Override
     public Long add(FtpQuarterlyGuidanceAddReq req) {
@@ -145,10 +147,9 @@ public class FtpQuarterlyGuidanceApplicationServiceImpl implements FtpQuarterlyG
         if (isNull(guidance)) {
             throw new MithrasException(RECORD_NOT_EXIST);
         }
-        ProcessResp relatedProcess = quarterlyGuidanceService.findRelatedProcess(id);
+        FtpGuidanceProcessInfo relatedProcess = quarterlyGuidanceService.findRelatedProcess(id);
         if (ObjectUtil.isNotEmpty(relatedProcess)) {
-            ProcessModelTypeEnum modelTypeEnum = ProcessModelTypeEnum.valueOf(relatedProcess.getModelKey());
-            throw new MithrasException(String.format("已处于'%s'中，提交审批失败", modelTypeEnum.getDisplay()));
+            throw new MithrasException(String.format("已处于'%s'中，提交审批失败", relatedProcess.getModelDisplayName()));
         }
         ChangeDTO changeDTO = quarterlyGuidanceVersionService.checkActualChange(id);
         if (!Boolean.TRUE.equals(changeDTO.getChangeFlag())) {
@@ -176,7 +177,7 @@ public class FtpQuarterlyGuidanceApplicationServiceImpl implements FtpQuarterlyG
     }
 
     private void assertFtpOperator() {
-        if (!sysUserService.currentUserIsSpecificDept("JHCWB", "ZJGLB") && !sysUserService.adminAuth()) {
+        if (!currentUserDeptResolver.currentUserIsSpecificDept("JHCWB", "ZJGLB") && !adminAuthResolver.adminAuth()) {
             throw new MithrasException("只有计划财务部及资金管理部员工可以操作");
         }
     }

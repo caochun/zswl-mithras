@@ -25,8 +25,9 @@ import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.afterlease.model.dashboard.DashboardClientAfterLeaseCheckQuery;
 import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
@@ -94,8 +95,8 @@ public class DashboardAfterLeaseService implements cn.zswltech.mithras.dashboard
         }
 
         //如果存在数据，需要填充对应的display
-        Map<Long, String> deptId2NameMap = getBean(Id2NameService.class).deptId2Name(checkPlanBasePage.getRecords().stream().map(DashboardClientAfterLeaseCheckRSP::getBizDeptId).collect(Collectors.toList()));
-        Map<Long, String> user2NameMap = getBean(Id2NameService.class).sysUserId2Name(checkPlanBasePage.getRecords().stream().map(DashboardClientAfterLeaseCheckRSP::getProjSponsorUserId).collect(Collectors.toList()));
+        Map<Long, String> deptId2NameMap = getBean(DeptNameResolver.class).deptId2Name(checkPlanBasePage.getRecords().stream().map(DashboardClientAfterLeaseCheckRSP::getBizDeptId).collect(Collectors.toList()));
+        Map<Long, String> user2NameMap = getBean(UserNameResolver.class).sysUserId2Name(checkPlanBasePage.getRecords().stream().map(DashboardClientAfterLeaseCheckRSP::getProjSponsorUserId).collect(Collectors.toList()));
         checkPlanBasePage.getRecords().forEach(one -> {
             one.setReportProcessStatusDisplay(Optional.ofNullable(AfterLeaseCheckPlanProcessStatusEnum.of(one.getReportProcessStatusCode())).map(AfterLeaseCheckPlanProcessStatusEnum::getDisplay).orElse(""));
             one.setCheckWayDisplay(Optional.ofNullable(AfterLeaseCheckWayEnum.find(one.getCheckWayCode())).map(AfterLeaseCheckWayEnum::getDisplay).orElse(""));
@@ -108,7 +109,7 @@ public class DashboardAfterLeaseService implements cn.zswltech.mithras.dashboard
     }
 
     private void fillAuthQuery(DashboardClientAfterLeaseCheckQuery query, AccountVO currentUser) {
-        List<Long> viewDeptIds = getBean(SysUserService.class).canViewDeptIds(currentUser);
+        List<Long> viewDeptIds = getBean(UserDataScopeResolver.class).canViewDeptIds(currentUser);
         if (viewDeptIds == null) {
             return;
         }
@@ -158,8 +159,8 @@ public class DashboardAfterLeaseService implements cn.zswltech.mithras.dashboard
         Map<Long, Long> checkPlanClientId2ClientId = newAfterLeaseCheckPlanClients.stream().collect(Collectors.toMap(NewAfterLeaseCheckPlanClient::getId, NewAfterLeaseCheckPlanClient::getClientId, (a, b) -> a));
         List<Long> clientIds = newAfterLeaseCheckPlanClients.stream().map(NewAfterLeaseCheckPlanClient::getClientId).collect(Collectors.toList());
         Map<Long, Client> clientId2Client = getBean(ClientMapper.class).selectBatchIds(clientIds).stream().collect(Collectors.toMap(Client::getId, e -> e,(a, b) -> a));
-        Map<Long, String> deptId2Name = getBean(Id2NameService.class).deptId2Name(clientId2Client.values().stream().map(Client::getBelongDeptId).collect(Collectors.toList()));
-        Map<Long, String> systemId2Name = getBean(Id2NameService.class).sysUserId2Name(clientId2Client.values().stream().map(Client::getBelongSponsorId).collect(Collectors.toList()));
+        Map<Long, String> deptId2Name = getBean(DeptNameResolver.class).deptId2Name(clientId2Client.values().stream().map(Client::getBelongDeptId).collect(Collectors.toList()));
+        Map<Long, String> systemId2Name = getBean(UserNameResolver.class).sysUserId2Name(clientId2Client.values().stream().map(Client::getBelongSponsorId).collect(Collectors.toList()));
 
         List<DashboardAfterLeaseCheckRSP> rsps = new ArrayList<>();
         commonProcessPrepares.forEach(commonProcess -> {

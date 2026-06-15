@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.finance.application.accountage.api.FinanceAccountAgeBaseInfoApplicationService;
 import cn.zswltech.mithras.dto.finance.accountage.*;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceAccountAgeBaseInfo;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.finance.service.accountage.FinanceAccountAgeBaseInfoService;
 import cn.zswltech.mithras.finance.service.accountage.FinanceAccountAgeItemService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -31,7 +31,7 @@ public class FinanceAccountAgeBaseInfoFacade implements FinanceAccountAgeBaseInf
     @Resource
     private FinanceAccountAgeItemService financeAccountAgeItemService;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
     @Override
     public R<Long> add(FinanceAccountAgeBaseInfoAddREQ req) {
@@ -49,7 +49,7 @@ public class FinanceAccountAgeBaseInfoFacade implements FinanceAccountAgeBaseInf
         Page<FinanceAccountAgeBaseInfo> data = financeAccountAgeBaseInfoService.list(req);
         List<FinanceAccountAgeBaseInfoListRSP> list = BeanUtil.copyToList(data.getRecords(), FinanceAccountAgeBaseInfoListRSP.class);
         if(ObjectUtil.isNotEmpty(list)) {
-            Map<Long, String> longStringMap = id2NameService.sysUserId2Name(list.stream().map(FinanceAccountAgeBaseInfoListRSP::getCreateBy).collect(Collectors.toSet()));
+            Map<Long, String> longStringMap = userNameResolver.sysUserId2Name(list.stream().map(FinanceAccountAgeBaseInfoListRSP::getCreateBy).collect(Collectors.toSet()));
             list.forEach(e -> {
                 e.setCreateByName(longStringMap.get(e.getCreateBy()));
             });
@@ -65,7 +65,7 @@ public class FinanceAccountAgeBaseInfoFacade implements FinanceAccountAgeBaseInf
         FinanceAccountAgeBaseInfo byId = financeAccountAgeBaseInfoService.getById(req.getId());
         FinanceAccountAgeBaseInfoDetailRSP rsp = BeanUtil.copyProperties(byId, FinanceAccountAgeBaseInfoDetailRSP.class);
         if(ObjectUtil.isNotEmpty(byId)) {
-            rsp.setCreateByName(id2NameService.sysUserId2NameSingle(rsp.getCreateBy()));
+            rsp.setCreateByName(userNameResolver.sysUserId2NameSingle(rsp.getCreateBy()));
         }
         return R.ok(rsp);
     }

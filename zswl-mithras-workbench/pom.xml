@@ -24,31 +24,6 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-metric</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-system</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-riskcontrol</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-ftp</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-collection</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>gruul-spring-boot-starter</artifactId>
             <version>3.5.2-mithras.RELEASE</version>
             <scope>provided</scope>

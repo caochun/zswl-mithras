@@ -13,7 +13,8 @@ import cn.zswltech.mithras.metric.financialcloudmetric.service.FinancialCloudMet
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.ContractNameResolver;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +40,9 @@ public class FinancialCloudMetricValueController implements FinancialCloudMetric
     @Resource
     private FinancialCloudMetricService metricService;
     @Resource
-    private Id2NameService id2NameService;
+    private ContractNameResolver contractNameResolver;
+    @Resource
+    private ClientNameResolver clientNameResolver;
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
 
@@ -92,7 +95,7 @@ public class FinancialCloudMetricValueController implements FinancialCloudMetric
             List<ContractDetail> contractDetails =
                     JSON.parseArray(metricValue.getContractDetail(), ContractDetail.class);
             Set<Long> contractIds = contractDetails.parallelStream().map(ContractDetail::getContractId).collect(Collectors.toSet());
-            Map<Long, String> contractId2Name = id2NameService.contractId2Name(contractIds);
+            Map<Long, String> contractId2Name = contractNameResolver.contractId2Name(contractIds);
 
             Map<Long, ContractBaseInfo> contractBaseInfos = contractBaseInfoMapper.selectList(Wrappers.<ContractBaseInfo>lambdaQuery()
                             .select(ContractBaseInfo::getId, ContractBaseInfo::getClientId, ContractBaseInfo::getContractCode)
@@ -107,7 +110,7 @@ public class FinancialCloudMetricValueController implements FinancialCloudMetric
             }
 
             Set<Long> clientIds = contractDetails.parallelStream().map(ContractDetail::getClientId).collect(Collectors.toSet());
-            Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientIds);
+            Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIds);
 
             for (ContractDetail contractDetail : contractDetails) {
                 contractDetail.setContractCode(contractId2Name.get(contractDetail.getContractId()));

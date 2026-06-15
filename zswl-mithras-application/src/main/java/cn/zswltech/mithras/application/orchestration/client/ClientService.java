@@ -97,7 +97,7 @@ import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingBaseInfoMapper;
 import cn.zswltech.mithras.application.orchestration.client.dto.ClientAsLesseeInfoDTO;

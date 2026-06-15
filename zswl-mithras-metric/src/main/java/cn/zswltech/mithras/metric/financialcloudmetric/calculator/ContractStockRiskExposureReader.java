@@ -7,8 +7,7 @@ import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
-import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
+import cn.zswltech.mithras.metric.financialcloudmetric.port.ContractStockMarginPort;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
@@ -35,7 +34,7 @@ public class ContractStockRiskExposureReader {
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
-    private MarginBaseInfoMapper marginBaseInfoMapper;
+    private ContractStockMarginPort contractStockMarginPort;
 
     public Map<Long, Long> stockRiskExposureByContracts(Set<Long> contractIds) {
         if (ObjectUtil.isEmpty(contractIds)) {
@@ -62,10 +61,7 @@ public class ContractStockRiskExposureReader {
         Map<Long, List<PaymentActualDetail>> actualDetailsByContract = CollUtil.isEmpty(actualDetails)
                 ? new HashMap<>()
                 : actualDetails.stream().collect(Collectors.groupingBy(PaymentActualDetail::getContractId));
-        List<MarginBaseInfo> marginBaseInfos = marginBaseInfoMapper.selectList(
-                Wrappers.<MarginBaseInfo>lambdaQuery().in(MarginBaseInfo::getContractId, contractIds));
-        Map<Long, MarginBaseInfo> marginByContract = marginBaseInfos.stream()
-                .collect(Collectors.toMap(MarginBaseInfo::getContractId, o -> o, (v1, v2) -> v1));
+        Map<Long, Long> marginAmountByContract = contractStockMarginPort.getCollectionAmountByContractIds(contractIds);
 
         Map<Long, Long> stockRiskExposureMap = new HashMap<>();
         for (Long contractId : contractIds) {
@@ -86,10 +82,7 @@ public class ContractStockRiskExposureReader {
                     }
                 }
             }
-            MarginBaseInfo marginBaseInfo = marginByContract.get(contractId);
-            if (marginBaseInfo != null) {
-                sum.updateAndGet(v -> v - LongUtil.null2zero(marginBaseInfo.getCollectionAmount()));
-            }
+            sum.updateAndGet(v -> v - LongUtil.null2zero(marginAmountByContract.get(contractId)));
             stockRiskExposureMap.put(contractId, sum.get() < 0 ? 0L : sum.get());
         }
         return stockRiskExposureMap;

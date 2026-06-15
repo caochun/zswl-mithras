@@ -2,12 +2,12 @@ package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.ClientDetail;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
 import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
@@ -44,7 +44,7 @@ public class MetricComputer14J10000396_JC47548 extends AbstractMetricComputer im
     @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
 
     @Override
     public String getMetricCode() {
@@ -99,7 +99,7 @@ public class MetricComputer14J10000396_JC47548 extends AbstractMetricComputer im
 
     private Map<Long, ClientDetail> getClientDetailMap(Map<Long, Long> clientIdToRemaining) {
         Set<Long> clientIds = new HashSet<>(clientIdToRemaining.keySet());
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientIds);
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIds);
 
         Map<Long, ClientDetail> clientId2Detail = new HashMap<>();
         clientIdToRemaining.forEach((clientId, remaining) -> {

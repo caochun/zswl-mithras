@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.*;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.dashboard.enums.PayInfoQueryDimensionEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.dashboard.mapper.DashboardProjectInfoMapper;
 import cn.zswltech.mithras.customer.mobile.persistence.model.VisitRecord;
 import cn.zswltech.mithras.dashboard.model.DashboardProjectPayInfoQuery;
@@ -20,7 +20,7 @@ import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentCollectionInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.dashboard.application.util.DashboardAmountUtil;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
 @Service
 public class DashboardProjectPayInfoService extends DashboardProjectService implements DashboardProjectPayApplicationService {
     @Resource
-    private SysUserService sysUserService;
+    private BizDeptResolver bizDeptResolver;
     @Resource
     private DashboardProjectInfoMapper dashboardProjectInfoMapper;
     @Resource
@@ -144,7 +144,7 @@ public class DashboardProjectPayInfoService extends DashboardProjectService impl
             map = dbList.stream().collect(Collectors.groupingBy(DashboardProjectPayInfoResult::getBizDeptId));
         }
         // 获取所有业务部门
-        List<OrgDO> orgList = sysUserService.listBizDept();
+        List<OrgDO> orgList = bizDeptResolver.listBizDept();
 //        orgList.removeIf(e -> OrgConstants.DISCARD_ORG.contains(e.getCode()));
         orgList.removeIf(e -> Objects.equals(e.getState(), YesOrNoNumberEnum.NO.getCode()));
         return orgList.stream().map(org -> {

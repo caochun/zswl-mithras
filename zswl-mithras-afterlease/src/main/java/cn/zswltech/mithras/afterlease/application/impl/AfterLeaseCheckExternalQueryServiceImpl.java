@@ -32,8 +32,9 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
+import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
-import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseContractPort;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCorpCommercePort;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryClientInfoService;
@@ -69,7 +70,9 @@ public class AfterLeaseCheckExternalQueryServiceImpl
     @Resource
     private FlowProcessApiService processApiService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDataScopeResolver currentUserDataScopeResolver;
+    @Resource
+    private OrgJobUserResolver orgJobUserResolver;
     @Resource
     private BizProcessDataService bizProcessDataService;
     @Resource
@@ -163,9 +166,9 @@ public class AfterLeaseCheckExternalQueryServiceImpl
                     insertEntity.setClientName(client.getClientName());
                     insertEntity.setSponsorUserId(client.getBelongSponsorId());
                     insertEntity.setDeptId(client.getBelongDeptId());
-                    Long businessHeadId = sysUserService.getUserIdByOrgJob(client.getBelongDeptId(), JobEnum.businesshead.name());
+                    Long businessHeadId = firstOrgJobUser(client.getBelongDeptId(), JobEnum.businesshead.name());
                     insertEntity.setBizDeptLeader(businessHeadId);
-                    Long leaderId = sysUserService.getUserIdByOrgJob(client.getBelongDeptId(), JobEnum.leaderincharge.name());
+                    Long leaderId = firstOrgJobUser(client.getBelongDeptId(), JobEnum.leaderincharge.name());
                     insertEntity.setBizDivisionLeader(leaderId);
                     insertEntity.setApprovalStatus(ExternalQueryStatus.TO_BE_QUERY.name());
                     clientId2industryType.ifPresent(longStringMap -> insertEntity.setIndustryType(longStringMap.get(clientId)));
@@ -240,6 +243,14 @@ public class AfterLeaseCheckExternalQueryServiceImpl
         return null;
     }
 
+    private Long firstOrgJobUser(Long orgId, String jobCode) {
+        List<Long> userIds = orgJobUserResolver.orgJobUsers(orgId, jobCode);
+        if (CollectionUtil.isEmpty(userIds)) {
+            return null;
+        }
+        return userIds.get(0);
+    }
+
     @Override
     public Page<NewAfterLeaseCheckExternalQuery> list(AfterLeaseCheckExternalQueryListReq req) {
         AfterLeaseCheckExternalQueryDto dto = new AfterLeaseCheckExternalQueryDto();
@@ -247,7 +258,7 @@ public class AfterLeaseCheckExternalQueryServiceImpl
         dto.setClientName(req.getClientName());
         dto.setApprovalStatus(req.getApprovalStatus());
         dto.setSponsorUserId(req.getSponsorId());
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         if (isBizUser && canViewDeptIds.isEmpty()) {
             canViewDeptIds.add(Long.MIN_VALUE);
@@ -262,7 +273,7 @@ public class AfterLeaseCheckExternalQueryServiceImpl
     public AfterLeaseCheckExternalQueryListStatisticsRsp listStatistics(AfterLeaseCheckExternalQueryListReq req) {
         AfterLeaseCheckExternalQueryListStatisticsRsp rsp = new AfterLeaseCheckExternalQueryListStatisticsRsp();
         AfterLeaseCheckExternalQueryDto dto = new AfterLeaseCheckExternalQueryDto();
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         if (isBizUser && canViewDeptIds.isEmpty()) {
             canViewDeptIds.add(Long.MIN_VALUE);

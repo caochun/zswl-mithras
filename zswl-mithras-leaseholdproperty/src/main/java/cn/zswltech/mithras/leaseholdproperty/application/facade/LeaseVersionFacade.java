@@ -14,7 +14,7 @@ import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.review.LeaseReviewService;
@@ -42,7 +42,7 @@ public class LeaseVersionFacade implements LeaseVersionApplicationService {
     @Resource
     private RedisDistLock redisDistLock;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserJobResolver currentUserJobResolver;
 
     @Override
     public R<Void> effect(LeaseReviewEffectREQ param) {
@@ -67,7 +67,7 @@ public class LeaseVersionFacade implements LeaseVersionApplicationService {
                 throw new MithrasException("非回租项目，不可发起租赁物变更流程");
             }
             //验证岗位
-            if(!sysUserService.currentUserIsSpecificJob(JobEnum.projmanager.name(), JobEnum.operationManagement.name(), JobEnum.operationmanagementagent.name(), JobEnum.yunYingGuanLi.name(), JobEnum.legalmanager.name())){
+            if(!currentUserJobResolver.currentUserIsSpecificJob(JobEnum.projmanager.name(), JobEnum.operationManagement.name(), JobEnum.operationmanagementagent.name(), JobEnum.yunYingGuanLi.name(), JobEnum.legalmanager.name())){
                 throw new MithrasException("非项目经理/运营/法务，不可发起租赁物变更流程");
             }
             //保存基本信息

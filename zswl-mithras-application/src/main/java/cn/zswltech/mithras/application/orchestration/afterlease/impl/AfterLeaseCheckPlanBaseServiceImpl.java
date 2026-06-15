@@ -52,7 +52,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanBaseMapper;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;
 import cn.zswltech.mithras.afterlease.mapper.lib.NewAfterLeaseCheckPlanBaseLibMapper;

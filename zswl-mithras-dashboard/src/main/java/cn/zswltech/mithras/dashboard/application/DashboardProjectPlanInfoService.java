@@ -23,7 +23,7 @@ import cn.zswltech.mithras.payment.model.PaymentCollectionInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentCollectionInfoMapper;
 import cn.zswltech.mithras.dashboard.application.util.DashboardAmountUtil;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -47,7 +47,7 @@ public class DashboardProjectPlanInfoService extends DashboardProjectService imp
     @Resource
     private DashboardProjectInfoMapper dashboardProjectInfoMapper;
     @Resource
-    private SysUserService sysUserService;
+    private BizDeptResolver bizDeptResolver;
     @Resource
     private ContractOrgPlanMapper contractOrgPlanMapper;
     @Resource
@@ -137,7 +137,7 @@ public class DashboardProjectPlanInfoService extends DashboardProjectService imp
         List<DashboardProjectPlanStatisticsByDeptRSP> rspList = new ArrayList<>();
         if(CollectionUtils.isNotEmpty(resultList)){
             Map<Long, List<DashboardProjectPlanInfoResult>> planMap = resultList.stream().collect(Collectors.groupingBy(DashboardProjectPlanInfoResult::getBizDeptId));
-            List<OrgDO> orgList = sysUserService.listBizDept();
+            List<OrgDO> orgList = bizDeptResolver.listBizDept();
 //            orgList.removeIf(e -> OrgConstants.DISCARD_ORG.contains(e.getCode()));
             orgList.removeIf(e -> Objects.equals(e.getState(), YesOrNoNumberEnum.NO.getCode()));
             rspList = orgList.stream().map(orgDO -> {

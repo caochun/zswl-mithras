@@ -26,7 +26,7 @@ import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegratio
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueSettlement;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueVersionRelation;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.finance.service.lib.finance.FinanceOverdueSettlementLibService;
 import cn.zswltech.mithras.foundation.state.ProjProcessState;
 import cn.zswltech.mithras.third.overduereport.client.handle.OverdueReportSetBatSaveHandle;
@@ -69,7 +69,7 @@ public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueS
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
     @Resource
     private FinanceOverdueIntegrationService financeOverdueIntegrationService;
     @Resource
@@ -93,7 +93,7 @@ public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueS
             info.setContractCode(contractBaseInfo.getContractCode());
             info.setProjName(contractBaseInfo.getProjName());
         }
-        info.setClientName(id2NameService.clientId2NameSingle(req.getClientId()));
+        info.setClientName(clientNameResolver.clientId2NameSingle(req.getClientId()));
         financeOverdueSettlementMapper.insert(info);
     }
 
@@ -129,7 +129,7 @@ public class FinanceOverdueSettlementService extends ServiceImpl<FinanceOverdueS
         List<Long> contractIds = collectionBaseInfos.stream().map(CollectionBaseInfo::getContractId).collect(Collectors.toList());
         Map<Long, ContractBaseInfo> contractId2Bean = contractBaseInfoMapper.selectBatchIds(contractIds).stream().collect(Collectors.toMap(ContractBaseInfo::getId, e -> e, (a, b) -> a));
 
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(collectionBaseInfos.stream().map(CollectionBaseInfo::getClientId).collect(Collectors.toSet()));
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(collectionBaseInfos.stream().map(CollectionBaseInfo::getClientId).collect(Collectors.toSet()));
 
         //构建
         List<FinanceOverdueSettlement> financeOverdueSettlementList = new ArrayList<>();

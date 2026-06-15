@@ -26,7 +26,6 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.enums.ProcessNodeVariableEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.foundation.constant.Constant;
 import cn.zswltech.mithras.customer.hymx.persistence.model.ClientHymx;
@@ -53,7 +52,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientAuthorityMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
@@ -64,10 +63,16 @@ import cn.zswltech.mithras.customer.model.client.*;
 import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.persistence.mapper.prepare.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserBusinessDeptFlagResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
+import cn.zswltech.mithras.foundation.port.RiskManagerUserResolver;
+import cn.zswltech.mithras.foundation.port.UserJobOrgResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.customer.hymx.application.ClientHymxService;
 import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoService;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
@@ -115,7 +120,11 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
     @Resource
     private CorpAddressInfoMapper corpAddressInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
+    @Resource
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
     @Resource
     private CorpCommerceInfoService corpCommerceInfoService;
     @Resource
@@ -125,7 +134,17 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
     @Resource
     private DecisionApiClient decisionApiClient;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
+    @Resource
+    private CurrentUserJobResolver currentUserJobResolver;
+    @Resource
+    private CurrentUserBusinessDeptFlagResolver currentUserBusinessDeptFlagResolver;
+    @Resource
+    private OrgJobUserResolver orgJobUserResolver;
+    @Resource
+    private UserJobOrgResolver userJobOrgResolver;
+    @Resource
+    private RiskManagerUserResolver riskManagerUserResolver;
     @Resource
     private ClientMapper clientMapper;
     @Resource
@@ -177,9 +196,9 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
         Set<Long> userIdList = records.stream().map(RatingClient::getCreateBy).collect(Collectors.toSet());
         Set<Long> clientIdList = records.stream().map(RatingClient::getClientId).collect(Collectors.toSet());
         Set<Long> deptIdList = records.stream().map(RatingClient::getBelongDeptId).collect(Collectors.toSet());
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(userIdList);
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientIdList);
-        Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptIdList);
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(userIdList);
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIdList);
+        Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptIdList);
 
         List<RatingClientPageRSP> result = records.stream().map(record -> {
             RatingClientPageRSP rsp = new RatingClientPageRSP();
@@ -207,9 +226,9 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
         if (ratingClient == null) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        String createByName = id2NameService.sysUserId2NameSingle(ratingClient.getCreateBy());
-        String clientName = id2NameService.clientId2NameSingle(ratingClient.getClientId());
-        String deptName = id2NameService.deptId2NameSingle(ratingClient.getBelongDeptId());
+        String createByName = userNameResolver.sysUserId2NameSingle(ratingClient.getCreateBy());
+        String clientName = clientNameResolver.clientId2NameSingle(ratingClient.getClientId());
+        String deptName = deptNameResolver.deptId2NameSingle(ratingClient.getBelongDeptId());
 
         RatingClientDetailRSP rsp = new RatingClientDetailRSP();
         BeanUtil.copyProperties(ratingClient, rsp);
@@ -319,7 +338,7 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
             clientHymx = new ClientHymx();
             clientHymx.setClientName(req.getClientName());
             clientHymx.setProjectManager(AccountUtil.getLoginInfo().getId());
-            clientHymx.setBelongDeptId(Optional.ofNullable(sysUserService.getUserDept()).map(OrgDO::getId).orElse(null));
+            clientHymx.setBelongDeptId(Optional.ofNullable(currentUserOrgResolver.getUserDept()).map(OrgDO::getId).orElse(null));
             clientHymxService.save(clientHymx);
 
             /*根据数据库中存储的id  生成唯一的客户编码并保存  默认航运用户主键开始于500000000000L*/
@@ -371,7 +390,7 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
         ratingClient.setClientCode(clientHymx.getClientCode());
         ratingClient.setModelCode(req.getCode());
         ratingClient.setModelName(req.getName());
-        ratingClient.setBelongDeptId(Optional.ofNullable(sysUserService.getUserDept()).map(OrgDO::getId).orElse(null));
+        ratingClient.setBelongDeptId(Optional.ofNullable(currentUserOrgResolver.getUserDept()).map(OrgDO::getId).orElse(null));
         ratingClient.setBelongSponsorUserId(clientHymx.getProjectManager());
 //        ratingClient.setUscc("");
         this.save(ratingClient);
@@ -465,7 +484,7 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
         ratingClient.setClientCode(client.getClientCode());
         ratingClient.setModelCode(req.getCode());
         ratingClient.setModelName(req.getName());
-        ratingClient.setBelongDeptId(Optional.ofNullable(sysUserService.getUserDept()).map(OrgDO::getId).orElse(null));
+        ratingClient.setBelongDeptId(Optional.ofNullable(currentUserOrgResolver.getUserDept()).map(OrgDO::getId).orElse(null));
         ratingClient.setBelongSponsorUserId(client.getBelongSponsorId());
         ratingClient.setUscc(client.getUscCode());
         this.save(ratingClient);
@@ -509,23 +528,23 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
         int count = this.count(Wrappers.<RatingClient>lambdaQuery().eq(RatingClient::getClientId, ratingClient.getClientId())
                 .eq(RatingClient::getRatingStatus, true));
         startProcessReq.setModelKey(count > 0 ? ProcessModelTypeEnum.RatingClientUpdateFlow.name() : ProcessModelTypeEnum.RatingClientCreateFlow.name());
-        String clientName = id2NameService.clientId2NameSingle(ratingClient.getClientId());
+        String clientName = clientNameResolver.clientId2NameSingle(ratingClient.getClientId());
 
         startProcessReq.setProcessInstanceName(clientName);
         Map<String, Object> varMap = new HashMap<>();
-        OrgDO userDept = sysUserService.getUserDept();
+        OrgDO userDept = currentUserOrgResolver.getUserDept();
         if (Objects.isNull(userDept)) {
             throw new MithrasException("当前用户部门为空");
         }
-        List<UserDO> bizDeptLeaderUserList = sysUserService.listSpecificOrgJobUser(userDept.getId(), JobEnum.businesshead.name());
-        List<UserDO> divisionLeaderUserList = sysUserService.listSpecificOrgJobUser(userDept.getId(), JobEnum.leaderincharge.name());
+        List<Long> bizDeptLeaderUserList = orgJobUserResolver.orgJobUsers(userDept.getId(), JobEnum.businesshead.name());
+        List<Long> divisionLeaderUserList = orgJobUserResolver.orgJobUsers(userDept.getId(), JobEnum.leaderincharge.name());
         //风控经理 先按部门查询，部门没有查所有
-        List<String> riskControlManagerIds = SpringContextHolder.getBean(SysUserService.class).getRiskManagerIdsOrderByDeptId().get(ratingClient.getBelongDeptId());
+        List<String> riskControlManagerIds = riskManagerUserResolver.riskManagerIdsOrderByDeptId().get(ratingClient.getBelongDeptId());
         if (CollectionUtil.isEmpty(riskControlManagerIds)) {
-            riskControlManagerIds = sysUserService.getAllRiskControlManagerIds().stream().map(String::valueOf).collect(Collectors.toList());
+            riskControlManagerIds = riskManagerUserResolver.allRiskControlManagerIds().stream().map(String::valueOf).collect(Collectors.toList());
         }
-        varMap.put("deptLeader", bizDeptLeaderUserList.stream().map(UserDO::getId).map(String::valueOf).collect(Collectors.toList()));
-        varMap.put("divisionLeader", divisionLeaderUserList.stream().map(UserDO::getId).map(String::valueOf).collect(Collectors.toList()));
+        varMap.put("deptLeader", bizDeptLeaderUserList.stream().map(String::valueOf).collect(Collectors.toList()));
+        varMap.put("divisionLeader", divisionLeaderUserList.stream().map(String::valueOf).collect(Collectors.toList()));
         varMap.put("riskControlManager", riskControlManagerIds);
         if (req.getAdjustOpinion() != null) {
             varMap.put(ProcessNodeVariableEnum.START_NODE_MESSAGE.name(), req.getAdjustOpinion());
@@ -543,14 +562,14 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
     public LambdaQueryWrapper<RatingClient> createCondition(RatingClientPageREQ req) {
         QueryWrapper<RatingClient> wrapper = new QueryWrapper<>();
         Set<Long> userIdAll = new HashSet<>();
-        boolean isBizDept = sysUserService.currentUserIsBizDept();
+        boolean isBizDept = currentUserBusinessDeptFlagResolver.currentUserIsBizDept();
         if (req.getClientId() != null) {
             userIdAll.add(req.getClientId());
         } else {
             if (isBizDept) {
-                if (sysUserService.currentUserIsSpecificJob(JobEnum.businesshead.name())) {
+                if (currentUserJobResolver.currentUserIsSpecificJob(JobEnum.businesshead.name())) {
                     // 部门负责人可查看部门下所有客户的评级信息
-                    List<Long> orgIdList = sysUserService.listOrgByJob(AccountUtil.getLoginInfo().getId(), JobEnum.businesshead.name()).stream().map(OrgDO::getId).collect(Collectors.toList());
+                    List<Long> orgIdList = userJobOrgResolver.userOrgIdsByJob(AccountUtil.getLoginInfo().getId(), JobEnum.businesshead.name());
                     List<Client> clientList = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
                             .in(CollectionUtils.isNotEmpty(orgIdList), Client::getBelongDeptId, orgIdList));
                     if (CollectionUtils.isNotEmpty(clientList)) {
@@ -558,7 +577,7 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
                         userIdAll.addAll(clientIdList);
                     }
                 }
-                if (sysUserService.currentUserIsSpecificJob(JobEnum.projmanager.name())) {
+                if (currentUserJobResolver.currentUserIsSpecificJob(JobEnum.projmanager.name())) {
                     // 项目经理仅可查看自己作为所属主办、项目主办/协办的客户评级信息
                     List<Client> clientList = clientMapper.selectList(Wrappers.<Client>lambdaQuery().eq(Client::getBelongSponsorId, AccountUtil.getLoginInfo().getId()));
                     if (CollectionUtils.isNotEmpty(clientList)) {
@@ -1246,7 +1265,7 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
             int count = this.count(Wrappers.<RatingClient>lambdaQuery().eq(RatingClient::getClientId, ratingClient.getClientId())
                     .eq(RatingClient::getRatingStatus, true));
 
-            String clientName = id2NameService.clientId2NameSingle(ratingClient.getClientId());
+            String clientName = clientNameResolver.clientId2NameSingle(ratingClient.getClientId());
             CommonProcessPrepare prepare = CommonProcessPrepare.builder()
                     .processType(count > 0 ? ProcessModelTypeEnum.RatingClientUpdateFlow.name() : ProcessModelTypeEnum.RatingClientCreateFlow.name())
                     .businessId(String.valueOf(ratingClient.getId()))
@@ -1378,7 +1397,7 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
 //        RatingClientDetailLibRSP lib = ratingClientLibService.detail(req.getId());
         if (history != null) {
             RatingClientDetailLibRSP historyInfo = BeanUtil.copyProperties(history, RatingClientDetailLibRSP.class);
-            historyInfo.setCreateByName(id2NameService.sysUserId2NameSingle(historyInfo.getCreateBy()));
+            historyInfo.setCreateByName(userNameResolver.sysUserId2NameSingle(historyInfo.getCreateBy()));
             rsp.setHistoryInfo(historyInfo);
         }
         // 定量指标部分字段用本地数据库最新数据覆盖
@@ -1651,7 +1670,7 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
                 if (overturnRecord != null) {
                     rsp.setOverturnTime(overturnRecord.getGmtCreate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
                     rsp.setOverturnOpinion(overturnRecord.getNote());
-                    rsp.setOverturnUserName(id2NameService.sysUserId2NameSingle(Long.valueOf(overturnRecord.getHandlerId())));
+                    rsp.setOverturnUserName(userNameResolver.sysUserId2NameSingle(Long.valueOf(overturnRecord.getHandlerId())));
                 }
                 rsp.setAdjustType("下迁");
                 rsp.setScore(ratingClient.getScore());
@@ -1666,7 +1685,7 @@ public class RatingClientService extends ServiceImpl<RatingClientMapper, RatingC
                 if (adjustRecord != null) {
                     rsp.setOverturnTime(adjustRecord.getGmtCreate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
                     rsp.setOverturnOpinion(adjustRecord.getNote());
-                    rsp.setOverturnUserName(id2NameService.sysUserId2NameSingle(ratingClient.getCreateBy()));
+                    rsp.setOverturnUserName(userNameResolver.sysUserId2NameSingle(ratingClient.getCreateBy()));
                 }
                 rspList.add(rsp);
             }

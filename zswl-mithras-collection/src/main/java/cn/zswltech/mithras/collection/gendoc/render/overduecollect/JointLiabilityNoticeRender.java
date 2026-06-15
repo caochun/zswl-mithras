@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ContractGuarantorInfo;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import com.alibaba.fastjson.JSON;
 import com.deepoove.poi.XWPFTemplate;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +33,7 @@ public class JointLiabilityNoticeRender extends AbstractBasicRender<ContractGuar
     private static final String FILE_NAME_SUFFIX = "履行连带责任保证通知书" + GlobalConstants.OFFICE_WORD_SUFFIX;
 
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
 
 
     @Override
@@ -79,7 +79,7 @@ public class JointLiabilityNoticeRender extends AbstractBasicRender<ContractGuar
         renderMap.put("sign", sign);
 
         List<Long> gIds = JSON.parseArray(contractGuarantorInfo.getGuarantorIds(), Long.class);
-        Map<Long, String> gNames = id2NameService.clientId2Name(gIds);
+        Map<Long, String> gNames = clientNameResolver.clientId2Name(gIds);
         renderMap.put("guarantorNames", String.join(",", gNames.values()));
         renderMap.put("guarantorContractCode", contractGuarantorInfo.getGuarantorContractCode());
 

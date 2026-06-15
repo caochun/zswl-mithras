@@ -28,7 +28,9 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.FactoringType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ZrType;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.dashboard.application.boss.GuanYuanBasicService;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.BusinessContractSummaryDTO;
@@ -76,7 +78,11 @@ public class GuanYuanOperationService extends GuanYuanBasicService implements cn
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private UserNameResolver userNameResolver;
     @Resource
     private FlowModelApiService flowModelApiService;
     @Resource
@@ -393,7 +399,7 @@ public class GuanYuanOperationService extends GuanYuanBasicService implements cn
         if (ObjectUtil.isEmpty(processHistoryMap)) {
             return ListUtil.empty();
         }
-        //Map<Long, String> userId2Name = id2NameService.sysUserId2Name(processHistoryMap.values().stream().flatMap(Collection::stream).map(e -> Long.valueOf(e.getOperatorId())).collect(Collectors.toSet()));
+        //Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(processHistoryMap.values().stream().flatMap(Collection::stream).map(e -> Long.valueOf(e.getOperatorId())).collect(Collectors.toSet()));
         dashboardApprovalBaseRSPS.forEach(dashboard -> {
             //查询节点信息
             ProcessResp processResp = contractId2ProcessMap.get(dashboard.getId());
@@ -524,9 +530,9 @@ public class GuanYuanOperationService extends GuanYuanBasicService implements cn
     }
 
     private <T extends DashboardApprovalBaseRSP> List<T> buildApprovalBase(List<T> dashboardApprovalBaseRSPS, Map<Long, ProcessResp> contractId2ProcessMap) {
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(dashboardApprovalBaseRSPS.stream().map(DashboardApprovalBaseRSP::getClientId).collect(Collectors.toList()));
-        Map<Long, String> deptId2Name = id2NameService.deptId2Name(dashboardApprovalBaseRSPS.stream().map(DashboardApprovalBaseRSP::getBizDeptId).collect(Collectors.toList()));
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(dashboardApprovalBaseRSPS.stream().map(DashboardApprovalBaseRSP::getProjSponsorUserId).collect(Collectors.toList()));
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(dashboardApprovalBaseRSPS.stream().map(DashboardApprovalBaseRSP::getClientId).collect(Collectors.toList()));
+        Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(dashboardApprovalBaseRSPS.stream().map(DashboardApprovalBaseRSP::getBizDeptId).collect(Collectors.toList()));
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(dashboardApprovalBaseRSPS.stream().map(DashboardApprovalBaseRSP::getProjSponsorUserId).collect(Collectors.toList()));
         dashboardApprovalBaseRSPS.forEach(rsp -> {
             rsp.setClientName(clientId2Name.get(rsp.getClientId()));
             rsp.setProjSponsorUserName(userId2Name.get(rsp.getProjSponsorUserId()));
@@ -631,7 +637,7 @@ public class GuanYuanOperationService extends GuanYuanBasicService implements cn
         if (ObjectUtil.isEmpty(processHistoryMap)) {
             return ListUtil.empty();
         }
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(processHistoryMap.values().stream().flatMap(Collection::stream).map(ProcessHistoryResp::getOperatorId).filter(ObjectUtil::isNotEmpty).map(Long::valueOf).collect(Collectors.toSet()));
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(processHistoryMap.values().stream().flatMap(Collection::stream).map(ProcessHistoryResp::getOperatorId).filter(ObjectUtil::isNotEmpty).map(Long::valueOf).collect(Collectors.toSet()));
         dashboardApprovalBaseRSPS.forEach(dashboard -> {
             //查询节点信息
             ProcessResp processResp = contractId2ProcessMap.get(dashboard.getId());

@@ -14,7 +14,7 @@ import cn.zswltech.mithras.kpi.enums.KpiProjectSourceDistributionEnum;
 import cn.zswltech.mithras.kpi.excel.exporter.*;
 import cn.zswltech.mithras.kpi.excel.model.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
 import cn.zswltech.mithras.kpi.application.KpiProjGuessBaseInfoService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -58,7 +58,7 @@ public class KpiProjGuessExportFacade implements KpiProjGuessExportApplicationSe
     @Resource
     private KpiProjGuessPeopleDetailExcelExporter kpiProjGuessPeopleDetailExcelExporter;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserJobResolver currentUserJobResolver;
 
     @Override
     public R<Void> contractList(@Valid KpiProjGuessIndexREQ req) {
@@ -239,7 +239,7 @@ public class KpiProjGuessExportFacade implements KpiProjGuessExportApplicationSe
             List<KpiProjGuessPeopleDetailRSP> rsps = kpiProjGuessPeopleDetailRSPPageR.getList();
             if (ObjectUtil.isNotEmpty(rsps)) {
                 List<KpiProjGuessPeopleDetailExcelModel> models = new ArrayList<>();
-                boolean xmjl = sysUserService.currentUserIsSpecificJob(JobEnum.projmanager.name());
+                boolean xmjl = currentUserJobResolver.currentUserIsSpecificJob(JobEnum.projmanager.name());
                 rsps.forEach(base -> {
                     KpiProjGuessPeopleDetailExcelModel model = BeanUtil.copyProperties(base, KpiProjGuessPeopleDetailExcelModel.class);
                     if(xmjl){

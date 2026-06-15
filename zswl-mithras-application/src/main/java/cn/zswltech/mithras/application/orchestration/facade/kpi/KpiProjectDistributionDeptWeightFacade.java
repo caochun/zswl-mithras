@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightInfo;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightSaveREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionPrevREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.kpi.application.auth.KpiProjectDistributionModifyChecker;
+import cn.zswltech.mithras.application.orchestration.auth.kpi.KpiProjectDistributionModifyChecker;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionDeptLaunchWeightService;
 import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionDeptWeightService;

@@ -30,8 +30,8 @@ import cn.zswltech.mithras.finance.mapper.finance.FinanceProjectProfitDetailMapp
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.OrgResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -61,7 +61,9 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
     @Resource
     private FinanceProjectProfitDetailMapper financeProjectProfitDetailMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private OrgResolver orgResolver;
     @Resource
     private FinanceRiskHelp financeRiskHelp;
     @Resource
@@ -79,7 +81,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
             return;
         }
         // 业务部门和资金管理部直接使用，其余部门合并到公共利润中心
-        List<OrgDO> allOrg = SpringUtil.getBean(SysUserService.class).listAllDept();
+        List<OrgDO> allOrg = orgResolver.listAllDept();
         Map<Long, OrgDO> orgMap = allOrg.stream().collect(Collectors.toMap(OrgDO::getId, e -> e));
         Optional<OrgDO> optional = allOrg.stream().filter(e -> Objects.equals(e.getCode(), "GGLRZX")).findFirst();
         if (!optional.isPresent()) {
@@ -256,7 +258,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
     @Transactional(rollbackFor = Throwable.class)
     public void refreshProcessData(Long budgetExamineId) {
         // 找到公共利润中心部门信息（后面要用到，先前置查询）
-        Optional<OrgDO> optional = SpringUtil.getBean(SysUserService.class).listAllDept().stream().filter(e -> Objects.equals(e.getCode(), "GGLRZX")).findAny();
+        Optional<OrgDO> optional = orgResolver.listAllDept().stream().filter(e -> Objects.equals(e.getCode(), "GGLRZX")).findAny();
         if (!optional.isPresent()) {
             throw new MithrasException("<没有找到公共利润中心>的部门信息，请联系系统管理员");
         }
@@ -441,7 +443,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
         List<BudgetExamineBenefitListRSP> rsps = new ArrayList<>();
         List<BudgetExamineBenefit> budgetExamineBenefits = getSumBudgetExamineBenefit(req);
         if (ObjectUtil.isNotEmpty(budgetExamineBenefits)) {
-            List<OrgDO> allDeptList = SpringUtil.getBean(SysUserService.class).listAllDept();
+            List<OrgDO> allDeptList = orgResolver.listAllDept();
             Map<Long, List<BudgetExamineBenefit>> deptId2Bean = budgetExamineBenefits.stream().collect(Collectors.groupingBy(BudgetExamineBenefit::getBelongDeptId));
             // 处理公司层面的数据
             List<BudgetExamineBenefit> companyList = deptId2Bean.get(COMPANY_NUMBER);
@@ -449,7 +451,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
                 rsps.add(this.convertToBudgetExamineBenefitListRSP(COMPANY_NUMBER, "公司", -100, companyList));
             }
             // 各个部门的
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptId2Bean.keySet());
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptId2Bean.keySet());
             for (OrgDO org : allDeptList) {
                 Long deptId = org.getId();
                 List<BudgetExamineBenefit> dataList = deptId2Bean.get(deptId);
@@ -570,7 +572,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
 //        Map<Long, List<BudgetExamineBenefit>> deptId2BudgetExamineBenefit = budgetExamineBenefits.stream().collect(Collectors.groupingBy(BudgetExamineBenefit::getBelongDeptId));
 //        Map<Long, List<BudgetExamineBenefit>> deptId2BudgetExamineBenefitYear = budgetExamineBenefitsYear.stream().collect(Collectors.groupingBy(BudgetExamineBenefit::getBelongDeptId));
 //
-//        Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptId2BudgetExamineBenefit.keySet());
+//        Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptId2BudgetExamineBenefit.keySet());
 //        //所有字段
 //        BudgetExamineBenefitEnum[] allBudgetExamineEnum = BudgetExamineBenefitEnum.values();
 //        List<BudgetExamineBenefitEnum> budgetExamineBenefitColumn = Arrays.stream(allBudgetExamineEnum).filter(e -> e.getSort() > 0).sorted(Comparator.comparing(BudgetExamineBenefitEnum::getSort)).collect(Collectors.toList());

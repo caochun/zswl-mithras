@@ -5,9 +5,7 @@ import cn.zswltech.mithras.dto.flow.search.ProcessHistoryRSP;
 import cn.zswltech.mithras.filingmaterials.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.filingmaterials.enums.BusinessMaterialsDocNameEnum;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.config.Configure;
@@ -15,7 +13,6 @@ import com.deepoove.poi.plugin.table.LoopRowTableRenderPolicy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.time.format.DateTimeFormatter;
@@ -34,13 +31,10 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  */
 @Component
 @Slf4j
-public class MaterialsApprovalSnapshootRender extends AbstractBasicRender<HashMap> {
-    @Resource
-    Id2NameService id2NameService;
+public class MaterialsApprovalSnapshootRender {
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
 
-    @Override
     public String render(OutputStream outputStream, HashMap map) throws Exception {
         Assert.notNull(map.get(FilingMaterialsConstants.PROCESS_INSTANCE_ID), () -> MithrasException.newException("资料归档-业务资料-审批快照模板填充失败，不存在processInstanceId"));
         Assert.notNull(map.get(FilingMaterialsConstants.MODEL_NAME), () -> MithrasException.newException("资料归档-业务资料-审批快照模板填充失败，不存在modelName"));

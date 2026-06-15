@@ -26,7 +26,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.contract.excel.model.ContractEntityPledgeItemExcelModel;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.*;

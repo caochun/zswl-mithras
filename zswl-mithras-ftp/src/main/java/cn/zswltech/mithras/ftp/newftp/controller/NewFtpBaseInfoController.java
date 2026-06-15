@@ -2,7 +2,6 @@ package cn.zswltech.mithras.ftp.newftp.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.ReflectUtil;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.newftp.NewFtpBaseInfoApi;
@@ -17,7 +16,6 @@ import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpBusinessModule;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
-import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.newftp.convert.NewFtpBaseInfoConverter;
 import cn.zswltech.mithras.ftp.newftp.fms.DefaultNewFtpStateMachine;
@@ -36,7 +34,6 @@ import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpMonthlyGuidanceDraftSe
 import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpQuarterlyBasePricingDraftService;
 import cn.zswltech.mithras.ftp.newftp.service.lib.NewFtpMonthlyGuidanceLibService;
 import cn.zswltech.mithras.ftp.newftp.service.lib.NewFtpQuarterlyBasePricingLibService;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.transaction.annotation.Transactional;
@@ -122,13 +119,7 @@ public class NewFtpBaseInfoController implements NewFtpBaseInfoApi {
         if (Objects.isNull(byId)) {
             throw new MithrasException("描述不存在");
         }
-        ProcessResp relatedProcess = newFtpBaseInfoService.findRelatedProcess(byId.getFtpId());
-        if (ObjectUtil.isNotEmpty(relatedProcess)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(relatedProcess);
-            if (!isStartUserNode) {
-                throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
-            }
-        }
+        newFtpBaseInfoService.checkEditableInProcess(byId.getFtpId());
         NewFtpDescriptionTextDraft updateEntity = new NewFtpDescriptionTextDraft();
         updateEntity.setId(req.getId());
         updateEntity.setDescContent(req.getDescContent());

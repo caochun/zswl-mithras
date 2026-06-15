@@ -5,7 +5,6 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.newftp.FtpValue;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingDetailRsp;
@@ -16,7 +15,6 @@ import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
-import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.ftp.newftp.convert.NewFtpQuarterlyBasePricingConfigConverter;
@@ -36,7 +34,6 @@ import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpMonthlyGuidanceTempla
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpParameterSettingConfigService;
 import cn.zswltech.mithras.ftp.newftp.service.lib.NewFtpMonthlyGuidanceLibService;
 import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpFileTemplatePort;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.excel.EasyExcel;
@@ -296,13 +293,7 @@ public class NewFtpQuarterlyBasePricingDraftService
         if (ObjectUtil.isNull(pricing)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        ProcessResp relatedProcess = baseInfoService.findRelatedProcess(pricing.getFtpId());
-        if (ObjectUtil.isNotEmpty(relatedProcess)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(relatedProcess);
-            if (!isStartUserNode) {
-                throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
-            }
-        }
+        baseInfoService.checkEditableInProcess(pricing.getFtpId());
         pricing.setValue(req.getValue());
         baseMapper.updateById(pricing);
 

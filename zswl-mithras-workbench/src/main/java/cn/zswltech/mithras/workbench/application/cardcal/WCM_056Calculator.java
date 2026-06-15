@@ -1,8 +1,5 @@
 package cn.zswltech.mithras.workbench.application.cardcal;
 
-import cn.zswltech.mithras.metric.financialcloudmetric.calculator.MissingFactorException;
-import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -19,7 +16,7 @@ import java.time.temporal.TemporalAdjusters;
 @Component
 public class WCM_056Calculator implements CardCalculator {
     @Resource
-    private RiskMetricFactorService factorService;
+    private WorkbenchFinancialMetricFactorPort financialMetricFactorPort;
 
     @Override
     public String metricCode() {
@@ -30,18 +27,18 @@ public class WCM_056Calculator implements CardCalculator {
     public String calculate() {
         LocalDate lastMonth = LocalDate.now().with(TemporalAdjusters.firstDayOfMonth()).minusMonths(1);
         try {
-            RiskMetricFactor factor1 = factorService.getFactor("负债合计@期末余额", "资产负债表", lastMonth);
-            RiskMetricFactor factor2 = factorService.getFactor("资产总计@期末余额", "资产负债表", lastMonth);
+            Long factor1 = financialMetricFactorPort.getFactorValue("负债合计@期末余额", "资产负债表", lastMonth);
+            Long factor2 = financialMetricFactorPort.getFactorValue("资产总计@期末余额", "资产负债表", lastMonth);
             if (factor1 == null || factor2 == null) {
                 return "0.00";
             }
-            if (factor2.getFactorValue() == null || factor2.getFactorValue() == 0L) {
+            if (factor2 == 0L) {
                 return "0.00";
             }
-            return new BigDecimal(factor1.getFactorValue())
-                    .divide(new BigDecimal(factor2.getFactorValue()), 4, RoundingMode.HALF_UP)
+            return new BigDecimal(factor1)
+                    .divide(new BigDecimal(factor2), 4, RoundingMode.HALF_UP)
                     .multiply(BigDecimal.valueOf(100)).setScale(2).toString();
-        } catch (MissingFactorException e) {
+        } catch (WorkbenchFinancialMetricFactorMissingException e) {
             return "上月财报准备中";
         }
     }

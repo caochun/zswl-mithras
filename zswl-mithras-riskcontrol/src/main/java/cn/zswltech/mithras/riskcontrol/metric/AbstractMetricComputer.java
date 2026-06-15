@@ -8,7 +8,7 @@ import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshot;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshotService;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.JobUserResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,7 +54,7 @@ public abstract class AbstractMetricComputer {
     @Resource
     private RiskControlStrategySnapshotService riskControlStrategySnapshotService;
     @Resource
-    private SysUserService userService;
+    private JobUserResolver jobUserResolver;
     @Resource
     private RiskControlNotificationPort notificationPort;
 
@@ -157,7 +157,7 @@ public abstract class AbstractMetricComputer {
 
     private void sendMessage(AlertState alertState, RiskControlStrategy theOne) {
         Set<String> jobCodes = new HashSet<>(Arrays.asList(JobEnum.riskdeptmanager.name(), JobEnum.chiefriskofficer.name(), JobEnum.assetmanagement.name()));
-        List<Long> to = userService.jobUsers(jobCodes);
+        List<Long> to = jobUserResolver.jobUsers(jobCodes);
         notificationPort.sendIndicatorWarning(to, theOne.getId(), theOne.getMetricCode(), alertState);
     }
 

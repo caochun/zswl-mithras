@@ -32,6 +32,7 @@ import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import cn.zswltech.mithras.application.orchestration.enums.*;
 import cn.zswltech.mithras.capital.enums.FinanceFlowDetailTableEnum;
+import cn.zswltech.mithras.capital.service.FinanceFlowWriteOffDetailService;
 import cn.zswltech.mithras.collection.enums.BillTypeEnum;
 import cn.zswltech.mithras.margin.enums.MarginWriteOffStatusEnum;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
@@ -40,8 +41,6 @@ import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.payment.enums.WriteOffTypeEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.capital.persistence.mapper.writeoff.FinanceFlowWriteOffDetailMapper;
-import cn.zswltech.mithras.capital.persistence.model.writeoff.FinanceFlowWriteOffDetail;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
@@ -137,7 +136,7 @@ public class FinancialServiceImpl implements FinancialService {
     @Resource
     private FlowTaskApiService taskApiService;
     @Resource
-    private FinanceFlowWriteOffDetailMapper financeFlowWriteOffDetailMapper;
+    private FinanceFlowWriteOffDetailService financeFlowWriteOffDetailService;
     @Resource
     private WarrantyBaseInfoService warrantyBaseInfoService;
     @Resource
@@ -254,12 +253,11 @@ public class FinancialServiceImpl implements FinancialService {
     }
 
     private void addPaymentToFinanceFlowDetail(String tableName, PaymentActualDetail paymentActualDetail) {
-        FinanceFlowWriteOffDetail financeFlowWriteOffDetail = new FinanceFlowWriteOffDetail();
-        financeFlowWriteOffDetail.setMainId(paymentActualDetail.getId());
-        financeFlowWriteOffDetail.setRecordMainTable(tableName);
-        financeFlowWriteOffDetail.setFinanceFlowId(paymentActualDetail.getFinanceFlowId());
-        financeFlowWriteOffDetail.setBankDetailNo(paymentActualDetail.getBankDetailNo());
-        financeFlowWriteOffDetailMapper.insert(financeFlowWriteOffDetail);
+        financeFlowWriteOffDetailService.create(
+                tableName,
+                paymentActualDetail.getId(),
+                paymentActualDetail.getBankDetailNo(),
+                paymentActualDetail.getFinanceFlowId());
     }
 
     /**
@@ -363,21 +361,19 @@ public class FinancialServiceImpl implements FinancialService {
     }
 
     private void addMarginToFinanceFlowDetail(String tableName, MarginRecordInfo marginRecordInfo) {
-        FinanceFlowWriteOffDetail financeFlowWriteOffDetail = new FinanceFlowWriteOffDetail();
-        financeFlowWriteOffDetail.setBankDetailNo(marginRecordInfo.getBankDetailNo());
-        financeFlowWriteOffDetail.setMainId(marginRecordInfo.getId());
-        financeFlowWriteOffDetail.setRecordMainTable(tableName);
-        financeFlowWriteOffDetail.setFinanceFlowId(marginRecordInfo.getFinanceFlowId());
-        financeFlowWriteOffDetailMapper.insert(financeFlowWriteOffDetail);
+        financeFlowWriteOffDetailService.create(
+                tableName,
+                marginRecordInfo.getId(),
+                marginRecordInfo.getBankDetailNo(),
+                marginRecordInfo.getFinanceFlowId());
     }
 
     private void addMarginToFinanceFlowDetail(String tableName, WarrantyRecordInfo warrantyRecordInfo) {
-        FinanceFlowWriteOffDetail financeFlowWriteOffDetail = new FinanceFlowWriteOffDetail();
-        financeFlowWriteOffDetail.setBankDetailNo(warrantyRecordInfo.getBankDetailNo());
-        financeFlowWriteOffDetail.setMainId(warrantyRecordInfo.getId());
-        financeFlowWriteOffDetail.setRecordMainTable(tableName);
-        financeFlowWriteOffDetail.setFinanceFlowId(warrantyRecordInfo.getFinanceFlowId());
-        financeFlowWriteOffDetailMapper.insert(financeFlowWriteOffDetail);
+        financeFlowWriteOffDetailService.create(
+                tableName,
+                warrantyRecordInfo.getId(),
+                warrantyRecordInfo.getBankDetailNo(),
+                warrantyRecordInfo.getFinanceFlowId());
     }
 
     private void preCheck(ThirdCollectionRecordREQ req) {

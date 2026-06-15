@@ -8,13 +8,12 @@ import cn.zswltech.mithras.budget.application.BudgetPlanPayProcessInfoService;
 import cn.zswltech.mithras.budget.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceBcmBalanceMf;
 import cn.zswltech.mithras.finance.service.budget.FinanceBcmBalanceMfService;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceSubjectBalanceAssist;
-import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.finance.service.FinanceSubjectBalanceAssistService;
+import cn.zswltech.mithras.foundation.port.OrgResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
@@ -42,10 +41,12 @@ public class FinanceRiskHelp {
     private FinanceBcmBalanceMfService financeBcmBalanceMfService;
     @Resource
     private FinanceSubjectBalanceAssistService financeSubjectBalanceAssistService;
+    @Resource
+    private OrgResolver orgResolver;
 
     //获取某个月下所有合同下的指标
     /*public Map<Long, Map<String, BigDecimal>> getMonthDeptValues(Integer year, Integer month) {
-        List<OrgDO> orgList = SpringUtil.getBean(SysUserService.class).listAllDept();
+        List<OrgDO> orgList = orgResolver.listAllDept();
         Map<String, OrgDO> orgMap = orgList.stream().filter(e -> Objects.nonNull(e.getMainOrgId())).collect(Collectors.toMap(e -> e.getMainOrgId().toString(), e -> e, (a, b) -> b));
         //科目余额辅助表
         List<FinanceSubjectBalanceAssist> balanceAssists = financeSubjectBalanceAssistService.list(Wrappers.<FinanceSubjectBalanceAssist>lambdaQuery()
@@ -84,7 +85,7 @@ public class FinanceRiskHelp {
 
     //获取某个月下所有合同下的指标
     public Map<Long, Map<String, BigDecimal>> getMonthDeptValues(Integer year, Integer month) {
-        List<OrgDO> orgList = SpringUtil.getBean(SysUserService.class).listAllDept();
+        List<OrgDO> orgList = orgResolver.listAllDept();
         Map<String, OrgDO> orgMap = orgList.stream().filter(e -> Objects.nonNull(e.getMainOrgId())).collect(Collectors.toMap(e -> e.getMainOrgId().toString(), e -> e, (a, b) -> b));
         //科目余额辅助表
         List<FinanceSubjectBalanceAssist> balanceAssists = financeSubjectBalanceAssistService.list(Wrappers.<FinanceSubjectBalanceAssist>lambdaQuery()

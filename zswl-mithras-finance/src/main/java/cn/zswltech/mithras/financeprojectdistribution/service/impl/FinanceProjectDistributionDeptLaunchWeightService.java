@@ -11,7 +11,7 @@ import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistr
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistribution;
 import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjectDistributionDeptLaunchWeight;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.util.UpdateUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -34,7 +34,7 @@ public class FinanceProjectDistributionDeptLaunchWeightService extends ServiceIm
     @Resource
     private FinanceProjectDistributionDeptLaunchWeightMapper financeProjectDistributionDeptLaunchWeightMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
     @Resource
     private FinanceProjectDistributionService financeProjectDistributionService;
     @Resource
@@ -94,7 +94,7 @@ public class FinanceProjectDistributionDeptLaunchWeightService extends ServiceIm
         }
 
         // 组装数据
-        Map<Long, String> map = id2NameService.deptId2Name(list.stream().map(FinanceProjectDistributionDeptLaunchWeight::getWeightTarget).collect(Collectors.toSet()));
+        Map<Long, String> map = deptNameResolver.deptId2Name(list.stream().map(FinanceProjectDistributionDeptLaunchWeight::getWeightTarget).collect(Collectors.toSet()));
         List<FinanceProjectDistributionDeptLaunchWeightInfo> collect = list.stream().map(item -> {
             FinanceProjectDistributionDeptLaunchWeightInfo info = new FinanceProjectDistributionDeptLaunchWeightInfo();
             info.setId(item.getId());

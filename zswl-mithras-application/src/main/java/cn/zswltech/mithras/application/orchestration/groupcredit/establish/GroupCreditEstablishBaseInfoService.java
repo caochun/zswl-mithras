@@ -26,6 +26,7 @@ import cn.zswltech.mithras.dto.groupcreditestablish.baseinfo.*;
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientProjDetailRSP;
 import cn.zswltech.mithras.rating.service.RatingClientService;
 import cn.zswltech.mithras.credit.application.groupcredit.convert.establish.GroupCreditEstablishBaseInfoConverter;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishProcessInfo;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishService;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishUpdateAdvice;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
@@ -39,7 +40,7 @@ import cn.zswltech.mithras.customer.enums.client.NormalClientMaterialTypeEnum;
 import cn.zswltech.mithras.credit.groupcredit.establish.enums.GroupCreditEstablishMaterialsEnum;
 import cn.zswltech.mithras.credit.groupcredit.establish.enums.GroupCreditEstablishProcessStatus;
 import cn.zswltech.mithras.credit.groupcredit.review.enums.GroupCreditReviewProcessStatus;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.credit.groupcredit.establish.dto.persistence.GroupCreditEstablishListSelectDTO;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
@@ -288,7 +289,7 @@ public class GroupCreditEstablishBaseInfoService extends ServiceImpl<GroupCredit
         GroupCreditEstablishBaseInfo info = groupCreditEstablishBaseInfoConverter.modifyREQtoEntity(req);
         groupCreditEstablishBaseInfoMapper.updateAnnotationIncludeNullById(info);
         // 更新审批流审批人
-        ProcessResp runningProcess = groupCreditEstablishService.findRelatedProcess(req.getId());
+        GroupCreditEstablishProcessInfo runningProcess = groupCreditEstablishService.findRelatedProcess(req.getId());
         if (Objects.nonNull(runningProcess)) {
             if (!Objects.equals(originalInfo.getBizDeptLeaderId(), req.getBizDeptLeaderId())) {
                 flowUserApiService.setTaskApprover(FlowUtil.buildSetApproverReq(ListUtil.toList(req.getBizDeptLeaderId()), runningProcess.getProcessInstanceId(), "userTask_deptMaster"));

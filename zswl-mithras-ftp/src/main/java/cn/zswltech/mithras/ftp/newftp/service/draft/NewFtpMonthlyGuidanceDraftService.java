@@ -8,7 +8,6 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.newftp.FtpValue;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceDetaiRsp;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceModifyREQ;
@@ -20,10 +19,9 @@ import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
-import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.ftp.oldftp.bo.NewFtpQuarterPricingBO;
+import cn.zswltech.mithras.ftp.newftp.bo.NewFtpQuarterPricingBO;
 import cn.zswltech.mithras.ftp.newftp.convert.NewFtpMonthlyGuidanceConfigConverter;
 import cn.zswltech.mithras.ftp.newftp.fms.DefaultNewFtpStateMachine;
 import cn.zswltech.mithras.ftp.newftp.fms.NewFtpContext;
@@ -37,7 +35,6 @@ import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyDeductionDraft;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceDraft;
 import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpDescriptionTextDraftService;
 import cn.zswltech.mithras.ftp.newftp.service.NewFtpBaseInfoService;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -145,13 +142,7 @@ public class NewFtpMonthlyGuidanceDraftService
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
 
-        ProcessResp relatedProcess = baseInfoService.findRelatedProcess(originalInfo.getFtpId());
-        if (ObjectUtil.isNotEmpty(relatedProcess)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(relatedProcess);
-            if (!isStartUserNode) {
-                throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
-            }
-        }
+        baseInfoService.checkEditableInProcess(originalInfo.getFtpId());
         NewFtpMonthlyGuidanceDraft info = new NewFtpMonthlyGuidanceDraft();
         info.setId(req.getId());
         info.setValue(req.getValue());

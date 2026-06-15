@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
 import com.google.common.eventbus.AllowConcurrentEvents;

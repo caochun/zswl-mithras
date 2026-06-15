@@ -9,4 +9,8 @@ import java.util.Set;
 public interface JobUserResolver {
 
     List<Long> jobUsers(Set<String> jobCodes);
+
+    default List<Long> jobUsers(String jobCode) {
+        return jobUsers(java.util.Collections.singleton(jobCode));
+    }
 }

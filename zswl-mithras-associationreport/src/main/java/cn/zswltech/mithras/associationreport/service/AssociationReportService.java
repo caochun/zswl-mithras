@@ -9,7 +9,6 @@ import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
 import cn.zswltech.mithras.associationreport.DeleteDataSelector;
@@ -37,7 +36,6 @@ import cn.zswltech.mithras.associationreport.service.application.AssociationRepo
 import cn.zswltech.mithras.associationreport.service.job.AssociationReportJobService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import cn.zswltech.mithras.associationreport.service.lib.association.impl.AssociationReportVersionServiceServiceImpl;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -64,7 +62,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class AssociationReportService extends ServiceImpl<AssociationReportMapper, AssociationReport> implements FlowEndEventProcessor, AssociationReportQueryService, AssociationReportApplicationService, AssociationReportJobService {
+public class AssociationReportService extends ServiceImpl<AssociationReportMapper, AssociationReport> implements AssociationReportQueryService, AssociationReportApplicationService, AssociationReportJobService {
     @Resource
     private AssociationReportTemplateFilePort templateFilePort;
     @Resource
@@ -654,52 +652,30 @@ public class AssociationReportService extends ServiceImpl<AssociationReportMappe
      * 流程结束 处理流程状态
      *
      * @param reportApplyId
-     * @param endType
+     * @param processStatus
      */
     @Transactional(rollbackFor = Throwable.class)
-    @Override
-    public void processEnd(Long reportApplyId, Integer endType, Long startUserId, String processInstanceId, String modelKey) {
+    public void processEnd(Long reportApplyId, AssociationProcessStatusEnum processStatus, boolean processPass, boolean approvalPass, Long startUserId, String processInstanceId) {
         AssociationReportApply associationReportApply = associationReportApplyService.getById(reportApplyId);
         if (ObjectUtil.isNull(associationReportApply)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        String processStatus="";
-        ProcessBusinessStatusEnum processBusinessStatusEnum = ProcessBusinessStatusEnum.getByType(endType);
-        switch (processBusinessStatusEnum) {
-            case PASS:
-                processStatus = AssociationProcessStatusEnum.APPROVAL_PASS.name();
-                break;
-            case PASS_ALL:
-                processStatus = AssociationProcessStatusEnum.APPROVAL_PASS.name();
-                break;
-            case REJECT:
-                processStatus = AssociationProcessStatusEnum.APPROVAL_REJECT.name();
-                break;
-            case REJECT_ALL:
-                processStatus = AssociationProcessStatusEnum.APPROVAL_REJECT.name();
-                break;
-            case CANCEL:
-                processStatus = AssociationProcessStatusEnum.CANCEL.name();
-                break;
-            default:
-                break;
-        }
+        String processStatusCode = Objects.isNull(processStatus) ? "" : processStatus.name();
         //更新主表流程状态
-        associationReportApply.setApprovalStatus(processStatus);
+        associationReportApply.setApprovalStatus(processStatusCode);
         associationReportApplyService.updateById(associationReportApply);
         String reportInstanceIds  = associationReportApply.getReportInstanceIds();
         List<String> reportInstanceIdList = Arrays.asList(reportInstanceIds.split(","));
         List<AssociationReport> associationReportList = this.getReportList(reportInstanceIdList);
         for(AssociationReport item:associationReportList){
-            item.setProcessStatus(processStatus);
+            item.setProcessStatus(processStatusCode);
         }
         //更新子表流程状态
         this.updateBatchById(associationReportList);
         // 记录版本
-        boolean processPass = ProcessBusinessStatusEnum.success(endType);
         int versionType = processPass ? VersionTypeConstants.NORMAL : VersionTypeConstants.INVALID;
         associationReportVersionServiceService.recordVersion(reportApplyId, VersionTypeEnum.APPROVAL, startUserId, processInstanceId, versionType);
-        if (processBusinessStatusEnum == ProcessBusinessStatusEnum.PASS || processBusinessStatusEnum == ProcessBusinessStatusEnum.PASS_ALL) {
+        if (approvalPass) {
             // 审批通过抄送给综合部经办
             try {
                 workflowPort.ccComprehensiveDept(processInstanceId);

@@ -2,7 +2,6 @@ package cn.zswltech.mithras.credit.groupcredit.review.enums;
 
 import cn.zswltech.mithras.foundation.metadata.IMaterialsTypeConvert;
 import cn.zswltech.mithras.foundation.metadata.PullDown;
-import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -30,9 +29,9 @@ public enum GroupCreditReviewMaterialsEnum implements PullDown, IMaterialsTypeCo
     // 业务定价审批表
 //    BUSINESS_PRICING_APPROVAL_FORM("业务定价审批表", new ArrayList<>(), 1),
     // 审查报告
-    RISK_REVIEW_REPORT("审查报告", Arrays.asList(FlowConstants.PARALLEL_RISK_MANAGER, FlowConstants.PARALLEL_RISK_MANAGER_BACK), 2),
+    RISK_REVIEW_REPORT("审查报告", Arrays.asList("userTask_riskManager", "userTask_riskManager_back"), 2),
     // 法律合规意见书
-    LEGAL_COMPLIANCE_REPORT("法律合规意见书", Arrays.asList(FlowConstants.PARALLEL_LAW_MANAGER, FlowConstants.PARALLEL_LAW_MANAGER_BACK), 3),
+    LEGAL_COMPLIANCE_REPORT("法律合规意见书", Arrays.asList("userTask_lawManager", "userTask_lawManager_back"), 3),
     // 项目收益率审查意见书
     YIELD_REVIEW_REPORT("项目收益率审查意见书", Arrays.asList("userTask_financeOfficer", "userTask_financeOfficer_2"), 4),
     // 总经办会议纪要

@@ -40,11 +40,6 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-system</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-riskcontrol</artifactId>
             <version>${revision}</version>
         </dependency>
@@ -63,11 +58,6 @@
             <artifactId>core</artifactId>
             <version>1.5.11-mithras-RELEASE</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-third</artifactId>
-            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>

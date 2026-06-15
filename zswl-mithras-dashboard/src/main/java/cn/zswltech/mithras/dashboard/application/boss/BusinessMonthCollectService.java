@@ -11,7 +11,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.dashboard.enums.DashBoardQueryTypeEnum;
 import cn.zswltech.mithras.kpi.enums.BelongTypeEnum;
 import cn.zswltech.mithras.kpi.enums.BusinessTypeEnum;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.contract.mapper.contract.ContractIncomeSharingMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractIncomeSharing;
@@ -19,8 +19,8 @@ import cn.zswltech.mithras.kpi.model.PerformanceBaseInfo;
 import cn.zswltech.mithras.kpi.model.PerformanceMainInfo;
 import cn.zswltech.mithras.kpi.model.PerformanceRecordInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.OrgCodeResolver;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceMainInfoService;
@@ -50,9 +50,9 @@ import java.util.stream.Collectors;
 public class BusinessMonthCollectService implements BusinessMonthCollectApplicationService {
 
     @Resource
-    private SysUserService sysUserService;
+    private OrgCodeResolver orgCodeResolver;
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
     @Resource
     private ContractIncomeSharingMapper contractIncomeSharingMapper;
     @Resource
@@ -82,8 +82,8 @@ public class BusinessMonthCollectService implements BusinessMonthCollectApplicat
         Map<Long, ContractBaseInfo> contractBaseInfoMap = contractBaseInfoService.listByIds(contractIncomeSharingList.stream().map(ContractIncomeSharing::getContractId).collect(Collectors.toSet()))
                 .stream().collect(Collectors.toMap(ContractBaseInfo::getId, Function.identity(), (k1, k2) -> k1));
         // 将浙江业务部和公用事业业务部找到
-        Long zjDept = sysUserService.getOrgIdByCode("JCSSYWB");
-        Long ggDept = sysUserService.getOrgIdByCode("GGSY");
+        Long zjDept = orgCodeResolver.getOrgIdByCode("JCSSYWB");
+        Long ggDept = orgCodeResolver.getOrgIdByCode("GGSY");
         List<Long> zjAndGgDeptList = CollUtil.newArrayList(zjDept, ggDept);
         // 1、首先按照月份分组
         Map<Integer, Map<Long, List<ContractIncomeSharing>>> map = new HashMap<>();
@@ -147,7 +147,7 @@ public class BusinessMonthCollectService implements BusinessMonthCollectApplicat
                 .stream().collect(Collectors.toMap(PerformanceRecordInfo::getMonth, Function.identity(), (a, b) -> a));
         // 3、对数据进行统计
         List<MonthCollectStatisticsListRSP> result = CollUtil.newArrayList();
-        Map<Long, String> deptId2NameMap = id2NameService.deptId2Name(map.values().stream().map(Map::keySet).flatMap(Collection::stream).collect(Collectors.toList()));
+        Map<Long, String> deptId2NameMap = deptNameResolver.deptId2Name(map.values().stream().map(Map::keySet).flatMap(Collection::stream).collect(Collectors.toList()));
         map.forEach((month, deptSharingMap) -> {
             MonthCollectStatisticsListRSP rsp = MonthCollectStatisticsListRSP.builder()
                     .incomeMonth(LocalDate.now().withMonth(month).format(DateTimeFormatter.ofPattern(DatePattern.NORM_MONTH_PATTERN)))

@@ -9,15 +9,13 @@ import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionDeptLaunchWeightLibService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionDeptLaunchWeightMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionMapper;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptLaunchWeight;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptLaunchWeightLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import cn.zswltech.mithras.foundation.util.UpdateUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -42,16 +40,11 @@ public class KpiProjectDistributionDeptLaunchWeightService extends ServiceImpl<K
     @Resource
     private KpiProjectDistributionDeptLaunchWeightMapper kpiProjectDistributionDeptLaunchWeightMapper;
     @Resource
-    private Id2NameService id2NameService;
-    @Resource
-    private SysUserService sysUserService;
+    private DeptNameResolver deptNameResolver;
     @Resource
     private KpiProjectDistributionMapper kpiProjectDistributionMapper;
     @Resource
     private KpiProjectDistributionDeptLaunchWeightService thisService;
-    @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
-    @Resource
     private KpiProjectDistributionDeptLaunchWeightLibService kpiProjectDistributionDeptLaunchWeightLibService;
 
     public List<KpiProjectDistributionDeptLaunchWeight> listByProjectDistributionIds(Collection<Long> projectDistributionIds) {
@@ -115,7 +108,7 @@ public class KpiProjectDistributionDeptLaunchWeightService extends ServiceImpl<K
         }
 
         // 组装数据
-        Map<Long, String> map = id2NameService.deptId2Name(list.stream().map(KpiProjectDistributionDeptLaunchWeight::getWeightTarget).collect(Collectors.toSet()));
+        Map<Long, String> map = deptNameResolver.deptId2Name(list.stream().map(KpiProjectDistributionDeptLaunchWeight::getWeightTarget).collect(Collectors.toSet()));
         List<KpiProjectDistributionDeptLaunchWeightInfo> collect = list.stream().map(item -> {
             KpiProjectDistributionDeptLaunchWeightInfo info = new KpiProjectDistributionDeptLaunchWeightInfo();
             info.setId(item.getId());

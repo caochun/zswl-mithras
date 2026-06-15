@@ -9,12 +9,9 @@ import cn.zswltech.mithras.rating.mapper.RatingClientAreaIndicatorMapper;
 import cn.zswltech.mithras.rating.model.AreaInfo;
 import cn.zswltech.mithras.rating.model.RatingClientAreaIndicator;
 import cn.zswltech.mithras.rating.model.RatingClientAreaIndicatorConfig;
-import cn.zswltech.mithras.third.dataminer.client.DataMinerClient;
-import cn.zswltech.mithras.third.dataminer.client.req.QueryDmIndicatorReq;
-import cn.zswltech.mithras.third.dataminer.client.req.QueryDmRegionScoreReq;
-import cn.zswltech.mithras.third.dataminer.client.resp.DataMinerRsp;
-import cn.zswltech.mithras.third.dataminer.client.resp.QueryDmIndicatorRsp;
-import cn.zswltech.mithras.third.dataminer.client.resp.QueryDmRegionScoreRsp;
+import cn.zswltech.mithras.rating.service.port.RatingAreaIndicatorDataPort;
+import cn.zswltech.mithras.rating.service.port.model.RatingAreaIndicatorData;
+import cn.zswltech.mithras.rating.service.port.model.RatingRegionScoreData;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -37,7 +34,7 @@ import java.util.stream.Collectors;
 @Service
 public class RatingClientAreaIndicatorService extends ServiceImpl<RatingClientAreaIndicatorMapper, RatingClientAreaIndicator> {
     @Resource
-    private DataMinerClient dataMinerClient;
+    private RatingAreaIndicatorDataPort ratingAreaIndicatorDataPort;
     @Resource
     private AreaInfoMapper areaInfoMapper;
     @Resource
@@ -87,23 +84,19 @@ public class RatingClientAreaIndicatorService extends ServiceImpl<RatingClientAr
         try {
             // 查询区域指标
 //            int currentYear = now.getYear();
-            QueryDmIndicatorReq indicatorReq = new QueryDmIndicatorReq();
-            indicatorReq.setYear(targetYear);
-            indicatorReq.setAreaUniCode(areaUniCode);
-            DataMinerRsp<QueryDmIndicatorRsp> indicatorResult = dataMinerClient.doRequest(indicatorReq, QueryDmIndicatorRsp.class);
-            if (CollectionUtil.isNotEmpty(indicatorResult.getDataList())) {
+            List<RatingAreaIndicatorData> indicatorResult = ratingAreaIndicatorDataPort.queryAreaIndicators(areaUniCode, targetYear);
+            if (CollectionUtil.isNotEmpty(indicatorResult)) {
                 // 去掉value为null的，防止当年全是null数据引起的问题
-                indicatorResult.getDataList().removeIf(e -> Objects.isNull(e.getIndicatorValue()));
+                indicatorResult.removeIf(e -> Objects.isNull(e.getIndicatorValue()));
             }
-            if (CollectionUtil.isEmpty(indicatorResult.getDataList())) {
+            if (CollectionUtil.isEmpty(indicatorResult)) {
                 // 调整年份再查询一次
-                indicatorReq.setYear(targetYear - 1);
-                indicatorResult = dataMinerClient.doRequest(indicatorReq, QueryDmIndicatorRsp.class);
+                indicatorResult = ratingAreaIndicatorDataPort.queryAreaIndicators(areaUniCode, targetYear - 1);
             }
-            if (CollectionUtil.isNotEmpty(indicatorResult.getDataList())) {
-                Map<String, QueryDmIndicatorRsp> map = indicatorResult.getDataList().stream().collect(Collectors.toMap(QueryDmIndicatorRsp::getIndicatorCode, e -> e, (a, b) -> b));
+            if (CollectionUtil.isNotEmpty(indicatorResult)) {
+                Map<String, RatingAreaIndicatorData> map = indicatorResult.stream().collect(Collectors.toMap(RatingAreaIndicatorData::getIndicatorCode, e -> e, (a, b) -> b));
                 todoList.forEach(indicator -> {
-                    QueryDmIndicatorRsp rsp = map.get(indicator.getIndicatorCode());
+                    RatingAreaIndicatorData rsp = map.get(indicator.getIndicatorCode());
                     if (Objects.isNull(rsp)) {
                         return;
                     }
@@ -115,11 +108,9 @@ public class RatingClientAreaIndicatorService extends ServiceImpl<RatingClientAr
             // 查询所属地级市得分
             AreaInfo areaInfo = areaInfoMapper.selectOne(Wrappers.<AreaInfo>lambdaQuery().eq(AreaInfo::getAreaUniCode, areaUniCode).last("limit 1"));
             if (Objects.nonNull(areaInfo) && Objects.nonNull(areaInfo.getCityUniCode()) && !Objects.equals(areaInfo.getCityUniCode(), areaUniCode)) {
-                QueryDmRegionScoreReq scoreReq = new QueryDmRegionScoreReq();
-                scoreReq.setAreaUniCode(areaInfo.getCityUniCode());
-                DataMinerRsp<QueryDmRegionScoreRsp> scoreResult = dataMinerClient.doRequest(scoreReq, QueryDmRegionScoreRsp.class);
-                if (CollectionUtil.isNotEmpty(scoreResult.getDataList())) {
-                    QueryDmRegionScoreRsp rsp = scoreResult.getDataList().get(0);
+                List<RatingRegionScoreData> scoreResult = ratingAreaIndicatorDataPort.queryRegionScores(areaInfo.getCityUniCode());
+                if (CollectionUtil.isNotEmpty(scoreResult)) {
+                    RatingRegionScoreData rsp = scoreResult.get(0);
                     todoList.forEach(indicator -> {
                         if (Objects.equals(indicator.getIndicatorCode(), RatingClientAreaIndicatorConfig.DmIndicatorCode.belong_city_score.name())) {
                             indicator.setYear(now.getYear());

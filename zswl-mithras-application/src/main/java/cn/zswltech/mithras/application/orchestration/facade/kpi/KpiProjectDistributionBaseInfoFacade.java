@@ -13,7 +13,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionGetProcessRSP;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.kpi.application.auth.KpiProjectDistributionModifyChecker;
+import cn.zswltech.mithras.application.orchestration.auth.kpi.KpiProjectDistributionModifyChecker;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionBaseInfoService;
 import org.springframework.stereotype.Service;

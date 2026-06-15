@@ -39,7 +39,7 @@ import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishMater
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishMaterialsEnum;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjPricingMaterialsEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.document.materialsfile.dto.NewestMaterialsDto;

@@ -4,16 +4,14 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.PageReq;
-import cn.zswltech.mithras.dto.fund.financing.FundFinancingListREQ;
-import cn.zswltech.mithras.dto.fund.financing.FundFinancingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpGuaranteeCostPricingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpGuaranteeCostPricingModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.fund.application.financing.api.FundFinancingApplicationService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpGuaranteeCostPricingConfigMapper;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpGuaranteeCostPricingConfig;
+import cn.zswltech.mithras.ftp.newftp.service.port.GuaranteeCostSample;
+import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpFundDataPort;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -26,13 +24,9 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
 * @author yangxiong
@@ -42,7 +36,7 @@ import java.util.stream.Collectors;
 @Service
 public class NewFtpGuaranteeCostPricingConfigService extends ServiceImpl<NewFtpGuaranteeCostPricingConfigMapper, NewFtpGuaranteeCostPricingConfig> {
     @Resource
-    private FundFinancingApplicationService fundFinancingApplicationService;
+    private NewFtpFundDataPort newFtpFundDataPort;
 
 
     @Transactional(rollbackFor = Throwable.class)
@@ -105,12 +99,6 @@ public class NewFtpGuaranteeCostPricingConfigService extends ServiceImpl<NewFtpG
         if(ObjectUtil.isEmpty(localDate)){
             return BigDecimal.ZERO;
         }
-        //获取上月底
-        LocalDateTime enDate = LocalDateTime.of(localDate.with(TemporalAdjusters.lastDayOfMonth()), LocalTime.MAX);
-        FundFinancingListREQ req = new FundFinancingListREQ();
-        req.setActualLoanDateTo(enDate.format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
-        req.setPage(1);
-        req.setPageSize(Integer.MAX_VALUE);
         //∑（【担保费率】*【剩余本金】*【担保融资金额】 ÷ 【融资金额】）
         BigDecimal numerator = new BigDecimal(0);
         //∑【剩余本金】
@@ -118,19 +106,12 @@ public class NewFtpGuaranteeCostPricingConfigService extends ServiceImpl<NewFtpG
         //NewFtpGuaranteeCostPricingDraft ftpGuaranteeCostPricing = new NewFtpGuaranteeCostPricingDraft();
         //ftpGuaranteeCostPricing.setMonth(localDate);
         //上月所有融资数据数据
-        PageR<FundFinancingListRSP.FundFinancingList> fundFinancingListPageR = fundFinancingApplicationService.pageList(req).getData().getRecords();
-        List<FundFinancingListRSP.FundFinancingList> fundFinancingListRSPS = fundFinancingListPageR.getList().stream().filter(base -> {
-            if (FundFinancingStatusEnum.EFFECT.name().equals(base.getFinancingStatus()) || FundFinancingStatusEnum.CARRY_INTEREST.name().equals(base.getFinancingStatus())) {
-                return true;
-            } else {
-                return false;
-            }
-        }).collect(Collectors.toList());
+        List<GuaranteeCostSample> guaranteeCostSamples = newFtpFundDataPort.listGuaranteeCostSamples(localDate);
 
         //还款金额
-        if(ObjectUtil.isNotEmpty(fundFinancingListRSPS)){
+        if(ObjectUtil.isNotEmpty(guaranteeCostSamples)){
             //计算月末担保额度
-            for(FundFinancingListRSP.FundFinancingList fundFinancingListRSP : fundFinancingListRSPS){
+            for(GuaranteeCostSample fundFinancingListRSP : guaranteeCostSamples){
                 //【担保费率】（目前固定0.5%）*【剩余本金】*【担保融资金额】 ÷ 【融资金额】
                 numerator = numerator.add(new BigDecimal("5000").multiply(new BigDecimal(LongUtil.null2zero(fundFinancingListRSP.getLastPrincipal())))
                         .multiply(new BigDecimal(LongUtil.null2zero(fundFinancingListRSP.getGuaranteeFinancingAmount()))).divide(new BigDecimal(LongUtil.null2zero(fundFinancingListRSP.getFinancingAmount())), 10, RoundingMode.HALF_UP));

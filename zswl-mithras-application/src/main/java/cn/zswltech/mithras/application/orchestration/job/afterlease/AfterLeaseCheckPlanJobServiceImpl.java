@@ -28,7 +28,7 @@ import cn.zswltech.mithras.afterlease.enums.*;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;

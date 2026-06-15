@@ -28,7 +28,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueIntegration;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueVersionRelation;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.finance.service.lib.finance.FinanceOverdueIntegrationLibService;
 import cn.zswltech.mithras.foundation.state.ProjProcessState;
 import cn.zswltech.mithras.third.overduereport.client.handle.OverdueReportBatSaveHandle;
@@ -70,7 +70,7 @@ public class FinanceOverdueIntegrationService extends ServiceImpl<FinanceOverdue
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
     @Resource
     private ClientMapper clientMapper;
     @Resource
@@ -113,7 +113,7 @@ public class FinanceOverdueIntegrationService extends ServiceImpl<FinanceOverdue
 
         Set<Long> contractIds = overdueList.stream().map(CollectionBaseInfo::getContractId).collect(Collectors.toSet());
         Map<Long, ContractBaseInfo> contractId2BeanMap = contractBaseInfoMapper.selectBatchIds(contractIds).stream().collect(Collectors.toMap(ContractBaseInfo::getId, e -> e, (a, b) -> a));
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(overdueList.stream().map(CollectionBaseInfo::getClientId).collect(Collectors.toSet()));
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(overdueList.stream().map(CollectionBaseInfo::getClientId).collect(Collectors.toSet()));
         List<FinanceOverdueIntegration> overdueIntegrations = new ArrayList<>();
         overdueList.forEach(collectionBaseInfo -> {
             ContractBaseInfo contractBaseInfo = contractId2BeanMap.get(collectionBaseInfo.getContractId());

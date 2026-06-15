@@ -54,8 +54,8 @@ public class CreditSearchClientServiceImpl implements CreditSearchClientService 
                 .collect(Collectors.toSet());
 
         //批量获取用户名和部门名
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(userIdList);
-        Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptIdList);
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(userIdList);
+        Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptIdList);
 
         //最终转换为 DTO 列表
         return items.stream().map(item -> {

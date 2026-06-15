@@ -1,8 +1,5 @@
 package cn.zswltech.mithras.workbench.application.cardcal;
 
-import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategyMapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -17,7 +14,7 @@ import java.math.RoundingMode;
 @Component
 public class WCM_063Calculator implements CardCalculator {
     @Resource
-    private RiskControlStrategyMapper riskControlStrategyMapper;
+    private WorkbenchRiskControlStrategyPort riskControlStrategyPort;
 
     @Override
     public String metricCode() {
@@ -26,10 +23,7 @@ public class WCM_063Calculator implements CardCalculator {
 
     @Override
     public String calculate() {
-        RiskControlStrategy theOne = riskControlStrategyMapper.selectOne(Wrappers.<RiskControlStrategy>lambdaQuery()
-                .eq(RiskControlStrategy::getMetricName, "不良率")
-                .last("LIMIT 1"));
-        Long currentValueOne = theOne.getCurrentValueOne();
+        Long currentValueOne = riskControlStrategyPort.getCurrentValueOne("不良率");
         if (currentValueOne == null) {
             return "0.00";
         }

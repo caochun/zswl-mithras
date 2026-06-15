@@ -5,7 +5,6 @@ import cn.zswltech.mithras.dto.workbench.WorkbenchMetricReq;
 import cn.zswltech.mithras.dto.workbench.chart.LineBarChartValueVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartBaseDataVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartDataVO;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.workbench.application.job.WorkbenchOverallReturnRateMetricCalculator;
 import cn.zswltech.mithras.workbench.enums.WorkbenchMetricDeptScope;
 import cn.zswltech.mithras.workbench.mapper.WorkbenchOverallReturnRateMetricMapper;
@@ -41,11 +40,28 @@ public class WorkbenchOverallReturnRateMetricService
         implements WorkbenchOverallReturnRateMetricCalculator {
     private static final DateTimeFormatter MONTH_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM");
     private static final Map<String, List<String>> INDUSTRY_MAP = new HashMap<>();
+    private static final Map<String, String> INDUSTRY_DISPLAY_MAP = new HashMap<>();
 
     static {
         INDUSTRY_MAP.put("PUBLIC_UTILITIES", Collections.singletonList("PUBLIC_UTILITIES"));
         INDUSTRY_MAP.put("CIVIL_CONSUMPTION", Arrays.asList("CIVIL_CONSUMPTION", "TRAVEL"));
         INDUSTRY_MAP.put("OTHER", new ArrayList<>());
+
+        INDUSTRY_DISPLAY_MAP.put("PUBLIC_UTILITIES", "公用事业类");
+        INDUSTRY_DISPLAY_MAP.put("CIVIL_CONSUMPTION", "民生消费类（含供水供热供电供气、污水处理等）");
+        INDUSTRY_DISPLAY_MAP.put("TRAVEL", "旅游行业");
+        INDUSTRY_DISPLAY_MAP.put("STEEL", "钢铁、不锈钢及有色金属冶炼行业");
+        INDUSTRY_DISPLAY_MAP.put("TRANSPORTATION_LOGISTICS", "交通运输物流行业（含冷链仓储物流、汽车经销商、普通物流、公共交通等）");
+        INDUSTRY_DISPLAY_MAP.put("WATER_TRANSPORTATION", "水上运输业");
+        INDUSTRY_DISPLAY_MAP.put("PAPER_MAKING", "造纸、精细化工、汽车零部件等传统制造行业");
+        INDUSTRY_DISPLAY_MAP.put("CONSTRUCTION", "建筑工程行业（含建筑材料）");
+        INDUSTRY_DISPLAY_MAP.put("INFORMATION_INDUSTRY", "信息产业（5G、IDC、通信服务等新基建行业）");
+        INDUSTRY_DISPLAY_MAP.put("NEW_MATERIALS", "新能源、新材料、新科技等智能制造、先进装备制造行业");
+        INDUSTRY_DISPLAY_MAP.put("INNOVATION_BUSINESS", "创新业务（取国标行业分类第二级）");
+        INDUSTRY_DISPLAY_MAP.put("INTRA_GROUP_COLLABORATION", "集团内协同业务");
+        INDUSTRY_DISPLAY_MAP.put("NON_GOVERNMENT_FUNDED_EDUCATION", "民办教育行业");
+        INDUSTRY_DISPLAY_MAP.put("OTHER", "其他行业");
+        INDUSTRY_DISPLAY_MAP.put("PUBLIC_HOLDING_COMPANY_INDUSTRY", "国有控股产业");
     }
 
     @Resource
@@ -98,7 +114,7 @@ public class WorkbenchOverallReturnRateMetricService
             } else if ("OTHER".equals(projectType)) {
                 dataType = "其他";
             } else {
-                dataType = RiskControlIndustryClassify.valueOf(projectType).display();
+                dataType = INDUSTRY_DISPLAY_MAP.getOrDefault(projectType, projectType);
             }
             baseDataVos.sort(Comparator.comparing(ChartBaseDataVO::getName));
             data.add(new ChartDataVO(dataType, "line", baseDataVos));

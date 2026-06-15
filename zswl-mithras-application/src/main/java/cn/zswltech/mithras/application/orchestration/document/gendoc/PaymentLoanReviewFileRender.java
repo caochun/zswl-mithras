@@ -24,7 +24,7 @@ import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.MortgageTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.PledgeTypeEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.document.persistence.model.FileTemplate;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;

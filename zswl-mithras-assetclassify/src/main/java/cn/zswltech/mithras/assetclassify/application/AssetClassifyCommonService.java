@@ -8,7 +8,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
@@ -25,14 +25,14 @@ import java.util.Objects;
 @Service
 public class AssetClassifyCommonService {
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDataScopeResolver currentUserDataScopeResolver;
     @Resource
     private CorpCommerceInfoMapper corpCommerceInfoMapper;
 
     public <T extends AssetClassifyClient> LambdaQueryWrapper<T> buildQuery(AssetClassifyClientListREQ req) {
         LambdaQueryWrapper<T> conditionQuery = Wrappers.lambdaQuery();
         conditionQuery.eq(T::getAssetClassifyId, req.getAssetClassifyId());
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         if (Objects.nonNull(canViewDeptIds)) {
             if (CollectionUtil.isEmpty(canViewDeptIds)) {
                 canViewDeptIds.add(Long.MAX_VALUE);

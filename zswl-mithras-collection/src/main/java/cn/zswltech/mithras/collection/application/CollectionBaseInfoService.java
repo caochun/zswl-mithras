@@ -27,8 +27,10 @@ import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.collection.application.bo.CollectionDetailChainBO;
 import cn.zswltech.mithras.contract.core.ContractLeasePriceService;
 import cn.zswltech.mithras.contract.core.ContractReceiptService;
@@ -68,7 +70,11 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
     @Resource
     private CollectionListExcelExporter collectionListExcelExporter;
     @Resource
@@ -77,7 +83,7 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
     @Resource
     private FinancialManagerService financialManagerService;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDataScopeResolver currentUserDataScopeResolver;
     @Resource
     private CollectionRecordInfoMapper collectionRecordInfoMapper;
     @Resource
@@ -249,7 +255,7 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
     }
 
     public PageR<CollectionBaseInfoListRSP> list(CollectionBaseInfoREQ req) {
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         req.setIsBizUser(isBizUser);
         req.setDeptIdList(canViewDeptIds);
@@ -260,7 +266,7 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
         }
         Page<CollectionBaseInfo> pageList = collectionBaseInfoMapper.pageList(new Page<>(req.getPage(), req.getPageSize()), req);
         List<Long> ids = pageList.getRecords().stream().map(CollectionBaseInfo::getClientId).distinct().collect(Collectors.toList());
-        Map<Long, String> clientMap = id2NameService.clientId2Name(ids);
+        Map<Long, String> clientMap = clientNameResolver.clientId2Name(ids);
         List<CollectionBaseInfoListRSP> rsps = new LinkedList<>();
         for (CollectionBaseInfo o : pageList.getRecords()) {
             CollectionBaseInfoListRSP tmp = new CollectionBaseInfoListRSP();
@@ -288,9 +294,9 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
     public CollectionBaseInfoRSP detail(CollectionBaseInfoDetailREQ req) {
         CollectionBaseInfo info = collectionBaseInfoMapper.selectById(req.getId());
         ContractBaseInfoLib detail = baseInfoLibHandler.queryLatestDataByOriginId(info.getContractId());
-        Map<Long, String> clientMap = id2NameService.clientId2Name(Collections.singleton(detail.getClientId()));
-        Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(Collections.singleton(detail.getProjSponsorUserId()));
-        Map<Long, String> deptMap = id2NameService.deptId2Name(Collections.singleton(detail.getBizDeptId()));
+        Map<Long, String> clientMap = clientNameResolver.clientId2Name(Collections.singleton(detail.getClientId()));
+        Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(Collections.singleton(detail.getProjSponsorUserId()));
+        Map<Long, String> deptMap = deptNameResolver.deptId2Name(Collections.singleton(detail.getBizDeptId()));
         CollectionBaseInfoRSP rsp = new CollectionBaseInfoRSP();
         CollectionBaseInfoRSP.ContractInfo contractInfo = new CollectionBaseInfoRSP.ContractInfo();
         contractInfo.setContractCode(detail.getContractCode());
@@ -335,7 +341,7 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
 //                .orderByDesc(CollectionBaseInfo::getPlanCollectionDate)
 //        );
 //        List<Long> ids = baseInfoList.stream().map(CollectionBaseInfo::getClientId).distinct().collect(Collectors.toList());
-//        Map<Long, String> clientMap = id2NameService.clientId2Name(ids);
+//        Map<Long, String> clientMap = clientNameResolver.clientId2Name(ids);
 //        List<CollectionListExcelModel> excelModelList = baseInfoList.stream().map(o -> {
 //            CollectionListExcelModel excelModel = new CollectionListExcelModel();
 //            excelModel.setClientName(clientMap.get(o.getClientId()));

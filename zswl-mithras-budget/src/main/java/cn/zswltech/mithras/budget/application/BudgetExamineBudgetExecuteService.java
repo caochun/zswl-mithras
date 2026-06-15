@@ -36,8 +36,8 @@ import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBase
 import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.collection.application.bo.DeptRemainingPrincipalBO;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceBaseInfoService;
@@ -65,7 +65,9 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
     @Resource
     private BudgetExamineBudgetExecuteMapper budgetExamineBudgetExecuteMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private BizDeptResolver bizDeptResolver;
     @Resource
     private FinanceRiskHelp financeRiskHelp;
     @Resource
@@ -123,7 +125,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         List<DeptRemainingPrincipalBO> deptRemainingPrincipalList = SpringUtil.getBean(CollectionBaseInfoMapper.class).calculateRemainingPrincipalGroupByDeptId(thisMonthDate.plusMonths(1));
         Map<Long, Long> deptRemainingPrincipalMap = deptRemainingPrincipalList.stream().collect(Collectors.toMap(DeptRemainingPrincipalBO::getBizDeptId, DeptRemainingPrincipalBO::getRemainingPrincipal));
         Map<Long, List<BudgetExamineBudgetExecute>> addMap = addList.stream().collect(Collectors.groupingBy(BudgetExamineBudgetExecute::getBelongDeptId));
-        for (OrgDO org : SpringUtil.getBean(SysUserService.class).listBizDept()) {
+        for (OrgDO org : bizDeptResolver.listBizDept()) {
             List<BudgetExamineBudgetExecute> executeList = addMap.get(org.getId());
             if (CollectionUtil.isEmpty(executeList)) {
                 continue;
@@ -158,7 +160,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         }
         Map<String, BudgetExamineBudgetExecute> map = addList.stream().collect(Collectors.toMap(e -> getDeptColumnKey(e.getBelongDeptId(), e.getFieldName()), e -> e));
         // 按照业务部门初始化一份数据（确保每个部门都有全量指标字段）
-        List<OrgDO> allBizDept = SpringUtil.getBean(SysUserService.class).listBizDept();
+        List<OrgDO> allBizDept = bizDeptResolver.listBizDept();
         List<BudgetExamineBudgetExecute> initList = new LinkedList<>();
         for (OrgDO org : allBizDept) {
             for (BudgetExamineBudgetExecuteEnum item : BudgetExamineBudgetExecuteEnum.values()) {
@@ -242,7 +244,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         List<Pair<Long, Long>> deptProjectCountList = SpringUtil.getBean(ProjEstablishBaseInfoMapper.class).countEffectProjectGroupByDept(queryStartTime, queryEndTime);
         Map<Long, Long> thisMonthMap = deptProjectCountList.stream().collect(Collectors.toMap(Pair::getKey, Pair::getValue));
         List<BudgetExamineBudgetExecute> result = new LinkedList<>();
-        List<OrgDO> allBizDeptList = SpringUtil.getBean(SysUserService.class).listBizDept();
+        List<OrgDO> allBizDeptList = bizDeptResolver.listBizDept();
         for (OrgDO org : allBizDeptList) {
             BudgetExamineBudgetExecute projectCountExecute = new BudgetExamineBudgetExecute();
             projectCountExecute.setBudgetExamineId(req.getBudgetExamineId());
@@ -467,7 +469,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
                 }
                 return e;
             }).collect(Collectors.groupingBy(BudgetExamineBudgetExecute::getBelongDeptId));
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptId2Bean.keySet());
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptId2Bean.keySet());
             //部门备注
             Map<Long, String> deptRemark = getDeptRemark(req.getBudgetExamineId());
             deptId2Bean.forEach((deptId, beans) -> {

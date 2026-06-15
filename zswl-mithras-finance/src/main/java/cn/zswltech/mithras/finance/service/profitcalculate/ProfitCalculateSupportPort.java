@@ -28,4 +28,6 @@ public interface ProfitCalculateSupportPort {
     PaymentActualDetail getEarliestPayment(Long contractId);
 
     List<PaymentBaseInfo> listEffectPaymentByContractId(Long contractId);
+
+    Long getMarginCollectionAmountByContractId(Long contractId);
 }

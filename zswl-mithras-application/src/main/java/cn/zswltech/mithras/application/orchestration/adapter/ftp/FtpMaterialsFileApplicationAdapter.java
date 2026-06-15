@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.ftp;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.ftp.FtpBatchIdsReq;
 import cn.zswltech.mithras.dto.ftp.FtpMaterialListRSP;
@@ -14,6 +13,7 @@ import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpMonthlyGuidanceService;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceService;
+import cn.zswltech.mithras.ftp.oldftp.service.port.FtpGuidanceProcessInfo;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import org.apache.commons.collections.CollectionUtils;
@@ -55,7 +55,7 @@ public class FtpMaterialsFileApplicationAdapter implements FtpMaterialsFileAppli
 
     @Override
     public void fileUpload(MultipartFile file, String bizType, Long belongId) {
-        ProcessResp relatedProcesses = null;
+        FtpGuidanceProcessInfo relatedProcesses = null;
         String materialsType = null;
         if ("FTP_QUARTERLY_GUIDANCE".equals(bizType)) {
             relatedProcesses = quarterlyGuidanceService.findRelatedProcess(belongId);

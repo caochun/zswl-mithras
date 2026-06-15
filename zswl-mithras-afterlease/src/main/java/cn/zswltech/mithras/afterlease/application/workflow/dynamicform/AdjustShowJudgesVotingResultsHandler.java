@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.flow.form.VoteFormRSP;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
 import cn.zswltech.mithras.workflow.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.workflow.flow.dynamicform.DynamicFormHandler;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.foundation.util.StreamUtil;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
@@ -30,7 +30,7 @@ public class AdjustShowJudgesVotingResultsHandler implements DynamicFormHandler 
     @Resource
     private FlowProcessApiService processApiService;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
 
     @Override
     public void handle(Map<String, Object> formMap, TaskResp taskResp, UserTaskExt userTaskExt) {
@@ -57,7 +57,7 @@ public class AdjustShowJudgesVotingResultsHandler implements DynamicFormHandler 
                 .collect(Collectors.toList());
         // 填充名字
         if (CollectionUtils.isNotEmpty(voteRSPList)) {
-            Map<Long, String> userNameMap = id2NameService.sysUserId2Name(voteRSPList.stream().map(VoteFormRSP.VoteRSP::getHandlerId).filter(Objects::nonNull).collect(Collectors.toSet()));
+            Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(voteRSPList.stream().map(VoteFormRSP.VoteRSP::getHandlerId).filter(Objects::nonNull).collect(Collectors.toSet()));
             voteRSPList.forEach(e -> e.setHandlerName(userNameMap.get(e.getHandlerId())));
         }
         formRSP.setVoteRSPList(voteRSPList);

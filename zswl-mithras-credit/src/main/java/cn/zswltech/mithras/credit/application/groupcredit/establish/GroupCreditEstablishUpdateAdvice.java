@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.credit.application.groupcredit.establish;
 
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
@@ -13,7 +12,7 @@ import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstabli
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.CurrentUserBizDeptResolver;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 
@@ -33,12 +32,12 @@ public interface GroupCreditEstablishUpdateAdvice {
     default void saveCheck(Long groupCreditEstablishId) {
         GroupCreditEstablishService groupCreditEstablishService = SpringContextHolder.getBean(GroupCreditEstablishService.class);
         GroupCreditReviewBaseInfoMapper groupCreditReviewBaseInfoMapper = SpringContextHolder.getBean(GroupCreditReviewBaseInfoMapper.class);
-        SysUserService sysUserService = SpringContextHolder.getBean(SysUserService.class);
+        CurrentUserBizDeptResolver currentUserBizDeptResolver = SpringContextHolder.getBean(CurrentUserBizDeptResolver.class);
         AccountVO loginUser = AccountUtil.getLoginInfo();
         if (Objects.isNull(loginUser)) {
             throw new MithrasException(ResultMsg.USER_NOT_LOGIN);
         }
-        OrgDO bizOrgDO = sysUserService.currentUserBizDept();
+        OrgDO bizOrgDO = currentUserBizDeptResolver.currentUserBizDept();
         if (isNull(bizOrgDO)) {
             throw new MithrasException(ONLY_BIZ_DEPT_DO);
         }
@@ -61,7 +60,7 @@ public interface GroupCreditEstablishUpdateAdvice {
     default void recordStatus(Long groupCreditEstablishId) {
         GroupCreditEstablishService groupCreditEstablishService = SpringContextHolder.getBean(GroupCreditEstablishService.class);
         GroupCreditEstablishBaseInfoMapper baseInfoMapper = SpringContextHolder.getBean(GroupCreditEstablishBaseInfoMapper.class);
-        ProcessResp processResp = groupCreditEstablishService.findRelatedProcess(groupCreditEstablishId);
+        GroupCreditEstablishProcessInfo processResp = groupCreditEstablishService.findRelatedProcess(groupCreditEstablishId);
         GroupCreditEstablishBaseInfo baseInfo = baseInfoMapper.selectById(groupCreditEstablishId);
         if (Objects.isNull(baseInfo)) {
             return;

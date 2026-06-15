@@ -12,7 +12,8 @@ import cn.zswltech.mithras.financeprojectdistribution.mapper.model.FinanceProjec
 import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistributionBaseInfoMapper;
 import cn.zswltech.mithras.financeprojectdistribution.service.FinanceProjectDistributionBaseInfoApplicationService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -37,7 +38,9 @@ public class FinanceProjectDistributionBaseInfoService extends ServiceImpl<Finan
     FinanceProjectDistributionService financeProjectDistributionService;
 
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
     @Resource
     ContractBaseInfoMapper contractBaseInfoMapper;
 
@@ -73,8 +76,8 @@ public class FinanceProjectDistributionBaseInfoService extends ServiceImpl<Finan
         sysUserIds.add(contractBaseInfo.getBizDeptLeaderId());
         sysUserIds.add(contractBaseInfo.getBizDivisionLeaderId());
         deptIds.add(contractBaseInfo.getBizDeptId());
-        Map<Long, String> sysUserMap = id2NameService.sysUserId2Name(sysUserIds);
-        Map<Long, String> deptMap = id2NameService.deptId2Name(deptIds);
+        Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(sysUserIds);
+        Map<Long, String> deptMap = deptNameResolver.deptId2Name(deptIds);
         rsp.setBizDeptName(deptMap.get(contractBaseInfo.getBizDeptId()));
         rsp.setProjSponsorUserName(sysUserMap.get(contractBaseInfo.getProjSponsorUserId()));
         if (CollUtil.isNotEmpty(projCosponsorUserIds)) {

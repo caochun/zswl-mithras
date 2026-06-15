@@ -3,12 +3,10 @@ package cn.zswltech.mithras.ftp.newftp.service.draft;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingExtDraftDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpQuarterlyBasePricingExtDraftModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.ftp.newftp.enums.ParamCategory;
-import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.newftp.fms.DefaultNewFtpStateMachine;
 import cn.zswltech.mithras.ftp.newftp.fms.NewFtpContext;
@@ -19,7 +17,6 @@ import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpParameterSettingConfig;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpQuarterlyBasePricingExtDraft;
 import cn.zswltech.mithras.ftp.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpParameterSettingConfigService;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -70,13 +67,7 @@ public class NewFtpQuarterlyBasePricingExtDraftService extends ServiceImpl<NewFt
         if (ObjectUtil.isNull(originalInfo)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        ProcessResp relatedProcess = baseInfoService.findRelatedProcess(originalInfo.getFtpId());
-        if (ObjectUtil.isNotEmpty(relatedProcess)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(relatedProcess);
-            if (!isStartUserNode) {
-                throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
-            }
-        }
+        baseInfoService.checkEditableInProcess(originalInfo.getFtpId());
         NewFtpQuarterlyBasePricingExtDraft update = new NewFtpQuarterlyBasePricingExtDraft();
         update.setId(req.getId());
         update.setThreeYear(req.getThreeYear());

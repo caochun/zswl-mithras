@@ -3,20 +3,15 @@ package cn.zswltech.mithras.associationreport.controller;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.flow.core.api.FlowProcessApiService;
-import cn.zswltech.flow.core.domain.req.StartProcessReq;
 import cn.zswltech.gruul.biz.service.UserService;
-import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.associationreport.AssociationReportApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
+import cn.zswltech.mithras.associationreport.application.AssociationReportWorkflowPort;
 import cn.zswltech.mithras.associationreport.excel.AssociationReportBaseModel;
 import cn.zswltech.mithras.associationreport.service.*;
 import cn.zswltech.mithras.associationreport.service.application.AssociationReportApplicationService;
@@ -36,7 +31,6 @@ import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportDataAccess;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
@@ -71,11 +65,9 @@ public class AssociationReportController implements AssociationReportApi {
     @Resource
     private AssociationReportApplyService associationReportApplyService;
     @Resource
-    private SysUserService sysUserService;
-    @Resource
     private UserService userService;
     @Resource
-    private FlowProcessApiService processApiService;
+    private AssociationReportWorkflowPort workflowPort;
     @Resource
     private RedisDistLock redisDistLock;
 
@@ -1192,53 +1184,13 @@ public class AssociationReportController implements AssociationReportApi {
             associationReportApply.setReportInstanceIds(reportInstanceIdList.stream().collect(Collectors.joining(",")));
             associationReportApply.setApprovalStatus(AssociationProcessStatusEnum.UNDER_APPROVAL.name());
             associationReportApplyService.save(associationReportApply);
-            // 生成流程实例
-            StartProcessReq startProcessReq = buildReportApplyStartProcessReq(associationReportApply,modelKey);
-            // 填充变量用于判断流程分支
-//            boolean allRealtimeReport = true;
-//            for (AssociationReport associationReport : associationReportList) {
-//                if (!StrUtil.equals(associationReport.getReportPeriodCategory(), AssociationReportPeriodCategoryEnum.REALTIME.name())) {
-//                    // 存在非实时报表则修改变量
-//                    allRealtimeReport = false;
-//                    break;
-//                }
-//            }
-//            startProcessReq.setVariables(MapUtil.of("allRealtimeReport", allRealtimeReport));
-            processApiService.start(startProcessReq);
+            workflowPort.startApplyFlow(associationReportApply.getId(), modelKey);
             // 更新上报主表association_report的流程状态
             associationReportList.forEach(e -> e.setProcessStatus(AssociationProcessStatusEnum.UNDER_APPROVAL.name()));
             associationReportService.updateBatchById(associationReportList);
         }finally {
             redisDistLock.unlock(lockKey);
         }
-    }
-
-
-    private StartProcessReq buildReportApplyStartProcessReq(AssociationReportApply associationReportApply,String modelKey) {
-        Long currentUserId = Optional.ofNullable(AccountUtil.getLoginInfo()).map(AccountVO::getId).orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN));
-        String currentUserName = sysUserService.getUserName(currentUserId);
-        List<OrgDO> deptList = sysUserService.getSpecificUserDeptList(currentUserId);
-        StartProcessReq startProcessReq = new StartProcessReq();
-        startProcessReq.setBusinessKey(String.valueOf(associationReportApply.getId()));
-        startProcessReq.setModelKey(modelKey);
-        // 审批流列表表单名称展示
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(currentUserName).append("发起报表上报申请流程");
-        startProcessReq.setProcessInstanceName(stringBuilder.toString());
-        startProcessReq.setStartUserId(currentUserId.toString());
-        Long deptId = null;
-        Optional<OrgDO> first = deptList.stream().filter(e -> e.getType()!= 1 ).findFirst();
-        if (first.isPresent()) {//首选非业务部门
-            deptId = first.get().getId();
-        } else if (!deptList.isEmpty()) {
-            deptId = deptList.get(0).getId();
-        }
-        startProcessReq.setStartUserDeptId(deptId.toString());
-        //设值流程变量参数值
-//        startProcessReq.setVariables(MapUtil.of(
-//
-//        ));
-        return startProcessReq;
     }
 
 

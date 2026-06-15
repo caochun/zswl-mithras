@@ -28,7 +28,7 @@ import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.SortedBizDeptResolver;
 import cn.zswltech.mithras.dashboard.model.DashboardCorpCommerceInfoLibDto;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
 import cn.zswltech.mithras.dashboard.application.util.DashboardOperationUtil;
@@ -73,7 +73,7 @@ public class DashboardOperationConversionService implements cn.zswltech.mithras.
     @Resource
     private OrgService orgService;
     @Resource
-    private SysUserService sysUserService;
+    private SortedBizDeptResolver sortedBizDeptResolver;
     @Resource
     private FlowTaskApiService taskApiService;
     @Resource
@@ -274,7 +274,7 @@ public class DashboardOperationConversionService implements cn.zswltech.mithras.
                 .in(StringUtils.isNotBlank(req.getType()), DashboardReviewInfo::getBusinessGroup, req.getType()));
 
         List<DashboardOperationConversionListRSP> res = new ArrayList<>();
-        for (OrgDO orgDO : sysUserService.listBizDeptSort(req.getType())) {
+        for (OrgDO orgDO : sortedBizDeptResolver.listBizDeptSort(req.getType())) {
             if (Objects.equals(orgDO.getState(), YesOrNoNumberEnum.NO.getCode())) {
                 continue;
             }
@@ -521,7 +521,7 @@ public class DashboardOperationConversionService implements cn.zswltech.mithras.
     private DashboardOperationConversionStatisticsREQ buildQuery(DashboardOperationConversionListREQ req){
         DashboardOperationConversionStatisticsREQ query = BeanUtil.copyProperties(req, DashboardOperationConversionStatisticsREQ.class);
         if(DashboardOperationBaseREQ.publicType.equals(req.getType())) {
-            List<OrgDO> orgDOList = sysUserService.listBizDeptSort(req.getType());
+            List<OrgDO> orgDOList = sortedBizDeptResolver.listBizDeptSort(req.getType());
             List<Long> orgIdList = orgDOList.stream().filter(f -> Arrays.asList("浙江业务部", "公用事业业务部").contains(f.getName()))
                     .map(OrgDO::getId).collect(Collectors.toList());
             query.setBizDeptIdList((orgIdList));

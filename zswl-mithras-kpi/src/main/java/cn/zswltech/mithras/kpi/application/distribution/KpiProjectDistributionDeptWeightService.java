@@ -9,15 +9,13 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionDeptWeightSaveREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionPrevREQ;
 import cn.zswltech.mithras.kpi.distribution.versioning.KpiProjectDistributionDeptWeightLibService;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionDeptWeightMapper;
 import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionMapper;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptWeight;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptWeightLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -41,18 +39,13 @@ import java.util.stream.Collectors;
 public class KpiProjectDistributionDeptWeightService extends ServiceImpl<KpiProjectDistributionDeptWeightMapper, KpiProjectDistributionDeptWeight> {
 
     @Resource
-    private Id2NameService id2NameService;
-    @Resource
-    private SysUserService sysUserService;
+    private DeptNameResolver deptNameResolver;
     @Resource
     private KpiProjectDistributionMapper kpiProjectDistributionMapper;
     @Resource
     private KpiProjectDistributionDeptWeightService thisService;
     @Resource
     private KpiProjectDistributionDeptLaunchWeightService kipProjectDistributionDeptLaunchWeightService;
-    @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
-    @Resource
     private KpiProjectDistributionDeptWeightLibService kpiProjectDistributionDeptWeightLibService;
 
     public List<KpiProjectDistributionDeptWeight> listByProjectDistributionIds(Collection<Long> projectDistributionIds) {
@@ -189,7 +182,7 @@ public class KpiProjectDistributionDeptWeightService extends ServiceImpl<KpiProj
         }
 
         // 组装数据
-        Map<Long, String> map = id2NameService.deptId2Name(list.stream().map(KpiProjectDistributionDeptWeight::getWeightTarget).collect(Collectors.toSet()));
+        Map<Long, String> map = deptNameResolver.deptId2Name(list.stream().map(KpiProjectDistributionDeptWeight::getWeightTarget).collect(Collectors.toSet()));
         List<KpiProjectDistributionDeptWeightInfo> collect = list.stream().map(item -> {
             KpiProjectDistributionDeptWeightInfo info = new KpiProjectDistributionDeptWeightInfo();
             info.setId(item.getId());

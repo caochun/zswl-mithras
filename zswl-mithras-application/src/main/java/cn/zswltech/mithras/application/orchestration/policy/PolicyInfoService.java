@@ -20,7 +20,9 @@ import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.policy.enums.PolicyApprovalStatusEnum;
 import cn.zswltech.mithras.policy.enums.PolicyDataStatusEnum;
+import cn.zswltech.mithras.policy.enums.PolicyRenewInsuranceEnum;
 import cn.zswltech.mithras.policy.enums.PolicyStatusEnum;
+import cn.zswltech.mithras.policy.enums.PolicyTypeEnum;
 import cn.zswltech.mithras.policy.excel.importer.PaymentPolicyExcelImporter;
 import cn.zswltech.mithras.policy.excel.model.PaymentPolicyItemExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
@@ -412,13 +414,69 @@ public class PolicyInfoService extends ServiceImpl<PolicyInfoMapper, PolicyInfo>
             if (CollectionUtils.isEmpty(policyItemExcelModels)) {
                 throw new MithrasException("导入的文件数据为空");
             }
+            StringBuilder stringBuilder = new StringBuilder();
+            PolicyTypeEnum of;
+            PolicyRenewInsuranceEnum insuranceEnum;
             if (ObjectUtil.isNotEmpty(paymentPoliceImportREQ.getPolicyId())) {
-
+                if (policyItemExcelModels.size() == 1) {
+                    PolicyInfoAddREQ req = BeanUtil.copyProperties(policyItemExcelModels.get(0), PolicyInfoAddREQ.class);
+                    req.setPaymentId(paymentPoliceImportREQ.getPaymentId());
+                    req.setPolicyId(paymentPoliceImportREQ.getPolicyId());
+                    of = PolicyTypeEnum.find(req.getPolicyType());
+                    req.setPolicyType(of == null ? null : of.name());
+                    insuranceEnum = PolicyRenewInsuranceEnum.find(req.getRenewInsuranceFlag());
+                    req.setRenewInsuranceFlag(insuranceEnum == null ? null : insuranceEnum.name());
+                    req.setPolicyAmount(LongUtil.other2Long(LongUtil.null2zero(req.getPolicyAmount()).toString()));
+                    add(req);
+                } else {
+                    throw new MithrasException("续保保单仅支持导入一条");
+                }
+            } else {
+//                Map<String, Integer> stringIntegerMap =
+//                        countPolicyCodeNum(policyItemExcelModels.stream().map(PaymentPolicyItemExcelModel::getPolicyCode).collect(Collectors.toList()));
+                PaymentBaseInfo paymentBaseInfo = paymentBaseInfoMapper.selectById(paymentPoliceImportREQ.getPaymentId());
+                if (ObjectUtil.isEmpty(paymentBaseInfo)) {
+                    throw new MithrasException("付款信息为空");
+                }
+                ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(paymentBaseInfo.getContractId());
+                List<PolicyInfo> add = new ArrayList<>();
+                PolicyInfo policyInfo;
+                for (PaymentPolicyItemExcelModel model : policyItemExcelModels) {
+//                    if(ObjectUtil.isNotEmpty(stringIntegerMap)){
+//                        if(LongUtil.null2zero(stringIntegerMap.get(model.getPolicyCode())) > 0){
+//                            stringBuilder.append(model.getPolicyCode());
+//                            stringBuilder.append(",");
+//                            continue;
+//                        }
+//                    }
+                    policyInfo = BeanUtil.copyProperties(model, PolicyInfo.class);
+                    policyInfo.setPaymentId(paymentPoliceImportREQ.getPaymentId());
+                    policyInfo.setLevel(0);
+                    policyInfo.setProjId(contractBaseInfo.getProjReviewId());
+                    policyInfo.setContractId(contractBaseInfo.getId());
+                    policyInfo.setContractCode(contractBaseInfo.getContractCode());
+                    policyInfo.setPolicyStatus(PolicyStatusEnum.EFFECT.name());
+                    policyInfo.setAutomatic(0);
+                    of = PolicyTypeEnum.find(model.getPolicyType());
+                    policyInfo.setPolicyType(of == null ? null : of.name());
+                    insuranceEnum = PolicyRenewInsuranceEnum.find(model.getRenewInsuranceFlag());
+                    policyInfo.setRenewInsuranceFlag(insuranceEnum == null ? null : insuranceEnum.name());
+                    policyInfo.setPolicyAmount(LongUtil.other2Long(model.getPolicyAmount().toString()));
+                    add.add(policyInfo);
+                }
+                saveBatch(add);
             }
+//            if(stringBuilder.length() > 0){
+//                stringBuilder.append("保单编号重复");
+//            } else {
+            stringBuilder.append("保单导入成功");
+//            }
+            return stringBuilder.toString();
+        } catch (MithrasException e) {
+            throw e;
         } catch (Exception e) {
             throw new MithrasException("导入保单文件发生异常");
         }
-        return null;
     }
 
     public Map<String, Integer> countPolicyCodeNum(List<String> list) {

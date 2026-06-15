@@ -11,8 +11,9 @@ import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
+import cn.zswltech.mithras.foundation.port.UserBizDeptInfoResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -42,9 +43,11 @@ public class AppraisalWhitelistJobServiceImpl implements AppraisalWhitelistJobSe
     @Resource
     private AppraisalWhitelistNotificationPort notificationPort;
     @Resource
-    private SysUserService sysUserService;
+    private UserBizDeptInfoResolver userBizDeptInfoResolver;
     @Resource
-    private Id2NameService id2NameService;
+    private OrgJobUserResolver orgJobUserResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
 
     @Override
     public void appraisalWhitelistDailyJob() {
@@ -83,11 +86,11 @@ public class AppraisalWhitelistJobServiceImpl implements AppraisalWhitelistJobSe
 
     private void sendNotify(AppraisalCompanyWhitelist appraisalCompanyWhitelist, long days) {
         // 找到部门负责人
-        OrgDO org = sysUserService.getBizDeptByUserId(appraisalCompanyWhitelist.getCreateBy());
+        OrgDO org = userBizDeptInfoResolver.getBizDeptByUserId(appraisalCompanyWhitelist.getCreateBy());
         if (Objects.isNull(org)) {
             return;
         }
-        Long businessheadId = sysUserService.getUserIdByOrgJob(org.getId(), JobEnum.businesshead.name());
+        Long businessheadId = orgJobUserResolver.orgJobUsers(org.getId(), JobEnum.businesshead.name()).stream().findFirst().orElse(null);
         List<Long> toIds = new LinkedList<>();
         if (Objects.nonNull(appraisalCompanyWhitelist.getCreateBy())) {
             toIds.add(appraisalCompanyWhitelist.getCreateBy());
@@ -98,7 +101,7 @@ public class AppraisalWhitelistJobServiceImpl implements AppraisalWhitelistJobSe
         if (CollectionUtil.isEmpty(toIds)) {
             return;
         }
-        String relation = String.format(MESSAGE_NOTIFY_TEMPLATE, id2NameService.deptId2NameSingle(appraisalCompanyWhitelist.getDeptId()), appraisalCompanyWhitelist.getCompanyName(), days);
+        String relation = String.format(MESSAGE_NOTIFY_TEMPLATE, deptNameResolver.deptId2NameSingle(appraisalCompanyWhitelist.getDeptId()), appraisalCompanyWhitelist.getCompanyName(), days);
         notificationPort.sendExpireRemind(appraisalCompanyWhitelist.getId(), toIds, relation);
         log.info("评估机构白名单准入到期通知发送完成[whitelistId:{}, toIds:{}]", appraisalCompanyWhitelist.getId(), JSONUtil.toJsonStr(toIds));
     }

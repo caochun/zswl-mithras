@@ -15,7 +15,6 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.foundation.util.FreeMarkerUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -53,8 +52,6 @@ public class PaymentNoticeHtmlRender {
     private ContractBaseInfoLibHandler contractBaseInfoLibHandler;
     @Resource
     private ClientMapper clientMapper;
-    @Resource
-    private Id2NameService id2NameService;
     @Resource(name = "userServiceAPI")
     private UserService userServiceAPI;
     @Resource

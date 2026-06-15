@@ -71,8 +71,11 @@ import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMa
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.BizDeptResolver;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.customer.application.client.ClientBusinessHistoryService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractTradeStructureService;
@@ -130,7 +133,7 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
     @Resource
     private CreditReportBaseInfoMapper creditReportBaseInfoMapper;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserOrgResolver currentUserOrgResolver;
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
@@ -142,7 +145,13 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
     @Resource
     private CreditReportClientSupportPort creditReportClientSupportPort;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private BizDeptResolver bizDeptResolver;
     //审批流相关
     @Resource
     private FlowTaskApiService taskApiService;
@@ -183,7 +192,7 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
     public void add(CreditReportAddCmd req) {
         CreditReportBaseInfo creditReportDO = BeanUtil.copyProperties(req, CreditReportBaseInfo.class);
 
-        OrgDO orgDO = sysUserService.getUserDeptList().get(0);
+        OrgDO orgDO = currentUserOrgResolver.getUserDeptList().get(0);
         creditReportDO.setCreditCode(generateCreditCodeSimple());
         creditReportDO.setApplyOrg(orgDO.getId());
         creditReportDO.setApplyStatus(ProcessState.UN_SUBMIT.name());
@@ -322,7 +331,7 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
             return null;
         }
         // 过滤出业务部门的岗位
-        List<OrgDO> orgList = SpringUtil.getBean(SysUserService.class).listBizDept();
+        List<OrgDO> orgList = bizDeptResolver.listBizDept();
         Set<Long> bizDeptIds = orgList.stream().map(OrgDO::getId).collect(Collectors.toSet());
         userOrgJobList.removeIf(e -> !bizDeptIds.contains(e.getOrgId()));
         Map<String, List<UserOrgJobDO>> userOrgMap = userOrgJobList.stream().collect(Collectors.groupingBy(UserOrgJobDO::getJobCode));
@@ -394,8 +403,8 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
         Map<Long, List<MaterialsList>> belongId2FileList = creditReportMaterialPort.list(CreditReportBusinessModule.CREDIT_REPORT_SELECT.name(), Collections.singletonList(CreditReportMaterialTypeEnum.CLIENT_CREDIT_REPORT.name()), reportClientIds)
                 .stream().collect(Collectors.groupingBy(MaterialsList::getBelongId));
         //转换名称
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(records.stream().map(CreditReportBaseInfo::getCreateBy).collect(Collectors.toList()));
-        Map<Long, String> orgId2name = id2NameService.deptId2Name(records.stream().map(CreditReportBaseInfo::getApplyOrg).collect(Collectors.toList()));
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(records.stream().map(CreditReportBaseInfo::getCreateBy).collect(Collectors.toList()));
+        Map<Long, String> orgId2name = deptNameResolver.deptId2Name(records.stream().map(CreditReportBaseInfo::getApplyOrg).collect(Collectors.toList()));
         //封装请求
         List<CreditReportListDTO> creditReportListDTOs = new ArrayList<>();
         records.forEach(record -> {
@@ -536,7 +545,7 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
         startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo()).map(AccountVO::getId).map(String::valueOf).orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
         startProcessReq.setBusinessKey(String.valueOf(id));
         startProcessReq.setProcessInstanceName(String.format("%s征信报告查询", LocalDateTimeUtil.format(LocalDate.now(), "yyyyMMdd")));
-        startProcessReq.setStartUserDeptId(Optional.ofNullable(sysUserService.getUserDept()).map(OrgDO::getId).map(Objects::toString).orElse(""));
+        startProcessReq.setStartUserDeptId(Optional.ofNullable(currentUserOrgResolver.getUserDept()).map(OrgDO::getId).map(Objects::toString).orElse(""));
         processApiService.start(startProcessReq);
     }
 
@@ -736,7 +745,7 @@ public class CreditReportBaseInfoService extends ServiceImpl<CreditReportBaseInf
             return new ArrayList<>();
         }
         // 过滤出业务部门的岗位
-        List<OrgDO> orgList = SpringUtil.getBean(SysUserService.class).listBizDept();
+        List<OrgDO> orgList = bizDeptResolver.listBizDept();
         Set<Long> bizDeptIds = orgList.stream().map(OrgDO::getId).collect(Collectors.toSet());
         userOrgJobList.removeIf(e -> !bizDeptIds.contains(e.getOrgId()));
         Map<String, List<UserOrgJobDO>> userOrgMap = userOrgJobList.stream().collect(Collectors.groupingBy(UserOrgJobDO::getJobCode));

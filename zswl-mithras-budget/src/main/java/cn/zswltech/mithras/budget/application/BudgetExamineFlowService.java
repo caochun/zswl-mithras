@@ -15,7 +15,7 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessState;
 import cn.zswltech.mithras.budget.mapper.BudgetExamineMapper;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamine;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.UserBizDeptInfoResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -51,7 +51,7 @@ import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean
 public class BudgetExamineFlowService {
 
     @Resource
-    private SysUserService sysUserService;
+    private UserBizDeptInfoResolver userBizDeptInfoResolver;
 
     @Resource
     private FlowProcessApiService processApiService;
@@ -78,7 +78,7 @@ public class BudgetExamineFlowService {
         startProcessReq.setVariables(varMap);
         startProcessReq.setBusinessKey(String.valueOf(budgetExamine.getId()));
         startProcessReq.setStartUserId(String.valueOf(budgetExamine.getSubmitUserId()));
-        final OrgDO bizDeptByUserId = sysUserService.getBizDeptByUserId(budgetExamine.getSubmitUserId());
+        final OrgDO bizDeptByUserId = userBizDeptInfoResolver.getBizDeptByUserId(budgetExamine.getSubmitUserId());
         if (ObjectUtil.isNotEmpty(bizDeptByUserId)) {
             startProcessReq.setStartUserDeptId(String.valueOf(bizDeptByUserId.getId()));
         }

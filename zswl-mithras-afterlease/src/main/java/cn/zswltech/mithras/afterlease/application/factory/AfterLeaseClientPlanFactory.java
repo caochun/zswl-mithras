@@ -3,7 +3,7 @@ package cn.zswltech.mithras.afterlease.application.factory;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseClientPlanRSP;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckTermEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.foundation.util.BigDecimalUtil;
 
 import java.math.BigDecimal;

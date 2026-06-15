@@ -8,14 +8,12 @@ import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.api.flow.ExecutionApi;
 import cn.zswltech.mithras.dto.flow.execution.ExecutionProcessBaseREQ;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.policy.application.info.PolicyInfoSupportService;
 import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
-import cn.zswltech.mithras.policy.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.policy.PolicyInfoVersionService;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -36,7 +34,7 @@ public class PolicyProcessEndHandler extends AbstractProcessEndHandler {
     private PolicyInfoVersionService policyInfoVersionService;
 
     @Resource
-    private PolicyInfoMapper policyInfoMapper;
+    private PolicyInfoSupportService policyInfoSupportService;
 
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
@@ -53,25 +51,17 @@ public class PolicyProcessEndHandler extends AbstractProcessEndHandler {
     public void handle(ProcessEndContext endContext) {
         Boolean passed =  ProcessBusinessStatusEnum.success(endContext.getEndType());
         if (equalsAny(endContext.getModelKey(), PolicyReminderFlow.name(), PolicyOverdueReminderFlow.name())) {
-            List<PolicyInfo> policyInfos = policyInfoMapper.selectList(Wrappers.<PolicyInfo>lambdaQuery()
-                    .eq(PolicyInfo::getParentId, Long.valueOf(endContext.getBusinessKey())));
-            if (ObjectUtil.isNotEmpty(policyInfos)) {
-                policyInfos.forEach(e -> policyInfoVersionService.processEnd(e.getId(), endContext.getEndType(), Long.valueOf(endContext.getStartUserId()), endContext.getProcessInstanceId(), endContext.getModelKey()));
+            List<Long> childPolicyIds = policyInfoSupportService.listChildPolicyIds(Long.valueOf(endContext.getBusinessKey()));
+            if (ObjectUtil.isNotEmpty(childPolicyIds)) {
+                childPolicyIds.forEach(id -> policyInfoVersionService.processEnd(id, endContext.getEndType(), Long.valueOf(endContext.getStartUserId()), endContext.getProcessInstanceId(), endContext.getModelKey()));
             }
-            PolicyInfo policyInfo = policyInfoMapper.selectById(Long.valueOf(endContext.getBusinessKey()));
-            if (policyInfoMapper.selectCount(Wrappers.<PolicyInfo>lambdaQuery()
-                    .eq(PolicyInfo::getParentId, policyInfo.getId())) > 0) {
-                policyInfo.setRenewInsuranceResult(YesOrNoNumberEnum.YES.getCode());
-            } else {
-                policyInfo.setRenewInsuranceResult(YesOrNoNumberEnum.NO.getCode());
-            }
-            policyInfoMapper.updateById(policyInfo);
+            policyInfoSupportService.refreshRenewInsuranceResultByChildren(Long.valueOf(endContext.getBusinessKey()));
         } else {
             policyInfoVersionService.processEnd(Long.valueOf(endContext.getBusinessKey()), endContext.getEndType(), Long.valueOf(endContext.getStartUserId()), endContext.getProcessInstanceId(), endContext.getModelKey());
         }
         //抄送
         List<Long> ccUserIdList = new ArrayList<>();
-        PolicyInfo policyInfo = policyInfoMapper.selectById(Long.valueOf(endContext.getBusinessKey()));
+        PolicyInfo policyInfo = policyInfoSupportService.getById(Long.valueOf(endContext.getBusinessKey()));
         if (ObjectUtil.isNotEmpty(policyInfo)) {
             if (ObjectUtil.isNotEmpty(policyInfo.getContractId())) {
                 ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(policyInfo.getContractId());

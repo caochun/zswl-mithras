@@ -1,13 +1,11 @@
 package cn.zswltech.mithras.ftp.newftp.service.draft;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftDetailRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyGuidanceExtDraftModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
-import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.newftp.convert.NewFtpMonthlyGuidanceExtDraftConverter;
 import cn.zswltech.mithras.ftp.newftp.fms.DefaultNewFtpStateMachine;
@@ -18,7 +16,6 @@ import cn.zswltech.mithras.ftp.newftp.model.NewFtpBaseInfo;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceDraft;
 import cn.zswltech.mithras.ftp.newftp.model.draft.NewFtpMonthlyGuidanceExtDraft;
 import cn.zswltech.mithras.ftp.newftp.service.NewFtpBaseInfoService;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -64,13 +61,7 @@ public class NewFtpMonthlyGuidanceExtDraftService
     }
 
     public void calculate(Long mainId) {
-        ProcessResp relatedProcess = baseInfoService.findRelatedProcess(mainId);
-        if (ObjectUtil.isNotEmpty(relatedProcess)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(relatedProcess);
-            if (!isStartUserNode) {
-                throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
-            }
-        }
+        baseInfoService.checkEditableInProcess(mainId);
         NewFtpMonthlyGuidanceExtDraft info = getOne(Wrappers.<NewFtpMonthlyGuidanceExtDraft>lambdaQuery()
                 .eq(NewFtpMonthlyGuidanceExtDraft::getFtpId, mainId).last("limit 1"));
         if (ObjectUtil.isNull(info)) {
@@ -121,14 +112,7 @@ public class NewFtpMonthlyGuidanceExtDraftService
         if (ObjectUtil.isNull(originalInfo)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-
-        ProcessResp relatedProcess = baseInfoService.findRelatedProcess(originalInfo.getFtpId());
-        if (ObjectUtil.isNotEmpty(relatedProcess)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(relatedProcess);
-            if (!isStartUserNode) {
-                throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
-            }
-        }
+        baseInfoService.checkEditableInProcess(originalInfo.getFtpId());
 
         NewFtpMonthlyGuidanceExtDraft info = baseConverter.modifReq2Entity(req);
         baseMapper.updateById(info);

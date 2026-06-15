@@ -37,8 +37,13 @@ import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemAppraisalRelation;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
 import cn.zswltech.mithras.leaseholdproperty.model.TycAppraisalCompanyBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.CurrentUserBizDeptResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
+import cn.zswltech.mithras.foundation.port.UserBizDeptInfoResolver;
+import cn.zswltech.mithras.foundation.port.UserJobOrgResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.leaseholdproperty.application.impl.LeaseItemAppraisalRelationService;
 import cn.zswltech.mithras.third.tianyancha.application.TycService;
 import cn.zswltech.mithras.third.tianyancha.application.dto.MithrasBaseInfo;
@@ -77,9 +82,19 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
     );
 
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserBizDeptResolver currentUserBizDeptResolver;
     @Resource
-    private Id2NameService id2NameService;
+    private UserBizDeptInfoResolver userBizDeptInfoResolver;
+    @Resource
+    private CurrentUserJobResolver currentUserJobResolver;
+    @Resource
+    private OrgJobUserResolver orgJobUserResolver;
+    @Resource
+    private UserJobOrgResolver userJobOrgResolver;
+    @Resource
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
     @Resource
     private AppraisalCompanyWhitelistLibService appraisalCompanyWhitelistLibService;
     @Resource
@@ -113,8 +128,8 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
             userIds.add(rsp.getCreateBy());
             deptIds.add(rsp.getDeptId());
         }
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(userIds);
-        Map<Long, String> deptNameMap = id2NameService.deptId2Name(deptIds);
+        Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(userIds);
+        Map<Long, String> deptNameMap = deptNameResolver.deptId2Name(deptIds);
         Set<String> uscCodes = dbResult.getRecords().stream().map(AppraisalCompanyWhitelist::getUscCode).collect(Collectors.toSet());
         Map<String, Long> map = tycAppraisalCompanyBaseInfoMapper.selectList(Wrappers.<TycAppraisalCompanyBaseInfo>lambdaQuery().in(TycAppraisalCompanyBaseInfo::getCreditCode, uscCodes)).stream().collect(Collectors.toMap(TycAppraisalCompanyBaseInfo::getCreditCode, TycAppraisalCompanyBaseInfo::getId, (a, b) -> b));
         for (AppraisalCompanyWhitelistPageRSP rsp : list) {
@@ -135,7 +150,7 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
     @Transactional(rollbackFor = Throwable.class)
     public Long add(AppraisalCompanyWhitelistAddREQ req) {
         Long currentUserId = AccountUtil.getLoginInfo().getId();
-        OrgDO org = sysUserService.getBizDeptByUserId(currentUserId);
+        OrgDO org = userBizDeptInfoResolver.getBizDeptByUserId(currentUserId);
         if (Objects.isNull(org)) {
             throw new MithrasException("没有找到当前用户所在的业务部门");
         }
@@ -217,7 +232,7 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
         if (Objects.isNull(record)) {
             throw new MithrasException("主数据不存在");
         }
-        OrgDO org = sysUserService.currentUserBizDept();
+        OrgDO org = currentUserBizDeptResolver.currentUserBizDept();
         if (Objects.isNull(org) || !Objects.equals(org.getId(), record.getDeptId())) {
             throw new MithrasException("仅创建部门用户可操作");
         }
@@ -266,7 +281,7 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
         }
         Long currentUserId = AccountUtil.getLoginInfo().getId();
         // 取创建人所在部门及部门负责人
-        OrgDO orgDO = sysUserService.currentUserBizDept();
+        OrgDO orgDO = currentUserBizDeptResolver.currentUserBizDept();
         if (Objects.isNull(orgDO)) {
             throw new MithrasException("没有找到当前登陆人所在的业务部门");
         }
@@ -282,7 +297,7 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
         if (this.isRunningProcess(appraisalCompanyWhitelist)) {
             throw new MithrasException("该评估机构已存在审批中的数据，请勿重复提交");
         }
-        Long deptMasterId = sysUserService.getUserIdByOrgJob(orgDO.getId(), JobEnum.businesshead.name());
+        Long deptMasterId = orgJobUserResolver.orgJobUsers(orgDO.getId(), JobEnum.businesshead.name()).stream().findFirst().orElse(null);
         if (Objects.isNull(deptMasterId)) {
             throw new MithrasException("没有找到当前登陆人所在业务部门的部门负责人");
         }
@@ -349,8 +364,8 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
         }
         // 判断操作条件
         Long currentUserId = AccountUtil.getLoginInfo().getId();
-        OrgDO bizOrg = sysUserService.getBizDeptByUserId(currentUserId);
-        boolean isLegal = sysUserService.userIsSpecificJob(currentUserId, JobEnum.legalmanager.name());
+        OrgDO bizOrg = userBizDeptInfoResolver.getBizDeptByUserId(currentUserId);
+        boolean isLegal = currentUserJobResolver.userIsSpecificJob(currentUserId, JobEnum.legalmanager.name());
         boolean sameDept = Objects.nonNull(bizOrg) && Objects.equals(bizOrg.getId(), appraisalCompanyWhitelist.getDeptId());
         if (!isLegal && !sameDept) {
             throw new MithrasException("仅允许法务经理或者创建部门用户操作");
@@ -368,9 +383,9 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
         if (isLegal) {
             // 法务经理发起
             startProcessReq.setVariables(MapUtil.of("starUserIsLegalManager", true));
-            List<OrgDO> orgList = sysUserService.listOrgByJob(currentUserId, JobEnum.legalmanager.name());
-            if (CollectionUtil.isNotEmpty(orgList)) {
-                startProcessReq.setStartUserDeptId(orgList.get(0).getId().toString());
+            List<Long> orgIdList = userJobOrgResolver.userOrgIdsByJob(currentUserId, JobEnum.legalmanager.name());
+            if (CollectionUtil.isNotEmpty(orgIdList)) {
+                startProcessReq.setStartUserDeptId(orgIdList.get(0).toString());
             }
         } else {
             startProcessReq.setVariables(MapUtil.of("starUserIsLegalManager", false));

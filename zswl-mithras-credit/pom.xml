@@ -29,41 +29,9 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-contract</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-system</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-projectprocess</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-workflow</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>gruul-spring-boot-starter</artifactId>
             <version>3.5.2-mithras.RELEASE</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech.flow</groupId>
-            <artifactId>core</artifactId>
-            <version>1.5.11-mithras-RELEASE</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.flywaydb</groupId>
-                    <artifactId>flyway-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>

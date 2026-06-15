@@ -57,7 +57,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractTextTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingRepayActual;

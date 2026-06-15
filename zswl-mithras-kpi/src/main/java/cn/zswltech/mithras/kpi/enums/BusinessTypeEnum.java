@@ -1,10 +1,7 @@
 package cn.zswltech.mithras.kpi.enums;
 
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
-import java.util.Objects;
 
 /**
  * @author yangxiong
@@ -41,23 +38,6 @@ public enum BusinessTypeEnum {
         for (BusinessTypeEnum businessTypeEnum : BusinessTypeEnum.values()) {
             if (businessTypeEnum.name().equals(name)) {
                 return businessTypeEnum;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * 枚举类型转换
-     *
-     * @param businessTypeEnum 源枚举
-     * @return 目标枚举
-     */
-    public static FtpIndustryCategoryEnum transferEnum(BusinessTypeEnum businessTypeEnum) {
-        if (Objects.nonNull(businessTypeEnum)) {
-            for (FtpIndustryCategoryEnum ftpEnum : FtpIndustryCategoryEnum.values()) {
-                if (businessTypeEnum.getDisplay().equals(ftpEnum.getDisplay())) {
-                    return ftpEnum;
-                }
             }
         }
         return null;

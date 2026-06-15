@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.handler;
 
 
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishProcessInfo;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
@@ -14,7 +14,6 @@ import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.FileModuleCheck;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -90,9 +89,9 @@ public class GroupCreditEstablishCheckHandler extends FileModuleCheck {
             throw new MithrasException(ONLY_BIZ_DEPT_DO);
         }
         // 判断是否在流程中 且 是否在发起人节点
-        ProcessResp processResp = groupCreditEstablishService.findRelatedProcess(baseInfo.getId());
+        GroupCreditEstablishProcessInfo processResp = groupCreditEstablishService.findRelatedProcess(baseInfo.getId());
         if (Objects.nonNull(processResp)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(processResp);
+            boolean isStartUserNode = groupCreditEstablishService.isStartUserNode(processResp);
             if (!isStartUserNode) {
                 throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
             }

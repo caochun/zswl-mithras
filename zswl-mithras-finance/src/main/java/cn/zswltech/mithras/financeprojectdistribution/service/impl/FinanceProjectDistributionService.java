@@ -35,7 +35,7 @@ import cn.zswltech.mithras.workflow.persistence.mapper.prepare.CommonProcessPrep
 import cn.zswltech.mithras.financeprojectdistribution.mapper.FinanceProjectDistributionMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -62,7 +62,7 @@ public class FinanceProjectDistributionService extends ServiceImpl<FinanceProjec
     @Resource
     private FinanceProjectDistributionBaseInfoService financeProjectDistributionBaseInfoService;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
     @Resource
     private FlowProcessApiService flowProcessApiService;
     @Resource
@@ -245,7 +245,7 @@ public class FinanceProjectDistributionService extends ServiceImpl<FinanceProjec
                 .formName(String.format("%s-项目利润分配", contractBaseInfo.getContractCode()))
                 .projName(contractBaseInfo.getProjName())
                 .projCode(contractBaseInfo.getProjCode())
-                .clientName(id2NameService.clientId2NameSingle(contractBaseInfo.getClientId()))
+                .clientName(clientNameResolver.clientId2NameSingle(contractBaseInfo.getClientId()))
                 .currentAssignee(JSONUtil.toJsonStr(Collections.singletonList(contractBaseInfo.getProjSponsorUserId())))
                 .currentNode("项目经理")
                 .applyTime(LocalDateTime.now())

@@ -40,7 +40,7 @@ public class ProjSideMaterialsManagementLedgerService extends AbstractMaterialsM
         projFilingMaterialsQuery.setEndTimeTo(DateUtil.endOfDay(req.getEndTimeTo()));
         StopWatch sw = new StopWatch();
         sw.start("获取项目归档资料信息");
-        Page<ProjFilingMaterialsResult> projFilingMaterialsResults = filingMaterialsService.getBaseMapper().queryProjFilingMaterials(new Page<>(req.getPage(), req.getPageSize()), projFilingMaterialsQuery);
+        Page<ProjFilingMaterialsResult> projFilingMaterialsResults = filingMaterialsService.queryProjFilingMaterials(new Page<>(req.getPage(), req.getPageSize()), projFilingMaterialsQuery);
         if (CollUtil.isEmpty(projFilingMaterialsResults.getRecords())) {
             log.info("根据所输入条件查询数据为空！");
             return PageR.empty(req.getPage(), req.getPageSize());
@@ -106,7 +106,7 @@ public class ProjSideMaterialsManagementLedgerService extends AbstractMaterialsM
     protected void init() {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start("项目端归档资料查询初始化缓存数据");
-        Page<ProjFilingMaterialsResult> projFilingMaterialsResults = filingMaterialsService.getBaseMapper().queryProjFilingMaterials(new Page<>(1, 200), new ProjFilingMaterialsQuery());
+        Page<ProjFilingMaterialsResult> projFilingMaterialsResults = filingMaterialsService.queryProjFilingMaterials(new Page<>(1, 200), new ProjFilingMaterialsQuery());
         projFilingMaterialsResults.getRecords().forEach(pfm -> {
             if (Objects.nonNull(pfm.getBizDeptId())) {
                 bizDeptId2NameMap.put(pfm.getBizDeptId(), id2NameService.deptId2NameSingle(pfm.getBizDeptId()));

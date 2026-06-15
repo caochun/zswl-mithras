@@ -9,7 +9,7 @@ import cn.zswltech.mithras.kpi.mapper.KpiProjectDistributionDeptWeightLibMapper;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptWeightLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 public class KpiProjectDistributionDeptWeightLibService extends ServiceImpl<KpiProjectDistributionDeptWeightLibMapper, KpiProjectDistributionDeptWeightLib> {
 
     @Resource
-    private Id2NameService id2NameService;
+    private DeptNameResolver deptNameResolver;
     @Resource
     private KpiProjectDistributionMapper kpiProjectDistributionMapper;
 
@@ -63,7 +63,7 @@ public class KpiProjectDistributionDeptWeightLibService extends ServiceImpl<KpiP
         if (CollUtil.isEmpty(kpiProjectDistributionDeptWeightLibs)) {
             return Collections.emptyList();
         }
-        Map<Long, String> deptId2NameMap = id2NameService.deptId2Name(kpiProjectDistributionDeptWeightLibs.stream()
+        Map<Long, String> deptId2NameMap = deptNameResolver.deptId2Name(kpiProjectDistributionDeptWeightLibs.stream()
                 .map(KpiProjectDistributionDeptWeightLib::getWeightTarget).collect(Collectors.toList()));
 
 //        // 拿到项目主办的业务部门

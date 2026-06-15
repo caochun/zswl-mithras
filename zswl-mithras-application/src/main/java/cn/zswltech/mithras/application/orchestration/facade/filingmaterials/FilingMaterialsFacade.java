@@ -19,7 +19,6 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.filingmaterials.enums.*;
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.filingmaterials.mapper.FilingMaterialsMapper;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
@@ -263,7 +262,7 @@ public class FilingMaterialsFacade implements FilingMaterialsApplicationService 
         if (filingMaterials == null) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        List<FilingMaterials> firstFilingMaterialsList = SpringUtil.getBean(FilingMaterialsMapper.class).selectList(Wrappers.<FilingMaterials>lambdaQuery()
+        List<FilingMaterials> firstFilingMaterialsList = filingMaterialsService.list(Wrappers.<FilingMaterials>lambdaQuery()
                 .eq(FilingMaterials::getProjCode, filingMaterials.getProjCode())
                 .eq(FilingMaterials::getApproveStatus, ProcessStatus.APPROVAL_PASS.name())
                 .ne(FilingMaterials::getId, filingMaterials.getId())

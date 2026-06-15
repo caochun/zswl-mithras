@@ -10,10 +10,12 @@ import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
 import cn.zswltech.mithras.dashboard.model.DashboardProjectBasicResult;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.contract.core.ContractGuarantorService;
 
 import javax.annotation.Resource;
@@ -26,7 +28,11 @@ import java.util.*;
  */
 public abstract class DashboardProjectService {
     @Resource
-    protected Id2NameService id2NameService;
+    protected DeptNameResolver deptNameResolver;
+    @Resource
+    protected UserNameResolver userNameResolver;
+    @Resource
+    protected ClientNameResolver clientNameResolver;
 
     protected <T extends DashboardProjectBasicRSP, M extends DashboardProjectBasicResult> List<T> buildRspList(List<M> dbResultList, DashboardProjectStageCustomConvert<T,M> convert) {
         List<T> rspList = new LinkedList<>();
@@ -46,8 +52,8 @@ public abstract class DashboardProjectService {
                 }
             }
         }
-        Map<Long, String> bizDeptMap = CollectionUtil.isEmpty(bizDeptIds) ? Collections.emptyMap() : id2NameService.deptId2Name(bizDeptIds);
-        Map<Long, String> userMap = CollectionUtil.isEmpty(userIds) ? Collections.emptyMap() : id2NameService.sysUserId2Name(userIds);
+        Map<Long, String> bizDeptMap = CollectionUtil.isEmpty(bizDeptIds) ? Collections.emptyMap() : deptNameResolver.deptId2Name(bizDeptIds);
+        Map<Long, String> userMap = CollectionUtil.isEmpty(userIds) ? Collections.emptyMap() : userNameResolver.sysUserId2Name(userIds);
         for (M dbResult : dbResultList) {
             T rsp = convert.convert(dbResult);
             // 补全基类参数
@@ -137,7 +143,7 @@ public abstract class DashboardProjectService {
             }
             valueList.addAll(ids);
         }
-        Map<Long, String> clientMap = id2NameService.clientId2Name(clientIds);
+        Map<Long, String> clientMap = clientNameResolver.clientId2Name(clientIds);
         // 组装
         list.forEach(e -> {
             List<Long> ids = contractGuarantorMap.get(e.getContractId());

@@ -11,6 +11,7 @@ import cn.zswltech.mithras.dto.leaseholdproperty.LeaseItemListREQ;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseItemListRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseItemMetadataREQ;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseItemMetadataRSP;
+import cn.zswltech.mithras.dto.leaseholdproperty.LeaseItemRedupRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseLedgerMainREQ;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseLedgerMainRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.LedgerContractDetailRSP;
@@ -137,6 +138,8 @@ public interface LeaseItemInfoService extends IService<LeaseItemInfo> {
     Boolean updateContractIds(Long targetId, Long contractId, LeaseOperationTypeEnum type);
 
     List<FileUploadRSP> flowUpdate(LeaseFlowUploadREQ param);
+
+    LeaseItemRedupRSP dedup(LeaseItemListREQ req);
 
     LeaseItemInfo getNewestOne(Long projReviewId);
 

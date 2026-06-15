@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import java.util.List;
 
-import static cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify.PUBLIC_UTILITIES;
+import static cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify.PUBLIC_UTILITIES;
 
 
 /**

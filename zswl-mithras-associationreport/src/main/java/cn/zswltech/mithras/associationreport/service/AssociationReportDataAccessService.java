@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.associationreport.mapper.AssociationReportDataAccessMapper;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportDataAccess;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.CurrentUserRoleResolver;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -37,7 +37,7 @@ public class AssociationReportDataAccessService extends ServiceImpl<AssociationR
     private AssociationReportDataAccessMapper associationReportDataAccessMapper;
 
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserRoleResolver currentUserRoleResolver;
 
     @Transactional(rollbackFor = Throwable.class)
     public void add(AssociationReportDataAccessAddREQ req) {
@@ -70,7 +70,7 @@ public class AssociationReportDataAccessService extends ServiceImpl<AssociationR
 
     //获取金融局报送可以新增的报表类型
     public Set<String> getCurrentUserAccessAddReportCategoryCodes() {
-        List<String> userRoles = sysUserService.getCurrentUserRoles();
+        List<String> userRoles = currentUserRoleResolver.currentUserRoles();
         if (CollectionUtil.isEmpty(userRoles)) {
             return Collections.emptySet();
         }
@@ -86,7 +86,7 @@ public class AssociationReportDataAccessService extends ServiceImpl<AssociationR
 
     //获取金融局报送可以查询的报表类型
     public Set<String> getCurrentUserAccessQueryReportCategoryCodes() {
-        List<String> userRoles = sysUserService.getCurrentUserRoles();
+        List<String> userRoles = currentUserRoleResolver.currentUserRoles();
         if (CollectionUtil.isEmpty(userRoles)) {
             return Collections.emptySet();
         }

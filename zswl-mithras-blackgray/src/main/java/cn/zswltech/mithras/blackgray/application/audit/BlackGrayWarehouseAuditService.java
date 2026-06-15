@@ -9,13 +9,17 @@ import cn.zswltech.mithras.blackgray.dto.req.BlackGrayApprovalTaskREQ;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayApprovalSubmitRSP;
 import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayWarehouseApprovalTaskRSP;
 import cn.zswltech.mithras.blackgray.enums.AuditStatusEnum;
+import cn.zswltech.mithras.blackgray.enums.BlackGraySourceEnum;
+import cn.zswltech.mithras.blackgray.enums.BlackGrayTypeEnum;
 import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayWarehouseRecordMapper;
+import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayLibrary;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseRecord;
 import cn.zswltech.mithras.blackgray.port.BlackGrayApprovalProcessPort;
 import cn.zswltech.mithras.blackgray.port.BlackGrayApprovalProcessType;
 import cn.zswltech.mithras.blackgray.service.BlackGrayLibraryService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRecordService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
+import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import com.github.pagehelper.PageHelper;
@@ -25,6 +29,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -146,6 +153,42 @@ public class BlackGrayWarehouseAuditService {
     public void changeBusinessStatus(Long id, Integer status){
         //修改业务状态
         blackGrayWarehouseRecordService.updateStatue(id, status);
+    }
+
+    @Transactional(rollbackFor = Throwable.class)
+    public void finish(Long id) {
+        changeBusinessStatus(id, (int) AuditStatusEnum.FINISH.getCode());
+
+        BlackGrayWarehouseRecord blackGrayWarehouseRecord = blackGrayWarehouseRecordMapper.selectByPrimaryKey(id);
+        BlackGrayLibrary blackGrayLibrary = BeanUtil.copyProperties(blackGrayWarehouseRecord, BlackGrayLibrary.class, "id");
+        blackGrayLibrary.setWarehouseTime(new Date());
+        blackGrayLibrary.setRecordId(blackGrayWarehouseRecord.getId());
+
+        if (BlackGraySourceEnum.isExternal(blackGrayLibrary.getSource())) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(blackGrayLibrary.getWarehouseTime());
+            calendar.add(Calendar.MONTH, 36);
+            blackGrayLibrary.setPlanOutboundTime(calendar.getTime());
+        } else {
+            blackGrayLibrary.setPlanOutboundTime(BlackGrayTypeEnum.getPlanOutboundTime(
+                    blackGrayLibrary.getWarehouseTime(), BlackGrayTypeEnum.of(blackGrayLibrary.getBlackGrayType())));
+        }
+
+        blackGrayWarehouseRecord.setPlanOutboundTime(blackGrayLibrary.getPlanOutboundTime());
+        if (ObjectUtil.isEmpty(blackGrayWarehouseRecord.getWarehouseTime())) {
+            blackGrayWarehouseRecord.setWarehouseTime(blackGrayLibrary.getWarehouseTime());
+        }
+        blackGrayWarehouseRecordMapper.updateByPrimaryKey(blackGrayWarehouseRecord);
+
+        Date date = new Date();
+        blackGrayLibrary.setCreateTime(date);
+        blackGrayLibrary.setUpdateTime(date);
+        blackGrayLibrary.setReportFlag(YesOrNoNumberEnum.NO.getCode());
+        blackGrayLibraryService.attemptBatchWarehouse(Collections.singletonList(blackGrayLibrary));
+
+        if (ObjectUtil.isNotEmpty(blackGrayWarehouseRecord.getGroupBlackGrayType())) {
+            blackGrayLibraryService.radiationSubsidiary(blackGrayLibrary);
+        }
     }
 
 

@@ -6,7 +6,6 @@ import cn.zswltech.mithras.dto.assetclassify.AssetClassifyCheckContentModifyREQ;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyCheckContentPackRSP;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyCheckContentREQ;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyCheckContentRSP;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyCheckContentMapper;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyCheckContent;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyCheckContentAuxiliaryLibService;
@@ -30,6 +29,8 @@ import java.util.Map;
 @Service
 public class AssetClassifyCheckContentService extends ServiceImpl<AssetClassifyCheckContentMapper, AssetClassifyCheckContent> {
 
+    private static final String ASSET_CLASSIFY_REVIEW_FLOW = "AssetClassifyReviewFlow";
+
     @Resource
     private AssetClassifyCheckContentLibService assetClassifyCheckContentLibService;
     @Resource
@@ -42,7 +43,7 @@ public class AssetClassifyCheckContentService extends ServiceImpl<AssetClassifyC
             assetClassifyCheckContents = this.baseMapper.selectList(Wrappers.<AssetClassifyCheckContent>lambdaQuery()
                     .eq(AssetClassifyCheckContent::getAssetClassifyClientId, req.getAssetClassifyClientId()));
         } else {
-            if (ProcessModelTypeEnum.AssetClassifyReviewFlow.name().equals(req.getProcessType())) {
+            if (ASSET_CLASSIFY_REVIEW_FLOW.equals(req.getProcessType())) {
                 assetClassifyCheckContents = assetClassifyCheckContentLibService.listByVersion(req.getAssetClassifyClientId(), req.getVersion());
             } else {
                 assetClassifyCheckContents = assetClassifyCheckContentAuxiliaryLibService.listByVersion(req.getAssetClassifyClientId(),

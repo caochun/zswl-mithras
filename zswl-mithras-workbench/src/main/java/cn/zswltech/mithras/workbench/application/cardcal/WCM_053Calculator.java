@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.workbench.application.cardcal;
 
-import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchCollectionAmount;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.alibaba.fastjson.JSON;
@@ -21,6 +20,8 @@ import java.util.List;
  */
 @Component
 public class WCM_053Calculator implements CardCalculator {
+    private static final String WRITE_OFF_COMPLETED = "WRITE_OFF_COMPLETED";
+
     @Resource
     private WorkbenchCardCollectionPort workbenchCardCollectionPort;
 
@@ -38,7 +39,7 @@ public class WCM_053Calculator implements CardCalculator {
         BigDecimal received = BigDecimal.ZERO;
         BigDecimal remain = BigDecimal.ZERO;
         for (WorkbenchCollectionAmount collection : collections) {
-            if (CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(collection.getWriteOffStatus())) {
+            if (WRITE_OFF_COMPLETED.equals(collection.getWriteOffStatus())) {
                 received = received.add(new BigDecimal(LongUtil.null2zero(collection.getCollectionAmount())));
             } else {
                 remain = remain.add(new BigDecimal(LongUtil.null2zero(collection.getPlanCollectionAmount()) - LongUtil.null2zero(collection.getCollectionAmount())));

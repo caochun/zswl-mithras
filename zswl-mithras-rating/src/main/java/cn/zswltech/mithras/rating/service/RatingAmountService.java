@@ -36,7 +36,7 @@ import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
@@ -53,8 +53,9 @@ import cn.zswltech.mithras.workflow.persistence.mapper.prepare.CommonProcessPrep
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.foundation.util.VersionUtil;
@@ -99,7 +100,11 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
     @Resource
     private RatingClientService ratingClientService;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
+    @Resource
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
     @Resource
     private AddressDictionaryMapper addressDictionaryMapper;
     @Resource
@@ -112,9 +117,6 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
     private RatingAmountLibService libService;
     @Resource
     private CommonProcessPrepareMapper commonProcessPrepareMapper;
-    @Resource
-    private SysUserService sysUserService;
-    @Resource
     private FlowProcessApiService processApiService;
     @Resource
     private BizProcessDataService bizProcessDataService;
@@ -146,9 +148,9 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
         List<Long> userIdList = records.stream().map(RatingAmount::getCreateBy).collect(Collectors.toList());
         List<Long> clientIdList = records.stream().map(RatingAmount::getClientId).collect(Collectors.toList());
         Set<Long> deptIdList = records.stream().map(RatingAmount::getBelongDeptId).collect(Collectors.toSet());
-        Map<Long, String> userId2Name = id2NameService.sysUserId2Name(userIdList);
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(clientIdList);
-        Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptIdList);
+        Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(userIdList);
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIdList);
+        Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptIdList);
 
         List<RatingAmountPageRSP> result = records.stream().map(record -> {
             RatingAmountPageRSP rsp = new RatingAmountPageRSP();
@@ -293,7 +295,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
         if(subjectItem != null){
             subjectValue = subjectItem.getSubjectValue();
         }
-        Map<Long, String> clientId2Name = id2NameService.clientId2Name(Stream.of(ratingAmount.getClientId(), ratingAmount.getEvaluationSubjectId()).collect(Collectors.toList()));
+        Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(Stream.of(ratingAmount.getClientId(), ratingAmount.getEvaluationSubjectId()).collect(Collectors.toList()));
         RatingAmountProjInfoRSP rsp = BeanUtil.copyProperties(ratingAmount, RatingAmountProjInfoRSP.class);
         rsp.setClientId(ratingAmount.getClientId())
                 .setClientName(clientId2Name.get(ratingAmount.getClientId()))
@@ -675,7 +677,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
 //        RatingAmountDetailLibRSP lib = libService.detail(req.getId());
         if(history != null){
             RatingAmountDetailLibRSP historyRSP = BeanUtil.copyProperties(history, RatingAmountDetailLibRSP.class);
-            historyRSP.setCreateByName(id2NameService.sysUserId2NameSingle(historyRSP.getCreateBy()));
+            historyRSP.setCreateByName(userNameResolver.sysUserId2NameSingle(historyRSP.getCreateBy()));
             historyRSP.setProjQuota(transformWanYuan(generateProjQuota(history,history.getClientQuota())));
             rsp.setHistoryInfo(historyRSP);
         }
@@ -1087,7 +1089,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
             String areaName = String.format("%s%s%s",nameMap.get(projReview.getProvince()),nameMap.get(projReview.getCity()),nameMap.get(projReview.getDistrict()));
             projInfoNow.setEvaluationSubjectAreaName(areaName);
             projInfoNow.setEvaluationSubjectOperatingIncome(Optional.ofNullable(subjectItemAfter).map(CorpSubjectItem::getSubjectValue).orElse(null));
-            projInfoNow.setEvaluationSubjectName(id2NameService.clientId2NameSingle(projInfoNow.getEvaluationSubjectId()));
+            projInfoNow.setEvaluationSubjectName(clientNameResolver.clientId2NameSingle(projInfoNow.getEvaluationSubjectId()));
 
             if(!areEqual(projInfoBefore,projInfoNow)){
                 throw new MithrasException("项目重要信息变更，请更新债项评级！");
@@ -1148,7 +1150,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
                 .isNull(RatingClient::getAbandonTime));
         if(CollectionUtils.isNotEmpty(informAmountList)){
             for (RatingAmount ratingAmount : informAmountList) {
-                String clientId = id2NameService.clientId2NameSingle(ratingAmount.getEvaluationSubjectId());
+                String clientId = clientNameResolver.clientId2NameSingle(ratingAmount.getEvaluationSubjectId());
                 ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoMapper.selectById(ratingAmount.getProjReviewId());
                 ratingNotificationPort.sendRatingAmountOverdueRemind(
                         ratingAmount.getBelongSponsorUserId(),
@@ -1161,7 +1163,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
         }
         if(CollectionUtils.isNotEmpty(informClientList)){
             for (RatingClient ratingClient : informClientList) {
-                String clientName = id2NameService.clientId2NameSingle(ratingClient.getClientId());
+                String clientName = clientNameResolver.clientId2NameSingle(ratingClient.getClientId());
                 ratingNotificationPort.sendRatingClientOverdueRemind(
                         ratingClient.getBelongSponsorUserId(),
                         ratingClient.getId(),
@@ -1210,7 +1212,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
                         log.error("主办用户不存在，客户评级自动触发评级更新流程失败[ratingClientId:{}]", ratingClient.getId());
                         continue;
                     }
-                    String clientName = id2NameService.clientId2NameSingle(ratingClient.getClientId());
+                    String clientName = clientNameResolver.clientId2NameSingle(ratingClient.getClientId());
                     RatingClient ratingClientNew = saveCopyRatingClient(ratingClient);
                     CommonProcessPrepare prepare = CommonProcessPrepare.builder()
                             .processType(ProcessModelTypeEnum.RatingClientUpdateFlow.name())

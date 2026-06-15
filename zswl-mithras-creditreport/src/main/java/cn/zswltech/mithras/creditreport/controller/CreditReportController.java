@@ -25,7 +25,7 @@ import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
 import cn.zswltech.mithras.creditreport.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
 import cn.zswltech.mithras.creditreport.service.CreditReportQueryService;
 import cn.zswltech.mithras.creditreport.service.CreditReportService;
 import lombok.extern.slf4j.Slf4j;
@@ -51,7 +51,7 @@ public class CreditReportController implements CreditReportBaseApi {
     private FlowTaskApiService flowTaskApiService;
 
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserJobResolver currentUserJobResolver;
 
     @Resource
     private HttpServletResponse response;
@@ -124,7 +124,7 @@ public class CreditReportController implements CreditReportBaseApi {
         if (ObjectUtil.isNotEmpty(req.getFlowId())) {
             ProcessResp processResp = flowTaskApiService.queryProcessById(req.getFlowId());
             if (ProcessBusinessStatusEnum.RUNNING.getType().equals(processResp.getProcessStatus())
-                    && sysUserService.currentUserIsSpecificJob(JobEnum.yunYingGuanLi.name(), JobEnum.leaderincharge.name(), JobEnum.projmanager.name())) {
+                    && currentUserJobResolver.currentUserIsSpecificJob(JobEnum.yunYingGuanLi.name(), JobEnum.leaderincharge.name(), JobEnum.projmanager.name())) {
                 isHistory = false;
             }
         } else {

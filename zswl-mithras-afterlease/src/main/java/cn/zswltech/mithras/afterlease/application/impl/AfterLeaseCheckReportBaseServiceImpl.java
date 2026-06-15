@@ -30,7 +30,9 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportBaseService;
@@ -74,7 +76,11 @@ public class AfterLeaseCheckReportBaseServiceImpl extends ServiceImpl<NewAfterLe
     @Resource
     private AfterLeaseContractRentActualPort afterLeaseContractRentActualPort;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
+    @Resource
+    private ClientNameResolver clientNameResolver;
     @Resource
     private AfterLeaseCorpCommercePort afterLeaseCorpCommercePort;
     @Resource
@@ -167,7 +173,7 @@ public class AfterLeaseCheckReportBaseServiceImpl extends ServiceImpl<NewAfterLe
                 reportBase.setRiskManagerId(checkPlanClient.getRiskManagerId());
                 userIds.add(checkPlanClient.getRiskManagerId());
             }
-            Map<Long, String> userMap = id2NameService.sysUserId2Name(userIds);
+            Map<Long, String> userMap = userNameResolver.sysUserId2Name(userIds);
             reportBase.setSponsorUserName(userMap.get(reportBase.getSponsorUserId()));
             if (AfterLeaseCheckPlanTypeEnum.COMMONLY.name().equals(planBase.getPlanType())) {
                 reportBase.setRiskManagerName(userMap.get(checkPlanClient.getRiskManagerId()));
@@ -176,7 +182,7 @@ public class AfterLeaseCheckReportBaseServiceImpl extends ServiceImpl<NewAfterLe
             }
             reportBase.setRiskManagerName(userMap.get(reportBase.getRiskManagerId()));
             reportBase.setBizDeptId(checkPlanClient.getBelongDeptId());
-            reportBase.setBizDeptName(id2NameService.deptId2NameSingle(checkPlanClient.getBelongDeptId()));
+            reportBase.setBizDeptName(deptNameResolver.deptId2NameSingle(checkPlanClient.getBelongDeptId()));
         }
         // 模型转换
         AfterLeaseCheckReportBaseRSP rsp = AfterLeaseCheckReportConvert.toAfterLeaseCheckReportBaseRSP(reportBase);
@@ -275,7 +281,7 @@ public class AfterLeaseCheckReportBaseServiceImpl extends ServiceImpl<NewAfterLe
         Assert.notNull(client, () -> MithrasException.newException("客户不存在"));
         AfterLeaseClientDataBO afterLeaseClientDataBO = new AfterLeaseClientDataBO();
         afterLeaseClientDataBO.setClientId(client.getId());
-        afterLeaseClientDataBO.setClientName(id2NameService.clientId2NameSingle(client.getId()));
+        afterLeaseClientDataBO.setClientName(clientNameResolver.clientId2NameSingle(client.getId()));
         if (rich) {
             Optional<Map<Long, String>> optional = afterLeaseCorpCommercePort.selectIndustryTypeBatchByIds(Collections.singletonList(client.getId()));
             optional.ifPresent(long2StringMap -> afterLeaseClientDataBO.setIndustry(afterLeaseIndustryPort.getIndustryTypeNameFromLocalCache(long2StringMap.get(client.getId()))));

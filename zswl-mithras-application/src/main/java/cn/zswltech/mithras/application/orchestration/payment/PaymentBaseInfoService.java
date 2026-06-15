@@ -27,15 +27,6 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.payment.dto.*;
 import cn.zswltech.mithras.api.payment.version.PaymentEffectREQ;
-import cn.zswltech.mithras.blackgray.dto.req.BlackGrayLibraryREQ;
-import cn.zswltech.mithras.blackgray.dto.rsp.BlackGrayLibraryRSP;
-import cn.zswltech.mithras.blackgray.enums.BlackGrayTypeEnum;
-import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayLibraryMapper;
-import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayLibrary;
-import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseRuleConfig;
-import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseRuleConfigService;
-import cn.zswltech.mithras.blackgray.external.JKBlackGrayCollisionLibraryHandle;
-import cn.zswltech.mithras.blackgray.external.dto.JKBlackGrayCollisionLibraryRSP;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailREQ;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
@@ -258,12 +249,6 @@ public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, P
     private MaterialsListService materialsListService;
     @Resource
     private FtpAssessmentInfoService ftpAssessmentInfoService;
-    @Resource
-    private BlackGrayWarehouseRuleConfigService blackGrayWarehouseRuleConfigService;
-    @Resource
-    private BlackGrayLibraryMapper blackGrayLibraryMapper;
-    @Resource
-    private JKBlackGrayCollisionLibraryHandle jkBlackGrayCollisionLibraryHandle;
     @Resource
     private RiskControlOpinionMonitorService riskControlOpinionMonitorService;
     @Resource
@@ -1880,51 +1865,6 @@ public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, P
             }
         }
         return result;
-    }
-
-    private BlackGrayLibraryRSP getLocalLibraryRecord(BlackGrayLibraryREQ req) {
-        Example example = new Example(BlackGrayLibrary.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo(BlackGrayLibrary.STOCK_STATUS, 0);
-        criteria.andEqualTo(BlackGrayLibrary.UNIFIED_SOCIAL_CREDIT_CODE, req.getUnifiedSocialCreditCode());
-        example.orderBy(BlackGrayLibrary.BLACK_GRAY_SORT).asc();
-        List<BlackGrayLibrary> blackGrayLibraries = blackGrayLibraryMapper.selectByExample(example);
-        if (ObjectUtil.isEmpty(blackGrayLibraries)) {
-            return null;
-        }
-        BlackGrayLibrary blackGrayLibrary = blackGrayLibraries.get(0);
-        BlackGrayLibraryRSP blackGrayLibraryRSP = BeanUtil.copyProperties(blackGrayLibrary, BlackGrayLibraryRSP.class, "applyReasonType");
-        blackGrayLibraryRSP.setApplyReasonType(JSONUtil.toList(blackGrayLibrary.getApplyReasonType(), String.class));
-        blackGrayLibraryRSP.setApplyReasonNames(new ArrayList<>());
-        Map<String, BlackGrayWarehouseRuleConfig> stringBlackGrayWarehouseRuleConfigMap = blackGrayWarehouseRuleConfigService.num2BeanBatch(blackGrayLibraryRSP.getApplyReasonType());
-        for (String num : blackGrayLibraryRSP.getApplyReasonType()) {
-            BlackGrayWarehouseRuleConfig blackGrayWarehouseRuleConfig = stringBlackGrayWarehouseRuleConfigMap.get(num);
-            if (ObjectUtil.isNotEmpty(blackGrayWarehouseRuleConfig) && ObjectUtil.isNotEmpty(blackGrayWarehouseRuleConfig.getRuleName())) {
-                blackGrayLibraryRSP.getApplyReasonNames().add(blackGrayWarehouseRuleConfig.getRuleName());
-            }
-        }
-        return blackGrayLibraryRSP;
-    }
-
-    private BlackGrayLibraryRSP jkRsp2BlackGrayLibraryRSP(JKBlackGrayCollisionLibraryRSP rsp) {
-        if (ObjectUtil.isEmpty(rsp) || ObjectUtil.isEmpty(rsp.getData())) {
-            return null;
-        }
-        BlackGrayLibraryRSP blackGrayLibraryRSP = new BlackGrayLibraryRSP();
-        JKBlackGrayCollisionLibraryRSP.JKBlackGrayCollisionLibraryBody data = rsp.getData();
-        blackGrayLibraryRSP.setEnterpriseName(data.getEnterpriseName());
-
-
-        BlackGrayTypeEnum blackGrayTypeEnum = BlackGrayTypeEnum.jkOf(data.getEnterpriseStatusCode());
-        if (Objects.nonNull(blackGrayTypeEnum)) {
-            blackGrayLibraryRSP.setBlackGrayType(blackGrayTypeEnum.name());
-        }
-        blackGrayLibraryRSP.setApplyReasonType(data.getApplyReasonType());
-        blackGrayLibraryRSP.setApplyReasonNames(data.getApplyReasonTypeName());
-        blackGrayLibraryRSP.setApplyReason(data.getApplyReason());
-        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE;
-        blackGrayLibraryRSP.setWarehouseTime(data.getWarehouseTime() == null ? null : LocalDate.parse(data.getWarehouseTime(), formatter));
-        return blackGrayLibraryRSP;
     }
 
     /**

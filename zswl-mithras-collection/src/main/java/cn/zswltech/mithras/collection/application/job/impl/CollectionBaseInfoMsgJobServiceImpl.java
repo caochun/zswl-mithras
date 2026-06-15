@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.collection.application.job.impl;
 
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.collection.application.job.CollectionBaseInfoMsgJobService;
 import cn.zswltech.mithras.collection.application.job.CollectionNotificationPort;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
@@ -11,8 +10,8 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.DeptUserResolver;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -46,11 +45,11 @@ public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMs
     @Resource
     private CollectionNotificationPort notificationPort;
     @Resource
-    private SysUserService sysUserService;
+    private DeptUserResolver deptUserResolver;
     @Resource
     private ContractBaseInfoLibHandler baseInfoLibHandler;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
 
     @Override
     public void collectionBaseInfoMsg() {
@@ -81,11 +80,11 @@ public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMs
                         .collect(Collectors.groupingBy(CollectionBaseInfo::getContractCode));
                 Set<Long> userIds = new HashSet<>();
                 //法律合规部
-                Set<Long> flhgbSet = sysUserService.getUserByDeptCode("FLHGB_ZCBQ").stream().map(UserDO::getId).collect(Collectors.toSet());
+                Set<Long> flhgbSet = deptUserResolver.userIdsByDeptCode("FLHGB_ZCBQ");
                 //财务部
-                Set<Long> jhcwbSet = sysUserService.getUserByDeptCode("JHCWB").stream().map(UserDO::getId).collect(Collectors.toSet());
+                Set<Long> jhcwbSet = deptUserResolver.userIdsByDeptCode("JHCWB");
                 //资金部
-                Set<Long> zjglbSet = sysUserService.getUserByDeptCode("ZJGLB").stream().map(UserDO::getId).collect(Collectors.toSet());
+                Set<Long> zjglbSet = deptUserResolver.userIdsByDeptCode("ZJGLB");
                 userIds.addAll(flhgbSet);
                 userIds.addAll(jhcwbSet);
                 userIds.addAll(zjglbSet);
@@ -94,7 +93,7 @@ public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMs
                     Set<Long> newUserIds = new HashSet<>();
                     newUserIds.addAll(userIds);
                     ContractBaseInfoLib detail = baseInfoLibHandler.queryLatestDataByOriginId(info.getContractId());
-                    Map<Long, String> clientMap = id2NameService.clientId2Name(Collections.singleton(detail.getClientId()));
+                    Map<Long, String> clientMap = clientNameResolver.clientId2Name(Collections.singleton(detail.getClientId()));
                     if (isNotNull(detail.getProjSponsorUserId())) {
                         newUserIds.add(detail.getProjSponsorUserId());
                     }

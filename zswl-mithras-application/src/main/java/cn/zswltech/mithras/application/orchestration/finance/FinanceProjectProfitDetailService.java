@@ -23,7 +23,7 @@ import cn.zswltech.mithras.contract.enums.contract.IncomeConfirmTypeEnum;
 import cn.zswltech.mithras.kpi.enums.KpiParameterConfigCodeEnum;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.FactoringType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.finance.mapper.finance.FinanceProjectProfitDetailMapper;
 import cn.zswltech.mithras.finance.mapper.finance.query.FinanceProjectProfitDetailQuery;

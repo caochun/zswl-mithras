@@ -50,11 +50,6 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-system</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-fund</artifactId>
             <version>${revision}</version>
         </dependency>
@@ -81,11 +76,6 @@
         <dependency>
             <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-collection</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-margin</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

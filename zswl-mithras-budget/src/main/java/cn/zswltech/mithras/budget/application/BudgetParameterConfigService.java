@@ -15,7 +15,8 @@ import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryE
 import cn.zswltech.mithras.budget.mapper.BudgetParameterConfigMapper;
 import cn.zswltech.mithras.budget.mapper.model.BudgetParameterConfig;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.Id2NameService;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -38,7 +39,9 @@ public class BudgetParameterConfigService extends ServiceImpl<BudgetParameterCon
     @Resource
     private BudgetParameterConfigMapper budgetParameterConfigMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
 
     @Transactional(rollbackFor = Throwable.class)
     public void modify(BudgetParameterConfigModifyREQ req) {
@@ -56,7 +59,7 @@ public class BudgetParameterConfigService extends ServiceImpl<BudgetParameterCon
         if (ObjectUtil.isNotEmpty(parameterConfigs)) {
             rsps = BeanUtil.copyToList(parameterConfigs, BudgetParameterConfigListRSP.class);
             rsps.forEach(BudgetParameterConfigListRSP::setConfigValue);
-            Map<Long, String> userId2Name = id2NameService.sysUserId2Name(rsps.stream().map(BudgetParameterConfigListRSP::getUpdateBy).collect(Collectors.toList()));
+            Map<Long, String> userId2Name = userNameResolver.sysUserId2Name(rsps.stream().map(BudgetParameterConfigListRSP::getUpdateBy).collect(Collectors.toList()));
             //
             List<Long> deptIds = new ArrayList<>();
             rsps.forEach(e -> {
@@ -64,7 +67,7 @@ public class BudgetParameterConfigService extends ServiceImpl<BudgetParameterCon
                     deptIds.addAll(e.getExpenseRatioConfigValue().stream().map(BudgetParameterConfigListRSP.BudgetParameterExpenseRatioBO::getDeptId).collect(Collectors.toList()));
                 }
             });
-            Map<Long, String> deptId2Name = id2NameService.deptId2Name(deptIds);
+            Map<Long, String> deptId2Name = deptNameResolver.deptId2Name(deptIds);
             rsps.forEach(e -> {
                 e.setUpdateByName(userId2Name.get(e.getUpdateBy()));
                 if (ObjectUtil.isNotEmpty(e.getExpenseRatioConfigValue())) {

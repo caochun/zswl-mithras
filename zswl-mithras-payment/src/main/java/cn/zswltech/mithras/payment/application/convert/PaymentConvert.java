@@ -15,13 +15,11 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
-import cn.zswltech.mithras.policy.excel.model.PaymentPolicyExcelModel;
 import cn.zswltech.mithras.payment.dto.PaymentListDto;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
-import cn.zswltech.mithras.payment.model.PaymentPolicyInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -115,6 +113,4 @@ public interface PaymentConvert {
 
     @Mapping(source = "pknumber", target = "flowId")
     PaymentActualDetail third2PaymentActual(ThirdPaymentDetailREQ req);
-
-    PaymentPolicyExcelModel base2PaymentPolicyExport(PaymentPolicyInfo rew);
 }

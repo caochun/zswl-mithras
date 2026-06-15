@@ -23,7 +23,7 @@ import cn.zswltech.mithras.assetclassify.model.AssetClassifyClientLib;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
-import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyMarginAmountPort;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
@@ -76,7 +76,7 @@ public class AssetClassifyClientWithdrawalRatioService {
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
-    private MarginBaseInfoService marginBaseInfoService;
+    private AssetClassifyMarginAmountPort assetClassifyMarginAmountPort;
 
     public List<AssetClassifyClientWithdrawalRatioListRsp> listRatios(AssetClassifyClientWithdrawalRatioListReq req) {
         AssetClassifyClient classifyClient;
@@ -197,7 +197,7 @@ public class AssetClassifyClientWithdrawalRatioService {
                 .collect(Collectors.toMap(CollectionBaseInfo::getReceiptId,
                         base -> LongUtil.null2zero(base.getCollectionAmount()),
                         (a, b) -> LongUtil.null2zero(a) + LongUtil.null2zero(b)));
-        Map<Long, Long> receiptIdMarginMap = marginBaseInfoService.getAmountByReceiptIds(receiptId2ContractId.keySet(), LocalDate.now());
+        Map<Long, Long> receiptIdMarginMap = assetClassifyMarginAmountPort.getAmountByReceiptIds(receiptId2ContractId.keySet(), LocalDate.now());
         Map<Long, Long> receiptExposureMap = new HashMap<>();
         for (Long receiptId : receiptPaymentMap.keySet()) {
             long sumAmount = 0L;

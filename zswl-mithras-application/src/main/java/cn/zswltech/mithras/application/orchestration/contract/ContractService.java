@@ -68,7 +68,6 @@ import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractReceiptLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractRentActualLibMapper;
-import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.workflow.persistence.model.remark.ProcessModifyRemark;
 import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
@@ -254,8 +253,6 @@ public class ContractService implements ApplicationEventPublisherAware {
     private ContractMortgageMapper contractMortgageMapper;
     @Resource
     private ContractConstitutionFileService contractConstitutionFileService;
-    @Resource
-    private MarginBaseInfoMapper marginBaseInfoMapper;
     @Resource
     private ContractDeductRentInfoService contractDeductRentInfoService;
 
@@ -1350,7 +1347,7 @@ public class ContractService implements ApplicationEventPublisherAware {
 //                CashFlowItemEnum.NOMINAL_PRICE, LongUtil.null2zero(contractSettlePlan.getNominalPrice()), contractRentActual.getCashFlowDate(), contractRentActual.getCashFlowPhase());
 //        collectionAddEvent.setProcessModelTypeEnum(processModelTypeEnum);
 //        applicationEventPublisher.publishEvent(collectionAddEvent);
-         marginBaseInfoMapper.updateStatus(contractBaseInfo.getId());
+         marginBaseInfoService.updateContractSettleStatus(contractBaseInfo.getId());
     }
 
     //起租事件

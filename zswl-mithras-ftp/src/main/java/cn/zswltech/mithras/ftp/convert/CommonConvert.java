@@ -7,7 +7,7 @@ import cn.zswltech.mithras.ftp.newftp.enums.AssetIndustryClassify;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.RiskIndustryClassify;
 import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
-import cn.zswltech.mithras.riskcontrol.common.RiskControlIndustryClassify;
+import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.customer.model.client.IndustryType;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 

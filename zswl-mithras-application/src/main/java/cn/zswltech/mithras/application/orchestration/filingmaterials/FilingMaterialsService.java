@@ -75,7 +75,6 @@ import cn.zswltech.mithras.contract.mapper.contract.*;
 import cn.zswltech.mithras.filingmaterials.mapper.FilingMaterialsMapper;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
-import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractGuarantorLibMapper;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractMortgageLibMapper;
@@ -87,6 +86,12 @@ import cn.zswltech.mithras.document.persistence.model.MaterialsListLib;
 import cn.zswltech.mithras.customer.mobile.persistence.model.VisitRecord;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
+import cn.zswltech.mithras.filingmaterials.model.FundDirectFinancingFilingMaterialsQuery;
+import cn.zswltech.mithras.filingmaterials.model.FundDirectFinancingFilingMaterialsResult;
+import cn.zswltech.mithras.filingmaterials.model.FundFinancingFilingMaterialsQuery;
+import cn.zswltech.mithras.filingmaterials.model.FundFinancingFilingMaterialsResult;
+import cn.zswltech.mithras.filingmaterials.model.ProjFilingMaterialsQuery;
+import cn.zswltech.mithras.filingmaterials.model.ProjFilingMaterialsResult;
 import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
@@ -130,6 +135,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -201,8 +207,6 @@ public class FilingMaterialsService extends AbstractFilingMaterialsService<Filin
     private ProjEstablishBaseInfoMapper projEstablishBaseInfoMapper;
     @Resource
     private ProjPricingBaseInfoMapper projPricingBaseInfoMapper;
-    @Resource
-    private LeaseItemInfoMapper leaseItemInfoMapper;
     @Resource
     private FlowProcessConvert flowProcessConvert;
     @Resource
@@ -2000,6 +2004,18 @@ public class FilingMaterialsService extends AbstractFilingMaterialsService<Filin
             List<Long> ids = contractTenantries.stream().filter(Objects::nonNull).map(ContractTenantryLib::getLesseeId).collect(toList());
             lesseeIds.addAll(ids);
         }
+    }
+
+    public Page<ProjFilingMaterialsResult> queryProjFilingMaterials(Page<ProjFilingMaterialsResult> page, ProjFilingMaterialsQuery req) {
+        return getBaseMapper().queryProjFilingMaterials(page, req);
+    }
+
+    public List<FundFinancingFilingMaterialsResult> queryFundFinancingFilingMaterials(FundFinancingFilingMaterialsQuery req) {
+        return getBaseMapper().queryFundFinancingFilingMaterials(req);
+    }
+
+    public List<FundDirectFinancingFilingMaterialsResult> queryFundDirectFinancingFilingMaterials(FundDirectFinancingFilingMaterialsQuery req) {
+        return getBaseMapper().queryFundDirectFinancingFilingMaterials(req);
     }
 
     private void getClientList(List<Long> clientIds, String fieldName, Set<Long> set, Map<Long, String> typeName) {

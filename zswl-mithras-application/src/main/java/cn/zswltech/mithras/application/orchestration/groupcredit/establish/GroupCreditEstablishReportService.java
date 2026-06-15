@@ -2,8 +2,8 @@ package cn.zswltech.mithras.application.orchestration.groupcredit.establish;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.lang.Pair;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
+import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishProcessInfo;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.groupcreditestablish.report.GroupCreditEstablishReportListREQ;
 import cn.zswltech.mithras.dto.groupcreditestablish.report.GroupCreditEstablishReportListRSP;
@@ -23,7 +23,6 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
@@ -129,9 +128,9 @@ public class GroupCreditEstablishReportService implements GroupCreditEstablishUp
             throw new MithrasException(ONLY_BIZ_DEPT_DO);
         }
         // 判断是否在流程中 且 是否在发起人节点
-        ProcessResp processResp = groupCreditEstablishService.findRelatedProcess(baseInfo.getId());
+        GroupCreditEstablishProcessInfo processResp = groupCreditEstablishService.findRelatedProcess(baseInfo.getId());
         if (Objects.nonNull(processResp)) {
-            boolean isStartUserNode = FlowUtil.isStartUserNode(processResp);
+            boolean isStartUserNode = groupCreditEstablishService.isStartUserNode(processResp);
             if (!isStartUserNode) {
                 throw new AuthCheckException("该数据处于流程中，且流程不在发起人节点，不允许修改数据");
             }

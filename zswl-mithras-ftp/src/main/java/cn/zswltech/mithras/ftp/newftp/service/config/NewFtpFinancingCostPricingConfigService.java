@@ -7,24 +7,14 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.PageReq;
 import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingListRSP;
-import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
-import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
-import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingBaseInfoMapper;
-import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingBaseInfoLibMapper;
-import cn.zswltech.mithras.fund.persistence.mapper.lib.financing.FundFinancingPlanLibMapper;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfoLib;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlanLib;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.basedata.service.BaseDataLprService;
 import cn.zswltech.mithras.ftp.newftp.mapper.config.NewFtpFinancingCostPricingConfigMapper;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
+import cn.zswltech.mithras.ftp.newftp.service.port.DirectFinancingCostSample;
+import cn.zswltech.mithras.ftp.newftp.service.port.IndirectFinancingCostSample;
+import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpFundDataPort;
 import cn.zswltech.mithras.ftp.newftp.service.job.NewFtpPricingJobService;
-import cn.zswltech.mithras.ftp.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.ftp.newftp.utils.DateUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -53,15 +43,7 @@ import java.util.stream.Collectors;
 public class NewFtpFinancingCostPricingConfigService extends ServiceImpl<NewFtpFinancingCostPricingConfigMapper, NewFtpFinancingCostPricingConfig> implements NewFtpPricingJobService {
 
     @Resource
-    private FundFinancingBaseInfoLibMapper fundFinancingBaseInfoLibMapper;
-    @Resource
-    private FundFinancingPlanLibMapper fundFinancingPlanLibMapper;
-    @Resource
-    private NewFtpBaseInfoService baseInfoService;
-    @Resource
-    private BaseDataLprService baseDataLprService;
-    @Resource
-    private FundDirectFinancingBaseInfoMapper directFinancingBaseInfoMapper;
+    private NewFtpFundDataPort newFtpFundDataPort;
     @Resource
     private NewFtpGuaranteeCostPricingConfigService guaranteeCostPricingConfigService;
 
@@ -132,36 +114,9 @@ public class NewFtpFinancingCostPricingConfigService extends ServiceImpl<NewFtpF
         AtomicReference<BigDecimal> yearThree2FiveYearCost = new AtomicReference<>(BigDecimal.ZERO);
         AtomicReference<BigDecimal> yearThree2FiveYearCostTotal = new AtomicReference<>(BigDecimal.ZERO);
 
-        //查询间接融资模块
-        List<FundFinancingBaseInfoLib> yearFundFinancingBaseInfoLibs = fundFinancingBaseInfoLibMapper.selectList(Wrappers.<FundFinancingBaseInfoLib>lambdaQuery()
-//                .eq(FundFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name())
-                .between(FundFinancingBaseInfo::getActualLoanDate, beginDate, endDate)
-                .notIn(FundFinancingBaseInfo::getBusinessType, Arrays.asList(
-                        FundFinancingBizTypeEnum.BANK_ACCEPTANCE.name(),
-                        FundFinancingBizTypeEnum.LETTER_OF_CREDIT.name(),
-                        FundFinancingBizTypeEnum.COMMERCE_ACCEPTANCE.name()))
-                .eq(FundFinancingBaseInfoLib::getVersionType, VersionTypeConstants.NORMAL));
-
-        Map<Long, FundFinancingBaseInfoLib> yearFundFinancingBaseInfoLibMap = new HashMap<>(8);
-        if (CollUtil.isNotEmpty(yearFundFinancingBaseInfoLibs)) {
-            yearFundFinancingBaseInfoLibs.stream().collect(Collectors.groupingBy(FundFinancingBaseInfoLib::getOriginId))
-                    .forEach((id, libs) -> {
-                        libs.sort(Comparator.comparing(FundFinancingBaseInfoLib::getVersion));
-                        yearFundFinancingBaseInfoLibMap.put(id, libs.get(libs.size() - 1));
-                    });
-        }
-        List<FundFinancingPlanLib> yearPlanLibs = new ArrayList<>();
-        yearFundFinancingBaseInfoLibMap.forEach((k, v) -> {
-            FundFinancingPlanLib fundFinancingPlanLib = fundFinancingPlanLibMapper.selectOne(Wrappers.<FundFinancingPlanLib>lambdaQuery()
-                    .eq(FundFinancingPlanLib::getVersion, v.getVersion())
-                    .eq(FundFinancingPlan::getFinancingId, k)
-                    .eq(FundFinancingPlanLib::getVersionType, VersionTypeConstants.NORMAL)
-                    .last(StringUtil.mysqlLimitOne()));
-            yearPlanLibs.add(fundFinancingPlanLib);
-        });
-
-        if (CollUtil.isNotEmpty(yearPlanLibs)) {
-            yearPlanLibs.stream().filter(a -> Objects.nonNull(a.getFinancingMonth()))
+        List<IndirectFinancingCostSample> indirectSamples = newFtpFundDataPort.listIndirectFinancingCostSamples(beginDate, endDate);
+        if (CollUtil.isNotEmpty(indirectSamples)) {
+            indirectSamples.stream().filter(a -> Objects.nonNull(a.getFinancingMonth()))
                     .filter(a -> Objects.nonNull(a.getFinancingAmount()))
                     .filter(a -> Objects.nonNull(a.getComprehensiveInterestRate()))
                     .forEach(one -> {
@@ -183,16 +138,13 @@ public class NewFtpFinancingCostPricingConfigService extends ServiceImpl<NewFtpF
                     });
         }
 
-        //查询直接融资模块
-        List<FundDirectFinancingBaseInfo> yearInfoList = directFinancingBaseInfoMapper.selectList(Wrappers.<FundDirectFinancingBaseInfo>lambdaQuery()
-//                .eq(FundDirectFinancingBaseInfo::getFinancingStatus, FundFinancingStatusEnum.CARRY_INTEREST.name())
-                .between(FundDirectFinancingBaseInfo::getDurationFrom, beginDate, endDate));
-        yearInfoList = yearInfoList.stream().filter(a -> Objects.nonNull(a.getDurationFrom()))
+        List<DirectFinancingCostSample> directSamples = newFtpFundDataPort.listDirectFinancingCostSamples(beginDate, endDate);
+        directSamples = directSamples.stream().filter(a -> Objects.nonNull(a.getDurationFrom()))
                 .filter(a -> Objects.nonNull(a.getDurationTo()))
                 .collect(Collectors.toList());
 
-        if (CollUtil.isNotEmpty(yearInfoList)) {
-            yearInfoList.forEach(baseInfo -> {
+        if (CollUtil.isNotEmpty(directSamples)) {
+            directSamples.forEach(baseInfo -> {
                 long betweenMonths = LocalDateTimeUtil.between(baseInfo.getDurationFrom().atStartOfDay(),
                         baseInfo.getDurationTo().atStartOfDay(), ChronoUnit.MONTHS);
                 if (0 < betweenMonths && betweenMonths <= 12) {

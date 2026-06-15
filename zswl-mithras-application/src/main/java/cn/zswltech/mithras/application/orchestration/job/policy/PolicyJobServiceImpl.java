@@ -13,14 +13,11 @@ import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
+import cn.zswltech.mithras.policy.application.info.PolicyInfoSupportService;
 import cn.zswltech.mithras.policy.job.service.PolicyJobService;
-import cn.zswltech.mithras.policy.enums.PolicyApprovalStatusEnum;
-import cn.zswltech.mithras.policy.enums.PolicyRenewInsuranceEnum;
-import cn.zswltech.mithras.policy.enums.PolicyStatusEnum;
 import cn.zswltech.mithras.policy.persistence.projection.NearPolicyEndTimeProjection;
 import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.policy.persistence.mapper.PolicyInfoMapper;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.ExecutionService;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.MyTaskService;
 import cn.zswltech.mithras.message.service.MessageService;
@@ -29,7 +26,6 @@ import cn.zswltech.mithras.application.orchestration.policy.PolicyInfoVersionSer
 import cn.zswltech.mithras.application.orchestration.policy.PolicyLedgerService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,7 +48,7 @@ public class PolicyJobServiceImpl implements PolicyJobService {
     @Resource
     private PolicyInfoService policyInfoService;
     @Resource
-    private PolicyInfoMapper policyInfoMapper;
+    private PolicyInfoSupportService policyInfoSupportService;
     @Resource
     private PolicyLedgerService policyLedgerService;
     @Resource
@@ -75,23 +71,19 @@ public class PolicyJobServiceImpl implements PolicyJobService {
     public void policyAddJobHandler() {
         log.info("policyAddJob, start.");
         LocalDate end = LocalDate.now().plusDays(15);
-        List<NearPolicyEndTimeProjection> endTimeList = policyInfoMapper.nearPolicyEndTimeList(end);
+        List<NearPolicyEndTimeProjection> endTimeList = policyInfoSupportService.listNearPolicyEndTime(end);
         Set<Long> noSettleProj = policyInfoService.noSettleProj();
         List<Long> npIds = endTimeList.stream().map(NearPolicyEndTimeProjection::getProjId).collect(Collectors.toList());
         Map<Long, LocalDate> projEndDate = policyLedgerService.getProjEndDate(npIds);
         List<Long> ids = endTimeList.stream().filter(o -> projEndDate.get(o.getProjId()) != null && o.getMaxDate().isBefore(projEndDate.get(o.getProjId())) && noSettleProj.contains(o.getProjId())).map(NearPolicyEndTimeProjection::getProjId).collect(Collectors.toList());
-        List<PolicyInfo> policyInfos = policyInfoMapper.selectList(Wrappers.<PolicyInfo>lambdaQuery().eq(PolicyInfo::getAutomatic, 1).eq(PolicyInfo::getApprovalStatus, PolicyApprovalStatusEnum.NEW_UN_SUBMIT));
+        List<PolicyInfo> policyInfos = policyInfoSupportService.listAutomaticUnSubmitPolicies();
         Set<Long> idset = policyInfos.stream().map(PolicyInfo::getProjId).collect(Collectors.toSet());
         List<Long> needAdd = ids.stream().filter(o -> !idset.contains(o)).collect(Collectors.toList());
         List<ProjReviewBaseInfo> projReviewBaseInfos = projReviewBaseInfoService.listByIds(needAdd);
         Map<Long, ProjReviewBaseInfo> infoMap = projReviewBaseInfos.stream().collect(Collectors.toMap(ProjReviewBaseInfo::getId, o -> o));
         List<MessageAddREQ> messages = new ArrayList<>();
         for (Long projId : needAdd) {
-            PolicyInfo info = new PolicyInfo();
-            info.setProjId(projId);
-            info.setApprovalStatus(PolicyApprovalStatusEnum.NEW_UN_SUBMIT.name());
-            info.setAutomatic(1);
-            policyInfoMapper.insert(info);
+            Long policyId = policyInfoSupportService.createAutomaticUnSubmitPolicy(projId);
             ProjReviewBaseInfo baseInfo = infoMap.get(projId);
             MessageAddREQ message = new MessageAddREQ();
             message.setFrom("系统通知");
@@ -109,8 +101,8 @@ public class PolicyJobServiceImpl implements PolicyJobService {
             message.setNeedOa(false);
             message.setNoticeSource(NoticeSourceENUM.POLICY.name());
             message.setMessageType(MessageTypeEnum.POLICY.name());
-            message.setPcurl(StringUtils.format(MessageUrlEnum.POLICY.pcUrl,info.getId()));
-            message.setBusinessId(String.valueOf(info.getId()));
+            message.setPcurl(StringUtils.format(MessageUrlEnum.POLICY.pcUrl, policyId));
+            message.setBusinessId(String.valueOf(policyId));
             messages.add(message);
         }
         messages.forEach(o -> messageService.sendMessage(messageConver.reqToMessage(o)));
@@ -181,13 +173,7 @@ public class PolicyJobServiceImpl implements PolicyJobService {
         //1.保单到期提示流程
         try {
             //查询15天内到期且未发起过保单提醒流程的
-            List<PolicyInfo> policyInfos = policyInfoService.list(Wrappers.<PolicyInfo>lambdaQuery()
-                    .eq(PolicyInfo::getRenewInsuranceFlag, PolicyRenewInsuranceEnum.RENEWAL_UPON_EXPIRATION.name())
-                    .eq(PolicyInfo::getPolicyStatus, PolicyStatusEnum.EFFECT.name())
-                    .eq(PolicyInfo::getExpirationReminderFlag, YesOrNoNumberEnum.NO.getCode())
-                    .eq(PolicyInfo::getRenewInsuranceResult, YesOrNoNumberEnum.NO.getCode())
-                    .ge(PolicyInfo::getInsuranceEndDate, now)
-                    .lt(PolicyInfo::getInsuranceEndDate, now.plusDays(15)));
+            List<PolicyInfo> policyInfos = policyInfoSupportService.listNeedStartReminderPolicies(now);
             //modify 260112 关联流程信息，排除对应合同流程状态是：审核通过&&（正常结清||提前结清状态）的保单id
             excludedFinishContract(policyInfos);
             if (ObjectUtil.isNotEmpty(policyInfos)) {
@@ -204,25 +190,7 @@ public class PolicyJobServiceImpl implements PolicyJobService {
         //2. 续保逾期提示流程
         try {
             //查询到期且未续保完成的保单
-            List<PolicyInfo> policyInfos = new ArrayList<>();
-            List<PolicyInfo> policy5 = policyInfoService.list(Wrappers.<PolicyInfo>lambdaQuery()
-                    .eq(PolicyInfo::getRenewInsuranceFlag, PolicyRenewInsuranceEnum.RENEWAL_UPON_EXPIRATION.name())
-                    .eq(PolicyInfo::getPolicyStatus, PolicyStatusEnum.EFFECT.name())
-                    .eq(PolicyInfo::getRenewalOverdueFlag, YesOrNoNumberEnum.NO.getCode())
-                    .eq(PolicyInfo::getRenewInsuranceResult, YesOrNoNumberEnum.NO.getCode())
-                    .eq(PolicyInfo::getInsuranceEndDate, now.minusDays(5)));
-            List<PolicyInfo> policy30 = policyInfoService.list(Wrappers.<PolicyInfo>lambdaQuery()
-                    .eq(PolicyInfo::getRenewInsuranceFlag, PolicyRenewInsuranceEnum.RENEWAL_UPON_EXPIRATION.name())
-                    .eq(PolicyInfo::getPolicyStatus, PolicyStatusEnum.EFFECT.name())
-                    .ge(PolicyInfo::getCreateTime, LocalDate.of(2024,12,27))
-                    .eq(PolicyInfo::getRenewInsuranceResult, YesOrNoNumberEnum.NO.getCode())
-                    .eq(PolicyInfo::getInsuranceEndDate, now.minusDays(30)));
-            if(ObjectUtil.isNotEmpty(policy5)){
-                policyInfos.addAll(policy5);
-            }
-            if(ObjectUtil.isNotEmpty(policy30)){
-                policyInfos.addAll(policy30);
-            }
+            List<PolicyInfo> policyInfos = policyInfoSupportService.listNeedStartOverdueReminderPolicies(now);
             //modify 260112 关联合同信息，排除合同已经结束的保单
             excludedFinishContract(policyInfos);
             if (ObjectUtil.isEmpty(policyInfos)) {
@@ -260,11 +228,7 @@ public class PolicyJobServiceImpl implements PolicyJobService {
         try {
             LocalDate now = LocalDate.now();
             //查询15天内到期且未发起过保单提醒流程的
-            List<PolicyInfo> policyInfos = policyInfoService.list(Wrappers.<PolicyInfo>lambdaQuery()
-                    .eq(PolicyInfo::getRenewInsuranceFlag, PolicyRenewInsuranceEnum.RENEWAL_UPON_EXPIRATION.name())
-                    .eq(PolicyInfo::getPolicyStatus, PolicyStatusEnum.EFFECT.name())
-                    .eq(PolicyInfo::getExpirationReminderFlag, YesOrNoNumberEnum.YES.getCode())
-                    .eq(PolicyInfo::getInsuranceEndDate, now));
+            List<PolicyInfo> policyInfos = policyInfoSupportService.listReminderAutoCommitPolicies(now);
             if (ObjectUtil.isNotEmpty(policyInfos)) {
                 //查询流程中数据
                 Set<String> needCommitSet = new HashSet<>();
@@ -287,11 +251,7 @@ public class PolicyJobServiceImpl implements PolicyJobService {
         try {
             LocalDate now = LocalDate.now();
             //查询15天内到期且未发起过保单提醒流程的
-            List<PolicyInfo> policyInfos = policyInfoService.list(Wrappers.<PolicyInfo>lambdaQuery()
-                    .eq(PolicyInfo::getRenewInsuranceFlag, PolicyRenewInsuranceEnum.RENEWAL_UPON_EXPIRATION.name())
-                    .eq(PolicyInfo::getPolicyStatus, PolicyStatusEnum.EFFECT.name())
-                    .eq(PolicyInfo::getRenewalOverdueFlag, YesOrNoNumberEnum.YES.getCode())
-                    .le(PolicyInfo::getInsuranceEndDate, now));
+            List<PolicyInfo> policyInfos = policyInfoSupportService.listOverdueAutoCommitPolicies(now);
             if (ObjectUtil.isNotEmpty(policyInfos)) {
                 //查询流程中数据
                 Set<String> needCommitSet = new HashSet<>();

@@ -19,8 +19,10 @@ import cn.zswltech.mithras.afterlease.dto.RentCollectionIndexListDTO;
 import cn.zswltech.mithras.afterlease.dto.RentCollectionIndexListParam;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.system.user.SysUserService;
+import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
+import cn.zswltech.mithras.foundation.port.DeptNameResolver;
+import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -47,11 +49,15 @@ public class RentCollectionIndexServiceImpl {
     @Resource
     private RentCollectionIndexMapper rentCollectionIndexMapper;
     @Resource
-    private SysUserService sysUserService;
+    private CurrentUserDataScopeResolver currentUserDataScopeResolver;
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
-    private Id2NameService id2NameService;
+    private ClientNameResolver clientNameResolver;
+    @Resource
+    private UserNameResolver userNameResolver;
+    @Resource
+    private DeptNameResolver deptNameResolver;
     @Resource
     private ContractLeasePriceMapper leasePriceMapper;
 
@@ -78,7 +84,7 @@ public class RentCollectionIndexServiceImpl {
         }
 
         // 可看数据权限
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         if (isBizUser && canViewDeptIds.isEmpty()) {
             //防止sql in报错
@@ -124,7 +130,7 @@ public class RentCollectionIndexServiceImpl {
                 break;
         }
         // 可看数据权限
-        List<Long> canViewDeptIds = sysUserService.canViewDeptIds();
+        List<Long> canViewDeptIds = currentUserDataScopeResolver.canViewDeptIds();
         boolean isBizUser = null != canViewDeptIds;
         if (isBizUser && canViewDeptIds.isEmpty()) {
             //防止sql in报错
@@ -149,11 +155,11 @@ public class RentCollectionIndexServiceImpl {
     private List<RentCollectionListRSP> getCommonList(Page<RentCollectionIndexListDTO> dtoPage) {
         // 填充名称
         Set<Long> clientIdSet = dtoPage.getRecords().stream().map(RentCollectionIndexListDTO::getClientId).collect(Collectors.toSet());
-        Map<Long, String> clientNameMap = id2NameService.clientId2Name(clientIdSet);
+        Map<Long, String> clientNameMap = clientNameResolver.clientId2Name(clientIdSet);
         Set<Long> userIdSet = dtoPage.getRecords().stream().map(RentCollectionIndexListDTO::getProjSponsorUserId).collect(Collectors.toSet());
-        Map<Long, String> userNameMap = id2NameService.sysUserId2Name(userIdSet);
+        Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(userIdSet);
         Set<Long> deptIdSet = dtoPage.getRecords().stream().map(RentCollectionIndexListDTO::getBizDeptId).collect(Collectors.toSet());
-        Map<Long, String> deptNameMap = id2NameService.deptId2Name(deptIdSet);
+        Map<Long, String> deptNameMap = deptNameResolver.deptId2Name(deptIdSet);
 
         // 填充借据状态 起租的生效的 如果有收款主表逾期 就 判作逾期标签
         Map<Long, List<CollectionBaseInfo>> overdueCollectionMap = new HashMap<>();

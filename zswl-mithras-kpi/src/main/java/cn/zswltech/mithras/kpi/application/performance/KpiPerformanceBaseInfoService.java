@@ -19,7 +19,6 @@ import cn.zswltech.mithras.kpi.model.PerformanceBaseInfo;
 import cn.zswltech.mithras.kpi.model.PerformanceMainInfo;
 import cn.zswltech.mithras.kpi.model.PerformanceRecordInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.kpi.excel.model.*;
 import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.ExcelWriter;
@@ -54,8 +53,6 @@ public class KpiPerformanceBaseInfoService extends ServiceImpl<PerformanceBaseIn
     private PerformanceRecordInfoMapper performanceRecordInfoMapper;
     @Resource
     private KpiPerformanceMainInfoService kpiPerformanceMainInfoService;
-    @Resource
-    private SysUserService sysUserService;
     @Resource
     private UserDOMapper userManager;
     @Resource
