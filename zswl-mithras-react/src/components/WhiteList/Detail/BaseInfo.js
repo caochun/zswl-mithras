@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '@/pages/whiteList/Column'
+import ALL_COLUMNS from '@/components/WhiteList/Columns'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Button } from '@zswl/components'
