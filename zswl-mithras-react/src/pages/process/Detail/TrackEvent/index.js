@@ -1,6 +1,5 @@
-import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import LeaseTrack from '@/pages/lease/tracking/detail/[id$]'
+import LeaseTrack from '@/components/Lease/Tracking/detail'
 
 const Index = (props) => {
   const { id, businessVersion, modelKey, taskActivityId, taskStatus } = props
@@ -19,7 +18,5 @@ const Index = (props) => {
       />
     </div>
   )
-
-  return renderContractType
 }
 export default observer(Index)
