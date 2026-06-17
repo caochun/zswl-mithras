@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.rating.service.port;
+package cn.zswltech.mithras.rating.application.port;
 
-import cn.zswltech.mithras.rating.service.port.model.RatingAreaIndicatorData;
-import cn.zswltech.mithras.rating.service.port.model.RatingRegionScoreData;
+import cn.zswltech.mithras.rating.application.port.model.RatingAreaIndicatorData;
+import cn.zswltech.mithras.rating.application.port.model.RatingRegionScoreData;
 
 import java.util.List;
 

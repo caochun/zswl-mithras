@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.application.orchestration.adapter.rating;
 
-import cn.zswltech.mithras.rating.service.port.RatingAreaIndicatorDataPort;
-import cn.zswltech.mithras.rating.service.port.model.RatingAreaIndicatorData;
-import cn.zswltech.mithras.rating.service.port.model.RatingRegionScoreData;
+import cn.zswltech.mithras.rating.application.port.RatingAreaIndicatorDataPort;
+import cn.zswltech.mithras.rating.application.port.model.RatingAreaIndicatorData;
+import cn.zswltech.mithras.rating.application.port.model.RatingRegionScoreData;
 import cn.zswltech.mithras.third.dataminer.client.DataMinerClient;
 import cn.zswltech.mithras.third.dataminer.client.req.QueryDmIndicatorReq;
 import cn.zswltech.mithras.third.dataminer.client.req.QueryDmRegionScoreReq;

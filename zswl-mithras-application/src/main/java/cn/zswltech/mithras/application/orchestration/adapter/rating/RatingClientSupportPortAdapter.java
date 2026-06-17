@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.rating;
 
 import cn.zswltech.mithras.dto.client.client.ClientListRSP;
-import cn.zswltech.mithras.rating.application.RatingClientSupportPort;
+import cn.zswltech.mithras.rating.application.port.RatingClientSupportPort;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import org.springframework.stereotype.Component;
 

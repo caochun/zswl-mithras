@@ -3,8 +3,8 @@ package cn.zswltech.mithras.application.orchestration.adapter.rating;
 import cn.hutool.core.bean.BeanUtil;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.rating.application.RatingProjectReviewContextPort;
-import cn.zswltech.mithras.rating.application.RatingProjectReviewSnapshot;
+import cn.zswltech.mithras.rating.application.port.RatingProjectReviewContextPort;
+import cn.zswltech.mithras.rating.application.port.model.RatingProjectReviewSnapshot;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

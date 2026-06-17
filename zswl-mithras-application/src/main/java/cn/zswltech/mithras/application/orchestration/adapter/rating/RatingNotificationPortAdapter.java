@@ -5,7 +5,7 @@ import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.message.service.MessageService;
-import cn.zswltech.mithras.rating.application.RatingNotificationPort;
+import cn.zswltech.mithras.rating.application.port.RatingNotificationPort;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

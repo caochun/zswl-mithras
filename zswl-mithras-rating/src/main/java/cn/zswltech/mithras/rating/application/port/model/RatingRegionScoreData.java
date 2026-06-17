@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.rating.service.port.model;
+package cn.zswltech.mithras.rating.application.port.model;
 
 import lombok.Data;
 

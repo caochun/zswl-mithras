@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.rating.application;
+package cn.zswltech.mithras.rating.application.port;
 
 import cn.zswltech.mithras.dto.client.client.ClientListRSP;
 

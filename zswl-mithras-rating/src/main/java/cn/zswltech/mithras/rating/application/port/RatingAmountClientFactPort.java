@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.rating.application;
+package cn.zswltech.mithras.rating.application.port;
+
+import cn.zswltech.mithras.rating.application.port.model.RatingAmountClientSnapshot;
 
 import java.util.Collection;
 import java.util.List;

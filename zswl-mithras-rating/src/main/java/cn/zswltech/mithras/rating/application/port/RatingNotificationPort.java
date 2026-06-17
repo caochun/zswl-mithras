@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.rating.application;
+package cn.zswltech.mithras.rating.application.port;
 
 public interface RatingNotificationPort {
 
