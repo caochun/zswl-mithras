@@ -1,4 +1,4 @@
-import { rzyLink } from '../Config'
+import { rzyLink } from '@/utils/rzyConfig'
 import styles from './index.less'
 
 const Index = ({ title }) => {

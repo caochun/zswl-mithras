@@ -4,7 +4,7 @@ import { ModalStore, FormStore, App } from '@zswl/components'
 import DataUpload from '@/components/DataUpload'
 import { options, downFile, setLastVisitPath, clearCookie } from '@/utils'
 import { message } from 'antd'
-import { rzyMemu } from '@/pages/rzy/Config'
+import { rzyMenu } from '@/utils/rzyConfig'
 
 /**
  * 将字典数据转换为 [{label, value}] 格式
@@ -86,7 +86,7 @@ class Store {
     //  以下用户才能查看 “云贝”
     const allowSeeYuBeiAccount = ['admin', 'readonly', 'jifei', 'liyan', 'wujie', 'lusuping']
     if (['preSvc', 'prod'].includes(__ENV__) && allowSeeYuBeiAccount.includes(user?.account)) {
-      menu.push(rzyMemu)
+      menu.push(rzyMenu)
     }
     const allProcessTypeEnum = []
     optionsType.processModelType.forEach(({ children }) => {
