@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import CustomerRat from '@/pages/customer/customerRat/detail/[id$]'
+import CustomerRat from '@/components/Customer/CustomerRatDetail'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, taskActivityId, taskId, modelCode } = props
@@ -14,7 +14,7 @@ const Index = (props) => {
           subModule,
           taskId,
           businessVersion,
-          model:modelCode
+          model: modelCode,
         }}
       />
     )
