@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.leaseholdproperty;
 
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.dto.message.MessageUrlEnum;
-import cn.zswltech.mithras.leaseholdproperty.job.service.AppraisalWhitelistNotificationPort;
+import cn.zswltech.mithras.leaseholdproperty.application.port.AppraisalWhitelistNotificationPort;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;

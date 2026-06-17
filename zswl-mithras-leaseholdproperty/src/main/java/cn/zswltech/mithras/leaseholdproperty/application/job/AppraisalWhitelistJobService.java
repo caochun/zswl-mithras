@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.leaseholdproperty.job.service;
+package cn.zswltech.mithras.leaseholdproperty.application.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -14,6 +14,8 @@ import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
 import cn.zswltech.mithras.foundation.port.UserBizDeptInfoResolver;
+import cn.zswltech.mithras.leaseholdproperty.application.port.AppraisalWhitelistJobPort;
+import cn.zswltech.mithras.leaseholdproperty.application.port.AppraisalWhitelistNotificationPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -32,7 +34,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Component
-public class AppraisalWhitelistJobServiceImpl implements AppraisalWhitelistJobService {
+public class AppraisalWhitelistJobService implements AppraisalWhitelistJobPort {
     private static final int MESSAGE_NOTIFY_DAYS = 30;
     private static final String MESSAGE_NOTIFY_TEMPLATE = "【%s】创建的白名单评估机构【%s】将于【%s】日后到期，请关注处理！";
 

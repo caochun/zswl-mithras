@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.leaseholdproperty.job;
 
-import cn.zswltech.mithras.leaseholdproperty.job.service.AppraisalWhitelistJobService;
+import cn.zswltech.mithras.leaseholdproperty.application.port.AppraisalWhitelistJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -17,10 +17,10 @@ import javax.annotation.Resource;
 public class AppraisalWhitelistJob {
 
     @Resource
-    private AppraisalWhitelistJobService appraisalWhitelistJobService;
+    private AppraisalWhitelistJobPort appraisalWhitelistJobPort;
 
     @XxlJob("AppraisalWhitelistDailyJob")
     public void AppraisalWhitelistDailyJob() {
-        appraisalWhitelistJobService.appraisalWhitelistDailyJob();
+        appraisalWhitelistJobPort.appraisalWhitelistDailyJob();
     }
 }
