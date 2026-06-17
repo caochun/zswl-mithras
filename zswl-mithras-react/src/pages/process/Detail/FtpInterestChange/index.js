@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import PriceChangeModal from '@/pages/budget/pricing/ftpInterest/PriceChangeModal'
+import PriceChangeModal from '@/components/Budget/FtpInterestPriceChangeModal'
 import { ModalStore } from '@zswl/components'
 import ftpInterestChangeApi from '@/api/budget/pricing/ftpInterestChangeApi'
 
