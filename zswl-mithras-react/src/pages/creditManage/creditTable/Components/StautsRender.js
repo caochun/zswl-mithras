@@ -1,1 +1,1 @@
-export { default } from '@/components/CreditManage/CreditTableStatusRender'
+export { default } from '@/components/CreditManage/CreditTable/Components/StautsRender'

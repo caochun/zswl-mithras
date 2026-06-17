@@ -1,1 +1,1 @@
-export { default } from '@/api/credit/creditTable'
+export { default } from '@/components/CreditManage/CreditTable/Tab/api'
