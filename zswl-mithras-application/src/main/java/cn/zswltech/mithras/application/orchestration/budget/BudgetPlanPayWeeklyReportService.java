@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.budget;
 
-import cn.zswltech.mithras.budget.application.job.BudgetPlanPayWeeklyJobService;
+import cn.zswltech.mithras.budget.application.port.BudgetPlanPayWeeklyJobPort;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.budget.application.BudgetPlanPayWeeklyReportApplicationService;
 import cn.hutool.core.bean.BeanUtil;
@@ -61,7 +61,7 @@ import java.util.stream.Collectors;
 */
 @Slf4j
 @Service
-public class BudgetPlanPayWeeklyReportService extends ServiceImpl<BudgetPlanPayWeeklyReportMapper, BudgetPlanPayWeeklyReport> implements BudgetPlanPayWeeklyReportApplicationService, BudgetPlanPayWeeklyJobService {
+public class BudgetPlanPayWeeklyReportService extends ServiceImpl<BudgetPlanPayWeeklyReportMapper, BudgetPlanPayWeeklyReport> implements BudgetPlanPayWeeklyReportApplicationService, BudgetPlanPayWeeklyJobPort {
 
     @Resource
     private BudgetPlanPayWeeklyReportMapper budgetPlanPayWeeklyReportMapper;

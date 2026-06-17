@@ -3,7 +3,7 @@ package cn.zswltech.mithras.budget.job;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.budget.application.job.BudgetPlanPayWeeklyJobService;
+import cn.zswltech.mithras.budget.application.port.BudgetPlanPayWeeklyJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.time.LocalDate;
 public class BudgetPlanPayWeeklyJob {
 
     @Resource
-    private BudgetPlanPayWeeklyJobService budgetPlanPayWeeklyJobService;
+    private BudgetPlanPayWeeklyJobPort budgetPlanPayWeeklyJobPort;
 
     @XxlJob(value = "createBudgetPlanPayWeekly")
     @Transactional(rollbackFor = Throwable.class)
@@ -30,6 +30,6 @@ public class BudgetPlanPayWeeklyJob {
         } else {
             targetDate = LocalDateTimeUtil.parseDate(params, DatePattern.NORM_DATE_PATTERN);
         }
-        budgetPlanPayWeeklyJobService.createBudgetPlanPayWeekly(targetDate);
+        budgetPlanPayWeeklyJobPort.createBudgetPlanPayWeekly(targetDate);
     }
 }

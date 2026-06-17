@@ -4,6 +4,8 @@
 
 本模块的核心语义是“经营预算、预测与预算执行管理”。项目、KPI、财务、合同、付款和收款是它计算所需的外部事实输入；其中合同归属事实通过 `BudgetContractFactPort` 由 application 适配到 contract，收款事实通过 `BudgetCollectionFactPort` 由 application 适配到 collection，合同付款事实和付款实缴事实通过 `BudgetPaymentFactPort` 由 application 适配到合同、付款实际和收款计划的跨域读模型，财务风险/利润事实通过 `BudgetFinanceFactPort` 由 application 适配到 finance，年度 KPI 绩效目标通过 `BudgetKpiFactPort` 由 application 适配到 kpi，预算考核审批流通过 `BudgetExamineWorkflowPort` 由 application 适配到 flow-core，预算自身持有预算审批状态。
 
+本轮同步把周报定时任务边界从 `BudgetPlanPayWeeklyJobService` 收敛为 `BudgetPlanPayWeeklyJobPort`，放入 `budget.application.port`。XXL Job 入口只依赖端口，实际周报生成仍由 application 中的预算周报服务实现，保持跨域装配和预算任务入口的边界清晰。
+
 本轮复核统计到约 155 个 Java 文件，包结构集中在 `cn.zswltech.mithras.budget` 单根包下。当前 POM 中只保留 `api`、`foundation` 和必要框架依赖；`projectprocess`、`finance`、`contract`、`payment`、`collection`、`workflow`、flow-core、`kpi` 直接依赖已移除。静态搜索确认 `zswl-mithras-budget/src/main/java`、`src/main/resources` 和 `pom.xml` 中已无 `cn.zswltech.mithras.projectprocess`、`zswl-mithras-projectprocess`、`cn.zswltech.mithras.finance`、`zswl-mithras-finance`、`FinanceProjectProfitDetail`、`FinanceSubjectBalanceAssist`、`FinanceBcmBalanceMf`、`cn.zswltech.mithras.contract`、`zswl-mithras-contract`、`ContractBaseInfo`、`ContractBaseInfoService`、`cn.zswltech.mithras.payment`、`zswl-mithras-payment`、`PaymentActualDetail`、`PaymentActualDetailMapper`、旧 `ContractPayInfoDTO`、`cn.zswltech.mithras.kpi` 或 `zswl-mithras-kpi` 残留；预算考核执行服务中也已无 `projectprocess` mapper/model 直接引用，项目立项数量和项目评审 FTP 分类通过 `BudgetProjectFactPort` 输入，年度 KPI 绩效目标通过 `BudgetKpiFactPort` 输入。
 
 预算域已经自持 FTP 行业分类口径：`BudgetFtpIndustryCategory` 保留与历史编码一致的枚举值，参数配置服务接收预算分类编码或预算本域枚举，不再为了风险准备金/FTP 参数读取复用 `projectprocess` 的 FTP 行业分类枚举。付款预算现金流导入也已改用预算自有 `BudgetCashFlowExcelImporter` 和 `BudgetCashFlowExcelModel`，不再复用项目过程域的 Excel importer/model。
