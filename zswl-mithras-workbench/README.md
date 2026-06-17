@@ -10,7 +10,7 @@
 
 POM 依赖也基本都有源码证据：MyBatis-Plus 用于 mapper/model/service，Hutool 用于判空、集合、日期和 Excel 导出，MapStruct 用于 converter，Fastjson 用于快捷入口和指标 JSON 转换，XXL Job 用于初始化和指标刷新任务，Gruul starter 提供 `AccountUtil`、`Response` 等入口能力。
 
-对外部业务事实的读取主要通过 `WorkbenchCardMetricPort`、`WorkbenchFundsLiquidityPort`、`WorkbenchCardCollectionPort`、`WorkbenchCardFundRepayPort`、`WorkbenchCardProjReviewPort`、`WorkbenchFinancialMetricFactorPort`、`WorkbenchRiskControlStrategyPort` 等接口表达，具体 adapter 放在 `application/orchestration/adapter/workbench`。这些 adapter 会读取项目、合同、客户、付款、收款、资金、风险、资产分类等外部事实，属于读侧聚合装配。
+对外部业务事实的读取主要通过 `workbench.application.port` 和 `workbench.application.port.cardcal` 下的 `WorkbenchCardMetricPort`、`WorkbenchFundsLiquidityPort`、`WorkbenchCardCollectionPort`、`WorkbenchCardFundRepayPort`、`WorkbenchCardProjReviewPort`、`WorkbenchFinancialMetricFactorPort`、`WorkbenchRiskControlStrategyPort` 等接口表达，具体 adapter 放在 `application/orchestration/adapter/workbench`。这些 adapter 会读取项目、合同、客户、付款、收款、资金、风险、资产分类等外部事实，属于读侧聚合装配。
 
 需要注意的是，`application/orchestration/facade/workbench` 里仍有较重的工作台图表 facade，直接注入 projectprocess、contract、collection、payment、margin、riskcontrol、assetclassify、system 等服务和模型。短期放在 `application` 是合理的，因为它是跨域页面聚合；后续若要继续瘦身，优先把纯展示口径沉到 `workbench` 的 port/service，把真实跨域查询留在 application adapter。
 

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.workbench;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.workbench.application.WorkbenchAnnouncementMaterial;
-import cn.zswltech.mithras.workbench.application.WorkbenchAnnouncementMaterialPort;
+import cn.zswltech.mithras.workbench.application.port.WorkbenchAnnouncementMaterialPort;
 import cn.zswltech.mithras.workbench.enums.AnnouncementMetricMaterialEnum;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

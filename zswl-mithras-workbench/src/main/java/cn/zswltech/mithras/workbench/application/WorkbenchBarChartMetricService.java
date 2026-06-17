@@ -6,6 +6,7 @@ import cn.zswltech.mithras.dto.workbench.chart.LineBarChartValueVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartBaseDataVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartDataVO;
 import cn.zswltech.mithras.workbench.application.job.WorkbenchBarChartMetricCalculator;
+import cn.zswltech.mithras.workbench.application.port.WorkbenchBarChartMetricPort;
 import cn.zswltech.mithras.workbench.enums.WorkbenchMetricDeptScope;
 import cn.zswltech.mithras.workbench.enums.WorkbenchMetricTimeScope;
 import cn.zswltech.mithras.workbench.mapper.WorkbenchBarChartMetricMapper;

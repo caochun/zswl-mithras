@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.workbench;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpMonthlyGuidance;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpMonthlyGuidanceService;
-import cn.zswltech.mithras.workbench.application.WorkbenchShortcutSpecialPort;
+import cn.zswltech.mithras.workbench.application.port.WorkbenchShortcutSpecialPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

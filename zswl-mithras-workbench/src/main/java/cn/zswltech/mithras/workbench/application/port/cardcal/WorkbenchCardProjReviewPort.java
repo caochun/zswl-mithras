@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workbench.application.cardcal;
+package cn.zswltech.mithras.workbench.application.port.cardcal;
 
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchProjReviewPrice;
 

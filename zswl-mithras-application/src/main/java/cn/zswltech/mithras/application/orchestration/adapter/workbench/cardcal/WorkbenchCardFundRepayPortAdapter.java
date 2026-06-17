@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.workbench.cardcal;
 
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayCashFlow;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayCashFlowService;
-import cn.zswltech.mithras.workbench.application.cardcal.WorkbenchCardFundRepayPort;
+import cn.zswltech.mithras.workbench.application.port.cardcal.WorkbenchCardFundRepayPort;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchFundRepayCashFlow;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

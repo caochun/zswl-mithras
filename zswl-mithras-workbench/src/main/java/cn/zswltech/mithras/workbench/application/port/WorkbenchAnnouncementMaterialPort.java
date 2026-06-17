@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.workbench.application;
+package cn.zswltech.mithras.workbench.application.port;
+
+import cn.zswltech.mithras.workbench.application.WorkbenchAnnouncementMaterial;
 
 import java.util.List;
 import java.util.Set;

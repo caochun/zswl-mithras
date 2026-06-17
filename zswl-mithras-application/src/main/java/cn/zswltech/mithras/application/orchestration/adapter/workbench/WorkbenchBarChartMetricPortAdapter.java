@@ -42,7 +42,7 @@ import cn.zswltech.mithras.application.orchestration.projectprocess.projestablis
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewBaseInfoService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.workbench.application.WorkbenchBarChartMetricPort;
+import cn.zswltech.mithras.workbench.application.port.WorkbenchBarChartMetricPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

@@ -4,7 +4,7 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.MissingFactorE
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactor;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
 import cn.zswltech.mithras.workbench.application.cardcal.WorkbenchFinancialMetricFactorMissingException;
-import cn.zswltech.mithras.workbench.application.cardcal.WorkbenchFinancialMetricFactorPort;
+import cn.zswltech.mithras.workbench.application.port.cardcal.WorkbenchFinancialMetricFactorPort;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

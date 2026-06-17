@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.workbench.cardcal;
 
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.workbench.application.cardcal.WorkbenchCardCollectionPort;
+import cn.zswltech.mithras.workbench.application.port.cardcal.WorkbenchCardCollectionPort;
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchCollectionAmount;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

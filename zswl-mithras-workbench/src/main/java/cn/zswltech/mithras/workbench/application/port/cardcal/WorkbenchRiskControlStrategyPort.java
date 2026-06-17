@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.workbench.application.cardcal;
+package cn.zswltech.mithras.workbench.application.port.cardcal;
 
 public interface WorkbenchRiskControlStrategyPort {
     long countAbnormalStrategies();

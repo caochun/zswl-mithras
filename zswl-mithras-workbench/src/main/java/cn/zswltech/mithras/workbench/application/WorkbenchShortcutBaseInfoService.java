@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.workbench.application;
 
 import cn.zswltech.mithras.dto.workbench.WorkbenchShortcutsListRsp;
+import cn.zswltech.mithras.workbench.application.port.WorkbenchShortcutSpecialPort;
 import cn.zswltech.mithras.workbench.mapper.WorkbenchShortcutBaseInfoMapper;
 import cn.zswltech.mithras.workbench.mapper.model.WorkbenchShortcutBaseInfo;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

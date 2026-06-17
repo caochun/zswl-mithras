@@ -1,5 +1,6 @@
 package cn.zswltech.mithras.workbench.application.cardcal;
 
+import cn.zswltech.mithras.workbench.application.port.cardcal.WorkbenchFinancialMetricFactorPort;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

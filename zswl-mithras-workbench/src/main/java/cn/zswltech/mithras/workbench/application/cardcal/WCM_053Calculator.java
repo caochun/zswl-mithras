@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.workbench.application.cardcal;
 
 import cn.zswltech.mithras.workbench.application.cardcal.model.WorkbenchCollectionAmount;
+import cn.zswltech.mithras.workbench.application.port.cardcal.WorkbenchCardCollectionPort;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Component;

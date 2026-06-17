@@ -14,6 +14,7 @@ import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.workbench.application.convert.WorkbenchAnnouncementConverter;
+import cn.zswltech.mithras.workbench.application.port.WorkbenchAnnouncementMaterialPort;
 import cn.zswltech.mithras.workbench.mapper.WorkbenchAnnouncementMapper;
 import cn.zswltech.mithras.workbench.mapper.model.WorkbenchAnnouncement;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

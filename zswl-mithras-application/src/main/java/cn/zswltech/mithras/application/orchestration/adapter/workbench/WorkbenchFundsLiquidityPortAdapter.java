@@ -6,7 +6,7 @@ import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayCashFlowService;
 import cn.zswltech.mithras.workbench.application.WorkbenchFundsLiquidityCollection;
-import cn.zswltech.mithras.workbench.application.WorkbenchFundsLiquidityPort;
+import cn.zswltech.mithras.workbench.application.port.WorkbenchFundsLiquidityPort;
 import cn.zswltech.mithras.workbench.application.WorkbenchFundsLiquidityRepayCashFlow;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

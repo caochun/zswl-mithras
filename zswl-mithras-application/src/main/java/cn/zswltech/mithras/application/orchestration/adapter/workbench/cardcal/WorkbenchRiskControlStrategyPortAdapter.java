@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.workbench.cardcal;
 import cn.zswltech.mithras.riskcontrol.common.AlertState;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategyMapper;
-import cn.zswltech.mithras.workbench.application.cardcal.WorkbenchRiskControlStrategyPort;
+import cn.zswltech.mithras.workbench.application.port.cardcal.WorkbenchRiskControlStrategyPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
