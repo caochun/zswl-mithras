@@ -3,7 +3,7 @@ import { observer, http, history } from '@zswl/admin'
 import { Button, Form, Modal, ModalStore } from '@zswl/components'
 import { Input, message } from 'antd'
 import { useMemo } from 'react'
-import leaseApi from '@/pages/lease/maintain/api'
+import leaseApi from '@/api/lease/maintainApi'
 import flowList from '@/api/common/flowList'
 import ocrInvoiceApi from '@/api/ocr/ocrInvoiceApi'
 
