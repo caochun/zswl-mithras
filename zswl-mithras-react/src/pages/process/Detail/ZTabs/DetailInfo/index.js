@@ -1,5 +1,5 @@
 import ProfitDistribution from '@/components/Budget/ProfitDistribution'
-import PolicyRemind from '@/pages/afterLease/policyManage/remind/[id$]'
+import PolicyRemind from '@/components/AfterLease/PolicyManageRemind'
 import CreditReportSelectFlow from '@/components/CreditManage/SearchDetail'
 import ApplyPermission from '@/pages/customer/maintain/applyPermission/[id$].js'
 import CustomerDetail from '@/pages/customer/maintain/detail/[id$]'
