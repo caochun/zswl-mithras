@@ -3,7 +3,7 @@ package cn.zswltech.mithras.credit.creditlimit.job;
 import cn.zswltech.mithras.credit.creditlimit.service.CreditLimitService;
 import cn.zswltech.mithras.credit.creditlimit.enums.CreditLimitStatusEnum;
 import cn.zswltech.mithras.credit.creditlimit.model.CreditLimit;
-import cn.zswltech.mithras.credit.creditlimit.service.port.FundCreditEffectiveStatusService;
+import cn.zswltech.mithras.credit.creditlimit.application.port.FundCreditEffectiveStatusPort;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -22,7 +22,7 @@ public class CreditLimitJob {
     @Resource
     private CreditLimitService creditLimitService;
     @Resource
-    private FundCreditEffectiveStatusService fundCreditEffectiveStatusService;
+    private FundCreditEffectiveStatusPort fundCreditEffectiveStatusPort;
 
     @XxlJob("creditLimitStatusDailyJob")
     public void creditLimitStatusDailyJob() {
@@ -42,6 +42,6 @@ public class CreditLimitJob {
         creditLimitService.update(updateInvalidWrapper);
 
         // 同步处理授信业务表
-        fundCreditEffectiveStatusService.invalidExpiredFundCredit(now);
+        fundCreditEffectiveStatusPort.invalidExpiredFundCredit(now);
     }
 }

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.materialsfile.FundMaterialListRSP;
 import cn.zswltech.mithras.credit.creditlimit.service.CreditLimitManagerService;
 import cn.zswltech.mithras.credit.creditlimit.service.CreditLimitService;
 import cn.zswltech.mithras.credit.creditlimit.service.bo.*;
-import cn.zswltech.mithras.credit.creditlimit.service.port.FundCreditEffectiveStatusService;
+import cn.zswltech.mithras.credit.creditlimit.application.port.FundCreditEffectiveStatusPort;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.convert.TypeConversionWorker;
 import cn.zswltech.mithras.fund.application.credit.convert.FundCreditConverter;
@@ -78,7 +78,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class FundCreditService extends ServiceImpl<FundCreditMapper, FundCredit> implements FundCreditEffectiveStatusService {
+public class FundCreditService extends ServiceImpl<FundCreditMapper, FundCredit> implements FundCreditEffectiveStatusPort {
     @Resource
     private FundCreditConverter baseConverter;
     @Resource

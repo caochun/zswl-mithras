@@ -20,7 +20,7 @@
 - `GroupCreditEstablishBaseInfoMapper.xml`、`GroupCreditReviewBaseInfoMapper.xml` 基本只查询本域表，SQL 层没有明显跨域 join。
 - `application`、`fund`、`projectprocess`、`creditreport` 等模块会消费授信事实；其中资金域占用/释放额度是合理跨域协作，但应稳定在额度服务和 BO 边界，避免外部直接理解授信持久化细节。
 - 按 Java/POM/Mapper/SQL 粗略反向搜索，主要消费方是 `application` 约 159 处、`web` 约 43 处、`blackgray` 约 12 处、`creditreport` 约 10 处、`dashboard` 约 9 处、`fund` 约 7 处、`projectprocess` 约 4 处。
-- 模块内已有 `GroupCreditEstablishProcessPort`、`GroupCreditEstablishContractPort`、`FundCreditEffectiveStatusService` 等较窄接口。流程启动/流程查询、合同风险敞口、融资授信过期处理应由外部实现或调用，credit 保留授信状态和额度规则。
+- 模块内已有 `GroupCreditEstablishProcessPort`、`GroupCreditEstablishContractPort`、`creditlimit.application.port.FundCreditEffectiveStatusPort` 等较窄接口。流程启动/流程查询、合同风险敞口、融资授信过期处理应由外部实现或调用，credit 保留授信状态和额度规则。
 - `application` 中仍有较多 groupcredit facade、流程、材料、项目联动代码，后续应区分真正跨域编排和可以回归 `credit` 的单域授信逻辑。
 
 结论：`credit` 是 risk-credit 大域中的核心授信事实源，暂不建议并入 `creditreport`、`rating`、`riskcontrol` 或 `assetclassify`。后续整理重点是收敛外部模块对授信 mapper/model 的直接读取，并继续用 application 装配流程、材料和项目事实。
