@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import ModalEditTable from '@/pages/kpi/Component/ModalEditTable'
 import { InputCalcEditable } from '@/components/Format/editable'
 import { formulaData } from '@/pages/kpi/Component/utils'
-import Tip from '@/pages/kpi/Component/Tip'
+import { FormulaValueTip } from '@/components'
 import Api from './api'
 
 const VERSIBLE = 'P'
@@ -58,7 +58,7 @@ const Index = ({ baseStore, typeInfo }) => {
               title: (
                 <div>
                   <span>部门综合考评系数</span>
-                  <Tip versible={VERSIBLE}></Tip>
+                  <FormulaValueTip versible={VERSIBLE}></FormulaValueTip>
                 </div>
               ),
               dataIndex: 'coefficient',

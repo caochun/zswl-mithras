@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { useRef } from 'react'
 import ModalEditTable from '@/pages/kpi/Component/ModalEditTable'
 import { InputCalcEditable } from '@/components/Format/editable'
-import Tip from '@/pages/kpi/Component/Tip'
+import { FormulaValueTip } from '@/components'
 import { formulaData } from '@/pages/kpi/Component/utils'
 import Api from './api'
 
@@ -56,7 +56,7 @@ const Index = ({ baseStore, typeInfo }) => {
               title: (
                 <div>
                   <span>综合考评系数</span>
-                  <Tip versible={VERSIBLE}></Tip>
+                  <FormulaValueTip versible={VERSIBLE}></FormulaValueTip>
                 </div>
               ),
               dataIndex: 'coefficient',

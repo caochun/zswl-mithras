@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import ModalEditTable from '@/pages/kpi/Component/ModalEditTable'
 import { formulaData } from '@/pages/kpi/Component/utils'
 import { InputCalcEditable } from '@/components/Format/editable'
-import Tip from '@/pages/kpi/Component/Tip'
+import { FormulaValueTip } from '@/components'
 import { Tooltip } from 'antd'
 import Api from './api'
 
@@ -83,7 +83,7 @@ const Index = ({ baseStore, typeInfo }) => {
               title: (
                 <div>
                   <span>拨备计提比例(%)</span>
-                  <Tip versible={VERSIBLE}></Tip>
+                  <FormulaValueTip versible={VERSIBLE}></FormulaValueTip>
                 </div>
               ),
               dataIndex: 'provisionRadio',

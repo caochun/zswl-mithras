@@ -7,7 +7,7 @@ import { myInputEditable, myInputRender } from './context'
 import styles from './ModalEditTable/index.less'
 import Api from '@/api/baseData/pricing/baseSet/ftpBaseSet'
 import { Input, Space, message } from 'antd'
-import Tip from '@/pages/kpi/Component/Tip'
+import { FormulaValueTip } from '@/components'
 
 const IS_WARE_OPTIONS = 'fluctuationValueEnum'
 const paramOtherNameEnum = [
@@ -39,7 +39,7 @@ const Index = ({ baseStore, typeInfo }) => {
       title: (
         <div>
           <span>波动值(%)</span>
-          <Tip versible={VERSIBLE}></Tip>
+          <FormulaValueTip versible={VERSIBLE}></FormulaValueTip>
         </div>
       ),
       dataIndex: 'fluctuationFormula',
