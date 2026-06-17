@@ -1,7 +1,7 @@
 import { EditDescription } from '@/components'
 import { InputColumn, MatchOptionColumn } from '@/components/Format'
 import { FounderSelect, OrgSelect } from '@/components/Select'
-import FormCascader from '@/pages/financial/org/EditModal/FormCascader'
+import { RegionCascader } from '@/components'
 import { getUserInfo, isProjmanager } from '@/utils'
 import { rules } from '@/utils/rules'
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef } from 'react'
@@ -125,7 +125,7 @@ const BaseInfoComponent = forwardRef(({ detail, canEdit }, ref) => {
       requiredMark: true,
       editable: {
         rules: [rules.required('请选择')],
-        element: <FormCascader />,
+        element: <RegionCascader />,
       },
       render: (val, record) => {
         const areaCodes = [record.province, record.city, record.district].filter(Boolean)

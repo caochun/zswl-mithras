@@ -8,7 +8,7 @@ import { history, observer } from '@zswl/admin'
 import FounderSelect from '../../../../Components/FounderSelect'
 import DetailTextarea from '@/pages/project/Components/DetailTextarea'
 import useGetMap from '@/utils/hooks/useGetMap'
-import FormCascader from '@/pages/financial/org/EditModal/FormCascader'
+import { RegionCascader } from '@/components'
 import Api from '@/pages/project/establishment/detail/api'
 import { uniqBy } from 'lodash'
 import ratItem from './ratItems'
@@ -127,7 +127,7 @@ const AssignmentOfClaims = ({ showValue, form, detail, isLog, compareChangeList 
           }
           formContent={
             <Form.Item name="area">
-              <FormCascader />
+              <RegionCascader />
             </Form.Item>
           }
           value={getDetailValue('areaName')}

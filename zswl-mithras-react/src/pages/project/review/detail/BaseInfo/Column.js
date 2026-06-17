@@ -8,7 +8,7 @@ import {
 import { Select, App, Form, Button } from '@zswl/components'
 import { FounderSelect } from '@/components'
 import FormListItem from '@/pages/project/Components/FormListItem'
-import FormCascader from '@/pages/financial/org/EditModal/FormCascader'
+import { RegionCascader } from '@/components'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'
 import { history } from '@zswl/admin'
@@ -214,7 +214,7 @@ const ALL_COLUMNS = ({
       editable: {
         rules: [rules.required('请选择')],
         element: (
-          <FormCascader
+          <RegionCascader
             value={[detail.province, detail.city, detail.district].filter((item) => item)}
           />
         ),

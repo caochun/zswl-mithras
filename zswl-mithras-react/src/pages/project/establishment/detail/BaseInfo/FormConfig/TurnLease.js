@@ -7,7 +7,7 @@ import styles from '../index.less'
 import { observer } from '@zswl/admin'
 import FounderSelect from '../../../../Components/FounderSelect'
 import DetailTextarea from '@/pages/project/Components/DetailTextarea'
-import FormCascader from '@/pages/financial/org/EditModal/FormCascader'
+import { RegionCascader } from '@/components'
 import Api from '@/pages/project/establishment/detail/api'
 import ratItem from './ratItems'
 import { getKeyOptionsLabelMap as getKeyOptionsLabelMapRe } from '@/utils'
@@ -139,7 +139,7 @@ const TurnLease = ({ showValue, form, detail, isLog, compareChangeList = [] }) =
           }
           formContent={
             <Form.Item name="area" rules={[{ required: true, message: '请选择!' }]}>
-              <FormCascader />
+              <RegionCascader />
             </Form.Item>
           }
           value={getDetailValue('areaName')}

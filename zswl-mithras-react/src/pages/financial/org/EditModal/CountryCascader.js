@@ -3,7 +3,7 @@ import { http, observer } from '@zswl/admin'
 import { Select, Form, App } from '@zswl/components'
 import { Cascader, Input, Col, Row } from 'antd'
 import { useState, useEffect, useCallback } from 'react'
-import FormCascader from './FormCascader'
+import { RegionCascader } from '@/components'
 
 const { Item } = Form
 
@@ -64,7 +64,7 @@ function Index({ form, onlyRead = true }) {
               <Col span={12}>
                 {!onlyRead ? (
                   <Item label={'省/市/区县'} name={'area'} /* rules={[{ required: isChina }]} */>
-                    <FormCascader onChange={handleCascadeChange} disabled={!isChina} />
+                    <RegionCascader onChange={handleCascadeChange} disabled={!isChina} />
                   </Item>
                 ) : (
                   <Item label={'省/市/区县'} name={'areaName'}>

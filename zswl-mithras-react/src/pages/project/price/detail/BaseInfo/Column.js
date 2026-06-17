@@ -8,7 +8,7 @@ import {
   FounderColumn,
 } from '@/components/Format'
 import { Select, App, Form } from '@zswl/components'
-import FormCascader from '@/pages/financial/org/EditModal/FormCascader'
+import { RegionCascader } from '@/components'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'
 import { BlackInfo } from '@/pages/customer/maintain/detail/Basic/IndustrialDetailStatic'
@@ -279,9 +279,9 @@ const ALL_COLUMNS = ({
       editable: {
         rules: [rules.required('请选择')],
         element: (
-          <FormCascader
+          <RegionCascader
             value={[detail.province, detail.city, detail.district].filter((item) => item)}
-          ></FormCascader>
+          ></RegionCascader>
         ),
       },
       render: (val, { areaName }) => <FiledFormat title={areaName} />,

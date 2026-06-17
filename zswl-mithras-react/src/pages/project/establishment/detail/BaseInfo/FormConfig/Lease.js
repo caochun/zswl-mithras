@@ -7,7 +7,7 @@ import styles from '../index.less'
 import { observer } from '@zswl/admin'
 import FounderSelect from '../../../../Components/FounderSelect'
 import DetailTextarea from '@/pages/project/Components/DetailTextarea'
-import FormCascader from '@/pages/financial/org/EditModal/FormCascader'
+import { RegionCascader } from '@/components'
 import { uniqBy } from 'lodash'
 import Api from '@/pages/project/establishment/detail/api'
 import ratItem from './ratItems'
@@ -150,7 +150,7 @@ const Lease = ({ showValue, form, detail, isLog, compareChangeList = [] }) => {
           }
           formContent={
             <Form.Item name="area" rules={[{ required: true, message: '请选择!' }]}>
-              <FormCascader />
+              <RegionCascader />
             </Form.Item>
           }
           value={getDetailValue('areaName')}
