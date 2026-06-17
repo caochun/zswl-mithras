@@ -1,7 +1,7 @@
 import ProfitDistribution from '@/pages/ProfitDistribution'
 import AfterLeaseGeneralCheck from '@/pages/afterLease/checkPlan/Tab/CheckList/PrepareProcess' // 租后检查-一般检查
 import NewAfterLeaseCheckReportCommonlyFlow from '@/pages/afterLease/checkPlan/template/[id$]' // 租后检查模版
-import DepositRefundNotification from '@/pages/contract/list/marginRefund/DepositRefundNotification'
+import DepositRefundNotification from '@/components/Contract/DepositRefundNotification'
 import JQsettlement from '@/pages/contract/list/settlement/[id$]' //提前结清
 import KSQZstartRent from '@/pages/contract/list/startRent/[id$]' // 合同自动起租
 import CustomerRat from '@/pages/customer/customerRat/detail/[id$]' // 客户评级'
