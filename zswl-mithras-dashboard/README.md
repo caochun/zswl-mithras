@@ -8,7 +8,7 @@
 
 流程模型 key、流程状态展示和退回类型在看板中也只作为读侧查询/展示口径消费，已沉淀为 `DashboardProcessModel`、`DashboardProcessBusinessStatus` 和 `DashboardFlowCommentType` 本地枚举，避免仅为了流程 key、状态码或展示名直接复用 workflow/flow-core 内部枚举和 `FlowUtil`。
 
-当前约 300 个 Java 文件，其中 `dashboard` 根包承载看板聚合，`guanbao` 根包承载管理报表/观远相关读模型。POM 中业务依赖大多是读侧展示所需的真实依赖；`workflow` 直接 POM 依赖已经移除。
+当前约 300 个 Java 文件，主干仍是 `controller`、`application`、`mapper`、`model`、`excel`、`export` 这些看板聚合结构。`report/catalog` 承载管理报表目录、观远嵌入入口和自研报表入口配置；`report/operation` 承载运营管理报表的自研读模型。观远数据集读取能力仍分布在 `application/GuanYuan*`、`application/boss/GuanYuanBasicService` 和 `application/guanyuandata`，本质是外部 BI 数据源适配，不应只靠改包名伪装成新的业务域。POM 中业务依赖大多是读侧展示所需的真实依赖；`workflow` 直接 POM 依赖已经移除。
 
 本轮复核确认 POM 中的业务依赖都有源码或资源层使用证据；`GuanYuanSsoUtil` 直接使用 `org.apache.commons.codec.binary.Base64`，因此显式声明 `commons-codec`，避免继续依赖其它库的传递引入。
 
@@ -26,4 +26,4 @@ dashboard 源码已经不直接 import workflow 模块类型。流程准备、�
 
 反向依赖相对集中。只看 Java import，主要消费方是 `application` 约 47 处、`web` 约 3 处；如果把 POM、Mapper、SQL 粗略搜索也算入，主要消费方还包括 `finance` 和 `creditreport` 的少量历史引用。核心业务域不应继续新增对 dashboard 内部查询模型的依赖；确需复用看板口径时，应由 application 做转换。
 
-结论：保持独立，不并入 `finance`、`metric` 或 `report`。后续整理重点是保持单向读取关系：dashboard 可以读业务域，业务域不应反向依赖 dashboard；同时逐步拆清 `dashboard` 与 `guanbao` 的内部边界，前者是看板/驾驶舱，后者更像管理报表或外部 BI 集成。
+结论：保持独立，不并入 `finance`、`metric` 或 `report`。后续整理重点是保持单向读取关系：dashboard 可以读业务域，业务域不应反向依赖 dashboard；同时逐步拆清看板聚合、管理报表目录、自研运营报表和观远 BI 适配的内部边界。`guanbao` 改名成 `managementreport` 这类表面动作价值不大，真正需要的是按入口、数据源和读模型职责拆清依赖。
