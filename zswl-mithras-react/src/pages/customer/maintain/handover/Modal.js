@@ -1,8 +1,6 @@
-import OrgsSelect from '@/pages/project/Components/OrgsSelect'
-import FounderSelect from '@/pages/project/Components/FounderSelect'
 import { Form, Modal, Input } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import { ApiSelect } from '@/components'
+import { ApiSelect, FounderSelect } from '@/components'
 import { getUserInfo } from '@/utils'
 import Api from '../api'
 
@@ -23,7 +21,6 @@ const HandoverModal = ({ store }) => {
           <FounderSelect disabled></FounderSelect>
         </Form.Item>
         <Form.Item label={'客户当前所属部门'} name={'belongDept'} rules={[{ required: true }]}>
-          {/* <OrgsSelect referer={'customer'} /> */}
           <ApiSelect api={Api.postNewOrgs} labelInValue></ApiSelect>
         </Form.Item>
       </Form>

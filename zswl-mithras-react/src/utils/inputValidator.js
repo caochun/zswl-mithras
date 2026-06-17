@@ -136,6 +136,24 @@ export const validatorNoZero = () => ({
   },
 })
 
+// 金额不能小于0，且不能超过表单中的申报授信金额
+export const validatorAmount = ({ getFieldValue }) => ({
+  validator(_, value) {
+    const applyCreditAmountNumber = amountStrToNumber(getFieldValue('applyCreditAmount'))
+    const valueNumber = amountStrToNumber(value)
+    if (valueNumber < 0) {
+      return Promise.reject(new Error('金额不能小于0！'))
+    }
+    if (!hasValue(value)) {
+      return Promise.resolve()
+    }
+    if (valueNumber > applyCreditAmountNumber) {
+      return Promise.reject(new Error('金额需少于申报授信金额！'))
+    }
+    return Promise.resolve()
+  },
+})
+
 // 输入值大于等于0
 export const validatorBigThenZero = () => ({
   validator(_, value) {

@@ -1,5 +1,3 @@
-import OrgsSelect from '@/pages/project/Components/OrgsSelect'
-import FounderSelect from '@/pages/project/Components/FounderSelect'
 import { Form, Modal, Select } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'

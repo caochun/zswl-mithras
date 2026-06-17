@@ -1,7 +1,6 @@
 import { App, Form, Modal } from '@zswl/components'
 import { Input, InputNumber, Select } from 'antd'
 import { observer } from '@zswl/admin'
-import { validatorAmount } from '@/pages/project/establishment/detail/QuotationScheme/FormConfig/utils'
 import { formateCard, getInputNumberAmountProps, validatorMax } from '@/utils'
 import BankAccount from '@/components/Form/BankAccount'
 

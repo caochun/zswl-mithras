@@ -7,7 +7,6 @@ import Amount from '@/components/Amount'
 import { amountFormat, getInputNumberAmountProps } from '@/utils'
 import { useState, useEffect } from 'react'
 import store from './store'
-import { validatorAmount } from '@/pages/project/establishment/detail/QuotationScheme/FormConfig/utils'
 
 //新增联系人弹窗
 function Index() {
