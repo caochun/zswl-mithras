@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.finance.application.job;
+package cn.zswltech.mithras.finance.application.port;
 
-public interface FinanceJobService {
+public interface FinanceJobPort {
 
     void calculateProjectProfit(String jobParam);
 

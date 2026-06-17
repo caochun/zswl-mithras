@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.finance.application.job.ProfitCalculateJobService;
+import cn.zswltech.mithras.finance.application.port.ProfitCalculateJobPort;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.finance.service.profitcalculate.ProfitCalculateResultService;
@@ -27,7 +27,7 @@ import java.util.UUID;
  */
 @Slf4j
 @Component
-public class ProfitCalculateJobServiceImpl implements ProfitCalculateJobService {
+public class ProfitCalculateJobPortAdapter implements ProfitCalculateJobPort {
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource

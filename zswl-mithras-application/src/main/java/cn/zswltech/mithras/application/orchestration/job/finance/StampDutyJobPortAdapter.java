@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.job.finance;
 
-import cn.zswltech.mithras.finance.application.job.StampDutyJobService;
+import cn.zswltech.mithras.finance.application.port.StampDutyJobPort;
 import cn.zswltech.mithras.application.orchestration.finance.stampduty.ReportStampDutyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  **/
 @Slf4j
 @Component
-public class StampDutyJobServiceImpl implements StampDutyJobService {
+public class StampDutyJobPortAdapter implements StampDutyJobPort {
     @Resource
     private ReportStampDutyService stampDutyService;
 

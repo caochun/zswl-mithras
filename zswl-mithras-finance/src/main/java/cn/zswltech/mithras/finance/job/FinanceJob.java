@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.finance.job;
 
-import cn.zswltech.mithras.finance.application.job.FinanceJobService;
+import cn.zswltech.mithras.finance.application.port.FinanceJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 public class FinanceJob {
 
     @Resource
-    private FinanceJobService financeJobService;
+    private FinanceJobPort financeJobService;
 
     /**
      * 维护所有未反核销的收付款

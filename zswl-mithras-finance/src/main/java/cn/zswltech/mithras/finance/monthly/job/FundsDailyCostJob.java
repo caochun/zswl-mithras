@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.finance.monthly.job;
 
-import cn.zswltech.mithras.finance.monthly.application.job.FundsDailyCostJobService;
+import cn.zswltech.mithras.finance.monthly.application.port.FundsDailyCostJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class FundsDailyCostJob {
 
     @Resource
-    private FundsDailyCostJobService fundsDailyCostJobService;
+    private FundsDailyCostJobPort fundsDailyCostJobService;
 
     @XxlJob("fundsDailyCostMainFinishJob")
     public void fundsDailyCostMainFinishJob() {

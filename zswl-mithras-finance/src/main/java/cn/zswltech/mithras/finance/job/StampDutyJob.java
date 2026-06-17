@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.finance.job;
 
 import cn.hutool.core.date.StopWatch;
-import cn.zswltech.mithras.finance.application.job.StampDutyJobService;
+import cn.zswltech.mithras.finance.application.port.StampDutyJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class StampDutyJob {
 
     @Resource
-    private StampDutyJobService stampDutyJobService;
+    private StampDutyJobPort stampDutyJobService;
 
     /**
      * 每天定时增量更新起租的印花税

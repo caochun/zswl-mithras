@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.finance.job;
 
-import cn.zswltech.mithras.finance.application.job.ProfitCalculateJobService;
+import cn.zswltech.mithras.finance.application.port.ProfitCalculateJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 public class ProfitCalculateJob {
 
     @Resource
-    private ProfitCalculateJobService profitCalculateJobService;
+    private ProfitCalculateJobPort profitCalculateJobService;
 
     @XxlJob("profitCalculate")
     public void profitCalculate() {

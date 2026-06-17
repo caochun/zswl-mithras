@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.monthly.MonthlyCostREQ;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
-import cn.zswltech.mithras.finance.monthly.application.job.FundsDailyCostJobService;
+import cn.zswltech.mithras.finance.monthly.application.port.FundsDailyCostJobPort;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
@@ -39,7 +39,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Component
-public class FundsDailyCostJobServiceImpl implements FundsDailyCostJobService {
+public class FundsDailyCostJobPortAdapter implements FundsDailyCostJobPort {
     @Resource
     private FundFinancingBaseInfoService financingBaseInfoService;
     @Resource

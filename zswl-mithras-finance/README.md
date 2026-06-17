@@ -29,6 +29,8 @@
 - `finance.view` 与 `DashboardFv*` 表达的是资金/财务看板快照，代码仍复用 `dto.dashboard`。这不等同于 `finance -> dashboard` 模块依赖，但会让 finance 和 reporting 口径混在一起。
 - 原 `finance/adapter/metric` 中由 finance 实现 metric 侧 port 的接线类已迁到 `application/orchestration/adapter/metric`。但 `JinKongMonthlyReportService` 仍直接读写 metric 因子模型和服务，所以 `finance -> metric` 依赖目前仍是真实依赖，后续应继续把金控月报输出指标的写入协议改成更稳定的 metric port 或快照输入。
 
+本轮进一步统一 job 边界命名：`FinanceJobPort`、`ProfitCalculateJobPort`、`StampDutyJobPort` 和 `FundsDailyCostJobPort` 放在 `application.port` 或 `monthly.application.port`，XXL Job 入口只依赖这些端口。跨域实现继续留在 application adapter；利润测算 job 的实现暂留 finance adapter，因为它直接调用 finance 利润测算服务并读取合同事实，后续若继续收敛应先抽输入快照。
+
 本轮复核了 `metric` 中历史遗留的 `YunHuMonthlyReportService`，确认它全仓无外部引用，且行为比 `finance` 现有 `JinKongMonthlyReportService` 少组织编码、合并报表、财务原始余额、辅助核算和系统配置处理，不能作为替换实现。该旧类已删除；`finance -> metric` 的真实问题仍是 finance 同步服务直接操作 metric 因子模型和服务。
 
 资源层主要围绕 `finance_*`、`monthly_*`、利润测算、账龄和逾期报送表，但会保存或读取 `contract_id`、`collection_id`、`client_id` 等外域事实标识；`ProfitCalculateResultMapper.xml`、`FinanceProjectProfitDetailMapper.xml` 等 SQL 直接 join `contract_base_info`、`client`、`corp_commerce_info_lib`、`bifrost_*` 等读模型。本轮已修正 `ProfitCalculateResultMapper.xml` 中利润测算列表的客户关联条件，由 `a.contract_id = c.id` 改为 `b.client_id = c.id`，避免用合同 id 错连客户 id。

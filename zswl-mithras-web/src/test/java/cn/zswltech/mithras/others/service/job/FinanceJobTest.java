@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.finance.application.job.FinanceJobService;
+import cn.zswltech.mithras.finance.application.port.FinanceJobPort;
 import cn.zswltech.mithras.application.orchestration.job.FinancingRepayInfoJob;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  */
 public class FinanceJobTest extends ApplicationTest {
     @Resource
-    private FinanceJobService financeJobService;
+    private FinanceJobPort financeJobService;
 
     @Resource
     private FinancingRepayInfoJob financingRepayInfoJob;

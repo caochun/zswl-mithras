@@ -19,7 +19,7 @@ import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
-import cn.zswltech.mithras.finance.application.job.FinanceJobService;
+import cn.zswltech.mithras.finance.application.port.FinanceJobPort;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceOverdueReportBase;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfit;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
@@ -70,7 +70,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class FinanceJobServiceImpl implements FinanceJobService {
+public class FinanceJobPortAdapter implements FinanceJobPort {
     private static final String INCOME_ACCOUNT_NO = "6001";
 
     @Resource

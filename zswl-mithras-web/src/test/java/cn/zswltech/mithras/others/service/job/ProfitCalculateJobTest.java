@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.finance.application.job.ProfitCalculateJobService;
+import cn.zswltech.mithras.finance.application.port.ProfitCalculateJobPort;
 import org.junit.Test;
 
 import javax.annotation.Resource;
@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  */
 public class ProfitCalculateJobTest extends ApplicationTest {
     @Resource
-    private ProfitCalculateJobService profitCalculateJobService;
+    private ProfitCalculateJobPort profitCalculateJobService;
 
     @Test
     public void calculateTest() {
