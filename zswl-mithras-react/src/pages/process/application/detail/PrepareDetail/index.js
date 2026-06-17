@@ -10,8 +10,8 @@ import FundFilingMaterialsApply from '@/pages/fillingMaterialsDetail/fundFilingM
 import FinancialDirect from '@/pages/financial/direct/detail/[id$]'
 import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterestFlow/index'
 import FinancialFund from '@/pages/financial/fund/detail/[id$]'
-import FinancialReportApprovalFlow from '@/pages/financialReport/approval/index.js'
-import KpiPorjectAllocation from '@/pages/kpi/projectAllot/detail/[id$]' // 绩效
+import FinancialReportApprovalFlow from '@/components/Report/FinancialReportApproval'
+import KpiPorjectAllocation from '@/components/Kpi/ProjectAllot/Detail' // 绩效
 import OverdueListSearch from '@/pages/overdueListSearch/index.js'
 import RentPaymentNotice from '../../../Detail/RentPaymentNotice' // 租金催收，投放项⽬还款账⼾优化
 import { observer } from '@zswl/admin'
