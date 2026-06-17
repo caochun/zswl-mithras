@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.service;
+package cn.zswltech.mithras.dashboard.report.catalog.service;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.collection.ListUtil;
@@ -14,10 +14,10 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.ReportGroupListRSP;
 import cn.zswltech.mithras.dto.ReportSelectRSP;
 import cn.zswltech.mithras.dashboard.config.GuanYuanConfigProperties;
-import cn.zswltech.mithras.dashboard.guanbao.enums.ManagementReportSourceEnum;
-import cn.zswltech.mithras.dashboard.guanbao.mapper.ManagementReportMapper;
-import cn.zswltech.mithras.dashboard.guanbao.model.ManagementReport;
-import cn.zswltech.mithras.dashboard.guanbao.util.GuanYuanSsoUtil;
+import cn.zswltech.mithras.dashboard.report.catalog.enums.ManagementReportSourceEnum;
+import cn.zswltech.mithras.dashboard.report.catalog.mapper.ManagementReportMapper;
+import cn.zswltech.mithras.dashboard.report.catalog.model.ManagementReport;
+import cn.zswltech.mithras.dashboard.report.catalog.util.GuanYuanSsoUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

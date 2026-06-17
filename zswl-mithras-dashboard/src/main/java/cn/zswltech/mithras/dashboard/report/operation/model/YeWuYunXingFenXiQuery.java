@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.model.managereport;
+package cn.zswltech.mithras.dashboard.report.operation.model;
 
 import cn.zswltech.mithras.foundation.persistence.query.PageQuery;
 import lombok.Data;

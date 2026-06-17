@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.application.managereport;
+package cn.zswltech.mithras.dashboard.report.operation.service;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
@@ -26,8 +26,8 @@ import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnu
 import cn.zswltech.mithras.dashboard.enums.BusinessGroupEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.dashboard.guanbao.mapper.managereport.ManageReportMapper;
-import cn.zswltech.mithras.dashboard.guanbao.model.managereport.*;
+import cn.zswltech.mithras.dashboard.report.operation.mapper.ManageReportMapper;
+import cn.zswltech.mithras.dashboard.report.operation.model.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.dashboard.application.DashboardOperateTodoService;

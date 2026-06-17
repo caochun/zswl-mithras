@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.enums;
+package cn.zswltech.mithras.dashboard.report.catalog.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

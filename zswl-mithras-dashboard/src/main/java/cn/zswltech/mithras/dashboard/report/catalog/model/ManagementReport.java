@@ -1,7 +1,7 @@
-package cn.zswltech.mithras.dashboard.guanbao.model;
+package cn.zswltech.mithras.dashboard.report.catalog.model;
 
-import cn.zswltech.mithras.dashboard.guanbao.enums.ManagementReportKeyEnum;
-import cn.zswltech.mithras.dashboard.guanbao.enums.ManagementReportSourceEnum;
+import cn.zswltech.mithras.dashboard.report.catalog.enums.ManagementReportKeyEnum;
+import cn.zswltech.mithras.dashboard.report.catalog.enums.ManagementReportSourceEnum;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

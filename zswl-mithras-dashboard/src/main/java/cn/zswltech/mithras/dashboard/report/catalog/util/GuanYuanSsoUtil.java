@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.util;
+package cn.zswltech.mithras.dashboard.report.catalog.util;
 
 import org.apache.commons.codec.binary.Base64;
 

@@ -1,9 +1,9 @@
-package cn.zswltech.mithras.dashboard.guanbao.controller.managereport;
+package cn.zswltech.mithras.dashboard.report.operation.controller;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.managereport.ManageReportApi;
-import cn.zswltech.mithras.dashboard.guanbao.application.managereport.ManageReportService;
+import cn.zswltech.mithras.dashboard.report.operation.service.ManageReportService;
 import cn.zswltech.mithras.dto.managereport.*;
 import org.springframework.web.bind.annotation.RestController;
 

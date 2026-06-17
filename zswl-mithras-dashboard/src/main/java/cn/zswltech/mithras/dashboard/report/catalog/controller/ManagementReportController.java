@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.controller;
+package cn.zswltech.mithras.dashboard.report.catalog.controller;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
@@ -9,7 +9,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.guanbao.ManagementReportApi;
 import cn.zswltech.mithras.dto.ReportGroupListRSP;
 import cn.zswltech.mithras.dto.ReportSelectRSP;
-import cn.zswltech.mithras.dashboard.guanbao.service.ManagementReportService;
+import cn.zswltech.mithras.dashboard.report.catalog.service.ManagementReportService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
