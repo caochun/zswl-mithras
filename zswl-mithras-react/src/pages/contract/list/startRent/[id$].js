@@ -13,7 +13,7 @@ import ZiLiao from './ZiLiao'
 import Api from './api'
 import styles from './index.less'
 import { validateModal } from '@/utils/modal'
-import ContractIRR from '../Component/ContractIRR'
+import ContractIRR from '@/components/Contract/ContractIRR'
 
 const { Item } = Form
 

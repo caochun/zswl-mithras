@@ -4,7 +4,7 @@ import ActualTable from '@/components/Contract/ActualTable'
 import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
 import { DatePicker, Form } from 'antd'
 import moment from 'moment'
-import ContractIRR from '@/pages/contract/list/Component/ContractIRR'
+import ContractIRR from '@/components/Contract/ContractIRR'
 import styles from './index.less'
 
 function Index({ canEditFlag = true, baseStore, isFormChangeType: _isFormChangeType }) {
