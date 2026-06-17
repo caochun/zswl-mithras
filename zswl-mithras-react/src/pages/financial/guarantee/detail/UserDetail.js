@@ -7,7 +7,7 @@ import ALL_COLUMNS from '../Column'
 import { Space } from 'antd'
 import { PageListDown } from '@/components'
 import Api from '@/api/financial/orgManage'
-import { TableSummary } from '@/pages/dashboard/workbench/components'
+import TableSummary from '@/components/Table/Summary'
 import { saveServer } from '@/utils'
 
 const Index = ({ id }) => {
@@ -60,6 +60,7 @@ const Index = ({ id }) => {
         summary={() => {
           return (
             <TableSummary
+              title="总合计"
               columns={table.getOptimizedColumns()}
               sumData={sumData}
               initFormat={10000}

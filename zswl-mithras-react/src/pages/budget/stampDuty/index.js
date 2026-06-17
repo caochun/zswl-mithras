@@ -1,7 +1,7 @@
 import { ClientSelect, OrgSelect } from '@/components'
 import { ImportAction } from '@/components/Actions'
 import IconFont from '@/components/Icon'
-import { OrgListSelect } from '@/pages/financial/fund/Component/Select'
+import { OrgListSelect } from '@/components/Select'
 import { amountFormat, formatPercent, hasValue, saveServer } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Page, SearchBar, Table } from '@zswl/components'

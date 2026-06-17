@@ -3,9 +3,9 @@ import { TableStore, ModalStore } from '@zswl/components'
 import { compareDetail, timeFormat } from '@/utils'
 import moment from 'moment'
 import { message, Modal } from 'antd'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import { debounce as _debounce } from 'lodash'
-import ApiFun from '@/pages/financial/fund/api'
+import ApiFun from '@/api/financial/fundApi'
 
 class Store {
   constructor({ businessVersion, isFormApproval, financingId, detail }) {

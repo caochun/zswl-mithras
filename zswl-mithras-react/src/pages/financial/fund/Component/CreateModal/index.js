@@ -3,8 +3,8 @@ import { Form, Modal, Select } from '@zswl/components'
 import { useState, useEffect } from 'react'
 import { debounce as _debounce } from 'lodash'
 import FormAmount from '@/components/Form/FormAmount'
-import { OrgListSelect } from '@/pages/financial/fund/Component/Select'
-import Api from '@/pages/financial/fund/api'
+import { OrgListSelect } from '@/components/Select'
+import Api from '@/api/financial/fundApi'
 
 const { Item } = Form
 

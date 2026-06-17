@@ -3,7 +3,7 @@ import ALL_COLUMNS from '../Column'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import { message } from 'antd'
 import { Page, PageStore } from '@zswl/components'
 

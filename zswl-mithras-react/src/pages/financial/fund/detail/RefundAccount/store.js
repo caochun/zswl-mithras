@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, ModalStore } from '@zswl/components'
 import { compareDetail, timeFormat } from '@/utils'
 import { message, Modal } from 'antd'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import moment from 'moment'
 
 class Store {

@@ -4,7 +4,7 @@ import { AmountColumn, DateColumn } from '@/components/Format'
 import baseInfoApi from '@/api/liquidity/baseInfoApi'
 import { observer } from '@zswl/admin'
 import { message, Space, Tag, DatePicker } from 'antd'
-import { TableSummary } from '@/pages/dashboard/workbench/components'
+import TableSummary from '@/components/Table/Summary'
 import { useState } from 'react'
 import { PageListDown } from '@/components'
 import { ImportAction } from '@/components/Actions'
@@ -421,6 +421,7 @@ const AccountBalanceDetail = observer(() => {
           return (
             <>
               <TableSummary
+                title="总合计"
                 columns={table.getOptimizedColumns()}
                 sumData={sumData.allSumData}
                 initFormat={10000}

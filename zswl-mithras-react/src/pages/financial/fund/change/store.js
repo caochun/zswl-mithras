@@ -1,7 +1,7 @@
 import { TableStore, PageStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { message, Modal } from 'antd'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 
 class Store {
   constructor(data) {

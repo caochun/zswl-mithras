@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react'
 import { getTableColumns, getFormColumns, getSearchColumns } from '@/utils'
 import AmountRange from '@/components/AmountRange'
 import { CreditOrgSelect, PageListDown } from '@/components'
-import { TableSummary } from '@/pages/dashboard/workbench/components'
+import TableSummary from '@/components/Table/Summary'
 import { saveServer } from '@/utils'
 import moment from 'moment'
 
@@ -86,6 +86,7 @@ function Index({ path }) {
         summary={() => {
           return (
             <TableSummary
+              title="总合计"
               columns={store.table.getOptimizedColumns()}
               sumData={sumData}
               initFormat={10000}

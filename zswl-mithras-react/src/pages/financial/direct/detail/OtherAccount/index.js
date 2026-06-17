@@ -1,6 +1,6 @@
 import { observer, getQuery } from '@zswl/admin'
 import CRUDTable from '@/components/Table/CRUDTable'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 
 const columns = [
   // { title: '客户名称', dataIndex: 'clientName', rules: [{ required: true }] },

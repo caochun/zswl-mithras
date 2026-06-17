@@ -8,7 +8,7 @@ import EstimateTable from '@/pages/financial/fund/detail/EstimateTable'
 import ActualTable from '@/pages/financial/fund/detail/ActualTable'
 import OtherAccount from '@/pages/financial/fund/detail/OtherAccount'
 import RefundAccount from '@/pages/financial/fund/detail/RefundAccount'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import FileDiff from '@/components/FileDiff'
 
 function Index(props) {

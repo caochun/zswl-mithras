@@ -2,7 +2,7 @@ import { Table, Form, DatePicker, Button, Block } from '@zswl/components'
 import styles from './styles.less'
 import { AmountColumn, DateColumn } from '@/components/Format'
 import { observer } from '@zswl/admin'
-import { TableSummary } from '@/pages/dashboard/workbench/components'
+import TableSummary from '@/components/Table/Summary'
 import { useState } from 'react'
 import { PageListDown } from '@/components'
 import fundTransferApi from '@/api/financial/fundTransfer'
@@ -154,6 +154,7 @@ const AccountBalanceDetail = ({ store }) => {
           return (
             <>
               <TableSummary
+                title="总合计"
                 columns={table.getOptimizedColumns()}
                 sumData={sumData.allSumData}
                 initFormat={10000}

@@ -1,7 +1,7 @@
 import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import { VersionTable } from '@/components'
 
 function Index(props) {

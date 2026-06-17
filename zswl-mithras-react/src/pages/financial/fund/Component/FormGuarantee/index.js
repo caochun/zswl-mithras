@@ -6,7 +6,7 @@ import styles from './index.less'
 import { history, observer, getQuery, matchRoute } from '@zswl/admin'
 import _ from 'lodash'
 import Api from '@/api/financial/orgManage'
-import FundApi from '@/pages/financial/fund/api'
+import FundApi from '@/api/financial/fundApi'
 import { useEffect, useMemo, useState } from 'react'
 import FormAmount from '@/components/Form/FormAmount'
 

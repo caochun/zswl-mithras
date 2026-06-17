@@ -1,6 +1,6 @@
 import { makeAutoObservable, history } from '@zswl/admin'
 import { PageStore, Modal } from '@zswl/components'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import { compareDetail, hasValue } from '@/utils'
 import { message } from 'antd'
 import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'

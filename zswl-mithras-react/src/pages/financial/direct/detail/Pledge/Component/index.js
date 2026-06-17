@@ -1,7 +1,7 @@
 import { Select } from '@zswl/components'
 import { useEffect, useState } from 'react'
 import _debounce from 'lodash/debounce'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 
 export function ProjSelect({ bizDeptId, financingId, ...rest }) {
   const [list, setList] = useState([])

@@ -7,7 +7,7 @@ import Amount from '@/components/Amount'
 import { useState, useEffect } from 'react'
 import moment from 'moment'
 import styles from '../index.less'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 
 const { Item } = Form
 

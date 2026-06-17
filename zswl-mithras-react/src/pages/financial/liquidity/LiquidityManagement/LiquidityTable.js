@@ -6,7 +6,7 @@ import { Button, Table } from '@zswl/components'
 import { hasValue } from '@/utils'
 import { AmountColumn, PureAmountFormat } from '@/components/Format'
 import { InfoCircleOutlined } from '@ant-design/icons'
-import { TableSummary } from '@/pages/dashboard/workbench/components'
+import TableSummary from '@/components/Table/Summary'
 import { PageListDown } from '@/components'
 import { saveServer } from '@/utils'
 

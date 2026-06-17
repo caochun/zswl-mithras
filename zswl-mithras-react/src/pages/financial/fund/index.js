@@ -10,7 +10,7 @@ import { PageListDown } from '@/components'
 import { InputEditable, MatchOptionColumn } from '@/components/Format'
 import { Summary } from '@/components/Table'
 import { saveServer } from '@/utils'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import { message } from 'antd'
 
 const nameColumns = [

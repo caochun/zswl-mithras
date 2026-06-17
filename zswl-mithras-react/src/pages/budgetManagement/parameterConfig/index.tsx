@@ -6,7 +6,6 @@ import ALL_COLUMNS from './Column'
 import { useMemo, useState } from 'react'
 import { getTableColumns, getFormColumns, getSearchColumns } from '@/utils'
 import AmountRange from '@/components/AmountRange'
-import { TableSummary } from '@/pages/dashboard/workbench/components'
 import Store from './store'
 import ModalDetail from './ModalDetail'
 const ParameterConfig: React.FC = () => {

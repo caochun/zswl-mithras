@@ -3,7 +3,7 @@ import { Col, Row } from 'antd'
 import FormAmount from '@/components/Form/FormAmount'
 import mathjs from '@/utils/math'
 import { hasValue } from '@/utils'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import styles from './index.less'
 
 const { Item } = Form

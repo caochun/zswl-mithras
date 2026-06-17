@@ -4,7 +4,7 @@ import { InputEditable, FiledFormat, AmountEditable, MatchOptionColumn } from '@
 import { formatPercent, amountFormat, rangePresets, hasValue } from '@/utils'
 import AmountRange from '@/components/AmountRange'
 import { Form, Select, App } from '@zswl/components'
-import { OrgListSelect } from '@/pages/financial/fund/Component/Select'
+import { OrgListSelect } from '@/components/Select'
 import { FounderSelect } from '@/components'
 import { DateColumn, AmountColumn } from '@/components/Format'
 

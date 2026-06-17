@@ -3,7 +3,7 @@ import { message } from 'antd'
 import DataUpload from '@/components/DataUpload'
 import { amountFormat, downFile, formatPercent, timeFormat } from '@/utils'
 import { TableStore } from '@zswl/components'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
 
 class Store {

@@ -5,7 +5,7 @@ import moment from 'moment'
 import { message, Modal } from 'antd'
 import Api from '../api'
 import { debounce as _debounce } from 'lodash'
-import ApiFund from '@/pages/financial/fund/api'
+import ApiFund from '@/api/financial/fundApi'
 
 class Store {
   constructor({ businessVersion, isFormApproval, financingId, detail, baseStore }) {

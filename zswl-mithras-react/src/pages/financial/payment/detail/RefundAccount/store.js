@@ -5,7 +5,7 @@ import { message, Modal } from 'antd'
 import fundRepayAccountApi from '@/api/financial/fundRepayAccountApi'
 import moment from 'moment'
 import { debounce as _debounce } from 'lodash'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 
 class Store {
   constructor() {

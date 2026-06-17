@@ -2,7 +2,7 @@ import { observer, getQuery } from '@zswl/admin'
 import ALL_COLUMNS from './Column'
 import { getTableColumns } from '@/utils'
 import CRUDTable from '@/components/Table/CRUDTable'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 
 const nameColumns = ['银行名称', '银行账号', '账户性质', '账户类别']
 const columns = getTableColumns(ALL_COLUMNS, nameColumns)

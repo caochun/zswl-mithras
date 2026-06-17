@@ -11,7 +11,7 @@ import {
 } from '@/utils'
 import ALL_COLUMNS from '../Column'
 import { Space } from 'antd'
-import { ExportBtn, TableSummary } from '@/pages/dashboard/workbench/components'
+import TableSummary from '@/components/Table/Summary'
 import Api from '@/api/financial/creditManage'
 import { PageListDown } from '@/components'
 import _ from 'lodash'
@@ -87,6 +87,7 @@ const Index = ({ id }) => {
         summary={() => {
           return (
             <TableSummary
+              title="总合计"
               columns={table.getOptimizedColumns()}
               sumData={rest}
               initFormat={10000}

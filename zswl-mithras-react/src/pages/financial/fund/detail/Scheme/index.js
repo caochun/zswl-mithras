@@ -8,7 +8,7 @@ import {
   useMemo,
   useCallback,
 } from 'react'
-import Api from '@/pages/financial/fund/api'
+import Api from '@/api/financial/fundApi'
 import { compareDetail, getDescColumns, hasValue } from '@/utils'
 import EditDescription from '@/components/Table/EditDescription'
 import ALL_COLUMNS from './Column'

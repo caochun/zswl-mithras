@@ -1,8 +1,7 @@
 import moment from 'moment'
-import ReactDOMServer from 'react-dom/server'
 import { message } from 'antd'
-import { amountFormat } from '@/utils'
 import workbenchApi from '@/api/common/workbenchApi'
+export { getChartsTooltip } from '@/components/Chart/tooltip'
 
 const FEIKONG_SSO_CALLBACK_URL = 'http://10.158.33.163/sso/callback'
 
@@ -25,60 +24,6 @@ export const mergeArray = (objValue = [], srcValue = [], dataIndex = 'groupCode'
 // 获取模块更新日期-默认昨日日期
 export const getUpdateDate = () => {
   return moment().subtract(1, 'day').format('YYYY-MM-DD')
-}
-
-// echarts 的 toolTip,因为@zswl/charts组件库适配的是蓝底的，不写进去适配了
-export const getChartsTooltip = (props) => {
-  return {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    extraCssText: 'box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3)',
-    formatter: function (params) {
-      return ReactDOMServer.renderToStaticMarkup(
-        <div style={{ padding: '8px 16px' }}>
-          <div style={{ marginBottom: 6 }}>{params?.[0]?.name}</div>
-          {params?.map(({ color, seriesName, data = {} }, index) => {
-            return (
-              <div key={index} style={{ marginBottom: 5, display: 'flex', alignItems: 'center' }}>
-                {seriesName && (
-                  <>
-                    <span
-                      style={{
-                        display: 'inline-block',
-                        marginRight: '6px',
-                        width: '7px',
-                        height: '7px',
-                        backgroundColor: color,
-                      }}
-                    ></span>
-                    <span
-                      style={{
-                        fontSize: '14px',
-                        color: '#5e6066',
-                      }}
-                    >
-                      {seriesName}
-                    </span>
-                    <span>：</span>
-                  </>
-                )}
-
-                <span
-                  style={{
-                    fontSize: '14px',
-                    color: '#5e6066',
-                  }}
-                >
-                  {amountFormat(data?.value ?? data)}
-                </span>
-                <span>{data?.unit}</span>
-              </div>
-            )
-          })}
-        </div>
-      )
-    },
-    ...props,
-  }
 }
 
 /** 费控系统：新开页跳转 SSO 回调 */
