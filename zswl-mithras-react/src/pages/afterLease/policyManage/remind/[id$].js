@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import DetailLayout from '@/components/DetailLayout'
 import PolicyInfo from './PolicyInfo'
 import ContractInfo from './ContractInfo'
-import Policy from '@/pages/cpm/paymentApplication/detail/Components/Policy'
+import Policy from '@/components/Cpm/Policy'
 import Api from '../api'
 
 const Index = ({ id, taskActivityId }) => {
