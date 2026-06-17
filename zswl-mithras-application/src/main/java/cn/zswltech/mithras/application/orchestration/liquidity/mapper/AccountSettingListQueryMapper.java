@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.application.orchestration.adapter.liquidity.mapper;
+package cn.zswltech.mithras.application.orchestration.liquidity.mapper;
 
 import cn.zswltech.mithras.liquidity.dto.AccountSettingListQueryDTO;
 import cn.zswltech.mithras.liquidity.dto.AccountSettingListResultDTO;

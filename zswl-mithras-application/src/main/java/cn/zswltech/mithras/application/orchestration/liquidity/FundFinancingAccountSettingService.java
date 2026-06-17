@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.liquidity;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
-import cn.zswltech.mithras.application.orchestration.adapter.liquidity.mapper.AccountSettingListQueryMapper;
+import cn.zswltech.mithras.application.orchestration.liquidity.mapper.AccountSettingListQueryMapper;
 import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountQueryREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.base.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
