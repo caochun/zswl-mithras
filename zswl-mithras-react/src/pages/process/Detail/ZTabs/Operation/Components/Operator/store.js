@@ -1,7 +1,7 @@
 import flowList from '@/api/common/flowList'
 import publicInfoApi_edited from '@/api/cpm/payment/publicInfoApi_edited'
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
-import PaymentApplicationDetailApi from '@/pages/cpm/paymentApplication/detail/api'
+import PaymentApplicationDetailApi from '@/api/cpm/payment/paymentApplicationDetail'
 import { uploadFile } from '@/pages/customer/customerRat/detail/OverturnModal'
 import { getApprovalText, indexCheck } from '@/pages/customer/customerRat/detail/store'
 import OtherFilingMaterialsDetailApi from '@/pages/fillingMaterialsDetail/otherFillingMaterialsDetail/api'

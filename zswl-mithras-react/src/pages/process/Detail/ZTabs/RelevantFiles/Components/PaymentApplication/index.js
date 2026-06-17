@@ -1,7 +1,7 @@
 import { Collapse } from '@/components'
 import LendingMaterials from '@/pages/cpm/paymentApplication/detail/Components/LendingMaterials'
 import InformationList from '@/pages/cpm/paymentApplication/detail/Components/InformationList'
-import Api from '@/pages/cpm/paymentApplication/detail/api'
+import Api from '@/api/cpm/payment/paymentApplicationDetail'
 import BlankBlock from '@/pages/process/components/BlankBlock'
 import { useEffect, useState } from 'react'
 
