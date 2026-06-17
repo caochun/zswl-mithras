@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.liquiditymanage.FundTransferApi;
 import cn.zswltech.mithras.dto.liquiditymanage.fundtransfer.*;
-import cn.zswltech.mithras.liquidity.service.FundTransferApplicationService;
+import cn.zswltech.mithras.liquidity.application.FundTransferApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

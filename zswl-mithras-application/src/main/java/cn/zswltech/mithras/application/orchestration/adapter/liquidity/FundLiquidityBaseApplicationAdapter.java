@@ -18,7 +18,7 @@ import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexDetailREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexModifyREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexModifyRSP;
-import cn.zswltech.mithras.liquidity.service.FundLiquidityBaseApplicationService;
+import cn.zswltech.mithras.liquidity.application.FundLiquidityBaseApplicationService;
 import cn.zswltech.mithras.liquidity.service.FundParameterConfigService;
 import cn.zswltech.mithras.application.orchestration.liquidity.AccountBalanceBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.liquidity.FundFinancingAccountSettingService;

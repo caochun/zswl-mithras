@@ -38,7 +38,7 @@ import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingSnapshot;
 import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowPlanSnapshot;
 import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptRepaySnapshot;
 import cn.zswltech.mithras.liquidity.model.FundFinancingAccountSetting;
-import cn.zswltech.mithras.liquidity.service.FundLiquidityIndexApplicationService;
+import cn.zswltech.mithras.liquidity.application.FundLiquidityIndexApplicationService;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorMismatchHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.liquidity.controller;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.liquiditymanage.FundLiquidityIndexApi;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.*;
-import cn.zswltech.mithras.liquidity.service.FundLiquidityIndexApplicationService;
+import cn.zswltech.mithras.liquidity.application.FundLiquidityIndexApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

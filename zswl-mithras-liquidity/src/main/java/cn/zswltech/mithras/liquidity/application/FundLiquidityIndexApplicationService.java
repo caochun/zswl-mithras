@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.service;
+package cn.zswltech.mithras.liquidity.application;
 
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.LiquidityBoardDetailREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.LiquidityBoardDetailSumRSP;

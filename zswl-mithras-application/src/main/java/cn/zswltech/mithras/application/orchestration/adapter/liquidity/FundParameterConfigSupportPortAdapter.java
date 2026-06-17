@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.liquidity;
 
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
-import cn.zswltech.mithras.liquidity.service.FundParameterConfigSupportPort;
+import cn.zswltech.mithras.liquidity.application.port.FundParameterConfigSupportPort;
 import cn.zswltech.mithras.application.orchestration.liquidity.AccountBalanceBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.liquidity.LiquidityDataService;
 import cn.zswltech.mithras.foundation.util.StringUtil;

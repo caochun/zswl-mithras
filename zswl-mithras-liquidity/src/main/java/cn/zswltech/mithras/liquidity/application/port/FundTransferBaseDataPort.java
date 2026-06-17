@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.service;
+package cn.zswltech.mithras.liquidity.application.port;
 
 import cn.zswltech.mithras.dto.liquiditymanage.fundtransfer.FundTransferBankAccountListREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.fundtransfer.FundTransferBankAccountListRSP;

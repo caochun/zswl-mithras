@@ -10,6 +10,8 @@
 
 当前 POM 只保留 `api`、`foundation` 和技术依赖；源码中已无 `cn.zswltech.mithras.basedata`、`cn.zswltech.mithras.fund`、`cn.zswltech.mithras.collection` 直接 import。`FundTransferService` 对基础账户和工作日差的需求已经通过 `FundTransferBaseDataPort` 表达，具体 basedata mapper/service 调用放在 `application.orchestration.adapter.liquidity.FundTransferBaseDataPortAdapter`。对外 API/DTO 仍沿用历史 `liquiditymanage` 契约包名，本轮不做兼容性风险较高的契约重命名。
 
+本轮继续把边界类型从内部 `service` 包中拆出：controller 使用的 `FundDayReportApplicationService`、`FundLiquidityBaseApplicationService`、`FundLiquidityIndexApplicationService`、`FundRepayApplicationService`、`FundTransferApplicationService` 统一放入 `liquidity.application`，跨域事实装载接口 `FinancingRepayInfoPort`、`FundParameterConfigSupportPort`、`FundTransferBaseDataPort` 统一放入 `liquidity.application.port`。`service` 包保留给本模块内部服务、holder、日历和计算器，避免把外部边界误表达成内部业务服务。
+
 `LiquidityIndicatorHolder`、`LiquidityIndicatorIndexHolder`、`LiquidityIndicatorBoardHolder`、`LiquidityIndicatorMismatchHolder` 不再持有 fund、basedata、collection 的持久化模型。计算器通过 `LiquidityBankAccountSnapshot`、`LiquiditySpecialDateSnapshot`、`LiquidityWorkdayCalendar`、`LiquidityBankAccountType` 以及各类 liquidity snapshot 消费输入。
 
 本轮复核确认：`liquidity` Java 源码没有直接 import 其他业务域模块包，resources 中也没有外域包名或 fund/contract/collection/payment/system 等跨域表 join 残留。POM 中保留的技术依赖都有源码使用证据：MyBatis-Plus 用于 mapper/model/service，Spring Context/Web 用于组件和 controller，`javax.annotation` 用于注入，`validation-api` 用于接口校验，Hutool 用于集合、反射、Excel 和日期工具，POI 用于导出 workbook，Fastjson 用于参数配置 JSON，Swagger annotations 用于 DTO/BO 字段说明。

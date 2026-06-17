@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Assert;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.liquiditymanage.FundLiquidityBaseApi;
 import cn.zswltech.mithras.dto.liquiditymanage.base.*;
-import cn.zswltech.mithras.liquidity.service.FundLiquidityBaseApplicationService;
+import cn.zswltech.mithras.liquidity.application.FundLiquidityBaseApplicationService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;

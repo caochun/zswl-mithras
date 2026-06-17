@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.service;
+package cn.zswltech.mithras.liquidity.application;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.liquiditymanage.fundtransfer.AccountDepositedAmountDetail;

@@ -17,7 +17,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
-import cn.zswltech.mithras.liquidity.service.FundDayReportApplicationService;
+import cn.zswltech.mithras.liquidity.application.FundDayReportApplicationService;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.basedata.service.BaseDataBankAccountService;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import cn.zswltech.mithras.dto.liquiditymanage.fundtransfer.FundTransferBankAccountListREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.fundtransfer.FundTransferBankAccountListRSP;
 import cn.zswltech.mithras.liquidity.enums.LiquidityBankAccountType;
-import cn.zswltech.mithras.liquidity.service.FundTransferBaseDataPort;
+import cn.zswltech.mithras.liquidity.application.port.FundTransferBaseDataPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 

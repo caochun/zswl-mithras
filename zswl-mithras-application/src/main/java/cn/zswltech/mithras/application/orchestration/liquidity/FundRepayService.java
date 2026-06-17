@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.liquidity;
 
 import cn.zswltech.mithras.dto.liquiditymanage.financingrepay.FinancingRepayPlanModifyREQ;
 import cn.zswltech.mithras.dto.liquiditymanage.financingrepay.FinancingRepayWriteOffModifyREQ;
-import cn.zswltech.mithras.liquidity.service.FundRepayApplicationService;
+import cn.zswltech.mithras.liquidity.application.FundRepayApplicationService;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingRepayActualMapper;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingRepayActualService;
