@@ -5,7 +5,7 @@ import styles from './index.less'
 import { observer, ErrorBoundary } from '@zswl/admin'
 import Operator from '@/pages/process/Detail/ZTabs/Operation/Components/Operator'
 import CompleteOperation from './Components/CompleteOperation'
-import ApprovalHistory from '@/pages/process/components/ApprovalHistory'
+import ApprovalHistory from '@/components/Process/ApprovalHistory'
 import FlowChart from '@/pages/process/Detail/ZTabs/FlowChart'
 import DetailLayout from '@/components/DetailLayout'
 import {

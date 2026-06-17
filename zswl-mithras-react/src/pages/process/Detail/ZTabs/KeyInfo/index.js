@@ -11,7 +11,7 @@ import { useFlowData } from '@/utils/processFlow'
 import ChangeReason from './ChangeReason'
 import styles from './index.less'
 import BlankBlock from '@/pages/process/components/BlankBlock'
-import ApprovalHistory from '@/pages/process/components/ApprovalHistory'
+import ApprovalHistory from '@/components/Process/ApprovalHistory'
 
 import CustomerRat from './Components/CustomerRat'
 

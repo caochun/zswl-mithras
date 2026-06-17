@@ -1,5 +1,1 @@
-import { http } from '@zswl/admin'
-
-export default {
-  getList: (params) => http.post('/flow/process/history', params),
-}
+export { default } from '@/components/Process/ApprovalHistory/api'
