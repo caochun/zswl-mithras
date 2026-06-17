@@ -6,6 +6,7 @@
 
 - [当前模块地图](docs/module-map.md)：按当前代码重新梳理各模块业务语义、分层、POM 依赖、实际依赖闭包和主要耦合关系。
 - [模块收敛方案](docs/module-consolidation-plan.md)：记录模块是否过细、哪些模块适合保持独立、哪些模块需要依赖瘦身或合并准备，以及已完成的治理动作。
+- [模块包名体检](docs/module-package-review.md)：检查各模块内部 package/class 命名、历史命名信号、空目录和后续重构优先级。
 
 ## 当前判断
 

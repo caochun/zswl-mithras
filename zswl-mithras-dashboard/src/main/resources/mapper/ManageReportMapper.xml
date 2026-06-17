@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.guanbao.mapper.managereport.ManageReportMapper">
-    <select id="selectYunYingDaiBan" resultType="cn.zswltech.mithras.guanbao.mapper.managereport.YunYingDaiBanResult">
+<mapper namespace="cn.zswltech.mithras.dashboard.guanbao.mapper.managereport.ManageReportMapper">
+    <select id="selectYunYingDaiBan" resultType="cn.zswltech.mithras.dashboard.guanbao.mapper.managereport.YunYingDaiBanResult">
         select
             t.ID_ as processInstanceId,
             t.BUSINESS_KEY_ as businessKey,
@@ -92,7 +92,7 @@
                  left join bifrost_org as bo on t.biz_dept_id = bo.id
     </select>
 
-    <select id="selectYeWuYunXingFenXi" resultType="cn.zswltech.mithras.guanbao.mapper.managereport.YeWuYunXingFenXiResult">
+    <select id="selectYeWuYunXingFenXi" resultType="cn.zswltech.mithras.dashboard.guanbao.mapper.managereport.YeWuYunXingFenXiResult">
         select
             *
         from (
@@ -128,7 +128,7 @@
             <include refid="yeWuYunXingFenXi-where-sql"></include>
     </select>
 
-    <select id="statisticYeWuYunXingFenXi" resultType="cn.zswltech.mithras.guanbao.mapper.managereport.YeWuYunXingFenXiStatisticResult">
+    <select id="statisticYeWuYunXingFenXi" resultType="cn.zswltech.mithras.dashboard.guanbao.mapper.managereport.YeWuYunXingFenXiStatisticResult">
         select
             <if test="groupType == 'DEPT'">
                 count(t.processInstanceId) as quantity,

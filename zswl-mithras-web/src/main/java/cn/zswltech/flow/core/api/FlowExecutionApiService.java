@@ -62,6 +62,10 @@ import java.util.stream.Collectors;
 /**
  * 操作相关
  *
+ * This class intentionally keeps the upstream flow-core package name. It is a
+ * runtime override/patch for the flow-core bean and must not be moved without
+ * verifying all flow-core bean wiring.
+ *
  * @author wangchuanhao
  * @date 2022/6/4 12:25 PM
  */

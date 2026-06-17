@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelUtil;
-import cn.zswltech.mithras.associationreport.AssociationReportException;
+import cn.zswltech.mithras.associationreport.exception.AssociationReportException;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.associationreport.service.AssociationLawInvolvedVisitRelatedInfoService;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;

@@ -10,7 +10,7 @@ import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.mithras.api.associationreport.AssociationReportApi;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.associationreport.AssociationReportException;
+import cn.zswltech.mithras.associationreport.exception.AssociationReportException;
 import cn.zswltech.mithras.associationreport.application.AssociationReportWorkflowPort;
 import cn.zswltech.mithras.associationreport.excel.AssociationReportBaseModel;
 import cn.zswltech.mithras.associationreport.service.*;

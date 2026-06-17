@@ -6,7 +6,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import javax.annotation.Resource;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.associationreport.DeleteData;
+import cn.zswltech.mithras.associationreport.storedata.DeleteData;
 import cn.zswltech.mithras.dto.associationreport.*;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.associationreport.enums.AssociationDictionaryCategoryEnum;

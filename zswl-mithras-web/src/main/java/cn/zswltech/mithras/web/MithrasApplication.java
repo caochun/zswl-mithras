@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @Slf4j
-@ServletComponentScan("cn.zswltech.mithras.guanbao.config")
+@ServletComponentScan("cn.zswltech.mithras.dashboard.guanbao.config")
 @MapperScan({"cn.zswltech.mithras.document.persistence.mapper",
         "cn.zswltech.mithras.customer.mapper",
         "cn.zswltech.mithras.customer.project.persistence.mapper",

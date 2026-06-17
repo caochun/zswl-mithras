@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.web.advice;
 
 import cn.zswltech.mithras.foundation.util.ApprovalTestUtil;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2022/8/9 12:35 PM
  */
 @Component
+@Profile({"local", "dev"})
 public class ApprovalTestInterceptor implements HandlerInterceptor, WebMvcConfigurer {
 
     @Override

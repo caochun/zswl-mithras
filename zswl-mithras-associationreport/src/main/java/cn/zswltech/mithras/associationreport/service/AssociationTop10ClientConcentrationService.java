@@ -2,9 +2,9 @@ package cn.zswltech.mithras.associationreport.service;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.associationreport.DeleteData;
+import cn.zswltech.mithras.associationreport.storedata.DeleteData;
 import cn.zswltech.mithras.associationreport.excel.AssociationTop10ClientConcentrationModel;
-import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
+import cn.zswltech.mithras.associationreport.support.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.dto.associationreport.AssociationDetailTop10ClientConcentrationRSP;
 import cn.zswltech.mithras.dto.associationreport.AssociationTop10ClientConcentrationModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
@@ -120,7 +120,7 @@ public class AssociationTop10ClientConcentrationService extends ServiceImpl<Asso
                     this.saveBatch(addList);
                 }
         );
-        
+
     }
-    
+
 }

@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.annotation.Resource;
 
@@ -23,11 +22,10 @@ import javax.annotation.Resource;
  */
 
 @Slf4j
-@ServletComponentScan("cn.zswltech.mithras.guanbao.config")
+@ServletComponentScan("cn.zswltech.mithras.dashboard.guanbao.config")
 @MapperScan({"cn.zswltech.mithras.document.persistence.mapper", "cn.zswltech.lib.futurelog.save.mapper"})
 @EnableTransactionManagement
 @SpringBootApplication(scanBasePackages = {"cn.zswltech"})
-@EnableSwagger2
 @RestController
 public class TestApplication {
     @Resource
@@ -44,5 +42,3 @@ public class TestApplication {
         return baseInfoMapper.selectOne(Wrappers.<ProjEstablishBaseInfo>lambdaQuery().eq(ProjEstablishBaseInfo::getProjName, "XXX"));
     }
 }
-
-
