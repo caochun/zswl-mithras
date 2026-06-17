@@ -6,11 +6,11 @@
 
 当前 POM 和 Java import 层保持低耦合，只直接依赖 `api`、`foundation` 以及框架能力；合同、付款、收款、权限等外部事实主要通过 `Margin*Port` 接入，adapter 放在 `application`。
 
-代码层面复核后，这个低耦合判断基本成立：模块内 Java import 主要集中在 `margin`、`foundation`、`dto`、`api`，没有直接 import 合同、付款、收款、工作流等业务域。当前分布约为：`margin` 54 处、`foundation` 33 处、`dto` 31 处、`api` 5 处。POM 中的框架依赖也能在 controller、Excel 导出、MyBatis-Plus model/mapper、XXL job、Spring transaction、servlet/validation 等源码里找到对应使用；其中 `xxl-job-core` 被 `DepositWriteOffJob` 的 `@XxlJob` 直接使用，不是冗余依赖。直接 `org.mybatis:mybatis` 仅为 `@Param` 提供显式来源，已由 MyBatis-Plus starter 传递覆盖并移除。
+代码层面复核后，这个低耦合判断基本成立：模块内 Java import 主要集中在 `margin`、`foundation`、`dto`、`api`，没有直接 import 合同、付款、收款、工作流等业务域。POM 中的框架依赖也能在 controller、Excel 导出、MyBatis-Plus model/mapper、XXL job、Spring transaction、servlet/validation 等源码里找到对应使用；其中 `xxl-job-core` 被 `DepositWriteOffJob` 的 `@XxlJob` 直接使用，不是冗余依赖。直接 `org.mybatis:mybatis` 仅为 `@Param` 提供显式来源，已由 MyBatis-Plus starter 传递覆盖并移除。
 
-模块源码约 36 个 Java 文件，包含 application 接口、5 个 port、5 个 port model、controller、转换器、保证金/担保金 mapper/model/service、job 入口和 Excel 导出。虽然规模不大，但它拥有 `margin_base_info`、`margin_record_info`、`margin_write_off_record`、`warranty_base_info`、`warranty_record_info` 等独立写模型。
+模块源码约 40 个 Java 文件，包含 application 接口、7 个 port、8 个 port model、controller、转换器、保证金/担保金 mapper/model/service、job 入口和 Excel 导出。虽然规模不大，但它拥有 `margin_base_info`、`margin_record_info`、`margin_write_off_record`、`warranty_base_info`、`warranty_record_info` 等独立写模型。
 
-已有 port 包括 `MarginContractInfoPort`、`MarginCollectionPort`、`MarginPaymentReceiptPort`、`MarginRecordSupportPort`、`MarginViewAuthPort`、`MarginBaseInfoListQueryPort`。这些 port 已经使用 margin 自有输入/输出模型，例如 `MarginContractInfo`、`MarginCollectionRecordInfo`、`MarginRefundPaymentInfo`、`MarginPlannedReceivableCommand`、`WarrantyPlannedReceivableCommand`、`MarginCollectionSnapshot`，没有直接暴露合同/收款/付款持久化模型，方向比较干净。
+已有 port 包括 `DepositWriteOffJobPort`、`MarginContractInfoPort`、`MarginCollectionPort`、`MarginPaymentReceiptPort`、`MarginRecordSupportPort`、`MarginViewAuthPort`、`MarginBaseInfoListQueryPort`。这些 port 已经使用 margin 自有输入/输出模型，例如 `MarginContractInfo`、`MarginCollectionRecordInfo`、`MarginRefundPaymentInfo`、`MarginPlannedReceivableCommand`、`WarrantyPlannedReceivableCommand`、`MarginCollectionSnapshot`，没有直接暴露合同/收款/付款持久化模型，方向比较干净。
 
 边界上需要注意两类隐性耦合：
 

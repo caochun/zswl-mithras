@@ -19,7 +19,7 @@ import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsProcessStatusEnu
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRetreatInfo;
-import cn.zswltech.mithras.margin.job.service.DepositWriteOffJobService;
+import cn.zswltech.mithras.margin.application.port.DepositWriteOffJobPort;
 import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class DepositWriteOffJobServiceImpl implements DepositWriteOffJobService {
+public class DepositWriteOffJobPortAdapter implements DepositWriteOffJobPort {
     @Resource
     private ContractRetreatInfoService contractRetreatInfoService;
     @Resource
