@@ -2,7 +2,7 @@ package cn.zswltech.mithras.liquidity.service;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.liquidity.bo.LiquiditySpecialDateSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquiditySpecialDateSnapshot;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

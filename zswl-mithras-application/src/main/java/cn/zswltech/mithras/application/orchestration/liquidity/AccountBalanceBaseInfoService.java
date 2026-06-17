@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.liquiditymanage.base.AccountBalanceDetailModifyRS
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
-import cn.zswltech.mithras.liquidity.bo.LiquidityBankAccountSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityBankAccountSnapshot;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.excel.importer.AccountBalanceBaseInfoImporter;
 import cn.zswltech.mithras.liquidity.excel.model.AccountBalanceBaseInfoExcelModel;

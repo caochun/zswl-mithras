@@ -2,10 +2,10 @@ package cn.zswltech.mithras.liquidity.service.cal.account;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
-import cn.zswltech.mithras.liquidity.bo.LiquidityDirectFinancingSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingPayAccountSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowPlanSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptRepaySnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityDirectFinancingSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFinancingPayAccountSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFundReceiptFlowPlanSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFundReceiptRepaySnapshot;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;

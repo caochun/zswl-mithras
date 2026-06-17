@@ -2,12 +2,12 @@ package cn.zswltech.mithras.liquidity.service;
 
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterBaseDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexDetailRSP;
-import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionPlanSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionRecordSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityCreditLimitSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingPledgeSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowDetailSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowPlanSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityCollectionPlanSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityCollectionRecordSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityCreditLimitSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFinancingPledgeSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFundReceiptFlowDetailSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFundReceiptFlowPlanSnapshot;
 import cn.zswltech.mithras.liquidity.persistence.model.AccountBalanceBaseInfo;
 
 import java.time.LocalDate;

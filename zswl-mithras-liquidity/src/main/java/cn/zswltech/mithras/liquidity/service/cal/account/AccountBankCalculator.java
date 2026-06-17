@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.liquidity.service.cal.account;
 
 import cn.hutool.core.util.ReflectUtil;
-import cn.zswltech.mithras.liquidity.bo.LiquidityBankAccountSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityBankAccountSnapshot;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;

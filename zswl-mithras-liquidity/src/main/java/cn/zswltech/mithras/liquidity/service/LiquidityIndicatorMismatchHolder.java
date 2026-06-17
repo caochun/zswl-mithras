@@ -1,14 +1,14 @@
 package cn.zswltech.mithras.liquidity.service;
 
-import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionRecordSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityContractBaseSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityContractRentSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityDirectFinancingSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingOrganizationSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingPledgeSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowPlanSnapshot;
-import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptRepaySnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityCollectionRecordSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityContractBaseSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityContractRentSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityDirectFinancingSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFinancingOrganizationSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFinancingPledgeSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFinancingSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFundReceiptFlowPlanSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityFundReceiptRepaySnapshot;
 import cn.zswltech.mithras.liquidity.persistence.model.AccountBalanceBaseInfo;
 import java.time.LocalDate;
 import java.util.HashMap;

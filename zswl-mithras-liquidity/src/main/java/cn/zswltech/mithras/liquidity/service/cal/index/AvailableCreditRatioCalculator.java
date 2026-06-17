@@ -7,7 +7,7 @@ import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.liquidity.enums.FundParameterSignType;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.liquidity.bo.LiquidityCreditLimitSnapshot;
+import cn.zswltech.mithras.liquidity.snapshot.LiquidityCreditLimitSnapshot;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorIndexHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityIndexCalculatorBo;

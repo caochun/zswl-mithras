@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.bo;
+package cn.zswltech.mithras.liquidity.snapshot;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
