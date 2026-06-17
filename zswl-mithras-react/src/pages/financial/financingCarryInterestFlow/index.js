@@ -1,4 +1,4 @@
-import DirectDetail from '@/pages/financial/direct/detail/[id$]'
+import DirectDetail from '@/components/Financial/DirectDetail'
 import FundDetail from '@/pages/financial/fund/detail/[id$]'
 import { observer } from '@zswl/admin'
 

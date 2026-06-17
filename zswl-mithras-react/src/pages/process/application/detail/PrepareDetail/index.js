@@ -7,7 +7,7 @@ import KSQZstartRent from '@/pages/contract/list/startRent/[id$]' // 合同自�
 import CustomerRat from '@/pages/customer/customerRat/detail/[id$]' // 客户评级'
 import FilingMaterialsApply from '@/pages/fillingMaterialsDetail/filingMaterialsApply'
 import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
-import FinancialDirect from '@/pages/financial/direct/detail/[id$]'
+import FinancialDirect from '@/components/Financial/DirectDetail'
 import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterestFlow/index'
 import FinancialFund from '@/pages/financial/fund/detail/[id$]'
 import FinancialReportApprovalFlow from '@/components/Report/FinancialReportApproval'
