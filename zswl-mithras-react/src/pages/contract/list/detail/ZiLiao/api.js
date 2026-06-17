@@ -1,5 +1,1 @@
-import { http } from '@zswl/admin'
-
-export default {
-  postDataList: (params) => http.post('/materials/contract/list', params),
-}
+export { default } from '@/components/Contract/ContractMaterials/api'

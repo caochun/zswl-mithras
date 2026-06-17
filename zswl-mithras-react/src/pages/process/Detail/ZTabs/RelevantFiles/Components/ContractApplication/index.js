@@ -1,7 +1,7 @@
 import { Collapse } from '@/components'
 import { Empty } from 'antd'
 import HeTong from '@/pages/contract/list/detail/HeTong'
-import ZiLiao from '@/pages/contract/list/detail/ZiLiao'
+import ZiLiao from '@/components/Contract/ContractMaterials'
 import CheckMaterial from '@/pages/contract/list/detail/CheckMaterial'
 import LeaseZiLiao from '@/components/Contract/LeaseMaterials'
 import Api from '@/api/contract/contractDetail'
