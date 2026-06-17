@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '@/pages/contract/list/Component/PaymentApply/Column.js'
+import ALL_COLUMNS from '@/components/Contract/PaymentApplyColumns'
 import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Space, DatePicker, Input, Form, message } from 'antd'
@@ -43,7 +43,7 @@ const Index = ({ canEdit = true, modal, modalProps }) => {
     const newDetailList = detailList.filter((item) => item.receiptCode !== receiptCode)
     setDetailList(newDetailList)
   }
-  const isFormApproval = getQuery('typeId') == 'approval' 
+  const isFormApproval = getQuery('typeId') == 'approval'
 
   const handleSave = async () => {
     const values = await Promise.all(

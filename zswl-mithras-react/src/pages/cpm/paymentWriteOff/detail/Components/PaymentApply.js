@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '@/pages/contract/list/Component/PaymentApply/Column'
+import ALL_COLUMNS from '@/components/Contract/PaymentApplyColumns'
 import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '@/api/cpm/payment/contractPaymentFtp'
