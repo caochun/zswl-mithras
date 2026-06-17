@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.newftp.service.job;
+package cn.zswltech.mithras.ftp.newftp.application.job;
 
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
 

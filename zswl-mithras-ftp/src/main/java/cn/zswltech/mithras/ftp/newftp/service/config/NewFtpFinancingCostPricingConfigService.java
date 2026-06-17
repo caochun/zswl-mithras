@@ -14,7 +14,7 @@ import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingCon
 import cn.zswltech.mithras.ftp.newftp.application.port.model.DirectFinancingCostSample;
 import cn.zswltech.mithras.ftp.newftp.application.port.model.IndirectFinancingCostSample;
 import cn.zswltech.mithras.ftp.newftp.application.port.NewFtpFundDataPort;
-import cn.zswltech.mithras.ftp.newftp.service.job.NewFtpPricingJobService;
+import cn.zswltech.mithras.ftp.newftp.application.job.NewFtpPricingJobService;
 import cn.zswltech.mithras.ftp.newftp.utils.DateUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

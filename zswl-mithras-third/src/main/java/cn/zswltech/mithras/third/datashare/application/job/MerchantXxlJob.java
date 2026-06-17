@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.datashare.service.job;
+package cn.zswltech.mithras.third.datashare.application.job;
 
 import cn.zswltech.gruul.web.api.intercept.WhiteListUtil;
 import cn.zswltech.mithras.third.datashare.service.DataShareService;

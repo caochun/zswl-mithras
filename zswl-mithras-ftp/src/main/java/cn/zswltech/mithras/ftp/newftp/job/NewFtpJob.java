@@ -2,8 +2,8 @@ package cn.zswltech.mithras.ftp.newftp.job;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
-import cn.zswltech.mithras.ftp.newftp.service.job.NewFtpPricingJobExecutor;
-import cn.zswltech.mithras.ftp.newftp.service.job.NewFtpPricingJobService;
+import cn.zswltech.mithras.ftp.newftp.application.job.NewFtpPricingJobExecutor;
+import cn.zswltech.mithras.ftp.newftp.application.job.NewFtpPricingJobService;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingFlashREQ;
 import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpFinancingCostPricingModifyREQ;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
-import cn.zswltech.mithras.ftp.newftp.service.job.NewFtpPricingJobExecutor;
+import cn.zswltech.mithras.ftp.newftp.application.job.NewFtpPricingJobExecutor;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.ftp.newftp.model.config.NewFtpFinancingCostPricingConfig;
