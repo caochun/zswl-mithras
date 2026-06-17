@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import Api from '@/pages/afterLease/level5Classify/api'
+import Api from '@/api/afterLease/level5Classify'
 import { amountFormat, getKeyOptionsLabelMapPlus, formatPercent, hasValue } from '@/utils'
 import { EditTable } from '@/components/Table'
 

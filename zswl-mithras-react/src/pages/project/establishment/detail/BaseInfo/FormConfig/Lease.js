@@ -9,7 +9,7 @@ import FounderSelect from '../../../../Components/FounderSelect'
 import { MultilineText } from '@/components'
 import { RegionCascader } from '@/components'
 import { uniqBy } from 'lodash'
-import Api from '@/pages/project/establishment/detail/api'
+import Api from '@/api/project/projectEstablishmentDetail'
 import ratItem from './ratItems'
 import { getRiskControlIndustryClassifySelectOptions } from '@/utils'
 

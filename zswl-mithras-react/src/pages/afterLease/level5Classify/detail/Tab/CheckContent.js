@@ -1,6 +1,6 @@
 import DynamicDesc from '@/components/Table/DynamicDesc'
 import { useEffect, useState } from 'react'
-import Api from '@/pages/afterLease/level5Classify/api'
+import Api from '@/api/afterLease/level5Classify'
 import { FileTable } from '@/components'
 import { FileCommonParams } from '@/pages/afterLease/level5Classify/config'
 import styles from '../index.less'
