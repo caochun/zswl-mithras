@@ -9,7 +9,7 @@ import {
   Descriptions,
 } from '@zswl/components'
 import { history, makeAutoObservable, observer } from '@zswl/admin'
-import LoginInfo from '@/pages/blackListManage/components/LoginInfo'
+import LoginInfo from '@/components/BlackGray/Manage/LoginInfo'
 import { useMemo } from 'react'
 import { Col, Input, Row, TreeSelect, message } from 'antd'
 import warehouseRuleApi from '@/api/blackList/warehouseRuleApi'

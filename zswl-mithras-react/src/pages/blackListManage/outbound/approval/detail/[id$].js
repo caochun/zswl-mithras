@@ -6,7 +6,7 @@ import {
   ApprovalRecordAction,
   ApprovalOperation,
 } from '@/components/RiskActions'
-import EnterDesc from '@/pages/blackListManage/components/EnterDesc'
+import EnterDesc from '@/components/BlackGray/Manage/EnterDesc'
 import { Card } from 'antd'
 
 function Id({ params, path, query }) {

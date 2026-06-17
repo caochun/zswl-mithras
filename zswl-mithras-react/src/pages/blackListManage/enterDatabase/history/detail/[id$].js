@@ -2,9 +2,9 @@ import { Page, Form, Descriptions, Select, Button, Upload, App, Table } from '@z
 import store from './store'
 import { observer } from '@zswl/admin'
 import { SubmitAuditAction, ApprovalRecordAction } from '@/components/RiskActions'
-import LoginInfo from '@/pages/blackListManage/components/LoginInfo'
-import EnterForm from '@/pages/blackListManage/components/EnterForm'
-import EnterDesc from '@/pages/blackListManage/components/EnterDesc'
+import LoginInfo from '@/components/BlackGray/Manage/LoginInfo'
+import EnterForm from '@/components/BlackGray/Manage/EnterForm'
+import EnterDesc from '@/components/BlackGray/Manage/EnterDesc'
 
 function Id({ params, path, query }) {
   const { view } = query
