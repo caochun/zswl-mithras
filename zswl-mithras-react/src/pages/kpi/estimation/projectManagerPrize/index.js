@@ -1,7 +1,7 @@
 import { observer, history } from '@zswl/admin'
 import { Table, Button } from '@zswl/components'
 import { getTableColumns } from '@/utils'
-import { CalculateDateItem } from '@/pages/kpi/estimation/Column'
+import { CalculateDateItem } from '@/components/Kpi/EstimationFields'
 import moduleColumns from './Column'
 import moment from 'moment'
 import store from './store'

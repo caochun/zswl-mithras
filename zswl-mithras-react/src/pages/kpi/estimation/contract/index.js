@@ -6,7 +6,7 @@ import {
   DepartMentalItem,
   ContractCodeItem,
   ProjNameItem,
-} from '@/pages/kpi/estimation/Column'
+} from '@/components/Kpi/EstimationFields'
 import moduleColumns from './Column'
 import EstmationModal from './EstmationModal'
 import moment from 'moment'
