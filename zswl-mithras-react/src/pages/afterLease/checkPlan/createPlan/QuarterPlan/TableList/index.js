@@ -3,7 +3,7 @@ import { getTableColumns, saveServer } from '@/utils'
 import { observer } from '@zswl/admin'
 import EditModal from '../EditModal'
 import { Space } from 'antd'
-import ALL_COLUMNS from '@/pages/afterLease/checkPlan/Column'
+import ALL_COLUMNS from '@/components/AfterLease/CheckPlanColumns'
 
 const Index = ({ dataSource = [], canEditFlag, toCheckCount, store }) => {
   const { $editModal } = store

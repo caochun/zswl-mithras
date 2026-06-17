@@ -7,7 +7,7 @@ import { Space } from 'antd'
 import { getTableColumns, saveServer } from '@/utils'
 import { useEffect, useMemo } from 'react'
 import Store from './store'
-import ALL_COLUMNS from '@/pages/afterLease/checkPlan/Column'
+import ALL_COLUMNS from '@/components/AfterLease/CheckPlanColumns'
 
 const Index = ({ planId, canEditFlag, businessVersion, detail }) => {
   const nameColumns = [
