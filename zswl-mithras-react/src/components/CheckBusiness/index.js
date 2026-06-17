@@ -4,7 +4,7 @@ import { forwardRef, useImperativeHandle, useMemo } from 'react'
 import CompareInfo from './CompareInfo'
 import TipsConfirm from './TipsConfirm'
 import Store from './store'
-import TrackModal from '@/pages/lease/tracking/TrackModal'
+import TrackModal from '@/components/Lease/TrackModal'
 
 const Index = (
   {

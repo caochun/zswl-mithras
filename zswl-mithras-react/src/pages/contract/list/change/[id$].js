@@ -16,7 +16,7 @@ import styles from './index.less'
 import CheckBusiness from '@/components/CheckBusiness'
 import { EditDescription } from '@/components'
 import { TextAreaColumn } from '@/components/Format'
-import TrackModal from '@/pages/lease/tracking/TrackModal'
+import TrackModal from '@/components/Lease/TrackModal'
 
 const { Item } = Form
 

@@ -12,7 +12,7 @@ import FinancialSituation from './components/FinancialSituation'
 import GuarantorFinancial from './components/GuarantorFinancial'
 import { isAssetJon, userIsProjSponsor } from '@/utils'
 import Api from './api'
-import TrackModal from '@/pages/lease/tracking/TrackModal'
+import TrackModal from '@/components/Lease/TrackModal'
 
 const Index = (props) => {
   const store = useMemo(() => {

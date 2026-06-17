@@ -21,7 +21,7 @@ import EvaluationAgency from '@/pages/lease/maintain/detail/EvaluationAgency'
 import ZhongDengregistration from './ZhongDengregistration'
 import MeetingModal from '@/pages/project/review/detail/MeetingModal'
 import CreditModal from '@/components/Credit/CreditSearchModal'
-import TrackModal from '@/pages/lease/tracking/TrackModal'
+import TrackModal from '@/components/Lease/TrackModal'
 import { Space } from 'antd'
 
 const PaymentApplicationDetail = ({
