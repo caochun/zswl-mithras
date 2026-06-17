@@ -27,7 +27,7 @@ import Approval from '@/components/Actions/Approval'
 import CheckBusiness from '@/components/CheckBusiness'
 import LeaseZiLiao from './LeaseZiLiao'
 import TrackModal from '@/pages/lease/tracking/TrackModal'
-import ZhongDengButton from '@/pages/cpm/paymentApplication/detail/Components/ZhongDengButton'
+import ZhongDengButton from '@/components/ZhongDengButton'
 import EvaluationAgency from '@/pages/lease/maintain/detail/EvaluationAgency'
 import MeetingModal from '@/pages/project/review/detail/MeetingModal'
 

@@ -11,7 +11,7 @@ import LeaseText from './LeaseText'
 import DataFileList from './DataFileList'
 import EvaluationAgency from './EvaluationAgency'
 import { jumpZhongDeng } from '@/utils'
-import ZhongDengButton from '@/pages/cpm/paymentApplication/detail/Components/ZhongDengButton'
+import ZhongDengButton from '@/components/ZhongDengButton'
 import MeetingModal from '@/pages/project/review/detail/MeetingModal'
 
 const Index = ({
