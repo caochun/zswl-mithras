@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import ALL_COLUMNS from '@/pages/kpi/projectAllot/Column'
 import { Button } from '@zswl/components'
 import { compareDetail, compareTableData, getDescColumns } from '@/utils'
-import Api from '@/pages/kpi/projectAllot/api'
+import Api from '@/api/kpi/projectAllot'
 
 const Index = ({ projectDistributionId, source, businessVersion, listName }) => {
   const nameColumns = [{ title: '分润比', rename: '人员分润比' }].filter(Boolean)
