@@ -1,10 +1,9 @@
 package cn.zswltech.mithras.ftp.oldftp.bo;
 
 import cn.zswltech.mithras.ftp.newftp.enums.AssetIndustryClassify;
-import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
+import cn.zswltech.mithras.ftp.newftp.enums.EnterpriseTypeEnum;
 import cn.zswltech.mithras.ftp.newftp.enums.RelatedTermRange;
 import cn.zswltech.mithras.ftp.newftp.enums.TermRange;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -33,7 +32,7 @@ public class FtpQuarterlyBasePricingBO {
     private String termRange;
 
     /**
-     * {@link CustomerEntityClassify#name()}
+     * {@link EnterpriseTypeEnum#name()}
      * 风控行业分类
      **/
     private String customerEntityClassify;

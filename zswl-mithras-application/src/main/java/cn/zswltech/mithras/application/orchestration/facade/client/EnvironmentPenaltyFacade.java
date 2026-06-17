@@ -14,7 +14,7 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientAddSubAuthChec
 import cn.zswltech.mithras.customer.application.client.auth.ClientModifySubAuthCheckerNew;
 import cn.zswltech.mithras.customer.application.client.auth.ClientRemoveSubAuthCheckerNew;
 import cn.zswltech.mithras.customer.application.client.auth.ClientViewMainAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.third.externaldata.environmentpenalty.persistence.mapper.EnvironmentPenaltyMapper;
 import cn.zswltech.mithras.third.externaldata.environmentpenalty.persistence.model.EnvironmentPenalty;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

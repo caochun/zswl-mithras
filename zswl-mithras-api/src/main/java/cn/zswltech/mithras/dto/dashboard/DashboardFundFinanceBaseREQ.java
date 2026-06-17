@@ -9,7 +9,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -21,7 +20,6 @@ import java.time.temporal.TemporalAdjusters;
  * @description 这个类
  * @since 2025/9/1 09:29
  **/
-@Slf4j
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
@@ -57,7 +55,6 @@ public class DashboardFundFinanceBaseREQ extends PageReq {
             }
         } catch (Exception e) {
             // 解析失败时返回当前日期
-            log.error("工作台融资视图查询时解析日期异常，返回当前日期", e);
             this.queryDate = now;
         }
     }

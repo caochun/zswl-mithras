@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.collection.event;
 
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
@@ -24,7 +23,7 @@ public class CollectionAddEvent  extends ApplicationEvent {
 
     private LocalDate planCollectionDate;
 
-    private ProcessModelTypeEnum processModelTypeEnum;
+    private String processModelType;
 
     private String handleType;
 

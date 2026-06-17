@@ -17,7 +17,6 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.flow.core.api.FlowProcessApiService;
 import cn.zswltech.flow.core.domain.req.StartProcessReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.biz.service.OrgService;
 import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.common.constant.OrgConstants;
@@ -32,8 +31,8 @@ import cn.zswltech.mithras.dto.afterlease.*;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.afterlease.application.job.AfterLeaseCheckGuarantorInitJobService;
-import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckPlanProjectConvert;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.afterlease.convert.AfterLeaseCheckPlanProjectConvert;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.*;
 import cn.zswltech.mithras.customer.mobile.enums.VisitPhaseStatus;
 import cn.zswltech.mithras.customer.mobile.enums.VisitRecordStatus;
@@ -62,6 +61,7 @@ import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanBaseService
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportBaseService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportFinanceService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseRelatedProcess;
 import cn.zswltech.mithras.afterlease.application.NewAfterLeaseCheckReportDetailService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoService;
@@ -264,7 +264,7 @@ public class AfterLeaseCheckPlanClientServiceImpl extends ServiceImpl<NewAfterLe
                 }).collect(Collectors.toList()));
             }
         }
-        ProcessResp relatedProcess = afterLeaseAdjustInfoService.findRelatedProcess(checkPlanClientId);
+        AfterLeaseRelatedProcess relatedProcess = afterLeaseAdjustInfoService.findRelatedProcess(checkPlanClientId);
         rsp.setCurAssigneeIds(relatedProcess != null ? relatedProcess.getCurAssigneeIds() : null);
         //添加计划信息
         if (ObjectUtil.isNotEmpty(planBase)) {

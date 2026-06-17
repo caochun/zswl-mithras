@@ -3,7 +3,7 @@ package cn.zswltech.mithras.liquidity.service.cal.board;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.LiquidityBoardDetailRSP;
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.liquidity.enums.LiquidityBankAccountType;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
@@ -49,7 +49,7 @@ public class DailyMaxAvailableBalanceCalculator extends AbstractLiquidityCalcula
         Map<Long, AccountBalanceBaseInfo> accountInfoMap = ACCOUNT_BALANCE_BASE_INFO.get(bo.getQueryDate());
         // 需要过滤掉监管户
         AtomicReference<BigDecimal> estimateBalanceLimitAmountSum = new AtomicReference<>(BigDecimal.ZERO);
-        accountInfoMap.values().stream().filter(account -> !Objects.equals(BaseDataBankAccountTypeEnum.SUPERVISION.name(), account.getAccountType()))
+        accountInfoMap.values().stream().filter(account -> !Objects.equals(LiquidityBankAccountType.SUPERVISION.name(), account.getAccountType()))
                 .map(account -> {
                     // 优先取编辑字段, 这里可能会溢出
                     return new BigDecimal(LongUtil.null2zero(account.getEstimateBalanceLimitEditAmount() != null ? account.getEstimateBalanceLimitEditAmount() : account.getEstimateBalanceLimitAmount()));

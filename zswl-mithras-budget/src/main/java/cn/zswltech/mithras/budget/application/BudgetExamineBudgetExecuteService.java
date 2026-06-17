@@ -11,36 +11,30 @@ import cn.zswltech.mithras.budget.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.lang.Pair;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.budget.enums.BudgetExamineBenefitEnum;
 import cn.zswltech.mithras.budget.enums.BudgetExamineBudgetExecuteEnum;
-import cn.zswltech.mithras.kpi.enums.BelongTypeEnum;
-import cn.zswltech.mithras.kpi.enums.BusinessTypeEnum;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
+import cn.zswltech.mithras.budget.enums.BudgetFtpIndustryCategory;
+import cn.zswltech.mithras.budget.application.port.BudgetCollectionFactPort;
+import cn.zswltech.mithras.budget.application.port.BudgetContractFactPort;
+import cn.zswltech.mithras.budget.application.port.BudgetContractFactSnapshot;
+import cn.zswltech.mithras.budget.application.port.BudgetFinanceFactPort;
+import cn.zswltech.mithras.budget.application.port.BudgetKpiFactPort;
+import cn.zswltech.mithras.budget.application.port.BudgetPaymentActualSnapshot;
+import cn.zswltech.mithras.budget.application.port.BudgetPaymentFactPort;
+import cn.zswltech.mithras.budget.application.port.BudgetPerformanceTargetSnapshot;
+import cn.zswltech.mithras.budget.application.port.BudgetProjectFactPort;
 import cn.zswltech.mithras.budget.mapper.BudgetExamineBudgetExecuteMapper;
-import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamineBenefit;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamineBudgetExecute;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.kpi.model.PerformanceBaseInfo;
-import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.mapper.projpricing.ProjPricingBaseInfoMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
-import cn.zswltech.mithras.collection.application.bo.DeptRemainingPrincipalBO;
-import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.kpi.application.performance.KpiPerformanceBaseInfoService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -71,11 +65,24 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
     @Resource
     private FinanceRiskHelp financeRiskHelp;
     @Resource
-    private PaymentActualDetailMapper paymentActualDetailMapper;
+    private BudgetPaymentFactPort budgetPaymentFactPort;
     @Resource
-    private ProjPricingBaseInfoMapper projPricingBaseInfoMapper;
+    private BudgetContractFactPort budgetContractFactPort;
+    @Resource
+    private BudgetFinanceFactPort budgetFinanceFactPort;
+    @Resource
+    private BudgetCollectionFactPort budgetCollectionFactPort;
+    @Resource
+    private BudgetProjectFactPort budgetProjectFactPort;
+    @Resource
+    private BudgetKpiFactPort budgetKpiFactPort;
 
     private final static String REMARK_MODEL = "本月计提风险金%s万元，本年累计风险金余额%s万元；本月转回风险金%s万元";
+    private static final String PERFORMANCE_TYPE_DEPT_TOTAL = "DEPT_TOTAL";
+    private static final String PERFORMANCE_TYPE_OTHER_INDUSTRY = "INDUSTRY";
+    private static final String PERFORMANCE_TYPE_PUBLIC_UTILITIES = "PLATFORM";
+    private static final String PERFORMANCE_TYPE_STATE_OWNED_INDUSTRY = "FTP_STATE_OWNED_INDUSTRY";
+    private static final String PERFORMANCE_TYPE_CIVIL_CONSUMPTION = "FTP_CIVIL_CONSUMPTION";
 
     @Transactional(rollbackFor = Throwable.class)
     public void add(BudgetExamineBudgetExecuteAddREQ req) {
@@ -106,12 +113,8 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
             lastYearMap = Collections.emptyMap();
         }
         // 获取全年预算目标
-        List<PerformanceBaseInfo> performanceBaseInfoList = SpringUtil.getBean(KpiPerformanceBaseInfoService.class).list(
-                Wrappers.<PerformanceBaseInfo>lambdaQuery()
-                        .eq(PerformanceBaseInfo::getYear, req.getBudgetExamineYear())
-                        .eq(PerformanceBaseInfo::getBelongType, BelongTypeEnum.DEPARTMENT.name())
-        );
-        Map<Long, List<PerformanceBaseInfo>> performanceBaseInfoMap = performanceBaseInfoList.stream().collect(Collectors.groupingBy(PerformanceBaseInfo::getBelongDeptId));
+        List<BudgetPerformanceTargetSnapshot> performanceTargetList = budgetKpiFactPort.listDepartmentTargets(req.getBudgetExamineYear());
+        Map<Long, List<BudgetPerformanceTargetSnapshot>> performanceTargetMap = performanceTargetList.stream().collect(Collectors.groupingBy(BudgetPerformanceTargetSnapshot::getBelongDeptId));
         //投放金额
         addList.addAll(getPaymentAmountBudgetExecute(req));
         //考核表相关
@@ -122,8 +125,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         addList.addAll(getProjectInfoBudgetExecute(req));
         // 添加加工数据
         LocalDate thisMonthDate = LocalDate.of(req.getBudgetExamineYear(), req.getBudgetExamineMonth(), 1);
-        List<DeptRemainingPrincipalBO> deptRemainingPrincipalList = SpringUtil.getBean(CollectionBaseInfoMapper.class).calculateRemainingPrincipalGroupByDeptId(thisMonthDate.plusMonths(1));
-        Map<Long, Long> deptRemainingPrincipalMap = deptRemainingPrincipalList.stream().collect(Collectors.toMap(DeptRemainingPrincipalBO::getBizDeptId, DeptRemainingPrincipalBO::getRemainingPrincipal));
+        Map<Long, Long> deptRemainingPrincipalMap = budgetCollectionFactPort.calculateRemainingPrincipalGroupByDeptId(thisMonthDate.plusMonths(1));
         Map<Long, List<BudgetExamineBudgetExecute>> addMap = addList.stream().collect(Collectors.groupingBy(BudgetExamineBudgetExecute::getBelongDeptId));
         for (OrgDO org : bizDeptResolver.listBizDept()) {
             List<BudgetExamineBudgetExecute> executeList = addMap.get(org.getId());
@@ -169,7 +171,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
                 budgetExecute.setBelongDeptId(org.getId());
                 budgetExecute.setFieldName(item.name());
                 // 填充全年预算目标
-                budgetExecute.setAnnualBudgetTarget(this.findAnnualBudgetTarget(item, performanceBaseInfoMap.get(org.getId())));
+                budgetExecute.setAnnualBudgetTarget(this.findAnnualBudgetTarget(item, performanceTargetMap.get(org.getId())));
                 initList.add(budgetExecute);
             }
         }
@@ -211,24 +213,24 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         SpringContextHolder.getBean(BudgetExamineBudgetExecuteService.class).saveBatch(initList);
     }
 
-    private long findAnnualBudgetTarget(BudgetExamineBudgetExecuteEnum item, List<PerformanceBaseInfo> performanceBaseInfoList) {
-        if (CollectionUtil.isEmpty(performanceBaseInfoList)) {
+    private long findAnnualBudgetTarget(BudgetExamineBudgetExecuteEnum item, List<BudgetPerformanceTargetSnapshot> performanceTargetList) {
+        if (CollectionUtil.isEmpty(performanceTargetList)) {
             return 0L;
         }
         switch (item) {
-            case NEW_INVESTMENT_AMOUNT: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getAdvertisingAmount).sum();
-            case INCLUDING_OTHER_INDUSTRY_CATEGORY: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.INDUSTRY.name())).mapToLong(PerformanceBaseInfo::getAdvertisingAmount).sum();
-            case PUBLIC_UTILITIES_CATEGORY: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.PLATFORM.name())).mapToLong(PerformanceBaseInfo::getAdvertisingAmount).sum();
-            case STATE_OWNED_INDUSTRY_CATEGORY: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.FTP_STATE_OWNED_INDUSTRY.name())).mapToLong(PerformanceBaseInfo::getAdvertisingAmount).sum();
-            case PEOPLE_LIVELIHOOD_CONSUMPTION_CATEGORY: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.FTP_CIVIL_CONSUMPTION.name())).mapToLong(PerformanceBaseInfo::getAdvertisingAmount).sum();
-            case OPERATING_REVENUE: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getRevenueTarget()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getRevenueTarget).sum();
-            case INCLUDING_CONSULTING_SERVICE_INCOME: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getConsultingFeeIncome()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getConsultingFeeIncome).sum();
-            case INTEREST_INCOME: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getInterestIncome()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getInterestIncome).sum();
-            case OPERATING_EXPENSES: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getBizFee()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getBizFee).sum();
-            case INCLUDING_TRAVEL_EXPENSES: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getBusinessTripFee()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getBusinessTripFee).sum();
-            case BUSINESS_ENTERTAINMENT_EXPENSES: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getBusinessServeFee()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getBusinessServeFee).sum();
-            case ASSESSMENT_PROFIT: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getProfitTarget()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getProfitTarget).sum();
-            case ASSESSMENT_PROFIT_BEFORE_ALLOWANCE: return performanceBaseInfoList.stream().filter(e -> Objects.nonNull(e.getBeforeProfitTarget()) && StrUtil.equals(e.getBusinessType(), BusinessTypeEnum.DEPT_TOTAL.name())).mapToLong(PerformanceBaseInfo::getBeforeProfitTarget).sum();
+            case NEW_INVESTMENT_AMOUNT: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getAdvertisingAmount).sum();
+            case INCLUDING_OTHER_INDUSTRY_CATEGORY: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_OTHER_INDUSTRY)).mapToLong(BudgetPerformanceTargetSnapshot::getAdvertisingAmount).sum();
+            case PUBLIC_UTILITIES_CATEGORY: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_PUBLIC_UTILITIES)).mapToLong(BudgetPerformanceTargetSnapshot::getAdvertisingAmount).sum();
+            case STATE_OWNED_INDUSTRY_CATEGORY: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_STATE_OWNED_INDUSTRY)).mapToLong(BudgetPerformanceTargetSnapshot::getAdvertisingAmount).sum();
+            case PEOPLE_LIVELIHOOD_CONSUMPTION_CATEGORY: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getAdvertisingAmount()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_CIVIL_CONSUMPTION)).mapToLong(BudgetPerformanceTargetSnapshot::getAdvertisingAmount).sum();
+            case OPERATING_REVENUE: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getRevenueTarget()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getRevenueTarget).sum();
+            case INCLUDING_CONSULTING_SERVICE_INCOME: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getConsultingFeeIncome()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getConsultingFeeIncome).sum();
+            case INTEREST_INCOME: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getInterestIncome()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getInterestIncome).sum();
+            case OPERATING_EXPENSES: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getBizFee()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getBizFee).sum();
+            case INCLUDING_TRAVEL_EXPENSES: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getBusinessTripFee()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getBusinessTripFee).sum();
+            case BUSINESS_ENTERTAINMENT_EXPENSES: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getBusinessServeFee()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getBusinessServeFee).sum();
+            case ASSESSMENT_PROFIT: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getProfitTarget()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getProfitTarget).sum();
+            case ASSESSMENT_PROFIT_BEFORE_ALLOWANCE: return performanceTargetList.stream().filter(e -> Objects.nonNull(e.getBeforeProfitTarget()) && StrUtil.equals(e.getBusinessType(), PERFORMANCE_TYPE_DEPT_TOTAL)).mapToLong(BudgetPerformanceTargetSnapshot::getBeforeProfitTarget).sum();
             default: return 0L;
         }
     }
@@ -241,8 +243,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         LocalDate date = LocalDate.of(req.getBudgetExamineYear(), req.getBudgetExamineMonth(), 1);
         LocalDateTime queryStartTime = LocalDateTime.of(date.getYear(), 1, 1, 0, 0, 0);
         LocalDateTime queryEndTime = LocalDateTime.of(date.getYear(), date.getMonthValue(), date.lengthOfMonth(), 23, 59, 59);
-        List<Pair<Long, Long>> deptProjectCountList = SpringUtil.getBean(ProjEstablishBaseInfoMapper.class).countEffectProjectGroupByDept(queryStartTime, queryEndTime);
-        Map<Long, Long> thisMonthMap = deptProjectCountList.stream().collect(Collectors.toMap(Pair::getKey, Pair::getValue));
+        Map<Long, Long> thisMonthMap = budgetProjectFactPort.countEffectiveProjectsByDept(queryStartTime, queryEndTime);
         List<BudgetExamineBudgetExecute> result = new LinkedList<>();
         List<OrgDO> allBizDeptList = bizDeptResolver.listBizDept();
         for (OrgDO org : allBizDeptList) {
@@ -261,39 +262,33 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         List<BudgetExamineBudgetExecute> rsps = new ArrayList<>();
         LocalDate localDate = LocalDate.of(req.getBudgetExamineYear(), req.getBudgetExamineMonth(), 1).plusMonths(1);
         //本年累计截止到本月已付款金额
-        List<PaymentActualDetail> paymentActualDetails = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
-                .ge(PaymentActualDetail::getPaidInDate, LocalDate.of(req.getBudgetExamineYear(), 1, 1))
-                .lt(PaymentActualDetail::getPaidInDate, localDate));
+        List<BudgetPaymentActualSnapshot> paymentActualDetails = budgetPaymentFactPort.listPaymentActualBetween(
+                LocalDate.of(req.getBudgetExamineYear(), 1, 1), localDate);
         if (ObjectUtil.isEmpty(paymentActualDetails)) {
             return rsps;
         }
-        Map<Long, List<PaymentActualDetail>> contractId2PaymentActual = paymentActualDetails.stream().collect(Collectors.groupingBy(PaymentActualDetail::getContractId));
+        Map<Long, List<BudgetPaymentActualSnapshot>> contractId2PaymentActual = paymentActualDetails.stream().collect(Collectors.groupingBy(BudgetPaymentActualSnapshot::getContractId));
         //合同投放核销
         Map<Long, Long> contractId2PaymentAmount = new HashMap<>();
         contractId2PaymentActual.forEach((contractId, paymentActualList) -> {
             if (ObjectUtil.isNotEmpty(paymentActualList)) {
-                contractId2PaymentAmount.put(contractId, paymentActualList.stream().map(PaymentActualDetail::getPaidInAmount).reduce(Long::sum).orElse(0L));
+                contractId2PaymentAmount.put(contractId, paymentActualList.stream().map(BudgetPaymentActualSnapshot::getPaidInAmount).reduce(Long::sum).orElse(0L));
             }
         });
         //获取合同
-        List<ContractBaseInfo> contractBaseInfos = SpringContextHolder.getBean(ContractBaseInfoService.class).listByIds(contractId2PaymentAmount.keySet());
-        Map<Long, Long> contractId2ProjReviewId = contractBaseInfos.stream().filter(e -> StrUtil.isNotBlank(e.getProjCode())).collect(Collectors.toMap(ContractBaseInfo::getId, ContractBaseInfo::getProjReviewId, (a, b) -> a));
-        Map<Long, List<ContractBaseInfo>> projReviewId2Contract = contractBaseInfos.stream().filter(e -> StrUtil.isNotBlank(e.getProjCode())).collect(Collectors.groupingBy(ContractBaseInfo::getProjReviewId));
-        Map<Long, Long> contractId2DeptId = contractBaseInfos.stream().collect(Collectors.toMap(ContractBaseInfo::getId, ContractBaseInfo::getBizDeptId, (a, b) -> a));
-        List<ProjPricingBaseInfo> projPricingBaseInfos = projPricingBaseInfoMapper.selectList(Wrappers.<ProjPricingBaseInfo>lambdaQuery()
-                .in(ObjectUtil.isNotEmpty(projReviewId2Contract.keySet()), ProjPricingBaseInfo::getProjReviewId, projReviewId2Contract.keySet()));
-        Map<Long, String> projReviewId2RiskType = new HashMap<>();
-        if (ObjectUtil.isNotEmpty(projPricingBaseInfos)) {
-            projReviewId2RiskType = projPricingBaseInfos.stream().filter(e -> ObjectUtil.isNotEmpty(e.getProjCode()) && ObjectUtil.isNotEmpty(e.getFtpIndustryCategory())).collect(Collectors.toMap(ProjPricingBaseInfo::getProjReviewId, ProjPricingBaseInfo::getFtpIndustryCategory, (a, b) -> a));
-        }
+        List<BudgetContractFactSnapshot> contractBaseInfos = budgetContractFactPort.listByIds(contractId2PaymentAmount.keySet());
+        Map<Long, Long> contractId2ProjReviewId = contractBaseInfos.stream().filter(e -> StrUtil.isNotBlank(e.getProjCode())).collect(Collectors.toMap(BudgetContractFactSnapshot::getId, BudgetContractFactSnapshot::getProjReviewId, (a, b) -> a));
+        Map<Long, List<BudgetContractFactSnapshot>> projReviewId2Contract = contractBaseInfos.stream().filter(e -> StrUtil.isNotBlank(e.getProjCode())).collect(Collectors.groupingBy(BudgetContractFactSnapshot::getProjReviewId));
+        Map<Long, Long> contractId2DeptId = contractBaseInfos.stream().collect(Collectors.toMap(BudgetContractFactSnapshot::getId, BudgetContractFactSnapshot::getBizDeptId, (a, b) -> a));
+        Map<Long, String> projReviewId2RiskType = budgetProjectFactPort.mapFtpIndustryCategoryByProjReviewIds(projReviewId2Contract.keySet());
         // 投放按照部门分组
-        Map<Long, List<PaymentActualDetail>> deptId2PaymentActual = new HashMap<>();
-        for (Map.Entry<Long, List<PaymentActualDetail>> entry : contractId2PaymentActual.entrySet()) {
+        Map<Long, List<BudgetPaymentActualSnapshot>> deptId2PaymentActual = new HashMap<>();
+        for (Map.Entry<Long, List<BudgetPaymentActualSnapshot>> entry : contractId2PaymentActual.entrySet()) {
             Long deptId = contractId2DeptId.get(entry.getKey());
             if (Objects.isNull(deptId)) {
                 continue;
             }
-            List<PaymentActualDetail> list = deptId2PaymentActual.get(deptId);
+            List<BudgetPaymentActualSnapshot> list = deptId2PaymentActual.get(deptId);
             if (Objects.isNull(list)) {
                 list = new LinkedList<>();
                 deptId2PaymentActual.put(deptId, list);
@@ -306,23 +301,23 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
             rsp.setBelongDeptId(deptId);
             rsp.setFieldName(BudgetExamineBudgetExecuteEnum.NEW_INVESTMENT_AMOUNT.name());
             //本年累计 - 截止到月底的已付款核销金额
-            rsp.setTotalYear(paymentActualList.stream().mapToLong(PaymentActualDetail::getPaidInAmount).sum());
+            rsp.setTotalYear(paymentActualList.stream().mapToLong(BudgetPaymentActualSnapshot::getPaidInAmount).sum());
             rsps.add(rsp);
         });
 
         //分产业投放
-        for (Map.Entry<Long, List<PaymentActualDetail>> entry : deptId2PaymentActual.entrySet()) {
+        for (Map.Entry<Long, List<BudgetPaymentActualSnapshot>> entry : deptId2PaymentActual.entrySet()) {
             Long deptId = entry.getKey();
-            List<PaymentActualDetail> paymentActualDetailList = entry.getValue();
+            List<BudgetPaymentActualSnapshot> paymentActualDetailList = entry.getValue();
             // 拆分FTP行业分类的数据
             long ftpOther = 0L;
             long ftpPublic = 0L;
             long ftpCivil = 0L;
             long ftpState = 0L;
-            for (PaymentActualDetail detail : paymentActualDetailList) {
+            for (BudgetPaymentActualSnapshot detail : paymentActualDetailList) {
                 //获取产业分类
                 String riskType = projReviewId2RiskType.get(contractId2ProjReviewId.get(detail.getContractId()));
-                FtpIndustryCategoryEnum ftpIndustryCategoryEnum = FtpIndustryCategoryEnum.getByName(riskType);
+                BudgetFtpIndustryCategory ftpIndustryCategoryEnum = BudgetFtpIndustryCategory.getByName(riskType);
                 if (ftpIndustryCategoryEnum == null) {
                     continue;
                 }
@@ -342,7 +337,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
                     default:
                 }
             }
-            for (FtpIndustryCategoryEnum ftpIndustryCategoryEnum : FtpIndustryCategoryEnum.values()) {
+            for (BudgetFtpIndustryCategory ftpIndustryCategoryEnum : BudgetFtpIndustryCategory.values()) {
                 BudgetExamineBudgetExecute rsp = new BudgetExamineBudgetExecute();
                 rsp.setBelongDeptId(deptId);
                 rsp.setFieldName(this.ensureFtpFieldName(ftpIndustryCategoryEnum));
@@ -368,7 +363,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         return rsps;
     }
 
-    private String ensureFtpFieldName(FtpIndustryCategoryEnum ftpIndustryCategoryEnum) {
+    private String ensureFtpFieldName(BudgetFtpIndustryCategory ftpIndustryCategoryEnum) {
         switch (ftpIndustryCategoryEnum) {
             case FTP_OTHER_INDUSTRY:
                 return BudgetExamineBudgetExecuteEnum.INCLUDING_OTHER_INDUSTRY_CATEGORY.name();
@@ -430,7 +425,7 @@ public class BudgetExamineBudgetExecuteService extends ServiceImpl<BudgetExamine
         // 去掉经营费用，已经在效益考核表取过一次了
         riskColumns.removeIf(e -> e == BudgetExamineBudgetExecuteEnum.OPERATING_EXPENSES);
         //苍穹科目余额表
-        Map<Long, Map<String, BigDecimal>> monthDeptValues = financeRiskHelp.getMonthDeptValues(req.getBudgetExamineYear(), req.getBudgetExamineMonth());
+        Map<Long, Map<String, BigDecimal>> monthDeptValues = budgetFinanceFactPort.listMonthDeptRiskValues(req.getBudgetExamineYear(), req.getBudgetExamineMonth());
         if (ObjectUtil.isNotEmpty(monthDeptValues)) {
             monthDeptValues.forEach((deptId, riskNames) -> riskColumns.forEach(riskName -> {
                 BudgetExamineBudgetExecute rsp = new BudgetExamineBudgetExecute();

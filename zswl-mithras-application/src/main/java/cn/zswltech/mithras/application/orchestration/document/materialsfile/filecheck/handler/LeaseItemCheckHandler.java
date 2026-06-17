@@ -9,7 +9,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.leaseholdproperty.enums.LeaseTextFileEnum;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;

@@ -1,15 +1,11 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorValue;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -24,7 +20,6 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 /**
@@ -40,13 +35,11 @@ public class MetricComputer7A10000396_ZL003 extends AbstractMetricComputer imple
     public static final String FACTOR_NAME = "所有者权益（或股东权益）合计@期末余额";
     public static final String FACTOR_TABLE = "资产负债表";
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
     private RiskMetricFactorQueryService factorService;
     @Resource
-    private ClientProvinceQueryService clientProvinceQueryService;
+    private RiskControlClientFactPort clientFactPort;
 
     @Override
     public String getMetricCode() {
@@ -78,17 +71,11 @@ public class MetricComputer7A10000396_ZL003 extends AbstractMetricComputer imple
 //        dto.setInClientIds(clientsInZhejiang);
 //        List<CorpCommerceInfoLib> zhejiangClients = corpCommerceInfoLibMapper.listNewestCommerceInfo(dto);
         // 获取集团协同业务的客户
-        List<CorpCommerceInfoLib> targetClients = corpCommerceInfoLibMapper.intraGroupClients();
+        Map<Long, Long> client2Group = clientFactPort.intraGroupClientIdToGroupId();
 //        // 或-> 取并集
 //        if (ObjectUtil.isNotEmpty(zhejiangClients)) {
 //            targetClients.addAll(zhejiangClients);
 //        }
-
-        Map<Long, Long> client2Group = targetClients.stream()
-                .filter(lib ->
-                        lib.getBelongGroupClientId() != null && lib.getBelongGroupClientId() != -1L)
-                .collect(Collectors.toMap(CorpCommerceInfoLib::getClientId,
-                        CorpCommerceInfoLib::getBelongGroupClientId, (a, b) -> a));
         RemainingPrincipalQueryDto queryDto = new RemainingPrincipalQueryDto();
         queryDto.setClientIds(client2Group.keySet());
         queryDto.setEndDate(event.getSnapshotDate());
@@ -118,4 +105,3 @@ public class MetricComputer7A10000396_ZL003 extends AbstractMetricComputer imple
         private Long factorValue;
     }
 }
-

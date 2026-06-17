@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.jsonbean.ProjEstablishPersonInfo;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;

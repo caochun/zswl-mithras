@@ -4,7 +4,7 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.liquidityindex.LiquidityIndexDetailRSP;
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.liquidity.enums.LiquidityBankAccountType;
 import cn.zswltech.mithras.liquidity.enums.FundParameterSignType;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
@@ -44,7 +44,7 @@ public class LiquidityGapRateCalculator extends AbstractLiquidityCalculator<Liqu
         long two = LiquidityIndicatorIndexHolder.ACCOUNT_BALANCE_BASE_INFO.entrySet().stream().filter(f -> {
             return !f.getKey().isBefore(bo.getQueryDateStart()) && !f.getKey().isAfter(bo.getQueryDateEnd());
         }).map(Map.Entry::getValue).map(Map::values).flatMap(Collection::stream).filter(f -> {
-            return !Objects.equals(BaseDataBankAccountTypeEnum.SUPERVISION.name(), f.getAccountType());
+            return !Objects.equals(LiquidityBankAccountType.SUPERVISION.name(), f.getAccountType());
         }).mapToLong(item -> LongUtil.null2zero(item.getRentReflowAmount())).sum();
         if(two != 0) {
             result = one.divide(BigDecimal.valueOf(two), 10, RoundingMode.HALF_UP);

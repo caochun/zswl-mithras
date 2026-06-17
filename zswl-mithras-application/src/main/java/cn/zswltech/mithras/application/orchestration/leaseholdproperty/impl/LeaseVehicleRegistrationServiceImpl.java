@@ -19,7 +19,7 @@ import cn.zswltech.mithras.dto.leaseholdproperty.*;
 import cn.zswltech.mithras.document.config.OcrConfigProperties;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.leaseholdproperty.enums.LeaseItemVehicleRegistrationTypeEnum;
 import cn.zswltech.mithras.leaseholdproperty.enums.LeaseOperateEnum;
 import cn.zswltech.mithras.leaseholdproperty.excel.exporter.LeaseItemVehicleRegistrationCertificateExcelExporter;

@@ -12,7 +12,7 @@ import cn.zswltech.mithras.foundation.util.CommonFileSortComparator;
 import cn.zswltech.mithras.afterlease.application.auth.AfterLeaseCheckReportModifyMainChecker;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.application.orchestration.document.convert.FileConvert;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportMaterialsEnum;
 import cn.zswltech.mithras.afterlease.enums.NewAfterLeaseCheckMaterialsEnum;
 import cn.zswltech.mithras.customer.mobile.enums.VisitPhaseStatus;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.file;
 
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 
 import java.util.List;

@@ -40,7 +40,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum.FILE_TEMPLATE;
+import static cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum.FILE_TEMPLATE;
 
 /**
  * @author yangxiong

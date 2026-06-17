@@ -18,10 +18,10 @@ import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalQueryCompanyRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalRelationREQ;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.leaseholdproperty.mapper.LeaseItemInfoMapper;
 import cn.zswltech.mithras.leaseholdproperty.mapper.TycAppraisalCompanyBaseInfoMapper;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.leaseholdproperty.application.port.LeaseholdContractContextPort;
+import cn.zswltech.mithras.leaseholdproperty.application.port.LeaseholdContractContextSnapshot;
 import cn.zswltech.mithras.leaseholdproperty.model.AppraisalCompanyWhitelist;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemAppraisalRelation;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
@@ -61,7 +61,7 @@ public class LeaseAppraisalServiceImpl implements LeaseAppraisalService {
     @Resource
     private TycService tycService;
     @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
+    private LeaseholdContractContextPort leaseholdContractContextPort;
     @Resource
     private LeaseItemInfoMapper itemInfoMapper;
 
@@ -210,7 +210,7 @@ public class LeaseAppraisalServiceImpl implements LeaseAppraisalService {
         if (ObjectUtil.isNull(contractId)) {
             throw new MithrasException("合同id不能为空");
         }
-        ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(contractId);
+        LeaseholdContractContextSnapshot contractBaseInfo = leaseholdContractContextPort.getByContractId(contractId);
         Assert.notNull(contractBaseInfo, () -> MithrasException.newException("合同不存在"));
         // 找到最新审批通过的租赁物流程
         LeaseItemInfo leaseItemInfo = itemInfoMapper.queryLastestListByContractId(contractBaseInfo.getProjReviewId());

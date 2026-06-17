@@ -30,7 +30,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
 import cn.zswltech.mithras.dto.file.FileUploadRSP;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.constant.Constant;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;

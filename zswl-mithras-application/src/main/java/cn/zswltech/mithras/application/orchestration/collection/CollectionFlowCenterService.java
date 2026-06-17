@@ -30,6 +30,7 @@ import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.payment.enums.*;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.collection.excel.model.CollectionListExcelModel;
+import cn.zswltech.mithras.application.orchestration.collection.mapper.CollectionPaymentFlowCenterMapper;
 import cn.zswltech.mithras.foundation.excel.LinkStyleHandler;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.model.BillManagement;
@@ -102,6 +103,8 @@ public class CollectionFlowCenterService {
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
     @Resource
+    private CollectionPaymentFlowCenterMapper collectionPaymentFlowCenterMapper;
+    @Resource
     private PaymentBaseInfoService paymentBaseInfoService;
     @Resource
     private PaymentActualDetailService paymentActualDetailService;
@@ -145,7 +148,7 @@ public class CollectionFlowCenterService {
                 req.setCashFlowItem(null);
             }
         }
-        Page<CollectionFlowCenterBusinessPaymentListRSP> page = paymentBaseInfoMapper.paymentFlowList(new Page<>(req.getPage(), req.getPageSize()), req);
+        Page<CollectionFlowCenterBusinessPaymentListRSP> page = collectionPaymentFlowCenterMapper.paymentFlowList(new Page<>(req.getPage(), req.getPageSize()), req);
         if (ObjectUtil.isNotEmpty(page) && ObjectUtil.isNotEmpty(page.getRecords())) {
             Map<Long, String> deptId2Name = id2NameService.deptId2Name(page.getRecords().stream().map(CollectionFlowCenterBusinessPaymentListRSP::getBizDeptId).filter(ObjectUtil::isNotEmpty).collect(Collectors.toList()));
             Map<Long, String> userId2Name = id2NameService.clientId2Name(page.getRecords().stream().map(CollectionFlowCenterBusinessPaymentListRSP::getClientId).filter(ObjectUtil::isNotEmpty).collect(Collectors.toList()));

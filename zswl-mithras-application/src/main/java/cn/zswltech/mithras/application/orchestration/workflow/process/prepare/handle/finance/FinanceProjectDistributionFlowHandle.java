@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.workflow.process.prepare.h
 
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.api.common.R;
-import cn.zswltech.mithras.financeprojectdistribution.service.impl.FinanceProjectDistributionService;
+import cn.zswltech.mithras.finance.projectdistribution.service.impl.FinanceProjectDistributionService;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.workflow.process.prepare.handle.AbstractFlowCommitHandle;

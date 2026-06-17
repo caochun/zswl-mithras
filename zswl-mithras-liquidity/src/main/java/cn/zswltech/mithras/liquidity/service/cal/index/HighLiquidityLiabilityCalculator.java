@@ -2,7 +2,7 @@ package cn.zswltech.mithras.liquidity.service.cal.index;
 
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.liquidity.enums.LiquidityBankAccountType;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorIndexHolder;
@@ -32,7 +32,7 @@ public class HighLiquidityLiabilityCalculator extends AbstractLiquidityCalculato
         BigDecimal result = LiquidityIndicatorIndexHolder.ACCOUNT_BALANCE_BASE_INFO.entrySet().stream().filter(f -> {
             return !f.getKey().isBefore(bo.getQueryDateStart()) && !f.getKey().isAfter(bo.getQueryDateEnd());
         }).map(Map.Entry::getValue).map(Map::values).flatMap(Collection::stream).filter(f -> {
-            return !Objects.equals(BaseDataBankAccountTypeEnum.SUPERVISION.name(), f.getAccountType());
+            return !Objects.equals(LiquidityBankAccountType.SUPERVISION.name(), f.getAccountType());
         }).map(item -> {
             BigDecimal one = LongUtil.null2zeroBigDecimal(item.getRepayAmount()).add(LongUtil.null2zeroBigDecimal(item.getRepayEditAmount()));
             BigDecimal two = LongUtil.null2zeroBigDecimal(item.getMustExpenseAmount());

@@ -1,15 +1,12 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.ClientDetail;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -24,7 +21,6 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 /**
@@ -40,11 +36,11 @@ import java.util.stream.Collectors;
 @Slf4j
 public class MetricComputer14J10000396_JC47548 extends AbstractMetricComputer implements SubscribeSupporter<MetricComputeEvent> {
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
     private ClientNameResolver clientNameResolver;
+    @Resource
+    private RiskControlClientFactPort clientFactPort;
 
     @Override
     public String getMetricCode() {
@@ -68,15 +64,11 @@ public class MetricComputer14J10000396_JC47548 extends AbstractMetricComputer im
         // 从企业商务信息表查询最新版本的风控行业分类不为（公用事业类、民生消费类）的客户id
 //        Set<Long> targetClients = new HashSet<>();
 //        if (ObjectUtil.isNotEmpty(clientsInZhejiang)) {
-            CorpCommerceInfoLibDto dto = new CorpCommerceInfoLibDto();
-//            dto.setInClientIds(clientsInZhejiang);
-            dto.setNotInRiskControlIndustryClassify(Arrays.asList(
-                    RiskControlIndustryClassify.PUBLIC_UTILITIES.name(),
-                    RiskControlIndustryClassify.CIVIL_CONSUMPTION.name(),
-//                    RiskControlIndustryClassify.TRAVEL.name(),
-                    RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name()));
-        Set<Long> targetClients = corpCommerceInfoLibMapper.listNewestCommerceInfo(dto).stream()
-                    .map(ClientBaseModel::getClientId).collect(Collectors.toSet());
+        Set<Long> targetClients = clientFactPort.clientIdsNotInRiskControlIndustryClassify(new HashSet<>(Arrays.asList(
+                RiskControlIndustryClassify.PUBLIC_UTILITIES.name(),
+                RiskControlIndustryClassify.CIVIL_CONSUMPTION.name(),
+//              RiskControlIndustryClassify.TRAVEL.name(),
+                RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name())));
 //        }
         RemainingPrincipalQueryDto queryDto = new RemainingPrincipalQueryDto();
         queryDto.setClientIds(targetClients);

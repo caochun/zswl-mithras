@@ -10,8 +10,7 @@ import cn.zswltech.mithras.dto.budget.BudgetParameterConfigListRSP;
 import cn.zswltech.mithras.dto.budget.BudgetParameterConfigModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.budget.enums.BudgetConfigTypeEnum;
-import cn.zswltech.mithras.ftp.newftp.enums.RelatedTermRange;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
+import cn.zswltech.mithras.budget.enums.BudgetFtpIndustryCategory;
 import cn.zswltech.mithras.budget.mapper.BudgetParameterConfigMapper;
 import cn.zswltech.mithras.budget.mapper.model.BudgetParameterConfig;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
@@ -78,8 +77,8 @@ public class BudgetParameterConfigService extends ServiceImpl<BudgetParameterCon
         return rsps;
     }
 
-    public Integer getRiskReserve(FtpIndustryCategoryEnum ftpIndustryCategoryEnum, RelatedTermRange relatedTermRange) {
-        if (Objects.isNull(ftpIndustryCategoryEnum) || Objects.isNull(relatedTermRange)) {
+    public Integer getRiskReserve(String ftpIndustryCategory, String relatedTermRangeCode) {
+        if (StrUtil.isBlank(ftpIndustryCategory) || StrUtil.isBlank(relatedTermRangeCode)) {
             return 0;
         }
         BudgetParameterConfig budgetParameterConfig = this.getOneByConfigType(BudgetConfigTypeEnum.RISK_RATIO);
@@ -90,12 +89,16 @@ public class BudgetParameterConfigService extends ServiceImpl<BudgetParameterCon
         if (CollectionUtil.isEmpty(list)) {
             return 0;
         }
-        Optional<BudgetParameterConfigListRSP.BudgetParameterRiskBO> config = list.stream().filter(e -> StrUtil.equals(ftpIndustryCategoryEnum.name(), e.getFtpIndustryCategory()) && StrUtil.equals(relatedTermRange.name(), e.getTermRange())).findFirst();
+        Optional<BudgetParameterConfigListRSP.BudgetParameterRiskBO> config = list.stream().filter(e -> StrUtil.equals(ftpIndustryCategory, e.getFtpIndustryCategory()) && StrUtil.equals(relatedTermRangeCode, e.getTermRange())).findFirst();
         if (config.isPresent()) {
             return config.get().getRiskReserve();
         } else {
             return 0;
         }
+    }
+
+    public Integer getRiskReserve(BudgetFtpIndustryCategory ftpIndustryCategory, String relatedTermRangeCode) {
+        return this.getRiskReserve(Objects.isNull(ftpIndustryCategory) ? null : ftpIndustryCategory.name(), relatedTermRangeCode);
     }
 
     public Integer getExpenseRatioByDeptId(Long bizDeptId) {
@@ -110,7 +113,10 @@ public class BudgetParameterConfigService extends ServiceImpl<BudgetParameterCon
         return list.stream().filter(e -> Objects.equals(e.getDeptId(), bizDeptId)).findFirst().map(BudgetParameterConfigListRSP.BudgetParameterExpenseRatioBO::getExpenseRatio).orElse(null);
     }
 
-    public Integer getFtpByFtpIndustryCategory(FtpIndustryCategoryEnum ftpIndustryCategoryEnum, Integer termMonth) {
+    public Integer getFtpByFtpIndustryCategory(String ftpIndustryCategory, Integer termMonth) {
+        if (StrUtil.isBlank(ftpIndustryCategory) || Objects.isNull(termMonth)) {
+            return null;
+        }
         BudgetParameterConfig budgetParameterConfig = this.getOneByConfigType(BudgetConfigTypeEnum.FTP_PRICE);
         if (StrUtil.isBlank(budgetParameterConfig.getConfigValue())) {
             return null;
@@ -119,7 +125,7 @@ public class BudgetParameterConfigService extends ServiceImpl<BudgetParameterCon
         if (CollectionUtil.isEmpty(list)) {
             return null;
         }
-        BudgetParameterConfigListRSP.BudgetParameterFtpBO bo = list.stream().filter(e -> Objects.equals(e.getFtpIndustryClassification(), ftpIndustryCategoryEnum.name())).findFirst().orElse(null);
+        BudgetParameterConfigListRSP.BudgetParameterFtpBO bo = list.stream().filter(e -> Objects.equals(e.getFtpIndustryClassification(), ftpIndustryCategory)).findFirst().orElse(null);
         if (Objects.isNull(bo)) {
             return null;
         }
@@ -130,6 +136,10 @@ public class BudgetParameterConfigService extends ServiceImpl<BudgetParameterCon
         } else {
             return bo.getOneYearTerm();
         }
+    }
+
+    public Integer getFtpByFtpIndustryCategory(BudgetFtpIndustryCategory ftpIndustryCategory, Integer termMonth) {
+        return this.getFtpByFtpIndustryCategory(Objects.isNull(ftpIndustryCategory) ? null : ftpIndustryCategory.name(), termMonth);
     }
 
     private BudgetParameterConfig getOneByConfigType(BudgetConfigTypeEnum budgetConfigTypeEnum) {

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.fund.financing.repay.FundFinancingRepayImportREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingRepayEstimateService;
 import lombok.extern.slf4j.Slf4j;

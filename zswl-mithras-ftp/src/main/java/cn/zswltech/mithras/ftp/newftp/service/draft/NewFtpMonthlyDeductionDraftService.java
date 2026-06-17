@@ -9,8 +9,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyDeductionListRSP;
 import cn.zswltech.mithras.dto.newftp.NewFtpMonthlyDeductionModifyREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
-import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
+import cn.zswltech.mithras.ftp.common.enums.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.basedata.persistence.model.BaseDataLpr;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
@@ -605,7 +604,7 @@ class MonthlyDeductionDataExtractor {
             return 0;
         }
         NewFtpMonthlyDeductionDraft deduction = map.get(termRange);
-        CustomerEntityClassify customerClassifyEnum = CustomerEntityClassify.valueOf(customerClassify);
+        EnterpriseTypeEnum customerClassifyEnum = EnterpriseTypeEnum.valueOf(customerClassify);
         switch (customerClassifyEnum) {
             case LISTED_COMPANY:
                 return deduction.getCustomerListed();

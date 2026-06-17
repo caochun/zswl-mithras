@@ -2,10 +2,6 @@ package cn.zswltech.mithras.report.board.service;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.IdcardUtil;
-import cn.zswltech.mithras.dto.projreview.price.ProjReviewAocPriceRSP;
-import cn.zswltech.mithras.dto.projreview.price.ProjReviewFactoringPriceRSP;
-import cn.zswltech.mithras.dto.projreview.price.ProjReviewLeasePriceRSP;
-import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
@@ -13,6 +9,7 @@ import cn.zswltech.mithras.report.excel.exporter.BoardProjInfoExcelExporter;
 import cn.zswltech.mithras.report.excel.model.BoardProjInfoExcelModel;
 import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
+import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
 import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
 import cn.zswltech.mithras.customer.model.client.Client;
@@ -22,14 +19,18 @@ import cn.zswltech.mithras.customer.model.client.NormalBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewAocPrice;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewFactoringPrice;
+import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewLeasePrice;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBaseInfoMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
+import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewAocPriceMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewFactoringPriceMapper;
+import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewLeasePriceMapper;
 import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.application.orchestration.client.ClientService;
-import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;
-import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewPriceService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 
@@ -47,11 +48,9 @@ import java.util.stream.Collectors;
 @Service
 public class ProjBoardService {
     @Resource
-    private ProjEstablishBaseInfoService projEstablishBaseInfoService;
-    @Resource
     private Id2NameService id2NameService;
     @Resource
-    private ClientService clientService;
+    private ClientMapper clientMapper;
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
     @Resource
@@ -59,7 +58,13 @@ public class ProjBoardService {
     @Resource
     private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
     @Resource
-    private ProjReviewPriceService projReviewPriceService;
+    private ProjEstablishBaseInfoMapper projEstablishBaseInfoMapper;
+    @Resource
+    private ProjReviewLeasePriceMapper projReviewLeasePriceMapper;
+    @Resource
+    private ProjReviewAocPriceMapper projReviewAocPriceMapper;
+    @Resource
+    private ProjReviewFactoringPriceMapper projReviewFactoringPriceMapper;
     @Resource
     private CorpAddressInfoMapper corpAddressInfoMapper;
     @Resource
@@ -88,12 +93,18 @@ public class ProjBoardService {
         Set<Long> deptIds = projReviewBaseInfos.stream().map(ProjReviewBaseInfo::getBizDeptId).collect(Collectors.toSet());
         Map<Long, String> deptMap = id2NameService.deptId2Name(deptIds);
 
-        List<Client> clients = clientService.listByClientIds(clientIds);
+        List<Client> clients = clientMapper.selectBatchIds(clientIds);
         Map<Long, List<Client>> clientMap = clients.stream().collect(Collectors.groupingBy(Client::getId));
 
         List<Long> peIds = projReviewBaseInfos.stream().map(ProjReviewBaseInfo::getProjEstablishId).distinct().collect(Collectors.toList());
-        List<ProjEstablishBaseInfo> projEstablishBaseInfos = projEstablishBaseInfoService.list(Wrappers.<ProjEstablishBaseInfo>lambdaQuery().in(ProjEstablishBaseInfo::getId, peIds));
+        List<ProjEstablishBaseInfo> projEstablishBaseInfos = projEstablishBaseInfoMapper.selectList(Wrappers.<ProjEstablishBaseInfo>lambdaQuery().in(ProjEstablishBaseInfo::getId, peIds));
         Map<Long, List<ProjEstablishBaseInfo>> projEstablishBaseInfoMap = projEstablishBaseInfos.stream().collect(Collectors.groupingBy(ProjEstablishBaseInfo::getId));
+        Map<Long, ProjReviewLeasePrice> leasePriceMap = projReviewLeasePriceMapper.selectList(Wrappers.<ProjReviewLeasePrice>lambdaQuery().in(ProjReviewLeasePrice::getProjectId, rids))
+                .stream().collect(Collectors.toMap(ProjReviewLeasePrice::getProjectId, e -> e, (a, b) -> a));
+        Map<Long, ProjReviewAocPrice> aocPriceMap = projReviewAocPriceMapper.selectList(Wrappers.<ProjReviewAocPrice>lambdaQuery().in(ProjReviewAocPrice::getProjectId, rids))
+                .stream().collect(Collectors.toMap(ProjReviewAocPrice::getProjectId, e -> e, (a, b) -> a));
+        Map<Long, ProjReviewFactoringPrice> factoringPriceMap = projReviewFactoringPriceMapper.selectList(Wrappers.<ProjReviewFactoringPrice>lambdaQuery().in(ProjReviewFactoringPrice::getProjectId, rids))
+                .stream().collect(Collectors.toMap(ProjReviewFactoringPrice::getProjectId, e -> e, (a, b) -> a));
 
         //所有法人，自然人 地址信息
         List<CorpAddressInfo> corpAddressInfos = corpAddressInfoMapper.selectList(Wrappers.<CorpAddressInfo>lambdaQuery().in(CorpAddressInfo::getClientId, clientIds));
@@ -132,21 +143,20 @@ public class ProjBoardService {
             ProjEstablishBaseInfo projEstablishBaseInfo = projEstablishBaseInfoMap.get(projReviewBaseInfo.getProjEstablishId()).get(0);
             tmp.setProjestablishTime(projEstablishBaseInfo.getCreateTime().toLocalDate().toString());
 
-            ProjReviewPriceDetailRSP detail = projReviewPriceService.detail(projReviewBaseInfo.getId());
-            if (detail.getLeasePriceDetailRSP() != null) {
-                ProjReviewLeasePriceRSP leasePriceDetailRsp = detail.getLeasePriceDetailRSP();
-                tmp.setApplyCreditAmount(leasePriceDetailRsp.getApplyCreditAmount() != null? BigDecimal.valueOf(leasePriceDetailRsp.getApplyCreditAmount()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString() : "0");
-                tmp.setIrrPercent(leasePriceDetailRsp.getIrrPercent() != null ? BigDecimal.valueOf(leasePriceDetailRsp.getIrrPercent()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString()+"%" : "0.05%");
+            ProjReviewLeasePrice leasePrice = leasePriceMap.get(projReviewBaseInfo.getId());
+            if (leasePrice != null) {
+                tmp.setApplyCreditAmount(leasePrice.getApplyCreditAmount() != null? BigDecimal.valueOf(leasePrice.getApplyCreditAmount()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString() : "0");
+                tmp.setIrrPercent(leasePrice.getIrrPercent() != null ? BigDecimal.valueOf(leasePrice.getIrrPercent()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString()+"%" : "0.05%");
             }
-            if (detail.getAocPriceDetailRSP() != null) {
-                ProjReviewAocPriceRSP aocPriceDetailRsp = detail.getAocPriceDetailRSP();
-                tmp.setApplyCreditAmount(aocPriceDetailRsp.getApplyCreditAmount() != null? BigDecimal.valueOf(aocPriceDetailRsp.getApplyCreditAmount()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString() : "0");
-                tmp.setIrrPercent(aocPriceDetailRsp.getIrrPercent() != null ? BigDecimal.valueOf(aocPriceDetailRsp.getIrrPercent()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString()+"%" : "0.05%");
+            ProjReviewAocPrice aocPrice = aocPriceMap.get(projReviewBaseInfo.getId());
+            if (aocPrice != null) {
+                tmp.setApplyCreditAmount(aocPrice.getApplyCreditAmount() != null? BigDecimal.valueOf(aocPrice.getApplyCreditAmount()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString() : "0");
+                tmp.setIrrPercent(aocPrice.getIrrPercent() != null ? BigDecimal.valueOf(aocPrice.getIrrPercent()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString()+"%" : "0.05%");
             }
-            if (detail.getFactoringPriceDetailRSP() != null) {
-                ProjReviewFactoringPriceRSP factoringPriceDetailRsp = detail.getFactoringPriceDetailRSP();
-                tmp.setApplyCreditAmount(factoringPriceDetailRsp.getApplyCreditAmount() != null? BigDecimal.valueOf(factoringPriceDetailRsp.getApplyCreditAmount()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString() : "0");
-                tmp.setIrrPercent(factoringPriceDetailRsp.getIrrPercent() != null ? BigDecimal.valueOf(factoringPriceDetailRsp.getIrrPercent()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString()+"%" : "0.05%");
+            ProjReviewFactoringPrice factoringPrice = factoringPriceMap.get(projReviewBaseInfo.getId());
+            if (factoringPrice != null) {
+                tmp.setApplyCreditAmount(factoringPrice.getApplyCreditAmount() != null? BigDecimal.valueOf(factoringPrice.getApplyCreditAmount()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString() : "0");
+                tmp.setIrrPercent(factoringPrice.getIrrPercent() != null ? BigDecimal.valueOf(factoringPrice.getIrrPercent()).divide(BigDecimal.valueOf(10000)).setScale(2, RoundingMode.HALF_UP).toString()+"%" : "0.05%");
             }
 
             List<ContractBaseInfo> infos = pcMap.get(projReviewBaseInfo.getId());

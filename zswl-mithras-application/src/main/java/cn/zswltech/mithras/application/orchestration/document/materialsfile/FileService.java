@@ -33,7 +33,7 @@ import cn.zswltech.mithras.foundation.enums.InfoOperation;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.document.convert.FileConvert;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractFileQueryType;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.document.versioning.MaterialsListLibService;

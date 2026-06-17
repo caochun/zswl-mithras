@@ -34,7 +34,7 @@
             max(case t.indicator_code WHEN 'class_adj' THEN (case WHEN t.indicator_value is null then 0
                 ELSE t.indicator_value end ) ELSE -9999999999999 END) as class_adj
         FROM
-            (SELECT area_uni_code,indicator_name,indicator_code,indicator_value FROM rzy_dm_calculate_indicator WHERE area_uni_code = ${area_uni_code}) t
+            (SELECT area_uni_code,indicator_name,indicator_code,indicator_value FROM rzy_dm_calculate_indicator WHERE area_uni_code = #{area_uni_code}) t
         GROUP BY t.area_uni_code
 
     </select>
@@ -72,7 +72,7 @@
             max(case t.indicator_code WHEN 'city_score' THEN (case WHEN t.indicator_value is null then 0
                 ELSE t.indicator_value end ) ELSE -9999999999999 END) as city_score
         FROM
-            (SELECT area_uni_code,indicator_name,indicator_code,indicator_value FROM rzy_dm_calculate_indicator WHERE area_uni_code = ${area_uni_code}) t
+            (SELECT area_uni_code,indicator_name,indicator_code,indicator_value FROM rzy_dm_calculate_indicator WHERE area_uni_code = #{area_uni_code}) t
         GROUP BY t.area_uni_code
 
     </select>

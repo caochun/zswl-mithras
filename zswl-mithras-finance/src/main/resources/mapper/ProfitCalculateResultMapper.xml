@@ -30,7 +30,7 @@
         e.name as bizDeptName
         from profit_calculate_result as a
         left join contract_base_info as b on a.contract_id = b.id
-        left join client as c on a.contract_id = c.id
+        left join client as c on b.client_id = c.id
         left join corp_commerce_info_lib as d on c.id = d.client_id and c.newest_version = d.version
         left join bifrost_org e on e.id = b.biz_dept_id
         <include refid="myPageListWhere"></include>
@@ -42,7 +42,7 @@
         count(*)
         from profit_calculate_result as a
         left join contract_base_info as b on a.contract_id = b.id
-        left join client as c on a.contract_id = c.id
+        left join client as c on b.client_id = c.id
         left join corp_commerce_info_lib as d on c.id = d.client_id and c.newest_version = d.version
         left join bifrost_org e on e.id = b.biz_dept_id
         <include refid="myPageListWhere"></include>

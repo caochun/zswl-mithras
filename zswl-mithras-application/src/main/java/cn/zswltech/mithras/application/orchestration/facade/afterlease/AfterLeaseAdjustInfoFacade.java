@@ -6,7 +6,7 @@ import cn.zswltech.mithras.afterlease.application.AfterLeaseAdjustInfoApplicatio
 import cn.zswltech.mithras.dto.afterlease.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonAddSubAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.validation.Valid;

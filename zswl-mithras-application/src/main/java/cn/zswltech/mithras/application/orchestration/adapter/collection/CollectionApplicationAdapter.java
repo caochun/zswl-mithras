@@ -42,7 +42,7 @@ import cn.zswltech.mithras.dto.collection.PenaltyInterestListRSP;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonViewMainAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonViewSubAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionFlowCenterService;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;

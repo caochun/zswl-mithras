@@ -2,12 +2,10 @@ package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorValue;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -23,7 +21,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 /**
@@ -38,7 +35,7 @@ public class MetricComputer10A10000396_JC049 extends AbstractMetricComputer impl
     public static final String FACTOR_NAME = "所有者权益（或股东权益）合计@期末余额";
     public static final String FACTOR_TABLE = "资产负债表";
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
+    private RiskControlClientFactPort clientFactPort;
     @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
@@ -67,11 +64,7 @@ public class MetricComputer10A10000396_JC049 extends AbstractMetricComputer impl
             strategy.setCurrentValueOne(null);
             return;
         }
-        CorpCommerceInfoLibDto dto = new CorpCommerceInfoLibDto();
-        dto.setIsRelated(1);
-        Set<Long> clientIds = corpCommerceInfoLibMapper.listNewestCommerceInfo(dto)
-                .stream().map(CorpCommerceInfoLib::getClientId)
-                .collect(Collectors.toSet());
+        Set<Long> clientIds = clientFactPort.relatedClientIds();
         if (clientIds.isEmpty()) {
             strategy.setCurrentValueOne(0L);
             return;

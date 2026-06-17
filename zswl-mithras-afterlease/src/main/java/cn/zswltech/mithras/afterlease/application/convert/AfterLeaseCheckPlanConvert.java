@@ -5,7 +5,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckPlanDetailRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckPlanListRSP;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckSummaryReportRSP;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialSnapshot;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 
 /**
@@ -47,7 +47,7 @@ public class AfterLeaseCheckPlanConvert {
         return rsp;
     }
 
-    public static AfterLeaseCheckSummaryReportRSP toAfterLeaseCheckSummaryReportRSP(MaterialsList materialsList) {
+    public static AfterLeaseCheckSummaryReportRSP toAfterLeaseCheckSummaryReportRSP(AfterLeaseMaterialSnapshot materialsList) {
         AfterLeaseCheckSummaryReportRSP rsp = new AfterLeaseCheckSummaryReportRSP();
         rsp.setFileId(materialsList.getId());
         rsp.setFileName(materialsList.getFilename());

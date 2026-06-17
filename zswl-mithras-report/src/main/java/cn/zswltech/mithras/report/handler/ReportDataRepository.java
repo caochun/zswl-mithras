@@ -42,9 +42,9 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantryLib;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.foundation.util.StreamUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import cn.zswltech.mithras.foundation.util.StringUtils;
@@ -83,7 +83,7 @@ public class ReportDataRepository {
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
-    private PaymentActualDetailService paymentActualDetailService;
+    private PaymentActualDetailMapper paymentActualDetailMapper;
     @Resource
     private CrOverdueRecordDraftMapper crOverdueRecordDraftMapper;
     @Resource
@@ -217,7 +217,7 @@ public class ReportDataRepository {
      */
     public Map<String, List<PaymentBaseInfo>> listNeedReportChangePaymentBaseInfo(LocalDateTime dealTime, LocalDateTime lastDealTime) {
         // 收缩这段时间内存在投放的付款申请
-        List<PaymentActualDetail> actualDetailList = paymentActualDetailService.list(Wrappers.<PaymentActualDetail>lambdaQuery()
+        List<PaymentActualDetail> actualDetailList = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
                 .between(PaymentActualDetail::getCreateTime, lastDealTime, dealTime));
         if (CollUtil.isEmpty(actualDetailList)) {
             return Collections.emptyMap();
@@ -258,7 +258,7 @@ public class ReportDataRepository {
      */
     public List<PaymentBaseInfo> listNeedReportChangePaymentBaseInfoNew(LocalDateTime dealTime, LocalDateTime lastDealTime) {
         // 收缩这段时间内存在投放的付款申请
-        List<PaymentActualDetail> actualDetailList = paymentActualDetailService.list(Wrappers.<PaymentActualDetail>lambdaQuery()
+        List<PaymentActualDetail> actualDetailList = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
                 .between(PaymentActualDetail::getCreateTime, lastDealTime, dealTime));
         if (CollUtil.isEmpty(actualDetailList)) {
             return Collections.emptyList();

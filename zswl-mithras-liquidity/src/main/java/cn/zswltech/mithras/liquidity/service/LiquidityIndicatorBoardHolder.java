@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.liquidity.service;
 
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterBaseDetailRSP;
-import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
+import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionRecordSnapshot;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 
 import java.time.LocalDate;
@@ -37,6 +37,6 @@ public class LiquidityIndicatorBoardHolder {
     /**
      * 实际核销记录，key：收款id
      */
-    public static Map<Long, List<CollectionRecordInfo>> COLLECTION_RECORD_INFO = new HashMap<>();
+    public static Map<Long, List<LiquidityCollectionRecordSnapshot>> COLLECTION_RECORD_INFO = new HashMap<>();
 
 }

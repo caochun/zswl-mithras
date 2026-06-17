@@ -7,7 +7,7 @@ import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingDeleteAuthChecker;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainCreateAuthChecker;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModifyAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingService;
 import lombok.extern.slf4j.Slf4j;

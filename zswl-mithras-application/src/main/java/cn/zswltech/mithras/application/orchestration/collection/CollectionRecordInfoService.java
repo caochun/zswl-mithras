@@ -58,7 +58,6 @@ import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
 import cn.zswltech.mithras.collection.model.CollectionWriteOffRecord;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
-import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
@@ -567,8 +566,8 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
             Integer count = collectionBaseInfoMapper.selectCount(Wrappers.<CollectionBaseInfo>lambdaQuery()
                     .eq(CollectionBaseInfo::getContractId, baseInfo.getContractId())
                     .ne(CollectionBaseInfo::getWriteOffStatus, CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED));
-            MarginBaseInfo info = marginBaseInfoService.getMarginBaseInfoByContractId(baseInfo.getContractId());
-            if (count == 0 && (info == null || info.getCollectionAmount() <= 0)) {
+            Long marginCollectionAmount = marginBaseInfoService.getLatestCollectionAmountByContractId(baseInfo.getContractId());
+            if (count == 0 && LongUtil.null2zero(marginCollectionAmount) <= 0) {
                 log.info("收款核销完毕，通知合同执行结清操作[contractId: {}]", baseInfo.getContractId());
                 //这里修改为正常结清通过可结清，提前结清的需在结清确认流程中
                 ProcessPageReq req = new ProcessPageReq();
@@ -1301,12 +1300,6 @@ public class CollectionRecordInfoService extends ServiceImpl<CollectionRecordInf
                 rsp.setInterest(null);
                 rsp.setPenaltyInterest(null);
             }
-            /*if (o.getCollectionType().equals(RecordTypeEnum.REFUND_MARGIN_DEDUCT.name())) {
-                rsp.setMarginId(o.getDataSource());
-                //一般只有一条抵扣记录
-                MarginBaseInfo info = marginBaseInfoMapper.selectById(Long.parseLong(rsp.getMarginId()));
-                rsp.setDataSource(info.getMarginCode());
-            }*/
 //            rsp.setCollectionType(Optional.ofNullable(rsp.getCollectionType()).map(RecordTypeEnum::of).map(RecordTypeEnum::display).orElse(null));
             if (StrUtil.isNotEmpty(o.getInvoiceFlag())) {
                 rsp.setInvoice("1".equals(o.getInvoiceFlag()) ? "是" : "否");

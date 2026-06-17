@@ -36,7 +36,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.kpi.convert.KpiProjectDistributionConvert;
 import cn.zswltech.mithras.kpi.application.distribution.KpiProjectDistributionDeptWeightService;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientTransferStatus;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;

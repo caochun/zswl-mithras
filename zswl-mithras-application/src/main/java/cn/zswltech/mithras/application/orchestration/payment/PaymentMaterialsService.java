@@ -12,7 +12,7 @@ import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsListReq;
 import cn.zswltech.mithras.api.payment.dto.PaymentMaterialsListRsp;
 import cn.zswltech.mithras.foundation.util.CommonFileSortComparator;
 import cn.zswltech.mithras.payment.application.convert.PaymentMaterialsListConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.document.enums.SpecialFileBusinessType;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;

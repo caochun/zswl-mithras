@@ -6,7 +6,7 @@ import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.onlyoffice.DocDetailRSP;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;

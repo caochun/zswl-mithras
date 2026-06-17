@@ -1,15 +1,14 @@
 package cn.zswltech.mithras.collection.application.job.impl;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.collection.application.job.CollectionMailClientInfo;
+import cn.zswltech.mithras.collection.application.job.CollectionMailContactInfo;
+import cn.zswltech.mithras.collection.application.job.CollectionMailContractInfo;
 import cn.zswltech.mithras.collection.application.job.CollectionMailJobSupportPort;
 import cn.zswltech.mithras.collection.application.job.RentExpireToMailJobService;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.CorpContactInfo;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionBaseInfo;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -66,7 +65,7 @@ public class RentExpireToMailJobServiceImpl implements RentExpireToMailJobServic
             Long manageUser;//主办人ID
             String contractCode = "";//合同编号
             RentCollectionBaseInfo rentCollectionBaseInfo;
-            List<CorpContactInfo> corpContactInfoList = null;//联系人
+            List<CollectionMailContactInfo> corpContactInfoList = null;//联系人
             Integer sendSum = 0;
             Long lNominalPrice = null;//名义价款
 
@@ -80,13 +79,13 @@ public class RentExpireToMailJobServiceImpl implements RentExpireToMailJobServic
                 //提前7天发送提醒邮件(workDays计算的天数差距包含起止日期，故计算的天数少一天，条件中加一天)
                 if (workDays==8) {
                     //查询合同信息
-                    ContractBaseInfo contractBaseInfo = supportPort.getContractById(collectionBaseInfo.getContractId());
+                    CollectionMailContractInfo contractBaseInfo = supportPort.getContractById(collectionBaseInfo.getContractId());
                     if (contractBaseInfo == null) {
                         log.info("合同{}不存在", collectionBaseInfo.getContractId());
                         continue;
                     }
                     //合同结清的话，跳过
-                    if(ContractStatus.SETTLE.name().equals(contractBaseInfo.getContractStatus())){
+                    if(contractBaseInfo.isSettled()){
                         continue;
                     }
                     contractCode = contractBaseInfo.getContractCode();
@@ -96,7 +95,7 @@ public class RentExpireToMailJobServiceImpl implements RentExpireToMailJobServic
                     carbonCopyMails = supportPort.getUserEmailSet(Collections.singleton(manageUser));
                     //获取客户编号
                     clientId = contractBaseInfo.getClientId();
-                    Client client = supportPort.getClientById(clientId);
+                    CollectionMailClientInfo client = supportPort.getClientById(clientId);
                     if(client == null){
                         log.info("客户"+clientId+"不存在");
                         continue;

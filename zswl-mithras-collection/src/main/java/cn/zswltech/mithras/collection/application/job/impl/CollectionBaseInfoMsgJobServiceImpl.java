@@ -1,13 +1,12 @@
 package cn.zswltech.mithras.collection.application.job.impl;
 
-import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.collection.application.job.CollectionBaseInfoMsgJobService;
 import cn.zswltech.mithras.collection.application.job.CollectionNotificationPort;
+import cn.zswltech.mithras.collection.application.job.CollectionRentDueContractInfo;
+import cn.zswltech.mithras.collection.application.job.CollectionRentDueContractInfoPort;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
@@ -23,9 +22,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static com.baomidou.mybatisplus.core.toolkit.ObjectUtils.isNotNull;
 
@@ -47,7 +44,7 @@ public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMs
     @Resource
     private DeptUserResolver deptUserResolver;
     @Resource
-    private ContractBaseInfoLibHandler baseInfoLibHandler;
+    private CollectionRentDueContractInfoPort contractInfoPort;
     @Resource
     private ClientNameResolver clientNameResolver;
 
@@ -76,8 +73,6 @@ public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMs
                     return;
                 }
 
-                Map<String, List<CollectionBaseInfo>> baseInfoMap = Optional.of(list).orElse(Collections.emptyList()).stream()
-                        .collect(Collectors.groupingBy(CollectionBaseInfo::getContractCode));
                 Set<Long> userIds = new HashSet<>();
                 //法律合规部
                 Set<Long> flhgbSet = deptUserResolver.userIdsByDeptCode("FLHGB_ZCBQ");
@@ -92,14 +87,16 @@ public class CollectionBaseInfoMsgJobServiceImpl implements CollectionBaseInfoMs
                 for (CollectionBaseInfo info : list) {
                     Set<Long> newUserIds = new HashSet<>();
                     newUserIds.addAll(userIds);
-                    ContractBaseInfoLib detail = baseInfoLibHandler.queryLatestDataByOriginId(info.getContractId());
+                    CollectionRentDueContractInfo detail = contractInfoPort.getLatestContractInfo(info.getContractId());
+                    if (detail == null) {
+                        continue;
+                    }
                     Map<Long, String> clientMap = clientNameResolver.clientId2Name(Collections.singleton(detail.getClientId()));
                     if (isNotNull(detail.getProjSponsorUserId())) {
                         newUserIds.add(detail.getProjSponsorUserId());
                     }
                     if (isNotNull(detail.getProjCosponsorUserIds())) {
-                        List<Long> cosponsorUserIds = JSONUtil.toList(detail.getProjCosponsorUserIds(), Long.class);
-                        newUserIds.addAll(cosponsorUserIds);
+                        newUserIds.addAll(detail.getProjCosponsorUserIds());
                     }
                     if (isNotNull(detail.getBizDeptLeaderId())) {
                         newUserIds.add(detail.getBizDeptLeaderId());

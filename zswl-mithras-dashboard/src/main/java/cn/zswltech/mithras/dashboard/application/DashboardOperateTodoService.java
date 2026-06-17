@@ -8,28 +8,26 @@ import cn.hutool.core.thread.NamedThreadFactory;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.flow.core.api.FlowProcessApiService;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.dao.NodeBackRecordMapper;
-import cn.zswltech.flow.core.dao.OperateRecordMapper;
-import cn.zswltech.flow.core.domain.entity.NodeBackRecord;
-import cn.zswltech.flow.core.domain.entity.OperateRecord;
 import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.CommentTypeEnum;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.model.ext.GlobalExt;
 import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.flow.core.service.impl.FlowModelService;
+import cn.zswltech.mithras.dashboard.application.port.DashboardNodeBackRecordSnapshot;
+import cn.zswltech.mithras.dashboard.application.port.DashboardOperateRecordPort;
+import cn.zswltech.mithras.dashboard.application.port.DashboardOperateRecordSnapshot;
 import cn.zswltech.mithras.dto.dashboard.operate.DashboardOperateTodoArriveREQ;
 import cn.zswltech.mithras.dto.dashboard.operate.DashboardOperateTodoArriveRSP;
+import cn.zswltech.mithras.dashboard.enums.DashboardFlowCommentType;
+import cn.zswltech.mithras.dashboard.enums.DashboardProcessBusinessStatus;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.dashboard.enums.DashboardProcessModel;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.repository.Model;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -52,13 +50,11 @@ public class DashboardOperateTodoService implements cn.zswltech.mithras.dashboar
     @Resource
     private FlowModelService flowModelService;
     @Resource
-    private OperateRecordMapper operateRecordMapper;
+    private DashboardOperateRecordPort dashboardOperateRecordPort;
     @Resource
     private RepositoryService repositoryService;
     @Resource
     private FlowProcessApiService flowProcessApiService;
-    @Resource
-    private NodeBackRecordMapper nodeBackRecordMapper;
 
 //    private static final ThreadPoolExecutor todoPool = new ThreadPoolExecutor(5, 10, 120, TimeUnit.SECONDS, new LinkedBlockingDeque<>(100), new NamedThreadFactory("MithrasDashBoardTodoThread-", false));
 
@@ -67,17 +63,17 @@ public class DashboardOperateTodoService implements cn.zswltech.mithras.dashboar
      * 三页待办对应的流程
      */
     private final List<List<String>> modelKeyListOne = Arrays.asList(
-            Arrays.asList(ProcessModelTypeEnum.LeaseCreateFlow.name(),ProcessModelTypeEnum.LeaseModifyFlow.name()),
-            Arrays.asList(ProcessModelTypeEnum.ContractCreateFlow.name(),ProcessModelTypeEnum.ContractModifyFlow.name()),
-            Collections.singletonList(ProcessModelTypeEnum.PaymentCreateFlow.name()));
+            Arrays.asList(DashboardProcessModel.LeaseCreateFlow.name(),DashboardProcessModel.LeaseModifyFlow.name()),
+            Arrays.asList(DashboardProcessModel.ContractCreateFlow.name(),DashboardProcessModel.ContractModifyFlow.name()),
+            Collections.singletonList(DashboardProcessModel.PaymentCreateFlow.name()));
 
     private final List<List<String>> modelKeyListTwo = Arrays.asList(
-            Collections.singletonList(ProcessModelTypeEnum.ClientModifyFlow.name()),
-            Collections.singletonList(ProcessModelTypeEnum.ClientTransferFlow.name()));
+            Collections.singletonList(DashboardProcessModel.ClientModifyFlow.name()),
+            Collections.singletonList(DashboardProcessModel.ClientTransferFlow.name()));
 
     private final List<List<String>> modelKeyListThree = Arrays.asList(
-            Arrays.asList(ProcessModelTypeEnum.ContractEarlySettleFlow.name(),ProcessModelTypeEnum.ContractNormalSettleFlow.name()),
-            Collections.singletonList(ProcessModelTypeEnum.ContractEarlyRepayFlow.name()));
+            Arrays.asList(DashboardProcessModel.ContractEarlySettleFlow.name(),DashboardProcessModel.ContractNormalSettleFlow.name()),
+            Collections.singletonList(DashboardProcessModel.ContractEarlyRepayFlow.name()));
 
     public static final List<String> modelNameListOne = Arrays.asList("租赁物审核流程","合同审批流程","付款申请流程");
     private final List<String> modelNameListTwo = Arrays.asList("客户创建流程","客户权限申请","客户移交流程");
@@ -165,25 +161,20 @@ public class DashboardOperateTodoService implements cn.zswltech.mithras.dashboar
      */
     private void filterWillArrive(Map<String,List<ProcessResp>> fhMap,Map<String, Map<String, List<UserTaskExt>>> modelJobNodeExt,Map<String,List<List<String>>> modelNodeSequenceMap,String jobCode) {
         List<String> processInstanceIdList = fhMap.values().stream().flatMap(List::stream).map(ProcessResp::getProcessInstanceId).collect(Collectors.toList());
-        Example example = new Example(OperateRecord.class);
-        example.createCriteria().andIn("processInstanceId", processInstanceIdList);
-        List<OperateRecord> operateRecordList = operateRecordMapper.selectByCondition(example);
+        List<DashboardOperateRecordSnapshot> operateRecordList = dashboardOperateRecordPort.listOperateRecords(processInstanceIdList);
         // 根据processDefinitionId的前缀取出modelKey, 用modelKey和processInstanceId分组 ,并根据时间排序
-        Map<String, Map<String, List<OperateRecord>>> operateRecordMap = operateRecordList.stream()
-                .collect(Collectors.groupingBy(record -> record.getProcessDefinitionId().split(":")[0],
-                        Collectors.groupingBy(OperateRecord::getProcessInstanceId,
+        Map<String, Map<String, List<DashboardOperateRecordSnapshot>>> operateRecordMap = operateRecordList.stream()
+                .collect(Collectors.groupingBy(DashboardOperateRecordSnapshot::getModelKey,
+                        Collectors.groupingBy(DashboardOperateRecordSnapshot::getProcessInstanceId,
                                 Collectors.mapping(Function.identity(), Collectors.collectingAndThen(Collectors.toList(),
                                         list -> {
-                                            list.sort(Comparator.comparing(OperateRecord::getGmtCreate));
+                                            list.sort(Comparator.comparing(DashboardOperateRecordSnapshot::getOperateTime));
                                             return list;
                                         })))));
-        Example nodeExample = new Example(NodeBackRecord.class);
-        nodeExample.createCriteria().andIn("processInstanceId",processInstanceIdList);
-        nodeExample.orderBy("gmtCreate").desc();
-        List<NodeBackRecord> nodeBackRecords = nodeBackRecordMapper.selectByCondition(nodeExample);
-        Map<String, Integer> nodeBackRecordsMap = nodeBackRecords.stream().collect(Collectors.toMap(NodeBackRecord::getProcessInstanceId, NodeBackRecord::getJumpToSourceFlag, (m1, m2) -> m1));
+        List<DashboardNodeBackRecordSnapshot> nodeBackRecords = dashboardOperateRecordPort.listNodeBackRecords(processInstanceIdList);
+        Map<String, Integer> nodeBackRecordsMap = nodeBackRecords.stream().collect(Collectors.toMap(DashboardNodeBackRecordSnapshot::getProcessInstanceId, DashboardNodeBackRecordSnapshot::getJumpToSourceFlag, (m1, m2) -> m1));
         fhMap.forEach((modelKey, list) -> {
-            Map<String, List<OperateRecord>> operateProcessMap = operateRecordMap.get(modelKey);
+            Map<String, List<DashboardOperateRecordSnapshot>> operateProcessMap = operateRecordMap.get(modelKey);
             if (CollectionUtils.isNotEmpty(operateProcessMap)) {
                 List<UserTaskExt> userTaskExtList = modelJobNodeExt.getOrDefault(modelKey, new HashMap<>()).getOrDefault(jobCode, new ArrayList<>());
                 if(CollectionUtils.isEmpty(userTaskExtList)){
@@ -193,12 +184,12 @@ public class DashboardOperateTodoService implements cn.zswltech.mithras.dashboar
                 // 对流程进行遍历
                 for (ProcessResp processResp : new ArrayList<>(list)) {
                     for (UserTaskExt userTaskExt : userTaskExtList) {
-                        List<OperateRecord> operateRecords = operateProcessMap.get(processResp.getProcessInstanceId());
+                        List<DashboardOperateRecordSnapshot> operateRecords = operateProcessMap.get(processResp.getProcessInstanceId());
                         String processActivityId = null;
                         String excludeActivityId = null;
                         // 最近一次操作是否为退回(直达本节点)
-                        if (CommentTypeEnum.BHFQR_ZJDW.name().equals(operateRecords.get(operateRecords.size() - 1).getType()) ||
-                                (CommentTypeEnum.BH.name().equals(operateRecords.get(operateRecords.size() - 1).getType()) && Objects.equals(nodeBackRecordsMap.get(processResp.getProcessInstanceId()),1))) {
+                        if (DashboardFlowCommentType.BHFQR_ZJDW.name().equals(operateRecords.get(operateRecords.size() - 1).getType()) ||
+                                (DashboardFlowCommentType.BH.name().equals(operateRecords.get(operateRecords.size() - 1).getType()) && Objects.equals(nodeBackRecordsMap.get(processResp.getProcessInstanceId()),1))) {
                             processActivityId = operateRecords.get(operateRecords.size() - 1).getTaskActivityId();
                             // 是否被退回到了运营节点
                             if(processResp.getCurTaskActivityIds().equals(userTaskExt.getActivityId())){
@@ -340,7 +331,7 @@ public class DashboardOperateTodoService implements cn.zswltech.mithras.dashboar
                 break;
             case DashboardOperateTodoArriveREQ.WILL_ARRIVE:
                 // 将到达：先筛选出审批中的流程，后续再进行过滤
-                processPageReq.setProcessStatusList(Collections.singletonList(ProcessBusinessStatusEnum.RUNNING.getType()));
+                processPageReq.setProcessStatusList(Collections.singletonList(DashboardProcessBusinessStatus.RUNNING.getType()));
                 break;
         }
         return processPageReq;

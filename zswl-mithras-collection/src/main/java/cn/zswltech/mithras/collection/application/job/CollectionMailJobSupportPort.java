@@ -1,8 +1,5 @@
 package cn.zswltech.mithras.collection.application.job;
 
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.CorpContactInfo;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionBaseInfo;
 
 import java.time.LocalDate;
@@ -13,15 +10,15 @@ public interface CollectionMailJobSupportPort {
 
     String getGracePeriod(Long contractId, Long paymentId, Integer phase);
 
-    ContractBaseInfo getContractById(Long contractId);
+    CollectionMailContractInfo getContractById(Long contractId);
 
     Set<Long> getUserIdsByRole(String roleCode);
 
     Set<String> getUserEmailSet(Set<Long> userIds);
 
-    Client getClientById(Long clientId);
+    CollectionMailClientInfo getClientById(Long clientId);
 
-    List<CorpContactInfo> listCorpContactInfo(Long clientId);
+    List<CollectionMailContactInfo> listCorpContactInfo(Long clientId);
 
     String getLatestContractVersion(Long contractId);
 

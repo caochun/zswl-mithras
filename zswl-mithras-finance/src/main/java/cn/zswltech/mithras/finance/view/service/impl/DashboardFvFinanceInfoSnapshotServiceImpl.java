@@ -16,7 +16,7 @@ import cn.zswltech.mithras.finance.view.mapper.DashboardFvCardSnapshotMapper;
 import cn.zswltech.mithras.finance.view.mapper.DashboardFvFinanceInfoSnapshotMapper;
 import cn.zswltech.mithras.finance.view.service.DashboardFvFinanceInfoSnapshotService;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
+import cn.zswltech.mithras.finance.view.enums.FinanceDashboardCardGroupEnum;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -99,13 +99,13 @@ public class DashboardFvFinanceInfoSnapshotServiceImpl extends ServiceImpl<Dashb
         queryWrapper.in(CollUtil.isNotEmpty(req.getIds()), DashboardFvFinanceInfoSnapshot::getId, req.getIds());
         if (Objects.equals(req.getIsThisYear(), YesOrNoNumberEnum.YES.getCode())
                 && Objects.equals(req.getIsThisMonth(), YesOrNoNumberEnum.NO.getCode())) {
-            DashboardFvCardSnapshot cardSnapshot = cardSnapshotMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR.name());
+            DashboardFvCardSnapshot cardSnapshot = cardSnapshotMap.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR.name());
             queryWrapper.eq(DashboardFvFinanceInfoSnapshot::getCardId, cardSnapshot.getId());
         } else if (Objects.equals(req.getIsThisMonth(), YesOrNoNumberEnum.YES.getCode())) {
-            DashboardFvCardSnapshot cardSnapshot = cardSnapshotMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH.name());
+            DashboardFvCardSnapshot cardSnapshot = cardSnapshotMap.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH.name());
             queryWrapper.eq(DashboardFvFinanceInfoSnapshot::getCardId, cardSnapshot.getId());
         } else {
-            DashboardFvCardSnapshot cardSnapshot = cardSnapshotMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN.name());
+            DashboardFvCardSnapshot cardSnapshot = cardSnapshotMap.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN.name());
             queryWrapper.eq(DashboardFvFinanceInfoSnapshot::getCardId, cardSnapshot.getId());
         }
         queryWrapper.orderByDesc(DashboardFvFinanceInfoSnapshot::getActualLoanDate);

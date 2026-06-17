@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.fund.financing.baseinfo.*;
 import cn.zswltech.mithras.dto.fund.financing.SingleFinancingIdREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModifyAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingBaseInfoService;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;

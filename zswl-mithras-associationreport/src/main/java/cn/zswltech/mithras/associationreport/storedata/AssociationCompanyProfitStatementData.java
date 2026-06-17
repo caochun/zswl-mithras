@@ -8,11 +8,9 @@ import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
 import cn.zswltech.mithras.associationreport.AssociationReportAmountUtils;
 import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMetricPort;
 import cn.zswltech.mithras.associationreport.service.AssociationCompanyProfitStatementService;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
-import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationCompanyProfitStatement;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
@@ -35,12 +33,12 @@ import java.util.*;
 @Component
 public class AssociationCompanyProfitStatementData extends AbstractDataStore<AssociationCompanyProfitStatement> {
     @Resource
-    private RiskMetricFactorMergeService riskMetricFactorMergeService;
+    private AssociationReportMetricPort metricPort;
 
     @Override
     public boolean storeFromSystemJobCheck(int year, int period) {
         LocalDate dataDate = AssociationReportDateUtils.ensureQuarterLastDay(year, period);
-        Map<String, Long> profitMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.PROFIT.display, dataDate.getYear(), dataDate.getMonthValue());
+        Map<String, Long> profitMap = metricPort.profit(dataDate.getYear(), dataDate.getMonthValue());
         boolean condition = CollectionUtil.isNotEmpty(profitMap);
         log.info("金融局报送【利润表】自动取值-前置数据校验结果:利润表 = {}", condition);
         return condition;
@@ -93,7 +91,7 @@ public class AssociationCompanyProfitStatementData extends AbstractDataStore<Ass
         AssociationCompanyProfitStatement lastReportValue = SpringUtil.getBean(AssociationCompanyProfitStatementService.class).getModelByReportInstanceId(lastReport.getReportInstanceId());
         // 查询财务报表
         LocalDate targetDate = this.ensureMetricDate(currentReport);
-        Map<String, Long> profitMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.PROFIT.display, targetDate.getYear(), targetDate.getMonthValue());
+        Map<String, Long> profitMap = metricPort.profit(targetDate.getYear(), targetDate.getMonthValue());
         AssociationCompanyProfitStatement currentReportValue = new AssociationCompanyProfitStatement();
         currentReportValue.setBusiFeeCply(AssociationReportAmountUtils.millimeterLong2YuanBigDecimal(Optional.ofNullable(profitMap.get("销售费用@上年同期累计数")).orElse(0L)));
         currentReportValue.setBusiFeeTyag(AssociationReportAmountUtils.millimeterLong2YuanBigDecimal(Optional.ofNullable(profitMap.get("销售费用@本年累计数")).orElse(0L)));

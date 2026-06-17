@@ -8,15 +8,13 @@ import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
+import cn.zswltech.mithras.payment.application.PaymentWorkflowPort;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.workflow.flow.service.ProcessService;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -31,7 +29,7 @@ public class PaymentActualDetailOperationAuthChecker implements IDataAuthChecker
     @Resource
     private DataAuthProcessGuard dataAuthProcessGuard;
     @Resource
-    private ProcessService processService;
+    private PaymentWorkflowPort paymentWorkflowPort;
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
 
@@ -48,7 +46,7 @@ public class PaymentActualDetailOperationAuthChecker implements IDataAuthChecker
         if (Objects.isNull(paymentBaseInfo)) {
             throw new MithrasException("付款申请不存在");
         }
-        boolean isInProcess = processService.isInProcess(String.valueOf(paymentBaseInfo.getContractId()), Arrays.asList(ProcessModelTypeEnum.ContractStartRentAutoFlow.name(), ProcessModelTypeEnum.ContractAddNewReceiptAutoFlow.name()));
+        boolean isInProcess = paymentWorkflowPort.isAutoRentOrReceiptInProcess(paymentBaseInfo.getContractId());
         if (isInProcess) {
             throw new MithrasException("对应合同正处于流程中，不允许操作");
         }

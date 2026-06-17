@@ -1,11 +1,10 @@
 package cn.zswltech.mithras.creditreport.service;
 
 import cn.zswltech.mithras.dto.creditreport.CreditSearchCompareBusinessDTO;
-import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 
 import java.util.List;
 
-public interface CreditReportService extends FlowEndEventProcessor {
+public interface CreditReportService {
 
    /* *//**
      * 新增征信报告查询
@@ -68,6 +67,8 @@ public interface CreditReportService extends FlowEndEventProcessor {
      * @return
      */
     List<CreditSearchCompareBusinessDTO> compareBusiness(Long creditSearchId,Boolean isHistory);
+
+    void processEnd(Long id, Integer endType, Long startUserId, String processInstanceId, String modelKey);
 
 
 

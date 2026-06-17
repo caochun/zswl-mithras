@@ -39,7 +39,7 @@ import cn.zswltech.mithras.customer.application.client.EnvironmentPenaltyApplica
 import cn.zswltech.mithras.customer.application.client.TycApplicationService;
 import cn.zswltech.mithras.customer.application.client.ZhongdengInfoApplicationService;
 import cn.zswltech.mithras.projectprocess.application.projestablish.ProjEstablishBaseInfoApplicationService;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;

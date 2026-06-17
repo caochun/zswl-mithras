@@ -38,7 +38,7 @@ import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.dto.workbench.ClientProjectListRSP;
 import cn.zswltech.mithras.contract.convert.contract.ContractPriceConverter;
 import cn.zswltech.mithras.projectprocess.convert.projreview.ProjReviewPriceConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;

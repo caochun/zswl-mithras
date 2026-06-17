@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.dto.projreview.report.ProjReviewReportGenerateREQ;
 import cn.zswltech.mithras.dto.projreview.report.ProjReviewReportListREQ;
 import cn.zswltech.mithras.dto.projreview.report.ProjReviewReportUploadREQ;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;

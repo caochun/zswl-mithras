@@ -12,8 +12,9 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.PageReq;
 import cn.zswltech.mithras.dto.liquidityrisk.ContractLastDate;
 import cn.zswltech.mithras.dto.policy.*;
+import cn.zswltech.mithras.application.orchestration.adapter.policy.mapper.PolicyLedgerQueryMapper;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
@@ -91,6 +92,8 @@ public class PolicyLedgerService {
     private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
     @Resource
     private PolicyInfoMapper policyInfoMapper;
+    @Resource
+    private PolicyLedgerQueryMapper policyLedgerQueryMapper;
     @Resource
     private PolicyInfoService policyInfoService;
     @Resource
@@ -210,7 +213,7 @@ public class PolicyLedgerService {
         List<String> policyCodes = list.stream().map(PolicyInfoTmp::getPolicyCode).collect(Collectors.toList());
         List<Long> policyTmpIds = list.stream().map(PolicyInfoTmp::getId).collect(Collectors.toList());
         Map<String, Long> tmpPolicyCode2Id = list.stream().collect(Collectors.toMap(PolicyInfoTmp::getPolicyCode, PolicyInfoTmp::getId, (a, b) -> a));
-        Map<String, Integer> policyCodeCountDTOMap = policyInfoMapper.countPolicyCodes(policyCodes).stream().collect(Collectors.toMap(PolicyCodeCountProjection::getPolicyCode, PolicyCodeCountProjection::getPolicyNum, Integer::sum));
+        Map<String, Integer> policyCodeCountDTOMap = policyLedgerQueryMapper.countPolicyCodes(policyCodes).stream().collect(Collectors.toMap(PolicyCodeCountProjection::getPolicyCode, PolicyCodeCountProjection::getPolicyNum, Integer::sum));
         //检查保单号唯一性
         StringBuilder sb = new StringBuilder();
 //        policyCodes.forEach(code -> {
@@ -333,7 +336,7 @@ public class PolicyLedgerService {
     public PageR<PolicyLedgerListRSP> list(PolicyLedgerListREQ req) {
         PolicyListParam param = req2param(req);
         checkAuth(param);
-        Page<PolicyListProjection> page = policyInfoMapper.ledgerList(new Page<>(req.getPage(), req.getPageSize()), param);
+        Page<PolicyListProjection> page = policyLedgerQueryMapper.ledgerList(new Page<>(req.getPage(), req.getPageSize()), param);
         List<PolicyLedgerListRSP> rsps = getPolicyLedgerListRSPS(page);
         //todo 逾期天数
         return PageR.of(rsps, page.getTotal(), page.getPages(), page.getCurrent(), page.getSize());
@@ -522,9 +525,9 @@ public class PolicyLedgerService {
         PolicyListParam param = req2param(req);
         param.setPaymentPolicyIds(req.getPaymentExportIds());
         param.setPolicyIds(req.getPolicyExportIds());
-        Page<PolicyListProjection> page = policyInfoMapper.ledgerList(new Page<>(1, Integer.MAX_VALUE), param);
+        Page<PolicyListProjection> page = policyLedgerQueryMapper.ledgerList(new Page<>(1, Integer.MAX_VALUE), param);
         //  全量数据
-        Page<PolicyListProjection> pageTotal = policyInfoMapper.ledgerList(new Page<>(1, Integer.MAX_VALUE), new PolicyListParam());
+        Page<PolicyListProjection> pageTotal = policyLedgerQueryMapper.ledgerList(new Page<>(1, Integer.MAX_VALUE), new PolicyListParam());
         List<PolicyLedgerListRSP> rsps = getPolicyLedgerListRSPS(page);
         //全量和部分导出层级设置
         if (!ObjectUtils.isEmpty(page.getTotal()) && !ObjectUtils.isEmpty(pageTotal.getTotal()) && page.getTotal() == pageTotal.getTotal()) {

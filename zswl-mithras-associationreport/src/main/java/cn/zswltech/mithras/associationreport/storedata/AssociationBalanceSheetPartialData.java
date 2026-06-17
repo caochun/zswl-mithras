@@ -9,11 +9,9 @@ import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
 import cn.zswltech.mithras.associationreport.AssociationReportAmountUtils;
 import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMetricPort;
 import cn.zswltech.mithras.associationreport.service.AssociationBalanceSheetPartialService;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
-import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationBalanceSheetPartial;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
@@ -37,12 +35,12 @@ import java.util.*;
 @Component
 public class AssociationBalanceSheetPartialData extends AbstractDataStore<AssociationBalanceSheetPartial> {
     @Resource
-    private RiskMetricFactorMergeService riskMetricFactorMergeService;
+    private AssociationReportMetricPort metricPort;
 
     @Override
     public boolean storeFromSystemJobCheck(int year, int period) {
         LocalDate dataDate  = AssociationReportDateUtils.ensureQuarterLastDay(year, period);
-        Map<String, Long> assetMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.CAPITAL_BALANCE.display, dataDate.getYear(), dataDate.getMonthValue());
+        Map<String, Long> assetMap = metricPort.capitalBalance(dataDate.getYear(), dataDate.getMonthValue());
         boolean condition = CollectionUtil.isNotEmpty(assetMap);
         log.info("金融局报送【资产负债表】自动取值-前置数据校验结果:资产负债表 = {}", condition);
         return condition;
@@ -88,7 +86,7 @@ public class AssociationBalanceSheetPartialData extends AbstractDataStore<Associ
     protected List<AssociationBalanceSheetPartial> parseFromSystemData(AssociationReport currentReport) {
         // 查询财务报表
         LocalDate targetDate = this.ensureMetricDate(currentReport);
-        Map<String, Long> assetMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.CAPITAL_BALANCE.display, targetDate.getYear(), targetDate.getMonthValue());
+        Map<String, Long> assetMap = metricPort.capitalBalance(targetDate.getYear(), targetDate.getMonthValue());
         // 处理数据
         AssociationBalanceSheetPartial currentReportValue = new AssociationBalanceSheetPartial();
         Map<String, String> propertyValueMap = this.mapping();

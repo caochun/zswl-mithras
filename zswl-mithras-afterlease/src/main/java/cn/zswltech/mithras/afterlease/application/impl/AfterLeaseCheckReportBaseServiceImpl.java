@@ -10,25 +10,25 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseClientPort;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseClientSnapshot;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseContractPort;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseContractRentActualPort;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseContractRentSnapshot;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseContractRentVersionSnapshot;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseContractSnapshot;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseContractVersionPort;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseContractVersionSnapshot;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCorpCommercePort;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseIndustryPort;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportBaseREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckReportBaseRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckReportConvert;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanTypeEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckReportBaseMapper;
 import cn.zswltech.mithras.afterlease.model.*;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
-import cn.zswltech.mithras.contract.model.contract.ContractRentActualLib;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
@@ -43,8 +43,6 @@ import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckReportBaseL
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckReportMetaLibService;
 import cn.zswltech.mithras.afterlease.application.lib.handler.impl.AfterLeaseCheckReportBaseLibHandler;
 import cn.zswltech.mithras.afterlease.application.lib.handler.impl.AfterLeaseCheckReportMetaLibHandler;
-import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.versioning.service.ContractRentActualLibService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -70,9 +68,7 @@ public class AfterLeaseCheckReportBaseServiceImpl extends ServiceImpl<NewAfterLe
     @Resource
     private AfterLeaseContractPort afterLeaseContractPort;
     @Resource
-    private ContractBaseInfoLibService contractBaseInfoLibService;
-    @Resource
-    private ContractRentActualLibService contractRentActualLibService;
+    private AfterLeaseContractVersionPort afterLeaseContractVersionPort;
     @Resource
     private AfterLeaseContractRentActualPort afterLeaseContractRentActualPort;
     @Resource
@@ -195,23 +191,23 @@ public class AfterLeaseCheckReportBaseServiceImpl extends ServiceImpl<NewAfterLe
             rsp.setCheckWay(planBase.getCheckWay());
         }
         //补充合同信息
-        List<ContractBaseInfo> list = afterLeaseContractPort.listActiveByClientId(checkPlanClient.getClientId());
+        List<AfterLeaseContractSnapshot> list = afterLeaseContractPort.listActiveByClientId(checkPlanClient.getClientId());
         if (CollectionUtil.isNotEmpty(list)) {
             //查询租金表信息
-            Map<Long, List<ContractRentActual>> contractRentMap = afterLeaseContractRentActualPort.listByContractIds(list.stream().map(ContractBaseInfo::getId).collect(Collectors.toSet()))
-                    .stream().collect(Collectors.groupingBy(ContractRentActual::getContractId));
+            Map<Long, List<AfterLeaseContractRentSnapshot>> contractRentMap = afterLeaseContractRentActualPort.listByContractIds(list.stream().map(AfterLeaseContractSnapshot::getId).collect(Collectors.toSet()))
+                    .stream().collect(Collectors.groupingBy(AfterLeaseContractRentSnapshot::getContractId));
             List<AfterLeaseCheckReportBaseRSP.CheckReportContract> contractList = new java.util.ArrayList<>(list.size());
 
-            //Map<Long, ContractLeasePrice> longContractLeasePriceMap = contractPriceService.listByContractIds(list.stream().map(ContractBaseInfo::getId).collect(Collectors.toList()));
+            //Map<Long, ContractLeasePrice> longContractLeasePriceMap = contractPriceService.listByContractIds(list.stream().map(AfterLeaseContractSnapshot::getId).collect(Collectors.toList()));
             list.forEach(e -> {
                 AfterLeaseCheckReportBaseRSP.CheckReportContract contract = rsp.new CheckReportContract();
                 contract.setId(e.getId());
                 contract.setContractCode(e.getContractCode());
                 contract.setApplyCreditAmount(e.getApplyCreditAmount());
                 //contract.setLeaseMonthCount(Optional.ofNullable(longContractLeasePriceMap.get(e.getId())).map(ContractLeasePrice::getLeaseMonthCount).orElse(null));
-                List<ContractRentActual> contractRentActuals = contractRentMap.get(e.getId());
+                List<AfterLeaseContractRentSnapshot> contractRentActuals = contractRentMap.get(e.getId());
                 if (ObjectUtil.isNotEmpty(contractRentActuals)) {
-                    contractRentActuals.sort(Comparator.comparing(ContractRentActual::getCashFlowPhase));
+                    contractRentActuals.sort(Comparator.comparing(AfterLeaseContractRentSnapshot::getCashFlowPhase));
                     contract.setStartDate(contractRentActuals.get(0).getCashFlowDate());
                     contract.setEndDate(contractRentActuals.get(contractRentActuals.size() - 1).getCashFlowDate());
                 }
@@ -277,37 +273,34 @@ public class AfterLeaseCheckReportBaseServiceImpl extends ServiceImpl<NewAfterLe
 
     @Override
     public AfterLeaseClientDataBO getAfterLeaseClientDataBO(Long clientId, boolean rich) {
-        Client client = afterLeaseClientPort.getById(clientId);
+        AfterLeaseClientSnapshot client = afterLeaseClientPort.getById(clientId);
         Assert.notNull(client, () -> MithrasException.newException("客户不存在"));
         AfterLeaseClientDataBO afterLeaseClientDataBO = new AfterLeaseClientDataBO();
-        afterLeaseClientDataBO.setClientId(client.getId());
-        afterLeaseClientDataBO.setClientName(clientNameResolver.clientId2NameSingle(client.getId()));
+        afterLeaseClientDataBO.setClientId(client.getClientId());
+        afterLeaseClientDataBO.setClientName(clientNameResolver.clientId2NameSingle(client.getClientId()));
         if (rich) {
-            Optional<Map<Long, String>> optional = afterLeaseCorpCommercePort.selectIndustryTypeBatchByIds(Collections.singletonList(client.getId()));
-            optional.ifPresent(long2StringMap -> afterLeaseClientDataBO.setIndustry(afterLeaseIndustryPort.getIndustryTypeNameFromLocalCache(long2StringMap.get(client.getId()))));
+            Optional<Map<Long, String>> optional = afterLeaseCorpCommercePort.selectIndustryTypeBatchByIds(Collections.singletonList(client.getClientId()));
+            optional.ifPresent(long2StringMap -> afterLeaseClientDataBO.setIndustry(afterLeaseIndustryPort.getIndustryTypeNameFromLocalCache(long2StringMap.get(client.getClientId()))));
         }
         // 风险敞口
-        Long riskExposure = afterLeaseContractPort.getStockRiskExposure(client.getId());
+        Long riskExposure = afterLeaseContractPort.getStockRiskExposure(client.getClientId());
         afterLeaseClientDataBO.setRiskExposure(riskExposure);
-        // 合同相关数据
-//        List<ContractBaseInfo> contractBaseInfoList = contractBaseInfoService.listByClients(Collections.singletonList(client.getId()));
-        List<ContractBaseInfo> contractBaseInfoList = afterLeaseContractPort.listInRentContract(client.getId());
+        List<AfterLeaseContractSnapshot> contractBaseInfoList = afterLeaseContractPort.listInRentContract(client.getClientId());
         getContractLibInfo(afterLeaseClientDataBO, contractBaseInfoList, rich);
         return afterLeaseClientDataBO;
     }
 
     @Override
-    public Map<Long, AfterLeaseClientDataBO> getAfterLeaseClientDataBO(Map<Long, Client> clientMap,
-                                                                       Map<Long, List<ContractBaseInfo>> contractMap) {
+    public Map<Long, AfterLeaseClientDataBO> getAfterLeaseClientDataBO(Map<Long, List<AfterLeaseContractSnapshot>> contractMap) {
         Map<Long, AfterLeaseClientDataBO> res = new HashMap<>();
         contractMap.forEach((clientId, contractBaseInfos) -> {
-            Client client = afterLeaseClientPort.getById(clientId);
+            AfterLeaseClientSnapshot client = afterLeaseClientPort.getById(clientId);
             if (ObjectUtil.isEmpty(client)) {
                 return;
             }
             AfterLeaseClientDataBO afterLeaseClientDataBO = new AfterLeaseClientDataBO();
-            afterLeaseClientDataBO.setClientId(client.getId());
-            Long riskExposure = afterLeaseContractPort.getStockRiskExposure(client.getId());
+            afterLeaseClientDataBO.setClientId(client.getClientId());
+            Long riskExposure = afterLeaseContractPort.getStockRiskExposure(client.getClientId());
             afterLeaseClientDataBO.setRiskExposure(riskExposure);
             getContractLibInfo(afterLeaseClientDataBO, contractBaseInfos, true);
             res.put(clientId, afterLeaseClientDataBO);
@@ -316,44 +309,32 @@ public class AfterLeaseCheckReportBaseServiceImpl extends ServiceImpl<NewAfterLe
     }
 
     private void getContractLibInfo(AfterLeaseClientDataBO afterLeaseClientDataBO,
-                                    List<ContractBaseInfo> contractBaseInfoList, boolean rich) {
+                                    List<AfterLeaseContractSnapshot> contractBaseInfoList, boolean rich) {
         if (CollectionUtil.isEmpty(contractBaseInfoList)) {
             return;
         }
         // 找到这些合同的最新版本
-        Set<Long> contractIds = contractBaseInfoList.stream().map(ContractBaseInfo::getId).collect(Collectors.toSet());
-        List<ContractBaseInfoLib> contractBaseInfoLibList = contractBaseInfoLibService.listByContractIds(contractIds);
-        Map<Long, List<ContractBaseInfoLib>> contractBaseInfoLibMap = contractBaseInfoLibList.stream().collect(Collectors.groupingBy(ContractBaseInfoLib::getOriginId));
-        List<ContractBaseInfoLib> latestVersionContractList = new LinkedList<>();
-        for (Map.Entry<Long, List<ContractBaseInfoLib>> map : contractBaseInfoLibMap.entrySet()) {
-            List<ContractBaseInfoLib> list = map.getValue();
-            list.sort(Comparator.comparing(ContractBaseInfo::getId));
-            latestVersionContractList.add(list.get(list.size() - 1));
+        Set<Long> contractIds = contractBaseInfoList.stream().map(AfterLeaseContractSnapshot::getId).collect(Collectors.toSet());
+        List<AfterLeaseContractVersionSnapshot> latestVersionContractList = afterLeaseContractVersionPort.listLatestByContractIds(contractIds);
+        if (CollectionUtil.isEmpty(latestVersionContractList)) {
+            return;
         }
         // 合同合计金额
         long total = latestVersionContractList.stream()
-                .mapToLong(ContractBaseInfoLib::getApplyCreditAmount)
+                .mapToLong(item -> Optional.ofNullable(item.getApplyCreditAmount()).orElse(0L))
                 .sum();
         afterLeaseClientDataBO.setContractTotalAmount(total);
         // 找到实际租金表/支付表最晚的那一起日期作为到期日
         // 找到第一个比今天晚的时间作为下次付款时间，对应的款项为下次付款金额
-        LambdaQueryWrapper<ContractRentActualLib> queryRentLib = Wrappers.lambdaQuery();
-        for (ContractBaseInfoLib contractBaseInfoLib : latestVersionContractList) {
-            queryRentLib.or(true, innerQuery -> {
-                innerQuery.eq(ContractRentActualLib::getContractId, contractBaseInfoLib.getOriginId());
-                innerQuery.eq(ContractRentActualLib::getVersion, contractBaseInfoLib.getVersion());
-                innerQuery.eq(ContractRentActualLib::getVersionType, VersionTypeConstants.NORMAL);
-            });
-        }
-        List<ContractRentActualLib> contractRentActualLibList = contractRentActualLibService.list(queryRentLib);
+        List<AfterLeaseContractRentVersionSnapshot> contractRentActualLibList = afterLeaseContractVersionPort.listNormalRentVersions(latestVersionContractList);
         if (CollectionUtil.isNotEmpty(contractRentActualLibList)) {
-            contractRentActualLibList.sort(Comparator.comparing(ContractRentActual::getCashFlowDate));
-            ContractRentActualLib last = contractRentActualLibList.get(contractRentActualLibList.size() - 1);
+            contractRentActualLibList.sort(Comparator.comparing(AfterLeaseContractRentVersionSnapshot::getCashFlowDate));
+            AfterLeaseContractRentVersionSnapshot last = contractRentActualLibList.get(contractRentActualLibList.size() - 1);
             afterLeaseClientDataBO.setDeadline(last.getCashFlowDate());
             if (rich) {
-                ContractRentActualLib next = null;
+                AfterLeaseContractRentVersionSnapshot next = null;
                 LocalDate now = LocalDate.now();
-                for (ContractRentActualLib contractRentActualLib : contractRentActualLibList) {
+                for (AfterLeaseContractRentVersionSnapshot contractRentActualLib : contractRentActualLibList) {
                     if (now.isBefore(contractRentActualLib.getCashFlowDate())) {
                         next = contractRentActualLib;
                         break;

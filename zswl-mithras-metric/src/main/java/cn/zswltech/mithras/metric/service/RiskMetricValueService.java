@@ -13,8 +13,6 @@ import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricUnit;
 import cn.zswltech.mithras.metric.mapper.RiskMetricValueMapper;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricValue;
 import cn.zswltech.mithras.metric.mapper.model.condition.RiskMetricValueListConditions;
-import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategyMapper;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -58,7 +56,7 @@ public class RiskMetricValueService extends ServiceImpl<RiskMetricValueMapper, R
     @Resource
     private RedisDistLock lock;
     @Resource
-    private RiskControlStrategyMapper riskControlStrategyMapper;
+    private RiskStrategyCurrentValuePort riskStrategyCurrentValuePort;
 
     @Transactional(rollbackFor = Exception.class)
     public void modify(List<RiskMetricValueModifyReq> req) {
@@ -185,16 +183,16 @@ public class RiskMetricValueService extends ServiceImpl<RiskMetricValueMapper, R
         String key = "mithras:metric:calc:onlyOne";
         if (lock.tryLock(key, 1, 60 * 1000)) {
             try {
-                Map<String, RiskControlStrategy> strategyMap =
-                        riskControlStrategyMapper.selectList(Wrappers.<RiskControlStrategy>lambdaQuery())
-                                .stream().collect(Collectors.toMap(RiskControlStrategy::getMetricCode, item -> item, (k1, k2) -> k1));
+                Map<String, RiskStrategyCurrentValueSnapshot> strategyMap =
+                        riskStrategyCurrentValuePort.listCurrentValues()
+                                .stream().collect(Collectors.toMap(RiskStrategyCurrentValueSnapshot::getMetricCode, item -> item, (k1, k2) -> k1));
                 getCalculatorList().parallelStream().forEach(calculator -> {
                     try {
                         //风控策略有值
                         if (strategyMap.containsKey(calculator.metricCode())) {
-                            RiskControlStrategy riskControlStrategy = strategyMap.get(calculator.metricCode());
-                            BigDecimal value = new BigDecimal(riskControlStrategy.getCurrentValueOne());
-                            if ("亿元".equals(riskControlStrategy.getValueUnitOne())) {
+                            RiskStrategyCurrentValueSnapshot riskStrategy = strategyMap.get(calculator.metricCode());
+                            BigDecimal value = new BigDecimal(riskStrategy.getCurrentValueOne());
+                            if ("亿元".equals(riskStrategy.getValueUnitOne())) {
                                 value = value.multiply(new BigDecimal(100000000));
                             }
                             RiskMetricValue toBe = new RiskMetricValue();

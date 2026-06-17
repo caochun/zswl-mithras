@@ -11,7 +11,6 @@ import cn.zswltech.mithras.dto.collection.*;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.overdue.application.collection.ContractRemainingPrincipalResolver;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.collection.excel.exporter.CollectionListExcelExporter;
@@ -21,7 +20,6 @@ import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.collection.dto.CollectionNextRentParam;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
@@ -32,12 +30,9 @@ import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.collection.application.bo.CollectionDetailChainBO;
-import cn.zswltech.mithras.contract.core.ContractLeasePriceService;
 import cn.zswltech.mithras.contract.core.ContractReceiptService;
-import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.contract.versioning.service.CollectionRentActualReceiptStatus;
 import cn.zswltech.mithras.contract.versioning.service.CollectionRentActualReceiptStatusResolver;
-import cn.zswltech.mithras.collection.application.financial.FinancialManagerService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -47,8 +42,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.ObjectUtils;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -78,18 +71,13 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
     @Resource
     private CollectionListExcelExporter collectionListExcelExporter;
     @Resource
-    private ContractBaseInfoLibHandler baseInfoLibHandler;
-    @Lazy
-    @Resource
-    private FinancialManagerService financialManagerService;
+    private CollectionDetailContractInfoPort detailContractInfoPort;
     @Resource
     private CurrentUserDataScopeResolver currentUserDataScopeResolver;
     @Resource
     private CollectionRecordInfoMapper collectionRecordInfoMapper;
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
-    @Resource
-    private ContractLeasePriceService contractLeasePriceService;
     @Resource
     private ContractReceiptService contractReceiptService;
 
@@ -193,7 +181,7 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
             info.setAllRecordSort(0);
             info.setPenaltyInterestUpdate(0);
             //租金使用借据编号，其他任使用付款
-            info.setCode(getCode(info.getCashFlowItem(), ObjectUtils.equals(info.getCashFlowItem(), CashFlowItemEnum.RENT.name()) ?
+            info.setCode(getCode(info.getCashFlowItem(), Objects.equals(info.getCashFlowItem(), CashFlowItemEnum.RENT.name()) ?
                     info.getReceiptCode() : info.getPaymentCode(), info.getPhase(), info.getContractCode()));
             o.setCollectionCode(info.getCode());
             reqs.add(info);
@@ -293,7 +281,10 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
 
     public CollectionBaseInfoRSP detail(CollectionBaseInfoDetailREQ req) {
         CollectionBaseInfo info = collectionBaseInfoMapper.selectById(req.getId());
-        ContractBaseInfoLib detail = baseInfoLibHandler.queryLatestDataByOriginId(info.getContractId());
+        CollectionDetailContractInfo detail = detailContractInfoPort.getLatestContractInfo(info.getContractId());
+        if (detail == null) {
+            throw new MithrasException("合同信息不存在");
+        }
         Map<Long, String> clientMap = clientNameResolver.clientId2Name(Collections.singleton(detail.getClientId()));
         Map<Long, String> sysUserMap = userNameResolver.sysUserId2Name(Collections.singleton(detail.getProjSponsorUserId()));
         Map<Long, String> deptMap = deptNameResolver.deptId2Name(Collections.singleton(detail.getBizDeptId()));
@@ -312,7 +303,7 @@ public class CollectionBaseInfoService extends ServiceImpl<CollectionBaseInfoMap
         contractInfo.setClientName(clientMap.get(detail.getClientId()));
         contractInfo.setProjName(detail.getProjName());
         contractInfo.setProjSponsorUserName(sysUserMap.get(detail.getProjSponsorUserId()));
-        contractInfo.setContractStatus(Objects.requireNonNull(ContractStatus.of(detail.getContractStatus())).display);
+        contractInfo.setContractStatus(detail.getContractStatusDisplay());
         rsp.setContractInfo(contractInfo);
         rsp.setPlanCollectionDate(info.getPlanCollectionDate());
         rsp.setPhase(info.getPhase());

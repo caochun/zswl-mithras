@@ -5,7 +5,11 @@ import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import cn.zswltech.mithras.basedata.util.DateUtil;
+import cn.zswltech.mithras.collection.application.job.CollectionMailClientInfo;
+import cn.zswltech.mithras.collection.application.job.CollectionMailContactInfo;
+import cn.zswltech.mithras.collection.application.job.CollectionMailContractInfo;
 import cn.zswltech.mithras.collection.application.job.CollectionMailJobSupportPort;
+import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.contract.mapper.lib.contract.ContractTenantryLibMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
@@ -18,15 +22,15 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.CorpContactInfo;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionBaseInfo;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpContactInfoService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.application.orchestration.email.CollectionRentEmailHandler;
-import cn.zswltech.mithras.application.orchestration.email.RentExpireEmailHandler;
+import cn.zswltech.mithras.application.orchestration.adapter.collection.email.CollectionRentEmailHandler;
+import cn.zswltech.mithras.application.orchestration.adapter.collection.email.RentExpireEmailHandler;
 import cn.zswltech.mithras.foundation.util.StringUtils;
 import cn.zswltech.mithras.system.user.SysUserService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -83,8 +87,19 @@ public class CollectionMailJobSupportPortAdapter implements CollectionMailJobSup
     }
 
     @Override
-    public ContractBaseInfo getContractById(Long contractId) {
-        return contractBaseInfoService.getById(contractId);
+    public CollectionMailContractInfo getContractById(Long contractId) {
+        ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(contractId);
+        if (contractBaseInfo == null) {
+            return null;
+        }
+        CollectionMailContractInfo info = new CollectionMailContractInfo();
+        info.setId(contractBaseInfo.getId());
+        info.setContractCode(contractBaseInfo.getContractCode());
+        info.setContractStatus(contractBaseInfo.getContractStatus());
+        info.setSettled(ContractStatus.SETTLE.name().equals(contractBaseInfo.getContractStatus()));
+        info.setClientId(contractBaseInfo.getClientId());
+        info.setProjSponsorUserId(contractBaseInfo.getProjSponsorUserId());
+        return info;
     }
 
     @Override
@@ -109,16 +124,31 @@ public class CollectionMailJobSupportPortAdapter implements CollectionMailJobSup
     }
 
     @Override
-    public Client getClientById(Long clientId) {
-        return clientService.getById(clientId);
+    public CollectionMailClientInfo getClientById(Long clientId) {
+        Client client = clientService.getById(clientId);
+        if (client == null) {
+            return null;
+        }
+        CollectionMailClientInfo info = new CollectionMailClientInfo();
+        info.setId(client.getId());
+        info.setClientName(client.getClientName());
+        return info;
     }
 
     @Override
-    public List<CorpContactInfo> listCorpContactInfo(Long clientId) {
-        return corpContactInfoService.list(Wrappers.<CorpContactInfo>lambdaQuery()
+    public List<CollectionMailContactInfo> listCorpContactInfo(Long clientId) {
+        List<CorpContactInfo> contacts = corpContactInfoService.list(Wrappers.<CorpContactInfo>lambdaQuery()
                 .eq(CorpContactInfo::getClientId, clientId)
                 .orderByDesc(CorpContactInfo::getMain)
                 .orderByDesc(CorpContactInfo::getId));
+        return contacts.stream()
+                .map(contact -> {
+                    CollectionMailContactInfo info = new CollectionMailContactInfo();
+                    info.setId(contact.getId());
+                    info.setMail(contact.getMail());
+                    return info;
+                })
+                .collect(Collectors.toList());
     }
 
     @Override

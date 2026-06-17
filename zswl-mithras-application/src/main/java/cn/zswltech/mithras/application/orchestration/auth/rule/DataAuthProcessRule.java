@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.auth.rule;
 
 
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;

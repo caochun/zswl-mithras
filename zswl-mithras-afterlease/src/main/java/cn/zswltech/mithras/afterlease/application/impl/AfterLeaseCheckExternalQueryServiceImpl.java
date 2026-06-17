@@ -4,45 +4,34 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.lang.Assert;
-import cn.zswltech.flow.core.api.FlowProcessApiService;
-import cn.zswltech.flow.core.domain.req.StartProcessReq;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryDto;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryListReq;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryListStatisticsRsp;
 import cn.zswltech.mithras.afterlease.application.convert.ExternalQueryConverter;
 import cn.zswltech.mithras.afterlease.application.job.AfterLeaseExternalQueryCreateJobService;
-import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
-import cn.zswltech.mithras.afterlease.enums.ClientRole;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseProcessEndResult;
 import cn.zswltech.mithras.afterlease.enums.ExternalQueryStatus;
-import cn.zswltech.mithras.contract.enums.contract.CreditorDebtorTypeEnum;
-import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckExternalQueryMapper;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckExternalQuery;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckExternalQueryClientInfo;
 import cn.zswltech.mithras.afterlease.application.bo.AfterLeaseClientDataBO;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
 import cn.zswltech.mithras.foundation.port.OrgJobUserResolver;
-import cn.zswltech.mithras.workflow.process.BizProcessDataService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseClientPort;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseClientSnapshot;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseContractPort;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCorpCommercePort;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryClientInfoService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckExternalQueryService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseContractSnapshot;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseWorkflowPort;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckExternalQueryVersionService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportBaseService;
-import cn.zswltech.mithras.contract.core.ContractGuarantorService;
-import cn.zswltech.mithras.contract.core.ContractTenantryService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -68,13 +57,11 @@ public class AfterLeaseCheckExternalQueryServiceImpl
         extends ServiceImpl<NewAfterLeaseCheckExternalQueryMapper, NewAfterLeaseCheckExternalQuery>
         implements AfterLeaseCheckExternalQueryService, AfterLeaseExternalQueryCreateJobService {
     @Resource
-    private FlowProcessApiService processApiService;
-    @Resource
     private CurrentUserDataScopeResolver currentUserDataScopeResolver;
     @Resource
     private OrgJobUserResolver orgJobUserResolver;
     @Resource
-    private BizProcessDataService bizProcessDataService;
+    private AfterLeaseWorkflowPort workflowPort;
     @Resource
     private AfterLeaseCheckExternalQueryVersionService afterLeaseCheckExternalQueryVersionService;
     @Resource
@@ -82,42 +69,32 @@ public class AfterLeaseCheckExternalQueryServiceImpl
     @Resource
     private AfterLeaseContractPort afterLeaseContractPort;
     @Resource
-    private ContractGuarantorService contractGuarantorService;
-    @Resource
-    private ContractTenantryService contractTenantryService;
-    @Resource
     private AfterLeaseCheckReportBaseService projectReportBaseService;
     @Resource
     private ExternalQueryConverter externalQueryConverter;
     @Resource
     private AfterLeaseCorpCommercePort afterLeaseCorpCommercePort;
     @Resource
-    private ClientMapper clientMapper;
+    private AfterLeaseClientPort afterLeaseClientPort;
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public void submit(Long id) {
         NewAfterLeaseCheckExternalQuery query = getById(id);
-        StartProcessReq startProcessReq = new StartProcessReq();
-        startProcessReq.setModelKey(ProcessModelTypeEnum.NewAfterLeaseCheckExternalQueryFlow.name());
         Map<String, Object> varMap = new HashMap<>();
         varMap.put("bizDeptLeader", Objects.nonNull(query.getBizDeptLeader()) ?
                 ListUtil.toList(String.valueOf(query.getBizDeptLeader())) : new ArrayList<>());
         varMap.put("bizDivisionLeader", Objects.nonNull(query.getBizDivisionLeader()) ?
                 ListUtil.toList(String.valueOf(query.getBizDivisionLeader())) : new ArrayList<>());
-        startProcessReq.setVariables(varMap);
 
-        startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo())
-                .map(AccountVO::getId)
-                .map(String::valueOf)
-                .orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
-        startProcessReq.setBusinessKey(String.valueOf(id));
-        startProcessReq.setProcessInstanceName(query.getClientName() + "租后检查外部信息查询");
-        startProcessReq.setStartUserDeptId(Optional.ofNullable(query.getDeptId())
-                .map(String::valueOf).orElse(null));
-        String processInstanceId = processApiService.start(startProcessReq);
-        // 记录客户id
-        bizProcessDataService.recordBizData(processInstanceId, query.getClientId());
+        AfterLeaseWorkflowPort.ExternalQueryApprovalStartContext context =
+                new AfterLeaseWorkflowPort.ExternalQueryApprovalStartContext();
+        context.setQueryId(id);
+        context.setClientName(query.getClientName());
+        context.setClientId(query.getClientId());
+        context.setDeptId(query.getDeptId());
+        context.setVariables(varMap);
+        String processInstanceId = workflowPort.startExternalQueryApproval(context);
         query.setProcessInstanceId(processInstanceId);
         query.setApprovalStatus(ExternalQueryStatus.UNDER_APPROVAL.name());
         updateById(query);
@@ -135,27 +112,25 @@ public class AfterLeaseCheckExternalQueryServiceImpl
         try {
             LocalDateTime now = LocalDateTime.now();
             LocalDateTime month = LocalDateTime.of(now.getYear(), now.getMonth(), 1, 0, 0);
-            Map<Long, List<ContractBaseInfo>> clientContractsMap = afterLeaseContractPort.listAllStartRent()
-                    .parallelStream().collect(java.util.stream.Collectors.groupingBy(ContractBaseInfo::getClientId));
+            Map<Long, List<AfterLeaseContractSnapshot>> clientContractsMap = afterLeaseContractPort.listAllStartRent()
+                    .parallelStream().collect(java.util.stream.Collectors.groupingBy(AfterLeaseContractSnapshot::getClientId));
             if (ObjectUtil.isEmpty(clientContractsMap)) {
                 return;
             }
-            Map<Long, Client> clientMap = clientMapper
-                    .selectBatchIds(clientContractsMap.keySet()).stream()
-                    .collect(java.util.stream.Collectors.toMap(Client::getId, item -> item));
+            Map<Long, AfterLeaseClientSnapshot> clientMap = afterLeaseClientPort.listByIds(clientContractsMap.keySet());
 
             List<Long> clientIds = clientMap.values().parallelStream()
-                    .map(Client::getId)
+                    .map(AfterLeaseClientSnapshot::getClientId)
                     .collect(java.util.stream.Collectors.toList());
             Optional<Map<Long, String>> clientId2industryType =
                     afterLeaseCorpCommercePort.selectIndustryTypeBatchByIds(clientIds);
 
             Map<Long, AfterLeaseClientDataBO> afterLeaseProjectDataBOs =
-                    projectReportBaseService.getAfterLeaseClientDataBO(clientMap, clientContractsMap);
+                    projectReportBaseService.getAfterLeaseClientDataBO(clientContractsMap);
 
             clientContractsMap.forEach((clientId, contractBaseInfos) -> {
                 try {
-                    Client client = clientMap.get(clientId);
+                    AfterLeaseClientSnapshot client = clientMap.get(clientId);
                     if (ObjectUtil.isEmpty(client)) {
                         return;
                     }
@@ -175,33 +150,19 @@ public class AfterLeaseCheckExternalQueryServiceImpl
                     Long queryId = this.add(insertEntity);
 
                     List<NewAfterLeaseCheckExternalQueryClientInfo> clientInfos = new ArrayList<>();
-                    List<ContractBaseInfo> contractBaseInfoList = clientContractsMap.get(clientId);
+                    List<AfterLeaseContractSnapshot> contractBaseInfoList = clientContractsMap.get(clientId);
                     Map<Long, InnerClientHelper> helperMap = new HashMap<>();
-                    for (ContractBaseInfo contractBaseInfo : contractBaseInfoList) {
-                        List<ContractTenantry> contractTenantryList = contractTenantryService.listByContractId(contractBaseInfo.getId());
-                        if (CollectionUtil.isNotEmpty(contractTenantryList)) {
-                            for (ContractTenantry contractTenantry : contractTenantryList) {
-                                ClientRole clientRole = this.ensureClientRole(contractTenantry.getLesseeType());
-                                if (Objects.isNull(clientRole)) {
-                                    continue;
-                                }
-                                helperMap.putIfAbsent(contractTenantry.getLesseeId(), new InnerClientHelper(contractTenantry.getLesseeId(), new HashSet<>()));
-                                helperMap.get(contractTenantry.getLesseeId()).getClientRoleNames().add(clientRole.name());
-                            }
-                        }
-                        Optional<List<Long>> optionalLongList = contractGuarantorService.getGuaranteeIdByContractIds(Collections.singletonList(contractBaseInfo.getId()));
-                        if (optionalLongList.isPresent()) {
-                            for (Long id : optionalLongList.get()) {
-                                helperMap.putIfAbsent(id, new InnerClientHelper(id, new HashSet<>()));
-                                helperMap.get(id).getClientRoleNames().add(ClientRole.GUARANTEE.name());
-                            }
-                        }
+                    for (AfterLeaseContractSnapshot contractBaseInfo : contractBaseInfoList) {
+                        afterLeaseContractPort.clientRoleNamesByContractId(contractBaseInfo.getId())
+                                .forEach((relatedClientId, roleNames) -> {
+                                    helperMap.putIfAbsent(relatedClientId, new InnerClientHelper(relatedClientId, new HashSet<>()));
+                                    helperMap.get(relatedClientId).getClientRoleNames().addAll(roleNames);
+                                });
                     }
                     if (CollectionUtil.isNotEmpty(helperMap)) {
-                        List<Client> cList = clientMapper.selectBatchIds(helperMap.keySet());
-                        Map<Long, Client> cMap = cList.stream().collect(java.util.stream.Collectors.toMap(Client::getId, e -> e));
+                        Map<Long, AfterLeaseClientSnapshot> cMap = afterLeaseClientPort.listByIds(helperMap.keySet());
                         for (InnerClientHelper innerClientHelper : helperMap.values()) {
-                            Client c = cMap.get(innerClientHelper.getClientId());
+                            AfterLeaseClientSnapshot c = cMap.get(innerClientHelper.getClientId());
                             if (Objects.isNull(c)) {
                                 continue;
                             }
@@ -209,7 +170,7 @@ public class AfterLeaseCheckExternalQueryServiceImpl
                                 NewAfterLeaseCheckExternalQueryClientInfo clientInfo = new NewAfterLeaseCheckExternalQueryClientInfo();
                                 clientInfo.setQueryId(queryId);
                                 clientInfo.setClientRole(clientRoleName);
-                                clientInfo.setClientId(c.getId());
+                                clientInfo.setClientId(c.getClientId());
                                 clientInfo.setClientType(c.getClientType());
                                 clientInfos.add(clientInfo);
                             }
@@ -225,22 +186,6 @@ public class AfterLeaseCheckExternalQueryServiceImpl
         } catch (Exception e) {
             log.error("租后检查-外部查询任务执行异常", e);
         }
-    }
-
-    private ClientRole ensureClientRole(String type) {
-        if (Objects.equals(type, LesseeTypeEnum.MAIN_LESSSEE.name())) {
-            return ClientRole.MAIN_LESSEE;
-        }
-        if (Objects.equals(type, LesseeTypeEnum.JOINT_LESSEE.name())) {
-            return ClientRole.LESSEE;
-        }
-        if (Objects.equals(type, CreditorDebtorTypeEnum.CREDITOR.name())) {
-            return ClientRole.CREDITOR;
-        }
-        if (Objects.equals(type, CreditorDebtorTypeEnum.DEBTOR.name())) {
-            return ClientRole.DEBTOR;
-        }
-        return null;
     }
 
     private Long firstOrgJobUser(Long orgId, String jobCode) {
@@ -327,11 +272,9 @@ public class AfterLeaseCheckExternalQueryServiceImpl
 
     @Override
     @Transactional(rollbackFor = Throwable.class)
-    public void processEnd(Long id, Integer endType, Long startUserId, String processInstanceId, String modelKey) {
-        boolean processPass = ProcessBusinessStatusEnum.success(endType);
-        ProcessBusinessStatusEnum processBusinessStatusEnum = ProcessBusinessStatusEnum.getByType(endType);
+    public void processEnd(Long id, AfterLeaseProcessEndResult endResult, Long startUserId, String processInstanceId, String modelKey) {
         // 考虑到还有取消流程操作，因此将数据库操作放在if内
-        if (processPass) {
+        if (endResult.pass()) {
             NewAfterLeaseCheckExternalQuery query = getById(id);
             query.setApprovalPassTime(LocalDateTime.now());
             query.setApprovalStatus(ExternalQueryStatus.APPROVAL_PASS.name());
@@ -346,10 +289,10 @@ public class AfterLeaseCheckExternalQueryServiceImpl
             );
         } else {
             NewAfterLeaseCheckExternalQuery query = getById(id);
-            if (ProcessBusinessStatusEnum.REJECT.equals(processBusinessStatusEnum) || ProcessBusinessStatusEnum.REJECT_ALL.equals(processBusinessStatusEnum)) {
+            if (endResult.reject()) {
                 query.setApprovalStatus(ExternalQueryStatus.APPROVAL_REJECT.name());
             }
-            if (processBusinessStatusEnum == ProcessBusinessStatusEnum.CANCEL) {
+            if (endResult.cancel()) {
                 query.setApprovalStatus(ExternalQueryStatus.TO_BE_QUERY.name());
             }
             query.setProcessInstanceId(null);

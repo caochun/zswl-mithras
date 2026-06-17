@@ -5,7 +5,6 @@ import cn.zswltech.mithras.dto.liquidityrisk.ContractLastDate;
 import cn.zswltech.mithras.dto.liquidityrisk.ContractLastDateDTO;
 import cn.zswltech.mithras.contract.dto.persistence.*;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.contract.dto.persistence.ContractPrincipalQuery;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ClientOverdueInfoDto;
 import cn.zswltech.mithras.contract.overdue.domain.acl.ClientRole;
@@ -31,7 +30,7 @@ import java.util.List;
 @Repository
 public interface ContractBaseInfoMapper extends CustomBaseMapper<ContractBaseInfo> {
 
-    Page<ContractBaseInfo> myList(Page<ProjReviewBaseInfo> page,
+    Page<ContractBaseInfo> myList(Page<ContractBaseInfo> page,
                                     @Param("dto") ContractListSelectDTO selectDTO);
     List<ContractInfo> selectIds (@Param("ids") List<Long> ids);
 

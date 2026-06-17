@@ -4,7 +4,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpQuarterlyMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
 import cn.zswltech.mithras.document.file.query.FileListExtQuery;

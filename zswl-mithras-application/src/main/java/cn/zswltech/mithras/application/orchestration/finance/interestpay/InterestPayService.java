@@ -24,16 +24,16 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.organization.FundOrganization;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCost;
-import cn.zswltech.mithras.monthly.mapper.model.FundsDailyCostMain;
+import cn.zswltech.mithras.finance.monthly.mapper.model.FundsDailyCost;
+import cn.zswltech.mithras.finance.monthly.mapper.model.FundsDailyCostMain;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.fund.application.organization.FundOrganizationService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPledgeInfoService;
-import cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostMainService;
-import cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostService;
-import cn.zswltech.mithras.application.orchestration.monthly.MonthlyManageService;
+import cn.zswltech.mithras.application.orchestration.finance.monthly.FundsDailyCostMainService;
+import cn.zswltech.mithras.application.orchestration.finance.monthly.FundsDailyCostService;
+import cn.zswltech.mithras.application.orchestration.finance.monthly.MonthlyManageService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -82,7 +82,7 @@ public class InterestPayService {
     private final static String HZ = "汇总";
 
 
-    // 废弃，使用cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostMainService.listInterestPayRSP替代
+    // 废弃，使用cn.zswltech.mithras.application.orchestration.finance.monthly.FundsDailyCostMainService.listInterestPayRSP替代
     @Deprecated
     public List<InterestPayRSP> listPage(InterestPayListREQ req) {
         StopWatch st = new StopWatch("应付利息列表");

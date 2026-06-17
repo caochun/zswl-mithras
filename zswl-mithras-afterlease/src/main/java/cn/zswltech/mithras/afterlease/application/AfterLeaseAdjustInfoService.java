@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.afterlease.*;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
@@ -31,9 +30,9 @@ public interface AfterLeaseAdjustInfoService extends IService<AfterLeaseAdjustIn
 
     void processEnd(Long adjustId, Integer endType, Long startUserId, String processInstanceId);
 
-    ProcessResp findRelatedProcess(Long projReviewId);
+    AfterLeaseRelatedProcess findRelatedProcess(Long projReviewId);
 
-    List<ProcessResp> findRelatedProcesses(Long adjustId);
+    List<AfterLeaseRelatedProcess> findRelatedProcesses(Long adjustId);
 
     void checkDetail(Long id);
 

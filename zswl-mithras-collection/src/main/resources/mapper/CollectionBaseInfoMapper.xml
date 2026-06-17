@@ -83,6 +83,27 @@
         contract_id
     </select>
 
+    <select id="listClientIdsByLastRentDate" resultType="java.lang.Long">
+        select client_id
+        from collection_base_info
+        where cash_flow_item = 'RENT'
+        <if test="clientIds != null and clientIds.size() > 0">
+            and client_id in
+            <foreach collection="clientIds" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        group by client_id
+        <trim prefix="having" prefixOverrides="and">
+            <if test="from != null">
+                and max(plan_collection_date) &gt;= #{from}
+            </if>
+            <if test="to != null">
+                and #{to} &gt;= max(plan_collection_date)
+            </if>
+        </trim>
+    </select>
+
     <select id="getLastRentByContractIdsAndTime"
             resultType="cn.zswltech.mithras.collection.model.CollectionBaseInfo">
         SELECT

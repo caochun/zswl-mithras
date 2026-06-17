@@ -6,16 +6,16 @@ import cn.zswltech.mithras.dto.leaseholdproperty.LeaseReviewEffectREQ;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.leaseholdproperty.enums.LeaseholdPropertyProcessModel;
+import cn.zswltech.mithras.leaseholdproperty.application.port.LeaseholdContractContextPort;
+import cn.zswltech.mithras.leaseholdproperty.application.port.LeaseholdContractContextSnapshot;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
-import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.review.LeaseReviewService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -38,7 +38,7 @@ public class LeaseVersionFacade implements LeaseVersionApplicationService {
     @Resource
     private LeaseReviewService leaseReviewService;
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
+    private LeaseholdContractContextPort leaseholdContractContextPort;
     @Resource
     private RedisDistLock redisDistLock;
     @Resource
@@ -53,7 +53,7 @@ public class LeaseVersionFacade implements LeaseVersionApplicationService {
             throw new MithrasException(CONCURRENT_OPERATION);
         }
         try {
-            ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(param.getContractId());
+            LeaseholdContractContextSnapshot contractBaseInfo = leaseholdContractContextPort.getByContractId(param.getContractId());
             if (ObjectUtils.isEmpty(contractBaseInfo)) {
                 throw new MithrasException("未查询到合同信息");
             }
@@ -82,11 +82,11 @@ public class LeaseVersionFacade implements LeaseVersionApplicationService {
             leaseItemInfoService.save(leaseItemInfo);
             //存量项目为创建审批，非存量为变更审批
             Long projReviewId = contractBaseInfo.getProjReviewId();
-            Integer stockContractFlag = contractBaseInfoService.getStockContractFlag(projReviewId);
+            Integer stockContractFlag = leaseholdContractContextPort.getStockContractFlag(projReviewId);
             if (Objects.equals(stockContractFlag, YesOrNoNumberEnum.YES.getCode())) {
-                leaseReviewService.effect(leaseItemInfo.getId(), ProcessModelTypeEnum.LeaseCreateFlow);
+                leaseReviewService.effect(leaseItemInfo.getId(), LeaseholdPropertyProcessModel.LEASE_CREATE);
             } else {
-                leaseReviewService.effect(leaseItemInfo.getId(), ProcessModelTypeEnum.LeaseModifyFlow);
+                leaseReviewService.effect(leaseItemInfo.getId(), LeaseholdPropertyProcessModel.LEASE_MODIFY);
             }
         } finally {
             redisDistLock.unlock(lockKey);

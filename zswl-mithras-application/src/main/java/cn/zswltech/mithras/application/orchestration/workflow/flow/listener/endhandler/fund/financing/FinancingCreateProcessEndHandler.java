@@ -22,7 +22,7 @@ import cn.zswltech.mithras.fund.application.financing.statemachine.FundFinancing
 import cn.zswltech.mithras.fund.application.financing.statemachine.FundFinancingContext;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingEvent;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingLibVersionService;
-import cn.zswltech.mithras.application.orchestration.monthly.MonthlyStampDutyService;
+import cn.zswltech.mithras.application.orchestration.finance.monthly.MonthlyStampDutyService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

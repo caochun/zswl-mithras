@@ -2,9 +2,7 @@ package cn.zswltech.mithras.payment.application.pubinfo;
 
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.dto.file.FileListRSP;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.payment.enums.pubinfo.PublicInfoFileTypeEnum;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 
 import java.io.IOException;
@@ -22,13 +20,17 @@ public interface PaymentPublicInfoSupportPort {
 
     List<UserDO> getUserByDeptCode(String orgCode);
 
-    List<MaterialsList> listMaterials(Collection<Long> belongIds);
+    List<PaymentPublicInfoMaterialSnapshot> listMaterialSnapshots(Collection<Long> belongIds);
 
-    List<MaterialsList> listMaterials(Collection<Long> belongIds, Collection<PublicInfoFileTypeEnum> fileTypes);
-
-    FileListRSP toFileListRSP(MaterialsList materialsList);
+    List<FileListRSP> listMaterialFiles(Collection<Long> belongIds, Collection<PublicInfoFileTypeEnum> fileTypes);
 
     Long addMaterial(InputStream inputStream, String fileName, Long belongId, String materialsType, String materialsSubType, YesOrNoNumberEnum systemGenerate) throws IOException;
 
-    List<ContractBaseInfo> listContractsByProjReviewId(Long projReviewId);
+    PaymentPublicInfoContractContextSnapshot getContractContextByContractId(Long contractId);
+
+    PaymentPublicInfoContractParticipantSnapshot getContractParticipantSnapshot(Long contractId);
+
+    List<PaymentPublicInfoContractSnapshot> listContractSnapshotsByProjReviewId(Long projReviewId);
+
+    PublicInfoOuterQuerySnapshot getLatestOuterQuerySnapshot(Long publicInfoQueryId);
 }

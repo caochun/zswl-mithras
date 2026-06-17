@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.document.materialsfile.bat
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.dto.file.FileBatchDownLoadREQ;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportDownloadService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.batchdownload.AbstractFileBatchDownload;

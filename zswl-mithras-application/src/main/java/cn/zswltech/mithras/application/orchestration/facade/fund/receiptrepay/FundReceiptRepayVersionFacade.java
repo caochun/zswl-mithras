@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.fund.application.auth.receiptrepay.rule.FundReceiptRepayAuthMoneyManagerRule;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.fund.enums.receiptrepay.CreateBatchType;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

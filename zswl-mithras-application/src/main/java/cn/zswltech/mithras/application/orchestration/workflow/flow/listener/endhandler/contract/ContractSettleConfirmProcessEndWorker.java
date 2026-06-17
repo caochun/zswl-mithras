@@ -8,7 +8,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractSpecialTradeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.application.orchestration.client.ProjClientRoleService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
-import cn.zswltech.mithras.leaseholdproperty.application.contract.ContractLeaseItemService;
+import cn.zswltech.mithras.contract.application.ContractLeaseItemService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

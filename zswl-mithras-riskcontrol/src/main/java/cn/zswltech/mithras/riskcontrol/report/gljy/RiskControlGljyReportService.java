@@ -10,29 +10,17 @@ import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportModifyREQ
 import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportRelatedClientREQ;
 import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportRemoveREQ;
 import cn.zswltech.mithras.api.riskcontrol.model.gljy.report.GljyReportSubmitREQ;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClient;
 import cn.zswltech.mithras.riskcontrol.relation.RiskControlRelatedClientService;
-import cn.zswltech.mithras.payment.event.PaymentWriteOffEvent;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -42,15 +30,11 @@ import static cn.hutool.core.collection.CollUtil.isNotEmpty;
 import static cn.hutool.core.text.CharSequenceUtil.isBlank;
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
 import static cn.hutool.core.util.ObjectUtil.*;
-import static cn.hutool.json.JSONUtil.toJsonStr;
 import static cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportLevel.IMPORTANT;
-import static cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportLevel.NORMAL;
 import static cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportStatus.NOT_REPORT;
 import static cn.zswltech.mithras.riskcontrol.report.gljy.GljyReportStatus.REPORTED;
 import static cn.zswltech.mithras.foundation.exception.MithrasException.err;
-import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean;
 import static cn.zswltech.mithras.foundation.util.Util.mithrasLong2BigDecimal;
-import static java.util.Objects.requireNonNull;
 
 /**
  * @author yibin
@@ -61,8 +45,6 @@ public class RiskControlGljyReportService extends ServiceImpl<RiskControlGljyRep
     @Resource
     private RiskControlGljyReportExternalPort externalPort;
     @Resource
-    private ClientMapper clientMapper;
-    @Resource
     private RiskControlRelatedClientService relatedClientService;
 
     @XxlJob("syncRelatedClient")
@@ -70,9 +52,10 @@ public class RiskControlGljyReportService extends ServiceImpl<RiskControlGljyRep
     public void syncRelatedClient() {
         try {
             List<RiskControlRelatedClientExternal> list = externalPort.fetchRelatedClients();
-            Map<String, Long> clientMap = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
-                            .in(Client::getUscCode, list.stream().map(RiskControlRelatedClientExternal::getCreditCode).collect(Collectors.toSet())))
-                    .stream().filter(e -> StrUtil.isNotBlank(e.getUscCode())).collect(Collectors.toMap(Client::getUscCode, Client::getId));
+            Map<String, Long> clientMap = externalPort.clientIdsByCreditCodes(list.stream()
+                    .map(RiskControlRelatedClientExternal::getCreditCode)
+                    .filter(StrUtil::isNotBlank)
+                    .collect(Collectors.toSet()));
             List<RiskControlRelatedClient> insertList = list.stream()
                     //暂时只关注企业的；自然人的名单中并没有客户的身份证号
                     .filter(e -> equal(1, e.getPartyType()) && clientMap.containsKey(e.getCreditCode()))
@@ -201,46 +184,6 @@ public class RiskControlGljyReportService extends ServiceImpl<RiskControlGljyRep
                 .map(e -> new RiskControlGljyReport().setId(e.getId()).setReportStatus(REPORTED.name()))
                 .collect(Collectors.toList());
         this.updateBatchById(updateList);
-    }
-
-    @Slf4j
-    @Component
-    public static class PaymentEndListener implements ApplicationListener<PaymentWriteOffEvent> {
-        @Override
-        @Transactional(rollbackFor = Exception.class)
-        public void onApplicationEvent(PaymentWriteOffEvent event) {
-            log.info("关联交易记录报送-监听付款核销结束； payment actual detail:{}", toJsonStr(event.getPaymentActualDetail()));
-            PaymentActualDetail detail = event.getPaymentActualDetail();
-            Long contractId = detail.getContractId();
-            ContractBaseInfo contract = getBean(ContractBaseInfoMapper.class).selectById(contractId);
-            if (isNotNull(contract)) {
-                //如果关联交易客户名单中未包含此笔付款的客户，则不用关注
-                List<RiskControlRelatedClient> list = getBean(RiskControlRelatedClientService.class).list(Wrappers.<RiskControlRelatedClient>lambdaQuery()
-                        .eq(RiskControlRelatedClient::getClientId, contract.getClientId()));
-                if (list.size() > 0) {
-                    ProjReviewBaseInfo review = getBean(ProjReviewBaseInfoMapper.class).selectById(contract.getProjReviewId());
-                    //
-                    RiskControlGljyReport report = new RiskControlGljyReport();
-                    report.setSubjectPartyName("浙江浙商融资租赁有限公司");
-                    report.setTradePartyName(list.get(0).getClientName());
-                    report.setTradeCategoryParentName(GljyReportCategoryOne.TRZL.name());
-                    report.setTradeCategoryName(GljyReportCategoryTwo.RZZL.name());
-                    report.setAmount(mithrasLong2BigDecimal(detail.getPaidInAmount()).longValue());//转换万元单位
-                    report.setTradeDate(LocalDate.now());
-//                        report.setTradePartyAssets()
-                    report.setPurpose(isNull(review.getBizType()) ? "" : requireNonNull(ProjectBizType.of(review.getBizType())).display + "业务");
-                    report.setLevel(detail.getPaidInAmount() > 500_000_000_0000L ? IMPORTANT.name() : NORMAL.name());
-                    if (IMPORTANT.name().equals(report.getLevel())) {
-                        report.setImportantReason(GljyReportImportantReason.one.name());
-                    }
-                    report.setDescription(report.getPurpose());
-                    report.setOpinion("无影响");
-                    report.setRisk("无意见");
-                    report.setReportStatus(NOT_REPORT.name());
-                    getBean(RiskControlGljyReportService.class).save(report);
-                }
-            }
-        }
     }
 
 }

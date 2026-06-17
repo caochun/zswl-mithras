@@ -3,11 +3,10 @@ package cn.zswltech.mithras.assetclassify.application;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyClientRelationPort;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientListREQ;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
-import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -27,7 +26,7 @@ public class AssetClassifyCommonService {
     @Resource
     private CurrentUserDataScopeResolver currentUserDataScopeResolver;
     @Resource
-    private CorpCommerceInfoMapper corpCommerceInfoMapper;
+    private AssetClassifyClientRelationPort assetClassifyClientRelationPort;
 
     public <T extends AssetClassifyClient> LambdaQueryWrapper<T> buildQuery(AssetClassifyClientListREQ req) {
         LambdaQueryWrapper<T> conditionQuery = Wrappers.lambdaQuery();
@@ -50,11 +49,7 @@ public class AssetClassifyCommonService {
         conditionQuery.eq(Objects.nonNull(req.getBelongDeptId()), T::getBelongDeptId, req.getBelongDeptId());
         // 新增查询条件：是否关联方
         if (Objects.nonNull(req.getIsRelated())){
-            // 构建子查询
-            LambdaQueryWrapper<CorpCommerceInfo> subQuery = Wrappers.lambdaQuery();
-            subQuery.select(CorpCommerceInfo::getClientId)
-                    .eq(CorpCommerceInfo::getIsRelated, req.getIsRelated());
-            List<Object> relatedClientIds = corpCommerceInfoMapper.selectObjs(subQuery);
+            List<Long> relatedClientIds = assetClassifyClientRelationPort.listClientIdsByRelated(req.getIsRelated());
             if (CollectionUtil.isNotEmpty(relatedClientIds)) {
                 conditionQuery.in(T::getClientId, relatedClientIds);
             }

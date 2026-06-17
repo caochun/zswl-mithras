@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.file.focusfileselector;
 
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;
 import org.springframework.stereotype.Component;
 

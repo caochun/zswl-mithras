@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.contract.operationprepare.impl;
 
 import cn.hutool.core.lang.Assert;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ContractSettleOwnerChangeRender;

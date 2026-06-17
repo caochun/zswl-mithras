@@ -166,7 +166,7 @@
     </select>
 
     <select id="listCost"
-            parameterType="cn.zswltech.mithras.dashboard.model.DashboardFundCostQuery"
+            parameterType="cn.zswltech.mithras.dto.dashboard.DashboardFundCostQuery"
             resultType="cn.zswltech.mithras.dashboard.model.DashboardFundCostResult">
         SELECT *
         FROM (SELECT

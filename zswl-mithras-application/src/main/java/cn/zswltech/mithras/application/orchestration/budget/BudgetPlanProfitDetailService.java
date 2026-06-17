@@ -16,10 +16,10 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
+import cn.zswltech.mithras.budget.enums.BudgetFtpIndustryCategory;
 import cn.zswltech.mithras.budget.enums.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.budget.mapper.BudgetPlanProfitDetailMapper;
 import cn.zswltech.mithras.budget.mapper.model.BudgetPlanProfit;
@@ -121,7 +121,7 @@ public class BudgetPlanProfitDetailService extends ServiceImpl<BudgetPlanProfitD
             rsp.setBelongDeptName(deptNameMap.get(e.getBelongDeptId()));
             rsp.setSponsorUserName(userNameMap.get(e.getSponsorUserId()));
             rsp.setLeaseTypeDisplay(Optional.ofNullable(LeaseType.of(e.getLeaseType())).map(LeaseType::display).orElse(null));
-            rsp.setFtpIndustryCategoryDisplay(Optional.ofNullable(FtpIndustryCategoryEnum.getByName(e.getFtpIndustryCategory())).map(FtpIndustryCategoryEnum::display).orElse(null));
+            rsp.setFtpIndustryCategoryDisplay(Optional.ofNullable(BudgetFtpIndustryCategory.getByName(e.getFtpIndustryCategory())).map(BudgetFtpIndustryCategory::display).orElse(null));
             return rsp;
         }).collect(Collectors.toList());
         // 添加合计
@@ -182,7 +182,7 @@ public class BudgetPlanProfitDetailService extends ServiceImpl<BudgetPlanProfitD
         result.add(sumRSP);
         // 按照FTP行业分类分组
         Map<String, List<BudgetPlanProfitDetail>> ftpIndustryCategoryMap = dbList.stream().filter(e -> StrUtil.isNotBlank(e.getFtpIndustryCategory())).collect(Collectors.groupingBy(BudgetPlanProfitDetail::getFtpIndustryCategory));
-        for (FtpIndustryCategoryEnum ftpIndustryCategoryEnum : FtpIndustryCategoryEnum.values()) {
+        for (BudgetFtpIndustryCategory ftpIndustryCategoryEnum : BudgetFtpIndustryCategory.values()) {
             List<BudgetPlanProfitDetail> list = ftpIndustryCategoryMap.get(ftpIndustryCategoryEnum.name());
             BudgetPlanProfitDetailFutureRSP ftpIndustryRSP = this.convertFromProfitDetailList(list);
             ftpIndustryRSP.setBelongDeptName(ftpIndustryCategoryEnum.getDisplay());
@@ -240,7 +240,7 @@ public class BudgetPlanProfitDetailService extends ServiceImpl<BudgetPlanProfitD
         result.add(sumRSP);
         // 按照FTP行业分类分组
         Map<String, List<BudgetPlanProfitDetail>> ftpIndustryCategoryMap = dbList.stream().filter(e -> StrUtil.isNotBlank(e.getFtpIndustryCategory())).collect(Collectors.groupingBy(BudgetPlanProfitDetail::getFtpIndustryCategory));
-        for (FtpIndustryCategoryEnum ftpIndustryCategoryEnum : FtpIndustryCategoryEnum.values()) {
+        for (BudgetFtpIndustryCategory ftpIndustryCategoryEnum : BudgetFtpIndustryCategory.values()) {
             List<BudgetPlanProfitDetail> list = ftpIndustryCategoryMap.get(ftpIndustryCategoryEnum.name());
             BudgetPlanProfitDetailHistoryRSP rsp = new BudgetPlanProfitDetailHistoryRSP();
             rsp.setBelongDeptName(ftpIndustryCategoryEnum.getDisplay());
@@ -309,7 +309,7 @@ public class BudgetPlanProfitDetailService extends ServiceImpl<BudgetPlanProfitD
         rsp.setBelongDeptId(detail.getBelongDeptId());
         rsp.setContractCode(detail.getContractCode());
         rsp.setFtpIndustryCategory(detail.getFtpIndustryCategory());
-        rsp.setFtpIndustryCategoryDisplay(Optional.ofNullable(FtpIndustryCategoryEnum.getByName(detail.getFtpIndustryCategory())).map(FtpIndustryCategoryEnum::display).orElse(null));
+        rsp.setFtpIndustryCategoryDisplay(Optional.ofNullable(BudgetFtpIndustryCategory.getByName(detail.getFtpIndustryCategory())).map(BudgetFtpIndustryCategory::display).orElse(null));
         rsp.setRiskControlIndustryClassify(detail.getRiskControlIndustryClassify());
         rsp.setRiskControlIndustryClassifyDisplay(Optional.ofNullable(RiskControlIndustryClassify.findByName(detail.getRiskControlIndustryClassify())).map(RiskControlIndustryClassify::display).orElse(null));
         rsp.setLeaseType(detail.getLeaseType());
@@ -403,10 +403,10 @@ public class BudgetPlanProfitDetailService extends ServiceImpl<BudgetPlanProfitD
             List<BudgetPlanProfitDetail> list = detpDetailMap.get(deptId);
             if (CollectionUtil.isNotEmpty(list)) {
                 // 按照FTP类型分类
-                deptData.setPublicUtilities(list.stream().filter(e -> Objects.equals(e.getFtpIndustryCategory(), FtpIndustryCategoryEnum.FTP_PUBLIC_UTILITIES.name())).mapToLong(mapper).sum());
-                deptData.setCivilConsumption(list.stream().filter(e -> Objects.equals(e.getFtpIndustryCategory(), FtpIndustryCategoryEnum.FTP_CIVIL_CONSUMPTION.name())).mapToLong(mapper).sum());
-                deptData.setStateOwnedIndustry(list.stream().filter(e -> Objects.equals(e.getFtpIndustryCategory(), FtpIndustryCategoryEnum.FTP_STATE_OWNED_INDUSTRY.name())).mapToLong(mapper).sum());
-                deptData.setOtherIndustry(list.stream().filter(e -> Objects.equals(e.getFtpIndustryCategory(), FtpIndustryCategoryEnum.FTP_OTHER_INDUSTRY.name())).mapToLong(mapper).sum());
+                deptData.setPublicUtilities(list.stream().filter(e -> Objects.equals(e.getFtpIndustryCategory(), BudgetFtpIndustryCategory.FTP_PUBLIC_UTILITIES.name())).mapToLong(mapper).sum());
+                deptData.setCivilConsumption(list.stream().filter(e -> Objects.equals(e.getFtpIndustryCategory(), BudgetFtpIndustryCategory.FTP_CIVIL_CONSUMPTION.name())).mapToLong(mapper).sum());
+                deptData.setStateOwnedIndustry(list.stream().filter(e -> Objects.equals(e.getFtpIndustryCategory(), BudgetFtpIndustryCategory.FTP_STATE_OWNED_INDUSTRY.name())).mapToLong(mapper).sum());
+                deptData.setOtherIndustry(list.stream().filter(e -> Objects.equals(e.getFtpIndustryCategory(), BudgetFtpIndustryCategory.FTP_OTHER_INDUSTRY.name())).mapToLong(mapper).sum());
                 // 部门合计
                 deptData.setSum(list.stream().mapToLong(mapper).sum());
             }
@@ -431,17 +431,17 @@ public class BudgetPlanProfitDetailService extends ServiceImpl<BudgetPlanProfitD
             if (CollectionUtil.isNotEmpty(list)) {
                 // 按照FTP行业分类
                 Map<String, List<BudgetPlanProfitDetail>> ftpMap = list.stream().collect(Collectors.groupingBy(BudgetPlanProfitDetail::getFtpIndustryCategory));
-                for (FtpIndustryCategoryEnum ftpIndustryCategoryEnum : FtpIndustryCategoryEnum.values()) {
-                    if (ftpIndustryCategoryEnum == FtpIndustryCategoryEnum.FTP_PUBLIC_UTILITIES) {
+                for (BudgetFtpIndustryCategory ftpIndustryCategoryEnum : BudgetFtpIndustryCategory.values()) {
+                    if (ftpIndustryCategoryEnum == BudgetFtpIndustryCategory.FTP_PUBLIC_UTILITIES) {
                         deptData.setPublicUtilities(Long.valueOf(this.calculateAverageIrr(ftpMap.get(ftpIndustryCategoryEnum.name()))));
                     }
-                    if (ftpIndustryCategoryEnum == FtpIndustryCategoryEnum.FTP_CIVIL_CONSUMPTION) {
+                    if (ftpIndustryCategoryEnum == BudgetFtpIndustryCategory.FTP_CIVIL_CONSUMPTION) {
                         deptData.setCivilConsumption(Long.valueOf(this.calculateAverageIrr(ftpMap.get(ftpIndustryCategoryEnum.name()))));
                     }
-                    if (ftpIndustryCategoryEnum == FtpIndustryCategoryEnum.FTP_STATE_OWNED_INDUSTRY) {
+                    if (ftpIndustryCategoryEnum == BudgetFtpIndustryCategory.FTP_STATE_OWNED_INDUSTRY) {
                         deptData.setStateOwnedIndustry(Long.valueOf(this.calculateAverageIrr(ftpMap.get(ftpIndustryCategoryEnum.name()))));
                     }
-                    if (ftpIndustryCategoryEnum == FtpIndustryCategoryEnum.FTP_OTHER_INDUSTRY) {
+                    if (ftpIndustryCategoryEnum == BudgetFtpIndustryCategory.FTP_OTHER_INDUSTRY) {
                         deptData.setOtherIndustry(Long.valueOf(this.calculateAverageIrr(ftpMap.get(ftpIndustryCategoryEnum.name()))));
                     }
                 }

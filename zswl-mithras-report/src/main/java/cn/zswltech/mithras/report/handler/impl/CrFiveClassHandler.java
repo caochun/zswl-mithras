@@ -1,7 +1,8 @@
 package cn.zswltech.mithras.report.handler.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.date.LocalDateTimeUtil;
+import cn.zswltech.mithras.api.report.ReportAssetClassifyClientSnapshot;
+import cn.zswltech.mithras.api.report.ReportAssetClassifyPort;
 import cn.zswltech.mithras.report.enums.biz.FiveClassEnum;
 import cn.zswltech.mithras.report.enums.common.ApprovalStatus;
 import cn.zswltech.mithras.report.enums.common.ReportModuleEnum;
@@ -12,35 +13,16 @@ import cn.zswltech.mithras.report.mapper.draft.model.CrAccountDraft;
 import cn.zswltech.mithras.report.mapper.draft.model.CrFiveClassDraft;
 import cn.zswltech.mithras.report.mapper.formal.model.CrFiveClass;
 import cn.zswltech.mithras.report.service.draft.CrFiveClassDraftService;
-import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.assetclassify.enums.AssetClassifyBizNodeEnum;
-import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
-import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
-import cn.zswltech.mithras.payment.enums.WriteOffStatus;
-import cn.zswltech.mithras.assetclassify.model.*;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;
-import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyLibService;
-import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyNodeRecordLibService;
-import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
-import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
-import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import liquibase.pro.packaged.L;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Function;
@@ -61,17 +43,11 @@ public class CrFiveClassHandler extends CrAbstractHandler<CrFiveClassDraft, CrFi
     @Resource
     private CrAccountDraftMapper crAccountDraftMapper;
     @Resource
-    private AssetClassifyLibService assetClassifyLibService;
-    @Resource
-    private AssetClassifyClientAuxiliaryLibService assetClassifyClientAuxiliaryLibService;
-    @Resource
-    private ContractBaseInfoLibService contractBaseInfoLibService;
-    @Resource
     private CrFiveClassDraftService crFiveClassDraftService;
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource
-    private AssetClassifyNodeRecordLibService assetClassifyNodeRecordLibService;
+    private ReportAssetClassifyPort reportAssetClassifyPort;
 
     @Override
     public ReportModuleEnum reportModule() {
@@ -96,9 +72,6 @@ public class CrFiveClassHandler extends CrAbstractHandler<CrFiveClassDraft, CrFi
                 .map(ContractBaseInfo::getId).collect(Collectors.toSet());
         List<CrAccountDraft> accountDraftList = all.stream().filter(a -> contractIds.contains(a.getContractId())).collect(Collectors.toList());
 
-        //获取当前年、季度
-        Map<Integer, Integer> currentQuarter = getCurrentQuarter(dealTime.toLocalDate());
-
         //第一次默认正常
         List<CrFiveClassDraft> classDrafts = crFiveClassDraftService.list(Wrappers.<CrFiveClassDraft>lambdaQuery()
                 .in(CrFiveClassDraft::getContractId, contractIds));
@@ -113,40 +86,15 @@ public class CrFiveClassHandler extends CrAbstractHandler<CrFiveClassDraft, CrFi
         if (CollUtil.isEmpty(classDrafts)) {
             saveNewHandler(accountDraftList);
         }
-        //查询当前年份当前季度的所有客户五级分类(最新版本)
-        int year = dealTime.toLocalDate().getYear();
-        List<AssetClassifyLib> classifyList = assetClassifyLibService.list(Wrappers.<AssetClassifyLib>lambdaQuery()
-                .eq(AssetClassifyLib::getYear, year)
-                .eq(AssetClassifyLib::getVersionType, VersionTypeConstants.NORMAL)
-                .eq(AssetClassifyLib::getQuarter, currentQuarter.get(year))
-                .eq(AssetClassifyLib::getFinish, YesOrNoNumberEnum.YES.getCode()));
-
-        if (CollUtil.isEmpty(classifyList)) {
+        List<ReportAssetClassifyClientSnapshot> classifyClientList =
+                reportAssetClassifyPort.findFinishedClientClassifySnapshots(dealTime.toLocalDate());
+        if (CollUtil.isEmpty(classifyClientList)) {
             return;
         }
-        //根据ID分组并取出最新版本
-        classifyList.sort(Comparator.comparing(AssetClassifyLib::getVersion).reversed());
-        AssetClassifyLib assetClassifyLib = classifyList.get(0);
-
-        List<AssetClassifyClientAuxiliaryLib> classifyClientList = assetClassifyClientAuxiliaryLibService.list(
-                Wrappers.<AssetClassifyClientAuxiliaryLib>lambdaQuery()
-                        .eq(AssetClassifyClientAuxiliaryLib::getAssetClassifyId, assetClassifyLib.getOriginId())
-                        .eq(AssetClassifyClientAuxiliaryLib::getVersion, assetClassifyLib.getVersion())
-                        .eq(AssetClassifyClientAuxiliaryLib::getVersionType, VersionTypeConstants.NORMAL)
-                        .eq(AssetClassifyClientAuxiliaryLib::getReviewStatus, PaymentStatusEnum.FINISHED.name())
-        );
-
-        List<AssetClassifyNodeRecordLib> list = assetClassifyNodeRecordLibService.list(Wrappers.<AssetClassifyNodeRecordLib>lambdaQuery()
-                .eq(AssetClassifyNodeRecordLib::getAssetClassifyId, assetClassifyLib.getOriginId())
-                .eq(AssetClassifyNodeRecordLib::getVersionType, VersionTypeConstants.NORMAL)
-                .orderByDesc(AssetClassifyNodeRecordLib::getVersion)
-        );
-        list.sort(Comparator.comparing(AssetClassifyNodeRecordLib::getId).reversed());
-        AssetClassifyNodeRecordLib classifyNodeRecordLib = list.get(0);
 
         //根据客户ID分组并取出最新版本
-        Map<Long, AssetClassifyClientAuxiliaryLib> clientAuxiliaryLibMap = classifyClientList.stream()
-                .collect(Collectors.toMap(AssetClassifyClientAuxiliaryLib::getClientId, Function.identity(), (k1, k2) -> k1));
+        Map<Long, ReportAssetClassifyClientSnapshot> clientAuxiliaryLibMap = classifyClientList.stream()
+                .collect(Collectors.toMap(ReportAssetClassifyClientSnapshot::getClientId, Function.identity(), (k1, k2) -> k1));
 
         Set<String> existFiveClassPaymentIdSet = new HashSet<>();
         if (CollUtil.isNotEmpty(classDrafts)) {
@@ -163,7 +111,7 @@ public class CrFiveClassHandler extends CrAbstractHandler<CrFiveClassDraft, CrFi
                 fiveClassDraft.setApprovalStatus(ApprovalStatus.UN_SUBMIT.name());
                 fiveClassDraft.setPaymentId(accountDraft.getPaymentId());
                 fiveClassDraft.setPaymentApplyCode(accountDraft.getPaymentApplyCode());
-                fiveClassDraft.setIdentificationDate(classifyNodeRecordLib.getEndTime());
+                fiveClassDraft.setIdentificationDate(classifyClientList.get(0).getIdentificationDate());
                 fiveClassDraft.setFiveClass(FiveClassEnum.NORMAL.getValue());
                 fiveClassDraft.setContractId(accountDraft.getContractId());
                 fiveClassDraft.setBusinessKey(fiveClassDraft.genBusinessKey());
@@ -186,7 +134,7 @@ public class CrFiveClassHandler extends CrAbstractHandler<CrFiveClassDraft, CrFi
                 }
             });
             for (CrAccountDraft draft : tempAccountDraftList) {
-                AssetClassifyClient clientLib = clientAuxiliaryLibMap.get(draft.getClientId());
+                ReportAssetClassifyClientSnapshot clientLib = clientAuxiliaryLibMap.get(draft.getClientId());
                 if (Objects.nonNull(clientLib)) {
                     CrFiveClassDraft classDraft = fiveClassDraftMap.get(draft.getPaymentApplyCode());
                     if (Objects.nonNull(classDraft) && !Objects.equals(FiveClassEnum.of(clientLib.getClassifyResult()).getValue(), classDraft.getFiveClass())) {
@@ -196,7 +144,7 @@ public class CrFiveClassHandler extends CrAbstractHandler<CrFiveClassDraft, CrFi
                             CrFiveClassDraft build = new CrFiveClassDraft();
                             build.setFiveClass(FiveClassEnum.of(clientLib.getClassifyResult()).getValue());
                             build.setId(classDraft.getId());
-                            build.setIdentificationDate(classifyNodeRecordLib.getEndTime());
+                            build.setIdentificationDate(clientLib.getIdentificationDate());
                             needUpdateList.add(build);
                         } else {
                             //新增
@@ -205,7 +153,7 @@ public class CrFiveClassHandler extends CrAbstractHandler<CrFiveClassDraft, CrFi
                             fiveClassDraft.setApprovalStatus(ApprovalStatus.UN_SUBMIT.name());
                             fiveClassDraft.setPaymentId(draft.getPaymentId());
                             fiveClassDraft.setPaymentApplyCode(draft.getPaymentApplyCode());
-                            fiveClassDraft.setIdentificationDate(classifyNodeRecordLib.getEndTime());
+                            fiveClassDraft.setIdentificationDate(clientLib.getIdentificationDate());
                             fiveClassDraft.setFiveClass(FiveClassEnum.of(clientLib.getClassifyResult()).getValue());
                             fiveClassDraft.setContractId(draft.getContractId());
                             fiveClassDraft.setBusinessKey(fiveClassDraft.genBusinessKey());
@@ -238,15 +186,6 @@ public class CrFiveClassHandler extends CrAbstractHandler<CrFiveClassDraft, CrFi
             temp.add(fiveClassDraft);
         }
         crFiveClassDraftService.saveBatch(temp);
-    }
-
-    /**
-     * @return Map<Integer年, Integer季度>
-     */
-    private Map<Integer, Integer> getCurrentQuarter(LocalDate date) {
-        Map<Integer, Integer> map = new HashMap<>(8);
-        map.put(date.getYear(), (date.getMonth().getValue() / 3) + 1);
-        return map;
     }
 
     @Override

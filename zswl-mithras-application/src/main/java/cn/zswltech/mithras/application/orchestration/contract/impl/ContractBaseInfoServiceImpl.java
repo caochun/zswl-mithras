@@ -14,7 +14,6 @@ import cn.zswltech.mithras.contract.core.ContractPledgeService;
 import cn.zswltech.mithras.contract.core.ContractMortgageService;
 import cn.zswltech.mithras.contract.core.ContractGuarantorService;
 import cn.zswltech.mithras.contract.core.ContractTradeStructureService;
-import cn.zswltech.mithras.leaseholdproperty.application.contract.ContractLeaseItemService;
 import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 
 import cn.hutool.core.bean.BeanUtil;
@@ -62,7 +61,7 @@ import cn.zswltech.mithras.contract.convert.contract.ContractBaseInfoConverter;
 import cn.zswltech.mithras.contract.convert.contract.ContractPriceConverter;
 import cn.zswltech.mithras.contract.convert.contract.ContractTenantryConvert;
 import cn.zswltech.mithras.projectprocess.convert.projpricing.ProjPricingPriceConverter;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
@@ -75,7 +74,7 @@ import cn.zswltech.mithras.payment.enums.LendingMaterialType;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
-import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTradeStructureRoleEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
@@ -122,7 +121,7 @@ import cn.zswltech.mithras.customer.application.client.ClientBusinessHistoryServ
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.contract.*;
-import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.credit.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
 import cn.zswltech.mithras.foundation.version.LibCommonConvert;
 import cn.zswltech.mithras.customer.versioning.CorpCommerceInfoLibService;
@@ -299,7 +298,7 @@ public class ContractBaseInfoServiceImpl extends ServiceImpl<ContractBaseInfoMap
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
     @Resource
-    private ContractLeaseItemService contractLeaseItemService;
+    private ContractLeaseItemServiceImpl contractLeaseItemService;
     @Resource
     private LeaseItemInfoService leaseItemInfoService;
     @Resource
@@ -388,7 +387,7 @@ public class ContractBaseInfoServiceImpl extends ServiceImpl<ContractBaseInfoMap
         }
 
         //计算本项目下已有合同授信金额
-        ContractBaseInfo info = baseInfoConverter.reviewToContract(pricingBaseInfo);
+        ContractBaseInfo info = BeanUtil.copyProperties(pricingBaseInfo, ContractBaseInfo.class);
         info.setRemark("");
 
         // 获取事务定义
@@ -2301,7 +2300,7 @@ public class ContractBaseInfoServiceImpl extends ServiceImpl<ContractBaseInfoMap
         }
         contractTenantryService.saveBatch(toSaveList);
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractBaseInfo.getId(), TradeStructureRoleEnum.LESSEE);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractBaseInfo.getId(), ContractTradeStructureRoleEnum.LESSEE);
     }
 
     public void copyLendingMaterial(Long paymentId) {

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.foundation.util.CommonFileSortComparator;
 import cn.zswltech.mithras.application.orchestration.document.convert.FileConvert;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.mobile.enums.VisitPhaseStatus;
 import cn.zswltech.mithras.customer.mobile.enums.VisitRecordStatus;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;

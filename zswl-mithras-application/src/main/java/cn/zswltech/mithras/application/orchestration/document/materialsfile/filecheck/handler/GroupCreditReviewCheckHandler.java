@@ -4,14 +4,14 @@ package cn.zswltech.mithras.application.orchestration.document.materialsfile.fil
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewService;
+import cn.zswltech.mithras.application.orchestration.credit.groupcredit.review.GroupCreditReviewService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.FileModuleCheck;
 import cn.zswltech.mithras.workflow.flow.util.FlowUtil;

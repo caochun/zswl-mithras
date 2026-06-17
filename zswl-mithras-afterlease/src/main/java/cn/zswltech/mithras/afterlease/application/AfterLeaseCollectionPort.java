@@ -1,21 +1,22 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface AfterLeaseCollectionPort {
-    Page<CollectionBaseInfo> page(Page<CollectionBaseInfo> page, Wrapper<CollectionBaseInfo> queryWrapper);
+    Page<AfterLeaseReceiptCollectionSnapshot> pageReceiptCollectionByPaymentCode(String paymentCode, long page, long pageSize);
 
-    List<CollectionBaseInfo> list(Wrapper<CollectionBaseInfo> queryWrapper);
+    AfterLeaseCollectionEmailSnapshot getEmailSnapshotById(Long collectionId);
 
-    CollectionBaseInfo getOne(Wrapper<CollectionBaseInfo> queryWrapper);
+    List<AfterLeasePenaltyCollection> listUnpaidPenaltyRentByContractId(Long contractId);
 
-    CollectionBaseInfo getById(Long collectionId);
+    LocalDate findFirstUnpaidPenaltyPlanDate(Long contractId);
 
-    void updateBatchById(List<CollectionBaseInfo> collectionBaseInfos);
+    Long sumRemainingPenaltyInterest(Long contractId);
+
+    void updatePenaltyCollections(List<AfterLeasePenaltyCollection> collections);
 
     void updateEmailNoticeCount(Long collectionId, Integer emailNoticeCount);
 }

@@ -11,7 +11,7 @@ import cn.zswltech.mithras.dto.fund.receiptrepay.*;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.receiptrepay.FundReceiptRepayModifyMainAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfoLib;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPledgeInfoService;

@@ -46,7 +46,6 @@ import cn.zswltech.mithras.contract.enums.contract.RepayRateEnum;
 import cn.zswltech.mithras.ftp.newftp.enums.RelatedTermRange;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
 import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
@@ -1046,8 +1045,7 @@ public class BudgetPlanPayDetailService extends ServiceImpl<BudgetPlanPayDetailM
         budgetPlanPayDetail.setCity(req.getCity());
         budgetPlanPayDetail.setDistrict(req.getDistrict());
         budgetPlanPayDetail.setProvince(req.getProvince());
-        FtpIndustryCategoryEnum ftpIndustryCategoryEnum = FtpIndustryCategoryEnum.getByName(req.getFtpIndustryCategory());
-        Integer ftp = SpringUtil.getBean(BudgetParameterConfigService.class).getFtpByFtpIndustryCategory(ftpIndustryCategoryEnum, req.getTermMonth());
+        Integer ftp = SpringUtil.getBean(BudgetParameterConfigService.class).getFtpByFtpIndustryCategory(req.getFtpIndustryCategory(), req.getTermMonth());
         if (Objects.isNull(ftp)) {
             throw new MithrasException("没有找到符合条件的<参数配置-FTP定价>");
         }
@@ -1285,9 +1283,8 @@ public class BudgetPlanPayDetailService extends ServiceImpl<BudgetPlanPayDetailM
         BigDecimal valueAddedTaxRateBD = FinancialUtil.ensureValueAddedTaxRate(budgetPlanPayDetail.getLeaseType());
         BigDecimal consultingFeeTaxRateBD = FinancialUtil.ensureConsultingTaxRate();
         // 从参数配置中获取参数
-        FtpIndustryCategoryEnum ftpIndustryCategoryEnum = FtpIndustryCategoryEnum.getByName(budgetPlanPayDetail.getFtpIndustryCategory());
         RelatedTermRange relatedTermRange = RelatedTermRange.convertFromMonthCount(budgetPlanPayDetailPrice.getTermMonth());
-        Integer riskReserveConfig = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(ftpIndustryCategoryEnum, relatedTermRange);
+        Integer riskReserveConfig = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(budgetPlanPayDetail.getFtpIndustryCategory(), relatedTermRange == null ? null : relatedTermRange.name());
         if (Objects.isNull(riskReserveConfig)) {
             throw new MithrasException("没有找到符合条件的<参数设置-风险准备金计提比例>");
         }

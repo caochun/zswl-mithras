@@ -152,7 +152,7 @@ public class ProjPricingEarningsRateRender extends AbstractBasicRender<ProjPrici
         //资产行业分类
         ProjectClassify projectClassify = ProjectClassify.find(projPricingBaseInfo.getProjectClassify());
         renderMap.put(RenderParameterKeyHolder.PROJECT_CLASSIFY, Optional.ofNullable(projectClassify).map(ProjectClassify::display).orElse(""));
-        ftpQuarterlyBasePricingBO.setAssetIndustryClassify(Optional.ofNullable(AssetIndustryClassify.getByProjectClassify(projectClassify)).map(AssetIndustryClassify::name).orElse(""));
+        ftpQuarterlyBasePricingBO.setAssetIndustryClassify(Optional.ofNullable(AssetIndustryClassify.getByProjectClassify(projPricingBaseInfo.getProjectClassify())).map(AssetIndustryClassify::name).orElse(""));
         //季度项目最低收益率
         //这里王振说协同取最优
         if (ProjectClassify.INTRA_GROUP_COLLABORATION.name().equals(projPricingBaseInfo.getProjectClassify())) {

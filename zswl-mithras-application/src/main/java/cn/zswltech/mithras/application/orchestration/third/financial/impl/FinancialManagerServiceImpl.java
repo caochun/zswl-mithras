@@ -16,7 +16,7 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
@@ -123,12 +123,13 @@ public class FinancialManagerServiceImpl implements FinancialManagerService {
     @Override
     @SneakyThrows
     //@Async
-    public void cqReceiveExec(List<CollectionBaseInfo> reqs, ProcessModelTypeEnum processModelTypeEnum) {
+    public void cqReceiveExec(List<CollectionBaseInfo> reqs, String processModelType) {
         try {
             if (ObjectUtil.isEmpty(reqs) || reqs.size() == 0 || !cqEnable) {
                 log.info("FinancialManagerServiceImpl cqReceiveExec not send cqEnable {}", cqEnable);
                 return;
             }
+            ProcessModelTypeEnum processModelTypeEnum = ProcessModelTypeEnum.getByName(processModelType);
             log.info("FinancialManagerServiceImpl cqReceiveExec CashFlowItem {} , param : {}", reqs.get(0).getCashFlowItem(), reqs);
             //每次只会传一个合同的收付款信息
             List<CQReceiveREQ> cqReceiveREQS = new ArrayList<>();

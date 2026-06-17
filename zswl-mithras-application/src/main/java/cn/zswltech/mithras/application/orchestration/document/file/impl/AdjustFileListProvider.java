@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.file.ext.FileListREQAdjustExt;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
 import cn.zswltech.mithras.document.file.query.FileListExtQuery;

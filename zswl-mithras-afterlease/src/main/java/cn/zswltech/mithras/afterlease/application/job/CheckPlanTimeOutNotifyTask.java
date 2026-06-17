@@ -1,16 +1,15 @@
 package cn.zswltech.mithras.afterlease.application.job;
 
-import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseNotificationPort;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseWorkdayCalendarPort;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanBaseService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanClientService;
-import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -24,6 +23,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.time.temporal.ChronoUnit;
 
 /**
  * @description:
@@ -40,13 +40,15 @@ public class CheckPlanTimeOutNotifyTask {
     private AfterLeaseCheckPlanBaseService afterLeaseCheckPlanBaseService;
     @Resource
     private AfterLeaseNotificationPort notificationPort;
+    @Resource
+    private AfterLeaseWorkdayCalendarPort workdayCalendarPort;
 
     @XxlJob("checkPlanTimeOutNotifyTask")
     public void checkPlanTimeOutNotifyTask() {
         log.info("检查计划超时通知任务开始执行");
         String param = XxlJobHelper.getJobParam();
         int timeOutDay = Integer.parseInt(param);
-        LocalDate line = DateUtil.getNextWorkdayAfterDays(null,timeOutDay);
+        LocalDate line = workdayCalendarPort.getNextWorkdayAfterDays(null,timeOutDay);
         // XMX-39 查询到过期未提交且未通知过的计划
         List<NewAfterLeaseCheckPlanClient> toBeNotifyPalns = afterLeaseCheckClientService.list(Wrappers.<NewAfterLeaseCheckPlanClient>lambdaQuery()
                 .le(NewAfterLeaseCheckPlanClient::getCheckTime, line)
@@ -109,11 +111,11 @@ public class CheckPlanTimeOutNotifyTask {
             // 未逾期为0
             if(planMap.containsKey(client.getPlanId())){
                 planMap.get(client.getPlanId()).forEach(plan -> {
-                    LocalDate deadLine = AfterLeaseCheckWayEnum.SITE.name().equals(client.getCheckWay()) ? DateUtil.getNextWorkdayAfterDays(plan.getDeadLine(), 10) : plan.getDeadLine();
+                    LocalDate deadLine = AfterLeaseCheckWayEnum.SITE.name().equals(client.getCheckWay()) ? workdayCalendarPort.getNextWorkdayAfterDays(plan.getDeadLine(), 10) : plan.getDeadLine();
                     // 如果提交日期为空，则取当前时间
                     LocalDate commitTime = ObjectUtil.isNotNull(client.getCommitTime()) ? client.getCommitTime().toLocalDate() : now;
                     if(commitTime.isAfter(deadLine)){
-                        client.setOverdueDays(DateUtil.between(deadLine, commitTime, DateUnit.DAY).intValue());
+                        client.setOverdueDays((int) ChronoUnit.DAYS.between(deadLine, commitTime));
                     }else{
                         client.setOverdueDays(0);
                     }

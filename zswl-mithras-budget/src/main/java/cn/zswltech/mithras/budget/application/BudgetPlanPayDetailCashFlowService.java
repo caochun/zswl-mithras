@@ -3,10 +3,10 @@ package cn.zswltech.mithras.budget.application;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.extra.spring.SpringUtil;
+import cn.zswltech.mithras.budget.application.excel.BudgetCashFlowExcelImporter;
+import cn.zswltech.mithras.budget.application.excel.BudgetCashFlowExcelModel;
 import cn.zswltech.mithras.dto.budget.BudgetPlanPayDetailNotMonthCashFlowRSP;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.projectprocess.excel.importer.CashFlowExcelImporter;
-import cn.zswltech.mithras.projectprocess.excel.model.CashFlowExcelModel;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -78,11 +78,11 @@ public class BudgetPlanPayDetailCashFlowService extends ServiceImpl<BudgetPlanPa
 
     @Transactional(rollbackFor = Throwable.class)
     public List<BudgetPlanPayDetailNotMonthCashFlowRSP> parseFromExcel(InputStream inputStream) {
-        List<CashFlowExcelModel> dataList = SpringUtil.getBean(CashFlowExcelImporter.class).parse(inputStream);
+        List<BudgetCashFlowExcelModel> dataList = SpringUtil.getBean(BudgetCashFlowExcelImporter.class).parse(inputStream);
         if (CollectionUtil.isEmpty(dataList)) {
             throw new MithrasException("没有从Excel中解析出数据");
         }
-        dataList.sort(Comparator.comparing(CashFlowExcelModel::getCashFlowPhase));
+        dataList.sort(Comparator.comparing(BudgetCashFlowExcelModel::getCashFlowPhase));
         return dataList.stream().map(excelModel -> {
             BudgetPlanPayDetailNotMonthCashFlowRSP cashFlow = new BudgetPlanPayDetailNotMonthCashFlowRSP();
             cashFlow.setCashFlowPhase(excelModel.getCashFlowPhase());

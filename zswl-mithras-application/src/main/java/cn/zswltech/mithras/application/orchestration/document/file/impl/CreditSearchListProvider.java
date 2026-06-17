@@ -5,7 +5,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.file.ext.FileListREQCreditSearchExt;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditReportMaterialTypeEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditSearchFileQueryType;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;

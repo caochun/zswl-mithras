@@ -1,11 +1,8 @@
 package cn.zswltech.mithras.liquidity.service.cal.account;
 
 import cn.hutool.core.util.ReflectUtil;
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
-import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityAccountManualCalculatorBo;
 import org.springframework.stereotype.Component;
@@ -26,21 +23,11 @@ public class EstimateBalanceLimitAmountCalculator extends AbstractLiquidityCalcu
 
     @Override
     public void calculate(Object obj, LiquidityAccountManualCalculatorBo bo) {
-//        BaseDataBankAccount baseDataBankAccount = LiquidityIndicatorHolder.BASE_DATA_BANK_ACCOUNT.get(bo.getAccountBankId());
         Long result = 0L;
-//        switch (BaseDataBankAccountTypeEnum.find(baseDataBankAccount.getAccountType())){
-//            case SUPERVISION:
-//                AccountBalanceBaseInfo accountBalance = (AccountBalanceBaseInfo) obj;
-//                if(accountBalance != null) {
-//                    result = Optional.ofNullable(Optional.ofNullable(accountBalance.getEstimateBalanceLimitEditAmount()).orElse(accountBalance.getEstimateBalanceAmount())).orElse(0L);
-//                }
-//                break;
-//            default:
-                AccountBalanceBaseInfo accountBalanceBeforeOneDay = bo.getAccountBalanceBeforeDay();
-                if(accountBalanceBeforeOneDay != null) {
-                    result = Optional.ofNullable(Optional.ofNullable(accountBalanceBeforeOneDay.getEstimateBalanceLimitEditAmount()).orElse(accountBalanceBeforeOneDay.getEstimateBalanceLimitAmount())).orElse(0L);
-                }
-//        }
+        AccountBalanceBaseInfo accountBalanceBeforeOneDay = bo.getAccountBalanceBeforeDay();
+        if(accountBalanceBeforeOneDay != null) {
+            result = Optional.ofNullable(Optional.ofNullable(accountBalanceBeforeOneDay.getEstimateBalanceLimitEditAmount()).orElse(accountBalanceBeforeOneDay.getEstimateBalanceLimitAmount())).orElse(0L);
+        }
 
         ReflectUtil.setFieldValue(obj, indexName(),result);
     }

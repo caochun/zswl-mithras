@@ -12,7 +12,7 @@ import cn.zswltech.mithras.dto.contract.rent.ContractReceiptComputeActualTaxRSP;
 import cn.zswltech.mithras.dto.newftp.FtpAssessInfo;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.contract.application.auth.ContractBaseRemoveSubAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;

@@ -18,11 +18,9 @@ import cn.zswltech.mithras.finance.view.entity.DashboardFvFinancingCostSnapshot;
 import cn.zswltech.mithras.finance.view.mapper.DashboardFvFinancingCostSnapshotMapper;
 import cn.zswltech.mithras.finance.view.service.DashboardFvCardSnapshotService;
 import cn.zswltech.mithras.finance.view.service.DashboardFvFinancingCostSnapshotService;
-import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
+import cn.zswltech.mithras.finance.view.enums.FinanceDashboardCardGroupEnum;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
-import cn.zswltech.mithras.dashboard.mapper.DashboardFundFinanceMapper;
-import cn.zswltech.mithras.dashboard.model.DashboardFundCostQuery;
-import cn.zswltech.mithras.dashboard.model.DashboardFundCostResult;
+import cn.zswltech.mithras.dto.dashboard.DashboardFundCostQuery;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -112,7 +110,7 @@ public class DashboardFvFinancingCostSnapshotServiceImpl extends ServiceImpl<Das
         Page<DashboardFvFinancingCostSnapshot> page = new Page<>(1, 10000);
         DashboardFvCardSnapshot cardSnapshot = SpringUtil.getBean(DashboardFvCardSnapshotService.class).getOne(Wrappers.<DashboardFvCardSnapshot>lambdaQuery()
                 .eq(DashboardFvCardSnapshot::getDataTime, query.getQueryDate())
-                .eq(DashboardFvCardSnapshot::getCardCode, DashboardCardGroupEnum.FUND_FINANCE_REPAY.name()));
+                .eq(DashboardFvCardSnapshot::getCardCode, FinanceDashboardCardGroupEnum.FUND_FINANCE_REPAY.name()));
         if (cardSnapshot == null) {
             return PageR.empty(query.getPage(), query.getPageSize());
         }

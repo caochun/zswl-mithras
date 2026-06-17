@@ -20,6 +20,19 @@
         </where>
         group by credit_code
     </select>
+    <select id="selectRiskClientUsccs" resultType="java.lang.String">
+        select distinct credit_code
+        from risk_control_warn_monitor
+        <where>
+            warn_level != 1
+            <if test="usccs!=null and usccs.size()>0">
+                and credit_code in
+                <foreach collection="usccs" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
     <select id="countDealingClient" resultType="java.lang.Integer">
         select count(distinct credit_code) from risk_control_warn_monitor where handle_status in ('PEND_HANDLE','HANDLE_ING','REJECTED')
     </select>

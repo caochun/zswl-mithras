@@ -30,7 +30,7 @@ import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.capital.enums.FinanceFlowDetailTableEnum;
 import cn.zswltech.mithras.capital.service.FinanceFlowWriteOffDetailService;
 import cn.zswltech.mithras.collection.enums.BillTypeEnum;

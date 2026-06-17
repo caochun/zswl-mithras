@@ -18,7 +18,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.dto.message.MessageAddREQ;
+import cn.zswltech.mithras.api.report.ReportNotificationPort;
 import cn.zswltech.mithras.dto.report.BatchExportExcelREQ;
 import cn.zswltech.mithras.dto.report.ReportListBaseREQ;
 import cn.zswltech.mithras.dto.report.account.AccountListREQ;
@@ -53,19 +53,14 @@ import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.foundation.cache.RedisHelper;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.message.convert.MessageConver;
-import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.system.user.SysUserService;
-import cn.zswltech.mithras.message.service.MessageService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
@@ -123,9 +118,7 @@ public class CrFacade {
     @Resource
     private BatchRecordService batchRecordService;
     @Resource
-    private MessageService messageService;
-    @Resource
-    private MessageConver messageConver;
+    private ReportNotificationPort reportNotificationPort;
     @Resource
     private HistoryService historyService;
     @Resource
@@ -327,16 +320,7 @@ public class CrFacade {
                 .stream().map(HistoricTaskInstance::getAssignee).filter(Objects::nonNull).map(Long::valueOf).collect(Collectors.toList());
         receiverList.add(Long.valueOf(processResp.getStartUserId()));
         receiverList = receiverList.stream().distinct().collect(Collectors.toList());
-        MessageAddREQ addREQ = new MessageAddREQ();
-        addREQ.setTo(receiverList);
-        addREQ.setMessageType(MessageTypeEnum.CREDIT_REPORT_DATA_CHANGE.name());
-        addREQ.setNeedOa(true);
-        addREQ.setNoticeSource(NoticeSourceENUM.CREDIT_REPORT.name());
-        addREQ.setPcurl(String.format(MessageUrlEnum.CREDIT_REPORT.pcUrl));
-        addREQ.setFrom("系统通知");
-        addREQ.setRelation(String.format("<%s>审批流中的征信数据发生变动，请至【待报送】查看", processResp.getProcessInstanceId()));
-        addREQ.setContent(processResp.getProcessInstanceId());
-        messageService.sendMessage(messageConver.reqToMessage(addREQ));
+        reportNotificationPort.sendCreditReportDataChange(receiverList, processResp.getProcessInstanceId());
     }
 
     public String getBatchNumber() {

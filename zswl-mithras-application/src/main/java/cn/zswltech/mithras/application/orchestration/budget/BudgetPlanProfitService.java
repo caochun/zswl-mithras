@@ -28,6 +28,7 @@ import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
+import cn.zswltech.mithras.budget.enums.BudgetFtpIndustryCategory;
 import cn.zswltech.mithras.budget.enums.BudgetPlanDataCategoryEnum;
 import cn.zswltech.mithras.budget.enums.BudgetPlanCalculateStatusEnum;
 import cn.zswltech.mithras.budget.enums.BudgetPlanTypeEnum;
@@ -472,19 +473,19 @@ public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper,
                 List<BudgetPlanProfitDetail> list = deptMap.get(deptId);
                 if (CollectionUtil.isNotEmpty(list)) {
                     for (BudgetPlanProfitDetail detail : list) {
-                        if (Objects.equals(detail.getFtpIndustryCategory(), FtpIndustryCategoryEnum.FTP_PUBLIC_UTILITIES.name())) {
+                        if (Objects.equals(detail.getFtpIndustryCategory(), BudgetFtpIndustryCategory.FTP_PUBLIC_UTILITIES.name())) {
                             dataGroupByDept.publicUtilitiesAdd(Optional.ofNullable(detail.getActualPay()).orElse(0L));
                             deptSumMap.get(deptId).publicUtilitiesAdd(Optional.ofNullable(detail.getActualPay()).orElse(0L));
                         }
-                        if (Objects.equals(detail.getFtpIndustryCategory(), FtpIndustryCategoryEnum.FTP_CIVIL_CONSUMPTION.name())) {
+                        if (Objects.equals(detail.getFtpIndustryCategory(), BudgetFtpIndustryCategory.FTP_CIVIL_CONSUMPTION.name())) {
                             dataGroupByDept.civilConsumptionAdd(Optional.ofNullable(detail.getActualPay()).orElse(0L));
                             deptSumMap.get(deptId).civilConsumptionAdd(Optional.ofNullable(detail.getActualPay()).orElse(0L));
                         }
-                        if (Objects.equals(detail.getFtpIndustryCategory(), FtpIndustryCategoryEnum.FTP_STATE_OWNED_INDUSTRY.name())) {
+                        if (Objects.equals(detail.getFtpIndustryCategory(), BudgetFtpIndustryCategory.FTP_STATE_OWNED_INDUSTRY.name())) {
                             dataGroupByDept.stateOwnedIndustryAdd(Optional.ofNullable(detail.getActualPay()).orElse(0L));
                             deptSumMap.get(deptId).stateOwnedIndustryAdd(Optional.ofNullable(detail.getActualPay()).orElse(0L));
                         }
-                        if (Objects.equals(detail.getFtpIndustryCategory(), FtpIndustryCategoryEnum.FTP_OTHER_INDUSTRY.name())) {
+                        if (Objects.equals(detail.getFtpIndustryCategory(), BudgetFtpIndustryCategory.FTP_OTHER_INDUSTRY.name())) {
                             dataGroupByDept.otherIndustryAdd(Optional.ofNullable(detail.getActualPay()).orElse(0L));
                             deptSumMap.get(deptId).otherIndustryAdd(Optional.ofNullable(detail.getActualPay()).orElse(0L));
                         }
@@ -779,14 +780,14 @@ public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper,
         }
         Map<String, List<BudgetPlanProfitDetail>> map = detailList.stream().collect(Collectors.groupingBy(BudgetPlanProfitDetail::getFtpIndustryCategory));
         // 所有FTP行业分类都需要进行统计
-        for (FtpIndustryCategoryEnum ftpIndustryCategoryEnum : FtpIndustryCategoryEnum.values()) {
+        for (BudgetFtpIndustryCategory ftpIndustryCategoryEnum : BudgetFtpIndustryCategory.values()) {
             List<BudgetPlanProfitDetail> filterList = map.get(ftpIndustryCategoryEnum.name());
             dataList.add(this.buildData(budgetPlanProfit, ftpIndustryCategoryEnum, filterList));
         }
         return dataList;
     }
 
-    private BudgetPlanProfitSummaryRSP.Data buildData(BudgetPlanProfit budgetPlanProfit, FtpIndustryCategoryEnum ftpIndustryCategoryEnum, List<BudgetPlanProfitDetail> filterList) {
+    private BudgetPlanProfitSummaryRSP.Data buildData(BudgetPlanProfit budgetPlanProfit, BudgetFtpIndustryCategory ftpIndustryCategoryEnum, List<BudgetPlanProfitDetail> filterList) {
         BudgetPlanProfitSummaryRSP.Data data = new BudgetPlanProfitSummaryRSP.Data();
         data.setSumRow(false);
         data.setFtpIndustryCategory(ftpIndustryCategoryEnum.name());
@@ -1604,9 +1605,8 @@ public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper,
         BigDecimal riskFundBalanceEnd;
         BigDecimal riskFundDiffBD;
         // 从参数配置中获取拨备计提比例
-        FtpIndustryCategoryEnum ftpIndustryCategoryEnum = FtpIndustryCategoryEnum.getByName(budgetPlanPayDetail.getFtpIndustryCategory());
         RelatedTermRange relatedTermRange = RelatedTermRange.convertFromMonthCount(budgetPlanPayDetail.getTermMonth());
-        Integer riskFundRate = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(ftpIndustryCategoryEnum, relatedTermRange);
+        Integer riskFundRate = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(budgetPlanPayDetail.getFtpIndustryCategory(), relatedTermRange == null ? null : relatedTermRange.name());
         riskFundBalanceBegin = BigDecimal.valueOf(budgetPlanPayDetail.getPlanPayAmount()).subtract(depositBalanceBegin).multiply(BigDecimal.valueOf(riskFundRate).divide(BigDecimal.valueOf(1000000), 20, RoundingMode.HALF_UP));
         if (riskFundBalanceBegin.longValue() < 0) {
             riskFundBalanceBegin = BigDecimal.ZERO;
@@ -1815,9 +1815,8 @@ public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper,
         BigDecimal riskFundBalanceEnd;
         BigDecimal riskFundDiffBD;
         // 从参数配置中获取拨备计提比例
-        FtpIndustryCategoryEnum ftpIndustryCategoryEnum = FtpIndustryCategoryEnum.getByName(budgetPlanPayDetail.getFtpIndustryCategory());
         RelatedTermRange relatedTermRange = RelatedTermRange.convertFromMonthCount(budgetPlanPayDetailPrice.getTermMonth());
-        Integer riskFundRate = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(ftpIndustryCategoryEnum, relatedTermRange);
+        Integer riskFundRate = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(budgetPlanPayDetail.getFtpIndustryCategory(), relatedTermRange == null ? null : relatedTermRange.name());
         riskFundBalanceBegin = BigDecimal.valueOf(endOfLastYearBalance).subtract(depositBalanceBegin).multiply(BigDecimal.valueOf(riskFundRate).divide(BigDecimal.valueOf(1000000), 20, RoundingMode.HALF_UP));
         if (riskFundBalanceBegin.longValue() < 0) {
             riskFundBalanceBegin = BigDecimal.ZERO;
@@ -1927,7 +1926,7 @@ public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper,
             FtpIndustryCategoryEnum ftpIndustryCategoryEnum = SpringUtil.getBean(ContractService.class).getFtpIndustryCategory(contractBaseInfo.getId());
             long monthCount = LocalDateTimeUtil.between(dataStartDate.atStartOfDay(), contractBaseInfo.getActualFinishDate().atStartOfDay(), ChronoUnit.MONTHS);
             RelatedTermRange relatedTermRange = RelatedTermRange.convertFromMonthCount((int) monthCount);
-            riskFundRateBegin = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(ftpIndustryCategoryEnum, relatedTermRange);
+            riskFundRateBegin = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(ftpIndustryCategoryEnum == null ? null : ftpIndustryCategoryEnum.name(), relatedTermRange == null ? null : relatedTermRange.name());
         }
         // 取期末的计提比例
         Integer riskFundRateEnd = SpringUtil.getBean(KpiProvisionDetailService.class).getTargetDateByReceiptId(contractReceipt.getId(), dataEndDate, true);
@@ -1939,7 +1938,7 @@ public class BudgetPlanProfitService extends ServiceImpl<BudgetPlanProfitMapper,
             FtpIndustryCategoryEnum ftpIndustryCategoryEnum = SpringUtil.getBean(ContractService.class).getFtpIndustryCategory(contractBaseInfo.getId());
             long monthCount = LocalDateTimeUtil.between(dataEndDate.atStartOfDay(), contractBaseInfo.getActualFinishDate().atStartOfDay(), ChronoUnit.MONTHS);
             RelatedTermRange relatedTermRange = RelatedTermRange.convertFromMonthCount((int) monthCount);
-            riskFundRateEnd = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(ftpIndustryCategoryEnum, relatedTermRange);
+            riskFundRateEnd = SpringUtil.getBean(BudgetParameterConfigService.class).getRiskReserve(ftpIndustryCategoryEnum == null ? null : ftpIndustryCategoryEnum.name(), relatedTermRange == null ? null : relatedTermRange.name());
         }
         // 计算风险准备金相关金额
         BigDecimal riskFundBalanceBeginBD = BigDecimal.ZERO;

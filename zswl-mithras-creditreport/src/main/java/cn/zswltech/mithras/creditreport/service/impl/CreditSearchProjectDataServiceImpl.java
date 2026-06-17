@@ -1,34 +1,16 @@
 package cn.zswltech.mithras.creditreport.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.contract.ContractTradeStructureMapper;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractTradeStructure;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
-import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
-import cn.zswltech.mithras.credit.groupcredit.review.mapper.GroupCreditReviewBaseInfoMapper;
-import cn.zswltech.mithras.credit.groupcredit.review.model.GroupCreditReviewBaseInfo;
+import cn.zswltech.mithras.creditreport.service.CreditReportClientSnapshot;
+import cn.zswltech.mithras.creditreport.service.CreditReportClientSupportPort;
+import cn.zswltech.mithras.creditreport.service.CreditReportProjectDataPort;
+import cn.zswltech.mithras.creditreport.service.CreditReportProjectSnapshot;
 import cn.zswltech.mithras.creditreport.service.CreditSearchProjectDataService;
-import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
 import cn.zswltech.mithras.dto.creditreport.CreditReportClientInfo;
 import cn.zswltech.mithras.dto.creditreport.CreditReportProjectReviewAddDTO;
-import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishTradeStructureMapper;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishTradeStructure;
-import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewTradeStructure;
-import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewTradeStructureMapper;
+import cn.zswltech.mithras.creditreport.service.CreditReportPaymentPort;
+import cn.zswltech.mithras.creditreport.service.CreditReportPaymentProjectSnapshot;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -48,46 +30,27 @@ public class CreditSearchProjectDataServiceImpl implements CreditSearchProjectDa
     private static final String PAYMENT = "PAYMENT";
 
     @Resource
-    private ClientMapper clientMapper;
+    private CreditReportPaymentPort creditReportPaymentPort;
     @Resource
-    private CorpCommerceInfoMapper corpCommerceInfoMapper;
+    private CreditReportProjectDataPort creditReportProjectDataPort;
     @Resource
-    private ProjEstablishTradeStructureMapper projEstablishTradeStructureMapper;
-    @Resource
-    private ProjEstablishBaseInfoMapper projEstablishBaseInfoMapper;
-    @Resource
-    private ProjReviewTradeStructureMapper projReviewTradeStructureMapper;
-    @Resource
-    private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
-    @Resource
-    private GroupCreditEstablishBaseInfoMapper groupCreditEstablishBaseInfoMapper;
-    @Resource
-    private GroupCreditReviewBaseInfoMapper groupCreditReviewBaseInfoMapper;
-    @Resource
-    private ContractTradeStructureMapper contractTradeStructureMapper;
-    @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
-    @Resource
-    private PaymentBaseInfoMapper paymentBaseInfoMapper;
+    private CreditReportClientSupportPort creditReportClientSupportPort;
 
     @Override
     public String findProjectCode(String bizType, Long projectId) {
         if (StrUtil.equals(bizType, PROJ_REVIEW)) {
-            ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoMapper.selectById(projectId);
-            return projReviewBaseInfo.getProjCode();
+            return getProjectCode(bizType, projectId);
         } else if (StrUtil.equals(bizType, PROJ_ESTABLISH)) {
-            ProjEstablishBaseInfo projEstablishBaseInfo = projEstablishBaseInfoMapper.selectById(projectId);
-            return projEstablishBaseInfo.getProjCode();
+            return getProjectCode(bizType, projectId);
         } else if (StrUtil.equals(bizType, GROUP_CREDIT_REVIEW)) {
-            GroupCreditReviewBaseInfo groupCreditReviewBaseInfo = groupCreditReviewBaseInfoMapper.selectById(projectId);
-            return groupCreditReviewBaseInfo.getProjCode();
+            return getProjectCode(bizType, projectId);
         } else if (StrUtil.equals(bizType, GROUP_CREDIT_ESTABLISH)) {
-            GroupCreditEstablishBaseInfo groupCreditEstablishBaseInfo = groupCreditEstablishBaseInfoMapper.selectById(projectId);
-            return groupCreditEstablishBaseInfo.getProjCode();
+            return getProjectCode(bizType, projectId);
         } else if (StrUtil.equals(bizType, PAYMENT)) {
-            PaymentBaseInfo paymentBaseInfo = paymentBaseInfoMapper.selectById(projectId);
-            ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(paymentBaseInfo.getContractId());
-            return contractBaseInfo.getProjCode();
+            CreditReportPaymentProjectSnapshot paymentProjectSnapshot = creditReportPaymentPort.getProjectSnapshotByPaymentId(projectId);
+            return Optional.ofNullable(paymentProjectSnapshot)
+                    .map(CreditReportPaymentProjectSnapshot::getProjCode)
+                    .orElse(null);
         }
         throw new MithrasException("未定义的处理类型");
     }
@@ -101,65 +64,50 @@ public class CreditSearchProjectDataServiceImpl implements CreditSearchProjectDa
         CreditReportProjectReviewAddDTO projectDTO = new CreditReportProjectReviewAddDTO();
         List<Long> clientIds = new ArrayList<>();
 
-        if (PROJ_ESTABLISH.equals(bizType)) {
-            clientIds = projEstablishTradeStructureMapper.selectList(Wrappers.<ProjEstablishTradeStructure>lambdaQuery()
-                            .eq(ProjEstablishTradeStructure::getProjEstablishId, projectId))
-                    .stream().map(ProjEstablishTradeStructure::getClientId).collect(Collectors.toList());
-            ProjEstablishBaseInfo projEstablishBaseInfo = projEstablishBaseInfoMapper.selectById(projectId);
-            projectDTO.setProjCode(projEstablishBaseInfo.getProjCode()).setProjectName(projEstablishBaseInfo.getProjName());
-        }
-        if (PROJ_REVIEW.equals(bizType)) {
-            clientIds = projReviewTradeStructureMapper.selectList(Wrappers.<ProjReviewTradeStructure>lambdaQuery()
-                            .eq(ProjReviewTradeStructure::getProjReviewId, projectId))
-                    .stream().map(ProjReviewTradeStructure::getClientId).collect(Collectors.toList());
-            ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoMapper.selectById(projectId);
-            projectDTO.setProjCode(projReviewBaseInfo.getProjCode()).setProjectName(projReviewBaseInfo.getProjName());
-        }
-        if (GROUP_CREDIT_ESTABLISH.equals(bizType)) {
-            GroupCreditEstablishBaseInfo groupCreditEstablishBaseInfo = groupCreditEstablishBaseInfoMapper.selectById(projectId);
-            clientIds.add(groupCreditEstablishBaseInfo.getClientId());
-            projectDTO.setProjCode(groupCreditEstablishBaseInfo.getProjCode()).setProjectName(groupCreditEstablishBaseInfo.getProjName());
-        }
-        if (GROUP_CREDIT_REVIEW.equals(bizType)) {
-            GroupCreditReviewBaseInfo groupCreditReviewBaseInfo = groupCreditReviewBaseInfoMapper.selectById(projectId);
-            clientIds.add(groupCreditReviewBaseInfo.getClientId());
-            projectDTO.setProjCode(groupCreditReviewBaseInfo.getProjCode()).setProjectName(groupCreditReviewBaseInfo.getProjName());
-        }
         if (PAYMENT.equals(bizType)) {
-            PaymentBaseInfo paymentBaseInfo = paymentBaseInfoMapper.selectById(projectId);
-            ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(paymentBaseInfo.getContractId());
-            projectDTO.setProjCode(contractBaseInfo.getProjCode()).setProjectName(contractBaseInfo.getProjName());
-            clientIds = contractTradeStructureMapper.selectList(Wrappers.<ContractTradeStructure>lambdaQuery()
-                            .eq(ContractTradeStructure::getContractId, contractBaseInfo.getId()))
-                    .stream().map(ContractTradeStructure::getClientId).collect(Collectors.toList());
+            CreditReportPaymentProjectSnapshot paymentProjectSnapshot = creditReportPaymentPort.getProjectSnapshotByPaymentId(projectId);
+            if (paymentProjectSnapshot != null) {
+                projectDTO.setProjCode(paymentProjectSnapshot.getProjCode()).setProjectName(paymentProjectSnapshot.getProjName());
+                clientIds.addAll(Optional.ofNullable(paymentProjectSnapshot.getClientIds()).orElse(new ArrayList<>()));
+            }
+        } else if (isProjectBizType(bizType)) {
+            CreditReportProjectSnapshot projectSnapshot = creditReportProjectDataPort.getProjectSnapshot(bizType, projectId);
+            if (projectSnapshot != null) {
+                projectDTO.setProjCode(projectSnapshot.getProjCode()).setProjectName(projectSnapshot.getProjName());
+                clientIds.addAll(Optional.ofNullable(projectSnapshot.getClientIds()).orElse(new ArrayList<>()));
+            }
+        } else {
+            throw new MithrasException("未定义的处理类型");
         }
 
         projectDTO.setClientInfos(buildClientInfos(clientIds));
         return projectDTO;
     }
 
+    private String getProjectCode(String bizType, Long projectId) {
+        return Optional.ofNullable(creditReportProjectDataPort.getProjectSnapshot(bizType, projectId))
+                .map(CreditReportProjectSnapshot::getProjCode)
+                .orElse(null);
+    }
+
+    private boolean isProjectBizType(String bizType) {
+        return PROJ_ESTABLISH.equals(bizType)
+                || PROJ_REVIEW.equals(bizType)
+                || GROUP_CREDIT_ESTABLISH.equals(bizType)
+                || GROUP_CREDIT_REVIEW.equals(bizType);
+    }
+
     private List<CreditReportClientInfo> buildClientInfos(List<Long> clientIds) {
-        List<Client> clients = clientMapper.selectBatchIds(clientIds);
-        return clients.stream()
-                .filter(item -> ClientType.CORPORATION.name().equals(item.getClientType()))
-                .map(client -> {
-                    CreditReportClientInfo info = new CreditReportClientInfo()
-                            .setClientId(client.getId())
-                            .setClientName(client.getClientName())
-                            .setCscCode(client.getUscCode());
-
-                    CorpCommerceInfo corpCommerceInfo = corpCommerceInfoMapper.selectOne(
-                            Wrappers.<CorpCommerceInfo>lambdaQuery()
-                                    .eq(CorpCommerceInfo::getClientId, client.getId())
-                    );
-
-                    Optional.ofNullable(corpCommerceInfo)
-                            .map(CorpCommerceInfo::getZhongZhengCode)
-                            .filter(StringUtils::isNotBlank)
-                            .ifPresent(info::setZhongZhengCode);
-
-                    return info;
-                })
+        return creditReportClientSupportPort.listCorporationClients(clientIds).stream()
+                .map(this::toClientInfo)
                 .collect(Collectors.toList());
+    }
+
+    private CreditReportClientInfo toClientInfo(CreditReportClientSnapshot client) {
+        return new CreditReportClientInfo()
+                .setClientId(client.getClientId())
+                .setClientName(client.getClientName())
+                .setCscCode(client.getCscCode())
+                .setZhongZhengCode(client.getZhongZhengCode());
     }
 }

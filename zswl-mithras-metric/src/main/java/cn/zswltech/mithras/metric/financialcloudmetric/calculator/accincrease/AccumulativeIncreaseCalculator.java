@@ -13,16 +13,14 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.FinancialCloud
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.ConditionKey;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.foundation.util.LongUtil;
+import cn.zswltech.mithras.metric.service.MetricCorpCommerceSnapshot;
+import cn.zswltech.mithras.metric.service.MetricCustomerInfoPort;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -53,7 +51,7 @@ public abstract class AccumulativeIncreaseCalculator implements FinancialCloudMe
     @Resource
     private OrgDOMapper orgDOMapper;
     @Resource
-    private CorpCommerceInfoLibMapper commerceInfoLibMapper;
+    private MetricCustomerInfoPort metricCustomerInfoPort;
     @Resource
     private ContractBaseInfoMapper contractBaseInfoMapper;
     @Resource
@@ -221,7 +219,7 @@ public abstract class AccumulativeIncreaseCalculator implements FinancialCloudMe
                 synchronized (lock) {
                     if (INDUSTRY_GROUP.isEmpty()) {
                         // 这里的客户信息要合同主承租人的信息
-                        Map<String, List<CorpCommerceInfoLib>> industryGroup = commerceInfoLibMapper.listNewestCommerceInfo(new CorpCommerceInfoLibDto()).stream().collect(Collectors.groupingBy(corpCommerceInfoLib -> {
+                        Map<String, List<MetricCorpCommerceSnapshot>> industryGroup = metricCustomerInfoPort.listNewestCommerceInfo().stream().collect(Collectors.groupingBy(corpCommerceInfoLib -> {
                             String industryType = corpCommerceInfoLib.getIndustryType();
                             if (ObjectUtil.isEmpty(industryType)) {
                                 return "NONE";
@@ -234,7 +232,7 @@ public abstract class AccumulativeIncreaseCalculator implements FinancialCloudMe
                         }));
 
                         industryGroup.forEach((s, corpCommerceInfoLibs) -> {
-                            Set<Long> clientIds = corpCommerceInfoLibs.stream().map(ClientBaseModel::getClientId)
+                            Set<Long> clientIds = corpCommerceInfoLibs.stream().map(MetricCorpCommerceSnapshot::getClientId)
                                     .collect(Collectors.toSet());
                             INDUSTRY_GROUP.put(s, clientIds);
                         });

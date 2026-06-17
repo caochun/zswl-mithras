@@ -1,21 +1,12 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewAocPriceLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewBaseInfoLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewFactoringPriceLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewLeasePriceLibMapper;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.projectprocess.model.projreview.*;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlProjectReviewFactPort;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
-import cn.zswltech.mithras.projectprocess.versioning.projreview.dto.ProjReviewPriceDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
-import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.alibaba.fastjson.JSON;
 import com.google.common.eventbus.AllowConcurrentEvents;
 import lombok.Data;
@@ -24,7 +15,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 /**
@@ -37,15 +27,9 @@ import java.util.stream.Collectors;
 @Slf4j
 public class MetricComputer17A10000396_JC030 extends AbstractMetricComputer implements SubscribeSupporter<MetricComputeEvent> {
     @Resource
-    private ProjReviewBaseInfoLibMapper projReviewBaseInfoLibMapper;
+    private RiskControlClientFactPort clientFactPort;
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
-    private ProjReviewLeasePriceLibMapper leasePriceLibMapper;
-    @Resource
-    private ProjReviewFactoringPriceLibMapper factoringPriceLibMapper;
-    @Resource
-    private ProjReviewAocPriceLibMapper aocPriceLibMapper;
+    private RiskControlProjectReviewFactPort projectReviewFactPort;
 
     @Override
     public String getMetricCode() {
@@ -63,56 +47,11 @@ public class MetricComputer17A10000396_JC030 extends AbstractMetricComputer impl
     @Override
     public void calculate(MetricComputeEvent event, RiskControlStrategy strategy) {
         // 1.风控行业分类不为（船舶、光伏行业 和 集团协同业务）
-        CorpCommerceInfoLibDto commerceInfoLibDto = new CorpCommerceInfoLibDto();
-        commerceInfoLibDto.setNotInRiskControlIndustryClassify(Arrays.asList(RiskControlIndustryClassify.NEW_MATERIALS.name(), RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name()));
-        Set<Long> targetClients = corpCommerceInfoLibMapper.listNewestCommerceInfo(commerceInfoLibDto).stream()
-                .map(ClientBaseModel::getClientId).collect(Collectors.toSet());
-        //2.查询项目审批
-        Set<Long> projReviewIds = new HashSet<>();
-        if (ObjectUtil.isNotEmpty(targetClients)) {
-            projReviewIds = projReviewBaseInfoLibMapper
-                    .listNewestPreviewByClientIds(targetClients, null)
-                    .stream()
-                    .filter(v -> v.getDataCreateTime().isBefore(DateUtil.endOfDay(event.getSnapshotDate())))
-                    .map(ProjReviewBaseInfoLib::getOriginId).collect(Collectors.toSet());
-        }
-        //3.查询报价方案
-        Map<Long, Integer> leaseCount = new HashMap<>();
-        Map<Long, Integer> factoringCount = new HashMap<>();
-        Map<Long, Integer> aocCount = new HashMap<>();
-        if (ObjectUtil.isNotEmpty(projReviewIds)) {
-            ProjReviewPriceDto priceDto = new ProjReviewPriceDto();
-            priceDto.setProjReviewIds(projReviewIds);
-            leaseCount = leasePriceLibMapper.listNewestPrice(priceDto)
-                    .stream()
-                    .filter(lib -> lib.getLeaseMonthCount() != null)
-                    .collect(Collectors.toMap(ProjReviewLeasePriceLib::getProjectId, ProjReviewLeasePrice::getLeaseMonthCount, (k1, k2) -> k1));
-            factoringCount = factoringPriceLibMapper.listNewestPrice(priceDto)
-                    .stream()
-                    .filter(lib -> lib.getFactoringCreditTerm() != null)
-                    .collect(Collectors.toMap(ProjReviewFactoringPriceLib::getProjectId, ProjReviewFactoringPriceLib::getFactoringCreditTerm, (k1, k2) -> k1));
-            aocCount = aocPriceLibMapper.listNewestPrice(priceDto)
-                    .stream()
-                    .filter(lib -> lib.getCreditAmountLoop() != null)
-                    .collect(Collectors.toMap(ProjReviewAocPriceLib::getProjectId, ProjReviewAocPriceLib::getCreditAmountLoop, (k1, k2) -> k1));
-        }
-        //4.计算
-        Integer maxMonthCount = 0;
-        for (Map.Entry<Long, Integer> entry : leaseCount.entrySet()) {
-            if (entry.getValue() > maxMonthCount) {
-                maxMonthCount = entry.getValue();
-            }
-        }
-        for (Map.Entry<Long, Integer> entry : factoringCount.entrySet()) {
-            if (entry.getValue() > maxMonthCount) {
-                maxMonthCount = entry.getValue();
-            }
-        }
-        for (Map.Entry<Long, Integer> entry : aocCount.entrySet()) {
-            if (entry.getValue() > maxMonthCount) {
-                maxMonthCount = entry.getValue();
-            }
-        }
+        Set<Long> targetClients = clientFactPort.clientIdsNotInRiskControlIndustryClassify(new HashSet<>(Arrays.asList(
+                RiskControlIndustryClassify.NEW_MATERIALS.name(),
+                RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name())));
+        Integer maxMonthCount = projectReviewFactPort.maxReviewPriceMonthCountByClientIds(
+                targetClients, event.getSnapshotDate());
         //5.保存
         strategy.setCurrentValueOne(maxMonthCount * 10000L / 12);
         MetricCompute_17Context context = new MetricCompute_17Context();

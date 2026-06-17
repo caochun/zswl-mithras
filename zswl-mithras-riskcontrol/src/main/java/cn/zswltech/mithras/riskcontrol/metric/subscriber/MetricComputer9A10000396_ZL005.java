@@ -1,15 +1,10 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
-import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpAddressInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -38,15 +33,11 @@ public class MetricComputer9A10000396_ZL005 extends AbstractMetricComputer imple
     public static final String FACTOR_NAME = "所有者权益（或股东权益）合计@期末余额";
     public static final String FACTOR_TABLE = "资产负债表";
     @Resource
-    private CorpAddressInfoLibMapper corpAddressInfoLibMapper;
-    @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
     private RiskMetricFactorQueryService factorService;
     @Resource
-    private ClientProvinceQueryService clientProvinceQueryService;
+    private RiskControlClientFactPort clientFactPort;
 
     @Override
     public String getMetricCode() {
@@ -77,18 +68,8 @@ public class MetricComputer9A10000396_ZL005 extends AbstractMetricComputer imple
 //            return;
 //        }
         // 从企业地址表查询最新版本的浙江省的客户id
-        Set<Long> clientsInZhejiang = clientProvinceQueryService.getSpecifyProvinceClientIds(Collections.singletonList("330000"));
         // 从企业商务信息表查询最新版本的非浙江省的客户id
-        CorpCommerceInfoLibDto dto = new CorpCommerceInfoLibDto();
-        dto.setNotInRiskControlIndustryClassify(Collections.singletonList(RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name()));
-        dto.setNotInClientIds(clientsInZhejiang);
-        List<CorpCommerceInfoLib> corpCommerceInfoLibs = corpCommerceInfoLibMapper.listNewestCommerceInfo(dto);
-        Map<Long, Long> client2Group = new HashMap<>();
-        for (CorpCommerceInfoLib lib : corpCommerceInfoLibs) {
-            if (lib.getBelongGroupClientId() != null && lib.getBelongGroupClientId() != -1L) {
-                client2Group.put(lib.getClientId(), lib.getBelongGroupClientId());
-            }
-        }
+        Map<Long, Long> client2Group = clientFactPort.nonZhejiangNonIntraGroupClientIdToGroupId();
         RemainingPrincipalQueryDto queryDto = new RemainingPrincipalQueryDto();
         queryDto.setClientIds(client2Group.keySet());
         queryDto.setEndDate(event.getSnapshotDate());

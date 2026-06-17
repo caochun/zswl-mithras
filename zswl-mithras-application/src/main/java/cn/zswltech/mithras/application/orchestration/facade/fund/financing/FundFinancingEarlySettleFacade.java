@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.fund.financing.earlysettle.FundFinancingEarlySett
 import cn.zswltech.mithras.dto.fund.financing.earlysettle.FundFinancingEarlySettlePlanSaveREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModifyAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingEarlySettlePlanService;
 
 import org.springframework.stereotype.Service;

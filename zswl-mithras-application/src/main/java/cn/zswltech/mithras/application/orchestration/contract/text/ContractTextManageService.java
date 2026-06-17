@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.contract.text.*;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.third.qiyuesuo.client.config.QiyuesuoConfig;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.text.*;
 import cn.zswltech.mithras.document.enums.FileTypeEnum;

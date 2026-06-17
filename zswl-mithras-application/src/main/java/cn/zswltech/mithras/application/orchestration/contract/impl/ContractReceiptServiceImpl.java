@@ -22,7 +22,7 @@ import cn.zswltech.mithras.dto.contract.receipt.ContractReceiptUpdateStartDateRE
 import cn.zswltech.mithras.dto.contract.rent.ContractReceiptComputeActualTaxRSP;
 import cn.zswltech.mithras.dto.file.FileBatchRemoveREQ;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;

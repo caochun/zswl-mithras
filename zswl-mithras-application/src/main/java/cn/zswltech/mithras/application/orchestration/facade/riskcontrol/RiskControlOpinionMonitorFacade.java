@@ -22,7 +22,7 @@ import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
-import cn.zswltech.mithras.riskcontrol.flow.dynamicform.risk.opinion.RiskOpinionHandleCheckHandler;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlFlowVariable;
 import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.system.mapper.model.SystemConfig;
@@ -122,7 +122,7 @@ public class RiskControlOpinionMonitorFacade implements RiskControlOpinionMonito
         RiskControlOpinionMonitor record = riskControlOpinionMonitorService.getById(req.getId());
         err(isNull(record), RECORD_NOT_EXIST);
         if (ObjectUtil.isNotEmpty(req.getHandleResult()) && ObjectUtil.isNotEmpty(req.getProcessInstanceId())) {
-            getBean(RuntimeService.class).setVariable(req.getProcessInstanceId(), RiskOpinionHandleCheckHandler.HANDLE_TYPE, req.getHandleResult());
+            getBean(RuntimeService.class).setVariable(req.getProcessInstanceId(), RiskControlFlowVariable.HANDLE_TYPE, req.getHandleResult());
         }
        /* RiskControlOpinionHandleStatus status = RiskControlOpinionHandleStatus.of(record.getHandleStatus());
         err(!equalsAny(record.getHandleStatus(), HANDLE_ING.name()), "该舆情不在处置中");*/

@@ -18,6 +18,7 @@ import cn.zswltech.mithras.margin.convert.MarginConvert;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
+import cn.zswltech.mithras.margin.application.port.MarginBaseInfoListQueryPort;
 import cn.zswltech.mithras.margin.application.port.MarginCollectionPort;
 import cn.zswltech.mithras.margin.application.port.MarginContractInfoPort;
 import cn.zswltech.mithras.margin.application.port.MarginPaymentReceiptPort;
@@ -30,8 +31,10 @@ import cn.zswltech.mithras.margin.persistence.model.DepositCollectRefund;
 import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
 import cn.zswltech.mithras.margin.persistence.model.MarginRecordInfo;
 import cn.zswltech.mithras.margin.application.port.model.MarginCollectionInfo;
+import cn.zswltech.mithras.margin.application.port.model.MarginCollectionSnapshot;
 import cn.zswltech.mithras.margin.application.port.model.MarginContractInfo;
 import cn.zswltech.mithras.margin.application.port.model.MarginPaymentReceiptInfo;
+import cn.zswltech.mithras.margin.application.port.model.MarginPlannedReceivableCommand;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
@@ -90,6 +93,8 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
     @Resource
     private MarginRecordInfoMapper marginRecordInfoMapper;
     @Resource
+    private MarginBaseInfoListQueryPort marginBaseInfoListQueryPort;
+    @Resource
     private MarginViewAuthPort marginViewAuthPort;
     @Resource
     private MarginCollectionPort marginCollectionPort;
@@ -104,6 +109,61 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
         query.orderByDesc(MarginBaseInfo::getId);
         query.last(StringUtil.mysqlLimitOne());
         return this.getOne(query);
+    }
+
+    public Long getLatestCollectionAmountByContractId(Long contractId) {
+        return Optional.ofNullable(getMarginBaseInfoByContractId(contractId))
+                .map(MarginBaseInfo::getCollectionAmount)
+                .orElse(null);
+    }
+
+    public MarginCollectionSnapshot getCollectionSnapshotByContractId(Long contractId) {
+        return toCollectionSnapshot(this.getOne(Wrappers.<MarginBaseInfo>lambdaQuery()
+                .eq(MarginBaseInfo::getContractId, contractId)));
+    }
+
+    public List<MarginCollectionSnapshot> listCollectionSnapshotsByContractId(Long contractId) {
+        return this.list(Wrappers.<MarginBaseInfo>lambdaQuery()
+                        .eq(MarginBaseInfo::getContractId, contractId))
+                .stream()
+                .map(this::toCollectionSnapshot)
+                .collect(Collectors.toList());
+    }
+
+    public List<MarginCollectionSnapshot> listCollectionSnapshotsByMarginCodes(Collection<String> marginCodes) {
+        if (CollectionUtil.isEmpty(marginCodes)) {
+            return Collections.emptyList();
+        }
+        return this.list(Wrappers.<MarginBaseInfo>lambdaQuery()
+                        .in(MarginBaseInfo::getMarginCode, marginCodes))
+                .stream()
+                .map(this::toCollectionSnapshot)
+                .collect(Collectors.toList());
+    }
+
+    public List<MarginCollectionSnapshot> listCollectionSnapshotsByContractIds(Collection<Long> contractIds) {
+        if (CollectionUtil.isEmpty(contractIds)) {
+            return Collections.emptyList();
+        }
+        return this.list(Wrappers.<MarginBaseInfo>lambdaQuery()
+                        .in(MarginBaseInfo::getContractId, contractIds))
+                .stream()
+                .map(this::toCollectionSnapshot)
+                .collect(Collectors.toList());
+    }
+
+    private MarginCollectionSnapshot toCollectionSnapshot(MarginBaseInfo marginBaseInfo) {
+        if (marginBaseInfo == null) {
+            return null;
+        }
+        MarginCollectionSnapshot snapshot = new MarginCollectionSnapshot();
+        snapshot.setId(marginBaseInfo.getId());
+        snapshot.setContractId(marginBaseInfo.getContractId());
+        snapshot.setMarginCode(marginBaseInfo.getMarginCode());
+        snapshot.setCollectionAmount(marginBaseInfo.getCollectionAmount());
+        snapshot.setPlanMarginAmount(marginBaseInfo.getPlanMarginAmount());
+        snapshot.setPlanMarginDate(marginBaseInfo.getPlanMarginDate());
+        return snapshot;
     }
 
     public long getMarginBalance(Long contractId) {
@@ -171,6 +231,31 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
         marginBaseInfoMapper.updateStatus(contractId);
     }
 
+    public void savePlannedReceivable(MarginPlannedReceivableCommand command) {
+        MarginBaseInfo info = marginBaseInfoMapper.selectOne(Wrappers.<MarginBaseInfo>lambdaQuery()
+                .eq(MarginBaseInfo::getContractId, command.getContractId())
+                .last(StringUtil.mysqlLimitOne()));
+        if (info == null) {
+            MarginBaseInfoAddREQ req = new MarginBaseInfoAddREQ();
+            req.setContractId(command.getContractId());
+            req.setContractCode(command.getContractCode());
+            req.setClientId(command.getClientId());
+            if (!command.isRecycle()) {
+                req.setPlanMarginAmount(command.getAmount());
+            }
+            req.setTotalReceivableAmount(command.getTotalReceivableAmount());
+            req.setPlanMarginDate(command.getCreatePlanDate());
+            this.add(req);
+            return;
+        }
+        if (!command.isRecycle()) {
+            info.setPlanMarginAmount(LongUtil.add(info.getPlanMarginAmount(), command.getAmount()));
+        }
+        info.setPlanMarginDate(command.getUpdatePlanDate());
+        info.setTotalReceivableAmount(command.getTotalReceivableAmount());
+        marginBaseInfoMapper.updateById(info);
+    }
+
     public Map<Long, String> getContractCodeByIds(Collection<Long> marginBaseIds) {
         if (CollectionUtil.isEmpty(marginBaseIds)) {
             return MapUtil.empty();
@@ -210,7 +295,7 @@ public class MarginBaseInfoService extends ServiceImpl<MarginBaseInfoMapper, Mar
             //防止sql in报错
             canViewDeptIds.add(Long.MIN_VALUE);
         }
-        Page<MarginBaseInfo> pageList = marginBaseInfoMapper.pageList(new Page<>(req.getPage(), req.getPageSize()), req);
+        Page<MarginBaseInfo> pageList = marginBaseInfoListQueryPort.pageList(new Page<>(req.getPage(), req.getPageSize()), req);
         List<MarginBaseInfoListRSP> rsps = getMarginBaseInfoListRSPS(pageList.getRecords());
         return PageR.of(rsps, pageList.getTotal(),
                 pageList.getPages(),

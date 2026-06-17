@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.workflow.flow.dynamicform.
 import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.model.ext.UserTaskExt;
 import cn.zswltech.mithras.dto.flow.search.TaskDetailRSP;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.workflow.enums.FlowDynamicFormEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;

@@ -8,27 +8,25 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.flow.core.enums.CommentTypeEnum;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.constant.OrgConstants;
 import cn.zswltech.gruul.dao.dal.dao.OrgDOMapper;
 import cn.zswltech.gruul.dao.dal.dao.UserOrgJobDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.entity.UserOrgJobDO;
 import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.dashboard.enums.DashboardProcessBusinessStatus;
 import cn.zswltech.mithras.dto.dashboard.operate.DashboardOperateTodoArriveREQ;
 import cn.zswltech.mithras.dto.dashboard.operate.DashboardOperateTodoArriveRSP;
 import cn.zswltech.mithras.dto.managereport.*;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.dashboard.application.port.DashboardBackRemarkPort;
+import cn.zswltech.mithras.dashboard.enums.DashboardProcessModel;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.dashboard.enums.BusinessGroupEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.workflow.persistence.mapper.flow.ToDoOperateRecordMapper;
 import cn.zswltech.mithras.guanbao.mapper.managereport.*;
-import cn.zswltech.mithras.workflow.persistence.model.flow.OperateRecord;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.dashboard.application.DashboardOperateTodoService;
@@ -36,8 +34,6 @@ import cn.zswltech.mithras.dashboard.application.boss.GuanYuanBasicService;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.ZLHeTongShiXiaoDTO;
 import cn.zswltech.sleipnir.toolkit.enums.GuanYuanFilterTypeEnum;
 import cn.zswltech.sleipnir.toolkit.request.guanyuan.GuanYuanDSRequest;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -67,7 +63,7 @@ public class ManageReportService extends GuanYuanBasicService {
     @Resource
     private UserOrgJobDOMapper userOrgJobDOMapper;
     @Resource
-    private ToDoOperateRecordMapper toDoOperateRecordMapper;
+    private DashboardBackRemarkPort dashboardBackRemarkPort;
     @Resource
     private BizDeptResolver bizDeptResolver;
 
@@ -296,25 +292,14 @@ public class ManageReportService extends GuanYuanBasicService {
         List<UserOrgJobDO> userOrgJobList = userOrgJobDOMapper.selectByExample(example);
         if (CollectionUtil.isNotEmpty(userOrgJobList)) {
             Set<String> userIds = userOrgJobList.stream().map(UserOrgJobDO::getUserId).map(Object::toString).collect(Collectors.toSet());
-            // 查询指定流程的退回操作记录
-            LambdaQueryWrapper<OperateRecord> operateRecordQuery = Wrappers.lambdaQuery();
-            if (CollectionUtil.isNotEmpty(req.getProcessInstanceIdList())) {
-                operateRecordQuery.in(OperateRecord::getProcessInstanceId, req.getProcessInstanceIdList());
-            }
-            operateRecordQuery.in(OperateRecord::getType, ListUtil.of(CommentTypeEnum.BH.name(), CommentTypeEnum.BHFQR.name(), CommentTypeEnum.BHFQR_ZJDW.name()));
-            operateRecordQuery.in(OperateRecord::getHandlerId, userIds);
-            List<OperateRecord> operateRecordList = toDoOperateRecordMapper.selectList(operateRecordQuery);
-            // 按照流程id分组
-            Map<String, List<OperateRecord>> operateRecordMap = operateRecordList.stream().collect(Collectors.groupingBy(OperateRecord::getProcessInstanceId));
+            Set<String> remarkProcessInstanceIds = CollectionUtil.isNotEmpty(req.getProcessInstanceIdList())
+                    ? new HashSet<>(req.getProcessInstanceIdList())
+                    : result.stream().map(YunYingDaiBanDetailRSP::getProcessInstanceId).collect(Collectors.toSet());
+            Map<String, String> backRemarkMap = dashboardBackRemarkPort.listBackRemarkByProcessInstanceIdsAndHandlerIds(remarkProcessInstanceIds, userIds);
             result.forEach(e -> {
-                List<OperateRecord> list = operateRecordMap.get(e.getProcessInstanceId());
-                if (CollectionUtil.isNotEmpty(list)) {
-                    List<String> backRemarkList = list.stream().filter(item -> StrUtil.isNotBlank(item.getNote())).map(item -> {
-                        String s = item.getNote();
-                        s = s.replace("<div>", "").replace("</div>", "").replace("&nbsp;", "\n");
-                        return s;
-                    }).collect(Collectors.toList());
-                    e.setBackRemark(CharSequenceUtil.join("\n", backRemarkList));
+                String backRemark = backRemarkMap.get(e.getProcessInstanceId());
+                if (StrUtil.isNotBlank(backRemark)) {
+                    e.setBackRemark(backRemark);
                 }
             });
         }
@@ -347,7 +332,7 @@ public class ManageReportService extends GuanYuanBasicService {
             rsp.setLeaseTypesDisplay(CharSequenceUtil.join("、", valueList));
         }
         if (Objects.nonNull(dbResult.getProcessStatus())) {
-            rsp.setProcessStatusDisplay(Optional.ofNullable(ProcessBusinessStatusEnum.getByType(dbResult.getProcessStatus())).map(ProcessBusinessStatusEnum::getDisplay).orElse(""));
+            rsp.setProcessStatusDisplay(DashboardProcessBusinessStatus.displayOf(dbResult.getProcessStatus()));
         }
         return rsp;
     }
@@ -430,27 +415,27 @@ public class ManageReportService extends GuanYuanBasicService {
             return;
         }
         for (YeWuYunXingFenXiStatisticResult dbResult : list) {
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.ProjEstablishCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.ProjEstablishCreateFlow.name())) {
                 rsp.setProjEstablishCreateQuantity(dbResult.getQuantity());
                 rsp.setProjEstablishCreateAmount(dbResult.getAmount());
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.ProjReviewCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.ProjReviewCreateFlow.name())) {
                 rsp.setProjReviewCreateQuantity(dbResult.getQuantity());
                 rsp.setProjReviewCreateAmount(dbResult.getAmount());
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.LeaseCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.LeaseCreateFlow.name())) {
                 rsp.setLeaseItemCreateQuantity(dbResult.getQuantity());
                 rsp.setLeaseItemCreateAmount(dbResult.getAmount());
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.ContractCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.ContractCreateFlow.name())) {
                 rsp.setContractCreateQuantity(dbResult.getQuantity());
                 rsp.setContractCreateAmount(dbResult.getAmount());
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.PaymentCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.PaymentCreateFlow.name())) {
                 rsp.setPaymentCreateQuantity(dbResult.getQuantity());
                 rsp.setPaymentCreateAmount(dbResult.getAmount());
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.PaymentActualDetailFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.PaymentActualDetailFlow.name())) {
                 rsp.setPaymentActualPayQuantity(dbResult.getQuantity());
                 rsp.setPaymentActualPayAmount(dbResult.getAmount());
             }
@@ -469,12 +454,12 @@ public class ManageReportService extends GuanYuanBasicService {
         if (CollectionUtil.isEmpty(req.getProcessModelTypeList())) {
             // 啥都不传默认查下面流程
             query.setProcessModelTypeList(ListUtil.of(
-                    ProcessModelTypeEnum.ProjEstablishCreateFlow.name(),
-                    ProcessModelTypeEnum.ProjReviewCreateFlow.name(),
-                    ProcessModelTypeEnum.LeaseCreateFlow.name(),
-                    ProcessModelTypeEnum.ContractCreateFlow.name(),
-                    ProcessModelTypeEnum.PaymentCreateFlow.name(),
-                    ProcessModelTypeEnum.PaymentActualDetailFlow.name()
+                    DashboardProcessModel.ProjEstablishCreateFlow.name(),
+                    DashboardProcessModel.ProjReviewCreateFlow.name(),
+                    DashboardProcessModel.LeaseCreateFlow.name(),
+                    DashboardProcessModel.ContractCreateFlow.name(),
+                    DashboardProcessModel.PaymentCreateFlow.name(),
+                    DashboardProcessModel.PaymentActualDetailFlow.name()
             ));
         } else {
             query.setProcessModelTypeList(req.getProcessModelTypeList());
@@ -491,14 +476,14 @@ public class ManageReportService extends GuanYuanBasicService {
         }
         if (Objects.nonNull(req.getProcessStatus())) {
             if (Objects.equals(req.getProcessStatus(), "RUNNING")) {
-                query.setProcessStatusList(ListUtil.of(ProcessBusinessStatusEnum.RUNNING.getType()));
+                query.setProcessStatusList(ListUtil.of(DashboardProcessBusinessStatus.RUNNING.getType()));
             }
             if (Objects.equals(req.getProcessStatus(), "FINISH")) {
-                query.setProcessStatusList(ListUtil.of(ProcessBusinessStatusEnum.PASS.getType(), ProcessBusinessStatusEnum.PASS_ALL.getType()));
+                query.setProcessStatusList(ListUtil.of(DashboardProcessBusinessStatus.PASS.getType(), DashboardProcessBusinessStatus.PASS_ALL.getType()));
             }
         } else {
             // 啥都不传默认查询审批中和审批完成
-            query.setProcessStatusList(ListUtil.of(ProcessBusinessStatusEnum.RUNNING.getType(), ProcessBusinessStatusEnum.PASS.getType(), ProcessBusinessStatusEnum.PASS_ALL.getType()));
+            query.setProcessStatusList(ListUtil.of(DashboardProcessBusinessStatus.RUNNING.getType(), DashboardProcessBusinessStatus.PASS.getType(), DashboardProcessBusinessStatus.PASS_ALL.getType()));
         }
         if (StrUtil.isNotBlank(req.getLeaseType())) {
             query.setLeaseType(req.getLeaseType());
@@ -519,22 +504,22 @@ public class ManageReportService extends GuanYuanBasicService {
             rsp.setLeaseTypesDisplay(CharSequenceUtil.join("、", valueList));
         }
         if (StrUtil.isNotBlank(dbResult.getProcessModelType())) {
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.ProjEstablishCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.ProjEstablishCreateFlow.name())) {
                 rsp.setProjectStage("立项创建");
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.ProjReviewCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.ProjReviewCreateFlow.name())) {
                 rsp.setProjectStage("评审创建");
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.LeaseCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.LeaseCreateFlow.name())) {
                 rsp.setProjectStage("租赁物创建");
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.ContractCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.ContractCreateFlow.name())) {
                 rsp.setProjectStage("合同创建");
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.PaymentCreateFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.PaymentCreateFlow.name())) {
                 rsp.setProjectStage("合同付款");
             }
-            if (Objects.equals(dbResult.getProcessModelType(), ProcessModelTypeEnum.PaymentActualDetailFlow.name())) {
+            if (Objects.equals(dbResult.getProcessModelType(), DashboardProcessModel.PaymentActualDetailFlow.name())) {
                 rsp.setProjectStage("合同投放");
             }
         }

@@ -6,13 +6,13 @@ import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.ZipUtil;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckReportRenderPort;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialSnapshot;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialsPort;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckReportTypeEnum;
 import cn.zswltech.mithras.afterlease.enums.NewAfterLeaseCheckMaterialsEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckReportMeta;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
@@ -140,7 +140,7 @@ public class AfterLeaseCheckReportDownloadServiceImpl implements AfterLeaseCheck
 
     private void doPublic(OutputStream outputStream, NewAfterLeaseCheckPlanClient checkPlanClient, NewAfterLeaseCheckReportMeta checkReportMeta) {
         // 查询用户上传的财务数据
-        List<MaterialsList> materialsListList = afterLeaseMaterialsPort.list(
+        List<AfterLeaseMaterialSnapshot> materialsListList = afterLeaseMaterialsPort.list(
                 BUSINESS_MODULE_NEW_AFTER_LEASE_CHECK_REPORT,
                 Collections.singletonList(NewAfterLeaseCheckMaterialsEnum.CHECK_REPORT_PUBLIC_FINANCE.name()),
                 Collections.singletonList(checkPlanClient.getId())
@@ -160,7 +160,7 @@ public class AfterLeaseCheckReportDownloadServiceImpl implements AfterLeaseCheck
         zipInputStreams[0] = FileUtil.getInputStream(filePath);
         if (CollectionUtil.isNotEmpty(materialsListList)) {
             for (int i = 0; i < materialsListList.size(); i++) {
-                MaterialsList materialsList = materialsListList.get(i);
+                AfterLeaseMaterialSnapshot materialsList = materialsListList.get(i);
                 zipPaths[i + 1] = materialsList.getFilename();
                 zipInputStreams[i + 1] = afterLeaseMaterialsPort.downloadFromOss(materialsList.getOssFilename());
             }

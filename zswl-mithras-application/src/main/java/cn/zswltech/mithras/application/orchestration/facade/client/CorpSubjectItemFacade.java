@@ -15,7 +15,7 @@ import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemListRSP;
 import cn.zswltech.mithras.dto.client.subjectitem.CorpSubjectItemRemoveREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.customer.application.client.auth.ClientAddSubAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.customer.application.client.CorpSubjectItemService;

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.liquidity.service.cal.board;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.liquidity.enums.LiquidityBankAccountType;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
@@ -37,7 +37,7 @@ public class SupervisedAccountFundsCalculator extends AbstractLiquidityCalculato
         Map<Long, AccountBalanceBaseInfo> accountBalanceMap = LiquidityIndicatorBoardHolder.ACCOUNT_BALANCE_BASE_INFO.get(bo.getQueryDate());
         if(CollectionUtil.isNotEmpty(accountBalanceMap)){
             result = accountBalanceMap.values().stream().filter(f -> {
-                return Objects.equals(f.getAccountType(), BaseDataBankAccountTypeEnum.SUPERVISION.name());
+                return Objects.equals(f.getAccountType(), LiquidityBankAccountType.SUPERVISION.name());
             }).map(m -> {
                 return BigDecimal.valueOf(Optional.ofNullable(m.getActualBalanceAmount()).orElse(LongUtil.null2zero(m.getEstimateBalanceAmount())));
             }).reduce(BigDecimal.ZERO, BigDecimal::add);

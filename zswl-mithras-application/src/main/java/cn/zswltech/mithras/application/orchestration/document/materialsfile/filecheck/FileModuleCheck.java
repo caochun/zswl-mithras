@@ -8,7 +8,7 @@ import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonM
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonRemoveMainAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonViewMainAuthCheckerNew;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

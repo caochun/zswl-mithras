@@ -4,17 +4,13 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.liquiditymanage.fundtransfer.*;
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.liquidity.enums.LiquidityBankAccountType;
 import cn.zswltech.mithras.liquidity.enums.SettingTimeEnum;
-import cn.zswltech.mithras.basedata.persistence.mapper.BaseDataBankAccountMapper;
 import cn.zswltech.mithras.liquidity.mapper.AccountBalanceBaseInfoMapper;
-import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
-import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -38,11 +34,9 @@ public class FundTransferService implements FundTransferApplicationService {
     @Resource
     private AccountBalanceBaseInfoMapper accountBalanceBaseInfoMapper;
     @Resource
-    private BaseDataSpecialDateService baseDataSpecialDateService;
-    @Resource
-    private BaseDataBankAccountMapper baseDataBankAccountMapper;
-    @Resource
     private FinancingRepayInfoPort financingRepayInfoPort;
+    @Resource
+    private FundTransferBaseDataPort fundTransferBaseDataPort;
 
     @Override
     public FundTransferListRSP list(FundTransferListREQ req) {
@@ -55,7 +49,7 @@ public class FundTransferService implements FundTransferApplicationService {
         FundTransferListRSP res = new FundTransferListRSP();
         List<AccountBalanceBaseInfo> accountBalanceBaseInfoList = accountBalanceBaseInfoMapper.selectList(Wrappers.<AccountBalanceBaseInfo>lambdaQuery()
                 .like(Objects.nonNull(req.getAccountBank()) ,AccountBalanceBaseInfo::getAccountBank, req.getAccountBank())
-                .eq(AccountBalanceBaseInfo::getAccountType, BaseDataBankAccountTypeEnum.SUPERVISION.name())
+                .eq(AccountBalanceBaseInfo::getAccountType, LiquidityBankAccountType.SUPERVISION.name())
                 .ge(Objects.nonNull(req.getQueryDateStart()) ,AccountBalanceBaseInfo::getDate, req.getQueryDateStart())
                 .le(Objects.nonNull(req.getQueryDateEnd()) ,AccountBalanceBaseInfo::getDate, req.getQueryDateEnd()));
         if(CollectionUtil.isNotEmpty(accountBalanceBaseInfoList)){
@@ -364,7 +358,7 @@ public class FundTransferService implements FundTransferApplicationService {
                 //沉淀时间
                 if (firstDepositedAmount > 0L) {
                     LocalDate currentDate = first.getDate();
-                    long days = baseDataSpecialDateService.calculateWorkDays(currentDate, firstDate);
+                    long days = fundTransferBaseDataPort.calculateWorkDays(currentDate, firstDate);
                     first.setSettingTime(Long.valueOf(days).intValue());
                 }
                 //待分配沉淀资金
@@ -497,26 +491,7 @@ public class FundTransferService implements FundTransferApplicationService {
 
     @Override
     public List<FundTransferBankAccountListRSP> list(FundTransferBankAccountListREQ req) {
-        List<BaseDataBankAccount> dbList = baseDataBankAccountMapper.selectList(Wrappers.<BaseDataBankAccount>lambdaQuery()
-                .eq(BaseDataBankAccount::getAccountType, BaseDataBankAccountTypeEnum.SUPERVISION.name())
-                .like(StrUtil.isNotBlank(req.getBankName()), BaseDataBankAccount::getAccountBank, req.getBankName()));
-        if (CollectionUtil.isEmpty(dbList)) {
-            return Collections.emptyList();
-        }
-        List<BaseDataBankAccount> res = new ArrayList<>();
-        Set<String> accountBankSet = new HashSet<>();
-        for (BaseDataBankAccount bankAccount : dbList) {
-            if (accountBankSet.contains(bankAccount.getAccountBank())) {
-                continue;
-            }
-            res.add(bankAccount);
-            accountBankSet.add(bankAccount.getAccountBank());
-        }
-        return res.stream().map(item -> {
-            FundTransferBankAccountListRSP rsp = new FundTransferBankAccountListRSP();
-            BeanUtil.copyProperties(item, rsp);
-            return rsp;
-        }).collect(Collectors.toList());
+        return fundTransferBaseDataPort.listSupervisionAccounts(req);
     }
 
     @Override
@@ -618,7 +593,7 @@ public class FundTransferService implements FundTransferApplicationService {
                 //沉淀时间
                 if (firstDepositedAmount > 0L) {
                     LocalDate currentDate = first.getDate();
-                    long days = baseDataSpecialDateService.calculateWorkDays(currentDate, firstDate);
+                    long days = fundTransferBaseDataPort.calculateWorkDays(currentDate, firstDate);
                     first.setSettingTime(Long.valueOf(days).intValue());
                 }
                 //待分配沉淀资金

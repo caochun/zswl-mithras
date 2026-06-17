@@ -28,12 +28,6 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
-            <groupId>cn.zswltech.lib</groupId>
-            <artifactId>oss-toolkit</artifactId>
-            <version>1.0.5-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <scope>provided</scope>
@@ -46,12 +40,6 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.4</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -10,7 +10,7 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientAddSubAuthChec
 import cn.zswltech.mithras.customer.application.client.auth.ClientModifySubAuthCheckerNew;
 import cn.zswltech.mithras.customer.application.client.auth.ClientRemoveSubAuthCheckerNew;
 import cn.zswltech.mithras.customer.application.client.auth.ClientViewMainAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.application.client.NormalBankAccountService;
 import cn.zswltech.mithras.customer.model.client.NormalBankAccount;
 import cn.zswltech.mithras.customer.mapper.normal.NormalBankAccountMapper;

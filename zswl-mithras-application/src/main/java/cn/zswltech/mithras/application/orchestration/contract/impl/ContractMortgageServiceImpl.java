@@ -23,8 +23,8 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.contract.convert.contract.ContractEntityMortgageItemConvert;
 import cn.zswltech.mithras.contract.convert.contract.ContractMortgageConvert;
 import cn.zswltech.mithras.contract.convert.contract.ContractMortgageConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTradeStructureRoleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.ContractConstitutionFileTypeEnum;
@@ -41,7 +41,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractPledge;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
-import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
+import cn.zswltech.mithras.contract.core.dto.ContractConstitutionFileCommand;
 import cn.zswltech.mithras.application.orchestration.contract.*;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.contract.util.ContractUtil;
@@ -142,7 +142,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
         //上传抵质押文件
         if (MortgageTypeEnum.REAL_ESTATE_MORTGAGE.name().equalsIgnoreCase(req.getContractMortgageType())) {
             try {
-                ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+                ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                         .tenantryId(info.getId())
                         .contractId(req.getContractId())
                         .fileType(ContractConstitutionFileTypeEnum.MORTGAGE.name())
@@ -155,7 +155,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
             }
         }
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(req.getContractId(), TradeStructureRoleEnum.MORTGAGE);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(req.getContractId(), ContractTradeStructureRoleEnum.MORTGAGE);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -197,7 +197,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
             baseMapper.insert(contractMortgage);
         }
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractId, TradeStructureRoleEnum.MORTGAGE);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractId, ContractTradeStructureRoleEnum.MORTGAGE);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -259,7 +259,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
         }
         //更新抵质押文件
         if (MortgageTypeEnum.REAL_ESTATE_MORTGAGE.name().equalsIgnoreCase(req.getContractMortgageType())) {
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .contractId(info.getContractId())
                     .tenantryId(info.getId())
                     .fileType(ContractConstitutionFileTypeEnum.MORTGAGE.name()).build();
@@ -280,7 +280,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
                 }
             }
             try {
-                ContractConstitutionFileBO finalConstitutionFileBO = ContractConstitutionFileBO.builder()
+                ContractConstitutionFileCommand finalConstitutionFileBO = ContractConstitutionFileCommand.builder()
                         .tenantryId(info.getId())
                         .contractId(info.getContractId())
                         .fileType(ContractConstitutionFileTypeEnum.MORTGAGE.name())
@@ -346,7 +346,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
                 }
             }
             //查询抵质押文件id
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .contractId(contractMortgage.getContractId())
                     .tenantryId(contractMortgage.getId())
                     .fileType(ContractConstitutionFileTypeEnum.MORTGAGE.name()).build();
@@ -376,7 +376,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
         //删除抵质押文件
-        ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+        ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                 .contractId(req.getContractId())
                 .tenantryId(originalInfo.getId())
                 .fileType(ContractConstitutionFileTypeEnum.MORTGAGE.name()).build();
@@ -386,7 +386,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
         // 删除抵押物数据
         contractMortgageItemService.removeByMortgageId(req.getId());
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(originalInfo.getContractId(), TradeStructureRoleEnum.MORTGAGE);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(originalInfo.getContractId(), ContractTradeStructureRoleEnum.MORTGAGE);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -472,7 +472,7 @@ public class ContractMortgageServiceImpl extends ContractCodeAbstract<ContractMo
     private void saveConstitutionFiles(List<MultipartFile> multipartFileList, List<Long> constitutionFileIds, ContractMortgage info) {
         //保存抵质押文件
         try {
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .constitutionFileIds(constitutionFileIds)
                     .tenantryId(info.getId())
                     .contractId(info.getContractId())

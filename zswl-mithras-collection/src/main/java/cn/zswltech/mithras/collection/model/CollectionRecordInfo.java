@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.collection.model;
 
-import cn.zswltech.mithras.payment.enums.WriteOffTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModelWithLogicDelete;
 import cn.zswltech.mithras.foundation.persistence.plugin.IncludeNull;
 import com.baomidou.mybatisplus.annotation.*;
@@ -145,7 +144,7 @@ public class CollectionRecordInfo extends BaseModelWithLogicDelete implements Se
 
     /**
      * 核销方式 自动核销，手工核销
-     * {@link WriteOffTypeEnum#name()}
+     * 取值：AUTO_RECORD、MANUAL_RECORD
      **/
     @TableField(value = "write_off_type")
     private String writeOffType;

@@ -2,10 +2,9 @@ package cn.zswltech.mithras.liquidity.service.cal.account;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
-import cn.zswltech.mithras.fund.enums.DirectFinancingType;
+import cn.zswltech.mithras.liquidity.bo.LiquidityDirectFinancingSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityDirectFinancingRepayActualSnapshot;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingRepayActual;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityAccountCalculatorBo;
@@ -29,15 +28,17 @@ import java.util.*;
 @Component
 public class RepayAbsAmountCalculator extends AbstractLiquidityCalculator<LiquidityAccountCalculatorBo> {
 
+    private static final List<String> ABS_DIRECT_FINANCING_TYPES = Arrays.asList("ABS", "ABN");
+
     @Override
     public void calculate(Object obj, LiquidityAccountCalculatorBo bo) {
         long result = 0;
         if(Objects.equals(bo.getAccountBankId(), LiquidityIndicatorHolder.DEFAULT_ACCOUNT.getId())) {
-            List<FundDirectFinancingRepayActual> repayActualList = LiquidityIndicatorHolder.FUND_DIRECT_FINANCING_REPAY_ACTUAL.get(bo.getLocalDate());
+            List<LiquidityDirectFinancingRepayActualSnapshot> repayActualList = LiquidityIndicatorHolder.FUND_DIRECT_FINANCING_REPAY_ACTUAL.get(bo.getLocalDate());
             if (CollectionUtil.isNotEmpty(repayActualList)) {
                 result = repayActualList.stream().filter(f -> {
-                    FundDirectFinancingBaseInfo directFinancingBaseInfo = LiquidityIndicatorHolder.FUND_DIRECT_FINANCING_BASE_INFO.get(f.getFinancingId());
-                    return Arrays.asList(DirectFinancingType.ABS.name(), DirectFinancingType.ABN.name()).contains(directFinancingBaseInfo.getDirectFinancingType());
+                    LiquidityDirectFinancingSnapshot directFinancingBaseInfo = LiquidityIndicatorHolder.FUND_DIRECT_FINANCING_BASE_INFO.get(f.getFinancingId());
+                    return directFinancingBaseInfo != null && ABS_DIRECT_FINANCING_TYPES.contains(directFinancingBaseInfo.getDirectFinancingType());
                 }).mapToLong(m -> LongUtil.null2zero(m.getRepayAmount())).sum();
             }
         }

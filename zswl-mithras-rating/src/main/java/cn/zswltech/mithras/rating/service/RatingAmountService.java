@@ -1,5 +1,4 @@
 package cn.zswltech.mithras.rating.service;
-import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
 
 import cn.hutool.core.bean.BeanUtil;
@@ -15,12 +14,15 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.client.client.ClientInfo;
-import cn.zswltech.mithras.dto.client.client.ClientListRSP;
 import cn.zswltech.mithras.dto.rating.*;
 import cn.zswltech.mithras.dto.rating.ratingamount.*;
 import cn.zswltech.mithras.dto.rating.ratingclient.RatingClientProjDetailRSP;
+import cn.zswltech.mithras.rating.application.RatingAmountClientFactPort;
+import cn.zswltech.mithras.rating.application.RatingAmountClientSnapshot;
 import cn.zswltech.mithras.rating.application.RatingClientSupportPort;
 import cn.zswltech.mithras.rating.application.RatingNotificationPort;
+import cn.zswltech.mithras.rating.application.RatingProjectReviewContextPort;
+import cn.zswltech.mithras.rating.application.RatingProjectReviewSnapshot;
 import cn.zswltech.mithras.rating.enums.RatingDataTypeEnum;
 import cn.zswltech.mithras.rating.enums.RatingModelTypeEnum;
 import cn.zswltech.mithras.rating.versioning.ratingamount.RatingAmountLibService;
@@ -34,21 +36,10 @@ import cn.zswltech.mithras.dto.rating.decision.DecisionExecuteResult;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
-import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.corp.CorpAddressInfoMapper;
-import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.customer.mapper.corp.CorpSubjectItemMapper;
 import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.model.client.CorpSubjectItem;
 import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
-import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.workflow.persistence.mapper.prepare.CommonProcessPrepareMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.workflow.process.BizProcessDataService;
@@ -57,7 +48,6 @@ import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
-import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.foundation.util.VersionUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -83,16 +73,14 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static cn.zswltech.mithras.customer.enums.SubjectItemType.PROFIT;
-
 @Slf4j
 @Service
 public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingAmount> implements RatingAmountApplicationService, FlowEndEventProcessor {
 
     @Resource
-    private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
+    private RatingProjectReviewContextPort ratingProjectReviewContextPort;
     @Resource
-    private ProjReviewBaseInfoLibService projReviewBaseInfoLibService;
+    private RatingAmountClientFactPort ratingAmountClientFactPort;
     @Resource
     private RatingClientSupportPort ratingClientSupportPort;
     @Resource
@@ -110,8 +98,6 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
     @Resource
     private RatingSnapshotService ratingSnapshotService;
     @Resource
-    private CorpSubjectItemMapper subjectItemMapper;
-    @Resource
     private RatingReportMapper ratingReportMapper;
     @Resource
     private RatingAmountLibService libService;
@@ -123,19 +109,13 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
     @Resource
     private RatingAmountVersionServiceImpl versionService;
     @Resource
-    private CorpCommerceInfoMapper ccfMapper;
-    @Resource
     private RatingNotificationPort ratingNotificationPort;
     @Resource
     private RatingAmountMapper ratingAmountMapper;
     @Resource
     private AreaInfoMapper areaInfoMapper;
     @Resource
-    private CorpAddressInfoMapper corpAddressInfoMapper;
-    @Resource
     private FlowTaskApiService taskApiService;
-    @Resource
-    private ClientMapper clientMapper;
 
 
     public PageR<RatingAmountPageRSP> ratingAmountPage(RatingAmountPageREQ req) {
@@ -179,7 +159,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
 
     public RatingAmountInfoRSP ratingAmountInfo(RatingAmountInfoREQ req) {
         RatingAmountInfoRSP rsp = new RatingAmountInfoRSP();
-        ProjReviewBaseInfo reviewBaseInfo = projReviewBaseInfoMapper.selectById(req.getProjReviewId());
+        RatingProjectReviewSnapshot reviewBaseInfo = ratingProjectReviewContextPort.getById(req.getProjReviewId());
         if(reviewBaseInfo == null){
             throw new MithrasException("评审数据不存在");
         }
@@ -188,36 +168,35 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
         if(CollectionUtils.isNotEmpty(clientInfos)){
             List<Long> clientIdList = clientInfos.stream().map(ClientInfo::getClientId).collect(Collectors.toList());
             clientIdList.add(reviewBaseInfo.getEvaluationSubjectId());
-            List<Client> clientList = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
-                    .in(Client::getId,clientIdList));
-            if(CollectionUtils.isNotEmpty(clientList)){
-                Map<Long, Client> uscCodeMap = clientList.stream().collect(Collectors.toMap(Client::getId, Function.identity(), (m1,m2) -> m1));
+            Map<Long, RatingAmountClientSnapshot> clientMap = ratingAmountClientFactPort.clientSnapshotMap(clientIdList);
+            if(CollectionUtils.isNotEmpty(clientMap)){
                 // 评估主体下拉框
                 List<RatingAmountInfoRSP.EvaluationSubject> evaluationSubjectList = clientInfos.stream().map(clientInfo -> {
                     RatingAmountInfoRSP.EvaluationSubject subject = new RatingAmountInfoRSP.EvaluationSubject();
+                    RatingAmountClientSnapshot clientSnapshot = clientMap.get(clientInfo.getClientId());
                     subject.setEvaluationSubjectId(clientInfo.getClientId());
                     subject.setEvaluationSubjectName(clientInfo.getClientName());
-                    subject.setEvaluationSubjectUscCode(uscCodeMap.get(clientInfo.getClientId()).getUscCode());
+                    subject.setEvaluationSubjectUscCode(Optional.ofNullable(clientSnapshot).map(RatingAmountClientSnapshot::getUscCode).orElse(null));
                     return subject;
                 }).collect(Collectors.toList());
                 // 新能源企业评估主体填写主承租人，其他敞口企业评估主体填写原评估主体
                 String riskControlIndustryClassify = reviewBaseInfo.getRiskControlIndustryClassify();
                 if(RiskControlIndustryClassify.NEW_MATERIALS.name().equals(riskControlIndustryClassify)){
-                    Client client = uscCodeMap.get(reviewBaseInfo.getClientId());
+                    RatingAmountClientSnapshot client = clientMap.get(reviewBaseInfo.getClientId());
                     rsp.setEvaluationSubjectId(client.getId());
                     rsp.setEvaluationSubjectName(client.getClientName());
                     rsp.setEvaluationSubjectUscCode(client.getUscCode());
                 }else{
-                    Client client = uscCodeMap.get(reviewBaseInfo.getClientId());
-                    Client evaluationClient = uscCodeMap.get(reviewBaseInfo.getEvaluationSubjectId());
+                    RatingAmountClientSnapshot client = clientMap.get(reviewBaseInfo.getClientId());
+                    RatingAmountClientSnapshot evaluationClient = clientMap.get(reviewBaseInfo.getEvaluationSubjectId());
                     rsp.setEvaluationSubjectId(Optional.ofNullable(evaluationClient).orElse(client).getId());
                     rsp.setEvaluationSubjectName(Optional.ofNullable(evaluationClient).orElse(client).getClientName());
                     rsp.setEvaluationSubjectUscCode(Optional.ofNullable(evaluationClient).orElse(client).getUscCode());
                 }
                 rsp.setEvaluationSubjectList(evaluationSubjectList);
                 rsp.setClientId(reviewBaseInfo.getClientId());
-                rsp.setClientName(uscCodeMap.get(reviewBaseInfo.getClientId()).getClientName());
-                rsp.setClientUscCode(uscCodeMap.get(reviewBaseInfo.getClientId()).getUscCode());
+                rsp.setClientName(clientMap.get(reviewBaseInfo.getClientId()).getClientName());
+                rsp.setClientUscCode(clientMap.get(reviewBaseInfo.getClientId()).getUscCode());
             }
         }
         rsp.setProjName(reviewBaseInfo.getProjName());
@@ -250,7 +229,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
             }
         }
         RatingAmount ratingAmount = BeanUtil.copyProperties(req, RatingAmount.class);
-        Client client = clientMapper.selectById(clientId);
+        RatingAmountClientSnapshot client = ratingAmountClientFactPort.clientSnapshot(clientId);
         if(client == null){
             throw new MithrasException("客户不存在");
         }
@@ -269,13 +248,10 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
         if(ratingAmount == null){
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        ProjReviewBaseInfo reviewBaseInfo = projReviewBaseInfoMapper.selectById(ratingAmount.getProjReviewId());
+        RatingProjectReviewSnapshot reviewBaseInfo = ratingProjectReviewContextPort.getById(ratingAmount.getProjReviewId());
         if(reviewBaseInfo == null){
             throw new MithrasException("评审数据不存在");
         }
-//        CorpAddressInfo corpAddressInfo = corpAddressInfoMapper.selectOne(Wrappers.<CorpAddressInfo>lambdaQuery()
-//                .eq(CorpAddressInfo::getClientId, ratingAmount.getEvaluationSubjectId())
-//                .eq(CorpAddressInfo::getAddressType, CorpAddressType.REGISTRY_ADDRESS.name()));
         if(reviewBaseInfo.getProvince() == null || reviewBaseInfo.getCity() == null || reviewBaseInfo.getDistrict() == null){
             throw new MithrasException("请先维护评估主体地址信息");
         }
@@ -285,16 +261,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
                 .stream().collect(Collectors.toMap(AddressDictionary::getCode, AddressDictionary::getDisplay,(m1,m2)->m1));
         String areaName = String.format("%s%s%s",nameMap.get(reviewBaseInfo.getProvince()),nameMap.get(reviewBaseInfo.getCity()),nameMap.get(reviewBaseInfo.getDistrict()));
         // 评估主体营收
-        CorpSubjectItem subjectItem = subjectItemMapper.selectOne(Wrappers.<CorpSubjectItem>lambdaQuery()
-                .eq(CorpSubjectItem::getClientId,ratingAmount.getEvaluationSubjectId())
-                .eq(CorpSubjectItem::getSubjectCode, "H9170")
-                .eq(CorpSubjectItem::getSubjectType, PROFIT.name())
-                .orderByDesc(CorpSubjectItem::getYear).orderByDesc(CorpSubjectItem::getQuarter)
-                .last("limit 1"));
-        Long subjectValue = null;
-        if(subjectItem != null){
-            subjectValue = subjectItem.getSubjectValue();
-        }
+        Long subjectValue = ratingAmountClientFactPort.latestOperatingIncome(ratingAmount.getEvaluationSubjectId());
         Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(Stream.of(ratingAmount.getClientId(), ratingAmount.getEvaluationSubjectId()).collect(Collectors.toList()));
         RatingAmountProjInfoRSP rsp = BeanUtil.copyProperties(ratingAmount, RatingAmountProjInfoRSP.class);
         rsp.setClientId(ratingAmount.getClientId())
@@ -410,19 +377,10 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
     }
 
     private String getGroupQuota(RatingAmount ratingAmount) {
-        CorpCommerceInfo corpCommerceInfo = ccfMapper.selectOne(Wrappers.<CorpCommerceInfo>lambdaQuery().eq(CorpCommerceInfo::getClientId, ratingAmount.getClientId()));
         Map<String, Object> param = new HashMap<>();
         suppleParam(param,ratingAmount);
-        if(corpCommerceInfo != null) {
-            Long groupClientId;
-            // 找到所属集团
-            Long belongGroupClientId = corpCommerceInfo.getBelongGroupClientId();
-            if (belongGroupClientId == null || belongGroupClientId == -1L) {
-                // 评估主体就是集团
-                groupClientId = corpCommerceInfo.getClientId();
-            } else {
-                groupClientId = belongGroupClientId;
-            }
+        Long groupClientId = ratingAmountClientFactPort.groupClientId(ratingAmount.getClientId());
+        if(groupClientId != null) {
             List<RatingAmount> groupRatingAmount = this.list(Wrappers.<RatingAmount>lambdaQuery()
                     .eq(RatingAmount::getClientId, groupClientId).eq(RatingAmount::getRatingStatus, true));
             if(CollectionUtils.isNotEmpty(groupRatingAmount)){
@@ -452,11 +410,11 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
      * @param param
      */
     private void suppleParam(Map<String, Object> param,RatingAmount ratingAmount) {
-        ProjReviewBaseInfo reviewBaseInfo = projReviewBaseInfoMapper.selectById(ratingAmount.getProjReviewId());
+        RatingProjectReviewSnapshot reviewBaseInfo = ratingProjectReviewContextPort.getById(ratingAmount.getProjReviewId());
 
         param.put("area_uni_code",ratingClientService.getClientAreaUniCode(ratingAmount.getEvaluationSubjectId(), null));
         param.put("client_id",ratingAmount.getEvaluationSubjectId());
-        param.put("area_in_zhejiang",ProjRegionalClassify.ZHEJIANG.name().equals(reviewBaseInfo.getRegionalProjectClassify()) ? "Y" : "N");
+        param.put("area_in_zhejiang","ZHEJIANG".equals(reviewBaseInfo.getRegionalProjectClassify()) ? "Y" : "N");
         param.put("materiality_lease",ratingAmount.getMaterialLeaseItem() ? "Y" : "N");
 
     }
@@ -615,21 +573,9 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
             RatingAmountQuotaRSP ratingAmountQuotaRSP = new RatingAmountQuotaRSP();
             if(ratingAmount.getModelName().contains(RatingModelTypeEnum.POLITICE_CREDIT.display())){
                 ratingAmountQuotaRSP.setModelType(RatingModelTypeEnum.POLITICE_CREDIT.name());
-                CorpCommerceInfo corpCommerceInfo = ccfMapper.selectOne(Wrappers.<CorpCommerceInfo>lambdaQuery().eq(CorpCommerceInfo::getClientId, ratingAmount.getClientId()));
-                Long groupClientId;
-                if(corpCommerceInfo != null) {
-                    // 找到所属集团
-                    Long belongGroupClientId = corpCommerceInfo.getBelongGroupClientId();
-                    if (belongGroupClientId == null || belongGroupClientId == -1L) {
-                        // 评估主体就是集团
-                        groupClientId = corpCommerceInfo.getClientId();
-                    } else {
-                        groupClientId = belongGroupClientId;
-                    }
-                    List<CorpCommerceInfo> corpCommerceInfos = ccfMapper.selectList(Wrappers.<CorpCommerceInfo>lambdaQuery().eq(CorpCommerceInfo::getBelongGroupClientId, groupClientId)
-                            .or().eq(CorpCommerceInfo::getClientId,groupClientId));
-                    if(CollectionUtils.isNotEmpty(corpCommerceInfos)) {
-                        List<RatingAmount> ratingAmountList = this.list(Wrappers.<RatingAmount>lambdaQuery().eq(RatingAmount::getEvaluationSubjectId, corpCommerceInfos.stream().map(CorpCommerceInfo::getClientId).collect(Collectors.toList()))
+                List<Long> groupMemberClientIds = ratingAmountClientFactPort.groupMemberClientIds(ratingAmount.getClientId());
+                if(CollectionUtils.isNotEmpty(groupMemberClientIds)) {
+                        List<RatingAmount> ratingAmountList = this.list(Wrappers.<RatingAmount>lambdaQuery().eq(RatingAmount::getEvaluationSubjectId, groupMemberClientIds)
                                 .ne(RatingAmount::getEvaluationSubjectId,ratingAmount.getEvaluationSubjectId())
                                 .eq(RatingAmount::getRatingStatus, true));
                         double groupSum = ratingAmountList.stream().map(RatingAmount::getClientQuota).map(Double::valueOf).mapToDouble(Double::doubleValue).sum();
@@ -637,7 +583,6 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
                         // 集团剩余可用额度
                         String groupSurplusQuota = String.valueOf(Double.parseDouble(groupQuota) - groupSum);
                         ratingAmountQuotaRSP.setGroupSurplusQuota(transformWanYuan(groupSurplusQuota));
-                    }
                 }
                 String groupQuotaWanYuan = transformWanYuan(groupQuota);
                 ratingAmountQuotaRSP.setGroupQuota(groupQuotaWanYuan);
@@ -684,7 +629,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
 
         RatingClient ratingClient = ratingClientService.getOne(Wrappers.<RatingClient>lambdaQuery()
                 .eq(RatingClient::getClientId, ratingAmount.getEvaluationSubjectId()).eq(RatingClient::getRatingStatus, true));
-        Client client = clientMapper.selectById(ratingAmount.getEvaluationSubjectId());
+        RatingAmountClientSnapshot client = ratingAmountClientFactPort.clientSnapshot(ratingAmount.getEvaluationSubjectId());
         if(ratingClient != null && client != null) {
             RatingAmountClientScoreRSP clientScoreRSP = new RatingAmountClientScoreRSP();
             clientScoreRSP.setFinalScore(ratingClient.getFinalScore());
@@ -958,7 +903,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
 //        if(findRelatedProcess(req.getId()) != null){
 //            throw new MithrasException("不能修改处于流程中的评级数据");
 //        }
-        Client client = clientMapper.selectById(req.getEvaluationSubjectId());
+        RatingAmountClientSnapshot client = ratingAmountClientFactPort.clientSnapshot(req.getEvaluationSubjectId());
         if(client == null){
             throw new MithrasException("该客户不存在");
         }
@@ -1054,30 +999,12 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
 //            throw new MithrasException("无90天内有效的主承租人/评估主体客户评级信息或有效的债项评级信息，请完成或更新评级后再提交流程！");
 //        }
 
-//        LocalDate effectTime = ratingAmount.getEffectTime();
-//        // 查找评审生效时间在债项生效之前的数据
-//        ProjReviewBaseInfoLib effectBefore = projReviewBaseInfoLibService.getOne(Wrappers.<ProjReviewBaseInfoLib>lambdaQuery()
-//                .eq(ProjReviewBaseInfoLib::getOriginId, projReviewId)
-//                .le(ProjReviewBaseInfoLib::getCreateTime, effectTime)
-//                .orderByDesc(ProjReviewBaseInfoLib::getVersion)
-//                .last("limit 1"));
-//        // 查找最新的评审数据
-//        ProjReviewBaseInfoLib effectAfter = projReviewBaseInfoLibService.getOne(Wrappers.<ProjReviewBaseInfoLib>lambdaQuery()
-//                .eq(ProjReviewBaseInfoLib::getOriginId, projReviewId)
-//                .orderByDesc(ProjReviewBaseInfoLib::getVersion)
-//                .last("limit 1"));
-
         if(ratingAmount != null && ratingAmount.getRelationProjInfo() != null) {
             RARelationProjInfoRSP projInfoBefore = JSON.parseObject(ratingAmount.getRelationProjInfo(), RARelationProjInfoRSP.class);
 
-            ProjReviewBaseInfo projReview = projReviewBaseInfoMapper.selectById(projReviewId);
+            RatingProjectReviewSnapshot projReview = ratingProjectReviewContextPort.getById(projReviewId);
             RARelationProjInfoRSP projInfoNow = BeanUtil.copyProperties(projReview, RARelationProjInfoRSP.class);
-            CorpSubjectItem subjectItemAfter = subjectItemMapper.selectOne(Wrappers.<CorpSubjectItem>lambdaQuery()
-                    .eq(CorpSubjectItem::getClientId,ratingAmount.getEvaluationSubjectId())
-                    .eq(CorpSubjectItem::getSubjectCode, "H9170")
-                    .eq(CorpSubjectItem::getSubjectType, PROFIT.name())
-                    .orderByDesc(CorpSubjectItem::getYear).orderByDesc(CorpSubjectItem::getQuarter)
-                    .last("limit 1"));
+            Long subjectItemAfter = ratingAmountClientFactPort.latestOperatingIncome(ratingAmount.getEvaluationSubjectId());
             // 地区
             if(projReview.getProvince() == null || projReview.getCity() == null || projReview.getDistrict() == null){
                 throw new MithrasException("请先维护评估主体地址信息");
@@ -1088,7 +1015,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
                     .stream().collect(Collectors.toMap(AddressDictionary::getCode, AddressDictionary::getDisplay,(m1,m2)->m1));
             String areaName = String.format("%s%s%s",nameMap.get(projReview.getProvince()),nameMap.get(projReview.getCity()),nameMap.get(projReview.getDistrict()));
             projInfoNow.setEvaluationSubjectAreaName(areaName);
-            projInfoNow.setEvaluationSubjectOperatingIncome(Optional.ofNullable(subjectItemAfter).map(CorpSubjectItem::getSubjectValue).orElse(null));
+            projInfoNow.setEvaluationSubjectOperatingIncome(subjectItemAfter);
             projInfoNow.setEvaluationSubjectName(clientNameResolver.clientId2NameSingle(projInfoNow.getEvaluationSubjectId()));
 
             if(!areEqual(projInfoBefore,projInfoNow)){
@@ -1096,37 +1023,6 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
             }
         }
 
-//        if (effectAfter != null && effectBefore != null) {
-//            String evaluationSubjectName = id2NameService.clientId2NameSingle(effectBefore.getEvaluationSubjectId());
-//            if (Objects.equals(effectBefore.getLeaseTypes(), effectAfter.getLeaseTypes()) &&
-//                    Objects.equals(effectBefore.getEvaluationSubjectId(), effectAfter.getEvaluationSubjectId()) &&
-//                    Objects.equals(effectBefore.getClientId(), effectAfter.getClientId()) &&
-//                    Objects.equals(effectBefore.getProjectClassify(), effectAfter.getProjectClassify()) &&
-//                    Objects.equals(effectBefore.getRegionalProjectClassify(), effectAfter.getRegionalProjectClassify()) &&
-//                    Objects.equals(effectBefore.getFundsPurpose(), effectAfter.getFundsPurpose()) &&
-//                    Objects.equals(evaluationSubjectName, ratingAmount.getEvaluationSubjectName())) {
-//            }else{
-//                throw new MithrasException("项目重要信息变更，请更新债项评级！");
-//            }
-//            CorpSubjectItem subjectItemBefore = subjectItemMapper.selectOne(Wrappers.<CorpSubjectItem>lambdaQuery()
-//                    .eq(CorpSubjectItem::getSubjectCode, "H9170")
-//                    .eq(CorpSubjectItem::getSubjectType, PROFIT.name())
-//                    .orderByDesc(CorpSubjectItem::getYear).orderByDesc(CorpSubjectItem::getQuarter)
-//                    .le(CorpSubjectItem::getCreateTime,effectTime)
-//                    .last("limit 1"));
-//
-//            CorpSubjectItem subjectItemAfter = subjectItemMapper.selectOne(Wrappers.<CorpSubjectItem>lambdaQuery()
-//                    .eq(CorpSubjectItem::getSubjectCode, "H9170")
-//                    .eq(CorpSubjectItem::getSubjectType, PROFIT.name())
-//                    .orderByDesc(CorpSubjectItem::getYear).orderByDesc(CorpSubjectItem::getQuarter)
-//                    .last("limit 1"));
-//
-//            if(subjectItemAfter != null && subjectItemBefore != null){
-//                if(!Objects.equals(subjectItemAfter.getSubjectValue(),subjectItemBefore.getSubjectValue())){
-//                    throw new MithrasException("项目重要信息变更，请更新债项评级！");
-//                }
-//            }
-//        }
     }
 
     /**
@@ -1151,14 +1047,14 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
         if(CollectionUtils.isNotEmpty(informAmountList)){
             for (RatingAmount ratingAmount : informAmountList) {
                 String clientId = clientNameResolver.clientId2NameSingle(ratingAmount.getEvaluationSubjectId());
-                ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoMapper.selectById(ratingAmount.getProjReviewId());
+                RatingProjectReviewSnapshot projReviewBaseInfo = ratingProjectReviewContextPort.getById(ratingAmount.getProjReviewId());
                 ratingNotificationPort.sendRatingAmountOverdueRemind(
                         ratingAmount.getBelongSponsorUserId(),
                         ratingAmount.getId(),
-                        Optional.ofNullable(projReviewBaseInfo).map(ProjReviewBaseInfo::getProjName).orElse(""),
+                        Optional.ofNullable(projReviewBaseInfo).map(RatingProjectReviewSnapshot::getProjName).orElse(""),
                         clientId,
                         ratingAmount.getProjReviewId(),
-                        Optional.ofNullable(projReviewBaseInfo).map(ProjReviewBaseInfo::getBizType).orElse(null));
+                        Optional.ofNullable(projReviewBaseInfo).map(RatingProjectReviewSnapshot::getBizType).orElse(null));
             }
         }
         if(CollectionUtils.isNotEmpty(informClientList)){
@@ -1194,10 +1090,7 @@ public class RatingAmountService extends ServiceImpl<RatingAmountMapper, RatingA
         // 过期，评级失效-并自动触发评级更新流程
         if(CollectionUtils.isNotEmpty(overdueClientList)) {
             // 取未结清客户
-            List<Client> clientList = clientMapper.selectBatchIds(overdueClientList.stream().map(RatingClient::getClientId).collect(Collectors.toList()));
-            List<ClientListRSP> clientListRSPS = BeanUtil.copyToList(clientList, ClientListRSP.class);
-            ratingClientSupportPort.fillOtherInfo(clientListRSPS, false);
-            List<Long> clientIdList = clientListRSPS.stream().filter(f -> Optional.ofNullable(f.getLastPrincipal()).orElse(0L) > 0).map(ClientListRSP::getId).collect(Collectors.toList());
+            List<Long> clientIdList = ratingAmountClientFactPort.unsettledClientIds(overdueClientList.stream().map(RatingClient::getClientId).collect(Collectors.toList()));
             List<RatingClient> overdueNotSettleClientList = overdueClientList.stream().filter(f -> clientIdList.contains(f.getClientId())).collect(Collectors.toList());
 
             if(CollectionUtils.isNotEmpty(overdueNotSettleClientList)) {

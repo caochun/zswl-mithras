@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.contract.HighSeasCustomersREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.customer.application.client.auth.ClientAddSubAuthCheckerNew;
 import cn.zswltech.mithras.customer.application.client.auth.ClientModifyMainAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.ClientAuthEnum;
 import cn.zswltech.mithras.customer.enums.client.DomesticOrAbroad;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;

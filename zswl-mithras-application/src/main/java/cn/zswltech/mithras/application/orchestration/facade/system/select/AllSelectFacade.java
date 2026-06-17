@@ -50,7 +50,7 @@ import cn.zswltech.mithras.dto.TreeSelectRSP;
 import cn.zswltech.mithras.rating.enums.RatingBizTypeEnum;
 import cn.zswltech.mithras.application.orchestration.metadata.enumscan.PullDownEnumProcessor;
 import cn.zswltech.mithras.ftp.convert.CommonConvert;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckStatusEnum;
 import cn.zswltech.mithras.projectprocess.enums.mobile.*;
 import cn.zswltech.mithras.associationreport.enums.*;
@@ -630,7 +630,7 @@ public class AllSelectFacade implements AllSelectApplicationService {
         // parent_id为0的是根节点
         List<IndustryType> rootList = integerListMap.get(0L);
         for (IndustryType industryType : rootList) {
-            result.add(CommonConvert.toTreeSelectRSP(industryType));
+            result.add(toIndustryTreeSelectRSP(industryType));
         }
         // 移除根节点
         integerListMap.remove(0L);
@@ -808,10 +808,14 @@ public class AllSelectFacade implements AllSelectApplicationService {
             return;
         }
         for (IndustryType industryType : industryTypeList) {
-            TreeSelectRSP treeSelectRSP = CommonConvert.toTreeSelectRSP(industryType);
+            TreeSelectRSP treeSelectRSP = toIndustryTreeSelectRSP(industryType);
             parentNode.getChildren().add(treeSelectRSP);
             this.buildTree(industryMap, treeSelectRSP);
         }
+    }
+
+    private TreeSelectRSP toIndustryTreeSelectRSP(IndustryType industryType) {
+        return CommonConvert.toTreeSelectRSP(industryType.getId(), industryType.getParentId(), industryType.getDisplay(), industryType.getCode());
     }
 
     private List<SelectRSP> moduleType() {

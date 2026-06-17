@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.dto.file.FileListREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.foundation.util.CommonFileSortComparator;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyCheckMaterialsEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;

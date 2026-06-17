@@ -5,7 +5,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.dashboard.boss.AssetsFiveClassifyListRSP;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
-import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
+import cn.zswltech.mithras.dashboard.enums.DashboardAssetClassifyResult;
 import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.dashboard.application.guanyuandata.boss.AssetClassifyStatisticsDTO;
@@ -54,7 +54,7 @@ public class DashboardAssetsFiveClassifyService extends GuanYuanBasicService {
         Map<String, AssetClassifyStatisticsDTO> oldMap = oldList.stream().collect(Collectors.toMap(AssetClassifyStatisticsDTO::getClassifyResult, e -> e));
         // 处理数据
         List<AssetsFiveClassifyListRSP> result = new LinkedList<>();
-        for (AssetClassifyResultEnum item : AssetClassifyResultEnum.values()) {
+        for (DashboardAssetClassifyResult item : DashboardAssetClassifyResult.values()) {
             AssetsFiveClassifyListRSP rsp = new AssetsFiveClassifyListRSP();
             rsp.setAssetClassifyResultCode(item.name());
             rsp.setAssetClassifyResultDisplay(item.getDisplay());

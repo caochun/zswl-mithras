@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zswltech.mithras.monthly.mapper.MonthlyManagementBaseInfoMapper">
+<mapper namespace="cn.zswltech.mithras.finance.monthly.mapper.MonthlyManagementBaseInfoMapper">
 
-    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.monthly.mapper.model.MonthlyManagementBaseInfo">
+    <resultMap id="BaseResultMap" type="cn.zswltech.mithras.finance.monthly.mapper.model.MonthlyManagementBaseInfo">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="year" column="year" jdbcType="INTEGER"/>
             <result property="month" column="month" jdbcType="INTEGER"/>

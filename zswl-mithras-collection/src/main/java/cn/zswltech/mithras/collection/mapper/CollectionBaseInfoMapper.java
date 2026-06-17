@@ -48,6 +48,10 @@ public interface CollectionBaseInfoMapper extends CustomBaseMapper<CollectionBas
 
     Page<DashboardClientOverviewOverdueRSP> overduePageQuery(Page<DashboardClientOverviewOverdueRSP> overdueRspPage, @Param("query") Object query, @Param("clientIds") Set<Long> clientIds);
 
+    List<Long> listClientIdsByLastRentDate(@Param("from") LocalDate from,
+                                           @Param("to") LocalDate to,
+                                           @Param("clientIds") Set<Long> clientIds);
+
     List<CollectionBaseInfo> contractNextRentList(@Param("dto") CollectionNextRentParam req);
 
     @Select("select sum(collection_amount) from collection_base_info where cash_flow_item = 'FIRST_RENT' and write_off_status = 'WRITE_OFF_COMPLETED'")

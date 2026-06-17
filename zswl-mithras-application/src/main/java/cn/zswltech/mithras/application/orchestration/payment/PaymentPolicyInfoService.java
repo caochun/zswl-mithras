@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.payment.lib.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.payment.application.PaymentUpdateAdvice;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.policy.enums.PolicyApprovalStatusEnum;

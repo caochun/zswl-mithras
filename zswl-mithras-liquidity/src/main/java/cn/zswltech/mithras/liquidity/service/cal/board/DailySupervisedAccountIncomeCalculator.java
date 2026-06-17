@@ -3,7 +3,7 @@ package cn.zswltech.mithras.liquidity.service.cal.board;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.liquidity.enums.LiquidityBankAccountType;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
@@ -33,7 +33,7 @@ public class DailySupervisedAccountIncomeCalculator extends AbstractLiquidityCal
         if (CollectionUtil.isNotEmpty(accountBalanceMap)) {
             // result = 提款+租金回流+其它流入-投放-(还本付息+还本付息(调整值))-刚性支出-其它支出
             result = accountBalanceMap.values().stream()
-                    .filter(account -> Objects.equals(BaseDataBankAccountTypeEnum.SUPERVISION.name(), account.getAccountType()))
+                    .filter(account -> Objects.equals(LiquidityBankAccountType.SUPERVISION.name(), account.getAccountType()))
                     .map(m -> LongUtil.null2zeroBigDecimal(m.getDrawingsAmount())
                             .add(LongUtil.null2zeroBigDecimal(m.getRentReflowAmount())
                                     .add(LongUtil.null2zeroBigDecimal(m.getOtherFlowAmount()))

@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.report.handler.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.report.enums.biz.DataTypeEnum;
 import cn.zswltech.mithras.report.enums.common.ApprovalStatus;
 import cn.zswltech.mithras.report.enums.common.ReportModuleEnum;
@@ -12,11 +11,9 @@ import cn.zswltech.mithras.report.mapper.formal.model.CrClient;
 import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.report.util.ReportCompareUtil;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.CorpAddressType;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.basedata.persistence.mapper.AddressDictionaryMapper;
-import cn.zswltech.mithras.creditreport.mapper.CreditReportMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpAddressInfoLibMapper;
@@ -29,7 +26,8 @@ import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.application.orchestration.client.ClientService;
+import cn.zswltech.mithras.foundation.port.ClientRiskExposureResolver;
+import cn.zswltech.mithras.api.report.ReportCreditClientPort;
 import cn.zswltech.mithras.foundation.util.StreamUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.fastjson.JSON;
@@ -58,6 +56,8 @@ import java.util.stream.Collectors;
 @Order(-1)
 public class CrClientHandler extends CrAbstractHandler<CrClientDraft, CrClient> {
 
+    private static final String CLIENT_MODULE = "CLIENT";
+
     @Resource
     protected CommonVersionMapper commonVersionMapper;
     @Resource
@@ -69,7 +69,9 @@ public class CrClientHandler extends CrAbstractHandler<CrClientDraft, CrClient> 
     @Resource
     private AddressDictionaryMapper addressDictionaryMapper;
     @Resource
-    private CreditReportMapper creditReportMapper;
+    private ReportCreditClientPort reportCreditClientPort;
+    @Resource
+    private ClientRiskExposureResolver clientRiskExposureResolver;
 
     @Override
     public ReportModuleEnum reportModule() {
@@ -126,7 +128,7 @@ public class CrClientHandler extends CrAbstractHandler<CrClientDraft, CrClient> 
         // 这些合同有变更，看看这些合同对应的主客户需不需要删除
         List<Long> needDeleteClientIdList = new ArrayList<>();
         for (Long clientId : needCheckClientIdSet) {
-            if (creditReportMapper.countReportClient(clientId) == 0) {
+            if (!reportCreditClientPort.hasReportClient(clientId)) {
                 needDeleteClientIdList.add(clientId);
             }
         }
@@ -140,7 +142,7 @@ public class CrClientHandler extends CrAbstractHandler<CrClientDraft, CrClient> 
         // 查找客户模块有新增版本的数据
         List<CommonVersion> commonVersionList = commonVersionMapper.selectList(Wrappers.<CommonVersion>lambdaQuery()
                 .eq(CommonVersion::getVersionType, VersionTypeConstants.NORMAL)
-                .eq(CommonVersion::getModule, BusinessModuleEnum.CLIENT.name())
+                .eq(CommonVersion::getModule, CLIENT_MODULE)
                 .gt(CommonVersion::getCreateTime, lastDealTime)
                 .le(CommonVersion::getCreateTime, dealTime)
         );
@@ -166,7 +168,7 @@ public class CrClientHandler extends CrAbstractHandler<CrClientDraft, CrClient> 
     private List<CrClientDraft> buildCrClientListByClientIdList(Set<Long> clientIdList) {
         List<CrClientDraft> resultList = new ArrayList<>();
         for (Long clientId : clientIdList) {
-            if (creditReportMapper.countReportClient(clientId) == 0) {
+            if (!reportCreditClientPort.hasReportClient(clientId)) {
                 // 合同校验、付款核销校验
                 continue;
             }
@@ -257,7 +259,7 @@ public class CrClientHandler extends CrAbstractHandler<CrClientDraft, CrClient> 
             return;
         }
         List<Long> clientIds = businessKeys.stream().map(Long::valueOf).collect(Collectors.toList());
-        Map<Long, Long> stockRiskExposureMap = SpringUtil.getBean(ClientService.class).clientStockRiskExposureMap(clientIds);
+        Map<Long, Long> stockRiskExposureMap = clientRiskExposureResolver.clientStockRiskExposureMap(clientIds);
         // 过滤
         businessKeys.removeIf(businessKey -> {
             Long clientId = Long.valueOf(businessKey);

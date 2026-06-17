@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.contract.core;
 
 import cn.zswltech.mithras.contract.model.contract.ContractConstitutionFile;
-import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
+import cn.zswltech.mithras.contract.core.dto.ContractConstitutionFileCommand;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.IOException;
@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface ContractConstitutionFileService extends IService<ContractConstitutionFile> {
 
-    void saveConstitutionFiles(ContractConstitutionFileBO constitutionFileBO) throws IOException;
+    void saveConstitutionFiles(ContractConstitutionFileCommand constitutionFileBO) throws IOException;
 
-    List<Long> getConstitutionFileList(ContractConstitutionFileBO constitutionFileBO);
+    List<Long> getConstitutionFileList(ContractConstitutionFileCommand constitutionFileBO);
 
-    void deleteByFileIdAndContractId(ContractConstitutionFileBO constitutionFileBO);
+    void deleteByFileIdAndContractId(ContractConstitutionFileCommand constitutionFileBO);
 }

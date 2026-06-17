@@ -13,7 +13,6 @@ import cn.zswltech.mithras.report.service.CommonInfoService;
 import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.report.util.ReportCompareUtil;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
@@ -25,11 +24,11 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
+import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.contract.versioning.service.ContractFactoringPriceLibService;
 import cn.zswltech.mithras.contract.versioning.service.ContractLeasePriceLibService;
-import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.foundation.util.StreamUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.fastjson.JSON;
@@ -71,7 +70,7 @@ public class CrGuarantorNewHandler extends CrAbstractHandler<CrGuarantorDraft, C
     @Resource
     private ContractFactoringPriceLibService contractFactoringPriceLibService;
     @Resource
-    private PaymentActualDetailService paymentActualDetailService;
+    private PaymentActualDetailMapper paymentActualDetailMapper;
     @Resource
     private ClientMapper clientMapper;
     @Resource
@@ -204,7 +203,7 @@ public class CrGuarantorNewHandler extends CrAbstractHandler<CrGuarantorDraft, C
         }
         Map<Long, PaymentBaseInfo> paymentBaseInfoMap = paymentBaseInfoList.stream().collect(Collectors.toMap(PaymentBaseInfo::getId, Function.identity(), (a, b) -> a));
         Map<Long, Map<LocalDate, List<PaymentActualDetail>>> groupMap = new LinkedHashMap<>();
-        Map<Long, List<PaymentActualDetail>> dateListMap = paymentActualDetailService.list(Wrappers.<PaymentActualDetail>lambdaQuery()
+        Map<Long, List<PaymentActualDetail>> dateListMap = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
                 .in(PaymentActualDetail::getPaymentId, paymentBaseInfoList.stream().map(PaymentBaseInfo::getId).collect(Collectors.toList()))
                 .eq(PaymentActualDetail::getWriteOffStatus, WriteOffStatus.WRITTEN_OFF.name())
         ).stream().collect(Collectors.groupingBy(PaymentActualDetail::getPaymentId));

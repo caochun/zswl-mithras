@@ -11,8 +11,8 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.dashboard.*;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
+import cn.zswltech.mithras.dashboard.enums.DashboardAssetClassifyResult;
 import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
 import cn.zswltech.mithras.dashboard.enums.DashboardPledgeTypeEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingStatusEnum;
@@ -603,7 +603,7 @@ public class DashboardProjectInfoService extends DashboardProjectService impleme
             rsp.setProjectClassifyDisplay(Optional.ofNullable(KpiProjectClassifyEnum.find(dbResult.getProjClassify())).map(KpiProjectClassifyEnum::display).orElse(""));
             rsp.setDeadline(dbResult.getDeadline());
             rsp.setAssetsClassifyCode(dbResult.getRiskLevel());
-            rsp.setAssetsClassifyDisplay(Optional.ofNullable(AssetClassifyResultEnum.of(dbResult.getRiskLevel())).map(AssetClassifyResultEnum::display).orElse(""));
+            rsp.setAssetsClassifyDisplay(Optional.ofNullable(DashboardAssetClassifyResult.of(dbResult.getRiskLevel())).map(DashboardAssetClassifyResult::getDisplay).orElse(""));
             if (Objects.nonNull(dbResult.getWithdrawalRatio())) {
                 BigDecimal b = BigDecimal.valueOf(dbResult.getWithdrawalRatio()).divide(BigDecimal.valueOf(10000), 2, RoundingMode.HALF_UP);
                 rsp.setProvisionRate(new ValueUnitDTO(b.toPlainString(), "%"));

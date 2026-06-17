@@ -19,6 +19,10 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.budget.enums.BudgetPlanPayFundPlanEnum;
 import cn.zswltech.mithras.budget.enums.BudgetPlanTypeEnum;
+import cn.zswltech.mithras.budget.application.port.BudgetContractFactPort;
+import cn.zswltech.mithras.budget.application.port.BudgetContractFactSnapshot;
+import cn.zswltech.mithras.budget.application.port.BudgetPaymentActualSnapshot;
+import cn.zswltech.mithras.budget.application.port.BudgetPaymentFactPort;
 import cn.zswltech.mithras.budget.mapper.BudgetExamineMapper;
 import cn.zswltech.mithras.budget.mapper.BudgetExaminePayPlanExecuteMapper;
 import cn.zswltech.mithras.budget.mapper.BudgetPlanMapper;
@@ -26,14 +30,10 @@ import cn.zswltech.mithras.budget.mapper.BudgetPlanPayDetailMapper;
 import cn.zswltech.mithras.budget.mapper.BudgetPlanPayWeeklyReportDetailMapper;
 import cn.zswltech.mithras.budget.mapper.BudgetPlanPayWeeklyReportMapper;
 import cn.zswltech.mithras.budget.mapper.model.*;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.port.BizDeptResolver;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
-import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -64,7 +64,9 @@ public class BudgetExaminePayPlanExecuteService extends ServiceImpl<BudgetExamin
     @Resource
     private BizDeptResolver bizDeptResolver;
     @Resource
-    private PaymentActualDetailMapper paymentActualDetailMapper;
+    private BudgetPaymentFactPort budgetPaymentFactPort;
+    @Resource
+    private BudgetContractFactPort budgetContractFactPort;
     @Resource
     private BudgetPlanPayWeeklyReportMapper budgetPlanPayWeeklyReportMapper;
     @Resource
@@ -336,19 +338,16 @@ public class BudgetExaminePayPlanExecuteService extends ServiceImpl<BudgetExamin
         LocalDate month = LocalDate.of(examineYear, examineMonth, 1);
         LocalDate nextMonth = month.plusMonths(1);
         Map<Long, Long> deptThisMonthPaymentMap = new HashMap<>();
-        List<PaymentActualDetail> paymentActualDetails = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
-                .ge(PaymentActualDetail::getPaidInDate, month)
-                .lt(PaymentActualDetail::getPaidInDate, nextMonth)
-        );
+        List<BudgetPaymentActualSnapshot> paymentActualDetails = budgetPaymentFactPort.listPaymentActualBetween(month, nextMonth);
         if (ObjectUtil.isEmpty(paymentActualDetails)) {
             return deptThisMonthPaymentMap;
         }
-        Map<Long, List<PaymentActualDetail>> contractId2PaymentDetail = paymentActualDetails.stream().collect(Collectors.groupingBy(PaymentActualDetail::getContractId));
+        Map<Long, List<BudgetPaymentActualSnapshot>> contractId2PaymentDetail = paymentActualDetails.stream().collect(Collectors.groupingBy(BudgetPaymentActualSnapshot::getContractId));
         //查询合同信息
-        List<ContractBaseInfo> contractBaseInfos = SpringContextHolder.getBean(ContractBaseInfoService.class).listByIds(contractId2PaymentDetail.keySet());
-        for (ContractBaseInfo contractBaseInfo : contractBaseInfos) {
+        List<BudgetContractFactSnapshot> contractBaseInfos = budgetContractFactPort.listByIds(contractId2PaymentDetail.keySet());
+        for (BudgetContractFactSnapshot contractBaseInfo : contractBaseInfos) {
             deptThisMonthPaymentMap.put(contractBaseInfo.getBizDeptId(),
-                    deptThisMonthPaymentMap.getOrDefault(contractBaseInfo.getBizDeptId(), 0L) + contractId2PaymentDetail.getOrDefault(contractBaseInfo.getId(), new ArrayList<>()).stream().map(PaymentActualDetail::getPaidInAmount).filter(ObjectUtil::isNotEmpty).reduce(Long::sum).orElse(0L));
+                    deptThisMonthPaymentMap.getOrDefault(contractBaseInfo.getBizDeptId(), 0L) + contractId2PaymentDetail.getOrDefault(contractBaseInfo.getId(), new ArrayList<>()).stream().map(BudgetPaymentActualSnapshot::getPaidInAmount).filter(ObjectUtil::isNotEmpty).reduce(Long::sum).orElse(0L));
         }
         return deptThisMonthPaymentMap;
     }
@@ -357,17 +356,14 @@ public class BudgetExaminePayPlanExecuteService extends ServiceImpl<BudgetExamin
         LocalDate month = LocalDate.of(examineYear, examineMonth, 1);
         LocalDate nextMonth = month.plusMonths(1);
         Map<Long, Set<Long>> deptThisMonthReviewMap = new HashMap<>();
-        List<PaymentActualDetail> paymentActualDetails = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
-                .ge(PaymentActualDetail::getPaidInDate, month)
-                .lt(PaymentActualDetail::getPaidInDate, nextMonth)
-        );
+        List<BudgetPaymentActualSnapshot> paymentActualDetails = budgetPaymentFactPort.listPaymentActualBetween(month, nextMonth);
         if (ObjectUtil.isEmpty(paymentActualDetails)) {
             return deptThisMonthReviewMap;
         }
-        Map<Long, List<PaymentActualDetail>> contractId2PaymentDetail = paymentActualDetails.stream().collect(Collectors.groupingBy(PaymentActualDetail::getContractId));
+        Map<Long, List<BudgetPaymentActualSnapshot>> contractId2PaymentDetail = paymentActualDetails.stream().collect(Collectors.groupingBy(BudgetPaymentActualSnapshot::getContractId));
         //查询合同信息
-        List<ContractBaseInfo> contractBaseInfos = SpringContextHolder.getBean(ContractBaseInfoService.class).listByIds(contractId2PaymentDetail.keySet());
-        for (ContractBaseInfo contractBaseInfo : contractBaseInfos) {
+        List<BudgetContractFactSnapshot> contractBaseInfos = budgetContractFactPort.listByIds(contractId2PaymentDetail.keySet());
+        for (BudgetContractFactSnapshot contractBaseInfo : contractBaseInfos) {
             Set<Long> orDefault = deptThisMonthReviewMap.getOrDefault(contractBaseInfo.getProjReviewId(), new HashSet<>());
             orDefault.add(contractBaseInfo.getProjReviewId());
             deptThisMonthReviewMap.put(contractBaseInfo.getBizDeptId(), orDefault);

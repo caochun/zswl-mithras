@@ -6,7 +6,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.core.evaluation.ContractEvaluationAgencyDraftService;
-import cn.zswltech.mithras.financeprojectdistribution.service.impl.FinanceProjectDistributionService;
+import cn.zswltech.mithras.finance.projectdistribution.service.impl.FinanceProjectDistributionService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

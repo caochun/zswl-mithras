@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.hand.extract.client;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.IdcardUtil;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientProcessStatus;
 import cn.zswltech.mithras.customer.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.enums.client.ClientType;

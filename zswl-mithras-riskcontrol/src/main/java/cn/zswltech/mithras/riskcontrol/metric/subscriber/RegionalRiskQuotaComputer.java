@@ -2,22 +2,16 @@ package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.ClientDetail;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.contract.mapper.lib.contract.ContractBaseInfoLibMapper;
-import cn.zswltech.mithras.projectprocess.mapper.lib.projreview.ProjReviewBaseInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlProjectReviewFactPort;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
+import cn.zswltech.mithras.riskcontrol.common.RegionalProjectClassify;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
-import cn.zswltech.mithras.basedata.util.DateUtil;
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
@@ -33,43 +27,27 @@ import java.util.stream.Collectors;
  */
 public abstract class RegionalRiskQuotaComputer extends AbstractMetricComputer {
     @Resource
-    private ProjReviewBaseInfoLibMapper projReviewBaseInfoLibMapper;
-    @Resource
-    private ContractBaseInfoLibMapper contractBaseInfoLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalServiceImpl;
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
+    private RiskControlClientFactPort clientFactPort;
+    @Resource
+    private RiskControlProjectReviewFactPort projectReviewFactPort;
     @Resource
     private ClientNameResolver clientNameResolver;
 
-    protected abstract List<ProjRegionalClassify > getRegionalProjectClassify();
+    protected abstract List<RegionalProjectClassify> getRegionalProjectClassify();
 
     @Override
     protected void calculate(MetricComputeEvent event, RiskControlStrategy strategy) {
-        CorpCommerceInfoLibDto corpCommerceInfoLibDto = new CorpCommerceInfoLibDto();
-        corpCommerceInfoLibDto.setNotInRiskControlIndustryClassify(
-                Arrays.asList(RiskControlIndustryClassify.PUBLIC_UTILITIES.name(),
+        Set<Long> clientIds = clientFactPort.clientIdsNotInRiskControlIndustryClassify(
+                new HashSet<>(Arrays.asList(RiskControlIndustryClassify.PUBLIC_UTILITIES.name(),
                         RiskControlIndustryClassify.CIVIL_CONSUMPTION.name(),
                         //RiskControlIndustryClassify.TRAVEL.name(),
-                        RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name()));
-        Set<Long> clientIds = corpCommerceInfoLibMapper.listNewestCommerceInfo(corpCommerceInfoLibDto)
-                .stream().map(ClientBaseModel::getClientId).collect(Collectors.toSet());
-        Set<Long> projReviewIds = new HashSet<>();
-        if (ObjectUtil.isNotEmpty(clientIds)) {
-            projReviewIds = projReviewBaseInfoLibMapper.
-                    listNewestPreviewByClientIds(clientIds,getRegionalProjectClassify().stream().map(Enum::name).collect(Collectors.toList())).stream()
-                    .filter(v -> v.getDataCreateTime().isBefore(DateUtil.endOfDay(event.getSnapshotDate())))
-                    .map(ProjReviewBaseInfoLib::getOriginId).collect(Collectors.toSet());
-        }
-        Set<Long> contractIds = new HashSet<>();
-        if (ObjectUtil.isNotEmpty(projReviewIds)) {
-            contractIds = contractBaseInfoLibMapper
-                    .listNewestContractByPreviewIds(projReviewIds)
-                    .stream()
-                    .filter(v -> v.getDataCreateTime().isBefore(DateUtil.endOfDay(event.getSnapshotDate())))
-                    .map(ContractBaseInfoLib::getOriginId).collect(Collectors.toSet());
-        }
+                        RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name())));
+        Set<Long> contractIds = projectReviewFactPort.newestContractIdsByClientIdsAndRegionalClassifies(
+                clientIds,
+                getRegionalProjectClassify().stream().map(Enum::name).collect(Collectors.toList()),
+                event.getSnapshotDate());
         Map<Long, Long> clientIdToRemaining = remainingPrincipalServiceImpl
                 .remainingPrincipalGroupByClientId(new RemainingPrincipalQueryDto()
                         .setContractIds(contractIds)

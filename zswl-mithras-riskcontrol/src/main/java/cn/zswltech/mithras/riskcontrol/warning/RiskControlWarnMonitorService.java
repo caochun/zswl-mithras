@@ -1,19 +1,15 @@
 package cn.zswltech.mithras.riskcontrol.warning;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.riskcontrol.opinion.*;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlWarnWorkflowInstance;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlWarnWorkflowPort;
 import cn.zswltech.mithras.riskcontrol.application.RiskControlOpinionMonitorApplicationService;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
 import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskOpinionWarnCordType;
-import cn.zswltech.mithras.riskcontrol.flow.dynamicform.risk.opinion.RiskOpinionHandleCheckHandler;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorPageWarnDTO;
 import cn.zswltech.mithras.riskcontrol.warning.RiskWarnCardDTO;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitor;
@@ -25,7 +21,6 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.flowable.engine.RuntimeService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,10 +46,13 @@ import static java.util.Objects.isNull;
 @Service
 public class RiskControlWarnMonitorService extends ServiceImpl<RiskControlWarnMonitorMapper, RiskControlWarnMonitor> {
 
+    private static final String RISK_CONTROL_WARN_NOT_PAYMENT_FLOW = "RiskControlWarnNotPaymentFlow";
+    private static final String RISK_CONTROL_WARN_PAYMENT_FLOW = "RiskControlWarnPaymentFlow";
+
     @Resource
     private RiskControlWarnMonitorMapper riskControlWarnMonitorMapper;
     @Resource
-    private FlowTaskApiService taskApiService;
+    private RiskControlWarnWorkflowPort riskControlWarnWorkflowPort;
     @Value("${xinsight.ips.primary}")
     private String XinsightIp;
 
@@ -127,18 +125,12 @@ public class RiskControlWarnMonitorService extends ServiceImpl<RiskControlWarnMo
         if(ObjectUtil.isEmpty(began)) {
             began = LocalDate.now().minusDays(4);
         }
-        //查询流程中数据
-        ProcessPageReq flowReq = new ProcessPageReq();
-        flowReq.setModelKeyList(ListUtil.toList(ProcessModelTypeEnum.RiskControlWarnNotPaymentFlow.name(), ProcessModelTypeEnum.RiskControlWarnPaymentFlow.name()));
-        flowReq.setSortType(1);
-        flowReq.setPageIndex(1);
-        flowReq.setPageSize(5000);
-        flowReq.setProcessCreateTimeFrom(Date.from(began.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-        cn.zswltech.flow.core.util.Page<ProcessResp> flowRespPage = taskApiService.queryProcess(flowReq);
-        if(ObjectUtil.isEmpty(flowRespPage) || ObjectUtil.isEmpty(flowRespPage.getContents())) {
+        List<RiskControlWarnWorkflowInstance> processes = riskControlWarnWorkflowPort.queryWarnProcesses(
+                Arrays.asList(RISK_CONTROL_WARN_NOT_PAYMENT_FLOW, RISK_CONTROL_WARN_PAYMENT_FLOW), began);
+        if(ObjectUtil.isEmpty(processes)) {
             return null;
         }
-        List<Long> warnIds = flowRespPage.getContents().stream().map(ProcessResp::getBusinessKey).map(Long::parseLong).collect(Collectors.toList());
+        List<Long> warnIds = processes.stream().map(RiskControlWarnWorkflowInstance::getBusinessKey).map(Long::parseLong).collect(Collectors.toList());
         Map<Long, Integer> warnId2WarnLevel = riskControlWarnMonitorMapper.selectBatchIds(warnIds).stream().collect(Collectors.toMap(RiskControlWarnMonitor::getId, RiskControlWarnMonitor::getWarnLevel, (a, b) -> a));
 
         List<RiskWarnMonitorQuantityChangeRSP> rsps = new ArrayList<>();
@@ -158,7 +150,7 @@ public class RiskControlWarnMonitorService extends ServiceImpl<RiskControlWarnMo
         rsps.add(redRsp);
         rsps.add(yellowRsp);
 
-        for (ProcessResp flow : flowRespPage.getContents()) {
+        for (RiskControlWarnWorkflowInstance flow : processes) {
             if (ObjectUtil.equals(warnId2WarnLevel.getOrDefault(Long.parseLong(flow.getBusinessKey()), 0), 3)) {
                 totalNumEveryDay(redRspCardDetail, flow.getStartTime(), flow.getEndTime(), began);
             }
@@ -202,7 +194,7 @@ public class RiskControlWarnMonitorService extends ServiceImpl<RiskControlWarnMo
         RiskControlWarnMonitor record = riskControlWarnMonitorMapper.selectById(req.getId());
         err(isNull(record), RECORD_NOT_EXIST);
         if (ObjectUtil.isNotEmpty(req.getHandleResult()) && ObjectUtil.isNotEmpty(req.getProcessInstanceId())) {
-            SpringContextHolder.getBean(RuntimeService.class).setVariable(req.getProcessInstanceId(), RiskOpinionHandleCheckHandler.HANDLE_TYPE, req.getHandleResult());
+            riskControlWarnWorkflowPort.setHandleResult(req.getProcessInstanceId(), req.getHandleResult());
         }
         riskControlWarnMonitorMapper.updateById(new RiskControlWarnMonitor().setId(req.getId()).setAdvisement(req.getAdvisement()).setHandleResult(req.getHandleResult()));
     }

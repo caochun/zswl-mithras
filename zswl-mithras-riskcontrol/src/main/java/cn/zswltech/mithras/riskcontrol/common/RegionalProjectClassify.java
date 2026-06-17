@@ -14,6 +14,11 @@ import java.util.stream.Stream;
  */
 public enum RegionalProjectClassify implements PullDown {
     /**
+     * 浙江地区
+     */
+    ZHEJIANG("浙江地区"),
+
+    /**
      * 鼓励支持类
      */
     ENCOURAGE_SUPPORT("鼓励支持类"),

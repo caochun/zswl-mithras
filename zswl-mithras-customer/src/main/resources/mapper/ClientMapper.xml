@@ -111,7 +111,7 @@
         order by update_time desc
     </select>
 
-    <select id="dashboardAllPageList" resultType="cn.zswltech.mithras.customer.dto.client.DashboardClientBasicDTO">
+    <select id="pageClientBasicInfo" resultType="cn.zswltech.mithras.customer.dto.client.ClientBasicInfoDTO">
         select * from (
         SELECT
         c.id AS clientId,
@@ -126,34 +126,10 @@
         cc.enterprise_nature AS enterpriseNatureCode,
         c.province_of_affiliation AS provinceCode,
         c.belong_dept_id AS bizDeptId,
-        c.belong_sponsor_id AS projSponsorUserId,
-        alr.classify_result AS assetClassifyResultCode,
-        collection.plan_collection_date as plan_collection_date
+        c.belong_sponsor_id AS projSponsorUserId
         FROM
         client c
         LEFT JOIN corp_commerce_info cc ON c.id = cc.client_id
-        LEFT JOIN (
-        SELECT
-        a.client_id,
-        a.classify_result
-        FROM
-        asset_classify_client a
-        INNER JOIN (
-        SELECT
-        acc.client_id,
-        MAX( acc.asset_classify_id ) AS asset_classify_id
-        FROM
-        asset_classify_client acc
-        RIGHT JOIN asset_classify ac ON acc.asset_classify_id = ac.id
-        WHERE
-        ac.finish = 1
-        GROUP BY
-        acc.client_id
-        ) last ON a.client_id = last.client_id
-        AND a.asset_classify_id = last.asset_classify_id
-        ) alr ON c.id = alr.client_id
-        left join (select MAX(plan_collection_date) as plan_collection_date, client_id as client_id from collection_base_info where cash_flow_item =
-        'RENT' GROUP BY client_id) collection on collection.client_id = c.id
         ) temp
         <where>
             <if test="p.clientName!=null">
@@ -170,9 +146,6 @@
             </if>
             <if test="p.riskControlIndustryClassifyCode!=null">
                 and temp.riskControlIndustryClassifyCode = #{p.riskControlIndustryClassifyCode}
-            </if>
-            <if test="p.assetClassifyResultCode!=null">
-                and temp.assetClassifyResultCode = #{p.assetClassifyResultCode}
             </if>
             <if test="p.provinceCode!=null">
                 and temp.province = #{p.provinceCode}
@@ -201,12 +174,6 @@
             <if test="p.createTo != null">
                 and #{p.createTo} >= temp.createTime
             </if>
-            <if test="p.dealLineFrom!=null">
-                and temp.plan_collection_date >= #{p.dealLineFrom}
-            </if>
-            <if test="p.dealLineTo!=null">
-                and #{p.dealLineTo} >= temp.plan_collection_date
-            </if>
             <if test="p.clientIds!=null and p.clientIds.size()>0">
                 and temp.clientId in
                 <foreach collection="p.clientIds" item="item" index="index" open="(" separator="," close=")">
@@ -226,20 +193,14 @@
         select a.id as clientId,
                client_name as clientName,
                usc_code as uscc,
-               b.name as bizDeptName,
-               c.opinion_count as opCount
+               b.name as bizDeptName
         from client a
         left join bifrost_org b on b.id = a.belong_dept_id
-        left join (select credit_code, count(id) as opinion_count from risk_control_opinion_monitor where risk_type = 1 group by credit_code) c on c.credit_code = a.usc_code
         where (client_status = 'TAKE_EFFECT' or (client_status = 'NEW' AND is_released = 1)) and client_type = 'CORPORATION'
         and a.id in
         <foreach collection="clientIds" item="item" index="index" open="(" separator="," close=")">
             #{item}
         </foreach>
-        <if test="onlyWarn!=null">
-            and c.opinion_count > 0
-            and usc_code in (select distinct credit_code from risk_control_warn_monitor where risk_control_warn_monitor.warn_level != 1 )
-        </if>
     </select>
 
     <select id="countMonitorClient"

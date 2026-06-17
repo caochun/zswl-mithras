@@ -14,7 +14,7 @@ import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonM
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonViewMainAuthCheckerNew;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.afterlease.application.convert.ExternalQueryConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.ExternalQueryStatus;
 import cn.zswltech.mithras.afterlease.gendoc.render.AfterLeaseCheckExternalQueryRender;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckExternalQueryClientInfoMapper;

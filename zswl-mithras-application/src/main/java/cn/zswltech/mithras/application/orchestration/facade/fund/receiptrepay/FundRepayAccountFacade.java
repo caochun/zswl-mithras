@@ -8,7 +8,7 @@ import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.receiptrepay.FundReceiptRepayAddSubAuthChecker;
 import cn.zswltech.mithras.fund.application.auth.receiptrepay.FundReceiptRepayModifySubAuthChecker;
 import cn.zswltech.mithras.fund.application.auth.receiptrepay.FundReceiptRepayRemoveSubAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundRepayAccountMapper;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundRepayAccountService;
 

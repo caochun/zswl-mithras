@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.file.FileUploadREQ;
 import cn.zswltech.mithras.dto.riskcontrol.scorecard.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.application.orchestration.facade.document.file.FileFacade;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskControlScoreCardFileTypeEnum;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

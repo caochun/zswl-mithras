@@ -6,24 +6,17 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelUtil;
-import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
+import cn.zswltech.mithras.associationreport.application.AssociationReportClientSnapshot;
 import cn.zswltech.mithras.associationreport.application.AssociationReportClientSupportPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMetricPort;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.associationreport.service.AssociationTop10ClientConcentrationService;
-import cn.zswltech.mithras.customer.enums.client.ClientStatus;
-import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationTop10ClientConcentration;
-import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.basedata.util.DateUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -47,12 +40,12 @@ public class AssociationTop10ClientConcentrationStoreData extends AbstractDataSt
     @Resource
     private AssociationReportClientSupportPort clientSupportPort;
     @Resource
-    private RiskMetricFactorMergeService riskMetricFactorMergeService;
+    private AssociationReportMetricPort metricPort;
 
     @Override
     public boolean storeFromSystemJobCheck(int year, int period) {
         LocalDate dataDate  = DateUtil.ensureQuarterLastDay(year, period);
-        Map<String, Long> assetMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.CAPITAL_BALANCE.display, dataDate.getYear(), dataDate.getMonthValue());
+        Map<String, Long> assetMap = metricPort.capitalBalance(dataDate.getYear(), dataDate.getMonthValue());
         boolean condition = CollectionUtil.isNotEmpty(assetMap);
         log.info("金融局报送【最大十家客户（含集团）集中度统计表】自动取值-前置数据校验结果:资产负债表 = {}", condition);
         return condition;
@@ -103,16 +96,16 @@ public class AssociationTop10ClientConcentrationStoreData extends AbstractDataSt
         // 取到计算数据的截止日期
         LocalDate targetDate = this.ensureMetricDate(associationReport);
         // 取所有生效的法人客户
-        LambdaQueryWrapper<Client> query = Wrappers.lambdaQuery();
-        query.eq(Client::getClientType, ClientType.CORPORATION.name());
-        query.eq(Client::getClientStatus, ClientStatus.TAKE_EFFECT.name());
-        List<Client> clientList = SpringUtil.getBean(ClientMapper.class).selectList(query);
+        List<AssociationReportClientSnapshot> clientList = clientSupportPort.listEffectiveCorporationClients();
         if (CollectionUtil.isEmpty(clientList)) {
             return Collections.emptyList();
         }
-        Map<Long, Client> clientMap = clientList.stream().collect(Collectors.toMap(Client::getId, e -> e));
+        Map<Long, AssociationReportClientSnapshot> clientMap = clientList.stream()
+                .collect(Collectors.toMap(AssociationReportClientSnapshot::getClientId, e -> e));
         // 取剩余本金
-        List<Long> clientIds = clientList.stream().map(Client::getId).collect(Collectors.toList());
+        List<Long> clientIds = clientList.stream()
+                .map(AssociationReportClientSnapshot::getClientId)
+                .collect(Collectors.toList());
         Map<Long, Long> remainingPrincipalMap = clientSupportPort.getClientRemainingPrincipalMap(clientIds, targetDate);
         List<Map.Entry<Long, Long>> sortList = remainingPrincipalMap.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toList());
         // 从后往前取最多10个
@@ -128,7 +121,7 @@ public class AssociationTop10ClientConcentrationStoreData extends AbstractDataSt
         Map<Long, Long> stockExposureMap = clientSupportPort.clientStockRiskExposureMap(targetClientIds, targetDate);
         // 取资产负债表：所有者权益（或股东权益）合计@期末余额
         LocalDate metricDate = this.ensureMetricDate(associationReport);
-        Map<String, Long> assetValueMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.CAPITAL_BALANCE.display, metricDate.getYear(), metricDate.getMonthValue());
+        Map<String, Long> assetValueMap = metricPort.capitalBalance(metricDate.getYear(), metricDate.getMonthValue());
         Long v = assetValueMap.get("所有者权益（或股东权益）合计@期末余额");
         // 处理数据
         List<AssociationTop10ClientConcentration> result = new ArrayList<>(targetClientIds.size());

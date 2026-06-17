@@ -5,6 +5,8 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.lang.Assert;
 import cn.zswltech.gruul.common.constant.OrgConstants;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanBaseApplicationService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialSnapshot;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialsPort;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.SinglePkREQ;
@@ -15,14 +17,12 @@ import cn.zswltech.mithras.afterlease.application.auth.AfterLeaseCheckPlanAddMai
 import cn.zswltech.mithras.afterlease.application.auth.AfterLeaseCheckPlanModifyMainChecker;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseCheckPlanConvert;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.afterlease.enums.NewAfterLeaseCheckMaterialsEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.model.MessageModel;
 import cn.zswltech.mithras.message.model.NoticeMessageBody;
-import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.model.client.Client;
@@ -33,7 +33,6 @@ import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanBaseService
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCheckPlanClientService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.afterlease.application.lib.AfterLeaseCheckPlanVersionService;
-import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.message.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -56,7 +55,7 @@ public class AfterLeaseCheckPlanBaseFacade implements AfterLeaseCheckPlanBaseApp
     @Resource
     private AfterLeaseCheckPlanBaseService afterLeaseCheckPlanBaseService;
     @Resource
-    private MaterialsListService materialsListService;
+    private AfterLeaseMaterialsPort afterLeaseMaterialsPort;
     @Resource
     private Id2NameService id2NameService;
     @Resource
@@ -140,7 +139,7 @@ public class AfterLeaseCheckPlanBaseFacade implements AfterLeaseCheckPlanBaseApp
         if (bizDeptFlag) {
             return R.ok(Collections.emptyList());
         }
-        List<MaterialsList> materialsListList = materialsListService.list(
+        List<AfterLeaseMaterialSnapshot> materialsListList = afterLeaseMaterialsPort.list(
                 BusinessModuleEnum.NEW_AFTER_LEASE_CHECK_PLAN.name(),
                 Collections.singletonList(NewAfterLeaseCheckMaterialsEnum.CHECK_PLAN_SUMMARY_REPORT.name()),
                 Collections.singletonList(req.getId())
@@ -148,10 +147,10 @@ public class AfterLeaseCheckPlanBaseFacade implements AfterLeaseCheckPlanBaseApp
         if (CollectionUtil.isEmpty(materialsListList)) {
             return R.ok(Collections.emptyList());
         }
-        List<Long> creatorIdList = materialsListList.stream().map(BaseModel::getCreateBy).collect(Collectors.toList());
+        List<Long> creatorIdList = materialsListList.stream().map(AfterLeaseMaterialSnapshot::getCreateBy).collect(Collectors.toList());
         Map<Long, String> creatorMap = id2NameService.sysUserId2Name(creatorIdList);
         List<AfterLeaseCheckSummaryReportRSP> result = new ArrayList<>(materialsListList.size());
-        for (MaterialsList materialsList : materialsListList) {
+        for (AfterLeaseMaterialSnapshot materialsList : materialsListList) {
             AfterLeaseCheckSummaryReportRSP rsp = AfterLeaseCheckPlanConvert.toAfterLeaseCheckSummaryReportRSP(materialsList);
             rsp.setCreator(creatorMap.get(materialsList.getCreateBy()));
             rsp.setCreateTimestamp(Optional.ofNullable(materialsList.getCreateTime()).map(LocalDateTimeUtil::toEpochMilli).orElse(0L));

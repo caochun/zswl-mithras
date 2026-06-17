@@ -1,8 +1,6 @@
 package cn.zswltech.mithras.contract.model.contract;
 
 import cn.zswltech.mithras.foundation.annotation.NotCompareColumn;
-import cn.zswltech.mithras.projectprocess.enums.projestablish.FactoringType;
-import cn.zswltech.mithras.projectprocess.enums.projestablish.ZrType;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.model.SponsorField;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
@@ -86,13 +84,13 @@ public class ContractBaseInfo extends BaseModel implements Serializable, IEntity
     private String leaseType;
 
     /**
-     * 保理类型 {@link FactoringType#name()}
+     * 保理类型编码
      */
     @TableField("factoring_type")
     private String factoringType;
 
     /**
-     * 转让类型 {@link ZrType#name()}
+     * 转让类型编码
      */
     @TableField("zr_type")
     private String zrType;

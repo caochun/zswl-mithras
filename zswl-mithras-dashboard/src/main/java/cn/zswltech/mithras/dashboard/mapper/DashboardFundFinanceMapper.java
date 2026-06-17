@@ -1,6 +1,13 @@
 package cn.zswltech.mithras.dashboard.mapper;
 
-import cn.zswltech.mithras.dashboard.model.*;
+import cn.zswltech.mithras.dashboard.model.DashboardFundCostResult;
+import cn.zswltech.mithras.dashboard.model.DashboardFundCreditResult;
+import cn.zswltech.mithras.dashboard.model.DashboardFundRepayDateResult;
+import cn.zswltech.mithras.dashboard.model.DashboardFundRepayResult;
+import cn.zswltech.mithras.dashboard.model.DashboardRepayDateQuery;
+import cn.zswltech.mithras.dto.dashboard.DashboardFundCostQuery;
+import cn.zswltech.mithras.dto.dashboard.DashboardFundCreditQuery;
+import cn.zswltech.mithras.dto.dashboard.DashboardFundRepayQuery;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 

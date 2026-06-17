@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.document.materialsfile.fil
 
 import cn.hutool.core.lang.Pair;
 import cn.zswltech.mithras.dto.file.FileListRSP;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.FileModuleCheck;
 import org.springframework.stereotype.Component;
 

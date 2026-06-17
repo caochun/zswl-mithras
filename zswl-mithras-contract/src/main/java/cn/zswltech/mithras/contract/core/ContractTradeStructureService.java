@@ -8,8 +8,8 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
 import cn.zswltech.mithras.contract.enums.contract.CreditorDebtorTypeEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTradeStructureRoleEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTradeStructureMapper;
 import cn.zswltech.mithras.contract.model.contract.*;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -46,7 +46,7 @@ public class ContractTradeStructureService extends ServiceImpl<ContractTradeStru
     }
 
     @Transactional(rollbackFor = Throwable.class)
-    public void syncTradeStructure(Long contractId, TradeStructureRoleEnum roleEnum) {
+    public void syncTradeStructure(Long contractId, ContractTradeStructureRoleEnum roleEnum) {
         List<ContractTradeStructure> toInsertList = this.buildList(contractId, roleEnum);
         SpringUtil.getBean(ContractTradeStructureService.class).remove(
                 Wrappers.<ContractTradeStructure>lambdaQuery()
@@ -58,7 +58,7 @@ public class ContractTradeStructureService extends ServiceImpl<ContractTradeStru
         }
     }
 
-    private List<ContractTradeStructure> buildList(Long contractId, TradeStructureRoleEnum roleEnum) {
+    private List<ContractTradeStructure> buildList(Long contractId, ContractTradeStructureRoleEnum roleEnum) {
         List<ContractTradeStructure> toInsertList = new LinkedList<>();
         switch (roleEnum) {
             case LESSEE: {
@@ -71,11 +71,11 @@ public class ContractTradeStructureService extends ServiceImpl<ContractTradeStru
                     contractTradeStructure.setContractId(contractTenantry.getContractId());
                     contractTradeStructure.setClientId(contractTenantry.getLesseeId());
                     if (StrUtil.equals(contractTenantry.getLesseeType(), CreditorDebtorTypeEnum.CREDITOR.name())) {
-                        contractTradeStructure.setRole(TradeStructureRoleEnum.CREDITOR.name());
+                        contractTradeStructure.setRole(ContractTradeStructureRoleEnum.CREDITOR.name());
                     } else if (StrUtil.equals(contractTenantry.getLesseeType(), CreditorDebtorTypeEnum.DEBTOR.name())) {
-                        contractTradeStructure.setRole(TradeStructureRoleEnum.DEBTOR.name());
+                        contractTradeStructure.setRole(ContractTradeStructureRoleEnum.DEBTOR.name());
                     } else {
-                        contractTradeStructure.setRole(TradeStructureRoleEnum.LESSEE.name());
+                        contractTradeStructure.setRole(ContractTradeStructureRoleEnum.LESSEE.name());
                     }
                     toInsertList.add(contractTradeStructure);
                 }
@@ -100,7 +100,7 @@ public class ContractTradeStructureService extends ServiceImpl<ContractTradeStru
                     ContractTradeStructure contractTradeStructure = new ContractTradeStructure();
                     contractTradeStructure.setContractId(contractId);
                     contractTradeStructure.setClientId(clientId);
-                    contractTradeStructure.setRole(TradeStructureRoleEnum.GUARANTOR.name());
+                    contractTradeStructure.setRole(ContractTradeStructureRoleEnum.GUARANTOR.name());
                     toInsertList.add(contractTradeStructure);
                 }
                 break;
@@ -124,7 +124,7 @@ public class ContractTradeStructureService extends ServiceImpl<ContractTradeStru
                     ContractTradeStructure contractTradeStructure = new ContractTradeStructure();
                     contractTradeStructure.setContractId(contractId);
                     contractTradeStructure.setClientId(clientId);
-                    contractTradeStructure.setRole(TradeStructureRoleEnum.MORTGAGE.name());
+                    contractTradeStructure.setRole(ContractTradeStructureRoleEnum.MORTGAGE.name());
                     toInsertList.add(contractTradeStructure);
                 }
                 break;
@@ -148,7 +148,7 @@ public class ContractTradeStructureService extends ServiceImpl<ContractTradeStru
                     ContractTradeStructure contractTradeStructure = new ContractTradeStructure();
                     contractTradeStructure.setContractId(contractId);
                     contractTradeStructure.setClientId(clientId);
-                    contractTradeStructure.setRole(TradeStructureRoleEnum.PLEDGE.name());
+                    contractTradeStructure.setRole(ContractTradeStructureRoleEnum.PLEDGE.name());
                     toInsertList.add(contractTradeStructure);
                 }
                 break;

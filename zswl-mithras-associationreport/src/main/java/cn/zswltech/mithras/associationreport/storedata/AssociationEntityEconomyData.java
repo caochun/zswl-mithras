@@ -3,33 +3,26 @@ package cn.zswltech.mithras.associationreport.storedata;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
+import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelUtil;
-import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.customer.enums.OrgScaleType;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMetricPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportPaymentFactPort;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.associationreport.service.AssociationEntityEconomyServiceService;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationEntityEconomyService;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
-import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
-import cn.zswltech.mithras.dashboard.application.GuanYuanOperationService;
-import cn.zswltech.mithras.dashboard.application.guanyuandata.PayIncomeDTO;
+import cn.zswltech.mithras.associationreport.application.AssociationReportGuanYuanDataPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportPayIncomeSnapshot;
 import cn.zswltech.mithras.basedata.util.DateUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -37,7 +30,6 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @date 2025/4/18
@@ -46,22 +38,23 @@ import java.util.stream.Collectors;
 @Slf4j
 @Component
 public class AssociationEntityEconomyData extends AbstractDataStore<AssociationEntityEconomyService> {
+    private static final String ORG_SCALE_TINY = "微型";
+    private static final String ORG_SCALE_SMALL = "小型";
+
     @Resource
-    private PaymentActualDetailMapper paymentActualDetailMapper;
+    private AssociationReportMetricPort metricPort;
     @Resource
-    private PaymentBaseInfoMapper paymentBaseInfoMapper;
+    private AssociationReportGuanYuanDataPort guanYuanDataPort;
     @Resource
-    private RiskMetricFactorMergeService riskMetricFactorMergeService;
-    @Resource
-    private GuanYuanOperationService guanYuanOperationService;
+    private AssociationReportPaymentFactPort paymentFactPort;
 
     @Override
     public boolean storeFromSystemJobCheck(int year, int period) {
         LocalDate dataDate = DateUtil.ensureQuarterLastDay(year, period);
         // 国资快报
-        Map<String, Long> gzkbMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.GZKB.display, dataDate.getYear(), dataDate.getMonthValue());
+        Map<String, Long> gzkbMap = metricPort.guoZiKuaiBao(dataDate.getYear(), dataDate.getMonthValue());
         // 投放收益率表
-        List<PayIncomeDTO> payIncomeList = guanYuanOperationService.listPayIncome(LocalDate.of(dataDate.getYear(), 1, 1), dataDate);
+        List<AssociationReportPayIncomeSnapshot> payIncomeList = guanYuanDataPort.listPayIncome(LocalDate.of(dataDate.getYear(), 1, 1), dataDate);
         boolean condition1 = CollectionUtil.isNotEmpty(payIncomeList);
         boolean condition2 = CollectionUtil.isNotEmpty(gzkbMap);
         log.info("金融局报送【服务实体经济情况表】自动取值-前置数据校验结果:投放收益率表 = {}, 国资快报 = {}", condition1, condition2);
@@ -117,9 +110,9 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
         AssociationEntityEconomyService lastReportValue = SpringUtil.getBean(AssociationEntityEconomyServiceService.class).getModelByReportInstanceId(lastReport.getReportInstanceId());
         LocalDate metricDate = this.ensureMetricDate(currentReport);
         // 查询国资快报
-        Map<String, Long> gzkbMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.GZKB.display, metricDate.getYear(), metricDate.getMonthValue());
+        Map<String, Long> gzkbMap = metricPort.guoZiKuaiBao(metricDate.getYear(), metricDate.getMonthValue());
         // 查询投放收益率表
-        List<PayIncomeDTO> payIncomeList = guanYuanOperationService.listPayIncome(LocalDate.of(metricDate.getYear(), 1, 1), metricDate);
+        List<AssociationReportPayIncomeSnapshot> payIncomeList = guanYuanDataPort.listPayIncome(LocalDate.of(metricDate.getYear(), 1, 1), metricDate);
         if (CollectionUtil.isEmpty(payIncomeList)) {
             log.info("金融局报送【服务实体经济情况表】自动取值-没有找到指定日期的投放收益率表数据[metricDate:{}]", LocalDateTimeUtil.format(metricDate, DatePattern.NORM_DATETIME_PATTERN));
             return Collections.emptyList();
@@ -130,7 +123,7 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
         // 本年租赁业务累计投放额-期末数 = 投放收益率情况表：项目金额（投放金额）合计数
         currentReportValue.setTyagLeasBusiAmtAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum())
         );
         // 其中：本年制造业租赁累计投放额-期初数 = 上期期末数，若为1季度则为0
@@ -139,7 +132,7 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
         currentReportValue.setTyagMnftLeasAmtAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
                 .filter(e -> StrUtil.isNotBlank(e.getIndustryDisplay()) && e.getIndustryDisplay().startsWith("制造业"))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum())
         );
         // 本年服务产业链租赁累计投放额-期初数 = 上期期末数，若为1季度则为0
@@ -151,7 +144,7 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
         currentReportValue.setTyagConsLeasAmtAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
                 .filter(e -> StrUtil.equals(e.getRiskControlIndustryClassifyDisplay(), RiskControlIndustryClassify.CIVIL_CONSUMPTION.display()))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum())
         );
         // 本年科技金融建设租赁累计投放额-期初数 = 上期期末数，若为1季度则为0
@@ -160,7 +153,7 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
         currentReportValue.setTyagSatyLeasAmtAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
                 .filter(e -> StrUtil.isNotBlank(e.getIndustryDisplay()) && e.getIndustryDisplay().startsWith("科学研究和技术服务业"))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum())
         );
         // 本年绿色金融建设租赁累计投放额-期初数 = 上期期末数，若为1季度则为0
@@ -169,7 +162,7 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
         currentReportValue.setTyagGrenLeasAmtAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
                 .filter(e -> StrUtil.equals(e.getRiskControlIndustryClassifyDisplay(), RiskControlIndustryClassify.NEW_MATERIALS.display()))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum())
         );
         // 本年普惠金融建设租赁累计投放额-期初数 = 上期期末数，若为1季度则为0
@@ -177,8 +170,8 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
         // 本年普惠金融建设租赁累计投放额-期末数 = 投放收益率情况表：公司类型为小型、微型的项目金额（投放金额）合计数
         currentReportValue.setTyagIcveLeasAmtAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
-                .filter(e -> StrUtil.equalsAny(e.getOrgScaleDisplay(), OrgScaleType.TINY.display(), OrgScaleType.SMALL.display()))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .filter(e -> StrUtil.equalsAny(e.getOrgScaleDisplay(), ORG_SCALE_TINY, ORG_SCALE_SMALL))
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum())
         );
         // 本年养老金融建设租赁累计投放额-期初数 = 上期期末数，若为1季度则为0
@@ -190,7 +183,7 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
         currentReportValue.setTyagOceaLeasAmtAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
                 .filter(e -> Objects.equals(e.getDeptId(), 31L))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum())
         );
         // 本年开放金融建设租赁累计投放额-期初数 = 上期期末数，若为1季度则为0
@@ -351,23 +344,15 @@ public class AssociationEntityEconomyData extends AbstractDataStore<AssociationE
     }
 
     private Integer parseInt(Object o) {
-        return Optional.ofNullable(o).map(Object::toString).map(NumberUtils::toInt).orElse(null);
+        return Optional.ofNullable(o)
+                .map(Object::toString)
+                .filter(NumberUtil::isNumber)
+                .map(Integer::parseInt)
+                .orElse(null);
     }
 
     private int ensureTyagServCustNumAeop(LocalDate reportDate) {
         LocalDate queryDateFrom = LocalDate.of(reportDate.getYear(), 1, 1);
-//        LocalDate queryDateTo = LocalDate.of(reportDate.getYear(), 12, 31);
-        List<PaymentActualDetail> paymentActualDetailList = paymentActualDetailMapper.selectList(
-                Wrappers.<PaymentActualDetail>lambdaQuery().ge(PaymentActualDetail::getPaidInDate, queryDateFrom).le(PaymentActualDetail::getPaidInDate, reportDate)
-        );
-        if (CollectionUtil.isEmpty(paymentActualDetailList)) {
-            return 0;
-        }
-        Set<Long> paymentIds = paymentActualDetailList.stream().map(PaymentActualDetail::getPaymentId).collect(Collectors.toSet());
-        List<PaymentBaseInfo> paymentBaseInfoList = paymentBaseInfoMapper.selectBatchIds(paymentIds);
-        if (CollectionUtil.isEmpty(paymentBaseInfoList)) {
-            return 0;
-        }
-        return (int) paymentBaseInfoList.stream().map(PaymentBaseInfo::getClientId).distinct().count();
+        return paymentFactPort.countPaidClient(queryDateFrom, reportDate);
     }
 }

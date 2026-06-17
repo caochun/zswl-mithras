@@ -8,7 +8,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
 import cn.zswltech.mithras.contract.core.ContractReceiptService;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestBaseInfoService;
-import cn.zswltech.mithras.application.orchestration.monthly.MonthlyStampDutyService;
+import cn.zswltech.mithras.application.orchestration.finance.monthly.MonthlyStampDutyService;
 import cn.zswltech.mithras.application.orchestration.payment.FtpAssessmentInfoService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
 import lombok.extern.slf4j.Slf4j;

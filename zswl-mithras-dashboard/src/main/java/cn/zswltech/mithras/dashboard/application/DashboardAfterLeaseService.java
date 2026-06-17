@@ -5,30 +5,27 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
+import cn.zswltech.mithras.dashboard.application.port.DashboardAfterLeasePreparePort;
+import cn.zswltech.mithras.dashboard.application.port.DashboardAfterLeasePrepareSnapshot;
 import cn.zswltech.mithras.dto.dashboard.DashboardAfterLeaseCheckListREQ;
 import cn.zswltech.mithras.dto.dashboard.DashboardAfterLeaseCheckRSP;
 import cn.zswltech.mithras.dto.dashboard.DashboardAfterLeaseStatisticsRSP;
 import cn.zswltech.mithras.dto.dashboard.DashboardClientAfterLeaseCheckRSP;
-import cn.zswltech.mithras.dto.process.prepare.ProcessPrepareListREQ;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanProcessStatusEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanStatusEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckPlanTypeEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseCheckWayEnum;
 import cn.zswltech.mithras.dashboard.enums.DashboardAfterLeaseCheckStatueEnum;
 import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessState;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanBaseMapper;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckPlanClientMapper;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanClient;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.afterlease.model.dashboard.DashboardClientAfterLeaseCheckQuery;
-import cn.zswltech.mithras.workflow.persistence.model.prepare.CommonProcessPrepare;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.UserDataScopeResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
-import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -47,7 +44,7 @@ public class DashboardAfterLeaseService implements cn.zswltech.mithras.dashboard
     @Resource
     private NewAfterLeaseCheckPlanBaseMapper afterLeaseCheckPlanBaseMapper;
     @Resource
-    private CommonProcessPrepareService commonProcessPrepareService;
+    private DashboardAfterLeasePreparePort dashboardAfterLeasePreparePort;
     @Resource
     private NewAfterLeaseCheckPlanClientMapper newAfterLeaseCheckPlanClientMapper;
 
@@ -126,32 +123,13 @@ public class DashboardAfterLeaseService implements cn.zswltech.mithras.dashboard
         if (ObjectUtil.isNull(currentUser)) {
             return ListUtil.empty();
         }
-        //展示计划状态为【检查中】&审批状态为【变更审批通过】或【新建审批通过】的数据
-        ProcessPrepareListREQ preparReq = new ProcessPrepareListREQ();
-        preparReq.setPage(1);
-        preparReq.setPageSize(5000);
-        preparReq.setStartUserId(String.valueOf(currentUser.getId()));
-        preparReq.setProcessTypeList(Collections.singletonList(ProcessModelTypeEnum.NewAfterLeaseCheckReportCommonlyFlow.name()));
-        if (ObjectUtil.isNotEmpty(req.getClientId())) {
-            preparReq.setBusinessId(String.valueOf(req.getClientId()));
-        }
-        Page<CommonProcessPrepare> processPreparePage = commonProcessPrepareService.list(preparReq);
-        if (ObjectUtil.isEmpty(processPreparePage) || ObjectUtil.isEmpty(processPreparePage.getRecords())) {
+        String businessId = ObjectUtil.isNotEmpty(req.getClientId()) ? String.valueOf(req.getClientId()) : null;
+        List<DashboardAfterLeasePrepareSnapshot> prepares = dashboardAfterLeasePreparePort.listUnsubmitted(String.valueOf(currentUser.getId()), businessId);
+        if (ObjectUtil.isEmpty(prepares)) {
             return ListUtil.empty();
         }
-        List<CommonProcessPrepare> commonProcessPrepares = processPreparePage.getRecords();
-        commonProcessPrepares.removeIf(e -> ObjectUtil.isNotEmpty(e.getBusinessData()));
-        if (ObjectUtil.isEmpty(commonProcessPrepares)) {
-            return ListUtil.empty();
-        }
-        /*List<Long> newAfterLeaseCheckPlanBaseIds = commonProcessPrepares.stream().map(CommonProcessPrepare::getBusinessData).filter(ObjectUtil::isNotEmpty).map(Long::parseLong).collect(Collectors.toList());
-        Map<Long, NewAfterLeaseCheckPlanBase> newAfterLeaseCheckPlanBaseMap = new HashMap<>();
-        if (ObjectUtil.isNotEmpty(newAfterLeaseCheckPlanBaseIds)) {
-            newAfterLeaseCheckPlanBaseMap.putAll(afterLeaseCheckPlanBaseMapper.selectBatchIds(newAfterLeaseCheckPlanBaseIds).stream()
-                    .collect(Collectors.toMap(NewAfterLeaseCheckPlanBase::getId, e -> e, (a, b) -> a)));
-        }*/
         //如果存在数据，需要填充对应的display
-        List<Long> newAfterLeaseCheckPlanClientIds = commonProcessPrepares.stream().map(CommonProcessPrepare::getBusinessId).map(Long::parseLong).collect(Collectors.toList());
+        List<Long> newAfterLeaseCheckPlanClientIds = prepares.stream().map(DashboardAfterLeasePrepareSnapshot::getBusinessId).map(Long::parseLong).collect(Collectors.toList());
         List<NewAfterLeaseCheckPlanClient> newAfterLeaseCheckPlanClients = newAfterLeaseCheckPlanClientMapper.selectBatchIds(newAfterLeaseCheckPlanClientIds);
         if (ObjectUtil.isEmpty(newAfterLeaseCheckPlanClients)) {
             return ListUtil.empty();
@@ -163,40 +141,29 @@ public class DashboardAfterLeaseService implements cn.zswltech.mithras.dashboard
         Map<Long, String> systemId2Name = getBean(UserNameResolver.class).sysUserId2Name(clientId2Client.values().stream().map(Client::getBelongSponsorId).collect(Collectors.toList()));
 
         List<DashboardAfterLeaseCheckRSP> rsps = new ArrayList<>();
-        commonProcessPrepares.forEach(commonProcess -> {
-            Client client = clientId2Client.get(checkPlanClientId2ClientId.get(Long.parseLong(commonProcess.getBusinessId())));
+        prepares.forEach(prepare -> {
+            Client client = clientId2Client.get(checkPlanClientId2ClientId.get(Long.parseLong(prepare.getBusinessId())));
             if (ObjectUtil.isNotEmpty(client)) {
                 DashboardAfterLeaseCheckRSP rsp = new DashboardAfterLeaseCheckRSP();
-                rsp.setIdKey(commonProcess.getId());
+                rsp.setIdKey(prepare.getId());
                 rsp.setClientId(client.getId());
                 rsp.setClientName(client.getClientName());
-                rsp.setCheckPlanName(commonProcess.getFormName());
-                /*NewAfterLeaseCheckPlanBase newAfterLeaseCheckPlanBase = newAfterLeaseCheckPlanBaseMap.get(Long.parseLong(commonProcess.getBusinessData()));
-                if (ObjectUtil.isNotEmpty(newAfterLeaseCheckPlanBase)) {
-                    rsp.setCheckPlanName(newAfterLeaseCheckPlanBase.getPlanName());
-                    rsp.setPlanType(newAfterLeaseCheckPlanBase.getPlanType());
-                    rsp.setCheckPlanTypeDisplay(Optional.ofNullable(AfterLeaseCheckPlanTypeEnum.of(newAfterLeaseCheckPlanBase.getPlanType())).map(AfterLeaseCheckPlanTypeEnum::getDisplay).orElse(null));
-                    rsp.setCheckWayCode(newAfterLeaseCheckPlanBase.getCheckWay());
-                    rsp.setCheckWayDisplay(Optional.ofNullable(AfterLeaseCheckWayEnum.find(newAfterLeaseCheckPlanBase.getCheckWay())).map(AfterLeaseCheckWayEnum::getDisplay).orElse(null));
-                    //todo
-                    rsp.setCheckDate(newAfterLeaseCheckPlanBase.getDeadLine());
-
-                }*/
+                rsp.setCheckPlanName(prepare.getFormName());
                 rsp.setBizDeptId(client.getBelongDeptId());
                 rsp.setBizDeptName(deptId2Name.get(client.getBelongDeptId()));
                 rsp.setProjSponsorUserId(client.getBelongSponsorId());
                 rsp.setProjSponsorUserName(systemId2Name.get(client.getBelongSponsorId()));
-                rsp.setReportProcessStatusCode(ProcessState.UN_SUBMIT.name());
-                rsp.setReportProcessStatusDisplay(ProcessState.UN_SUBMIT.display());
+                rsp.setReportProcessStatusCode(prepare.getProcessStatusCode());
+                rsp.setReportProcessStatusDisplay(prepare.getProcessStatusDisplay());
                 rsp.setCheckPlanStatus(DashboardAfterLeaseCheckStatueEnum.NEW.name());
                 rsp.setCheckPlanStatusDisplay(DashboardAfterLeaseCheckStatueEnum.NEW.display());
-                rsp.setCreateTime(commonProcess.getCreateTime());
-                rsp.setUpdateTime(commonProcess.getUpdateTime());
+                rsp.setCreateTime(prepare.getCreateTime());
+                rsp.setUpdateTime(prepare.getUpdateTime());
                 rsps.add(rsp);
             }
         });
         if (ObjectUtil.isNotEmpty(req.getClientId())) {
-            rsps.removeIf(e -> !ObjectUtil.equals(e.getClientId(), e.getClientId()));
+            rsps.removeIf(e -> !ObjectUtil.equals(e.getClientId(), req.getClientId()));
         }
         if (ObjectUtil.isNotEmpty(req.getCheckWayCode())) {
             rsps.removeIf(e -> !ObjectUtil.equals(e.getCheckWayCode(), req.getCheckWayCode()));

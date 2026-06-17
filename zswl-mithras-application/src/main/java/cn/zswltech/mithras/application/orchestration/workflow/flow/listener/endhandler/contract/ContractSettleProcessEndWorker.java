@@ -17,7 +17,7 @@ import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.application.orchestration.client.ProjClientRoleService;
 import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
-import cn.zswltech.mithras.leaseholdproperty.application.contract.ContractLeaseItemService;
+import cn.zswltech.mithras.contract.application.ContractLeaseItemService;
 import cn.zswltech.mithras.contract.core.ContractSettlePlanService;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;

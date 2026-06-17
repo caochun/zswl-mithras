@@ -2,20 +2,11 @@ package cn.zswltech.mithras.afterlease.genhtml;
 
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.gruul.biz.service.UserService;
-import cn.zswltech.gruul.dao.dal.vo.UserVO;
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
+import cn.zswltech.mithras.afterlease.application.PaymentNoticeRenderData;
+import cn.zswltech.mithras.afterlease.application.PaymentNoticeRenderDataPort;
 import cn.zswltech.mithras.afterlease.mapper.RentCollectionEmailRecordMapper;
-import cn.zswltech.mithras.basedata.persistence.mapper.BaseDataBankAccountMapper;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.afterlease.model.RentCollectionEmailRecord;
-import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
+import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.util.FreeMarkerUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.deepoove.poi.XWPFTemplate;
@@ -29,7 +20,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.Optional;
 
 import static cn.hutool.core.text.CharSequenceUtil.isNotBlank;
@@ -47,17 +37,9 @@ public class PaymentNoticeHtmlRender {
     public static final String PAYMENT_DOCX_NAME = "/doc/支付通知书.docx";
 
     @Resource
-    private CollectionBaseInfoMapper collectionBaseInfoMapper;
-    @Resource
-    private ContractBaseInfoLibHandler contractBaseInfoLibHandler;
-    @Resource
-    private ClientMapper clientMapper;
-    @Resource(name = "userServiceAPI")
-    private UserService userServiceAPI;
-    @Resource
-    private BaseDataBankAccountMapper baseDataBankAccountMapper;
-    @Resource
     private RentCollectionEmailRecordMapper rentCollectionEmailRecordMapper;
+    @Resource
+    private PaymentNoticeRenderDataPort paymentNoticeRenderDataPort;
 
     public String render(OutputStream outputStream, Long collectionId, String comment, Long bankId) throws Exception {
         // 生成
@@ -91,35 +73,34 @@ public class PaymentNoticeHtmlRender {
     }
 
     private HashMap<String, Object> buildRenderMap(Long collectionId, String comment, Long bankId) {
-        // 捞数据
-        CollectionBaseInfo collectionBaseInfo = collectionBaseInfoMapper.selectById(collectionId);
-        if (Objects.isNull(collectionBaseInfo)) {
-            throw new MithrasException("收款信息不存在");
-        }
-        Client client = clientMapper.selectById(collectionBaseInfo.getClientId());
-        ContractBaseInfoLib contractBaseInfoLib = contractBaseInfoLibHandler.queryLatestDataByOriginId(collectionBaseInfo.getContractId());
-        UserVO userVO = userServiceAPI.getUserInfoById(contractBaseInfoLib.getProjSponsorUserId()).getData();
-        String sponsorPhone = userServiceAPI.getRealPhone(contractBaseInfoLib.getProjSponsorUserId());
-        BaseDataBankAccount account = Optional.ofNullable(bankId).map(bId -> baseDataBankAccountMapper.selectById(bId)).orElse(new BaseDataBankAccount());
+        PaymentNoticeRenderData data = paymentNoticeRenderDataPort.load(collectionId, bankId);
         // 填充渲染map
         HashMap<String, Object> renderMap = new HashMap<>();
-        renderMap.put("clientName", client.getClientName());
-        renderMap.put("contractCode", collectionBaseInfo.getContractCode());
-        renderMap.put("phase", collectionBaseInfo.getPhase());
-        renderMap.put("planCollectionDate", LocalDateTimeUtil.format(collectionBaseInfo.getPlanCollectionDate(), "yyyy/MM/dd"));
-        renderMap.put("planCollectionDateFormal", LocalDateTimeUtil.format(collectionBaseInfo.getPlanCollectionDate(), "【yyyy】年【MM】月【dd】日"));
-        renderMap.put("planCollectionAmount", Optional.ofNullable(collectionBaseInfo.getPlanCollectionAmount()).map(BigDecimal::new).map(b -> b.divide(new BigDecimal(10000), 2, RoundingMode.HALF_UP)).map(BigDecimal::toPlainString).orElse("0"));
-        renderMap.put("principal", Optional.ofNullable(collectionBaseInfo.getPrincipal()).map(BigDecimal::new).map(b -> b.divide(new BigDecimal(10000), 2, RoundingMode.HALF_UP)).map(BigDecimal::toPlainString).orElse("0"));
-        renderMap.put("interest", Optional.ofNullable(collectionBaseInfo.getInterest()).map(BigDecimal::new).map(b -> b.divide(new BigDecimal(10000), 2, RoundingMode.HALF_UP)).map(BigDecimal::toPlainString).orElse("0"));
+        renderMap.put("clientName", data.getClientName());
+        renderMap.put("contractCode", data.getContractCode());
+        renderMap.put("phase", data.getPhase());
+        renderMap.put("planCollectionDate", LocalDateTimeUtil.format(data.getPlanCollectionDate(), "yyyy/MM/dd"));
+        renderMap.put("planCollectionDateFormal", LocalDateTimeUtil.format(data.getPlanCollectionDate(), "【yyyy】年【MM】月【dd】日"));
+        renderMap.put("planCollectionAmount", moneyToWan(data.getPlanCollectionAmount()));
+        renderMap.put("principal", moneyToWan(data.getPrincipal()));
+        renderMap.put("interest", moneyToWan(data.getInterest()));
         renderMap.put("comment", StringUtils.isNotBlank(comment) ? comment : "/");
-        renderMap.put("accountName", Optional.ofNullable(account.getAccountName()).orElse(""));
-        renderMap.put("accountBank", Optional.ofNullable(account.getAccountBank()).orElse(""));
-        renderMap.put("accountNumber", Optional.ofNullable(account.getAccountNumber()).orElse(""));
+        renderMap.put("accountName", Optional.ofNullable(data.getAccountName()).orElse(""));
+        renderMap.put("accountBank", Optional.ofNullable(data.getAccountBank()).orElse(""));
+        renderMap.put("accountNumber", Optional.ofNullable(data.getAccountNumber()).orElse(""));
 
-        renderMap.put("sponsorUserName", userVO.getUserName());
-        renderMap.put("sponsorTelephone", sponsorPhone);
+        renderMap.put("sponsorUserName", data.getSponsorUserName());
+        renderMap.put("sponsorTelephone", data.getSponsorTelephone());
         renderMap.put("noticeDateFormal", LocalDateTimeUtil.format(LocalDate.now(), "【yyyy】年【MM】月【dd】日"));
         return renderMap;
+    }
+
+    private String moneyToWan(Long amount) {
+        return Optional.ofNullable(amount)
+                .map(BigDecimal::new)
+                .map(b -> b.divide(new BigDecimal(10000), 2, RoundingMode.HALF_UP))
+                .map(BigDecimal::toPlainString)
+                .orElse("0");
     }
 
 }

@@ -23,11 +23,6 @@ UPDATE fund_receipt_repay_base_info_lib r
 SET r.financing_biz_type = (SELECT f.business_type FROM fund_financing_base_info f WHERE f.id = r.financing_id)
 WHERE financing_type IS NULL;
 
-alter table collection_overdue_history
-    add client_id bigint(20) null comment '冗余客户id';
-UPDATE collection_overdue_history c
-SET c.client_id = (SELECT b.client_id FROM collection_base_info b WHERE b.id = c.collection_id);
-
 alter table fund_receipt_repay_base_info
     add financing_channel varchar(100) null comment '融资渠道';
 

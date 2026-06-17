@@ -5,7 +5,7 @@ import cn.zswltech.mithras.foundation.auth.DataAuthBusinessModule;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.foundation.auth.checker.AuthHelper;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.persistence.model.SponsorField;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

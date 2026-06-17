@@ -21,14 +21,14 @@ import cn.zswltech.mithras.dto.budget.BudgetExamineBenefitAddREQ;
 import cn.zswltech.mithras.dto.budget.BudgetExamineBenefitListREQ;
 import cn.zswltech.mithras.dto.budget.BudgetExamineBenefitListRSP;
 import cn.zswltech.mithras.dto.budget.BudgetExamineBenefitModifyREQ;
+import cn.zswltech.mithras.budget.application.port.BudgetContractPaymentFactSnapshot;
+import cn.zswltech.mithras.budget.application.port.BudgetFinanceFactPort;
+import cn.zswltech.mithras.budget.application.port.BudgetFinanceProjectProfitSnapshot;
+import cn.zswltech.mithras.budget.application.port.BudgetPaymentFactPort;
 import cn.zswltech.mithras.budget.enums.BudgetExamineBenefitEnum;
 import cn.zswltech.mithras.budget.mapper.BudgetExamineBenefitMapper;
-import cn.zswltech.mithras.payment.dto.ContractPayInfoDTO;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamine;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamineBenefit;
-import cn.zswltech.mithras.finance.mapper.finance.FinanceProjectProfitDetailMapper;
-import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
-import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.OrgResolver;
@@ -59,13 +59,15 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
     @Resource
     private BudgetExamineBenefitMapper budgetExamineBenefitMapper;
     @Resource
-    private FinanceProjectProfitDetailMapper financeProjectProfitDetailMapper;
+    private BudgetFinanceFactPort budgetFinanceFactPort;
     @Resource
     private DeptNameResolver deptNameResolver;
     @Resource
     private OrgResolver orgResolver;
     @Resource
     private FinanceRiskHelp financeRiskHelp;
+    @Resource
+    private BudgetPaymentFactPort budgetPaymentFactPort;
     @Resource
     private BudgetExamineService budgetExamineService;
     private static final Long COMPANY_NUMBER = 10000396L;
@@ -76,7 +78,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
         this.remove(Wrappers.<BudgetExamineBenefit>lambdaQuery()
                 .eq(BudgetExamineBenefit::getBudgetExamineId, req.getBudgetExamineId()));
         //苍穹科目余额表
-        Map<Long, Map<String, BigDecimal>> cqDataMap = financeRiskHelp.getMonthDeptValues(req.getBudgetExamineYear(), req.getBudgetExamineMonth());
+        Map<Long, Map<String, BigDecimal>> cqDataMap = budgetFinanceFactPort.listMonthDeptRiskValues(req.getBudgetExamineYear(), req.getBudgetExamineMonth());
         if (CollectionUtil.isEmpty(cqDataMap)) {
             return;
         }
@@ -141,12 +143,10 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
                     + benefitMap.get(BudgetExamineBenefitEnum.ADDITION_NON_OPERATING_INCOME.name()).getFieldValue() - benefitMap.get(BudgetExamineBenefitEnum.DEDUCTION_NON_OPERATING_EXPENSE.name()).getFieldValue());
         });
         // 项目利润表
-        List<FinanceProjectProfitDetail> projectProfitDetails = financeProjectProfitDetailMapper.selectList(Wrappers.<FinanceProjectProfitDetail>lambdaQuery()
-                .eq(FinanceProjectProfitDetail::getYear, req.getBudgetExamineYear())
-                .eq(FinanceProjectProfitDetail::getMonth, req.getBudgetExamineMonth()));
+        List<BudgetFinanceProjectProfitSnapshot> projectProfitDetails = budgetFinanceFactPort.listProjectProfitDetails(req.getBudgetExamineYear(), req.getBudgetExamineMonth());
         if (ObjectUtil.isNotEmpty(projectProfitDetails)) {
             // 按照部门分组
-            Map<Long, List<FinanceProjectProfitDetail>> profitDetailMap = projectProfitDetails.stream().collect(Collectors.groupingBy(FinanceProjectProfitDetail::getAssessDeptId));
+            Map<Long, List<BudgetFinanceProjectProfitSnapshot>> profitDetailMap = projectProfitDetails.stream().collect(Collectors.groupingBy(BudgetFinanceProjectProfitSnapshot::getAssessDeptId));
             profitDetailMap.forEach((deptId, profitDetailList) -> {
                 List<BudgetExamineBenefit> benefitList = todoMap.get(deptId);
                 if (CollectionUtil.isEmpty(benefitList)) {
@@ -156,10 +156,10 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
                 Map<String, BudgetExamineBenefit> benefitMap = benefitList.stream().collect(Collectors.toMap(BudgetExamineBenefit::getFieldName, e -> e));
                 // 期（年）初风险金余额
                 BudgetExamineBenefit riskBalanceBegin = benefitMap.get(BudgetExamineBenefitEnum.BEGINNING_BALANCE.name());
-                riskBalanceBegin.setFieldValue(profitDetailList.stream().filter(e -> Objects.nonNull(e.getRiskBalanceBeginYear())).mapToLong(FinanceProjectProfitDetail::getRiskBalanceBeginYear).sum());
+                riskBalanceBegin.setFieldValue(profitDetailList.stream().filter(e -> Objects.nonNull(e.getRiskBalanceBeginYear())).mapToLong(BudgetFinanceProjectProfitSnapshot::getRiskBalanceBeginYear).sum());
                 // 期（年）末风险金余额
                 BudgetExamineBenefit riskBalanceEnd = benefitMap.get(BudgetExamineBenefitEnum.ENDING_BALANCE.name());
-                riskBalanceEnd.setFieldValue(profitDetailList.stream().filter(e -> Objects.nonNull(e.getTotalRiskThisYear())).mapToLong(FinanceProjectProfitDetail::getTotalRiskThisYear).sum());
+                riskBalanceEnd.setFieldValue(profitDetailList.stream().filter(e -> Objects.nonNull(e.getTotalRiskThisYear())).mapToLong(BudgetFinanceProjectProfitSnapshot::getTotalRiskThisYear).sum());
                 // 风险准备金 = 期（年）末风险金余额 - 期（年）初风险金余额
                 BudgetExamineBenefit risk = benefitMap.get(BudgetExamineBenefitEnum.RISK_PROVISION.name());
                 risk.setFieldValue(riskBalanceEnd.getFieldValue() - riskBalanceBegin.getFieldValue());
@@ -168,18 +168,18 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
                 assetLoss.setFieldValue(risk.getFieldValue());
                 // 成本类：FTP成本 项目利润中的本年累计资金成本
                 BudgetExamineBenefit costBudgetExamineBenefit = benefitMap.get(BudgetExamineBenefitEnum.COST_TYPE_FTP_COST.name());
-                costBudgetExamineBenefit.setFieldValue(profitDetailList.stream().filter(e -> Objects.nonNull(e.getTotalCostThisYear())).mapToLong(FinanceProjectProfitDetail::getTotalCostThisYear).sum());
+                costBudgetExamineBenefit.setFieldValue(profitDetailList.stream().filter(e -> Objects.nonNull(e.getTotalCostThisYear())).mapToLong(BudgetFinanceProjectProfitSnapshot::getTotalCostThisYear).sum());
                 // 税金类：补提城建教育 项目利润表中的附加税
                 BudgetExamineBenefit taxBudgetExamineBenefit = benefitMap.get(BudgetExamineBenefitEnum.TAX_TYPE_SUPPLEMENTAL_URBAN_CONSTRUCTION_TAX.name());
-                taxBudgetExamineBenefit.setFieldValue(profitDetailList.stream().filter(e -> Objects.nonNull(e.getTotalAdditionalTaxThisYear())).mapToLong(FinanceProjectProfitDetail::getTotalAdditionalTaxThisYear).sum());
+                taxBudgetExamineBenefit.setFieldValue(profitDetailList.stream().filter(e -> Objects.nonNull(e.getTotalAdditionalTaxThisYear())).mapToLong(BudgetFinanceProjectProfitSnapshot::getTotalAdditionalTaxThisYear).sum());
             });
         }
         // 衍生数据
         LocalDate startDate = LocalDate.of(req.getBudgetExamineYear(), 1, 1);
         LocalDate thisMonthDate = LocalDate.of(req.getBudgetExamineYear(), req.getBudgetExamineMonth(), 1);
         LocalDate endDate = LocalDate.of(thisMonthDate.getYear(), thisMonthDate.getMonthValue(), thisMonthDate.lengthOfMonth());
-        List<ContractPayInfoDTO> contractPayInfoList = SpringUtil.getBean(PaymentActualDetailMapper.class).listContractPayInfoBetween(startDate, endDate);
-        List<ContractPayInfoDTO> collecContractPayInfoList = SpringUtil.getBean(PaymentActualDetailMapper.class).listContractPayInfoBeforeTargetDate(endDate);
+        List<BudgetContractPaymentFactSnapshot> contractPayInfoList = budgetPaymentFactPort.listContractPayInfoBetween(startDate, endDate);
+        List<BudgetContractPaymentFactSnapshot> collecContractPayInfoList = budgetPaymentFactPort.listContractPayInfoBeforeTargetDate(endDate);
         BigDecimal assessmentProfitSumBD = BigDecimal.ZERO;
         BigDecimal excludeGGLRZXIncomeTaxSumBD = BigDecimal.ZERO;
         for (Map.Entry<Long, List<BudgetExamineBenefit>> entry : todoMap.entrySet()) {
@@ -210,7 +210,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
             // 业务投放规模 = 付款核销金额 - 首期租金
             long payAmount = 0L;
             long firstRentAmount = 0L;
-            for (ContractPayInfoDTO contractPayInfoDTO : contractPayInfoList) {
+            for (BudgetContractPaymentFactSnapshot contractPayInfoDTO : contractPayInfoList) {
                 if (Objects.equals(contractPayInfoDTO.getBelongDeptId(), entry.getKey())) {
                     payAmount += contractPayInfoDTO.getPayAmount();
                     firstRentAmount += contractPayInfoDTO.getFirstRentAmount();
@@ -219,7 +219,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
             m.get(BudgetExamineBenefitEnum.BUSINESS_INVESTMENT_SCALE.name()).setFieldValue(payAmount - firstRentAmount);
             // 月末资产总额 = 月末剩余本金
             long remainingPrincipalThisMonth = 0L;
-            for (ContractPayInfoDTO contractPayInfoDTO : collecContractPayInfoList) {
+            for (BudgetContractPaymentFactSnapshot contractPayInfoDTO : collecContractPayInfoList) {
                 if (Objects.equals(contractPayInfoDTO.getBelongDeptId(), entry.getKey())) {
                     remainingPrincipalThisMonth += contractPayInfoDTO.getPayAmount() - contractPayInfoDTO.getFirstRentAmount() - contractPayInfoDTO.getPrincipalAmount();
                 }
@@ -627,7 +627,7 @@ public class BudgetExamineBenefitService extends ServiceImpl<BudgetExamineBenefi
 //            rsp.setBudgetExamineId(budgetExamine.getId());
 //            rsp.setBudgetExamineYear(budgetExamine.getExamineYear());
 //            rsp.setBudgetExamineMonth(budgetExamine.getExamineMonth());
-//            rsp.setBelongDeptName(BelongTypeEnum.COMPANY.getDisplay());
+//            rsp.setBelongDeptName("公司");
 //            Map<String, BudgetExamineBenefitListRSP.BudgetExamineBenefitBody> monthMap = new HashMap<>();
 //            Map<String, BudgetExamineBenefitListRSP.BudgetExamineBenefitBody> yearMap = new HashMap<>();
 //

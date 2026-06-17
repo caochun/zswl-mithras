@@ -18,7 +18,7 @@ import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
-import cn.zswltech.mithras.application.orchestration.externalinfo.TycExecutionService;
+import cn.zswltech.mithras.application.orchestration.adapter.third.tianyancha.TycExecutionService;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitDetailResp;
 import cn.zswltech.mithras.third.tianyancha.client.resp.TycLawSuitResp;
 import com.alibaba.fastjson.JSONArray;

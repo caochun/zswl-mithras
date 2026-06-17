@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoModifyREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoREQ;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionBaseInfoRSP;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.kpi.enums.KpiProjectClassifyEnum;
 import cn.zswltech.mithras.kpi.enums.KpiProjectSourceDistributionEnum;

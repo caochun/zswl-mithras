@@ -55,16 +55,6 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-capital</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-liquidity</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-kpi</artifactId>
             <version>${revision}</version>
         </dependency>
@@ -81,11 +71,6 @@
         <dependency>
             <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-assetclassify</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-riskcontrol</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

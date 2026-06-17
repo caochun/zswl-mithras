@@ -3,24 +3,23 @@ package cn.zswltech.mithras.afterlease.application.impl;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.RandomUtil;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseCollectionEmailSnapshot;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseCollectionPort;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialsPort;
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailBankAccountPort;
+import cn.zswltech.mithras.afterlease.application.RentCollectionEmailBankAccountSnapshot;
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailContractContactPort;
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailNoticePort;
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailPledgeAccountPort;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionEmailDetailRSP;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionEmailSendREQ;
-import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.afterlease.enums.RentCollectionWriteOffStatus;
 import cn.zswltech.mithras.afterlease.mapper.RentCollectionEmailHtmlStoreMapper;
 import cn.zswltech.mithras.afterlease.mapper.RentCollectionEmailRecordMapper;
 import cn.zswltech.mithras.afterlease.model.RentCollectionEmailHtmlStore;
 import cn.zswltech.mithras.afterlease.model.RentCollectionEmailRecord;
-import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.SneakyThrows;
@@ -82,25 +81,25 @@ public class RentCollectionEmailServiceImpl {
         if (!Validator.isEmail(req.getReceiverMail())) {
             throw new MithrasException("收件邮箱格式有误");
         }
-        BaseDataBankAccount account = rentCollectionEmailBankAccountPort.getById(req.getBankId());
+        RentCollectionEmailBankAccountSnapshot account = rentCollectionEmailBankAccountPort.getById(req.getBankId());
         if (Objects.isNull(account)) {
             throw new MithrasException("收款账号选取有误");
         }
-        CollectionBaseInfo collectionBaseInfo = afterLeaseCollectionPort.getById(req.getCollectionId());
-        if (Objects.isNull(collectionBaseInfo)) {
+        AfterLeaseCollectionEmailSnapshot collection = afterLeaseCollectionPort.getEmailSnapshotById(req.getCollectionId());
+        if (Objects.isNull(collection)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        if (!CashFlowItemEnum.RENT.name().equals(collectionBaseInfo.getCashFlowItem())) {
+        if (!CashFlowItemEnum.RENT.name().equals(collection.getCashFlowItem())) {
             throw new MithrasException("仅租金可发送提醒邮件");
         }
         // 7天内才发送
-        if (Objects.nonNull(collectionBaseInfo.getPlanCollectionDate())
-                && (collectionBaseInfo.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay() > 7
-                || collectionBaseInfo.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay() < 0
+        if (Objects.nonNull(collection.getPlanCollectionDate())
+                && (collection.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay() > 7
+                || collection.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay() < 0
         )) {
             throw new MithrasException("仅租金到期7天内可发送提醒邮件");
         }
-        if (CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(collectionBaseInfo.getWriteOffStatus())) {
+        if (RentCollectionWriteOffStatus.isWriteOffCompleted(collection.getWriteOffStatus())) {
             throw new MithrasException("核销完毕后不可发送提醒邮件");
         }
         RentCollectionEmailRecord rentCollectionEmailRecord = rentCollectionEmailRecordMapper.selectOne(Wrappers.<RentCollectionEmailRecord>lambdaQuery()
@@ -164,8 +163,8 @@ public class RentCollectionEmailServiceImpl {
      * @return
      */
     public RentCollectionEmailDetailRSP detail(Long collectionId) {
-        CollectionBaseInfo collectionBaseInfo = afterLeaseCollectionPort.getById(collectionId);
-        if (Objects.isNull(collectionBaseInfo)) {
+        AfterLeaseCollectionEmailSnapshot collection = afterLeaseCollectionPort.getEmailSnapshotById(collectionId);
+        if (Objects.isNull(collection)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
 
@@ -174,10 +173,10 @@ public class RentCollectionEmailServiceImpl {
                 .eq(RentCollectionEmailRecord::getCollectionId, collectionId)
                 .last("LIMIT 1")
         );
-        rsp.setTimeAvaliableFlag(!CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(collectionBaseInfo.getWriteOffStatus())
-                && Objects.nonNull(collectionBaseInfo.getPlanCollectionDate())
-                && collectionBaseInfo.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay() <= 60
-                && collectionBaseInfo.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay() >= 0
+        rsp.setTimeAvaliableFlag(!RentCollectionWriteOffStatus.isWriteOffCompleted(collection.getWriteOffStatus())
+                && Objects.nonNull(collection.getPlanCollectionDate())
+                && collection.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay() <= 60
+                && collection.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay() >= 0
         );
         if (Objects.nonNull(rentCollectionEmailRecord)) {
             // 发过邮件
@@ -191,7 +190,7 @@ public class RentCollectionEmailServiceImpl {
                 rsp.setHtmlPreviewUrl(genHtmlPreviewUrl(rentCollectionEmailRecord.getHtmlKey()));
             }
             if (Objects.nonNull(rentCollectionEmailRecord.getBankId())) {
-                BaseDataBankAccount account = rentCollectionEmailBankAccountPort.getById(rentCollectionEmailRecord.getBankId());
+                RentCollectionEmailBankAccountSnapshot account = rentCollectionEmailBankAccountPort.getById(rentCollectionEmailRecord.getBankId());
                 if (Objects.nonNull(account)) {
                     rsp.setAccountBank(account.getAccountBank());
                     rsp.setAccountName(account.getAccountName());
@@ -202,20 +201,22 @@ public class RentCollectionEmailServiceImpl {
             // 没发过邮件
             rsp.setTitle("租金支付通知书");
             // 计算收信邮箱
-            rsp.setReceiverMail(rentCollectionEmailContractContactPort.findReceiverMail(collectionBaseInfo.getContractId()));
+            rsp.setReceiverMail(rentCollectionEmailContractContactPort.findReceiverMail(collection.getContractId()));
             rsp.setSendFlag(false);
             rsp.setHtmlPreviewUrl(genEmailHtml(collectionId, null, null));
             // 判断合同有没有被质押，如果被质押需提供默认的还款账户信息
-            BaseDataBankAccountListRSP accountListRSP = rentCollectionEmailPledgeAccountPort.findPledgeAccount(collectionBaseInfo.getContractId());
+            RentCollectionEmailBankAccountSnapshot accountListRSP = rentCollectionEmailPledgeAccountPort.findPledgeAccount(collection.getContractId());
 
             // 若无账户则使用默认账户
             if(StringUtils.isEmpty(accountListRSP.getAccountNumber())){
-                accountListRSP.setAccountBank("中国工商银行杭州市武林支行");
-                accountListRSP.setAccountName("浙江浙商融资租赁有限公司");
-                accountListRSP.setAccountNumber("1202 0212 1990 0394 595");
+                accountListRSP = RentCollectionEmailBankAccountSnapshot.builder()
+                        .accountBank("中国工商银行杭州市武林支行")
+                        .accountName("浙江浙商融资租赁有限公司")
+                        .accountNumber("1202 0212 1990 0394 595")
+                        .build();
             }
 
-            BaseDataBankAccount bankAccount = rentCollectionEmailBankAccountPort.findByAccount(
+            RentCollectionEmailBankAccountSnapshot bankAccount = rentCollectionEmailBankAccountPort.findByAccount(
                     accountListRSP.getAccountBank(), accountListRSP.getAccountName(), accountListRSP.getAccountNumber());
             if(bankAccount != null){
                 rsp.setAccountBank(bankAccount.getAccountBank());

@@ -1,9 +1,8 @@
 package cn.zswltech.mithras.collection.gendoc.render.overduecollect;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.collection.overdue.render.CollectionGuarantorLetterData;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.contract.overdue.domain.acl.ContractGuarantorInfo;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import com.alibaba.fastjson.JSON;
 import com.deepoove.poi.XWPFTemplate;
@@ -28,7 +27,7 @@ import java.util.stream.Collectors;
  */
 @Component
 @Slf4j
-public class JointLiabilityNoticeRender extends AbstractBasicRender<ContractGuarantorInfo> {
+public class JointLiabilityNoticeRender {
 
     private static final String FILE_NAME_SUFFIX = "履行连带责任保证通知书" + GlobalConstants.OFFICE_WORD_SUFFIX;
 
@@ -36,8 +35,7 @@ public class JointLiabilityNoticeRender extends AbstractBasicRender<ContractGuar
     private ClientNameResolver clientNameResolver;
 
 
-    @Override
-    public String render(OutputStream outputStream, ContractGuarantorInfo contractGuarantorInfo) throws Exception{
+    public String render(OutputStream outputStream, CollectionGuarantorLetterData contractGuarantorInfo) throws Exception{
 
         String templatePath = "/doc/履行连带责任保证通知书模版.docx";
         Map<String, Object> renderMap = new HashMap<>(64);

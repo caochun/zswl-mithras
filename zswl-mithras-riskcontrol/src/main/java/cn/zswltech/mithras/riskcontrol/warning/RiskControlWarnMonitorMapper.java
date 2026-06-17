@@ -24,6 +24,8 @@ public interface RiskControlWarnMonitorMapper extends BaseMapper<RiskControlWarn
     List<WarnCountDto> selectCountByClient(@Param("usccs")Set<String> usccs,
                                            @Param("warnLevel") String warnLevel);
 
+    Set<String> selectRiskClientUsccs(@Param("usccs") Set<String> usccs);
+
     Integer countDealingClient();
 
     Integer countNewWarnClient();

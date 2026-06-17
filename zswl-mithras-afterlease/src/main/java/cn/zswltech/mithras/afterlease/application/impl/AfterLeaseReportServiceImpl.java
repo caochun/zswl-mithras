@@ -2,6 +2,7 @@ package cn.zswltech.mithras.afterlease.application.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialSnapshot;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialsPort;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseModifyAuthPort;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseReportListREQ;
@@ -10,7 +11,6 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustMaterialsEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.afterlease.mapper.AfterLeaseAdjustInfoMapper;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.afterlease.model.AfterLeaseAdjustInfo;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
@@ -67,7 +67,7 @@ public class AfterLeaseReportServiceImpl implements AfterLeaseReportService {
     }
 
     @Override
-    public List<MaterialsList> list(AfterLeaseReportListREQ req) {
+    public List<AfterLeaseMaterialSnapshot> list(AfterLeaseReportListREQ req) {
         List<String> materialsTypes;
         if (ObjectUtil.isEmpty(req.getProcessInstanceId())) {
             // 项目评审详情页可展示所有文件
@@ -83,7 +83,7 @@ public class AfterLeaseReportServiceImpl implements AfterLeaseReportService {
     @Override
     public void remove(Long materialsId) {
         // 先查询文档信息
-            MaterialsList materialsList = afterLeaseMaterialsPort.getById(materialsId);
+        AfterLeaseMaterialSnapshot materialsList = afterLeaseMaterialsPort.getById(materialsId);
         if (!Objects.isNull(materialsList)) {// 查询项目评审主数据
             AfterLeaseAdjustInfo baseInfo = adjustInfoService.getById(materialsList.getBelongId());
             afterLeaseModifyAuthPort.check(BUSINESS_MODULE_ADJUST, AfterLeaseAdjustInfoMapper.class, baseInfo.getId(), null);

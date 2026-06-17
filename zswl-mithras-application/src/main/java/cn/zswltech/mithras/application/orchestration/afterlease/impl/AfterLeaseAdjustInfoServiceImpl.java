@@ -18,8 +18,8 @@ import cn.zswltech.gruul.dao.dal.vo.AccountVO;
 import cn.zswltech.mithras.dto.afterlease.*;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.afterlease.application.convert.AfterLeaseAdjustConvert;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.afterlease.convert.AfterLeaseAdjustConvert;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
@@ -36,6 +36,7 @@ import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseAdjustInfoService;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseRelatedProcess;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.projectprocess.versioning.projreview.ProjReviewBaseInfoLibService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentBaseInfoService;
@@ -448,7 +449,7 @@ public class AfterLeaseAdjustInfoServiceImpl extends ServiceImpl<AfterLeaseAdjus
     }
 
     @Override
-    public ProcessResp findRelatedProcess(Long projReviewId) {
+    public AfterLeaseRelatedProcess findRelatedProcess(Long projReviewId) {
         ProcessPageReq processPageReq = new ProcessPageReq();
         processPageReq.setPageIndex(1);
         processPageReq.setPageSize(1);
@@ -456,11 +457,13 @@ public class AfterLeaseAdjustInfoServiceImpl extends ServiceImpl<AfterLeaseAdjus
         processPageReq.setModelKeyList(BusinessModuleEnum.ADJUST.getModelKeyList());
         processPageReq.setProcessStatusList(Arrays.asList(ProcessBusinessStatusEnum.RUNNING.getType(), ProcessBusinessStatusEnum.SUSPEND.getType()));
         cn.zswltech.flow.core.util.Page<ProcessResp> processRespPage = taskApiService.queryProcess(processPageReq);
-        return processRespPage.getContents().stream().findFirst().orElse(null);
+        return processRespPage.getContents().stream().findFirst()
+                .map(this::toRelatedProcess)
+                .orElse(null);
     }
 
     @Override
-    public List<ProcessResp> findRelatedProcesses(Long adjustId) {
+    public List<AfterLeaseRelatedProcess> findRelatedProcesses(Long adjustId) {
         ProcessPageReq processPageReq = new ProcessPageReq();
         processPageReq.setPageIndex(1);
         processPageReq.setPageSize(10);
@@ -469,7 +472,16 @@ public class AfterLeaseAdjustInfoServiceImpl extends ServiceImpl<AfterLeaseAdjus
         processPageReq.setProcessStatusList(Arrays.asList(ProcessBusinessStatusEnum.RUNNING.getType(),
                 ProcessBusinessStatusEnum.SUSPEND.getType()));
         cn.zswltech.flow.core.util.Page<ProcessResp> processRespPage = taskApiService.queryProcess(processPageReq);
-        return processRespPage.getContents();
+        return processRespPage.getContents().stream()
+                .map(this::toRelatedProcess)
+                .collect(Collectors.toList());
+    }
+
+    private AfterLeaseRelatedProcess toRelatedProcess(ProcessResp processResp) {
+        AfterLeaseRelatedProcess relatedProcess = new AfterLeaseRelatedProcess();
+        relatedProcess.setModelKey(processResp.getModelKey());
+        relatedProcess.setCurAssigneeIds(processResp.getCurAssigneeIds());
+        return relatedProcess;
     }
 
     @Override

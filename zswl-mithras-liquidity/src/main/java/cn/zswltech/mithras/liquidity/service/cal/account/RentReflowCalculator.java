@@ -4,11 +4,10 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
-import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.basedata.service.BaseDataSpecialDateService;
+import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionPlanSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionRecordSnapshot;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
+import cn.zswltech.mithras.liquidity.service.LiquidityWorkdayCalendar;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityAccountCalculatorBo;
 import cn.zswltech.mithras.foundation.util.LongUtil;
@@ -36,12 +35,12 @@ public class RentReflowCalculator extends AbstractLiquidityCalculator<LiquidityA
 
     @Override
     public void calculate(Object obj, LiquidityAccountCalculatorBo bo) {
-        List<LocalDate> localDateList = SpringContextHolder.getBean(BaseDataSpecialDateService.class).handleHoliday(LiquidityIndicatorHolder.BASE_DATA_SPECIAL_DATE, bo.getLocalDate());
+        List<LocalDate> localDateList = LiquidityWorkdayCalendar.handleHoliday(LiquidityIndicatorHolder.BASE_DATA_SPECIAL_DATE, bo.getLocalDate());
         long resultSum = 0;
         // 休息日无租金回流
         if (CollectionUtil.isNotEmpty(localDateList)) {
             // 资产合同状态=起息，租金应付日=当天，逾期状态=未逾期，租金回款账户=此账户
-            List<CollectionBaseInfo> collectionBaseInfoList = Optional.ofNullable(localDateList.stream().map(LiquidityIndicatorHolder.COLLECTION_BASE_INFO::get).filter(Objects::nonNull).collect(Collectors.toList()))
+            List<LiquidityCollectionPlanSnapshot> collectionBaseInfoList = Optional.ofNullable(localDateList.stream().map(LiquidityIndicatorHolder.COLLECTION_BASE_INFO::get).filter(Objects::nonNull).collect(Collectors.toList()))
                 .map(m -> m.stream().flatMap(Collection::stream).filter(f -> {
                       return !LiquidityIndicatorHolder.CONTRACT_IS_OVERDUE.contains(f.getContractId()) &&
                               Objects.equals(bo.getAccountBankId(), LiquidityIndicatorHolder.CONTRACT_ACCOUNT.get(f.getContractId()));
@@ -61,13 +60,13 @@ public class RentReflowCalculator extends AbstractLiquidityCalculator<LiquidityA
                 }).sum();
 
                 // 实际核销记录 合同id，现金流编号为key
-                Map<Long, Map<String, List<CollectionRecordInfo>>> recordInfoMap = collectionBaseInfoList.stream().distinct().collect(Collectors.groupingBy(CollectionBaseInfo::getContractId,
-                        Collectors.toMap(CollectionBaseInfo::getCode, collection -> {
+                Map<Long, Map<String, List<LiquidityCollectionRecordSnapshot>>> recordInfoMap = collectionBaseInfoList.stream().distinct().collect(Collectors.groupingBy(LiquidityCollectionPlanSnapshot::getContractId,
+                        Collectors.toMap(LiquidityCollectionPlanSnapshot::getCode, collection -> {
                             return LiquidityIndicatorHolder.COLLECTION_RECORD_INFO.getOrDefault(collection.getId(), new ArrayList<>());
                             },(m1,m2) -> m1)));
 
                 long sum2 = collectionBaseInfoList.stream().mapToLong(m -> {
-                    List<CollectionRecordInfo> collectionRecordInfoList = recordInfoMap.getOrDefault(m.getContractId(), new HashMap<>()).get(m.getCode());
+                    List<LiquidityCollectionRecordSnapshot> collectionRecordInfoList = recordInfoMap.getOrDefault(m.getContractId(), new HashMap<>()).get(m.getCode());
                     if(CollectionUtil.isNotEmpty(collectionRecordInfoList)){
                         return collectionRecordInfoList.stream().filter(f -> {
                             return f.getCollectionDate().isBefore(bo.getLocalDate());

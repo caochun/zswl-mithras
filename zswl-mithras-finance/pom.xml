@@ -64,11 +64,6 @@
         </dependency>
         <dependency>
             <groupId>cn.zswltech</groupId>
-            <artifactId>zswl-mithras-dashboard</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-fund</artifactId>
             <version>${revision}</version>
         </dependency>
@@ -85,6 +80,11 @@
         <dependency>
             <groupId>cn.zswltech</groupId>
             <artifactId>zswl-mithras-payment</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zswltech</groupId>
+            <artifactId>zswl-mithras-assetclassify</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

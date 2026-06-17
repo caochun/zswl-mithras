@@ -3,8 +3,6 @@ package cn.zswltech.mithras.associationreport.storedata;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.rating.mapper.ContractReceiptBottomMapper;
-import cn.zswltech.mithras.rating.model.ContractReceiptBottom;
 import cn.zswltech.mithras.associationreport.AssociationReportDateUtils;
 import cn.zswltech.mithras.associationreport.AssociationReportPeriodUtils;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
@@ -12,11 +10,9 @@ import cn.zswltech.mithras.associationreport.enums.AssociationReportPeriodCatego
 import cn.zswltech.mithras.associationreport.DeleteDataSelector;
 import cn.zswltech.mithras.associationreport.StoreDataSelector;
 import cn.zswltech.mithras.associationreport.service.AssociationReportQueryService;
-import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.BasicAssociationReport;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -45,8 +41,6 @@ public abstract class AbstractDataStore<T extends BasicAssociationReport> implem
     private String zszlCreditCode;
     @Resource
     protected AssociationReportQueryService associationReportQueryService;
-    @Resource
-    protected ContractReceiptBottomMapper contractReceiptBottomMapper;
 
     @Transactional(rollbackFor = Throwable.class)
     public void storeFromExcel(String reportInstanceId, InputStream inputStream) {
@@ -101,14 +95,6 @@ public abstract class AbstractDataStore<T extends BasicAssociationReport> implem
     protected abstract IService<T> serviceBean();
 
     protected abstract AssociationReportCategoryEnum category();
-
-    protected List<ContractReceiptBottom> listContractReceiptBottom(LocalDateTime queryDateFrom, LocalDateTime queryDateTo) {
-        return contractReceiptBottomMapper.selectList(
-                Wrappers.<ContractReceiptBottom>lambdaQuery()
-                        .ge(BaseModel::getCreateTime, queryDateFrom)
-                        .lt(BaseModel::getCreateTime, queryDateTo)
-        );
-    }
 
     protected BigDecimal parseBigDecimal(Object o) {
         if (Objects.isNull(o)) {

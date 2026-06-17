@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -14,9 +13,9 @@ public interface AfterLeaseMaterialsPort {
 
     void download(OutputStream outputStream, List<Long> materialsIds);
 
-    List<MaterialsList> list(String businessType, List<String> materialsTypes, List<Long> belongIds);
+    List<AfterLeaseMaterialSnapshot> list(String businessType, List<String> materialsTypes, List<Long> belongIds);
 
-    MaterialsList getById(Long materialsId);
+    AfterLeaseMaterialSnapshot getById(Long materialsId);
 
     void remove(List<Long> materialsIds);
 

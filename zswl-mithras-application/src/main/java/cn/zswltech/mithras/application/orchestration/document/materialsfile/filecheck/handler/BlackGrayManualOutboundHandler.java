@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.handler;
 
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.filecheck.FileModuleCheck;
 import org.springframework.stereotype.Component;
 

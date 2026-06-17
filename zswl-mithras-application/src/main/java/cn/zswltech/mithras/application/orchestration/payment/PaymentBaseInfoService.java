@@ -47,7 +47,7 @@ import cn.zswltech.mithras.foundation.convert.TypeConversionWorker;
 import cn.zswltech.mithras.payment.application.convert.PaymentConvert;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.ClientRole;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
@@ -107,6 +107,7 @@ import cn.zswltech.mithras.payment.application.pubinfo.PublicInfoQueryService;
 import cn.zswltech.mithras.application.orchestration.policy.PolicyInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewPriceService;
 import cn.zswltech.mithras.application.orchestration.riskcontrol.opinion.RiskControlOpinionMonitorService;
+import cn.zswltech.mithras.application.orchestration.payment.mapper.PaymentProcessQueryMapper;
 import cn.zswltech.mithras.third.financialshare.client.handle.WithdrawHandle;
 import cn.zswltech.mithras.third.financialshare.client.req.CQWithdrawREQ;
 import cn.zswltech.mithras.third.financialshare.client.resp.FinancialCommonRSP;
@@ -207,6 +208,8 @@ public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, P
     private WithdrawHandle withdrawHandle;
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
+    @Resource
+    private PaymentProcessQueryMapper paymentProcessQueryMapper;
     @Resource
     private TransactionTemplate transactionTemplate;
     @Resource
@@ -442,7 +445,7 @@ public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, P
      */
     public List<PaymentBaseInfo> queryListWithContractId(Long contractId) {
         Assert.notNull(contractId, () -> MithrasException.newException("合同id不能为空"));
-        return paymentBaseInfoMapper.queryListWithContractId(contractId);
+        return paymentProcessQueryMapper.listApprovedPaymentCreateByContractId(contractId);
     }
 
     public List<PaymentWrittenOffAmountRsp> listWrittenOffAmountByContractId(Long contractId) {
@@ -846,7 +849,7 @@ public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, P
         List<PaymentContractListRsp> rspData = new ArrayList<>();
         for (ContractBaseInfoLib record : contracts) {
             contractIds.add(record.getOriginId());
-            PaymentContractListRsp paymentContractListRsp = paymentConvert.listRspToPaymentListRsp(record);
+            PaymentContractListRsp paymentContractListRsp = contractLibToPaymentContractListRsp(record);
             rspData.add(paymentContractListRsp);
         }
 //        Map<Long, ContractLeasePrice> priceMap = contractPriceService.listByContractIds(contractIds);
@@ -872,6 +875,14 @@ public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, P
             rspDatum.setRemainingApplyAmount(this.getRemainingApplyAmount(rspDatum.getPlanedPaidAmount(), rspDatum.getContractId(), null));
         }
         return rspData;
+    }
+
+    private PaymentContractListRsp contractLibToPaymentContractListRsp(ContractBaseInfoLib record) {
+        PaymentContractListRsp rsp = new PaymentContractListRsp();
+        rsp.setContractId(record.getOriginId());
+        rsp.setPlanedPaidAmount(record.getApplyCreditAmount());
+        rsp.setPlanedPaidDate(record.getPaymentPlanDate());
+        return rsp;
     }
 
     /**
@@ -977,7 +988,7 @@ public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, P
             //防止sql in报错
             canViewDeptIds.add(Long.MIN_VALUE);
         }
-        Page<PaymentBaseInfo> page = baseMapper.myList(new Page<>(req.getPage(), req.getPageSize()), dto);
+        Page<PaymentBaseInfo> page = paymentProcessQueryMapper.listPayment(new Page<>(req.getPage(), req.getPageSize()), dto);
         List<PaymentListRsp> resPageData = new ArrayList<>();
         List<Long> clientIds = new ArrayList<>();
         List<Long> applicantIds = new ArrayList<>();

@@ -21,7 +21,7 @@ public class PullDownEnumProcessor {
     @SneakyThrows
     public static Map<String, List<SelectRSP>> getPullDown(){
         if(ObjectUtil.isEmpty(pullDown)){
-            enumToListMap("cn.zswltech.mithras.application.orchestration.enums", "cn.zswltech.mithras.report.enums","cn.zswltech.mithras.rating.enums", "cn.zswltech.mithras.blackgray.enums");
+            enumToListMap("cn.zswltech.mithras.application.orchestration.auth", "cn.zswltech.mithras.report.enums","cn.zswltech.mithras.rating.enums", "cn.zswltech.mithras.blackgray.enums");
         }
         return pullDown;
     }

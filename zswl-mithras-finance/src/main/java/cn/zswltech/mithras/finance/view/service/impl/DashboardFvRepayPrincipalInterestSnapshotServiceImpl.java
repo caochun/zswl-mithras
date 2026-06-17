@@ -14,9 +14,9 @@ import cn.zswltech.mithras.finance.view.mapper.DashboardFvRepayPrincipalInterest
 import cn.zswltech.mithras.finance.view.service.DashboardFvCardSnapshotService;
 import cn.zswltech.mithras.finance.view.service.DashboardFvRepayPrincipalInterestSnapshotService;
 import cn.zswltech.mithras.finance.view.service.DashboardFvRepayPrincipalInterestSubService;
-import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
+import cn.zswltech.mithras.finance.view.enums.FinanceDashboardCardGroupEnum;
 import cn.zswltech.mithras.fund.enums.receiptrepay.CashFlowState;
-import cn.zswltech.mithras.dashboard.model.DashboardFundRepayQuery;
+import cn.zswltech.mithras.dto.dashboard.DashboardFundRepayQuery;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -98,7 +98,7 @@ public class DashboardFvRepayPrincipalInterestSnapshotServiceImpl extends Servic
     public List<DashboardFundFinanceRepayRSP> listRepay(DashboardFundRepayQuery query) {
         DashboardFvCardSnapshot cardSnapshot = SpringUtil.getBean(DashboardFvCardSnapshotService.class).getOne(Wrappers.<DashboardFvCardSnapshot>lambdaQuery()
                 .eq(DashboardFvCardSnapshot::getDataTime, query.getRepayDateTo())
-                .eq(DashboardFvCardSnapshot::getCardCode, DashboardCardGroupEnum.FUND_FINANCE_REPAY.name()));
+                .eq(DashboardFvCardSnapshot::getCardCode, FinanceDashboardCardGroupEnum.FUND_FINANCE_REPAY.name()));
         if (cardSnapshot == null) {
             return Collections.emptyList();
         }

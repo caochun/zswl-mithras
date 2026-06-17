@@ -8,6 +8,7 @@ import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.common.result.Response;
 import cn.zswltech.gruul.dao.dal.vo.UserVO;
 import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseMaterialSnapshot;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseReportApplicationService;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseReportListREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseReportUploadREQ;
@@ -18,9 +19,8 @@ import cn.zswltech.mithras.dto.projreview.report.ProjReviewReportRemoveREQ;
 import cn.zswltech.mithras.foundation.util.CommonFileSortComparator;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonAddSubAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustMaterialsEnum;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseReportService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
@@ -59,7 +59,7 @@ public class AfterLeaseReportFacade implements AfterLeaseReportApplicationServic
 
     @Override
     public R<List<Pair<String, List<ProjReviewReportListRSP>>>> list(@Valid AfterLeaseReportListREQ req) {
-        List<MaterialsList> materialsList = afterLeaseReportService.list(req);
+        List<AfterLeaseMaterialSnapshot> materialsList = afterLeaseReportService.list(req);
         if (CollectionUtils.isEmpty(materialsList)) {
             return R.ok();
         }

@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.contract.model.contract;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountPayeeTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractAccountUseEnum;
-import cn.zswltech.mithras.projectprocess.enums.projestablish.RePayType;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import lombok.Data;
 import java.io.Serializable;
@@ -65,7 +64,7 @@ public class ContractAccount extends BaseModel implements Serializable, IEntity 
     private String accountAddress;
 
     /**
-     * 回款方式 {@link RePayType#name()}
+     * 回款方式编码
      */
     @TableField("repay_way")
     private String repayWay;

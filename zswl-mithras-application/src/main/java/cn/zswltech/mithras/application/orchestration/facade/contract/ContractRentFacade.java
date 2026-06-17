@@ -25,7 +25,7 @@ import cn.zswltech.mithras.contract.application.auth.ContractRentActualAuthCheck
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.contract.convert.contract.ContractRentConvert;
 import cn.zswltech.mithras.contract.enums.contract.BizDataSourceEnum;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;

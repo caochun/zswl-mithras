@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.newftp.enums;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
+import cn.zswltech.mithras.ftp.common.enums.FtpIndustryCategoryEnum;
 
 import java.util.Objects;
 

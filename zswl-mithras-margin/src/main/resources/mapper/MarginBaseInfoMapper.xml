@@ -5,22 +5,6 @@
         UPDATE margin_base_info SET  contract_is_settle=1 WHERE contract_id = #{id}
     </update>
 
-    <select id="pageList" resultType="cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo">
-        select a.*
-        from margin_base_info a,contract_base_info b
-        <where>
-            a.contract_id = b.id
-            <if test="dto.clientId!=null">and a.client_id = #{dto.clientId}</if>
-            <if test="dto.contractCode!=null">and a.contract_code LIKE concat('%', #{dto.contractCode},'%')</if>
-            <if test="dto.amountFrom!=null">and a.collection_amount <![CDATA[ >= ]]> #{dto.amountFrom}</if>
-            <if test="dto.amountTo!=null">and a.collection_amount <![CDATA[ <= ]]> #{dto.amountTo}</if>
-            <if test="dto.collectionDateFrom!=null">and a.collection_date <![CDATA[ >= ]]> #{dto.collectionDateFrom}</if>
-            <if test="dto.collectionDateTo!=null">and a.collection_date <![CDATA[ <= ]]> #{dto.collectionDateTo}</if>
-            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
-        </where>
-        order by a.create_time desc
-    </select>
-
     <select id="getMargins" resultType="cn.zswltech.mithras.margin.persistence.model.DepositCollectRefund">
         select b.contract_id as contractId, a.record_type as recordType,
                sum(a.collection_amount) as amount from margin_record_info a

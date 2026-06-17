@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.others.service.common;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.application.orchestration.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.persistence.mapper.flow.BizProcessDataMapper;
 import cn.zswltech.mithras.afterlease.mapper.AfterLeaseAdjustInfoMapper;
 import cn.zswltech.mithras.afterlease.mapper.NewAfterLeaseCheckExternalQueryMapper;

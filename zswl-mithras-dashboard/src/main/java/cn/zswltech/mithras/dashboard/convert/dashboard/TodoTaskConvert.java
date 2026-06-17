@@ -3,25 +3,21 @@ package cn.zswltech.mithras.dashboard.convert.dashboard;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.flow.core.domain.resp.TaskResp;
+import cn.zswltech.mithras.dashboard.application.port.DashboardProcessExtraPort;
+import cn.zswltech.mithras.dashboard.application.port.DashboardProcessExtraSnapshot;
+import cn.zswltech.mithras.dashboard.enums.DashboardProcessModel;
 import cn.zswltech.mithras.dto.dashboard.DashboardTodoProcessRSP;
 import cn.zswltech.mithras.dto.flow.search.*;
 import cn.zswltech.mithras.dto.process.prepare.ProcessPrepareListRSP;
-import cn.zswltech.mithras.workflow.persistence.model.flow.FlowQueryExtra;
-import cn.zswltech.mithras.workflow.persistence.model.flow.BizProcessData;
-import cn.zswltech.mithras.workflow.process.BizProcessDataService;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
-import cn.zswltech.mithras.workflow.persistence.mapper.flow.FlowQueryExtraMapper;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -42,9 +38,7 @@ public class TodoTaskConvert {
     @Resource
     private UserNameResolver userNameResolver;
     @Resource
-    private BizProcessDataService bizProcessDataService;
-    @Resource
-    private FlowQueryExtraMapper flowQueryExtraMapper;
+    private DashboardProcessExtraPort dashboardProcessExtraPort;
 
     public DashboardTodoProcessRSP flowResp2TodoProcessRSP(TaskResp resp, ProcessResp processResp) {
         DashboardTodoProcessRSP dashboardTodoProcessRSP = new DashboardTodoProcessRSP();
@@ -57,7 +51,7 @@ public class TodoTaskConvert {
     public void copyFlowResp2TodoProcessRSP(TaskResp resp, DashboardTodoProcessRSP dashboardTodoProcessRSP) {
         dashboardTodoProcessRSP.setTaskId(resp.getTaskId());
         dashboardTodoProcessRSP.setProcessInstanceId(resp.getProcessInstanceId());
-        dashboardTodoProcessRSP.setProcessModelType(FlowUtil.convertModelName(resp.getModelKey()));
+        dashboardTodoProcessRSP.setProcessModelType(DashboardProcessModel.displayOf(resp.getModelKey()));
         dashboardTodoProcessRSP.setModelKey(resp.getModelKey());
         dashboardTodoProcessRSP.setAssignee(Optional.ofNullable(resp.getAssignee()).map(Long::valueOf).orElse(null));
         dashboardTodoProcessRSP.setStartUserId(Optional.ofNullable(resp.getStartUserId()).map(Long::valueOf).orElse(null));
@@ -98,11 +92,10 @@ public class TodoTaskConvert {
         Set<Long> deptIdSet = rspList.stream().map(DashboardTodoProcessRSP::getStartUserDeptId).filter(Objects::nonNull).collect(Collectors.toSet());
         Map<Long, String> deptNameMap = deptNameResolver.deptId2Name(deptIdSet);
         // 填充客户id
-        Map<String, Long> clientProcessIdMap = bizProcessDataService.getBaseMapper().selectList(Wrappers.<BizProcessData>lambdaQuery()
-                        .in(BizProcessData::getProcessInstanceId, rspList.stream().map(DashboardTodoProcessRSP::getProcessInstanceId).collect(Collectors.toSet())))
-                .stream().filter(b -> Objects.nonNull(b.getClientId()))
-                .collect(Collectors.toMap(BizProcessData::getProcessInstanceId, BizProcessData::getClientId, (k1, k2) -> k1));
-        Map<Long, String> clientNameMap = clientNameResolver.clientId2Name(clientProcessIdMap.values());
+        Map<String, DashboardProcessExtraSnapshot> processExtraMap = dashboardProcessExtraPort.listByProcessInstanceIds(
+                rspList.stream().map(DashboardTodoProcessRSP::getProcessInstanceId).collect(Collectors.toSet()));
+        Map<Long, String> clientNameMap = clientNameResolver.clientId2Name(processExtraMap.values().stream()
+                .map(DashboardProcessExtraSnapshot::getClientId).filter(Objects::nonNull).collect(Collectors.toSet()));
 
         // 人列表
         Set<Long> userIdSet = rspList.stream()
@@ -120,12 +113,6 @@ public class TodoTaskConvert {
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
         Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(userIdSet);
-        //extra表字段
-        List<String> instanceIdList = rspList.stream().map(DashboardTodoProcessRSP::getProcessInstanceId).collect(Collectors.toList());
-        List<FlowQueryExtra> extraList = flowQueryExtraMapper.selectList(Wrappers.<FlowQueryExtra>lambdaQuery().in(FlowQueryExtra::getInstanceId, instanceIdList));
-        Map<String, FlowQueryExtra> extraMap = extraList.stream().collect(Collectors.toMap(FlowQueryExtra::getInstanceId, Function.identity(), (k1, k2) -> k1));
-
-
         rspList.stream().forEach(rsp -> {
             rsp.setStartUserDeptName(deptNameMap.get(rsp.getStartUserDeptId()));
             rsp.setStartUserName(userNameMap.get(rsp.getStartUserId()));
@@ -136,10 +123,9 @@ public class TodoTaskConvert {
                         .map(a -> userNameMap.get(a))
                         .collect(Collectors.joining(",")));
             }
-            rsp.setClientId(clientProcessIdMap.get(rsp.getProcessInstanceId()));
+            DashboardProcessExtraSnapshot extra = processExtraMap.get(rsp.getProcessInstanceId());
+            rsp.setClientId(Optional.ofNullable(extra).map(DashboardProcessExtraSnapshot::getClientId).orElse(null));
             rsp.setClientName(Optional.ofNullable(rsp.getClientId()).map(i -> clientNameMap.get(i)).orElse(null));
-            //
-            FlowQueryExtra extra = extraMap.get(rsp.getProcessInstanceId());
             if (null != extra) {
                 rsp.setProjName(extra.getProjName());
                 rsp.setProjCode(extra.getProjCode());
@@ -157,11 +143,10 @@ public class TodoTaskConvert {
         Set<Long> deptIdSet = rspList.stream().map(DashboardTodoProcessRSP::getStartUserDeptId).filter(Objects::nonNull).collect(Collectors.toSet());
         Map<Long, String> deptNameMap = deptNameResolver.deptId2Name(deptIdSet);
         // 填充客户id
-        Map<String, Long> clientProcessIdMap = bizProcessDataService.getBaseMapper().selectList(Wrappers.<BizProcessData>lambdaQuery()
-                        .in(BizProcessData::getProcessInstanceId, rspList.stream().map(DashboardTodoProcessRSP::getProcessInstanceId).collect(Collectors.toSet())))
-                .stream().filter(b -> Objects.nonNull(b.getClientId()))
-                .collect(Collectors.toMap(BizProcessData::getProcessInstanceId, BizProcessData::getClientId, (k1, k2) -> k1));
-        Map<Long, String> clientNameMap = clientNameResolver.clientId2Name(clientProcessIdMap.values());
+        Map<String, DashboardProcessExtraSnapshot> processExtraMap = dashboardProcessExtraPort.listByProcessInstanceIds(
+                rspList.stream().map(DashboardTodoProcessRSP::getProcessInstanceId).collect(Collectors.toSet()));
+        Map<Long, String> clientNameMap = clientNameResolver.clientId2Name(processExtraMap.values().stream()
+                .map(DashboardProcessExtraSnapshot::getClientId).filter(Objects::nonNull).collect(Collectors.toSet()));
 
 
         // 人列表
@@ -178,20 +163,13 @@ public class TodoTaskConvert {
                 .collect(Collectors.toSet());
         Map<Long, String> userNameMap = userNameResolver.sysUserId2Name(userIdSet);
 
-        //extra表字段
-        List<String> instanceIdList = rspList.stream().map(DashboardTodoProcessRSP::getProcessInstanceId).collect(Collectors.toList());
-        List<FlowQueryExtra> extraList = flowQueryExtraMapper.selectList(Wrappers.<FlowQueryExtra>lambdaQuery().in(FlowQueryExtra::getInstanceId, instanceIdList));
-        Map<String, FlowQueryExtra> extraMap = extraList.stream().collect(Collectors.toMap(FlowQueryExtra::getInstanceId, Function.identity(), (k1, k2) -> k1));
-
-
         rspList.stream().forEach(rsp -> {
             rsp.setStartUserDeptName(deptNameMap.get(rsp.getStartUserDeptId()));
             rsp.setStartUserName(userNameMap.get(rsp.getStartUserId()));
             rsp.setCurAssigneeNames(userNameMap.get(rsp.getAssignee()));
-            rsp.setClientId(clientProcessIdMap.get(rsp.getProcessInstanceId()));
+            DashboardProcessExtraSnapshot extra = processExtraMap.get(rsp.getProcessInstanceId());
+            rsp.setClientId(Optional.ofNullable(extra).map(DashboardProcessExtraSnapshot::getClientId).orElse(null));
             rsp.setClientName(Optional.ofNullable(rsp.getClientId()).map(i -> clientNameMap.get(i)).orElse(null));
-            //
-            FlowQueryExtra extra = extraMap.get(rsp.getProcessInstanceId());
             if (null != extra) {
                 rsp.setProjName(extra.getProjName());
                 rsp.setProjCode(extra.getProjCode());

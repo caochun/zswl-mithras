@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.application.orchestration.adapter.projectprocess;
 
 import cn.zswltech.mithras.projectprocess.job.service.ProjectStatusSupportPort;
-import cn.zswltech.mithras.application.orchestration.groupcredit.establish.GroupCreditEstablishBaseInfoService;
-import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.credit.groupcredit.establish.GroupCreditEstablishBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.credit.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.ProjReviewService;
 import org.springframework.stereotype.Component;

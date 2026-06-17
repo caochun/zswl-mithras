@@ -1,7 +1,5 @@
 package cn.zswltech.mithras.creditreport.service;
 
-import cn.zswltech.mithras.customer.application.client.model.ClientBusinessHistoryBO;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -12,5 +10,13 @@ public interface CreditReportClientSupportPort {
 
     Set<Long> findTargetClientIdsByDeptIds(List<Long> deptIds);
 
-    Map<Long, ClientBusinessHistoryBO> compareBusiness(List<Long> clientIds);
+    Map<Long, CreditReportClientBusinessSnapshot> compareBusiness(List<Long> clientIds);
+
+    Map<Long, CreditReportClientBusinessSnapshot> getHistoryBusiness(List<Long> clientIds);
+
+    CreditReportClientSnapshot getClient(Long clientId);
+
+    List<CreditReportClientSnapshot> listCorporationClients(List<Long> clientIds);
+
+    Map<Long, CreditReportClientCommerceSnapshot> listCommerceSnapshots(List<Long> clientIds);
 }

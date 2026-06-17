@@ -8,26 +8,20 @@ import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.gruul.biz.service.SystemConfigService;
 import cn.zswltech.gruul.dao.dal.entity.SystemConfigDO;
-import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
+import cn.zswltech.mithras.associationreport.application.AssociationReportClientSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportClientSupportPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMetricPort;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.associationreport.service.AssociationRelationService;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.corp.CorpShareholderInfoMapper;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationRelation;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.model.client.CorpShareholderInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
-import cn.zswltech.mithras.dashboard.application.GuanYuanOperationService;
-import cn.zswltech.mithras.dashboard.application.guanyuandata.ProjectSituationDTO;
+import cn.zswltech.mithras.associationreport.application.AssociationReportGuanYuanDataPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportProjectSituationSnapshot;
 import cn.zswltech.mithras.basedata.util.DateUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -48,22 +42,20 @@ import java.util.*;
 @Component
 public class AssociationRelationStoreData extends AbstractDataStore<AssociationRelation> {
     @Resource
-    private CorpShareholderInfoMapper corpShareholderInfoMapper;
-    @Resource
-    private ClientMapper clientMapper;
-    @Resource
     private SystemConfigService systemConfigService;
     @Resource
-    private RiskMetricFactorMergeService riskMetricFactorMergeService;
+    private AssociationReportClientSupportPort clientSupportPort;
     @Resource
-    private GuanYuanOperationService guanYuanOperationService;
+    private AssociationReportMetricPort metricPort;
+    @Resource
+    private AssociationReportGuanYuanDataPort guanYuanDataPort;
 
     @Override
     public boolean storeFromSystemJobCheck(int year, int period) {
         LocalDate dataDate  = DateUtil.ensureQuarterLastDay(year, period);
-        Map<String, Long> assetMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.CAPITAL_BALANCE.display, dataDate.getYear(), dataDate.getMonthValue());
+        Map<String, Long> assetMap = metricPort.capitalBalance(dataDate.getYear(), dataDate.getMonthValue());
         // 项目情况表
-        List<ProjectSituationDTO> projectSituationList = guanYuanOperationService.listProjectSituation(dataDate);
+        List<AssociationReportProjectSituationSnapshot> projectSituationList = guanYuanDataPort.listProjectSituation(dataDate);
         boolean condition1 = CollectionUtil.isNotEmpty(assetMap);
         boolean condition2 = CollectionUtil.isNotEmpty(projectSituationList);
         log.info("金融局报送【关联方信息汇总表】自动取值-前置数据校验结果:资产负债表 = {}, 项目情况表 = {}", condition1, condition2);
@@ -114,7 +106,7 @@ public class AssociationRelationStoreData extends AbstractDataStore<AssociationR
     protected List<AssociationRelation> parseFromSystemData(AssociationReport associationReport) {
         LocalDate metricDate = this.ensureMetricDate(associationReport);
         // 从项目情况表取关联方交易的客户数据
-        List<ProjectSituationDTO> todoList = guanYuanOperationService.listProjectSituation(metricDate);
+        List<AssociationReportProjectSituationSnapshot> todoList = guanYuanDataPort.listProjectSituation(metricDate);
         if (CollectionUtil.isEmpty(todoList)) {
             return Collections.emptyList();
         }
@@ -122,16 +114,15 @@ public class AssociationRelationStoreData extends AbstractDataStore<AssociationR
         SystemConfigDO systemConfigDO = systemConfigService.getConfig("shareholder_list").getData();
         List<String> myShareholderList = JSONUtil.toList(systemConfigDO.getConfigValue(), String.class);
         // 取资产负债表：所有者权益（或股东权益）合计@期末余额
-        Map<String, Long> assetValueMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.CAPITAL_BALANCE.display, metricDate.getYear(), metricDate.getMonthValue());
+        Map<String, Long> assetValueMap = metricPort.capitalBalance(metricDate.getYear(), metricDate.getMonthValue());
         Long v = assetValueMap.get("所有者权益（或股东权益）合计@期末余额");
         // 处理数据
         List<AssociationRelation> result = new LinkedList<>();
-        for (ProjectSituationDTO projectSituationDTO : todoList) {
+        for (AssociationReportProjectSituationSnapshot projectSituationDTO : todoList) {
             if (Objects.equals(projectSituationDTO.getIsRelated(), YesOrNoNumberEnum.NO.getCode())) {
                 continue;
             }
-            Client client = clientMapper.selectById(projectSituationDTO.getClientId());
-            Client belongGroupClient = clientMapper.selectById(Optional.ofNullable(projectSituationDTO.getBelongGroupClientId()).orElse(0L));
+            AssociationReportClientSnapshot belongGroupClient = clientSupportPort.getClient(projectSituationDTO.getBelongGroupClientId());
             long remainingPrincipal = projectSituationDTO.getPrincipalBalance();
             if (remainingPrincipal <= 0) {
                 continue;
@@ -139,7 +130,7 @@ public class AssociationRelationStoreData extends AbstractDataStore<AssociationR
             AssociationRelation associationRelation = new AssociationRelation();
             // 关联方
             associationRelation.setRelpName(projectSituationDTO.getClientName());
-            String shareholderName = this.myShareholder(client, myShareholderList);
+            String shareholderName = clientSupportPort.findMatchedShareholderName(projectSituationDTO.getClientId(), myShareholderList);
             if (StrUtil.isBlank(shareholderName)) {
                 associationRelation.setCorpShahRelpFlag(YesOrNoNumberEnum.NO.getCode().toString());
             } else {
@@ -255,21 +246,4 @@ public class AssociationRelationStoreData extends AbstractDataStore<AssociationR
         return associationRelation;
     }
 
-    private String myShareholder(Client client, List<String> myShareholderList) {
-        if (myShareholderList.contains(client.getClientName())) {
-            return client.getClientName();
-        }
-        // 查询客户股东方
-        List<CorpShareholderInfo> corpShareholderInfoList = corpShareholderInfoMapper.selectList(
-                Wrappers.<CorpShareholderInfo>lambdaQuery().eq(ClientBaseModel::getClientId, client.getId())
-        );
-        if (CollectionUtil.isNotEmpty(corpShareholderInfoList)) {
-            for (CorpShareholderInfo corpShareholderInfo : corpShareholderInfoList) {
-                if (myShareholderList.contains(corpShareholderInfo.getShareholderName())) {
-                    return corpShareholderInfo.getShareholderName();
-                }
-            }
-        }
-        return null;
-    }
 }

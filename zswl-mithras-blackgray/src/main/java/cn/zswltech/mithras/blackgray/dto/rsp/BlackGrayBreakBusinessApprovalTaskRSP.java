@@ -34,7 +34,7 @@ public class BlackGrayBreakBusinessApprovalTaskRSP extends BlackGrayBreakBusines
 
     /**
      * 审批状态
-     * @see cn.zswltech.mithras.common.audit.AuditStatusEnum
+     * @see cn.zswltech.mithras.blackgray.enums.AuditStatusEnum
      */
     @ApiModelProperty(value = "审批状态[0:待提交,1:审批中,2:已撤回,3:已驳回,4:已完成]")
     private Integer auditStatus;

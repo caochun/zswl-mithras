@@ -9,9 +9,9 @@ import cn.zswltech.mithras.budget.bo.BudgetEclRiskReserveBO;
 import cn.zswltech.mithras.budget.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
+import cn.zswltech.mithras.budget.application.port.BudgetCollectionFactPort;
 import cn.zswltech.mithras.budget.mapper.EclExecuteClientPromotionResultMapper;
 import cn.zswltech.mithras.budget.mapper.model.EclExecuteClientPromotionResult;
-import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 public class EclExecuteClientPromotionResultService extends ServiceImpl<EclExecuteClientPromotionResultMapper, EclExecuteClientPromotionResult> {
 
     @Resource
-    private CollectionBaseInfoService collectionBaseInfoService;
+    private BudgetCollectionFactPort budgetCollectionFactPort;
     /**
      * 保存某天
      **/
@@ -41,7 +41,7 @@ public class EclExecuteClientPromotionResultService extends ServiceImpl<EclExecu
         if (ObjectUtil.isEmpty(interval)) {
             interval = 6;
         }
-        Map<Long, Boolean> contractPromotion = collectionBaseInfoService.getContractPromotion(contractIds, interval);
+        Map<Long, Boolean> contractPromotion = budgetCollectionFactPort.getContractPromotion(contractIds, interval);
         if (ObjectUtil.isEmpty(contractPromotion)) {
             return;
         }

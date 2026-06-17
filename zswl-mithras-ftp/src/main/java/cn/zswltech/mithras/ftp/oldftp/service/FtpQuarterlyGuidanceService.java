@@ -12,7 +12,7 @@ import cn.zswltech.mithras.ftp.oldftp.enums.CreditTerm;
 import cn.zswltech.mithras.ftp.oldftp.enums.EnterpriseType;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpProcessStatus;
 import cn.zswltech.mithras.ftp.oldftp.enums.MonthType;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
+import cn.zswltech.mithras.ftp.common.enums.ProjectClassify;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpQuarterlyGuidanceMapper;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;

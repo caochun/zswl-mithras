@@ -2,7 +2,6 @@ package cn.zswltech.mithras.afterlease.enums;
 
 import cn.zswltech.mithras.foundation.metadata.IMaterialsTypeConvert;
 import cn.zswltech.mithras.foundation.metadata.PullDown;
-import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -18,9 +17,9 @@ public enum AfterLeaseAdjustMaterialsEnum implements PullDown, IMaterialsTypeCon
     // 又改回为尽调报告 since 2022.09.15）
     DUE_DILIGENCE_REPORT("业务申请资料", new ArrayList<>(), 0),
     // 审查报告
-    RISK_REVIEW_REPORT("审查报告", Arrays.asList(FlowConstants.PARALLEL_RISK_MANAGER, FlowConstants.PARALLEL_RISK_MANAGER_BACK), 1),
+    RISK_REVIEW_REPORT("审查报告", Arrays.asList("userTask_riskManager", "userTask_riskManager_back"), 1),
     // 法律合规意见书
-    LEGAL_COMPLIANCE_REPORT("法律合规意见书", Arrays.asList(FlowConstants.PARALLEL_LAW_MANAGER, FlowConstants.PARALLEL_LAW_MANAGER_BACK), 2),
+    LEGAL_COMPLIANCE_REPORT("法律合规意见书", Arrays.asList("userTask_lawManager", "userTask_lawManager_back"), 2),
     // 总经办会议纪要
     //GMO_MEETING_MINUTES("总经办会议纪要", Collections.singletonList("userTask_officeSecretary"), 5),
     // 评审会会议纪要

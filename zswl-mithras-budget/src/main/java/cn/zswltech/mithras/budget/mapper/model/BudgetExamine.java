@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.budget.mapper.model;
 
-import cn.zswltech.mithras.workflow.flow.enums.ProcessState;
+import cn.zswltech.mithras.budget.enums.BudgetApprovalStatusEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -45,7 +45,7 @@ public class BudgetExamine extends BaseModel implements Serializable {
     private Integer examineMonth;
 
     /**
-    * 审批状态  {@link ProcessState#name()}
+    * 审批状态  {@link BudgetApprovalStatusEnum#name()}
     */
     @TableField("approval_status")
     private String approvalStatus;

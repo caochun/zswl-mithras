@@ -7,9 +7,9 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.flow.core.api.FlowProcessApiService;
 import cn.zswltech.flow.core.domain.req.StartProcessReq;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractFlowSubModuleEnum;
+import cn.zswltech.mithras.leaseholdproperty.enums.LeaseholdPropertyProcessModel;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
@@ -57,11 +57,11 @@ public class LeaseReviewServiceImpl implements LeaseReviewService {
     private ContractBaseInfoService contractBaseInfoService;
 
 
-    //创建，变更，本质都是创建，这里使用同一套 rocessModelTypeEnum.LeaseCreateFlow.name()
+    //创建，变更，本质都是创建，这里使用同一套流程变量
     @Override
     @Transactional(rollbackFor = Throwable.class)
-    public void effect(Long leaseItemInfoId, ProcessModelTypeEnum processModelTypeEnum) {
-        if(ObjectUtil.isEmpty(processModelTypeEnum)){
+    public void effect(Long leaseItemInfoId, LeaseholdPropertyProcessModel processModel) {
+        if(ObjectUtil.isEmpty(processModel)){
             throw new MithrasException("流程类型为空");
         }
         LeaseItemInfo leaseItemInfo = leaseItemInfoService.getById(leaseItemInfoId);
@@ -70,8 +70,8 @@ public class LeaseReviewServiceImpl implements LeaseReviewService {
         }
         // 校验
         // 生成流程实例
-        StartProcessReq startProcessReq = buildCommonStartProcessReq(leaseItemInfo, processModelTypeEnum);
-        startProcessReq.setModelKey(processModelTypeEnum.name());
+        StartProcessReq startProcessReq = buildCommonStartProcessReq(leaseItemInfo, processModel);
+        startProcessReq.setModelKey(processModel.getModelKey());
         startProcessReq.setSubModule(ContractFlowSubModuleEnum.CREATE_ALL.name());
         String processInstanceId = processApiService.start(startProcessReq);
         bizProcessDataService.recordBizData(processInstanceId, leaseItemInfo.getClientId());
@@ -121,15 +121,15 @@ public class LeaseReviewServiceImpl implements LeaseReviewService {
         leaseItemInfo.setApprovalStatus(ProcessStatus.UN_SUBMIT.name());
         leaseItemInfoService.save(leaseItemInfo);
         //有创建就发变更
-        ProcessModelTypeEnum processModelTypeEnum;
+        LeaseholdPropertyProcessModel processModel;
         if (leaseItemInfoService.count(Wrappers.<LeaseItemInfo>lambdaQuery()
                 .eq(LeaseItemInfo::getProjReviewId, projReviewId)
                 .eq(LeaseItemInfo::getApprovalStatus, ProcessStatus.APPROVAL_PASS.name())) > 0) {
-            processModelTypeEnum = ProcessModelTypeEnum.LeaseModifyFlow;
+            processModel = LeaseholdPropertyProcessModel.LEASE_MODIFY;
         } else {
-            processModelTypeEnum = ProcessModelTypeEnum.LeaseCreateFlow;
+            processModel = LeaseholdPropertyProcessModel.LEASE_CREATE;
         }
-        SpringContextHolder.getBean(LeaseReviewService.class).effect(leaseItemInfo.getId(), processModelTypeEnum);
+        SpringContextHolder.getBean(LeaseReviewService.class).effect(leaseItemInfo.getId(), processModel);
     }
 
     /**
@@ -138,11 +138,11 @@ public class LeaseReviewServiceImpl implements LeaseReviewService {
      *
      * @return
      */
-    private StartProcessReq buildCommonStartProcessReq(LeaseItemInfo leaseItemInfo, ProcessModelTypeEnum processModelTypeEnum) {
+    private StartProcessReq buildCommonStartProcessReq(LeaseItemInfo leaseItemInfo, LeaseholdPropertyProcessModel processModel) {
         StartProcessReq startProcessReq = new StartProcessReq();
         startProcessReq.setBusinessKey(String.valueOf(leaseItemInfo.getId()));
         ProjReviewBaseInfo projReviewBaseInfo = projReviewBaseInfoService.getById(leaseItemInfo.getProjReviewId());
-        if (processModelTypeEnum == ProcessModelTypeEnum.LeaseCreateFlow) {
+        if (processModel == LeaseholdPropertyProcessModel.LEASE_CREATE) {
             startProcessReq.setProcessInstanceName(String.format("【%s】租赁物创建流程", projReviewBaseInfo.getProjName()));
         } else {
             startProcessReq.setProcessInstanceName(String.format("【%s】租赁物变更流程", projReviewBaseInfo.getProjName()));

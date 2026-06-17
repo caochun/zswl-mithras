@@ -11,6 +11,7 @@ import java.util.Objects;
 public enum CreditApplyStatusEnum implements PullDown {
     UN_SUBMIT("未提交","UN_SUBMIT"),
     COMMIT("审批中","COMMIT"),
+    CANCEL("取消流程","CANCEL"),
     CLOSE("已关闭","CLOSE"),
     REJECT("审批拒绝","REJECT"),
     PASS("审批通过","PASS"),

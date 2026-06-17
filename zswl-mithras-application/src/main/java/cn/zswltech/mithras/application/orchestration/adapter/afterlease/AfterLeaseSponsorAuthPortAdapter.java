@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.afterlease;
 
 import cn.zswltech.mithras.afterlease.application.AfterLeaseSponsorAuthPort;
 import cn.zswltech.mithras.application.orchestration.auth.rule.DataAuthSponsorUserRule;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

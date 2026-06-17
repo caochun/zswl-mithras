@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.service.common;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.ListUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListLibMapper;
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.foundation.persistence.mapper.CommonVersionMapper;

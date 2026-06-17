@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.collection.application.financial;
 
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
  **/
 public interface FinancialManagerService {
 
-    void cqReceiveExec(List<CollectionBaseInfo> reqs, ProcessModelTypeEnum processModelTypeEnum);
+    void cqReceiveExec(List<CollectionBaseInfo> reqs, String processModelType);
 
     void cqPaymentExec(Long paymentId);
 

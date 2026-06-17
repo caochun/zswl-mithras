@@ -9,26 +9,15 @@ import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientWithdrawalRatioL
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientWithdrawalRatioListRsp;
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientWithdrawalRatioModifyReq;
 import cn.zswltech.mithras.dto.assetclassify.WithdrawalRatioWrapper;
-import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.contract.ContractReceiptMapper;
-import cn.zswltech.mithras.contract.mapper.contract.ContractRentActualMapper;
-import cn.zswltech.mithras.payment.enums.WriteOffStatus;
-import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClientAuxiliaryLib;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClientLib;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractReceipt;
-import cn.zswltech.mithras.contract.model.contract.ContractRentActual;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyContractFactPort;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyContractSnapshot;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyCollectionWriteOffPort;
 import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyMarginAmountPort;
-import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyPaymentBaseSnapshot;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyPaymentFactPort;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;
 import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientLibService;
@@ -64,19 +53,13 @@ public class AssetClassifyClientWithdrawalRatioService {
     @Resource
     private AssetClassifyClientAuxiliaryLibService assetClassifyClientAuxiliaryLibService;
     @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
-    @Resource
-    private ContractRentActualMapper contractRentActualMapper;
-    @Resource
-    private ContractReceiptMapper contractReceiptMapper;
-    @Resource
-    private PaymentBaseInfoMapper paymentBaseInfoMapper;
-    @Resource
-    private PaymentActualDetailMapper paymentActualDetailMapper;
-    @Resource
-    private CollectionBaseInfoMapper collectionBaseInfoMapper;
+    private AssetClassifyCollectionWriteOffPort assetClassifyCollectionWriteOffPort;
     @Resource
     private AssetClassifyMarginAmountPort assetClassifyMarginAmountPort;
+    @Resource
+    private AssetClassifyPaymentFactPort assetClassifyPaymentFactPort;
+    @Resource
+    private AssetClassifyContractFactPort assetClassifyContractFactPort;
 
     public List<AssetClassifyClientWithdrawalRatioListRsp> listRatios(AssetClassifyClientWithdrawalRatioListReq req) {
         AssetClassifyClient classifyClient;
@@ -103,38 +86,32 @@ public class AssetClassifyClientWithdrawalRatioService {
         List<WithdrawalRatioWrapper> wrappers = JSON.parseArray(provisions, WithdrawalRatioWrapper.class);
         Set<Long> contractIds = wrappers.stream()
                 .map(WithdrawalRatioWrapper::getContractId).collect(Collectors.toSet());
-        Map<Long, ContractBaseInfo> contractMap = contractBaseInfoMapper
-                .selectBatchIds(contractIds).stream()
-                .collect(Collectors.toMap(ContractBaseInfo::getId, v -> v));
+        Map<Long, AssetClassifyContractSnapshot> contractMap = assetClassifyContractFactPort.listContractsByIds(contractIds)
+                .stream()
+                .collect(Collectors.toMap(AssetClassifyContractSnapshot::getId, v -> v));
+        Map<Long, Integer> remainingPhaseMap = assetClassifyContractFactPort.countRemainingPhasesByContractIds(contractIds, LocalDate.now());
 
         Set<Long> receiptIds = wrappers.stream()
                 .map(WithdrawalRatioWrapper::getReceiptId).collect(Collectors.toSet());
-        Map<Long, ContractReceipt> receipts = contractReceiptMapper.selectBatchIds(receiptIds).stream()
-                .collect(Collectors.toMap(ContractReceipt::getId, v -> v));
+        Set<Long> existingReceiptIds = assetClassifyContractFactPort.listExistingReceiptIds(receiptIds);
         Map<Long, Long> receiptStockExposureMap = getStockRiskExposureByReceiptIds(new ArrayList<>(receiptIds));
 
         List<AssetClassifyClientWithdrawalRatioListRsp> rspList = new ArrayList<>();
         for (WithdrawalRatioWrapper wrapper : wrappers) {
             AssetClassifyClientWithdrawalRatioListRsp rsp = BeanUtil.copyProperties(wrapper, AssetClassifyClientWithdrawalRatioListRsp.class);
-            ContractBaseInfo contract = contractMap.getOrDefault(wrapper.getContractId(), new ContractBaseInfo());
+            AssetClassifyContractSnapshot contract = contractMap.getOrDefault(wrapper.getContractId(), new AssetClassifyContractSnapshot());
             rsp.setBizType(contract.getBizType());
             rsp.setContractCode(contract.getContractCode());
-            int remainingParse = Math.toIntExact(contractRentActualMapper.selectCount(Wrappers.<ContractRentActual>lambdaQuery()
-                    .eq(ContractRentActual::getContractId, wrapper.getContractId())
-                    .gt(ContractRentActual::getCashFlowDate, LocalDate.now())));
-            rsp.setRemainingPhase(remainingParse);
-            ContractReceipt receipt = receipts.getOrDefault(wrapper.getReceiptId(), new ContractReceipt());
+            rsp.setRemainingPhase(remainingPhaseMap.getOrDefault(wrapper.getContractId(), 0));
             // 投放额
-            Set<Long> paymentIds = paymentBaseInfoMapper
-                    .selectList(Wrappers.<PaymentBaseInfo>lambdaQuery()
-                            .eq(PaymentBaseInfo::getReceiptIdFinal, receipt.getId())).stream().map(PaymentBaseInfo::getId).collect(Collectors.toSet());
+            Set<Long> paymentIds = assetClassifyPaymentFactPort.listPaymentsByReceiptIds(
+                            existingReceiptIds.contains(wrapper.getReceiptId()) ? ListUtil.toList(wrapper.getReceiptId()) : Collections.emptyList())
+                    .stream().map(AssetClassifyPaymentBaseSnapshot::getId).collect(Collectors.toSet());
             if (CollectionUtil.isEmpty(paymentIds)) {
                 rsp.setDeliveryAmount(0L);
             } else {
-                BigDecimal totalDelivery = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
-                        .in(PaymentActualDetail::getPaymentId, paymentIds)
-                        .eq(PaymentActualDetail::getWriteOffStatus, WriteOffStatus.WRITTEN_OFF.name()))
-                        .stream().map(PaymentActualDetail::getPaidInAmount).map(LongUtil::null2zero)
+                BigDecimal totalDelivery = assetClassifyPaymentFactPort.getWrittenOffPaidAmountByPaymentIds(paymentIds)
+                        .values().stream().map(LongUtil::null2zero)
                         .map(BigDecimal::new).reduce(BigDecimal.ZERO, BigDecimal::add);
                 rsp.setDeliveryAmount(totalDelivery.longValue());
             }
@@ -162,48 +139,24 @@ public class AssetClassifyClientWithdrawalRatioService {
         if (CollectionUtil.isEmpty(receiptIds)) {
             return Collections.emptyMap();
         }
-        List<PaymentBaseInfo> paymentBaseInfos = paymentBaseInfoMapper.selectList(Wrappers.<PaymentBaseInfo>lambdaQuery()
-                .in(PaymentBaseInfo::getReceiptIdFinal, receiptIds));
-        Map<Long, List<PaymentBaseInfo>> receiptPaymentMap = paymentBaseInfos.stream()
+        List<AssetClassifyPaymentBaseSnapshot> paymentBaseInfos = assetClassifyPaymentFactPort.listPaymentsByReceiptIds(receiptIds);
+        Map<Long, List<AssetClassifyPaymentBaseSnapshot>> receiptPaymentMap = paymentBaseInfos.stream()
                 .filter(base -> ObjectUtil.isNotEmpty(base.getReceiptIdFinal()))
-                .collect(Collectors.groupingBy(PaymentBaseInfo::getReceiptIdFinal));
+                .collect(Collectors.groupingBy(AssetClassifyPaymentBaseSnapshot::getReceiptIdFinal));
         Map<Long, Long> receiptId2ContractId = paymentBaseInfos.stream()
                 .filter(base -> ObjectUtil.isNotEmpty(base.getReceiptIdFinal()))
-                .collect(Collectors.toMap(PaymentBaseInfo::getReceiptIdFinal, PaymentBaseInfo::getContractId, (a, b) -> a));
-        Set<Long> paymentIds = paymentBaseInfos.stream().map(PaymentBaseInfo::getId).collect(Collectors.toSet());
-        Map<Long, Long> paymentIdAmountMap = paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
-                        .in(CollectionUtil.isNotEmpty(paymentIds), PaymentActualDetail::getPaymentId, paymentIds)
-                        .in(PaymentActualDetail::getWriteOffStatus, ListUtil.toList(PaymentWriteOffStatus.WRITTEN_OFF.name(),
-                                PaymentWriteOffStatus.PART_WRITTEN_OFF.name())))
-                .stream()
-                .filter(base -> LongUtil.null2zero(base.getPaidInAmount()) != 0)
-                .collect(Collectors.toMap(PaymentActualDetail::getPaymentId, PaymentActualDetail::getPaidInAmount,
-                        (a, b) -> LongUtil.null2zero(a) + LongUtil.null2zero(b)));
-        Map<Long, Long> receiptCollectionId = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery()
-                        .eq(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name())
-                        .in(CollectionBaseInfo::getWriteOffStatus, ListUtil.toList(CollectionWriteOffStatusEnum.PORTION_WRITTEN_OFF.name(),
-                                CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name())))
-                .stream()
-                .filter(base -> ObjectUtil.isNotEmpty(base.getReceiptId()))
-                .collect(Collectors.toMap(CollectionBaseInfo::getReceiptId,
-                        base -> LongUtil.null2zero(base.getCollectionPrincipal()),
-                        (a, b) -> LongUtil.null2zero(a) + LongUtil.null2zero(b)));
-        Map<Long, Long> paymentIdFistRentMap = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery()
-                        .eq(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.FIRST_RENT.name())
-                        .in(CollectionBaseInfo::getWriteOffStatus, ListUtil.toList(CollectionWriteOffStatusEnum.PORTION_WRITTEN_OFF.name(),
-                                CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name())))
-                .stream()
-                .filter(base -> ObjectUtil.isNotEmpty(base.getReceiptId()))
-                .collect(Collectors.toMap(CollectionBaseInfo::getReceiptId,
-                        base -> LongUtil.null2zero(base.getCollectionAmount()),
-                        (a, b) -> LongUtil.null2zero(a) + LongUtil.null2zero(b)));
+                .collect(Collectors.toMap(AssetClassifyPaymentBaseSnapshot::getReceiptIdFinal, AssetClassifyPaymentBaseSnapshot::getContractId, (a, b) -> a));
+        Set<Long> paymentIds = paymentBaseInfos.stream().map(AssetClassifyPaymentBaseSnapshot::getId).collect(Collectors.toSet());
+        Map<Long, Long> paymentIdAmountMap = assetClassifyPaymentFactPort.getWrittenOffOrPartWrittenOffPaidAmountByPaymentIds(paymentIds);
+        Map<Long, Long> receiptCollectionId = assetClassifyCollectionWriteOffPort.getRentPrincipalByReceiptIds(receiptIds);
+        Map<Long, Long> paymentIdFistRentMap = assetClassifyCollectionWriteOffPort.getFirstRentAmountByReceiptIds(receiptIds);
         Map<Long, Long> receiptIdMarginMap = assetClassifyMarginAmountPort.getAmountByReceiptIds(receiptId2ContractId.keySet(), LocalDate.now());
         Map<Long, Long> receiptExposureMap = new HashMap<>();
         for (Long receiptId : receiptPaymentMap.keySet()) {
             long sumAmount = 0L;
-            List<PaymentBaseInfo> paymentList = receiptPaymentMap.get(receiptId);
+            List<AssetClassifyPaymentBaseSnapshot> paymentList = receiptPaymentMap.get(receiptId);
             if (ObjectUtil.isNotEmpty(paymentList)) {
-                sumAmount += paymentList.stream().map(PaymentBaseInfo::getId).map(paymentIdAmountMap::get).mapToLong(LongUtil::null2zero).sum();
+                sumAmount += paymentList.stream().map(AssetClassifyPaymentBaseSnapshot::getId).map(paymentIdAmountMap::get).mapToLong(LongUtil::null2zero).sum();
             }
             sumAmount -= LongUtil.null2zero(receiptCollectionId.get(receiptId));
             sumAmount -= paymentIdFistRentMap.getOrDefault(receiptId, 0L);

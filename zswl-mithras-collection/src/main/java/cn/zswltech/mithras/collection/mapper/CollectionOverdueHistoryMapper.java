@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.collection.mapper;
 
 import cn.zswltech.mithras.collection.model.CollectionOverdueHistory;
-import cn.zswltech.mithras.contract.overdue.model.OverdueCollection;
+import cn.zswltech.mithras.collection.overdue.history.CollectionOverdueHistorySnapshot;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,7 +17,7 @@ public interface CollectionOverdueHistoryMapper extends BaseMapper<CollectionOve
 
     List<CollectionOverdueHistory> getHistoryByDay(Long collectionId);
 
-    List<OverdueCollection> getOverdueCollection(@Param("clientIds") Collection<Long> clientIds);
+    List<CollectionOverdueHistorySnapshot> getOverdueCollection(@Param("clientIds") Collection<Long> clientIds);
 
 
 }

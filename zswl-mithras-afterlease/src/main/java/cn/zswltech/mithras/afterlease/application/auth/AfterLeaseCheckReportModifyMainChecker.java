@@ -1,21 +1,15 @@
 package cn.zswltech.mithras.afterlease.application.auth;
 
 
+import cn.zswltech.mithras.afterlease.application.AfterLeaseWorkflowPort;
 import cn.zswltech.mithras.foundation.auth.DataAuthBusinessModule;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.mithras.foundation.auth.checker.IDataAuthChecker;
 import cn.zswltech.mithras.foundation.auth.DataAuthSponsorUserGuard;
-import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
-import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.Objects;
 
 @Component
@@ -23,7 +17,7 @@ public class AfterLeaseCheckReportModifyMainChecker implements IDataAuthChecker 
     @Resource
     private DataAuthSponsorUserGuard dataAuthSponsorUserRule;
     @Resource
-    private FlowTaskApiService flowTaskApiService;
+    private AfterLeaseWorkflowPort afterLeaseWorkflowPort;
 
     @Override
     public boolean check(DataAuthBusinessModule businessModule, Class<? extends BaseMapper> helperMapperClass, Long keyId, Object[] args) {
@@ -31,23 +25,9 @@ public class AfterLeaseCheckReportModifyMainChecker implements IDataAuthChecker 
             throw new AuthCheckException("id不能为空");
         }
         dataAuthSponsorUserRule.check(businessModule, keyId);
-        ProcessPageReq req = new ProcessPageReq();
-        req.setBusinessKey(String.valueOf(keyId));
-        req.setPageIndex(1);
-        req.setPageSize(1);
-        req.setModelKeyList(businessModule.getModelKeyList());
-        req.setProcessStatusList(Collections.singletonList(ProcessBusinessStatusEnum.RUNNING.getType()));
-        ProcessResp processResp = flowTaskApiService.queryProcess(req).getContents()
-                .stream().findFirst().orElse(null);
-        if (Objects.isNull(processResp)) {
-            // 流程为空 放过
-            return true;
-        }
-        boolean isStartUserNode = FlowUtil.isStartUserNode(processResp);
-        if (!isStartUserNode && !FlowUtil.isSpecificNode(processResp, FlowConstants.PROJECT_MANAGER)) {
+        if (!afterLeaseWorkflowPort.canModifyAtCurrentProcessNode(keyId, businessModule.getModelKeyList())) {
             throw new AuthCheckException("该数据处于流程中，且流程不在发起人/项目经理节点，不允许修改数据");
         }
         return true;
     }
-
 }

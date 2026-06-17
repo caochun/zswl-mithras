@@ -38,7 +38,7 @@ import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.workflow.flow.service.ProcessService;
-import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.credit.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.workflow.trackevent.TrackEventService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.fastjson.JSON;

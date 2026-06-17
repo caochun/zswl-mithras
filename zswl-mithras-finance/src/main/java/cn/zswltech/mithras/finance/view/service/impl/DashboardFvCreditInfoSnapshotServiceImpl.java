@@ -14,9 +14,9 @@ import cn.zswltech.mithras.finance.view.service.DashboardFvCardSnapshotService;
 import cn.zswltech.mithras.finance.view.service.DashboardFvCreditInfoSnapshotService;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import cn.zswltech.mithras.finance.view.service.dto.DashboardFundFinanceCreditSnapshotData;
-import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
+import cn.zswltech.mithras.finance.view.enums.FinanceDashboardCardGroupEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingBizTypeEnum;
-import cn.zswltech.mithras.dashboard.model.DashboardFundCreditQuery;
+import cn.zswltech.mithras.dto.dashboard.DashboardFundCreditQuery;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -74,7 +74,7 @@ public class DashboardFvCreditInfoSnapshotServiceImpl extends ServiceImpl<Dashbo
     public List<DashboardFundFinanceCreditInfoRSP> listCredit(DashboardFundCreditQuery query) {
         DashboardFvCardSnapshot cardSnapshot = SpringUtil.getBean(DashboardFvCardSnapshotService.class).getOne(Wrappers.<DashboardFvCardSnapshot>lambdaQuery()
                 .eq(DashboardFvCardSnapshot::getDataTime, query.getQueryDate())
-                .eq(DashboardFvCardSnapshot::getCardCode, DashboardCardGroupEnum.FUND_FINANCE_CREDIT.name()));
+                .eq(DashboardFvCardSnapshot::getCardCode, FinanceDashboardCardGroupEnum.FUND_FINANCE_CREDIT.name()));
         if (cardSnapshot == null) {
             return Collections.emptyList();
         }

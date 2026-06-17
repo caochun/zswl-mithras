@@ -1,12 +1,5 @@
 package cn.zswltech.mithras.associationreport.storedata;
 
-import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.contract.core.ContractReceiptService;
-import cn.zswltech.mithras.contract.core.ContractTenantryService;
-import cn.zswltech.mithras.contract.core.ContractPledgeService;
-import cn.zswltech.mithras.contract.core.ContractMortgageService;
-import cn.zswltech.mithras.contract.core.ContractGuarantorService;
-
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -19,40 +12,30 @@ import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.gruul.biz.service.SystemConfigService;
 import cn.zswltech.gruul.dao.dal.entity.SystemConfigDO;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
+import cn.zswltech.mithras.associationreport.application.AssociationReportAssetClassifyPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessClientSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessContractSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessCorpSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessFactPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessGuaranteeSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessLesseeSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessPaymentActualSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessPaymentSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMainBusinessReceiptSnapshot;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
-import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyClientMapper;
-import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyMapper;
-import cn.zswltech.mithras.assetclassify.model.AssetClassify;
-import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
-import cn.zswltech.mithras.customer.enums.OrgScaleType;
 import cn.zswltech.mithras.associationreport.enums.AssociationDictionaryCategoryEnum;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
 import cn.zswltech.mithras.associationreport.service.AssociationMainBusinessService;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.contract.enums.contract.MortgageTypeEnum;
-import cn.zswltech.mithras.contract.enums.contract.PledgeTypeEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.contract.gendoc.BusinessDataRepository;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationMainBusiness;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.*;
-import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
-import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
-import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.payment.model.PaymentActualDetail;
-import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
+import cn.zswltech.mithras.associationreport.application.AssociationReportCollectionFactPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportCollectionSnapshot;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
-import cn.zswltech.mithras.customer.application.client.CorpCommerceInfoService;
-import cn.zswltech.mithras.collection.application.CollectionBaseInfoService;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -75,35 +58,13 @@ import java.util.stream.Collectors;
 @Component
 public class AssociationMainBusinessStoreData extends AbstractDataStore<AssociationMainBusiness> {
     @Resource
-    private ContractBaseInfoService contractBaseInfoService;
-    @Resource
-    private ContractTenantryService contractTenantryService;
-    @Resource
-    private ContractGuarantorService contractGuarantorService;
-    @Resource
-    private ContractMortgageService contractMortgageService;
-    @Resource
-    private ContractPledgeService contractPledgeService;
-    @Resource
-    private PaymentBaseInfoMapper paymentBaseInfoMapper;
-    @Resource
     private AssociationDictionaryService associationDictionaryService;
     @Resource
-    private ClientMapper clientMapper;
+    private AssociationReportCollectionFactPort associationReportCollectionFactPort;
     @Resource
-    private CorpCommerceInfoService corpCommerceInfoService;
+    private AssociationReportAssetClassifyPort associationReportAssetClassifyPort;
     @Resource
-    private BusinessDataRepository businessDataRepository;
-    @Resource
-    private PaymentActualDetailMapper paymentActualDetailMapper;
-    @Resource
-    private CollectionBaseInfoService collectionBaseInfoService;
-    @Resource
-    private ContractReceiptService contractReceiptService;
-    @Resource
-    private AssetClassifyMapper assetClassifyMapper;
-    @Resource
-    private AssetClassifyClientMapper assetClassifyClientMapper;
+    private AssociationReportMainBusinessFactPort mainBusinessFactPort;
 
     @Override
     public boolean storeFromSystemJobCheck(int year, int period) {
@@ -157,12 +118,12 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
         // 字典
         Map<String, Map<String, String>> dictNameMap = associationDictionaryService.getDisplay2CodeMap();
         // 起租合同
-        List<ContractBaseInfo> contractList = contractBaseInfoService.listAllStartRent();
+        List<AssociationReportMainBusinessContractSnapshot> contractList = mainBusinessFactPort.listAllStartRentContracts();
         if (CollectionUtil.isEmpty(contractList)) {
             return Collections.emptyList();
         }
         List<AssociationMainBusiness> result = new LinkedList<>();
-        for (ContractBaseInfo contractBaseInfo : contractList) {
+        for (AssociationReportMainBusinessContractSnapshot contractBaseInfo : contractList) {
             try {
                 List<AssociationMainBusiness> associationMainBusinessList = this.buildData(contractBaseInfo, dictNameMap, targetDate);
                 if (CollectionUtil.isNotEmpty(associationMainBusinessList)) {
@@ -331,32 +292,36 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
         return associationMainBusiness;
     }
 
-    private List<AssociationMainBusiness> buildData(ContractBaseInfo contractBaseInfo, Map<String, Map<String, String>> dictNameMap, LocalDate targetDate) {
+    private List<AssociationMainBusiness> buildData(AssociationReportMainBusinessContractSnapshot contractBaseInfo, Map<String, Map<String, String>> dictNameMap, LocalDate targetDate) {
         // 查询投放
-        List<PaymentBaseInfo> paymentBaseInfoList = this.listPaymentByContractIds(Collections.singletonList(contractBaseInfo.getId()));
+        List<AssociationReportMainBusinessPaymentSnapshot> paymentBaseInfoList = mainBusinessFactPort.listPaymentsByContractIds(Collections.singletonList(contractBaseInfo.getId()));
         if (CollectionUtil.isEmpty(paymentBaseInfoList)) {
             return Collections.emptyList();
         }
         List<AssociationMainBusiness> result = new LinkedList<>();
         // 查询收款
-        List<CollectionBaseInfo> collectionBaseInfoList = collectionBaseInfoService.listByContractIds(Collections.singletonList(contractBaseInfo.getId()));
+        List<AssociationReportCollectionSnapshot> collectionSnapshotList = associationReportCollectionFactPort.listByContractIds(Collections.singletonList(contractBaseInfo.getId()));
         // 查询主承租人
-        ContractTenantry mainContractTenantry = contractTenantryService.getMain(contractBaseInfo.getId());
+        AssociationReportMainBusinessLesseeSnapshot mainContractTenantry = mainBusinessFactPort.getMainLessee(contractBaseInfo.getId());
+        if (Objects.isNull(mainContractTenantry)) {
+            return Collections.emptyList();
+        }
         // 查询担保、抵押、质押措施备用
-        List<ContractGuarantor> contractGuarantorList = contractGuarantorService.listByContractId(contractBaseInfo.getId());
-        List<ContractMortgage> contractMortgageList = contractMortgageService.listByContractId(contractBaseInfo.getId());
-        List<ContractPledge> contractPledgeList = contractPledgeService.listByContractId(contractBaseInfo.getId());
-        String udpnSituCode = this.ensureUdpnSituCode(contractGuarantorList, contractMortgageList, contractPledgeList, dictNameMap.get(AssociationDictionaryCategoryEnum.PTY00212.name()));
-        String udpn = this.ensureUdpn(contractGuarantorList, contractMortgageList, contractPledgeList);
+        AssociationReportMainBusinessGuaranteeSnapshot guaranteeSnapshot = mainBusinessFactPort.getGuarantee(contractBaseInfo.getId());
+        String udpnSituCode = this.ensureUdpnSituCode(guaranteeSnapshot, dictNameMap.get(AssociationDictionaryCategoryEnum.PTY00212.name()));
+        String udpn = this.ensureUdpn(guaranteeSnapshot);
         // 取客户相关信息备用
-        Client client = clientMapper.selectById(mainContractTenantry.getLesseeId());
-        CorpCommerceInfo corpCommerceInfo = corpCommerceInfoService.findByClientId(client.getId()).get(0);
+        AssociationReportMainBusinessClientSnapshot client = mainBusinessFactPort.getClient(mainContractTenantry.getLesseeId());
+        AssociationReportMainBusinessCorpSnapshot corpCommerceInfo = mainBusinessFactPort.getCorpCommerceInfo(mainContractTenantry.getLesseeId());
+        if (Objects.isNull(client) || Objects.isNull(corpCommerceInfo)) {
+            return Collections.emptyList();
+        }
         // 按照借据id分组
-        Map<Long, List<PaymentBaseInfo>> paymentBaseInfoMap = paymentBaseInfoList.stream().filter(e -> Objects.nonNull(e.getReceiptId())).collect(Collectors.groupingBy(PaymentBaseInfo::getReceiptId));
+        Map<Long, List<AssociationReportMainBusinessPaymentSnapshot>> paymentBaseInfoMap = paymentBaseInfoList.stream().filter(e -> Objects.nonNull(e.getReceiptId())).collect(Collectors.groupingBy(AssociationReportMainBusinessPaymentSnapshot::getReceiptId));
         List<Long> receiptIds = new ArrayList<>(paymentBaseInfoMap.keySet());
         receiptIds.sort(Comparator.comparing(e -> e));
         for (int i = 0; i < receiptIds.size(); i++) {
-            ContractReceipt contractReceipt = contractReceiptService.getById(receiptIds.get(i));
+            AssociationReportMainBusinessReceiptSnapshot contractReceipt = mainBusinessFactPort.getReceipt(receiptIds.get(i));
             if (Objects.isNull(contractReceipt)) {
                 continue;
             }
@@ -389,10 +354,10 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
             long payAmount = this.ensureFnlRels(paymentBaseInfoMap.get(receiptIds.get(i)));
             instance.setFnlRels(Util.millimeterLong2WanBigDecimal(payAmount));
             // 收回本金 = 借据实际还款核销金额
-            long collectPrincipal = this.ensureWithPrin(contractReceipt.getId(), paymentBaseInfoMap.get(receiptIds.get(i)), collectionBaseInfoList);
+            long collectPrincipal = this.ensureWithPrin(contractReceipt.getId(), paymentBaseInfoMap.get(receiptIds.get(i)), collectionSnapshotList);
             instance.setWthdPrin(Util.millimeterLong2WanBigDecimal(collectPrincipal));
             // 租金余额
-            long rentBalance = this.ensureRentBal(contractReceipt.getId(), collectionBaseInfoList);
+            long rentBalance = this.ensureRentBal(contractReceipt.getId(), collectionSnapshotList);
             instance.setRentBal(Util.millimeterLong2WanBigDecimal(rentBalance));
             // 综合融资成本 = 借据实际IRR
             if (Objects.nonNull(contractReceipt.getActualIrr())) {
@@ -403,10 +368,10 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
             // 增信方
             instance.setUdpn(udpn);
             // 逾期租金
-            long overdueRent = this.ensureOverdueRent(contractReceipt.getId(), collectionBaseInfoList, targetDate);
+            long overdueRent = this.ensureOverdueRent(contractReceipt.getId(), collectionSnapshotList, targetDate);
             instance.setOvduRent(Util.millimeterLong2WanBigDecimal(overdueRent));
             // 逾期天数
-            instance.setOvduDaysCode(this.ensureOvduDaysCode(contractReceipt.getId(), collectionBaseInfoList, dictNameMap.get(AssociationDictionaryCategoryEnum.EVT00051.name()), targetDate));
+            instance.setOvduDaysCode(this.ensureOvduDaysCode(contractReceipt.getId(), collectionSnapshotList, dictNameMap.get(AssociationDictionaryCategoryEnum.EVT00051.name()), targetDate));
             // 是否纳入不良
             instance.setNpFlag(this.ensureNpFlag(mainContractTenantry.getLesseeId()));
             // 不良余额 = 借据剩余本金
@@ -427,30 +392,30 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
         return result;
     }
 
-    private LocalDate ensureAgmtSignDate(List<PaymentBaseInfo> paymentBaseInfoList) {
+    private LocalDate ensureAgmtSignDate(List<AssociationReportMainBusinessPaymentSnapshot> paymentBaseInfoList) {
         if (CollectionUtil.isEmpty(paymentBaseInfoList)) {
             return null;
         }
         // 查询实际核销记录
-        Set<Long> paymentIds = paymentBaseInfoList.stream().map(PaymentBaseInfo::getId).collect(Collectors.toSet());
-        List<PaymentActualDetail> paymentActualDetailList = this.listPaymentActualByPaymentIds(paymentIds);
+        Set<Long> paymentIds = paymentBaseInfoList.stream().map(AssociationReportMainBusinessPaymentSnapshot::getId).collect(Collectors.toSet());
+        List<AssociationReportMainBusinessPaymentActualSnapshot> paymentActualDetailList = mainBusinessFactPort.listPaymentActualByPaymentIds(paymentIds);
         if (CollectionUtil.isEmpty(paymentActualDetailList)) {
             return null;
         }
-        paymentActualDetailList.sort(Comparator.comparing(PaymentActualDetail::getPaidInDate));
+        paymentActualDetailList.sort(Comparator.comparing(AssociationReportMainBusinessPaymentActualSnapshot::getPaidInDate));
         return paymentActualDetailList.get(0).getPaidInDate();
     }
 
     private LocalDate ensureAgmtMatuDate(Long receiptId) {
-        List<CollectionBaseInfo> collectionBaseInfoList = collectionBaseInfoService.listRentByReceiptId(receiptId);
-        if (CollectionUtil.isEmpty(collectionBaseInfoList)) {
+        List<AssociationReportCollectionSnapshot> collectionSnapshotList = associationReportCollectionFactPort.listRentByReceiptId(receiptId);
+        if (CollectionUtil.isEmpty(collectionSnapshotList)) {
             return null;
         }
-        collectionBaseInfoList.sort(Comparator.comparing(CollectionBaseInfo::getPlanCollectionDate).reversed());
-        return collectionBaseInfoList.get(0).getPlanCollectionDate();
+        collectionSnapshotList.sort(Comparator.comparing(AssociationReportCollectionSnapshot::getPlanCollectionDate).reversed());
+        return collectionSnapshotList.get(0).getPlanCollectionDate();
     }
 
-    private String ensureAgmtTypeCode(ContractBaseInfo contractBaseInfo, Map<String, String> dictNameMap) {
+    private String ensureAgmtTypeCode(AssociationReportMainBusinessContractSnapshot contractBaseInfo, Map<String, String> dictNameMap) {
         if (StrUtil.equals(contractBaseInfo.getLeaseType(), LeaseType.hui_zu.name())) {
             return dictNameMap.get("售后回租");
         }
@@ -466,7 +431,7 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
         return null;
     }
 
-    private String ensureLasdType(ContractBaseInfo contractBaseInfo) {
+    private String ensureLasdType(AssociationReportMainBusinessContractSnapshot contractBaseInfo) {
         // 根据租赁物流程中租赁物类型映射：「融租易——金融局报表」，当前类型映射如下，后续如果有类型变更则同步调整字典表
         // 生产设备——工业装备
         // 公交车——交通运输设备
@@ -492,84 +457,84 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
         return StrUtil.join(",", resultList);
     }
 
-    private String ensureProjIndtClasCode(CorpCommerceInfo corpCommerceInfo, Map<String, String> dictNameMap) {
+    private String ensureProjIndtClasCode(AssociationReportMainBusinessCorpSnapshot corpCommerceInfo, Map<String, String> dictNameMap) {
         if (StrUtil.isBlank(corpCommerceInfo.getIndustryType())) {
             return null;
         }
         // 取第一个字符
         String firstChar = corpCommerceInfo.getIndustryType().substring(0, 1);
-        String industryType = businessDataRepository.getIndustryTypeNameFromLocalCache(firstChar);
+        String industryType = this.getIndustryTypeNameFromLocalCache(firstChar);
         return dictNameMap.get(industryType);
     }
 
-    private String ensureCustScalCode(CorpCommerceInfo corpCommerceInfo, Map<String, String> dictNameMap) {
-        if (StrUtil.equals(corpCommerceInfo.getOrgScale(), OrgScaleType.BIG.name())) {
+    private String ensureCustScalCode(AssociationReportMainBusinessCorpSnapshot corpCommerceInfo, Map<String, String> dictNameMap) {
+        if (StrUtil.equals(corpCommerceInfo.getOrgScale(), "BIG")) {
             return dictNameMap.get("大型企业");
         }
-        if (StrUtil.equals(corpCommerceInfo.getOrgScale(), OrgScaleType.MIDDLE.name())) {
+        if (StrUtil.equals(corpCommerceInfo.getOrgScale(), "MIDDLE")) {
             return dictNameMap.get("中型企业");
         }
-        if (StrUtil.equals(corpCommerceInfo.getOrgScale(), OrgScaleType.SMALL.name())) {
+        if (StrUtil.equals(corpCommerceInfo.getOrgScale(), "SMALL")) {
             return dictNameMap.get("小型企业");
         }
-        if (StrUtil.equals(corpCommerceInfo.getOrgScale(), OrgScaleType.TINY.name())) {
+        if (StrUtil.equals(corpCommerceInfo.getOrgScale(), "TINY")) {
             return dictNameMap.get("微型企业");
         }
         return dictNameMap.get("其他");
     }
 
-    private long ensureFnlRels(List<PaymentBaseInfo> paymentBaseInfoList) {
+    private long ensureFnlRels(List<AssociationReportMainBusinessPaymentSnapshot> paymentBaseInfoList) {
         if (CollectionUtil.isEmpty(paymentBaseInfoList)) {
             return 0L;
         }
-        Set<Long> paymentIds = paymentBaseInfoList.stream().map(PaymentBaseInfo::getId).collect(Collectors.toSet());
-        List<PaymentActualDetail> paymentActualDetailList = this.listPaymentActualByPaymentIds(paymentIds);
-        return paymentActualDetailList.stream().filter(e -> Objects.nonNull(e.getPaidInAmount())).mapToLong(PaymentActualDetail::getPaidInAmount).sum();
+        Set<Long> paymentIds = paymentBaseInfoList.stream().map(AssociationReportMainBusinessPaymentSnapshot::getId).collect(Collectors.toSet());
+        List<AssociationReportMainBusinessPaymentActualSnapshot> paymentActualDetailList = mainBusinessFactPort.listPaymentActualByPaymentIds(paymentIds);
+        return paymentActualDetailList.stream().filter(e -> Objects.nonNull(e.getPaidInAmount())).mapToLong(AssociationReportMainBusinessPaymentActualSnapshot::getPaidInAmount).sum();
     }
 
-    private long ensureWithPrin(Long receiptId, List<PaymentBaseInfo> paymentBaseInfoList, List<CollectionBaseInfo> collectionBaseInfoList) {
-        if (CollectionUtil.isEmpty(collectionBaseInfoList)) {
+    private long ensureWithPrin(Long receiptId, List<AssociationReportMainBusinessPaymentSnapshot> paymentBaseInfoList, List<AssociationReportCollectionSnapshot> collectionSnapshotList) {
+        if (CollectionUtil.isEmpty(collectionSnapshotList)) {
             return 0L;
         }
-        Set<Long> paymentIds = paymentBaseInfoList.stream().map(PaymentBaseInfo::getId).collect(Collectors.toSet());
-        long firstRent = collectionBaseInfoList.stream()
+        Set<Long> paymentIds = paymentBaseInfoList.stream().map(AssociationReportMainBusinessPaymentSnapshot::getId).collect(Collectors.toSet());
+        long firstRent = collectionSnapshotList.stream()
                 .filter(e -> StrUtil.equals(e.getCashFlowItem(), CashFlowItemEnum.FIRST_RENT.name()))
                 .filter(e -> Objects.equals(e.getReceiptId(), receiptId) || (Objects.nonNull(e.getPaymentId()) && paymentIds.contains(e.getPaymentId())))
                 .filter(e -> Objects.nonNull(e.getCollectionAmount()))
-                .mapToLong(CollectionBaseInfo::getCollectionAmount)
+                .mapToLong(AssociationReportCollectionSnapshot::getCollectionAmount)
                 .sum();
-        long principal = collectionBaseInfoList.stream()
+        long principal = collectionSnapshotList.stream()
                 .filter(e -> StrUtil.equals(e.getCashFlowItem(), CashFlowItemEnum.RENT.name()))
                 .filter(e -> Objects.nonNull(e.getCollectionPrincipal()))
-                .mapToLong(CollectionBaseInfo::getCollectionPrincipal)
+                .mapToLong(AssociationReportCollectionSnapshot::getCollectionPrincipal)
                 .sum();
         return firstRent + principal;
     }
 
-    private long ensureRentBal(Long receiptId, List<CollectionBaseInfo> collectionBaseInfoList) {
-        if (CollectionUtil.isEmpty(collectionBaseInfoList)) {
+    private long ensureRentBal(Long receiptId, List<AssociationReportCollectionSnapshot> collectionSnapshotList) {
+        if (CollectionUtil.isEmpty(collectionSnapshotList)) {
             return 0L;
         }
         long remainingRent = 0L;
-        for (CollectionBaseInfo collectionBaseInfo : collectionBaseInfoList) {
-            if (!StrUtil.equals(collectionBaseInfo.getCashFlowItem(), CashFlowItemEnum.RENT.name())) {
+        for (AssociationReportCollectionSnapshot collectionSnapshot : collectionSnapshotList) {
+            if (!StrUtil.equals(collectionSnapshot.getCashFlowItem(), CashFlowItemEnum.RENT.name())) {
                 continue;
             }
-            if (!Objects.equals(collectionBaseInfo.getReceiptId(), receiptId)) {
+            if (!Objects.equals(collectionSnapshot.getReceiptId(), receiptId)) {
                 continue;
             }
-            long plan = Optional.ofNullable(collectionBaseInfo.getPlanCollectionAmount()).orElse(0L);
-            long actual = Optional.ofNullable(collectionBaseInfo.getCollectionAmount()).orElse(0L);
+            long plan = Optional.ofNullable(collectionSnapshot.getPlanCollectionAmount()).orElse(0L);
+            long actual = Optional.ofNullable(collectionSnapshot.getCollectionAmount()).orElse(0L);
             long remaining = plan - actual;
             remainingRent = remainingRent + Math.max(remaining, 0);
         }
         return Math.max(remainingRent, 0);
     }
 
-    private String ensureUdpnSituCode(List<ContractGuarantor> contractGuarantorList, List<ContractMortgage> contractMortgageList, List<ContractPledge> contractPledgeList, Map<String, String> dictNameMap) {
-        boolean guarantor = CollectionUtil.isNotEmpty(contractGuarantorList);
-        boolean mortgage = CollectionUtil.isNotEmpty(contractMortgageList);
-        boolean pledge = CollectionUtil.isNotEmpty(contractPledgeList);
+    private String ensureUdpnSituCode(AssociationReportMainBusinessGuaranteeSnapshot guaranteeSnapshot, Map<String, String> dictNameMap) {
+        boolean guarantor = Objects.nonNull(guaranteeSnapshot) && guaranteeSnapshot.hasGuarantor();
+        boolean mortgage = Objects.nonNull(guaranteeSnapshot) && guaranteeSnapshot.hasMortgage();
+        boolean pledge = Objects.nonNull(guaranteeSnapshot) && guaranteeSnapshot.hasPledge();
         // 可用位运算优化
         if (guarantor && mortgage && pledge) {
             return dictNameMap.get("抵押+保证+质押");
@@ -595,83 +560,60 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
         return null;
     }
 
-    private String ensureUdpn(List<ContractGuarantor> contractGuarantorList, List<ContractMortgage> contractMortgageList, List<ContractPledge> contractPledgeList) {
+    private String ensureUdpn(AssociationReportMainBusinessGuaranteeSnapshot guaranteeSnapshot) {
+        if (Objects.isNull(guaranteeSnapshot)) {
+            return null;
+        }
         List<String> result = new LinkedList<>();
-        if (CollectionUtil.isNotEmpty(contractGuarantorList)) {
-            List<Long> clientIds = new LinkedList<>();
-            for (ContractGuarantor contractGuarantor : contractGuarantorList) {
-                clientIds.addAll(JSONUtil.toList(contractGuarantor.getGuarantorIds(), Long.class));
-            }
-            List<Client> clientList = clientMapper.selectBatchIds(clientIds);
-            if (CollectionUtil.isNotEmpty(clientList)) {
-                List<String> guarantorList = clientList.stream().map(Client::getClientName).collect(Collectors.toList());
-                result.add("保证：" + StrUtil.join("、", guarantorList));
-            }
+        if (CollectionUtil.isNotEmpty(guaranteeSnapshot.safeGuarantorNames())) {
+            result.add("保证：" + StrUtil.join("、", guaranteeSnapshot.safeGuarantorNames()));
         }
-        if (CollectionUtil.isNotEmpty(contractMortgageList)) {
-            List<String> list = new LinkedList<>();
-            for (ContractMortgage contractMortgage : contractMortgageList) {
-                List<Client> clientList = clientMapper.selectBatchIds(JSONUtil.toList(contractMortgage.getMortgageIds(), Long.class));
-                if (CollectionUtil.isEmpty(clientList)) {
-                    continue;
-                }
-                MortgageTypeEnum type = MortgageTypeEnum.findByName(contractMortgage.getContractMortgageType());
-                list.add(StrUtil.join("、", clientList.stream().map(Client::getClientName).collect(Collectors.toList())) + Optional.ofNullable(type).map(MortgageTypeEnum::display).orElse(""));
-            }
-            result.add("抵押：" + StrUtil.join("、", list));
+        if (CollectionUtil.isNotEmpty(guaranteeSnapshot.safeMortgageDescriptions())) {
+            result.add("抵押：" + StrUtil.join("、", guaranteeSnapshot.safeMortgageDescriptions()));
         }
-        if (CollectionUtil.isNotEmpty(contractPledgeList)) {
-            List<String> list = new LinkedList<>();
-            for (ContractPledge contractPledge : contractPledgeList) {
-                List<Client> clientList = clientMapper.selectBatchIds(JSONUtil.toList(contractPledge.getPledgeIds(), Long.class));
-                if (CollectionUtil.isEmpty(clientList)) {
-                    continue;
-                }
-                PledgeTypeEnum type = PledgeTypeEnum.findByName(contractPledge.getContractPledgeType());
-                list.add(StrUtil.join("、", clientList.stream().map(Client::getClientName).collect(Collectors.toList())) + Optional.ofNullable(type).map(PledgeTypeEnum::display).orElse(""));
-            }
-            result.add("质押：" + StrUtil.join("、", list));
+        if (CollectionUtil.isNotEmpty(guaranteeSnapshot.safePledgeDescriptions())) {
+            result.add("质押：" + StrUtil.join("、", guaranteeSnapshot.safePledgeDescriptions()));
         }
         return StrUtil.join("；", result);
     }
 
-    private long ensureOverdueRent(Long receiptId, List<CollectionBaseInfo> collectionBaseInfoList, LocalDate targetDate) {
+    private long ensureOverdueRent(Long receiptId, List<AssociationReportCollectionSnapshot> collectionSnapshotList, LocalDate targetDate) {
         long overdueRent = 0L;
-        for (CollectionBaseInfo collectionBaseInfo : collectionBaseInfoList) {
-            if (collectionBaseInfo.getPlanCollectionDate().isAfter(targetDate)) {
+        for (AssociationReportCollectionSnapshot collectionSnapshot : collectionSnapshotList) {
+            if (collectionSnapshot.getPlanCollectionDate().isAfter(targetDate)) {
                 continue;
             }
-            if (!Objects.equals(collectionBaseInfo.getReceiptId(), receiptId)) {
+            if (!Objects.equals(collectionSnapshot.getReceiptId(), receiptId)) {
                 continue;
             }
-            if (!StrUtil.equals(collectionBaseInfo.getCashFlowItem(), CashFlowItemEnum.RENT.name())) {
+            if (!StrUtil.equals(collectionSnapshot.getCashFlowItem(), CashFlowItemEnum.RENT.name())) {
                 continue;
             }
-            long plan = Optional.ofNullable(collectionBaseInfo.getPlanCollectionAmount()).orElse(0L);
-            long actual = Optional.ofNullable(collectionBaseInfo.getCollectionAmount()).orElse(0L);
+            long plan = Optional.ofNullable(collectionSnapshot.getPlanCollectionAmount()).orElse(0L);
+            long actual = Optional.ofNullable(collectionSnapshot.getCollectionAmount()).orElse(0L);
             long remaining = plan - actual;
             overdueRent = overdueRent + Math.max(remaining, 0);
         }
         return overdueRent;
     }
 
-    private String ensureOvduDaysCode(Long receiptId, List<CollectionBaseInfo> collectionBaseInfoList, Map<String, String> dictNameMap, LocalDate targetDate) {
+    private String ensureOvduDaysCode(Long receiptId, List<AssociationReportCollectionSnapshot> collectionSnapshotList, Map<String, String> dictNameMap, LocalDate targetDate) {
         long maxOverdueDays = 0L;
-        for (CollectionBaseInfo collectionBaseInfo : collectionBaseInfoList) {
-            if (collectionBaseInfo.getPlanCollectionDate().isAfter(targetDate)) {
+        for (AssociationReportCollectionSnapshot collectionSnapshot : collectionSnapshotList) {
+            if (collectionSnapshot.getPlanCollectionDate().isAfter(targetDate)) {
                 continue;
             }
-            if (!Objects.equals(collectionBaseInfo.getReceiptId(), receiptId)) {
+            if (!Objects.equals(collectionSnapshot.getReceiptId(), receiptId)) {
                 continue;
             }
-            if (!StrUtil.equals(collectionBaseInfo.getCashFlowItem(), CashFlowItemEnum.RENT.name())) {
+            if (!StrUtil.equals(collectionSnapshot.getCashFlowItem(), CashFlowItemEnum.RENT.name())) {
                 continue;
             }
-            long plan = Optional.ofNullable(collectionBaseInfo.getPlanCollectionAmount()).orElse(0L);
-            long actual = Optional.ofNullable(collectionBaseInfo.getCollectionAmount()).orElse(0L);
+            long plan = Optional.ofNullable(collectionSnapshot.getPlanCollectionAmount()).orElse(0L);
+            long actual = Optional.ofNullable(collectionSnapshot.getCollectionAmount()).orElse(0L);
             long remaining = plan - actual;
             if (remaining > 0) {
-                long days = LocalDateTimeUtil.between(collectionBaseInfo.getPlanCollectionDate().atStartOfDay(), targetDate.atStartOfDay(), ChronoUnit.DAYS);
+                long days = LocalDateTimeUtil.between(collectionSnapshot.getPlanCollectionDate().atStartOfDay(), targetDate.atStartOfDay(), ChronoUnit.DAYS);
                 maxOverdueDays = Math.max(maxOverdueDays, days);
             }
         }
@@ -689,51 +631,75 @@ public class AssociationMainBusinessStoreData extends AbstractDataStore<Associat
 
     private String ensureNpFlag(Long clientId) {
         // "根据最新的生效的五级分类映射：若为后三级的次级、可疑、损失，则填充为“是”，否则为“否”"
-        String classifyResult = this.findLatestClassifyByClientId(clientId);
-        if (StrUtil.isBlank(classifyResult)) {
-            return YesOrNoNumberEnum.NO.getCode().toString();
-        }
-        if (StrUtil.equalsAny(classifyResult, AssetClassifyResultEnum.SECONDARY.name(), AssetClassifyResultEnum.SUSPICIOUS.name(), AssetClassifyResultEnum.LOSS.name())) {
+        if (associationReportAssetClassifyPort.isLatestEffectiveClassifyLastThree(clientId)) {
             return YesOrNoNumberEnum.YES.getCode().toString();
         } else {
             return YesOrNoNumberEnum.NO.getCode().toString();
         }
     }
 
-    private List<PaymentBaseInfo> listPaymentByContractIds(List<Long> contractIds) {
-        if (CollectionUtil.isEmpty(contractIds)) {
-            return Collections.emptyList();
+    private String getIndustryTypeNameFromLocalCache(String firstChar) {
+        if (StrUtil.equals(firstChar, "A")) {
+            return "农、林、牧、渔业";
         }
-        return paymentBaseInfoMapper.selectList(Wrappers.<PaymentBaseInfo>lambdaQuery()
-                .in(PaymentBaseInfo::getContractId, contractIds)
-                .ne(PaymentBaseInfo::getPaymentStatus, PaymentStatusEnum.CLOSED.name())
-        );
+        if (StrUtil.equals(firstChar, "B")) {
+            return "采矿业";
+        }
+        if (StrUtil.equals(firstChar, "C")) {
+            return "制造业";
+        }
+        if (StrUtil.equals(firstChar, "D")) {
+            return "电力、热力、燃气及水生产和供应业";
+        }
+        if (StrUtil.equals(firstChar, "E")) {
+            return "建筑业";
+        }
+        if (StrUtil.equals(firstChar, "F")) {
+            return "批发和零售业";
+        }
+        if (StrUtil.equals(firstChar, "G")) {
+            return "交通运输、仓储和邮政业";
+        }
+        if (StrUtil.equals(firstChar, "H")) {
+            return "住宿和餐饮业";
+        }
+        if (StrUtil.equals(firstChar, "I")) {
+            return "信息传输、软件和信息技术服务业";
+        }
+        if (StrUtil.equals(firstChar, "J")) {
+            return "金融业";
+        }
+        if (StrUtil.equals(firstChar, "K")) {
+            return "房地产业";
+        }
+        if (StrUtil.equals(firstChar, "L")) {
+            return "租赁和商务服务业";
+        }
+        if (StrUtil.equals(firstChar, "M")) {
+            return "科学研究和技术服务业";
+        }
+        if (StrUtil.equals(firstChar, "N")) {
+            return "水利、环境和公共设施管理业";
+        }
+        if (StrUtil.equals(firstChar, "O")) {
+            return "居民服务、修理和其他服务业";
+        }
+        if (StrUtil.equals(firstChar, "P")) {
+            return "教育";
+        }
+        if (StrUtil.equals(firstChar, "Q")) {
+            return "卫生和社会工作";
+        }
+        if (StrUtil.equals(firstChar, "R")) {
+            return "文化、体育和娱乐业";
+        }
+        if (StrUtil.equals(firstChar, "S")) {
+            return "公共管理、社会保障和社会组织";
+        }
+        if (StrUtil.equals(firstChar, "T")) {
+            return "国际组织";
+        }
+        return null;
     }
 
-    private List<PaymentActualDetail> listPaymentActualByPaymentIds(Collection<Long> paymentIds) {
-        if (CollectionUtil.isEmpty(paymentIds)) {
-            return Collections.emptyList();
-        }
-        return paymentActualDetailMapper.selectList(Wrappers.<PaymentActualDetail>lambdaQuery()
-                .in(PaymentActualDetail::getPaymentId, paymentIds)
-        );
-    }
-
-    private String findLatestClassifyByClientId(Long clientId) {
-        AssetClassify latest = assetClassifyMapper.selectOne(Wrappers.<AssetClassify>lambdaQuery()
-                .eq(AssetClassify::getFinish, YesOrNoNumberEnum.YES.getCode())
-                .orderByDesc(AssetClassify::getId)
-                .last("limit 1")
-        );
-        if (Objects.isNull(latest)) {
-            return null;
-        }
-        AssetClassifyClient assetClassifyClient = assetClassifyClientMapper.selectOne(Wrappers.<AssetClassifyClient>lambdaQuery()
-                .eq(AssetClassifyClient::getAssetClassifyId, latest.getId())
-                .eq(AssetClassifyClient::getClientId, clientId)
-                .orderByDesc(AssetClassifyClient::getId)
-                .last("limit 1")
-        );
-        return Optional.ofNullable(assetClassifyClient).map(AssetClassifyClient::getClassifyResult).orElse(null);
-    }
 }

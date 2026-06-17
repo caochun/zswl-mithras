@@ -10,7 +10,7 @@ import cn.zswltech.mithras.foundation.util.CommonFileSortComparator;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.contract.application.auth.ContractBaseAddSubAuthChecker;
 import cn.zswltech.mithras.contract.application.auth.ContractBaseModifyMainAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractChangeMaterialEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;

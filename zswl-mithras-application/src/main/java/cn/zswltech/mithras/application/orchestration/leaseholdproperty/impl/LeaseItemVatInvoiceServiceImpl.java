@@ -14,7 +14,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.leaseholdproperty.*;
 import cn.zswltech.mithras.document.config.OcrConfigProperties;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.leaseholdproperty.enums.JudgeEnum;
 import cn.zswltech.mithras.leaseholdproperty.enums.*;
 import cn.zswltech.mithras.leaseholdproperty.excel.exporter.LeaseVatInvoiceExcelManagerExporter;

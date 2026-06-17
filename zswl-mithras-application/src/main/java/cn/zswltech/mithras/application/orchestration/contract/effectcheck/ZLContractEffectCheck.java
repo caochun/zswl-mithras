@@ -12,7 +12,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.contract.core.ContractAccountService;
-import cn.zswltech.mithras.leaseholdproperty.application.contract.ContractLeaseItemService;
+import cn.zswltech.mithras.contract.application.ContractLeaseItemService;
 import cn.zswltech.mithras.contract.core.ContractRentEstimateService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
 import cn.zswltech.mithras.foundation.util.StringUtil;

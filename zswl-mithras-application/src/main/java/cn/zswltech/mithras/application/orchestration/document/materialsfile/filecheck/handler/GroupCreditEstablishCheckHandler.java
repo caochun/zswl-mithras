@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.document.materialsfile.fil
 
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.credit.application.groupcredit.establish.GroupCreditEstablishProcessInfo;
 import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;

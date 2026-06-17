@@ -25,7 +25,7 @@ import cn.zswltech.mithras.application.orchestration.metadata.enumscan.Materials
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.document.convert.FileConvert;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientMaterialsDisplayEnum;
 import cn.zswltech.mithras.document.enums.FileDownloadZipPathEnum;
 import cn.zswltech.mithras.document.enums.MaterialsType;

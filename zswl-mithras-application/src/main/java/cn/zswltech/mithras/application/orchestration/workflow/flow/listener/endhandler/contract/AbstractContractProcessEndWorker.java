@@ -189,7 +189,7 @@ public abstract class AbstractContractProcessEndWorker {
     public void notifyCollection(String modelKey, Long contractId) {
         if (!ProcessModelTypeEnum.ContractCreateFlow.name().equals(modelKey)) {
             CollectionAddEvent collectionAddEvent = new CollectionAddEvent(modelKey, contractId, CashFlowItemEnum.RENT);
-            collectionAddEvent.setProcessModelTypeEnum(ProcessModelTypeEnum.getByName(modelKey));
+            collectionAddEvent.setProcessModelType(modelKey);
             ApplicationContextUtil.getApplicationContext().publishEvent(collectionAddEvent);
         }
     }

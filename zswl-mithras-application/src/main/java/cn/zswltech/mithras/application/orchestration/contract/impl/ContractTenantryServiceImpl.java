@@ -17,8 +17,8 @@ import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryModifyREQ;
 import cn.zswltech.mithras.dto.contract.tenantry.ContractTenantryRemoveREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.contract.convert.contract.ContractTenantryConvert;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTradeStructureRoleEnum;
 import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
 import cn.zswltech.mithras.customer.mapper.lib.client.CorpContactInfoLibMapper;
@@ -29,7 +29,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
-import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
+import cn.zswltech.mithras.contract.core.dto.ContractConstitutionFileCommand;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.application.orchestration.contract.*;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
@@ -112,7 +112,7 @@ public class ContractTenantryServiceImpl extends ContractCodeAbstract<ContractTe
             contractTenantryMapper.insert(contractTenantry);
         }
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractId, TradeStructureRoleEnum.LESSEE);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractId, ContractTradeStructureRoleEnum.LESSEE);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -177,7 +177,7 @@ public class ContractTenantryServiceImpl extends ContractCodeAbstract<ContractTe
 
         //保存章程文件
         try {
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .tenantryId(req.getId())
                     .contractId(req.getContractId())
                     .fileType(ContractConstitutionFileTypeEnum.TENANT.name())
@@ -239,7 +239,7 @@ public class ContractTenantryServiceImpl extends ContractCodeAbstract<ContractTe
             contractTenantryListRSP.setLesseeClient(clientInfoMap.get(contractTenantry.getLesseeId()));
 
             //获取章程文件： key - id , value - 章程文件名
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .tenantryId(req.getContractId()).contractId(req.getContractId())
                     .tenantryId(contractTenantry.getId())
                     .fileType(ContractConstitutionFileTypeEnum.TENANT.name()).build();
@@ -268,13 +268,13 @@ public class ContractTenantryServiceImpl extends ContractCodeAbstract<ContractTe
         }
         contractTenantryMapper.deleteById(req.getId());
         //删除章程文件
-        ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+        ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                 .contractId(req.getContractId())
                 .tenantryId(originalInfo.getLesseeId())
                 .fileType(ContractConstitutionFileTypeEnum.TENANT.name()).build();
         contractConstitutionFileService.deleteByFileIdAndContractId(constitutionFileBO);
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(originalInfo.getContractId(), TradeStructureRoleEnum.LESSEE);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(originalInfo.getContractId(), ContractTradeStructureRoleEnum.LESSEE);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(

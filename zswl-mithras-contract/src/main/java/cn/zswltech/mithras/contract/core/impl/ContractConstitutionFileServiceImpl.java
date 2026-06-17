@@ -6,7 +6,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractConstitutionFileTypeE
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractConstitutionFileMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractConstitutionFile;
-import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
+import cn.zswltech.mithras.contract.core.dto.ContractConstitutionFileCommand;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -35,7 +35,7 @@ public class ContractConstitutionFileServiceImpl extends ServiceImpl<ContractCon
     private ContractMaterialsPort contractMaterialsPort;
 
     @Override
-    public void saveConstitutionFiles(ContractConstitutionFileBO constitutionFileBO) throws IOException {
+    public void saveConstitutionFiles(ContractConstitutionFileCommand constitutionFileBO) throws IOException {
         this.deleteByFileIdAndContractId(constitutionFileBO);
 
         List<ContractConstitutionFile> constitutionFileList = new ArrayList<>();
@@ -69,7 +69,7 @@ public class ContractConstitutionFileServiceImpl extends ServiceImpl<ContractCon
     }
 
     @Override
-    public List<Long> getConstitutionFileList(ContractConstitutionFileBO constitutionFileBO) {
+    public List<Long> getConstitutionFileList(ContractConstitutionFileCommand constitutionFileBO) {
         Wrapper<ContractConstitutionFile> queryWrapper = Wrappers.<ContractConstitutionFile>lambdaQuery()
                 .eq(ContractConstitutionFile::getContractId, constitutionFileBO.getContractId())
                 .eq(ContractConstitutionFile::getTenantryId, constitutionFileBO.getTenantryId())
@@ -82,7 +82,7 @@ public class ContractConstitutionFileServiceImpl extends ServiceImpl<ContractCon
     }
 
     @Override
-    public void deleteByFileIdAndContractId(ContractConstitutionFileBO constitutionFileBO) {
+    public void deleteByFileIdAndContractId(ContractConstitutionFileCommand constitutionFileBO) {
         Wrapper<ContractConstitutionFile> queryWrapper = Wrappers.<ContractConstitutionFile>lambdaQuery()
                 .eq(ContractConstitutionFile::getContractId, constitutionFileBO.getContractId())
                 .eq(ContractConstitutionFile::getTenantryId, constitutionFileBO.getTenantryId())

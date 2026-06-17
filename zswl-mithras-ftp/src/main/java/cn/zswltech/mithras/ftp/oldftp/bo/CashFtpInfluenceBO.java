@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.ftp.oldftp.bo;
 
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjectManageLevelEnum;
+import cn.zswltech.mithras.ftp.common.enums.FtpIndustryCategoryEnum;
+import cn.zswltech.mithras.ftp.common.enums.ProjectManageLevelEnum;
 import lombok.Data;
 
 import java.time.LocalDate;

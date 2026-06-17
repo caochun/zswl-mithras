@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightRSP;
 import cn.zswltech.mithras.dto.kpi.KpiProjectDistributionWeightSaveREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.application.orchestration.auth.kpi.KpiProjectDistributionModifyChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.application.orchestration.client.ClientTransferService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionWeightService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,11 +4,10 @@ import cn.hutool.core.text.CharSequenceUtil;
 import cn.zswltech.mithras.dto.PageReq;
 import cn.zswltech.mithras.dto.TreeSelectRSP;
 import cn.zswltech.mithras.ftp.newftp.enums.AssetIndustryClassify;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
+import cn.zswltech.mithras.ftp.common.enums.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.RiskIndustryClassify;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
+import cn.zswltech.mithras.ftp.common.enums.FtpIndustryCategoryEnum;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.model.client.IndustryType;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.LinkedList;
@@ -25,12 +24,12 @@ public class CommonConvert {
         return new Page<>(pageReq.getPage(), pageReq.getPageSize());
     }
 
-    public static TreeSelectRSP toTreeSelectRSP(IndustryType industryType) {
+    public static TreeSelectRSP toTreeSelectRSP(Long id, Long parentId, String display, String code) {
         TreeSelectRSP treeSelectRSP = new TreeSelectRSP();
-        treeSelectRSP.setId(industryType.getId());
-        treeSelectRSP.setParentId(industryType.getParentId());
-        treeSelectRSP.setLabel(industryType.getDisplay());
-        treeSelectRSP.setValue(industryType.getCode());
+        treeSelectRSP.setId(id);
+        treeSelectRSP.setParentId(parentId);
+        treeSelectRSP.setLabel(display);
+        treeSelectRSP.setValue(code);
         treeSelectRSP.setChildren(new LinkedList<>());
         return treeSelectRSP;
     }

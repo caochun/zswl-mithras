@@ -8,7 +8,6 @@ import cn.zswltech.mithras.contract.excel.model.ContractExcelModel;
 import cn.zswltech.mithras.contract.dto.persistence.ContractListSelectDTO;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.projectprocess.model.projpricing.ProjPricingBaseInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -18,8 +17,6 @@ public interface ContractBaseInfoConverter {
     @Mapping(source = "projCosponsorUserIds", target = "projCosponsorUserIds", qualifiedByName = "jsonStringToLongList")
     @Mapping(source = "leaseItemTypes", target = "leaseItemTypes", qualifiedByName = "jsonStringToStringList")
     ContractBaseInfoDetailRSP entityToDetailRSP(ContractBaseInfo baseInfo);
-
-    ContractBaseInfo reviewToContract(ProjPricingBaseInfo pricingBaseInfo);
 
     @Mapping(source = "projCosponsorUserIds", target = "projCosponsorUserIds", qualifiedByName = "jsonStringToLongList")
     ContractBaseInfoListRSP entityToListRsp(ContractBaseInfo baseInfo);

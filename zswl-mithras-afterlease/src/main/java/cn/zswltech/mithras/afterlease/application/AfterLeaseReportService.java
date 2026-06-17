@@ -2,7 +2,6 @@ package cn.zswltech.mithras.afterlease.application;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseReportListREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseReportUploadREQ;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.OutputStream;
@@ -25,7 +24,7 @@ public interface AfterLeaseReportService {
     void download(OutputStream outputStream, Long materialsId);
 
     //list
-    List<MaterialsList> list(AfterLeaseReportListREQ req);
+    List<AfterLeaseMaterialSnapshot> list(AfterLeaseReportListREQ req);
 
     void remove(Long materialsId);
 

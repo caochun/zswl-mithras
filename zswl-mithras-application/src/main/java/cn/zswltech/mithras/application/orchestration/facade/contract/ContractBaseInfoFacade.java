@@ -26,7 +26,7 @@ import cn.zswltech.mithras.contract.application.auth.ContractBaseRemoveMainAuthC
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonAddMainAuthCheckerNew;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
@@ -38,7 +38,7 @@ import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
 import cn.zswltech.mithras.system.user.SysUserService;
 import cn.zswltech.mithras.application.orchestration.client.ProjClientRoleService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.leaseholdproperty.application.contract.ContractLeaseItemService;
+import cn.zswltech.mithras.contract.application.ContractLeaseItemService;
 import cn.zswltech.mithras.application.orchestration.contract.ContractService;
 import cn.zswltech.mithras.application.orchestration.contract.script.ContractExportService;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.ExecutionService;

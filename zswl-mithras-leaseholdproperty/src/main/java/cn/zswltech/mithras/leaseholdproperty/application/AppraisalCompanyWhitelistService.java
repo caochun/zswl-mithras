@@ -6,11 +6,6 @@ import cn.hutool.core.lang.Pair;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.flow.core.api.FlowProcessApiService;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.StartProcessReq;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.api.common.PageR;
@@ -23,11 +18,11 @@ import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyWhitelistPageRS
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalAddREQ;
 import cn.zswltech.mithras.dto.leaseholdproperty.LeaseAppraisalLastedREQ;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.leaseholdproperty.enums.AppraisalCompanyWhitelistProcessStatusEnum;
+import cn.zswltech.mithras.leaseholdproperty.enums.LeaseholdPropertyProcessModel;
 import cn.zswltech.mithras.leaseholdproperty.mapper.AppraisalCompanyWhitelistMapper;
 import cn.zswltech.mithras.leaseholdproperty.mapper.TycAppraisalCompanyBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
@@ -57,7 +52,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -75,11 +69,7 @@ import java.util.stream.Collectors;
 @Service
 public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompanyWhitelistMapper, AppraisalCompanyWhitelist> {
     public static final String BUSINESS_TYPE = "APPRAISAL_COMPANY_WHITELIST";
-    private static final List<String> PROCESS_MODEL_KEYS = Arrays.asList(
-            ProcessModelTypeEnum.AppraisalCompanyWhitelistCreateFlow.name(),
-            ProcessModelTypeEnum.AppraisalCompanyWhitelistModifyFlow.name(),
-            ProcessModelTypeEnum.AppraisalCompanyWhitelistOutFlow.name()
-    );
+    private static final List<String> PROCESS_MODEL_KEYS = LeaseholdPropertyProcessModel.appraisalCompanyWhitelistModelKeys();
 
     @Resource
     private CurrentUserBizDeptResolver currentUserBizDeptResolver;
@@ -98,9 +88,7 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
     @Resource
     private AppraisalCompanyWhitelistLibService appraisalCompanyWhitelistLibService;
     @Resource
-    private FlowProcessApiService flowProcessApiService;
-    @Resource
-    private FlowTaskApiService flowTaskApiService;
+    private AppraisalCompanyWhitelistWorkflowPort appraisalCompanyWhitelistWorkflowPort;
     @Resource
     private TycService tycService;
     @Resource
@@ -306,27 +294,26 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
         if (count == 0) {
             throw new MithrasException("资料清单不能为空");
         }
-        StartProcessReq startProcessReq = new StartProcessReq();
+        String modelKey;
+        String processInstanceName;
         if (StrUtil.equals(appraisalCompanyWhitelist.getRecordStatus(), RecordStatus.TAKE_EFFECT.name())) {
             if (!StrUtil.equals(appraisalCompanyWhitelist.getProcessStatus(), AppraisalCompanyWhitelistProcessStatusEnum.CHANGE_UN_SUBMIT.name())) {
                 throw new MithrasException("数据未发生变更，无需发起流程");
             }
             appraisalCompanyWhitelist.setProcessStatus(AppraisalCompanyWhitelistProcessStatusEnum.CHANGE_UNDER_APPROVAL.name());
-            startProcessReq.setModelKey(ProcessModelTypeEnum.AppraisalCompanyWhitelistModifyFlow.name());
-            startProcessReq.setProcessInstanceName(ProcessModelTypeEnum.AppraisalCompanyWhitelistModifyFlow.getDisplay() + "-" + appraisalCompanyWhitelist.getCompanyName());
+            modelKey = LeaseholdPropertyProcessModel.APPRAISAL_COMPANY_WHITELIST_MODIFY.getModelKey();
+            processInstanceName = LeaseholdPropertyProcessModel.APPRAISAL_COMPANY_WHITELIST_MODIFY.getDisplay() + "-" + appraisalCompanyWhitelist.getCompanyName();
         } else {
             appraisalCompanyWhitelist.setProcessStatus(AppraisalCompanyWhitelistProcessStatusEnum.NEW_UNDER_APPROVAL.name());
-            startProcessReq.setModelKey(ProcessModelTypeEnum.AppraisalCompanyWhitelistCreateFlow.name());
-            startProcessReq.setProcessInstanceName(ProcessModelTypeEnum.AppraisalCompanyWhitelistCreateFlow.getDisplay() + "-" + appraisalCompanyWhitelist.getCompanyName());
+            modelKey = LeaseholdPropertyProcessModel.APPRAISAL_COMPANY_WHITELIST_CREATE.getModelKey();
+            processInstanceName = LeaseholdPropertyProcessModel.APPRAISAL_COMPANY_WHITELIST_CREATE.getDisplay() + "-" + appraisalCompanyWhitelist.getCompanyName();
         }
-        startProcessReq.setBusinessKey(id.toString());
-        startProcessReq.setStartUserId(currentUserId.toString());
-        startProcessReq.setStartUserDeptId(orgDO.getId().toString());
-        startProcessReq.setVariables(MapUtil.of("bizDeptLeader", Collections.singletonList(deptMasterId.toString())));
         // 变更业务数据
         this.updateById(appraisalCompanyWhitelist);
         // 创建流程
-        return flowProcessApiService.start(startProcessReq);
+        return appraisalCompanyWhitelistWorkflowPort.start(modelKey, processInstanceName, id.toString(),
+                currentUserId.toString(), orgDO.getId().toString(),
+                MapUtil.of("bizDeptLeader", Collections.singletonList(deptMasterId.toString())));
     }
 
     public void modify(AppraisalCompanyWhitelistModifyREQ req) {
@@ -375,23 +362,26 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
         appraisalCompanyWhitelist.setProcessStatus(AppraisalCompanyWhitelistProcessStatusEnum.OUT_UNDER_APPROVAL.name());
         this.updateById(appraisalCompanyWhitelist);
         // 创建流程实例
-        StartProcessReq startProcessReq = new StartProcessReq();
-        startProcessReq.setModelKey(ProcessModelTypeEnum.AppraisalCompanyWhitelistOutFlow.name());
-        startProcessReq.setProcessInstanceName(ProcessModelTypeEnum.AppraisalCompanyWhitelistOutFlow.getDisplay() + "-" + appraisalCompanyWhitelist.getCompanyName());
-        startProcessReq.setBusinessKey(req.getId().toString());
-        startProcessReq.setStartUserId(currentUserId.toString());
+        Map<String, ?> variables;
+        String startUserDeptId = null;
         if (isLegal) {
             // 法务经理发起
-            startProcessReq.setVariables(MapUtil.of("starUserIsLegalManager", true));
+            variables = MapUtil.of("starUserIsLegalManager", true);
             List<Long> orgIdList = userJobOrgResolver.userOrgIdsByJob(currentUserId, JobEnum.legalmanager.name());
             if (CollectionUtil.isNotEmpty(orgIdList)) {
-                startProcessReq.setStartUserDeptId(orgIdList.get(0).toString());
+                startUserDeptId = orgIdList.get(0).toString();
             }
         } else {
-            startProcessReq.setVariables(MapUtil.of("starUserIsLegalManager", false));
-            startProcessReq.setStartUserDeptId(bizOrg.getId().toString());
+            variables = MapUtil.of("starUserIsLegalManager", false);
+            startUserDeptId = bizOrg.getId().toString();
         }
-        return flowProcessApiService.start(startProcessReq);
+        return appraisalCompanyWhitelistWorkflowPort.start(
+                LeaseholdPropertyProcessModel.APPRAISAL_COMPANY_WHITELIST_OUT.getModelKey(),
+                LeaseholdPropertyProcessModel.APPRAISAL_COMPANY_WHITELIST_OUT.getDisplay() + "-" + appraisalCompanyWhitelist.getCompanyName(),
+                req.getId().toString(),
+                currentUserId.toString(),
+                startUserDeptId,
+                variables);
     }
 
     public AppraisalCompanyWhitelist findEffectByUscCode(String uscCode) {
@@ -458,13 +448,7 @@ public class AppraisalCompanyWhitelistService extends ServiceImpl<AppraisalCompa
         // 去掉失效的
         list.removeIf(e -> StrUtil.equals(e.getRecordStatus(), RecordStatus.EXPIRE.name()));
         for (AppraisalCompanyWhitelist record : list) {
-            // 判断是否有流程
-            ProcessPageReq processPageReq = new ProcessPageReq();
-            processPageReq.setModelKeyList(PROCESS_MODEL_KEYS);
-            processPageReq.setBusinessKey(record.getId().toString());
-            processPageReq.setProcessStatusList(Collections.singletonList(ProcessBusinessStatusEnum.RUNNING.getType()));
-            Long flowCount = flowTaskApiService.queryProcessCount(processPageReq);
-            if (Objects.nonNull(flowCount) && flowCount > 0) {
+            if (appraisalCompanyWhitelistWorkflowPort.hasRunningProcess(PROCESS_MODEL_KEYS, record.getId().toString())) {
                 return true;
             }
         }

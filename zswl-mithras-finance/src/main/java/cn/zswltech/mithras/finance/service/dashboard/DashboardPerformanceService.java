@@ -54,7 +54,7 @@ import static cn.hutool.extra.spring.SpringUtil.getBean;
  */
 @Slf4j
 @Service
-public class DashboardPerformanceService implements cn.zswltech.mithras.dashboard.application.DashboardPerformanceApplicationService {
+public class DashboardPerformanceService implements cn.zswltech.mithras.api.dashboard.DashboardPerformanceApplicationService {
 
     @Resource
     private PerformanceMainInfoMapper performanceMainInfoMapper;

@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.contract.model.contract;
 
-import cn.zswltech.mithras.projectprocess.enums.InterestWayEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
@@ -82,7 +81,7 @@ public class ContractLeasePrice extends BaseModel implements Serializable, IEnti
     private String rentalCalcType;
 
     /**
-     * 利息计算方式{@link InterestWayEnum#name()}
+     * 利息计算方式编码
      */
     @TableField("interest_way")
     private String interestWay;

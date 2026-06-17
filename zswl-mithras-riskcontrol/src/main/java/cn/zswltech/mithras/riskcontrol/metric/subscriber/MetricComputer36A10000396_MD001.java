@@ -2,9 +2,8 @@ package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorValue;
-import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlCashFlowFactPort;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.payment.mapper.PaymentActualDetailMapper;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -27,9 +26,7 @@ import java.math.RoundingMode;
 @Component
 public class MetricComputer36A10000396_MD001 extends AbstractMetricComputer implements SubscribeSupporter<MetricComputeEvent> {
     @Resource
-    private PaymentActualDetailMapper paymentActualDetailMapper;
-    @Resource
-    private CollectionBaseInfoMapper collectionBaseInfoMapper;
+    private RiskControlCashFlowFactPort cashFlowFactPort;
     @Resource
     private RiskMetricFactorQueryService factorService;
 
@@ -41,9 +38,9 @@ public class MetricComputer36A10000396_MD001 extends AbstractMetricComputer impl
     @Override
     protected void calculate(MetricComputeEvent event, RiskControlStrategy strategy) {
         // 分子
-        long totalPay = paymentActualDetailMapper.totalPay();
-        long totalFirstRent = collectionBaseInfoMapper.totalFirstRentCollection();
-        long totalPrincipal = collectionBaseInfoMapper.totalRentPrincipalCollection();
+        long totalPay = cashFlowFactPort.totalPaidAmount();
+        long totalFirstRent = cashFlowFactPort.totalFirstRentCollectionAmount();
+        long totalPrincipal = cashFlowFactPort.totalRentPrincipalCollectionAmount();
         long remainingPrincipal = totalPay - totalFirstRent - totalPrincipal;
         // 分母
         RiskMetricFactorValue factor = factorService.newestFactor("资产总计@期末余额", "资产负债表", event.getFactorQueryDate());

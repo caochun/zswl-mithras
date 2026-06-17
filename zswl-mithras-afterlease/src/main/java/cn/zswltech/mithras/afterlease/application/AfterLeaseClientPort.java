@@ -1,12 +1,13 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.customer.model.client.Client;
-
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 public interface AfterLeaseClientPort {
-    Client getById(Long clientId);
+    AfterLeaseClientSnapshot getById(Long clientId);
+
+    Map<Long, AfterLeaseClientSnapshot> listByIds(Collection<Long> clientIds);
 
     Map<Long, Long> getClientRemainingPrincipalMap(List<Long> clientIds);
 

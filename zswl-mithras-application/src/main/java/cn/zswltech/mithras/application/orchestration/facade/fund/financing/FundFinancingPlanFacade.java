@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.fund.financing.plan.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingSubModifyAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingPlanMapper;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingPlanService;
 

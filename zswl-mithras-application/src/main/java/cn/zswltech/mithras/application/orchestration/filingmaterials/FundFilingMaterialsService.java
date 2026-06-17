@@ -20,7 +20,7 @@ import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.filingmaterials.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.workflow.flow.convert.FlowProcessConvert;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;

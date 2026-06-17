@@ -48,7 +48,7 @@ import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.afterlease.enums.AfterLeaseAdjustEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
@@ -88,7 +88,7 @@ import cn.zswltech.mithras.contract.event.ContractPriceChangeEvent;
 import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.workflow.process.ProcessModifyRemarkService;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseAdjustInfoService;
-import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
+import cn.zswltech.mithras.contract.core.dto.ContractConstitutionFileCommand;
 import cn.zswltech.mithras.application.orchestration.client.ClientAuthorityService;
 import cn.zswltech.mithras.application.orchestration.client.ClientService;
 import cn.zswltech.mithras.application.orchestration.client.ClientTransferService;
@@ -1313,7 +1313,7 @@ public class ContractService implements ApplicationEventPublisherAware {
         // 通知收款模块租金表可能发生变更，收款模块需要比对一下
         if (!Objects.equals(processModelTypeEnum, ProcessModelTypeEnum.ContractCreateFlow)) {
             CollectionAddEvent collectionAddEvent = new CollectionAddEvent(processModelTypeEnum.name(), contractId, RENT);
-            collectionAddEvent.setProcessModelTypeEnum(processModelTypeEnum);
+            collectionAddEvent.setProcessModelType(processModelTypeEnum.name());
             ApplicationContextUtil.getApplicationContext().publishEvent(collectionAddEvent);
         }
     }
@@ -1365,7 +1365,7 @@ public class ContractService implements ApplicationEventPublisherAware {
                 contractBaseInfo.getId(), CashFlowItemEnum.NOMINAL_PRICE,
                 LongUtil.null2zero(priceDetail.getNominalPrice()),
                 contractRentActual.getCashFlowDate(), contractRentActual.getCashFlowPhase());
-        collectionAddEvent.setProcessModelTypeEnum(processModelTypeEnum);
+        collectionAddEvent.setProcessModelType(processModelTypeEnum.name());
         applicationEventPublisher.publishEvent(collectionAddEvent);
     }
 
@@ -1375,7 +1375,7 @@ public class ContractService implements ApplicationEventPublisherAware {
             //提前终止补充金-减免金额 = 应收补偿金 最小为0
             CollectionAddEvent collectionAddEvent = new CollectionAddEvent(contractBaseInfo.getContractCode(), contractBaseInfo.getId(), CashFlowItemEnum.EARLY_STOP_COMPENSATION,
                     Math.max(0L, NumberUtil.sub(LongUtil.null2zero(contractSettlePlan.getLoss()), LongUtil.null2zero(contractSettlePlan.getApplyDerateAmount())).longValue()), LocalDate.now());
-            collectionAddEvent.setProcessModelTypeEnum(processModelTypeEnum);
+            collectionAddEvent.setProcessModelType(processModelTypeEnum.name());
             applicationEventPublisher.publishEvent(collectionAddEvent);
         }
     }
@@ -1694,7 +1694,7 @@ public class ContractService implements ApplicationEventPublisherAware {
             for (ContractPledge contractPledge : contractPledgeList) {
                 if (PledgeTypeEnum.ACCOUNTS_RECEIVABLE_PLEDGE.name().equalsIgnoreCase(contractPledge.getContractPledgeType())) {
                     //查询抵质押文件id
-                    ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+                    ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                             .contractId(contractPledge.getContractId())
                             .tenantryId(contractPledge.getId())
                             .fileType(ContractConstitutionFileTypeEnum.PLEDGE.name()).build();
@@ -1711,7 +1711,7 @@ public class ContractService implements ApplicationEventPublisherAware {
             for (ContractMortgage contractMortgage : contractMortgageList) {
                 if (MortgageTypeEnum.REAL_ESTATE_MORTGAGE.name().equalsIgnoreCase(contractMortgage.getContractMortgageType())) {
                     //查询抵质押文件id
-                    ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+                    ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                             .contractId(contractMortgage.getContractId())
                             .tenantryId(contractMortgage.getId())
                             .fileType(ContractConstitutionFileTypeEnum.MORTGAGE.name()).build();

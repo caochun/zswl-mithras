@@ -1,6 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.listener.endhandler.budget;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
+import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
 import cn.zswltech.mithras.budget.application.BudgetExamineFlowService;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,9 @@ public class BudgetExamineEndHandler extends AbstractProcessEndHandler {
 
     @Override
     public void handle(ProcessEndContext endContext) {
-        budgetExamineFlowService.copyFlow(endContext);
+        budgetExamineFlowService.completeFlow(endContext.getBusinessKey(),
+                endContext.getProcessInstanceId(),
+                ProcessBusinessStatusEnum.success(endContext.getEndType()),
+                ProcessBusinessStatusEnum.CANCEL.getType().equals(endContext.getEndType()));
     }
 }

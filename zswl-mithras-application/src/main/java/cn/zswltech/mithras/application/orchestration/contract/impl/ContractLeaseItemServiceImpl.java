@@ -14,7 +14,7 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.contract.ContractSingleIdREQ;
 import cn.zswltech.mithras.dto.contract.leaseitem.*;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.leaseholdproperty.enums.LeaseOperationTypeEnum;
@@ -31,7 +31,7 @@ import cn.zswltech.mithras.leaseholdproperty.model.LeaseItemListRowData;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemCommonService;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
-import cn.zswltech.mithras.leaseholdproperty.application.contract.ContractLeaseItemService;
+import cn.zswltech.mithras.contract.application.ContractLeaseItemService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemInfoService;
 import cn.zswltech.mithras.leaseholdproperty.application.LeaseItemListRowDataService;
 import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
@@ -237,7 +237,6 @@ public class ContractLeaseItemServiceImpl extends ServiceImpl<ContractLeaseItemM
         return rsp;
     }
 
-    @Override
     public LeaseItemInfo getNewestOne(ContractSingleIdREQ req) {
         ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(req.getContractId());
         if (Objects.isNull(contractBaseInfo)) {
@@ -385,7 +384,6 @@ public class ContractLeaseItemServiceImpl extends ServiceImpl<ContractLeaseItemM
         this.updateBatchById(contractLeaseItemList);
     }
 
-    @Override
     public void initLeaseItem(Long contractId, Long projReviewId, LeaseItemInfo leaseItemInfo) {
         // 找到项目下所有的合同
         List<ContractBaseInfo> contractBaseInfoList = contractBaseInfoService.listByProjReviewIds(Collections.singletonList(projReviewId));
@@ -420,7 +418,6 @@ public class ContractLeaseItemServiceImpl extends ServiceImpl<ContractLeaseItemM
         }
     }
 
-    @Override
     public void copyLeaseItemFile(Long contractId, LeaseItemInfo leaseItemInfo) {
         List<MaterialsList> materialsListList = materialsListService.list(BusinessModuleEnum.LEASE_TEXT.name(), Arrays.asList(LeaseTextFileEnum.LEASE_ITEM.name(), LeaseTextFileEnum.LEASE_ENTER_LETTER.name()), Collections.singletonList(leaseItemInfo.getId()));
         if (CollectionUtil.isEmpty(materialsListList)) {

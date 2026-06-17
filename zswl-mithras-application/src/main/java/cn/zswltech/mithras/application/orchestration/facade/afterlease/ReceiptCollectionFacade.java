@@ -8,11 +8,11 @@ import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.afterlease.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonModifyMainAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.document.enums.MaterialsEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseReceiptCollectionSnapshot;
 import cn.zswltech.mithras.afterlease.model.CollectionPenaltyReductionInfo;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.afterlease.application.CollectionPenaltyReductionService;
@@ -52,10 +52,10 @@ public class ReceiptCollectionFacade implements ReceiptCollectionApplicationServ
 
     @Override
     public R<PageR<ReceiptCollectionListRSP>> list(@Valid ReceiptCollectionListREQ req) {
-        Page<CollectionBaseInfo> list = receiptCollectionService.list(req);
+        Page<AfterLeaseReceiptCollectionSnapshot> list = receiptCollectionService.list(req);
         List<ReceiptCollectionListRSP> receiptCollectionListRSPS = new ArrayList<>();
         ReceiptCollectionListRSP receiptCollectionListRSP;
-        for(CollectionBaseInfo baseInfo : list.getRecords()){
+        for(AfterLeaseReceiptCollectionSnapshot baseInfo : list.getRecords()){
             receiptCollectionListRSP = BeanUtil.copyProperties(baseInfo, ReceiptCollectionListRSP.class);
             receiptCollectionListRSP.setOverdueDays(CollectionLevelUtil.getOverdueDay(receiptCollectionListRSP.getPlanCollectionDate()));
             receiptCollectionListRSPS.add(receiptCollectionListRSP);

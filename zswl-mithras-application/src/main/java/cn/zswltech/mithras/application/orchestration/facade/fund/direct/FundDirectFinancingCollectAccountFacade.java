@@ -6,7 +6,7 @@ import cn.zswltech.mithras.dto.fund.directfinancing.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingMainModifyAuthChecker;
 import cn.zswltech.mithras.fund.directfinancing.application.auth.FundDirectFinancingSubModifyAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.directfinancing.persistence.mapper.FundDirectFinancingCollectAccountMapper;
 import cn.zswltech.mithras.fund.directfinancing.application.FundDirectFinancingCollectAccountService;
 import org.springframework.stereotype.Service;

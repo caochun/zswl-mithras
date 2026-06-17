@@ -3,12 +3,14 @@ package cn.zswltech.mithras.riskcontrol.opinion;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;
 import cn.zswltech.mithras.riskcontrol.monitor.ClientMonitorOpinionDetailRsp;
 import cn.zswltech.mithras.riskcontrol.monitor.DeptPieDataDto;
+import cn.zswltech.mithras.riskcontrol.monitor.WarnCountDto;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author vico
@@ -29,6 +31,8 @@ public interface RiskControlOpinionMonitorMapper extends BaseMapper<RiskControlO
     List<RiskControlOpinionMonitor> selectLatest5Day();
 
     List<DeptPieDataDto> selectHandlingOpinion();
+
+    List<WarnCountDto> selectCountByClient(@Param("usccs") Set<String> usccs);
 
     List<ClientMonitorOpinionDetailRsp> selectMonitorOpDetail(@Param("clientId") Long clientId);
 

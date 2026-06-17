@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.application.orchestration.adapter.afterlease;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.afterlease.application.RentCollectionEmailBankAccountSnapshot;
 import cn.zswltech.mithras.afterlease.application.RentCollectionEmailPledgeAccountPort;
-import cn.zswltech.mithras.dto.basedata.BaseDataBankAccountListRSP;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingPledgeInfo;
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingPledgeInfoService;
@@ -19,23 +19,25 @@ public class RentCollectionEmailPledgeAccountPortAdapter implements RentCollecti
     private FundDirectFinancingPledgeInfoService fundDirectFinancingPledgeInfoService;
 
     @Override
-    public BaseDataBankAccountListRSP findPledgeAccount(Long contractId) {
-        BaseDataBankAccountListRSP account = new BaseDataBankAccountListRSP();
+    public RentCollectionEmailBankAccountSnapshot findPledgeAccount(Long contractId) {
         List<FundFinancingPledgeInfo> contractPledgeList = fundFinancingPledgeInfoService.findContractPledgeList(contractId);
         if (ObjectUtil.isNotEmpty(contractPledgeList)) {
             FundFinancingPledgeInfo pledgeInfo = contractPledgeList.get(0);
-            account.setAccountBank(pledgeInfo.getAccountBank());
-            account.setAccountName(pledgeInfo.getAccountName());
-            account.setAccountNumber(pledgeInfo.getAccountNumber());
-            return account;
+            return toSnapshot(pledgeInfo.getAccountBank(), pledgeInfo.getAccountName(), pledgeInfo.getAccountNumber());
         }
         List<FundDirectFinancingPledgeInfo> directPledge = fundDirectFinancingPledgeInfoService.findContractPledgeList(contractId);
         if (ObjectUtil.isNotEmpty(directPledge)) {
             FundDirectFinancingPledgeInfo pledgeInfo = directPledge.get(0);
-            account.setAccountBank(pledgeInfo.getAccountBank());
-            account.setAccountName(pledgeInfo.getAccountName());
-            account.setAccountNumber(pledgeInfo.getAccountNumber());
+            return toSnapshot(pledgeInfo.getAccountBank(), pledgeInfo.getAccountName(), pledgeInfo.getAccountNumber());
         }
-        return account;
+        return RentCollectionEmailBankAccountSnapshot.builder().build();
+    }
+
+    private RentCollectionEmailBankAccountSnapshot toSnapshot(String accountBank, String accountName, String accountNumber) {
+        return RentCollectionEmailBankAccountSnapshot.builder()
+                .accountBank(accountBank)
+                .accountName(accountName)
+                .accountNumber(accountNumber)
+                .build();
     }
 }

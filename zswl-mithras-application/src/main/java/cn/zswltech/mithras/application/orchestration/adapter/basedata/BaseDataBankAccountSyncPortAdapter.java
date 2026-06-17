@@ -16,7 +16,7 @@ import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFina
 import cn.zswltech.mithras.application.orchestration.fund.direct.service.FundDirectFinancingPledgeInfoService;
 import cn.zswltech.mithras.application.orchestration.collection.CollectionRecordInfoService;
 import cn.zswltech.mithras.fund.application.receiptrepay.FundRepayAccountService;
-import cn.zswltech.mithras.application.orchestration.liquiditymanage.FundFinancingAccountSettingService;
+import cn.zswltech.mithras.application.orchestration.liquidity.FundFinancingAccountSettingService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailUnconfirmedService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

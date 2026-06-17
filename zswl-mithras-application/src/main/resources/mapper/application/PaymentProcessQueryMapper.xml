@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.application.orchestration.payment.mapper.PaymentProcessQueryMapper">
+    <!-- 付款首页列表需要合同业务部门筛选/展示，属于 payment + contract 的 application 读模型。 -->
+    <select id="listPayment" resultType="cn.zswltech.mithras.payment.model.PaymentBaseInfo">
+        select a.*, b.biz_dept_id as biz_dept_id
+        from payment_base_info a,contract_base_info b
+        <where>
+            a.contract_id = b.id
+            <if test="dto.clientId!=null">and a.client_id=#{dto.clientId}</if>
+            <if test="dto.contractId!=null">and a.contract_id=#{dto.contractId}</if>
+            <if test="dto.contractCode!=null and dto.contractCode!=''">and a.contract_code like
+                CONCAT('%',#{dto.contractCode},'%')
+            </if>
+            <if test="dto.writeOffStatus!=null">and a.write_off_status=#{dto.writeOffStatus}</if>
+            <if test="dto.paymentProcessStatus!=null">and a.payment_process_status=#{dto.paymentProcessStatus}</if>
+            <if test="dto.paymentStatus!=null">
+                and a.payment_status = #{dto.paymentStatus}
+            </if>
+            <if test="dto.paymentStatusList!=null">
+                and a.payment_status in
+                <foreach collection="dto.paymentStatusList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.applyPaymentAmountFrom!=null">and a.apply_payment_amount&gt;=#{dto.applyPaymentAmountFrom}
+            </if>
+            <if test="dto.applyPaymentAmountTo!=null">and a.apply_payment_amount&lt;=#{dto.applyPaymentAmountTo}</if>
+            <if test="dto.applyPaymentDateFrom!=null">and a.apply_payment_date &gt;= #{dto.applyPaymentDateFrom}</if>
+            <if test="dto.applyPaymentDateTo!=null">and a.apply_payment_date &lt;= #{dto.applyPaymentDateTo}</if>
+            <if test="dto.paidInDateFrom!=null">and a.paid_in_date &gt;= #{dto.paidInDateFrom}</if>
+            <if test="dto.paidInDateTo!=null">and a.paid_in_date &lt;= #{dto.paidInDateTo}</if>
+            <if test="dto.bizDeptId!=null">
+                and b.biz_dept_id = #{dto.bizDeptId}
+            </if>
+            <include refid="cn.zswltech.mithras.foundation.persistence.mapper.CommonMapper.authSql" />
+        </where>
+        ORDER BY
+        <choose>
+            <when test="dto.orderFieldName != null and dto.orderFieldName != ''">
+                a.${dto.orderFieldName}
+                <if test="dto.order != null and dto.order != ''">
+                    ${dto.order}
+                </if>
+            </when>
+            <otherwise>
+                a.create_time desc
+            </otherwise>
+        </choose>
+    </select>
+
+    <!-- 合同侧需要按流程完成时间读取审批通过的付款申请，属于 payment + flowable 的 application 读模型。 -->
+    <select id="listApprovedPaymentCreateByContractId" resultType="cn.zswltech.mithras.payment.model.PaymentBaseInfo">
+        select t.*
+        from payment_base_info t
+        left join ACT_HI_PROCINST t1 on t.id = t1.BUSINESS_KEY_
+        left JOIN ACT_RE_PROCDEF t2 ON t1.PROC_DEF_ID_ = t2.ID_
+        where 1=1
+        <if test="contractId != null">
+            and t.contract_id = #{contractId}
+        </if>
+        and t2.KEY_ = 'PaymentCreateFlow'
+        and t.payment_process_status = 'APPROVAL_PASS'
+        order by t1.END_TIME_ desc
+    </select>
+</mapper>

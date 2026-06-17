@@ -32,7 +32,7 @@ import cn.zswltech.mithras.customer.application.client.auth.ClientModifyMainAuth
 import cn.zswltech.mithras.customer.application.client.auth.ClientRemoveMainAuthCheckerNew;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonAddMainAuthCheckerNew;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.customer.enums.client.*;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
@@ -68,7 +68,7 @@ import cn.zswltech.mithras.application.orchestration.projectprocess.projreview.P
 import cn.zswltech.mithras.third.tianyancha.application.TycService;
 import cn.zswltech.mithras.third.tianyancha.application.dto.*;
 import cn.zswltech.mithras.third.tianyancha.client.resp.*;
-import cn.zswltech.mithras.application.orchestration.externalinfo.TycExecutionService;
+import cn.zswltech.mithras.application.orchestration.adapter.third.tianyancha.TycExecutionService;
 import cn.zswltech.mithras.application.orchestration.client.authority.ClientAuthorityUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;

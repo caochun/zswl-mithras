@@ -7,15 +7,13 @@ import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.exception.AuthCheckException;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserJobResolver;
+import cn.zswltech.mithras.payment.application.PaymentWorkflowPort;
 import cn.zswltech.mithras.payment.mapper.PaymentActualDetailUnconfirmedMapper;
 import cn.zswltech.mithras.payment.model.PaymentActualDetailUnconfirmed;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.workflow.flow.service.ProcessService;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.Objects;
 
 /**
@@ -28,7 +26,7 @@ public class PaymentActualDetailRemoveAuthChecker implements IDataAuthChecker {
     @Resource
     private CurrentUserJobResolver currentUserJobResolver;
     @Resource
-    private ProcessService processService;
+    private PaymentWorkflowPort paymentWorkflowPort;
     @Resource
     private PaymentActualDetailUnconfirmedMapper paymentActualDetailUnconfirmedMapper;
 
@@ -43,7 +41,7 @@ public class PaymentActualDetailRemoveAuthChecker implements IDataAuthChecker {
         if (Objects.isNull(paymentActualDetailUnconfirmed)) {
             throw new MithrasException("未确认的付款核销记录不存在");
         }
-        boolean isInProcess = processService.isInProcess(String.valueOf(keyId), Collections.singletonList(ProcessModelTypeEnum.PaymentActualDetailFlow.name()));
+        boolean isInProcess = paymentWorkflowPort.isPaymentActualDetailInProcess(keyId);
         if (isInProcess) {
             throw new MithrasException("审批流程中，不允许删除");
         }

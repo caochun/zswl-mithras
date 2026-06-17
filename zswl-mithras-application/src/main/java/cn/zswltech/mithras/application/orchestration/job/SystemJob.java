@@ -21,7 +21,7 @@ import cn.zswltech.mithras.application.orchestration.budget.BudgetPlanPayService
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.versioning.service.ContractVersionService;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingLibVersionService;
-import cn.zswltech.mithras.application.orchestration.externalinfo.dataminer.DmImportService;
+import cn.zswltech.mithras.application.orchestration.adapter.third.dataminer.DmImportService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.context.XxlJobHelper;

@@ -2,7 +2,6 @@ package cn.zswltech.mithras.payment.application.convert;
 
 import cn.zswltech.mithras.api.payment.dto.PaymentAddReq;
 import cn.zswltech.mithras.api.payment.dto.PaymentContractListReq;
-import cn.zswltech.mithras.api.payment.dto.PaymentContractListRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentDetailRsp;
 import cn.zswltech.mithras.api.payment.dto.PaymentListReq;
 import cn.zswltech.mithras.api.payment.dto.PaymentListRsp;
@@ -16,7 +15,6 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoListREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
 import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
 import cn.zswltech.mithras.payment.dto.PaymentListDto;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfoLib;
@@ -45,11 +43,6 @@ public interface PaymentConvert {
     PaymentListRsp entityToListRsp(PaymentBaseInfo record);
 
     ContractBaseInfoListREQ paymentListReqToListReq(PaymentContractListReq req);
-
-    @Mapping(target = "planedPaidAmount", source = "applyCreditAmount")
-    @Mapping(target = "planedPaidDate", source = "paymentPlanDate")
-    @Mapping(target = "contractId", source = "originId")
-    PaymentContractListRsp listRspToPaymentListRsp(ContractBaseInfoLib record);
 
     @Mapping(target = "contractId", source = "contractDetail.id")
     @Mapping(target = "contractCode", source = "contractDetail.contractCode")

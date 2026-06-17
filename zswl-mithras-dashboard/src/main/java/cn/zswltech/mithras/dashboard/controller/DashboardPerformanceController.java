@@ -3,7 +3,7 @@ package cn.zswltech.mithras.dashboard.controller;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.dashboard.DashboardPerformanceApi;
 import cn.zswltech.mithras.dto.dashboard.*;
-import cn.zswltech.mithras.dashboard.application.DashboardPerformanceApplicationService;
+import cn.zswltech.mithras.api.dashboard.DashboardPerformanceApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 

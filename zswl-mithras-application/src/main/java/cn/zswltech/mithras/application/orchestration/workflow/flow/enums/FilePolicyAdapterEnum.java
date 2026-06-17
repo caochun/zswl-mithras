@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.enums;
 
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
 import cn.zswltech.mithras.projectprocess.enums.projestablish.ProjEstablishMaterialsEnum;
 import cn.zswltech.mithras.projectprocess.enums.projreview.ProjReviewMaterialsEnum;

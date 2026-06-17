@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.UserRSP;
 import cn.zswltech.mithras.dto.projreview.baseinfo.ProjReviewBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.trackevent.*;
 import cn.zswltech.mithras.projectprocess.convert.projreview.ProjReviewBaseInfoConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;

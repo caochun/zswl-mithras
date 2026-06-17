@@ -20,7 +20,7 @@ public class MaterialsTypeFactory {
 
     static {
         try {
-            String[] packages = new String[]{"cn.zswltech.mithras.application.orchestration.enums"};
+            String[] packages = new String[]{"cn.zswltech.mithras.application.orchestration.auth"};
             for (String aPackage : packages) {
                 Set<Class> scan = ClassScanner.scan(aPackage);
                 for (Class<?> aClass : scan) {

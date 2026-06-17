@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.dto.version.DiffValue;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.fund.application.auth.financing.FundFinancingMainModifyAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.enums.financing.FundFinancingLibModelEnum;
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingService;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingLibVersionService;

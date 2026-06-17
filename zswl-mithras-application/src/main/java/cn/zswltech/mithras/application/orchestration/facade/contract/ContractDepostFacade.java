@@ -15,8 +15,7 @@ import cn.zswltech.mithras.contract.application.ContractDepostApplicationService
 import cn.zswltech.mithras.dto.contract.depost.*;
 import cn.zswltech.mithras.dto.file.FileDownLoadREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
-import cn.zswltech.mithras.collection.convert.contract.ContractDeductRentInfoConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;

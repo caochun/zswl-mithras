@@ -10,26 +10,12 @@ import cn.zswltech.mithras.dto.workbench.chart.sub.ChartBaseDataVO;
 import cn.zswltech.mithras.dto.workbench.chart.sub.ChartDataVO;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategyApplicationService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.convert.TypeConversionWorker;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlInterceptFact;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlInterceptFactPort;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategyConverter;
-import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
-import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.customer.model.client.IndustryType;
-import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishAocPrice;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishFactoringPrice;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishLeasePrice;
-import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishAocPriceMapper;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishFactoringPriceMapper;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishLeasePriceMapper;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategySnapshotService;
@@ -71,23 +57,13 @@ public class RiskControlStrategyService extends ServiceImpl<RiskControlStrategyM
     @Resource
     private RiskControlStrategyConverter strategyConverter;
     @Resource
-    private ProjEstablishBaseInfoMapper projEstablishBaseInfoMapper;
-    @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
     private RiskControlStrategySnapshotService riskControlStrategySnapshotService;
     @Resource
-    private PaymentBaseInfoMapper paymentBaseInfoMapper;
-    @Resource
-    private ProjEstablishLeasePriceMapper projEstablishLeasePriceMapper;
-    @Resource
-    private ProjEstablishFactoringPriceMapper projEstablishFactoringPriceMapper;
-    @Resource
-    private ProjEstablishAocPriceMapper projEstablishAocPriceMapper;
+    private RiskControlInterceptFactPort interceptFactPort;
     @Resource
     private MetricComputeEventBus metricComputeEventBus;
     @Resource
-    private IndustryTypeMapper industryTypeMapper;
+    private RiskControlClientFactPort clientFactPort;
 
     /**
      * 更新时，包含null值
@@ -171,9 +147,7 @@ public class RiskControlStrategyService extends ServiceImpl<RiskControlStrategyM
         RiskControlStrategyDetailRsp rsp = strategyConverter.entity2DetailRsp(strategy);
 
         if ("J10000396_FJC47608".equals(strategy.getMetricCode())) {
-            Map<String, String> industryName = industryTypeMapper.selectList(Wrappers.<IndustryType>lambdaQuery()
-                            .eq(IndustryType::getLevel, 2)).stream()
-                    .collect(Collectors.toMap(IndustryType::getCode, IndustryType::getDisplay));
+            Map<String, String> industryName = clientFactPort.twoLevelIndustryTypeNameMap();
             String quickContext = strategy.getQuickContext();
             if (ObjectUtil.isNotEmpty(quickContext)) {
                 MetricComputer29J10000396_FJC47608.MetricComputer29ComputerContext ctx =
@@ -207,21 +181,14 @@ public class RiskControlStrategyService extends ServiceImpl<RiskControlStrategyM
         InterceptRsp rsp = new InterceptRsp();
         rsp.setMetricNames(new ArrayList<>());
         rsp.setIntercept(true);
-        ProjEstablishBaseInfo projEstablish = projEstablishBaseInfoMapper.selectById(req.getProjEstablishId());
-        if (ObjectUtil.isNull(projEstablish)) {
+        Optional<RiskControlInterceptFact> factOptional = interceptFactPort.projectEstablishFact(req.getProjEstablishId());
+        if (!factOptional.isPresent()) {
             throw new MithrasException("项目立项记录不存在");
         }
-        Long declaredAmount = declaredAmount(projEstablish);
+        RiskControlInterceptFact fact = factOptional.get();
+        Long declaredAmount = fact.getAmount();
         // 1. 获取客户的风险控制行业分类
-        CorpCommerceInfoLib corpCommerceInfoLib = corpCommerceInfoLibMapper
-                .selectOne(Wrappers.<CorpCommerceInfoLib>lambdaQuery()
-                        .eq(CorpCommerceInfoLib::getClientId, projEstablish.getClientId())
-                        .eq(CorpCommerceInfoLib::getVersionType, VersionTypeConstants.NORMAL)
-                        .orderByDesc(CorpCommerceInfoLib::getVersion).last("limit 1"));
-        if (ObjectUtil.isEmpty(corpCommerceInfoLib)) {
-            throw new MithrasException("不存在该客户的生效信息");
-        }
-        String classify = corpCommerceInfoLib.getRiskControlIndustryClassify();
+        String classify = clientFactPort.riskControlIndustryClassify(fact.getClientId());
 //        int effetCount = projEstablishBaseInfoMapper.selectList(
 //                Wrappers.<ProjEstablishBaseInfo>lambdaQuery()
 //                        .eq(ProjEstablishBaseInfo::getClientId, projEstablish.getClientId())
@@ -259,26 +226,13 @@ public class RiskControlStrategyService extends ServiceImpl<RiskControlStrategyM
         return rsp;
     }
 
-    private Long declaredAmount(ProjEstablishBaseInfo projEstablish) {
-        ProjectBizType bizType = ProjectBizType.of(projEstablish.getBizType());
-        if (ProjectBizType.BL.equals(bizType)) {
-            ProjEstablishFactoringPrice factoringPrice = projEstablishFactoringPriceMapper.selectByMainId(projEstablish.getId());
-            return factoringPrice == null ? null : factoringPrice.getApplyCreditAmount();
-        }
-        if (ProjectBizType.ZR.equals(bizType)) {
-            ProjEstablishAocPrice aocPrice = projEstablishAocPriceMapper.selectByMainId(projEstablish.getId());
-            return aocPrice == null ? null : aocPrice.getApplyCreditAmount();
-        }
-        ProjEstablishLeasePrice leasePrice = projEstablishLeasePriceMapper.selectByMainId(projEstablish.getId());
-        return leasePrice == null ? null : leasePrice.getApplyCreditAmount();
-    }
-
     public InterceptRsp paymentApplyIntercept(PaymentApplyInterceptReq req) {
-        PaymentBaseInfo paymentBaseInfo = paymentBaseInfoMapper.selectById(req.getPaymentId());
-        if (ObjectUtil.isNull(paymentBaseInfo)) {
+        Optional<RiskControlInterceptFact> factOptional = interceptFactPort.paymentApplyFact(req.getPaymentId());
+        if (!factOptional.isPresent()) {
             throw new MithrasException("付款申请记录不存在");
         }
-        return compareRelatedMetric(paymentBaseInfo.getClientId(), paymentBaseInfo.getApplyPaymentAmount());
+        RiskControlInterceptFact fact = factOptional.get();
+        return compareRelatedMetric(fact.getClientId(), fact.getAmount());
     }
 
     /**
@@ -292,15 +246,7 @@ public class RiskControlStrategyService extends ServiceImpl<RiskControlStrategyM
         rsp.setMetricNames(new ArrayList<>());
         rsp.setIntercept(true);
         // 1. 获取客户的风险控制行业分类
-        CorpCommerceInfoLib corpCommerceInfoLib = corpCommerceInfoLibMapper
-                .selectOne(Wrappers.<CorpCommerceInfoLib>lambdaQuery()
-                        .eq(CorpCommerceInfoLib::getClientId, clientId)
-                        .eq(CorpCommerceInfoLib::getVersionType, VersionTypeConstants.NORMAL)
-                        .orderByDesc(CorpCommerceInfoLib::getVersion).last("limit 1"));
-        if (ObjectUtil.isEmpty(corpCommerceInfoLib)) {
-            throw new MithrasException("不存在该客户的生效信息");
-        }
-        String classify = corpCommerceInfoLib.getRiskControlIndustryClassify();
+        String classify = clientFactPort.riskControlIndustryClassify(clientId);
         // 获取客户的风险控制行业分类对应的指标
         RiskControlStrategy strategy = baseMapper.selectOne(Wrappers.<RiskControlStrategy>lambdaQuery()
                 .in(RiskControlStrategy::getMetricCode, RiskControlClassifyMetricComputer.RELATED_METRIC_CODES)

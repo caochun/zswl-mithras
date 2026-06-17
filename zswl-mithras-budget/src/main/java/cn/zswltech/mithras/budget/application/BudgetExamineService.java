@@ -10,11 +10,10 @@ import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.dto.IdREQ;
 import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessState;
+import cn.zswltech.mithras.budget.application.port.BudgetFinanceFactPort;
+import cn.zswltech.mithras.budget.enums.BudgetApprovalStatusEnum;
 import cn.zswltech.mithras.budget.mapper.BudgetExamineMapper;
-import cn.zswltech.mithras.finance.mapper.finance.FinanceSubjectBalanceAssistMapper;
 import cn.zswltech.mithras.budget.mapper.model.BudgetExamine;
-import cn.zswltech.mithras.finance.mapper.model.finance.FinanceSubjectBalanceAssist;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
@@ -44,7 +43,7 @@ public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, Budge
     @Resource
     private BudgetExamineMapper budgetExamineMapper;
     @Resource
-    private FinanceSubjectBalanceAssistMapper financeSubjectBalanceAssistMapper;
+    private BudgetFinanceFactPort budgetFinanceFactPort;
     @Resource
     private BudgetExamineBenefitService budgetExamineBenefitService;
     @Resource
@@ -68,9 +67,7 @@ public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, Budge
             throw new MithrasException("上月考核表尚未创建，请先创建上一月的考核表");
         }
         //判断是否有苍穹数据
-        if (!(financeSubjectBalanceAssistMapper.selectCount(Wrappers.<FinanceSubjectBalanceAssist>lambdaQuery()
-        .eq(FinanceSubjectBalanceAssist::getYear, req.getExamineYear())
-        .eq(FinanceSubjectBalanceAssist::getMonth, req.getExamineMonth())) > 0)) {
+        if (!budgetFinanceFactPort.hasSubjectBalanceAssist(req.getExamineYear(), req.getExamineMonth())) {
             throw new MithrasException("苍穹数据尚未同步，无法生成考核表，请先完成苍穹数据同步");
         }
         //查询是否已有对应月份数据
@@ -79,14 +76,14 @@ public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, Budge
         BudgetExamineDetailRSP oldDetail = this.detail(detailREQ);
         // 只有未提交、审批取消、审批拒绝状态下才允许重新新建新数据覆盖旧数据
         if (Objects.nonNull(oldDetail)) {
-            if (StrUtil.equals(oldDetail.getApprovalStatus(), ProcessState.COMMIT.name())) {
+            if (StrUtil.equals(oldDetail.getApprovalStatus(), BudgetApprovalStatusEnum.COMMIT.name())) {
                 throw new MithrasException("当前月份数据审批中，不允许重新创建");
             }
         }
         BudgetExamine info = BeanUtil.copyProperties(req, BudgetExamine.class);
         //创建数据
         info.setExamineName(String.format("%s年%s月预算考核表", req.getExamineYear(), req.getExamineMonth()));
-        info.setApprovalStatus(ProcessState.UN_SUBMIT.name());
+        info.setApprovalStatus(BudgetApprovalStatusEnum.UN_SUBMIT.name());
         info.setSubmitUserId(AccountUtil.getLoginInfo().getId());
         info.setSubmitTime(LocalDate.now());
         if (ObjectUtil.isNotEmpty(oldDetail)) {
@@ -175,14 +172,14 @@ public class BudgetExamineService extends ServiceImpl<BudgetExamineMapper, Budge
         if (ObjectUtil.isNull(originalInfo)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        if (!StrUtil.equalsAny(originalInfo.getApprovalStatus(), ProcessState.UN_SUBMIT.name(), ProcessState.CANCEL.name())) {
+        if (!StrUtil.equalsAny(originalInfo.getApprovalStatus(), BudgetApprovalStatusEnum.UN_SUBMIT.name(), BudgetApprovalStatusEnum.CANCEL.name())) {
             throw new MithrasException("当前状态不允许提交");
         }
         // 发起预算考核表待办流程
         budgetExamineFlowService.createFlow(originalInfo);
         //变更数据
         LambdaUpdateWrapper<BudgetExamine> wrapper = new LambdaUpdateWrapper<BudgetExamine>();
-        wrapper.set(BudgetExamine::getApprovalStatus, ProcessState.COMMIT.name());
+        wrapper.set(BudgetExamine::getApprovalStatus, BudgetApprovalStatusEnum.COMMIT.name());
         wrapper.eq(BudgetExamine::getId, originalInfo.getId());
         budgetExamineMapper.update(null, wrapper);
     }

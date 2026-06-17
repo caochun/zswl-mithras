@@ -14,7 +14,7 @@ import cn.zswltech.mithras.dto.projpricing.price.ProjPricingPriceDetailRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.contract.convert.contract.ContractPriceConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.third.enums.capital.BizTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;

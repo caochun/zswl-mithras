@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.document.file.impl;
 
 import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.mithras.dto.file.FileListRSP;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.workflow.enums.trackevent.TrackEventMaterialsEnum;
 import cn.zswltech.mithras.application.orchestration.document.file.AbstractFileListProvider;
 import org.springframework.stereotype.Component;

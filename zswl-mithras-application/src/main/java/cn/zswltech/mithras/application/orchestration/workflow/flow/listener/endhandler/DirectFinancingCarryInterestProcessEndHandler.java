@@ -22,7 +22,7 @@ import cn.zswltech.mithras.foundation.context.SpringContextHolder;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FundFilingMaterialsService;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpIncomeBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayBaseInfoService;
-import cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostMainService;
+import cn.zswltech.mithras.application.orchestration.finance.monthly.FundsDailyCostMainService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

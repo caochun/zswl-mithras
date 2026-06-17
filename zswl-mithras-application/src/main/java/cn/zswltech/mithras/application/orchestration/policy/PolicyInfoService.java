@@ -10,11 +10,12 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.payment.dto.PaymentPoliceImportREQ;
+import cn.zswltech.mithras.application.orchestration.adapter.policy.mapper.PolicyLedgerQueryMapper;
 import cn.zswltech.mithras.dto.SelectRSP;
 import cn.zswltech.mithras.dto.policy.*;
 import cn.zswltech.mithras.dto.projreview.price.ProjReviewPriceDetailRSP;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
@@ -74,6 +75,8 @@ public class PolicyInfoService extends ServiceImpl<PolicyInfoMapper, PolicyInfo>
 
     @Resource
     private PolicyInfoMapper policyInfoMapper;
+    @Resource
+    private PolicyLedgerQueryMapper policyLedgerQueryMapper;
     @Resource
     private ProjReviewBaseInfoMapper projReviewBaseInfoMapper;
     @Resource
@@ -483,7 +486,7 @@ public class PolicyInfoService extends ServiceImpl<PolicyInfoMapper, PolicyInfo>
         if (ObjectUtils.isEmpty(list)) {
             return null;
         }
-        return policyInfoMapper.countPolicyCodeNum(list).stream().collect(Collectors.toMap(PolicyCodeProjection::getPolicyCode, PolicyCodeProjection::getCodeNum,
+        return policyLedgerQueryMapper.countPolicyCodeNum(list).stream().collect(Collectors.toMap(PolicyCodeProjection::getPolicyCode, PolicyCodeProjection::getCodeNum,
                 (a, b) -> a));
     }
 

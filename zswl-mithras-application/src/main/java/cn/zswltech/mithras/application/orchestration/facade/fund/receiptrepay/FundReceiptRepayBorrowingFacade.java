@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBorrowingListRE
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBorrowingListRSP;
 import cn.zswltech.mithras.dto.fund.receiptrepay.FundReceiptRepayBorrowingModifyREQ;
 import cn.zswltech.mithras.fund.application.auth.receiptrepay.FundReceiptRepayModifySubAuthChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayBorrowingMapper;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBorrowing;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayBorrowingService;

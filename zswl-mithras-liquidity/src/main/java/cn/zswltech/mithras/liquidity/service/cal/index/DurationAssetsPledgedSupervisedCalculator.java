@@ -3,12 +3,11 @@ package cn.zswltech.mithras.liquidity.service.cal.index;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
+import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingPledgeSnapshot;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingPledgeInfo;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
+import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionPlanSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionRecordSnapshot;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorIndexHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityIndexCalculatorBo;
@@ -40,21 +39,21 @@ public class DurationAssetsPledgedSupervisedCalculator extends AbstractLiquidity
     public void calculate(Object obj, LiquidityIndexCalculatorBo bo) {
         BigDecimal result = BigDecimal.ZERO;
         List<Long> inDirectContractIdList = LiquidityIndicatorIndexHolder.FUND_FINANCING_PLEDGE_INFO.values().stream().flatMap(Collection::stream)
-                .map(FundFinancingPledgeInfo::getContractId).collect(Collectors.toList());
+                .map(LiquidityFinancingPledgeSnapshot::getContractId).collect(Collectors.toList());
         List<Long> directContractIdList = LiquidityIndicatorIndexHolder.FUND_DIRECT_FINANCING_PLEDGE_INFO.values().stream().flatMap(Collection::stream)
-                .map(FundDirectFinancingPledgeInfo::getContractId).collect(Collectors.toList());
+                .map(LiquidityFinancingPledgeSnapshot::getContractId).collect(Collectors.toList());
 
         Set<Long> contractIdList = Stream.of(Optional.ofNullable(inDirectContractIdList).orElse(Collections.emptyList()), Optional.ofNullable(directContractIdList).orElse(Collections.emptyList()))
                 .flatMap(Collection::stream).collect(Collectors.toSet());
         // 取收款表，改为合同维度
-        Map<Long, List<CollectionBaseInfo>> collectionMap = LiquidityIndicatorIndexHolder.COLLECTION_BASE_INFO.entrySet().stream().filter(f -> f.getKey().isAfter(bo.getQueryDateStart()))
+        Map<Long, List<LiquidityCollectionPlanSnapshot>> collectionMap = LiquidityIndicatorIndexHolder.COLLECTION_BASE_INFO.entrySet().stream().filter(f -> f.getKey().isAfter(bo.getQueryDateStart()))
                 .map(Map.Entry::getValue).filter(Objects::nonNull).flatMap(Collection::stream)
-                .filter(f -> contractIdList.contains(f.getContractId())).collect(Collectors.groupingBy(CollectionBaseInfo::getContractId));
+                .filter(f -> contractIdList.contains(f.getContractId())).collect(Collectors.groupingBy(LiquidityCollectionPlanSnapshot::getContractId));
 
         // 实际核销记录 合同id，现金流编号为key
-        Map<Long, Map<String, List<CollectionRecordInfo>>> recordInfoMap = collectionMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, item -> {
+        Map<Long, Map<String, List<LiquidityCollectionRecordSnapshot>>> recordInfoMap = collectionMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, item -> {
             return item.getValue().stream().filter(Objects::nonNull)
-                    .collect(Collectors.toMap(CollectionBaseInfo::getCode, collection -> {
+                    .collect(Collectors.toMap(LiquidityCollectionPlanSnapshot::getCode, collection -> {
                         return LiquidityIndicatorIndexHolder.COLLECTION_RECORD_INFO.getOrDefault(collection.getId(), new ArrayList<>());
                     },(m1,m2) -> m1));
         }));
@@ -69,13 +68,13 @@ public class DurationAssetsPledgedSupervisedCalculator extends AbstractLiquidity
         }));
         // 计算日（不含计算日当天）以后剩余未付本息合计
         Map<Long, BigDecimal> remainingMap = collectionMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, contractActual -> {
-            Map<String, List<CollectionRecordInfo>> recordMap = recordInfoMap.getOrDefault(contractActual.getKey(), new HashMap<>());
+            Map<String, List<LiquidityCollectionRecordSnapshot>> recordMap = recordInfoMap.getOrDefault(contractActual.getKey(), new HashMap<>());
             return contractActual.getValue().stream().map(flowPlan -> {
                 BigDecimal remainingAmount = BigDecimal.valueOf(LongUtil.null2zero(flowPlan.getPlanCollectionAmount()));
                 // 处理单笔现金流
-                List<CollectionRecordInfo> collectionRecordInfoList = recordMap.get(flowPlan.getCode());
+                List<LiquidityCollectionRecordSnapshot> collectionRecordInfoList = recordMap.get(flowPlan.getCode());
                 if (CollectionUtil.isNotEmpty(collectionRecordInfoList)) {
-                    long alreadyWriteOffAmount = collectionRecordInfoList.stream().filter(f -> Objects.nonNull(f.getCollectionAmount())).mapToLong(CollectionRecordInfo::getCollectionAmount).sum();
+                    long alreadyWriteOffAmount = collectionRecordInfoList.stream().filter(f -> Objects.nonNull(f.getCollectionAmount())).mapToLong(LiquidityCollectionRecordSnapshot::getCollectionAmount).sum();
                     remainingAmount = BigDecimal.valueOf(LongUtil.null2zero(flowPlan.getPlanCollectionAmount()) - alreadyWriteOffAmount);
                 }
                 return remainingAmount;

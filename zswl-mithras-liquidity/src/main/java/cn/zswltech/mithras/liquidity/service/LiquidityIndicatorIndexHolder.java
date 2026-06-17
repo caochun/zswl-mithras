@@ -2,14 +2,13 @@ package cn.zswltech.mithras.liquidity.service;
 
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterBaseDetailRSP;
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterIndexDetailRSP;
-import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingPledgeInfo;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptFlowDetail;
-import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptFlowPlan;
+import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionPlanSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionRecordSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityCreditLimitSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingPledgeSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowDetailSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowPlanSnapshot;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
-import cn.zswltech.mithras.credit.creditlimit.service.bo.CreditLimitDetailBO;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -46,41 +45,41 @@ public class LiquidityIndicatorIndexHolder {
     /**
      * 收款表基本信息，key: 合同id (起租，过滤第零期)
      */
-    public static Map<LocalDate, List<CollectionBaseInfo>> COLLECTION_BASE_INFO = new HashMap<>();
+    public static Map<LocalDate, List<LiquidityCollectionPlanSnapshot>> COLLECTION_BASE_INFO = new HashMap<>();
 
     /**
      * 实际核销记录，key：收款id
      */
-    public static Map<Long, List<CollectionRecordInfo>> COLLECTION_RECORD_INFO = new HashMap<>();
+    public static Map<Long, List<LiquidityCollectionRecordSnapshot>> COLLECTION_RECORD_INFO = new HashMap<>();
 
 
     /**
      * 间融质押监管
      */
-    public static Map<Long, List<FundFinancingPledgeInfo>> FUND_FINANCING_PLEDGE_INFO = new HashMap<>();
+    public static Map<Long, List<LiquidityFinancingPledgeSnapshot>> FUND_FINANCING_PLEDGE_INFO = new HashMap<>();
 
 
     /**
      * 直融质押监管
      */
-    public static Map<Long, List<FundDirectFinancingPledgeInfo>> FUND_DIRECT_FINANCING_PLEDGE_INFO = new HashMap<>();
+    public static Map<Long, List<LiquidityFinancingPledgeSnapshot>> FUND_DIRECT_FINANCING_PLEDGE_INFO = new HashMap<>();
 
 
     /**
      * 还本付息现金流 间融，key: 应付日
      */
-    public static Map<LocalDate, Map<String ,List<FundReceiptFlowPlan>>> FUND_RECEIPT_FLOW_PLAN = new HashMap<>();
+    public static Map<LocalDate, Map<String, List<LiquidityFundReceiptFlowPlanSnapshot>>> FUND_RECEIPT_FLOW_PLAN = new HashMap<>();
 
 
     /**
      * 实际核销记录 key: 还本付息id
      */
-    public static Map<Long, Map<String ,List<FundReceiptFlowDetail>>> FUND_RECEIPT_FLOW_DETAIL = new HashMap<>();
+    public static Map<Long, Map<String, List<LiquidityFundReceiptFlowDetailSnapshot>>> FUND_RECEIPT_FLOW_DETAIL = new HashMap<>();
 
     /**
      * 授信额度
      */
-    public static Map<Long, CreditLimitDetailBO> CREDIT_LIMIT_DETAIL = new HashMap<>();
+    public static Map<Long, LiquidityCreditLimitSnapshot> CREDIT_LIMIT_DETAIL = new HashMap<>();
 
 
 }

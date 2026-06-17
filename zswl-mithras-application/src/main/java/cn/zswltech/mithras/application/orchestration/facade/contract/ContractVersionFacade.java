@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static cn.zswltech.mithras.foundation.constant.ResultMsg.CONCURRENT_OPERATION;
-import static cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum.CONTRACT;
+import static cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum.CONTRACT;
 import static cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum.START_RENT;
 import static cn.zswltech.mithras.foundation.exception.MithrasException.err;
 import org.springframework.stereotype.Service;

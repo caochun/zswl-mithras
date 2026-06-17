@@ -84,7 +84,7 @@ public class CreditSearchClientServiceImpl implements CreditSearchClientService 
         if (Objects.isNull(itemDO)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        if (!ProcessState.UN_SUBMIT.name().equals(itemDO.getApplyStatus())) {
+        if (!CreditApplyStatusEnum.UN_SUBMIT.name().equals(itemDO.getApplyStatus())) {
             throw new MithrasException("征信查询申请状态不是待提交，无法删除");
         }
         Long creditReportId = itemDO.getCreditReportId();

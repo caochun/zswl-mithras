@@ -12,17 +12,17 @@ import cn.zswltech.mithras.budget.bo.BudgetPlanStatisticsBO;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONUtil;
+import cn.zswltech.mithras.budget.bo.ecl.BudgetEclBreachMappingBO;
+import cn.zswltech.mithras.budget.bo.ecl.BudgetEclLossLgdBO;
+import cn.zswltech.mithras.budget.bo.ecl.BudgetEclRatingMappingBO;
+import cn.zswltech.mithras.budget.bo.ecl.BudgetEclScenarioWeightBO;
+import cn.zswltech.mithras.budget.enums.BudgetEclConfigEnum;
 import cn.zswltech.mithras.dto.budget.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.kpi.enums.config.EclConfigEnum;
 import cn.zswltech.mithras.budget.mapper.EclPredictBusinessConfigMapper;
 import cn.zswltech.mithras.budget.mapper.model.EclPredictBusinessConfig;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.kpi.bo.EclBreachMappingBO;
-import cn.zswltech.mithras.kpi.bo.EclLossLgdBO;
-import cn.zswltech.mithras.kpi.bo.EclRatingMappingBO;
-import cn.zswltech.mithras.kpi.bo.EclScenarioWeightBO;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -66,7 +66,7 @@ public class EclPredictBusinessConfigService extends ServiceImpl<EclPredictBusin
     }
 
     private void checkModify(EclPredictBusinessConfigModifyREQ req){
-        EclConfigEnum eclConfigEnum = EclConfigEnum.ofName(req.getConfigCode());
+        BudgetEclConfigEnum eclConfigEnum = BudgetEclConfigEnum.ofName(req.getConfigCode());
         if (ObjectUtil.isEmpty(eclConfigEnum)) {
             throw new MithrasException("暂不支持此类型");
         }
@@ -74,8 +74,8 @@ public class EclPredictBusinessConfigService extends ServiceImpl<EclPredictBusin
         switch (eclConfigEnum) {
             case RATING_MAPPING:
                 //
-                EclRatingMappingBO eclRatingMappingBO = JSONUtil.toBean(req.getConfigValue(), EclRatingMappingBO.class);
-                List<String> innerCollection = eclRatingMappingBO.getData().stream().filter(e -> ObjectUtil.isNotEmpty(e.getInnerLevel())).map(EclRatingMappingBO.RatingMappingData::getInnerLevel).collect(Collectors.toList());
+                BudgetEclRatingMappingBO eclRatingMappingBO = JSONUtil.toBean(req.getConfigValue(), BudgetEclRatingMappingBO.class);
+                List<String> innerCollection = eclRatingMappingBO.getData().stream().filter(e -> ObjectUtil.isNotEmpty(e.getInnerLevel())).map(BudgetEclRatingMappingBO.RatingMappingData::getInnerLevel).collect(Collectors.toList());
                 innerCollection.forEach(e -> {
                     if(set.contains(e)) {
                         throw new MithrasException("内部评级" + e + "重复");
@@ -84,8 +84,8 @@ public class EclPredictBusinessConfigService extends ServiceImpl<EclPredictBusin
                 });
                 break;
             case BREACH_MAPPING:
-                EclBreachMappingBO eclBreachMappingBO = JSONUtil.toBean(req.getConfigValue(), EclBreachMappingBO.class);
-                List<String> collect = eclBreachMappingBO.getData().stream().filter(e -> ObjectUtil.isNotEmpty(e.getOuterLevel())).map(EclBreachMappingBO.BreachMappingData::getOuterLevel).collect(Collectors.toList());
+                BudgetEclBreachMappingBO eclBreachMappingBO = JSONUtil.toBean(req.getConfigValue(), BudgetEclBreachMappingBO.class);
+                List<String> collect = eclBreachMappingBO.getData().stream().filter(e -> ObjectUtil.isNotEmpty(e.getOuterLevel())).map(BudgetEclBreachMappingBO.BreachMappingData::getOuterLevel).collect(Collectors.toList());
                 collect.forEach(e -> {
                     if(set.contains(e)) {
                         throw new MithrasException("穆迪评级" + e + "重复");
@@ -96,8 +96,8 @@ public class EclPredictBusinessConfigService extends ServiceImpl<EclPredictBusin
             case FORWARD_Z:
                 break;
             case LOSS_LGD:
-                EclLossLgdBO eclLossLgdBO = JSONUtil.toBean(req.getConfigValue(), EclLossLgdBO.class);
-                List<String> lossList = eclLossLgdBO.getData().stream().filter(e -> ObjectUtil.isNotEmpty(e.getLgd())).map(EclLossLgdBO.EclLossLgdData::getLgd).collect(Collectors.toList());
+                BudgetEclLossLgdBO eclLossLgdBO = JSONUtil.toBean(req.getConfigValue(), BudgetEclLossLgdBO.class);
+                List<String> lossList = eclLossLgdBO.getData().stream().filter(e -> ObjectUtil.isNotEmpty(e.getLgd())).map(BudgetEclLossLgdBO.BudgetEclLossLgdData::getLgd).collect(Collectors.toList());
                 lossList.forEach(e -> {
                     if(new BigDecimal(e).compareTo(new BigDecimal("1")) > 0) {
                         throw new MithrasException("违约损失率LGD不能大于1");
@@ -105,8 +105,8 @@ public class EclPredictBusinessConfigService extends ServiceImpl<EclPredictBusin
                 });
                 break;
             case SCENARIO_WEIGHT:
-                EclScenarioWeightBO eclScenarioWeightBO = JSONUtil.toBean(req.getConfigValue(), EclScenarioWeightBO.class);
-                BigDecimal sum = eclScenarioWeightBO.getData().stream().filter(e -> ObjectUtil.isNotEmpty(e.getSceneWeight())).map(EclScenarioWeightBO.EclScenarioWeightData::getSceneWeight).reduce(BigDecimal.ZERO, BigDecimal::add);
+                BudgetEclScenarioWeightBO eclScenarioWeightBO = JSONUtil.toBean(req.getConfigValue(), BudgetEclScenarioWeightBO.class);
+                BigDecimal sum = eclScenarioWeightBO.getData().stream().filter(e -> ObjectUtil.isNotEmpty(e.getSceneWeight())).map(BudgetEclScenarioWeightBO.BudgetEclScenarioWeightData::getSceneWeight).reduce(BigDecimal.ZERO, BigDecimal::add);
                 if (sum.compareTo(new BigDecimal("1")) != 0) {
                     throw new MithrasException("权重总和不为1");
                 }

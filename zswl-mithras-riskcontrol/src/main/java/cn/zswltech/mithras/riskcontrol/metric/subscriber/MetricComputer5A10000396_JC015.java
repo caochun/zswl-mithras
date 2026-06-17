@@ -1,11 +1,8 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.zswltech.mithras.assetclassify.application.AssetClassifyQueryService;
-import cn.zswltech.mithras.assetclassify.model.AssetClassify;
-import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlAssetClassifyPort;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.assetclassify.versioning.AssetClassifyClientAuxiliaryLibService;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
@@ -24,7 +21,6 @@ import java.math.RoundingMode;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 /**
@@ -36,9 +32,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class MetricComputer5A10000396_JC015 extends AbstractMetricComputer implements SubscribeSupporter<MetricComputeEvent> {
     @Resource
-    private AssetClassifyQueryService assetClassifyQueryService;
-    @Resource
-    private AssetClassifyClientAuxiliaryLibService assetClassifyClientAuxiliaryLibService;
+    private RiskControlAssetClassifyPort riskControlAssetClassifyPort;
     @Resource
     private RemainingPrincipalService remainingPrincipalService;
 
@@ -57,8 +51,8 @@ public class MetricComputer5A10000396_JC015 extends AbstractMetricComputer imple
 
     @Override
     public void calculate(MetricComputeEvent event, RiskControlStrategy strategy) {
-        Optional<AssetClassify> assetClassify = assetClassifyQueryService.currentClassify(event.getSnapshotDate());
-        if (!assetClassify.isPresent()) {
+        Optional<Long> assetClassifyId = riskControlAssetClassifyPort.currentClassifyId(event.getSnapshotDate());
+        if (!assetClassifyId.isPresent()) {
             strategy.setNullReason("当前无五级分类数据");
             strategy.setCurrentValueOne(null);
             strategy.setCurrentValueTwo(null);
@@ -68,9 +62,7 @@ public class MetricComputer5A10000396_JC015 extends AbstractMetricComputer imple
         BigDecimal remainingPrincipal = remainingPrincipalService.remainingPrincipal(event.getSnapshotDate());
         // 后三类剩余本金之和
 
-        Set<Long> clientIds = assetClassifyClientAuxiliaryLibService
-                .lastThreeNewestClassifyClientLib(assetClassify.get().getMainId())
-                .stream().map(AssetClassifyClient::getClientId).collect(Collectors.toSet());
+        Set<Long> clientIds = riskControlAssetClassifyPort.lastThreeClassifyClientIds(assetClassifyId.get());
         RemainingPrincipalQueryDto dto = new RemainingPrincipalQueryDto();
         dto.setClientIds(clientIds);
         Map<Long, Long> longLongMap = remainingPrincipalService.remainingPrincipalGroupByClientId(dto);

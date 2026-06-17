@@ -16,8 +16,7 @@ import cn.zswltech.mithras.ftp.newftp.convert.NewFtpCommonConvert;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
-import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
+import cn.zswltech.mithras.ftp.common.enums.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
@@ -260,7 +259,7 @@ public class NewFtpMonthlyGuidanceDraftService
                 .eq(NewFtpMonthlyGuidanceDraft::getFtpId, mainId)
                 .eq(NewFtpMonthlyGuidanceDraft::getRiskIndustryClassify, RiskIndustryClassify.INDUSTRY.name())
                 .eq(NewFtpMonthlyGuidanceDraft::getAssetIndustryClassify, AssetIndustryClassify.ENCOURAGE_INTERVENTION.name())
-                .eq(NewFtpMonthlyGuidanceDraft::getCustomerEntityClassify, CustomerEntityClassify.CUSTOMER_LISTED_STATE_OWNED.name())
+                .eq(NewFtpMonthlyGuidanceDraft::getCustomerEntityClassify, EnterpriseTypeEnum.CUSTOMER_LISTED_STATE_OWNED.name())
                 .eq(NewFtpMonthlyGuidanceDraft::getRegionalClassify, RegionalClassify.ZHEJIANG.name()))
                 .stream().collect(Collectors.toMap(NewFtpMonthlyGuidanceDraft::getTermRange, v -> v, (k1, k2) -> k2));
         // 在对应年限的最低ftp的基础上减少0.2%
@@ -316,13 +315,13 @@ public class NewFtpMonthlyGuidanceDraftService
         // 浙江地区国有企业FTP成本与上市公司同价
         for (NewFtpMonthlyGuidanceDraft mg : toBeInsert) {
             if (!RegionalClassify.ZHEJIANG.name().equals(mg.getRegionalClassify()) ||
-                    !CustomerEntityClassify.STATE_OWNED_ENTERPRISE.name().equals(mg.getCustomerEntityClassify())) {
+                    !EnterpriseTypeEnum.STATE_OWNED_ENTERPRISE.name().equals(mg.getCustomerEntityClassify())) {
                 continue;
             }
             Integer integer = firstMap.get(mg.getAssetIndustryClassify())
                     .get(mg.getRegionalClassify())
                     .get(mg.getTermRange())
-                    .get(CustomerEntityClassify.LISTED_COMPANY.name());
+                    .get(EnterpriseTypeEnum.LISTED_COMPANY.name());
 
             mg.setValue(integer);
         }
@@ -340,7 +339,7 @@ public class NewFtpMonthlyGuidanceDraftService
                 .eq(NewFtpMonthlyGuidanceDraft::getFtpId, mainId)
                 .eq(NewFtpMonthlyGuidanceDraft::getRiskIndustryClassify, RiskIndustryClassify.INDUSTRY.name())
                 .eq(NewFtpMonthlyGuidanceDraft::getAssetIndustryClassify, AssetIndustryClassify.ENCOURAGE_INTERVENTION.name())
-                .eq(NewFtpMonthlyGuidanceDraft::getCustomerEntityClassify, CustomerEntityClassify.LISTED_COMPANY.name())
+                .eq(NewFtpMonthlyGuidanceDraft::getCustomerEntityClassify, EnterpriseTypeEnum.LISTED_COMPANY.name())
                 .eq(NewFtpMonthlyGuidanceDraft::getRegionalClassify, RegionalClassify.ZHEJIANG.name()))
                 .stream().collect(Collectors.toMap(NewFtpMonthlyGuidanceDraft::getTermRange, v -> v, (k1, k2) -> k2));
 

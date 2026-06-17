@@ -14,7 +14,7 @@ import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.ftp.oldftp.enums.CreditTerm;
 import cn.zswltech.mithras.ftp.oldftp.enums.EnterpriseType;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpProcessStatus;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
+import cn.zswltech.mithras.ftp.common.enums.ProjectClassify;
 import cn.zswltech.mithras.ftp.oldftp.mapper.FtpMonthlyGuidanceMapper;
 import cn.zswltech.mithras.ftp.oldftp.mapper.lib.FtpMonthlyGuidanceLibMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;

@@ -8,20 +8,13 @@ import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorValue;
 import cn.zswltech.mithras.riskcontrol.concentration.RiskControlConcentrationClientConverter;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.assetclassify.mapper.lib.AssetClassifyClientAuxiliaryLibMapper;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpAddressInfoLibMapper;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.model.client.CorpAddressInfo;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlMetricStrategyService;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlAssetClassifyPort;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlConcentrationClientFact;
 import cn.zswltech.mithras.riskcontrol.application.port.RiskControlMarginPort;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -54,12 +47,6 @@ public class RiskControlConcentrationClientService
     private static final Long CLIENT_SPONSOR_NULL_PLACEHOLDER = -1L;
 
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
-    private CorpAddressInfoLibMapper corpAddressInfoLibMapper;
-    @Resource
-    private AssetClassifyClientAuxiliaryLibMapper assetClassifyClientAuxiliaryLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
     private RiskControlConcentrationClientConverter baseConverter;
@@ -74,39 +61,29 @@ public class RiskControlConcentrationClientService
     @Resource
     private RiskControlConcentrationUserScopeService userScopeService;
     @Resource
-    private ClientMapper clientMapper;
-    @Resource
     private RiskControlMarginPort riskControlMarginPort;
+    @Resource
+    private RiskControlAssetClassifyPort riskControlAssetClassifyPort;
+    @Resource
+    private RiskControlClientFactPort clientFactPort;
 
     @XxlJob("riskControlConcentrationClientJobHandler")
     public void riskControlConcentrationClientJobHandler() {
         try {
-            CorpCommerceInfoLibDto commerceInfoLibDto = new CorpCommerceInfoLibDto();
-            // 查询所有法人客户的最新的工商信息
-            List<CorpCommerceInfoLib> corpCommerceInfoLibs =
-                    corpCommerceInfoLibMapper.listNewestCommerceInfo(commerceInfoLibDto);
+            Map<Long, RiskControlConcentrationClientFact> clientsMap = clientFactPort.concentrationClientFacts();
             // 查询客户名称
             List<Long> clientIds = new ArrayList<>();
-            corpCommerceInfoLibs.stream().forEach(corpCommerceInfoLib -> {
-                clientIds.add(corpCommerceInfoLib.getClientId());
-                if (corpCommerceInfoLib.getBelongGroupClientId() != null && corpCommerceInfoLib.getBelongGroupClientId() > 0) {
-                    clientIds.add(corpCommerceInfoLib.getBelongGroupClientId());
+            clientsMap.values().forEach(clientFact -> {
+                clientIds.add(clientFact.getClientId());
+                if (clientFact.getGroupId() != null && clientFact.getGroupId() > 0) {
+                    clientIds.add(clientFact.getGroupId());
                 }
             });
             Map<Long, String> clientId2Name = clientNameResolver.clientId2Name(clientIds);
 
-            Map<Long, CorpCommerceInfoLib> clientsMap = corpCommerceInfoLibs.stream()
-                    .collect(Collectors.toMap(ClientBaseModel::getClientId, item -> item, (k1, k2) -> k2));
             RemainingPrincipalQueryDto remainingPrincipalQueryDto = new RemainingPrincipalQueryDto();
-            // 查询所有法人客户的最新注册地址
-            Map<Long, String> registryAddress =
-                    corpAddressInfoLibMapper.listNewestAddressByClientId(clientsMap.keySet()).stream()
-                            .collect(Collectors.toMap(ClientBaseModel::getClientId, CorpAddressInfo::getProvince, (k1, k2) -> k2));
             // 查询指定客户的资产分类等级
-            Map<Long, String> assertClassifyResult =
-                    assetClassifyClientAuxiliaryLibMapper.listNewestClassifyLibByClientId(clientsMap.keySet()).stream()
-                            .collect(Collectors.toMap(AssetClassifyClient::getClientId,
-                                    AssetClassifyClient::getClassifyResult, (k1, k2) -> k2));
+            Map<Long, String> assertClassifyResult = riskControlAssetClassifyPort.latestClassifyResults(clientsMap.keySet());
 
             remainingPrincipalQueryDto.setClientIds(clientsMap.keySet());
             // 计算所有客户的剩余本金
@@ -116,8 +93,6 @@ public class RiskControlConcentrationClientService
             Map<Long, Long> clientIdToOverdueAmount = remainingPrincipalService.overdueAmountGroupByClient();
             // 计算所有客户的保证金余额
             Map<Long, Long> clientIdToMargin = riskControlMarginPort.getClientMarginBalances(clientsMap.keySet());
-            //获取客户信息
-            Map<Long, Long> clientSponsorMap = clientMapper.selectBatchIds(clientsMap.keySet()).stream().filter(e -> Objects.nonNull(e.getBelongSponsorId())).collect(Collectors.toMap(Client::getId, Client::getBelongSponsorId));
             // 查询当月数据
             LocalDate fistDayOfMonth = LocalDate.now().with(TemporalAdjusters.firstDayOfMonth());
             Map<Long, RiskControlConcentrationClient> clientConcentrations = baseMapper.selectList(Wrappers.<RiskControlConcentrationClient>lambdaQuery()
@@ -131,26 +106,26 @@ public class RiskControlConcentrationClientService
                     .stream().collect(Collectors.toMap(RiskControlStrategy::getId, item -> item, (k1, k2) -> k2));
 
             List<RiskControlConcentrationClient> updateList = new ArrayList<>();
-            for (Map.Entry<Long, CorpCommerceInfoLib> entry : clientsMap.entrySet()) {
+            for (Map.Entry<Long, RiskControlConcentrationClientFact> entry : clientsMap.entrySet()) {
                 Long clientId = entry.getKey();
-                CorpCommerceInfoLib commerceInfoLib = entry.getValue();
+                RiskControlConcentrationClientFact clientFact = entry.getValue();
                 RiskControlConcentrationClient concentrationClient =
                         clientConcentrations.getOrDefault(clientId, new RiskControlConcentrationClient());
                 concentrationClient.setClientId(clientId);
                 concentrationClient.setClientName(clientId2Name.get(clientId));
-                concentrationClient.setGroupId(commerceInfoLib.getBelongGroupClientId());
-                if (commerceInfoLib.getBelongGroupClientId() != null && commerceInfoLib.getBelongGroupClientId() > 0) {
-                    concentrationClient.setGroupName(clientId2Name.get(commerceInfoLib.getBelongGroupClientId()));
+                concentrationClient.setGroupId(clientFact.getGroupId());
+                if (clientFact.getGroupId() != null && clientFact.getGroupId() > 0) {
+                    concentrationClient.setGroupName(clientId2Name.get(clientFact.getGroupId()));
                 }
-                concentrationClient.setIsRelated(commerceInfoLib.getIsRelated());
-                concentrationClient.setRiskControlIndustryClassify(commerceInfoLib.getRiskControlIndustryClassify());
-                concentrationClient.setProvince(registryAddress.getOrDefault(clientId, ""));
+                concentrationClient.setIsRelated(clientFact.getRelated());
+                concentrationClient.setRiskControlIndustryClassify(clientFact.getRiskControlIndustryClassify());
+                concentrationClient.setProvince(clientFact.getProvince());
                 concentrationClient.setAssertClassifyResult(assertClassifyResult.getOrDefault(clientId, ""));
                 concentrationClient.setDateTimePoint(fistDayOfMonth);
                 concentrationClient.setRemainingPrincipal(clientIdToRemaining.getOrDefault(clientId, 0L));
                 concentrationClient.setRemainingMargin(clientIdToMargin.getOrDefault(clientId, 0L));
                 concentrationClient.setBadBalance(clientIdToOverdueAmount.getOrDefault(clientId, 0L));
-                Long clientSponsorUserId = clientSponsorMap.get(clientId);
+                Long clientSponsorUserId = clientFact.getSponsorId();
                 concentrationClient.setClientSponsorId(Objects.isNull(clientSponsorUserId) ? CLIENT_SPONSOR_NULL_PLACEHOLDER : clientSponsorUserId);
                 if (concentrationClient.getRemainingPrincipal() == 0L || factor == null || factor.getFactorValue() == null
                         || factor.getFactorValue() == 0L) {
@@ -206,10 +181,9 @@ public class RiskControlConcentrationClientService
                 concentrationGroup.setRemainingPrincipal(remainingPrincipal);
                 concentrationGroup.setBadBalance(badBalance);
                 concentrationGroup.setRemainingMargin(remainingMargin);
-                concentrationGroup.setProvince(registryAddress.getOrDefault(groupId, ""));
-                if (clientsMap.get(groupId) != null) {
-                    concentrationGroup.setRiskControlIndustryClassify(clientsMap.get(groupId).getRiskControlIndustryClassify());
-                }
+                RiskControlConcentrationClientFact groupFact = clientsMap.get(groupId);
+                concentrationGroup.setProvince(groupFact.getProvince());
+                concentrationGroup.setRiskControlIndustryClassify(groupFact.getRiskControlIndustryClassify());
                 RiskControlStrategy strategy;
                 if ("330000".equals(concentrationGroup.getProvince())
                         || RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name()

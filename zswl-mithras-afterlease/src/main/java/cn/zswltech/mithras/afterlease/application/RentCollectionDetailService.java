@@ -4,23 +4,11 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.afterlease.rentcollection.*;
-import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
-import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.afterlease.enums.RentCollectionLevelEnum;
-import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
+import cn.zswltech.mithras.afterlease.enums.RentCollectionWriteOffStatus;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
-import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.lib.contract.ContractLeasePriceLibMapper;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.collection.model.CollectionRecordInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractLeasePriceLib;
 import cn.zswltech.mithras.afterlease.util.CollectionLevelUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -36,19 +24,10 @@ import java.util.stream.Collectors;
 @Service
 public class RentCollectionDetailService {
     @Resource
-    private CollectionBaseInfoMapper collectionBaseInfoMapper;
-
-    @Resource
-    private CollectionRecordInfoMapper collectionRecordInfoMapper;
-
-    @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
-
-    @Resource
-    private ContractLeasePriceLibMapper contractLeasePriceLibMapper;
+    private RentCollectionDetailDataPort rentCollectionDetailDataPort;
 
     public R<RentDetailInfoRSP> rentDetail(RentDetailInfoREQ req) {
-        CollectionBaseInfo info = collectionBaseInfoMapper.selectById(req.getId());
+        RentCollectionDetailSnapshot info = rentCollectionDetailDataPort.getRentCollectionById(req.getId());
         RentDetailInfoRSP rsp = new RentDetailInfoRSP();
         rsp.setPrincipal(info.getPrincipal());
         rsp.setInterest(info.getInterest());
@@ -61,10 +40,9 @@ public class RentCollectionDetailService {
         rsp.setCollectionCode(info.getCode());
         rsp.setCreditAmount(info.getPenaltyInterestDeductionAmount());
         rsp.setTotalAmount(LongUtil.null2zero(info.getPrincipal())+LongUtil.null2zero(info.getInterest())+LongUtil.null2zero(info.getPenaltyInterest())-LongUtil.null2zero(info.getPenaltyInterestDeductionAmount()));
-        List<CollectionRecordInfo> infoList = collectionRecordInfoMapper.selectList(Wrappers.<CollectionRecordInfo>lambdaQuery()
-                .eq(CollectionRecordInfo::getCollectionId, req.getId()).orderByAsc(CollectionRecordInfo::getSortId));
+        List<RentCollectionRecordSnapshot> infoList = rentCollectionDetailDataPort.listCollectionRecords(req.getId());
         List<RentDetailInfoRSP.Records> records = new ArrayList<>();
-        for (CollectionRecordInfo o : infoList) {
+        for (RentCollectionRecordSnapshot o : infoList) {
             RentDetailInfoRSP.Records tmp = new RentDetailInfoRSP.Records();
             tmp.setCollectionDate(o.getCollectionDate());
             tmp.setInterest(o.getInterest());
@@ -80,16 +58,11 @@ public class RentCollectionDetailService {
 
     public R<OverdueDetailInfoRSP> overdueDetail(RentDetailInfoREQ req){
         OverdueDetailInfoRSP rsp = new OverdueDetailInfoRSP();
-        CollectionBaseInfo baseInfo = collectionBaseInfoMapper.selectById(req.getId());
-        ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(baseInfo.getContractId());
-        ContractLeasePriceLib leasePrice = contractLeasePriceLibMapper.selectOne(Wrappers.<ContractLeasePriceLib>lambdaQuery()
-                .eq(ContractLeasePriceLib::getContractId, contractBaseInfo.getId())
-                .eq(ContractLeasePriceLib::getVersionType, VersionTypeConstants.NORMAL)
-                .orderByDesc(ContractLeasePriceLib::getVersion)
-                .last("LIMIT 1"));
-        rsp.setDailyRate(leasePrice != null ? LongUtil.null2zero(leasePrice.getDefaultInterestRate()) : 0);
-        if (!ProjectBizType.ZL.name().equals(contractBaseInfo.getBizType())){
-            if (leasePrice == null || leasePrice.getDefaultInterestRate() == null){
+        RentCollectionDetailSnapshot baseInfo = rentCollectionDetailDataPort.getRentCollectionById(req.getId());
+        RentCollectionOverdueContext overdueContext = rentCollectionDetailDataPort.getOverdueContext(req.getId());
+        rsp.setDailyRate(overdueContext != null ? LongUtil.null2zero(overdueContext.getDefaultInterestRate()) : 0);
+        if (overdueContext != null && !ProjectBizType.ZL.name().equals(overdueContext.getContractBizType())){
+            if (overdueContext.getDefaultInterestRate() == null){
                 rsp.setDailyRate(500);
             }
         }
@@ -111,18 +84,13 @@ public class RentCollectionDetailService {
     }
 
     public int findLongestDayOverdueRent(Collection<Long> contractIds) {
-        LambdaQueryWrapper<CollectionBaseInfo> query = Wrappers.lambdaQuery();
-        query.in(CollectionBaseInfo::getContractId, contractIds);
-        query.eq(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name());
-        query.gt(CollectionBaseInfo::getPhase, 0);
-//        query.ne(CollectionBaseInfo::getWriteOffStatus, CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name());
-        List<CollectionBaseInfo> collectionBaseInfoList = collectionBaseInfoMapper.selectList(query);
+        List<RentCollectionDetailSnapshot> collectionBaseInfoList = rentCollectionDetailDataPort.listRentCollectionsByContractIds(contractIds);
         if (CollectionUtil.isEmpty(collectionBaseInfoList)) {
             return 0;
         }
         long max = 0;
         LocalDate now = LocalDate.now();
-        for (CollectionBaseInfo collectionBaseInfo : collectionBaseInfoList) {
+        for (RentCollectionDetailSnapshot collectionBaseInfo : collectionBaseInfoList) {
             if (collectionBaseInfo.getPlanCollectionDate().isBefore(now)) {
                 long planRent = Optional.ofNullable(collectionBaseInfo.getPlanCollectionAmount()).orElse(0L);
                 long actualRent = Optional.ofNullable(collectionBaseInfo.getCollectionAmount()).orElse(0L);
@@ -138,43 +106,40 @@ public class RentCollectionDetailService {
     }
 
     public R<List<OverdueRentListInfoRSP>> overdueRentList(ProjDetailInfoREQ req) {
-        List<CollectionBaseInfo> collectionBaseInfos = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery()
-                .eq(CollectionBaseInfo::getContractId, req.getContractId())
-                .eq(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name()));
+        List<RentCollectionDetailSnapshot> collectionBaseInfos = rentCollectionDetailDataPort.listRentCollectionsByContractId(req.getContractId());
         List<OverdueRentListInfoRSP> rsps = new LinkedList<>();
         if (CollectionUtil.isEmpty(collectionBaseInfos)){
             return R.fail("无收款记录");
         }
-        //Map<借据id, CollectionBaseInfo>
-        Map<String, List<CollectionBaseInfo>> receiptCodeMap = collectionBaseInfos.stream().collect(Collectors.groupingBy(CollectionBaseInfo::getReceiptCode));
+        Map<String, List<RentCollectionDetailSnapshot>> receiptCodeMap = collectionBaseInfos.stream().collect(Collectors.groupingBy(RentCollectionDetailSnapshot::getReceiptCode));
         if (CollectionUtil.isEmpty(receiptCodeMap.keySet())){
             return R.ok();
         }
         List<String> receiptCodes = receiptCodeMap.keySet().stream().sorted().collect(Collectors.toList());
         for (String receiptCode :receiptCodes){
-            List<CollectionBaseInfo> infos = receiptCodeMap.get(receiptCode).stream().sorted(Comparator.comparing(CollectionBaseInfo::getPhase)).collect(Collectors.toList());
+            List<RentCollectionDetailSnapshot> infos = receiptCodeMap.get(receiptCode).stream().sorted(Comparator.comparing(RentCollectionDetailSnapshot::getPhase)).collect(Collectors.toList());
             OverdueRentListInfoRSP rsp = new OverdueRentListInfoRSP();
             rsp.setPaymentCode(receiptCode);
             rsp.setPaymentId(infos.get(0).getReceiptId());
             List<OverdueRentListInfoRSP.OverdueRent> rents = new LinkedList<>();
             long maxDay = 0;
-            for (CollectionBaseInfo info : infos){
+            for (RentCollectionDetailSnapshot info : infos){
                 OverdueRentListInfoRSP.OverdueRent rent = new OverdueRentListInfoRSP.OverdueRent();
                 rent.setPhase(info.getPhase());
                 rent.setPlanCollectionDate(info.getPlanCollectionDate());
                 rent.setPrincipal(info.getPrincipal());
                 rent.setInterest(info.getInterest());
                 rent.setPenaltyInterest(info.getPenaltyInterest());
-                rent.setWriteOffStatus(Optional.ofNullable(info.getWriteOffStatus()).map(CollectionWriteOffStatusEnum::of).map(CollectionWriteOffStatusEnum::display).orElse(null));
+                rent.setWriteOffStatus(Optional.ofNullable(info.getWriteOffStatus()).map(RentCollectionWriteOffStatus::of).map(RentCollectionWriteOffStatus::display).orElse(null));
                 rent.setOverdue(false);
                 rent.setOverdueDay(0L);
                 //未核销完逾期
-                if (info.getPlanCollectionDate().isBefore(LocalDate.now()) && !CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(info.getWriteOffStatus())) {
+                if (info.getPlanCollectionDate().isBefore(LocalDate.now()) && !RentCollectionWriteOffStatus.isWriteOffCompleted(info.getWriteOffStatus())) {
                     long until = CollectionLevelUtil.getOverdueDay(info.getPlanCollectionDate());
                     rent.setOverdueDay(until);
                     rent.setOverdue(true);
                     maxDay = Math.max(maxDay,until);
-                } else if (CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(info.getWriteOffStatus())){
+                } else if (RentCollectionWriteOffStatus.isWriteOffCompleted(info.getWriteOffStatus())){
                     //核销完毕但是有过期的
                     long until = CollectionLevelUtil.getOverdueDay(info.getPlanCollectionDate(), info.getCollectionDate());
                     if (until > 0) {
@@ -194,10 +159,10 @@ public class RentCollectionDetailService {
         return R.ok(rsps);
     }
 
-    private Boolean noticeFinancialDecide(List<CollectionBaseInfo> collectionBaseInfos){
+    private Boolean noticeFinancialDecide(List<RentCollectionDetailSnapshot> collectionBaseInfos){
         //非今天且有未核销完毕到罚息即可再次通知
         if(ObjectUtil.isNotEmpty(collectionBaseInfos)){
-            for (CollectionBaseInfo collectionBaseInfo : collectionBaseInfos){
+            for (RentCollectionDetailSnapshot collectionBaseInfo : collectionBaseInfos){
                 if((ObjectUtil.isNotNull(collectionBaseInfo.getPlanPenaltyInterestDate()) && !collectionBaseInfo.getPlanPenaltyInterestDate().equals(LocalDate.now())) && (LongUtil.null2zero(collectionBaseInfo.getPenaltyInterest()) - LongUtil.null2zero(collectionBaseInfo.getPenaltyInterestDeductionAmount()) - LongUtil.null2zero(collectionBaseInfo.getCollectionPenaltyInterest())) > 0){
                     return Boolean.TRUE;
                 }

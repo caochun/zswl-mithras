@@ -1,0 +1,69 @@
+package cn.zswltech.mithras.application.orchestration.adapter.metric;
+
+import cn.zswltech.mithras.finance.service.third.jk.JinKongMonthlyReportService;
+import cn.zswltech.mithras.metric.application.job.JinKongSyncJobService;
+import cn.zswltech.mithras.metric.service.RiskMetricFactorRefreshClient;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.time.LocalDate;
+
+@Slf4j
+@Component
+public class RiskMetricFactorRefreshClientAdapter implements RiskMetricFactorRefreshClient {
+
+    @Resource
+    private JinKongMonthlyReportService jinKongMonthlyReportService;
+    @Resource
+    private JinKongSyncJobService jinKongSyncJobService;
+
+    @Override
+    public boolean refreshAsset(LocalDate date) {
+        try {
+            jinKongMonthlyReportService.jinKongSyncAsset(date);
+            return true;
+        } catch (Exception e) {
+            log.error("资产负债表:", e);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean refreshProfit(LocalDate date) {
+        try {
+            jinKongMonthlyReportService.jinKongSyncProfit(date);
+            return true;
+        } catch (Exception e) {
+            log.error("利润表:", e);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean refreshCashFlow(LocalDate date) {
+        try {
+            jinKongMonthlyReportService.jinKongSyncCashFlow(date);
+            return true;
+        } catch (Exception e) {
+            log.error("现金流量表:", e);
+            return false;
+        }
+    }
+
+    @Override
+    public boolean refreshSubjectBalance(LocalDate date) {
+        try {
+            jinKongMonthlyReportService.syncAccountBalanceData(date.getYear(), date.getMonthValue());
+            return true;
+        } catch (Exception e) {
+            log.error("科目余额表:", e);
+            return false;
+        }
+    }
+
+    @Override
+    public void testProfitSync() {
+        jinKongSyncJobService.jinKongSyncProfitJob(null);
+    }
+}

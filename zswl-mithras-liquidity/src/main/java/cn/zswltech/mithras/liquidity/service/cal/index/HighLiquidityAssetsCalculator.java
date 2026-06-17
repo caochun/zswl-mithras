@@ -3,7 +3,7 @@ package cn.zswltech.mithras.liquidity.service.cal.index;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.dto.liquiditymanage.base.LiquidityColorVo;
-import cn.zswltech.mithras.basedata.enums.BaseDataBankAccountTypeEnum;
+import cn.zswltech.mithras.liquidity.enums.LiquidityBankAccountType;
 import cn.zswltech.mithras.liquidity.enums.LiquidityColorEnum;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
 import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
@@ -39,7 +39,7 @@ public class HighLiquidityAssetsCalculator extends AbstractLiquidityCalculator<L
         BigDecimal one = BigDecimal.ZERO;
         if(CollectionUtil.isNotEmpty(accountBalanceBaseInfoMap)){
             one = accountBalanceBaseInfoMap.values().stream().filter(f -> {
-                return !Objects.equals(BaseDataBankAccountTypeEnum.SUPERVISION.name(), f.getAccountType());
+                return !Objects.equals(LiquidityBankAccountType.SUPERVISION.name(), f.getAccountType());
             }).map(m -> m.getActualBalanceAmount() != null ? m.getActualBalanceAmount() : Optional.ofNullable(m.getEstimateBalanceAmount()).orElse(0L))
                     .map(BigDecimal::valueOf).reduce(BigDecimal.ZERO, BigDecimal::add);
         }
@@ -48,7 +48,7 @@ public class HighLiquidityAssetsCalculator extends AbstractLiquidityCalculator<L
         two = LiquidityIndicatorIndexHolder.ACCOUNT_BALANCE_BASE_INFO.entrySet().stream().filter(f -> {
                     return !f.getKey().isBefore(bo.getQueryDateStart()) && !f.getKey().isAfter(bo.getQueryDateEnd());
         }).map(Map.Entry::getValue).map(Map::values).flatMap(Collection::stream).filter(f -> {
-                    return !Objects.equals(BaseDataBankAccountTypeEnum.SUPERVISION.name(), f.getAccountType());
+                    return !Objects.equals(LiquidityBankAccountType.SUPERVISION.name(), f.getAccountType());
                 }).map(m -> LongUtil.null2zeroBigDecimal(m.getRentReflowAmount())).reduce(BigDecimal.ZERO, BigDecimal::add);
         // 灵活授信
         BigDecimal flexibleCredit = LongUtil.null2zeroBigDecimal(LiquidityIndicatorIndexHolder.PARAMETER_BASE_DETAIL.getFlexibleCredit());

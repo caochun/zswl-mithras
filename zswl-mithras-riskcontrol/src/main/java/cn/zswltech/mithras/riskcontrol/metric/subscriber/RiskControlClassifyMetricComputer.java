@@ -2,13 +2,11 @@ package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.riskcontrol.ClientDetail;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import com.alibaba.fastjson.JSON;
@@ -17,7 +15,6 @@ import lombok.Data;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @description: 风控行业分类的抽象计算类
@@ -32,7 +29,7 @@ public abstract class RiskControlClassifyMetricComputer extends AbstractMetricCo
                     "J10000396_FJC47608", "A10000396_ZL039", "J10000396_JC47598");
 
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
+    private RiskControlClientFactPort clientFactPort;
     @Resource
     private RemainingPrincipalService remainingPrincipalServiceImpl;
     @Resource
@@ -42,10 +39,7 @@ public abstract class RiskControlClassifyMetricComputer extends AbstractMetricCo
 
     @Override
     protected void calculate(MetricComputeEvent event, RiskControlStrategy strategy) {
-        CorpCommerceInfoLibDto commerceDto = new CorpCommerceInfoLibDto();
-        commerceDto.setInRiskControlIndustryClassify(getIndustryClassify());
-        Set<Long> targetClients = corpCommerceInfoLibMapper.listNewestCommerceInfo(commerceDto)
-                .stream().map(ClientBaseModel::getClientId).collect(Collectors.toSet());
+        Set<Long> targetClients = clientFactPort.clientIdsInRiskControlIndustryClassify(new HashSet<>(getIndustryClassify()));
         RemainingPrincipalQueryDto dto = new RemainingPrincipalQueryDto();
         dto.setClientIds(targetClients);
         dto.setEndDate(event.getSnapshotDate());

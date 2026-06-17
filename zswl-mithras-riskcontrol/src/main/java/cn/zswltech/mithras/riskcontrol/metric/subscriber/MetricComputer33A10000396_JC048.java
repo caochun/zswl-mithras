@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjRegionalClassify;
+import cn.zswltech.mithras.riskcontrol.common.RegionalProjectClassify;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
 import com.google.common.eventbus.AllowConcurrentEvents;
@@ -38,7 +38,7 @@ public class MetricComputer33A10000396_JC048 extends RegionalRiskQuotaComputer
     }
 
     @Override
-    protected List<ProjRegionalClassify> getRegionalProjectClassify() {
-        return Arrays.asList(ProjRegionalClassify.CAUTIOUS_SUPPORT);
+    protected List<RegionalProjectClassify> getRegionalProjectClassify() {
+        return Arrays.asList(RegionalProjectClassify.CAUTIOUS_SUPPORT);
     }
 }

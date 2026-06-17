@@ -1,6 +1,5 @@
 package cn.zswltech.mithras.afterlease.model;
 
-import cn.zswltech.mithras.workflow.flow.enums.ProcessState;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -32,7 +31,7 @@ public class PenaltyReduceBaseInfo extends BaseModel implements Serializable {
     private String notes;
 
     /**
-     * {@link ProcessState#name()}
+     * 流程状态枚举名称。
      **/
     @TableField("penalty_reduce_status")
     private String penaltyReduceStatus;

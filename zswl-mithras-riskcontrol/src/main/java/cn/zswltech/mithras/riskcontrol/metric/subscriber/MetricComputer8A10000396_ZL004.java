@@ -1,14 +1,10 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
-import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -21,10 +17,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 /**
@@ -41,13 +35,11 @@ public class MetricComputer8A10000396_ZL004 extends AbstractMetricComputer imple
     public static final String FACTOR_TABLE = "资产负债表";
 
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
     private RiskMetricFactorQueryService factorService;
     @Resource
-    private ClientProvinceQueryService clientProvinceQueryService;
+    private RiskControlClientFactPort clientFactPort;
 
     @Override
     public String getMetricCode() {
@@ -78,11 +70,7 @@ public class MetricComputer8A10000396_ZL004 extends AbstractMetricComputer imple
 //            return;
 //        }
         // 从企业地址表查询最新版本的非浙江省的客户id
-        Set<Long> clientsInZhejiang = clientProvinceQueryService.getSpecifyProvinceClientIds(Collections.singletonList("330000"));
-        CorpCommerceInfoLibDto dto = new CorpCommerceInfoLibDto();
-        dto.setNotInRiskControlIndustryClassify(Collections.singletonList(RiskControlIndustryClassify.INTRA_GROUP_COLLABORATION.name()));
-        dto.setNotInClientIds(clientsInZhejiang);
-        Set<Long> targetClientIds = corpCommerceInfoLibMapper.listNewestCommerceInfo(dto).stream().map(CorpCommerceInfoLib::getClientId).collect(Collectors.toSet());
+        Set<Long> targetClientIds = clientFactPort.nonZhejiangNonIntraGroupClientIds();
         RemainingPrincipalQueryDto queryDto = new RemainingPrincipalQueryDto();
         queryDto.setClientIds(targetClientIds);
         queryDto.setEndDate(event.getSnapshotDate());

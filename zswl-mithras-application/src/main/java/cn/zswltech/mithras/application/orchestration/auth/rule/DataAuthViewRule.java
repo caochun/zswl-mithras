@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.auth.rule;
 
 
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.foundation.auth.checker.AuthHelper;
 import cn.zswltech.mithras.foundation.auth.DataAuthBusinessModule;

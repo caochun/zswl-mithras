@@ -1,20 +1,21 @@
 package cn.zswltech.mithras.afterlease.application;
 
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public interface AfterLeaseContractPort {
-    List<ContractBaseInfo> listAllStartRent();
+    List<AfterLeaseContractSnapshot> listAllStartRent();
 
-    List<ContractBaseInfo> listActiveByClientId(Long clientId);
+    List<AfterLeaseContractSnapshot> listActiveByClientId(Long clientId);
 
-    List<ContractBaseInfo> listInRentContract(Long clientId);
+    List<AfterLeaseContractSnapshot> listInRentContract(Long clientId);
 
-    ContractBaseInfo getById(Long contractId);
+    AfterLeaseContractApprovalContext getApprovalContextById(Long contractId);
 
-    void updateById(ContractBaseInfo contractBaseInfo);
+    void markOverdueCollectionNotified(Long contractId);
 
     Long getStockRiskExposure(Long clientId);
+
+    Map<Long, Set<String>> clientRoleNamesByContractId(Long contractId);
 }

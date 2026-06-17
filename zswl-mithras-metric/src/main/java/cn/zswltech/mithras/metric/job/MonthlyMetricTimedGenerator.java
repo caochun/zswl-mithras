@@ -1,5 +1,4 @@
 package cn.zswltech.mithras.metric.job;
-import cn.zswltech.mithras.customer.enums.CorpAddressType;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.map.MapUtil;
@@ -7,6 +6,10 @@ import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
+import cn.zswltech.mithras.metric.service.MetricCorpCommerceSnapshot;
+import cn.zswltech.mithras.metric.service.MetricCustomerInfoPort;
+import cn.zswltech.mithras.metric.service.MetricCustomerSnapshot;
+import cn.zswltech.mithras.metric.service.MetricIndustryTypeSnapshot;
 import cn.zswltech.mithras.metric.service.RiskMetricDictService;
 import cn.zswltech.mithras.metric.service.RiskMetricTimedService;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricDict;
@@ -14,12 +17,6 @@ import cn.zswltech.mithras.metric.mapper.model.RiskMetricTimed;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.model.client.IndustryType;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.foundation.util.LongUtil;
@@ -58,11 +55,7 @@ public class MonthlyMetricTimedGenerator {
     @Resource
     private ProjReviewBaseInfoMapper reviewBaseInfoMapper;
     @Resource
-    private ClientMapper clientMapper;
-    @Resource
-    private CorpCommerceInfoMapper commerceInfoMapper;
-    @Resource
-    private IndustryTypeMapper industryTypeMapper;
+    private MetricCustomerInfoPort metricCustomerInfoPort;
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
@@ -81,15 +74,13 @@ public class MonthlyMetricTimedGenerator {
             Map<String, ProjReviewBaseInfo> reviewMap = reviewBaseInfoMapper.selectList(Wrappers.<ProjReviewBaseInfo>lambdaQuery()
                     .in(ProjReviewBaseInfo::getProjCode, projCodeSet).notIn(ProjReviewBaseInfo::getProjReviewStatus, ListUtil.toList(RecordStatus.CLOSED.name(), RecordStatus.EXPIRE.name()))
             ).stream().collect(Collectors.toMap(ProjReviewBaseInfo::getProjCode, e -> e));
-            Map<Long, Client> clientMap = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
-                    .in(Client::getId, reviewMap.values().stream().map(ProjReviewBaseInfo::getClientId).collect(Collectors.toSet()))
-            ).stream().collect(Collectors.toMap(Client::getId, e -> e));
-            Map<Long, CorpCommerceInfo> commerceInfoMap = commerceInfoMapper.selectList(Wrappers.<CorpCommerceInfo>lambdaQuery()
-                    .in(CorpCommerceInfo::getClientId, clientMap.values().stream().map(Client::getId).collect(Collectors.toSet()))
-            ).stream().collect(Collectors.toMap(CorpCommerceInfo::getClientId, e -> e));
-            Map<Long, Client> belongGroupMap = clientMapper.selectList(Wrappers.<Client>lambdaQuery()
-                    .in(Client::getId, commerceInfoMap.values().stream().map(CorpCommerceInfo::getBelongGroupClientId).collect(Collectors.toSet()))
-            ).stream().collect(Collectors.toMap(Client::getId, e -> e));
+            Map<Long, MetricCustomerSnapshot> clientMap = metricCustomerInfoPort.mapClientsByIds(
+                    reviewMap.values().stream().map(ProjReviewBaseInfo::getClientId).collect(Collectors.toSet()));
+            Map<Long, MetricCorpCommerceSnapshot> commerceInfoMap = metricCustomerInfoPort.mapCommerceByClientIds(clientMap.keySet());
+            Map<Long, MetricCustomerSnapshot> belongGroupMap = metricCustomerInfoPort.mapClientsByIds(
+                    commerceInfoMap.values().stream().map(MetricCorpCommerceSnapshot::getBelongGroupClientId).collect(Collectors.toSet()));
+            Map<String, MetricIndustryTypeSnapshot> industryTypeMap = metricCustomerInfoPort.mapIndustryByCodes(
+                    commerceInfoMap.values().stream().map(MetricCorpCommerceSnapshot::getIndustryType).collect(Collectors.toSet()));
         /*Map<Long, CorpAddressInfo> addressInfoMap = addressInfoMapper.selectList(Wrappers.<CorpAddressInfo>lambdaQuery()
                 .in(CorpAddressInfo::getClientId, clientMap.values().stream().map(Client::getId).collect(Collectors.toSet()))
                 .eq(CorpAddressInfo::getAddressType, CorpAddressType.REGISTRY_ADDRESS.name())
@@ -109,12 +100,15 @@ public class MonthlyMetricTimedGenerator {
                 if (isNull(review)) {
                     continue;
                 }
-                Client client = clientMap.get(review.getClientId());
+                MetricCustomerSnapshot client = clientMap.get(review.getClientId());
                 if (isNull(client)) {
                     continue;
                 }
-                CorpCommerceInfo commerceInfo = commerceInfoMap.get(client.getId());
-                IndustryType industryType = industryTypeMapper.selectOne(Wrappers.<IndustryType>lambdaQuery().eq(IndustryType::getCode, commerceInfo.getIndustryType()));
+                MetricCorpCommerceSnapshot commerceInfo = commerceInfoMap.get(client.getId());
+                if (isNull(commerceInfo)) {
+                    continue;
+                }
+                MetricIndustryTypeSnapshot industryType = industryTypeMap.get(commerceInfo.getIndustryType());
 
                 timed.setRentingProjCode(projCode);
                 timed.setProjName(review.getProjName());
@@ -129,7 +123,7 @@ public class MonthlyMetricTimedGenerator {
                 timed.setClientName(client.getClientName());
                 if (null != commerceInfo.getBelongGroupClientId()) {
                     timed.setBelongGroupId(commerceInfo.getBelongGroupClientId());
-                    Client groupClient = belongGroupMap.get(commerceInfo.getBelongGroupClientId());
+                    MetricCustomerSnapshot groupClient = belongGroupMap.get(commerceInfo.getBelongGroupClientId());
                     if (null != groupClient) {
                         timed.setBelongGroupName(groupClient.getClientName());
                     }

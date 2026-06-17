@@ -1,12 +1,9 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryService;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -31,11 +28,9 @@ import java.util.*;
 @Component
 public class MetricComputer38A10000396_MD003 extends AbstractMetricComputer implements SubscribeSupporter<MetricComputeEvent> {
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
-    private ClientProvinceQueryService clientProvinceQueryService;
+    private RiskControlClientFactPort clientFactPort;
 
     @Override
     protected String getMetricCode() {
@@ -46,17 +41,8 @@ public class MetricComputer38A10000396_MD003 extends AbstractMetricComputer impl
     protected void calculate(MetricComputeEvent event, RiskControlStrategy strategy) {
         long maxRemainingPrincipal = 0L;
         // 从企业地址表查询最新版本的浙江省的客户id
-        Set<Long> clientsInZhejiang = clientProvinceQueryService.getSpecifyProvinceClientIds(Collections.singletonList("330000"));
         // 从企业商务信息表查询最新版本的浙江省的客户id
-        CorpCommerceInfoLibDto dto = new CorpCommerceInfoLibDto();
-        dto.setInClientIds(clientsInZhejiang);
-        List<CorpCommerceInfoLib> corpCommerceInfoLibs = corpCommerceInfoLibMapper.listNewestCommerceInfo(dto);
-        Map<Long, Long> client2Group = new HashMap<>();
-        for (CorpCommerceInfoLib lib : corpCommerceInfoLibs) {
-            if (lib.getBelongGroupClientId() != null && lib.getBelongGroupClientId() != -1L) {
-                client2Group.put(lib.getClientId(), lib.getBelongGroupClientId());
-            }
-        }
+        Map<Long, Long> client2Group = clientFactPort.zhejiangClientIdToGroupId();
         RemainingPrincipalQueryDto queryDto = new RemainingPrincipalQueryDto();
         queryDto.setClientIds(client2Group.keySet());
         queryDto.setEndDate(event.getSnapshotDate());

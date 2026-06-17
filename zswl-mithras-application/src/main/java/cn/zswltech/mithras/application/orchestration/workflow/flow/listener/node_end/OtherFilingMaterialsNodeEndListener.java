@@ -9,7 +9,7 @@ import cn.zswltech.flow.core.extension.event.context.NodeCommonContext;
 import cn.zswltech.gruul.biz.service.SystemConfigService;
 import cn.zswltech.mithras.filingmaterials.constant.FilingMaterialsConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.filingmaterials.model.FilingMaterials;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

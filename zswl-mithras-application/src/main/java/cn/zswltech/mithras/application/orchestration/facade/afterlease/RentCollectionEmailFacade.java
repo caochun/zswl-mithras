@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.afterlease.RentCollectionEmailSendREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.afterlease.genhtml.PaymentNoticeHtmlRender;
 import cn.zswltech.mithras.foundation.exception.MithrasException;

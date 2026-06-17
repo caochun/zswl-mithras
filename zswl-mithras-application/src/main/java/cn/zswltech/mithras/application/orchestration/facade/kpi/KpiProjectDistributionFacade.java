@@ -6,7 +6,7 @@ import cn.zswltech.mithras.kpi.application.KpiProjectDistributionApplicationServ
 import cn.zswltech.mithras.dto.kpi.*;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.application.orchestration.auth.kpi.KpiProjectDistributionModifyChecker;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjectDistributionService;
 import lombok.extern.slf4j.Slf4j;

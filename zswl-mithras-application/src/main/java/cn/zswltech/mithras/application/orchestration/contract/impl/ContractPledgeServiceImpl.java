@@ -24,8 +24,8 @@ import cn.zswltech.mithras.dto.contract.pledge.ContractPledgeRemoveREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.contract.convert.contract.ContractEntityPledgeItemConvert;
 import cn.zswltech.mithras.contract.convert.contract.ContractPledgeConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTradeStructureRoleEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.ContractConstitutionFileTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractModelEnum;
@@ -42,7 +42,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractPledgeItem;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
-import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
+import cn.zswltech.mithras.contract.core.dto.ContractConstitutionFileCommand;
 import cn.zswltech.mithras.application.orchestration.contract.*;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.application.orchestration.contract.util.ContractUtil;
@@ -114,7 +114,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
         //上传抵质押文件
         if (PledgeTypeEnum.ACCOUNTS_RECEIVABLE_PLEDGE.name().equalsIgnoreCase(req.getContractPledgeType())) {
             try {
-                ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+                ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                         .tenantryId(info.getId())
                         .contractId(req.getContractId())
                         .fileType(ContractConstitutionFileTypeEnum.PLEDGE.name())
@@ -136,7 +136,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
             throw new MithrasException("处理质押物清单发生异常");
         }
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(req.getContractId(), TradeStructureRoleEnum.PLEDGE);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(req.getContractId(), ContractTradeStructureRoleEnum.PLEDGE);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -180,7 +180,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
         }
         if (Objects.nonNull(contractPledge)) {
             // 合同交易结构辅助表
-            SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractId, TradeStructureRoleEnum.PLEDGE);
+            SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractId, ContractTradeStructureRoleEnum.PLEDGE);
             // 通知客户权限变更
             ApplicationContextUtil.getApplicationContext().publishEvent(
                     new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -223,7 +223,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
         // 更新质押措施信息
         ContractPledge info = baseConverter.modifyToEntity(modifyREQ);
         if (PledgeTypeEnum.ACCOUNTS_RECEIVABLE_PLEDGE.name().equalsIgnoreCase(modifyREQ.getContractPledgeType())) {
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .contractId(info.getContractId())
                     .tenantryId(info.getId())
                     .fileType(ContractConstitutionFileTypeEnum.PLEDGE.name()).build();
@@ -244,7 +244,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
                 }
             }
             try {
-                ContractConstitutionFileBO finalConstitutionFileBO = ContractConstitutionFileBO.builder()
+                ContractConstitutionFileCommand finalConstitutionFileBO = ContractConstitutionFileCommand.builder()
                         .tenantryId(info.getId())
                         .contractId(info.getContractId())
                         .fileType(ContractConstitutionFileTypeEnum.PLEDGE.name())
@@ -297,7 +297,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
                 contractPledgeListRSP.setFileId(file.getId());
             }
             //查询抵质押文件id
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .contractId(contractPledge.getContractId())
                     .tenantryId(contractPledge.getId())
                     .fileType(ContractConstitutionFileTypeEnum.PLEDGE.name()).build();
@@ -327,7 +327,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
         //删除抵质押文件
-        ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+        ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                 .contractId(req.getContractId())
                 .tenantryId(originalInfo.getId())
                 .fileType(ContractConstitutionFileTypeEnum.PLEDGE.name()).build();
@@ -337,7 +337,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
         // 删除质押物清单数据
         contractPledgeItemService.removeByPledgeId(req.getId());
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(originalInfo.getContractId(), TradeStructureRoleEnum.PLEDGE);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(originalInfo.getContractId(), ContractTradeStructureRoleEnum.PLEDGE);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -451,7 +451,7 @@ public class ContractPledgeServiceImpl extends ServiceImpl<ContractPledgeMapper,
     private void saveConstitutionFiles(List<MultipartFile> multipartFileList, List<Long> constitutionFileIds, ContractPledge info) {
         //保存抵质押文件
         try {
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .constitutionFileIds(constitutionFileIds)
                     .tenantryId(info.getId())
                     .contractId(info.getContractId())

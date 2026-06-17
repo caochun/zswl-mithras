@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.contract.file.generator;
 
 import cn.hutool.extra.spring.SpringUtil;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractBizTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractSubTypeEnum;

@@ -2,8 +2,8 @@ package cn.zswltech.mithras.afterlease.application;
 
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryListReq;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryListStatisticsRsp;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseProcessEndResult;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckExternalQuery;
-import cn.zswltech.mithras.workflow.flow.port.FlowEndEventProcessor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @date: 2022/11/24 15:59
  */
 public interface AfterLeaseCheckExternalQueryService
-        extends IService<NewAfterLeaseCheckExternalQuery>, FlowEndEventProcessor {
+        extends IService<NewAfterLeaseCheckExternalQuery> {
 
     /**
      * 提交审批
@@ -59,4 +59,6 @@ public interface AfterLeaseCheckExternalQueryService
     void submitCheck(Long id);
 
     void submitCheck(NewAfterLeaseCheckExternalQuery query);
+
+    void processEnd(Long id, AfterLeaseProcessEndResult endResult, Long startUserId, String processInstanceId, String modelKey);
 }

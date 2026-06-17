@@ -7,14 +7,13 @@ import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientRiskFactorModify
 import cn.zswltech.mithras.dto.assetclassify.AssetClassifyClientRiskFactorRSP;
 import cn.zswltech.mithras.dto.assetclassify.RiskFactorWrapper;
 import cn.zswltech.mithras.dto.assetclassify.WithdrawalRatioWrapper;
-import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyClientRiskFactorEnum;
 import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyClientMapper;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
 import cn.zswltech.mithras.assetclassify.model.AssetClassifyClientRiskFactorTemplate;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyContractFactPort;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyContractSnapshot;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.SystemConfigResolver;
@@ -41,7 +40,7 @@ public class AssetClassifyClientRiskFactorService {
     @Resource
     private AssetClassifyClientMapper assetClassifyClientMapper;
     @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
+    private AssetClassifyContractFactPort assetClassifyContractFactPort;
     @Resource
     private DeptNameResolver deptNameResolver;
     @Resource
@@ -74,7 +73,7 @@ public class AssetClassifyClientRiskFactorService {
             List<WithdrawalRatioWrapper> wrappers = JSON.parseArray(provisions, WithdrawalRatioWrapper.class);
             Set<Long> contractIds = wrappers.stream()
                     .map(WithdrawalRatioWrapper::getContractId).collect(Collectors.toSet());
-            List<ContractBaseInfo> contractBaseInfos = contractBaseInfoMapper.selectBatchIds(contractIds);
+            List<AssetClassifyContractSnapshot> contractBaseInfos = assetClassifyContractFactPort.listContractsByIds(contractIds);
 
             // 1. 判断是否是特殊客户(即非航运部门但是有航运业务)
             //List<String> specialCompanies = Arrays.asList(companyString.split(","));

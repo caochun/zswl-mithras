@@ -5,7 +5,6 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.flow.core.api.FlowProcessApiService;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
 import cn.zswltech.flow.core.domain.req.StartProcessReq;
@@ -15,66 +14,27 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
-import cn.zswltech.mithras.dto.creditreport.CreditReportAddCmd;
-import cn.zswltech.mithras.dto.creditreport.CreditReportClientAddDTO;
-import cn.zswltech.mithras.dto.creditreport.CreditReportClientInfo;
-import cn.zswltech.mithras.dto.creditreport.CreditReportDetailDTO;
-import cn.zswltech.mithras.dto.creditreport.CreditReportFileDTO;
-import cn.zswltech.mithras.dto.creditreport.CreditReportListDTO;
-import cn.zswltech.mithras.dto.creditreport.CreditReportListREQ;
-import cn.zswltech.mithras.dto.creditreport.CreditReportProjectInfo;
-import cn.zswltech.mithras.dto.creditreport.CreditReportSaveCmd;
-import cn.zswltech.mithras.dto.creditreport.CreditReportSubmitCmd;
-import cn.zswltech.mithras.dto.creditreport.CreditReportSubmitDTO;
 import cn.zswltech.mithras.dto.creditreport.CreditSearchCompareBusinessDTO;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
+import cn.zswltech.mithras.creditreport.enums.CreditApplyStatusEnum;
 import cn.zswltech.mithras.creditreport.enums.CreditReportBusinessModule;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
-import cn.zswltech.mithras.customer.enums.client.ClientType;
-import cn.zswltech.mithras.creditreport.enums.CreditReportMaterialSubTypeEnum;
-import cn.zswltech.mithras.creditreport.enums.CreditReportMaterialTypeEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessState;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ReviewRelationDataType;
-import cn.zswltech.mithras.creditreport.excel.exporter.CreditSearchListExcelExporter;
-import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
-import cn.zswltech.mithras.customer.mapper.corp.CorpShareholderInfoMapper;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.model.client.CorpShareholderInfo;
 import cn.zswltech.mithras.creditreport.model.CreditReportBaseInfo;
 import cn.zswltech.mithras.creditreport.model.CreditReportClientItem;
-import cn.zswltech.mithras.credit.groupcredit.establish.mapper.GroupCreditEstablishBaseInfoMapper;
-import cn.zswltech.mithras.credit.groupcredit.establish.model.GroupCreditEstablishBaseInfo;
-import cn.zswltech.mithras.projectprocess.mapper.projestablish.ProjEstablishBaseInfoMapper;
-import cn.zswltech.mithras.projectprocess.model.projestablish.ProjEstablishBaseInfo;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;
-import cn.zswltech.mithras.foundation.port.BizDeptResolver;
-import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
-import cn.zswltech.mithras.foundation.port.DeptNameResolver;
-import cn.zswltech.mithras.foundation.port.UserNameResolver;
-import cn.zswltech.mithras.customer.application.client.model.ClientBusinessHistoryBO;
-import cn.zswltech.mithras.customer.application.client.ClientBusinessHistoryService;
-import cn.zswltech.mithras.contract.core.ContractTradeStructureService;
 import cn.zswltech.mithras.creditreport.service.CreditReportBaseInfoService;
+import cn.zswltech.mithras.creditreport.service.CreditReportClientBusinessSnapshot;
+import cn.zswltech.mithras.creditreport.service.CreditReportClientCommerceSnapshot;
 import cn.zswltech.mithras.creditreport.service.CreditReportClientItemService;
 import cn.zswltech.mithras.creditreport.service.CreditReportClientSupportPort;
 import cn.zswltech.mithras.creditreport.service.CreditReportService;
-import cn.zswltech.mithras.projectprocess.application.projestablish.ProjEstablishTradeStructureService;
-import cn.zswltech.mithras.customer.application.client.dto.MithrasShareholderInfo;
 import cn.zswltech.mithras.foundation.util.CompareUtil;
 import cn.zswltech.mithras.foundation.util.LongUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.bitbucket.cowwoc.diffmatchpatch.DiffMatchPatch;
 import org.springframework.stereotype.Service;
@@ -87,7 +47,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -109,26 +68,12 @@ public class CreditReportSeriveImpl implements CreditReportService {
     @Resource
     private CreditReportClientItemService creditReportClientItemService;
 
-    @Resource
-    private ProjEstablishBaseInfoMapper projEstablishBaseInfoMapper;
-    @Resource
-    private GroupCreditEstablishBaseInfoMapper groupCreditEstablishBaseInfoMapper;
-
     //审批流相关
     @Resource
     private FlowTaskApiService taskApiService;
 
     @Resource
     private FlowProcessApiService processApiService;
-
-    @Resource
-    private UserNameResolver userNameResolver;
-    @Resource
-    private DeptNameResolver deptNameResolver;
-    @Resource
-    private ClientNameResolver clientNameResolver;
-    @Resource
-    private BizDeptResolver bizDeptResolver;
 
     @Resource
     private CurrentUserOrgResolver currentUserOrgResolver;
@@ -138,24 +83,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
     private CreditReportVersionService creditReportVersionService;
 
     @Resource
-    private ClientMapper clientMapper;
-    @Resource
     private CreditReportClientSupportPort creditReportClientSupportPort;
-
-    @Resource
-    private CorpCommerceInfoMapper corpCommerceInfoMapper;
-
-    @Resource
-    private CorpShareholderInfoMapper corpShareholderInfoMapper;
-
-    @Resource
-    private ClientBusinessHistoryService clientBusinessHistoryService;
-
-    @Resource
-    private MaterialsListMapper materialsListMapper;
-
-    @Resource
-    private CreditSearchListExcelExporter creditSearchListExcelExporter;
 
     @Resource
     private CreditReportBaseInfoService creditReportBaseInfoService;
@@ -170,7 +98,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
         creditReportDO.setApplyUser(userId);
         OrgDO orgDO = currentUserOrgResolver.getUserDeptList().get(0);
         creditReportDO.setApplyOrg(orgDO.getId());
-        creditReportDO.setApplyStatus(ProcessState.UN_SUBMIT.name());
+        creditReportDO.setApplyStatus(CreditApplyStatusEnum.UN_SUBMIT.name());
         String creditCode = generateCreditCodeSimple();
         creditReportDO.setCreditCode(creditCode);
         creditReportDOMapper.insert(creditReportDO);
@@ -244,8 +172,9 @@ public class CreditReportSeriveImpl implements CreditReportService {
                 clientInfoList.removeIf(e -> !projClientIds.contains(e.getClientId()));
             }
             if (StrUtil.equals(creditReportDO.getProjIdDataType(), CreditReportBusinessModule.PAYMENT.name())) {
-                PaymentBaseInfo paymentBaseInfo = SpringUtil.getBean(PaymentBaseInfoService.class).getById(creditReportDO.getProjId());
-                List<Long> projClientIds = SpringUtil.getBean(ContractTradeStructureService.class).listClientIdsByContractId(paymentBaseInfo.getContractId());
+                // 付款场景通过 CreditReportPaymentPort 获取合同ID。
+                Long contractId = creditReportPaymentPort.getContractIdByPaymentId(creditReportDO.getProjId());
+                List<Long> projClientIds = SpringUtil.getBean(ContractTradeStructureService.class).listClientIdsByContractId(contractId);
                 clientInfoList.removeIf(e -> !projClientIds.contains(e.getClientId()));
             }
             if (StrUtil.equalsAny(creditReportDO.getProjIdDataType(), CreditReportBusinessModule.GROUP_CREDIT_ESTABLISH.name(), CreditReportBusinessModule.GROUP_CREDIT_REVIEW.name())) {
@@ -285,65 +214,6 @@ public class CreditReportSeriveImpl implements CreditReportService {
         return addRsp;
     }*/
 
-    private List<CreditReportProjectInfo> findProjectInfoByClientId(Long clientId) {
-        // 查询项目评审
-        /*Set<Long> projReviewIds = SpringUtil.getBean(ProjReviewTradeStructureService.class).listProjReviewIdsByClientId(clientId);
-        List<ProjReviewBaseInfo> projReviewBaseInfoList;
-        if (CollectionUtil.isEmpty(projReviewIds)) {
-            projReviewBaseInfoList = Collections.emptyList();
-        } else {
-            projReviewBaseInfoList = SpringUtil.getBean(ProjReviewBaseInfoService.class).listByIds(projReviewIds);
-        }*/
-        // 查询项目立项
-        Set<Long> projEstablishIds = SpringUtil.getBean(ProjEstablishTradeStructureService.class).listProjEstablishIdsByClientId(clientId);
-        List<ProjEstablishBaseInfo> projEstablishBaseInfoList;
-        if (CollectionUtil.isEmpty(projEstablishIds)) {
-            projEstablishBaseInfoList = Collections.emptyList();
-        } else {
-            projEstablishBaseInfoList = projEstablishBaseInfoMapper.selectBatchIds(projEstablishIds);
-        }
-        // 查询授信评审
-        //List<GroupCreditReviewBaseInfo> groupReviewList = SpringUtil.getBean(GroupCreditReviewBaseInfoService.class).list(Wrappers.<GroupCreditReviewBaseInfo>lambdaQuery().eq(GroupCreditReviewBaseInfo::getClientId, clientId));
-        // 查询授信立项
-        List<GroupCreditEstablishBaseInfo> groupEstablishList = groupCreditEstablishBaseInfoMapper.selectList(Wrappers.<GroupCreditEstablishBaseInfo>lambdaQuery().eq(GroupCreditEstablishBaseInfo::getClientId, clientId));
-        // 去重合并成唯一的项目信息
-        List<CreditReportProjectInfo> result = new LinkedList<>();
-        Set<Long> ignoreProjEstablishIds = new HashSet<>();
-        Set<Long> ignoreGroupReviewIds = new HashSet<>();
-        Set<Long> ignoreGroupEstablishIds = new HashSet<>();
-        /*for (ProjReviewBaseInfo projReviewBaseInfo : projReviewBaseInfoList) {
-            result.add(new CreditReportProjectInfo().setProjId(projReviewBaseInfo.getId()).setProjIdDataType(CreditReportBusinessModule.PROJ_REVIEW.name()).setProjCode(projReviewBaseInfo.getProjCode()).setProjName(projReviewBaseInfo.getProjName()));
-            if (Objects.nonNull(projReviewBaseInfo.getProjEstablishId())) {
-                ignoreProjEstablishIds.add(projReviewBaseInfo.getProjEstablishId());
-            }
-            if (Objects.nonNull(projReviewBaseInfo.getGroupCreditReviewId())) {
-                ignoreGroupReviewIds.add(projReviewBaseInfo.getGroupCreditReviewId());
-            }
-        }*/
-        for (ProjEstablishBaseInfo projEstablishBaseInfo : projEstablishBaseInfoList) {
-            if (ignoreProjEstablishIds.contains(projEstablishBaseInfo.getId())) {
-                continue;
-            }
-            result.add(new CreditReportProjectInfo().setProjId(projEstablishBaseInfo.getId()).setProjIdDataType(ReviewRelationDataType.PROJ_ESTABLISH.name()).setProjCode(projEstablishBaseInfo.getProjCode()).setProjName(projEstablishBaseInfo.getProjName()));
-        }
-/*
-        for (GroupCreditReviewBaseInfo groupCreditReviewBaseInfo : groupReviewList) {
-            if (ignoreGroupReviewIds.contains(groupCreditReviewBaseInfo.getId())) {
-                continue;
-            }
-            ignoreGroupEstablishIds.add(groupCreditReviewBaseInfo.getGroupCreditEstablishId());
-            result.add(new CreditReportProjectInfo().setProjId(groupCreditReviewBaseInfo.getId()).setProjIdDataType(CreditReportBusinessModule.GROUP_CREDIT_REVIEW.name()).setProjCode(groupCreditReviewBaseInfo.getProjCode()).setProjName(groupCreditReviewBaseInfo.getProjName()));
-        }
-*/
-        for (GroupCreditEstablishBaseInfo groupCreditEstablishBaseInfo : groupEstablishList) {
-            if (ignoreGroupEstablishIds.contains(groupCreditEstablishBaseInfo.getId())) {
-                continue;
-            }
-            result.add(new CreditReportProjectInfo().setProjId(groupCreditEstablishBaseInfo.getId()).setProjIdDataType(ReviewRelationDataType.GROUP_CREDIT_REVIEW.name()).setProjCode(groupCreditEstablishBaseInfo.getProjCode()).setProjName(groupCreditEstablishBaseInfo.getProjName()));
-        }
-        return result;
-    }
-
     /*@Override
     @Transactional(rollbackFor = Exception.class)
     public void saveCreditReport(CreditReportSaveCmd cmd) {
@@ -366,15 +236,6 @@ public class CreditReportSeriveImpl implements CreditReportService {
             saveAdditionalClients(cmd, clientInfos, userId, orgDO);
         }
     }*/
-
-    private void validateCommand(CreditReportSaveCmd cmd) {
-        if (CollectionUtils.isEmpty(cmd.getClientInfos())) {
-            throw new MithrasException("征信报告保存时客户信息不能为空");
-        }
-        if (cmd.getId() == null) {
-            throw new MithrasException("征信报告ID不能为空");
-        }
-    }
 
     /*private void updateCreditReportAndPrimaryItem(CreditReportSaveCmd cmd,
                                                   CreditReportClientInfo client,
@@ -447,7 +308,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
         // 设置公共字段
         itemDO.setApplyUser(userId);
         itemDO.setApplyOrg(orgDO.getId());
-        itemDO.setApplyStatus(ProcessState.UN_SUBMIT.name());
+        itemDO.setApplyStatus(CreditApplyStatusEnum.UN_SUBMIT.name());
         itemDO.setCreditCode(reportDO.getCreditCode());
         itemDO.setProjId(reportDO.getProjId());
         itemDO.setProjName(reportDO.getProjName());
@@ -479,8 +340,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
         }
         ProcessResp relatedProcess = findRelatedProcess(cmd.getId());
         if (ObjectUtil.isNotEmpty(relatedProcess)) {
-            ProcessModelTypeEnum modelTypeEnum = ProcessModelTypeEnum.valueOf(relatedProcess.getModelKey());
-            throw new MithrasException(String.format("已处于'%s'中，提交审批失败", modelTypeEnum.getDisplay()));
+            throw new MithrasException(String.format("已处于'%s'中，提交审批失败", CreditReportBusinessModule.getModelDisplay(relatedProcess.getModelKey())));
         }
         //校验企业资料是否上传
         List<CreditReportSubmitDTO> submitList = checkEnterprise(cmd.getId(), cmd.getClientId(), CreditReportMaterialTypeEnum.ENTERPRISE_CREDIT_REPORT.name(), CreditReportBusinessModule.CREDIT_REPORT_SELECT.name());
@@ -489,7 +349,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
                 return submitList;
             }
         }
-        creditReport.setApplyStatus(ProcessState.COMMIT.name());
+        creditReport.setApplyStatus(CreditApplyStatusEnum.COMMIT.name());
         creditReportDOMapper.updateById(creditReport);
         // 查询并更新所有子项
         List<CreditReportItemDO> items = creditReportItemService.list(
@@ -498,46 +358,13 @@ public class CreditReportSeriveImpl implements CreditReportService {
         );
 
         for (CreditReportItemDO item : items) {
-            item.setApplyStatus(ProcessState.COMMIT.name());
+            item.setApplyStatus(CreditApplyStatusEnum.COMMIT.name());
         }
         // 批量更新子表
         creditReportItemService.saveOrUpdateBatch(items);
         submitOne(creditReport.getId());
         return new ArrayList<>();
     }*/
-
-    private List<CreditReportSubmitDTO> checkEnterprise(Long id, List<Long> clientIds, String materialsType, String businessType) {
-        List<CreditReportSubmitDTO> submits = new ArrayList<>();
-        // 获取所有需要的子类型
-        List<CreditReportMaterialSubTypeEnum> requiredSubTypes = CreditReportMaterialSubTypeEnum.listSub(CreditReportMaterialTypeEnum.ENTERPRISE_CREDIT_REPORT);
-        for (Long clientId : clientIds) {
-            CreditReportSubmitDTO creditReportSubmitDTO = new CreditReportSubmitDTO();
-            String clientName = clientNameResolver.clientId2NameSingle(clientId);
-            creditReportSubmitDTO.setClientName(clientName);
-            LambdaQueryWrapper<MaterialsList> wrapper = Wrappers.<MaterialsList>lambdaQuery().eq(MaterialsList::getMaterialsType, materialsType).eq(MaterialsList::getBusinessType, businessType).eq(MaterialsList::getBelongId, id)
-                    .eq(MaterialsList::getSourceBusinessKey, clientId);
-            List<MaterialsList> existingMaterials = materialsListMapper.selectList(wrapper);
-
-            // 提取已存在的 materialSubType 集合
-            Set<String> existingSubTypes = existingMaterials.stream().map(MaterialsList::getMaterialSubType).collect(Collectors.toSet());
-
-            List<CreditReportFileDTO> files = new ArrayList<>();
-            // 遍历所有应有的子类型
-            for (CreditReportMaterialSubTypeEnum item : requiredSubTypes) {
-                if (!existingSubTypes.contains(item.name())) {
-                    CreditReportFileDTO creditReportFileDTO = new CreditReportFileDTO();
-                    creditReportFileDTO.setMaterialsTypeName(item.getDisplay());
-                    files.add(creditReportFileDTO);
-                }
-            }
-            if (CollectionUtil.isEmpty(files)) {
-                continue;
-            }
-            creditReportSubmitDTO.setCreditReportFiles(files);
-            submits.add(creditReportSubmitDTO);
-        }
-        return submits;
-    }
 
    /* @Override
     public PageR<CreditReportListDTO> list(CreditReportListREQ req) {
@@ -626,7 +453,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
         if (Objects.isNull(reportDO)) {
             throw new MithrasException(ResultMsg.RECORD_NOT_EXIST);
         }
-        if (!ProcessState.UN_SUBMIT.name().equals(reportDO.getApplyStatus())) {
+        if (!CreditApplyStatusEnum.UN_SUBMIT.name().equals(reportDO.getApplyStatus())) {
             throw new MithrasException("征信查询申请状态不是待提交，无法删除");
         }
         //删除征信查询主表
@@ -640,7 +467,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
     @Override
     public List<CreditSearchCompareBusinessDTO> compareBusiness(Long creditSearchId, Boolean isHistory) {
         //查询历史数据比对
-        Map<Long, ClientBusinessHistoryBO> clientBusinessHistoryBOMap;
+        Map<Long, CreditReportClientBusinessSnapshot> clientBusinessHistorySnapshotMap;
         //获取合同承租人、担保人
         //List<CreditReportItemDO> creditItems = creditReportItemService.list(Wrappers.<CreditReportItemDO>lambdaQuery().eq(CreditReportItemDO::getCreditReportId, creditSearchId));
         List<CreditReportClientItem> creditItems = creditReportClientItemService.listByBaseInfoId(creditSearchId);
@@ -651,27 +478,21 @@ public class CreditReportSeriveImpl implements CreditReportService {
             clientIds = creditItems.stream().map(CreditReportClientItem::getClientId).collect(Collectors.toList());
         }
         //查询系统内客户信息
-        Map<Long, Client> clientMap = clientMapper.selectBatchIds(clientIds).stream().collect(Collectors.toMap(Client::getId, e -> e, (a, b) -> a));
-        //客户工商信息
-        Map<Long, CorpCommerceInfo> corpCommerceMap = corpCommerceInfoMapper.selectList(Wrappers.<CorpCommerceInfo>lambdaQuery()
-                .in(CorpCommerceInfo::getClientId, clientIds)).stream().collect(Collectors.toMap(CorpCommerceInfo::getClientId, e -> e, (a, b) -> a));
-        Map<Long, List<CorpShareholderInfo>> clientShareholderMap = corpShareholderInfoMapper.selectList(Wrappers.<CorpShareholderInfo>lambdaQuery()
-                .in(CorpShareholderInfo::getClientId, clientIds)).stream().collect(Collectors.groupingBy(CorpShareholderInfo::getClientId));
+        Map<Long, CreditReportClientCommerceSnapshot> clientMap = creditReportClientSupportPort.listCommerceSnapshots(clientIds);
         //查询比对信息
         if (isHistory) {
-            clientBusinessHistoryBOMap = clientBusinessHistoryService.getHistoryBoByClientIds(clientIds);
+            clientBusinessHistorySnapshotMap = creditReportClientSupportPort.getHistoryBusiness(clientIds);
         } else {
             //查询天眼查数据
-            clientBusinessHistoryBOMap = creditReportClientSupportPort.compareBusiness(clientIds);
+            clientBusinessHistorySnapshotMap = creditReportClientSupportPort.compareBusiness(clientIds);
         }
         //比对数据
         //承租人
         if (CollectionUtil.isNotEmpty(clientIds)) {
             clientIds.forEach(clientId -> {
-                Client client = clientMap.get(clientId);
-                if (ClientType.CORPORATION.name().equals(client.getClientType())) {
-                    rsp.add(buildCreditSearchCompareBusinessDTO(clientBusinessHistoryBOMap.get(clientId), client, corpCommerceMap.get(clientId),
-                            clientShareholderMap.get(clientId), "承租人"));
+                CreditReportClientCommerceSnapshot client = clientMap.get(clientId);
+                if (client != null && Boolean.TRUE.equals(client.getCorporation())) {
+                    rsp.add(buildCreditSearchCompareBusinessDTO(clientBusinessHistorySnapshotMap.get(clientId), client, "承租人"));
                 }
             });
         }
@@ -711,13 +532,12 @@ public class CreditReportSeriveImpl implements CreditReportService {
     }
 */
 
-    public CreditSearchCompareBusinessDTO buildCreditSearchCompareBusinessDTO(ClientBusinessHistoryBO bo, Client client, CorpCommerceInfo corpCommerceInfo,
-                                                                              List<CorpShareholderInfo> corpShareholderInfos, String clientType) {
+    public CreditSearchCompareBusinessDTO buildCreditSearchCompareBusinessDTO(CreditReportClientBusinessSnapshot bo, CreditReportClientCommerceSnapshot client, String clientType) {
         boolean nodiff = true;
         CreditSearchCompareBusinessDTO dto = new CreditSearchCompareBusinessDTO();
         dto.setClientType(clientType);
         dto.setClientName(client.getClientName());
-        dto.setCorpRepresent(corpCommerceInfo == null ? null : corpCommerceInfo.getCorpRepresent());
+        dto.setCorpRepresent(client.getCorpRepresent());
         //股东名称
         Set<String> shareholderNameSet = new HashSet<>();
         if (ObjectUtil.isNotNull(bo)) {
@@ -744,26 +564,27 @@ public class CreditReportSeriveImpl implements CreditReportService {
             }
             //比对股东信息
             if (CollectionUtil.isNotEmpty(bo.getTycShareHolderInfo())) {
-                Map<String, CorpShareholderInfo> corpShareholderMap = new HashMap<>();
-                Map<String, CorpShareholderInfo> corpShareholderWithoutSpecialTextMap = new HashMap<>();
+                Map<String, CreditReportClientCommerceSnapshot.ShareholderSnapshot> corpShareholderMap = new HashMap<>();
+                Map<String, CreditReportClientCommerceSnapshot.ShareholderSnapshot> corpShareholderWithoutSpecialTextMap = new HashMap<>();
+                List<CreditReportClientCommerceSnapshot.ShareholderSnapshot> corpShareholderInfos = client.getShareholders();
                 if (CollectionUtil.isNotEmpty(corpShareholderInfos)) {
-                    corpShareholderMap = corpShareholderInfos.stream().collect(Collectors.toMap(CorpShareholderInfo::getShareholderName, e -> e, (a, b) -> a));
+                    corpShareholderMap = corpShareholderInfos.stream().collect(Collectors.toMap(CreditReportClientCommerceSnapshot.ShareholderSnapshot::getShareholderName, e -> e, (a, b) -> a));
                     corpShareholderWithoutSpecialTextMap = corpShareholderInfos.stream().collect(Collectors.toMap(e -> StrUtil.removeAll(e.getShareholderName(), GlobalConstants.MATCH_IGNORE_STR), e -> e, (a, b) -> a));
                 }
-                CorpShareholderInfo corpShareholderInfo;
+                CreditReportClientCommerceSnapshot.ShareholderSnapshot corpShareholderInfo;
                 String shareholderName;
                 String capitalPercent;
                 String capitalPercentTyc;
                 boolean isConsistent = true;
-                for (MithrasShareholderInfo boShareHolderInfo : bo.getTycShareHolderInfo()) {
+                for (CreditReportClientBusinessSnapshot.ShareholderSnapshot boShareHolderInfo : bo.getTycShareHolderInfo()) {
                     corpShareholderInfo = corpShareholderMap.get(boShareHolderInfo.getShareholderName());
                     if (Objects.isNull(corpShareholderInfo)) {
                         // 找不到的话从去掉特殊字符的map里试试
                         corpShareholderInfo = corpShareholderWithoutSpecialTextMap.get(StrUtil.removeAll(boShareHolderInfo.getShareholderName(), GlobalConstants.MATCH_IGNORE_STR));
                     }
-                    shareholderName = Optional.ofNullable(corpShareholderInfo).map(CorpShareholderInfo::getShareholderName).orElse(null);
+                    shareholderName = Optional.ofNullable(corpShareholderInfo).map(CreditReportClientCommerceSnapshot.ShareholderSnapshot::getShareholderName).orElse(null);
                     capitalPercentTyc = " " + LongUtil.tenThousand2Dollar(String.valueOf(Optional.ofNullable(boShareHolderInfo.getCapitalPercent()).orElse(0L))).setScale(2, RoundingMode.HALF_UP).toPlainString() + "%";
-                    capitalPercent = " " + LongUtil.tenThousand2Dollar(String.valueOf(Optional.ofNullable(corpShareholderInfo).map(CorpShareholderInfo::getCapitalPercent).orElse(0L))).setScale(2, RoundingMode.HALF_UP).toPlainString() + "%";
+                    capitalPercent = " " + LongUtil.tenThousand2Dollar(String.valueOf(Optional.ofNullable(corpShareholderInfo).map(CreditReportClientCommerceSnapshot.ShareholderSnapshot::getCapitalPercent).orElse(0L))).setScale(2, RoundingMode.HALF_UP).toPlainString() + "%";
                     List<String> shareHolderInfo = Optional.ofNullable(dto.getShareHolderInfo()).orElse(new ArrayList<>());
                     if (ObjectUtil.isNotEmpty(shareholderName)) {
                         shareHolderInfo.add(shareholderName + capitalPercent);
@@ -801,6 +622,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
             nodiff = false;
         }
         //补充未比对信息
+        List<CreditReportClientCommerceSnapshot.ShareholderSnapshot> corpShareholderInfos = client.getShareholders();
         if (CollectionUtil.isNotEmpty(corpShareholderInfos)) {
             corpShareholderInfos.forEach(corpShareholderInfo -> {
                 if (!shareholderNameSet.contains(corpShareholderInfo.getShareholderName())) {
@@ -897,15 +719,15 @@ public class CreditReportSeriveImpl implements CreditReportService {
     public void processEnd(Long id, Integer endType, Long startUserId, String processInstanceId, String modelKey) {
         boolean processPass = ProcessBusinessStatusEnum.success(endType);
         if (processPass) {
-            updateApplyStatus(id, ProcessState.PASS.name());
+            updateApplyStatus(id, CreditApplyStatusEnum.PASS.name());
             // 审批通过 新增版本
             creditReportVersionService.recordVersion(id, VersionTypeEnum.APPROVAL, Long.valueOf(startUserId), processInstanceId, VersionTypeConstants.NORMAL);
         } else {
             if (ProcessBusinessStatusEnum.CANCEL.getType().equals(endType)) {
-                updateApplyStatus(id, ProcessState.CANCEL.name());
+                updateApplyStatus(id, CreditApplyStatusEnum.CANCEL.name());
             }
             if (ProcessBusinessStatusEnum.REJECT.getType().equals(endType) || ProcessBusinessStatusEnum.REJECT_ALL.getType().equals(endType)) {
-                updateApplyStatus(id, ProcessState.REJECT.name());
+                updateApplyStatus(id, CreditApplyStatusEnum.REJECT.name());
             }
             creditReportVersionService.recordVersion(id, VersionTypeEnum.APPROVAL, Long.valueOf(startUserId), processInstanceId, VersionTypeConstants.INVALID);
             creditReportVersionService.reset(id);
@@ -938,7 +760,7 @@ public class CreditReportSeriveImpl implements CreditReportService {
 
         // 设置主表状态和时间
         creditReport.setApplyStatus(applyStatus);
-        LocalDateTime applyTime = ProcessState.PASS.name().equals(applyStatus) ? LocalDateTime.now() : null;
+        LocalDateTime applyTime = CreditApplyStatusEnum.PASS.name().equals(applyStatus) ? LocalDateTime.now() : null;
         creditReport.setApplyTime(applyTime);
 
         /*// 查询并更新所有子项
@@ -960,10 +782,9 @@ public class CreditReportSeriveImpl implements CreditReportService {
         creditReportBaseInfoService.updateById(creditReport);
     }
 
-
     public void submitOne(Long id) {
         StartProcessReq startProcessReq = new StartProcessReq();
-        startProcessReq.setModelKey(ProcessModelTypeEnum.CreditReportSelectFlow.name());
+        startProcessReq.setModelKey(CreditReportBusinessModule.CREDIT_REPORT_SELECT_FLOW_MODEL_KEY);
         startProcessReq.setStartUserId(Optional.ofNullable(AccountUtil.getLoginInfo()).map(AccountVO::getId).map(String::valueOf).orElseThrow(() -> new MithrasException(ResultMsg.USER_NOT_LOGIN)));
         startProcessReq.setBusinessKey(String.valueOf(id));
         startProcessReq.setProcessInstanceName(String.format("%s征信报告查询", LocalDateTimeUtil.format(LocalDate.now(), "yyyyMMdd")));

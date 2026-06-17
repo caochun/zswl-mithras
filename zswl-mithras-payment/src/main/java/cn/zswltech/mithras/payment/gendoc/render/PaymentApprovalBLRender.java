@@ -1,22 +1,16 @@
 package cn.zswltech.mithras.payment.gendoc.render;
 
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
-import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.gruul.dao.dal.entity.UserDO;
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
+import cn.zswltech.mithras.payment.application.PaymentWorkflowPort;
+import cn.zswltech.mithras.payment.application.PaymentWorkflowProcessSnapshot;
+import cn.zswltech.mithras.payment.application.render.PaymentApprovalRenderSnapshot;
+import cn.zswltech.mithras.payment.application.render.PaymentApprovalRenderSupportPort;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
+import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.OutputStream;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -27,29 +21,24 @@ import java.util.Optional;
  * @description 放款审批表（保理）
  */
 @Component
-public class PaymentApprovalBLRender extends AbstractBasicRender<PaymentBaseInfo> {
+public class PaymentApprovalBLRender {
     private static final String FILE_NAME = "保理业务放款审批表" + GlobalConstants.OFFICE_WORD_SUFFIX;
 
     @Resource
-    private ContractBaseInfoLibService contractBaseInfoLibService;
+    private PaymentApprovalRenderSupportPort paymentApprovalRenderSupportPort;
+    @Resource
+    private PaymentWorkflowPort paymentWorkflowPort;
 
-    @Override
     public String render(OutputStream outputStream, PaymentBaseInfo paymentBaseInfo) throws Exception {
         String templatePath = "/doc/放款_放款审批_保理.docx";
         Map<String, Object> renderMap = new HashMap<>(64);
         // 捞数据
-        OrgDO orgDO = businessDataRepository.getOrgById(paymentBaseInfo.getConBizDeptId());
-        UserDO userDO = businessDataRepository.getUser(paymentBaseInfo.getCreateBy());
-        ContractBaseInfoLib contractBaseInfoLib = contractBaseInfoLibService.getLatest(paymentBaseInfo.getContractId());
-        ProcessResp latestProcess = this.getLatestProcess(
-                Arrays.asList(ProcessModelTypeEnum.ProjReviewCreateFlow.name(), ProcessModelTypeEnum.ProjReviewModifyFlow.name()),
-                Collections.singletonList(contractBaseInfoLib.getProjReviewId().toString()),
-                Arrays.asList(ProcessBusinessStatusEnum.PASS.getType(), ProcessBusinessStatusEnum.PASS_ALL.getType())
-        );
+        PaymentApprovalRenderSnapshot renderSnapshot = paymentApprovalRenderSupportPort.getBaseRenderSnapshot(paymentBaseInfo);
+        PaymentWorkflowProcessSnapshot latestProcess = paymentWorkflowPort.getLatestPassedProjectReviewProcess(renderSnapshot.getProjReviewId());
         // 填充所需数据
-        renderMap.put(PaymentApprovalBLRender.RenderParameterKeyHolder.BIZ_DEPT, Optional.ofNullable(orgDO).map(OrgDO::getName).orElse(""));
-        renderMap.put(PaymentApprovalBLRender.RenderParameterKeyHolder.SPONSOR_NAME, Optional.ofNullable(userDO).map(UserDO::getUserName).orElse(""));
-        renderMap.put(PaymentApprovalBLRender.RenderParameterKeyHolder.REVIEW_FLOW_ID, Optional.ofNullable(latestProcess).map(ProcessResp::getProcessInstanceId).orElse(""));
+        renderMap.put(PaymentApprovalBLRender.RenderParameterKeyHolder.BIZ_DEPT, Optional.ofNullable(renderSnapshot.getBizDeptName()).orElse(""));
+        renderMap.put(PaymentApprovalBLRender.RenderParameterKeyHolder.SPONSOR_NAME, Optional.ofNullable(renderSnapshot.getSponsorName()).orElse(""));
+        renderMap.put(PaymentApprovalBLRender.RenderParameterKeyHolder.REVIEW_FLOW_ID, Optional.ofNullable(latestProcess).map(PaymentWorkflowProcessSnapshot::getProcessInstanceId).orElse(""));
         renderMap.put(PaymentApprovalBLRender.RenderParameterKeyHolder.BL_CONTRACT_CODE, paymentBaseInfo.getContractCode());
         // 渲染
         XWPFTemplate template = XWPFTemplate.compile(PaymentApprovalBLRender.class.getResourceAsStream(templatePath)).render(renderMap);

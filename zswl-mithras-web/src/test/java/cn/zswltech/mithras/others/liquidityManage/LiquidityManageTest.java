@@ -2,9 +2,9 @@ package cn.zswltech.mithras.others.liquidityManage;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.application.orchestration.liquiditymanage.AccountBalanceBaseInfoService;
-import cn.zswltech.mithras.application.orchestration.liquiditymanage.FundFinancingAccountSettingService;
-import cn.zswltech.mithras.application.orchestration.liquiditymanage.LiquidityDataService;
+import cn.zswltech.mithras.application.orchestration.liquidity.AccountBalanceBaseInfoService;
+import cn.zswltech.mithras.application.orchestration.liquidity.FundFinancingAccountSettingService;
+import cn.zswltech.mithras.application.orchestration.liquidity.LiquidityDataService;
 import org.junit.Test;
 import org.springframework.test.context.ActiveProfiles;
 

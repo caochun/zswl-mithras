@@ -12,7 +12,7 @@ import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;
@@ -58,7 +58,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static cn.hutool.core.text.CharSequenceUtil.equalsAny;
-import static cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum.CONTRACT;
+import static cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum.CONTRACT;
 
 /**
  * 合同流程结束

@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.zswltech.mithras.capital.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.fund.persistence.mapper.financing.FundFinancingBaseInfoMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptFlowDetailMapper;
 import cn.zswltech.mithras.fund.persistence.mapper.receiptrepay.FundReceiptRepayBaseInfoMapper;
@@ -23,6 +22,8 @@ import java.util.stream.Collectors;
  * @date: 2023/4/24 18:54
  */
 public abstract class FinancingBalanceCalculator implements FinancialCloudMetricCalculator {
+
+    private static final String REPAY_CASH_FLOW_ITEM = "REPAY";
 
     @Resource
     private FundReceiptFlowDetailMapper receiptFlowDetailMapper;
@@ -55,7 +56,7 @@ public abstract class FinancingBalanceCalculator implements FinancialCloudMetric
 
         List<FundReceiptFlowDetail> detailList = receiptFlowDetailMapper.selectList(Wrappers.<FundReceiptFlowDetail>lambdaQuery()
                 .le(FundReceiptFlowDetail::getCashFlowDate, end)
-                .eq(FundReceiptFlowDetail::getCashFlowItem, FinanceCashFlowItemEnum.REPAY.name())
+                .eq(FundReceiptFlowDetail::getCashFlowItem, REPAY_CASH_FLOW_ITEM)
                 .in(FundReceiptFlowDetail::getReceiptRepayId, receiptRepayBaseInfos.stream().map(FundReceiptRepayBaseInfo::getId).collect(Collectors.toList())));
 
         return receiptRepayBaseInfos.stream().map(FundReceiptRepayBaseInfo::getFinancingAmount)

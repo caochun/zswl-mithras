@@ -2,7 +2,7 @@ package cn.zswltech.mithras.finance.view.service;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceRepayRSP;
-import cn.zswltech.mithras.dashboard.model.DashboardFundRepayQuery;
+import cn.zswltech.mithras.dto.dashboard.DashboardFundRepayQuery;
 import com.baomidou.mybatisplus.extension.service.IService;
 import cn.zswltech.mithras.finance.view.entity.DashboardFvRepayPrincipalInterestSnapshot;
 

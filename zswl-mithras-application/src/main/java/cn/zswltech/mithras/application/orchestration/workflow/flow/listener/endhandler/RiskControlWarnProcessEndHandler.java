@@ -7,7 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionHandleStatus;
-import cn.zswltech.mithras.riskcontrol.flow.dynamicform.risk.opinion.RiskOpinionHandleCheckHandler;
+import cn.zswltech.mithras.riskcontrol.common.RiskControlFlowVariable;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitor;
 import cn.zswltech.mithras.riskcontrol.warning.RiskControlWarnMonitorService;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +40,7 @@ public class RiskControlWarnProcessEndHandler extends AbstractProcessEndHandler 
         //默认关闭
         boolean handleFlay = false;
         if (CharSequenceUtil.equalsAny(endContext.getModelKey(), RiskControlWarnNotPaymentFlow.name(), RiskControlWarnPaymentFlow.name())) {
-            Integer variable = (Integer) getBean(RuntimeService.class).getVariable(endContext.getProcessInstanceId(), RiskOpinionHandleCheckHandler.HANDLE_TYPE);
+            Integer variable = (Integer) getBean(RuntimeService.class).getVariable(endContext.getProcessInstanceId(), RiskControlFlowVariable.HANDLE_TYPE);
             if (ObjectUtil.isNotEmpty(variable) && variable > 0) {
                 handleFlay = true;
             }

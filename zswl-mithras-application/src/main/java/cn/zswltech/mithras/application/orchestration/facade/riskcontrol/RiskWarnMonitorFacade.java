@@ -11,7 +11,7 @@ import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.riskcontrol.application.RiskWarnMonitorApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.riskcontrol.opinion.*;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.riskcontrol.common.RiskDataSourceEnum;
 import cn.zswltech.mithras.riskcontrol.opinion.RiskControlOpinionMonitor;

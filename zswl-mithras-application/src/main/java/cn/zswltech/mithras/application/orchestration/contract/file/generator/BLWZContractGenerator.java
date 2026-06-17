@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum.CONTRACT;
+import static cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum.CONTRACT;
 
 /**
  * 保理无追合同生成

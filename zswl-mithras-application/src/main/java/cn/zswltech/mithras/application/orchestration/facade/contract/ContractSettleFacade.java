@@ -17,7 +17,7 @@ import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.contract.application.auth.ContractBaseAddSubAuthChecker;
 import cn.zswltech.mithras.contract.application.auth.ContractBaseRemoveMainAuthChecker;
 import cn.zswltech.mithras.contract.convert.contract.ContractSettlePlanConvert;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;

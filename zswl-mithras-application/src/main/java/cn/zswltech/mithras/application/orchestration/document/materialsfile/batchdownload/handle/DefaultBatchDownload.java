@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.document.materialsfile.batchdownload.handle;
 
 import cn.zswltech.mithras.dto.file.FileBatchDownLoadREQ;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.batchdownload.AbstractFileBatchDownload;
 import org.springframework.stereotype.Component;
 

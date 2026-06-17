@@ -1,12 +1,10 @@
 package cn.zswltech.mithras.payment.mapper;
 
-import cn.zswltech.mithras.payment.dto.ContractPayInfoDTO;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -32,7 +30,4 @@ public interface PaymentActualDetailMapper extends CustomBaseMapper<PaymentActua
     @Select("select ifnull(sum(paid_in_amount),0) from payment_actual_detail where deleted = 0 and contract_id = #{contractId}")
     long totalPayByContractId(@Param("contractId") Long contractId);
 
-    List<ContractPayInfoDTO> listContractPayInfoBetween(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
-
-    List<ContractPayInfoDTO> listContractPayInfoBeforeTargetDate(@Param("targetDate") LocalDate targetDate);
 }

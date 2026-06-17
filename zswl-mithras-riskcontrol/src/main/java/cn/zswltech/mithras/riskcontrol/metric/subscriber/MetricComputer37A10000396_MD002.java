@@ -1,12 +1,9 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryService;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -19,10 +16,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * R=按单个客户维度（客户注册地址为「浙江省」的剩余本金之和）
@@ -34,11 +29,9 @@ import java.util.stream.Collectors;
 @Component
 public class MetricComputer37A10000396_MD002 extends AbstractMetricComputer implements SubscribeSupporter<MetricComputeEvent> {
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
-    private ClientProvinceQueryService clientProvinceQueryService;
+    private RiskControlClientFactPort clientFactPort;
 
     @Override
     protected String getMetricCode() {
@@ -49,10 +42,7 @@ public class MetricComputer37A10000396_MD002 extends AbstractMetricComputer impl
     protected void calculate(MetricComputeEvent event, RiskControlStrategy strategy) {
         Long maxRemainingPrincipal = 0L;
         // 从企业地址表查询最新版本的浙江省的客户id
-        Set<Long> clientsInZhejiang = clientProvinceQueryService.getSpecifyProvinceClientIds(Collections.singletonList("330000"));
-        CorpCommerceInfoLibDto dto = new CorpCommerceInfoLibDto();
-        dto.setInClientIds(clientsInZhejiang);
-        Set<Long> targetClientIds = corpCommerceInfoLibMapper.listNewestCommerceInfo(dto).stream().map(CorpCommerceInfoLib::getClientId).collect(Collectors.toSet());
+        Set<Long> targetClientIds = clientFactPort.zhejiangClientIds();
         RemainingPrincipalQueryDto queryDto = new RemainingPrincipalQueryDto();
         queryDto.setClientIds(targetClientIds);
         queryDto.setEndDate(event.getSnapshotDate());

@@ -417,8 +417,4 @@ ALTER TABLE fund_financing_plan_lib ADD lpr_arrange_mode varchar(50) NULL COMMEN
 ALTER TABLE fund_financing_plan_lib ADD lpr_adjustment_day varchar(50) NULL COMMENT 'LPR调整日';
 ALTER TABLE fund_financing_plan_lib ADD comprehensive_interest_rate_current int(10) NULL COMMENT '综合借款年利率-当前使用';
 
-alter table asset_classify_client add COLUMN award_ratio BIGINT(20) COMMENT '计提比例';
-alter table asset_classify_client_lib add COLUMN award_ratio BIGINT(20) COMMENT '计提比例';
-alter table asset_classify_client_auxiliary_lib add COLUMN award_ratio BIGINT(20) COMMENT '计提比例';
-
 update fund_financing_plan set comprehensive_interest_rate_current = lpr_rate_percent + lpr_add_percent;

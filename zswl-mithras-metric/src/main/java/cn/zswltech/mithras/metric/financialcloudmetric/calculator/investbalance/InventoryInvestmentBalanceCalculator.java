@@ -13,9 +13,6 @@ import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTenantryMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.dto.financialcloudmetric.ContractDetail;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.CalculateDetailCache;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.ContractRemainingPrincipalReader;
@@ -23,6 +20,8 @@ import cn.zswltech.mithras.metric.financialcloudmetric.calculator.DepartmentPerC
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.FinancialCloudMetricCalculator;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.accincrease.DepartmentPaymentCache;
 import cn.zswltech.mithras.metric.financialcloudmetric.calculator.enums.ConditionKey;
+import cn.zswltech.mithras.metric.service.MetricCorpCommerceSnapshot;
+import cn.zswltech.mithras.metric.service.MetricCustomerInfoPort;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
 import cn.zswltech.mithras.projectprocess.mapper.projreview.ProjReviewBaseInfoMapper;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
@@ -53,7 +52,7 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
     @Resource
     private DepartmentPaymentCache departmentPaymentCache;
     @Resource
-    private CorpCommerceInfoLibMapper commerceInfoLibMapper;
+    private MetricCustomerInfoPort metricCustomerInfoPort;
     @Resource
     private ContractRemainingPrincipalReader contractRemainingPrincipalReader;
     @Resource
@@ -178,9 +177,7 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
                             Set<Long> tempClientIds = contractTenantryList.stream().map(ContractTenantry::getRentConcatAccountId)
                                     .filter(Objects::nonNull).map(Long::valueOf).collect(Collectors.toSet());
                             // 找到里面的的国标行业分类进行筛选
-                            CorpCommerceInfoLibDto dto = new CorpCommerceInfoLibDto();
-                            dto.setInClientIds(tempClientIds);
-                            commerceInfoLibMapper.listNewestCommerceInfo(dto)
+                            metricCustomerInfoPort.listNewestCommerceInfo(tempClientIds)
                                     .stream().collect(Collectors.groupingBy(corpCommerceInfoLib -> {
                                         String industryType = corpCommerceInfoLib.getIndustryType();
                                         if (ObjectUtil.isEmpty(industryType)) {
@@ -193,7 +190,7 @@ public abstract class InventoryInvestmentBalanceCalculator implements FinancialC
                                         return "NONE";
                                     })).forEach((s, corpCommerceInfoLibs) -> {
                                         Set<Long> tmp = new HashSet<>(32);
-                                        for (CorpCommerceInfoLib lib : corpCommerceInfoLibs) {
+                                        for (MetricCorpCommerceSnapshot lib : corpCommerceInfoLibs) {
                                             List<ContractTenantry> list = collect.get(lib.getClientId().toString());
                                             if (CollUtil.isNotEmpty(list)) {
                                                 tmp.addAll(list.stream().map(ContractTenantry::getContractId).collect(Collectors.toList()));

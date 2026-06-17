@@ -3,14 +3,21 @@ package cn.zswltech.mithras.application.orchestration.capital;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.gruul.dao.dal.dao.UserDOMapper;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.capital.enums.BankFlowCenterTypeEnum;
-import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
+import cn.zswltech.mithras.capital.service.CapitalBankFlowNoHandleRuleService;
+import cn.zswltech.mithras.capital.service.CapitalBankFlowSaveRuleService;
+import cn.zswltech.mithras.capital.service.CapitalBankFlowSyncRuleService;
+import cn.zswltech.mithras.capital.service.CapitalBankFlowWriteOffRuleService;
 import cn.zswltech.mithras.capital.service.FinanceFlowWriteOffDetailService;
+import cn.zswltech.mithras.capital.service.model.CapitalBankFlowSaveDecision;
+import cn.zswltech.mithras.capital.service.model.CapitalBankFlowSnapshot;
+import cn.zswltech.mithras.capital.service.model.CapitalBankFlowSyncDiff;
+import cn.zswltech.mithras.capital.service.model.CapitalBankFlowSyncSnapshot;
+import cn.zswltech.mithras.capital.service.model.CapitalBankFlowWriteOffState;
 import cn.zswltech.mithras.basedata.persistence.model.BaseDataBankAccount;
 import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowRecord;
 import cn.zswltech.mithras.third.financialshare.persistence.model.FinanceFlowTempRecord;
@@ -25,7 +32,6 @@ import cn.zswltech.mithras.third.financialshare.application.FinanceFlowRecordTem
 import cn.zswltech.mithras.third.financialshare.client.req.CQ2FlowQueryReq;
 import cn.zswltech.mithras.third.financialshare.client.resp.CQ2FlowQueryRsp;
 import cn.zswltech.mithras.foundation.util.LongUtil;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -57,6 +63,14 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
     private FinanceFlowRecordTempService financeFlowRecordTempService;
     @Resource
     private FinanceFlowWriteOffDetailService financeFlowWriteOffDetailService;
+    @Resource
+    private CapitalBankFlowNoHandleRuleService capitalBankFlowNoHandleRuleService;
+    @Resource
+    private CapitalBankFlowSaveRuleService capitalBankFlowSaveRuleService;
+    @Resource
+    private CapitalBankFlowSyncRuleService capitalBankFlowSyncRuleService;
+    @Resource
+    private CapitalBankFlowWriteOffRuleService capitalBankFlowWriteOffRuleService;
     @Value("${mithras.remote.authOrg}")
     private String orgCode;
 
@@ -70,19 +84,20 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
             return;
         }
         Set<Long> ids = records.stream().map(FinanceFlowRecord::getId).collect(Collectors.toSet());
-        Set<Long> hasIds = new HashSet<>();
+        List<Long> hasIds = Collections.emptyList();
         if (CollectionUtil.isNotEmpty(ids)) {
             List<FinanceFlowRecord> financeFlowRecords = baseMapper.selectBatchIds(ids);
             if (CollectionUtil.isNotEmpty(financeFlowRecords)) {
-                financeFlowRecords.forEach(record -> hasIds.add(record.getId()));
+                hasIds = financeFlowRecords.stream().map(FinanceFlowRecord::getId).collect(Collectors.toList());
             }
         }
+        CapitalBankFlowSaveDecision saveDecision = capitalBankFlowSaveRuleService.resolveNewFlowIds(ids, hasIds);
         //构建流水信息 这里暂时不做更新，流水更新后续业务也会受影响，故先不支持
         List<FinanceFlowRecord> addList = new ArrayList<FinanceFlowRecord>();
         records.forEach(record -> {
-            if (!hasIds.contains(record.getId())) {
+            if (saveDecision.getNewFlowIds().contains(record.getId())) {
                 FinanceFlowRecord flowRecord = BeanUtil.copyProperties(record, FinanceFlowRecord.class);
-                flowRecord.setShowInList(YesOrNoNumberEnum.YES.getCode());
+                flowRecord.setShowInList(saveDecision.getDefaultShowInList());
                 addList.add(flowRecord);
             }
         });
@@ -109,51 +124,17 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
             return;
         }
 
-        List<Long> financeFlowIds = new ArrayList<>(16);
-        //过滤条件1： （付款方向 and 对方户名=员工姓名） or 对方户名含“待报解” -》去除付款方向
-        //找到当前所有用户
+        List<CapitalBankFlowSnapshot> flowSnapshots = addList.stream()
+                .map(record -> new CapitalBankFlowSnapshot(record.getId(), record.getOppunit(),
+                        record.getDescription(), record.getOppbanknumber()))
+                .collect(Collectors.toList());
         List<String> userNames = getBean(UserDOMapper.class).selectAll().stream().map(UserDO::getUserName).collect(Collectors.toList());
-        String[] userNamesArray = userNames.toArray(new String[userNames.size()]);
-        List<Long> idsBySysName = addList.stream()
-                .filter(obj -> CharSequenceUtil.containsAny(obj.getOppunit(), userNamesArray))
-                .map(FinanceFlowRecord::getId)
-                .collect(Collectors.toList());
-        if (CollUtil.isNotEmpty(idsBySysName)) {
-            financeFlowIds.addAll(idsBySysName);
-        }
-
-        List<Long> idsByOppUnit = addList.stream().filter(a -> Objects.nonNull(a.getOppunit()))
-                .filter(obj -> obj.getOppunit().contains("待报解"))
-                .map(FinanceFlowRecord::getId)
-                .collect(Collectors.toList());
-        if (CollUtil.isNotEmpty(idsByOppUnit)) {
-            financeFlowIds.addAll(idsByOppUnit);
-        }
-
-        //过滤条件2： 摘要中含“报销” or “工资” or “奖金”
-        List<Long> idsByDesc = addList.stream().filter(o -> CharSequenceUtil.isNotBlank(o.getDescription()))
-                .filter(o -> CharSequenceUtil.containsAny(o.getDescription(), "报销", "工资", "奖金"))
-                .map(FinanceFlowRecord::getId)
-                .collect(Collectors.toList());
-        if (CollUtil.isNotEmpty(idsByDesc)) {
-            financeFlowIds.addAll(idsByDesc);
-        }
-
-        //过滤条件3：对方账号=【财务管理-我方账户】中的账号
         List<BaseDataBankAccount> list = getBean(BaseDataBankAccountService.class).list();
-        if (CollUtil.isNotEmpty(list)) {
-            String[] accountNumArray = list.stream().map(BaseDataBankAccount::getAccountNumber)
-                    .map(e -> e.replace(" ", "")).toArray(String[]::new);
-            List<Long> idsByAccount = addList.stream().filter(o -> CharSequenceUtil.isNotBlank(o.getOppbanknumber()))
-                    .filter(o -> CharSequenceUtil.equalsAny(o.getOppbanknumber().replace(" ", ""), accountNumArray))
-                    .map(FinanceFlowRecord::getId)
-                    .collect(Collectors.toList());
-            if (CollUtil.isNotEmpty(idsByAccount)) {
-                financeFlowIds.addAll(idsByAccount);
-            }
-        }
-
-        financeFlowIds = financeFlowIds.stream().distinct().collect(Collectors.toList());
+        List<String> accountNumbers = CollUtil.isEmpty(list) ? Collections.emptyList() : list.stream()
+                .map(BaseDataBankAccount::getAccountNumber)
+                .collect(Collectors.toList());
+        List<Long> financeFlowIds = capitalBankFlowNoHandleRuleService.resolveNoHandleFlowIds(
+                flowSnapshots, userNames, accountNumbers);
         if (CollUtil.isNotEmpty(financeFlowIds)) {
             getBean(FinanceFlowRecordService.class).lambdaUpdate()
                     .in(FinanceFlowRecord::getId, financeFlowIds)
@@ -200,25 +181,17 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
             SpringContextHolder.getBean(FinanceFlowRecordService.class).saveFlowRecord(tempRecordList);
             return Collections.emptyList();
         }
-        //比对
-        List<FinanceFlowRecord> addList = new ArrayList<>();
-        List<Long> deleteIds = new ArrayList<>();
-        Set<String> oldIds = financeFlowRecords.stream().map(FinanceFlowRecord::getBillno).collect(Collectors.toSet());
-        Set<String> tempIds = tempRecordList.stream().map(FinanceFlowRecord::getBillno).collect(Collectors.toSet());
-        //添加的
-        tempRecordList.forEach(temp -> {
-            if (!oldIds.contains(temp.getBillno())) {
-                addList.add(temp);
-            }
-        });
+        CapitalBankFlowSyncDiff syncDiff = capitalBankFlowSyncRuleService.diffByBillNo(
+                toSyncSnapshots(financeFlowRecords), toSyncSnapshots(tempRecordList));
+        Set<String> addBillNos = syncDiff.getAddedFlows().stream()
+                .map(CapitalBankFlowSyncSnapshot::getBillNo)
+                .collect(Collectors.toSet());
+        List<FinanceFlowRecord> addList = tempRecordList.stream()
+                .filter(record -> addBillNos.contains(record.getBillno()))
+                .collect(Collectors.toList());
+        List<Long> deleteIds = syncDiff.getDeletedFlowIds();
 
         List<String> deleteBillNo = new ArrayList<>();
-        //删除的
-        financeFlowRecords.forEach(record -> {
-            if (!tempIds.contains(record.getBillno())) {
-                deleteIds.add(record.getId());
-            }
-        });
         if (!addList.isEmpty()) {
             SpringContextHolder.getBean(FinanceFlowRecordService.class).saveFlowRecord(addList);
         }
@@ -235,6 +208,15 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
         //同步宝融
         SpringContextHolder.getBean(BrFlowRecordService.class).doSyncCqFlow();
         return deleteBillNo;
+    }
+
+    private List<CapitalBankFlowSyncSnapshot> toSyncSnapshots(List<FinanceFlowRecord> records) {
+        if (CollUtil.isEmpty(records)) {
+            return Collections.emptyList();
+        }
+        return records.stream()
+                .map(record -> new CapitalBankFlowSyncSnapshot(record.getId(), record.getBillno()))
+                .collect(Collectors.toList());
     }
 
     @Transactional(rollbackFor = Throwable.class)
@@ -261,17 +243,11 @@ public class FinanceFlowRecordService extends ServiceImpl<FinanceFlowRecordMappe
         FinanceFlowRecord financeFlowRecord = baseMapper.selectById(financeFlowId);
         financeFlowRecord.setSendCqFlag(YesOrNoNumberEnum.NO.getCode());
         financeFlowRecord.setSurplusAmount(LongUtil.null2zero(financeFlowRecord.getSurplusAmount()) + LongUtil.null2zero(amount));
-        //记录金额
-        double debitamount = financeFlowRecord.getDebitamount() == null ? 0f : financeFlowRecord.getDebitamount();
-        double creditamount = financeFlowRecord.getCreditamount() == null ? 0f : financeFlowRecord.getCreditamount();
-        if (financeFlowRecord.getSurplusAmount() <= 0) {
-            financeFlowRecord.setWriteOffStatus(FinancingFlowWriteOffStatusEnum.COMPLETE_WRITE_OFF.name());
-        } else if (financeFlowRecord.getSurplusAmount() >= (debitamount + creditamount) * 10000) {
-            financeFlowRecord.setWriteOffStatus(FinancingFlowWriteOffStatusEnum.NO_WRITE_OFF.name());
-            financeFlowRecord.setFinancingFlowType(BankFlowCenterTypeEnum.PROCESSING_CENTER.name());
-        } else {
-            financeFlowRecord.setWriteOffStatus(FinancingFlowWriteOffStatusEnum.PART_WRITE_OFF.name());
-            financeFlowRecord.setFinancingFlowType(BankFlowCenterTypeEnum.PROCESSING_CENTER.name());
+        CapitalBankFlowWriteOffState writeOffState = capitalBankFlowWriteOffRuleService.resolveStateAfterWithdraw(
+                financeFlowRecord.getSurplusAmount(), financeFlowRecord.getDebitamount(), financeFlowRecord.getCreditamount());
+        financeFlowRecord.setWriteOffStatus(writeOffState.getWriteOffStatus());
+        if (writeOffState.getFinancingFlowType() != null) {
+            financeFlowRecord.setFinancingFlowType(writeOffState.getFinancingFlowType());
         }
         baseMapper.updateById(financeFlowRecord);
     }

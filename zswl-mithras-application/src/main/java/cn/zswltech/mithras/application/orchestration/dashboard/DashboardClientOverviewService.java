@@ -15,6 +15,8 @@ import cn.zswltech.mithras.dto.client.client.ClientListRSP;
 import cn.zswltech.mithras.dto.client.lifecycle.CardName;
 import cn.zswltech.mithras.dto.dashboard.*;
 import cn.zswltech.mithras.assetclassify.enums.AssetClassifyResultEnum;
+import cn.zswltech.mithras.assetclassify.mapper.AssetClassifyClientMapper;
+import cn.zswltech.mithras.assetclassify.model.AssetClassifyClient;
 import cn.zswltech.mithras.customer.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.enums.client.EnterpriseNatureEnum;
@@ -31,8 +33,8 @@ import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeasePriceMapper;
 import cn.zswltech.mithras.customer.mapper.corp.IndustryTypeMapper;
 import cn.zswltech.mithras.dashboard.mapper.DashboardProjectInfoMapper;
-import cn.zswltech.mithras.customer.dto.client.DashboardClientBasicDTO;
-import cn.zswltech.mithras.customer.dashboard.query.DashboardClientOverviewAllQuery;
+import cn.zswltech.mithras.customer.dto.client.ClientBasicInfoDTO;
+import cn.zswltech.mithras.customer.dto.client.ClientBasicPageQuery;
 import cn.zswltech.mithras.basedata.persistence.model.AddressDictionary;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.customer.model.client.IndustryType;
@@ -94,6 +96,10 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
     private DashboardProjectInfoMapper dashboardProjectInfoMapper;
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
+    @Resource
+    private AssetClassifyClientMapper assetClassifyClientMapper;
+    @Resource
+    private CollectionBaseInfoMapper collectionBaseInfoMapper;
 
     private static final String WAN = "万元";
 
@@ -192,9 +198,12 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
         StopWatch st = new StopWatch();
         st.start("所有客户明细");
         //查询所有客户
-        DashboardClientOverviewAllQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, DashboardClientOverviewAllQuery.class);
+        ClientBasicPageQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, ClientBasicPageQuery.class);
         fillAuthQuery(dashboardClientOverviewAllQuery, BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
-        Page<DashboardClientBasicDTO> dashboardClientBasicDTOPage = clientMapper.dashboardAllPageList(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
+        if (!prepareDashboardClientQuery(dashboardClientOverviewAllQuery, req.getAssetClassifyResultCode(), null, null)) {
+            return null;
+        }
+        Page<ClientBasicInfoDTO> dashboardClientBasicDTOPage = clientMapper.pageClientBasicInfo(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
         List<DashboardClientOverviewAllRSP> dashboardClientOverviewAllRSPS = BeanUtil.copyToList(dashboardClientBasicDTOPage.getRecords(), DashboardClientOverviewAllRSP.class);
         if (ObjectUtil.isEmpty(dashboardClientOverviewAllRSPS)) {
             return null;
@@ -229,10 +238,13 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
         if (ObjectUtil.isEmpty(targetClientIds)) {
             return null;
         }
-        DashboardClientOverviewAllQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, DashboardClientOverviewAllQuery.class);
+        ClientBasicPageQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, ClientBasicPageQuery.class);
         fillAuthQuery(dashboardClientOverviewAllQuery, BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
         dashboardClientOverviewAllQuery.setLimitClientIds(targetClientIds);
-        Page<DashboardClientBasicDTO> dashboardClientBasicDTOPage = clientMapper.dashboardAllPageList(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
+        if (!prepareDashboardClientQuery(dashboardClientOverviewAllQuery, req.getAssetClassifyResultCode(), null, null)) {
+            return null;
+        }
+        Page<ClientBasicInfoDTO> dashboardClientBasicDTOPage = clientMapper.pageClientBasicInfo(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
         List<DashboardClientOverviewSurvivalRSP> dashboardClientOverviewSurvivalRSPS = BeanUtil.copyToList(dashboardClientBasicDTOPage.getRecords(), DashboardClientOverviewSurvivalRSP.class);
         if (ObjectUtil.isEmpty(dashboardClientOverviewSurvivalRSPS)) {
             return null;
@@ -276,10 +288,13 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
         }
         Map<Long, List<DashboardProjectInfoSettleInThreeMonthResult>> clientId2Settle = dashboardProjectInfoSettleInThreeMonthResults.stream().collect(Collectors.groupingBy(DashboardProjectInfoSettleInThreeMonthResult::getClientId));
         //查询客户信息
-        DashboardClientOverviewAllQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, DashboardClientOverviewAllQuery.class);
+        ClientBasicPageQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, ClientBasicPageQuery.class);
         fillAuthQuery(dashboardClientOverviewAllQuery, BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
         dashboardClientOverviewAllQuery.setLimitClientIds(clientId2Settle.keySet());
-        Page<DashboardClientBasicDTO> dashboardClientBasicDTOPage = clientMapper.dashboardAllPageList(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
+        if (!prepareDashboardClientQuery(dashboardClientOverviewAllQuery, req.getAssetClassifyResultCode(), null, null)) {
+            return null;
+        }
+        Page<ClientBasicInfoDTO> dashboardClientBasicDTOPage = clientMapper.pageClientBasicInfo(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
         List<DashboardClientOverviewSettleInThreeMonthRSP> dashboardClientOverviewSettleInThreeMonthRSPS = BeanUtil.copyToList(dashboardClientBasicDTOPage.getRecords(), DashboardClientOverviewSettleInThreeMonthRSP.class);
         if (ObjectUtil.isEmpty(dashboardClientOverviewSettleInThreeMonthRSPS)) {
             return null;
@@ -356,7 +371,7 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
         return amountDto;
     }
 
-    private void fillAuthQuery(DashboardClientOverviewAllQuery query, AccountVO accountVO) {
+    private void fillAuthQuery(ClientBasicPageQuery query, AccountVO accountVO) {
         AccountVO loginInfo = Optional.ofNullable(AccountUtil.getLoginInfo()).orElse(accountVO);
         if (ObjectUtil.isEmpty(loginInfo)) {
             return;
@@ -489,18 +504,21 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
         if (ObjectUtil.isEmpty(targetClientIds)) {
             return null;
         }
-        DashboardClientOverviewAllQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, DashboardClientOverviewAllQuery.class);
+        ClientBasicPageQuery dashboardClientOverviewAllQuery = BeanUtil.copyProperties(req, ClientBasicPageQuery.class);
         fillAuthQuery(dashboardClientOverviewAllQuery, BeanUtil.copyProperties(req.getAccountVo(), AccountVO.class));
         dashboardClientOverviewAllQuery.setLimitClientIds(targetClientIds);
+        if (!prepareDashboardClientQuery(dashboardClientOverviewAllQuery, null, req.getDealLineFrom(), req.getDealLineTo())) {
+            return null;
+        }
         //分页过滤数据
-        Page<DashboardClientBasicDTO> dashboardClientBasicDTOPage = clientMapper.dashboardAllPageList(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
+        Page<ClientBasicInfoDTO> dashboardClientBasicDTOPage = clientMapper.pageClientBasicInfo(new Page(req.getPage(), req.getPageSize()), dashboardClientOverviewAllQuery);
         if (ObjectUtil.isEmpty(dashboardClientBasicDTOPage) || ObjectUtil.isEmpty(dashboardClientBasicDTOPage.getRecords())) {
             return null;
         }
-        List<DashboardClientBasicDTO> records = dashboardClientBasicDTOPage.getRecords();
+        List<ClientBasicInfoDTO> records = dashboardClientBasicDTOPage.getRecords();
         List<DashboardClientOverviewSettledRSP> rsps = new ArrayList<>();
         //填充数据
-        Set<Long> clientIdSet = records.stream().map(DashboardClientBasicDTO::getClientId).collect(Collectors.toSet());
+        Set<Long> clientIdSet = records.stream().map(ClientBasicInfoDTO::getClientId).collect(Collectors.toSet());
         List<ContractBaseInfo> list = contractBaseInfoService.list(clientIdSet);
         if (ObjectUtil.isEmpty(list)) {
             return null;
@@ -518,7 +536,7 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
                 systemIds.addAll(JSONUtil.toList(base.getProjCosponsorUserIds(), Long.class));
             }
         }
-        Map<Long, DashboardClientBasicDTO> id2RecordMap = records.stream().collect(Collectors.toMap(DashboardClientBasicDTO::getClientId, e -> e, (a, b) -> a));
+        Map<Long, ClientBasicInfoDTO> id2RecordMap = records.stream().collect(Collectors.toMap(ClientBasicInfoDTO::getClientId, e -> e, (a, b) -> a));
         records.forEach(e -> {
             systemIds.add(e.getProjSponsorUserId());
             deptIds.add(e.getBizDeptId());
@@ -532,7 +550,7 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
             DashboardClientOverviewSettledRSP rsp = new DashboardClientOverviewSettledRSP();
             rsp.setClientId(clientId);
             rsp.setClientName(clientId2Name.get(clientId));
-            DashboardClientBasicDTO dashboardClientBasicDTO = id2RecordMap.get(clientId);
+            ClientBasicInfoDTO dashboardClientBasicDTO = id2RecordMap.get(clientId);
             if(ObjectUtil.isNotEmpty(dashboardClientBasicDTO)){
                 rsp.setProjSponsorUserId(dashboardClientBasicDTO.getProjSponsorUserId());
                 rsp.setProjSponsorUserName(userId2Name.get(dashboardClientBasicDTO.getProjSponsorUserId()));
@@ -608,7 +626,10 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
         List<Client> clients = clientService.listByIds(clientIdSet);
         List<ClientListRSP> list = BeanUtil.copyToList(clients, ClientListRSP.class);
         clientService.fillOtherInfo(list, Boolean.FALSE);
+        Map<Long, String> clientId2AssetClassifyResult = assetClassifyClientMapper.listByClientIds(new ArrayList<>(clientIdSet)).stream()
+                .collect(Collectors.toMap(AssetClassifyClient::getClientId, AssetClassifyClient::getClassifyResult, (a, b) -> a));
         for (T rsp : rsps) {
+            rsp.setAssetClassifyResultCode(clientId2AssetClassifyResult.get(rsp.getClientId()));
             rsp.setRiskControlIndustryClassifyDisplay(Optional.ofNullable(RiskControlIndustryClassify.of(rsp.getRiskControlIndustryClassifyCode())).map(RiskControlIndustryClassify::display).orElse(null));
             rsp.setAssetClassifyResultDisplay(Optional.ofNullable(AssetClassifyResultEnum.of(rsp.getAssetClassifyResultCode())).map(AssetClassifyResultEnum::display).orElse(null));
             rsp.setClientTypeName(Optional.ofNullable(ClientType.of(rsp.getClientType())).map(ClientType::display).orElse(null));
@@ -645,5 +666,39 @@ public class DashboardClientOverviewService implements cn.zswltech.mithras.dashb
             rsp.setBizDeptName(deptId2Name.get(rsp.getBizDeptId()));
             rsp.setProjSponsorUserName(userId2Name.get(rsp.getProjSponsorUserId()));
         }
+    }
+
+    private boolean prepareDashboardClientQuery(ClientBasicPageQuery query, String assetClassifyResultCode,
+                                                LocalDate dealLineFrom, LocalDate dealLineTo) {
+        Set<Long> candidateClientIds = query.getLimitClientIds() == null ? null : new HashSet<>(query.getLimitClientIds());
+        if (candidateClientIds != null && candidateClientIds.isEmpty()) {
+            return false;
+        }
+        if (StrUtil.isNotBlank(assetClassifyResultCode)) {
+            List<AssetClassifyClient> assetClassifyClients = assetClassifyClientMapper.listLatestByClassifyResult(assetClassifyResultCode, candidateClientIds);
+            candidateClientIds = intersectClientIds(candidateClientIds, assetClassifyClients.stream()
+                    .map(AssetClassifyClient::getClientId)
+                    .collect(Collectors.toSet()));
+            if (candidateClientIds.isEmpty()) {
+                return false;
+            }
+        }
+        if (dealLineFrom != null || dealLineTo != null) {
+            candidateClientIds = intersectClientIds(candidateClientIds, new HashSet<>(collectionBaseInfoMapper.listClientIdsByLastRentDate(
+                    dealLineFrom, dealLineTo, candidateClientIds)));
+            if (candidateClientIds.isEmpty()) {
+                return false;
+            }
+        }
+        query.setLimitClientIds(candidateClientIds);
+        return true;
+    }
+
+    private Set<Long> intersectClientIds(Set<Long> currentClientIds, Set<Long> nextClientIds) {
+        if (currentClientIds == null) {
+            return nextClientIds;
+        }
+        currentClientIds.retainAll(nextClientIds);
+        return currentClientIds;
     }
 }

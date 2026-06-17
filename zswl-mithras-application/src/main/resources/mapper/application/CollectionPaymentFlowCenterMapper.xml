@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zswltech.mithras.application.orchestration.collection.mapper.CollectionPaymentFlowCenterMapper">
+
+    <select id="paymentFlowList" resultType="cn.zswltech.mithras.dto.collection.CollectionFlowCenterBusinessPaymentListRSP">
+        select a.payment_id,
+        a.contract_id,
+        a.write_off_status,
+        CASE a.write_off_status
+        WHEN 'NO_PAID' THEN 10
+        WHEN 'TO_BE_WRITE_OFF' THEN 40
+        WHEN 'PART_WRITTEN_OFF' THEN 20
+        WHEN 'WRITTEN_OFF' THEN 30
+        ELSE 50 END as sort,
+        a.client_id, a.contract_code, a.cash_flow_item, a.biz_dept_id,a.payment_amount,
+        a.paid_amount,
+        a.apply_payment_date, a.paid_in_date, a.payment_code, a.proj_name
+        from (select a.id as payment_id,
+        a.contract_id,
+        case
+        WHEN a.apply_payment_date > now() THEN
+        'NO_PAID'
+        ELSE 'TO_BE_WRITE_OFF'
+        END AS write_off_status,
+        a.client_id, a.contract_code, "CREDIT_PAYMENT" as cash_flow_item, b.biz_dept_id,a.apply_payment_amount as payment_amount,
+        (select sum(paid_in_amount) from payment_actual_detail where write_off_status = 'WRITTEN_OFF' and payment_id = a.id) as paid_amount,
+        a.apply_payment_date, a.paid_in_date, a.payment_code, b.proj_name
+        from payment_base_info a,contract_base_info b
+        where a.contract_id = b.id
+        and a.payment_status in ('TAKE_EFFECT', 'FINISHED')
+        and a.write_off_status in ('NO_PAID', 'TO_BE_WRITE_OFF')
+        UNION ALL
+        select a.id as payment_id,
+        a.contract_id,
+        a.write_off_status,
+        a.client_id, a.contract_code, "CREDIT_PAYMENT" as cash_flow_item, b.biz_dept_id,a.apply_payment_amount as payment_amount,
+        (select sum(paid_in_amount) from payment_actual_detail where write_off_status = 'WRITTEN_OFF' and payment_id = a.id) as paid_amount,
+        a.apply_payment_date, a.paid_in_date, a.payment_code, b.proj_name
+        from payment_base_info a,contract_base_info b
+        where a.contract_id = b.id
+        and a.payment_status in ('TAKE_EFFECT', 'FINISHED')
+        and a.write_off_status in ('PART_WRITTEN_OFF', 'WRITTEN_OFF')) a
+        <where>
+            1=1
+            <if test="dto.applyPaymentDateFrom!=null">and a.apply_payment_date >= #{dto.applyPaymentDateFrom}</if>
+            <if test="dto.applyPaymentDateTo!=null">and #{dto.applyPaymentDateTo} >= a.apply_payment_date</if>
+            <if test="dto.clientId!=null">and a.client_id=#{dto.clientId}</if>
+            <if test="dto.writeOffStatusList!=null" >
+                and a.write_off_status in
+                <foreach collection="dto.writeOffStatusList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.contractCode!=null and dto.contractCode!=''">
+            and a.contract_code like CONCAT('%',#{dto.contractCode},'%')
+            </if>
+            <if test="dto.cashFlowItem!=null and dto.cashFlowItem!='CREDIT_PAYMENT'">
+              and a.payment_id is null
+            </if>
+            <if test="dto.bizDeptId!=null">and a.biz_dept_id=#{dto.bizDeptId}</if>
+        </where>
+        UNION ALL
+        select a.payment_id,
+        a.contract_id,
+        a.write_off_status,
+        CASE a.write_off_status
+        WHEN 'NO_PAID' THEN 10
+        WHEN 'TO_BE_WRITE_OFF' THEN 40
+        WHEN 'PART_WRITTEN_OFF' THEN 20
+        WHEN 'WRITTEN_OFF' THEN 30
+        ELSE 50 END as sort,
+        a.client_id, a.contract_code, a.cash_flow_item, a.biz_dept_id,a.payment_amount,
+        a.paid_amount,a.apply_payment_date,a.paid_in_date, a.payment_code, a.proj_name
+        from (
+        select a.id as payment_id,a.contract_id,
+        'WRITTEN_OFF' as write_off_status,
+        a.client_id, a.contract_code, "EARNEST_MONEY" as cash_flow_item, b.biz_dept_id,a.plan_margin_amount as payment_amount,
+        (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) as paid_amount,(select max(cash_flow_date) from contract_rent_actual where contract_id = b.id) as apply_payment_date,(select max(collection_date) from margin_record_info where margin_id = a.id and record_type in ('REFUND_MARGIN', 'REFUND_MARGIN_DEDUCT', 'REFUND')) as paid_in_date, a.margin_code as payment_code, b.proj_name
+        from margin_base_info a,contract_base_info b
+        where
+        a.contract_id = b.id and (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) = IFNULL(a.plan_margin_amount, 0)
+        UNION ALL
+        select a.id as payment_id,a.contract_id,
+        'PART_WRITTEN_OFF' as write_off_status,
+        a.client_id, a.contract_code, "EARNEST_MONEY" as cash_flow_item, b.biz_dept_id,a.plan_margin_amount as payment_amount,
+        (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) as paid_amount,(select max(cash_flow_date) from contract_rent_actual where contract_id = b.id) as apply_payment_date,(select max(collection_date) from margin_record_info where margin_id = a.id and record_type in ('REFUND_MARGIN', 'REFUND_MARGIN_DEDUCT', 'REFUND')) as paid_in_date, a.margin_code as payment_code, b.proj_name
+        from margin_base_info a,contract_base_info b
+        where
+        a.contract_id = b.id and (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) BETWEEN 1 and IFNULL(a.plan_margin_amount -1, 2)
+        UNION ALL
+        select a.id as payment_id,a.contract_id,
+        'TO_BE_WRITE_OFF' as write_off_status,
+        a.client_id, a.contract_code, "EARNEST_MONEY" as cash_flow_item, b.biz_dept_id,a.plan_margin_amount as payment_amount,
+        (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) as paid_amount,(select max(cash_flow_date) from contract_rent_actual where contract_id = b.id) as apply_payment_date,(select max(collection_date) from margin_record_info where margin_id = a.id and record_type in ('REFUND_MARGIN', 'REFUND_MARGIN_DEDUCT', 'REFUND')) as paid_in_date, a.margin_code as payment_code, b.proj_name
+        from margin_base_info a,contract_base_info b
+        where
+        a.contract_id = b.id and 0 >= (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0))
+        and (select max(cash_flow_date) from contract_rent_actual where contract_id = b.id) > NOW()
+        UNION ALL
+        select a.id as payment_id,a.contract_id,
+        'NO_PAID' as write_off_status,
+        a.client_id, a.contract_code, "EARNEST_MONEY" as cash_flow_item, b.biz_dept_id,a.plan_margin_amount as payment_amount,
+        (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) as paid_amount,(select max(cash_flow_date) from contract_rent_actual where contract_id = b.id) as apply_payment_date,(select max(collection_date) from margin_record_info where margin_id = a.id and record_type in ('REFUND_MARGIN', 'REFUND_MARGIN_DEDUCT', 'REFUND')) as paid_in_date, a.margin_code as payment_code, b.proj_name
+        from margin_base_info a,contract_base_info b
+        where
+        a.contract_id = b.id and 0 >=(IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0))
+        and NOW() > (select max(cash_flow_date) from contract_rent_actual where contract_id = b.id)) a
+        <where>
+             1=1
+            <if test="dto.applyPaymentDateFrom!=null">
+            and a.apply_payment_date >= #{dto.applyPaymentDateFrom}
+            </if>
+            <if test="dto.applyPaymentDateTo!=null">
+                and  #{dto.applyPaymentDateTo} >= a.apply_payment_date
+            </if>
+            <if test="dto.clientId!=null">and a.client_id=#{dto.clientId}</if>
+            <if test="dto.contractCode!=null and dto.contractCode!=''">and a.contract_code like
+                CONCAT('%',#{dto.contractCode},'%')
+            </if>
+            <if test="dto.writeOffStatusList!=null" >
+                and a.write_off_status in
+                <foreach collection="dto.writeOffStatusList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.bizDeptId!=null">and a.biz_dept_id = #{dto.bizDeptId}</if>
+            <if test="dto.cashFlowItem!=null">
+               and a.cash_flow_item = #{dto.cashFlowItem}
+            </if>
+        </where>
+        /*质保金*/
+        UNION ALL
+        select a.payment_id,
+        a.contract_id,
+        a.write_off_status,
+        CASE a.write_off_status
+        WHEN 'NO_PAID' THEN 10
+        WHEN 'TO_BE_WRITE_OFF' THEN 40
+        WHEN 'PART_WRITTEN_OFF' THEN 20
+        WHEN 'WRITTEN_OFF' THEN 30
+        ELSE 50 END as sort,
+        a.client_id, a.contract_code, a.cash_flow_item, a.biz_dept_id,a.payment_amount,
+        a.paid_amount,a.apply_payment_date,a.paid_in_date, a.payment_code, a.proj_name
+        from (
+        select a.id as payment_id,a.contract_id,
+        'WRITTEN_OFF' as write_off_status,
+        a.client_id, a.contract_code, "RETENTION_MONEY" as cash_flow_item, b.biz_dept_id,a.plan_warranty_amount as payment_amount,
+        (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) as paid_amount,a.plan_warranty_date as apply_payment_date,(select max(collection_date) from warranty_record_info where warranty_id = a.id and record_type in ('REFUND_MARGIN', 'REFUND_MARGIN_DEDUCT', 'REFUND')) as paid_in_date, a.warranty_code as payment_code, b.proj_name
+        from warranty_base_info a,contract_base_info b
+        where
+        a.contract_id = b.id and (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) = IFNULL(a.plan_warranty_amount, 0)
+        UNION ALL
+        select a.id as payment_id,a.contract_id,
+        'PART_WRITTEN_OFF' as write_off_status,
+        a.client_id, a.contract_code, "RETENTION_MONEY" as cash_flow_item, b.biz_dept_id,a.plan_warranty_amount as payment_amount,
+        (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) as paid_amount,a.plan_warranty_date as apply_payment_date,(select max(collection_date) from warranty_record_info where warranty_id = a.id and record_type in ('REFUND_WARRANTY', 'REFUND_WARRANTY_DEDUCT', 'REFUND')) as paid_in_date, a.warranty_code as payment_code, b.proj_name
+        from warranty_base_info a,contract_base_info b
+        where
+        a.contract_id = b.id and (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) BETWEEN 1 and IFNULL(a.plan_warranty_amount -1, 2)
+        UNION ALL
+        select a.id as payment_id,a.contract_id,
+        'TO_BE_WRITE_OFF' as write_off_status,
+        a.client_id, a.contract_code, "RETENTION_MONEY" as cash_flow_item, b.biz_dept_id,a.plan_warranty_amount as payment_amount,
+        (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) as paid_amount,a.plan_warranty_date as apply_payment_date,(select max(collection_date) from warranty_record_info where warranty_id = a.id and record_type in ('REFUND_WARRANTY', 'REFUND_WARRANTY_DEDUCT', 'REFUND')) as paid_in_date, a.warranty_code as payment_code, b.proj_name
+        from warranty_base_info a,contract_base_info b
+        where
+        a.contract_id = b.id and 0 >= (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0))
+        and a.plan_warranty_date > NOW()
+        UNION ALL
+        select a.id as payment_id,a.contract_id,
+        'NO_PAID' as write_off_status,
+        a.client_id, a.contract_code, "RETENTION_MONEY" as cash_flow_item, b.biz_dept_id,a.plan_warranty_amount as payment_amount,
+        (IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0)) as paid_amount,a.plan_warranty_date as apply_payment_date,(select max(collection_date) from warranty_record_info where warranty_id = a.id and record_type in ('REFUND_WARRANTY', 'REFUND_WARRANTY_DEDUCT', 'REFUND')) as paid_in_date, a.warranty_code as payment_code, b.proj_name
+        from warranty_base_info a,contract_base_info b
+        where
+        a.contract_id = b.id and 0 >=(IFNULL(a.back_amount,0)+IFNULL(a.deduct_amount,0))
+        and NOW() > a.plan_warranty_date) a
+        <where>
+            1=1
+            <if test="dto.applyPaymentDateFrom!=null">
+                and a.apply_payment_date >= #{dto.applyPaymentDateFrom}
+            </if>
+            <if test="dto.applyPaymentDateTo!=null">
+                and  #{dto.applyPaymentDateTo} >= a.apply_payment_date
+            </if>
+            <if test="dto.clientId!=null">and a.client_id=#{dto.clientId}</if>
+            <if test="dto.contractCode!=null and dto.contractCode!=''">and a.contract_code like
+                CONCAT('%',#{dto.contractCode},'%')
+            </if>
+            <if test="dto.writeOffStatusList!=null" >
+                and a.write_off_status in
+                <foreach collection="dto.writeOffStatusList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="dto.bizDeptId!=null">and a.biz_dept_id = #{dto.bizDeptId}</if>
+            <if test="dto.cashFlowItem!=null">
+                and a.cash_flow_item = #{dto.cashFlowItem}
+            </if>
+        </where>
+        order by sort asc, apply_payment_date desc
+    </select>
+</mapper>

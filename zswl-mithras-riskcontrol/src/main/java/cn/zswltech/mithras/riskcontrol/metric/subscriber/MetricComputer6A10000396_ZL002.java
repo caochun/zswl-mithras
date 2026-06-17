@@ -1,12 +1,9 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
-import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.RiskMetricFactorValue;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
-import cn.zswltech.mithras.customer.application.client.ClientProvinceQueryService;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
@@ -22,10 +19,8 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 /**
@@ -41,13 +36,11 @@ public class MetricComputer6A10000396_ZL002 extends AbstractMetricComputer imple
     public static final String FACTOR_NAME = "所有者权益（或股东权益）合计@期末余额";
     public static final String FACTOR_TABLE = "资产负债表";
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
-    @Resource
     private RemainingPrincipalService remainingPrincipalService;
     @Resource
     private RiskMetricFactorQueryService factorService;
     @Resource
-    private ClientProvinceQueryService clientProvinceQueryService;
+    private RiskControlClientFactPort clientFactPort;
 
     @Override
     public String getMetricCode() {
@@ -75,8 +68,7 @@ public class MetricComputer6A10000396_ZL002 extends AbstractMetricComputer imple
 //        //获取在浙江省内的客户ID
 //        Set<Long> clientsInZhejiang = clientProvinceQueryService.getSpecifyProvinceClientIds(Collections.singletonList("330000"));
         // 获取风控行业分类为集团协同业务的客户ID
-        Set<Long> targetClientIds = corpCommerceInfoLibMapper.intraGroupClients()
-                .stream().map(ClientBaseModel::getClientId).collect(Collectors.toSet());
+        Set<Long> targetClientIds = clientFactPort.intraGroupClientIds();
 //        // 或->取并集
 //        if (ObjectUtil.isNotEmpty(clientsInZhejiang)) {
 //            targetClientIds.addAll(clientsInZhejiang);
@@ -110,5 +102,4 @@ public class MetricComputer6A10000396_ZL002 extends AbstractMetricComputer imple
         private Long factorValue;
     }
 }
-
 

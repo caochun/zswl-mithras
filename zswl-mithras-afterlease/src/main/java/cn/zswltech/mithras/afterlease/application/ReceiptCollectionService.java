@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.afterlease.application;
 
 import cn.zswltech.mithras.dto.afterlease.*;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
+import cn.zswltech.mithras.afterlease.enums.AfterLeaseProcessEndResult;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 public interface ReceiptCollectionService {
 
     //借据卡逾期汇总
-    Page<CollectionBaseInfo> list(ReceiptCollectionListREQ req);
+    Page<AfterLeaseReceiptCollectionSnapshot> list(ReceiptCollectionListREQ req);
 
     //分配减免金额，不再通知苍穹
     void collectionNotice(Long reduceId);
@@ -21,7 +21,7 @@ public interface ReceiptCollectionService {
 
     void modify(CollectionPenaltyReductionModifyREQ req);
 
-    void processEnd(Long id, Integer endType, Long startUserId, String processInstanceId);
+    void processEnd(Long id, AfterLeaseProcessEndResult endResult, Long startUserId, String processInstanceId);
 
     Long calculationInterest(Long contractId);
 }

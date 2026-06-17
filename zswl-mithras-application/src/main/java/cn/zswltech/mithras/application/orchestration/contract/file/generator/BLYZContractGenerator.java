@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static cn.hutool.extra.spring.SpringUtil.getBean;
-import static cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum.CONTRACT;
+import static cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum.CONTRACT;
 import static cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum.MAIN_CONTRACT;
 
 /**

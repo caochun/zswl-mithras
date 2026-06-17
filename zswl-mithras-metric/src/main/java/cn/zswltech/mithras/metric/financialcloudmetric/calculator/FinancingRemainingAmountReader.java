@@ -1,7 +1,6 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.zswltech.mithras.capital.enums.FinanceCashFlowItemEnum;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
@@ -25,6 +24,8 @@ import java.util.stream.Collectors;
 
 @Component
 public class FinancingRemainingAmountReader {
+
+    private static final String REPAY_CASH_FLOW_ITEM = "REPAY";
 
     @Resource
     private FundReceiptRepayBaseInfoMapper repayBaseInfoMapper;
@@ -66,7 +67,7 @@ public class FinancingRemainingAmountReader {
 
         Map<String, List<FundReceiptFlowDetail>> flowDetailMap = Optional.ofNullable(receiptFlowDetailMapper.selectList(Wrappers.<FundReceiptFlowDetail>lambdaQuery()
                         .in(FundReceiptFlowDetail::getCashFlowCode, cashFlowList.stream().map(FundReceiptRepayCashFlow::getCashFlowCode).collect(Collectors.toList()))
-                        .eq(FundReceiptFlowDetail::getCashFlowItem, FinanceCashFlowItemEnum.REPAY.name())))
+                        .eq(FundReceiptFlowDetail::getCashFlowItem, REPAY_CASH_FLOW_ITEM)))
                 .orElse(new ArrayList<>()).stream().collect(Collectors.groupingBy(FundReceiptFlowDetail::getCashFlowCode));
         for (FundReceiptRepayCashFlow repayCashFlow : cashFlowList) {
             List<FundReceiptFlowDetail> flowDetailList = flowDetailMap.get(repayCashFlow.getCashFlowCode());

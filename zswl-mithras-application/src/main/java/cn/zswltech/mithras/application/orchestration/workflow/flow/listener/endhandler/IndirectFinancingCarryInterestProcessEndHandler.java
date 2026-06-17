@@ -25,7 +25,7 @@ import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancin
 import cn.zswltech.mithras.application.orchestration.fund.financing.FundFinancingService;
 import cn.zswltech.mithras.application.orchestration.fund.receiptrepay.FundReceiptRepayBaseInfoService;
 import cn.zswltech.mithras.fund.versioning.financing.FundFinancingLibVersionService;
-import cn.zswltech.mithras.application.orchestration.monthly.FundsDailyCostMainService;
+import cn.zswltech.mithras.application.orchestration.finance.monthly.FundsDailyCostMainService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionSynchronization;

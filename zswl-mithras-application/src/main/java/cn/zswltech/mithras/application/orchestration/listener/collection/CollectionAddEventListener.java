@@ -15,7 +15,6 @@ import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailREQ;
 import cn.zswltech.mithras.dto.contract.baseinfo.ContractBaseInfoDetailRSP;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailREQ;
 import cn.zswltech.mithras.dto.contract.price.ContractPriceDetailRSP;
-import cn.zswltech.mithras.dto.margin.MarginBaseInfoAddREQ;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
@@ -30,14 +29,12 @@ import cn.zswltech.mithras.third.financialshare.enums.CQTaxRateENUM;
 import cn.zswltech.mithras.third.financialshare.enums.ExceptionSourceENUM;
 import cn.zswltech.mithras.third.financialshare.enums.FinancialChangeStateENUM;
 import cn.zswltech.mithras.finance.mapper.finance.ContractAssessDeptDetailMapper;
-import cn.zswltech.mithras.margin.persistence.mapper.MarginBaseInfoMapper;
-import cn.zswltech.mithras.margin.persistence.mapper.WarrantyBaseInfoMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.collection.event.CollectionAddEvent;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.*;
-import cn.zswltech.mithras.margin.persistence.model.MarginBaseInfo;
-import cn.zswltech.mithras.margin.persistence.model.WarrantyBaseInfo;
+import cn.zswltech.mithras.margin.application.port.model.MarginPlannedReceivableCommand;
+import cn.zswltech.mithras.margin.application.port.model.WarrantyPlannedReceivableCommand;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
 import cn.zswltech.mithras.payment.model.PaymentCollectionInfo;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
@@ -53,6 +50,7 @@ import cn.zswltech.mithras.application.orchestration.contract.impl.ContractRecei
 import cn.zswltech.mithras.contract.versioning.service.ContractRentActualLibService;
 import cn.zswltech.mithras.contract.versioning.handler.impl.ContractBaseInfoLibHandler;
 import cn.zswltech.mithras.margin.service.MarginBaseInfoService;
+import cn.zswltech.mithras.margin.service.WarrantyBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.payment.PaymentActualDetailService;
 import cn.zswltech.mithras.collection.application.financial.FinancialManagerService;
 import cn.zswltech.mithras.application.orchestration.third.financial.impl.FinancialManagerServiceImpl2;
@@ -98,8 +96,6 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
     @Resource
-    private MarginBaseInfoMapper marginBaseInfoMapper;
-    @Resource
     private ContractTenantryService contractTenantryService;
     @Resource
     private MarginBaseInfoService marginBaseInfoService;
@@ -124,7 +120,7 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
     @Resource
     private ContractAssessDeptDetailMapper contractAssessDeptDetailMapper;
     @Resource
-    private WarrantyBaseInfoMapper warrantyBaseInfoMapper;
+    private WarrantyBaseInfoService warrantyBaseInfoService;
     @Resource
     private PaymentCollectionInfoMapper paymentCollectionInfoMapper;
 
@@ -625,7 +621,7 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
         switch (event.getCashFlowItem()) {
             case RENT: {
                 //获取代理对象调用
-                getBean(CollectionAddEventListener.class).rentChange(event.getContractId(), event.getProcessModelTypeEnum());
+                getBean(CollectionAddEventListener.class).rentChange(event.getContractId(), ProcessModelTypeEnum.getByName(event.getProcessModelType()));
 /*
                 List<ContractRentActual> rentActuals = contractRentActualMapper.selectList(Wrappers.<ContractRentActual>lambdaQuery()
                         .eq(ContractRentActual::getContractId, event.getContractId())
@@ -721,7 +717,7 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
             case RETENTION_MONEY:
             case FIRST_RENT: {
                 if (event.getSource().equals(ContractProcessStatusEnum.SETTLE_PASS.name())) {
-                    marginBaseInfoMapper.updateStatus(event.getContractId());
+                    marginBaseInfoService.updateContractSettleStatus(event.getContractId());
                 }
                 if (event.getAmount() > 0) {
                     CollectionBaseInfoAddREQ req = new CollectionBaseInfoAddREQ();
@@ -750,8 +746,6 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
                     financialManagerServiceImpl2.receiveExec(getBizInfo(event.getContractId()),
                             addReqs.stream().map(this::collection2FinancialVo).collect(Collectors.toList()));
                     if (event.getCashFlowItem() == CashFlowItemEnum.EARNEST_MONEY) {
-                        MarginBaseInfo info = marginBaseInfoMapper.selectOne(Wrappers.<MarginBaseInfo>lambdaQuery()
-                                .eq(MarginBaseInfo::getContractId, event.getContractId()));
                         //应收金额之和
                         List<CollectionBaseInfo> marginCollectionList = collectionBaseInfoService.list(Wrappers.<CollectionBaseInfo>lambdaQuery()
                                 .eq(CollectionBaseInfo::getContractId, contractBaseInfo.getOriginId())
@@ -760,27 +754,16 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
                         if (ObjectUtil.isNotEmpty(marginCollectionList)) {
                             totalReceivableAmount = marginCollectionList.stream().map(CollectionBaseInfo::getPlanCollectionAmount).reduce(Long::sum).orElse(0L);
                         }
-                        if (info == null) {
-                            MarginBaseInfoAddREQ marginBaseInfoAddREQ = new MarginBaseInfoAddREQ();
-                            marginBaseInfoAddREQ.setContractId(contractBaseInfo.getOriginId());
-                            marginBaseInfoAddREQ.setContractCode(contractBaseInfo.getContractCode());
-                            marginBaseInfoAddREQ.setClientId(main.getLesseeId());
-                            //区分计划和实际
-                            if(ObjectUtil.isEmpty(event.getHandleType()) || !"MARGIN_RECYCLE".equals(event.getHandleType())) {
-                                marginBaseInfoAddREQ.setPlanMarginAmount(event.getAmount());
-                            }
-                            marginBaseInfoAddREQ.setTotalReceivableAmount(totalReceivableAmount);
-                            marginBaseInfoAddREQ.setPlanMarginDate(contractBaseInfo.getPaymentPlanDate());
-                            marginBaseInfoService.add(marginBaseInfoAddREQ);
-                        } else {
-                            //区分计划和实际
-                            if(ObjectUtil.isEmpty(event.getHandleType()) || !"MARGIN_RECYCLE".equals(event.getHandleType())) {
-                                info.setPlanMarginAmount(info.getPlanMarginAmount() + event.getAmount());
-                            }
-                            info.setPlanMarginDate(event.getPlanCollectionDate());
-                            info.setTotalReceivableAmount(totalReceivableAmount);
-                            marginBaseInfoMapper.updateById(info);
-                        }
+                        MarginPlannedReceivableCommand command = new MarginPlannedReceivableCommand();
+                        command.setContractId(contractBaseInfo.getOriginId());
+                        command.setContractCode(contractBaseInfo.getContractCode());
+                        command.setClientId(main.getLesseeId());
+                        command.setAmount(event.getAmount());
+                        command.setRecycle(isMarginRecycle(event));
+                        command.setTotalReceivableAmount(totalReceivableAmount);
+                        command.setCreatePlanDate(contractBaseInfo.getPaymentPlanDate());
+                        command.setUpdatePlanDate(event.getPlanCollectionDate());
+                        marginBaseInfoService.savePlannedReceivable(command);
                     } else if (event.getCashFlowItem() == CashFlowItemEnum.RETENTION_MONEY) {  //质保金逻辑参考保证金
                         addWarrantyBaseInfo(event, contractBaseInfo, req);
                     }
@@ -848,8 +831,6 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
             log.info("租赁类型不是直租，不生成质保金");
             return;
         }
-        WarrantyBaseInfo info = warrantyBaseInfoMapper.selectOne(Wrappers.<WarrantyBaseInfo>lambdaQuery()
-                .eq(WarrantyBaseInfo::getContractId, event.getContractId()));
         //应收金额之和
         List<CollectionBaseInfo> warrantyCollectionList = collectionBaseInfoService.list(Wrappers.<CollectionBaseInfo>lambdaQuery()
                 .eq(CollectionBaseInfo::getContractId, contractBaseInfo.getOriginId())
@@ -861,35 +842,19 @@ public class CollectionAddEventListener implements ApplicationListener<Collectio
         PaymentCollectionInfo paymentCollectionInfo = paymentCollectionInfoMapper.selectOne(Wrappers.<PaymentCollectionInfo>lambdaQuery()
                 .eq(PaymentCollectionInfo::getPaymentId, req.getPaymentId())
                 .last(StringUtil.mysqlLimitOne()));
-        if (info == null) {
-            info = new WarrantyBaseInfo();
-            info.setContractId(contractBaseInfo.getOriginId());
-            info.setContractCode(contractBaseInfo.getContractCode());
-            info.setClientId(req.getClientId());
-            //区分计划和实际
-            if(ObjectUtil.isEmpty(event.getHandleType()) || !"MARGIN_RECYCLE".equals(event.getHandleType())) {
-                info.setPlanWarrantyAmount(event.getAmount());
-            }
-            info.setTotalReceivableAmount(totalReceivableAmount);
-            info.setPlanWarrantyDate(paymentCollectionInfo.getWarrantyReturnDate()); // 收款确认中的 厂商质保金退还日期
-            info.setWarrantyCode(getCode(contractBaseInfo.getContractCode()));
-            info.setCollectionAmount(0L);
-            warrantyBaseInfoMapper.insert(info);
-        } else {
-            //区分计划和实际
-            if(ObjectUtil.isEmpty(event.getHandleType()) || !"MARGIN_RECYCLE".equals(event.getHandleType())) {
-                info.setPlanWarrantyAmount(info.getPlanWarrantyAmount() + event.getAmount());
-            }
-            info.setPlanWarrantyDate(paymentCollectionInfo.getWarrantyReturnDate());
-            info.setTotalReceivableAmount(totalReceivableAmount);
-            warrantyBaseInfoMapper.updateById(info);
-        }
+        WarrantyPlannedReceivableCommand command = new WarrantyPlannedReceivableCommand();
+        command.setContractId(contractBaseInfo.getOriginId());
+        command.setContractCode(contractBaseInfo.getContractCode());
+        command.setClientId(req.getClientId());
+        command.setAmount(event.getAmount());
+        command.setRecycle(isMarginRecycle(event));
+        command.setTotalReceivableAmount(totalReceivableAmount);
+        command.setPlanDate(paymentCollectionInfo.getWarrantyReturnDate());
+        warrantyBaseInfoService.savePlannedReceivable(command);
     }
 
-    private String getCode(String contractCode) {
-        String year = contractCode.substring(contractCode.indexOf("【") + 1, contractCode.indexOf("】"));
-        String code = contractCode.substring(contractCode.indexOf("(") + 1, contractCode.indexOf(")"));
-        return year + code.substring(0, code.indexOf("-")) + code.substring(code.indexOf("-") + 1) + "-zbj";
+    private boolean isMarginRecycle(CollectionAddEvent event) {
+        return "MARGIN_RECYCLE".equals(event.getHandleType());
     }
 
 

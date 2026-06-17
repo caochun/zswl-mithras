@@ -1,9 +1,8 @@
 package cn.zswltech.mithras.collection.gendoc.render.overduecollect;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.zswltech.mithras.collection.overdue.render.CollectionLesseeLetterData;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.contract.overdue.domain.acl.ContractLesseeInfo;
 import com.deepoove.poi.XWPFTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -24,13 +23,12 @@ import java.util.stream.Collectors;
  */
 @Component
 @Slf4j
-public class CreditNotificationLetterRender extends AbstractBasicRender<ContractLesseeInfo> {
+public class CreditNotificationLetterRender {
 
     private static final String FILE_NAME_SUFFIX = "征信告知书" + GlobalConstants.OFFICE_WORD_SUFFIX;
 
 
-    @Override
-    public String render(OutputStream outputStream, ContractLesseeInfo contractLesseeInfo) throws Exception{
+    public String render(OutputStream outputStream, CollectionLesseeLetterData contractLesseeInfo) throws Exception{
 
         String templatePath = "/doc/征信告知书模版.docx";
         Map<String, Object> renderMap = new HashMap<>(64);

@@ -27,7 +27,7 @@ import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.assetclassify.application.convert.AssetClassifyClientConvert;
 import cn.zswltech.mithras.assetclassify.application.convert.AssetClassifyConvert;
 import cn.zswltech.mithras.foundation.cache.RedisDelayedQueue;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;

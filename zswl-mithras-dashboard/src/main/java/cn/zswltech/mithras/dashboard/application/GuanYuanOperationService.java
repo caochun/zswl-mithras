@@ -11,15 +11,16 @@ import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.flow.core.api.FlowModelApiService;
 import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.dao.OperateRecordMapper;
 import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
 import cn.zswltech.flow.core.domain.resp.NodeDefineResp;
 import cn.zswltech.flow.core.domain.resp.ProcessHistoryResp;
 import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.CommentTypeEnum;
 import cn.zswltech.flow.core.util.Page;
+import cn.zswltech.mithras.dashboard.application.port.DashboardOperateRecordPort;
+import cn.zswltech.mithras.dashboard.application.port.DashboardOperateRecordSnapshot;
 import cn.zswltech.mithras.dto.dashboard.*;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.dashboard.enums.DashboardFlowCommentType;
+import cn.zswltech.mithras.dashboard.enums.DashboardProcessModel;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.dashboard.enums.BossDashboardGuanYuanDataSourceKeyEnum;
 import cn.zswltech.mithras.dashboard.enums.BusinessGroupEnum;
@@ -47,7 +48,6 @@ import org.flowable.engine.HistoryService;
 import org.flowable.engine.history.HistoricProcessInstance;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -86,7 +86,7 @@ public class GuanYuanOperationService extends GuanYuanBasicService implements cn
     @Resource
     private FlowModelApiService flowModelApiService;
     @Resource
-    private OperateRecordMapper operateRecordMapper;
+    private DashboardOperateRecordPort dashboardOperateRecordPort;
     @Resource
     private HistoryService historyService;
     @Value("${spring.profiles.active}")
@@ -470,7 +470,7 @@ public class GuanYuanOperationService extends GuanYuanBasicService implements cn
         //多查询6个月，防止以前创建的
         endTimeFrom = endTimeFrom.minusMonths(6);
         ProcessPageReq processPageReq = new ProcessPageReq();
-        processPageReq.setModelKeyList(Collections.singletonList(ProcessModelTypeEnum.ContractCreateFlow.name()));
+        processPageReq.setModelKeyList(Collections.singletonList(DashboardProcessModel.ContractCreateFlow.name()));
         processPageReq.setPageIndex(1);
         processPageReq.setProcessCreateTimeFrom(Date.from(endTimeFrom.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         processPageReq.setPageSize(Integer.MAX_VALUE);
@@ -632,7 +632,7 @@ public class GuanYuanOperationService extends GuanYuanBasicService implements cn
         List<DashboardContractReturnListRSP> rsps = new ArrayList<>();
         //特殊参数
 
-        List<String> tuEnum = ListUtil.toList(CommentTypeEnum.BH.name(), CommentTypeEnum.BHFQR.name(), CommentTypeEnum.BHFQR_ZJDW.name());
+        List<String> tuEnum = ListUtil.toList(DashboardFlowCommentType.BH.name(), DashboardFlowCommentType.BHFQR.name(), DashboardFlowCommentType.BHFQR_ZJDW.name());
         Map<String, List<ProcessHistoryResp>> processHistoryMap = processHistoryList(processRespPage.getContents().stream().map(ProcessResp::getProcessInstanceId).collect(Collectors.toSet()));
         if (ObjectUtil.isEmpty(processHistoryMap)) {
             return ListUtil.empty();
@@ -748,18 +748,16 @@ public class GuanYuanOperationService extends GuanYuanBasicService implements cn
         //查询所有模型
         Map<String, NodeDefineResp> nodeDefineMap = nodeDefineResps.stream().collect(Collectors.toMap(NodeDefineResp::getActivityId, e -> e, (a, b) -> a));
 
-        Example example = new Example(cn.zswltech.flow.core.domain.entity.OperateRecord.class);
-        example.createCriteria().andIn("processInstanceId", processInstanceIds);
-        List<cn.zswltech.flow.core.domain.entity.OperateRecord> operateRecordList = operateRecordMapper.selectByCondition(example);
-        Map<String, List<cn.zswltech.flow.core.domain.entity.OperateRecord>> map = operateRecordList.stream().collect(Collectors.groupingBy(cn.zswltech.flow.core.domain.entity.OperateRecord::getProcessInstanceId));
+        List<DashboardOperateRecordSnapshot> operateRecordList = dashboardOperateRecordPort.listOperateRecords(processInstanceIds);
+        Map<String, List<DashboardOperateRecordSnapshot>> map = operateRecordList.stream().collect(Collectors.groupingBy(DashboardOperateRecordSnapshot::getProcessInstanceId));
         Map<String, List<ProcessHistoryResp>> resultMap = new HashMap<>();
         map.forEach((k, v) -> {
             resultMap.put(k, v.stream().map((c) ->
                     ProcessHistoryResp.builder()
                             .type(c.getType())
-                            .typeName(CommentTypeEnum.getByName(c.getType()).getMessage())
+                            .typeName(DashboardFlowCommentType.messageOf(c.getType()))
                             .message(c.getNote())
-                            .operateTime(c.getGmtCreate())
+                            .operateTime(c.getOperateTime())
                             .operatorId(c.getHandlerId())
                             .taskActivityId(c.getTaskActivityId())
                             .taskNodeName(Optional.ofNullable(c.getTaskActivityId())

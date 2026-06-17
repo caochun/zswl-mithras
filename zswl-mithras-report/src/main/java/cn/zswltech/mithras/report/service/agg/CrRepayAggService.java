@@ -74,7 +74,6 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.yaml.snakeyaml.events.Event;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Field;

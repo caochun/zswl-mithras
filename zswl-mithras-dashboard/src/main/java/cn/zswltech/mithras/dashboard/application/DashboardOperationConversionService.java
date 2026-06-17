@@ -12,7 +12,7 @@ import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.dto.dashboard.ValueUnitDTO;
 import cn.zswltech.mithras.dto.dashboard.operation.*;
 import cn.zswltech.gruul.common.constant.OrgConstants;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.dashboard.enums.DashboardProcessModel;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.dashboard.enums.DashboardOperationTermEnum;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
@@ -651,7 +651,7 @@ public class DashboardOperationConversionService implements cn.zswltech.mithras.
         //多查询6个月，防止以前创建的
         endTimeFrom = endTimeFrom.minusMonths(6);
         ProcessPageReq processPageReq = new ProcessPageReq();
-        processPageReq.setModelKeyList(Collections.singletonList(ProcessModelTypeEnum.ProjEstablishCreateFlow.name()));
+        processPageReq.setModelKeyList(Collections.singletonList(DashboardProcessModel.ProjEstablishCreateFlow.name()));
         processPageReq.setPageIndex(1);
         processPageReq.setProcessCreateTimeFrom(Date.from(endTimeFrom.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         processPageReq.setPageSize(Integer.MAX_VALUE);

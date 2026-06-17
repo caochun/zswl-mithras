@@ -5,26 +5,20 @@ import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.mithras.api.common.PageR;
+import cn.zswltech.mithras.afterlease.application.RentCollectionDetailDataPort;
+import cn.zswltech.mithras.afterlease.application.RentCollectionDetailSnapshot;
+import cn.zswltech.mithras.afterlease.application.RentCollectionLeasePriceSnapshot;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionListREQ;
 import cn.zswltech.mithras.dto.afterlease.RentCollectionListRSP;
-import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.afterlease.enums.*;
-import cn.zswltech.mithras.customer.mobile.enums.AppCalendarEnum;
-import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
-import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.afterlease.mapper.RentCollectionIndexMapper;
-import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.contract.mapper.contract.ContractLeasePriceMapper;
 import cn.zswltech.mithras.afterlease.dto.RentCollectionIndexListDTO;
 import cn.zswltech.mithras.afterlease.dto.RentCollectionIndexListParam;
-import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserDataScopeResolver;
 import cn.zswltech.mithras.foundation.port.DeptNameResolver;
 import cn.zswltech.mithras.foundation.port.UserNameResolver;
 import cn.zswltech.mithras.foundation.util.LongUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -46,12 +40,15 @@ import java.util.stream.Stream;
 @Service
 public class RentCollectionIndexServiceImpl {
 
+    private static final String CALENDAR_MYSELF = "MYSELF";
+    private static final String CONTRACT_STATUS_TAKE_EFFECT = "TAKE_EFFECT";
+    private static final String CONTRACT_STATUS_START_RENT = "START_RENT";
+    private static final String CONTRACT_STATUS_SETTLE = "SETTLE";
+
     @Resource
     private RentCollectionIndexMapper rentCollectionIndexMapper;
     @Resource
     private CurrentUserDataScopeResolver currentUserDataScopeResolver;
-    @Resource
-    private CollectionBaseInfoMapper collectionBaseInfoMapper;
     @Resource
     private ClientNameResolver clientNameResolver;
     @Resource
@@ -59,7 +56,7 @@ public class RentCollectionIndexServiceImpl {
     @Resource
     private DeptNameResolver deptNameResolver;
     @Resource
-    private ContractLeasePriceMapper leasePriceMapper;
+    private RentCollectionDetailDataPort rentCollectionDetailDataPort;
 
     public PageR<RentCollectionListRSP> indexList(RentCollectionListREQ req) {
         RentCollectionIndexListParam query = new RentCollectionIndexListParam();
@@ -135,7 +132,7 @@ public class RentCollectionIndexServiceImpl {
         if (isBizUser && canViewDeptIds.isEmpty()) {
             //防止sql in报错
             canViewDeptIds.add(Long.MIN_VALUE);
-        } else if (isBizUser && !canViewDeptIds.isEmpty() && AppCalendarEnum.MYSELF.name().equalsIgnoreCase(type)) {
+        } else if (isBizUser && !canViewDeptIds.isEmpty() && CALENDAR_MYSELF.equalsIgnoreCase(type)) {
             //部门领导-个人
             canViewDeptIds = new ArrayList<>();
             //防止sql in报错
@@ -162,16 +159,13 @@ public class RentCollectionIndexServiceImpl {
         Map<Long, String> deptNameMap = deptNameResolver.deptId2Name(deptIdSet);
 
         // 填充借据状态 起租的生效的 如果有收款主表逾期 就 判作逾期标签
-        Map<Long, List<CollectionBaseInfo>> overdueCollectionMap = new HashMap<>();
+        Map<Long, List<RentCollectionDetailSnapshot>> overdueCollectionMap = new HashMap<>();
         Set<Long> startRentReceiptIdSet = dtoPage.getRecords().stream().filter(p -> CharSequenceUtil.equalsAny(p.getContractStatus(),
-                ContractStatus.TAKE_EFFECT.name(), ContractStatus.START_RENT.name())).map(RentCollectionIndexListDTO::getReceiptId).collect(Collectors.toSet());
+                CONTRACT_STATUS_TAKE_EFFECT, CONTRACT_STATUS_START_RENT)).map(RentCollectionIndexListDTO::getReceiptId).collect(Collectors.toSet());
         if (CollectionUtils.isNotEmpty(startRentReceiptIdSet)) {
-            overdueCollectionMap = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery()
-                    .in(CollectionBaseInfo::getReceiptId, startRentReceiptIdSet)
-                    .eq(CollectionBaseInfo::getCashFlowItem, CashFlowItemEnum.RENT.name())
-                    .ne(CollectionBaseInfo::getWriteOffStatus, CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name())
-                    .lt(CollectionBaseInfo::getPlanCollectionDate, LocalDate.now())
-            ).stream().collect(Collectors.groupingBy(CollectionBaseInfo::getReceiptId));
+            overdueCollectionMap = rentCollectionDetailDataPort.listOverdueRentCollectionsByReceiptIds(startRentReceiptIdSet)
+                    .stream()
+                    .collect(Collectors.groupingBy(RentCollectionDetailSnapshot::getReceiptId));
         }
 
         // 填充收款卡片数据
@@ -181,12 +175,13 @@ public class RentCollectionIndexServiceImpl {
                 .flatMap(Arrays::stream)
                 .map(Long::valueOf)
                 .collect(Collectors.toSet());
-        Map<Long, CollectionBaseInfo> collectionBaseInfoMap = collectionBaseInfoMapper.selectList(Wrappers.<CollectionBaseInfo>lambdaQuery().in(CollectionBaseInfo::getId, collectionIdSet)).stream().collect(Collectors.toMap(CollectionBaseInfo::getId, c -> c));
+        Map<Long, RentCollectionDetailSnapshot> collectionBaseInfoMap = rentCollectionDetailDataPort.listRentCollectionsByIds(collectionIdSet)
+                .stream()
+                .collect(Collectors.toMap(RentCollectionDetailSnapshot::getId, c -> c));
         List<RentCollectionListRSP> rspList = new ArrayList<>(dtoPage.getRecords().size());
         Set<Long> contractIdset = dtoPage.getRecords().stream().map(RentCollectionIndexListDTO::getContractId).collect(Collectors.toSet());
-        List<ContractLeasePrice> contractLeasePriceList = leasePriceMapper.selectList(
-                Wrappers.<ContractLeasePrice>lambdaQuery().in(ContractLeasePrice::getContractId, contractIdset));
-        Map<Long, List<ContractLeasePrice>> contractLeasePriceMap = contractLeasePriceList.stream().collect(Collectors.groupingBy(ContractLeasePrice::getContractId));
+        List<RentCollectionLeasePriceSnapshot> contractLeasePriceList = rentCollectionDetailDataPort.listLeasePricesByContractIds(contractIdset);
+        Map<Long, List<RentCollectionLeasePriceSnapshot>> contractLeasePriceMap = contractLeasePriceList.stream().collect(Collectors.groupingBy(RentCollectionLeasePriceSnapshot::getContractId));
         for (RentCollectionIndexListDTO dto : dtoPage.getRecords()) {
             RentCollectionListRSP rsp = new RentCollectionListRSP();
             BeanUtil.copyProperties(dto, rsp, new CopyOptions().ignoreError());
@@ -212,11 +207,11 @@ public class RentCollectionIndexServiceImpl {
             rsp.setProjSponsorUserName(userNameMap.get(rsp.getProjSponsorUserId()));
             rsp.setBizDeptName(deptNameMap.get(rsp.getBizDeptId()));
             // paymentState
-            if (ContractStatus.TAKE_EFFECT.name().equals(rsp.getContractStatus())) {
+            if (CONTRACT_STATUS_TAKE_EFFECT.equals(rsp.getContractStatus())) {
                 rsp.setPaymentState(CollectionUtils.isEmpty(overdueCollectionMap.get(rsp.getPaymentId())) ? RentCollectionIndexPaymentState.TAKE_EFFECT.name() : RentCollectionIndexPaymentState.OVERDUE.name());
-            } else if (ContractStatus.SETTLE.name().equals(rsp.getContractStatus())) {
+            } else if (CONTRACT_STATUS_SETTLE.equals(rsp.getContractStatus())) {
                 rsp.setPaymentState(RentCollectionIndexPaymentState.SETTLE.name());
-            } else if (ContractStatus.START_RENT.name().equals(rsp.getContractStatus())) {
+            } else if (CONTRACT_STATUS_START_RENT.equals(rsp.getContractStatus())) {
                 rsp.setPaymentState(CollectionUtils.isEmpty(overdueCollectionMap.get(rsp.getPaymentId())) ? RentCollectionIndexPaymentState.START_RENT.name() : RentCollectionIndexPaymentState.OVERDUE.name());
             }
             rspList.add(rsp);
@@ -224,7 +219,7 @@ public class RentCollectionIndexServiceImpl {
         return rspList;
     }
 
-    private RentCollectionListRSP.CollectionCardData buildCollectionCardData(CollectionBaseInfo collectionBaseInfo) {
+    private RentCollectionListRSP.CollectionCardData buildCollectionCardData(RentCollectionDetailSnapshot collectionBaseInfo) {
         if (Objects.isNull(collectionBaseInfo)) {
             return null;
         }
@@ -244,13 +239,13 @@ public class RentCollectionIndexServiceImpl {
                 .build();
         // 计算卡片状态
         long planCollectionDiffDayCount = collectionBaseInfo.getPlanCollectionDate().toEpochDay() - LocalDate.now().toEpochDay();
-        if (CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(collectionBaseInfo.getWriteOffStatus())) {
+        if (RentCollectionWriteOffStatus.isWriteOffCompleted(collectionBaseInfo.getWriteOffStatus())) {
             // 已收款
             cardData.setState(RentCollectionIndexCardState.PAID.name());
         } else if (planCollectionDiffDayCount >= 0 && planCollectionDiffDayCount <= 7) {
             // 待收款 计划收款日期0-7天内
             cardData.setState(RentCollectionIndexCardState.PENDING.name());
-        } else if (LocalDate.now().plusDays(-3).isAfter(collectionBaseInfo.getPlanCollectionDate()) && !CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(collectionBaseInfo.getWriteOffStatus())) {
+        } else if (LocalDate.now().plusDays(-3).isAfter(collectionBaseInfo.getPlanCollectionDate()) && !RentCollectionWriteOffStatus.isWriteOffCompleted(collectionBaseInfo.getWriteOffStatus())) {
             // 已逾期
             cardData.setState(RentCollectionIndexCardState.OVERDUE.name());
         } else {
@@ -258,7 +253,7 @@ public class RentCollectionIndexServiceImpl {
             cardData.setState(RentCollectionIndexCardState.NOT_YET_EXPIRED.name());
         }
         //是否逾期
-        if (!CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(collectionBaseInfo.getWriteOffStatus())
+        if (!RentCollectionWriteOffStatus.isWriteOffCompleted(collectionBaseInfo.getWriteOffStatus())
                 && Optional.ofNullable(collectionBaseInfo.getPlanCollectionDate()).orElse(LocalDate.MAX).isBefore(LocalDate.now())) {
             cardData.setIsOverDue(true);
         } else {
@@ -271,7 +266,7 @@ public class RentCollectionIndexServiceImpl {
             // 罚息减免金额 > 0
             tagList.add(RentCollectionIndexCardTag.DEDUCTION.name());
         }
-        if (CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(collectionBaseInfo.getWriteOffStatus())
+        if (RentCollectionWriteOffStatus.isWriteOffCompleted(collectionBaseInfo.getWriteOffStatus())
             && Optional.ofNullable(collectionBaseInfo.getCollectionDate()).orElse(LocalDate.MAX).isAfter(collectionBaseInfo.getPlanCollectionDate())) {
             // 已收款 且 实收日期 > 计划收款日期
             tagList.add(RentCollectionIndexCardTag.OVERDUE.name());

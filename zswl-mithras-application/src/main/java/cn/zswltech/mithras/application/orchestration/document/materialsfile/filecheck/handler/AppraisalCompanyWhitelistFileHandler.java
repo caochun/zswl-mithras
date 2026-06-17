@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.leaseholdproperty.AppraisalCompanyDetailRSP;
 import cn.zswltech.mithras.application.orchestration.auth.rule.DataAuthProcessRule;
 import cn.zswltech.mithras.leaseholdproperty.enums.AppraisalCompanyWhitelistMaterialEnum;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.leaseholdproperty.enums.AppraisalCompanyWhitelistProcessStatusEnum;

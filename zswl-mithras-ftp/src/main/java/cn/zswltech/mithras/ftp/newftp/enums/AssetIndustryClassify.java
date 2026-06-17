@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.ftp.newftp.enums;
 
 import cn.zswltech.mithras.foundation.metadata.PullDown;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
+import cn.zswltech.mithras.ftp.common.enums.ProjectClassify;
 
 /**
  * @description:
@@ -49,5 +49,9 @@ public enum AssetIndustryClassify implements PullDown {
                 return CAUTIOUS_SUPPORT;
         }
         return null;
+    }
+
+    public static AssetIndustryClassify getByProjectClassify(String projectClassify) {
+        return getByProjectClassify(ProjectClassify.find(projectClassify));
     }
 }

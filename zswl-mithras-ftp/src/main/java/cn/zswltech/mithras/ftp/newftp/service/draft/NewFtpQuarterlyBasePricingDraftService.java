@@ -13,7 +13,7 @@ import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
+import cn.zswltech.mithras.ftp.common.enums.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.context.SpringContextHolder;

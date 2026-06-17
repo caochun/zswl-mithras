@@ -7,13 +7,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.ReflectUtil;
-import cn.hutool.json.JSONUtil;
 import cn.zswl.oss.core.OssClient;
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
-import cn.zswltech.flow.core.util.Page;
 import cn.zswltech.gruul.common.util.AccountUtil;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.gruul.dao.dal.vo.AccountVO;
@@ -27,18 +21,6 @@ import cn.zswltech.mithras.api.payment.dto.pubinfo.PublicInfoModifyContentREQ;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.PublicInfoQueryREQ;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.PublicInfoQueryRSP;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.PublicInfoSubmitCheckREQ;
-import cn.zswltech.mithras.contract.core.ContractGuarantorService;
-import cn.zswltech.mithras.contract.core.ContractMortgageService;
-import cn.zswltech.mithras.contract.core.ContractPledgeService;
-import cn.zswltech.mithras.contract.core.ContractTenantryService;
-import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.contract.model.contract.ContractMortgage;
-import cn.zswltech.mithras.contract.model.contract.ContractPledge;
-import cn.zswltech.mithras.contract.model.contract.ContractTenantry;
-import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
-import cn.zswltech.mithras.customer.model.client.Client;
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.payment.job.service.PaymentPublicInfoCopyRetryService;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
@@ -55,14 +37,12 @@ import cn.zswltech.mithras.payment.model.pubinfo.PublicInfoRecord;
 import cn.zswltech.mithras.payment.mapper.pubinfo.PublicInfoQueryMapper;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
-import cn.zswltech.mithras.third.providence.persistence.model.OuterInfoRecord;
-import cn.zswltech.mithras.third.providence.service.impl.OuterInfoRecordService;
+import cn.zswltech.mithras.payment.application.PaymentWorkflowPort;
+import cn.zswltech.mithras.payment.application.PaymentWorkflowProcessSnapshot;
 import com.alibaba.excel.EasyExcelFactory;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -94,8 +74,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
@@ -115,19 +93,7 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
     @Resource
     private OssClient ossClient;
     @Resource
-    private FlowTaskApiService flowTaskApiService;
-    @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
-    @Resource
-    private ContractBaseInfoMapper contractBaseInfoMapper;
-    @Resource
-    private ContractTenantryService contractTenantryService;
-    @Resource
-    private ContractGuarantorService contractGuarantorService;
-    @Resource
-    private ContractPledgeService contractPledgeService;
-    @Resource
-    private ContractMortgageService contractMortgageService;
     @Resource
     private PublicInfoConfigService publicInfoConfigService;
     @Resource
@@ -135,179 +101,93 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
     @Resource
     private PublicInfoQueryService thisService;
     @Resource
-    private OuterInfoRecordService outerInfoRecordService;
-    @Resource
     private TransactionTemplate transactionTemplate;
     @Resource
-    private ClientMapper clientMapper;
-    @Resource
     private PaymentPublicInfoSupportPort publicInfoSupportPort;
+    @Resource
+    private PaymentWorkflowPort paymentWorkflowPort;
 
     public List<PublicInfoClientListRSP> clientList(PublicInfoClientListREQ req) {
         log.info("公开信息-客户列表查询请求参数req: {}", req);
         PaymentBaseInfo paymentBaseInfo = paymentBaseInfoMapper.selectById(req.getPaymentId());
         Assert.notNull(paymentBaseInfo, () -> MithrasException.newException("付款申请" + ResultMsg.RECORD_NOT_EXIST));
         Assert.notNull(paymentBaseInfo.getContractId(), () -> MithrasException.newException("合同" + ResultMsg.RECORD_NOT_EXIST));
-        ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(paymentBaseInfo.getContractId());
-        Assert.notNull(contractBaseInfo, () -> MithrasException.newException("合同" + ResultMsg.RECORD_NOT_EXIST));
-        Client client = clientMapper.selectById(contractBaseInfo.getClientId());
+        PaymentPublicInfoContractContextSnapshot contractContext = publicInfoSupportPort.getContractContextByContractId(paymentBaseInfo.getContractId());
+        Assert.notNull(contractContext, () -> MithrasException.newException("合同" + ResultMsg.RECORD_NOT_EXIST));
         // 多线程找到客户信息
-        List<PublicInfoClientListRSP> publicInfoClientListRSPS = multiThreadQueryClientInfo(contractBaseInfo.getId(), paymentBaseInfo.getId());
+        List<PublicInfoClientListRSP> publicInfoClientListRSPS = multiThreadQueryClientInfo(contractContext.getContractId(), paymentBaseInfo.getId());
         if (ObjectUtil.isNotEmpty(publicInfoClientListRSPS)) {
             publicInfoClientListRSPS.forEach(publicInfoClientListRSP -> {
-                publicInfoClientListRSP.setOriginClientType(client.getClientType());
+                publicInfoClientListRSP.setOriginClientType(contractContext.getOriginClientType());
             });
         }
         return publicInfoClientListRSPS;
     }
 
     private List<PublicInfoClientListRSP> multiThreadQueryClientInfo(Long contractId, Long paymentId) {
-        try {
-            // 承租人
-            CompletableFuture<List<Long>> tenantryIdsFuture = getTenantryIdsFuture(contractId);
-            // 担保人
-            CompletableFuture<List<Long>> guarantorIdsFuture = getGuarantorIdsFuture(contractId);
-            // 抵押人
-            CompletableFuture<List<Long>> mortgageIdsFuture = getMortgageIdsFuture(contractId);
-            // 质押人
-            CompletableFuture<List<Long>> pledgeIdsFuture = getPledgeIdsFuture(contractId);
-
-            // 将各自的结果取出来
-            List<Long> tenantryIds = tenantryIdsFuture.get();
-            List<Long> guarantorIds = guarantorIdsFuture.get();
-            List<Long> mortgageIds = mortgageIdsFuture.get();
-            List<Long> pledgeIds = pledgeIdsFuture.get();
-
-            // 合并
-            List<Long> clientIds = CollUtil.unionAll(tenantryIds, guarantorIds, mortgageIds, pledgeIds).stream().distinct().collect(Collectors.toList());
-            List<PublicInfoQuery> publicInfoQueries = thisService.list(Wrappers.<PublicInfoQuery>lambdaQuery()
-                    .eq(PublicInfoQuery::getPaymentId, paymentId)
-                    .in(PublicInfoQuery::getClientId, clientIds)
-            );
-            if (CollUtil.isEmpty(publicInfoQueries)) {
-                Map<Long, String> clientId2Name = publicInfoSupportPort.clientId2Name(clientIds);
-                log.info("公开信息-客户列表查询结果为空， 封装客户标签返回");
-                return clientIds.stream().map(clientId -> {
-                    PublicInfoClientListRSP rsp = new PublicInfoClientListRSP();
-                    buildNonUseUser(clientId, tenantryIds, rsp, clientId2Name);
-                    return rsp;
-                }).collect(Collectors.toList());
-            }
-            // 找到子表信息
-            Map<Long, Map<String, PublicInfoRecord>> publicInfoRecordMap = new HashMap<>(8);
-            List<PublicInfoRecord> publicInfoRecordList = publicInfoRecordService.list(Wrappers.<PublicInfoRecord>lambdaQuery()
-                    .in(PublicInfoRecord::getPublicInfoQueryId, publicInfoQueries.stream().map(PublicInfoQuery::getId).collect(Collectors.toList())));
-            Map<Long, List<PublicInfoRecord>> infoRecordMap = publicInfoRecordList.stream().collect(Collectors.groupingBy(PublicInfoRecord::getPublicInfoQueryId));
-            infoRecordMap.forEach((publicInfoQueryId, publicInfoRecords) -> {
-                Map<String, PublicInfoRecord> recordMap = publicInfoRecords.stream().collect(Collectors.toMap(PublicInfoRecord::getConfigKey, Function.identity(), (o1, o2) -> o1));
-                publicInfoRecordMap.put(publicInfoQueryId, recordMap);
-            });
-
-            // 封装结果返回
-            Map<Long, String> clientId2NameMap = publicInfoSupportPort.clientId2Name(clientIds);
-            // 因为配置是只有一份，直接遍历就好了
-            List<PublicInfoClientListRSP> publicInfoClientListRspList = new LinkedList<>();
-            Map<Long, List<PublicInfoQuery>> listMap = publicInfoQueries.stream().collect(Collectors.groupingBy(PublicInfoQuery::getClientId));
-            // 这里就算只加了一份，但是处理结果的时候还是要以上面的总的客户来遍历
-            for (Long currentClientId : clientIds) {
+        PaymentPublicInfoContractParticipantSnapshot participantSnapshot = publicInfoSupportPort.getContractParticipantSnapshot(contractId);
+        List<Long> tenantryIds = participantSnapshot.getTenantryIds();
+        List<Long> clientIds = participantSnapshot.getAllClientIds();
+        List<PublicInfoQuery> publicInfoQueries = thisService.list(Wrappers.<PublicInfoQuery>lambdaQuery()
+                .eq(PublicInfoQuery::getPaymentId, paymentId)
+                .in(PublicInfoQuery::getClientId, clientIds)
+        );
+        if (CollUtil.isEmpty(publicInfoQueries)) {
+            Map<Long, String> clientId2Name = publicInfoSupportPort.clientId2Name(clientIds);
+            log.info("公开信息-客户列表查询结果为空， 封装客户标签返回");
+            return clientIds.stream().map(clientId -> {
                 PublicInfoClientListRSP rsp = new PublicInfoClientListRSP();
-                List<PublicInfoQuery> queryList = listMap.get(currentClientId);
-                if (CollUtil.isEmpty(queryList)) {
-                    buildNonUseUser(currentClientId, tenantryIds, rsp, clientId2NameMap);
-                    publicInfoClientListRspList.add(rsp);
-                    continue;
-                }
-                PublicInfoQuery publicInfoQuery = queryList.get(0);
-                rsp.setClientId(publicInfoQuery.getClientId());
-                rsp.setClientName(clientId2NameMap.get(publicInfoQuery.getClientId()));
-                if (tenantryIds.contains(publicInfoQuery.getClientId())) {
-                    // 只有是在承租人列表里面的才是承租人
-                    rsp.setClientType(PublicInfoClientTypeEnum.TENANTRY.name());
-                } else {
-                    rsp.setClientType(PublicInfoClientTypeEnum.GUARANTOR.name());
-                }
-
-                rsp.setQueryIntervalList(queryList.stream().map(obj -> {
-                    PublicInfoClientListRSP.QueryIntervalListRSP interval = new PublicInfoClientListRSP.QueryIntervalListRSP();
-                    interval.setQueryFrom(obj.getQueryFrom().format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
-                    interval.setQueryTo(obj.getQueryTo().format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
-                    interval.setId(obj.getId());
-                    // 设置有必填未填
-                    interval.setIsExistRequiredNotFill(checkIsExistRequiredNotFill(publicInfoQuery, publicInfoRecordMap.get(obj.getId())));
-                    return interval;
-                }).collect(Collectors.toList()));
-                rsp.setIsExistRequiredNotFill(rsp.getQueryIntervalList().stream().map(PublicInfoClientListRSP.QueryIntervalListRSP::getIsExistRequiredNotFill).collect(Collectors.toList()).contains(true));
-                publicInfoClientListRspList.add(rsp);
-            }
-            return publicInfoClientListRspList;
-
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            log.error("线程中断异常", e);
-            throw new MithrasException(e.getMessage());
-        } catch (ExecutionException e) {
-            log.error("线程执行异常", e);
-            throw new MithrasException(e.getMessage());
+                buildNonUseUser(clientId, tenantryIds, rsp, clientId2Name);
+                return rsp;
+            }).collect(Collectors.toList());
         }
-    }
-
-    public CompletableFuture<List<Long>> getPledgeIdsFuture(Long contractId) {
-        return CompletableFuture.supplyAsync(() -> {
-            List<ContractPledge> contractPledges = contractPledgeService.list(Wrappers.<ContractPledge>lambdaQuery()
-                    .eq(ContractPledge::getContractId, contractId));
-            if (CollUtil.isEmpty(contractPledges)) {
-                return Collections.emptyList();
-            }
-            List<Long> pledgeIds = new LinkedList<>();
-            contractPledges.forEach(contractPledge -> {
-                List<Long> ids = JSONUtil.toList(contractPledge.getPledgeIds(), Long.class);
-                pledgeIds.addAll(ids);
-            });
-            return pledgeIds;
+        // 找到子表信息
+        Map<Long, Map<String, PublicInfoRecord>> publicInfoRecordMap = new HashMap<>(8);
+        List<PublicInfoRecord> publicInfoRecordList = publicInfoRecordService.list(Wrappers.<PublicInfoRecord>lambdaQuery()
+                .in(PublicInfoRecord::getPublicInfoQueryId, publicInfoQueries.stream().map(PublicInfoQuery::getId).collect(Collectors.toList())));
+        Map<Long, List<PublicInfoRecord>> infoRecordMap = publicInfoRecordList.stream().collect(Collectors.groupingBy(PublicInfoRecord::getPublicInfoQueryId));
+        infoRecordMap.forEach((publicInfoQueryId, publicInfoRecords) -> {
+            Map<String, PublicInfoRecord> recordMap = publicInfoRecords.stream().collect(Collectors.toMap(PublicInfoRecord::getConfigKey, Function.identity(), (o1, o2) -> o1));
+            publicInfoRecordMap.put(publicInfoQueryId, recordMap);
         });
-    }
 
-    public CompletableFuture<List<Long>> getMortgageIdsFuture(Long contractId) {
-        return CompletableFuture.supplyAsync(() -> {
-            List<ContractMortgage> contractMortgages = contractMortgageService.list(Wrappers.<ContractMortgage>lambdaQuery()
-                    .eq(ContractMortgage::getContractId, contractId));
-            if (CollUtil.isEmpty(contractMortgages)) {
-                return Collections.emptyList();
+        // 封装结果返回
+        Map<Long, String> clientId2NameMap = publicInfoSupportPort.clientId2Name(clientIds);
+        // 因为配置是只有一份，直接遍历就好了
+        List<PublicInfoClientListRSP> publicInfoClientListRspList = new LinkedList<>();
+        Map<Long, List<PublicInfoQuery>> listMap = publicInfoQueries.stream().collect(Collectors.groupingBy(PublicInfoQuery::getClientId));
+        // 这里就算只加了一份，但是处理结果的时候还是要以上面的总的客户来遍历
+        for (Long currentClientId : clientIds) {
+            PublicInfoClientListRSP rsp = new PublicInfoClientListRSP();
+            List<PublicInfoQuery> queryList = listMap.get(currentClientId);
+            if (CollUtil.isEmpty(queryList)) {
+                buildNonUseUser(currentClientId, tenantryIds, rsp, clientId2NameMap);
+                publicInfoClientListRspList.add(rsp);
+                continue;
             }
-            List<Long> mortgageIds = new LinkedList<>();
-            contractMortgages.forEach(contractMortgage -> {
-                List<Long> ids = JSONUtil.toList(contractMortgage.getMortgageIds(), Long.class);
-                mortgageIds.addAll(ids);
-            });
-            return mortgageIds;
-        });
-    }
+            PublicInfoQuery publicInfoQuery = queryList.get(0);
+            rsp.setClientId(publicInfoQuery.getClientId());
+            rsp.setClientName(clientId2NameMap.get(publicInfoQuery.getClientId()));
+            if (tenantryIds.contains(publicInfoQuery.getClientId())) {
+                // 只有是在承租人列表里面的才是承租人
+                rsp.setClientType(PublicInfoClientTypeEnum.TENANTRY.name());
+            } else {
+                rsp.setClientType(PublicInfoClientTypeEnum.GUARANTOR.name());
+            }
 
-    public CompletableFuture<List<Long>> getGuarantorIdsFuture(Long contractId) {
-        return CompletableFuture.supplyAsync(() -> {
-            List<ContractGuarantor> contractGuarantors = contractGuarantorService.list(Wrappers.<ContractGuarantor>lambdaQuery()
-                    .eq(ContractGuarantor::getContractId, contractId));
-            if (CollUtil.isEmpty(contractGuarantors)) {
-                return Collections.emptyList();
-            }
-            List<Long> guarantorIds = new LinkedList<>();
-            contractGuarantors.forEach(contractGuarantor -> {
-                List<Long> ids = JSONUtil.toList(contractGuarantor.getGuarantorIds(), Long.class);
-                guarantorIds.addAll(ids);
-            });
-            return guarantorIds;
-        });
-    }
-
-    public CompletableFuture<List<Long>> getTenantryIdsFuture(Long contractId) {
-        return CompletableFuture.supplyAsync(() -> {
-            List<ContractTenantry> contractTenancies = contractTenantryService.list(Wrappers.<ContractTenantry>lambdaQuery()
-                    .eq(ContractTenantry::getContractId, contractId));
-            if (CollUtil.isEmpty(contractTenancies)) {
-                return Collections.emptyList();
-            }
-            return contractTenancies.stream().map(ContractTenantry::getLesseeId).collect(Collectors.toList());
-        });
+            rsp.setQueryIntervalList(queryList.stream().map(obj -> {
+                PublicInfoClientListRSP.QueryIntervalListRSP interval = new PublicInfoClientListRSP.QueryIntervalListRSP();
+                interval.setQueryFrom(obj.getQueryFrom().format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
+                interval.setQueryTo(obj.getQueryTo().format(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
+                interval.setId(obj.getId());
+                // 设置有必填未填
+                interval.setIsExistRequiredNotFill(checkIsExistRequiredNotFill(publicInfoQuery, publicInfoRecordMap.get(obj.getId())));
+                return interval;
+            }).collect(Collectors.toList()));
+            rsp.setIsExistRequiredNotFill(rsp.getQueryIntervalList().stream().map(PublicInfoClientListRSP.QueryIntervalListRSP::getIsExistRequiredNotFill).collect(Collectors.toList()).contains(true));
+            publicInfoClientListRspList.add(rsp);
+        }
+        return publicInfoClientListRspList;
     }
 
     private static void buildNonUseUser(Long clientId, List<Long> tenantryIds, PublicInfoClientListRSP rsp, Map<Long, String> clientId2Name) {
@@ -334,7 +214,7 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
             return false;
         }
         // 校验一次找一次流程列表
-        ProcessResp processResp = flowTaskApiService.queryProcessById(publicInfoQuery.getProcessInstanceId());
+        PaymentWorkflowProcessSnapshot processResp = paymentWorkflowPort.getProcessByInstanceId(publicInfoQuery.getProcessInstanceId());
         Assert.notNull(processResp, () -> MithrasException.newException("流程id: " + publicInfoQuery.getProcessInstanceId() + ResultMsg.RECORD_NOT_EXIST));
         // 判断当前节点是不是【项目经理节点】
         if ("userTask_projectmanager".equals(processResp.getCurTaskActivityIds())) {
@@ -353,7 +233,7 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
 
     public Boolean queryTableCheck(PublicInfoSubmitCheckREQ req) {
         // 校验一次找一次流程列表
-        ProcessResp processResp = flowTaskApiService.queryProcessById(req.getProcessInstanceId());
+        PaymentWorkflowProcessSnapshot processResp = paymentWorkflowPort.getProcessByInstanceId(req.getProcessInstanceId());
         Assert.notNull(processResp, () -> MithrasException.newException("流程id：" + req.getProcessInstanceId() + ResultMsg.RECORD_NOT_EXIST));
         // 找到公开信息
         List<PublicInfoQuery> publicInfoQueries = thisService.list(Wrappers.<PublicInfoQuery>lambdaQuery().eq(PublicInfoQuery::getProcessInstanceId, req.getProcessInstanceId()));
@@ -394,21 +274,21 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
         Map<String, PublicInfoConfig> configMap = publicInfoConfigService.list().stream().collect(Collectors.toMap(PublicInfoConfig::getConfigKey, Function.identity(), (o1, o2) -> o1));
         List<PublicInfoRecord> publicInfoRecords = publicInfoRecordService.list(Wrappers.<PublicInfoRecord>lambdaQuery().eq(PublicInfoRecord::getPublicInfoQueryId, publicInfoQuery.getId()));
         // 材料的通用查询接口不满足这里的查询需求，自己自定义方法查询
-        List<MaterialsList> materialsList;
+        List<FileListRSP> materialFiles;
         if (CollUtil.isEmpty(publicInfoRecords)) {
-            materialsList = new ArrayList<>();
+            materialFiles = new ArrayList<>();
         } else {
-            materialsList = publicInfoSupportPort.listMaterials(
+            materialFiles = publicInfoSupportPort.listMaterialFiles(
                     publicInfoRecords.stream().map(PublicInfoRecord::getId).collect(Collectors.toList()),
                     Arrays.asList(PublicInfoFileTypeEnum.values()));
         }
         Map<Long, Map<String, List<FileListRSP>>> materialsListMap = new HashMap<>(16);
         List<Long> clientIds = new LinkedList<>();
         List<Long> userIds = new LinkedList<>();
-        if (CollUtil.isNotEmpty(materialsList)) {
+        if (CollUtil.isNotEmpty(materialFiles)) {
             // 找到上传人更新人信息
-            userIds.addAll(materialsList.stream().map(MaterialsList::getCreateBy).collect(Collectors.toList()));
-            userIds.addAll(materialsList.stream().map(MaterialsList::getUpdateBy).collect(Collectors.toList()));
+            userIds.addAll(materialFiles.stream().map(FileListRSP::getCreateBy).collect(Collectors.toList()));
+            userIds.addAll(materialFiles.stream().map(FileListRSP::getUpdateBy).collect(Collectors.toList()));
         }
         if (Objects.nonNull(publicInfoQuery.getConfirmedBy())) {
             userIds.add(publicInfoQuery.getConfirmedBy());
@@ -418,14 +298,12 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
         Map<Long, String> userId2NameMap = publicInfoSupportPort.sysUserId2Name(userIds);
         rsp.setConfirmName(Optional.ofNullable(publicInfoQuery.getConfirmedBy()).map(obj -> userId2NameMap.get(publicInfoQuery.getConfirmedBy())).orElse(null));
         rsp.setClientName(Optional.ofNullable(publicInfoQuery.getClientId()).map(obj -> clientId2NameMap.get(publicInfoQuery.getClientId())).orElse(null));
-        if (CollUtil.isNotEmpty(materialsList)) {
-            materialsList.stream().collect(Collectors.groupingBy(MaterialsList::getBelongId))
-                    .forEach((belongId, materialsListList) -> {
-                        Map<String, List<FileListRSP>> listMap = materialsListList.stream().map(obj -> {
-                            FileListRSP fileListRsp = publicInfoSupportPort.toFileListRSP(obj);
-                            fileListRsp.setUpdateByName(userId2NameMap.get(obj.getUpdateBy()));
-                            fileListRsp.setCreateByName(userId2NameMap.get(obj.getCreateBy()));
-                            return fileListRsp;
+        if (CollUtil.isNotEmpty(materialFiles)) {
+            materialFiles.stream().collect(Collectors.groupingBy(FileListRSP::getBelongId))
+                    .forEach((belongId, fileList) -> {
+                        Map<String, List<FileListRSP>> listMap = fileList.stream().peek(fileListRsp -> {
+                            fileListRsp.setUpdateByName(userId2NameMap.get(fileListRsp.getUpdateBy()));
+                            fileListRsp.setCreateByName(userId2NameMap.get(fileListRsp.getCreateBy()));
                         }).collect(Collectors.groupingBy(FileListRSP::getMaterialSubType));
                         materialsListMap.put(belongId, listMap);
                     });
@@ -449,24 +327,16 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
                 });
         rsp.setRowList(rowList);
 
-        // 查询外部公开信息
-        OuterInfoRecord preOuter = outerInfoRecordService.getOne(Wrappers.<OuterInfoRecord>lambdaQuery()
-                .eq(OuterInfoRecord::getPublicInfoQueryId, publicInfoQuery.getId())
-                .orderByDesc(OuterInfoRecord::getVersion)
-                .last("limit 1"));
-        if (ObjectUtil.isNotNull(preOuter)) {
-            rsp.setPublicQueryTime(preOuter.getCreateTime());
-            Map<String, List<OuterInfoRecord>> outerResultMap = outerInfoRecordService.list(Wrappers.<OuterInfoRecord>lambdaQuery()
-                    .eq(OuterInfoRecord::getPublicInfoQueryId, req.getId())
-                    .eq(OuterInfoRecord::getVersion, preOuter.getVersion())).stream().collect(Collectors.groupingBy(OuterInfoRecord::getConfigKey));
-
+        PublicInfoOuterQuerySnapshot outerQuerySnapshot = publicInfoSupportPort.getLatestOuterQuerySnapshot(publicInfoQuery.getId());
+        if (ObjectUtil.isNotNull(outerQuerySnapshot)) {
+            rsp.setPublicQueryTime(outerQuerySnapshot.getQueryTime());
+            Map<String, List<String>> outerResultMap = outerQuerySnapshot.getQueryResultByConfigKey();
             for (PublicInfoQueryRSP.RowStructure rowStructure : rowList) {
-                List<OuterInfoRecord> orDefault = outerResultMap.getOrDefault(rowStructure.getRowKey(), Collections.emptyList());
-                if (ObjectUtil.isEmpty(orDefault)) {
+                List<String> resultList = outerResultMap.getOrDefault(rowStructure.getRowKey(), Collections.emptyList());
+                if (ObjectUtil.isEmpty(resultList)) {
                     continue;
                 }
-                String collect = orDefault.stream().map(obj -> String.join(".", obj.getIndex().toString(), obj.getQueryResult())).collect(Collectors.joining("\n"));
-                rowStructure.setOuterQueryResult(collect);
+                rowStructure.setOuterQueryResult(String.join("\n", resultList));
             }
         }
         return rsp;
@@ -491,18 +361,18 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
             }
         } else {
             // 找到当前流程实例
-            ProcessResp processResp = flowTaskApiService.queryProcessById(publicInfoQuery.getProcessInstanceId());
+            PaymentWorkflowProcessSnapshot processResp = paymentWorkflowPort.getProcessByInstanceId(publicInfoQuery.getProcessInstanceId());
             Assert.notNull(processResp, () -> MithrasException.newException("id: " + publicInfoQuery.getProcessInstanceId() + "流程实例不存在"));
             // 当前流程一定要是【付款申请】流程
-            Assert.isTrue(processResp.getModelKey().equals(ProcessModelTypeEnum.PaymentCreateFlow.name()), () -> MithrasException.newException("当前流程不是【付款申请】流程，不能修改"));
+            Assert.isTrue(paymentWorkflowPort.isPaymentCreateProcess(processResp.getModelKey()), () -> MithrasException.newException("当前流程不是【付款申请】流程，不能修改"));
             // 判断当前节点是运营经办还是项目经理 -> 20241224变更：不再按审批节点区分编辑，判断当前审批节点审批人为合同主办时可编辑
             // 找到当前付款申请的项目主办
             PaymentBaseInfo paymentBaseInfo = paymentBaseInfoMapper.selectById(publicInfoQuery.getPaymentId());
             Assert.notNull(paymentBaseInfo, "未找到付款申请信息");
             // 找到合同主办
-            ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(paymentBaseInfo.getContractId());
-            Assert.notNull(contractBaseInfo, "未找到合同信息");
-            if (contractBaseInfo.getProjSponsorUserId().equals(loginInfo.getId()) && processResp.getCurAssigneeIds().contains(loginInfo.getId().toString())) {
+            PaymentPublicInfoContractContextSnapshot contractContext = publicInfoSupportPort.getContractContextByContractId(paymentBaseInfo.getContractId());
+            Assert.notNull(contractContext, "未找到合同信息");
+            if (Objects.equals(contractContext.getProjSponsorUserId(), loginInfo.getId()) && processResp.getCurAssigneeIds().contains(loginInfo.getId().toString())) {
                 // 如果是合同主办，并且当前结点审批人是合同主办，什么也不干
             } else if (!processResp.getCurTaskActivityIds().contains("userTask_startUser")) {
                 throw MithrasException.newException("当前流程节点不支持修改");
@@ -536,12 +406,7 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
         );
         Assert.isNull(publicInfoQuery, () -> MithrasException.newException("该客户当前时间段已经存在记录，不能重复创建"));
 
-        // 找到当前流程实例
-        ProcessPageReq processPageReq = new ProcessPageReq();
-        processPageReq.setBusinessKey(String.valueOf(req.getPaymentId()));
-        processPageReq.setProcessStatusList(Collections.singletonList(ProcessBusinessStatusEnum.RUNNING.getType()));
-        processPageReq.setModelKeyList(ListUtil.of(ProcessModelTypeEnum.PaymentCreateFlow.name()));
-        Page<ProcessResp> processRespPage = flowTaskApiService.queryProcess(processPageReq);
+        PaymentWorkflowProcessSnapshot processResp = paymentWorkflowPort.getRunningPaymentCreateProcess(req.getPaymentId());
         // 开始构建实体类
         PublicInfoQuery needInsert = PublicInfoQuery.builder()
                 .paymentId(req.getPaymentId())
@@ -550,14 +415,8 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
                 .queryFrom(LocalDate.parse(req.getQueryFrom(), DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)))
                 .queryTo(LocalDate.parse(req.getQueryTo(), DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)))
                 .build();
-        if (processRespPage.getTotal() > 1) {
-            throw new MithrasException("当前付款申请存在两个流程");
-        }
-        if (processRespPage.getTotal() > 0) {
-            ProcessResp processResp = processRespPage.getContents().get(0);
-            if (Objects.nonNull(processResp)) {
-                needInsert.setProcessInstanceId(processResp.getProcessInstanceId());
-            }
+        if (Objects.nonNull(processResp)) {
+            needInsert.setProcessInstanceId(processResp.getProcessInstanceId());
         }
         thisService.save(needInsert);
 
@@ -728,14 +587,14 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
      * @return Map<Long, Map < String, List < FileListRSP>>> 所有的文件分组
      */
     public Map<Long, Map<String, List<FileListRSP>>> queryFileList(Map<String, PublicInfoRecord> stringPublicInfoRecordMap) {
-        List<MaterialsList> materialsLists = publicInfoSupportPort.listMaterials(
-                stringPublicInfoRecordMap.values().stream().map(PublicInfoRecord::getId).collect(Collectors.toList()));
-        if (CollUtil.isEmpty(materialsLists)) {
+        List<FileListRSP> materialFiles = publicInfoSupportPort.listMaterialFiles(
+                stringPublicInfoRecordMap.values().stream().map(PublicInfoRecord::getId).collect(Collectors.toList()),
+                Arrays.asList(PublicInfoFileTypeEnum.values()));
+        if (CollUtil.isEmpty(materialFiles)) {
             return Collections.emptyMap();
         }
         Map<Long, Map<String, List<FileListRSP>>> result = new HashMap<>();
-        materialsLists.stream().map(publicInfoSupportPort::toFileListRSP)
-                .collect(Collectors.groupingBy(FileListRSP::getBelongId))
+        materialFiles.stream().collect(Collectors.groupingBy(FileListRSP::getBelongId))
                 .forEach((key, value) -> result.put(key, value.stream().collect(Collectors.groupingBy(FileListRSP::getMaterialSubType))));
         return result;
     }
@@ -783,17 +642,17 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
         }
         // 根据里面的合同ID找到项目ID，再找到所有的合同
         Long contractId = paymentBaseInfo.getContractId();
-        ContractBaseInfo contractBaseInfo = contractBaseInfoMapper.selectById(contractId);
-        Assert.notNull(contractBaseInfo, () -> MithrasException.newException("合同不存在"));
-        List<ContractBaseInfo> contractBaseInfoList = publicInfoSupportPort.listContractsByProjReviewId(contractBaseInfo.getProjReviewId());
+        PaymentPublicInfoContractContextSnapshot contractContext = publicInfoSupportPort.getContractContextByContractId(contractId);
+        Assert.notNull(contractContext, () -> MithrasException.newException("合同不存在"));
+        List<PaymentPublicInfoContractSnapshot> contractSnapshots = publicInfoSupportPort.listContractSnapshotsByProjReviewId(contractContext.getProjReviewId());
         // 然后拿到所有的付款申请
-        if (CollUtil.isEmpty(contractBaseInfoList)) {
+        if (CollUtil.isEmpty(contractSnapshots)) {
             // 没有合同，说明是新合同，直接返回比较结果
             throw MithrasException.newException("该合同没有付款申请，不能复制");
         }
         List<PaymentBaseInfo> paymentBaseInfoList = paymentBaseInfoMapper.selectList(Wrappers.<PaymentBaseInfo>lambdaQuery()
                 .in(PaymentBaseInfo::getPaymentStatus, PaymentStatusEnum.TAKE_EFFECT.name(), PaymentStatusEnum.FINISHED.name(), PaymentStatusEnum.NEW.name())
-                .in(PaymentBaseInfo::getContractId, contractBaseInfoList.stream().map(ContractBaseInfo::getId).collect(Collectors.toList())));
+                .in(PaymentBaseInfo::getContractId, contractSnapshots.stream().map(PaymentPublicInfoContractSnapshot::getId).collect(Collectors.toList())));
         // 查询公开信息
         List<PublicInfoQuery> publicInfoQueryList = thisService.list(Wrappers.<PublicInfoQuery>lambdaQuery()
                 .in(PublicInfoQuery::getPaymentId, paymentBaseInfoList.stream().map(PaymentBaseInfo::getId).collect(Collectors.toList())));
@@ -801,26 +660,9 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
             // 没有公开信息，直接返回
             return;
         }
-        // 承租人
-        CompletableFuture<List<Long>> tenantryIdsFuture = getTenantryIdsFuture(contractId);
-        // 担保人
-        CompletableFuture<List<Long>> guarantorIdsFuture = getGuarantorIdsFuture(contractId);
-        // 抵押人
-        CompletableFuture<List<Long>> mortgageIdsFuture = getMortgageIdsFuture(contractId);
-        // 质押人
-        CompletableFuture<List<Long>> pledgeIdsFuture = getPledgeIdsFuture(contractId);
-
-        // 等待所有的任务执行完成
-        CompletableFuture.allOf(tenantryIdsFuture, guarantorIdsFuture, mortgageIdsFuture, pledgeIdsFuture).join();
-
-        // 合并
-        try {
-            List<Long> tenantryIds = tenantryIdsFuture.get();
-            List<Long> guarantorIds = guarantorIdsFuture.get();
-            List<Long> mortgageIds = mortgageIdsFuture.get();
-            List<Long> pledgeIds = pledgeIdsFuture.get();
-            transactionTemplate.executeWithoutResult(transactionStatus -> {
-                List<Long> clientIds = CollUtil.unionAll(tenantryIds, guarantorIds, mortgageIds, pledgeIds).stream().distinct().collect(Collectors.toList());
+        PaymentPublicInfoContractParticipantSnapshot participantSnapshot = publicInfoSupportPort.getContractParticipantSnapshot(contractId);
+        List<Long> clientIds = participantSnapshot.getAllClientIds();
+        transactionTemplate.executeWithoutResult(transactionStatus -> {
                 // 拿到客户信息之后，开始拷贝
                 List<PublicInfoQuery> infoQueries = thisService.list(Wrappers.<PublicInfoQuery>lambdaQuery()
                         .in(PublicInfoQuery::getPaymentId, paymentBaseInfoList.stream().map(PaymentBaseInfo::getId).collect(Collectors.toList()))
@@ -861,11 +703,11 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
                         if (CollUtil.isNotEmpty(publicInfoRecords)) {
                             newPublicInfoQueries.add(infoQuery);
                             // 拷贝文件
-                            List<MaterialsList> materialsLists = publicInfoSupportPort.listMaterials(
+                            List<PaymentPublicInfoMaterialSnapshot> materialsList = publicInfoSupportPort.listMaterialSnapshots(
                                     publicInfoRecords.stream().map(PublicInfoRecord::getId).collect(Collectors.toList()));
-                            Map<Long, List<MaterialsList>> materailListMap = new HashMap<>();
-                            if (CollUtil.isNotEmpty(materialsLists)) {
-                                materailListMap = materialsLists.stream().collect(Collectors.groupingBy(MaterialsList::getBelongId));
+                            Map<Long, List<PaymentPublicInfoMaterialSnapshot>> materailListMap = new HashMap<>();
+                            if (CollUtil.isNotEmpty(materialsList)) {
+                                materailListMap = materialsList.stream().collect(Collectors.groupingBy(PaymentPublicInfoMaterialSnapshot::getBelongId));
                             }
                             for (PublicInfoRecord record : publicInfoRecords) {
                                 PublicInfoRecord newRecord = PublicInfoRecord.builder()
@@ -878,19 +720,19 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
                                         .build();
                                 publicInfoRecordService.save(newRecord);
                                 // 看看有没有文件需要处理
-                                List<MaterialsList> list = materailListMap.get(record.getId());
+                                List<PaymentPublicInfoMaterialSnapshot> list = materailListMap.get(record.getId());
                                 if (CollUtil.isNotEmpty(list)) {
-                                    for (MaterialsList materialsList : list) {
+                                    for (PaymentPublicInfoMaterialSnapshot materials : list) {
                                         try {
-                                            InputStream inputStream = ossClient.downLoad(materialsList.getOssFilename());
+                                            InputStream inputStream = ossClient.downLoad(materials.getOssFilename());
                                             if (inputStream != null) {
                                                 byte[] byteArray = ByteStreams.toByteArray(inputStream);
                                                 publicInfoSupportPort.addMaterial(
                                                         new ByteArrayInputStream(byteArray),
-                                                        materialsList.getFilename(),
+                                                        materials.getFilename(),
                                                         newRecord.getId(),
-                                                        materialsList.getMaterialsType(),
-                                                        materialsList.getMaterialSubType(),
+                                                        materials.getMaterialsType(),
+                                                        materials.getMaterialSubType(),
                                                         YesOrNoNumberEnum.YES
                                                 );
                                                 inputStream.close();
@@ -910,15 +752,7 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
                 entity.setIsInitPublicInfo(1);
                 paymentBaseInfoMapper.updateById(entity);
                 log.info("付款申请：{}公开信息拷贝完毕！一共拷贝了{}条记录", paymentBaseInfo.getPaymentCode(), newPublicInfoQueries.size());
-            });
-        } catch (
-                InterruptedException e) {
-            log.error("公开信息拷贝，异步查询交易结构失败");
-            Thread.currentThread().interrupt();
-        } catch (
-                ExecutionException e) {
-            log.error("公开信息拷贝，异步查询交易结构失败");
-        }
+        });
     }
 
     public List<String> check(PublicInfoCheckREQ req) {
@@ -926,41 +760,20 @@ public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, P
         Assert.notNull(paymentBaseInfo, () -> MithrasException.newException("付款申请不存在"));
         // 找到所有的交易结构信息
         Long contractId = paymentBaseInfo.getContractId();
-        // 承租人
-        CompletableFuture<List<Long>> tenantryIdsFuture = getTenantryIdsFuture(contractId);
-        // 担保人
-        CompletableFuture<List<Long>> guarantorIdsFuture = getGuarantorIdsFuture(contractId);
-        // 抵押人
-        CompletableFuture<List<Long>> mortgageIdsFuture = getMortgageIdsFuture(contractId);
-        // 质押人
-        CompletableFuture<List<Long>> pledgeIdsFuture = getPledgeIdsFuture(contractId);
-
-        // 等待所有的任务执行完成
-        CompletableFuture.allOf(tenantryIdsFuture, guarantorIdsFuture, mortgageIdsFuture, pledgeIdsFuture).join();
-        try {
-            List<Long> tenantryIds = tenantryIdsFuture.get();
-            List<Long> guarantorIds = guarantorIdsFuture.get();
-            List<Long> mortgageIds = mortgageIdsFuture.get();
-            List<Long> pledgeIds = pledgeIdsFuture.get();
-
-            List<Long> clientIds = CollUtil.unionAll(tenantryIds, guarantorIds, mortgageIds, pledgeIds).stream().distinct().collect(Collectors.toList());
-            List<PublicInfoQuery> infoQueries = thisService.list(Wrappers.<PublicInfoQuery>lambdaQuery()
-                    .eq(PublicInfoQuery::getPaymentId, paymentBaseInfo.getId()));
-            if (CollUtil.isEmpty(infoQueries)) {
-                Map<Long, String> longStringMap = publicInfoSupportPort.clientId2Name(clientIds.stream().distinct().collect(Collectors.toList()));
-                return ListUtil.toList(longStringMap.values());
-            } else {
-                List<Long> list = infoQueries.stream().map(PublicInfoQuery::getClientId).distinct().collect(Collectors.toList());
-                clientIds.removeIf(list::contains);
-                if (CollUtil.isEmpty(clientIds)) {
-                    return Collections.emptyList();
-                }
-                Map<Long, String> longStringMap = publicInfoSupportPort.clientId2Name(clientIds);
-                return ListUtil.toList(longStringMap.values());
+        List<Long> clientIds = publicInfoSupportPort.getContractParticipantSnapshot(contractId).getAllClientIds();
+        List<PublicInfoQuery> infoQueries = thisService.list(Wrappers.<PublicInfoQuery>lambdaQuery()
+                .eq(PublicInfoQuery::getPaymentId, paymentBaseInfo.getId()));
+        if (CollUtil.isEmpty(infoQueries)) {
+            Map<Long, String> longStringMap = publicInfoSupportPort.clientId2Name(clientIds.stream().distinct().collect(Collectors.toList()));
+            return ListUtil.toList(longStringMap.values());
+        } else {
+            List<Long> list = infoQueries.stream().map(PublicInfoQuery::getClientId).distinct().collect(Collectors.toList());
+            clientIds.removeIf(list::contains);
+            if (CollUtil.isEmpty(clientIds)) {
+                return Collections.emptyList();
             }
-        } catch (ExecutionException | InterruptedException e) {
-            log.error("获取交易结构信息失败");
-            throw MithrasException.newException("获取交易结构信息失败");
+            Map<Long, String> longStringMap = publicInfoSupportPort.clientId2Name(clientIds);
+            return ListUtil.toList(longStringMap.values());
         }
     }
 }

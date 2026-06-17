@@ -9,7 +9,7 @@ import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceStatisticsRSP;
 import cn.zswltech.mithras.finance.view.entity.*;
 import cn.zswltech.mithras.finance.view.mapper.DashboardFvCardSnapshotMapper;
 import cn.zswltech.mithras.finance.view.service.*;
-import cn.zswltech.mithras.dashboard.enums.DashboardCardGroupEnum;
+import cn.zswltech.mithras.finance.view.enums.FinanceDashboardCardGroupEnum;
 import cn.zswltech.mithras.finance.view.service.DashboardFundFinanceDataProvider;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -71,11 +71,11 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
             CompletableFuture<Void> repayPrincipalInterestSnapshotFuture = CompletableFuture.runAsync(() -> {
                 log.info("开始生成还本付息快照信息..........");
                 try {
-                    DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_REPAY.name());
-                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_REPAY, dataTime, JSONUtil.toJsonStr(rsp));
+                    DashboardFundFinanceStatisticsRSP rsp = map.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_REPAY.name());
+                    Long mainId = generateDashboardFvCardSnapshot(FinanceDashboardCardGroupEnum.FUND_FINANCE_REPAY, dataTime, JSONUtil.toJsonStr(rsp));
                     repayPrincipalInterestSnapshotService.generate(mainId, dataTime);
                     // 尝试删除老数据
-                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_REPAY.name());
+                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_REPAY.name());
                     if (Objects.nonNull(cardSnapshot)) {
                         thisService.removeById(cardSnapshot.getId());
                         // 删除子表数据
@@ -96,11 +96,11 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
             CompletableFuture<Void> creditInfoSnapshotFuture = CompletableFuture.runAsync(() -> {
                 log.info("生成授信信息快照信息开始..........");
                 try {
-                    DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_CREDIT.name());
-                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_CREDIT, dataTime, JSONUtil.toJsonStr(rsp));
+                    DashboardFundFinanceStatisticsRSP rsp = map.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_CREDIT.name());
+                    Long mainId = generateDashboardFvCardSnapshot(FinanceDashboardCardGroupEnum.FUND_FINANCE_CREDIT, dataTime, JSONUtil.toJsonStr(rsp));
                     creditInfoSnapshotService.generate(mainId, dataTime);
                     // 尝试删除老数据
-                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_CREDIT.name());
+                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_CREDIT.name());
                     if (Objects.nonNull(cardSnapshot)) {
                         thisService.removeById(cardSnapshot.getId());
                         LambdaQueryWrapper<DashboardFvCreditInfoSnapshot> queryWrapper = Wrappers.<DashboardFvCreditInfoSnapshot>lambdaQuery()
@@ -115,11 +115,11 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
             CompletableFuture<Void> financeCostSnapshotFuture = CompletableFuture.runAsync(() -> {
                 log.info("生成资金成本快照信息开始..........");
                 try {
-                    DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS.name());
-                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS, dataTime, JSONUtil.toJsonStr(rsp));
+                    DashboardFundFinanceStatisticsRSP rsp = map.get(FinanceDashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS.name());
+                    Long mainId = generateDashboardFvCardSnapshot(FinanceDashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS, dataTime, JSONUtil.toJsonStr(rsp));
                     financingCostSnapshotService.generate(mainId, dataTime);
                     // 尝试删除老数据
-                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS.name());
+                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(FinanceDashboardCardGroupEnum.FOND_FINANCE_COST_FOUNDS.name());
                     if (Objects.nonNull(cardSnapshot)) {
                         thisService.removeById(cardSnapshot.getId());
                         // 删除子表信息
@@ -133,11 +133,11 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
             CompletableFuture<Void> financeInfoSnapshotAllFuture = CompletableFuture.runAsync(() -> {
                 log.info("生成融资信息（存量）快照信息开始..........");
                 try {
-                    DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN.name());
-                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN, dataTime, JSONUtil.toJsonStr(rsp));
+                    DashboardFundFinanceStatisticsRSP rsp = map.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN.name());
+                    Long mainId = generateDashboardFvCardSnapshot(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN, dataTime, JSONUtil.toJsonStr(rsp));
                     financeInfoSnapshotService.generateAll(mainId, dataTime);
                     // 尝试删除老数据
-                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN.name());
+                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN.name());
                     if (Objects.nonNull(cardSnapshot)) {
                         thisService.removeById(cardSnapshot.getId());
                         // 删除子表信息
@@ -151,11 +151,11 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
             CompletableFuture<Void> financeInfoSnapshotYearFuture = CompletableFuture.runAsync(() -> {
                 log.info("生成融资信息（当年）快照信息开始");
                 try {
-                    DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR.name());
-                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR, dataTime, JSONUtil.toJsonStr(rsp));
+                    DashboardFundFinanceStatisticsRSP rsp = map.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR.name());
+                    Long mainId = generateDashboardFvCardSnapshot(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR, dataTime, JSONUtil.toJsonStr(rsp));
                     financeInfoSnapshotService.generateYear(mainId, dataTime);
                     // 尝试删除老数据
-                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR.name());
+                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_YEAR.name());
                     if (Objects.nonNull(cardSnapshot)) {
                         thisService.removeById(cardSnapshot.getId());
                         // 删除子表信息
@@ -168,11 +168,11 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
             CompletableFuture<Void> financeInfoSnapshotMonthFuture = CompletableFuture.runAsync(() -> {
                 log.info("生成融资信息（当月）快照信息开始..........");
                 try {
-                    DashboardFundFinanceStatisticsRSP rsp = map.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH.name());
-                    Long mainId = generateDashboardFvCardSnapshot(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH, dataTime, JSONUtil.toJsonStr(rsp));
+                    DashboardFundFinanceStatisticsRSP rsp = map.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH.name());
+                    Long mainId = generateDashboardFvCardSnapshot(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH, dataTime, JSONUtil.toJsonStr(rsp));
                     financeInfoSnapshotService.generateMonth(mainId, dataTime);
                     // 尝试删除老数据
-                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(DashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH.name());
+                    DashboardFvCardSnapshot cardSnapshot = finalExistMap.get(FinanceDashboardCardGroupEnum.FUND_FINANCE_LOAN_THIS_MONTH.name());
                     if (Objects.nonNull(cardSnapshot)) {
                         thisService.removeById(cardSnapshot.getId());
                         // 删除子表信息
@@ -196,7 +196,7 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
         log.info("多线程生成融资视图快照信息完成.........  ");
     }
 
-    private Long generateDashboardFvCardSnapshot(DashboardCardGroupEnum cardGroup,
+    private Long generateDashboardFvCardSnapshot(FinanceDashboardCardGroupEnum cardGroup,
                                                  LocalDate dataTime,
                                                  Object data) {
         return thisService.generateDashboardFvCardSnapshot(cardGroup.name(), cardGroup.getDisplay(), dataTime, data);
@@ -225,8 +225,8 @@ public class DashboardFvCardSnapshotServiceImpl extends ServiceImpl<DashboardFvC
             return Collections.emptyList();
         }
         return snapshotList.stream().map(snapshot -> JSONUtil.toBean(snapshot.getCardData(), DashboardFundFinanceStatisticsRSP.class))
-                .peek(e -> e.setSort(Optional.ofNullable(DashboardCardGroupEnum.ofName(e.getGroupCode()))
-                        .map(DashboardCardGroupEnum::getSort).orElse(0))).collect(Collectors.toList());
+                .peek(e -> e.setSort(Optional.ofNullable(FinanceDashboardCardGroupEnum.ofName(e.getGroupCode()))
+                        .map(FinanceDashboardCardGroupEnum::getSort).orElse(0))).collect(Collectors.toList());
     }
 }
 

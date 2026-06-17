@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.file;
 
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
 import org.springframework.beans.BeansException;

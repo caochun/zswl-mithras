@@ -12,8 +12,8 @@ import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProjectBizType;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
-import cn.zswltech.mithras.contract.enums.contractcp.CashSelectTypeEnum;
-import cn.zswltech.mithras.contract.enums.contractcp.RecordSourceEnum;
+import cn.zswltech.mithras.collection.enums.CashSelectTypeEnum;
+import cn.zswltech.mithras.collection.enums.RecordSourceEnum;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
@@ -22,7 +22,6 @@ import cn.zswltech.mithras.collection.excel.exporter.ContractcpListExcelExporter
 import cn.zswltech.mithras.collection.excel.model.ContractcpCashDetailExcelModel;
 import cn.zswltech.mithras.collection.excel.model.ContractcpListExcelModel;
 import cn.zswltech.mithras.collection.mapper.CollectionBaseInfoMapper;
-import cn.zswltech.mithras.collection.mapper.CollectionRecordInfoMapper;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
@@ -63,8 +62,6 @@ public class ContractCollectionPaymentService {
     private ContractBaseInfoMapper contractBaseInfoMapper;
     @Resource
     private CollectionBaseInfoMapper collectionBaseInfoMapper;
-    @Resource
-    private CollectionRecordInfoMapper collectionRecordInfoMapper;
     @Resource
     private PaymentBaseInfoMapper paymentBaseInfoMapper;
     @Resource
@@ -130,14 +127,6 @@ public class ContractCollectionPaymentService {
             principal = principal + LongUtil.null2zero(info.getPrincipal());
             receivedInterest = receivedInterest + LongUtil.null2zero(info.getCollectionInterest());
             interest = interest + LongUtil.null2zero(info.getInterest());
-            //计算规则还不明确，暂时不展示
-//            if (info.getPlanCollectionDate().isBefore(LocalDate.now())){
-//                List<CollectionRecordInfo> collectionRecordInfos = collectionRecordInfoMapper.selectList(Wrappers.<CollectionRecordInfo>lambdaQuery().eq(CollectionRecordInfo::getCollectionId, info.getId())
-//                        .eq(CollectionRecordInfo::getWriteOffStatus, CollectionRecordWriteOffStatus.WRITTEN_OFF));
-//                receivedOverdueInterest = receivedOverdueInterest + LongUtil.null2zero(info.getCollectionInterest());
-//                overdueInterest = overdueInterest + (LongUtil.null2zero(info.getInterest()) - LongUtil.null2zero(info.getCollectionInterest()));
-//                overdueAmount = overdueAmount + (LongUtil.null2zero(info.getPrincipal()) - LongUtil.null2zero(info.getCollectionPrincipal()) + LongUtil.null2zero(info.getInterest()) - LongUtil.null2zero(info.getCollectionInterest()));
-//            }
             if (CashFlowItemEnum.OTHERAMOUNT.name().equals(info.getCashFlowItem())) {
                 otherAmount = otherAmount + LongUtil.null2zero(info.getCollectionAmount());
             }
@@ -197,14 +186,6 @@ public class ContractCollectionPaymentService {
             principal = principal + LongUtil.null2zero(info.getPrincipal());
             receivedInterest = receivedInterest + LongUtil.null2zero(info.getCollectionInterest());
             interest = interest + LongUtil.null2zero(info.getInterest());
-            //计算规则还不明确，暂时不展示
-//            if (info.getPlanCollectionDate().isBefore(LocalDate.now())){
-//                List<CollectionRecordInfo> collectionRecordInfos = collectionRecordInfoMapper.selectList(Wrappers.<CollectionRecordInfo>lambdaQuery().eq(CollectionRecordInfo::getCollectionId, info.getId())
-//                        .eq(CollectionRecordInfo::getWriteOffStatus, CollectionRecordWriteOffStatus.WRITTEN_OFF));
-//                receivedOverdueInterest = receivedOverdueInterest + LongUtil.null2zero(info.getCollectionInterest());
-//                overdueInterest = overdueInterest + (LongUtil.null2zero(info.getInterest()) - LongUtil.null2zero(info.getCollectionInterest()));
-//                overdueAmount = overdueAmount + (LongUtil.null2zero(info.getPrincipal()) - LongUtil.null2zero(info.getCollectionPrincipal()) + LongUtil.null2zero(info.getInterest()) - LongUtil.null2zero(info.getCollectionInterest()));
-//            }
             if (CashFlowItemEnum.OTHERAMOUNT.name().equals(info.getCashFlowItem())) {
                 otherAmount = otherAmount + LongUtil.null2zero(info.getCollectionAmount());
             }

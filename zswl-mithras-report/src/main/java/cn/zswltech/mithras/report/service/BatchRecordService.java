@@ -1,12 +1,9 @@
 package cn.zswltech.mithras.report.service;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.gruul.common.util.AccountUtil;
-import cn.zswltech.mithras.api.FileApi;
 import cn.zswltech.mithras.api.common.PageR;
-import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.report.batch.BatchHeadRSP;
 import cn.zswltech.mithras.dto.report.batch.BatchListREQ;
 import cn.zswltech.mithras.dto.report.batch.BatchListRSP;
@@ -17,12 +14,8 @@ import cn.zswltech.mithras.report.mapper.BatchRecordMapper;
 import cn.zswltech.mithras.report.mapper.model.BatchRecord;
 import cn.zswltech.mithras.report.util.ReportBizUtil;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.payment.enums.pubinfo.PublicInfoFileTypeEnum;
-import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
-import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -47,8 +40,6 @@ public class BatchRecordService extends ServiceImpl<BatchRecordMapper, BatchReco
 
     @Resource
     private Id2NameService id2NameService;
-    @Resource
-    private MaterialsListService materialsListService;
 
     @Transactional(rollbackFor = Exception.class, transactionManager = ReportConstants.TRANSACTION_MANAGER)
     public BatchRecord addRecord(BatchType type, String processInstanceId, BatchReportREQ req) {

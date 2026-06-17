@@ -28,7 +28,7 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.ContractTenantryService;
-import cn.zswltech.mithras.application.orchestration.groupcredit.review.GroupCreditReviewService;
+import cn.zswltech.mithras.application.orchestration.credit.groupcredit.review.GroupCreditReviewService;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingAocPriceLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingFactoringPriceLibService;
 import cn.zswltech.mithras.projectprocess.versioning.projpricing.ProjPricingLeasePriceLibService;

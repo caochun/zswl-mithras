@@ -1,14 +1,10 @@
 package cn.zswltech.mithras.riskcontrol.metric.subscriber;
 
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
-import cn.zswltech.mithras.customer.mapper.lib.client.CorpCommerceInfoLibMapper;
-import cn.zswltech.mithras.customer.model.client.ClientBaseModel;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
 import cn.zswltech.mithras.riskcontrol.strategy.RiskControlStrategy;
+import cn.zswltech.mithras.riskcontrol.application.port.RiskControlClientFactPort;
 import cn.zswltech.mithras.riskcontrol.metric.AbstractMetricComputer;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalService;
-import cn.zswltech.mithras.customer.versioning.dto.CorpCommerceInfoLibDto;
 import cn.zswltech.mithras.riskcontrol.exposure.RemainingPrincipalQueryDto;
 import cn.zswltech.mithras.riskcontrol.metric.MetricComputeEvent;
 import cn.zswltech.mithras.riskcontrol.metric.SubscribeSupporter;
@@ -22,7 +18,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 /**
@@ -36,7 +31,7 @@ import java.util.stream.Collectors;
 public class MetricComputer29J10000396_FJC47608 extends AbstractMetricComputer
         implements SubscribeSupporter<MetricComputeEvent> {
     @Resource
-    private CorpCommerceInfoLibMapper corpCommerceInfoLibMapper;
+    private RiskControlClientFactPort clientFactPort;
     @Resource
     private RemainingPrincipalService remainingPrincipalServiceImpl;
 
@@ -55,15 +50,9 @@ public class MetricComputer29J10000396_FJC47608 extends AbstractMetricComputer
 
     @Override
     protected void calculate(MetricComputeEvent event, RiskControlStrategy strategy) {
-        CorpCommerceInfoLibDto commerceDto = new CorpCommerceInfoLibDto();
-        commerceDto.setInRiskControlIndustryClassify(
-                Collections.singletonList(RiskControlIndustryClassify.INNOVATION_BUSINESS.name()));
-        List<CorpCommerceInfoLib> corpCommerceInfoLibs = corpCommerceInfoLibMapper.listNewestCommerceInfo(commerceDto);
-        Set<Long> targetClients = corpCommerceInfoLibs
-                .stream().map(ClientBaseModel::getClientId).collect(Collectors.toSet());
-
-        Map<Long, String> industryTypeMap = corpCommerceInfoLibs.stream()
-                .collect(Collectors.toMap(ClientBaseModel::getClientId, CorpCommerceInfo::getIndustryType));
+        Map<Long, String> industryTypeMap = clientFactPort.clientIdToIndustryTypeInRiskControlIndustryClassify(
+                Collections.singleton(RiskControlIndustryClassify.INNOVATION_BUSINESS.name()));
+        Set<Long> targetClients = industryTypeMap.keySet();
         RemainingPrincipalQueryDto dto = new RemainingPrincipalQueryDto();
         dto.setClientIds(targetClients);
         dto.setEndDate(event.getSnapshotDate());

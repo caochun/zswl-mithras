@@ -2,16 +2,11 @@ package cn.zswltech.mithras.liquidity.service.cal.account;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ReflectUtil;
-import cn.zswltech.mithras.fund.enums.DirectFinancingType;
-import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
-import cn.zswltech.mithras.fund.enums.financing.FundFinancingAccountTypeEnum;
+import cn.zswltech.mithras.liquidity.bo.LiquidityDirectFinancingSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingPayAccountSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowPlanSnapshot;
+import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptRepaySnapshot;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
-import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingRepayActual;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPayAccount;
-import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingRepayActual;
-import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptFlowPlan;
-import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityAccountCalculatorBo;
@@ -38,29 +33,33 @@ import java.util.stream.Collectors;
 @Component
 public class RepayNoAbsAmountCalculator extends AbstractLiquidityCalculator<LiquidityAccountCalculatorBo> {
 
+    private static final String DIRECT_FINANCING = "DIRECT";
+    private static final String REPAY_PRINCIPAL = "REPAY_PRINCIPAL";
+    private static final String REPAY_INTEREST = "REPAY_INTEREST";
+    private static final List<String> ABS_DIRECT_FINANCING_TYPES = Arrays.asList("ABS", "ABN");
+
     @Override
     public void calculate(Object obj, LiquidityAccountCalculatorBo bo) {
         ReflectUtil.setFieldValue(obj, indexName(), inDirect(bo) + direct(bo));
     }
 
     private long inDirect(LiquidityAccountCalculatorBo bo) {
-        List<FundFinancingPayAccount> fundFinancingPayAccountList = LiquidityIndicatorHolder.FUND_FINANCING_PAY_ACCOUNT.get(bo.getAccountBankId());
-        List<FundReceiptFlowPlan> receiptFlowPlanList = LiquidityIndicatorHolder.FUND_RECEIPT_FLOW_PLAN.get(bo.getLocalDate());
+        List<LiquidityFinancingPayAccountSnapshot> fundFinancingPayAccountList = LiquidityIndicatorHolder.FUND_FINANCING_PAY_ACCOUNT.get(bo.getAccountBankId());
+        List<LiquidityFundReceiptFlowPlanSnapshot> receiptFlowPlanList = LiquidityIndicatorHolder.FUND_RECEIPT_FLOW_PLAN.get(bo.getLocalDate());
         Map<Long, Long> inDirectReceiptIdMap = LiquidityIndicatorHolder.FUND_RECEIPT_REPAY_BASE_INFO.values().stream().filter(f -> f.getFinancingType() == null)
-                .collect(Collectors.toMap(FundReceiptRepayBaseInfo::getId, FundReceiptRepayBaseInfo::getFinancingId));
-//        List<FundFinancingRepayActual> repayActualList = LiquidityIndicatorHolder.FUND_FINANCING_REPAY_ACTUAL.get(bo.getLocalDate());
+                .collect(Collectors.toMap(LiquidityFundReceiptRepaySnapshot::getId, LiquidityFundReceiptRepaySnapshot::getFinancingId));
         // 筛选应付日与账户
         if (CollectionUtil.isNotEmpty(fundFinancingPayAccountList) && CollectionUtil.isNotEmpty(receiptFlowPlanList)) {
-            Map<Long, FundFinancingPayAccount> accountMap = fundFinancingPayAccountList.stream().collect(Collectors.toMap(FundFinancingPayAccount::getFinancingId, Function.identity(), (m1,m2) -> m1));
+            Map<Long, LiquidityFinancingPayAccountSnapshot> accountMap = fundFinancingPayAccountList.stream().collect(Collectors.toMap(LiquidityFinancingPayAccountSnapshot::getFinancingId, Function.identity(), (m1,m2) -> m1));
             return receiptFlowPlanList.stream().mapToLong(m -> {
-                FundFinancingPayAccount payAccount = accountMap.get(Optional.ofNullable(inDirectReceiptIdMap.get(m.getReceiptRepayId())).orElse(-1L));
+                LiquidityFinancingPayAccountSnapshot payAccount = accountMap.get(Optional.ofNullable(inDirectReceiptIdMap.get(m.getReceiptRepayId())).orElse(-1L));
                 if(payAccount == null){
                     return 0L;
                 }
                 Long amount = LongUtil.null2zero(m.getPrincipalAmount()) + LongUtil.null2zero(m.getInterestAmount());
-                if(Objects.equals(payAccount.getAccountCategory(), FundFinancingAccountTypeEnum.REPAY_PRINCIPAL.name())){
+                if(Objects.equals(payAccount.getAccountCategory(), REPAY_PRINCIPAL)){
                     amount = m.getPrincipalAmount();
-                }else if(Objects.equals(payAccount.getAccountCategory(), FundFinancingAccountTypeEnum.REPAY_INTEREST.name())){
+                }else if(Objects.equals(payAccount.getAccountCategory(), REPAY_INTEREST)){
                     amount = m.getInterestAmount();
                 }
                 return LongUtil.null2zero(amount);
@@ -73,17 +72,16 @@ public class RepayNoAbsAmountCalculator extends AbstractLiquidityCalculator<Liqu
     private long direct(LiquidityAccountCalculatorBo bo) {
         // 直融
         if (Objects.equals(bo.getAccountBankId(), LiquidityIndicatorHolder.DEFAULT_ACCOUNT.getId())) {
-//            List<FundDirectFinancingRepayActual> repayActualList = LiquidityIndicatorHolder.FUND_DIRECT_FINANCING_REPAY_ACTUAL.get(bo.getLocalDate());
-            List<FundReceiptFlowPlan> receiptFlowPlanList = LiquidityIndicatorHolder.FUND_RECEIPT_FLOW_PLAN.get(bo.getLocalDate());
-            Map<Long, Long> directReceiptIdMap = LiquidityIndicatorHolder.FUND_RECEIPT_REPAY_BASE_INFO.values().stream().filter(f -> Objects.equals(f.getFinancingType(), FinancingTypeEnum.DIRECT.name()))
-                    .collect(Collectors.toMap(FundReceiptRepayBaseInfo::getId, FundReceiptRepayBaseInfo::getFinancingId));
+            List<LiquidityFundReceiptFlowPlanSnapshot> receiptFlowPlanList = LiquidityIndicatorHolder.FUND_RECEIPT_FLOW_PLAN.get(bo.getLocalDate());
+            Map<Long, Long> directReceiptIdMap = LiquidityIndicatorHolder.FUND_RECEIPT_REPAY_BASE_INFO.values().stream().filter(f -> Objects.equals(f.getFinancingType(), DIRECT_FINANCING))
+                    .collect(Collectors.toMap(LiquidityFundReceiptRepaySnapshot::getId, LiquidityFundReceiptRepaySnapshot::getFinancingId));
             if (CollectionUtil.isNotEmpty(receiptFlowPlanList)) {
                 return receiptFlowPlanList.stream().filter(f -> {
-                        FundDirectFinancingBaseInfo directFinancingBaseInfo = LiquidityIndicatorHolder.FUND_DIRECT_FINANCING_BASE_INFO.get(Optional.ofNullable(directReceiptIdMap.get(f.getReceiptRepayId())).orElse(-1L));
+                        LiquidityDirectFinancingSnapshot directFinancingBaseInfo = LiquidityIndicatorHolder.FUND_DIRECT_FINANCING_BASE_INFO.get(Optional.ofNullable(directReceiptIdMap.get(f.getReceiptRepayId())).orElse(-1L));
                         if(directFinancingBaseInfo == null){
                             return false;
                         }
-                        return !Arrays.asList(DirectFinancingType.ABS.name(), DirectFinancingType.ABN.name()).contains(directFinancingBaseInfo.getDirectFinancingType());
+                        return !ABS_DIRECT_FINANCING_TYPES.contains(directFinancingBaseInfo.getDirectFinancingType());
                     }).mapToLong(m -> LongUtil.null2zero(m.getPrincipalAmount()) + LongUtil.null2zero(m.getInterestAmount())).sum();
             }
         }

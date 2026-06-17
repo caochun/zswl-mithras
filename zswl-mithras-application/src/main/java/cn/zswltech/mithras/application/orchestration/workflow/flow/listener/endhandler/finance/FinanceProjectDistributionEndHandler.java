@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.workflow.flow.listener.endhandler.finance;
 
 import cn.zswltech.flow.core.extension.event.context.ProcessEndContext;
-import cn.zswltech.mithras.financeprojectdistribution.service.impl.FinanceProjectDistributionService;
+import cn.zswltech.mithras.finance.projectdistribution.service.impl.FinanceProjectDistributionService;
 import cn.zswltech.mithras.workflow.flow.listener.endhandler.AbstractProcessEndHandler;
 import org.springframework.stereotype.Component;
 

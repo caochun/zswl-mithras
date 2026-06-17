@@ -1,9 +1,6 @@
 package cn.zswltech.mithras.contract.model.contract;
 
-import cn.zswltech.mithras.projectprocess.enums.InterestWayEnum;
 import cn.zswltech.mithras.contract.enums.contract.LPRTypeEnum;
-import cn.zswltech.mithras.projectprocess.enums.projestablish.RateType;
-import cn.zswltech.mithras.projectprocess.enums.projestablish.RepayCalcType;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.foundation.persistence.tag.IEntity;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -75,7 +72,7 @@ public class ContractAocPrice extends BaseModel implements Serializable, IEntity
     private String structuredInterest;
 
     /**
-     * 转让费率类型 {@link RateType#name()}
+     * 转让费率类型编码
      */
     @TableField("rate_type")
     private String rateType;
@@ -111,13 +108,13 @@ public class ContractAocPrice extends BaseModel implements Serializable, IEntity
     private Integer irrPercent;
 
     /**
-     * 还款计算方式 {@link RepayCalcType#name()}
+     * 还款计算方式编码
      */
     @TableField("repay_calc_type")
     private String repayCalcType;
 
     /**
-     * 利息计算方式{@link InterestWayEnum#name()}
+     * 利息计算方式编码
      */
     @TableField("interest_way")
     private String interestWay;

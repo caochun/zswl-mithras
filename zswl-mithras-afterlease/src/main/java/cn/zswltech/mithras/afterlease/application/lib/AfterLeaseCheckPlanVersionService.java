@@ -1,31 +1,23 @@
 package cn.zswltech.mithras.afterlease.application.lib;
 
-import cn.zswltech.flow.core.api.FlowTaskApiService;
-import cn.zswltech.flow.core.domain.req.task.ProcessPageReq;
-import cn.zswltech.flow.core.domain.req.task.TaskSystemPageReq;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.domain.resp.TaskResp;
-import cn.zswltech.flow.core.util.Page;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseNotificationPort;
-import cn.zswltech.mithras.dto.flow.search.ReceiveTaskListRSP;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseWorkdayCalendarPort;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseWorkflowPort;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.persistence.model.CommonVersion;
 import cn.zswltech.mithras.afterlease.model.NewAfterLeaseCheckPlanBase;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.version.CommonVersionService;
 import cn.zswltech.mithras.afterlease.application.lib.handler.AfterLeaseCheckPlanLibAbstractHandler;
-import cn.zswltech.mithras.basedata.util.DateUtil;
-import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author dingqi
@@ -37,11 +29,11 @@ public class AfterLeaseCheckPlanVersionService extends CommonVersionService<NewA
     @Autowired
     private List<AfterLeaseCheckPlanLibAbstractHandler> libHandlerList;
     @Resource
-    private FlowTaskApiService taskApiService;
-    @Resource
-    private AfterLeaseFlowTaskConvertPort flowTaskConvert;
+    private AfterLeaseWorkflowPort afterLeaseWorkflowPort;
     @Resource
     private AfterLeaseNotificationPort notificationPort;
+    @Resource
+    private AfterLeaseWorkdayCalendarPort workdayCalendarPort;
 
     @Override
     public void customFlushData(NewAfterLeaseCheckPlanBase newAfterLeaseCheckPlanBase, String version, boolean needClearLastFlag, Integer versionType) {
@@ -85,40 +77,21 @@ public class AfterLeaseCheckPlanVersionService extends CommonVersionService<NewA
      * @date: 2025/11/27
      **/
     public void afterLeaseCheckRemind(String id) {
-        TaskSystemPageReq flowReq = new TaskSystemPageReq();
-        flowReq.setDynamicFilterParam(new HashMap<>());
-        flowReq.setModelKeyList(Arrays.asList(ProcessModelTypeEnum.NewAfterLeaseCheckReportFlow.name(), ProcessModelTypeEnum.NewAfterLeaseCheckReportCommonlyFlow.name()));
-        flowReq.setIsRunning(1);
-        flowReq.setSortType(1);
-        //查询租后检查报告（一般检查）与租后检查报告的在途流程
-        Page<TaskResp> flowTaskPage = taskApiService.querySystemTask(flowReq);
-        //存在在途流程并且在工作日发起提醒
-        if (CollectionUtils.isNotEmpty(flowTaskPage.getContents())&&DateUtil.isWorkday(LocalDate.now())) {
-            // 填充流程数据
-            List<String> processInstanceIdList = flowTaskPage.getContents().stream().map(TaskResp::getProcessInstanceId).distinct().collect(Collectors.toList());
-            Map<String, ProcessResp> processRespMap = new HashMap<>();
-            if (CollectionUtils.isNotEmpty(processInstanceIdList)) {
-                ProcessPageReq processFlowReq = new ProcessPageReq();
-                processFlowReq.setProcessInstanceIdList(processInstanceIdList);
-                processFlowReq.setPageSize(Integer.MAX_VALUE);
-                processRespMap.putAll(taskApiService.queryProcess(processFlowReq).getContents().stream().collect(Collectors.toMap(ProcessResp::getProcessInstanceId, p -> p)));
+        if (!workdayCalendarPort.isWorkday(LocalDate.now())) {
+            return;
+        }
+        for (AfterLeaseWorkflowPort.ApprovalReminderTask task : afterLeaseWorkflowPort.listReportApprovalReminderTasks()) {
+            //针对超过2个工作日的处理人发起消息提醒
+            if (workdayCalendarPort.countWorkdayNumber(task.getTaskCreateTime().toLocalDate(), LocalDate.now()) == 3 && task.getAssignee() != null) {
+                notificationPort.sendReportApprovalRemind(
+                        task.getAssignee(),
+                        task.getTaskId(),
+                        task.getBusinessKey(),
+                        task.getSubModule(),
+                        task.getClientName(),
+                        task.getModelName(),
+                        task.getProcessInstanceId());
             }
-            List<ReceiveTaskListRSP> rspList = flowTaskPage.getContents().stream().map(resp -> flowTaskConvert.flowResp2ReceiveRSP(resp, processRespMap.get(resp.getProcessInstanceId()))).collect(Collectors.toList());
-            flowTaskConvert.receiveTaskListRSPFillName(rspList);
-            for (ReceiveTaskListRSP rsp : rspList) {
-                //针对超过2个工作日的处理人发起消息提醒
-                if (DateUtil.countWorkdayNumber(rsp.getTaskCreateTime().toLocalDate(), LocalDate.now()) == 3 && rsp.getAssignee() != null) {
-                    notificationPort.sendReportApprovalRemind(
-                            rsp.getAssignee(),
-                            rsp.getTaskId(),
-                            rsp.getBusinessKey(),
-                            rsp.getSubModule(),
-                            rsp.getClientName(),
-                            rsp.getModelName(),
-                            rsp.getProcessInstanceId());
-                }
-            }
-
         }
     }
 }

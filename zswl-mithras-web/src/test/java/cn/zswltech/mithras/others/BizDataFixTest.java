@@ -10,7 +10,7 @@ import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
 import cn.zswltech.mithras.application.orchestration.maintenance.BizDataFixService;
 import cn.zswltech.mithras.contract.core.application.ContractBaseInfoService;
 import cn.zswltech.mithras.contract.core.application.ContractTradeStructureService;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.mapper.app.VisitRecordMapper;
 import cn.zswltech.mithras.customer.model.app.VisitRecord;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;

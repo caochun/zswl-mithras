@@ -3,7 +3,7 @@ package cn.zswltech.mithras.finance.view.service;
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.dashboard.DashboardFundFinanceFundsRSP;
 import cn.zswltech.mithras.finance.view.entity.DashboardFvFinancingCostSnapshot;
-import cn.zswltech.mithras.dashboard.model.DashboardFundCostQuery;
+import cn.zswltech.mithras.dto.dashboard.DashboardFundCostQuery;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.time.LocalDate;

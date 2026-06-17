@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.afterlease;
 
 import cn.zswltech.mithras.afterlease.application.AfterLeaseModifyAuthPort;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonModifyMainAuthCheckerNew;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Component;
 

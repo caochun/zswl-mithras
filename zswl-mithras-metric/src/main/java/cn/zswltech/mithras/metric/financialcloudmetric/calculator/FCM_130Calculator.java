@@ -1,9 +1,8 @@
 package cn.zswltech.mithras.metric.financialcloudmetric.calculator;
 
-import cn.zswltech.mithras.liquidity.mapper.AccountBalanceBaseInfoMapper;
-import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.foundation.util.LongUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import cn.zswltech.mithras.metric.financialcloudmetric.port.FinancialCloudAccountBalancePort;
+import cn.zswltech.mithras.metric.financialcloudmetric.port.FinancialCloudAccountBalanceSnapshot;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +24,7 @@ import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 public class FCM_130Calculator implements FinancialCloudMetricCalculator {
 
     @Resource
-    private AccountBalanceBaseInfoMapper accountBalanceBaseInfoMapper;
+    private FinancialCloudAccountBalancePort financialCloudAccountBalancePort;
 
     @Override
     public String metricCode() {
@@ -38,9 +37,7 @@ public class FCM_130Calculator implements FinancialCloudMetricCalculator {
         LocalDate end = start.with(lastDayOfMonth()).plusMonths(5);
 
         // 查询数据
-        List<AccountBalanceBaseInfo> infoList = accountBalanceBaseInfoMapper.selectList(Wrappers.<AccountBalanceBaseInfo>lambdaQuery()
-                .ge(AccountBalanceBaseInfo::getDate, start)
-                .le(AccountBalanceBaseInfo::getDate, end));
+        List<FinancialCloudAccountBalanceSnapshot> infoList = financialCloudAccountBalancePort.listByDateRange(start, end);
         if (infoList.isEmpty()) {
             log.error("FCM_129:查询账户余额表数据为空");
             return BigDecimal.ZERO;

@@ -19,8 +19,8 @@ import cn.zswltech.mithras.dto.contract.ContractRelationRSP;
 import cn.zswltech.mithras.dto.contract.guarantor.*;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.contract.convert.contract.ContractGuarantorConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
-import cn.zswltech.mithras.projectprocess.enums.TradeStructureRoleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
+import cn.zswltech.mithras.contract.enums.contract.ContractTradeStructureRoleEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.contract.enums.contract.*;
 import cn.zswltech.mithras.contract.mapper.contract.ContractGuarantorMapper;
@@ -31,7 +31,7 @@ import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.system.user.Id2NameService;
 import cn.zswltech.mithras.customer.event.ClientViewAuthorityEvent;
-import cn.zswltech.mithras.projectprocess.application.model.ContractConstitutionFileBO;
+import cn.zswltech.mithras.contract.core.dto.ContractConstitutionFileCommand;
 import cn.zswltech.mithras.application.orchestration.contract.*;
 import cn.zswltech.mithras.customer.versioning.CorpContactInfoLibService;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
@@ -114,7 +114,7 @@ public class ContractGuarantorServiceImpl extends ContractCodeAbstract<ContractG
         info.setResolutionFileId(files);
         boolean result = contractGuarantorMapper.insert(info) > 0 ? Boolean.TRUE : Boolean.FALSE;
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(req.getContractId(), TradeStructureRoleEnum.GUARANTOR);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(req.getContractId(), ContractTradeStructureRoleEnum.GUARANTOR);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -183,7 +183,7 @@ public class ContractGuarantorServiceImpl extends ContractCodeAbstract<ContractG
             baseMapper.insert(contractGuarantor);
         }
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractId, TradeStructureRoleEnum.GUARANTOR);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(contractId, ContractTradeStructureRoleEnum.GUARANTOR);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -303,7 +303,7 @@ public class ContractGuarantorServiceImpl extends ContractCodeAbstract<ContractG
             }
             //如果担保人类型为法人，查询章程文件id
             if (ClientType.CORPORATION.name().equals(contractGuarantor.getGuarantorType())) {
-                ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+                ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                         .contractId(contractGuarantor.getContractId())
                         .tenantryId(contractGuarantor.getId())
                         .fileType(ContractConstitutionFileTypeEnum.GUARANTOR.name()).build();
@@ -325,7 +325,7 @@ public class ContractGuarantorServiceImpl extends ContractCodeAbstract<ContractG
         }
 
         //删除文章文件
-        ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+        ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                 .contractId(req.getContractId())
                 .tenantryId(originalInfo.getId())
                 .fileType(ContractConstitutionFileTypeEnum.GUARANTOR.name()).build();
@@ -333,7 +333,7 @@ public class ContractGuarantorServiceImpl extends ContractCodeAbstract<ContractG
 
         boolean result = contractGuarantorMapper.deleteById(req.getId()) > 0 ? Boolean.TRUE : Boolean.FALSE;
         // 合同交易结构辅助表
-        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(originalInfo.getContractId(), TradeStructureRoleEnum.GUARANTOR);
+        SpringUtil.getBean(ContractTradeStructureService.class).syncTradeStructure(originalInfo.getContractId(), ContractTradeStructureRoleEnum.GUARANTOR);
         // 通知客户权限变更
         ApplicationContextUtil.getApplicationContext().publishEvent(
                 new ClientViewAuthorityEvent(new ClientViewAuthorityEvent.ClientViewAuthorityInfo(
@@ -457,7 +457,7 @@ public class ContractGuarantorServiceImpl extends ContractCodeAbstract<ContractG
     private void saveConstitutionFiles(List<MultipartFile> multipartFileList, List<Long> constitutionFileIds, ContractGuarantor info) {
         //保存章程文件
         try {
-            ContractConstitutionFileBO constitutionFileBO = ContractConstitutionFileBO.builder()
+            ContractConstitutionFileCommand constitutionFileBO = ContractConstitutionFileCommand.builder()
                     .constitutionFileIds(constitutionFileIds)
                     .tenantryId(info.getId())
                     .contractId(info.getContractId())

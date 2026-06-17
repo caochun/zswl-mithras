@@ -2,40 +2,23 @@ package cn.zswltech.mithras.payment.gendoc.render;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
-import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
-import cn.zswltech.gruul.dao.dal.entity.OrgDO;
-import cn.zswltech.gruul.dao.dal.entity.UserDO;
+import cn.hutool.core.util.NumberUtil;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
-import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectType;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
-import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.customer.model.client.CorpCommerceInfoLib;
-import cn.zswltech.mithras.contract.model.contract.ContractBaseInfoLib;
-import cn.zswltech.mithras.contract.model.contract.ContractGuarantor;
-import cn.zswltech.mithras.contract.model.contract.ContractGuarantorLib;
-import cn.zswltech.mithras.contract.model.contract.ContractLeasePrice;
-import cn.zswltech.mithras.contract.model.contract.ContractMortgage;
-import cn.zswltech.mithras.contract.model.contract.ContractMortgageLib;
+import cn.zswltech.mithras.payment.application.PaymentWorkflowPort;
+import cn.zswltech.mithras.payment.application.PaymentWorkflowProcessSnapshot;
+import cn.zswltech.mithras.payment.application.render.PaymentApprovalRenderSnapshot;
+import cn.zswltech.mithras.payment.application.render.PaymentApprovalRenderSupportPort;
 import cn.zswltech.mithras.payment.model.PaymentBaseInfo;
-import cn.zswltech.mithras.contract.versioning.service.ContractBaseInfoLibService;
-import cn.zswltech.mithras.contract.versioning.service.ContractGuarantorLibService;
-import cn.zswltech.mithras.contract.versioning.service.ContractLeasePriceLibService;
-import cn.zswltech.mithras.contract.versioning.service.ContractMortgageLibService;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.io.OutputStream;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * @author dingqi
@@ -43,68 +26,68 @@ import java.util.stream.Collectors;
  * @description 放款审批表（租赁）
  */
 @Component
-public class PaymentApprovalZLRender extends AbstractBasicRender<PaymentBaseInfo> {
+public class PaymentApprovalZLRender {
     private static final String FILE_NAME = "租赁业务放款审批表" + GlobalConstants.OFFICE_WORD_SUFFIX;
+    private static final String PUBLIC_UTILITIES_PROJECT_TYPE = "PUBLIC_UTILITIES";
 
     @Resource
-    private ContractLeasePriceLibService contractLeasePriceLibService;
+    private PaymentApprovalRenderSupportPort paymentApprovalRenderSupportPort;
     @Resource
-    private ContractBaseInfoLibService contractBaseInfoLibService;
-    @Resource
-    private ContractGuarantorLibService contractGuarantorLibService;
-    @Resource
-    private ContractMortgageLibService contractMortgageLibService;
+    private PaymentWorkflowPort paymentWorkflowPort;
 
-    @Override
     public String render(OutputStream outputStream, PaymentBaseInfo paymentBaseInfo) throws Exception {
         String templatePath;
         Map<String, Object> renderMap = new HashMap<>(32);
         // 捞数据
-        OrgDO orgDO = businessDataRepository.getOrgById(paymentBaseInfo.getConBizDeptId());
-        UserDO userDO = businessDataRepository.getUser(paymentBaseInfo.getCreateBy());
-        Client client = businessDataRepository.getClient(paymentBaseInfo.getClientId());
-        CorpCommerceInfoLib corpCommerceInfoLib = businessDataRepository.getCorpCommerceInfo(paymentBaseInfo.getClientId());
-        ContractLeasePrice contractLeasePriceLib = contractLeasePriceLibService.getLatestLib(paymentBaseInfo.getContractId());
-        ContractBaseInfoLib contractBaseInfoLib = contractBaseInfoLibService.getLatest(paymentBaseInfo.getContractId());
-        List<ContractGuarantorLib> contractGuarantorLibList = contractGuarantorLibService.listByVersion(paymentBaseInfo.getContractId(), contractBaseInfoLib.getVersion());
-        List<ContractMortgageLib> contractMortgageLibList = contractMortgageLibService.listByVersion(paymentBaseInfo.getContractId(), contractBaseInfoLib.getVersion());
-        ProjectType projectType = ProjectType.of(contractBaseInfoLib.getProjectType());
-        if (projectType == ProjectType.PUBLIC_UTILITIES) {
+        PaymentApprovalRenderSnapshot renderSnapshot = paymentApprovalRenderSupportPort.getLeaseRenderSnapshot(paymentBaseInfo);
+        if (PUBLIC_UTILITIES_PROJECT_TYPE.equals(renderSnapshot.getProjectType())) {
 //            templatePath = "/doc/放款_放款审批_产业.docx";
             templatePath = "/doc/放款_放款审批_平台.docx";
         } else {
 //            templatePath = "/doc/放款_放款审批_平台.docx";
             templatePath = "/doc/放款_放款审批_产业.docx";
         }
-        ProcessResp latestProcess = this.getLatestProcess(
-                Arrays.asList(ProcessModelTypeEnum.ProjReviewCreateFlow.name(), ProcessModelTypeEnum.ProjReviewModifyFlow.name()),
-                Collections.singletonList(contractBaseInfoLib.getProjReviewId().toString()),
-                Arrays.asList(ProcessBusinessStatusEnum.PASS.getType(), ProcessBusinessStatusEnum.PASS_ALL.getType())
-        );
+        PaymentWorkflowProcessSnapshot latestProcess = paymentWorkflowPort.getLatestPassedProjectReviewProcess(renderSnapshot.getProjReviewId());
         // 填充所需数据
-        renderMap.put(RenderParameterKeyHolder.BIZ_DEPT, Optional.ofNullable(orgDO).map(OrgDO::getName).orElse(""));
-        renderMap.put(RenderParameterKeyHolder.SPONSOR_NAME, Optional.ofNullable(userDO).map(UserDO::getUserName).orElse(""));
-        renderMap.put(RenderParameterKeyHolder.LESSEE_NAME, Optional.ofNullable(client).map(Client::getClientName).orElse(""));
-        renderMap.put(RenderParameterKeyHolder.CREDIT_AMOUNT_WAN, Optional.ofNullable(contractLeasePriceLib).map(v -> this.toWan(v.getApplyCreditAmount()) + "万元").orElse(""));
-        renderMap.put(RenderParameterKeyHolder.EARNEST_WAN, Optional.ofNullable(contractLeasePriceLib).map(v -> this.toWan(v.getEarnestMoney()) + "万元").orElse(""));
-        renderMap.put(RenderParameterKeyHolder.MONTH_COUNT, Optional.ofNullable(contractLeasePriceLib).map(v -> v.getLeaseMonthCount() + "个月").orElse(""));
+        renderMap.put(RenderParameterKeyHolder.BIZ_DEPT, Optional.ofNullable(renderSnapshot.getBizDeptName()).orElse(""));
+        renderMap.put(RenderParameterKeyHolder.SPONSOR_NAME, Optional.ofNullable(renderSnapshot.getSponsorName()).orElse(""));
+        renderMap.put(RenderParameterKeyHolder.LESSEE_NAME, Optional.ofNullable(renderSnapshot.getLesseeName()).orElse(""));
+        renderMap.put(RenderParameterKeyHolder.CREDIT_AMOUNT_WAN, Optional.ofNullable(renderSnapshot.getApplyCreditAmount()).map(v -> this.toWan(v) + "万元").orElse(""));
+        renderMap.put(RenderParameterKeyHolder.EARNEST_WAN, Optional.ofNullable(renderSnapshot.getEarnestMoney()).map(v -> this.toWan(v) + "万元").orElse(""));
+        renderMap.put(RenderParameterKeyHolder.MONTH_COUNT, Optional.ofNullable(renderSnapshot.getLeaseMonthCount()).map(v -> v + "个月").orElse(""));
         renderMap.put(RenderParameterKeyHolder.PAY_AMOUNT_WAN, this.toWan(paymentBaseInfo.getApplyPaymentAmount()) + "万元");
-        renderMap.put(RenderParameterKeyHolder.CONSULTING_FEE_WAN, Optional.ofNullable(contractLeasePriceLib).map(v -> this.toWan(v.getConsultingFee()) + "万元").orElse(""));
-        renderMap.put(RenderParameterKeyHolder.NOMINAL_PRICE, Optional.ofNullable(contractLeasePriceLib).map(v -> this.toYuan(v.getNominalPrice()) + "元").orElse(""));
+        renderMap.put(RenderParameterKeyHolder.CONSULTING_FEE_WAN, Optional.ofNullable(renderSnapshot.getConsultingFee()).map(v -> this.toWan(v) + "万元").orElse(""));
+        renderMap.put(RenderParameterKeyHolder.NOMINAL_PRICE, Optional.ofNullable(renderSnapshot.getNominalPrice()).map(v -> this.toYuan(v) + "元").orElse(""));
         renderMap.put(RenderParameterKeyHolder.CONTRACT_CODE, paymentBaseInfo.getContractCode());
-        renderMap.put(RenderParameterKeyHolder.LEGAL_PERSON, Optional.ofNullable(corpCommerceInfoLib).map(CorpCommerceInfo::getCorpRepresent).orElse(""));
-        renderMap.put(RenderParameterKeyHolder.CONTRACT_CONSULTING_CODE, contractBaseInfoLib.getConsultingContractCode());
-        if (CollectionUtil.isNotEmpty(contractGuarantorLibList)) {
-            renderMap.put(RenderParameterKeyHolder.CONTRACT_GUARANTOR_TEXT, CharSequenceUtil.join("、", contractGuarantorLibList.stream().map(ContractGuarantor::getGuarantorContractCode).collect(Collectors.toList())));
+        renderMap.put(RenderParameterKeyHolder.LEGAL_PERSON, Optional.ofNullable(renderSnapshot.getLegalPerson()).orElse(""));
+        renderMap.put(RenderParameterKeyHolder.CONTRACT_CONSULTING_CODE, renderSnapshot.getConsultingContractCode());
+        if (CollectionUtil.isNotEmpty(renderSnapshot.getGuarantorContractCodes())) {
+            renderMap.put(RenderParameterKeyHolder.CONTRACT_GUARANTOR_TEXT, CharSequenceUtil.join("、", renderSnapshot.getGuarantorContractCodes()));
         }
-        if (CollectionUtil.isNotEmpty(contractMortgageLibList)) {
-            renderMap.put(RenderParameterKeyHolder.CONTRACT_MORTGAGE_TEXT, CharSequenceUtil.join("、", contractMortgageLibList.stream().map(ContractMortgage::getMortgageContractCode).collect(Collectors.toList())));
+        if (CollectionUtil.isNotEmpty(renderSnapshot.getMortgageContractCodes())) {
+            renderMap.put(RenderParameterKeyHolder.CONTRACT_MORTGAGE_TEXT, CharSequenceUtil.join("、", renderSnapshot.getMortgageContractCodes()));
         }
-        renderMap.put(RenderParameterKeyHolder.REVIEW_FLOW_ID, Optional.ofNullable(latestProcess).map(ProcessResp::getProcessInstanceId).orElse(""));
+        renderMap.put(RenderParameterKeyHolder.REVIEW_FLOW_ID, Optional.ofNullable(latestProcess).map(PaymentWorkflowProcessSnapshot::getProcessInstanceId).orElse(""));
         // 渲染
         XWPFTemplate template = XWPFTemplate.compile(PaymentApprovalZLRender.class.getResourceAsStream(templatePath)).render(renderMap);
         template.writeAndClose(outputStream);
         return FILE_NAME;
+    }
+
+    private String toYuan(Long dbNumber) {
+        if (Objects.isNull(dbNumber)) {
+            return null;
+        }
+        BigDecimal bigDecimal = NumberUtil.div(dbNumber.toString(), String.valueOf(Long.parseLong(GlobalConstants.MONEY_MULTIPLE)));
+        return NumberUtil.decimalFormat(",##0.00##", bigDecimal);
+    }
+
+    private String toWan(Long dbNumber) {
+        if (Objects.isNull(dbNumber)) {
+            return null;
+        }
+        BigDecimal bigDecimal = NumberUtil.div(dbNumber.toString(), String.valueOf(10000 * Long.parseLong(GlobalConstants.MONEY_MULTIPLE)));
+        return NumberUtil.decimalFormat(",##0.00######", bigDecimal);
     }
 
     private static class RenderParameterKeyHolder {

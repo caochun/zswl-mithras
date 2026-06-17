@@ -16,7 +16,7 @@ import cn.zswltech.mithras.credit.creditlimit.service.port.FundCreditEffectiveSt
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
 import cn.zswltech.mithras.foundation.convert.TypeConversionWorker;
 import cn.zswltech.mithras.fund.application.credit.convert.FundCreditConverter;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.credit.creditlimit.enums.CreditLimitBizTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.fund.application.credit.FundCreditGuaranteeDetailService;

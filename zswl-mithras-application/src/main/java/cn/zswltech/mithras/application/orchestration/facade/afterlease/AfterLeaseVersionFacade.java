@@ -1,15 +1,15 @@
 package cn.zswltech.mithras.application.orchestration.facade.afterlease;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.flow.core.domain.resp.ProcessResp;
 import cn.zswltech.mithras.api.common.R;
+import cn.zswltech.mithras.afterlease.application.AfterLeaseRelatedProcess;
 import cn.zswltech.mithras.afterlease.application.AfterLeaseVersionApplicationService;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseAdjustDetailREQ;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCancelREQ;
 import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.application.orchestration.auth.checker.common.CommonModifyMainAuthCheckerNew;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
-import cn.zswltech.mithras.application.orchestration.enums.BusinessModuleEnum;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.foundation.enums.CacheEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
@@ -60,9 +60,9 @@ public class AfterLeaseVersionFacade implements AfterLeaseVersionApplicationServ
                 throw new MithrasException(RECORD_NOT_EXIST);
             }
             baseInfoService.checkDetail(baseInfo);
-            List<ProcessResp> relatedProcess = baseInfoService.findRelatedProcesses(req.getAdjustId());
+            List<AfterLeaseRelatedProcess> relatedProcess = baseInfoService.findRelatedProcesses(req.getAdjustId());
             if (ObjectUtil.isNotEmpty(relatedProcess)) {
-                for (ProcessResp process : relatedProcess) {
+                for (AfterLeaseRelatedProcess process : relatedProcess) {
                     ProcessModelTypeEnum processModelTypeEnum = ProcessModelTypeEnum.valueOf(process.getModelKey());
                     if (ProcessModelTypeEnum.AfterLeaseRepaymentFlow.equals(processModelTypeEnum) ||
                             ProcessModelTypeEnum.AfterLeaseExtendFlow.equals(processModelTypeEnum)) {

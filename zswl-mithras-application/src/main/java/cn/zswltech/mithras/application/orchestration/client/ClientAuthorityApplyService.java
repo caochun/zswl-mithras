@@ -28,7 +28,7 @@ import cn.zswltech.mithras.customer.authorityrecord.persistence.model.ClientAuth
 import cn.zswltech.mithras.dto.client.client.*;
 import cn.zswltech.mithras.workflow.flow.constant.FlowConstants;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientLevelEnum;
 import cn.zswltech.mithras.customer.enums.client.ClientStatus;
 import cn.zswltech.mithras.customer.enums.client.ClientType;

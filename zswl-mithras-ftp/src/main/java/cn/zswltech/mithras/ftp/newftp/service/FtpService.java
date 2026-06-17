@@ -8,12 +8,11 @@ import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.RegionalClassify;
-import cn.zswltech.mithras.customer.enums.client.CustomerEntityClassify;
+import cn.zswltech.mithras.ftp.common.enums.RegionalClassify;
 import cn.zswltech.mithras.ftp.newftp.enums.*;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.FtpIndustryCategoryEnum;
-import cn.zswltech.mithras.projectprocess.enums.projpricing.ProjectManageLevelEnum;
-import cn.zswltech.mithras.projectprocess.enums.projreview.ProjectClassify;
+import cn.zswltech.mithras.ftp.common.enums.FtpIndustryCategoryEnum;
+import cn.zswltech.mithras.ftp.common.enums.ProjectManageLevelEnum;
+import cn.zswltech.mithras.ftp.common.enums.ProjectClassify;
 import cn.zswltech.mithras.foundation.enums.common.RiskControlIndustryClassify;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.oldftp.bo.BillFtpBO;
@@ -116,7 +115,7 @@ public class FtpService {
         // 资产行业分类
         AssetIndustryClassify assetIndustryClassify = AssetIndustryClassify.getByProjectClassify(ProjectClassify.find(cashFtpInfluenceBO.getAssetIndustryClassify()));
         // 客户主体分类
-        CustomerEntityClassify customerEntityClassify = CustomerEntityClassify.valueOf(newFtpCustomerFactPort.getCustomerEntityClassify(
+        EnterpriseTypeEnum customerEntityClassify = EnterpriseTypeEnum.valueOf(newFtpCustomerFactPort.getCustomerEntityClassify(
                 cashFtpInfluenceBO.getTenantId(), cashFtpInfluenceBO.getGuarantorIdList(), newFtpBaseInfo.getFtpBusinessVersion()));
         // 地区分类
         RegionalClassify regionalClassify;
@@ -177,26 +176,26 @@ public class FtpService {
             cashFtpInfluenceBO.setRegionClassify(RegionalClassify.getProjRegionalClassify(cashFtpInfluenceBO.getRegionClassify()).name());
         }
 //        EnterpriseNatureEnum enterpriseNatureEnum = EnterpriseNatureEnum.of(cashFtpInfluenceBO.getEnterpriseNature());
-//        CustomerEntityClassify customerEntityClassify = null;
+//        EnterpriseTypeEnum customerEntityClassify = null;
 //        if (enterpriseNatureEnum != null) {
 //            switch (enterpriseNatureEnum) {
 //                case gyss:
 //                case myss:
-//                    customerEntityClassify = CustomerEntityClassify.LISTED_COMPANY;
+//                    customerEntityClassify = EnterpriseTypeEnum.LISTED_COMPANY;
 //                    break;
 //                case gyfss:
-//                    customerEntityClassify = CustomerEntityClassify.STATE_OWNED_ENTERPRISE;
+//                    customerEntityClassify = EnterpriseTypeEnum.STATE_OWNED_ENTERPRISE;
 //                    break;
 //                case myfss:
 //                case other:
-//                    customerEntityClassify = CustomerEntityClassify.OTHER;
+//                    customerEntityClassify = EnterpriseTypeEnum.OTHER;
 //                    break;
 //                default:
 //                    break;
 //            }
 //        }
 
-        CustomerEntityClassify customerEntityClassify = CustomerEntityClassify.valueOf(newFtpCustomerFactPort.getCustomerEntityClassify(
+        EnterpriseTypeEnum customerEntityClassify = EnterpriseTypeEnum.valueOf(newFtpCustomerFactPort.getCustomerEntityClassify(
                 cashFtpInfluenceBO.getTenantId(), cashFtpInfluenceBO.getGuarantorIdList(), effectOne.getFtpBusinessVersion()));
         RegionalClassify regionalClassify = null;
         if (cashFtpInfluenceBO.getZhejiang()) {

@@ -9,7 +9,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.zswltech.mithras.dto.third.financial.ThirdCollectionRecordREQ;
 import cn.zswltech.mithras.dto.third.financial.ThirdPaymentDetailREQ;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
-import cn.zswltech.mithras.application.orchestration.enums.ProcessModelTypeEnum;
+import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.collection.enums.CollectionWriteOffStatusEnum;
 import cn.zswltech.mithras.foundation.enums.common.ProcessStatus;
 import cn.zswltech.mithras.margin.enums.RecordTypeEnum;

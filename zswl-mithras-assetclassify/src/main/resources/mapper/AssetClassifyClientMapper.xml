@@ -24,4 +24,25 @@
 
 
     </select>
+
+    <select id="listLatestByClassifyResult" resultType="cn.zswltech.mithras.assetclassify.model.AssetClassifyClient">
+        select a.id, a.client_id, a.classify_result
+        from asset_classify_client a
+                 inner join (
+            select acc.client_id,
+                   max(acc.asset_classify_id) as asset_classify_id
+            from asset_classify_client acc
+                     right join asset_classify ac on acc.asset_classify_id = ac.id
+            where ac.finish = 1
+            group by acc.client_id
+        ) last on a.client_id = last.client_id
+            and a.asset_classify_id = last.asset_classify_id
+        where a.classify_result = #{classifyResult}
+        <if test="clientIds != null and clientIds.size() > 0">
+            and a.client_id in
+            <foreach collection="clientIds" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
 </mapper>

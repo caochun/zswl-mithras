@@ -9,23 +9,18 @@ import cn.hutool.poi.excel.ExcelUtil;
 import cn.zswltech.mithras.associationreport.AssociationReportException;
 import cn.zswltech.mithras.associationreport.service.AssociationBusinessSituationService;
 import cn.zswltech.mithras.associationreport.service.AssociationDictionaryService;
-import cn.zswltech.mithras.rating.mapper.ContractReceiptBottomMapper;
-import cn.zswltech.mithras.rating.model.ContractReceiptBottom;
-import cn.zswltech.mithras.metric.enums.risk.index.RiskMetricFactorTable;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorMergeService;
-import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
+import cn.zswltech.mithras.associationreport.application.AssociationReportContractReceiptBottomPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportContractReceiptBottomSnapshot;
+import cn.zswltech.mithras.associationreport.application.AssociationReportMetricPort;
 import cn.zswltech.mithras.associationreport.enums.AssociationReportCategoryEnum;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
-import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationBusinessSituation;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.Util;
-import cn.zswltech.mithras.dashboard.application.GuanYuanOperationService;
-import cn.zswltech.mithras.dashboard.application.guanyuandata.PayIncomeDTO;
+import cn.zswltech.mithras.associationreport.application.AssociationReportGuanYuanDataPort;
+import cn.zswltech.mithras.associationreport.application.AssociationReportPayIncomeSnapshot;
 import cn.zswltech.mithras.basedata.util.DateUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -45,25 +40,23 @@ import java.util.stream.Collectors;
 @Component
 public class AssociationBusinessSituationData extends AbstractDataStore<AssociationBusinessSituation> {
     @Resource
-    private RiskMetricFactorMergeService riskMetricFactorMergeService;
+    private AssociationReportMetricPort metricPort;
     @Resource
-    private RiskMetricFactorService riskMetricFactorService;
+    private AssociationReportGuanYuanDataPort guanYuanDataPort;
     @Resource
-    private GuanYuanOperationService guanYuanOperationService;
-    @Resource
-    private ContractReceiptBottomMapper contractReceiptBottomMapper;
+    private AssociationReportContractReceiptBottomPort contractReceiptBottomPort;
 
     @Override
     public boolean storeFromSystemJobCheck(int year, int period) {
         LocalDate dataDate = DateUtil.endOfMonth(LocalDate.of(year, period, 1));
         // 利润表
-        Map<String, Long> profitMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.PROFIT.display, dataDate.getYear(), dataDate.getMonthValue());
+        Map<String, Long> profitMap = metricPort.profit(dataDate.getYear(), dataDate.getMonthValue());
         // 科目余额表
-        Map<String, Long> subjectBalanceMap = riskMetricFactorService.findMetricValueMap(RiskMetricFactorTable.SUBJECT_BALANCE.display, dataDate.getYear(), dataDate.getMonthValue());
+        Map<String, Long> subjectBalanceMap = metricPort.subjectBalance(dataDate.getYear(), dataDate.getMonthValue());
         // 借据底表
-        List<ContractReceiptBottom> contractReceiptBottomList = contractReceiptBottomMapper.selectList(Wrappers.<ContractReceiptBottom>lambdaQuery().ge(BaseModel::getCreateTime, dataDate.plusDays(1).atStartOfDay()).le(BaseModel::getCreateTime, DateUtil.endOfDay(dataDate.plusDays(1))));
+        List<AssociationReportContractReceiptBottomSnapshot> contractReceiptBottomList = contractReceiptBottomPort.listByReportDate(dataDate);
         // 投放收益率表
-        List<PayIncomeDTO> payIncomeList = guanYuanOperationService.listPayIncome(LocalDate.of(dataDate.getYear(), 1, 1), dataDate);
+        List<AssociationReportPayIncomeSnapshot> payIncomeList = guanYuanDataPort.listPayIncome(LocalDate.of(dataDate.getYear(), 1, 1), dataDate);
         boolean condition1 = CollectionUtil.isNotEmpty(profitMap);
         boolean condition2 = CollectionUtil.isNotEmpty(subjectBalanceMap);
         boolean condition3 = CollectionUtil.isNotEmpty(contractReceiptBottomList);
@@ -121,11 +114,11 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
         AssociationBusinessSituation lastReportValue = SpringUtil.getBean(AssociationBusinessSituationService.class).getModelByReportInstanceId(lastReport.getReportInstanceId());
         // 查询财务报表
         LocalDate targetDate = this.ensureMetricDate(currentReport);
-        Map<String, Long> profitMap = riskMetricFactorMergeService.findMetricValueMap(GlobalConstants.ZSZL_MERGE_ORG_CODE, RiskMetricFactorTable.PROFIT.display, targetDate.getYear(), targetDate.getMonthValue());
+        Map<String, Long> profitMap = metricPort.profit(targetDate.getYear(), targetDate.getMonthValue());
         // 查询借据底表
-        List<ContractReceiptBottom> contractReceiptBottomList = contractReceiptBottomMapper.selectList(Wrappers.<ContractReceiptBottom>lambdaQuery().ge(BaseModel::getCreateTime, targetDate.plusDays(1).atStartOfDay()).le(BaseModel::getCreateTime, DateUtil.endOfDay(targetDate.plusDays(1))));
+        List<AssociationReportContractReceiptBottomSnapshot> contractReceiptBottomList = contractReceiptBottomPort.listByReportDate(targetDate);
         // TODO 合同维度去重（因报表数据多借据的情况下都使用了合同数据，所以多借据的合同会重复计算，报表该逻辑修改后此处需要拿掉去重逻辑）
-        Map<Long, ContractReceiptBottom> contractReceiptBottomMap = contractReceiptBottomList.stream().collect(Collectors.toMap(ContractReceiptBottom::getContractId, e -> e, (a,b) -> b));
+        Map<Long, AssociationReportContractReceiptBottomSnapshot> contractReceiptBottomMap = contractReceiptBottomList.stream().collect(Collectors.toMap(AssociationReportContractReceiptBottomSnapshot::getContractId, e -> e, (a,b) -> b));
         contractReceiptBottomList = new LinkedList<>(contractReceiptBottomMap.values());
         BigDecimal dirtLeasAstAeop = BigDecimal.ZERO;
         BigDecimal slbkAstAeop = BigDecimal.ZERO;
@@ -133,7 +126,7 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
         BigDecimal iprvSlbkAstBalAeop = BigDecimal.ZERO;
         BigDecimal iprvFnlAstBalAeop = BigDecimal.ZERO;
         if (CollectionUtil.isNotEmpty(contractReceiptBottomList)) {
-            for (ContractReceiptBottom contractReceiptBottom : contractReceiptBottomList) {
+            for (AssociationReportContractReceiptBottomSnapshot contractReceiptBottom : contractReceiptBottomList) {
                 // 计算剩余本金并转成万元
                 BigDecimal remainingPrincipal = Util.millimeterLong2WanBigDecimal(Optional.ofNullable(contractReceiptBottom.getRemainPrincipal()).orElse(0L));
                 if (remainingPrincipal.compareTo(BigDecimal.ZERO) < 0) {
@@ -158,9 +151,9 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
             }
         }
         // 查询投放收益率底表
-        List<PayIncomeDTO> payIncomeList = guanYuanOperationService.listPayIncome(LocalDate.of(targetDate.getYear(), 1, 1), targetDate);
+        List<AssociationReportPayIncomeSnapshot> payIncomeList = guanYuanDataPort.listPayIncome(LocalDate.of(targetDate.getYear(), 1, 1), targetDate);
 //        // TODO 合同维度去重（因报表数据多借据的情况下都使用了合同数据，所以多借据的合同会重复计算，报表该逻辑修改后此处需要拿掉去重逻辑）
-//        Map<String, PayIncomeDTO> payIncomeMap = payIncomeList.stream().collect(Collectors.toMap(PayIncomeDTO::getContractCode, e -> e, (a,b) -> b));
+//        Map<String, AssociationReportPayIncomeSnapshot> payIncomeMap = payIncomeList.stream().collect(Collectors.toMap(..., e -> e, (a,b) -> b));
 //        payIncomeList = new LinkedList<>(payIncomeMap.values());
         // 处理数据
         AssociationBusinessSituation currentReportValue = new AssociationBusinessSituation();
@@ -171,7 +164,7 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
         // 经营租赁业务收入-期初数 = 上一期报送的期末数，若为1月报表则为0
         currentReportValue.setOperLeasBusiIncmAbop(isJan ? BigDecimal.ZERO : Optional.ofNullable(lastReportValue).map(AssociationBusinessSituation::getOperLeasBusiIncmAeop).orElse(BigDecimal.ZERO));
         // 经营租赁业务收入-期末数 = 科目余额表：主营业务收入_租赁收入_内部_经营租赁收入@本年累计@贷方金额+主营业务收入_租赁收入_外部_经营租赁收入@本年累计@贷方金额
-        BigDecimal operLeasBusiIncmAeopBD = riskMetricFactorMergeService.subjectBalanceSum(targetDate.getYear(), targetDate.getMonthValue(), ListUtil.toList(
+        BigDecimal operLeasBusiIncmAeopBD = metricPort.subjectBalanceSum(targetDate.getYear(), targetDate.getMonthValue(), ListUtil.toList(
                 "主营业务收入_租赁收入_内部_经营租赁收入@本年累计@贷方金额",
                 "主营业务收入_租赁收入_外部_经营租赁收入@本年累计@贷方金额"
         ));
@@ -179,7 +172,7 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
         // 其他收入-期初数 = 上一期报送的期末数，若为1月报表则为0
         currentReportValue.setOthIncmAbop(isJan ? BigDecimal.ZERO : Optional.ofNullable(lastReportValue).map(AssociationBusinessSituation::getOthIncmAeop).orElse(BigDecimal.ZERO));
         // 其他收入-期末数 = 科目余额表：主营业务收入_其他收入_外部@本年累计@贷方金额+主营业务收入_其他收入_内部@本年累计@贷方金额
-        BigDecimal othIncmAeopBD = riskMetricFactorMergeService.subjectBalanceSum(targetDate.getYear(), targetDate.getMonthValue(), ListUtil.toList(
+        BigDecimal othIncmAeopBD = metricPort.subjectBalanceSum(targetDate.getYear(), targetDate.getMonthValue(), ListUtil.toList(
                 "主营业务收入_其他收入_外部@本年累计@贷方金额",
                 "主营业务收入_其他收入_内部@本年累计@贷方金额"
         ));
@@ -189,7 +182,7 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
         // 费用收入-期初数 = 上一期报送的期末数，若为1月报则为0
         currentReportValue.setFeeIncmAbop(isJan ? BigDecimal.ZERO : Optional.ofNullable(lastReportValue).map(AssociationBusinessSituation::getFeeIncmAeop).orElse(BigDecimal.ZERO));
         // 费用收入-期末数 = 科目余额表：主营业务收入_租赁收入_外部_售后回租收入_服务费收入@本年累计@贷方金额+主营业务收入_租赁收入_外部_融资租赁收入_服务费收入@本年累计@贷方金额+主营业务收入_租赁收入_内部_售后回租收入_服务费收入@本年累计@贷方金额+主营业务收入_租赁收入_内部_融资租赁收入_服务费收入@本年累计@贷方金额
-        BigDecimal feeIncmAeopBD = riskMetricFactorMergeService.subjectBalanceSum(targetDate.getYear(), targetDate.getMonthValue(), ListUtil.toList(
+        BigDecimal feeIncmAeopBD = metricPort.subjectBalanceSum(targetDate.getYear(), targetDate.getMonthValue(), ListUtil.toList(
                 "主营业务收入_租赁收入_外部_售后回租收入_服务费收入@本年累计@贷方金额",
                 "主营业务收入_租赁收入_外部_融资租赁收入_服务费收入@本年累计@贷方金额",
                 "主营业务收入_租赁收入_内部_售后回租收入_服务费收入@本年累计@贷方金额",
@@ -228,7 +221,7 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
         currentReportValue.setDirtLeasRelsAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> StrUtil.equals(e.getLeaseTypeDisplay(), LeaseType.zhi_zu.display()))
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum()
         ));
         // 售后回租投放额-期初数 = 上一期报送的期末数，若为1月报则为0
@@ -237,7 +230,7 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
         currentReportValue.setSlbkRelsAeop(Util.millimeterLong2WanBigDecimal(payIncomeList.stream()
                 .filter(e -> StrUtil.equals(e.getLeaseTypeDisplay(), LeaseType.hui_zu.display()))
                 .filter(e -> Objects.nonNull(e.getProjectAmount()))
-                .mapToLong(PayIncomeDTO::getProjectAmount)
+                .mapToLong(AssociationReportPayIncomeSnapshot::getProjectAmount)
                 .sum()
         ));
         // 融资租赁投放额-期初数 = 上一期报送的期末数，若为1月报则为0
@@ -253,7 +246,7 @@ public class AssociationBusinessSituationData extends AbstractDataStore<Associat
         // 资产减值损失准备-期初数 = 上一期报送的期末数
         currentReportValue.setIpoaLossAbop(Optional.ofNullable(lastReportValue).map(AssociationBusinessSituation::getIpoaLossAeop).orElse(BigDecimal.ZERO));
         // 资产减值损失准备-期末数 = 科目余额表：坏账准备_长期应收款坏账准备@期末余额@贷方金额+坏账准备_预付账款坏账准备@期末余额@贷方金额
-        BigDecimal ipoaLossAeopBD = riskMetricFactorMergeService.subjectBalanceSum(targetDate.getYear(), targetDate.getMonthValue(), ListUtil.toList(
+        BigDecimal ipoaLossAeopBD = metricPort.subjectBalanceSum(targetDate.getYear(), targetDate.getMonthValue(), ListUtil.toList(
                 "坏账准备_长期应收款坏账准备@期末余额@贷方金额",
                 "坏账准备_预付账款坏账准备@期末余额@贷方金额"
         ));

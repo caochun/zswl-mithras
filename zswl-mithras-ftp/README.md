@@ -6,9 +6,11 @@
 
 oldftp 与 newftp 代表历史版本和新版定价体系，当前需要并存。后续整理应优先降低跨域依赖、拆薄取价服务，而不是删除 oldftp。
 
+资源归属上，老版 FTP 月度/季度指导表属于本模块。原先混在 `assetclassify` 初始化脚本中的 `ftp_monthly_*`、`ftp_quarterly_*` 指导表和版本表已迁回 `src/main/resources/sql/oldftp_guidance_tables.sql`。
+
 # zswl-mithras-ftp 模块梳理
 
-`zswl-mithras-ftp` 承载 FTP 定价、FTP 计息、FTP 收益维护，以及新版 FTP 定价指导审批和取价能力。当前目录存在明显历史演进痕迹：`oldftp`、`newftp`、`flow`、根包 `convert` 并存，且部分“新版”代码仍复用老版流程模型、老版状态枚举和老版 BO。
+`zswl-mithras-ftp` 承载 FTP 定价、FTP 计息、FTP 收益维护，以及新版 FTP 定价指导审批和取价能力。当前目录存在明显历史演进痕迹：`oldftp`、`newftp`、根包 `convert` 并存；流程动态表单和流程结束处理已经放在 `application/orchestration/workflow/.../ftp`。
 
 ## 模块职责
 
@@ -34,30 +36,21 @@ FTP 模块大致分成四类能力：
    - 仍保留 `getCashFtpDeprecated` 兼容旧数据或旧版本算法。
 
 4. FTP 计息/收益维护
-   - 计息基础与明细：`interest/model/FtpInterestBaseInfo`、`interest/model/FtpInterestDetailRecord`
-   - 收益基础与明细：`income/model/FtpIncomeBaseInfo`、`income/model/FtpIncomeDetailRecord`
-   - Job：`interest/job/FtpInterestJob`、`income/job/FtpIncomeJob`、`income/job/FtpIncomeRateInitJob`
-   - 这部分已从 `oldftp` 拆出为独立子域。
+   - 当前仍在 `oldftp` 包下：`oldftp/model/FtpInterestBaseInfo`、`oldftp/model/FtpInterestDetailRecord`、`oldftp/model/FtpIncomeBaseInfo`、`oldftp/model/FtpIncomeDetailRecord`
+   - Job 入口仍在 `oldftp/job/FtpInterestJob`、`oldftp/job/FtpIncomeJob`、`oldftp/job/FtpIncomeRateInitJob`
+   - 语义上它们已经不是“老版指导”，后续适合拆成 `interest`、`income` 子包。
 
 ## 当前目录语义
 
 ```text
 cn.zswltech.mithras.ftp
-├── common
-│   ├── bo                                    # 老版/新版共同使用的取价、收益计算 BO
-│   ├── convert                               # 跨 FTP/项目行业分类的通用转换
-│   └── enums                                 # 老版/新版共同使用的流程状态、业务版本枚举
-├── flow
-│   ├── dynamicform/ftp                       # FTP 流程节点动态表单处理
-│   └── listener/endhandler                   # 老版/新版 FTP 流程结束处理
-├── interest                                  # FTP 计息：controller、job、model、mapper、service 接口
-├── income                                    # FTP 收益：controller、job、model、mapper、service 接口
+├── convert                                   # 跨 FTP/项目行业分类的通用转换
 ├── oldftp
 │   ├── controller                            # 老版 FTP 指导 API 实现
-│   ├── service                               # 老版指导服务、版本服务
+│   ├── service                               # 老版指导、计息/收益、版本服务
 │   ├── service/application                   # controller 使用的 application service 接口和实现
 │   ├── mapper / mapper/lib                   # 主表 mapper 与版本库 mapper
-│   ├── model                                 # 老版指导与版本库实体
+│   ├── model                                 # 老版指导、计息/收益与版本库实体
 │   ├── lib / lib/handler                     # 老版版本快照服务与 handler
 │   ├── fms                                   # 老版状态机
 │   ├── datacompare                           # 老版版本对比工厂
@@ -96,18 +89,18 @@ src/main/resources/bpmn/季度最低收益率指导变更审批流程.bpmn20.xml
 
 - 新版 FTP 的 `NewFtpBusinessModule.NEW_FTP_GUIDANCE` 仍绑定 `FtpMonthlyGuidanceCreateFlow` 与 `FtpMonthlyGuidanceModifyFlow`。
 - 新版主服务 `NewFtpVersionService.submit` 根据 `ftpRecordStatus` 判断走创建流程还是修改流程，但流程 key 仍是月度 FTP 指导流程。
-- `FtpBusinessVersion`、`FtpProcessStatus` 已放入 `common/enums`，因为它们不是纯老版概念。
+- `FtpBusinessVersion`、`FtpProcessStatus` 当前仍在 `oldftp/enums`，但已经被新版或通用流程语义复用，后续适合迁到 `common/enums`。
 - 老版使用 `FtpMonthlyGuidanceVersionService`、`FtpQuarterlyGuidanceVersionService` 和 `AbstractFtpMonthlyLibHandler` / `AbstractFtpQuarterlyLibHandler` 管理版本快照。
 - 新版使用 `NewFtpVersionService` 和 `NewFtpLibAbstractHandler` 管理配置区/草稿区到 lib 区的版本快照。
 
 流程扩展点：
 
-- 动态表单：`flow/dynamicform/ftp`
+- 动态表单：`application/orchestration/workflow/flow/dynamicform/ftp`
   - `FtpChooseJudgesHandler`
   - `ShowFtpVotingResultsHandler`
   - `SetFtpMeetingFileHandler`
   - `SetFtpSupplementHandler`
-- 流程结束：
+- 流程结束：`application/orchestration/workflow/flow/listener/endhandler/ftp`
   - `FtpQuarterlyGuidanceProcessEndHandler`
   - `NewFtpProcessEndHandler`
 
@@ -137,20 +130,19 @@ API 契约在 `zswl-mithras-api`：
 
 ## 外部依赖关系
 
-FTP 模块依赖较多业务域，主要原因是实际取价需要结合项目、客户、合同、付款、资金、风控和基础数据。
+FTP 模块的实际取价需要结合项目、客户、合同、付款、资金、风控和基础数据。当前模块自身只保留必要的直接依赖，客户、合同、付款、资金等外部事实优先由 port 或 `application` adapter 装配后输入 FTP。
 
 直接依赖的业务模块包括：
 
 - `basedata`：LPR、日期等基础数据。
-- `projectprocess`：项目定价、项目评审、行业/地区/项目管理分类。
-- `customer`：工商信息、客户主体分类、地址、关联方判断。
-- `contract`：合同、承租人、保证人、还款计划、租赁业务信息。
-- `payment`：付款相关 FTP 评估信息。
-- `fund`：融资担保、直接融资质押等资金信息。
-- `riskcontrol`：风控行业分类。
-- `workflow`：审批流程、动态表单、流程结束。
-- `system`：用户、部门、权限和名称转换。
-- `document`：材料、文件模板和会议纪要等文件能力。
+
+当前 FTP 源码已不再直接依赖 `projectprocess`。FTP 使用的 FTP 行业分类、项目管理层级、项目分类和地区分类已经收敛到 `ftp.common.enums`，项目过程传入的分类值按稳定字符串协议映射为 FTP 定价维度。
+
+客户事实的处理方式：
+
+- FTP 内部使用 `EnterpriseTypeEnum` 表达“客户主体定价分类”，不直接依赖 customer 模块的枚举或模型。
+- `NewFtpCustomerFactPort` 由 `application/orchestration/adapter/ftp/NewFtpCustomerFactPortAdapter` 实现，adapter 负责读取客户工商信息、关联方、企业性质和控股类型，再把稳定分类值传入 FTP。
+- 行业树等 customer 持久化模型转换不放在 FTP 中，调用方按字段传入通用转换方法。
 
 `zswl-mithras-application` 也会反向承接或引用 FTP：
 
@@ -163,15 +155,15 @@ FTP 模块依赖较多业务域，主要原因是实际取价需要结合项目�
 ## 当前不规范点
 
 1. `oldftp` 名称误导
-   - 原先目录里既有老版月度/季度指导，也有仍在使用的计息、收益服务。
-   - 原先被新版复用的 BO、通用状态枚举和业务版本枚举已迁到 `common`，计息/收益已分别迁到 `interest`、`income`。
+   - 目录里既有老版月度/季度指导，也有仍在使用的计息、收益服务。
+   - 被新版复用的 BO、通用状态枚举和业务版本枚举仍有一部分停在 `oldftp`，后续应迁到更中性的 `common`。
 
 2. `newftp` 内部按技术层和数据状态混排
    - `config`、`draft`、`lib` 同时出现在 controller/service/mapper/model 下。
    - 这是“配置区/草稿区/版本区”的业务概念，但目录上和常规 controller/service/mapper 分层交织，阅读成本高。
 
 3. 流程归属不清
-   - `flow/dynamicform/ftp` 同时服务新版和老版部分流程。
+   - FTP 流程动态表单和流程结束 handler 已在 `application`，方向是对的。
    - 新版流程模型仍叫 `FtpMonthlyGuidanceCreateFlow` / `FtpMonthlyGuidanceModifyFlow`，语义偏旧。
 
 4. `FtpService` 职责过重
@@ -179,8 +171,9 @@ FTP 模块依赖较多业务域，主要原因是实际取价需要结合项目�
    - 这个类是当前最核心但也最容易继续膨胀的服务。
 
 5. 应用层边界不稳定
-   - `zswl-mithras-ftp` 直接依赖多个业务域。
-   - `zswl-mithras-application` 又有 `orchestration/ftp`，导致 FTP 业务有一部分在模块内，一部分在编排层。
+   - `zswl-mithras-ftp` 直接依赖 `basedata`，属于真实取价输入依赖。
+   - 项目过程的分类输入已改为稳定字符串协议，FTP 模块内不再直接 import projectprocess 枚举。
+   - `zswl-mithras-application` 还有 `orchestration/ftp` 和 workflow adapter，说明 FTP 业务有一部分在模块内，一部分在编排层；后续要区分单域 FTP 规则和跨域装配。
 
 6. 命名不统一
    - `FtpProcessStatus` 与 `NewFtpProcessStatus` 并存。
@@ -222,19 +215,19 @@ cn.zswltech.mithras.ftp
 短期更现实的整理顺序：
 
 1. 已加模块文档，明确 `oldftp` 不是废弃代码。
-2. 已把 `oldftp.bo`、`oldftp.enums.FtpBusinessVersion`、`oldftp.enums.FtpProcessStatus`、根包 `convert/CommonConvert` 迁到 `ftp.common`。
-3. 已把计息/收益从 `oldftp` 拆出到 `interest`、`income`，因为它们不是老版指导的一部分。
+2. 先把被新版复用的 `oldftp.bo`、`oldftp.enums.FtpBusinessVersion`、`oldftp.enums.FtpProcessStatus` 迁到 `ftp.common`，保留根包 `convert/CommonConvert` 或一并迁入 `common/convert`。
+3. 再把计息/收益从 `oldftp` 拆出到 `interest`、`income`，因为它们不是老版指导的一部分。
 4. 下一步把 `newftp/service/FtpService` 拆成：
    - `FtpEffectiveGuidanceQueryService`：查询生效 FTP。当前已拆出。
-   - `CashFtpPricingService`：现金 FTP 取价。
+   - `CashFtpPricingService`：现金 FTP 取价。当前仍在 `FtpService`。
    - `BillFtpPricingService`：票据 FTP 买入/卖出价。当前已拆出。
-   - `FtpPricingContextAssembler`：组装客户、项目、合同上下文。当前已拆出。
-   - `LegacyFtpPricingSupport`：旧算法兼容。
+   - `FtpPricingContextAssembler`：组装客户、项目、合同上下文。当前仍在 `FtpService` 或 application 调用侧。
+   - `LegacyFtpPricingSupport`：旧算法兼容。当前仍在 `FtpService`。
 5. 最后再考虑重命名 `newftp` 为 `pricing/guidance` 或类似目录。这个步骤影响 import 很多，应该最后做。
 
 ## 维护注意事项
 
-- `interest`、`income` 的应用层实现仍主要在 `zswl-mithras-application/orchestration/ftp`，FTP 模块内保留 controller、mapper、model、job 入口和 service 接口。
+- `interest`、`income` 仍在 `oldftp` 包内；应用层聚合实现主要在 `zswl-mithras-application/orchestration/ftp`，FTP 模块内保留 controller、mapper、model、job 入口和 service 接口。
 - 修改新版审批时，要同时检查 `NewFtpVersionService`、`NewFtpBusinessModule`、BPMN、`BusinessModuleEnum` 和流程结束 handler。
 - 修改取价逻辑时，要重点看 `newftp/service/FtpService#getCashFtp`、`getCashFtpDeprecated` 和项目定价/合同渲染调用点。
 - 修改配置/草稿/版本区字段时，要同步改 `model/config`、`model/draft`、`model/lib`、mapper、converter、lib handler、datacompare factory。

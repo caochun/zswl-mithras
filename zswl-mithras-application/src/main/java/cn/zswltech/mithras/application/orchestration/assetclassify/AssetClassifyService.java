@@ -29,7 +29,7 @@ import cn.zswltech.mithras.foundation.enums.VersionTypeEnum;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.convert.MessageConver;
 import cn.zswltech.mithras.assetclassify.application.convert.AssetClassifyConvert;
-import cn.zswltech.mithras.application.orchestration.enums.*;
+import cn.zswltech.mithras.application.orchestration.auth.BusinessModuleEnum;
 import cn.zswltech.mithras.assetclassify.enums.*;
 import cn.zswltech.mithras.assetclassify.application.AssetClassifyClientRiskFactorTemplateService;
 import cn.zswltech.mithras.kpi.enums.config.ProvisionRadioEnum;

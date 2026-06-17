@@ -1,10 +1,10 @@
 package cn.zswltech.mithras.afterlease.gendoc.render;
 
+import cn.hutool.core.util.NumberUtil;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryClientInfoListRsp;
 import cn.zswltech.mithras.dto.afterlease.AfterLeaseCheckExternalQueryDetailRsp;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.afterlease.enums.ClientRole;
-import cn.zswltech.mithras.contract.gendoc.AbstractBasicRender;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.data.DocxRenderData;
@@ -14,9 +14,11 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.OutputStream;
+import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -26,13 +28,12 @@ import java.util.Optional;
  */
 @Slf4j
 @Component
-public class AfterLeaseCheckExternalQueryRender extends AbstractBasicRender<AfterLeaseCheckExternalQueryDetailRsp> {
+public class AfterLeaseCheckExternalQueryRender {
     private final DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy年MM月dd日");
 
     @Resource
     private FileTemplateService fileTemplateService;
 
-    @Override
     public String render(OutputStream outputStream,
                          AfterLeaseCheckExternalQueryDetailRsp detailRsp) throws Exception {
         Map<String, Object> renderModelMap = new HashMap<>(64);
@@ -78,6 +79,14 @@ public class AfterLeaseCheckExternalQueryRender extends AbstractBasicRender<Afte
                 .render(renderModelMap);
         template.writeAndClose(outputStream);
         return detailRsp.getClientName() + "-外部查询报告" + GlobalConstants.OFFICE_WORD_SUFFIX;
+    }
+
+    private String toWan(Long dbNumber) {
+        if (Objects.isNull(dbNumber)) {
+            return null;
+        }
+        BigDecimal bigDecimal = NumberUtil.div(dbNumber.toString(), String.valueOf(10000 * Long.parseLong(GlobalConstants.MONEY_MULTIPLE)));
+        return NumberUtil.decimalFormat(",##0.00######", bigDecimal);
     }
 
     private static class RenderParameter {
