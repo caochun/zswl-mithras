@@ -4,7 +4,7 @@ import styles from '../index.less'
 import { amountFormat } from '@/utils'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
 import TransactionInfo from './TransactionInfo'
-import { BlackInfo } from '@/pages/customer/maintain/detail/Basic/IndustrialDetailStatic'
+import { BlackInfo } from '@/components/BlackGray/BlackInfo'
 
 const BaseInfo = ({ store, id, goProcess = () => {} }) => {
   const [riskCount, setRiskCount] = useState()

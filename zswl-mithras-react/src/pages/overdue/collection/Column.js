@@ -1,6 +1,6 @@
 import { AmountColumn, CustomColumn, FiledFormat, MatchOptionColumn } from '@/components/Format'
 import { FounderSelect, OrgSelect } from '@/components'
-import { BlackInfo } from '@/pages/customer/maintain/detail/Basic/IndustrialDetailStatic'
+import { BlackInfo } from '@/components/BlackGray/BlackInfo'
 
 const ALL_COLUMNS = [
   CustomColumn({

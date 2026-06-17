@@ -12,7 +12,7 @@ import { RegionCascader } from '@/components'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'
 import { history } from '@zswl/admin'
-import { BlackInfo } from '@/pages/customer/maintain/detail/Basic/IndustrialDetailStatic'
+import { BlackInfo } from '@/components/BlackGray/BlackInfo'
 import { Input, Row } from 'antd'
 import { SupplierColumn } from '@/pages/project/price/detail/BaseInfo/Column'
 

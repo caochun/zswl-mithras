@@ -2,7 +2,7 @@ import { Descriptions, Form, Select } from 'antd'
 import { observer } from '@zswl/admin'
 import FormItemContent from '@/components/FormItemContent'
 import StarDom from '@/components/StarDom'
-import { BlackInfo } from '@/pages/customer/maintain/detail/Basic/IndustrialDetailStatic'
+import { BlackInfo } from '@/components/BlackGray/BlackInfo'
 import { uniqBy } from 'lodash'
 import { labelRed } from './utils'
 
