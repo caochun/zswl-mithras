@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import Lease from '@/pages/project/price/detail/BaseInfo/FormConfig/Lease'
-import AssignmentOfClaims from '@/pages/project/price/detail/BaseInfo/FormConfig/AssignmentOfClaims'
-import Factoring from '@/pages/project/price/detail/BaseInfo/FormConfig/Factoring'
-import TurnLease from '@/pages/project/price/detail/BaseInfo/FormConfig/TurnLease'
+import Lease from '@/components/Project/PriceDetail/BaseInfo/FormConfig/Lease'
+import AssignmentOfClaims from '@/components/Project/PriceDetail/BaseInfo/FormConfig/AssignmentOfClaims'
+import Factoring from '@/components/Project/PriceDetail/BaseInfo/FormConfig/Factoring'
+import TurnLease from '@/components/Project/PriceDetail/BaseInfo/FormConfig/TurnLease'
 
 const Index = ({ bizType, detail, isLog }) => {
   const CurrentDom = useMemo(() => {
