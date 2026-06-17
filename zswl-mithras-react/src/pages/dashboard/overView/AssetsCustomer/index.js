@@ -1,4 +1,4 @@
-import Title from '@/pages/dashboard/overView/components/Title'
+import Title from '@/components/Dashboard/OverviewTitle'
 import AssetsPie from './AssetsPie'
 import CustomerPie from './CustomerPie'
 import CountCard from './CountCard'

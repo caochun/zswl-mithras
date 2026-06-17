@@ -1,4 +1,4 @@
-import Title from '@/pages/dashboard/overView/components/Title'
+import Title from '@/components/Dashboard/OverviewTitle'
 import { Table } from '@zswl/components'
 import { FiledFormat, AmountFormat } from '@/components/Format'
 import Api from '@/api/dashboard/overview'
