@@ -4,7 +4,7 @@ import { Form, Modal, Select } from '@zswl/components'
 import { useMemo, useState, useRef } from 'react'
 import Project from './Project'
 import { AmountColumn, DateColumn, MatchOptionColumn } from '@/components/Format'
-import RepayCalcType from '@/pages/contract/list/detail/BaoJia/RepayCalcType'
+import RepayCalcType from '@/components/RepayCalcType'
 import { CommonTips } from '@/components'
 
 const commonProps = {
