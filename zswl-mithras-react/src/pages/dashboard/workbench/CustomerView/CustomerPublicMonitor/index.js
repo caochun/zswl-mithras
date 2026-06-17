@@ -1,5 +1,5 @@
 import { CardPanelFieldsFilter } from '@/components/Dashboard'
-import PublicMonitor from '@/pages/risk/publicMonitor'
+import PublicMonitor from '@/components/Risk/PublicMonitor'
 import styles from './index.less'
 
 const Index = () => {

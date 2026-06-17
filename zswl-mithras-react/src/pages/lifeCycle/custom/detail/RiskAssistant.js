@@ -1,4 +1,4 @@
-import PublicMonitor from '@/pages/risk/publicMonitor'
+import PublicMonitor from '@/components/Risk/PublicMonitor'
 import { observer } from '@zswl/admin'
 import { App, DescStore, Descriptions } from '@zswl/components'
 import { Card, Tabs } from 'antd'
