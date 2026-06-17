@@ -1,4 +1,4 @@
-import ProfitDistribution from '@/pages/ProfitDistribution'
+import ProfitDistribution from '@/components/Budget/ProfitDistribution'
 import PolicyRemind from '@/pages/afterLease/policyManage/remind/[id$]'
 import CreditReportSelectFlow from '@/pages/creditManage/search/detail/[id$].js'
 import ApplyPermission from '@/pages/customer/maintain/applyPermission/[id$].js'

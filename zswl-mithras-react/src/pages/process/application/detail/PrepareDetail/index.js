@@ -1,4 +1,4 @@
-import ProfitDistribution from '@/pages/ProfitDistribution'
+import ProfitDistribution from '@/components/Budget/ProfitDistribution'
 import AfterLeaseGeneralCheck from '@/pages/afterLease/checkPlan/Tab/CheckList/PrepareProcess' // 租后检查-一般检查
 import NewAfterLeaseCheckReportCommonlyFlow from '@/pages/afterLease/checkPlan/template/[id$]' // 租后检查模版
 import DepositRefundNotification from '@/components/Contract/DepositRefundNotification'
