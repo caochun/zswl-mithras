@@ -8,7 +8,7 @@ import BaoZheng from '@/pages/creditManage/creditTable/Tab/BaoZheng'
 import DiYa from '@/pages/creditManage/creditTable/Tab/DiYa'
 import ZhiYa from '@/pages/creditManage/creditTable/Tab/ZhiYa'
 
-import { amountFormat as amountFormatFunc, hasValue } from '@/utils'
+import { formatAmountWan } from '@/components/Format'
 
 export const tabList = [
   {
@@ -61,7 +61,7 @@ export const tabList = [
 export const CREATETABLE_PARAMS = 'CREATETABLE_PARAMS'
 
 export const AmountFormat = (value) => {
-  return hasValue(value) ? amountFormatFunc(value / 10000) : '-'
+  return formatAmountWan(value)
 }
 
 export const getHeaderWithFunctionCode = ({ channel, humpPath }) => {

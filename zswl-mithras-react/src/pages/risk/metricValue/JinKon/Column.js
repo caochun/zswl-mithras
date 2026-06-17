@@ -1,5 +1,4 @@
-import { AmountEditable } from '@/components/Format'
-import { AmountFormat } from '@/pages/creditManage/creditTable/Tab/config'
+import { AmountEditable, formatAmountWan } from '@/components/Format'
 import AmountRange from '@/components/AmountRange'
 import { hasValue, amountFormat, formatPercent } from '@/utils'
 import { Select, App } from '@zswl/components'
@@ -35,7 +34,7 @@ const ALL_COLUMNS = [
       })
     },
     render: (value) => {
-      return hasValue(value) ? AmountFormat(value) : '-'
+      return hasValue(value) ? formatAmountWan(value) : '-'
     },
   },
   {

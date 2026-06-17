@@ -7,6 +7,10 @@ import { useMemo } from 'react'
 
 const nzhcn = require('nzh/cn')
 
+export const formatAmountWan = (value) => {
+  return hasValue(value) ? amountFormatFunc(value / 10000) : '-'
+}
+
 export const JSONRender = (text) => {
   if (!text) return undefined
   const title = <pre>{JSON.stringify(JSON.parse(text), null, 2)}</pre>

@@ -2,8 +2,7 @@ import { observer } from '@zswl/admin'
 import { Page, Table, SearchBar, Select } from '@zswl/components'
 import { DatePicker, Input, Tooltip } from 'antd'
 import { useEffect, useMemo } from 'react'
-import { AmountEditable } from '@/components/Format'
-import { AmountFormat } from '@/pages/creditManage/creditTable/Tab/config'
+import { AmountEditable, formatAmountWan } from '@/components/Format'
 import { hasValue, getKeyOptionsLabelMap, rules } from '@/utils'
 import store from './store'
 import moment from 'moment'
@@ -46,7 +45,7 @@ const Index = () => {
         align: 'right',
         render: (value, { unit }) => {
           return valNeedFormatUnit.includes(unit) && !window.isNaN(value) ? (
-            AmountFormat(value)
+            formatAmountWan(value)
           ) : hasValue(value) ? (
             <Tooltip title={value}>{value}</Tooltip>
           ) : (
@@ -73,7 +72,7 @@ const Index = () => {
         },
         render: (value, { unit }) => {
           return valNeedFormatUnit.includes(unit) && !window.isNaN(value)
-            ? AmountFormat(value)
+            ? formatAmountWan(value)
             : hasValue(value)
             ? value
             : '-'

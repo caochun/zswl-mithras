@@ -1,5 +1,4 @@
-import { AmountEditable, InputNumberEditable } from '@/components/Format'
-import { AmountFormat } from '@/pages/creditManage/creditTable/Tab/config'
+import { AmountEditable, InputNumberEditable, formatAmountWan } from '@/components/Format'
 import { Input, DatePicker } from 'antd'
 import { hasValue } from '@/utils'
 import { Select } from '@zswl/components'
@@ -69,7 +68,7 @@ const ALL_COLUMNS = [
       })
     },
     render: (value) => {
-      return hasValue(value) ? AmountFormat(value) : '-'
+      return hasValue(value) ? formatAmountWan(value) : '-'
     },
   },
   {
@@ -83,7 +82,7 @@ const ALL_COLUMNS = [
       })
     },
     render: (value) => {
-      return hasValue(value) ? AmountFormat(value) : '-'
+      return hasValue(value) ? formatAmountWan(value) : '-'
     },
   },
   {
@@ -179,7 +178,7 @@ const ALL_COLUMNS = [
       })
     },
     render: (value) => {
-      return hasValue(value) ? AmountFormat(value) : '-'
+      return hasValue(value) ? formatAmountWan(value) : '-'
     },
   },
   {
@@ -204,7 +203,7 @@ const ALL_COLUMNS = [
       })
     },
     render: (value) => {
-      return hasValue(value) ? AmountFormat(value) : '-'
+      return hasValue(value) ? formatAmountWan(value) : '-'
     },
   },
   {
@@ -224,7 +223,7 @@ const ALL_COLUMNS = [
       })
     },
     render: (value) => {
-      return hasValue(value) ? AmountFormat(value) : '-'
+      return hasValue(value) ? formatAmountWan(value) : '-'
     },
   },
   {
