@@ -8,7 +8,7 @@ import CustomerRat from '@/pages/customer/customerRat/detail/[id$]' // 客户评
 import FilingMaterialsApply from '@/pages/fillingMaterialsDetail/filingMaterialsApply'
 import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
 import FinancialDirect from '@/components/Financial/DirectDetail'
-import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterestFlow/index'
+import FinancingCarryInterestFlow from '@/components/Financial/FinancingCarryInterestFlow'
 import FinancialFund from '@/components/Financial/FundDetail'
 import FinancialReportApprovalFlow from '@/components/Report/FinancialReportApproval'
 import KpiPorjectAllocation from '@/components/Kpi/ProjectAllot/Detail' // 绩效

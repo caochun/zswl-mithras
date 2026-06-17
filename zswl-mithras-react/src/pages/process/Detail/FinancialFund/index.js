@@ -5,7 +5,7 @@ import FundFinancingFundChange from '@/pages/financial/fund/change/[id$]'
 import FinancialDirect from '@/components/Financial/DirectDetail'
 import FinancingRepayPlanConfirmFlow from '../../application/detail/PrepareDetail/Component/FinancingRepayPlanConfirmFlow'
 import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
-import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterestFlow/index'
+import FinancingCarryInterestFlow from '@/components/Financial/FinancingCarryInterestFlow'
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curAssigneeIds } = props
   const renderContractType = useMemo(() => {
