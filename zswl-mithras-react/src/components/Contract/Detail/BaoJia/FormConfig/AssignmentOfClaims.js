@@ -4,7 +4,7 @@ import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'
 import WarnTip from '../WarnTip'
-import { Context } from '../../[id$]'
+import { Context } from '../../Context'
 
 function Index({ detail, saveData, isLog, canEdit = true, initEdit, store, remainAvailableQuota }) {
   const nameColumns = useMemo(() => {

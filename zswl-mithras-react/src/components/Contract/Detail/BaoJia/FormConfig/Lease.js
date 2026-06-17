@@ -4,15 +4,25 @@ import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'
 import WarnTip from '../WarnTip'
-import { Context } from '../../[id$]'
+import { Context } from '../../Context'
 
-function Index({ detail, saveData, isLog, canEdit = true, initEdit, store, remainAvailableQuota }) {
+function Index({
+  detail,
+  saveData,
+  isLog,
+  canEdit = true,
+  initEdit,
+  store,
+  leaseTypes,
+  bizType,
+  remainAvailableQuota,
+}) {
   const nameColumns = useMemo(() => {
     return [
       {
-        title: '保理合同金额(元)',
+        title: '合同金额(元)',
         rename:
-          detail?.contractAmount > remainAvailableQuota ? (
+          detail?.applyCreditAmount > remainAvailableQuota ? (
             <div>
               合同金额(元)
               <WarnTip
@@ -23,8 +33,6 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, store, remai
             '合同金额(元)'
           ),
       },
-      '额度是否可循环',
-      '保理融资期限(月)',
       {
         title: '保证金(元)',
         rename: store?.legal_earnestMoney ? (
@@ -35,34 +43,59 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, store, remai
           '保证金(元)'
         ),
       },
-      '保理融资比例',
+      '租赁期限(月)',
       {
-        title: '手续费(元)',
-        rename: store?.legal_consultingFee ? (
+        title: '首期租金(元)',
+        rename: store?.legal_downPayment ? (
           <div>
-            手续费(元)
-            <WarnTip title={'手续费占合同金额比率不能小于项目的比率'}></WarnTip>
+            首期租金(元)<WarnTip title={'首期租金占合同金额比率不能小于项目的比率'}></WarnTip>
           </div>
         ) : (
-          '手续费(元)'
+          '首期租金(元)'
         ),
       },
       '还款频率',
-      '利息计算方式',
       {
-        title: '还款方式-保理',
+        title: '服务费/咨询费(元)',
+        rename: store?.legal_consultingFee ? (
+          <div>
+            服务费/咨询费(元)
+            <WarnTip title={'服务费/咨询费占合同金额比率不能小于项目的比率'}></WarnTip>
+          </div>
+        ) : (
+          '服务费/咨询费(元)'
+        ),
+      },
+      {
+        title: '租赁-手续费(元)',
+        rename: '手续费(元)',
+      },
+      {
+        title: '租赁-首期利息(元)',
+        rename: '首期利息(元)',
+      },
+      '还款期数',
+      '名义价款(元)',
+      '手续费率',
+      '保证金率',
+      '支付方式',
+      bizType === 'ZL' && '利息计算方式',
+      '结构化利息(元)',
+      {
+        title: '还款方式-租赁',
         rename: '还款方式',
-        span: 2,
       },
-      {
-        title: '保理费率',
-        span: 2,
-      },
+      '罚息日利率',
+      '租赁利率',
+      leaseTypes === 'zhi_zu' && '租前息利率',
     ].filter(Boolean)
   }, [
-    detail?.contractAmount,
+    bizType,
+    detail?.applyCreditAmount,
     store?.legal_earnestMoney,
+    store?.legal_downPayment,
     store?.legal_consultingFee,
+    leaseTypes,
     remainAvailableQuota,
   ])
 
@@ -72,8 +105,9 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, store, remai
         const handleCalc = () => {
           store?.handleCalc(context?.ref?.current?.form)
         }
+
         const onInterestWayChange = (value) => {
-          context?.ref?.current?.form.instance.setFieldValue('repayCalcType', undefined)
+          context?.ref?.current?.form.instance.setFieldValue('rentalCalcType', undefined)
         }
 
         const columns = getDescColumns(

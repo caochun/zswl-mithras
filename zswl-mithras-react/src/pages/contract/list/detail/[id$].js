@@ -3,7 +3,7 @@ import { observer, getQuery, history } from '@zswl/admin'
 import { Page, Button, Form, Modal } from '@zswl/components'
 import { Input, InputNumber } from 'antd'
 import DetailLayout from '@/components/DetailLayout'
-import BaseInfo from './BaseInfo'
+import BaseInfo from '@/components/Contract/Detail/BaseInfo'
 import GaiSuanZuJin from './GaiSuanZuJin'
 import ShiJiZuJin from './ShiJiZuJin'
 import ChengZuRen from './ChengZuRen' // 租赁、转租赁场景 - ZL、ZZ
@@ -13,7 +13,7 @@ import ZuLinWu from './ZuLinWu'
 import DanBao from './DanBao'
 import ZhiYa from './ZhiYa'
 import DiYa from './DiYa'
-import BaoJia from './BaoJia'
+import BaoJia from '@/components/Contract/Detail/BaoJia'
 import HeTong from './HeTong'
 import ZiLiao from './ZiLiao'
 import ContractTextType from './ContractTextType'
@@ -30,8 +30,7 @@ import TrackModal from '@/components/Lease/TrackModal'
 import ZhongDengButton from '@/components/ZhongDengButton'
 import EvaluationAgency from '@/components/Lease/EvaluationAgency'
 import MeetingModal from '@/components/Project/ReviewMeetingModal'
-
-export const Context = React.createContext()
+import { Context } from '@/components/Contract/Detail/Context'
 
 const Index = ({
   params: { id },

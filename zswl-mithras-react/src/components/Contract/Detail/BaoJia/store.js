@@ -4,7 +4,7 @@ import mathjs from '@/utils/math'
 import { compareDetail, formatPercent } from '@/utils'
 import { bizTypePriceDetailMap, bizTypePriceModifyMap } from '@/components/Contract/bizTypeConfig'
 import Api from './api'
-import baseInfoApi from '../api'
+import baseInfoApi from '@/api/contract/contractDetail'
 
 class Store {
   constructor(data) {

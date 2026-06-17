@@ -1,4 +1,4 @@
-import BaoJia from '@/pages/contract/list/detail/BaoJia'
+import BaoJia from '@/components/Contract/Detail/BaoJia'
 
 const Index = ({ detail, isLog, contractId }) => {
   return <BaoJia detail={detail} contractId={contractId} canEditFlag={false} isLog={isLog}></BaoJia>
