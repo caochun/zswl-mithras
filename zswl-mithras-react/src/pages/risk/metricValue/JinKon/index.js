@@ -4,7 +4,7 @@ import { getTableColumns, getFormColumns, hasValue } from '@/utils'
 import store from './store'
 import { Button } from 'antd'
 import CreateModal from './CreateModal'
-import ALL_COLUMNS from '@/pages/risk/metricValue/JinKon/Column'
+import ALL_COLUMNS from '@/components/Risk/MetricValueJinKonColumns'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
