@@ -1,4 +1,4 @@
-import DebtRat from '@/pages/customer/debtRat'
+import DebtRat from '@/components/Customer/DebtRat'
 import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
 
