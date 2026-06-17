@@ -1,4 +1,4 @@
-import { founderSelect, orgSelect, clientSelect } from '@/pages/dashboard/workbench/Column'
+import { founderSelect, orgSelect, clientSelect } from '@/utils/dashboardColumns'
 import { MatchOptionColumn, InputColumn, AmountColumn, DateColumn } from '@/components/Format'
 import { hasValue } from '@/utils'
 

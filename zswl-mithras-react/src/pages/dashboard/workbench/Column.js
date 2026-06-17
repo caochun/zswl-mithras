@@ -1,1 +1,1 @@
-export { orgSelect, clientSelect, founderSelect, provinceSelect } from '@/components/Format'
+export { orgSelect, clientSelect, founderSelect, provinceSelect } from '@/utils/dashboardColumns'

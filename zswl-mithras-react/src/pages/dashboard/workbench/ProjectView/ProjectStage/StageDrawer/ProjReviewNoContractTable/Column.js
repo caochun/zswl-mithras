@@ -1,4 +1,4 @@
-import { founderSelect, clientSelect, orgSelect } from '@/pages/dashboard/workbench/Column'
+import { founderSelect, clientSelect, orgSelect } from '@/utils/dashboardColumns'
 import { InputColumn, AmountColumn } from '@/components/Format'
 
 export const All_COLUMNS = [

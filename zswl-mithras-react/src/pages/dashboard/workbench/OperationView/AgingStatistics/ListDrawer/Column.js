@@ -1,5 +1,5 @@
 import { InputColumn, AmountColumn } from '@/components/Format'
-import { orgSelect } from '@/pages/dashboard/workbench/Column'
+import { orgSelect } from '@/utils/dashboardColumns'
 
 export const ALL_COLUMNS = [
   orgSelect({

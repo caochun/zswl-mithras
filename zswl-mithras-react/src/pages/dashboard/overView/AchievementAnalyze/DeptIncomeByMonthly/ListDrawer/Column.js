@@ -1,5 +1,5 @@
 import { AmountColumn, MatchOptionColumn, InputColumn, FiledFormat } from '@/components/Format'
-import { orgSelect, clientSelect, founderSelect } from '@/pages/dashboard/overView/Column'
+import { orgSelect, clientSelect, founderSelect } from '@/utils/dashboardColumns'
 import { Select, App } from '@zswl/components'
 import { Input } from 'antd'
 

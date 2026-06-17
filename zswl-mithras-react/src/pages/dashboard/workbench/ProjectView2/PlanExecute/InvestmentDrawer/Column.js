@@ -1,4 +1,4 @@
-import { founderSelect, orgSelect } from '@/pages/dashboard/workbench/Column'
+import { founderSelect, orgSelect } from '@/utils/dashboardColumns'
 import { MatchOptionColumn, InputColumn, AmountColumn, DateColumn } from '@/components/Format'
 
 export const ALL_COLUMNS = [

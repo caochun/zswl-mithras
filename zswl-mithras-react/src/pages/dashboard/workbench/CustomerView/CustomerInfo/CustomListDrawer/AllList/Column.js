@@ -3,7 +3,7 @@ import {
   orgSelect,
   provinceSelect,
   clientSelect,
-} from '@/pages/dashboard/workbench/Column'
+} from '@/utils/dashboardColumns'
 import { MatchOptionColumn, InputColumn, AmountColumn } from '@/components/Format'
 
 export const ALL_COLUMNS = [

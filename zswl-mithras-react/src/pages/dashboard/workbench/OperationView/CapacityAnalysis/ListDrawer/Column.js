@@ -1,4 +1,4 @@
-import { orgSelect } from '@/pages/dashboard/workbench/Column'
+import { orgSelect } from '@/utils/dashboardColumns'
 import { AmountColumn } from '@/components/Format'
 
 export const ALL_COLUMNS = [
