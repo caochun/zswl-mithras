@@ -40,6 +40,7 @@ import cn.zswltech.mithras.archives.persistence.model.ArchivesManagement;
 import cn.zswltech.mithras.archives.application.port.ArchivesManagementQueryPort;
 import cn.zswltech.mithras.archives.application.port.ArchivesNotificationPort;
 import cn.zswltech.mithras.archives.application.port.ArchivesSupportPort;
+import cn.zswltech.mithras.archives.application.port.ArchivesTemplateFileQueryPort;
 import cn.zswltech.mithras.archives.application.port.ArchivesWorkflowPort;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
@@ -99,6 +100,8 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     @Resource
     private ArchivesManagementQueryPort archivesManagementQueryPort;
     @Resource
+    private ArchivesTemplateFileQueryPort archivesTemplateFileQueryPort;
+    @Resource
     private ArchivesSupportPort archivesSupportPort;
     @Resource
     private ArchivesWorkflowPort archivesWorkflowPort;
@@ -125,7 +128,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         }
         List<ArchivesFlatTemplateProjection> flatTemplates = null;
         if (StrUtil.isNotEmpty(req.getFileType())){
-            flatTemplates = archiveTemplateMapper.flatTemplate(null, req.getFileType());
+            flatTemplates = archivesTemplateFileQueryPort.flatTemplate(null, req.getFileType());
             if (CollectionUtil.isNotEmpty(flatTemplates)){
                 req.setArchivesId(flatTemplates.stream().map(ArchivesFlatTemplateProjection::getArchiveId).distinct().collect(Collectors.toList()));
             }
@@ -143,9 +146,9 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             if (CollectionUtil.isNotEmpty(flatTemplates)) {
                 flatTemplates = flatTemplates.stream().filter(o -> templateIds.contains(o.getTemplateId())).collect(Collectors.toList());
             }else {
-                flatTemplates = archiveTemplateMapper.flatTemplate(templateIds, req.getFileType());
+                flatTemplates = archivesTemplateFileQueryPort.flatTemplate(templateIds, req.getFileType());
             }
-            List<ArchivesMustFileCountProjection> fileCounts = archiveTemplateMapper.mustFileCount(archivesIds);
+            List<ArchivesMustFileCountProjection> fileCounts = archivesTemplateFileQueryPort.mustFileCount(archivesIds);
             List<ArchivesMustFileTypeCountProjection> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(templateIds);
             Map<Long, List<ArchivesFlatTemplateProjection>> archivesMap = new HashMap<>();
             AccountVO loginInfo = AccountUtil.getLoginInfo();
@@ -339,10 +342,10 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     public ArchivesInfoRSP archivesInfo(ArchivesInfoREQ req){
         ArchivesManagement management = archivesManagementMapper.selectById(req.getId());
         ArchivesSupportPort.ProjectInfo baseInfo = archivesSupportPort.getProjectInfo(management.getProjId());
-        List<ArchivesMustFileCountProjection> fileCounts = archiveTemplateMapper.mustFileCount(CollectionUtil.newArrayList(req.getId()));
+        List<ArchivesMustFileCountProjection> fileCounts = archivesTemplateFileQueryPort.mustFileCount(CollectionUtil.newArrayList(req.getId()));
         List<ArchivesMustFileTypeCountProjection> fileTypeCounts = archiveTemplateMapper.mustFileTypeCount(CollectionUtil.newArrayList(management.getTemplateId()));
 
-        List<ArchiveFileType> types = archiveTemplateMapper.noFileTypes(req.getId(), management.getTemplateId());
+        List<ArchiveFileType> types = archivesTemplateFileQueryPort.noFileTypes(req.getId(), management.getTemplateId());
         ArchivesInfoRSP rsp = new ArchivesInfoRSP();
         rsp.setId(management.getId());
         rsp.setProjName(baseInfo.getProjName());
@@ -416,7 +419,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
         if (!ArchivesFlowStatusEnum.APPROVAL_PASS.name().equals(management.getFlowStatus())){
             return ListUtil.empty();
         }
-        List<ArchivesFlatTemplateProjection> flatFiles = archiveTemplateMapper.archiveFileList(req.getId(),req.getContent(),req.getGroupName());
+        List<ArchivesFlatTemplateProjection> flatFiles = archivesTemplateFileQueryPort.archiveFileList(req.getId(),req.getContent(),req.getGroupName());
         if (CollectionUtil.isEmpty(flatFiles)){
             return ListUtil.empty();
         }
@@ -477,7 +480,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     public Void archivesEffect(ArchivesInfoREQ req) {
         ArchivesManagement management = archivesManagementMapper.selectById(req.getId());
         if (management.getType().equals(0)) {
-            List<ArchiveFileType> types = archiveTemplateMapper.noFileTypes(req.getId(), management.getTemplateId());
+            List<ArchiveFileType> types = archivesTemplateFileQueryPort.noFileTypes(req.getId(), management.getTemplateId());
             if (CollectionUtil.isNotEmpty(types)) {
                 List<Long> ids = types.stream().map(ArchiveFileType::getId).collect(Collectors.toList());
                 List<ArchiveFileType> fileTypes = archiveFileTypeMapper.selectList(Wrappers.<ArchiveFileType>lambdaQuery().in(ArchiveFileType::getId, ids).eq(ArchiveFileType::getNeed, 1));

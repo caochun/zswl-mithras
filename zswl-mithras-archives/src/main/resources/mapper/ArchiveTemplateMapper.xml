@@ -16,70 +16,6 @@
         </where>
         order by update_time desc
     </select>
-    <select id="flatTemplate" resultType="cn.zswltech.mithras.archives.persistence.projection.ArchivesFlatTemplateProjection">
-        select
-        c.belong_id archiveId,
-        a.id typeId,
-        b.template_id templateId,
-        b.id groupId,
-        b.group_name groupName,
-        a.type_name typeName,
-        c.id fileId,
-        b.sort,
-        c.filename fileName
-        from (select * from materials_list where business_type = "ARCHIVES") c left join archive_file_type a
-        on c.materials_type = CAST(a.id AS CHAR)
-        left join archive_type_group b
-        on a.group_id = b.id
-        <where>
-            <if test="fileType!=null">and (b.group_name LIKE concat('%', #{fileType},'%') or a.type_name LIKE concat('%', #{fileType},'%'))</if>
-            <if test="templateIds!=null">and b.template_id in
-                <foreach collection="templateIds" item="item" separator="," open="(" close=")">
-                    #{item}
-                </foreach></if>
-        </where>
-    </select>
-
-    <select id="archiveFileList" resultType="cn.zswltech.mithras.archives.persistence.projection.ArchivesFlatTemplateProjection">
-        select
-        c.belong_id archiveId,
-        a.id typeId,
-        b.template_id templateId,
-        b.id groupId,
-        b.group_name groupName,
-        a.type_name typeName,
-        c.id fileId,
-        b.sort,
-        c.filename fileName,
-        c.create_by uploadUser,
-        c.create_time uploadTime
-        from (select * from materials_list where business_type = "ARCHIVES" and belong_id = #{archiveId}) c left join archive_file_type a
-        on c.materials_type = CAST(a.id AS CHAR)
-        left join archive_type_group b
-        on a.group_id = b.id
-        <where>
-            <if test="content!=null">and (b.group_name LIKE concat('%', #{content},'%') or a.type_name LIKE concat('%', #{content},'%') or c.filename LIKE concat('%', #{content},'%'))</if>
-            <if test="groupName!=null">and b.group_name = #{groupName}</if>
-        </where>
-        order by b.sort,a.sort asc
-    </select>
-
-    <select id="mustFileCount" resultType="cn.zswltech.mithras.archives.persistence.projection.ArchivesMustFileCountProjection">
-        select
-        c.belong_id archiveId,
-        count(distinct a.id) count
-        from (select * from materials_list where business_type = "ARCHIVES") c left join archive_file_type a
-        on c.materials_type = CAST(a.id AS CHAR)
-        <where>
-        a.need = 1
-            <if test="archiveIds!=null">and c.belong_id in
-                <foreach collection="archiveIds" item="item" separator="," open="(" close=")">
-                    #{item}
-                </foreach></if>
-        </where>
-        group by c.belong_id
-    </select>
-
     <select id="mustFileTypeCount" resultType="cn.zswltech.mithras.archives.persistence.projection.ArchivesMustFileTypeCountProjection">
         select
         b.template_id templateId,
@@ -95,14 +31,6 @@
                 </foreach></if>
         </where>
         group by b.template_id
-    </select>
-
-    <select id="noFileTypes" resultType="cn.zswltech.mithras.archives.persistence.model.ArchiveFileType">
-       select a.type_name typeName,a.id
-       from (select * from archive_file_type where need = 1 and group_id in (select id from archive_type_group where template_id = #{templateId})) a
-       left join (select * from materials_list where business_type = "ARCHIVES" and belong_id = #{archiveId}) c
-       on c.materials_type = CAST(a.id AS CHAR)
-       where c.id is null
     </select>
 
 </mapper>
