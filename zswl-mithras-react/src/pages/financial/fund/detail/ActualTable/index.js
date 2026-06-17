@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import ActualTable from '@/pages/financial/fund/Component/ActualTable'
+import ActualTable from '@/components/Financial/FundActualTable'
 import styles from './index.less'
 import { compareTableData } from '@/utils'
 
