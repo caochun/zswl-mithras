@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import CreateEstablish from '@/pages/credit/establish/detail/[id$]'
+import CreateEstablish from '@/components/Credit/EstablishDetail'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion } = props

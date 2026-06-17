@@ -1,14 +1,13 @@
 import { observer } from '@zswl/admin'
-import { Form, Modal, Select } from '@zswl/components'
+import { App, Form, Modal, Select } from '@zswl/components'
 import store from './store'
-import rootStore from '../../store'
-import { Button, Input, Upload } from 'antd'
-import { rules } from '@/utils'
+import { Button, Upload } from 'antd'
 import { useState } from 'react'
 
 const { Item } = Form
+const { getData } = App
 function UploadModal() {
-  const { options } = rootStore
+  const options = getData().optionsType
   const [fileList, setFileList] = useState([])
 
   const uploadProps = {
