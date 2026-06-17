@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.config;
+package cn.zswltech.mithras.dashboard.config;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 

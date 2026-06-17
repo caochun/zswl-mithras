@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.mapper.managereport;
+package cn.zswltech.mithras.dashboard.guanbao.model.managereport;
 
 import cn.zswltech.mithras.foundation.persistence.query.PageQuery;
 import lombok.Data;

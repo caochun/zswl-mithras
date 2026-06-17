@@ -22,7 +22,7 @@ import javax.annotation.Resource;
  */
 
 @Slf4j
-@ServletComponentScan("cn.zswltech.mithras.dashboard.guanbao.config")
+@ServletComponentScan("cn.zswltech.mithras.dashboard.config")
 @MapperScan({"cn.zswltech.mithras.document.persistence.mapper", "cn.zswltech.lib.futurelog.save.mapper"})
 @EnableTransactionManagement
 @SpringBootApplication(scanBasePackages = {"cn.zswltech"})

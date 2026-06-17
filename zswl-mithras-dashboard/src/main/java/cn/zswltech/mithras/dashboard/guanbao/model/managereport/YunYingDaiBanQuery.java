@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.dashboard.guanbao.mapper.managereport;
+package cn.zswltech.mithras.dashboard.guanbao.model.managereport;
 
 import lombok.Data;
 

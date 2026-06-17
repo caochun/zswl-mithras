@@ -1,5 +1,11 @@
 package cn.zswltech.mithras.dashboard.guanbao.mapper.managereport;
 
+import cn.zswltech.mithras.dashboard.guanbao.model.managereport.YeWuYunXingFenXiQuery;
+import cn.zswltech.mithras.dashboard.guanbao.model.managereport.YeWuYunXingFenXiResult;
+import cn.zswltech.mithras.dashboard.guanbao.model.managereport.YeWuYunXingFenXiStatisticResult;
+import cn.zswltech.mithras.dashboard.guanbao.model.managereport.YunYingDaiBanQuery;
+import cn.zswltech.mithras.dashboard.guanbao.model.managereport.YunYingDaiBanResult;
+
 import java.util.List;
 
 /**
