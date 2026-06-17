@@ -4,7 +4,7 @@ import EditDescription from '@/components/Table/EditDescription'
 import ALL_COLUMNS from '@/pages/risk/publicMonitor/Column'
 import { NoEnumFileTable } from '@/components'
 import { getDescColumns } from '@/utils'
-import Api from '@/pages/risk/publicMonitor/api'
+import Api from '@/api/risk/publicMonitor'
 
 const nameColumns = [
   'ID',
