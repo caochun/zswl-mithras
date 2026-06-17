@@ -2,15 +2,11 @@ import { Input, Radio, Rate, Tooltip, Typography } from 'antd'
 import { FiledFormat } from '@/components/Format'
 import { Select, App } from '@zswl/components'
 import IconFont from '@/components/Icon'
-// import GreenBell from '@/pages/dashboard/overView/img/icon_bell_green.svg'
-// import YellowBell from '@/pages/dashboard/overView/img/icon_bell_yellow.svg'
-// import RedBell from '@/pages/dashboard/overView/img/icon_bell_red.svg'
 const { Paragraph } = Typography
 
 const { TextArea } = Input
 
 const warnLevelColor = ['', 'green', '#f7cf07', 'red']
-// const warnLevelMatch = { 1: <GreenBell />, 2: <YellowBell />, 3: <RedBell /> }
 
 const ALL_COLUMNS = ({ canEdit, approvalCanEdit } = { canEdit: true }) => [
   {
