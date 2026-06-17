@@ -1,5 +1,5 @@
 import ActualTable from '@/components/Contract/ActualTable'
-import PaymentApply from '@/pages/contract/list/Component/PaymentApply'
+import PaymentApply from '@/components/Contract/PaymentApply'
 import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
 import CantractDetailBaoJia from '@/pages/contract/list/detail/BaoJia'
 import CantractDetailBaseInfo from '@/pages/contract/list/detail/BaseInfo'
