@@ -18,8 +18,8 @@ import cn.zswltech.gruul.biz.service.UserService;
 import cn.zswltech.gruul.dao.dal.entity.UserDO;
 import cn.zswltech.mithras.assetclassify.application.AssetClassifyNodeRecordService;
 import cn.zswltech.mithras.assetclassify.application.AssetClassifyQueryService;
-import cn.zswltech.mithras.assetclassify.application.job.AssetClassifyInitJobService;
-import cn.zswltech.mithras.assetclassify.application.job.AssetClassifyWeekdayRemindJobService;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyInitJobPort;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyWeekdayRemindJobPort;
 import cn.zswltech.mithras.dto.assetclassify.*;
 import cn.zswltech.mithras.dto.message.MessageAddREQ;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
@@ -103,7 +103,7 @@ import static cn.zswltech.mithras.foundation.exception.MithrasException.err;
  */
 @Service
 @Slf4j
-public class AssetClassifyService extends ServiceImpl<AssetClassifyMapper, AssetClassify> implements AssetClassifyInitJobService, AssetClassifyWeekdayRemindJobService, AssetClassifyQueryService {
+public class AssetClassifyService extends ServiceImpl<AssetClassifyMapper, AssetClassify> implements AssetClassifyInitJobPort, AssetClassifyWeekdayRemindJobPort, AssetClassifyQueryService {
 
     @Resource
     private AssetClassifyConvert assetClassifyConvert;

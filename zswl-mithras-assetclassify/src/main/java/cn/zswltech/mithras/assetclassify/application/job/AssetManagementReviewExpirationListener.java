@@ -1,7 +1,8 @@
 package cn.zswltech.mithras.assetclassify.application.job;
 
-import cn.zswltech.mithras.foundation.constant.GlobalConstants;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyAutoPassExecutionPort;
 import cn.zswltech.mithras.foundation.cache.RedisDelayedQueueListener;
+import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

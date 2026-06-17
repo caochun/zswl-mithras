@@ -3,9 +3,9 @@ package cn.zswltech.mithras.assetclassify.job;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.assetclassify.application.job.AssetClassifyInitJobService;
-import cn.zswltech.mithras.assetclassify.application.job.AssetClassifyReviewAutoPassJobService;
-import cn.zswltech.mithras.assetclassify.application.job.AssetClassifyWeekdayRemindJobService;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyInitJobPort;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyReviewAutoPassJobPort;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyWeekdayRemindJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -25,15 +25,15 @@ import java.time.LocalDateTime;
 public class AssetClassifyJob {
 
     @Resource
-    private AssetClassifyReviewAutoPassJobService assetClassifyReviewAutoPassJobService;
+    private AssetClassifyReviewAutoPassJobPort assetClassifyReviewAutoPassJobPort;
     @Resource
-    private AssetClassifyInitJobService assetClassifyInitJobService;
+    private AssetClassifyInitJobPort assetClassifyInitJobPort;
     @Resource
-    private AssetClassifyWeekdayRemindJobService assetClassifyWeekdayRemindJobService;
+    private AssetClassifyWeekdayRemindJobPort assetClassifyWeekdayRemindJobPort;
 
     @XxlJob("assetClassifyReviewAutoPass")
     public void reviewAutoPass() {
-        assetClassifyReviewAutoPassJobService.reviewAutoPass(XxlJobHelper.getJobParam());
+        assetClassifyReviewAutoPassJobPort.reviewAutoPass(XxlJobHelper.getJobParam());
     }
 
     @Transactional(rollbackFor = Throwable.class)
@@ -46,7 +46,7 @@ public class AssetClassifyJob {
         } else {
             targetDateTime = LocalDateTimeUtil.parse(jobParam, DatePattern.NORM_DATETIME_PATTERN);
         }
-        assetClassifyInitJobService.init(targetDateTime);
+        assetClassifyInitJobPort.init(targetDateTime);
     }
 
     @Transactional(rollbackFor = Throwable.class)
@@ -61,7 +61,7 @@ public class AssetClassifyJob {
             log.warn("assetClassifyWeekdayRemind get day error param : {}", param, e);
         }
         log.info("job assetClassifyInit began day {}", param);
-        assetClassifyWeekdayRemindJobService.weekdayRemind(day);
+        assetClassifyWeekdayRemindJobPort.weekdayRemind(day);
         log.info("job assetClassifyInit over");
     }
 }

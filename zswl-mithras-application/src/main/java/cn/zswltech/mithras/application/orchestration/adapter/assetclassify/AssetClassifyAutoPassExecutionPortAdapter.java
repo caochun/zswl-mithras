@@ -8,7 +8,7 @@ import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.enums.ProcessBusinessStatusEnum;
 import cn.zswltech.flow.core.util.Page;
 import cn.zswltech.gruul.common.util.StringUtil;
-import cn.zswltech.mithras.assetclassify.application.job.AssetClassifyAutoPassExecutionPort;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyAutoPassExecutionPort;
 import cn.zswltech.mithras.dto.flow.execution.ExecutionProcessBaseREQ;
 import cn.zswltech.mithras.application.orchestration.workflow.flow.service.ExecutionService;
 import org.springframework.stereotype.Component;

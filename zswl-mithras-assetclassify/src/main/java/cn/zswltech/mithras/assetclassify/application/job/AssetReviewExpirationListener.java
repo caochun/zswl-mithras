@@ -2,6 +2,8 @@ package cn.zswltech.mithras.assetclassify.application.job;
 
 import cn.zswltech.mithras.foundation.cache.RedisDelayedQueueListener;
 import cn.hutool.core.util.StrUtil;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyAutoPassExecutionPort;
+import cn.zswltech.mithras.assetclassify.application.port.AssetClassifyReviewAutoPassJobPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +16,7 @@ import javax.annotation.Resource;
  */
 @Component
 @Slf4j
-public class AssetReviewExpirationListener implements RedisDelayedQueueListener<String>, AssetClassifyReviewAutoPassJobService {
+public class AssetReviewExpirationListener implements RedisDelayedQueueListener<String>, AssetClassifyReviewAutoPassJobPort {
 
     @Resource
     private AssetClassifyAutoPassExecutionPort autoPassExecutionPort;

@@ -4,7 +4,7 @@
 
 本模块的核心语义是“对存量资产进行风险分类和分类结果管理”。合同、付款、收款、客户等信息是分类依据，不是本模块维护的主数据。
 
-当前模块直接依赖 `document`。客户关联关系、合同事实、收款核销金额和付款事实已通过 `AssetClassifyClientRelationPort`、`AssetClassifyContractFactPort`、`AssetClassifyCollectionWriteOffPort`、`AssetClassifyPaymentFactPort` 隔离，由 `application` 中的 adapter 装配到 `customer`、`contract`、`collection`、`payment`；流程任务自动处理已通过 `AssetClassifyAutoPassExecutionPort` 隔离，不再直接依赖 workflow 或 flow-core。
+当前模块直接依赖 `document`。客户关联关系、合同事实、收款核销金额和付款事实已通过 `AssetClassifyClientRelationPort`、`AssetClassifyContractFactPort`、`AssetClassifyCollectionWriteOffPort`、`AssetClassifyPaymentFactPort` 隔离，由 `application` 中的 adapter 装配到 `customer`、`contract`、`collection`、`payment`；流程任务自动处理已通过 `application.port` 下的 `AssetClassifyAutoPassExecutionPort` 隔离，不再直接依赖 workflow 或 flow-core。
 
 ## 边界判断
 
@@ -27,7 +27,7 @@ Java import 主要集中在 `assetclassify`、`foundation`、`dto`，少量直�
 
 模块内已有 `AssetClassifyMarginAmountPort`、`AssetClassifyCollectionWriteOffPort`、`AssetClassifyClientRelationPort`、`AssetClassifyContractFactPort`、`AssetClassifyPaymentFactPort` 等端口，说明客户关联、合同事实、保证金金额、收款核销金额、付款事实这类外域事实已经开始从直接依赖转为输入能力。
 
-自动通过超时监听只表达“到期后尝试自动处理”的资产分类业务意图；流程是否运行中、当前节点任务查询和 flow-core 自动提交调用已收敛到 `AssetClassifyAutoPassExecutionPort` 的 `application` adapter 中，资产分类模块源码和 POM 都不再直接依赖 workflow 或 flow-core。
+自动通过超时监听只表达“到期后尝试自动处理”的资产分类业务意图；流程是否运行中、当前节点任务查询和 flow-core 自动提交调用已收敛到 `AssetClassifyAutoPassExecutionPort` 的 `application` adapter 中，资产分类模块源码和 POM 都不再直接依赖 workflow 或 flow-core。XXL Job 入口依赖的初始化、复核自动通过和工作日提醒能力已收敛为 `AssetClassifyInitJobPort`、`AssetClassifyReviewAutoPassJobPort`、`AssetClassifyWeekdayRemindJobPort`，放在 `assetclassify.application.port` 下。
 
 ## 后续整理
 

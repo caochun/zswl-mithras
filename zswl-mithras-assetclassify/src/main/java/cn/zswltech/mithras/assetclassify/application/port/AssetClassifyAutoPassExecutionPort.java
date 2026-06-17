@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.assetclassify.application.job;
+package cn.zswltech.mithras.assetclassify.application.port;
 
 public interface AssetClassifyAutoPassExecutionPort {
 
