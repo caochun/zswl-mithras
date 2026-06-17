@@ -1,6 +1,6 @@
 import { Table, TableStore, Page } from '@zswl/components'
 import allotApi from '@/api/kpi/projectAllot/allot'
-import ProjectAllocateList from '@/pages/kpi/projectAllot/Component/ProjectAllocateList'
+import ProjectAllocateList from '@/components/Kpi/ProjectAllot/ProjectAllocateList'
 import moment from 'moment'
 import { saveServer } from '@/utils'
 

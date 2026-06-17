@@ -1,7 +1,7 @@
 import { Table } from '@zswl/components'
 import { observer, history } from '@zswl/admin'
 import { getTableColumns, getFormColumns } from '@/utils'
-import ALL_COLUMNS from '@/pages/kpi/projectAllot/Column'
+import ALL_COLUMNS from '@/components/Kpi/ProjectAllot/Column'
 import { saveServer } from '@/utils'
 
 const formNameColumns = [
