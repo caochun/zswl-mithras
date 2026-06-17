@@ -1,1 +1,1 @@
-export const columnsFilterKey = '工作台_运营视图'
+export { operationViewColumnsFilterKey as columnsFilterKey } from '@/utils/dashboardFilterKeys'

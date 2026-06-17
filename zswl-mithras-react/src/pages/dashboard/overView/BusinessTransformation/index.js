@@ -1,7 +1,7 @@
 import Title from '@/pages/dashboard/overView/components/Title'
 import { Table } from '@zswl/components'
 import { AmountFormat } from '@/components/Format'
-import boardTransform from '@/pages/dashboard/overView/img/board_transform.png'
+import boardTransform from '@/components/Dashboard/assets/board_transform.png'
 import Api from '@/api/dashboard/overview'
 import { hasValue } from '@/utils'
 import styles from './index.less'

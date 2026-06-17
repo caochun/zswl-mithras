@@ -1,5 +1,5 @@
-import BellRed from '@/pages/dashboard/overView/img/icon_bell_red.svg'
-import BellYellow from '@/pages/dashboard/overView/img/icon_bell_yellow.svg'
+import BellRed from '@/components/Dashboard/assets/icon_bell_red.svg'
+import BellYellow from '@/components/Dashboard/assets/icon_bell_yellow.svg'
 import RepayInterest from './ListDrawer/RepayInterest'
 import FundCase from './ListDrawer/FundCase'
 import CreditCase from './ListDrawer/CreditCase'

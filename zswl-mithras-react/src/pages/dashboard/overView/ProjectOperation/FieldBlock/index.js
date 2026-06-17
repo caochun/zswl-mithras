@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import ArrowUp2 from '@/pages/dashboard/overView/img/arrow_up2.svg'
-import ArrowDown2 from '@/pages/dashboard/overView/img/arrow_down2.svg'
+import ArrowUp2 from '@/components/Dashboard/assets/arrow_up2.svg'
+import ArrowDown2 from '@/components/Dashboard/assets/arrow_down2.svg'
 import styles from './index.less'
 
 // 字段块组件
