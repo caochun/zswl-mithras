@@ -8,7 +8,7 @@ import AccountView from '@/pages/creditManage/creditTable/finish/View/Account'
 import Store from './store'
 import { CREATETABLE_PARAMS } from '@/pages/creditManage/creditTable/Tab/config'
 import Export from '@/components/Actions/Export'
-import Api from '@/pages/creditManage/creditTable/Tab/api'
+import Api from '@/api/credit/creditTable'
 
 const options = [
   { label: '批次维度', value: 'PROC_BATCH' },

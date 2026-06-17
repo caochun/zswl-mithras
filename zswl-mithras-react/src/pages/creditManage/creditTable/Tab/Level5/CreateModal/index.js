@@ -3,7 +3,7 @@ import { Form, Modal, Select } from '@zswl/components'
 import { DatePicker, Input } from 'antd'
 import { useState, useEffect } from 'react'
 import { getHeaderWithFunctionCode } from '@/pages/creditManage/creditTable/Tab/config'
-import Api from '@/pages/creditManage/creditTable/Tab/Level5/api'
+import Api from '@/api/credit/creditTableLevel5'
 import { compareTableData } from '@/utils'
 
 const { Item } = Form

@@ -2,7 +2,7 @@ import { TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { timeSecondFormat } from '@/utils'
 import { getHeaderWithFunctionCode } from '@/pages/creditManage/creditTable/Tab/config'
-import Api from '@/pages/creditManage/creditTable/finish/api'
+import Api from '@/api/credit/creditTableFinish'
 
 class Store {
   constructor() {
