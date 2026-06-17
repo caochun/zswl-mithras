@@ -1,6 +1,6 @@
 import { SearchBarStore, DrawerStore, ModalStore, TableStore, Modal } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from './api'
+import Api from '@/components/AfterLease/RentCollection/api'
 import { timeFormat, hasValue } from '@/utils'
 import rentCollectionApi from '@/api/afterLease/rentCollectionApi'
 import { uniqueId, isPlainObject, isNil } from 'lodash'
