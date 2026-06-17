@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { CardPanelFieldsFilter, StagePanel } from '@/pages/dashboard/workbench/components'
+import { CardPanelFieldsFilter, StagePanel } from '@/components/Dashboard'
 import StageDrawer from './StageDrawer'
 import { columnsFilterKey } from './Config'
 import Store from './Store'

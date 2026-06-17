@@ -4,7 +4,7 @@ import { getTableColumns, getSearchColumns, isLawDept } from '@/utils'
 import { All_COLUMNS } from './Column'
 import Api from '@/api/dashboard/projectView'
 import { columnsFilterKey } from '../../Config'
-import { ExportBtn, TableSummary } from '@/pages/dashboard/workbench/components'
+import { ExportBtn, TableSummary } from '@/components/Dashboard'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 

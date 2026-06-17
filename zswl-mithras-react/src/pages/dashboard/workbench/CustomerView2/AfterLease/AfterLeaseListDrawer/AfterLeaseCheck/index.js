@@ -4,7 +4,7 @@ import { getTableColumns, getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import Api from '@/api/dashboard/customerAfterLease'
 import { columnsFilterKey } from '../../Config'
-import { ExportBtn } from '@/pages/dashboard/workbench/components'
+import { ExportBtn } from '@/components/Dashboard'
 import { saveServer } from '@/utils'
 
 // 租后检查

@@ -4,7 +4,7 @@ import { getTableColumns, getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import { columnsFilterKey } from '../../Config'
 import { COMMON_COLUMNS } from '@/pages/dashboard/workbench/OperationView/Column'
-import { ExportBtn, TableSummary } from '@/pages/dashboard/workbench/components'
+import { ExportBtn, TableSummary } from '@/components/Dashboard'
 import { initQueryDate } from '@/utils/dashboardOperation'
 import { saveServer } from '@/utils'
 

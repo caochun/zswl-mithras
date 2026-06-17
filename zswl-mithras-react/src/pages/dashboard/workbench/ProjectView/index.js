@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Title } from '@/pages/dashboard/workbench/components'
+import { Title } from '@/components/Dashboard'
 import ProjectInfo from './ProjectInfo'
 import ProjectStage from './ProjectStage'
 import ProjectView2 from '../ProjectView2'

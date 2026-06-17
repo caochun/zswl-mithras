@@ -1,4 +1,4 @@
-import { CardPanelFieldsFilter } from '@/pages/dashboard/workbench/components'
+import { CardPanelFieldsFilter } from '@/components/Dashboard'
 import PublicMonitor from '@/pages/risk/publicMonitor'
 import styles from './index.less'
 

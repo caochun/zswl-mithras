@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { RadioTabs } from '@/components'
-import { CardPanelFieldsFilter } from '@/pages/dashboard/workbench/components'
+import { CardPanelFieldsFilter } from '@/components/Dashboard'
 import ComponyTotal from './ComponyTotal'
 import InvestmentDrawer from './InvestmentDrawer'
 import DeptTotal from './DeptTotal'

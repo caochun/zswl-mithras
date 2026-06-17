@@ -5,7 +5,7 @@ import { ALL_COLUMNS } from './Column'
 import { useState } from 'react'
 import Api from '@/api/common/customerOverview'
 import { columnsFilterKey } from '../../Config'
-import { ExportBtn, TableSummary } from '@/pages/dashboard/workbench/components'
+import { ExportBtn, TableSummary } from '@/components/Dashboard'
 import { saveServer } from '@/utils'
 
 // 3个月内结清客户

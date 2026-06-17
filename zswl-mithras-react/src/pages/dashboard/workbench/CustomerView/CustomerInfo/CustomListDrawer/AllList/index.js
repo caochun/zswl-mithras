@@ -4,7 +4,7 @@ import { getTableColumns, getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import Api from '@/api/common/customerOverview'
 import { columnsFilterKey } from '../../Config'
-import { ExportBtn, TableSummary } from '@/pages/dashboard/workbench/components'
+import { ExportBtn, TableSummary } from '@/components/Dashboard'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 

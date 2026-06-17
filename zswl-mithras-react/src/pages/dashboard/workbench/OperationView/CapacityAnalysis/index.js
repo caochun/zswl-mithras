@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from 'react'
 import { observer } from '@zswl/admin'
-import { CardPanelFieldsFilter } from '@/pages/dashboard/workbench/components'
+import { CardPanelFieldsFilter } from '@/components/Dashboard'
 import IconFont from '@/components/Icon'
 import { RadioTabs } from '@/components'
 import { UnorderedListOutlined } from '@ant-design/icons'

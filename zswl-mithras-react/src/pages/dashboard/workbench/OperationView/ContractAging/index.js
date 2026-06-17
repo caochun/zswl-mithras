@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { CardPanelFieldsFilter } from '@/pages/dashboard/workbench/components'
+import { CardPanelFieldsFilter } from '@/components/Dashboard'
 import { Form } from '@zswl/components'
 import { DatePicker } from 'antd'
 import ApprovalCard from './ApprovalCard'

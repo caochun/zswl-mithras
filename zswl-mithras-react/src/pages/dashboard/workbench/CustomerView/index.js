@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Title } from '@/pages/dashboard/workbench/components'
+import { Title } from '@/components/Dashboard'
 import CustomerInfo from './CustomerInfo'
 import CustomerPublicMonitor from './CustomerPublicMonitor'
 

@@ -5,7 +5,7 @@ import { ALL_COLUMNS } from './Column'
 import { MatchOptionColumn, InputColumn, AmountColumn, DateColumn } from '@/components/Format'
 import { columnsFilterKey } from '@/pages/dashboard/workbench/OperationView/Config'
 import Api from '@/api/dashboard/contractAging'
-import { ExportBtn } from '@/pages/dashboard/workbench/components'
+import { ExportBtn } from '@/components/Dashboard'
 import { useEffect } from 'react'
 import { saveServer } from '@/utils'
 

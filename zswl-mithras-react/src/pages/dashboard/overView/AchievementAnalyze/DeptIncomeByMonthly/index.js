@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { App, Button } from '@zswl/components'
-import { CardPanelFieldsFilter } from '@/pages/dashboard/workbench/components'
+import { CardPanelFieldsFilter } from '@/components/Dashboard'
 import { UnorderedListOutlined } from '@ant-design/icons'
 import BarCharts from './BarCharts'
 import { RadioTabs } from '@/components'
