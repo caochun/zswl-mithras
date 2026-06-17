@@ -5,7 +5,7 @@ import DepositRefundNotification from '@/components/Contract/DepositRefundNotifi
 import JQsettlement from '@/pages/contract/list/settlement/[id$]' //提前结清
 import KSQZstartRent from '@/pages/contract/list/startRent/[id$]' // 合同自动起租
 import CustomerRat from '@/pages/customer/customerRat/detail/[id$]' // 客户评级'
-import FilingMaterialsApply from '@/pages/fillingMaterialsDetail/filingMaterialsApply'
+import FilingMaterialsApply from '@/components/FilingMaterials/FilingMaterialsApply'
 import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
 import FinancialDirect from '@/components/Financial/DirectDetail'
 import FinancingCarryInterestFlow from '@/components/Financial/FinancingCarryInterestFlow'
