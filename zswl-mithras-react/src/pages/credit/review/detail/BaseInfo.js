@@ -1,6 +1,6 @@
 import EditDescription from '@/components/Table/EditDescription'
 import ALL_COLUMNS from '@/pages/credit/Column'
-import UpdateButton from '@/pages/project/review/detail/BaseInfo/FormConfig/UpdateButton'
+import UpdateButton from '@/components/UpdateRatingInfoButton'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 
