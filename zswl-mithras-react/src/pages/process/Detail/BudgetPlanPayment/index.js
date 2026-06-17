@@ -1,4 +1,4 @@
-import WeekPlanEvent from '@/pages/budgetManagement/placementPlan/weekDetail/[id$].js'
+import WeekPlanEvent from '@/components/BudgetManagement/PlacementPlanWeekDetail'
 import { observer } from '@zswl/admin'
 
 const ProjectReview = (props) => {
