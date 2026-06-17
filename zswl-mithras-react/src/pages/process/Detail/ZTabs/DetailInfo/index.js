@@ -1,6 +1,6 @@
 import ProfitDistribution from '@/components/Budget/ProfitDistribution'
 import PolicyRemind from '@/pages/afterLease/policyManage/remind/[id$]'
-import CreditReportSelectFlow from '@/pages/creditManage/search/detail/[id$].js'
+import CreditReportSelectFlow from '@/components/CreditManage/SearchDetail'
 import ApplyPermission from '@/pages/customer/maintain/applyPermission/[id$].js'
 import CustomerDetail from '@/pages/customer/maintain/detail/[id$]'
 import FilingMaterialsApply from '@/pages/fillingMaterialsDetail/filingMaterialsApply'
