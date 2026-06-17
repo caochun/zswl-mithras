@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.capital.service;
+package cn.zswltech.mithras.capital.rule;
 
 import cn.zswltech.mithras.capital.enums.BankFlowCenterTypeEnum;
 import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
-import cn.zswltech.mithras.capital.service.model.CapitalBankFlowWriteOffState;
+import cn.zswltech.mithras.capital.rule.model.CapitalBankFlowWriteOffState;
 import org.springframework.stereotype.Service;
 
 @Service

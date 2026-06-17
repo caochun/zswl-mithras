@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.capital.service;
+package cn.zswltech.mithras.capital.rule;
 
-import cn.zswltech.mithras.capital.service.model.CapitalBankFlowSnapshot;
+import cn.zswltech.mithras.capital.rule.model.CapitalBankFlowSnapshot;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

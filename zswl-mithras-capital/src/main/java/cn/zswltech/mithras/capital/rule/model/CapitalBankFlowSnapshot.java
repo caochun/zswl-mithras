@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.capital.service.model;
+package cn.zswltech.mithras.capital.rule.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

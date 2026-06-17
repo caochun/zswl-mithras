@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.capital.service;
+package cn.zswltech.mithras.capital.rule;
 
-import cn.zswltech.mithras.capital.service.model.CapitalBankFlowSaveDecision;
+import cn.zswltech.mithras.capital.rule.model.CapitalBankFlowSaveDecision;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import org.springframework.stereotype.Service;
 
