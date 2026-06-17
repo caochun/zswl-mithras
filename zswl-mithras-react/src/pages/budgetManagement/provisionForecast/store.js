@@ -3,6 +3,7 @@ import { makeAutoObservable, history } from '@zswl/admin'
 import dayjs from 'dayjs'
 import predictListApi from '@/api/budget/provisioning/predictListApi'
 import { message } from 'antd'
+import { registerProvisionForecastRefresh } from '@/utils/budgetManagement'
 
 const { getData } = App
 
@@ -13,6 +14,7 @@ const { getData } = App
 class Store {
   constructor() {
     makeAutoObservable(this)
+    registerProvisionForecastRefresh(() => this.table.search())
   }
 
   // 表格状态管理

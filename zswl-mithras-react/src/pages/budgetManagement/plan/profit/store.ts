@@ -3,7 +3,7 @@ import { ModalStore, TableStore, Modal } from '@zswl/components'
 import { message } from 'antd'
 import profitMeasurementApi from '@/api/budgetManagement/profitMeasurementApi'
 import moment from 'moment'
-import provisioningStore from '@/pages/budgetManagement/provisionForecast/store'
+import { refreshProvisionForecast } from '@/utils/budgetManagement'
 
 class Store {
   constructor() {
@@ -24,7 +24,7 @@ class Store {
       })
       message.success('保存成功！')
       this.list.search()
-      provisioningStore?.table?.search()
+      refreshProvisionForecast()
       this.editModal.close()
     },
     onOpen: (values) => {
