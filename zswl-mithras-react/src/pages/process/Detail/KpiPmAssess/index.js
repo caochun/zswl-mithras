@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import PmAssess from '@/pages/kpi/pmAssess/EditModal/Content'
+import PmAssess from '@/components/Kpi/PmAssess/EditModal/Content'
 
 const Index = (props) => {
   const { canEditFlag } = props
