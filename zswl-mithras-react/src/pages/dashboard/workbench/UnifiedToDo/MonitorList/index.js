@@ -1,7 +1,7 @@
 import { Table } from '@zswl/components'
 import { observer, history } from '@zswl/admin'
 import { getTableColumns } from '@/utils'
-import ALL_COLUMNS from '@/pages/risk/publicMonitor/Column'
+import ALL_COLUMNS from '@/components/Risk/PublicMonitorColumns'
 import Api from '../api'
 import { saveServer } from '@/utils'
 
