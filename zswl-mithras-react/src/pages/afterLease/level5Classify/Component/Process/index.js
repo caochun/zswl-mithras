@@ -1,4 +1,4 @@
-import { GroupKey, MapStatus } from '@/pages/afterLease/level5Classify/config'
+import { GroupKey, MapStatus } from '@/components/AfterLease/Level5ClassifyConfig'
 import { hasValue, isAssetJon } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Button } from '@zswl/components'

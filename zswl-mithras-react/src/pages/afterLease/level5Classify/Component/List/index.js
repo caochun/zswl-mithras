@@ -1,6 +1,6 @@
 import { AmountFormat } from '@/components/Format'
 import { ClientSelect, OrgSelect } from '@/components/Select'
-import { levelColor } from '@/pages/afterLease/level5Classify/config'
+import { levelColor } from '@/components/AfterLease/Level5ClassifyConfig'
 import {
   getKeyOptionsLabelMapPlus,
   hasValue,

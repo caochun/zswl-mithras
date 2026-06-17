@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { Badge, Space } from 'antd'
 import { AmountFormat } from '@/components/Format'
 import { hasValue, getKeyOptionsLabelMapPlus } from '@/utils'
-import { levelColor } from '@/pages/afterLease/level5Classify/config'
+import { levelColor } from '@/components/AfterLease/Level5ClassifyConfig'
 import styles from '../index.less'
 import { saveServer } from '@/utils'
 
