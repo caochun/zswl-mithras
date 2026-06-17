@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select, App } from '@zswl/components'
 import { Input } from 'antd'
 import { useMemo, useState } from 'react'
-import Api from '@/pages/contract/list/detail/ShouKuan/api'
+import Api from '@/api/contract/contractAccount'
 
 const { Item } = Form
 
