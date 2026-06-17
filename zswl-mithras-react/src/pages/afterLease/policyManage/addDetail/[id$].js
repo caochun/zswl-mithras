@@ -3,7 +3,7 @@ import { App, Button, Page } from '@zswl/components'
 import { useEffect, useMemo } from 'react'
 import styles from './index.less'
 import Store from './store'
-import TipsModal from '../../level5Classify/Component/Process/TipsModal'
+import TipsModal from '@/components/AfterLease/Level5Classify/Component/Process/TipsModal'
 import Base from '../Base'
 
 const Index = ({ params: { id }, compareData }) => {

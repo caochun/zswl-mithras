@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import Leave5Type from '@/pages/afterLease/level5Classify'
+import Leave5Type from '@/components/AfterLease/Level5Classify'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curTaskActivityIds, taskStatus } =
