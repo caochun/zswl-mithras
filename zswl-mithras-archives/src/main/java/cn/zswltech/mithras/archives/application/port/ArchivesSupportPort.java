@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.archives.port;
+package cn.zswltech.mithras.archives.application.port;
 
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListRSP;

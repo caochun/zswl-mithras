@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.archives;
 
-import cn.zswltech.mithras.archives.port.ArchivesSupportPort;
+import cn.zswltech.mithras.archives.application.port.ArchivesSupportPort;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListREQ;
 import cn.zswltech.mithras.dto.projestablish.baseinfo.ProjEstablishVagueListRSP;
 import cn.zswltech.mithras.document.persistence.model.MaterialsList;
