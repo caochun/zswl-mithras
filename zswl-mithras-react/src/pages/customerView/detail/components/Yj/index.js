@@ -6,7 +6,7 @@ import styles from './index.less'
 import ListRed from '/public/assets/risk/monitoringAlertList/vector.svg'
 import Frame from '/public/assets/risk/monitoringAlertList/Frame.svg'
 import { saveServer } from '@/utils'
-import Api from '@/pages/monitorEarly/api.js'
+import Api from '@/api/risk/monitorEarly'
 
 // 预警信号灯组件
 const LightStatus = ({ level }) => {

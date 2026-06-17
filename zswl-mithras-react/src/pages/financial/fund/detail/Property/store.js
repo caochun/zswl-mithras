@@ -3,7 +3,7 @@ import { TableStore, ModalStore } from '@zswl/components'
 import { timeFormat } from '@/utils'
 import moment from 'moment'
 import { message, Modal } from 'antd'
-import Api from '@/pages/financial/direct/detail/api'
+import Api from '@/api/financial/directFinancingDetail'
 
 class Store {
   constructor({ businessVersion, isFormApproval, financingId, detail, baseStore }) {

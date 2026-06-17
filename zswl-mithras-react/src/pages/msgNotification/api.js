@@ -1,8 +1,1 @@
-import { http } from '@zswl/admin'
-
-export default {
-  postMessageList: (params) => http.post('/message/list', params),
-  postReadMessage: (params) => http.post('/message/read', params),
-  postReadAllMessage: (params) => http.post('/message/read/all', params),
-  contractRentNoticeDelay: (params) => http.post('/contract/start/rent/delay', params),
-}
+export { default } from '@/api/message/messageNotification'
