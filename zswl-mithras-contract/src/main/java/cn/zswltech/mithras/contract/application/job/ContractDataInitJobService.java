@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.contract.job.service;
+package cn.zswltech.mithras.contract.application.job;
 
 public interface ContractDataInitJobService {
 

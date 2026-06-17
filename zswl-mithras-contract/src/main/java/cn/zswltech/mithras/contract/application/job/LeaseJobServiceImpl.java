@@ -1,9 +1,8 @@
-package cn.zswltech.mithras.contract.adapter.job;
+package cn.zswltech.mithras.contract.application.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.contract.job.service.LeaseJobService;
 import cn.zswltech.mithras.contract.mapper.contract.ContractLeaseItemMapper;
 import cn.zswltech.mithras.contract.model.contract.*;
 import cn.zswltech.mithras.contract.core.ContractBaseInfoService;

@@ -20,7 +20,7 @@ import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.foundation.enums.LeaseType;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
-import cn.zswltech.mithras.contract.job.service.ContractJobService;
+import cn.zswltech.mithras.contract.application.port.ContractJobPort;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractRemindRecord;
 import cn.zswltech.mithras.payment.model.PaymentActualDetail;
@@ -54,7 +54,7 @@ import java.util.*;
  */
 @Slf4j
 @Component
-public class ContractJobServiceImpl implements ContractJobService {
+public class ContractJobServiceImpl implements ContractJobPort {
     @Resource
     private ContractBaseInfoService contractBaseInfoService;
     @Resource

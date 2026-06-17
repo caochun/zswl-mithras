@@ -15,7 +15,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractExtraFileTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.ContractSubTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractTypeEnum;
-import cn.zswltech.mithras.contract.job.service.ContractTextSignJobService;
+import cn.zswltech.mithras.contract.application.port.ContractTextSignJobPort;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ContractActualRentRender;
 import cn.zswltech.mithras.application.orchestration.document.gendoc.render.ContractSettleOwnerChangeRender;
 import cn.zswltech.mithras.contract.mapper.contract.ContractTextManageMapper;
@@ -53,7 +53,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Component
-public class ContractTextSignJobServiceImpl implements ContractTextSignJobService {
+public class ContractTextSignJobServiceImpl implements ContractTextSignJobPort {
 
     @Resource
     private ContractSignInfoService contractSignInfoService;

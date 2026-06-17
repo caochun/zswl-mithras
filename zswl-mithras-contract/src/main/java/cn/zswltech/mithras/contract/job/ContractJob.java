@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.job;
 
-import cn.zswltech.mithras.contract.job.service.ContractJobService;
+import cn.zswltech.mithras.contract.application.port.ContractJobPort;
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class ContractJob {
 
     @Resource
-    private ContractJobService contractJobService;
+    private ContractJobPort contractJobService;
 
     @XxlJob("tryAutoStartRentJob")
     public void tryAutoStartRentJob() {

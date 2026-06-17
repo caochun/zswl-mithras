@@ -1,6 +1,5 @@
-package cn.zswltech.mithras.contract.adapter.job;
+package cn.zswltech.mithras.contract.application.job;
 
-import cn.zswltech.mithras.contract.job.service.ContractDataInitJobService;
 import cn.zswltech.mithras.foundation.cache.RedisDistLock;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
 import cn.zswltech.mithras.contract.model.contract.ContractReceipt;

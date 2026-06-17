@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.job;
 
-import cn.zswltech.mithras.contract.job.service.ContractDataInitJobService;
+import cn.zswltech.mithras.contract.application.job.ContractDataInitJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.job.contract;
 
 import cn.hutool.core.date.StopWatch;
-import cn.zswltech.mithras.contract.job.service.NominalPriceInitJobService;
+import cn.zswltech.mithras.contract.application.port.NominalPriceInitJobPort;
 import cn.zswltech.mithras.foundation.enums.CashFlowItemEnum;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
@@ -33,7 +33,7 @@ import static cn.zswltech.mithras.foundation.context.SpringContextHolder.getBean
  */
 @Slf4j
 @Component
-public class NominalPriceInitJobServiceImpl implements NominalPriceInitJobService {
+public class NominalPriceInitJobServiceImpl implements NominalPriceInitJobPort {
 
     @Resource
     protected ContractService contractService;

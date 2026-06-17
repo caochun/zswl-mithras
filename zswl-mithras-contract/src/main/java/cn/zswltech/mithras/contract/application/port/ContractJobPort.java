@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.contract.job.service;
+package cn.zswltech.mithras.contract.application.port;
 
 import com.xxl.job.core.biz.model.ReturnT;
 
-public interface ContractJobService {
+public interface ContractJobPort {
 
     void tryAutoStartRentJob();
 

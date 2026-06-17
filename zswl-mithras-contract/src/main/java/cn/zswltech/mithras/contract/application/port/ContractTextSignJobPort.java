@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.contract.job.service;
+package cn.zswltech.mithras.contract.application.port;
 
-public interface ContractTextSignJobService {
+public interface ContractTextSignJobPort {
 
     void contractTextSign() throws Exception;
 

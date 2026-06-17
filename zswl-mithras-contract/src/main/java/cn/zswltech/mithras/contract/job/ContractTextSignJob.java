@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.contract.job;
 
-import cn.zswltech.mithras.contract.job.service.ContractTextSignJobService;
+import cn.zswltech.mithras.contract.application.port.ContractTextSignJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 public class ContractTextSignJob {
 
     @Resource
-    private ContractTextSignJobService contractTextSignJobService;
+    private ContractTextSignJobPort contractTextSignJobService;
 
     @XxlJob("contractTextSign")
     public void contractTextSign() throws Exception {
