@@ -1,5 +1,5 @@
 import DirectDetail from '@/components/Financial/DirectDetail'
-import FundDetail from '@/pages/financial/fund/detail/[id$]'
+import FundDetail from '@/components/Financial/FundDetail'
 import { observer } from '@zswl/admin'
 
 const Index = ({ params: { id }, query: { canEditFlags, processType } }) => {

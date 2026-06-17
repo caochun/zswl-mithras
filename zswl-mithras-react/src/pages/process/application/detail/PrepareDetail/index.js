@@ -9,7 +9,7 @@ import FilingMaterialsApply from '@/pages/fillingMaterialsDetail/filingMaterials
 import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
 import FinancialDirect from '@/components/Financial/DirectDetail'
 import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterestFlow/index'
-import FinancialFund from '@/pages/financial/fund/detail/[id$]'
+import FinancialFund from '@/components/Financial/FundDetail'
 import FinancialReportApprovalFlow from '@/components/Report/FinancialReportApproval'
 import KpiPorjectAllocation from '@/components/Kpi/ProjectAllot/Detail' // 绩效
 import OverdueListSearch from '@/components/Risk/OverdueListSearch'
