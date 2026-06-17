@@ -1,9 +1,9 @@
 import { Table, App } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import { COMMON_COLUMNS } from '@/pages/creditManage/creditTable/Column'
+import { COMMON_COLUMNS } from '@/components/CreditManage/CreditTableColumns'
 import { getFormColumns } from '@/utils'
 import { AmountColumn, DateColumn, InputColumn, MatchOptionColumn } from '@/components/Format'
-import statusRender from '@/pages/creditManage/creditTable/Components/StautsRender'
+import statusRender from '@/components/CreditManage/CreditTableStatusRender'
 import { saveServer } from '@/utils'
 
 const formColumns = getFormColumns(COMMON_COLUMNS, ['编号', '客户名称'])

@@ -9,11 +9,11 @@ import {
   AmountColumn,
   MatchOptionColumn,
 } from '@/components/Format'
-import { COMMON_COLUMNS } from '@/pages/creditManage/creditTable/Column'
+import { COMMON_COLUMNS } from '@/components/CreditManage/CreditTableColumns'
 import { CREATETABLE_PARAMS } from '@/pages/creditManage/creditTable/Tab/config'
 import Store from './store'
 import EditButton from '../../Components/EditButton'
-import statusRender from '../../Components/StautsRender'
+import statusRender from '@/components/CreditManage/CreditTableStatusRender'
 import { saveServer } from '@/utils'
 
 function Index(props = {}) {
