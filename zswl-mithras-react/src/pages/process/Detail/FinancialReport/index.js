@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import FinancialReport from '@/pages/financialReport/approval'
+import FinancialReport from '@/components/Report/FinancialReportApproval'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, tab } = props
