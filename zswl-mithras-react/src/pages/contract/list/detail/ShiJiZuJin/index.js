@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { observer } from '@zswl/admin'
-import ActualTable from '@/pages/contract/list/Component/ActualTable'
+import ActualTable from '@/components/Contract/ActualTable'
 import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
 import { DatePicker, Form } from 'antd'
 import moment from 'moment'

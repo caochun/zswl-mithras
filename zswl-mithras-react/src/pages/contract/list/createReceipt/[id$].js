@@ -6,7 +6,7 @@ import DataUpload from '@/components/DataUpload'
 import IconFont from '@/components/Icon'
 import moment from 'moment'
 import { hasPermission, timeFormat } from '@/utils'
-import ActualTable from '@/pages/contract/list/Component/ActualTable'
+import ActualTable from '@/components/Contract/ActualTable'
 import ContractIRR from '@/pages/contract/list/Component/ContractIRR'
 import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
 import CantractDetailBaseInfo from '@/pages/contract/list/detail/BaseInfo'
@@ -71,7 +71,7 @@ function Index ({
   })
 
   const onSubmit = async () => {
-    
+
     await checkIrr({ contractId: id, operation: 'NEW_RECEIPT' })
 
     await Api.submitStart({

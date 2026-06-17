@@ -1,4 +1,4 @@
-import ActualTable from '@/pages/contract/list/Component/ActualTable'
+import ActualTable from '@/components/Contract/ActualTable'
 import PaymentApply from '@/pages/contract/list/Component/PaymentApply'
 import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
 import CantractDetailBaoJia from '@/pages/contract/list/detail/BaoJia'
