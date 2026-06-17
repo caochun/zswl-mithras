@@ -12,7 +12,7 @@ import Report from './Report'
 import Project from './Project'
 import Store from './store'
 import styles from './index.less'
-import { QuarterMap } from '@/pages/afterLease/checkPlan/utils'
+import { QuarterMap } from '@/utils/afterLease'
 import { DetailLayout } from '@/components'
 
 const Index = ({ params = {}, query: { canEditFlags = 'true', businessVersion } }) => {

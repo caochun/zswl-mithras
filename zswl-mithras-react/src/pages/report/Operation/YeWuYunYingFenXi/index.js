@@ -7,7 +7,7 @@ import { COMMON_COLUMNS } from '@/pages/report/Operation/Column'
 import Store from './Store'
 import ListDrawer from './ListDrawer'
 import BarCharts from './BarCharts'
-import { initQueryDate, initYearQueryDate } from '@/pages/report/Operation/utils'
+import { initQueryDate, initYearQueryDate } from '@/utils/report'
 import { saveServer } from '@/utils'
 
 export const reportTitle = '业务运行分析表'
