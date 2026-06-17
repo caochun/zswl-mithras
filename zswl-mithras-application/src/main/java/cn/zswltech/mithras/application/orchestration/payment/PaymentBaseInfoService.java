@@ -56,7 +56,7 @@ import cn.zswltech.mithras.contract.enums.contract.ContractProcessStatusEnum;
 import cn.zswltech.mithras.contract.enums.contract.ContractStatus;
 import cn.zswltech.mithras.contract.enums.contract.LesseeTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
-import cn.zswltech.mithras.payment.job.service.PaymentBeyondDaysCalculateService;
+import cn.zswltech.mithras.payment.application.port.PaymentBeyondDaysCalculateJobPort;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.enums.PaymentWriteOffStatus;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
@@ -160,7 +160,7 @@ import cn.zswltech.mithras.contract.versioning.service.ContractTenantryLibServic
  */
 @Slf4j
 @Service
-public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, PaymentBaseInfo> implements PaymentUpdateAdvice, PaymentBeyondDaysCalculateService {
+public class PaymentBaseInfoService extends ServiceImpl<PaymentBaseInfoMapper, PaymentBaseInfo> implements PaymentUpdateAdvice, PaymentBeyondDaysCalculateJobPort {
     public static final String CONTRACT_AUTO_FLOW_TARGET_PAYMENT_KEY = "targetPaymentId";
 
     private static Pattern seqPattern = Pattern.compile("\\(([^}]*)\\)");

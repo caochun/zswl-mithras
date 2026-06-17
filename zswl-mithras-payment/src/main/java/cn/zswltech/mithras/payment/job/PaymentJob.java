@@ -1,8 +1,8 @@
 package cn.zswltech.mithras.payment.job;
 
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.payment.job.service.PaymentBeyondDaysCalculateService;
-import cn.zswltech.mithras.payment.job.service.PaymentPublicInfoCopyRetryService;
+import cn.zswltech.mithras.payment.application.port.PaymentBeyondDaysCalculateJobPort;
+import cn.zswltech.mithras.payment.application.port.PaymentPublicInfoCopyRetryJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -19,14 +19,14 @@ import javax.annotation.Resource;
 @Component
 public class PaymentJob {
     @Resource
-    private PaymentPublicInfoCopyRetryService paymentPublicInfoCopyRetryService;
+    private PaymentPublicInfoCopyRetryJobPort paymentPublicInfoCopyRetryJobPort;
     @Resource
-    private PaymentBeyondDaysCalculateService paymentBeyondDaysCalculateService;
+    private PaymentBeyondDaysCalculateJobPort paymentBeyondDaysCalculateJobPort;
 
     @XxlJob("calculatePaymentBeyondDays")
     public void calculateBeyondDays() {
         String paymentCode = XxlJobHelper.getJobParam();
-        paymentBeyondDaysCalculateService.calculateBeyondDays(paymentCode);
+        paymentBeyondDaysCalculateJobPort.calculateBeyondDays(paymentCode);
     }
 
     /**
@@ -38,6 +38,6 @@ public class PaymentJob {
         if (StrUtil.isBlank(paymentId)) {
             return;
         }
-        paymentPublicInfoCopyRetryService.copyIntervalTable(Long.parseLong(paymentId));
+        paymentPublicInfoCopyRetryJobPort.copyIntervalTable(Long.parseLong(paymentId));
     }
 }

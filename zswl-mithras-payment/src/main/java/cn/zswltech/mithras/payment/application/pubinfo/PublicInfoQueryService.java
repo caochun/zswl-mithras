@@ -22,7 +22,7 @@ import cn.zswltech.mithras.api.payment.dto.pubinfo.PublicInfoQueryREQ;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.PublicInfoQueryRSP;
 import cn.zswltech.mithras.api.payment.dto.pubinfo.PublicInfoSubmitCheckREQ;
 import cn.zswltech.mithras.dto.file.FileListRSP;
-import cn.zswltech.mithras.payment.job.service.PaymentPublicInfoCopyRetryService;
+import cn.zswltech.mithras.payment.application.port.PaymentPublicInfoCopyRetryJobPort;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.enums.pubinfo.InvestigationResultEnum;
 import cn.zswltech.mithras.payment.enums.pubinfo.PublicInfoClientTypeEnum;
@@ -86,7 +86,7 @@ import java.util.zip.ZipOutputStream;
  */
 @Slf4j
 @Service
-public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, PublicInfoQuery> implements PaymentPublicInfoCopyRetryService {
+public class PublicInfoQueryService extends ServiceImpl<PublicInfoQueryMapper, PublicInfoQuery> implements PaymentPublicInfoCopyRetryJobPort {
 
     @Resource
     private HttpServletResponse response;
