@@ -1,5 +1,5 @@
 import { getQuery, observer } from '@zswl/admin'
-import ALL_COLUMNS from '../Column'
+import ALL_COLUMNS from '@/components/Financial/PaymentColumns'
 import { getTableColumns, hasPermission } from '@/utils'
 import CRUDTable from '@/components/Table/CRUDTable'
 import fundReceiptAccountApi from '@/api/financial/fundReceiptAccountApi'

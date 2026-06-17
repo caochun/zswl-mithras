@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import FinancialPaymentBatch from '@/pages/financial/payment/batchApproval/[id$]'
+import FinancialPaymentBatch from '@/components/Financial/PaymentBatchApproval'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curTaskActivityIds } = props

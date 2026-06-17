@@ -1,7 +1,7 @@
 import { ModalStore, Table, TableStore } from '@zswl/components'
 import { getQuery, observer } from '@zswl/admin'
 import { getTableColumns } from '@/utils'
-import ALL_COLUMNS from '../Column'
+import ALL_COLUMNS from '@/components/Financial/PaymentColumns'
 import { useMemo } from 'react'
 import fundReceiptRepayBaseInfoApi from '@/api/financial/fundReceiptRepayBaseInfoApi'
 import Api from '@/api/financial/fundApi'

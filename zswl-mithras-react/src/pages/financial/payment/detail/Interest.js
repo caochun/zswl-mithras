@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { EditTable } from '@/components'
-import ALL_COLUMNS from '../Column'
+import ALL_COLUMNS from '@/components/Financial/PaymentColumns'
 import { getTableColumns, hasPermission } from '@/utils'
 import fundReceiptRepayCashFlowApi from '@/api/financial/fundReceiptRepayCashFlowApi'
 import styles from './index.less'

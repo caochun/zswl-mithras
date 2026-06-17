@@ -1,5 +1,5 @@
 import EditTable from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '../Column'
+import ALL_COLUMNS from '@/components/Financial/PaymentColumns'
 import { getDescColumns, hasPermission } from '@/utils'
 import { observer } from '@zswl/admin'
 import _ from 'lodash'
