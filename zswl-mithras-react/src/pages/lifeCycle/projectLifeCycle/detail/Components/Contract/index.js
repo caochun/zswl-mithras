@@ -7,7 +7,7 @@ import BaseModule from '../BaseModule'
 import store from '../../store'
 import { amountFormat, hasValue } from '@/utils'
 import { App } from '@zswl/components'
-import NoData from '../NoData'
+import NoData from '@/components/LifeCycle/NoData'
 const Panel = Collapse.Panel
 const Contract = () => {
   const { contract } = store.page.getData()

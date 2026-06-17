@@ -1,7 +1,7 @@
 import { history, observer } from '@zswl/admin'
 import styles from '../../index.less'
 import store from '../../store'
-import NoData from '../NoData'
+import NoData from '@/components/LifeCycle/NoData'
 import BaseModule from '../BaseModule'
 import { message } from 'antd'
 const AfterLeaseCheck = () => {
