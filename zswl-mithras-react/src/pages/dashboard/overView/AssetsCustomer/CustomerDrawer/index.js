@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
-import CustomLifeCycle from '@/pages/lifeCycle/custom'
+import CustomLifeCycle from '@/components/LifeCycle/CustomerList'
 
 const Index = ({ store }) => {
   return (
