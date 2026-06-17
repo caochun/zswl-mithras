@@ -4,7 +4,7 @@ import { TableStore } from '@zswl/components'
 import BeautyTable from '@/pages/kpi/Component/Table'
 import { message } from 'antd'
 import mathjs from '@/utils/math'
-import Api from '@/pages/kpi/pmAssess/api'
+import Api from '@/api/kpi/pmAssess'
 import { TABLE_TITLE_DATA, render, editable } from './utils'
 import styles from './index.less'
 

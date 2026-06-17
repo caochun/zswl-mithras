@@ -2,7 +2,7 @@ import { Modal, Button } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { message } from 'antd'
 import Content from './Content'
-import Api from '@/pages/kpi/pmAssess/api'
+import Api from '@/api/kpi/pmAssess'
 import styles from './index.less'
 
 const Index = ({ store }) => {

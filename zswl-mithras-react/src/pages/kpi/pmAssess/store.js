@@ -1,7 +1,7 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import moment from 'moment'
-import Api from './api'
+import Api from '@/api/kpi/pmAssess'
 
 class Store {
   constructor({ baseParams }) {
