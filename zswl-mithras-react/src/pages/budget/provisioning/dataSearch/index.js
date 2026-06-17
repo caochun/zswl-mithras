@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Table, Page, Tabs, Button, SearchBar, Select } from '@zswl/components'
 import { getTableColumns, getFormColumns, dateRangeTransformV2, rangePresets } from '@/utils'
-import ALL_COLUMNS from '@/pages/budget/provisioning/impairment/Column'
+import ALL_COLUMNS from '@/components/Budget/ProvisioningImpairmentColumns'
 import Store from './store'
 import { UploadOutlined, DownloadOutlined, DownOutlined } from '@ant-design/icons'
 import AddModal from './AddModal'

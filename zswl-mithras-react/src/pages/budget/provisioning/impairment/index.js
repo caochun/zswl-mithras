@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Table, Page } from '@zswl/components'
 import { getTableColumns, getFormColumns } from '@/utils'
-import ALL_COLUMNS from '@/pages/budget/provisioning/impairment/Column'
+import ALL_COLUMNS from '@/components/Budget/ProvisioningImpairmentColumns'
 import Create from './Create'
 import store from './store'
 import { saveServer } from '@/utils'
