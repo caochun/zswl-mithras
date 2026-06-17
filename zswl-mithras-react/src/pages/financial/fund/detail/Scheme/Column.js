@@ -1,5 +1,5 @@
 import { AmountColumn, AmountEditable, InputNumberEditable } from '@/components/Format'
-import FormGuaranteeScheme from '@/pages/financial/fund/Component/FormGuaranteeScheme'
+import FormGuaranteeScheme from '@/components/Financial/FundGuaranteeScheme'
 import YearRate from '@/components/Financial/FundYearRate'
 import { amountFormat, formatPercent } from '@/utils'
 import { App, Form, Select } from '@zswl/components'
