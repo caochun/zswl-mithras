@@ -6,7 +6,7 @@ import FormListItem, { toDetail } from '../../../../Components/FormListItem'
 import styles from '../index.less'
 import { observer } from '@zswl/admin'
 import FounderSelect from '../../../../Components/FounderSelect'
-import DetailTextarea from '@/pages/project/Components/DetailTextarea'
+import { MultilineText } from '@/components'
 import useGetMap from '@/utils/hooks/useGetMap'
 import { RegionCascader } from '@/components'
 import Api from '@/pages/project/establishment/detail/api'
@@ -188,7 +188,7 @@ const Factoring = ({ showValue, form, detail, isLog, compareChangeList = [] }) =
               />
             </Form.Item>
           }
-          value={<DetailTextarea content={getDetailValue('projBackground')} />}
+          value={<MultilineText content={getDetailValue('projBackground')} />}
           showValue={showValue}
         />
       </Descriptions.Item>
@@ -200,7 +200,7 @@ const Factoring = ({ showValue, form, detail, isLog, compareChangeList = [] }) =
               <Input.TextArea autoSize={{ minRows: 4, maxRows: 20 }} placeholder="请输入备注!" />
             </Form.Item>
           }
-          value={<DetailTextarea content={getDetailValue('remark')} />}
+          value={<MultilineText content={getDetailValue('remark')} />}
           showValue={showValue}
         />
       </Descriptions.Item>
