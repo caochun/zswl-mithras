@@ -12,7 +12,7 @@ import DataFileList from './DataFileList'
 import EvaluationAgency from './EvaluationAgency'
 import { jumpZhongDeng } from '@/utils'
 import ZhongDengButton from '@/components/ZhongDengButton'
-import MeetingModal from '@/pages/project/review/detail/MeetingModal'
+import MeetingModal from '@/components/Project/ReviewMeetingModal'
 
 const Index = ({
   params: { id },

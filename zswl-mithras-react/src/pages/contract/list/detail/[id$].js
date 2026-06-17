@@ -29,7 +29,7 @@ import LeaseZiLiao from './LeaseZiLiao'
 import TrackModal from '@/components/Lease/TrackModal'
 import ZhongDengButton from '@/components/ZhongDengButton'
 import EvaluationAgency from '@/pages/lease/maintain/detail/EvaluationAgency'
-import MeetingModal from '@/pages/project/review/detail/MeetingModal'
+import MeetingModal from '@/components/Project/ReviewMeetingModal'
 
 export const Context = React.createContext()
 
