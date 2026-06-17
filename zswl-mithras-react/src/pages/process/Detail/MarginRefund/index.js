@@ -1,4 +1,4 @@
-import MarginRefund from '@/pages/contract/list/marginRefund/[id$]'
+import MarginRefund from '@/components/Contract/MarginRefund'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 
