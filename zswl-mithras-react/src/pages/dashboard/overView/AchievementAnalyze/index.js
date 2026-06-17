@@ -1,7 +1,7 @@
 import { Row, Col } from 'antd'
 import Title from '@/components/Dashboard/OverviewTitle'
 import LaunchComplete from '@/components/Dashboard/OperationView/LaunchComplete'
-import ProjectStage from '@/pages/dashboard/workbench/ProjectView/ProjectStage'
+import ProjectStage from '@/components/Dashboard/ProjectView/ProjectStage'
 import { initYearQueryDate } from '@/utils/dashboardOperation'
 import DeptIncomeByMonthly from './DeptIncomeByMonthly'
 import ThrowIncomeRate from './ThrowIncomeRate'
