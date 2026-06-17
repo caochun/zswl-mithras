@@ -1,5 +1,1 @@
-import { http } from '@zswl/admin'
-
-export default {
-  postLeaseFileList: (params) => http.post('/materials/contract/lease/list', params),
-}
+export { default } from '@/components/Contract/LeaseMaterials/api'
