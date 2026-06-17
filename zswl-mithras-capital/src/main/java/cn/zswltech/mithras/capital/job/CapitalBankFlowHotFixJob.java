@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.capital.job;
 
-import cn.zswltech.mithras.capital.job.service.CapitalBankFlowHotFixJobService;
+import cn.zswltech.mithras.capital.application.port.CapitalBankFlowHotFixJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -16,10 +16,10 @@ import javax.annotation.Resource;
 public class CapitalBankFlowHotFixJob {
 
     @Resource
-    private CapitalBankFlowHotFixJobService capitalBankFlowHotFixJobService;
+    private CapitalBankFlowHotFixJobPort capitalBankFlowHotFixJobPort;
 
     @XxlJob("financeFlowRecordJob")
     public void financeFlowRecordJob() {
-        capitalBankFlowHotFixJobService.financeFlowRecordJob();
+        capitalBankFlowHotFixJobPort.financeFlowRecordJob();
     }
 }

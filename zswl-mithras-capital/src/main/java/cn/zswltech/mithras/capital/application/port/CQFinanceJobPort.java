@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.capital.job.service;
+package cn.zswltech.mithras.capital.application.port;
 
-public interface CQFinanceJobService {
+public interface CQFinanceJobPort {
 
     void sendWriteOffNotice();
 

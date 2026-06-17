@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.job.capital;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.capital.job.service.CQFinanceJobService;
+import cn.zswltech.mithras.capital.application.port.CQFinanceJobPort;
 import cn.zswltech.mithras.capital.enums.FinancingFlowWriteOffStatusEnum;
 import cn.zswltech.mithras.third.datashare.persistence.model.DataShareManager;
 import cn.zswltech.mithras.third.datashare.service.DataShareManagerService;
@@ -33,7 +33,7 @@ import java.util.List;
  **/
 @Slf4j
 @Component
-public class CQFinanceJobServiceImpl implements CQFinanceJobService {
+public class CQFinanceJobPortAdapter implements CQFinanceJobPort {
 
     @Resource
     private FinanceFlowRecordService financeFlowRecordService;

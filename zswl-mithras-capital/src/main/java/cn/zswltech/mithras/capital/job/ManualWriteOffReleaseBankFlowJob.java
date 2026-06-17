@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.capital.job;
 
-import cn.zswltech.mithras.capital.job.service.ManualWriteOffReleaseBankFlowJobService;
+import cn.zswltech.mithras.capital.application.port.ManualWriteOffReleaseBankFlowJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -16,10 +16,10 @@ import javax.annotation.Resource;
 public class ManualWriteOffReleaseBankFlowJob {
 
     @Resource
-    private ManualWriteOffReleaseBankFlowJobService manualWriteOffReleaseBankFlowJobService;
+    private ManualWriteOffReleaseBankFlowJobPort manualWriteOffReleaseBankFlowJobPort;
 
     @XxlJob(value = "manualWriteOffReleaseBankFlow")
     public void releaseBankFlow() {
-        manualWriteOffReleaseBankFlowJobService.releaseBankFlow();
+        manualWriteOffReleaseBankFlowJobPort.releaseBankFlow();
     }
 }

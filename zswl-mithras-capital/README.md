@@ -14,7 +14,7 @@
 
 - 4 个 controller 和对应 application 接口。
 - 资金流水/核销相关枚举。
-- 4 个 job 入口和 job service 接口。
+- 4 个 job 入口和 job port 接口。
 - 业务流水导出模型和 exporter。
 - `FinanceFlowWriteOffDetail` mapper/model/service。
 
@@ -55,6 +55,7 @@
 
 当前已开始做最小粒度的补实：
 
+- 资金流水相关 XXL Job 的跨域实现位于 application，capital 模块只保留 `CQFinanceJobPort`、`CapitalBankFlowHotFixJobPort`、`FinanceAutoWriteOffJobPort`、`ManualWriteOffReleaseBankFlowJobPort` 作为任务端口，避免把依赖 third/fund/collection/payment/margin 的 job 编排误表达成 capital 内部 service。
 - `FinanceFlowRecordService.saveFlowRecord` 中“按已存在流水 id 判断哪些远端流水需要新增、以及新增流水默认展示状态”的纯保存规则已下沉为 `CapitalBankFlowSaveRuleService`，并使用 `CapitalBankFlowSaveDecision` 表达结果。application 仍负责查询已有 third 流水、复制 third 持久化对象、批量保存和事务提交后的无需处理判定。
 - `FinanceFlowRecordService.move2NoHandle` 中“哪些银行流水应自动转为无需处理”的纯规则已下沉为 `CapitalBankFlowNoHandleRuleService`，并使用 `CapitalBankFlowSnapshot` 表达 capital 自己需要的流水字段。系统用户姓名、我方银行账号等外部事实仍由 application 查询后传入，避免把 `system`、`basedata` 或 `third` 持久化模型带回 `capital`。
 - `FinanceFlowRecordService.withdrawBankFlow` 中“反核销后流水核销状态和处理中心状态如何变化”的纯规则已下沉为 `CapitalBankFlowWriteOffRuleService`，并使用 `CapitalBankFlowWriteOffState` 表达结果。application 仍负责删除核销明细、读取 third 流水持久化模型和执行更新。

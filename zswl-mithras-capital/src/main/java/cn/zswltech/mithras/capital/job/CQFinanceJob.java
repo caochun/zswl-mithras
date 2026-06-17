@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.capital.job;
 
-import cn.zswltech.mithras.capital.job.service.CQFinanceJobService;
+import cn.zswltech.mithras.capital.application.port.CQFinanceJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -18,23 +18,23 @@ import javax.annotation.Resource;
 public class CQFinanceJob {
 
     @Resource
-    private CQFinanceJobService cqFinanceJobService;
+    private CQFinanceJobPort cqFinanceJobPort;
 
     // 每日晚上9点 银行流水还未核销完毕，也触发收款单的统一推送
     @XxlJob("sendWriteOffNotice")
     public void sendWriteOffNotice() {
-        cqFinanceJobService.sendWriteOffNotice();
+        cqFinanceJobPort.sendWriteOffNotice();
     }
 
     // 每日拉取本月银行流水
     @XxlJob("fullFlowRecord")
     public void fullFlowRecord() {
-        cqFinanceJobService.fullFlowRecord();
+        cqFinanceJobPort.fullFlowRecord();
     }
 
     // 每日拉取保融银行流水
     @XxlJob("fullBRFlowRecord")
     public void fullBRFlowRecord() {
-        cqFinanceJobService.fullBRFlowRecord();
+        cqFinanceJobPort.fullBRFlowRecord();
     }
 }

@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.job.capital;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
-import cn.zswltech.mithras.capital.job.service.ManualWriteOffReleaseBankFlowJobService;
+import cn.zswltech.mithras.capital.application.port.ManualWriteOffReleaseBankFlowJobPort;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.application.orchestration.capital.FinanceFlowRecordService;
 import cn.zswltech.mithras.third.financialshare.persistence.mapper.FinanceFlowTabMainInfoMapper;
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class ManualWriteOffReleaseBankFlowJobServiceImpl implements ManualWriteOffReleaseBankFlowJobService {
+public class ManualWriteOffReleaseBankFlowJobPortAdapter implements ManualWriteOffReleaseBankFlowJobPort {
 
     @Resource
     private FinanceFlowTabMainInfoService mainInfoService;

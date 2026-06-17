@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.capital.job;
 
-import cn.zswltech.mithras.capital.job.service.FinanceAutoWriteOffJobService;
+import cn.zswltech.mithras.capital.application.port.FinanceAutoWriteOffJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -17,10 +17,10 @@ import javax.annotation.Resource;
 public class FinanceAutoWriteOffJob {
 
     @Resource
-    private FinanceAutoWriteOffJobService financeAutoWriteOffJobService;
+    private FinanceAutoWriteOffJobPort financeAutoWriteOffJobPort;
 
     @XxlJob(value = "financeFlowAutoWriteOffJob")
     public void financeFlowAutoWriteOffJob() {
-        financeAutoWriteOffJobService.financeFlowAutoWriteOff();
+        financeAutoWriteOffJobPort.financeFlowAutoWriteOff();
     }
 }
