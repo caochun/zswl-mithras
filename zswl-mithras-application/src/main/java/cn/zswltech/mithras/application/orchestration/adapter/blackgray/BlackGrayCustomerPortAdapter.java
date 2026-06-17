@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.blackgray;
 
-import cn.zswltech.mithras.blackgray.port.BlackGrayCustomerPort;
+import cn.zswltech.mithras.blackgray.application.port.BlackGrayCustomerPort;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
 import org.springframework.stereotype.Component;

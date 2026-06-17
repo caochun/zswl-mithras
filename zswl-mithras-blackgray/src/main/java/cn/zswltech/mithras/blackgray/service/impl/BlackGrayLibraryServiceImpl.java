@@ -29,7 +29,7 @@ import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayLibraryMapper;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayLibrary;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseRecord;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseRuleConfig;
-import cn.zswltech.mithras.blackgray.port.BlackGrayCustomerPort;
+import cn.zswltech.mithras.blackgray.application.port.BlackGrayCustomerPort;
 import cn.zswltech.mithras.blackgray.service.*;
 import cn.zswltech.mithras.blackgray.external.JKBlackGrayCollisionLibraryHandle;
 import cn.zswltech.mithras.blackgray.external.dto.JKBlackGrayCollisionLibraryREQ;

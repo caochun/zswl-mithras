@@ -15,8 +15,8 @@ import cn.zswltech.mithras.blackgray.persistence.mapper.BlackGrayWarehouseTaskMa
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayLibrary;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseRecord;
 import cn.zswltech.mithras.blackgray.persistence.model.BlackGrayWarehouseTask;
-import cn.zswltech.mithras.blackgray.port.BlackGrayApprovalProcessPort;
-import cn.zswltech.mithras.blackgray.port.BlackGrayApprovalProcessType;
+import cn.zswltech.mithras.blackgray.application.port.BlackGrayApprovalProcessPort;
+import cn.zswltech.mithras.blackgray.application.port.BlackGrayApprovalProcessType;
 import cn.zswltech.mithras.blackgray.service.BlackGrayLibraryService;
 import cn.zswltech.mithras.blackgray.service.BlackGrayWarehouseTaskService;
 import cn.zswltech.mithras.foundation.constant.ResultMsg;
