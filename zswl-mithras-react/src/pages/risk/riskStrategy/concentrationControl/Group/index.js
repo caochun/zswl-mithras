@@ -3,7 +3,7 @@ import { Table, TableStore } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { getTableColumns, getFormColumns } from '@/utils'
 import ALL_COLUMNS from '@/pages/risk/riskStrategy/concentrationControl/Column'
-import Api from '@/pages/risk/riskStrategy/concentrationControl/api'
+import Api from '@/api/risk/concentrationControl'
 import { TIME_POINT } from '@/pages/risk/riskStrategy/concentrationControl/utils'
 import { saveServer } from '@/utils'
 

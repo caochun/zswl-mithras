@@ -5,7 +5,7 @@ import { Tabs, message } from 'antd'
 import DataUpload from '@/components/DataUpload'
 import PayMent from '@/pages/risk/riskStrategy/relateMonitor/PayMent'
 import Collection from '@/pages/risk/riskStrategy/relateMonitor/Collection'
-import Api from '@/pages/risk/riskStrategy/relateMonitor/api'
+import Api from '@/api/risk/relatedTransaction'
 
 function Index() {
   const [curTab, setCurTab] = useState('1')

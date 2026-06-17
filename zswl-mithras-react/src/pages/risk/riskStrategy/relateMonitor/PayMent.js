@@ -3,7 +3,7 @@ import { Table, TableStore, Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { getTableColumns, getFormColumns } from '@/utils'
 import ALL_COLUMNS from '@/pages/risk/riskStrategy/relateMonitor/Column'
-import Api from '@/pages/risk/riskStrategy/relateMonitor/api'
+import Api from '@/api/risk/relatedTransaction'
 import { saveServer } from '@/utils'
 
 function Index({ pullSelect }) {

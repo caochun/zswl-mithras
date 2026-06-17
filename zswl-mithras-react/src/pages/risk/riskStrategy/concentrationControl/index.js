@@ -5,7 +5,7 @@ import Client from '@/pages/risk/riskStrategy/concentrationControl/Client'
 import Group from '@/pages/risk/riskStrategy/concentrationControl/Group'
 import Connect from '@/pages/risk/riskStrategy/concentrationControl/Connect'
 import { useEffect, useState } from 'react'
-import Api from '@/pages/risk/riskStrategy/concentrationControl/api'
+import Api from '@/api/risk/concentrationControl'
 
 function Index() {
   const [friInfo, setFriInfo] = useState({})
