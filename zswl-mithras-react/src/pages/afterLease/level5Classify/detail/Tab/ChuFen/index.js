@@ -1,6 +1,6 @@
 import EditDescription from '@/components/Table/EditDescription'
 import { useMemo, useRef, useState } from 'react'
-import { RESULT_COLUMNS } from '@/pages/afterLease/level5Classify/detail/Column'
+import { RESULT_COLUMNS } from '@/components/AfterLease/Level5ClassifyColumns'
 import { isAssetJon } from '@/utils'
 import { FileCommonParams } from '@/pages/afterLease/level5Classify/config'
 import { observer } from '@zswl/admin'
