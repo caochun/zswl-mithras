@@ -1,4 +1,4 @@
-import Lease from '@/pages/contract/list/detail/ZuLinWu/Lease'
+import Lease from '@/components/Contract/Detail/LeaseItemList/Lease'
 
 const Index = ({ businessVersion, contractId, isChange }) => {
   return (

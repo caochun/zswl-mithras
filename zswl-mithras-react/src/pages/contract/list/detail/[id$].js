@@ -9,7 +9,7 @@ import ShiJiZuJin from './ShiJiZuJin'
 import ChengZuRen from './ChengZuRen' // 租赁、转租赁场景 - ZL、ZZ
 import HuiKuan from './HuiKuan' // 保理、债权转让场景- BL、ZR
 import ShouKuan from './ShouKuan'
-import ZuLinWu from './ZuLinWu'
+import ZuLinWu from '@/components/Contract/Detail/LeaseItemList'
 import DanBao from './DanBao'
 import ZhiYa from './ZhiYa'
 import DiYa from './DiYa'
