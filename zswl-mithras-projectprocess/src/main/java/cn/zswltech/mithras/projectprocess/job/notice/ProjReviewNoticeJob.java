@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.job.notice;
 
-import cn.zswltech.mithras.projectprocess.job.service.ProjReviewNoticeJobService;
+import cn.zswltech.mithras.projectprocess.application.port.ProjReviewNoticeJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 public class ProjReviewNoticeJob {
 
     @Resource
-    private ProjReviewNoticeJobService projReviewNoticeJobService;
+    private ProjReviewNoticeJobPort projReviewNoticeJobService;
 
     @XxlJob("projReviewNotice")
     public void contractStartRentRemindJobHandler() {

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.job.service;
+package cn.zswltech.mithras.projectprocess.application.job;
 
 public interface ProjRiskControlIndustryTypeJobService {
 

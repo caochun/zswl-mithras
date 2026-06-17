@@ -1129,7 +1129,7 @@
 - POM 技术依赖复核后，`document`、`flow-core`、MapStruct、Hutool、FastJSON、MyBatis-Plus、Jackson annotations、Spring context/beans/web/tx/boot、validation、annotation、POI、XXL Job 都有源码使用依据；未发现 `pagehelper` 和 `commons-lang3` 的当前源码引用，已移除这两个直接依赖，并通过 `mvn -pl zswl-mithras-projectprocess -am -DskipTests compile` 验证。
 - 代码层面复核显示，模块内 Java import 主要集中在 `projectprocess` 约 603 处、`foundation` 约 364 处、`dto` 约 298 处、`api` 约 64 处、`document` 约 11 处，并有 1 个流程结束监听接口直接 import `flow-core`；没有直接 import contract/payment/customer/riskcontrol 等业务域。
 - 模块拥有项目立项、项目评审、项目定价、现金流测算、项目生命周期、版本、材料、审批状态和 job。
-- 模块已经通过若干 port 隔离外部事实和横向能力，例如 `PaymentCashFlowQueryPort`、`ProjectStatusSupportPort`、`ProjectRiskControlIndustryPort`、`ProjectProcessDictionaryPort`、`ProjectProcessSurvivingContractResolver`、`ProjReviewNoticeJobService`。这些接口由 application 侧 adapter 适配付款、合同、风控行业、字典、消息通知等能力。
+- 模块已经通过若干 port 隔离外部事实和横向能力，例如 `PaymentCashFlowQueryPort`、`ProjectStatusSupportPort`、`ProjectRiskControlIndustryPort`、`ProjectProcessDictionaryPort`、`ProjectProcessSurvivingContractResolver`、`ProjReviewNoticeJobPort`。这些接口由 application 侧 adapter 适配付款、合同、风控行业、字典、消息通知等能力。
 - 立项/评审/定价服务大多围绕自身 mapper/model 修改和版本记录，项目过程是合同、付款、风险、报送、FTP、预算等模块的上游事实。
 - 外部依赖它的模块很多。只看 Java import，反向依赖主要来自 `application` 约 872 处、`web` 约 101 处、`contract` 约 48 处、`riskcontrol` 约 30 处、`ftp` 约 23 处、`creditreport` 约 19 处、`metric` 约 15 处、`report` 约 14 处、`dashboard/afterlease` 各约 11 处。这说明它是核心交易主链路，不说明它应被合并到某个下游模块。
 

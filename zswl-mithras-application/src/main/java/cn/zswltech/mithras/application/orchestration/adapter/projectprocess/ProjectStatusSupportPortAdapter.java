@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.projectprocess;
 
-import cn.zswltech.mithras.projectprocess.job.service.ProjectStatusSupportPort;
+import cn.zswltech.mithras.projectprocess.application.port.ProjectStatusSupportPort;
 import cn.zswltech.mithras.application.orchestration.credit.groupcredit.establish.GroupCreditEstablishBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.credit.groupcredit.review.GroupCreditReviewBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.projectprocess.projestablish.ProjEstablishBaseInfoService;

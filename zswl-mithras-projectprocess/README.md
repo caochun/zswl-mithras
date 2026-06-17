@@ -10,7 +10,7 @@
 
 POM 依赖复核后，`document`、`flow-core`、MapStruct、Hutool、FastJSON、MyBatis-Plus、Jackson annotations、Spring context/beans/web/tx/boot、validation、annotation、POI、XXL Job 都有源码使用依据；未发现 `pagehelper` 和 `commons-lang3` 的当前源码引用，已移除这两个直接依赖。MyBatis 注解由 MyBatis-Plus 依赖链覆盖。
 
-模块已经通过若干 port 隔离外部事实和横向能力，例如 `PaymentCashFlowQueryPort`、`ProjectStatusSupportPort`、`ProjectRiskControlIndustryPort`、`ProjectProcessDictionaryPort`、`ProjectProcessSurvivingContractResolver`、`ProjReviewNoticeJobService`。这些接口由 `application` 侧 adapter 适配付款、合同、风控行业、字典、消息通知等能力，方向符合“项目过程定义需求，application 装配外部能力”。
+模块已经通过若干 port 隔离外部事实和横向能力，例如 `PaymentCashFlowQueryPort`、`ProjectStatusSupportPort`、`ProjectRiskControlIndustryPort`、`ProjectProcessDictionaryPort`、`ProjectProcessSurvivingContractResolver`、`ProjReviewNoticeJobPort`。这些接口由 `application` 侧 adapter 适配付款、合同、风控行业、字典、消息通知等能力，方向符合“项目过程定义需求，application 装配外部能力”。
 
 资源层面，项目评审会议纪要相关表、权限点和接口脚本归本模块维护。原先放在 `payment` 资源目录中的 `评审会会议纪要_credit_date_check.sql` 已迁回本模块；付款页面调用该接口不改变接口的项目过程域归属。
 

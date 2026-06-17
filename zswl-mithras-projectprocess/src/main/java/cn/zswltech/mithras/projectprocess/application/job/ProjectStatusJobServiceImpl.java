@@ -1,7 +1,6 @@
-package cn.zswltech.mithras.projectprocess.job.service.impl;
+package cn.zswltech.mithras.projectprocess.application.job;
 
-import cn.zswltech.mithras.projectprocess.job.service.ProjectStatusJobService;
-import cn.zswltech.mithras.projectprocess.job.service.ProjectStatusSupportPort;
+import cn.zswltech.mithras.projectprocess.application.port.ProjectStatusSupportPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

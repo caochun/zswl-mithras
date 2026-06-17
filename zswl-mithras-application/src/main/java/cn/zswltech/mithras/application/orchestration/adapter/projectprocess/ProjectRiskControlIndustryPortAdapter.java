@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.projectprocess;
 
 import cn.zswltech.mithras.customer.mapper.corp.CorpCommerceInfoMapper;
 import cn.zswltech.mithras.customer.model.client.CorpCommerceInfo;
-import cn.zswltech.mithras.projectprocess.job.service.ProjectRiskControlIndustryPort;
+import cn.zswltech.mithras.projectprocess.application.port.ProjectRiskControlIndustryPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

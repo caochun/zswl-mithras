@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.projectprocess.job;
 
-import cn.zswltech.mithras.projectprocess.job.service.ProjectStatusJobService;
+import cn.zswltech.mithras.projectprocess.application.job.ProjectStatusJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

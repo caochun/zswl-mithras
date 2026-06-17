@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.projectprocess.job.datainit.dto;
+package cn.zswltech.mithras.projectprocess.application.job.dto;
 
 import cn.hutool.core.annotation.Alias;
 import lombok.Data;

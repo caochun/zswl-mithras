@@ -7,7 +7,7 @@ import cn.zswltech.mithras.dto.metric.factor.RiskMetricFactorFileListReq;
 import cn.zswltech.mithras.message.job.MessageNoticeJobService;
 import cn.zswltech.mithras.metric.mapper.model.RiskMetricFactorFile;
 import cn.zswltech.mithras.metric.service.RiskMetricFactorService;
-import cn.zswltech.mithras.projectprocess.job.service.ProjReviewNoticeJobService;
+import cn.zswltech.mithras.projectprocess.application.port.ProjReviewNoticeJobPort;
 import cn.zswltech.mithras.foundation.enums.JobEnum;
 import cn.zswltech.mithras.dto.message.MessageUrlEnum;
 import cn.zswltech.mithras.message.model.MessageModel;
@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class NoticeJobServiceImpl implements ProjReviewNoticeJobService, MessageNoticeJobService {
+public class NoticeJobServiceImpl implements ProjReviewNoticeJobPort, MessageNoticeJobService {
 
     @Resource
     private ProjReviewService projReviewService;
