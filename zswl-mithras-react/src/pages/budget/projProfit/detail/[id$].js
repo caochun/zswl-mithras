@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Table, TableStore, Page } from '@zswl/components'
 import { getTableColumns, getFormColumns } from '@/utils'
-import ALL_COLUMNS from '@/pages/budget/projProfit/Column'
+import ALL_COLUMNS from '@/components/Budget/ProjectProfitColumns'
 import Api from '@/api/kpi/projProfit/projProfit'
 import { saveServer } from '@/utils'
 
