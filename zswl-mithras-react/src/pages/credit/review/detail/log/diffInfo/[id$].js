@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { Page } from '@zswl/components'
 import { Collapse, Divider, Skeleton, Badge } from 'antd'
-import BaseInfo from '../../BaseInfo'
+import BaseInfo from '@/components/Credit/ReviewDetail/BaseInfo'
 import { observer } from '@zswl/admin'
 import styles from './index.less'
 import store from './store'
