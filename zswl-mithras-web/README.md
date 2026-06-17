@@ -33,3 +33,7 @@
 - `web -> report` 是最终装配依赖，短期保留；若未来把 `report` 纳入 `application` 装配，可再评估。
 
 `web` 从“能否合并”角度看，确实可以作为 application 的启动子包存在；但 Maven 独立模块仍有最终打包、运行配置、迁移资源和测试工具隔离价值。短期保持独立，更重要的是继续确保业务逻辑不往 web 增长。
+
+## 测试目录
+
+`src/test/java/cn/zswltech/mithras/unittest/**` 是当前 Maven 编译范围内的测试代码。历史手工脚本、数据修复脚本和外部环境联调脚本已隔离，详见 [src/test/README.md](src/test/README.md)。
