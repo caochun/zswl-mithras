@@ -3,7 +3,6 @@ import ALL_COLUMNS from '../Column'
 import { getDescColumns, rules } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useMemo, useRef } from 'react'
-import { editable } from '@/pages/kpi/pmAssess/EditModal/utils'
 import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import { App, Select } from '@zswl/components'
 

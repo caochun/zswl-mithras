@@ -1,7 +1,5 @@
 import { FiledFormat, AmountColumn, InputColumn, MatchOptionColumn } from '@/components/Format'
 import { App } from '@zswl/components'
-import { Tag } from 'antd'
-import { TagColor } from '@/pages/kpi/projectAllot/Context.js'
 import FormAmount from '@/components/Form/FormAmount'
 
 const ALL_COLUMNS = () => {

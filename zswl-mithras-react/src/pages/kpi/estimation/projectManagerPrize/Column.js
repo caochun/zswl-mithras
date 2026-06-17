@@ -1,6 +1,4 @@
 import { AmountColumn, InputColumn, FiledFormat } from '@/components/Format'
-import { Tag } from 'antd'
-import { TagColor } from '@/pages/kpi/projectAllot/Context.js'
 
 const ALL_COLUMNS = () => {
   return [

@@ -2,7 +2,6 @@ import { AmountEditable, AmountColumn, TextAreaColumn, DateColumn } from '@/comp
 import { formatPercent, amountFormat, hasValue } from '@/utils'
 import { cloneElement, useState } from 'react'
 import { CommonTips } from '@/components'
-import { editable } from '@/pages/kpi/pmAssess/EditModal/utils'
 import { Radio, Select } from 'antd'
 
 const ALL_COLUMNS = () => {
