@@ -18,9 +18,9 @@ import cn.zswltech.mithras.associationreport.enums.AssociationReportPeriodCatego
 import cn.zswltech.mithras.associationreport.enums.AssociationReportStatusEnum;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReportApply;
-import cn.zswltech.mithras.associationreport.service.job.AssociationReportJobService;
-import cn.zswltech.mithras.associationreport.service.job.AssociationReportProcessPrepareService;
-import cn.zswltech.mithras.associationreport.service.job.AssociationReportTodoType;
+import cn.zswltech.mithras.associationreport.application.job.AssociationReportJobService;
+import cn.zswltech.mithras.associationreport.application.port.AssociationReportProcessPrepareService;
+import cn.zswltech.mithras.associationreport.application.port.AssociationReportTodoType;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.JobUserResolver;
 import cn.zswltech.mithras.basedata.util.DateUtil;

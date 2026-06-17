@@ -14,7 +14,7 @@ import cn.zswltech.mithras.associationreport.exception.AssociationReportExceptio
 import cn.zswltech.mithras.associationreport.application.AssociationReportWorkflowPort;
 import cn.zswltech.mithras.associationreport.excel.AssociationReportBaseModel;
 import cn.zswltech.mithras.associationreport.service.*;
-import cn.zswltech.mithras.associationreport.service.application.AssociationReportApplicationService;
+import cn.zswltech.mithras.associationreport.application.AssociationReportApplicationService;
 import cn.zswltech.mithras.dto.SinglePkREQ;
 import cn.zswltech.mithras.dto.associationreport.*;
 import cn.zswltech.mithras.foundation.annotation.Log;

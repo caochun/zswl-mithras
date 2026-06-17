@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.associationreport.service.job;
+package cn.zswltech.mithras.associationreport.application.job;
 
 import cn.zswltech.mithras.associationreport.mapper.model.AssociationReport;
 import cn.zswltech.mithras.dto.associationreport.AssociationReportCreateREQ;

@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.adapter.associationreport.workflow;
 
-import cn.zswltech.mithras.associationreport.service.job.AssociationReportProcessPrepareService;
-import cn.zswltech.mithras.associationreport.service.job.AssociationReportTodoType;
+import cn.zswltech.mithras.associationreport.application.port.AssociationReportProcessPrepareService;
+import cn.zswltech.mithras.associationreport.application.port.AssociationReportTodoType;
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.workflow.process.prepare.CommonProcessPrepareService;

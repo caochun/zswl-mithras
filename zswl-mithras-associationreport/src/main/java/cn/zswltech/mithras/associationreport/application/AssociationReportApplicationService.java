@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.associationreport.service.application;
+package cn.zswltech.mithras.associationreport.application;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.associationreport.excel.AssociationReportBaseModel;
