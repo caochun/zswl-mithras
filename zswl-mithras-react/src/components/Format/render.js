@@ -7,6 +7,23 @@ import { useMemo } from 'react'
 
 const nzhcn = require('nzh/cn')
 
+export const JSONRender = (text) => {
+  if (!text) return undefined
+  const title = <pre>{JSON.stringify(JSON.parse(text), null, 2)}</pre>
+  return (
+    <Tooltip
+      title={title}
+      placement="topLeft"
+      overlayInnerStyle={{ width: 500, overflowY: 'auto', maxHeight: 350 }}
+      getPopupContainer={() => document.body}
+    >
+      <div className="z-single-line" style={{ maxWidth: 200 }}>
+        {text}
+      </div>
+    </Tooltip>
+  )
+}
+
 export const AmountFormat = ({
   value,
   isChange,

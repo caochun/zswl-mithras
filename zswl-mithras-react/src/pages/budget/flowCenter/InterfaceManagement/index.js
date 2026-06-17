@@ -1,8 +1,8 @@
 import { App, Button, Page, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
-import { DateColumn, MatchOptionColumn } from '@/components/Format'
-import { Tag, Tooltip } from 'antd'
+import { DateColumn, JSONRender, MatchOptionColumn } from '@/components/Format'
+import { Tag } from 'antd'
 import { saveServer } from '@/utils'
 
 const INTERFACE_STATUS_OPTIONS = [
@@ -15,23 +15,7 @@ const ISDONE_OPTIONS = [
   { value: 1, label: '已推送' },
   { value: 0, label: '推送失败' },
 ]
-export const JSONRender = (text) => {
-  const title = <pre>{JSON.stringify(JSON.parse(text), null, 2)}</pre>
-  if (text) {
-    return (
-      <Tooltip
-        title={title}
-        placement="topLeft"
-        overlayInnerStyle={{ width: 500, overflowY: 'auto', maxHeight: 350 }}
-        getPopupContainer={() => document.body}
-      >
-        <div className="z-single-line" style={{ maxWidth: 200 }}>
-          {text}
-        </div>
-      </Tooltip>
-    )
-  }
-}
+export { JSONRender }
 function Index({ path }) {
   const columns = [
     MatchOptionColumn({

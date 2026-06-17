@@ -2,7 +2,7 @@ import moment from 'moment'
 import { App } from '@zswl/components'
 import { message } from 'antd'
 import { flatMapDeep } from 'lodash'
-import { amountFormat } from '@/utils'
+export { RenderTooltip } from '@/components/Chart/tooltip'
 
 // x轴部门名称格式化
 export const formatDepartName = (value) => {
@@ -75,54 +75,6 @@ export const lineSeriesItem = (item) => {
     },
     ...item,
   }
-}
-
-export const RenderTooltip = ({ params, style }) => {
-  return (
-    <div style={{ display: 'flex', width: 400, flexWrap: 'wrap', ...style }}>
-      {params.map(({ color, data = {}, seriesName }, index) => {
-        return (
-          <div
-            key={index}
-            style={{
-              marginBottom: 5,
-              display: 'flex',
-              alignItems: 'center',
-              width: '50%',
-            }}
-          >
-            <span
-              style={{
-                display: 'inline-block',
-                marginRight: '6px',
-                width: '12px',
-                height: '12px',
-                backgroundColor: color,
-              }}
-            ></span>
-            <span
-              style={{
-                fontSize: '14px',
-                color: '#5e6066',
-              }}
-            >
-              {seriesName}
-            </span>
-            <span>：</span>
-            <span
-              style={{
-                fontSize: '14px',
-                color: '#5e6066',
-              }}
-            >
-              {amountFormat(data?.value ?? data)}
-              {data?.unit ?? ''}
-            </span>
-          </div>
-        )
-      })}
-    </div>
-  )
 }
 
 export const getInterval = (arr, splitNumber) => {
