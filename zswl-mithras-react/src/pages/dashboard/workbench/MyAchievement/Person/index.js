@@ -1,6 +1,6 @@
 import { Table, TableStore } from '@zswl/components'
 import { AmountColumn } from '@/components/Format'
-import AchievementCard from '../AchievementCard'
+import AchievementCard from '@/components/Dashboard/MyAchievement/AchievementCard'
 import { saveServer } from '@/utils'
 
 const cardData = [

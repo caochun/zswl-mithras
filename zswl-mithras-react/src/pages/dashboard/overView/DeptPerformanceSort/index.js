@@ -1,5 +1,5 @@
 import Title from '@/components/Dashboard/OverviewTitle'
-import ProjectStage from '@/pages/dashboard/workbench/MyAchievement/Department'
+import ProjectStage from '@/components/Dashboard/MyAchievement/Department'
 
 const Index = ({ title }) => {
   return (
