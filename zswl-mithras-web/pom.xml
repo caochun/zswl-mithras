@@ -151,6 +151,11 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <testExcludes>
+                        <!-- Historical manual scripts depend on removed packages and external environments. -->
+                        <testExclude>cn/zswltech/mithras/others/**/*.java</testExclude>
+                        <testExclude>cn/zswltech/mithras/*Test.java</testExclude>
+                    </testExcludes>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
