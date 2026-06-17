@@ -20,5 +20,6 @@ export * from './amount'
 export * from './localColumnsFilter'
 export * from './other'
 export * from './htmlToCanvas'
+export * from './modal'
 
 //export * from './general'

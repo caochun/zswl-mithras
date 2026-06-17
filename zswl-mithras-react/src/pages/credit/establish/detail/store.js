@@ -5,7 +5,7 @@ import versionApi from '@/api/groupCredit/projectApprovalVersion'
 import { compareDetail } from '@/utils'
 import { message } from 'antd'
 import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 import establishApi from './api'
 
 class Store {

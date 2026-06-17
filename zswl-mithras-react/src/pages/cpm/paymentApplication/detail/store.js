@@ -1,4 +1,4 @@
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 import { hasValue } from '@/utils'
 import { http, makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'

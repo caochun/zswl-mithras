@@ -4,7 +4,7 @@ import DataUpload from '@/components/DataUpload'
 import { message } from 'antd'
 import { timeFormat, downFile, amountFormat, formatPercent } from '@/utils'
 import Api from '@/api/financial/fundApi'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 
 class Store {
   constructor({ businessVersion, isFormApproval, financingId, detail, baseStore }) {

@@ -18,7 +18,7 @@ import moment from 'moment'
 import { isFundDept, isFinicalDept, timeFormat } from '@/utils'
 import thirdCanqiongApi from '@/api/budget/flowCenter/thirdCanqiongApi'
 import { formatModalData, formatListJson, formatOffModal, absColumns } from './utils'
-import { validateModal } from './SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 
 class Store {
   constructor({ type }) {

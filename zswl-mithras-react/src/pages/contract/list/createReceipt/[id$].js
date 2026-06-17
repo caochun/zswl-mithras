@@ -15,7 +15,7 @@ import PaymentApply from '@/pages/contract/list/Component/PaymentApply'
 import ImportRent from './ImportRent'
 import Api from './api'
 import styles from './index.less'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 import { checkIrr } from '../startRent/[id$]'
 
 const { Item } = Form

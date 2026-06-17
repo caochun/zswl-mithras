@@ -12,7 +12,7 @@ import { useRef, useState } from 'react'
 import ZiLiao from './ZiLiao'
 import Api from './api'
 import styles from './index.less'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 import ContractIRR from '../Component/ContractIRR'
 
 const { Item } = Form

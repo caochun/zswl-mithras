@@ -5,7 +5,7 @@ import moment from 'moment'
 import { message } from 'antd'
 import provisioning from '@/api/budget/provisioning/provisioning'
 import eclBusinessApi from '@/api/budget/provisioning/eclBusinessApi'
-import { validateModal } from '../../flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 import ftpInterestChangeApi from '@/api/budget/pricing/ftpInterestChangeApi'
 import { dateRangeTransform, dateRangeTransformV2 } from '@/utils'
 

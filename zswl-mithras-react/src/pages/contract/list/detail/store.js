@@ -5,7 +5,7 @@ import { compareDetail } from '@/utils'
 import Api from './api'
 import cashApi from './BaoJia/api'
 import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 class Store {
   constructor(data) {
     this.isFormApproval = data?.isFormApproval

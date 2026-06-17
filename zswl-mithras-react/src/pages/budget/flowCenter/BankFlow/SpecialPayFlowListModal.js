@@ -3,6 +3,7 @@ import { Summary } from '@/components'
 import FormAmount from '@/components/Form/FormAmount'
 import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import { amountFormat, formatPercent, hasValue, saveServer } from '@/utils'
+import { validateModal } from '@/utils/modal'
 import { observer } from '@zswl/admin'
 import { Form, Modal, ModalStore, Table, TableStore } from '@zswl/components'
 import { Alert } from 'antd'
@@ -11,28 +12,7 @@ import { useMemo, useState } from 'react'
 
 const mathjs = create(all)
 
-export const validateModal = (modalProps, needConfirm = true) => {
-  const { title = '提示', content, onOk, onCancel, ...rest } = modalProps
-  return new Promise(async (resolve, reject) => {
-    if (needConfirm) {
-      Modal.confirm({
-        title,
-        content,
-        onOk: async () => {
-          const res = await onOk?.()
-          resolve(res)
-        },
-        onCancel: async () => {
-          await onCancel?.()
-          reject()
-        },
-        ...rest,
-      })
-    } else {
-      resolve()
-    }
-  })
-}
+export { validateModal }
 export const absColumns = [
   { title: '融资编号', dataIndex: 'financingCode', editable: false, width: 200 },
   { title: '证券代码', dataIndex: 'securitiesCode', editable: false, width: 200 },

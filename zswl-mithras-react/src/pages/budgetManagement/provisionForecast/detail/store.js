@@ -4,7 +4,7 @@ import predictDetailApi from '@/api/budget/provisioning/predictDetailApi'
 import { Input, message } from 'antd'
 import predictConfigApi from '@/api/budget/provisioning/predictConfigApi'
 import predictListApi from '@/api/budget/provisioning/predictListApi'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 
 const enum2LabelEnum = (enums = []) => {
   const isObject = !!enums?.[0]?.label

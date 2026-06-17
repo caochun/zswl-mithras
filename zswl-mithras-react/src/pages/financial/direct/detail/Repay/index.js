@@ -7,7 +7,7 @@ import { message } from 'antd'
 import { amountFormat, downFile, formatPercent } from '@/utils'
 import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import React, { forwardRef, useImperativeHandle, useState } from 'react'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 import { saveServer } from '@/utils'
 import { downLoadExcel } from '@/components/Excel'
 

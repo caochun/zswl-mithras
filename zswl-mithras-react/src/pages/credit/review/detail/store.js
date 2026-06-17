@@ -4,7 +4,7 @@ import { message } from 'antd'
 import Api from './api'
 import { compareDetail } from '@/utils'
 import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 
 class Store {
   constructor() {

@@ -4,7 +4,7 @@ import DataUpload from '@/components/DataUpload'
 import { amountFormat, downFile, formatPercent, timeFormat } from '@/utils'
 import { TableStore } from '@zswl/components'
 import Api from '@/api/financial/fundApi'
-import { validateModal } from '@/pages/budget/flowCenter/BankFlow/SpecialPayFlowListModal'
+import { validateModal } from '@/utils/modal'
 
 class Store {
   constructor({ isFormApproval, scene, financingId, businessVersion, sourceData, baseStore }) {
