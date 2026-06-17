@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { Spin } from 'antd'
 import { AmountFormat } from '@/components/Format'
 import { hasValue } from '@/utils'
-import Api from '@/pages/dashboard/overView/api'
+import Api from '@/api/dashboard/overview'
 
 // 不小于0
 const getPlusMinusConfig = ({ num }) => {

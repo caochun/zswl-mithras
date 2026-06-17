@@ -1,7 +1,7 @@
 import Title from '@/pages/dashboard/overView/components/Title'
 import { Table } from '@zswl/components'
 import { FiledFormat, AmountFormat } from '@/components/Format'
-import Api from '@/pages/dashboard/overView/api'
+import Api from '@/api/dashboard/overview'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 
