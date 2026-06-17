@@ -1,6 +1,6 @@
 import { Collapse } from '@/components'
 import { Empty } from 'antd'
-import HeTong from '@/pages/contract/list/detail/HeTong'
+import HeTong from '@/components/Contract/ContractText'
 import ZiLiao from '@/components/Contract/ContractMaterials'
 import CheckMaterial from '@/components/Contract/ChangeMaterials'
 import LeaseZiLiao from '@/components/Contract/LeaseMaterials'
