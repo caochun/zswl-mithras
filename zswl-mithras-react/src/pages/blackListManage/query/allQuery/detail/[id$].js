@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Descriptions, Page, Table } from '@zswl/components'
 import store from './store'
 import { getTableColumns } from '@/utils'
-import ALl_COLUMNS from '@/pages/blackListManage/Column'
+import ALl_COLUMNS from '@/components/BlackGray/Columns'
 import { useMemo } from 'react'
 import { saveServer } from '@/utils'
 

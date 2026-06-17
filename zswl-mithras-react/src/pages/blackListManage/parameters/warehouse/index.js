@@ -5,7 +5,7 @@ import { history, observer } from '@zswl/admin'
 import { DeleteAction } from '@/components/RiskActions'
 import { Input, Popconfirm, Space, message } from 'antd'
 import warehouseRuleApi from '@/api/blackList/warehouseRuleApi'
-import ALL_COLUMNS from '../Column'
+import ALL_COLUMNS from '@/components/BlackGray/Columns'
 import Store from './store'
 import { saveServer } from '@/utils'
 

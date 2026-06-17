@@ -11,7 +11,7 @@ import approvalControlApi from '@/api/blackList/approvalControlApi'
 import { getDescColumns, isUnifiedCreditCode } from '@/utils'
 import moment from 'moment'
 import warehouseRuleApi from '@/api/blackList/warehouseRuleApi'
-import ALl_COLUMNS from '../Column'
+import ALl_COLUMNS from '@/components/BlackGray/Columns'
 
 const columns = getDescColumns(
   ALl_COLUMNS,

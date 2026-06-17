@@ -1,6 +1,6 @@
 import { getTableColumns } from '@/utils'
 import { Page, Table, TableStore, Tabs } from '@zswl/components'
-import ALl_COLUMNS from '../../Column'
+import ALl_COLUMNS from '@/components/BlackGray/Columns'
 import { observer } from '@zswl/admin'
 import { useMemo, useState } from 'react'
 import recordTableApi from '@/api/blackList/recordTableApi'

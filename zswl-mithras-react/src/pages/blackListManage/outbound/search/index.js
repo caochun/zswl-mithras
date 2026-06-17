@@ -1,6 +1,6 @@
 import { getTableColumns } from '@/utils'
 import { Page, Table, TableStore, Tabs } from '@zswl/components'
-import ALl_COLUMNS from '../../Column'
+import ALl_COLUMNS from '@/components/BlackGray/Columns'
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { ExportAction } from '@/components/RiskActions'

@@ -1,7 +1,7 @@
 import { getTableColumns } from '@/utils'
 import { makeAutoObservable, observer, http } from '@zswl/admin'
 import { Table, TableStore, Select, App } from '@zswl/components'
-import ALl_COLUMNS from '../../Column'
+import ALl_COLUMNS from '@/components/BlackGray/Columns'
 import { useEffect, useMemo } from 'react'
 import { Radio, Space } from 'antd'
 import { ExportAction } from '@/components/RiskActions'

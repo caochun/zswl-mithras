@@ -1,7 +1,7 @@
 import { App, Button, Page, Select, Table } from '@zswl/components'
 import { history, observer } from '@zswl/admin'
 import store from './store'
-import ALL_COLUMNS from '@/pages/blackListManage/Column'
+import ALL_COLUMNS from '@/components/BlackGray/Columns'
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
 import useGetStatus from '@/utils/hooks/useGetStatus'

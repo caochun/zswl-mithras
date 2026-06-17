@@ -1,7 +1,7 @@
 import { getTableColumns, isUnifiedCreditCode } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Select, Table, TableStore } from '@zswl/components'
-import ALl_COLUMNS from '../../Column'
+import ALl_COLUMNS from '@/components/BlackGray/Columns'
 import { useMemo } from 'react'
 import { ExportAction } from '@/components/RiskActions'
 import listLibraryApi from '@/api/blackList/listLibraryApi'

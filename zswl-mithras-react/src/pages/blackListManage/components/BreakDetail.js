@@ -11,7 +11,7 @@ import manualOutboundFormApi from '@/api/blackList/manualOutboundFormApi'
 import { getTableColumns, isUnifiedCreditCode } from '@/utils'
 import { useMemo } from 'react'
 import approvalBreakthroughApi from '@/api/blackList/approvalBreakthroughApi'
-import ALl_COLUMNS from '../Column'
+import ALl_COLUMNS from '@/components/BlackGray/Columns'
 import { saveServer } from '@/utils'
 
 class Store {

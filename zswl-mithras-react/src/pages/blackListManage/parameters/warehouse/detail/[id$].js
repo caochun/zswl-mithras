@@ -14,7 +14,7 @@ import { useMemo } from 'react'
 import { Col, Input, Row, TreeSelect, message } from 'antd'
 import warehouseRuleApi from '@/api/blackList/warehouseRuleApi'
 import { getDescColumns } from '@/utils'
-import ALL_COLUMNS from '../../Column'
+import ALL_COLUMNS from '@/components/BlackGray/Columns'
 
 const ColItem = ({ children, ...rest }) => {
   return (
