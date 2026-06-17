@@ -4,7 +4,7 @@ import FundFinancingFundDetail from '@/pages/financial/fund/detail/[id$]'
 import FundFinancingFundChange from '@/pages/financial/fund/change/[id$]'
 import FinancialDirect from '@/pages/financial/direct/detail/[id$]'
 import FinancingRepayPlanConfirmFlow from '../../application/detail/PrepareDetail/Component/FinancingRepayPlanConfirmFlow'
-import FundFilingMaterialsApply from '@/pages/fillingMaterialsDetail/fundFilingMaterialsApply/index'
+import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
 import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterestFlow/index'
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curAssigneeIds } = props

@@ -6,7 +6,7 @@ import JQsettlement from '@/pages/contract/list/settlement/[id$]' //提前结清
 import KSQZstartRent from '@/pages/contract/list/startRent/[id$]' // 合同自动起租
 import CustomerRat from '@/pages/customer/customerRat/detail/[id$]' // 客户评级'
 import FilingMaterialsApply from '@/pages/fillingMaterialsDetail/filingMaterialsApply'
-import FundFilingMaterialsApply from '@/pages/fillingMaterialsDetail/fundFilingMaterialsApply/index'
+import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
 import FinancialDirect from '@/pages/financial/direct/detail/[id$]'
 import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterestFlow/index'
 import FinancialFund from '@/pages/financial/fund/detail/[id$]'
