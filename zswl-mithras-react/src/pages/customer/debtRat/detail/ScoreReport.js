@@ -4,7 +4,7 @@ import { TextAreaColumn } from '@/components/Format'
 import { Collapse, Radio, Row, Tooltip } from 'antd'
 import { options } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
-import { DynamicFormItem } from '../../customerRat/detail/QualitativeScore'
+import { DynamicFormItem } from '@/components/Customer/RatingForm'
 import { saveServer } from '@/utils'
 
 const { approvalStatus } = options

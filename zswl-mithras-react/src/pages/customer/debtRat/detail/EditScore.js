@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Col, Collapse, Radio, Row } from 'antd'
 import { useEffect, useState } from 'react'
-import { DynamicFormItem } from '@/pages/customer/customerRat/detail/QualitativeScore'
+import { DynamicFormItem } from '@/components/Customer/RatingForm'
 import { Form } from '@zswl/components'
 
 const { Panel } = Collapse

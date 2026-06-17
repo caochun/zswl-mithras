@@ -4,7 +4,7 @@ import { Col, Collapse, Row, Space, Tooltip } from 'antd'
 import styles from './styles.less'
 import { FileTextTwoTone, QuestionCircleOutlined } from '@ant-design/icons'
 import { useEffect, useMemo, useState } from 'react'
-import { approvalInfoRender, DynamicFormItem } from './QualitativeScore'
+import { approvalInfoRender, DynamicFormItem } from '@/components/Customer/RatingForm'
 import { isEmpty } from '@/utils'
 
 const { Panel } = Collapse
