@@ -10,7 +10,7 @@ import CashFlowStatement from './CashFlowStatement'
 import FormIrr from '@/components/FormIrr'
 import ApprovalDetail from '@/components/Table/ApprovalDetail'
 import DetailLayout from '@/components/DetailLayout'
-import FinancialReportStatistics from '@/pages/project/review/Components/FinancialReportStatistics'
+import FinancialReportStatistics from '@/components/Project/FinancialReportStatistics'
 import Approval from '@/components/Actions/Approval'
 
 const Index = ({
