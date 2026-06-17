@@ -1,6 +1,5 @@
-import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import ExchangeRate from '@/pages/budget/exchangeRate/index'
+import ExchangeRate from '@/components/Budget/ExchangeRate'
 import moment from 'moment'
 
 const Index = ({ params }) => {
