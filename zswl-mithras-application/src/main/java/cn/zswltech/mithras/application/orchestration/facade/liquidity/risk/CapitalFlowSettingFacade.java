@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.facade.liquidity.risk;
 
-import cn.zswltech.mithras.liquidity.application.liquidityrisk.CapitalFlowSettingApplicationService;
+import cn.zswltech.mithras.liquidity.application.risk.CapitalFlowSettingApplicationService;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.liquidityrisk.CapitalFlowSettingDetailReq;
 import cn.zswltech.mithras.dto.liquidityrisk.CapitalFlowSettingReq;

@@ -1,10 +1,10 @@
-package cn.zswltech.mithras.liquidity.controller.liquidityrisk;
+package cn.zswltech.mithras.liquidity.controller.risk;
 
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.liquidityrisk.*;
 import java.util.List;
 import cn.zswltech.mithras.api.liquidityrisk.CapitalOutflowAPI;
-import cn.zswltech.mithras.liquidity.application.liquidityrisk.CapitalOutflowApplicationService;
+import cn.zswltech.mithras.liquidity.application.risk.CapitalOutflowApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 

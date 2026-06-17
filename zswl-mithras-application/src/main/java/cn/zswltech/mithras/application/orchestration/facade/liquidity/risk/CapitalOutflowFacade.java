@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.facade.liquidity.risk;
 
-import cn.zswltech.mithras.liquidity.application.liquidityrisk.CapitalOutflowApplicationService;
+import cn.zswltech.mithras.liquidity.application.risk.CapitalOutflowApplicationService;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.dto.liquidityrisk.*;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.application.liquidityrisk;
+package cn.zswltech.mithras.liquidity.application.risk;
 
 import cn.zswltech.mithras.dto.liquidityrisk.*;
 

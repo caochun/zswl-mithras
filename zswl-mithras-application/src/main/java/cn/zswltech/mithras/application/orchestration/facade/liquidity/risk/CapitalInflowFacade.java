@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.facade.liquidity.risk;
 
-import cn.zswltech.mithras.liquidity.application.liquidityrisk.CapitalInflowApplicationService;
+import cn.zswltech.mithras.liquidity.application.risk.CapitalInflowApplicationService;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.api.common.R;
@@ -9,7 +9,7 @@ import cn.zswltech.mithras.foundation.auth.aop.DataAuthCheck;
 import cn.zswltech.mithras.liquidity.application.auth.LiquidityRiskViewMainAuthChecker;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
-import cn.zswltech.mithras.liquidity.application.liquidityrisk.CapitalInflowService;
+import cn.zswltech.mithras.liquidity.application.risk.CapitalInflowService;
 import cn.zswltech.mithras.application.orchestration.liquidity.risk.CapitalOutflowService;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import lombok.extern.slf4j.Slf4j;
