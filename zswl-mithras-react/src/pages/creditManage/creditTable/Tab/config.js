@@ -8,7 +8,6 @@ import BaoZheng from '@/pages/creditManage/creditTable/Tab/BaoZheng'
 import DiYa from '@/pages/creditManage/creditTable/Tab/DiYa'
 import ZhiYa from '@/pages/creditManage/creditTable/Tab/ZhiYa'
 
-import { formatAmountWan } from '@/components/Format'
 
 export const tabList = [
   {
@@ -58,17 +57,4 @@ export const tabList = [
   },
 ]
 
-export const CREATETABLE_PARAMS = 'CREATETABLE_PARAMS'
-
-export const AmountFormat = (value) => {
-  return formatAmountWan(value)
-}
-
-export const getHeaderWithFunctionCode = ({ channel, humpPath }) => {
-  const functionCode = ['PROC', 'EDIT'].includes(channel) ? humpPath : humpPath + 'Effect'
-  return {
-    headers: {
-      functionCode,
-    },
-  }
-}
+export { CREATETABLE_PARAMS, AmountFormat, getHeaderWithFunctionCode } from '@/components/CreditManage/CreditTableConfig'

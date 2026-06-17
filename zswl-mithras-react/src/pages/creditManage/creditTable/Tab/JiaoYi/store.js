@@ -4,7 +4,7 @@ import { message } from 'antd'
 import {
   CREATETABLE_PARAMS,
   getHeaderWithFunctionCode,
-} from '@/pages/creditManage/creditTable/Tab/config'
+} from '@/components/CreditManage/CreditTableConfig'
 import Api from './api'
 
 class Store {

@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { DatePicker, Input } from 'antd'
 import { useState, useEffect } from 'react'
-import { getHeaderWithFunctionCode } from '@/pages/creditManage/creditTable/Tab/config'
+import { getHeaderWithFunctionCode } from '@/components/CreditManage/CreditTableConfig'
 import Api from '@/api/credit/creditTableLevel5'
 import { compareTableData } from '@/utils'
 

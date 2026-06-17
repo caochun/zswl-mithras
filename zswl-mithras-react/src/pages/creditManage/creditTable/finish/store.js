@@ -1,7 +1,7 @@
 import { TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { timeSecondFormat } from '@/utils'
-import { getHeaderWithFunctionCode } from '@/pages/creditManage/creditTable/Tab/config'
+import { getHeaderWithFunctionCode } from '@/components/CreditManage/CreditTableConfig'
 import Api from '@/api/credit/creditTableFinish'
 
 class Store {

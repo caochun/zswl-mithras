@@ -6,7 +6,7 @@ import Tab from '@/pages/creditManage/creditTable/Tab'
 import BatchView from '@/pages/creditManage/creditTable/finish/View/Batch'
 import AccountView from '@/pages/creditManage/creditTable/finish/View/Account'
 import Store from './store'
-import { CREATETABLE_PARAMS } from '@/pages/creditManage/creditTable/Tab/config'
+import { CREATETABLE_PARAMS } from '@/components/CreditManage/CreditTableConfig'
 import Export from '@/components/Actions/Export'
 import Api from '@/api/credit/creditTable'
 

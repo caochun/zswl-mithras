@@ -5,7 +5,7 @@ import { timeFormat, hasValue } from '@/utils'
 import {
   CREATETABLE_PARAMS,
   getHeaderWithFunctionCode,
-} from '@/pages/creditManage/creditTable/Tab/config'
+} from '@/components/CreditManage/CreditTableConfig'
 import Api from './api'
 import _ from 'lodash'
 
