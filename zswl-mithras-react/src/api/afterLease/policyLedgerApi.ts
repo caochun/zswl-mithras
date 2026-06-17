@@ -40,6 +40,9 @@ export default {
   // 待维护保单项目导出
   getProjExport: (params: Types.ProjExportRequest): Promise<Types.ProjExportResponse> =>
     http.get('/maintenance/policy/proj/export', { params, mock, type: 'download' }),
+
+  // 付款申请详情
+  getPaymentDetail: (params: any): Promise<any> => http.post('/payment/detail', params, { mock }),
 }
 
 /* prettier-ignore-end */

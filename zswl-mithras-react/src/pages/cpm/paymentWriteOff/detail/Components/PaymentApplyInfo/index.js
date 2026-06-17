@@ -3,7 +3,6 @@ import ALL_COLUMNS from './Column'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useRef, useEffect, useState } from 'react'
-import policyManageApi from '@/pages/afterLease/policyManage/api'
 
 function Index({ detail, saveData, canEdit = false }) {
   const isZhiZu = detail.leaseTypeCode === 'zhi_zu'

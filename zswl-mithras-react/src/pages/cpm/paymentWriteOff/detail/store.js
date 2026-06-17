@@ -4,7 +4,7 @@ import { message } from 'antd'
 import moment from 'moment'
 import Api from './api'
 import paymentApi from '../api'
-import policyManageApi from '@/pages/afterLease/policyManage/api'
+import policyLedgerApi from '@/api/afterLease/policyLedgerApi'
 import { CloseOutlined } from '@ant-design/icons'
 class Store {
   constructor() {
@@ -16,7 +16,7 @@ class Store {
     request: async (params) => {
       const res = await Promise.all([
         Api.getPaymentWriteoffDetail(params),
-        policyManageApi.getPaymentDetail({ id: params.paymentId }),
+        policyLedgerApi.getPaymentDetail({ id: params.paymentId }),
       ])
       const [writeOffDetail = {}, detail = {}] = res
       return { ...writeOffDetail, ...detail }
