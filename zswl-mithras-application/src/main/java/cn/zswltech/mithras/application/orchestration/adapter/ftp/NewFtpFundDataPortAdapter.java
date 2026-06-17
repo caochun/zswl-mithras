@@ -24,10 +24,10 @@ import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingBaseInf
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlan;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPlanLib;
 import cn.zswltech.mithras.fund.persistence.model.financing.FundFinancingPledgeInfo;
-import cn.zswltech.mithras.ftp.newftp.service.port.DirectFinancingCostSample;
-import cn.zswltech.mithras.ftp.newftp.service.port.GuaranteeCostSample;
-import cn.zswltech.mithras.ftp.newftp.service.port.IndirectFinancingCostSample;
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpFundDataPort;
+import cn.zswltech.mithras.ftp.newftp.application.port.model.DirectFinancingCostSample;
+import cn.zswltech.mithras.ftp.newftp.application.port.model.GuaranteeCostSample;
+import cn.zswltech.mithras.ftp.newftp.application.port.model.IndirectFinancingCostSample;
+import cn.zswltech.mithras.ftp.newftp.application.port.NewFtpFundDataPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 

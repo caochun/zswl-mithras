@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.application.orchestration.adapter.ftp;
 
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpFileTemplatePort;
+import cn.zswltech.mithras.ftp.newftp.application.port.NewFtpFileTemplatePort;
 import cn.zswltech.mithras.document.file.template.FileTemplateService;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.ftp.newftp.service.port;
+package cn.zswltech.mithras.ftp.newftp.application.port;
+
+import cn.zswltech.mithras.ftp.newftp.application.port.model.NewFtpProcessInfo;
 
 import java.time.LocalDate;
 

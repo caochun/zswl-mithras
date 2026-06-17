@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.oldftp.service.port;
+package cn.zswltech.mithras.ftp.oldftp.application.port.model;
 
 import lombok.Data;
 

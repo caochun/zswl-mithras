@@ -15,8 +15,8 @@ import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.CurrentUserOrgResolver;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpBusinessModule;
 import cn.zswltech.mithras.ftp.newftp.enums.NewFtpWorkflowKey;
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpProcessInfo;
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpWorkflowPort;
+import cn.zswltech.mithras.ftp.newftp.application.port.model.NewFtpProcessInfo;
+import cn.zswltech.mithras.ftp.newftp.application.port.NewFtpWorkflowPort;
 import cn.zswltech.mithras.workflow.flow.util.FlowUtil;
 import org.springframework.stereotype.Component;
 

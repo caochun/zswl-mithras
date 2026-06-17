@@ -14,7 +14,7 @@ import cn.zswltech.mithras.foundation.constant.VersionTypeConstants;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.util.StringUtil;
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpCustomerFactPort;
+import cn.zswltech.mithras.ftp.newftp.application.port.NewFtpCustomerFactPort;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpBusinessVersion;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

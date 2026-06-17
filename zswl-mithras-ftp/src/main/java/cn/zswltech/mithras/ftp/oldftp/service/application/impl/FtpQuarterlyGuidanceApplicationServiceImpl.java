@@ -28,7 +28,7 @@ import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceVersionService;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceService;
-import cn.zswltech.mithras.ftp.oldftp.service.port.FtpGuidanceProcessInfo;
+import cn.zswltech.mithras.ftp.oldftp.application.port.model.FtpGuidanceProcessInfo;
 import cn.zswltech.mithras.foundation.port.AdminAuthResolver;
 import cn.zswltech.mithras.foundation.port.CurrentUserDeptResolver;
 import org.springframework.dao.DuplicateKeyException;

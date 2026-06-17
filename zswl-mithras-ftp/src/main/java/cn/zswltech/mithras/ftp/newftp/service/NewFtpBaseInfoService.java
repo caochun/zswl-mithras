@@ -37,8 +37,8 @@ import cn.zswltech.mithras.ftp.newftp.service.draft.NewFtpTreasuryBondYieldDraft
 import cn.zswltech.mithras.ftp.newftp.service.lib.*;
 import cn.zswltech.mithras.ftp.newftp.service.config.*;
 import cn.zswltech.mithras.ftp.newftp.service.draft.*;
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpProcessInfo;
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpWorkflowPort;
+import cn.zswltech.mithras.ftp.newftp.application.port.model.NewFtpProcessInfo;
+import cn.zswltech.mithras.ftp.newftp.application.port.NewFtpWorkflowPort;
 import cn.zswltech.mithras.basedata.util.DateUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

@@ -33,7 +33,7 @@ import cn.zswltech.mithras.ftp.newftp.service.NewFtpBaseInfoService;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpMonthlyGuidanceTemplateConfigService;
 import cn.zswltech.mithras.ftp.newftp.service.config.NewFtpParameterSettingConfigService;
 import cn.zswltech.mithras.ftp.newftp.service.lib.NewFtpMonthlyGuidanceLibService;
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpFileTemplatePort;
+import cn.zswltech.mithras.ftp.newftp.application.port.NewFtpFileTemplatePort;
 import cn.zswltech.mithras.foundation.util.LongUtil;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.alibaba.excel.EasyExcel;

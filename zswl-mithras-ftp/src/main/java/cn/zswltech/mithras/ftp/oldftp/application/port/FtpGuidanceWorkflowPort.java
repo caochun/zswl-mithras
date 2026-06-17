@@ -1,4 +1,6 @@
-package cn.zswltech.mithras.ftp.oldftp.service.port;
+package cn.zswltech.mithras.ftp.oldftp.application.port;
+
+import cn.zswltech.mithras.ftp.oldftp.application.port.model.FtpGuidanceProcessInfo;
 
 public interface FtpGuidanceWorkflowPort {
 

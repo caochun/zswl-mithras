@@ -13,7 +13,7 @@ import cn.zswltech.mithras.document.persistence.model.MaterialsList;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpMonthlyGuidanceService;
 import cn.zswltech.mithras.ftp.oldftp.service.FtpQuarterlyGuidanceService;
-import cn.zswltech.mithras.ftp.oldftp.service.port.FtpGuidanceProcessInfo;
+import cn.zswltech.mithras.ftp.oldftp.application.port.model.FtpGuidanceProcessInfo;
 import cn.zswltech.mithras.application.orchestration.document.materialsfile.MaterialsListService;
 import cn.zswltech.mithras.system.user.SysUserService;
 import org.apache.commons.collections.CollectionUtils;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.newftp.service.port;
+package cn.zswltech.mithras.ftp.newftp.application.port;
 
 import cn.zswltech.mithras.dto.newftp.FtpAssessInfo;
 import cn.zswltech.mithras.dto.newftp.NewFtpInterestChangeApplySaveREQ;

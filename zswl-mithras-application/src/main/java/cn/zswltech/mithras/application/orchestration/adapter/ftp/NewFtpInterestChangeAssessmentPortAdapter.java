@@ -10,7 +10,7 @@ import cn.zswltech.mithras.dto.newftp.NewFtpInterestChangeApplySaveREQ;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.foundation.port.ClientNameResolver;
-import cn.zswltech.mithras.ftp.newftp.service.port.NewFtpInterestChangeAssessmentPort;
+import cn.zswltech.mithras.ftp.newftp.application.port.NewFtpInterestChangeAssessmentPort;
 import cn.zswltech.mithras.payment.enums.PaymentStatusEnum;
 import cn.zswltech.mithras.payment.mapper.FtpAssessmentInfoMapper;
 import cn.zswltech.mithras.payment.mapper.PaymentBaseInfoMapper;
