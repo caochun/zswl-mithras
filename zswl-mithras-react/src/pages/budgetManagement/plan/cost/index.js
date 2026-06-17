@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Page, Table } from '@zswl/components'
 import { useMemo } from 'react'
 import Store from './store'
-import ALL_COLUMNS from '@/pages/budgetManagement/plan/profit/Column'
+import ALL_COLUMNS from '@/components/BudgetManagement/PlanColumns'
 import { getTableColumns } from '@/utils'
 
 const nameColumns = [
