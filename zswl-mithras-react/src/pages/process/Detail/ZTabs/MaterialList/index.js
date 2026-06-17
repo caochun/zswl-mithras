@@ -3,8 +3,8 @@ import Store from './store'
 import { Spin } from 'antd'
 import { observer, getQuery } from '@zswl/admin'
 import { useFlowData } from '@/utils/processFlow'
-import ClientFileTable from '../../../../project/review/detail/Data/ClientFileTable'
-import DataTable from '../../../../project/review/detail/Data/DataTable'
+import ClientFileTable from '@/components/Project/ReviewDetail/Data/ClientFileTable'
+import DataTable from '@/components/Project/ReviewDetail/Data/DataTable'
 
 //项目评审创建、项目评审更新资料清单选项卡
 const MaterialList = () => {
