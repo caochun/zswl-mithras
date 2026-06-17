@@ -6,7 +6,7 @@ import PaymentModal from './PaymentModal'
 import styles from '../../index.less'
 import { useMemo, useState } from 'react'
 import { Tabs } from 'antd'
-import BillManage from '@/pages/cpm/Components/BillManage'
+import BillManage from '@/components/Cpm/BillManage'
 import BankAccount from '@/components/Form/BankAccount'
 import WriteOffModal from './WriteOffModal'
 import { saveServer } from '@/utils'
@@ -228,11 +228,11 @@ const PaymentTable = ({ store, isFormApproval, canEdit, pagePage, taskActivityId
           (!isFormApproval || isProcessQueryPage) && {
             key: '2',
             label: '已确认',
-            children: <Table   
+            children: <Table
                         columnsFilter={'detail_Components_RecordList_2'}
-                        onFilter={(key,val) => saveServer('detail_Components_RecordList_2',val)} 
-                        resizable 
-                        store={store.confirmTable} columns={[...columns]} 
+                        onFilter={(key,val) => saveServer('detail_Components_RecordList_2',val)}
+                        resizable
+                        store={store.confirmTable} columns={[...columns]}
                       />,
           },
           (!isFormApproval || isProcessQueryPage) && {
