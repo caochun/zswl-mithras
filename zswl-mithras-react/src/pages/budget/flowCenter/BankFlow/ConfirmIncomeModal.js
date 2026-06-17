@@ -4,7 +4,7 @@ import { Button, Form, Modal, Select } from '@zswl/components'
 import { Tag, Space } from 'antd'
 import FormAmount from '@/components/Form/FormAmount'
 import { ClientSelect, OrgTreeSelect } from '@/components'
-import contractApi from '@/pages/contract/list/api'
+import contractApi from '@/api/contract/baseInfo'
 import { amountFormat, formatPercent } from '@/utils'
 import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcessingCenterApi'
 

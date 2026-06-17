@@ -6,7 +6,7 @@ import FormListItem from './FormListItem'
 import styles from './index.less'
 import Api from '@/api/groupCredit/common'
 import { useEffect, useState } from 'react'
-import contractApi from '@/pages/contract/list/api'
+import contractApi from '@/api/contract/baseInfo'
 import { saveServer } from '@/utils'
 
 function Index({ store }) {

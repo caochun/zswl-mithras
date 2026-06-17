@@ -9,7 +9,7 @@ import {
 } from '@/components/Format'
 import { Input, InputNumber } from 'antd'
 import common from '@/api/groupCredit/common'
-import contractApi from '@/pages/contract/list/api'
+import contractApi from '@/api/contract/baseInfo'
 import trackingApi from '@/api/lease/trackingApi'
 import { App } from '@zswl/components'
 

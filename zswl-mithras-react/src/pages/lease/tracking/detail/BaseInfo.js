@@ -5,7 +5,7 @@ import { observer } from '@zswl/admin'
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { Form, Select } from '@zswl/components'
 import trackingApi from '@/api/lease/trackingApi'
-import contractApi from '@/pages/contract/list/api'
+import contractApi from '@/api/contract/baseInfo'
 import common from '@/api/groupCredit/common'
 import _ from 'lodash'
 
