@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import Store from './store'
 import { Spin } from 'antd'
 import { observer, getQuery } from '@zswl/admin'
-import { useFlowData } from '@/pages/process/Detail/Context'
+import { useFlowData } from '@/utils/processFlow'
 import ClientFileTable from '../../../../project/review/detail/Data/ClientFileTable'
 import DataTable from '../../../../project/review/detail/Data/DataTable'
 

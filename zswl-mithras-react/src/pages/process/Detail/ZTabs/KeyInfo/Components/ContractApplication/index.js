@@ -4,7 +4,7 @@ import { AmountColumn, AmountFormatter } from '@/components/Format'
 import { compareDetail, getEnumFlatObjByType } from '@/utils'
 import { useEffect, useState } from 'react'
 import { bizTypePriceDetailMap } from '@/pages/contract/list/bizType.config'
-import { useFlowData } from '@/pages/process/Detail/Context'
+import { useFlowData } from '@/utils/processFlow'
 import Api from './api'
 
 export const bizRender = (val, record) => {

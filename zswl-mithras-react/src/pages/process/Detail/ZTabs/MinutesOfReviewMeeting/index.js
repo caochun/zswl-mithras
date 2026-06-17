@@ -13,7 +13,7 @@ import ApprovalConditions from './Components/ApprovalConditions'
 import CreditStructure from './Components/CreditStructure'
 import Remark from './Components/Remark'
 import { Form, App } from '@zswl/components'
-import { useFlowData } from '@/pages/process/Detail/Context'
+import { useFlowData } from '@/utils/processFlow'
 import Store from './store'
 
 const Index = ({ detailData, projReviewType = 'PROJ_REVIEW_BASE', contentType = 'page' }) => {
