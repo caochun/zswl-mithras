@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Api from './api'
+import Api from '@/api/customer/maintainApi'
 const useGetRegion = () => {
   const [region, setRegion] = useState([])
   const getRegion = () => {

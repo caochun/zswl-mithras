@@ -2,7 +2,7 @@ import { TableStore, Modal, ModalStore, PageStore } from '@zswl/components'
 import { makeAutoObservable, history, setSessionStorage, getSessionStorage } from '@zswl/admin'
 import { message } from 'antd'
 import qs from 'query-string'
-import Api from './api'
+import Api from '@/api/customer/maintainApi'
 
 class DataStore {
   constructor() {

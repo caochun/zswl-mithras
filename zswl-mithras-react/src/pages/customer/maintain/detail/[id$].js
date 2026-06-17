@@ -7,7 +7,7 @@ import Basic from './Basic'
 import Store from './store'
 import { observer, getQuery } from '@zswl/admin'
 import EvaluationInfo from './EvaluationInfo'
-import CheckBusiness from './CheckBusiness'
+import CheckBusiness from '@/components/Customer/CheckBusiness'
 import CreditModal from '@/components/Credit/CreditSearchModal'
 
 const { TabPane } = Tabs

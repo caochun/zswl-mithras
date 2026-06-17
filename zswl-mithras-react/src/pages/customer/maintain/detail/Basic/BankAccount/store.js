@@ -1,6 +1,6 @@
 import { makeAutoObservable, getQuery } from '@zswl/admin'
 import { TableStore, ModalStore, Modal } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/customer/maintainApi'
 import detailStore from '../../store'
 import { message } from 'antd'
 import { getIsClientDetailParams } from '@/utils/customer'

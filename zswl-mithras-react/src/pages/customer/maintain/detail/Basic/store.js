@@ -1,7 +1,7 @@
 import { TableStore, ModalStore, Modal, FormStore, App, PageStore } from '@zswl/components'
 import { makeAutoObservable, setSessionStorage, getSessionStorage } from '@zswl/admin'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/customer/maintainApi'
 import moment from 'moment'
 import shareholderStore from './Shareholders/store'
 import enterpriseStore from './Enterprises/store'

@@ -2,7 +2,7 @@ import { Form, Modal, Input } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { ApiSelect, FounderSelect } from '@/components'
 import { getUserInfo } from '@/utils'
-import Api from '../api'
+import Api from '@/api/customer/maintainApi'
 
 const HandoverModal = ({ store }) => {
   return (

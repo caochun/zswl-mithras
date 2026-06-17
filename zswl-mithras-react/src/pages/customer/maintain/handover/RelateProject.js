@@ -5,7 +5,7 @@ import { observer } from '@zswl/admin'
 import { Select, Table, TableStore } from '@zswl/components'
 import { Tooltip } from 'antd'
 import { useMemo } from 'react'
-import Api from '../api'
+import Api from '@/api/customer/maintainApi'
 
 export const childColumns = (hasProjCodeContractCode) => [
   {

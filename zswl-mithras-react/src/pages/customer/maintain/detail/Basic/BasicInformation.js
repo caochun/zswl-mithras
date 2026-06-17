@@ -3,7 +3,7 @@ import { Descriptions, Input } from 'antd'
 import { Select, Form } from '@zswl/components'
 import { observer, getQuery } from '@zswl/admin'
 import styles from './index.less'
-import Api from './api'
+import Api from '@/api/customer/maintainApi'
 import { getAge } from '@/utils/base'
 
 const BasicInformation = ({ id, clientType, save, store, startUserId, businessVersion }) => {

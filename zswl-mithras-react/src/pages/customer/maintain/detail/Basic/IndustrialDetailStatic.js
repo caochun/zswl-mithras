@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Descriptions, Space, Tooltip } from 'antd'
 import { observer, getQuery } from '@zswl/admin'
 import { PureAmountFormat } from '@/components/Format'
-import Api from './api'
+import Api from '@/api/customer/maintainApi'
 import styles from './index.less'
 import {
   certTypeList,

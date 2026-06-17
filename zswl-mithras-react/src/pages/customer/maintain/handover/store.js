@@ -2,7 +2,7 @@ import { timeFormat } from '@/utils'
 import { history, makeAutoObservable } from '@zswl/admin'
 import { ModalStore, PageStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
-import localApi from './api'
+import localApi from '@/api/customer/maintainApi'
 
 class Store {
   constructor(initData) {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Descriptions } from 'antd'
 import { observer, getQuery } from '@zswl/admin'
 import styles from './index.less'
-import Api from './api'
+import Api from '@/api/customer/maintainApi'
 import { certTypeList, clientTypeList, genderTypeList, marriageTypeList } from '../general'
 
 const BasicInformation = ({ id, clientType, save, startUserId, businessVersion, store }) => {
