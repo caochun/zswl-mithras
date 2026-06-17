@@ -1,6 +1,6 @@
 import { TableStore, Modal, ModalStore, App } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/budgetManagement/assessmentApi'
 import dayjs from 'dayjs'
 const { getData } = App
 class Store {

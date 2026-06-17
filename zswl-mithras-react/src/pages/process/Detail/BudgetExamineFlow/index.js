@@ -1,4 +1,4 @@
-import BudgetExamineFlow from '@/pages/budgetManagement/assessment/detail/[id$].js'
+import BudgetExamineFlow from '@/components/BudgetManagement/AssessmentDetail'
 import { observer } from '@zswl/admin'
 
 const ProjectReview = (props) => {
