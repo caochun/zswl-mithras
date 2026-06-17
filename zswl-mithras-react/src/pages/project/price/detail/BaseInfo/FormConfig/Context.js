@@ -1,5 +1,5 @@
 import { App } from '@zswl/components'
-import Api from '@/pages/project/review/detail/api'
+import Api from '@/api/project/projReviewDetail'
 
 // 当风控行业分类=公用事业类、民生消费类、旅游行业时在“地区分类”后增加需维护字段“区域划分”，下拉选择框，枚举值：浙江地区、一类地区、二类地区，
 export const isShowProjRegionalDivision = (detail) => {

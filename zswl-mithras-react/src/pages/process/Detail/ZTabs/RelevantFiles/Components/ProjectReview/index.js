@@ -2,7 +2,7 @@ import { Collapse } from '@/components'
 import { getQuery } from '@zswl/admin'
 import Report from '@/pages/project/review/detail/Report'
 import Data from '@/pages/project/review/detail/Data'
-import Api from '@/pages/project/review/detail/api'
+import Api from '@/api/project/projReviewDetail'
 import BlankBlock from '@/pages/process/components/BlankBlock'
 import { useEffect, useState } from 'react'
 

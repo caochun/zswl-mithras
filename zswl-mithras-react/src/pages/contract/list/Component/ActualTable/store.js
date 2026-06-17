@@ -4,7 +4,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { FormStore, ModalStore } from '@zswl/components'
 import { message } from 'antd'
 import Api from './api'
-import DetailApi from '@/pages/contract/list/detail/api'
+import DetailApi from '@/api/contract/contractDetail'
 
 class Store {
   constructor({

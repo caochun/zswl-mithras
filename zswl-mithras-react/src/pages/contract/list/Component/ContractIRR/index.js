@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { InputNumber } from 'antd'
 import { makeAutoObservable, observer } from '@zswl/admin'
-import Api from '@/pages/contract/list/detail/api'
+import Api from '@/api/contract/contractDetail'
 
 class ContractIrrStore {
   loading = false

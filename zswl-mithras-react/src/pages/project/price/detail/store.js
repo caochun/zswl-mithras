@@ -6,7 +6,7 @@ import { compareDetail, formScrollToField, hasValue } from '@/utils'
 import cashApi from '@/api/project/projectPriceCashflow'
 import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
 import mathjs from '@/utils/math'
-import reviewApi from '@/pages/project/review/detail/api'
+import reviewApi from '@/api/project/projReviewDetail'
 
 class Store {
   constructor() {
