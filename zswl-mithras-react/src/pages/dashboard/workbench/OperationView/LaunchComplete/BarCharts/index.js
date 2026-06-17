@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { MultiBar } from '@zswl/charts'
-import { getChartsTooltip } from '@/pages/dashboard/workbench/utils'
+import { getChartsTooltip } from '@/utils/dashboard'
 import { formatDepartName } from '../../utils'
 
 const Index = ({ store }) => {

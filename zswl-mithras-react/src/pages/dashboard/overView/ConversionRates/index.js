@@ -1,5 +1,5 @@
 import ConversionRates from '@/pages/dashboard/workbench/OperationView/ConversionRates'
-import { initYearQueryDate } from '@/pages/dashboard/workbench/OperationView/utils'
+import { initYearQueryDate } from '@/utils/dashboardOperation'
 
 const Index = ({ title }) => {
   return (

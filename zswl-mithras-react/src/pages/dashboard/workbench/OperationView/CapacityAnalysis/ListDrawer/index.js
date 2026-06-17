@@ -7,7 +7,7 @@ import { columnsFilterKey } from '@/pages/dashboard/workbench/OperationView/Conf
 import { ExportBtn, TableSummary } from '@/pages/dashboard/workbench/components'
 import { COMMON_COLUMNS } from '@/pages/dashboard/workbench/OperationView/Column'
 import Api from '../api'
-import { initQueryDate, initProjStage } from '@/pages/dashboard/workbench/OperationView/utils'
+import { initQueryDate, initProjStage } from '@/utils/dashboardOperation'
 import { saveServer } from '@/utils'
 
 const groupName = '产能分析详情'

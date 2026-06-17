@@ -10,7 +10,7 @@ import Store from './Store'
 import { useMemo } from 'react'
 import { amountFormat, hasValue } from '@/utils'
 import Level5ClassifyDrawer from './Level5ClassifyDrawer'
-import { canSeeDetailFn } from '@/pages/dashboard/overView/utils'
+import { canSeeDetailFn } from '@/utils/dashboard'
 import { saveServer } from '@/utils'
 
 const levelColor = {

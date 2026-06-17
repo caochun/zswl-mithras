@@ -7,7 +7,7 @@ import {
   formatQueryDate,
   sameYearQueryDate,
   lineSeriesItem,
-} from '@/pages/dashboard/workbench/OperationView/utils'
+} from '@/utils/dashboardOperation'
 import Api from './api'
 
 class Store {

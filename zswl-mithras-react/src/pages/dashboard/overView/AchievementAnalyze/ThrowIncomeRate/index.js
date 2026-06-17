@@ -6,7 +6,7 @@ import BarCharts from './BarCharts'
 import Store from './Store'
 import ListDrawer from './ListDrawer'
 import { useMemo, useEffect } from 'react'
-import { canSeeDetailFn } from '@/pages/dashboard/overView/utils'
+import { canSeeDetailFn } from '@/utils/dashboard'
 
 const Index = () => {
   const store = useMemo(() => new Store(), [])

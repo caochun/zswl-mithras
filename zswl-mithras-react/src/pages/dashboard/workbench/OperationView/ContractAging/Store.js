@@ -1,6 +1,6 @@
 import { DrawerStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import { initYearQueryDate, formatQueryDate } from '@/pages/dashboard/workbench/OperationView/utils'
+import { initYearQueryDate, formatQueryDate } from '@/utils/dashboardOperation'
 import Api from './api'
 
 class Store {

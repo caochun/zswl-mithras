@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Title } from '@/pages/dashboard/workbench/components'
-import { getUpdateDate } from '@/pages/dashboard/workbench/utils'
+import { getUpdateDate } from '@/utils/dashboard'
 import { Tabs, Spin } from 'antd'
 import { useEffect, useMemo } from 'react'
 // import DeptIn from './DeptIn'

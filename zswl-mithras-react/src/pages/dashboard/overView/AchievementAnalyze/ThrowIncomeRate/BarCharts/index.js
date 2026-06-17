@@ -1,12 +1,12 @@
 import { observer } from '@zswl/admin'
 import { MultiBar } from '@zswl/charts'
 import ReactDOMServer from 'react-dom/server'
-import { getChartsTooltip } from '@/pages/dashboard/workbench/utils'
+import { getChartsTooltip } from '@/utils/dashboard'
 import {
   lineSeriesItem,
   RenderTooltip,
   getInterval,
-} from '@/pages/dashboard/workbench/OperationView/utils'
+} from '@/utils/dashboardOperation'
 
 const colors = ['#4575f5', '#b3c8fb', '#AFEDDA']
 
