@@ -13,7 +13,7 @@ import FinancialFund from '@/pages/financial/fund/detail/[id$]'
 import FinancialReportApprovalFlow from '@/pages/financialReport/approval/index.js'
 import KpiPorjectAllocation from '@/pages/kpi/projectAllot/detail/[id$]' // 绩效
 import OverdueListSearch from '@/pages/overdueListSearch/index.js'
-import RentPaymentNotice from '@/pages/process/Detail/RentPaymentNotice' // 租金催收，投放项⽬还款账⼾优化
+import RentPaymentNotice from '../../../Detail/RentPaymentNotice' // 租金催收，投放项⽬还款账⼾优化
 import { observer } from '@zswl/admin'
 import { Button, Page } from '@zswl/components'
 import { useMemo } from 'react'

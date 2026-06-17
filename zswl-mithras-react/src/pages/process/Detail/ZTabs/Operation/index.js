@@ -3,10 +3,10 @@ import { Tag, Card } from 'antd'
 import { Table } from '@zswl/components'
 import styles from './index.less'
 import { observer, ErrorBoundary } from '@zswl/admin'
-import Operator from '@/pages/process/Detail/ZTabs/Operation/Components/Operator'
+import Operator from './Components/Operator'
 import CompleteOperation from './Components/CompleteOperation'
 import ApprovalHistory from '@/components/Process/ApprovalHistory'
-import FlowChart from '@/pages/process/Detail/ZTabs/FlowChart'
+import FlowChart from '../FlowChart'
 import DetailLayout from '@/components/DetailLayout'
 import {
   useFlowData,

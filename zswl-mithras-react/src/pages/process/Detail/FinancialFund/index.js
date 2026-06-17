@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import FundFinancingFundDetail from '@/pages/financial/fund/detail/[id$]'
 import FundFinancingFundChange from '@/pages/financial/fund/change/[id$]'
 import FinancialDirect from '@/pages/financial/direct/detail/[id$]'
-import FinancingRepayPlanConfirmFlow from '@/pages/process/application/detail/PrepareDetail/Component/FinancingRepayPlanConfirmFlow'
+import FinancingRepayPlanConfirmFlow from '../../application/detail/PrepareDetail/Component/FinancingRepayPlanConfirmFlow'
 import FundFilingMaterialsApply from '@/pages/fillingMaterialsDetail/fundFilingMaterialsApply/index'
 import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterestFlow/index'
 const Index = (props) => {
