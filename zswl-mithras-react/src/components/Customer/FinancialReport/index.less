@@ -1,0 +1,66 @@
+.financialSheets {
+  position: relative;
+  &::after,
+  .searchWrap::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .operation {
+    position: absolute;
+    right: 0px;
+    top: -60px;
+  }
+  .financialWrap::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .sheets,
+  .searchBar {
+    float: left;
+  }
+  .operationBtn,
+  .settingOutlined {
+    float: right;
+  }
+  .settingOutlined {
+    padding-top: 9px;
+  }
+
+  .subjectName {
+    width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  :global(.ant-divider) {
+    display: none;
+  }
+  :global(.ant-upload-list) {
+    display: none;
+  }
+  :global(.ant-checkbox-wrapper) {
+    min-width: auto !important;
+  }
+  :global(.ant-btn-primary) {
+    min-width: auto !important;
+  }
+  // :global(.ant-select.ant-select-in-form-item) {
+  //   width: 80% !important;
+  // }
+}
+.tableWrap {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+}
+.tableCell {
+  position: relative;
+  .tableCell_remove {
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    cursor: pointer;
+  }
+}

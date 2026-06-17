@@ -1,11 +1,11 @@
 // 财务报表
 import React, { useMemo } from 'react'
-import { Table, Card, Tabs } from 'antd'
+import { Tabs } from 'antd'
 import styles from '../style.less'
-import Debt from '@/pages/customer/maintain/detail/Financial/Debt'
-import Profit from '@/pages/customer/maintain/detail/Financial/Profit'
-import Cash from '@/pages/customer/maintain/detail/Financial/Cash'
-import Store from '@/pages/customer/maintain/detail/Financial/store'
+import Debt from '@/components/Customer/FinancialReport/Debt'
+import Profit from '@/components/Customer/FinancialReport/Profit'
+import Cash from '@/components/Customer/FinancialReport/Cash'
+import Store from '@/components/Customer/FinancialReport/store'
 import { observer } from '@zswl/admin'
 
 const FinancialReport = ({ id }) => {
