@@ -6,7 +6,7 @@ import QueryReport from './QueryReport'
 import { getKeyOptionsLabelMapPlus, userIsProjSponsor } from '@/utils'
 import Store from './store'
 import styles from './index.less'
-import Public from '@/pages/customer/maintain/detail/Public'
+import Public from '@/components/Customer/ExternalPublicInfo'
 
 const Index = ({ params = {}, query: { canEditFlags = 'true', businessVersion } }) => {
   const store = useMemo(() => {
