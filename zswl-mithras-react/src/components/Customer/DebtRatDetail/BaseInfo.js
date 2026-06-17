@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '@/pages/customer/debtRat/Columns'
+import ALL_COLUMNS from '@/components/Customer/DebtRatColumns'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 
