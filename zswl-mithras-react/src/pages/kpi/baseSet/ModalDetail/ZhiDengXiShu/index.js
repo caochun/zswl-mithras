@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { useRef } from 'react'
 import ModalEditTable from '@/pages/kpi/Component/ModalEditTable'
 import { InputCalcEditable } from '@/components/Format/editable'
-import { formulaData } from '@/pages/kpi/Component/utils'
+import { formulaData } from '@/utils/kpi'
 import { FormulaValueTip } from '@/components'
 import Api from './api'
 

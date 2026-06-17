@@ -3,7 +3,7 @@ import { TableStore, ModalStore, Modal } from '@zswl/components'
 import Api from './api'
 import detailStore from '../../store'
 import { message } from 'antd'
-import { getIsClientDetailParams } from '@/pages/customer/maintain/utils'
+import { getIsClientDetailParams } from '@/utils/customer'
 class Store {
   constructor(id, businessVersion, startUserId) {
     this.clientId = id

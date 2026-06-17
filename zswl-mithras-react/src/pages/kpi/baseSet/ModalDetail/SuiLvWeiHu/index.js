@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { useRef } from 'react'
 import { InputNumberEditable } from '@/components/Format'
 import ModalEditTable from '@/pages/kpi/Component/ModalEditTable'
-import { formulaData } from '@/pages/kpi/Component/utils'
+import { formulaData } from '@/utils/kpi'
 import Api from './api'
 
 const TAX_TYPE_ENMU = {

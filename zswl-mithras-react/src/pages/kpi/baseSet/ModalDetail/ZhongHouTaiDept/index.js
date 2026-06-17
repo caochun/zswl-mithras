@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { useRef } from 'react'
 import ModalEditTable from '@/pages/kpi/Component/ModalEditTable'
 import { InputNumberEditable } from '@/components/Format/editable'
-import { formulaData } from '@/pages/kpi/Component/utils'
+import { formulaData } from '@/utils/kpi'
 import Api from './api'
 
 const Index = ({ baseStore, typeInfo }) => {

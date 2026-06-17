@@ -5,7 +5,7 @@ import { Space } from 'antd'
 import { getTableColumns, getFormColumns, amountFormat, hasValue, formatPercent } from '@/utils'
 import ALL_COLUMNS from '@/pages/risk/riskStrategy/concentrationControl/Column'
 import Api from '@/api/risk/concentrationControl'
-import { TIME_POINT } from '@/pages/risk/riskStrategy/concentrationControl/utils'
+import { TIME_POINT } from '@/utils/risk'
 import { saveServer } from '@/utils'
 
 const nameColumns = [
