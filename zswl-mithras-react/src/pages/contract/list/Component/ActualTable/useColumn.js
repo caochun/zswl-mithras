@@ -1,5 +1,5 @@
 import { FiledFormat, PureAmountFormat } from '@/components/Format'
-import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
+import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
 
 const filedRender = (val, { isAmountFormat, transformResult = (v) => v || '-' } = {}) => {
   const value = val?.value !== undefined ? val?.value : val

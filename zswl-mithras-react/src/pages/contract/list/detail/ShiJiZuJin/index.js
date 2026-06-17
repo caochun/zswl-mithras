@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { observer } from '@zswl/admin'
 import ActualTable from '@/components/Contract/ActualTable'
-import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
+import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
 import { DatePicker, Form } from 'antd'
 import moment from 'moment'
 import ContractIRR from '@/components/Contract/ContractIRR'

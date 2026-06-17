@@ -1,6 +1,6 @@
 import ActualTable from '@/components/Contract/ActualTable'
 import PaymentApply from '@/components/Contract/PaymentApply'
-import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
+import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
 import CantractDetailBaoJia from '@/pages/contract/list/detail/BaoJia'
 import CantractDetailBaseInfo from '@/pages/contract/list/detail/BaseInfo'
 import { formScrollToField, timeFormat } from '@/utils'

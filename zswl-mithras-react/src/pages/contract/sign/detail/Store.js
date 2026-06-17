@@ -3,7 +3,7 @@ import { TableStore, PageStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import Api from '@/api/contract/material'
 import localApi from '../api'
-import { bizTypePriceDetailMap, bizTypePriceModifyMap } from '@/pages/contract/list/bizType.config'
+import { bizTypePriceDetailMap, bizTypePriceModifyMap } from '@/components/Contract/bizTypeConfig'
 import fileListApi from '@/api/common/fileList'
 import { downFile, downUrl, toHump } from '@/utils'
 

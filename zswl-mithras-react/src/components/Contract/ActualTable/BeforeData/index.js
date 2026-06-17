@@ -3,7 +3,7 @@ import { Drawer, Dropdown, Menu } from 'antd'
 import { Table, Button } from '@zswl/components'
 import { DownOutlined } from '@ant-design/icons'
 import RenderColumn from '@/components/RenderColumn'
-import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
+import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
 import styles from '../index.less'
 import { saveServer } from '@/utils'
 

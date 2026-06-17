@@ -16,7 +16,7 @@ import FileDiff from '@/components/FileDiff'
 import { observer } from '@zswl/admin'
 import styles from './index.less'
 import store from './store'
-import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
+import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
 
 const { Panel } = Collapse
 

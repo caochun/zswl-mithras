@@ -5,7 +5,7 @@ import moment from 'moment'
 import { hasValue } from '@/utils'
 import RenderColumn from '@/components/RenderColumn'
 import { saveServer } from '@/utils'
-import { bizTypeMapText } from '@/pages/contract/list/bizType.config'
+import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
 import styles from './index.less'
 
 const { Item } = Form

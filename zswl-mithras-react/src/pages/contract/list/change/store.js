@@ -4,7 +4,7 @@ import { message, Modal } from 'antd'
 import { hasValue, timeFormat, amountStrToNumber, numToFixed } from '@/utils'
 import moment from 'moment'
 import mathjs from '@/utils/math'
-import { bizTypePriceDetailMap } from '@/pages/contract/list/bizType.config'
+import { bizTypePriceDetailMap } from '@/components/Contract/bizTypeConfig'
 import Api from './api'
 
 class Store {

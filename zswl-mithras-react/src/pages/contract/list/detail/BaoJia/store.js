@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { message } from 'antd'
 import mathjs from '@/utils/math'
 import { compareDetail, formatPercent } from '@/utils'
-import { bizTypePriceDetailMap, bizTypePriceModifyMap } from '@/pages/contract/list/bizType.config'
+import { bizTypePriceDetailMap, bizTypePriceModifyMap } from '@/components/Contract/bizTypeConfig'
 import Api from './api'
 import baseInfoApi from '../api'
 
