@@ -4,7 +4,7 @@ import styles from './index.less'
 import LineChart from '@/components/Chart/LineChart'
 import { Space } from 'antd'
 import { useEffect, useState } from 'react'
-import customerViewApi from '@/pages/dashboard/workbench/CustomerView/api'
+import customerViewApi from '@/api/common/customerOverview'
 import dayjs from 'dayjs'
 
 const cardList = [
