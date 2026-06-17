@@ -1,6 +1,1 @@
-import { http } from '@zswl/admin'
-
-export default {
-  getList: (params) => http.post('/kpi/parameterconfig/middlebackdeptassess/get', params, {}),
-  saveList: (params) => http.post('/kpi/parameterconfig/middlebackdeptassess/save', params, {}),
-}
+export { default } from '@/components/Kpi/BaseSetModalDetail/ZhongHouTaiDept/api'
