@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.message;
 
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.foundation.util.StringUtil;
-import cn.zswltech.mithras.message.port.MessageSystemConfigPort;
+import cn.zswltech.mithras.message.application.port.MessageSystemConfigPort;
 import cn.zswltech.mithras.system.mapper.SystemConfigMapper;
 import cn.zswltech.mithras.system.mapper.model.SystemConfig;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;

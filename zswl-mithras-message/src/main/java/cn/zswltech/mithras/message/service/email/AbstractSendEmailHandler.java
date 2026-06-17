@@ -7,7 +7,7 @@ import cn.zswltech.mithras.message.persistence.mapper.EmailSendFailLogMapper;
 import cn.zswltech.mithras.message.persistence.model.EmailSendFailLog;
 import cn.zswltech.mithras.foundation.util.StringUtils;
 import cn.zswltech.mithras.message.client.email.TianyiEmailUtil;
-import cn.zswltech.mithras.message.port.MessageSystemConfigPort;
+import cn.zswltech.mithras.message.application.port.MessageSystemConfigPort;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;

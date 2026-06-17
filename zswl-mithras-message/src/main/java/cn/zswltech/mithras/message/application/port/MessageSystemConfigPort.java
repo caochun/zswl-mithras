@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.message.port;
+package cn.zswltech.mithras.message.application.port;
 
 public interface MessageSystemConfigPort {
 
