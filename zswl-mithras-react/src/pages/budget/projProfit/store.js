@@ -3,7 +3,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import Api from '@/api/kpi/projProfit/projProfit'
 import localApi from './api'
 import { message } from 'antd'
-import setApi from '@/pages/kpi/baseSet/api'
+import setApi from '@/api/kpi/baseSet/parameterConfig'
 import kpiParameterConfigApi from '@/api/kpi/projProfit/kpiParameterConfigApi'
 
 class Store {
