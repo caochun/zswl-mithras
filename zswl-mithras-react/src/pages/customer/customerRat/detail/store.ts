@@ -5,6 +5,7 @@ import { message } from 'antd'
 import moment from 'moment'
 import { scrollToAnchor } from '@/utils/document'
 import ProcessApi from '@/api/process/flowExecution'
+export { getApprovalText, indexCheck } from '@/utils/customerRat'
 
 const formatListJson = (data = {}) => {
   const { values, list } = data
@@ -19,32 +20,6 @@ const formatListJson = (data = {}) => {
     }
   })
 }
-export const getApprovalText = async ({ id }) => {
-  const res = await customerRatApi.postClientReport({ id })
-  const { adjustEventList, historyInfo, qualitativeList = [], quantitativeList = [] } = res
-  const approvalList = [
-    ...qualitativeList,
-    ...quantitativeList,
-    ...adjustEventList.map((v) => ({ ...v, _type: 'adjustEventList' })),
-  ]
-  const notApproval = approvalList
-    .filter((item) => item.approvalStatus === false)
-    .map(({ fieldComment, approvalOpinion, approvalStatus, _type }) => {
-      const approvalStatusText = approvalStatus ? '通过' : '不通过'
-      if (_type === 'adjustEventList') {
-        return `<div>调整项${approvalStatusText}，审批说明：${approvalOpinion ?? '无'};</div>`
-      }
-      return `<div>指标名称：${fieldComment},审批意见：${approvalStatusText}.审批说明：${
-        approvalOpinion ?? '无'
-      };</div>`
-    })
-  return notApproval.join('')
-}
-
-export const indexCheck = async (params) => {
-  await customerRatApi.postIndexCheck(params)
-}
-
 class Store {
   constructor({model}) {
     makeAutoObservable(this)

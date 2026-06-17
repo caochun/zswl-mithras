@@ -1,54 +1,16 @@
-import { validateModal } from '@/utils/modal'
 import { hasValue } from '@/utils'
 import { http, makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
 import { all, create } from 'mathjs'
 import Api from './api'
+export {
+  checkCreditDate,
+  postPayMentCheckApplyAmount,
+  validateAgreen,
+} from '@/utils/paymentApplication'
 
 const mathjs = create(all)
-export const checkCreditDate = async (params, functionCode = 'paymentMeetMinuteCreditDateCheck') => {
-  const { effect } = await Api.checkCreditDate(params, functionCode)
-  return await validateModal(
-    {
-      title: '提示',
-      content: `发起时间超出纪要中的授信到期日，是否继续提交？`,
-    },
-    effect
-  )
-}
-export const validateAgreen = async (params) => {
-  return Api.validateAgreen(params)
-}
-
-export const postPayMentCheckApplyAmount = async (params) => {
-  const result = await Api.postPayMentCheckApplyAmount(params)
-  if ('暂未纳入资金计划，请联系资金经理确认！' === result.tipMessage) {
-    return new Promise(async (resolve, reject) => {
-      if (result.needConfirmTips) {
-        Modal.confirm({
-          title: result.tipMessage,
-          cancelText: '继续提交',
-          okText: '确认',
-          onOk: async () => {
-            reject()
-          },
-          onCancel: async () => {
-            resolve()
-          },
-        })
-      } else {
-        resolve()
-      }
-    })
-  }
-  return await validateModal(
-    {
-      title: result.tipMessage,
-    },
-    result.needConfirmTips
-  )
-}
 
 class Store {
   constructor({ businessVersion } = {}) {
