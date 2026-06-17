@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import MinutesOfReviewMeeting from '@/pages/process/Detail/ZTabs/MinutesOfReviewMeeting'
 import { ModalStore, Modal, Button } from '@zswl/components'
-import Api from '@/pages/process/Detail/ZTabs/MinutesOfReviewMeeting/api'
+import Api from '@/api/project/projReviewMeetingMinute'
 import { message } from 'antd'
 
 const MeetingModal = ({ id, processInstanceId }) => {
