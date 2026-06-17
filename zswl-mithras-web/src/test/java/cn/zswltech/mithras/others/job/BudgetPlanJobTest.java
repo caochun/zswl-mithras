@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.others.service.job;
+package cn.zswltech.mithras.others.job;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;

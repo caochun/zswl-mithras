@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.others.service.job;
+package cn.zswltech.mithras.others.job;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.zswltech.mithras.others.service.ApplicationTest;

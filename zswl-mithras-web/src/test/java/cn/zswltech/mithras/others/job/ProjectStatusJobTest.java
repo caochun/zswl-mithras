@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.others.service.job;
+package cn.zswltech.mithras.others.job;
 
 import cn.zswltech.mithras.projectprocess.job.ProjectStatusJob;
 import cn.zswltech.mithras.web.MithrasApplication;

@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.others.service.job;
+package cn.zswltech.mithras.others.job;
 
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.contract.job.ContractJob;

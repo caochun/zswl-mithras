@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.others.service.job;
+package cn.zswltech.mithras.others.job;
 
 import cn.hutool.core.date.StopWatch;
 import cn.zswltech.mithras.customer.application.client.ClientJobService;

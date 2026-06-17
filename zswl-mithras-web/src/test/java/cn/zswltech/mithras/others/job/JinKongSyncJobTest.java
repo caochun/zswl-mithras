@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.others.service.job;
+package cn.zswltech.mithras.others.job;
 
 import cn.zswltech.mithras.metric.application.job.JinKongSyncJobService;
 import cn.zswltech.mithras.others.service.ApplicationTest;
