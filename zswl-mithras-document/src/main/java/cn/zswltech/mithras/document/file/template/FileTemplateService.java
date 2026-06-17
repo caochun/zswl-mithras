@@ -13,6 +13,8 @@ import cn.zswl.oss.model.OssInfo;
 import cn.zswltech.mithras.dto.file.template.FileTemplateHistoryListREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateListREQ;
 import cn.zswltech.mithras.dto.file.template.FileTemplateUpdateREQ;
+import cn.zswltech.mithras.document.application.port.DocumentDictionaryPort;
+import cn.zswltech.mithras.document.application.port.FileTemplateContractSignPort;
 import cn.zswltech.mithras.document.persistence.mapper.FileAuthenticationConfigMapper;
 import cn.zswltech.mithras.document.persistence.mapper.MaterialsListMapper;
 import cn.zswltech.mithras.document.persistence.mapper.FileTemplateMapper;

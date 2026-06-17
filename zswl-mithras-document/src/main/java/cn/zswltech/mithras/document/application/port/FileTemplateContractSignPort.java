@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.document.file.template;
+package cn.zswltech.mithras.document.application.port;
 
 public interface FileTemplateContractSignPort {
 

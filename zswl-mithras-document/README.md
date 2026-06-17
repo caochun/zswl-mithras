@@ -2,7 +2,7 @@
 
 `zswl-mithras-document` 是文件与文档能力模块，负责材料清单、文件模板、OnlyOffice、OCR、文件迁移、材料版本快照、文件导出和权限配置。
 
-本模块的核心语义是“文件、模板、材料和文档处理能力”。它不应持有具体业务域规则，而应通过 port 获取业务变量、字典和上下文。
+本模块的核心语义是“文件、模板、材料和文档处理能力”。它不应持有具体业务域规则，而应通过 `document.application.port` 下的 port 获取业务变量、字典和上下文。
 
 代码层复核显示，`document` 当前 POM 只依赖 `api`、`foundation` 和框架/文件处理类依赖，模块内 Java import 没有直接指向其他业务域；`oss-toolkit`、MyBatis-Plus、Spring、MapStruct、Swagger、validation、XXL job 等依赖都能在源码中找到实际使用点。直接 `org.mybatis:mybatis` 只为 mapper `@Param` 注解提供显式依赖，已由 MyBatis-Plus starter 传递覆盖并移除。模块内约 59 个 Java 文件，主要分布在 `enums`、`persistence`、`file/template`、`application`、`onlyoffice`、`job` 和 `materialsfile` 等包。
 

@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.document;
 
 import cn.zswltech.mithras.basedata.persistence.mapper.GeneralDictionaryMapper;
 import cn.zswltech.mithras.basedata.persistence.model.GeneralDictionary;
-import cn.zswltech.mithras.document.file.template.DocumentDictionaryPort;
+import cn.zswltech.mithras.document.application.port.DocumentDictionaryPort;
 import cn.zswltech.mithras.foundation.util.StringUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;

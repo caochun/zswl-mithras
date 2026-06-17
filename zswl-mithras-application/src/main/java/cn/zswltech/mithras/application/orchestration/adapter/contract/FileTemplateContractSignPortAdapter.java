@@ -2,7 +2,7 @@ package cn.zswltech.mithras.application.orchestration.adapter.contract;
 
 import cn.zswltech.mithras.contract.mapper.contract.ContractSignInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractSignInfo;
-import cn.zswltech.mithras.document.file.template.FileTemplateContractSignPort;
+import cn.zswltech.mithras.document.application.port.FileTemplateContractSignPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Service;
 

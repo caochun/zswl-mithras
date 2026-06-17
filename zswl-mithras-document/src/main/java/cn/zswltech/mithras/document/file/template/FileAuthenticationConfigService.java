@@ -2,6 +2,7 @@ package cn.zswltech.mithras.document.file.template;
 
 import cn.hutool.core.text.CharSequenceUtil;
 import cn.zswltech.mithras.dto.file.FileAuthenticationConfigREQ;
+import cn.zswltech.mithras.document.application.port.DocumentDictionaryPort;
 import cn.zswltech.mithras.document.enums.OwnerTypeEnum;
 import cn.zswltech.mithras.document.persistence.mapper.FileAuthenticationConfigMapper;
 import cn.zswltech.mithras.document.persistence.model.FileAuthenticationConfig;
@@ -71,5 +72,4 @@ public class FileAuthenticationConfigService extends ServiceImpl<FileAuthenticat
     }
 
 }
-
 
