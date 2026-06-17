@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.policy.job;
 
-import cn.zswltech.mithras.policy.job.service.PolicyJobService;
+import cn.zswltech.mithras.policy.application.port.PolicyJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -12,25 +12,25 @@ import javax.annotation.Resource;
 public class PolicyJob {
 
     @Resource
-    private PolicyJobService policyJobService;
+    private PolicyJobPort policyJobPort;
 
     @XxlJob("policyAddJobHandler")
     public void policyAddJobHandler() {
-        policyJobService.policyAddJobHandler();
+        policyJobPort.policyAddJobHandler();
     }
 
     @XxlJob("policyNoticeHandler")
     public void policyNoticeHandler() {
-        policyJobService.policyNoticeHandler();
+        policyJobPort.policyNoticeHandler();
     }
 
     @XxlJob("policyStartReminderProcessHandler")
     public void policyStartReminderProcessHandler() {
-        policyJobService.policyStartReminderProcessHandler();
+        policyJobPort.policyStartReminderProcessHandler();
     }
 
     @XxlJob("policyNodeAutoCommit")
     public void policyNodeAutoCommit() {
-        policyJobService.policyNodeAutoCommit();
+        policyJobPort.policyNodeAutoCommit();
     }
 }

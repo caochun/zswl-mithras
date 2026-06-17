@@ -14,7 +14,7 @@ import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.message.enums.notice.MessageTypeEnum;
 import cn.zswltech.mithras.message.enums.notice.NoticeSourceENUM;
 import cn.zswltech.mithras.policy.application.info.PolicyInfoSupportService;
-import cn.zswltech.mithras.policy.job.service.PolicyJobService;
+import cn.zswltech.mithras.policy.application.port.PolicyJobPort;
 import cn.zswltech.mithras.policy.persistence.projection.NearPolicyEndTimeProjection;
 import cn.zswltech.mithras.policy.persistence.model.PolicyInfo;
 import cn.zswltech.mithras.projectprocess.model.projreview.ProjReviewBaseInfo;
@@ -43,7 +43,7 @@ import static cn.hutool.json.JSONUtil.toBean;
 
 @Slf4j
 @Component
-public class PolicyJobServiceImpl implements PolicyJobService {
+public class PolicyJobPortAdapter implements PolicyJobPort {
 
     @Resource
     private PolicyInfoService policyInfoService;

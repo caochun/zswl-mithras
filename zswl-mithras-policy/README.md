@@ -6,6 +6,8 @@
 
 当前 Java 层已经通过 `PolicyProjectClientInfoPort`、`PolicyContractInfoPort`、`PolicyOperatorNamePort` 获取外部事实，避免直接依赖 projectprocess、contract、system。原 `PolicyInfoMapper.xml` 中用于保单台账列表的 `ledgerList` 会同时读取正式保单、付款保单、合同和项目字段，本轮已迁出到 application 读侧 `PolicyLedgerQueryMapper`，policy 自身不再承载这条台账聚合 SQL；批量保单号统计 `countPolicyCodes`、`countPolicyCodeNum` 也已迁到同一个 application 读侧 mapper，避免 policy mapper 继续读取付款保单表做校验聚合。
 
+定时任务边界已收敛为 `policy.application.port.PolicyJobPort`。`PolicyJob` 只保留 XXL Job 入口，实际涉及 message、workflow、projectprocess 等跨域协作的任务编排由 application 中的 `PolicyJobPortAdapter` 实现。
+
 需要注意的是 `PolicyInfoMapper.xml` 仍有保单列表 `myList`、到期提醒 `nearPolicyEndTimeList`、付款保单最大到期日 `paymentMaxTimeList`、付款待续保 `listPaymentNeedRenewInsurance` 等查询直接 join `proj_review_base_info`、`payment_policy_info`、`payment_base_info`、`contract_base_info`。这些也属于保单与付款/合同/项目的读模型耦合，但牵涉列表权限、job、续保提醒和付款保单来源关系，后续应分批迁出，不适合一次性硬搬。本轮已删除只有注释引用的 `countPolicyCode` 单值统计 SQL，减少一条无运行时用途的付款表直读。
 
 当前判断是：保持独立，不直接并入 `payment` 或 `contract`。付款阶段保单、合同关联和正式保单有来源关系，但生命周期不同；后续整理重点是把付款保单到正式保单的同步关系明确为接口或事件，并继续把剩余跨域读模型从 policy mapper 收敛到 application 或明确的查询 port。

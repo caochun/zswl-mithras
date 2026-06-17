@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.policy.job.service;
+package cn.zswltech.mithras.policy.application.port;
 
-public interface PolicyJobService {
+public interface PolicyJobPort {
 
     void policyAddJobHandler();
 
