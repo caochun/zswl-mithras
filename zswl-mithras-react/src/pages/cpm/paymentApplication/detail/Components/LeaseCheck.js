@@ -1,7 +1,7 @@
 import EditDescription from '@/components/Table/EditDescription'
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
-import Api from '@/pages/cpm/paymentApplication/detail/api'
+import Api from '@/api/cpm/payment/paymentApplicationDetail'
 
 function Index({ id }) {
   const [detail, setDetail] = useState({})

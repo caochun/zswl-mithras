@@ -2,7 +2,7 @@ import { Descriptions, Tag, Space } from 'antd'
 import { useMemo, useEffect, useState } from 'react'
 import styles from '../index.less'
 import { amountFormat } from '@/utils'
-import Api from '@/pages/cpm/paymentApplication/detail/api'
+import Api from '@/api/cpm/payment/paymentApplicationDetail'
 import TransactionInfo from './TransactionInfo'
 import { BlackInfo } from '@/pages/customer/maintain/detail/Basic/IndustrialDetailStatic'
 
