@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.capital.excel;
+package cn.zswltech.mithras.capital.excel.model;
 
 import cn.zswltech.mithras.foundation.excel.ColumnStyleEnum;
 import cn.zswltech.mithras.foundation.excel.annotation.SimpleExcelHeader;
