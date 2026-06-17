@@ -5,7 +5,7 @@ import PaymentApplicationDetailApi from '@/api/cpm/payment/paymentApplicationDet
 import { uploadFile } from '@/pages/customer/customerRat/detail/OverturnModal'
 import { getApprovalText, indexCheck } from '@/pages/customer/customerRat/detail/store'
 import OtherFilingMaterialsDetailApi from '@/pages/fillingMaterialsDetail/otherFillingMaterialsDetail/api'
-import FinancialReportStatisticsApi from '@/pages/project/review/Components/FinancialReportStatistics/api'
+import FinancialReportStatisticsApi from '@/api/project/projReviewFinancialReport'
 import { history, makeAutoObservable } from '@zswl/admin'
 import { FormStore, Modal, ModalStore } from '@zswl/components'
 import { message } from 'antd'

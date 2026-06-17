@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useState } from 'react'
 import { Modal, Button, Form, App, Table } from '@zswl/components'
 import { Space, Input, Tag } from 'antd'
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons'
-import FinancialReportStatisticsApi from '@/pages/project/review/Components/FinancialReportStatistics/api'
+import FinancialReportStatisticsApi from '@/api/project/projReviewFinancialReport'
 import { groupBy } from 'lodash'
 import { saveServer } from '@/utils'
 

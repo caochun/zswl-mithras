@@ -6,7 +6,7 @@ import { compareDetail, formScrollToField, hasValue } from '@/utils'
 import cashApi from '@/api/project/projectCashflow'
 import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
 import mathjs from '@/utils/math'
-import FinancialReportStatisticsApi from '@/pages/project/review/Components/FinancialReportStatistics/api'
+import FinancialReportStatisticsApi from '@/api/project/projReviewFinancialReport'
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 
 class Store {
