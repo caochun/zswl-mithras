@@ -2,7 +2,7 @@ import EditDescription from '@/components/Table/EditDescription'
 import ALL_COLUMNS from '@/pages/contract/list/Component/PaymentApply/Column'
 import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
-import Api from '@/pages/contract/list/Component/PaymentApply/api'
+import Api from '@/api/cpm/payment/contractPaymentFtp'
 
 const Index = ({ detail, taskStatus, taskActivityId, store }) => {
   const FtpColumns = getDescColumns(ALL_COLUMNS(), [
