@@ -72,6 +72,8 @@ export default {
   // 获取借据列表
   postFinanceRepaySplitWriteoffList: (data) =>
     http.post('/bank/center/finance/repay/split/writeoff/list', data, { mock }),
+  // 银行流水还原至处理中心
+  postBankCenterRestore: (data) => http.post('/bank/center/restore', data, { mock }),
 }
 
 /* prettier-ignore-end */

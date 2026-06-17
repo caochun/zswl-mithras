@@ -16,7 +16,7 @@ import styles from './index.less'
 import { forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { AmountColumn, DateColumn, InputColumn, MatchOptionColumn } from '@/components/Format'
 import { getTableColumns, options } from '@/utils'
-import flowCenterApi from '@/pages/budget/flowCenter/api.js'
+import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
 import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcessingCenterApi'
 import { saveServer } from '@/utils'
 
@@ -312,7 +312,7 @@ function WriteOffModal({ record, detail, actualDetail, store }) {
             billType: 'PAYMENT',
           }
 
-          await flowCenterApi.manualRecord({
+          await flowCenterApi.postManualRecord({
             ...rest,
             billManagementAddREQ,
           })
