@@ -100,123 +100,6 @@ public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, Mar
         return null;
     }
 
-    //    @Transactional(rollbackFor = Throwable.class)
-//    public R<String> update(MarginRecordUpdateREQ req){
-//        MarginRecordInfo recordInfo = marginRecordInfoMapper.selectById(req.getId());
-//        if (MarginWriteOffStatusEnum.IGNORE.name().equals(recordInfo.getWriteOffStatus()) || MarginWriteOffStatusEnum.WRITE_OFF_COMPLETED.name().equals(recordInfo.getWriteOffStatus() )){
-//            return R.fail("核销完毕或忽略状态，不允许操作！");
-//        }
-////        MarginWriteOffRecord writeOffRecord = new MarginWriteOffRecord();
-//        AccountVO loginInfo = AccountUtil.getLoginInfo();
-//        if (Strings.isNotEmpty(req.getWriteOff())){
-//            List<UserDO> user = userDOMapper.queryLikeJobs(JobEnum.financialmanager.name(), Collections.singletonList(loginInfo.getId()));
-//            if (CollectionUtil.isEmpty(user)){
-//                return R.fail("财务经理才能进行核销操作！");
-//            }
-//            if (req.getWriteOff().equals(recordInfo.getWriteOff())){
-//                return R.ok();
-//            }
-//            recordInfo.setWriteOff(req.getWriteOff());
-////            writeOffRecord.setOperate(Optional.ofNullable(req.getWriteOff()).map(MarginWriteOffStatusEnum::of).map(MarginWriteOffStatusEnum::display).orElse(null));
-//            if (req.getWriteOff().equals(MarginWriteOffStatusEnum.WRITTEN_OFF.name()) || req.getWriteOff().equals(MarginWriteOffStatusEnum.IGNORE.name())) {
-//                recordInfo.setWriteOffStatus(MarginWriteOffStatusEnum.TO_BE_REVIEW.name());
-//                recordInfo.setWriteOffUser(loginInfo.getId());
-//            }else if(req.getWriteOff().equals(MarginWriteOffStatusEnum.TO_BE_WRITE_OFF.name()) ){
-//                recordInfo.setWriteOffStatus(MarginWriteOffStatusEnum.TO_BE_WRITE_OFF.name());
-//                recordInfo.setWriteOffUser(null);
-//            }
-//        }
-//        MarginBaseInfo marginBaseInfo = marginBaseInfoMapper.selectById(recordInfo.getMarginId());
-////        writeOffRecord.setMarginId(marginBaseInfo.getId());
-////        writeOffRecord.setRecordId(req.getId());
-//        long marginAmount = marginBaseInfo.getCollectionAmount();
-//        if (Strings.isNotEmpty(req.getReview())){
-//            if (recordInfo.getWriteOffUser() == null){
-//                return R.fail("请先核销！");
-//            }
-//            List<UserDO> user = userDOMapper.queryLikeJobs(JobEnum.cashier.name(), Collections.singletonList(loginInfo.getId()));
-//            if (CollectionUtil.isEmpty(user)){
-//                return R.fail("出纳才能进行复核操作！");
-//            }
-//            if (req.getReview().equals(recordInfo.getReview())){
-//                return R.ok();
-//            }
-//            recordInfo.setReview(req.getReview());
-////            writeOffRecord.setOperate(Optional.ofNullable(req.getReview()).map(MarginWriteOffStatusEnum::of).map(MarginWriteOffStatusEnum::display).orElse(null));
-//            if (req.getReview().equals(MarginWriteOffStatusEnum.REVIEWED.name())) {
-//                if (recordInfo.getWriteOff().equals(MarginWriteOffStatusEnum.WRITTEN_OFF.name())) {
-//                    recordInfo.setWriteOffStatus(MarginWriteOffStatusEnum.WRITE_OFF_COMPLETED.name());
-//                    recordInfo.setCollectionDate(LocalDate.now());
-//                    recordInfo.setReviewUser(loginInfo.getId());
-//                    Long collectionAmount = LongUtil.null2zero(recordInfo.getCollectionAmount());
-//                    if (RecordTypeEnum.COLLECTION.name().equals(recordInfo.getRecordType())){
-//                        marginAmount = marginAmount + collectionAmount;
-//                        marginBaseInfo.setCollectionAmount(marginAmount);
-//                        marginBaseInfo.setCollectionDate(recordInfo.getCollectionDate());
-//                    }else if(RecordTypeEnum.REFUND.name().equals(recordInfo.getRecordType()) && RecordTypeEnum.REFUND_MARGIN.name().equals(recordInfo.getCollectionType())){
-//                        marginAmount = marginAmount - collectionAmount;
-//                        marginBaseInfo.setCollectionAmount(marginAmount);
-//                        marginBaseInfo.setBackAmount(LongUtil.null2zero(marginBaseInfo.getBackAmount())+collectionAmount);
-//                    }else if(RecordTypeEnum.REFUND.name().equals(recordInfo.getRecordType()) && RecordTypeEnum.REFUND_MARGIN_DEDUCT.name().equals(recordInfo.getCollectionType())){
-//                        marginAmount = marginAmount - collectionAmount;
-//                        marginBaseInfo.setCollectionAmount(marginAmount);
-//                        marginBaseInfo.setDeductAmount(LongUtil.null2zero(marginBaseInfo.getDeductAmount())+collectionAmount);
-//                    }
-//                    if (marginBaseInfo.getCollectionAmount() < 0){
-//                        R.fail("退款或抵扣金额不可大于保证金余额！");
-//                    }
-//                    if (recordInfo.getCollectionType().equals(RecordTypeEnum.REFUND_MARGIN_DEDUCT.name())) {
-//                        CollectionRecordInfo info = new CollectionRecordInfo();
-//                        info.setCollectionId(recordInfo.getCollectionId());
-//                        info.setDataSource(String.valueOf(marginBaseInfo.getId()));
-//                        info.setCollectionDate(recordInfo.getCollectionDate());
-//                        info.setCollectionType(RecordTypeEnum.REFUND_MARGIN_DEDUCT.name());
-//                        info.setPostscript(recordInfo.getPostscript());
-//                        info.setCollectionAmount(recordInfo.getCollectionAmount());
-//                        info.setWriteOffStatus(CollectionRecordWriteOffStatus.WRITTEN_OFF.name());
-//                        info.setPrincipal(recordInfo.getDeductPrincipal());
-//                        info.setInterest(recordInfo.getDeductInterest());
-//                        info.setPenaltyInterest(recordInfo.getDeductPenaltyInterest());
-//                        Integer count = collectionRecordInfoMapper.selectCount(Wrappers.<CollectionRecordInfo>lambdaQuery()
-//                                .eq(CollectionRecordInfo::getCollectionId, info.getCollectionId()));
-//                        info.setSortId(count + 1);
-//                        collectionRecordInfoMapper.insert(info);
-//                        CollectionBaseInfo baseInfo = collectionBaseInfoMapper.selectById(recordInfo.getCollectionId());
-//                        collectionRecordInfoService.writeOffRecord(info,baseInfo);
-//                        collectionBaseInfoMapper.updateById(baseInfo);
-//                    }
-//                }else {
-//                    return R.fail("请先联系财务经理核销！");
-//                }
-//            }else if (req.getReview().equals(MarginWriteOffStatusEnum.IGNORE.name())) {
-//                if (recordInfo.getWriteOff().equals(MarginWriteOffStatusEnum.IGNORE.name())){
-//                    recordInfo.setWriteOffStatus(MarginWriteOffStatusEnum.IGNORE.name());
-//                    recordInfo.setReviewUser(loginInfo.getId());
-//                }else {
-//                    return R.fail("请先联系财务经理忽略核销！");
-//                }
-//            }
-//        }
-//        marginRecordInfoMapper.updateById(recordInfo);
-//        if (MarginWriteOffStatusEnum.REVIEWED.name().equals(req.getReview())){
-//            marginBaseInfoMapper.updateById(marginBaseInfo);
-//            ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(marginBaseInfo.getContractId());
-//            if (Objects.equals(contractBaseInfo.getContractStatus(), ContractStatus.START_RENT.name())) {
-//                Integer count = collectionBaseInfoMapper.selectCount(Wrappers.<CollectionBaseInfo>lambdaQuery().eq(CollectionBaseInfo::getContractId, marginBaseInfo.getContractId()).ne(CollectionBaseInfo::getWriteOffStatus, CollectionWriteOffStatusEnum.WRITE_OFF_COMPLETED));
-//                if (count == 0 && marginBaseInfo.getCollectionAmount() <= 0) {
-//                    log.info("保证金核销完毕，通知合同执行结清操作[contractId: {}]", marginBaseInfo.getContractId());
-//                    contractBaseInfoService.contractSettle(marginBaseInfo.getContractId());
-//                }
-//            }
-////            writeOffRecord.setOperateInfo(String.valueOf(marginBaseInfo.getMarginCode()));
-//            }
-////        else {
-////            writeOffRecord.setOperateInfo(String.valueOf(recordInfo.getSortId()));
-////        }
-////        writeOffRecord.setMarginAmount(marginAmount);
-////        marginWriteOffRecordMapper.insert(writeOffRecord);
-//        return R.ok();
-//    }
     @Transactional(rollbackFor = Throwable.class)
     public void financialAdd(MarginRecordInfo info) {
         int count = marginRecordInfoMapper.selectCount(Wrappers.<MarginRecordInfo>lambdaQuery()
@@ -249,9 +132,6 @@ public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, Mar
             marginBaseInfo.setDeductAmount(LongUtil.null2zero(marginBaseInfo.getDeductAmount()) + collectionAmount);
         }
         marginBaseInfoMapper.updateById(marginBaseInfo);
-        //ContractBaseInfo contractBaseInfo = contractBaseInfoService.getById(marginBaseInfo.getContractId());
-        //提前结清不是起租状态了
-        //if (Objects.equals(contractBaseInfo.getContractStatus(), ContractStatus.START_RENT.name())) {
         int count = marginRecordSupportPort.countUnfinishedCollectionsByContractId(marginBaseInfo.getContractId());
         if (marginBaseInfo.getCollectionAmount() <= 0) {
             //保证金核销完成，通知苍穹
@@ -277,7 +157,6 @@ public class MarginRecordService extends ServiceImpl<MarginRecordInfoMapper, Mar
                 marginRecordSupportPort.contractSettle(marginBaseInfo.getContractId());
             }
         }
-        //}
         writeOffRecord.setOperateInfo(String.valueOf(marginBaseInfo.getMarginCode()));
         writeOffRecord.setMarginAmount(marginAmount);
         marginWriteOffRecordMapper.insert(writeOffRecord);
