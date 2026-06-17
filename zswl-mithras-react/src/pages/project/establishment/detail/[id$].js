@@ -9,7 +9,7 @@ import Report from './Report'
 import Store from './store'
 import TipsModal from './TipsModal'
 import DetailLayout from '@/components/DetailLayout'
-import CreditModal from '@/pages/creditManage/search/CreditModal'
+import CreditModal from '@/components/Credit/CreditSearchModal'
 
 const ProjectEstablishmentDetail = ({
   params: { id },

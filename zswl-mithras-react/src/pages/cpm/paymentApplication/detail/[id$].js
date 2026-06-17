@@ -20,7 +20,7 @@ import PublicCheckModal from '@/pages/process/Detail/ZTabs/Operation/Components/
 import EvaluationAgency from '@/pages/lease/maintain/detail/EvaluationAgency'
 import ZhongDengregistration from './ZhongDengregistration'
 import MeetingModal from '@/pages/project/review/detail/MeetingModal'
-import CreditModal from '@/pages/creditManage/search/CreditModal'
+import CreditModal from '@/components/Credit/CreditSearchModal'
 import TrackModal from '@/pages/lease/tracking/TrackModal'
 import { Space } from 'antd'
 
