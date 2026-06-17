@@ -1,4 +1,4 @@
-import ClientFileTable from '@/pages/project/review/detail/Data/ClientFileTable'
+import ClientFileTable from '@/components/Project/ClientFileTable'
 import styles from '../index.less'
 import store from './store'
 import { observer } from '@zswl/admin'

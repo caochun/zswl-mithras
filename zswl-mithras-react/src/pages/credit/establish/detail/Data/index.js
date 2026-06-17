@@ -2,7 +2,7 @@ import styles from '../index.less'
 import store from './store'
 import { history, observer, getQuery } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
-import ClientFileTable from '@/pages/project/review/detail/Data/ClientFileTable'
+import ClientFileTable from '@/components/Project/ClientFileTable'
 
 const Data = ({ id, canEdit = true, isProjSponsor, businessVersion }) => {
   store.businessVersion = businessVersion
