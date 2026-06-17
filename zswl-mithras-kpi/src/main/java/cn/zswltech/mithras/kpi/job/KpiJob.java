@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.job;
 
-import cn.zswltech.mithras.kpi.job.service.KpiProjectBonusJobService;
+import cn.zswltech.mithras.kpi.application.port.KpiProjectBonusJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -17,10 +17,10 @@ import javax.annotation.Resource;
 @Component
 public class KpiJob {
     @Resource
-    private KpiProjectBonusJobService kpiProjectBonusJobService;
+    private KpiProjectBonusJobPort kpiProjectBonusJobPort;
 
     @XxlJob("calculateKpiProjectBonus")
     public void calculateKpiProjectBonus() {
-        kpiProjectBonusJobService.calculateKpiProjectBonus(XxlJobHelper.getJobParam());
+        kpiProjectBonusJobPort.calculateKpiProjectBonus(XxlJobHelper.getJobParam());
     }
 }

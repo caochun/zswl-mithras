@@ -7,7 +7,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.zswltech.mithras.finance.mapper.model.finance.FinanceProjectProfitDetail;
-import cn.zswltech.mithras.kpi.job.service.KpiProjectBonusJobService;
+import cn.zswltech.mithras.kpi.application.port.KpiProjectBonusJobPort;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.application.orchestration.finance.FinanceProjectProfitDetailService;
 import cn.zswltech.mithras.application.orchestration.kpi.KpiProjGuessService;
@@ -27,7 +27,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Component
-public class KpiProjectBonusJobServiceImpl implements KpiProjectBonusJobService {
+public class KpiProjectBonusJobPortAdapter implements KpiProjectBonusJobPort {
     @Resource
     private FinanceProjectProfitDetailService financeProjectProfitDetailService;
     @Resource

@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.kpi.job;
 
-import cn.zswltech.mithras.kpi.job.service.KpiDeptWeightDataInitJobService;
+import cn.zswltech.mithras.kpi.application.port.KpiDeptWeightDataInitJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -16,10 +16,10 @@ import javax.annotation.Resource;
 @Component
 public class KpiDeptWeightDataInitJob {
     @Resource
-    private KpiDeptWeightDataInitJobService kpiDeptWeightDataInitJobService;
+    private KpiDeptWeightDataInitJobPort kpiDeptWeightDataInitJobPort;
 
     @XxlJob("kpiDeptWeightDataInitJob")
     public void kpiDeptWeightDataInitJob() {
-        kpiDeptWeightDataInitJobService.initDeptWeightData();
+        kpiDeptWeightDataInitJobPort.initDeptWeightData();
     }
 }

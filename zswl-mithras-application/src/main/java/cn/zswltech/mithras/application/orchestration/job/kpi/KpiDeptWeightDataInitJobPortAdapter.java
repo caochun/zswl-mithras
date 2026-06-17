@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.job.kpi;
 import cn.zswltech.gruul.dao.dal.entity.OrgDO;
 import cn.zswltech.mithras.contract.mapper.contract.ContractBaseInfoMapper;
 import cn.zswltech.mithras.contract.model.contract.ContractBaseInfo;
-import cn.zswltech.mithras.kpi.job.service.KpiDeptWeightDataInitJobService;
+import cn.zswltech.mithras.kpi.application.port.KpiDeptWeightDataInitJobPort;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistribution;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionBaseInfoLib;
 import cn.zswltech.mithras.kpi.model.KpiProjectDistributionDeptWeight;
@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class KpiDeptWeightDataInitJobServiceImpl implements KpiDeptWeightDataInitJobService {
+public class KpiDeptWeightDataInitJobPortAdapter implements KpiDeptWeightDataInitJobPort {
 
     @Resource
     private KpiProjectDistributionService kpiProjectDistributionService;
