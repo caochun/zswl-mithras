@@ -1,5 +1,5 @@
 import { useMemo, useEffect } from 'react'
-import JumpClient from '../../Component/JumpClient'
+import JumpClient from '@/components/Customer/JumpClient'
 import { Button, Table, App } from '@zswl/components'
 import { Tooltip, Space } from 'antd'
 import { observer } from '@zswl/admin'
@@ -248,7 +248,7 @@ const Index = ({ baseStore, canEditFlag }) => {
         resizable
         columnsFilter="contract_diya"
                 onFilter={(key,val) => saveServer('contract_diya',val)}
-        
+
       ></Table>
       <CreateModal store={store}></CreateModal>
     </div>

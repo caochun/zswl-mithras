@@ -3,7 +3,7 @@ import { Button, Table, App } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { Space, Tooltip } from 'antd'
 import IconFont from '@/components/Icon'
-import JumpClient from '@/pages/contract/list/Component/JumpClient'
+import JumpClient from '@/components/Customer/JumpClient'
 import RenderColumn from '@/components/RenderColumn'
 import CreateModal from './CreateModal'
 import { hasValue } from '@/utils'
@@ -284,7 +284,7 @@ const Index = ({ canEditFlag, baseStore, yuYingJingBanCanEdit }) => {
         resizable
         columnsFilter="contract_danbao"
                 onFilter={(key,val) => saveServer('contract_danbao',val)}
-        
+
       ></Table>
       <CreateModal store={store} bizType={bizType}></CreateModal>
     </div>

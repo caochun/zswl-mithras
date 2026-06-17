@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { Table, App } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import JumpClient from '@/pages/contract/list/Component/JumpClient'
+import JumpClient from '@/components/Customer/JumpClient'
 import RenderColumn from '@/components/RenderColumn'
 import CreateModal from './CreateModal'
 import Store from './store'
