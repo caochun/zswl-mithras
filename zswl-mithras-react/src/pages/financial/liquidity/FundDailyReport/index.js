@@ -1,6 +1,6 @@
 import fundDayReportApi from '@/api/liquidity/fundDayReportApi'
 import { AmountColumn } from '@/components/Format'
-import { getFinancialUrl } from '@/pages/budget/flowCenter/Fundamentals'
+import { getFinancialUrl } from '@/components/Financial/financingUrl'
 import { amountFormat, formatPercent, saveServer } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Page, Table } from '@zswl/components'

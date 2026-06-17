@@ -14,7 +14,7 @@ import { App, Form, Select } from '@zswl/components'
 import FormGuarantee from './FormGuarantee'
 import moment from 'moment'
 import { CreditOrgSelect, FounderSelect } from '@/components'
-import { getFinancialUrl } from '@/pages/budget/flowCenter/Fundamentals'
+import { getFinancialUrl } from '@/components/Financial/financingUrl'
 
 const ALL_COLUMNS = [
   {

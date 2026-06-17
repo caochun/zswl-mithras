@@ -11,6 +11,7 @@ import DetailModal from './DetailModal'
 import { PageListDown } from '@/components'
 import { saveServer } from '@/utils'
 import { ExportAction } from '@/components/RiskActions'
+import { getFinancialUrl } from '@/components/Financial/financingUrl'
 
 const { fundReceiptRepayCashFlowState } = options
 
@@ -18,10 +19,7 @@ const selectOptions = [
   { label: '付款', value: 'PAY' },
   { label: '收款', value: 'COLLECT' },
 ]
-export const getFinancialUrl = (code, id) => {
-  const isDirect = code.startsWith('ZR')
-  return isDirect ? `/financial/direct/detail/${id}` : `/financial/fund/detail/${id}`
-}
+export { getFinancialUrl }
 const Index = ({ getCount }) => {
   const store = useMemo(() => new Store({ getCount }), [])
   const writeOffStatusColumn = MatchOptionColumn({

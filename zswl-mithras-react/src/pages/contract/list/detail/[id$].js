@@ -28,7 +28,7 @@ import CheckBusiness from '@/components/CheckBusiness'
 import LeaseZiLiao from './LeaseZiLiao'
 import TrackModal from '@/components/Lease/TrackModal'
 import ZhongDengButton from '@/components/ZhongDengButton'
-import EvaluationAgency from '@/pages/lease/maintain/detail/EvaluationAgency'
+import EvaluationAgency from '@/components/Lease/EvaluationAgency'
 import MeetingModal from '@/components/Project/ReviewMeetingModal'
 
 export const Context = React.createContext()

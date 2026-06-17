@@ -16,7 +16,7 @@ import { Select } from '@zswl/components'
 import { FounderSelect } from '@/components'
 import DataUpload from '@/components/DataUpload'
 import Api from '@/api/financial/creditManage'
-import { getFinancialUrl } from '@/pages/budget/flowCenter/Fundamentals'
+import { getFinancialUrl } from '@/components/Financial/financingUrl'
 const { TextArea } = Input
 
 const ALL_COLUMNS = [
