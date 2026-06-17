@@ -2,7 +2,7 @@ import ProjectDetail from '@/components/AfterLease/RentCollection/Components/Pro
 import { useEffect, useState } from 'react'
 import Api from '../api'
 import styles from './index.less'
-import BatchInterest from '@/pages/afterLease/rentCollection/BatchInterest'
+import BatchInterest from '@/components/AfterLease/RentCollection/BatchInterest'
 const AfterLeaseRentCollection = ({ id, canEditFlag, businessVersion, modelKey }) => {
   const isBatchInterest = modelKey === 'NewRentCollectionExemptionFlow'
   if (isBatchInterest) {
