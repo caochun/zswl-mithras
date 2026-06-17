@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.third.retry.job;
 
-import cn.zswltech.mithras.third.retry.job.service.RequestRetryJobService;
+import cn.zswltech.mithras.third.retry.application.job.RequestRetryJobService;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

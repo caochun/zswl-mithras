@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.retry.job.service;
+package cn.zswltech.mithras.third.retry.application.job;
 
 public interface RequestRetryJobService {
 

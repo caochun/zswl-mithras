@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.third.retry.job.service.impl;
+package cn.zswltech.mithras.third.retry.application.job;
 
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -8,7 +8,6 @@ import cn.zswltech.mithras.foundation.thirdparty.PlatformApiEnum;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandleFactory;
 import cn.zswltech.mithras.foundation.thirdparty.PlatformApiHandler;
 import cn.zswltech.mithras.third.financialshare.application.ExceptionRequestInfoService;
-import cn.zswltech.mithras.third.retry.job.service.RequestRetryJobService;
 import cn.zswltech.mithras.third.financialshare.client.req.CQBillPaymentREQ;
 import cn.zswltech.mithras.third.financialshare.client.req.CQPaymentREQ;
 import cn.zswltech.mithras.third.financialshare.client.req.CQReceiveREQ;
