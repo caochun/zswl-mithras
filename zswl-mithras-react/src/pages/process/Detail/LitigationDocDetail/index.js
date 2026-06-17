@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { observer } from '@zswl/admin'
 import { ModalStore } from '@zswl/components'
-import AddModal from '@/pages/overdue/litigationDoc/AddModal'
+import AddModal from '@/components/Overdue/LitigationDocAddModal'
 import sealForDocumentsApi from '@/api/overdue/sealForDocumentsApi'
 
 const Index = (props) => {
