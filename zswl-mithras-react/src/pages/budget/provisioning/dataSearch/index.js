@@ -4,7 +4,7 @@ import { getTableColumns, getFormColumns, dateRangeTransformV2, rangePresets } f
 import ALL_COLUMNS from '@/components/Budget/ProvisioningImpairmentColumns'
 import Store from './store'
 import { UploadOutlined, DownloadOutlined, DownOutlined } from '@ant-design/icons'
-import AddModal from './AddModal'
+import AddModal from '@/components/Budget/ProvisioningDataAddModal'
 import { downLoadExcel } from '@/components/Excel'
 import { DatePicker, Dropdown, Menu } from 'antd'
 import { AmountColumn } from '@/components/Format'

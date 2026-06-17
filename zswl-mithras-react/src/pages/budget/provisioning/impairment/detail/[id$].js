@@ -5,7 +5,7 @@ import ALL_COLUMNS from '@/components/Budget/ProvisioningImpairmentColumns'
 import { PageListDown } from '@/components'
 import { saveServer } from '@/utils'
 import Store from './store'
-import AddModal from '../../dataSearch/AddModal'
+import AddModal from '@/components/Budget/ProvisioningDataAddModal'
 import ModalStore from '../../dataSearch/store'
 import { useMemo } from 'react'
 

@@ -5,7 +5,7 @@ import { Steps, Card, Form, Input, DatePicker, Button, Row, Col, Space, message 
 import store from './store'
 import './index.less'
 import ParamsConfig from './ParamsConfig'
-import AddModal from '@/pages/budget/provisioning/dataSearch/AddModal'
+import AddModal from '@/components/Budget/ProvisioningDataAddModal'
 import ALL_COLUMNS from '@/components/Budget/ProvisioningImpairmentColumns'
 import { getTableColumns } from '@/utils'
 import { AmountColumn, DateColumn } from '@/components/Format'
