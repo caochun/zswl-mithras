@@ -1,1 +1,1 @@
-export { default } from '@/api/project/projReviewMeetingMinute'
+export { default } from '@/components/Project/ReviewMeetingMinute/api'
