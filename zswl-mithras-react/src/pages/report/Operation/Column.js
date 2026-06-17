@@ -1,1 +1,1 @@
-export * from '@/components/Report/OperationColumns'
+export * from '@/components/Report/Operation/Column'
