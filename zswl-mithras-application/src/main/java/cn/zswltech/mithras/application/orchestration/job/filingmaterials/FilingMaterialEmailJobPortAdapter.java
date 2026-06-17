@@ -3,7 +3,7 @@ package cn.zswltech.mithras.application.orchestration.job.filingmaterials;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.zswltech.mithras.filingmaterials.job.service.FilingMaterialEmailJobService;
+import cn.zswltech.mithras.filingmaterials.application.port.FilingMaterialEmailJobPort;
 import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsFilingTypeEnum;
 import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsInitiationMethodEnum;
 import cn.zswltech.mithras.application.orchestration.filingmaterials.FilingMaterialsService;
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 @Slf4j
-public class FilingMaterialEmailJobServiceImpl implements FilingMaterialEmailJobService {
+public class FilingMaterialEmailJobPortAdapter implements FilingMaterialEmailJobPort {
 
     @Autowired
     private FilingMaterialsService filingMaterialsService;

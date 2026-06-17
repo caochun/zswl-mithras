@@ -11,7 +11,7 @@ import cn.zswltech.flow.core.domain.req.task.TaskSystemPageReq;
 import cn.zswltech.flow.core.domain.resp.TaskResp;
 import cn.zswltech.flow.core.service.impl.FlowCacheService;
 import cn.zswltech.flow.core.util.Page;
-import cn.zswltech.mithras.filingmaterials.job.service.FilingMaterialInitJobService;
+import cn.zswltech.mithras.filingmaterials.application.port.FilingMaterialInitJobPort;
 import cn.zswltech.mithras.workflow.enums.CommonProcessPrepareStatus;
 import cn.zswltech.mithras.workflow.flow.enums.ProcessModelTypeEnum;
 import cn.zswltech.mithras.filingmaterials.enums.FilingMaterialsFilingTypeEnum;
@@ -49,7 +49,7 @@ import java.util.stream.Collectors;
  */
 @Component
 @Slf4j
-public class FilingMaterialInitJobServiceImpl implements FilingMaterialInitJobService {
+public class FilingMaterialInitJobPortAdapter implements FilingMaterialInitJobPort {
     @Resource
     private AfterFilingMaterialsService afterFilingMaterialsService;
     @Resource

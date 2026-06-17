@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.filingmaterials.job.service;
+package cn.zswltech.mithras.filingmaterials.application.port;
 
-public interface FilingMaterialInitJobService {
+public interface FilingMaterialInitJobPort {
 
     void initAfterFilingMaterial();
 

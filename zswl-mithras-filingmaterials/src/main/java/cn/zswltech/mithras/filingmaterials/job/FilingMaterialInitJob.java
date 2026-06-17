@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.filingmaterials.job;
 
-import cn.zswltech.mithras.filingmaterials.job.service.FilingMaterialInitJobService;
+import cn.zswltech.mithras.filingmaterials.application.port.FilingMaterialInitJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -13,12 +13,12 @@ import javax.annotation.Resource;
 public class FilingMaterialInitJob {
 
     @Resource
-    private FilingMaterialInitJobService filingMaterialInitJobService;
+    private FilingMaterialInitJobPort filingMaterialInitJobPort;
 
     @XxlJob("afterFilingMaterialInitJob")
     public void afterFilingMaterialInitJob() {
         try {
-            filingMaterialInitJobService.initAfterFilingMaterial();
+            filingMaterialInitJobPort.initAfterFilingMaterial();
         } catch (Exception e) {
             log.error("租后资料归档流程发起初始化任务失败:{}", e.getMessage());
         }
@@ -27,7 +27,7 @@ public class FilingMaterialInitJob {
     @XxlJob("afterFilingMaterialBankJob")
     public void afterFilingMaterialBankJob() {
         try {
-            filingMaterialInitJobService.returnAfterFilingMaterial(XxlJobHelper.getJobParam());
+            filingMaterialInitJobPort.returnAfterFilingMaterial(XxlJobHelper.getJobParam());
         } catch (Exception e) {
             log.error("租后资料归档系统退回:{}", e.getMessage());
         }
@@ -36,7 +36,7 @@ public class FilingMaterialInitJob {
     @XxlJob("fundFilingMaterialInitJob")
     public void fundFilingMaterialInitJob() {
         try {
-            filingMaterialInitJobService.initFundFilingMaterial(XxlJobHelper.getJobParam());
+            filingMaterialInitJobPort.initFundFilingMaterial(XxlJobHelper.getJobParam());
         } catch (Exception e) {
             log.error("资金资料归档流程发起初始化任务失败:{}", e.getMessage());
         }
@@ -45,7 +45,7 @@ public class FilingMaterialInitJob {
     @XxlJob("projectFilingMaterialCloseJob")
     public void projectFilingMaterialCloseJob() {
         try {
-            filingMaterialInitJobService.closeProjectFilingMaterial(XxlJobHelper.getJobParam());
+            filingMaterialInitJobPort.closeProjectFilingMaterial(XxlJobHelper.getJobParam());
         } catch (Exception e) {
             log.error("项目资料关闭流程关闭失败:{}", e.getMessage());
         }
