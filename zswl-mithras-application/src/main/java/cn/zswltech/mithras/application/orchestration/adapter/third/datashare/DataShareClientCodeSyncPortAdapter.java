@@ -4,7 +4,7 @@ import cn.zswltech.gruul.common.util.StringUtil;
 import cn.zswltech.mithras.customer.enums.client.ClientType;
 import cn.zswltech.mithras.customer.mapper.client.ClientMapper;
 import cn.zswltech.mithras.customer.model.client.Client;
-import cn.zswltech.mithras.third.datashare.service.port.DataShareClientCodeSyncPort;
+import cn.zswltech.mithras.third.datashare.application.port.DataShareClientCodeSyncPort;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.stereotype.Component;
 
