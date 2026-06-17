@@ -12,7 +12,7 @@ import FinancingCarryInterestFlow from '@/pages/financial/financingCarryInterest
 import FinancialFund from '@/pages/financial/fund/detail/[id$]'
 import FinancialReportApprovalFlow from '@/components/Report/FinancialReportApproval'
 import KpiPorjectAllocation from '@/components/Kpi/ProjectAllot/Detail' // 绩效
-import OverdueListSearch from '@/pages/overdueListSearch/index.js'
+import OverdueListSearch from '@/components/Risk/OverdueListSearch'
 import RentPaymentNotice from '../../../Detail/RentPaymentNotice' // 租金催收，投放项⽬还款账⼾优化
 import { observer } from '@zswl/admin'
 import { Button, Page } from '@zswl/components'
