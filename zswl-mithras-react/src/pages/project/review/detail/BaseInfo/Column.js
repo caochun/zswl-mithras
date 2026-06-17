@@ -7,59 +7,13 @@ import {
 } from '@/components/Format'
 import { Select, App, Form, Button } from '@zswl/components'
 import { FounderSelect } from '@/components'
-import FormListItem from '@/components/Project/FormListItem'
 import { RegionCascader } from '@/components'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'
 import { history } from '@zswl/admin'
 import { BlackInfo } from '@/components/BlackGray/BlackInfo'
-import { Input, Row } from 'antd'
-import { SupplierColumn } from '@/pages/project/price/detail/BaseInfo/Column'
 
-export const PeopleListColumn = ({
-  title,
-  dataIndex,
-  isDebtor,
-  noClientType,
-  requiredMark,
-  scene = 'other',
-  ...rest
-}) => {
-  return {
-    title,
-    dataIndex,
-    span: 2,
-    requiredMark,
-    editable: {
-      rules: [requiredMark && rules.required()],
-      element: (
-        <Form.List
-          name={dataIndex}
-          rules={[requiredMark ? rules.required() : undefined]}
-          className="review-ant-form-item"
-        >
-          {(fields, { add, remove }) => {
-            return (
-              <FormListItem
-                fields={fields}
-                add={add}
-                remove={remove}
-                scene={scene}
-                addText={`添加${title}`}
-                fieldKey={dataIndex}
-                isDebtor={isDebtor}
-                required={requiredMark}
-                noClientType={noClientType}
-              />
-            )
-          }}
-        </Form.List>
-      ),
-    },
-    render: (val) => <FormListItem.Detail values={getValue(val)} isDebtor={isDebtor} />,
-    ...rest,
-  }
-}
+import { PeopleListColumn, SupplierColumn } from '@/components/Project/BaseInfoColumns'
 const ALL_COLUMNS = ({
   detail = {},
   store = {},
