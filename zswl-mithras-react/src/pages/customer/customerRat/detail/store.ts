@@ -4,7 +4,7 @@ import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 import { message } from 'antd'
 import moment from 'moment'
 import { scrollToAnchor } from '@/utils/document'
-import ProcessApi from '@/pages/process/Detail/ZTabs/Operation/Components/Operator/api'
+import ProcessApi from '@/api/process/flowExecution'
 
 const formatListJson = (data = {}) => {
   const { values, list } = data

@@ -1,7 +1,7 @@
 import { NoEnumFileTable } from '@/components'
 import { getLocalStorage, observer } from '@zswl/admin'
 import { Button, Form, Input, Modal, Select } from '@zswl/components'
-import Api from '@/pages/process/Detail/ZTabs/Operation/Components/CompleteOperation/api'
+import Api from '@/api/process/flowFile'
 
 const moduleType = 'RATING_CLIENT'
 const Index = ({ store, disabled }) => {
