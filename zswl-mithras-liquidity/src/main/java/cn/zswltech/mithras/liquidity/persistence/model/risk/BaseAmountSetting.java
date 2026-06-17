@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.liquidity.model.risk;
+package cn.zswltech.mithras.liquidity.persistence.model.risk;
 
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import com.baomidou.mybatisplus.annotation.IdType;

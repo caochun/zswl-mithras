@@ -2,7 +2,7 @@ package cn.zswltech.mithras.liquidity.service;
 
 import cn.zswltech.mithras.dto.liquiditymanage.base.ParameterBaseDetailRSP;
 import cn.zswltech.mithras.liquidity.bo.LiquidityCollectionRecordSnapshot;
-import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.persistence.model.AccountBalanceBaseInfo;
 
 import java.time.LocalDate;
 import java.util.HashMap;

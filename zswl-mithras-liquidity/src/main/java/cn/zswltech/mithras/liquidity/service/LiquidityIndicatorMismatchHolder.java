@@ -9,7 +9,7 @@ import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingPledgeSnapshot;
 import cn.zswltech.mithras.liquidity.bo.LiquidityFinancingSnapshot;
 import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowPlanSnapshot;
 import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptRepaySnapshot;
-import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.persistence.model.AccountBalanceBaseInfo;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;

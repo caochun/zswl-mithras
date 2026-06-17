@@ -2,7 +2,7 @@ package cn.zswltech.mithras.liquidity.service.cal.account;
 
 import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.persistence.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityAccountManualCalculatorBo;
 import cn.zswltech.mithras.foundation.util.LongUtil;

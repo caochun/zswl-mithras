@@ -60,9 +60,9 @@ public class BaseDataBankAccountSyncPortAdapter implements BaseDataBankAccountSy
                 .in(FundDirectFinancingPledgeInfo::getAccountNumber, accountNumberList)
                 .set(FundDirectFinancingPledgeInfo::getAccountName, accountName)
                 .set(FundDirectFinancingPledgeInfo::getAccountBank, accountBank));
-        accountSettingService.update(Wrappers.<cn.zswltech.mithras.liquidity.model.FundFinancingAccountSetting>lambdaUpdate()
-                .in(cn.zswltech.mithras.liquidity.model.FundFinancingAccountSetting::getAccountNumber, accountNumberList)
-                .set(cn.zswltech.mithras.liquidity.model.FundFinancingAccountSetting::getAccountBank, accountBank));
+        accountSettingService.update(Wrappers.<cn.zswltech.mithras.liquidity.persistence.model.FundFinancingAccountSetting>lambdaUpdate()
+                .in(cn.zswltech.mithras.liquidity.persistence.model.FundFinancingAccountSetting::getAccountNumber, accountNumberList)
+                .set(cn.zswltech.mithras.liquidity.persistence.model.FundFinancingAccountSetting::getAccountBank, accountBank));
         fundFinancingPayAccountService.update(Wrappers.<FundFinancingPayAccount>lambdaUpdate()
                 .in(FundFinancingPayAccount::getAccountNumber, accountNumberList)
                 .set(FundFinancingPayAccount::getAccountBank, accountBank));

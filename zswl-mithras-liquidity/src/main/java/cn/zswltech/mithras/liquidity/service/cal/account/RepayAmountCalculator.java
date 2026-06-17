@@ -6,7 +6,7 @@ import cn.hutool.core.util.ReflectUtil;
 import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptFlowPlanSnapshot;
 import cn.zswltech.mithras.liquidity.bo.LiquidityFundReceiptRepaySnapshot;
 import cn.zswltech.mithras.liquidity.enums.LiquidityIndexType;
-import cn.zswltech.mithras.liquidity.model.FundFinancingAccountSetting;
+import cn.zswltech.mithras.liquidity.persistence.model.FundFinancingAccountSetting;
 import cn.zswltech.mithras.liquidity.service.LiquidityIndicatorHolder;
 import cn.zswltech.mithras.liquidity.service.cal.AbstractLiquidityCalculator;
 import cn.zswltech.mithras.liquidity.service.cal.bo.LiquidityAccountCalculatorBo;

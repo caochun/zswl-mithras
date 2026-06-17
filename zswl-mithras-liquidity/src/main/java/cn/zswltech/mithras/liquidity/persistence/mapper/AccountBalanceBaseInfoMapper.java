@@ -1,6 +1,6 @@
-package cn.zswltech.mithras.liquidity.mapper;
+package cn.zswltech.mithras.liquidity.persistence.mapper;
 
-import cn.zswltech.mithras.liquidity.model.AccountBalanceBaseInfo;
+import cn.zswltech.mithras.liquidity.persistence.model.AccountBalanceBaseInfo;
 import cn.zswltech.mithras.foundation.persistence.plugin.CustomBaseMapper;
 
 /**
