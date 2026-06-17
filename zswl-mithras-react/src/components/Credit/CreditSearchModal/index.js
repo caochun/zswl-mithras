@@ -1,6 +1,6 @@
 import { Button, Drawer } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import SearchList from '@/pages/creditManage/search'
+import SearchList from '@/components/Credit/CreditSearchList'
 import { useState, cloneElement } from 'react'
 
 const CreditSearchModal = ({
