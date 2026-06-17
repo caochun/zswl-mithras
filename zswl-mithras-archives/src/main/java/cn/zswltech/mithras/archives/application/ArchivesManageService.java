@@ -37,6 +37,7 @@ import cn.zswltech.mithras.archives.persistence.model.ArchiveTypeGroup;
 import cn.zswltech.mithras.archives.persistence.model.ArchivesDownloadPermission;
 import cn.zswltech.mithras.archives.persistence.model.ArchivesDownloadPermissionReason;
 import cn.zswltech.mithras.archives.persistence.model.ArchivesManagement;
+import cn.zswltech.mithras.archives.application.port.ArchivesManagementQueryPort;
 import cn.zswltech.mithras.archives.application.port.ArchivesNotificationPort;
 import cn.zswltech.mithras.archives.application.port.ArchivesSupportPort;
 import cn.zswltech.mithras.archives.application.port.ArchivesWorkflowPort;
@@ -96,6 +97,8 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
     private ArchivesManagementMapper archivesManagementMapper;
 
     @Resource
+    private ArchivesManagementQueryPort archivesManagementQueryPort;
+    @Resource
     private ArchivesSupportPort archivesSupportPort;
     @Resource
     private ArchivesWorkflowPort archivesWorkflowPort;
@@ -131,7 +134,7 @@ public class ArchivesManageService extends ServiceImpl<ArchivesManagementMapper,
             }
         }
 
-        Page<ArchivesManagementProjection> pageList = archivesManagementMapper.pageList(new Page<>(req.getPage(), req.getPageSize()), req);
+        Page<ArchivesManagementProjection> pageList = archivesManagementQueryPort.pageList(new Page<>(req.getPage(), req.getPageSize()), req);
         List<ArchivesListRSP> rsps = new ArrayList<>();
         List<ArchivesManagementProjection> records = pageList.getRecords();
         if (CollectionUtil.isNotEmpty(records)) {
