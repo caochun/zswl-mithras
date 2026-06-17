@@ -1,9 +1,9 @@
 // import { useMemo } from 'react'
 
-// import Lease from '@/pages/project/review/detail/BaseInfo/FormConfig/Lease'
-// import Factoring from '@/pages/project/review/detail/BaseInfo/FormConfig/Factoring'
-// import AssignmentOfClaims from '@/pages/project/review/detail/BaseInfo/FormConfig/AssignmentOfClaims'
-// import TurnLease from '@/pages/project/review/detail/BaseInfo/FormConfig/TurnLease'
+// import Lease from '@/components/Project/ReviewDetail/BaseInfo/FormConfig/Lease'
+// import Factoring from '@/components/Project/ReviewDetail/BaseInfo/FormConfig/Factoring'
+// import AssignmentOfClaims from '@/components/Project/ReviewDetail/BaseInfo/FormConfig/AssignmentOfClaims'
+// import TurnLease from '@/components/Project/ReviewDetail/BaseInfo/FormConfig/TurnLease'
 
 // const Index = ({ bizType, detail, showValue, isLog }) => {
 //   const CurrentDom = useMemo(() => {
@@ -24,10 +24,10 @@
 // export default Index
 
 import { useMemo } from 'react'
-import Lease from '@/pages/project/review/detail/BaseInfo/FormConfig/Lease'
-import AssignmentOfClaims from '@/pages/project/review/detail/BaseInfo/FormConfig/AssignmentOfClaims'
-import Factoring from '@/pages/project/review/detail/BaseInfo/FormConfig/Factoring'
-import TurnLease from '@/pages/project/review/detail/BaseInfo/FormConfig/TurnLease'
+import Lease from '@/components/Project/ReviewDetail/BaseInfo/FormConfig/Lease'
+import AssignmentOfClaims from '@/components/Project/ReviewDetail/BaseInfo/FormConfig/AssignmentOfClaims'
+import Factoring from '@/components/Project/ReviewDetail/BaseInfo/FormConfig/Factoring'
+import TurnLease from '@/components/Project/ReviewDetail/BaseInfo/FormConfig/TurnLease'
 
 const Index = ({ bizType, detail, isLog }) => {
   const CurrentDom = useMemo(() => {
