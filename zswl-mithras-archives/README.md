@@ -9,3 +9,5 @@
 资源层跨域读模型也已移出 archives：档案列表中涉及项目名称、主办人、业务部门、客户和业务类型的跨域查询由 application 的 `ArchivesManagementQueryMapper` 实现，并通过 `ArchivesManagementQueryPort` 接回 archives；档案文件展示和必传文件统计中涉及 `materials_list` 的组合查询由 application 的 `ArchivesTemplateFileQueryMapper` 实现，并通过 `ArchivesTemplateFileQueryPort` 接回 archives。文件存储、材料清单和项目主数据不是 archives 的主生命周期。
 
 当前判断是：保持独立，不并入 `document` 或 `filingmaterials`。后续整理重点是保持档案生命周期边界清晰：文件存储、模板渲染、业务材料校验应由相应横向能力或业务域提供，档案模块只拥有正式档案、档案模板、借阅/下载权限和审批状态。
+
+与根 README 的当前口径一致：archives 不直接拥有项目主数据或材料文件事实。application 负责把项目、材料、流程和通知等跨域能力适配到 archives 的 port 上。

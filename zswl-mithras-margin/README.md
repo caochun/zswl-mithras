@@ -20,6 +20,7 @@
 - `ContractCollectionMarginPortAdapter` 原本为实现 collection port 直接查询 `MarginBaseInfo` 并使用 MyBatis wrapper，本轮已改为消费 margin 自有 `MarginCollectionSnapshot` 查询方法。application adapter 仍负责把 margin snapshot 转成 collection port 模型，但不再触碰 margin 持久化模型和查询条件。
 - `payment`、`dashboard` 等外部模块存在直接读取 `margin_*` / `warranty_*` 表的场景，属于外部读侧对保证金事实的表级依赖。
 - `application` 中存在不少直接使用 `MarginBaseInfoService`、`MarginRecordService`、mapper 和 model 的跨域编排，主要集中在 collection、payment、contract、capital、third financial、workflow end handler 和若干 adapter。放在 application 不一定错，但后续要区分跨域编排和单域逻辑外溢。
+- 本轮还删除了 `MarginRecordService` 和 `MarginWriteOffRecordService` 中已经没有调用方的历史记录/核销记录辅助代码，减少保证金域内部的陈旧入口。
 
 按 Java/POM/Mapper/SQL 粗略反向搜索，外部引用主要是 `application` 约 97 处、`web` 约 37 处、`payment` 约 32 处、`collection` 约 4 处、`dashboard` 约 2 处。`payment` 的引用主要反映付款/退款读侧需要保证金事实，不代表保证金应并入付款域。
 

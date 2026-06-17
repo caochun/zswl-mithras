@@ -18,6 +18,8 @@
 
 本轮追加清理了 `zswl-mithras-web` 测试代码中指向旧 `application.orchestration.liquiditymanage` 包的残留 import，改为当前 `application.orchestration.liquidity` 包；随后执行 `mvn -pl zswl-mithras-liquidity -am -DskipTests compile` 通过，reactor 为 root、api、foundation、liquidity。
 
+后续又完成了两处包结构收敛：`liquidityrisk` 包名已收敛为 `risk`，并修正资源目录 `liquiidity_risk` 为 `liquidity_risk`；`Liquidity*Snapshot` 输入快照已从通用 `bo` 包拆到 `liquidity.snapshot`，`bo` 保留真实参数对象。这个调整强化了“外域事实以 liquidity 自有快照进入计算器”的边界。
+
 但 application 侧仍是明确的跨域事实装载层：`application/orchestration/liquidity` 及其 adapter/facade 约 18 个 Java 文件，直接读取 fund、contract、basedata、collection、projectprocess、payment、workflow、system、capital 等事实，再转换成 liquidity 自有 snapshot 或配置输入。因此当前不能把 application 侧 liquidity 代码整体回迁到本模块，只能继续拆分“纯 liquidity 配置/计算规则”和“跨域事实装载”。
 
 ## 已处理的读侧耦合

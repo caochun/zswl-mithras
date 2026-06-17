@@ -19,6 +19,16 @@
 - 业务域通过自有 port、snapshot 或稳定 DTO 表达外部输入。
 - 等模块语义和依赖方向稳定后，再选择生命周期确实重合的模块做小步物理合并试点。
 
+## 已确认的边界收敛
+
+近期已经落地的模块边界调整如下：
+
+- `zswl-mithras-archives` 保持为档案生命周期模块。档案列表涉及项目基础信息的跨域读模型、档案文件展示/必传统计涉及 `materials_list` 的组合读模型，都已迁到 `zswl-mithras-application`，archives 只通过自有 port 接回查询结果。
+- `zswl-mithras-dashboard` 保持为看板与管报聚合模块。它可以作为展示型读模型读取多域事实，但不应承载核心业务规则；`guanbao` 相关历史命名不做表面改名，后续重点是拆清看板聚合、管理报表目录、自研运营报表和观远 BI 适配的职责。
+- `zswl-mithras-liquidity` 保持为流动性风险和资金指标读侧模块。外域事实继续通过 snapshot、port 或 application 读模型进入，不把 fund、basedata、collection 等持久化模型带回 liquidity。
+- `zswl-mithras-capital` 保持为资金流水与核销域模块。纯资金流水状态、核销明细和同步差异规则正在下沉到 capital；涉及合同、收款、付款、融资、保证金、第三方财资平台的核销编排继续留在 application。
+- `zswl-mithras-margin` 保持为保证金域模块。保证金写模型和计划应收维护回收到 margin 自身服务，外部模块优先通过 margin 自有查询/命令接口或 snapshot 消费保证金事实。
+
 ## 总体分层
 
 ```mermaid

@@ -27,3 +27,5 @@ dashboard 源码已经不直接 import workflow 模块类型。流程准备、�
 反向依赖相对集中。只看 Java import，主要消费方是 `application` 约 47 处、`web` 约 3 处；如果把 POM、Mapper、SQL 粗略搜索也算入，主要消费方还包括 `finance` 和 `creditreport` 的少量历史引用。核心业务域不应继续新增对 dashboard 内部查询模型的依赖；确需复用看板口径时，应由 application 做转换。
 
 结论：保持独立，不并入 `finance`、`metric` 或 `report`。后续整理重点是保持单向读取关系：dashboard 可以读业务域，业务域不应反向依赖 dashboard；同时逐步拆清看板聚合、管理报表目录、自研运营报表和观远 BI 适配的内部边界。`guanbao` 改名成 `managementreport` 这类表面动作价值不大，真正需要的是按入口、数据源和读模型职责拆清依赖。
+
+与根 README 的当前口径一致：dashboard 是展示型聚合模块。它允许存在跨域读模型和外部 BI 适配，但这些能力应保持读侧属性，不向业务域反向输出核心规则或内部查询模型。
