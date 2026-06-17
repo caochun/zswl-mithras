@@ -2,7 +2,7 @@ import { Button, Page, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils'
-import ALL_COLUMNS from '@/pages/customer/customerRat/Columns.js'
+import ALL_COLUMNS from '@/components/Customer/CustomerRatColumns'
 import { saveServer } from '@/utils'
 
 function Index({ path, store }) {
