@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.oldftp.service.application.impl;
+package cn.zswltech.mithras.ftp.oldftp.application.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.zswl.oss.core.OssClient;
@@ -20,8 +20,8 @@ import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
 import cn.zswltech.mithras.ftp.oldftp.convert.FtpQuarterlyGuidanceConverter;
 import cn.zswltech.mithras.ftp.oldftp.enums.FtpProcessStatus;
 import cn.zswltech.mithras.ftp.oldftp.model.FtpQuarterlyGuidance;
-import cn.zswltech.mithras.ftp.oldftp.service.application.FtpQuarterlyGuidanceApplicationService;
-import cn.zswltech.mithras.ftp.oldftp.service.application.FtpQuarterlyGuidanceExportInfo;
+import cn.zswltech.mithras.ftp.oldftp.application.FtpQuarterlyGuidanceApplicationService;
+import cn.zswltech.mithras.ftp.oldftp.application.model.FtpQuarterlyGuidanceExportInfo;
 import cn.zswltech.mithras.foundation.constant.GlobalConstants;
 import cn.zswltech.mithras.foundation.enums.common.RecordStatus;
 import cn.zswltech.mithras.foundation.persistence.dto.ChangeDTO;

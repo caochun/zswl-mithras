@@ -3,7 +3,7 @@ package cn.zswltech.mithras.others.service.job;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.ftp.oldftp.service.job.FtpInterestJobService;
+import cn.zswltech.mithras.ftp.oldftp.application.port.FtpInterestJobPort;
 import cn.zswltech.mithras.others.service.ApplicationTest;
 import cn.zswltech.mithras.payment.model.FtpAssessmentInfo;
 import cn.zswltech.mithras.ftp.oldftp.bo.CashFtpInfluenceBO;
@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class FtpInterestJobTest extends ApplicationTest {
     @Resource
-    private FtpInterestJobService ftpInterestJobService;
+    private FtpInterestJobPort ftpInterestJobService;
     @Resource
     private FtpAssessmentInfoService ftpAssessmentInfoService;
     @Resource

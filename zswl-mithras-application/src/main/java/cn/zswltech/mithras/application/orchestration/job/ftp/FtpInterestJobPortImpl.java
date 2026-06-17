@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.extra.spring.SpringUtil;
 import cn.zswltech.mithras.foundation.enums.YesOrNoNumberEnum;
 import cn.zswltech.mithras.collection.enums.CollectionRecordWriteOffStatus;
-import cn.zswltech.mithras.ftp.oldftp.service.job.FtpInterestJobService;
+import cn.zswltech.mithras.ftp.oldftp.application.port.FtpInterestJobPort;
 import cn.zswltech.mithras.payment.enums.WriteOffStatus;
 import cn.zswltech.mithras.foundation.persistence.model.BaseModel;
 import cn.zswltech.mithras.collection.model.CollectionBaseInfo;
@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class FtpInterestJobServiceImpl implements FtpInterestJobService {
+public class FtpInterestJobPortImpl implements FtpInterestJobPort {
     @Resource
     private ContractReceiptService contractReceiptService;
     @Resource

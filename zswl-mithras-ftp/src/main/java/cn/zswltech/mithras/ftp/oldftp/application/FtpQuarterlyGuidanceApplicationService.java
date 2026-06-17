@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.oldftp.service.application;
+package cn.zswltech.mithras.ftp.oldftp.application;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.ftp.FtpGuidanceIdReq;
@@ -15,6 +15,7 @@ import cn.zswltech.mithras.dto.ftp.FtpVersionDiffREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionDiffRSP;
 import cn.zswltech.mithras.dto.version.CommonVersionListREQ;
 import cn.zswltech.mithras.dto.version.CommonVersionListRSP;
+import cn.zswltech.mithras.ftp.oldftp.application.model.FtpQuarterlyGuidanceExportInfo;
 
 import java.io.InputStream;
 import java.io.OutputStream;

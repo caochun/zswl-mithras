@@ -4,7 +4,7 @@ import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.api.common.R;
 import cn.zswltech.mithras.api.ftp.FtpInterestApi;
 import cn.zswltech.mithras.dto.ftp.*;
-import cn.zswltech.mithras.ftp.oldftp.service.application.FtpInterestApplicationService;
+import cn.zswltech.mithras.ftp.oldftp.application.FtpInterestApplicationService;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

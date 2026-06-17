@@ -5,7 +5,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import cn.zswltech.mithras.ftp.oldftp.service.job.FtpInterestJobService;
+import cn.zswltech.mithras.ftp.oldftp.application.port.FtpInterestJobPort;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
@@ -20,7 +20,7 @@ import java.time.LocalDate;
 public class FtpInterestJob {
 
     @Resource
-    private FtpInterestJobService ftpInterestJobService;
+    private FtpInterestJobPort ftpInterestJobService;
 
     @XxlJob("calculateFtpInterest")
     public void calculateFtpInterest() {

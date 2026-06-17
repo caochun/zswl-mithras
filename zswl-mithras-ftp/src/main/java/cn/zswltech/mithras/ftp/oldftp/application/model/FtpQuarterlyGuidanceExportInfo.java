@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.oldftp.service.application;
+package cn.zswltech.mithras.ftp.oldftp.application.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

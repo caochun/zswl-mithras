@@ -3,7 +3,7 @@ package cn.zswltech.mithras.ftp.oldftp.job;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.zswltech.mithras.ftp.oldftp.service.job.FtpIncomeJobService;
+import cn.zswltech.mithras.ftp.oldftp.application.port.FtpIncomeJobPort;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class FtpIncomeJob {
 
     @Resource
-    private FtpIncomeJobService ftpIncomeJobService;
+    private FtpIncomeJobPort ftpIncomeJobService;
 
     @XxlJob("ftpIncomeMaintenanceJob")
     public void ftpIncomeMaintenanceJob() {

@@ -9,7 +9,7 @@ import cn.zswltech.mithras.ftp.oldftp.job.FtpIncomeRateInitJob;
 import cn.zswltech.mithras.ftp.oldftp.job.data_init.dto.FtpIncomeDetailExcelModel;
 import cn.zswltech.mithras.ftp.oldftp.job.data_init.dto.FtpIncomeRateExcelModel;
 import cn.zswltech.mithras.ftp.oldftp.job.data_init.dto.ZsRentLeaseAbsExcelModel;
-import cn.zswltech.mithras.ftp.oldftp.service.job.FtpIncomeRateInitJobService;
+import cn.zswltech.mithras.ftp.oldftp.application.port.FtpIncomeRateInitJobPort;
 import cn.zswltech.mithras.fund.enums.financing.FinancingTypeEnum;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingBaseInfo;
 import cn.zswltech.mithras.fund.directfinancing.persistence.model.FundDirectFinancingProductDetail;
@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @Component
-public class FtpIncomeRateInitJobServiceImpl implements FtpIncomeRateInitJobService {
+public class FtpIncomeRateInitJobPortImpl implements FtpIncomeRateInitJobPort {
 
     @Autowired
     private FundFinancingBaseInfoService financingBaseInfoService;

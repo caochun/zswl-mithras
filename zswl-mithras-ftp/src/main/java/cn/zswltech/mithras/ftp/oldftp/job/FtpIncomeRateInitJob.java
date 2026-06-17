@@ -1,6 +1,6 @@
 package cn.zswltech.mithras.ftp.oldftp.job;
 
-import cn.zswltech.mithras.ftp.oldftp.service.job.FtpIncomeRateInitJobService;
+import cn.zswltech.mithras.ftp.oldftp.application.port.FtpIncomeRateInitJobPort;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class FtpIncomeRateInitJob {
 
     @Resource
-    private FtpIncomeRateInitJobService ftpIncomeRateInitJobService;
+    private FtpIncomeRateInitJobPort ftpIncomeRateInitJobService;
 
     @XxlJob(value = "ftpIncomeRateInitJob")
     public void ftpIncomeRateInitJob() {

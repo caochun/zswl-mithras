@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.oldftp.service.application;
+package cn.zswltech.mithras.ftp.oldftp.application;
 
 import cn.zswltech.mithras.dto.file.FileListRSP;
 import cn.zswltech.mithras.dto.ftp.FtpBatchIdsReq;

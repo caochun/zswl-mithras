@@ -1,4 +1,4 @@
-package cn.zswltech.mithras.ftp.oldftp.service.application;
+package cn.zswltech.mithras.ftp.oldftp.application;
 
 import cn.zswltech.mithras.api.common.PageR;
 import cn.zswltech.mithras.dto.ftp.FtpInterestBaseInfoRsp;

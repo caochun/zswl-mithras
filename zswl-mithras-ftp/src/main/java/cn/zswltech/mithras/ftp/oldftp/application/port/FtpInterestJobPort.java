@@ -1,8 +1,8 @@
-package cn.zswltech.mithras.ftp.oldftp.service.job;
+package cn.zswltech.mithras.ftp.oldftp.application.port;
 
 import java.time.LocalDate;
 
-public interface FtpInterestJobService {
+public interface FtpInterestJobPort {
 
     void calculateFtpInterest(Long targetFtpInterestId, LocalDate startDate, LocalDate endDate);
 }

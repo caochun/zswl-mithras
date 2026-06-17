@@ -8,7 +8,7 @@ import cn.zswltech.mithras.dto.ftp.FtpInterestIdReq;
 import cn.zswltech.mithras.dto.ftp.FtpInterestPageListReq;
 import cn.zswltech.mithras.dto.ftp.FtpInterestPageListRsp;
 import cn.zswltech.mithras.dto.ftp.FtpInterestRecalculateReq;
-import cn.zswltech.mithras.ftp.oldftp.service.application.FtpInterestApplicationService;
+import cn.zswltech.mithras.ftp.oldftp.application.FtpInterestApplicationService;
 import cn.zswltech.mithras.foundation.exception.MithrasException;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestBaseInfoService;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpInterestDetailRecordService;

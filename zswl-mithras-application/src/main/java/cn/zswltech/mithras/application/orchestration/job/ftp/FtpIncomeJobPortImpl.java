@@ -1,7 +1,7 @@
 package cn.zswltech.mithras.application.orchestration.job.ftp;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.zswltech.mithras.ftp.oldftp.service.job.FtpIncomeJobService;
+import cn.zswltech.mithras.ftp.oldftp.application.port.FtpIncomeJobPort;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptFlowDetail;
 import cn.zswltech.mithras.fund.persistence.model.receiptrepay.FundReceiptRepayBaseInfo;
 import cn.zswltech.mithras.application.orchestration.ftp.FtpIncomeBaseInfoService;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class FtpIncomeJobServiceImpl implements FtpIncomeJobService {
+public class FtpIncomeJobPortImpl implements FtpIncomeJobPort {
 
     @Resource
     private FundReceiptFlowDetailService fundReceiptFlowDetailService;
