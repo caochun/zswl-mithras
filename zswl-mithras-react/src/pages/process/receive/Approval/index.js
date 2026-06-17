@@ -1,9 +1,9 @@
 import { observer, history } from '@zswl/admin'
 import store from './store'
 import { Table, App, Page, SearchBar } from '@zswl/components'
-import ApprovalHistoryModal from '../../components/ApprovalHistoryModal'
+import ApprovalHistoryModal from '@/components/Process/ApprovalHistoryModal'
 import { ClientSelect } from '@/components/Select'
-import ProcessTypeTree from '@/pages/process/components/ProcessTypeTree'
+import ProcessTypeTree from '@/components/Process/ProcessTypeTree'
 import { saveServer } from '@/utils'
 
 import { useEffect, useState } from 'react'

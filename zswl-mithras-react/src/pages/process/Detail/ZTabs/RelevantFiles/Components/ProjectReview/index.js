@@ -3,7 +3,7 @@ import { getQuery } from '@zswl/admin'
 import Report from '@/components/Project/ReviewDetail/Report'
 import Data from '@/components/Project/ReviewDetail/Data'
 import Api from '@/api/project/projReviewDetail'
-import BlankBlock from '@/pages/process/components/BlankBlock'
+import BlankBlock from '@/components/Process/BlankBlock'
 import { useEffect, useState } from 'react'
 
 const Index = ({ detailData, canEdit }) => {

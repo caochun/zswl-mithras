@@ -1,7 +1,7 @@
 import React from 'react'
 import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import SnapShoot from '@/pages/process/components/Snapshoot'
+import SnapShoot from '@/components/Process/Snapshoot'
 
 const Index = ({ params: { id } }) => {
   return (

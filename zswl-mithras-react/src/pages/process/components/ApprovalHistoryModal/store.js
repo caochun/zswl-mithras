@@ -1,16 +1,1 @@
-import { makeAutoObservable } from '@zswl/admin'
-import { TableStore } from '@zswl/components'
-
-import Api from './api'
-class Store {
-  constructor() {
-    makeAutoObservable(this, { clientId: false })
-  }
-  //地址信息
-  table = new TableStore({
-    request: async (parameter) => {
-      return await Api.getList({ processInstanceId: '' })
-    },
-  })
-}
-export default new Store()
+export { default } from '@/components/Process/ApprovalHistoryModal/store'

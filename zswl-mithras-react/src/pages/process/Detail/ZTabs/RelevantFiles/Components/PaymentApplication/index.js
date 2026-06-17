@@ -2,7 +2,7 @@ import { Collapse } from '@/components'
 import LendingMaterials from '@/components/Cpm/PaymentApplication/LendingMaterials'
 import InformationList from '@/components/Cpm/PaymentApplication/InformationList'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
-import BlankBlock from '@/pages/process/components/BlankBlock'
+import BlankBlock from '@/components/Process/BlankBlock'
 import { useEffect, useState } from 'react'
 
 const Index = ({ detailData, canEdit }) => {
