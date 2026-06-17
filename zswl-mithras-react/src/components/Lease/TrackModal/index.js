@@ -1,6 +1,6 @@
-import { Button, Drawer, Form, Modal, ModalStore } from '@zswl/components'
+import { Button, Drawer } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import TrackList from '@/pages/lease/tracking'
+import TrackList from '@/components/Lease/Tracking/List'
 import { useState } from 'react'
 
 const Index = ({ projReviewMeetMinuteId ='',params }) => {
