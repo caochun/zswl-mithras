@@ -21,5 +21,6 @@ export * from './localColumnsFilter'
 export * from './other'
 export * from './htmlToCanvas'
 export * from './modal'
+export { default as requestQueue } from './requestQueue'
 
 //export * from './general'

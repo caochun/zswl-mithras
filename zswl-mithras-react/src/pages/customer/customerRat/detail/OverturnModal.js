@@ -1,12 +1,11 @@
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 import DataUpload from '@/components/DataUpload'
-import { toHump } from '@/utils'
+import { requestQueue, toHump } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Button, Form, Input, Modal, ModalStore, Select } from '@zswl/components'
 import { message } from 'antd'
 import commonApi from '@/api/common/fileList'
 import { useMemo } from 'react'
-import requestQueue from '@/pages/ocr/recognition/asyncPool'
 
 export const uploadFile = async (files, uploadParams) => {
   const { fileList } = DataUpload.classify(files)

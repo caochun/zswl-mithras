@@ -1,4 +1,4 @@
-import ClientSelect from '@/pages/project/Components/ClientSelect'
+import { ClientSelect } from '@/components'
 import { amountFormat, getInputNumberAmountProps } from '@/utils'
 import { observer } from '@zswl/admin'
 import { App, Form, Modal } from '@zswl/components'
@@ -62,7 +62,12 @@ const AddModal = () => {
           name="clientId"
           rules={[{ required: true, message: '请输入客户名称！' }]}
         >
-          <ClientSelect onChange={clientChange} referer="paymentApplication" />
+          <ClientSelect
+            labelInValue
+            canJump={false}
+            functionCode="clientlist-7"
+            onChange={clientChange}
+          />
         </Form.Item>
         <Form.Item
           label="合同编号"
