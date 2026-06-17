@@ -1,9 +1,8 @@
-import { Table, TableStore } from '@zswl/components'
-import { COMMON_COLUMNS } from '@/pages/financialReport/Column'
+import { Table } from '@zswl/components'
+import { COMMON_COLUMNS } from '@/components/Report/FinancialReport/Columns'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'
-import financialReportApi from '@/api/financialReport/financialReportApi'
-import DetailModal from '@/pages/financialReport/wait/DetailModal'
+import DetailModal from '@/components/Report/FinancialReport/DetailModal'
 import Store from './store'
 
 const Approval = ({ query, params }) => {
