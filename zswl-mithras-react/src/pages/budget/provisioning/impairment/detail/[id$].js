@@ -1,11 +1,11 @@
 import { observer, http } from '@zswl/admin'
 import { Table, Page, Button } from '@zswl/components'
 import { getTableColumns, getFormColumns } from '@/utils'
-import { BudgetProvisioningImpairmentColumns as ALL_COLUMNS } from '@/components/Budget/BudgetEntries'
+import { BudgetProvisioningImpairmentColumns as ALL_COLUMNS } from '@/components/Budget/ProvisioningEntries'
 import { PageListDown } from '@/components'
 import { saveServer } from '@/utils'
 import Store from './store'
-import { BudgetProvisioningDataAddModal as AddModal } from '@/components/Budget/BudgetEntries'
+import { BudgetProvisioningDataAddModal as AddModal } from '@/components/Budget/ProvisioningEntries'
 import ModalStore from '../../dataSearch/store'
 import { useMemo } from 'react'
 

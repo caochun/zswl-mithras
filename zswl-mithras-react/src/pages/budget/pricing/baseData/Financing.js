@@ -7,7 +7,7 @@ import { Card, Tooltip, message } from 'antd'
 import moment from 'moment'
 import financingCostsApi from '@/api/newFtp/financingCostsApi'
 import { saveServer } from '@/utils'
-import { BudgetFinancingCostEditModal as EditModal } from '@/components/Budget/BudgetEntries'
+import { BudgetFinancingCostEditModal as EditModal } from '@/components/Budget/PricingEntries'
 
 function Index({ path }) {
   const reload = async () => {

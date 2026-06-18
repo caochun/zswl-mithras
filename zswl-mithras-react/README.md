@@ -41,6 +41,8 @@
 - `BlackGray/BlackGrayEntries.js`
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/BudgetEntries.js`
+- `Budget/PricingEntries.js`
+- `Budget/ProvisioningEntries.js`
 - `BudgetManagement/BudgetManagementEntries.js`
 - `Chart/ChartEntries.js`
 - `Contract/DetailEntries.js`

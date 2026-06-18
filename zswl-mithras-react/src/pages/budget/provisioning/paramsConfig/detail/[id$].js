@@ -4,7 +4,7 @@ import { Page, Table, Button } from '@zswl/components'
 import { Space } from 'antd'
 import styles from './style.less'
 import { useMemo } from 'react'
-import { BudgetProvisioningParamsConfigColumnsByType as getColumnsByType } from '@/components/Budget/BudgetEntries'
+import { BudgetProvisioningParamsConfigColumnsByType as getColumnsByType } from '@/components/Budget/ProvisioningEntries'
 
 export { getColumnsByType }
 const Index = ({ params }) => {

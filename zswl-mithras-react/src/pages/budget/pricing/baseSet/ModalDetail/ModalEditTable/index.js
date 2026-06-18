@@ -1,1 +1,1 @@
-export { BudgetPricingBaseSetModalEditTable as default } from '@/components/Budget/BudgetEntries'
+export { BudgetPricingBaseSetModalEditTable as default } from '@/components/Budget/PricingEntries'
