@@ -1,6 +1,6 @@
 import { TableStore, Modal, ModalStore, App, SearchBarStore, PageStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from '../../api'
+import Api from '../api'
 import fileList from '@/api/common/fileList'
 import { message } from 'antd'
 import { downFile, toHump } from '@/utils'

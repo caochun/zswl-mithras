@@ -4,7 +4,7 @@ import styles from '../index.less'
 import FormUpload from '@/components/FormUpload'
 import { amountFormat, getInputNumberAmountProps, validatorBigZero, validatorNoZero } from '@/utils'
 import { observer } from '@zswl/admin'
-import NoOverdue from '../../NoOverdue'
+import NoOverdue from '../../Components/NoOverdue'
 import { saveServer } from '@/utils'
 
 const { Item } = Form

@@ -7,7 +7,7 @@ import { message, Select, Tooltip, Upload } from 'antd'
 import styles from '../index.less'
 import { useEffect, useState } from 'react'
 import { observer } from '@zswl/admin'
-import NoOverdue from '../../NoOverdue'
+import NoOverdue from '../../Components/NoOverdue'
 import { saveServer } from '@/utils'
 
 const OverdueCollection = ({ store }) => {
