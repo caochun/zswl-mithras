@@ -74,6 +74,7 @@
 - `Report/FinancialReportEntries.js`
 - `Report/OperationEntries.js`
 - `Risk/RiskEntries.js`
+- `TrackEvent/ModalEntries.js`
 - `TrackEvent/TrackingEntries.js`
 
 ## 依赖规则
