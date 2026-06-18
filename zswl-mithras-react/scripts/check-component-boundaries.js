@@ -87,6 +87,11 @@ const legacyUtilityPrefixRules = [
     replacementPrefix: '@/risk/RiskUtils',
     allowedSourcePathPrefixes: ['src/risk/RiskUtils.js'],
   },
+  {
+    legacyPrefix: '@/utils/rzyConfig',
+    replacementPrefix: '@/rzy/RzyConfig',
+    allowedSourcePathPrefixes: ['src/rzy/RzyConfig.js'],
+  },
 ]
 const legacyApiDomains = new Map([
   ['blackList', 'blackGray'],

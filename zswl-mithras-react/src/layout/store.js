@@ -4,7 +4,7 @@ import { ModalStore, FormStore, App } from '@zswl/components'
 import DataUpload from '@/components/DataUpload'
 import { options, downFile, setLastVisitPath, clearCookie } from '@/utils'
 import { message } from 'antd'
-import { rzyMenu } from '@/utils/rzyConfig'
+import { rzyMenu } from '@/rzy/RzyConfig'
 
 /**
  * 将字典数据转换为 [{label, value}] 格式

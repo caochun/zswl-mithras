@@ -1,1 +1,1 @@
-export { rzyLink, rzyMenu, rzyMemu } from '@/utils/rzyConfig'
+export { rzyLink, rzyMenu, rzyMemu } from '@/rzy/RzyConfig'
