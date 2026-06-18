@@ -40,7 +40,6 @@ const publicComponentRoots = new Set([
   'Amount',
   'AmountNumber',
   'AmountRange',
-  'BiView',
   'Bifrost',
   'BreadLine',
   'Chart',

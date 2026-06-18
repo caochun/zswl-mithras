@@ -5,7 +5,6 @@
 
 export { default as Bifrost } from './Bifrost'
 export { default as PageListDown } from './PageListDown'
-export { default as BiView } from './BiView'
 export { default as Upload } from './DataUpload'
 export { default as OrgTreeSelect } from './OrgTreeSelect'
 export * from './Select'

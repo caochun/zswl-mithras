@@ -1,4 +1,4 @@
-import BiView from '@/components/BiView'
+import { ReportBiView as BiView } from '@/components/Report/BiViewEntries'
 import { observer } from '@zswl/admin'
 import { Empty, Tree, Divider } from 'antd'
 import { Button, Page, Flex } from '@zswl/components'

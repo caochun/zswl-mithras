@@ -144,6 +144,7 @@
 - `Project/ReviewProcessEntries.js`
 - `Project/ReviewSnapshotEntries.js`
 - `Report/FinancialReportApprovalEntries.js`
+- `Report/BiViewEntries.js`
 - `Report/FinancialReportListEntries.js`
 - `Report/OperationEntries.js`
 - `Risk/ConcentrationControlEntries.js`
