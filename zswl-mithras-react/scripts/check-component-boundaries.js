@@ -584,6 +584,13 @@ for (const filePath of sourceFiles) {
     })
   }
 
+  if (relativeFilePath === 'src/components/Select/financial.js') {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'financial selects must be exported from components/Financial/SelectEntries',
+    })
+  }
+
   if (
     /^src[\\/]components[\\/].*[\\/]api\.(?:js|ts)$/.test(relativeFilePath) &&
     componentApiForwardingShellPattern.test(fs.readFileSync(filePath, 'utf8').trim())
