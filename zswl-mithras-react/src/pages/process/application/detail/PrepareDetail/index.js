@@ -10,17 +10,17 @@ import {
   PrepareFinancialDirect,
   PrepareFinancialFund,
   PrepareFinancialReportApproval,
+  PrepareFinancingRepayPlanConfirmFlow,
   PrepareFundFilingMaterialsApply,
   PrepareKpiProjectAllocation,
   PrepareOverdueListSearch,
   PrepareProfitDistribution,
+  PrepareRentPaymentNotice,
 } from '@/components/Process/PrepareDetailEntries'
-import RentPaymentNotice from '../../../Detail/RentPaymentNotice' // 租金催收，投放项⽬还款账⼾优化
 import { observer } from '@zswl/admin'
 import { Button, Page } from '@zswl/components'
 import { useMemo } from 'react'
 import ExchangeRateFlow from './Component/ExchangeRateFlow'
-import FinancingRepayPlanConfirmFlow from './Component/FinancingRepayPlanConfirmFlow'
 import Store from './Store'
 
 const Index = ({ id }) => {
@@ -32,7 +32,7 @@ const Index = ({ id }) => {
     const processComp = {
       // MarginFlowAuto: <DepositRefundNotification id={businessId}/>,
       MarginBackNotice: <PrepareContractDepositRefundNotification id={businessId} />,
-      RentPaymentNotifyFlow: <RentPaymentNotice id={businessId}></RentPaymentNotice>,
+      RentPaymentNotifyFlow: <PrepareRentPaymentNotice id={businessId}></PrepareRentPaymentNotice>,
       ContractStartRentAutoFlow: <PrepareContractStartRent params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
       ContractEarlySettleConfirmFlow: <PrepareContractEarlySettlement params={{ id: businessId }} query={{ canEditFlags: 'true', planType: 'SETTLE_IN_ADVANCE' }}></PrepareContractEarlySettlement>,
       KpiProjectDistributionTransferFlow: (
@@ -54,9 +54,9 @@ const Index = ({ id }) => {
       FinancingRecordFlow: <PrepareFinancialFund params={{ id: businessId }} query={{ canEditFlags: 'true', processType }} />,
       DirectFinancingRecordFlow: <PrepareFinancialDirect params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
       FinancingFloatRateAdjustFlow: <PrepareFinancialFund params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
-      FinancingRepayPlanConfirmFlow: <FinancingRepayPlanConfirmFlow params={{ id: businessId }} query={{ processType: 'FinancingRepayPlanConfirmFlow' }} />,
+      FinancingRepayPlanConfirmFlow: <PrepareFinancingRepayPlanConfirmFlow params={{ id: businessId }} query={{ processType: 'FinancingRepayPlanConfirmFlow' }} />,
       FinancingRepayWriteOffConfirmFlow: (
-        <FinancingRepayPlanConfirmFlow params={{ id: businessId }} query={{ processType: 'FinancingRepayWriteOffConfirmFlow' }} />
+        <PrepareFinancingRepayPlanConfirmFlow params={{ id: businessId }} query={{ processType: 'FinancingRepayWriteOffConfirmFlow' }} />
       ),
       baseDataExchangeRateTodo: <ExchangeRateFlow params={{ id: businessId, detail }} query={{ canEditFlags: 'true', processType }} />,
       AssociationReportQuarterMonthFlow: <PrepareFinancialReportApproval params={{ id: businessId }} query={{ canEditFlags: 'true', processType }} />,
