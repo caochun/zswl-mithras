@@ -10,7 +10,7 @@ import { ApprovalAction as Approval } from '@/components/Actions'
 import { ApprovalDetail } from '@/components/Table'
 import DetailLayout from '@/components/DetailLayout'
 import CreditModal from '../CreditSearchModal'
-import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewSupportEntries'
+import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
 
 const { Link } = Anchor
 

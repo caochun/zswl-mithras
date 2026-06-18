@@ -78,7 +78,8 @@
 - `Project/PriceDetailEntries.js`
 - `Project/ProjectEntries.js`
 - `Project/ReviewDetailEntries.js`
-- `Project/ReviewSupportEntries.js`
+- `Project/ReviewMeetingEntries.js`
+- `Project/ReviewSnapshotEntries.js`
 - `Report/FinancialReportEntries.js`
 - `Report/OperationEntries.js`
 - `Risk/ConcentrationControlEntries.js`

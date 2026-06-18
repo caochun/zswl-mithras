@@ -30,7 +30,7 @@ import LeaseZiLiao from '../LeaseMaterials'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/ModalEntries'
 import ZhongDengButton from '@/components/ZhongDengButton'
 import EvaluationAgency from '@/components/EvaluationAgency'
-import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewSupportEntries'
+import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
 
 const Index = ({
   params: { id },
