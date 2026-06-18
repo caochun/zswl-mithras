@@ -1,7 +1,7 @@
 import { makeAutoObservable, history } from '@zswl/admin'
 import { PageStore, TableStore, ModalStore } from '@zswl/components'
 import { message } from 'antd'
-import { transformClientStatus } from '../utils'
+import { transformClientStatus } from '@/utils/customer'
 import Api from '@/api/customer/maintainApi'
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 class Store {
