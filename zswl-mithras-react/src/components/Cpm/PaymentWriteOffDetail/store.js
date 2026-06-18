@@ -3,7 +3,6 @@ import { ModalStore, PageStore, TableStore, DrawerStore, Modal, App } from '@zsw
 import { message } from 'antd'
 import moment from 'moment'
 import Api from './api'
-import paymentApi from '../api'
 import policyLedgerApi from '@/api/afterLease/policyLedgerApi'
 import { CloseOutlined } from '@ant-design/icons'
 class Store {
@@ -186,7 +185,7 @@ class Store {
           closable: true,
           onOk: async () => {
             const paymentId = this.actualDetail.paymentId
-            await paymentApi.updateCollectionDay({ ...data, paymentId })
+            await Api.updateCollectionDay({ ...data, paymentId })
             await Api.postPaymentWriteoffActualDetailSubmit({ isFinishPut: true, paymentId })
             this.page.init()
             message.success('提交成功')
@@ -196,7 +195,7 @@ class Store {
         return
       }
       const paymentId = this.actualDetail.paymentId
-      await paymentApi.updateCollectionDay({ ...data, paymentId })
+      await Api.updateCollectionDay({ ...data, paymentId })
       await Api.postPaymentWriteoffActualDetailSubmit({ isFinishPut: true, paymentId })
       this.page.init()
       message.success('提交成功')

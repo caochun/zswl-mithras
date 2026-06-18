@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
-import DetailTitle from '../../Components/DetailTitle'
+import DetailTitle from '@/components/Cpm/DetailTitle'
 import CashFlowInfo from './Components/CashFlowInfo'
 import Contract from './Components/Contract'
 import RecordList from './Components/RecordList'

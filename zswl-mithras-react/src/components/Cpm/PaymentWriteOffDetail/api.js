@@ -33,4 +33,5 @@ export default {
     http.post('/payment/send/advance/application', params, {
       transformResult: (res) => res.data,
     }),
+  updateCollectionDay: (params) => http.post('/payment/collection/day/modify', params),
 }
