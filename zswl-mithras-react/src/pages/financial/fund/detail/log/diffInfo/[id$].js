@@ -9,7 +9,7 @@ import {
   FinancialFundDetailPledge as Pledge,
   FinancialFundDetailRefundAccount as RefundAccount,
   FinancialFundDetailScheme as Scheme,
-} from '@/components/Financial/FundEntries'
+} from '@/components/Financial/FundDetailEntries'
 import Api from '@/api/financial/fundApi'
 import FileDiff from '@/components/FileDiff'
 

@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import {
   FinancialFundChange as FundFinancingFundChange,
   FinancialFundDetail as FundFinancingFundDetail,
-} from '@/components/Financial/FundEntries'
+} from '@/components/Financial/FundProcessEntries'
 import { FinancialDirectDetail as FinancialDirect } from '@/components/Financial/FinancialEntries'
 import FinancingRepayPlanConfirmFlow from '../../application/detail/PrepareDetail/Component/FinancingRepayPlanConfirmFlow'
 import { FilingMaterialsFundApply as FundFilingMaterialsApply } from '@/components/FilingMaterials/FilingMaterialsEntries'

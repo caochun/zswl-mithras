@@ -1,1 +1,1 @@
-export { FinancialFundYearRate as default } from '@/components/Financial/FundEntries'
+export { FinancialFundYearRate as default } from '@/components/Financial/FundListEntries'

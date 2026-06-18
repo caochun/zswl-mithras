@@ -1,1 +1,1 @@
-export { FinancialFundDetailScheme as default } from '@/components/Financial/FundEntries'
+export { FinancialFundDetailScheme as default } from '@/components/Financial/FundDetailEntries'

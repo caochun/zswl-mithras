@@ -66,8 +66,10 @@
 - `Customer/PublicInfoEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `Dashboard/MyAchievementEntries.js`
+- `Financial/FundDetailEntries.js`
 - `Financial/FinancialEntries.js`
-- `Financial/FundEntries.js`
+- `Financial/FundListEntries.js`
+- `Financial/FundProcessEntries.js`
 - `Financial/PaymentEntries.js`
 - `FilingMaterials/FilingMaterialsEntries.js`
 - `Kpi/BaseSetModalDetailEntries.js`

@@ -6,7 +6,7 @@ import {
   FinancialFundColumns as ALL_COLUMNS,
   FinancialFundListChangeModal as ChangeModal,
   FinancialFundListCreateModal as CreateModal,
-} from '@/components/Financial/FundEntries'
+} from '@/components/Financial/FundListEntries'
 import Store from './store'
 import { PageListDown } from '@/components'
 import { InputEditable, MatchOptionColumn } from '@/components/Format'

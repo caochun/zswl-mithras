@@ -1,1 +1,1 @@
-export { FinancialFundDetailEstimateTable as default } from '@/components/Financial/FundEntries'
+export { FinancialFundDetailEstimateTable as default } from '@/components/Financial/FundDetailEntries'
