@@ -1,1 +1,1 @@
-export { CustomerApplyPermission as default } from '@/components/Customer/CustomerEntries'
+export { CustomerApplyPermission as default } from '@/components/Customer/ApplyPermissionEntries'

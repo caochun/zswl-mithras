@@ -59,10 +59,12 @@
 - `Credit/SearchListEntries.js`
 - `Credit/SearchModalEntries.js`
 - `CreditManage/CreditManageEntries.js`
-- `Customer/CustomerEntries.js`
+- `Customer/ApplyPermissionEntries.js`
 - `Customer/CustomerRatingEntries.js`
 - `Customer/DebtRatingEntries.js`
 - `Customer/FinancialReportEntries.js`
+- `Customer/HandoverEntries.js`
+- `Customer/MaintainEntries.js`
 - `Customer/PublicInfoEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `Dashboard/MyAchievementEntries.js`

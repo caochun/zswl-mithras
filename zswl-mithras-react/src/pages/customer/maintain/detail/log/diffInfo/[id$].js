@@ -1,1 +1,1 @@
-export { CustomerMaintainDetailLogDiff as default } from '@/components/Customer/CustomerEntries'
+export { CustomerMaintainDetailLogDiff as default } from '@/components/Customer/MaintainEntries'
