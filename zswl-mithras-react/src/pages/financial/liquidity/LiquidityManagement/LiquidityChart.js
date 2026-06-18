@@ -1,7 +1,7 @@
 import ReactECharts from 'echarts-for-react'
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
-import Api from '@/api/liquidity/liquidityRiskApi'
+import Api from '@/api/financial/liquidity/liquidityRiskApi'
 import { LineChart } from '@/components/Chart/LineChartEntries'
 import _, { flatMapDeep, set } from 'lodash'
 

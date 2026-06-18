@@ -3,7 +3,7 @@ import { Form, Page, Button, Table, Select, App } from '@zswl/components'
 import { Card, message, Input, InputNumber, Row, Col, Space } from 'antd'
 import styles from './style.less'
 import { observer } from '@zswl/admin'
-import baseInfoApi from '@/api/liquidity/baseInfoApi'
+import baseInfoApi from '@/api/financial/liquidity/baseInfoApi'
 import { FormAmount } from '@/components/Form'
 import { saveServer } from '@/utils'
 

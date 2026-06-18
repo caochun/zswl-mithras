@@ -1,4 +1,4 @@
-import baseInfoApi from '@/api/liquidity/baseInfoApi'
+import baseInfoApi from '@/api/financial/liquidity/baseInfoApi'
 import { PureAmountFormat } from '@/components/Format'
 import { downLoadImg } from '@/utils'
 import { history, observer } from '@zswl/admin'

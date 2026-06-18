@@ -1,6 +1,6 @@
 import { TableStore, Modal, ModalStore, App } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from '@/api/liquidity/dataSet'
+import Api from '@/api/financial/liquidity/dataSet'
 import { message } from 'antd'
 import orgApi from '@/api/financial/financialManageOrg'
 import moment from 'moment'

@@ -1,4 +1,4 @@
-import fundDayReportApi from '@/api/liquidity/fundDayReportApi'
+import fundDayReportApi from '@/api/financial/liquidity/fundDayReportApi'
 import { AmountColumn } from '@/components/Format'
 import { getFinancialUrl } from '@/components/Financial/FinancingUrlEntries'
 import { amountFormat, formatPercent, saveServer } from '@/utils'

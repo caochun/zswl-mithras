@@ -1,7 +1,7 @@
 import { Table, Form, Button, Page, Input, App, Select } from '@zswl/components'
 import styles from './style.less'
 import { AmountColumn, DateColumn } from '@/components/Format'
-import baseInfoApi from '@/api/liquidity/baseInfoApi'
+import baseInfoApi from '@/api/financial/liquidity/baseInfoApi'
 import { observer } from '@zswl/admin'
 import { message, Space, Tag, DatePicker } from 'antd'
 import { Summary as TableSummary } from '@/components/Table'
