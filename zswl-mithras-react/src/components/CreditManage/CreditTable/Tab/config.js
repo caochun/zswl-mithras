@@ -1,14 +1,12 @@
-import {
-  CreditTableBaoZheng,
-  CreditTableDiYa,
-  CreditTableHuanKuan,
-  CreditTableJiaoYi,
-  CreditTableKuHu,
-  CreditTableLevel5,
-  CreditTableYuQi,
-  CreditTableZhangHu,
-  CreditTableZhiYa,
-} from '@/components/CreditManage/CreditTable/entries'
+import CreditTableBaoZheng from './BaoZheng'
+import CreditTableDiYa from './DiYa'
+import CreditTableHuanKuan from './HuanKuan'
+import CreditTableJiaoYi from './JiaoYi'
+import CreditTableKuHu from './KuHu'
+import CreditTableLevel5 from './Level5'
+import CreditTableYuQi from './YuQi'
+import CreditTableZhangHu from './ZhangHu'
+import CreditTableZhiYa from './ZhiYa'
 
 
 export const tabList = [

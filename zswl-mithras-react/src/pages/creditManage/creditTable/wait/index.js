@@ -1,1 +1,1 @@
-export { default } from '@/components/CreditManage/CreditTable/Wait'
+export { CreditTableWait as default } from '@/components/CreditManage/CreditTable/entries'

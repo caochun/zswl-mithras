@@ -2,7 +2,7 @@ import { useMemo, useEffect } from 'react'
 import { Page } from '@zswl/components'
 import { observer, setSessionStorage } from '@zswl/admin'
 import { Drawer, Radio } from 'antd'
-import Tab from '@/components/CreditManage/CreditTable/Tab'
+import { CreditTableTab as Tab } from '@/components/CreditManage/CreditTable/entries'
 import {
   CreditTableFinishAccount as AccountView,
   CreditTableFinishBatch as BatchView,
