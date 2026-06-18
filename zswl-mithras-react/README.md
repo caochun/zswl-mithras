@@ -139,6 +139,7 @@
 - `Project/FinancialReportStatisticsEntries.js`
 - `Project/FormListItemEntries.js`
 - `Project/PriceDetailEntries.js`
+- `Project/ProjectSelectEntries.js`
 - `Project/ReviewDetailEntries.js`
 - `Project/ReviewMeetingEntries.js`
 - `Project/ReviewProcessEntries.js`
