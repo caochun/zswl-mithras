@@ -1,6 +1,8 @@
-import ArrowRight from '@/components/Dashboard/assets/arrow_right.svg'
-import ArrowLeft from '@/components/Dashboard/assets/arrow_left.svg'
-import ArrowDown from '@/components/Dashboard/assets/arrow_down.svg'
+import {
+  DashboardArrowDown as ArrowDown,
+  DashboardArrowLeft as ArrowLeft,
+  DashboardArrowRight as ArrowRight,
+} from '@/components/Dashboard/DashboardAssets'
 
 export const stepConfig = [
   {

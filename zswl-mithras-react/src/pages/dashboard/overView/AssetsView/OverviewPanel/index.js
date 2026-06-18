@@ -1,7 +1,9 @@
-import boardInvestment from '@/components/Dashboard/assets/board_investment.png'
-import boradAssets from '@/components/Dashboard/assets/board_assets.png'
-import ArrowUp2 from '@/components/Dashboard/assets/arrow_up2.svg'
-import ArrowDown2 from '@/components/Dashboard/assets/arrow_down2.svg'
+import {
+  DashboardArrowDown2 as ArrowDown2,
+  DashboardArrowUp2 as ArrowUp2,
+  DashboardBoardAssets as boradAssets,
+  DashboardBoardInvestment as boardInvestment,
+} from '@/components/Dashboard/DashboardAssets'
 import styles from './index.less'
 import { useEffect, useState } from 'react'
 import { Spin } from 'antd'

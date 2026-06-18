@@ -1,5 +1,7 @@
-import BellRed from '@/components/Dashboard/assets/icon_bell_red.svg'
-import BellYellow from '@/components/Dashboard/assets/icon_bell_yellow.svg'
+import {
+  DashboardIconBellRed as BellRed,
+  DashboardIconBellYellow as BellYellow,
+} from '@/components/Dashboard/DashboardAssets'
 import RepayInterest from './ListDrawer/RepayInterest'
 import FundCase from './ListDrawer/FundCase'
 import CreditCase from './ListDrawer/CreditCase'
