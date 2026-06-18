@@ -2,7 +2,7 @@ import { Button, Form, Modal, ModalStore, Table } from '@zswl/components'
 import { Drawer } from 'antd'
 import { observer } from '@zswl/admin'
 import { useState } from 'react'
-import DebtRat from '@/components/Customer/DebtRat'
+import { CustomerDebtRat as DebtRat } from '@/components/Customer/CustomerEntries'
 
 const Index = ({ params }) => {
   const [open, setOpen] = useState(false)
