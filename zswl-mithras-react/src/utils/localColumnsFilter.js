@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import workbenchApi from '@/api/common/workbenchApi'
+import userCustomConfigApi from '@/api/common/userCustomConfigApi'
 
 export const CARD_COLUMNS_FILTER = 'z-card-columns-filter'
 export const TABLE_COLUMNS_FILTER = 'z-table-columns-filter'
@@ -27,7 +27,7 @@ export function setLocalColumnsFilter(id, columns, filterName = CARD_COLUMNS_FIL
 }
 
 export const saveServer = async (columnsFilterKey,value) => {
-  await workbenchApi.saveCustomConfig({
+  await userCustomConfigApi.saveCustomConfig({
     configKey: columnsFilterKey,
     configValue: JSON.stringify(value),
   })

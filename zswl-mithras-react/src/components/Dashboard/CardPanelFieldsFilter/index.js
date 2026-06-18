@@ -6,7 +6,6 @@ import { isEmpty, isFunction } from 'lodash'
 import cls from 'classnames'
 import ManagementFields from '../ManagementFields'
 import styles from './index.less'
-import workbenchApi from '@/api/common/workbenchApi'
 
 /**
  * 卡片模块面板

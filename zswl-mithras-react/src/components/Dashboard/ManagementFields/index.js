@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { chunk, isBoolean, isEmpty } from 'lodash'
 import { getLocalColumnsFilter, setLocalColumnsFilter } from '@/utils'
 import styles from './index.less'
-import workbenchApi from '@/api/common/workbenchApi'
+import userCustomConfigApi from '@/api/common/userCustomConfigApi'
 
 /**
  * 字段本地存储面板
@@ -33,7 +33,7 @@ const Index = ({ initFieldsConfig, onChange, columnsFilterKey }) => {
   }, [titleKeys, columnsFilterKey])
 
   const saveServer = async (value) => {
-    await workbenchApi.saveCustomConfig({
+    await userCustomConfigApi.saveCustomConfig({
       configKey: columnsFilterKey,
       configValue: JSON.stringify(value),
     })

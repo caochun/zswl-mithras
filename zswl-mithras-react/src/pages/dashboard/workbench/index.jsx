@@ -27,7 +27,7 @@ import {
   TABLE_COLUMNS_FILTER,
 } from '@/utils'
 import styles from './index.less'
-import workbenchApi from '@/api/common/workbenchApi'
+import userCustomConfigApi from '@/api/common/userCustomConfigApi'
 import { initData } from './initData'
 import { handleFeikongJump } from './utils'
 
@@ -60,7 +60,7 @@ function mergeObjects (obj1, obj2) {
 const getServerConfig = async () => {
   const objectData = []
   const ArrayData = []
-  const res = await workbenchApi.queryCustomConfig({})
+  const res = await userCustomConfigApi.queryCustomConfig({})
   res.forEach((item) => {
     try {
       const parsedValue = JSON.parse(item.configValue)
