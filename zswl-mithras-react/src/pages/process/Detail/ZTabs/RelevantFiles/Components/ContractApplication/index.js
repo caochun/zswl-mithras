@@ -8,7 +8,7 @@ import {
   ContractSettlementProtocol as SettlementProtocol,
   ContractStartRentMaterials as StartRentZiLiao,
   ContractText as HeTong,
-} from '@/components/Contract/DetailEntries'
+} from '@/components/Contract/InfoEntries'
 import Api from '@/api/contract/contractDetail'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { useEffect, useMemo, useState } from 'react'
