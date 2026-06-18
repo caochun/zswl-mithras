@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { useState, useEffect } from 'react'
 import { AmountColumn, AmountFormatter, InputColumn } from '@/components/Format'
 import { EditDescription } from '@/components/Table'
-import { useFlowData } from '@/utils/processFlow'
+import { useFlowData } from '@/process/ProcessFlowContext'
 import Api from './api'
 import { bizRender } from '../ContractApplication'
 

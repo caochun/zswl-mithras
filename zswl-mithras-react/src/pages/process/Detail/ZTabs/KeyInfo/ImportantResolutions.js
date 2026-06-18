@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { NoEnumFileTable as FileList } from '@/components/Table'
 import { Collapse } from '@/components'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
-import { useFlowData } from '@/utils/processFlow'
+import { useFlowData } from '@/process/ProcessFlowContext'
 import Api from './api'
 
 const IMPORTANT_TITLE_ENUM = {

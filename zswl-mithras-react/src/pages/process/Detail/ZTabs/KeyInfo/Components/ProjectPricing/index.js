@@ -4,7 +4,7 @@ import { AmountColumn, AmountFormatter } from '@/components/Format'
 import { useEffect, useState } from 'react'
 import { compareDetail } from '@/utils'
 import { ProjectFormListItem as FormListItem } from '@/components/Project/FormListItemEntries'
-import { useFlowData } from '@/utils/processFlow'
+import { useFlowData } from '@/process/ProcessFlowContext'
 import Api from './api'
 import { bizRender } from '../ContractApplication'
 

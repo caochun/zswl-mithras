@@ -5,7 +5,7 @@ import { observer } from '@zswl/admin'
 import { Modal, Form } from '@zswl/components'
 import Api from './api'
 import { rules } from '@/utils'
-import { useFlowData } from '@/utils/processFlow'
+import { useFlowData } from '@/process/ProcessFlowContext'
 
 const Index = ({ store }) => {
   const { detailData } = useFlowData()

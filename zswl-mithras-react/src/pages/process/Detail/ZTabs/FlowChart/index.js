@@ -1,6 +1,6 @@
 import BpmnFlowChart from '@/components/BpmnFlowChart'
 import { observer } from '@zswl/admin'
-import { useFlowData } from '@/utils/processFlow'
+import { useFlowData } from '@/process/ProcessFlowContext'
 
 const Index = () => {
   const { detailData } = useFlowData()
