@@ -1,5 +1,5 @@
-import workbenchApi from '../common/workbenchApi'
+import { http } from '@zswl/admin'
 
 export default {
-  getOauthAuthorize: workbenchApi.getOauthAuthorize,
+  getOauthAuthorize: () => http.get('/oauth/authorize', {}),
 }
