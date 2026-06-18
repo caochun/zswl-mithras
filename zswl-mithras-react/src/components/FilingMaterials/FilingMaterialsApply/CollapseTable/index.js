@@ -1,4 +1,5 @@
-import { Collapse, FileTableMe, NoEnumFileTable } from '@/components'
+import { Collapse } from '@/components'
+import { FileTableMe, NoEnumFileTable } from '@/components/Table'
 import { getUserInfo } from '@/utils'
 import { downFile } from '@/utils/downFunction'
 import { getQuery, observer } from '@zswl/admin'

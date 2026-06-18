@@ -7,7 +7,7 @@ import CreditTermTable from './CreditTermTable'
 import Quarter from './Quarter'
 import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 import MonthGuide from './MonthGuide'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import TextAreaEditable from './components/TextAreaEditable'
 import { isFinancialOfficer, isPricingDept } from '@/utils'
 

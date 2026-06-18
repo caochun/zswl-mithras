@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { isAssetJon, isRiskSecretary } from '@/utils'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { useEffect, useMemo, useState, useRef } from 'react'
 import DataUpload from '@/components/DataUpload'
 import Api from '@/api/afterLease/level5Classify'

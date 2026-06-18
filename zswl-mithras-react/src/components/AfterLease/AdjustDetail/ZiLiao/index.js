@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Api from './api'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 
 const MODULE_TYPE = 'ADJUST'
 const Report = ({ adjustId: mainId, businessVersion, canEditFlag: canEdit = true }) => {

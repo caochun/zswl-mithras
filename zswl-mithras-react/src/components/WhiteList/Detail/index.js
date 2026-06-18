@@ -5,7 +5,7 @@ import Store from './store'
 import DetailLayout from '@/components/DetailLayout'
 import BaseInfo from './BaseInfo'
 import { Button } from 'antd'
-import { EditDescription, NoEnumFileTable } from '@/components'
+import { EditDescription, NoEnumFileTable } from '@/components/Table'
 import { TextAreaColumn } from '@/components/Format'
 import { isDept } from '@/utils'
 

@@ -4,7 +4,7 @@ import ALL_COLUMNS from './Column'
 import { getTableColumns, saveServer } from '@/utils'
 import { TableExportAction as TableExport } from '@/components/Actions'
 import ftpYieldApi from '@/api/budget/ftpYield/ftpYieldApi'
-import { Summary } from '@/components'
+import { Summary } from '@/components/Table'
 
 const Index = ({ pathname }) => {
   const columns = getTableColumns(

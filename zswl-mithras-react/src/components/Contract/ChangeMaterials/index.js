@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Api from './api'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { getUserInfo } from '@/utils'
 
 const Report = ({ id, canEdit = true, businessVersion, taskActivityId, taskStatus }) => {

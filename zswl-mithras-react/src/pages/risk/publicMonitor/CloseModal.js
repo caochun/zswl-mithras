@@ -1,6 +1,6 @@
 import { Input } from 'antd'
 import { Form, Modal } from '@zswl/components'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import { observer } from '@zswl/admin'
 
 const { Item } = Form

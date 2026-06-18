@@ -1,4 +1,4 @@
-import { EditDescription } from '@/components'
+import { EditDescription } from '@/components/Table'
 import { InputColumn, MatchOptionColumn } from '@/components/Format'
 import { FounderSelect, OrgSelect } from '@/components/Select'
 import { RegionCascader } from '@/components'

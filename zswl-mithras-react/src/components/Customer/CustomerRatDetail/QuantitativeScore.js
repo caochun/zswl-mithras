@@ -12,7 +12,7 @@ import { options } from '@/utils'
 import { Tooltip } from 'antd'
 const { approvalStatus } = options
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
-import { EditTable } from '@/components'
+import { EditTable } from '@/components/Table'
 
 const FiledEditable = (record, id, isZX) => {
   const addonAfter = !!record.unit ? `${record.unit}` : undefined

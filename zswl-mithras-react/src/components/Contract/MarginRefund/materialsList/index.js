@@ -1,6 +1,6 @@
 import { useRef, useImperativeHandle, forwardRef } from 'react'
 import { observer } from '@zswl/admin'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import { Button } from '@zswl/components'
 import _ from 'lodash'
 import Api from '../api'

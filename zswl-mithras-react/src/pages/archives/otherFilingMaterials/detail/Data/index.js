@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { Form, Input } from 'antd'
 import Api from '../api'
 

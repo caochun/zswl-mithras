@@ -6,7 +6,7 @@ import { FileCommonParams } from '../../../Level5ClassifyConfig'
 import { observer } from '@zswl/admin'
 import { useEffect } from 'react'
 import styles from '../../index.less'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import BoBei from './BoBei'
 import RiskFactor from './RiskFactor'
 

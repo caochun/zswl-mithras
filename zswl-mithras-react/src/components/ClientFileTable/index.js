@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { App } from '@zswl/components'
 import { useEffect, useRef } from 'react'
 import { toHump3 } from '@/utils'

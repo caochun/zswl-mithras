@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { FileTable, NoEnumFileTable } from '@/components'
+import { FileTable, NoEnumFileTable } from '@/components/Table'
 
 const MODULE_TYPE = 'PAYMENT'
 

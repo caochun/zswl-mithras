@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { App, Form, Input, Select, Table, Upload } from '@zswl/components'
 import { Col, Row, TreeSelect } from 'antd'
 import { EnterTable } from './BreakDetail'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 
 const ColItem = ({ children, ...rest }) => {
   return (

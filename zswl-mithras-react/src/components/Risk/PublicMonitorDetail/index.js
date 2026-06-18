@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { http, observer } from '@zswl/admin'
 import { EditDescription } from '@/components/Table'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import Api from '@/api/risk/publicMonitor'
 import Vector from '/public/assets/risk/monitoringAlertList/vector.svg'
 import Frame from '/public/assets/risk/monitoringAlertList/Frame.svg'

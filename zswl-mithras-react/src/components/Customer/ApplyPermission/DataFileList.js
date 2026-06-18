@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import Api from './api'
 
 const Report = ({ id, canEdit = true, store }) => {

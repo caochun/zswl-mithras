@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { useRef, forwardRef, useState } from 'react'
 import { observer } from '@zswl/admin'
 import { Modal, Button } from '@zswl/components'

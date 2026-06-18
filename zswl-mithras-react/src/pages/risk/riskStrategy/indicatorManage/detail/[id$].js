@@ -1,4 +1,4 @@
-import { EditDescription } from '@/components'
+import { EditDescription } from '@/components/Table'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Descriptions, Page, Table, TableStore } from '@zswl/components'

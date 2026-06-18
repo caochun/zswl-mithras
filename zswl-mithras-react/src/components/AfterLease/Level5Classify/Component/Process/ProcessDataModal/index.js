@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { Button, Space } from 'antd'
 import { isAssetJon } from '@/utils'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 
 const { Item } = Form
 

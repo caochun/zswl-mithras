@@ -1,7 +1,7 @@
 import { Page } from '@zswl/components'
 import { history, observer } from '@zswl/admin'
 import paymentApprovalApi from '@/api/financial/paymentApprovalApi'
-import { VersionTable } from '@/components'
+import { VersionTable } from '@/components/Table'
 
 function Index({ params: { id: mainId } }) {
   //变更日志详情

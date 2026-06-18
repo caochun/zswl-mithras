@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { getQuery, observer } from '@zswl/admin'
 import fileList from '@/api/common/fileList'
 

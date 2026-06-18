@@ -2,7 +2,7 @@ import { Table, Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
 import Api from '@/api/credit/groupCreditEstablishVersionApi'
-import { VersionTable } from '@/components'
+import { VersionTable } from '@/components/Table'
 
 function Index({ params: { id } }) {
   console.log('渲染了')

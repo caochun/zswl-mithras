@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Api from './api'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 
 const Report = ({ id, canEdit = true, businessVersion, title }) => {
   const columns = [

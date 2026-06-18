@@ -1,4 +1,4 @@
-import { EditDescription } from '@/components'
+import { EditDescription } from '@/components/Table'
 import { Input } from 'antd'
 
 const items = [

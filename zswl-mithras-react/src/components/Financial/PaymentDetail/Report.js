@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import { hasPermission } from '@/utils'
 
 const MODULE_TYPE = 'FUND_RECEIPT_REPAY'

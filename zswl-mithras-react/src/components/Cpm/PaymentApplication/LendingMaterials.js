@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { Button, Select, Form } from '@zswl/components'
 import { useEffect, useState } from 'react'
 import { message } from 'antd'

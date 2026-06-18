@@ -1,5 +1,5 @@
 import fileList from '@/api/common/fileList'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { toHump3 } from '@/utils'
 import { observer } from '@zswl/admin'
 import { message } from 'antd'

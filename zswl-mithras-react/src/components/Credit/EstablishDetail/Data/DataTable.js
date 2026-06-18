@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { App } from '@zswl/components'
 import { DateColumn } from '@/components/Format'
 import { observer } from '@zswl/admin'

@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { useMemo } from 'react'
 
 const Index = (props) => {

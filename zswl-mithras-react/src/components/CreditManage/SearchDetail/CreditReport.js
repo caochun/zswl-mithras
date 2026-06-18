@@ -1,4 +1,4 @@
-import { FileTable, NoEnumFileTable } from '@/components'
+import { FileTable, NoEnumFileTable } from '@/components/Table'
 import { observer } from '@zswl/admin'
 
 const MODULE_TYPE = 'CREDIT_REPORT_SELECT'

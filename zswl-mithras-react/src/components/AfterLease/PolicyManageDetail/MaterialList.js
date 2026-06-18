@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 
 const Index = ({ id, detail }) => {
   const columns = [

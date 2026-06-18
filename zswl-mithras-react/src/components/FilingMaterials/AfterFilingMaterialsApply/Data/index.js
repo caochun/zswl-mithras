@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import Api from '../api'
 
 const Index = (props) => {

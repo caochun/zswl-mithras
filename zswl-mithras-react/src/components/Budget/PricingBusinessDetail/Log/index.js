@@ -2,7 +2,7 @@ import { Table, Page } from '@zswl/components'
 import { getQuery, observer } from '@zswl/admin'
 import store from './store'
 import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
-import { VersionTable } from '@/components'
+import { VersionTable } from '@/components/Table'
 
 function Index({ params: { id } }) {
   const columns = [

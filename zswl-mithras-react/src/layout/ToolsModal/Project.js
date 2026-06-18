@@ -1,4 +1,4 @@
-import { EditDescription } from '@/components'
+import { EditDescription } from '@/components/Table'
 import { AmountColumn } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Button, Form, Table } from '@zswl/components'

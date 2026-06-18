@@ -1,7 +1,7 @@
 import { EditDescription } from '@/components/Table'
 import { TextAreaEditable } from '@/components/Format'
 import { observer } from '@zswl/admin'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 
 const Index = ({ canEdit, store }) => {
   const columns = [

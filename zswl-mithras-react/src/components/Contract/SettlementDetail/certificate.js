@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Api from './api'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import { isYunYingBuFuZeRen, isYunYingGuanLi, isContractSettlement, getUserInfo } from '@/utils/auth'
 
 const Certificate = ({ id, canEdit = false, businessVersion, title, startUserId }) => {

@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import Store from './store'
 import styles from './index.less'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 
 const Index = ({ id, businessVersion, title }) => {
   const store = useMemo(() => {

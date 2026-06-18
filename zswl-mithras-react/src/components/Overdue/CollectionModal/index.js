@@ -2,7 +2,7 @@ import { observer, getQuery } from '@zswl/admin'
 import { Modal, Form, DatePicker, Button, Select } from '@zswl/components'
 import { Input, message } from 'antd'
 import { useEffect, useRef, useState } from 'react'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import { dateTransform } from '@/utils'
 import collectionManagementApi from '@/api/overdue/collectionManagementApi'
 

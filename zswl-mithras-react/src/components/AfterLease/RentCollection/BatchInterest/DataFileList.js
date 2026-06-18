@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 
 const Report = ({ id, canEdit = true }) => {
   const columns = [

@@ -2,7 +2,7 @@ import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
 import Api from '@/api/financial/fundApi'
-import { VersionTable } from '@/components'
+import { VersionTable } from '@/components/Table'
 
 function Index(props) {
   const { id } = props.params ?? {}

@@ -1,6 +1,7 @@
 import evaluationAgencyApi from '@/api/evaluationAgency/evaluationAgencyApi'
 import assessmentWhitelistApi from '@/api/evaluationAgency/assessmentWhitelistApi'
-import { ApiSelect, EditDescription, NoEnumFileTable } from '@/components'
+import { ApiSelect } from '@/components'
+import { EditDescription, NoEnumFileTable } from '@/components/Table'
 import { MatchOptionColumn } from '@/components/Format'
 import { PlusOutlined } from '@ant-design/icons'
 import { makeAutoObservable, observer } from '@zswl/admin'

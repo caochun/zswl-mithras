@@ -1,6 +1,6 @@
 import customerRatApi from '@/api/process/detail/customerRatingApi'
 import debtRatApi from '@/api/process/detail/debtRatingApi'
-import { EditDescription } from '@/components'
+import { EditDescription } from '@/components/Table'
 import { observer } from '@zswl/admin'
 import { DescStore, Descriptions } from '@zswl/components'
 import { useEffect, useMemo, useState } from 'react'

@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import { Button } from '@zswl/components'
 import { message } from 'antd'
 

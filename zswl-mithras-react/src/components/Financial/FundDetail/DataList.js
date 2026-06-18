@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { useMemo } from 'react'
 import Api from '@/api/financial/fundApi'
 ;[

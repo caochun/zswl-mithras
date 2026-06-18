@@ -1,5 +1,5 @@
 import { EditDescription } from '@/components/Table'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import { observer, history } from '@zswl/admin'
 import { Page, App } from '@zswl/components'
 import moment from 'moment'

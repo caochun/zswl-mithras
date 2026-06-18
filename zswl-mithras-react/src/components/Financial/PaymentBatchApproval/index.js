@@ -6,7 +6,7 @@ import ALL_COLUMNS from '../PaymentColumns'
 import { useMemo, useRef } from 'react'
 import { Space } from 'antd'
 import DataList from './DataList'
-import { EditDescription, Summary } from '@/components'
+import { EditDescription, Summary } from '@/components/Table'
 import { saveServer } from '@/utils'
 
 function Index({ params: { id }, query: { canEditFlags = 'true', businessVersion, repayMonth } }) {

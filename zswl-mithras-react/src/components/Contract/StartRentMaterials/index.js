@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { observer } from '@zswl/admin'
 import { Modal } from '@zswl/components'
 import { message } from 'antd'

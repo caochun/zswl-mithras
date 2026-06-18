@@ -4,7 +4,7 @@ import Api from '@/api/budget/ftpYield/ftpYieldApi'
 import { useEffect, useMemo, useState } from 'react'
 import ALL_COLUMNS from '../Column'
 import { saveServer } from '@/utils'
-import { Summary } from '@/components'
+import { Summary } from '@/components/Table'
 
 const FTPTable = ({ dataSource, isAbs, summary = {} }) => {
   const nameColumns = [

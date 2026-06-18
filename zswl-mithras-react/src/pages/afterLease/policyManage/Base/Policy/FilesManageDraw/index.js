@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 
 const Index = ({ store }) => {
   const { recordId } = store

@@ -1,4 +1,4 @@
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import { getLocalStorage, observer } from '@zswl/admin'
 import { Button, Form, Input, Modal, Select } from '@zswl/components'
 import Api from '@/api/process/flowFile'

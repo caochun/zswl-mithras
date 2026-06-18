@@ -1,7 +1,7 @@
 import { getQuery, observer } from '@zswl/admin'
 import { Modal, Form, Select, Button } from '@zswl/components'
 import { Input, message } from 'antd'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import sealForDocumentsApi from '@/api/overdue/sealForDocumentsApi'
 import { useState } from 'react'
 

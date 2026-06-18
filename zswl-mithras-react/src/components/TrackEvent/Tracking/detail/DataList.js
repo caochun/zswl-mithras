@@ -1,4 +1,4 @@
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 
 const Index = (props) => {
   const { mainId, canEdit = true, businessVersion } = props

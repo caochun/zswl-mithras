@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { hasPermission } from '@/utils'
 import Store from './store'
 import styles from './index.less'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 
 const Index = ({ id }) => {
   const store = useMemo(() => {

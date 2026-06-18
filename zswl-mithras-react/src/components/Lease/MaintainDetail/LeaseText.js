@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { useRef, forwardRef, useImperativeHandle } from 'react'
 import { observer } from '@zswl/admin'
 import fileListApi from '@/api/common/fileList'

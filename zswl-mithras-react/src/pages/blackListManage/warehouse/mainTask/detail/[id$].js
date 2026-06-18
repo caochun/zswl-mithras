@@ -11,7 +11,7 @@ import SubmitRadio from './SubmitRadio'
 import { Card } from 'antd'
 import SingeModal from './SingeModal'
 import DataUpload from '@/components/DataUpload'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 
 const MODEL_KEY = 'BLACK_GRAY_WAREHOUSE_TASK'
 function Id({ params, query, path, props: { sub } }) {

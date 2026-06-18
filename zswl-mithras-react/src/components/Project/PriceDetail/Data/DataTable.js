@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { App, Button } from '@zswl/components'
 
 const nameMap = {

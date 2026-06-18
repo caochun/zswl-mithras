@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import styles from './index.less'
-import { NoEnumFileTable } from '@/components'
+import { NoEnumFileTable } from '@/components/Table'
 import Api from '@/api/contract/material'
 import { Access } from '@zswl/components'
 import { InputColumn } from '@/components/Format'

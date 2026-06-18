@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { EditTable } from '@/components'
+import { EditTable } from '@/components/Table'
 import ALL_COLUMNS from '../PaymentColumns'
 import { getTableColumns, hasPermission } from '@/utils'
 import fundReceiptRepayBorrowingApi from '@/api/financial/fundReceiptRepayBorrowingApi'

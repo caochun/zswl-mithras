@@ -1,7 +1,7 @@
 import styles from '../index.less'
 import { observer } from '@zswl/admin'
 import Api from './api'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { Button } from '@zswl/components'
 import { message } from 'antd'
 

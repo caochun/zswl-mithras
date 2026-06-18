@@ -1,4 +1,4 @@
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 const Index = (props) => {
   const { financingId: mainId, canEdit = true, businessVersion } = props
 

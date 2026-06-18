@@ -14,7 +14,7 @@ import Store from './store'
 import CantractDetailBaseInfo from '../BaseInfo'
 import styles from './index.less'
 import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
-import { EditDescription } from '@/components'
+import { EditDescription } from '@/components/Table'
 import { TextAreaColumn } from '@/components/Format'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/TrackingEntries'
 

@@ -1,7 +1,7 @@
 import styles from './index.less'
 import { observer, getQuery } from '@zswl/admin'
 import Api from './api'
-import { FileTable } from '@/components'
+import { FileTable } from '@/components/Table'
 import { App, Button, Form, Modal, ModalStore } from '@zswl/components'
 import { Checkbox, Tooltip, message } from 'antd'
 import { getUserInfo } from '@/utils'
