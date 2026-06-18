@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { observer } from '@zswl/admin'
 import CreatePlan from '@/pages/afterLease/checkPlan/createPlan/[id$]'
 import PlanDetail from '@/pages/afterLease/checkPlan/planDetail/[id$]'
-import PlanReport from '@/pages/afterLease/checkPlan/template/[id$]'
+import PlanReport from '@/components/AfterLease/CheckPlanTemplate'
 
 const AfterLeaseCheck = ({ modelKey, canEditFlag, id, businessVersion }) => {
   const renderContractType = useMemo(() => {
