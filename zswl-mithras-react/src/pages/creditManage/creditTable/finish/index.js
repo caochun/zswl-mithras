@@ -4,11 +4,11 @@ import { observer, setSessionStorage } from '@zswl/admin'
 import { Drawer, Radio } from 'antd'
 import { CreditTableTab as Tab } from '@/components/CreditManage/CreditManageEntries'
 import {
+  CREATETABLE_PARAMS,
   CreditTableFinishAccount as AccountView,
   CreditTableFinishBatch as BatchView,
 } from '@/components/CreditManage/CreditManageEntries'
 import Store from './store'
-import { CREATETABLE_PARAMS } from '@/components/CreditManage/CreditTableConfig'
 import Export from '@/components/Actions/Export'
 import Api from '@/api/credit/creditTable'
 
