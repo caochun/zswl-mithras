@@ -1,4 +1,4 @@
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { Table } from '@zswl/components'
 import { Typography } from 'antd'
 import { useCallback } from 'react'

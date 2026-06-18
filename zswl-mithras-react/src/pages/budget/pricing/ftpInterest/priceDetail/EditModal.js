@@ -1,5 +1,5 @@
 import { Table, TableStore, Button, Modal, ModalStore, Form } from '@zswl/components'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { Input, DatePicker } from 'antd'
 import { observer } from '@zswl/admin'
 import moment from 'moment'

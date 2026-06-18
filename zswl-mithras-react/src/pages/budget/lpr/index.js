@@ -5,7 +5,7 @@ import { DatePicker, Input, Space, Upload } from 'antd'
 import store from './store'
 import styles from './index.less'
 import { useEffect, useMemo, useState } from 'react'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 import { saveServer } from '@/utils'
 
 const LPR = () => {

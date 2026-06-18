@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Modal } from '@zswl/components'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { RiskPublicMonitorColumns as ALL_COLUMNS } from '@/components/Risk/RiskEntries'
 import { getDescColumns } from '@/utils'
 

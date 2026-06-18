@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Button, Form, Modal, Select } from '@zswl/components'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 const { Item } = Form
 function Index({ store }) {

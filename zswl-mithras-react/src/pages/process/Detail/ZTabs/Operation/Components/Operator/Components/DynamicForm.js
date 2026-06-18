@@ -1,6 +1,6 @@
 import { FounderSelect } from '@/components'
 import Amount from '@/components/Amount'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { CpmPaymentApplicationPublicInformation as PublicInformation } from '@/components/Cpm/PaymentApplicationEntries'
 import { useFlowData } from '@/utils/processFlow'
 import { rules } from '@/utils'

@@ -5,7 +5,7 @@ import { Input, Space } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import ALL_COLUMNS from '../Column'
 import { getTableColumns } from '@/utils'
-import Summary from '@/components/Table/Summary'
+import { Summary } from '@/components/Table'
 
 const nameColumns = [
   '部门',

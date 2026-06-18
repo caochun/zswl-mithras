@@ -1,7 +1,7 @@
 import { Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { MatchOptionColumn, TextAreaColumn } from '@/components/Format'
-import Export from '@/components/Actions/Export'
+import { ExportAction as Export } from '@/components/Actions'
 import { saveServer } from '@/utils'
 
 function Index({ path, store }) {

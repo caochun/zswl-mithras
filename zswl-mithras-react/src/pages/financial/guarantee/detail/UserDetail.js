@@ -7,7 +7,7 @@ import ALL_COLUMNS from '../Column'
 import { Space } from 'antd'
 import { PageListDown } from '@/components'
 import Api from '@/api/financial/orgManage'
-import TableSummary from '@/components/Table/Summary'
+import { Summary as TableSummary } from '@/components/Table'
 import { saveServer } from '@/utils'
 
 const Index = ({ id }) => {

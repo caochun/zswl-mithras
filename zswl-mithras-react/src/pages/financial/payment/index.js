@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react'
 import { getTableColumns, getFormColumns, getSearchColumns } from '@/utils'
 import AmountRange from '@/components/AmountRange'
 import { CreditOrgSelect, PageListDown } from '@/components'
-import TableSummary from '@/components/Table/Summary'
+import { Summary as TableSummary } from '@/components/Table'
 import { saveServer } from '@/utils'
 import moment from 'moment'
 

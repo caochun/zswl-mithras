@@ -1,7 +1,7 @@
 import { Page, Table, Modal, Form, Button, Select } from '@zswl/components'
 import { observer, http, history } from '@zswl/admin'
 import AmountRange from '@/components/AmountRange'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { formatPercent, amountFormat, rangePresets, hasValue } from '@/utils'
 import {
   FounderColumn,

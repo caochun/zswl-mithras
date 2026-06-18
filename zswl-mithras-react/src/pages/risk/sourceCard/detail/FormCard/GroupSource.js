@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Card, Form, Input, Radio, Space } from 'antd'
 import { useEffect, useState } from 'react'
-import { InputReadOnly } from '@/components/Form/FormRead'
+import { InputReadOnly } from '@/components/Form'
 import { App } from '@zswl/components'
 
 //AreaTypeEnum

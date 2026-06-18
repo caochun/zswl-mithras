@@ -8,7 +8,7 @@ import {
   TextAreaColumn,
   TextAreaEditable,
 } from '@/components/Format'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 import Store from './store'
 import { useMemo } from 'react'
 import { isFinancialManager, isFinancialOfficer } from '@/utils'

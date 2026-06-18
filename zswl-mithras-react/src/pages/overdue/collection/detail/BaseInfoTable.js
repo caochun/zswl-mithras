@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { getTableColumns } from '@/utils'
 import ALL_COLUMNS from '../Column'
-import Export from '@/components/Actions/Export'
+import { ExportAction as Export } from '@/components/Actions'
 import { Table } from '@zswl/components'
 import { saveServer } from '@/utils'
 

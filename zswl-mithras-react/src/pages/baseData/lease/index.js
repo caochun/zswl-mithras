@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Table, TableStore, Page, Button } from '@zswl/components'
 import { message } from 'antd'
 import DataUpload from '@/components/DataUpload'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 import Api from './api'
 import { saveServer } from '@/utils'
 

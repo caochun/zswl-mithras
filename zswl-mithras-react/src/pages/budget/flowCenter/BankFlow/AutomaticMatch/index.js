@@ -1,4 +1,4 @@
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { observer } from '@zswl/admin'
 import { Button, Form, Modal, ModalStore, Table, TableStore, Tabs } from '@zswl/components'
 import { Divider, message, Space, Tag, Tooltip } from 'antd'

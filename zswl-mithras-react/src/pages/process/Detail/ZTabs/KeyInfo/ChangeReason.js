@@ -4,7 +4,7 @@ import { Tag } from 'antd'
 import { observer, ErrorBoundary } from '@zswl/admin'
 import { useFlowData } from '@/utils/processFlow'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
-import ApprovalDetail from '@/components/Table/ApprovalDetail'
+import { ApprovalDetail } from '@/components/Table'
 import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
 import styles from './index.less'
 

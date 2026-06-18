@@ -1,6 +1,6 @@
 import bankFlowCapitalApi from '@/api/budget/flowCenter/bankFlowCapitalApi'
 import { Summary } from '@/components'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import { amountFormat, formatPercent, hasValue, saveServer } from '@/utils'
 import { validateModal } from '@/utils/modal'

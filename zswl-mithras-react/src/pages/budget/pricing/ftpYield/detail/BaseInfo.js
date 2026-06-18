@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from '../Column'
 import Api from '@/api/budget/ftpYield/ftpYieldApi'
 import { useEffect, useState } from 'react'

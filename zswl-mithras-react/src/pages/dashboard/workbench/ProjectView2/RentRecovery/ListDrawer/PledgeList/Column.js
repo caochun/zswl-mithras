@@ -1,6 +1,6 @@
 import { founderSelect, clientSelect, orgSelect } from '@/utils/dashboardColumns'
 import { MatchOptionColumn, DateColumn, InputColumn, AmountColumn } from '@/components/Format'
-import BankAccount from '@/components/Form/BankAccount'
+import { BankAccount } from '@/components/Form'
 
 export const ALL_COLUMNS = [
   InputColumn({

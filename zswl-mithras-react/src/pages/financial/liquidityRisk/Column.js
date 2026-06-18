@@ -9,7 +9,7 @@ import {
 } from '@/components/Format'
 import { history } from '@zswl/admin'
 import { FounderSelect } from '@/components'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { create, all, re } from 'mathjs'
 
 const INIT_FORMAT = 10000 * 10000

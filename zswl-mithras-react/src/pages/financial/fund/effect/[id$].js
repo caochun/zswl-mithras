@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { getDescColumns, timeFormat } from '@/utils'
 import { InputNumberEditable } from '@/components/Format'
 import { observer, getQuery, history } from '@zswl/admin'

@@ -2,7 +2,7 @@ import { Form, Modal } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { rules } from '@/utils'
 import { DatePicker, Input, Space, Checkbox, Row, Col } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import moment from 'moment'
 
 const { Item } = Form

@@ -1,4 +1,4 @@
-import EditTable from '@/components/Table/EditDescription'
+import { EditDescription as EditTable } from '@/components/Table'
 import ALL_COLUMNS from './Column'
 import store from './store'
 import { getDescColumns } from '@/utils'

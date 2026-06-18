@@ -1,4 +1,4 @@
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { amountFormat, formatPercent } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Button, Drawer, Form, Select, Table } from '@zswl/components'

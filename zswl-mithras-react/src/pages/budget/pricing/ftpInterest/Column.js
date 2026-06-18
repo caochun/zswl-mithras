@@ -1,7 +1,7 @@
 import { hasValue } from '@/utils'
 import { ClientSelect, FounderSelect, OrgSelect } from '@/components'
 import { FiledFormat, AmountColumn, MatchOptionColumn } from '@/components/Format'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { history } from '@zswl/admin'
 import styles from './index.less'
 

@@ -3,7 +3,7 @@ import { useRef, forwardRef, useImperativeHandle, useState, useMemo } from 'reac
 import { Modal, Button, Form, Select } from '@zswl/components'
 import { Space, message } from 'antd'
 import leaseData from './leaseData.json'
-import DynamicDesc from '@/components/Table/DynamicDesc'
+import { DynamicDesc } from '@/components/Table'
 import _ from 'lodash'
 import { rules } from '@/utils'
 import flowList from '@/api/common/flowList'

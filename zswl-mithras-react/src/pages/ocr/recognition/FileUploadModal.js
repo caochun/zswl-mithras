@@ -8,7 +8,7 @@ import styles from './index.less'
 import { InboxOutlined } from '@ant-design/icons'
 import vehicleCertificateApi from '@/api/ocr/vehicleCertificateApi'
 import moment from 'moment'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 const { Dragger } = Upload
 

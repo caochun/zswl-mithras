@@ -4,7 +4,7 @@ import { Card, message, Input, InputNumber, Row, Col, Space } from 'antd'
 import styles from './style.less'
 import { observer } from '@zswl/admin'
 import baseInfoApi from '@/api/liquidity/baseInfoApi'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { saveServer } from '@/utils'
 
 const LevelEdit = ({ value = {}, onChange }) => {

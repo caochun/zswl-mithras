@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 import BudgetSummary from './components/BudgetSummary'
 import PutProgress from './components/PutProgress'
 import BudgetDetail from './components/BudgetDetail'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 import OtherBudgetSummary from './components/OtherBudgetSummary'
 import { Empty } from 'antd'
 

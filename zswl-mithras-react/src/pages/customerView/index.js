@@ -4,7 +4,7 @@ import { Avatar, Card, Checkbox, Input, List, Pagination, Radio, Space, Tag } fr
 import { useEffect, useState } from 'react'
 import { App, Button, Form, Page } from '@zswl/components'
 import { observer, history, http } from '@zswl/admin'
-import CheckGroup from '@/components/Form/CheckGroup'
+import { CheckGroup } from '@/components/Form'
 import { getOrgList2 } from '@/components'
 import { AmountFormat, PercentageRender } from '@/components/Format'
 

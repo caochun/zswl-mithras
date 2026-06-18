@@ -1,6 +1,6 @@
 import { FiledFormat, AmountColumn, InputColumn, MatchOptionColumn } from '@/components/Format'
 import { App } from '@zswl/components'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 const ALL_COLUMNS = () => {
   return [

@@ -2,7 +2,7 @@ import { ModalStore, PageStore, TableStore,Modal } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import collectionManagementApi from '@/api/overdue/collectionManagementApi'
 import { message } from 'antd'
-import { noEnumDownloadAll } from '@/components/Table/NoEnumFileTable'
+import { noEnumDownloadAll } from '@/components/Table'
 
 class Store {
   constructor() {

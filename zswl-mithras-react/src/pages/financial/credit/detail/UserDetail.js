@@ -11,7 +11,7 @@ import {
 } from '@/utils'
 import ALL_COLUMNS from '../Column'
 import { Space } from 'antd'
-import TableSummary from '@/components/Table/Summary'
+import { Summary as TableSummary } from '@/components/Table'
 import Api from '@/api/financial/creditManage'
 import { PageListDown } from '@/components'
 import _ from 'lodash'

@@ -8,8 +8,8 @@ import {
   MatchOptionColumn,
 } from '@/components/Format'
 import moment from 'moment'
-import BankAccount from '@/components/Form/BankAccount'
-import FormAmount from '@/components/Form/FormAmount'
+import { BankAccount } from '@/components/Form'
+import { FormAmount } from '@/components/Form'
 import { CreditOrgSelect } from '@/components'
 
 const ALL_COLUMNS = [

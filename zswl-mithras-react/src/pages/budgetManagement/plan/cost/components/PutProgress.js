@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { observer } from '@zswl/admin'
 import { Table } from '@zswl/components'
-import Summary from '@/components/Table/Summary'
+import { Summary } from '@/components/Table'
 import { AmountColumn } from '@/components/Format'
 
 const PutProgress = ({ store }) => {

@@ -8,7 +8,7 @@ import AddModal from './AddModal'
 import { Space } from 'antd'
 import { FileExportAction as ExportBtn } from '@/components/Actions'
 import { rangePresets } from '@/utils'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { saveServer } from '@/utils'
 
 function Index({ params, path }) {

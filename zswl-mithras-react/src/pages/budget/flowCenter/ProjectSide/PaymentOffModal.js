@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { App, Form, Modal, Select } from '@zswl/components'
 import { Checkbox, DatePicker, Divider, Input, InputNumber, Space } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import styles from './index.less'
 import { useState } from 'react'
 import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcessingCenterApi'

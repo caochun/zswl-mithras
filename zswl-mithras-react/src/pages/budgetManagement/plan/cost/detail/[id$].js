@@ -2,7 +2,7 @@ import { Page, Table } from '@zswl/components'
 import { useMemo } from 'react'
 import Store from './store'
 import { observer } from '@zswl/admin'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 
 const CostBudgetDetail = ({ params }) => {
   const store = useMemo(() => new Store({ id: params.id }), [params.id])

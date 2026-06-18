@@ -1,5 +1,5 @@
 import { AmountColumn, InputColumn } from '@/components/Format'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 const ALL_COLUMNS = () => {
   return [

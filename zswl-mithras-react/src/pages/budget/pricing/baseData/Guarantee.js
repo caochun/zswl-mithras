@@ -5,7 +5,7 @@ import ALL_COLUMNS from './Column'
 import { useMemo } from 'react'
 import { Card, DatePicker, Input, Tooltip, message } from 'antd'
 import guaranteeCostApi from '@/api/newFtp/guaranteeCostApi'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import moment from 'moment'
 import { saveServer } from '@/utils'
 

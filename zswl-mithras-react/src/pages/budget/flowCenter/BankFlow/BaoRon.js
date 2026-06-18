@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { Button, Table } from '@zswl/components'
 import Store from './baoRonStore.js'
 import { useMemo } from 'react'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { saveServer } from '@/utils'
 
 const Index = ({ getCount }) => {

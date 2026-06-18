@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Button, Form, Modal, Select } from '@zswl/components'
 import { DatePicker, Input, Space, Tag, Tooltip } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { ClientSelect, OrgTreeSelect } from '@/components'
 import { useState } from 'react'
 import _ from 'lodash'

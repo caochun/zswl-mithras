@@ -2,7 +2,7 @@ import { Page, Table, TableStore, ModalStore, PageStore, DatePicker } from '@zsw
 import { useEffect, useMemo, useRef, useState } from 'react'
 import ALL_COLUMNS from './Column'
 import { getTableColumns, saveServer } from '@/utils'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 import ftpYieldApi from '@/api/budget/ftpYield/ftpYieldApi'
 import { Summary } from '@/components'
 

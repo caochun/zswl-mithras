@@ -5,7 +5,7 @@ import store from './store'
 import { Card, Col, Row } from 'antd'
 import { useMemo, useState } from 'react'
 import customCycleApi from '@/api/lifeCycle/customCycleApi'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { SelectOutlined } from '@ant-design/icons'
 import { saveServer } from '@/utils'
 

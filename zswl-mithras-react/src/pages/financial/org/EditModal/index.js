@@ -9,7 +9,7 @@ import styles from './index.less'
 import { rules } from '@/utils'
 import CountryCascader from './CountryCascader'
 import Api from './api'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 const { Item } = Form
 function EditModal({ store }) {

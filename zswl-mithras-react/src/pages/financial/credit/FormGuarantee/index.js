@@ -7,7 +7,7 @@ import { history, observer } from '@zswl/admin'
 import _ from 'lodash'
 import Api from '@/api/financial/orgManage'
 import { useEffect, useMemo, useState } from 'react'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 const FormGuarantee = ({ listName, addText = '请添加担保方', method, value, disabled }) => {
   const [init, setInit] = useState(true)

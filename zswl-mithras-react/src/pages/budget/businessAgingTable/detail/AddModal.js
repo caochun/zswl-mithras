@@ -4,7 +4,7 @@ import { Modal, Form, Select, Input, DatePicker } from '@zswl/components'
 import { useMemo } from 'react'
 import ALL_COLUMNS, { accountancyOrganizationNameOptions } from '../Column'
 import styles from '../index.less'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { DateColumn } from '@/components/Format'
 
 const Index = ({ store }) => {

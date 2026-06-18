@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import { Page, Table, TableStore } from '@zswl/components'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from '../Column'
 import { getDescColumns, getTableColumns } from '@/utils'
 import Store from './Store'

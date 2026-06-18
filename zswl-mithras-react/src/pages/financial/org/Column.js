@@ -1,6 +1,6 @@
 import { Input, InputNumber, message, Tooltip } from 'antd'
 import { dateRangeTransform } from '@/utils/transform'
-import { InputEditable } from '@/components/Format/editable'
+import { InputEditable } from '@/components/Format'
 import { rangePresets, rules } from '@/utils'
 import { FiledFormat } from '@/components/Format'
 import { FounderSelect } from '@/components'

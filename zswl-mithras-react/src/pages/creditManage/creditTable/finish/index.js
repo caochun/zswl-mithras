@@ -9,7 +9,7 @@ import {
   CreditTableFinishBatch as BatchView,
 } from '@/components/CreditManage/CreditManageEntries'
 import Store from './store'
-import Export from '@/components/Actions/Export'
+import { ExportAction as Export } from '@/components/Actions'
 import Api from '@/api/credit/creditTable'
 
 const options = [

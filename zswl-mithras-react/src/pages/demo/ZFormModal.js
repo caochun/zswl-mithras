@@ -1,7 +1,7 @@
 import { getQuery, observer } from '@zswl/admin'
 import ALL_COLUMNS from './Column'
 import { getTableColumns } from '@/utils'
-import CRUDTable from '@/components/Table/CRUDTable'
+import { CRUDTable } from '@/components/Table'
 import fundReceiptAccountApi from '@/api/financial/fundReceiptAccountApi'
 import { useCallback } from 'react'
 

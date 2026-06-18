@@ -3,7 +3,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import Api from '@/api/common/fileList'
 import sealForDocumentsApi from '@/api/overdue/sealForDocumentsApi'
 import { message } from 'antd'
-import { noEnumDownloadAll } from '@/components/Table/NoEnumFileTable'
+import { noEnumDownloadAll } from '@/components/Table'
 
 class Store {
   constructor() {

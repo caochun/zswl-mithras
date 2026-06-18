@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { observer } from '@zswl/admin'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { RiskPublicMonitorColumns as ALL_COLUMNS } from '@/components/Risk/RiskEntries'
 import { NoEnumFileTable } from '@/components'
 import { getDescColumns } from '@/utils'

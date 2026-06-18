@@ -4,7 +4,7 @@ import { getTableColumns } from '@/utils'
 // import { ALL_COLUMNS } from '../Column'
 import { Space, Input, Row, Col } from 'antd'
 import ALL_COLUMNS from '@/components/PolicyColumns'
-import FormDateRange from '@/components/Form/FormDateRange'
+import { FormDateRange } from '@/components/Form'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar

@@ -3,7 +3,7 @@ import { Form, Modal, Select } from '@zswl/components'
 import { DatePicker, Input } from 'antd'
 import moment from 'moment'
 import DataUpload from '@/components/DataUpload'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 const layout = {
   labelCol: { span: 7 },

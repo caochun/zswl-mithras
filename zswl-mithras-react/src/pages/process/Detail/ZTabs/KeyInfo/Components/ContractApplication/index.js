@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { AmountColumn, AmountFormatter } from '@/components/Format'
 import { compareDetail, getEnumFlatObjByType } from '@/utils'
 import { useEffect, useState } from 'react'

@@ -9,7 +9,7 @@ import DiffRefundModal from './DiffRefundModal'
 import ConfirmIncomeModal from './ConfirmIncomeModal'
 import { options } from '@/utils'
 import AutomaticMatch from './AutomaticMatch'
-import IconFont from '@/components/Icon/index.js'
+import IconFont from '@/components/Icon'
 import { saveServer } from '@/utils'
 
 const { financingFlowWriteOffStatusEnum } = options

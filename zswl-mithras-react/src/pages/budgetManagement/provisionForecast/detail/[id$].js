@@ -11,7 +11,7 @@ import {
 } from '@/components/Budget/BudgetEntries'
 import { getTableColumns } from '@/utils'
 import { AmountColumn, DateColumn } from '@/components/Format'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 
 const { Step } = Steps
 
