@@ -1,4 +1,4 @@
-import { ContractBaseInfo as CantractDetailBaseInfo } from '@/components/Contract/InfoEntries'
+import { ContractBaseInfo as CantractDetailBaseInfo } from '@/components/Contract/BaseInfoEntries'
 import styles from '../index.less'
 
 const BaseInfo = ({ contractId }) => {

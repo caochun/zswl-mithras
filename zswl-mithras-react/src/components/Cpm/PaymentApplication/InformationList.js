@@ -1,5 +1,5 @@
 import ZiLiao from './ZiLiao'
-import { ContractLeaseMaterials as LeaseZiLiao } from '@/components/Contract/InfoEntries'
+import { ContractLeaseMaterials as LeaseZiLiao } from '@/components/Contract/MaterialsEntries'
 
 const InformationList = ({ baseDetailData, businessVersion, mainId, title }) => {
   const { contractId, leaseType } = baseDetailData ?? {}
