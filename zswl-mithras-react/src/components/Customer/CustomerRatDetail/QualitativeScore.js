@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form } from '@zswl/components'
 import { Collapse, Row } from 'antd'
 import { useEffect, useState } from 'react'
-import { DynamicFormItem, approvalInfoRender } from '@/components/Customer/RatingForm'
+import { DynamicFormItem, approvalInfoRender } from '../RatingForm'
 
 const { Panel } = Collapse
 export { DynamicFormItem, approvalInfoRender }
