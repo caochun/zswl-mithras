@@ -1,7 +1,7 @@
 import { DetailLayout } from '@/components'
 import ActualTable from '@/components/Contract/ActualTable'
 import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
-import CantractDetailBaseInfo from '@/components/Contract/Detail/BaseInfo'
+import CantractDetailBaseInfo from '@/components/Contract/BaseInfo'
 import { getQuery, history, observer } from '@zswl/admin'
 import { Button, Form, Page } from '@zswl/components'
 import { DatePicker, Space } from 'antd'
