@@ -1,7 +1,7 @@
 import { FounderSelect, ClientSelect } from '@/components'
 import EditDescription from '@/components/Table/EditDescription'
 import { FiledFormat } from '@/components/Format'
-import ALL_COLUMNS from '@/components/Credit/CreditColumns'
+import ALL_COLUMNS from '../CreditColumns'
 import { getDescColumns, rules } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'

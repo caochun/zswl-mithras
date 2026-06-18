@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '@/components/Credit/CreditColumns'
+import ALL_COLUMNS from '../CreditColumns'
 import UpdateButton from '@/components/UpdateRatingInfoButton'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
