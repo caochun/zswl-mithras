@@ -1,11 +1,6 @@
 import { observer, getQuery } from '@zswl/admin'
 import { Page, Button } from '@zswl/components'
-import ReviewStore from '@/components/Project/ReviewDetail/store'
-import BaseInfo from '@/components/Project/ReviewDetail/BaseInfo'
-import QuotationScheme from '@/components/Project/ReviewDetail/QuotationScheme'
-import CashFlowStatement from '@/components/Project/ReviewDetail/CashFlowStatement'
-import DataList from '@/components/Project/ReviewDetail/Data'
-import ReviewData from '@/components/Project/ReviewDetail/Report'
+import ReviewSnapshot from '@/components/Project/ReviewSnapshot'
 import Exhibi from './Exhibi'
 import Replay from './Replay'
 import ZiLiao from './ZiLiao'
@@ -19,10 +14,6 @@ const Index = ({ params: { id }, query: { canEditFlags = 'true', isCreate, busin
 
   const store = useMemo(() => {
     return new Store({})
-  }, [])
-
-  const reviewStore = useMemo(() => {
-    return new ReviewStore({})
   }, [])
 
   const { page, setShowValue } = store
@@ -69,11 +60,7 @@ const Index = ({ params: { id }, query: { canEditFlags = 'true', isCreate, busin
         title={typeText}
         extra={!isFormApproval && canEditFlagsFormAuth ? extra : null}
       >
-        <BaseInfo id={projId} canEdit={false} rootStore={reviewStore} isFormAdjust />
-        <QuotationScheme id={projId} canEdit={false} isFormAdjust rootStore={reviewStore} />
-        <CashFlowStatement id={projId} canEdit={false} rootStore={reviewStore} />
-        <ReviewData id={projId} canEdit={false} rootStore={reviewStore} title={'项目评审资料'} />
-        <DataList id={projId} canEdit={false} rootStore={reviewStore} />
+        <ReviewSnapshot id={projId} />
         <Exhibi canEditFlag={canEditFlagsFormAuth} store={store} />
         <Replay canEditFlag={canEditFlagsFormAuth} store={store} />
         <ZiLiao
