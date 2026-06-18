@@ -695,6 +695,7 @@ for (const filePath of sourceFiles) {
     const specifier = match[1]
     const isComponentImport = specifier.startsWith('@/components/')
     const isPageImport = pageImportPattern.test(specifier)
+    const [, sourceApiDomain] = relativeFilePath.match(/^src[\\/]api[\\/]([^\\/]+)/) || []
     const [, legacyApiDomain] = specifier.match(legacyApiImportPattern) || []
     const legacyApiPrefixRule = getLegacyApiPrefixRule(specifier)
     const legacyUtilityPrefixRule = getLegacyUtilityPrefixRule(specifier)
@@ -715,6 +716,11 @@ for (const filePath of sourceFiles) {
       violations.push({
         file: relativeFilePath,
         specifier: `${specifier} (use @/api/${legacyApiDomains.get(legacyApiDomain)} semantic entry)`,
+      })
+    } else if (sourceApiDomain && legacyApiDomain && sourceApiDomain !== legacyApiDomain) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (src/api domain entries must not import another api domain; declare the semantic endpoint locally)`,
       })
     } else if (apiInterfaceImportPattern.test(specifier) && !relativeFilePath.startsWith('src/api/')) {
       violations.push({
