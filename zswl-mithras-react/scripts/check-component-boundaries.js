@@ -66,6 +66,27 @@ const stableSelectRootImports = new Set([
   'getOrgList',
   'getOrgList2',
 ])
+const stableDefaultComponentRootImports = new Map([
+  ['AnchorScrollNav', 'AnchorScrollNav'],
+  ['Amount', 'Amount'],
+  ['AmountNumber', 'AmountNumber'],
+  ['Bifrost', 'Bifrost'],
+  ['BiView', 'BiView'],
+  ['Collapse', 'Collapse'],
+  ['CommonTips', 'CommonTips'],
+  ['CurrentSteps', 'CurrentSteps'],
+  ['DetailLayout', 'DetailLayout'],
+  ['FormulaValueTip', 'FormulaValueTip'],
+  ['MultilineText', 'MultilineText'],
+  ['OrgTreeSelect', 'OrgTreeSelect'],
+  ['PageListDown', 'PageListDown'],
+  ['ProcessInfoModal', 'ProcessInfoModal'],
+  ['RadioTabs', 'RadioTabs'],
+  ['ReadOnly', 'ReadOnly'],
+  ['RegionCascader', 'RegionCascader'],
+  ['SelectDayPanel', 'SelectDayPanel'],
+  ['ZInput', 'ZInput'],
+])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
 const legacyUtilityPrefixRules = [
@@ -720,6 +741,11 @@ for (const filePath of sourceFiles) {
           violations.push({
             file: relativeFilePath,
             specifier: `${namedImport} from ${specifier} (use @/components/Select)`,
+          })
+        } else if (stableDefaultComponentRootImports.has(namedImport)) {
+          violations.push({
+            file: relativeFilePath,
+            specifier: `${namedImport} from ${specifier} (use @/components/${stableDefaultComponentRootImports.get(namedImport)})`,
           })
         }
       }
