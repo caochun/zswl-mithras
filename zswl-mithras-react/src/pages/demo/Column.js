@@ -10,7 +10,7 @@ import {
 import moment from 'moment'
 import { BankAccount } from '@/components/Form'
 import { FormAmount } from '@/components/Form'
-import { CreditOrgSelect } from '@/components'
+import { CreditOrgSelect } from '@/components/Financial/SelectEntries'
 
 const ALL_COLUMNS = [
   {

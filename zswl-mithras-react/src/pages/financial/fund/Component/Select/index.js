@@ -1,1 +1,1 @@
-export { OrgListSelect, BankListSelect } from '@/components/Select'
+export { OrgListSelect, BankListSelect } from '@/components/Financial/SelectEntries'

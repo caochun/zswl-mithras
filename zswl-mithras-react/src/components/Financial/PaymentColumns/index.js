@@ -11,7 +11,7 @@ import FormGuarantee from './FormGuarantee'
 import moment from 'moment'
 import { BankAccount } from '@/components/Form'
 import { FormAmount } from '@/components/Form'
-import { CreditOrgSelect } from '@/components'
+import { CreditOrgSelect } from '../Select'
 import { App } from '@zswl/components'
 import { DatePicker,Radio } from 'antd'
 
