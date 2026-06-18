@@ -1,4 +1,4 @@
-import riskCardTargetCalc from '@/api/riskControl/riskCardTargetCalc'
+import riskCardTargetCalc from '@/api/risk/riskCardTargetCalc'
 import { ReadOnly } from '@/components'
 import { observer } from '@zswl/admin'
 import { App, Form, Modal, Select, Table, TableStore } from '@zswl/components'

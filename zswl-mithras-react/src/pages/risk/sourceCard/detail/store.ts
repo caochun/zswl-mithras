@@ -1,9 +1,9 @@
 import { message } from 'antd'
 import { FormStore, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import riskCardInfoApi from '@/api/riskControl/riskCardInfoApi'
-import riskCardTargetCalc from '@/api/riskControl/riskCardTargetCalc'
-import riskCardTargetApi from '@/api/riskControl/riskCardTargetApi'
+import riskCardInfoApi from '@/api/risk/riskCardInfoApi'
+import riskCardTargetCalc from '@/api/risk/riskCardTargetCalc'
+import riskCardTargetApi from '@/api/risk/riskCardTargetApi'
 import _ from 'lodash'
 class Store {
   constructor() {

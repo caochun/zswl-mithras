@@ -205,6 +205,7 @@
 - `workbench`：工作台兼容入口，实际能力应优先落在 `dashboard/workbench`。
 - `blackListManage`：页面目录仍沿用黑名单管理命名，组件目录已是 `BlackGray`；API 调用优先使用 `src/api/blackGray` 兼容入口，后续可考虑菜单路径稳定的前提下收敛命名。
 - `postRentalInspection`：租后检查 API 的历史命名目录；租后业务代码优先使用 `src/api/afterLease` 下的兼容入口。
+- `riskControl`：风控接口历史命名目录；风险域页面和组件优先使用 `src/api/risk` 下的兼容入口。
 - `fillingMaterialsDetail`：拼写与业务命名都偏历史，语义接近归档/资料归集详情。
 - `rzy`、`implant`、`cvicse`、`student`、`visitorManage`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
 

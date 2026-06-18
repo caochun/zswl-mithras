@@ -1,8 +1,8 @@
 import { message } from 'antd'
-import riskCardInfoApi from '@/api/riskControl/riskCardInfoApi'
+import riskCardInfoApi from '@/api/risk/riskCardInfoApi'
 import { ModalStore, PageStore, TableStore } from '@zswl/components'
 import { history, makeAutoObservable } from '@zswl/admin'
-import riskCardTargetCalc from '@/api/riskControl/riskCardTargetCalc'
+import riskCardTargetCalc from '@/api/risk/riskCardTargetCalc'
 import moment from 'moment'
 import DataUpload from '@/components/DataUpload'
 

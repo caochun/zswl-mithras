@@ -1,5 +1,5 @@
 import { PageStore, TableStore } from '@zswl/components'
-import Api from '@/api/riskControl/riskControlStrategyApi'
+import Api from '@/api/risk/riskControlStrategyApi'
 import { message } from 'antd'
 
 class Store {

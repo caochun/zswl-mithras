@@ -5,7 +5,7 @@ import GroupSource from './GroupSource'
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { InputNumberReadOnly, RadioReadOnly, SelectReadOnly } from '@/components/Form'
 import { ApiSelect } from '@/components'
-import riskCardTargetApi from '@/api/riskControl/riskCardTargetApi'
+import riskCardTargetApi from '@/api/risk/riskCardTargetApi'
 import { rules } from '@/utils'
 
 const AreaCard = forwardRef((props, ref) => {
