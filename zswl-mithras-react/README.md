@@ -172,6 +172,7 @@
 - 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如 `BlackInfo`、`ClientFileTable`、`Dashboard`、`EvaluationAgency`、`FileDiff`、`JumpClient`、`PaymentApplyColumns`、`Policy`、`PolicyColumns`、`UpdateRatingInfoButton`、`ZhongDengButton` 应通过对应 `*Entries.js` 引入。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`BreadLine/config`、`Chart/tooltip`。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
+- 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
 - 禁止业务代码直接引用 `blackList`、`postRentalInspection`、`riskControl`、`liquidity`、`pricing`、`newFtp`、`financialReport`、`manageReport`、`fillingMaterials`、`workbench`、`header` 等历史 API 目录，应使用对应语义领域入口。
 - 禁止预算应收账款页面和组件直接引用 `financial/accountsReceivable` 历史 API 前缀，应使用 `budget/accountsReceivable` 语义入口。
 - 禁止通用选择器直接引用 `groupCredit/common` 历史 API 前缀，应使用 `common/selectApi` 语义入口。

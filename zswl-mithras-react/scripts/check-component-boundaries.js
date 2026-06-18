@@ -53,6 +53,19 @@ const stableTableRootImports = new Set([
   'Summary',
   'VersionTable',
 ])
+const stableSelectRootImports = new Set([
+  'ApiSelect',
+  'ClientSelect',
+  'ContractSelect',
+  'FounderSelect',
+  'OrgSelect',
+  'OrgSelectZh',
+  'ProjectReviewSelect',
+  'ProvinceSelect',
+  'RoleSelect',
+  'getOrgList',
+  'getOrgList2',
+])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
 const legacyUtilityPrefixRules = [
@@ -702,6 +715,11 @@ for (const filePath of sourceFiles) {
           violations.push({
             file: relativeFilePath,
             specifier: `${namedImport} from ${specifier} (use @/components/Table)`,
+          })
+        } else if (stableSelectRootImports.has(namedImport)) {
+          violations.push({
+            file: relativeFilePath,
+            specifier: `${namedImport} from ${specifier} (use @/components/Select)`,
           })
         }
       }
