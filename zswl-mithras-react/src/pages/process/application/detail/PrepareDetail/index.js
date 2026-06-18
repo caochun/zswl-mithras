@@ -1,5 +1,5 @@
 import ProfitDistribution from '@/components/Budget/ProfitDistribution'
-import AfterLeaseGeneralCheck from '@/pages/afterLease/checkPlan/Tab/CheckList/PrepareProcess' // 租后检查-一般检查
+import AfterLeaseGeneralCheck from '@/components/AfterLease/CheckPlanPrepareProcess' // 租后检查-一般检查
 import NewAfterLeaseCheckReportCommonlyFlow from '@/components/AfterLease/CheckPlanTemplate' // 租后检查模版
 import DepositRefundNotification from '@/components/Contract/DepositRefundNotification'
 import JQsettlement from '@/pages/contract/list/settlement/[id$]' //提前结清
