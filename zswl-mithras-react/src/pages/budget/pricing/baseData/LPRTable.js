@@ -4,7 +4,7 @@ import { getTableColumns } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { useMemo } from 'react'
 import { Card } from 'antd'
-import lprPricingApi from '@/api/newFtp/lprPricingApi'
+import lprPricingApi from '@/api/budget/pricing/ftp/lprPricingApi'
 import moment from 'moment'
 import { saveServer } from '@/utils'
 

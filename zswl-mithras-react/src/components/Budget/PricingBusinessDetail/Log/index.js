@@ -1,7 +1,7 @@
 import { Table, Page } from '@zswl/components'
 import { getQuery, observer } from '@zswl/admin'
 import store from './store'
-import newFtpBaseInfoApi from '@/api/newFtp/newFtpBaseInfoApi'
+import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 import { VersionTable } from '@/components'
 
 function Index({ params: { id } }) {

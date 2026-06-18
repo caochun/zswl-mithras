@@ -1,7 +1,7 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import moment from 'moment'
-import newFtpBaseInfoApi from '@/api/newFtp/newFtpBaseInfoApi'
+import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 
 class Store {
   constructor() {

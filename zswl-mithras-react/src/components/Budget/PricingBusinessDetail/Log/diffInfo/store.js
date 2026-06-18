@@ -3,7 +3,7 @@ import { hasValue } from '@/utils'
 import { FormStore, PageStore } from '@zswl/components'
 import mathjs from '@/utils/math'
 import Api from '@/api/baseData/ftpQuarterlyGuidance'
-import newFtpBaseInfoApi from '@/api/newFtp/newFtpBaseInfoApi'
+import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 
 class Store {
   constructor() {

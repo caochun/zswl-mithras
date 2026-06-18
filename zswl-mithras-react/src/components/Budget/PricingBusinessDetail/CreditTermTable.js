@@ -5,8 +5,8 @@ import { AmountColumn, AmountFormat, FiledFormat } from '@/components/Format'
 import { App, TableStore } from '@zswl/components'
 import { hasValue } from '@/utils'
 import { forwardRef, useImperativeHandle, useMemo } from 'react'
-import newFtpMonthlyDeductionApi from '@/api/newFtp/newFtpMonthlyDeductionApi'
-import newFtpBaseInfoApi from '@/api/newFtp/newFtpBaseInfoApi'
+import newFtpMonthlyDeductionApi from '@/api/budget/pricing/ftp/newFtpMonthlyDeductionApi'
+import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 
 const render = (val) => {
   const value = val?.value ?? val

@@ -1,7 +1,7 @@
 import { DrawerStore, FormStore, PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { message } from 'antd'
-import newFtpBaseInfoApi from '@/api/newFtp/newFtpBaseInfoApi'
+import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 class Store {
   constructor() {
     makeAutoObservable(this)

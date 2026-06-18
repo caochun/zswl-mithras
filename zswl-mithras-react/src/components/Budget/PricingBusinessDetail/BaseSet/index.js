@@ -6,8 +6,8 @@ import LPRTable from './LPRTable'
 import Financing from './Financing'
 import Guarantee from './Guarantee'
 import Api from '../api'
-import newFtpTreasuryBondYieldApi from '@/api/newFtp/newFtpTreasuryBondYieldApi'
-import newFtpShiborInterestRateApi from '@/api/newFtp/newFtpShiborInterestRateApi'
+import newFtpTreasuryBondYieldApi from '@/api/budget/pricing/ftp/newFtpTreasuryBondYieldApi'
+import newFtpShiborInterestRateApi from '@/api/budget/pricing/ftp/newFtpShiborInterestRateApi'
 
 function Index({ path, mainId, businessVersion, canEdit = true }) {
   const params = {

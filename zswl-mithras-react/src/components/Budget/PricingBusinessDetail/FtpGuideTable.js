@@ -3,7 +3,7 @@ import _ from 'lodash'
 import { AmountColumn } from '@/components/Format'
 import { TableStore } from '@zswl/components'
 import { useMemo } from 'react'
-import newFtpMonthlyGuidanceApi from '@/api/newFtp/newFtpMonthlyGuidanceApi'
+import newFtpMonthlyGuidanceApi from '@/api/budget/pricing/ftp/newFtpMonthlyGuidanceApi'
 import FormatTable from './components/FormatTable'
 
 const bottomCell = (record, index) => {
