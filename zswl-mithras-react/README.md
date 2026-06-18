@@ -188,7 +188,7 @@
 - 表格、文件表、描述表、审批详情等统一从 `src/components/Table` 稳定入口导入。
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
-- 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；历史 `RiskActions/Export` 只作为黑灰名单动作兼容实现。
+- 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
@@ -274,8 +274,8 @@
 - `utils/rzyConfig`：RZY 厂商管理外部系统菜单和链接配置历史落在全局 utils；布局菜单和 RZY 页面优先使用 `src/utils/domains/rzy/RzyConfig`，旧路径仅保留兼容转发。
 - `utils/options/financialReport`、`utils/options/ftp`：历史业务选项文件已清理；后续若需要报表或 FTP 定价选项，应放入对应 `src/utils/domains/<domain>` 语义目录。
 - `utils/hooks/useGetStatus`：黑灰名单审批状态筛选和按钮可用性历史落在全局 hooks；黑灰名单页面和组件优先使用 `src/utils/domains/blackGray/BlackGrayStatusUtils`，旧路径仅保留兼容转发。
-- `components/RiskActions`：历史名义上属于风险动作，实际主要服务黑灰名单审批动作；黑灰名单页面应通过 `src/components/BlackGray/BlackGrayEntries.js` 使用，其他业务域需要通用导出时使用 `src/components/Actions.StoreExportAction` 或其他公共 Actions。
-- `components/RiskIframe`：历史名义上属于风险 iframe，实际用于黑灰名单外部查询页面；黑灰名单页面应通过 `src/components/BlackGray/BlackGrayEntries.js` 使用。
+- `components/BlackGray/Actions`：黑灰名单审批动作集合；黑灰名单页面应通过 `src/components/BlackGray/BlackGrayEntries.js` 使用，其他业务域需要通用导出时使用 `src/components/Actions.StoreExportAction` 或其他公共 Actions。
+- `components/BlackGray/RiskIframe`：黑灰名单外部查询页面 iframe 适配；黑灰名单页面应通过 `src/components/BlackGray/BlackGrayEntries.js` 使用。
 - `components/BpmnFlowChart`、`components/FlowChart`：流程图组件历史落在根组件目录；流程详情、流程弹窗和审批记录优先通过 `src/components/Process/ProcessEntries.js` 使用。
 - `components/ChangeLogLayout`：版本变更日志布局历史落在根组件目录；财务付款/融资日志页面优先通过 `src/components/Financial/ChangeLogEntries.js` 使用。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`，不再转发流程 API 文件。

@@ -30,7 +30,10 @@ const ignoredSourcePathPatterns = [
 const orchestrationComponentRoots = new Set([
   'Process',
   'ProcessInfoModal',
-  'RiskActions',
+])
+
+const orchestrationTargetScopes = new Set([
+  'components/Process',
 ])
 
 const publicComponentRoots = new Set([
@@ -231,7 +234,8 @@ if (sortedEdges.length === 0) {
 const orchestrationEdges = sortedEdges.filter(
   (edge) =>
     edge.sourceScope.startsWith('pages/') ||
-    [...orchestrationComponentRoots].some((root) => edge.sourceScope === `components/${root}`)
+    [...orchestrationComponentRoots].some((root) => edge.sourceScope === `components/${root}`) ||
+    orchestrationTargetScopes.has(edge.targetScope)
 )
 const domainImplementationEdges = sortedEdges.filter(
   (edge) => !orchestrationEdges.includes(edge)
