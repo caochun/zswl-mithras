@@ -1,5 +1,4 @@
 export { default as ApprovalAction } from './Approval'
-export { default as ApprovalConfirmAction } from './ApprovalConfirm'
 export { default as DownloadTemplateAction } from './DownloadTemplate'
 export { default as ExportAction } from './Export' // 导出按钮操作
 export { default as FileExportAction } from './FileExport' // 文件导出按钮操作
