@@ -1,1 +1,1 @@
-export { default } from '@/components/Budget/PricingBusinessDetail/LogDiff'
+export { BudgetPricingBusinessDetailLogDiff as default } from '@/components/Budget/BudgetEntries'

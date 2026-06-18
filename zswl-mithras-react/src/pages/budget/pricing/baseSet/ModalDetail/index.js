@@ -1,1 +1,1 @@
-export { default } from '@/components/Budget/PricingBaseSetModalDetail'
+export { BudgetPricingBaseSetModalDetail as default } from '@/components/Budget/BudgetEntries'
