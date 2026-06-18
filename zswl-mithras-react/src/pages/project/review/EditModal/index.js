@@ -6,7 +6,7 @@ import { debounce as _debounce } from 'lodash'
 import Api from '../api'
 import { formatPercent, amountFormat } from '@/utils'
 import ProjectSelect from '../../Components/ProjectSelect'
-import { ProjectClientSelect as ClientSelect } from '@/components/Project/ProjectEntries'
+import { ProjectClientSelect as ClientSelect } from '@/components/Project/ClientSelectEntries'
 
 const { Item } = Form
 

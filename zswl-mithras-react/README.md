@@ -21,7 +21,7 @@
 跨业务域复用组件时，调用方应优先依赖被调用领域暴露的稳定入口，而不是直接引用对方内部目录。
 
 - 推荐：`@/components/Contract/DetailEntries`
-- 推荐：`@/components/Project/ProjectEntries`
+- 推荐：`@/components/Project/ReviewDetailEntries`
 - 推荐：`@/components/Credit/CreditEntries`
 - 避免：`@/components/Contract/Detail/BaoJia`
 - 避免：`@/components/Project/ReviewDetail/store`
@@ -82,9 +82,11 @@
 - `Overdue/OverdueEntries.js`
 - `Process/PrepareDetailEntries.js`
 - `Process/ProcessEntries.js`
+- `Project/ClientSelectEntries.js`
 - `Project/EstablishmentDetailEntries.js`
+- `Project/FinancialReportStatisticsEntries.js`
+- `Project/FormListItemEntries.js`
 - `Project/PriceDetailEntries.js`
-- `Project/ProjectEntries.js`
 - `Project/ReviewDetailEntries.js`
 - `Project/ReviewMeetingEntries.js`
 - `Project/ReviewProcessEntries.js`
