@@ -4,7 +4,7 @@ import { KpiBaseSetModalDetail as ModalDetail } from '@/components/Kpi/BaseSetMo
 import { isAdminAccount } from '@/utils'
 import FormListItem from './FormListItem'
 import styles from './index.less'
-import Api from '@/api/groupCredit/common'
+import selectApi from '@/api/common/selectApi'
 import { useEffect, useState } from 'react'
 import contractApi from '@/api/contract/baseInfo'
 import { saveServer } from '@/utils'
@@ -19,7 +19,7 @@ function Index({ store }) {
 
   const [orgList, setOrgList] = useState([])
   const getOrgList = async (val) => {
-    const res = await Api.getOrgList(
+    const res = await selectApi.getOrgList(
       {
         name: val,
         type: 1, //1:业务部门，2:领导层

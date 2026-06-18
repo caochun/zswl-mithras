@@ -6,7 +6,7 @@ import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState }
 import { Form, Select } from '@zswl/components'
 import trackingApi from '@/api/trackEvent/trackingApi'
 import contractApi from '@/api/contract/baseInfo'
-import common from '@/api/groupCredit/common'
+import selectApi from '@/api/common/selectApi'
 import _ from 'lodash'
 
 function Index({ dataSource, canEdit = true, params }, ref) {
@@ -60,7 +60,7 @@ function Index({ dataSource, canEdit = true, params }, ref) {
   }
 
   const getClient = async () => {
-    const res = await common.getClientList(
+    const res = await selectApi.getClientList(
       { pageSize: 5000 },
       { functionCode: 'clientlist-trackevent' }
     )

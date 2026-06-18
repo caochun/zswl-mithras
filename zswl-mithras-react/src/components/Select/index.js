@@ -1,5 +1,4 @@
-import creditApi from '@/api/financial/financialManageOrg'
-import Api from '@/api/groupCredit/common'
+import selectApi from '@/api/common/selectApi'
 import { history, http } from '@zswl/admin'
 import { App, Select } from '@zswl/components'
 import { message, Select as RoSelect } from 'antd'
@@ -53,38 +52,6 @@ export function ApiSelect({ api, params, formatList, value, onlyRead = false, se
   )
 }
 
-export function CreditOrgSelect({ params, mode, value, ...rest }) {
-  const { onChange, ...otherRest } = rest ?? {}
-
-  const getClientList = async (val) => {
-    try {
-      const res = await creditApi.postOrganizationList({
-        organizationName: val,
-        pageSize: 10,
-        ...params,
-      })
-      const data = res.list?.map(({ organizationName: label, id, ...restItem }) => ({
-        ...restItem,
-        label,
-        value: +id,
-      }))
-      return data
-    } catch (e) {
-      setLoading(false)
-    }
-  }
-
-  const onSelectChange = (val) => {
-    onChange?.(val)
-  }
-
-  return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <Select debounceSearch options={getClientList} placeholder="请选择！" allowClear mode={mode} value={value} onChange={onSelectChange} {...otherRest} />
-    </div>
-  )
-}
-
 /**
  * 省份下拉
  */
@@ -132,7 +99,7 @@ export function FounderSelect({ params, mode, functionCode = 'selectfounder-grou
   const { onChange, ...otherRest } = rest ?? {}
 
   const getFounder = async (val) => {
-    const res = await Api.searchFounder(
+    const res = await selectApi.searchFounder(
       {
         name: val,
         job: 'projmanager',
@@ -204,7 +171,7 @@ export function OrgSelectZh({ params, mode, functionCode = 'selectorgs-groupCred
 
 // 客户统一视图专用
 export const getOrgList2 = async (params, functionCode, isNumber) => {
-  const res = await Api.getOrgList2(
+  const res = await selectApi.getOrgList2(
     {
       // type: 1, //1:业务部门，2:领导层
       ...params,
@@ -222,7 +189,7 @@ export const getOrgList2 = async (params, functionCode, isNumber) => {
 }
 
 export const getOrgList = async (params, functionCode, isNumber, valueName, url) => {
-  const res = await Api.getOrgList(
+  const res = await selectApi.getOrgList(
     {
       type: 1, //1:业务部门，2:领导层
       ...params,
@@ -277,7 +244,7 @@ export function ClientSelect({
   const [list, setList] = useState([])
 
   const getList = async (val) => {
-    const res = await Api.getClientList(
+    const res = await selectApi.getClientList(
       {
         clientName: val,
         effected: true, // 只选择已生效客户
@@ -326,38 +293,6 @@ export function ClientSelect({
       {canJump && <IconFont type="icon-icon_link" onClick={toDetail} className={styles.icon} />}
     </div>
   )
-}
-
-// 认购机构
-export function SubscribeOrgSelect({ mode, ...rest }) {
-  const getOrgList = async (val) => {
-    const res = await http.post('/fund/organization/list', { page: 1, pagesize: 1000 })
-    const data = res?.list.map(({ organizationName, id }) => ({
-      label: organizationName,
-      value: id,
-    }))
-    return data
-  }
-
-  return <Select labelInValue allowClear options={getOrgList} placeholder="请选择！" mode={mode} {...rest} />
-}
-
-// 认购证券
-export function SubscribeBondSelect({ financingId, mode, ...rest }) {
-  const getOrgList = async () => {
-    const res = await http.post('/fund/direct/financing/product/select', {
-      financingId,
-      page: 1,
-      pagesize: 1000,
-    })
-    const data = res?.map(({ abbreviation, id }) => ({
-      label: abbreviation,
-      value: id,
-    }))
-    return data
-  }
-
-  return <Select allowClear options={getOrgList} placeholder="请选择！" mode={mode} {...rest} />
 }
 
 export function ProjectReviewSelect({ mode, params = {}, ...rest }) {

@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { Select, Spin } from 'antd';
-import Api from '@/api/groupCredit/common'
+import selectApi from '@/api/common/selectApi'
 import './style.less'
 
 let timeout;
@@ -59,7 +59,7 @@ const SearchInput = ({
         onChange?.(val)
     };
     const getList = async (val) => {
-        const res = await Api.getClientList(
+        const res = await selectApi.getClientList(
         {
             clientName: val,
             effected: true, // 只选择已生效客户

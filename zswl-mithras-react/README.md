@@ -168,6 +168,7 @@
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`BreadLine/config`、`Chart/tooltip`。
 - 禁止业务代码直接引用 `blackList`、`postRentalInspection`、`riskControl`、`liquidity`、`pricing`、`newFtp`、`financialReport`、`manageReport`、`fillingMaterials`、`workbench`、`header` 等历史 API 目录，应使用对应语义领域入口。
 - 禁止预算应收账款页面和组件直接引用 `financial/accountsReceivable` 历史 API 前缀，应使用 `budget/accountsReceivable` 语义入口。
+- 禁止通用选择器直接引用 `groupCredit/common` 历史 API 前缀，应使用 `common/selectApi` 语义入口。
 - `npm run check:boundaries` 会扫描整个 `src`，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止通过 `@/pages/**` 复用页面私有代码，禁止直接引用历史 API 目录，并校验领域级入口已被代码使用且同步记录在 README。
 
 ## 当前边界收敛
@@ -180,7 +181,7 @@
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
 - 流程准备详情页通过 `src/components/Process/PrepareDetailEntries.js` 装配业务域详情组件。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
-- 融资机构、融资银行选择器实现已收敛到 `src/components/Financial/Select.js`；`src/components/Select/financial.js` 暂时保留兼容转发，避免公共 Select 层直接绑定金融域 API。
+- 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；`src/components/Select/financial.js` 暂时保留兼容转发，避免公共 Select 层直接绑定金融域 API。
 
 ## 目录语义
 
@@ -235,6 +236,7 @@
 - `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；业务语义优先使用 `src/api/kpi/projProfit/profitCalculateTool` 兼容入口。
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权；保存/查询用户配置优先使用 `src/api/common/userCustomConfigApi`，费控 SSO 授权优先使用 `src/api/dashboard/feikongSsoApi` 兼容入口。
+- `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `rzy`、`implant`、`cvicse`、`student`、`visitorManage`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
 
 目录整理原则：

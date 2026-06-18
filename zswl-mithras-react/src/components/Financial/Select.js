@@ -1,7 +1,46 @@
 import { Select } from '@zswl/components'
 import { useEffect, useState } from 'react'
 import { debounce as _debounce } from 'lodash'
+import { http } from '@zswl/admin'
+import financialManageOrgApi from '@/api/financial/financialManageOrg'
 import fundApi from '@/api/financial/fundApi'
+
+export function CreditOrgSelect({ params, mode, value, ...rest }) {
+  const { onChange, ...otherRest } = rest ?? {}
+
+  const getClientList = async (val) => {
+    const res = await financialManageOrgApi.postOrganizationList({
+      organizationName: val,
+      pageSize: 10,
+      ...params,
+    })
+    const data = res.list?.map(({ organizationName: label, id, ...restItem }) => ({
+      ...restItem,
+      label,
+      value: +id,
+    }))
+    return data
+  }
+
+  const onSelectChange = (val) => {
+    onChange?.(val)
+  }
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Select
+        debounceSearch
+        options={getClientList}
+        placeholder="请选择！"
+        allowClear
+        mode={mode}
+        value={value}
+        onChange={onSelectChange}
+        {...otherRest}
+      />
+    </div>
+  )
+}
 
 export function OrgListSelect(params) {
   const { onChange, apiParams = {}, ...otherRest } = params ?? {}
@@ -81,4 +120,36 @@ export function BankListSelect(params) {
       {...otherRest}
     />
   )
+}
+
+// 认购机构
+export function SubscribeOrgSelect({ mode, ...rest }) {
+  const getOrgList = async () => {
+    const res = await http.post('/fund/organization/list', { page: 1, pagesize: 1000 })
+    const data = res?.list.map(({ organizationName, id }) => ({
+      label: organizationName,
+      value: id,
+    }))
+    return data
+  }
+
+  return <Select labelInValue allowClear options={getOrgList} placeholder="请选择！" mode={mode} {...rest} />
+}
+
+// 认购证券
+export function SubscribeBondSelect({ financingId, mode, ...rest }) {
+  const getOrgList = async () => {
+    const res = await http.post('/fund/direct/financing/product/select', {
+      financingId,
+      page: 1,
+      pagesize: 1000,
+    })
+    const data = res?.map(({ abbreviation, id }) => ({
+      label: abbreviation,
+      value: id,
+    }))
+    return data
+  }
+
+  return <Select allowClear options={getOrgList} placeholder="请选择！" mode={mode} {...rest} />
 }

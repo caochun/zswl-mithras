@@ -8,7 +8,7 @@ import {
   TextAreaColumn,
 } from '@/components/Format'
 import { Input, InputNumber } from 'antd'
-import common from '@/api/groupCredit/common'
+import selectApi from '@/api/common/selectApi'
 import contractApi from '@/api/contract/baseInfo'
 import trackingApi from '@/api/trackEvent/trackingApi'
 import { App } from '@zswl/components'
@@ -99,7 +99,7 @@ const ALL_COLUMNS = [
     editable: true,
     search: true,
     options: async () => {
-      const res = await common.getClientList(
+      const res = await selectApi.getClientList(
         { pageSize: 5000 },
         { functionCode: 'clientlist-trackevent' }
       )
