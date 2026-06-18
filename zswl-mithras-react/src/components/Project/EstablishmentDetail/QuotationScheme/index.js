@@ -7,6 +7,7 @@ import Factoring from './FormConfig/Factoring'
 import AssignmentOfClaims from './FormConfig/AssignmentOfClaims'
 
 export {
+  Store as EstablishmentQuotationSchemeStore,
   Lease as EstablishmentLeaseQuotationScheme,
   Factoring as EstablishmentFactoringQuotationScheme,
   AssignmentOfClaims as EstablishmentAssignmentOfClaimsQuotationScheme,

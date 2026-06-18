@@ -3,7 +3,7 @@ import { ModalStore, PageStore } from '@zswl/components'
 import { message } from 'antd'
 import Api from './api'
 import { compareDetail } from '@/utils'
-import QSStore from '@/components/Project/EstablishmentDetail/QuotationScheme/store'
+import { EstablishmentQuotationSchemeStore } from '@/components/Project/EstablishmentDetail/QuotationScheme'
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 class Store {
   constructor() {
@@ -82,7 +82,7 @@ class Store {
       message.info('报价方案未保存，请先保存后提交审批！')
       return
     }
-    if (this.bizType === 'BL' && QSStore.newLeaseCredit && !this.QSZLShowValue) {
+    if (this.bizType === 'BL' && EstablishmentQuotationSchemeStore.newLeaseCredit && !this.QSZLShowValue) {
       message.info('报价方案-租赁方案未保存，请先保存后提交审批！')
       return
     }
