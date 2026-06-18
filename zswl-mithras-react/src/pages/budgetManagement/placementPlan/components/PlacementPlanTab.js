@@ -2,7 +2,7 @@ import { Table } from '@zswl/components'
 import { history, observer } from '@zswl/admin'
 import { useMemo } from 'react'
 import Store from '../store'
-import { statusRender } from '@/components/BudgetManagement/PlanColumns'
+import { budgetManagementPlanStatusRender as statusRender } from '@/components/BudgetManagement/BudgetManagementEntries'
 
 const PlacementPlanTab = () => {
   const store = useMemo(() => new Store(), [])

@@ -2,14 +2,14 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { getQuery, observer } from '@zswl/admin'
 import { Page, Table, Checkbox, Button, Modal, Form, Select, Access } from '@zswl/components'
 import { Space } from 'antd'
-import DepartmentSelector from '@/components/BudgetManagement/PlacementPlan/DepartmentSelector'
+import DepartmentSelector from '../PlacementPlan/DepartmentSelector'
 import styles from './style.less'
 import Store from './store.ts'
 import DetailModal from './DetailModal'
 import TableExport from '@/components/Actions/TableExport'
 import ProjectMonthTable from './ProjectMonthTable'
 import ProjectTable from './ProjectTable'
-import StatisticCard from '@/components/BudgetManagement/PlacementPlan/StatisticCard'
+import StatisticCard from '../PlacementPlan/StatisticCard'
 import {
   getUserInfo,
   isAdminAccount,

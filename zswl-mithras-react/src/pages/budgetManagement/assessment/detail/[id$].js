@@ -1,1 +1,1 @@
-export { default } from '@/components/BudgetManagement/AssessmentDetail'
+export { BudgetManagementAssessmentDetail as default } from '@/components/BudgetManagement/BudgetManagementEntries'
