@@ -3,7 +3,7 @@ export { AfterLeaseCheckPlanTemplate as PrepareAfterLeaseCheckReportTemplate } f
 export { ContractDepositRefundNotification as PrepareContractDepositRefundNotification } from '@/components/Contract/DetailEntries'
 export { ContractSettlementDetail as PrepareContractEarlySettlement } from '@/components/Contract/DetailEntries'
 export { ContractStartRentDetail as PrepareContractStartRent } from '@/components/Contract/DetailEntries'
-export { CustomerRatDetail as PrepareCustomerRating } from '@/components/Customer/CustomerRatingEntries'
+export { CustomerRatDetail as PrepareCustomerRating } from '@/components/Customer/CustomerRatingDetailEntries'
 export { FilingMaterialsApply as PrepareFilingMaterialsApply } from '@/components/FilingMaterials/ApplyEntries'
 export { FilingMaterialsFundApply as PrepareFundFilingMaterialsApply } from '@/components/FilingMaterials/FundApplyEntries'
 export { FinancialDirectDetail as PrepareFinancialDirect } from '@/components/Financial/DirectDetailEntries'

@@ -34,7 +34,9 @@
 当前已有领域入口：
 
 - `AfterLease/AdjustEntries.js`
-- `AfterLease/Level5ClassifyEntries.js`
+- `AfterLease/Level5ClassifyDetailEntries.js`
+- `AfterLease/Level5ClassifyListEntries.js`
+- `AfterLease/Level5ClassifyTipsEntries.js`
 - `AfterLease/PolicyManageEntries.js`
 - `AfterLease/RentCollectionApiEntries.js`
 - `AfterLease/RentCollectionDetailEntries.js`
@@ -77,8 +79,11 @@
 - `Credit/SearchModalEntries.js`
 - `CreditManage/CreditManageEntries.js`
 - `Customer/ApplyPermissionEntries.js`
-- `Customer/CustomerRatingEntries.js`
-- `Customer/DebtRatingEntries.js`
+- `Customer/CustomerRatingDetailEntries.js`
+- `Customer/CustomerRatingListEntries.js`
+- `Customer/CustomerRatingUploadEntries.js`
+- `Customer/DebtRatingDetailEntries.js`
+- `Customer/DebtRatingListEntries.js`
 - `Customer/ExternalPublicInfoEntries.js`
 - `Customer/FinancialReportEntries.js`
 - `Customer/HandoverEntries.js`
