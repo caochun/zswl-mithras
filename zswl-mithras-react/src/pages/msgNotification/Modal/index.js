@@ -22,7 +22,6 @@ import { App } from '@zswl/components'
 import { history } from '@zswl/admin'
 import layoutStore from '@/layout/store'
 import useInterval from '@/utils/hooks/useInterval'
-import headerStore from '../../../layout/store'
 
 const dateFormat = 'yyyy-MM-DD HH:mm:ss'
 const TYPE = {
@@ -93,7 +92,7 @@ const MsgModal = ({ visible, onChange }) => {
       messageChannel: 'PC',
       noticeIds: [id],
     })
-    headerStore.getNoReadNum()
+    layoutStore.getNoReadNum()
     callback && callback()
   }
   const ws = useRef()
@@ -103,7 +102,7 @@ const MsgModal = ({ visible, onChange }) => {
       if (val === 'pang') {
         return
       }
-      headerStore.getNoReadNum()
+      layoutStore.getNoReadNum()
       getData()
       const { bizInfo, type, title, content } = val
       const { other } = bizInfo ? JSON.parse(bizInfo) : {}

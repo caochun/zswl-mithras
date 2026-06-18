@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Input, DatePicker, Upload, message, InputNumber } from 'antd'
+import { Input, DatePicker, Upload, InputNumber } from 'antd'
 import { Modal, Form, Button, Select, App } from '@zswl/components'
 
 import { ClientSelect, OrgSelect, ApiSelect, ContractSelect } from '@/components'
@@ -18,7 +18,7 @@ const AddModal = observer(({ store }) => {
   const { enums } = store.page.getData()
   const { id } = store.addModal.getInitialValues() ?? {}
   const [form] = Form.useForm()
-  const { activeTab, setActiveTab, fileList, setFileList, receiptCodeList } = store
+  const { activeTab, setActiveTab, fileList } = store
   const title = id ? '编辑数据' : '新增数据'
 
   const amountCommonProps = {
