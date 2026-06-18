@@ -5,7 +5,7 @@ import { Button, Form, FormStore, Select } from '@zswl/components'
 import { FormTable } from '@/components'
 import { myInputEditable, myInputRender } from './context'
 import styles from './ModalEditTable/index.less'
-import Api from '@/api/baseData/pricing/baseSet/ftpBaseSet'
+import Api from '@/api/budget/pricing/baseSet/ftpBaseSet'
 import { Input, Space, message } from 'antd'
 import { FormulaValueTip } from '@/components'
 

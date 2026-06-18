@@ -5,7 +5,7 @@ import { Space, message } from 'antd'
 import { create, all } from 'mathjs'
 import { hasValue, rules } from '@/utils'
 import styles from './index.less'
-import Api from '@/api/baseData/pricing/baseSet/ftpBaseSet'
+import Api from '@/api/budget/pricing/baseSet/ftpBaseSet'
 import { myInputEditable, myInputRender, IS_FU_XIANG_BO_DONG } from '../context'
 import { saveServer } from '@/utils'
 

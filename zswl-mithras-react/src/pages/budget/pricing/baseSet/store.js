@@ -1,7 +1,7 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { message } from 'antd'
-import Api from '@/api/baseData/pricing/baseSet/ftpBaseSet'
+import Api from '@/api/budget/pricing/baseSet/ftpBaseSet'
 
 class Store {
   constructor() {

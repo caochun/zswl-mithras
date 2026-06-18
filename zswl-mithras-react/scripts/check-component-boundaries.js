@@ -58,6 +58,10 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/lease/trackingApi',
     replacementPrefix: '@/api/trackEvent/trackingApi',
   },
+  {
+    legacyPrefix: '@/api/baseData/pricing/baseSet/ftpBaseSet',
+    replacementPrefix: '@/api/budget/pricing/baseSet/ftpBaseSet',
+  },
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 
