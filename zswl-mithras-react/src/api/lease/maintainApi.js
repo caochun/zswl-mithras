@@ -50,6 +50,15 @@ export default {
   // 租赁物审核模板
   postLeaseFileTemplateList: (params) =>
     http.post('/ledger/detail/check-repeat/template/download', params, {}),
+  postLeaseDataListFileUpload: (params) =>
+    http.post('/file/upload', params, {
+      type: 'upload',
+      timeout: 0,
+      transformResult: (res) => res.data,
+      headers: {
+        functionCode: 'leaseDataListFileUpload',
+      },
+    }),
   // 租赁物查重
   postLeaseCheckDuplicate: (params) =>
     http.post('/ledger/detail/leaseitem/dedup', params, {}),

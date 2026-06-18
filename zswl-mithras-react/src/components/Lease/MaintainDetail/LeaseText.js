@@ -1,7 +1,7 @@
 import { FileTable } from '@/components/Table'
 import { useRef, forwardRef, useImperativeHandle } from 'react'
 import { observer } from '@zswl/admin'
-import fileListApi from '@/api/common/fileList'
+import Api from '@/api/lease/maintainApi'
 import { getUserInfo } from '@/utils'
 
 const Index = (props) => {
@@ -36,10 +36,7 @@ const Index = (props) => {
         showChangeType={false}
         uploadApi={async (data) => {
           // 因为水印加参数了,所以重写
-          return await fileListApi.postFileUpload(
-            { ...data, ...params, needWatermark: 1 },
-            'leaseDataListFileUpload'
-          )
+          return await Api.postLeaseDataListFileUpload({ ...data, ...params, needWatermark: 1 })
         }}
         enumType={'leaseTextFileEnum'}
         title={'租赁物文本'}

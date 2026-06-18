@@ -3,7 +3,6 @@ import { useRef, forwardRef, useState } from 'react'
 import { observer } from '@zswl/admin'
 import { Modal, Button } from '@zswl/components'
 import { Switch, Space } from 'antd'
-import fileListApi from '@/api/common/fileList'
 import Api from '@/api/lease/maintainApi'
 import { downUrl, getUserInfo } from '@/utils'
 
@@ -104,17 +103,14 @@ const Index = (props) => {
         showChangeType={false}
         uploadApi={async (data) => {
           // 因为水印加参数了,所以重写
-          return await fileListApi.postFileUpload(
-            {
-              ...data,
-              ...params,
-              needWatermark:
-                isOperationmanagementagentInProcess || isOperationManagementReviewInProcess
-                  ? needWatermark
-                  : undefined,
-            },
-            'leaseDataListFileUpload'
-          )
+          return await Api.postLeaseDataListFileUpload({
+            ...data,
+            ...params,
+            needWatermark:
+              isOperationmanagementagentInProcess || isOperationManagementReviewInProcess
+                ? needWatermark
+                : undefined,
+          })
         }}
         // 流程节点在上传人时，上传人可删除自己上传的文档
         canDelete={canDeleteByRecord}
