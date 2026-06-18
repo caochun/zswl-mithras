@@ -211,7 +211,7 @@
 - `newFtp`：新版 FTP 定价接口历史命名目录；预算定价页面和组件优先使用 `src/api/budget/pricing/ftp` 下的兼容入口。
 - `financialReport`、`manageReport`：报表接口历史命名目录；报表页面和组件优先使用 `src/api/report` 下的兼容入口。
 - `fillingMaterialsDetail`、`fillingMaterials`：归档资料接口和路由的历史拼写目录；资料归集页面和组件优先使用 `src/api/filingMaterials`、`src/components/FilingMaterials` 下的兼容入口。
-- `common/customerOverview`：客户总览接口的历史公共目录；dashboard 客户总览页面优先使用 `src/api/dashboard/customerOverview` 兼容入口。
+- `common/customerOverview`：客户总览接口的历史公共目录；dashboard 客户总览页面优先使用 `src/api/dashboard/customerOverview`，客户视图页面优先使用 `src/api/customer/customerOverview` 兼容入口。
 - `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；业务语义优先使用 `src/api/kpi/projProfit/profitCalculateTool` 兼容入口。
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权；保存/查询用户配置优先使用 `src/api/common/userCustomConfigApi` 兼容入口。
