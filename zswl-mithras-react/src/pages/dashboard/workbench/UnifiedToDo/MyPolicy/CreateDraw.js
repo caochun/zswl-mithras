@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Drawer, Button } from '@zswl/components'
-import Policy from '@/components/Cpm/Policy'
+import Policy from '@/components/Policy'
 import { Space } from 'antd'
 
 const Index = ({ store }) => {
