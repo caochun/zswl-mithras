@@ -59,7 +59,6 @@ const publicComponentRoots = new Set([
   'Icon',
   'JumpClient',
   'MultilineText',
-  'OrgTreeSelect',
   'PageListDown',
   'PaymentApplyColumns',
   'PolicyColumns',
