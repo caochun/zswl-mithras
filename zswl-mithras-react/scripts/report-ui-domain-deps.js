@@ -59,7 +59,6 @@ const publicComponentRoots = new Set([
   'PageListDown',
   'PaymentApplyColumns',
   'PolicyColumns',
-  'RadioTabs',
   'ReadOnly',
   'RegionCascader',
   'RenderColumn',
