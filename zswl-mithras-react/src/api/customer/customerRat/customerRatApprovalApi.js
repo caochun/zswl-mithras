@@ -1,5 +1,5 @@
-import flowExecutionApi from '@/api/process/flowExecution'
+import { http } from '@zswl/admin'
 
 export default {
-  passProcess: flowExecutionApi.passProcess,
+  passProcess: (params) => http.post('/flow/execution/pass', params, { timeout: 0 }),
 }

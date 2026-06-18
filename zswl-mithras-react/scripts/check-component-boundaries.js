@@ -253,7 +253,6 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/process/flowExecution',
     replacementPrefix: '@/api/customer/customerRat/customerRatApprovalApi',
     allowedSourcePathPrefixes: [
-      'src/api/customer/customerRat/customerRatApprovalApi.js',
       'src/pages/process/',
     ],
   },
