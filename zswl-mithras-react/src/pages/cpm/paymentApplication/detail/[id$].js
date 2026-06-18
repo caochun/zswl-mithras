@@ -1,1 +1,1 @@
-export { default } from '@/components/Cpm/PaymentApplicationDetail'
+export { CpmPaymentApplicationDetail as default } from '@/components/Cpm/PaymentApplicationEntries'

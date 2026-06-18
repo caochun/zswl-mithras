@@ -9,7 +9,7 @@ import { Button, Form } from '@zswl/components'
 import { Dropdown, Menu, Modal, Space, message } from 'antd'
 import { useMemo, useRef } from 'react'
 import OverturnButton from './OverturnButton'
-import PublicCheckModal from '@/components/Cpm/PaymentApplication/PublicCheckModal'
+import { CpmPaymentApplicationPublicCheckModal as PublicCheckModal } from '@/components/Cpm/PaymentApplicationEntries'
 
 const { Item } = Form
 

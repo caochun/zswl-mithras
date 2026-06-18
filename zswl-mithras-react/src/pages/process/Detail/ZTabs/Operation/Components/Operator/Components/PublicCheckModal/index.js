@@ -1,1 +1,1 @@
-export { default } from '@/components/Cpm/PaymentApplication/PublicCheckModal'
+export { CpmPaymentApplicationPublicCheckModal as default } from '@/components/Cpm/PaymentApplicationEntries'
