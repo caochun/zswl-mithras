@@ -6,7 +6,7 @@ import styles from './index.less'
 import { history, observer } from '@zswl/admin'
 import _ from 'lodash'
 import { FormAmount } from '@/components/Form'
-import { OrgListSelect } from '@/components/Select'
+import { OrgListSelect } from '../../Select'
 
 function Index(props) {
   const { listName, addText = '请添加融资机构', value } = props

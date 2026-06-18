@@ -4,7 +4,7 @@ import { debounce as _debounce } from 'lodash'
 import { Input, DatePicker } from 'antd'
 import { useState, useEffect } from 'react'
 import moment from 'moment'
-import { BankListSelect } from '@/components/Select'
+import { BankListSelect } from '../../../Select'
 import Api from '@/api/financial/fundApi'
 
 const { Item } = Form

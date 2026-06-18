@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 import moment from 'moment'
 import styles from '../index.less'
 import Api from '@/api/financial/fundApi'
-import { BankListSelect } from '@/components/Select'
+import { BankListSelect } from '../../../Select'
 
 const { Item } = Form
 
