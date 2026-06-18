@@ -3,7 +3,7 @@ const path = require('path')
 
 const root = path.resolve(__dirname, '..')
 const srcDir = path.join(root, 'src')
-const scanDirs = [path.join(srcDir, 'pages'), path.join(srcDir, 'components')]
+const scanDirs = [srcDir]
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
