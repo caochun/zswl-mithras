@@ -1,5 +1,5 @@
 import { EditDescription } from '@/components/Table'
-import { PaymentApplyColumns as ALL_COLUMNS } from '@/components/PaymentApplyColumns/PaymentApplyColumnsEntries'
+import { PaymentFtpColumns as ALL_COLUMNS } from '@/components/PaymentFtpColumns/PaymentFtpColumnsEntries'
 import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '@/api/cpm/payment/contractPaymentFtpApi'

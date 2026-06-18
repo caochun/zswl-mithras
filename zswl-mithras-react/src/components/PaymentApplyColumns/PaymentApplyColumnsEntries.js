@@ -1,1 +1,1 @@
-export { default as PaymentApplyColumns } from '.'
+export { PaymentFtpColumns as PaymentApplyColumns } from '../PaymentFtpColumns/PaymentFtpColumnsEntries'

@@ -30,7 +30,8 @@ const stabilizedComponentRootImports = new Map([
   ['Dashboard', 'Dashboard/DashboardEntries'],
   ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
   ['FileDiff', 'ChangeLogDiff/ChangeLogDiffEntries'],
-  ['PaymentApplyColumns', 'PaymentApplyColumns/PaymentApplyColumnsEntries'],
+  ['PaymentApplyColumns', 'PaymentFtpColumns/PaymentFtpColumnsEntries'],
+  ['PaymentFtpColumns', 'PaymentFtpColumns/PaymentFtpColumnsEntries'],
   ['Policy', 'Policy/PolicyEntries'],
 ])
 const stableTableRootImports = new Set([
@@ -671,6 +672,7 @@ const compatibilityComponentEntries = new Set([
   'Chart/LineChartEntries.js',
   'Chart/TooltipEntries.js',
   'FileDiff/FileDiffEntries.js',
+  'PaymentApplyColumns/PaymentApplyColumnsEntries.js',
 ])
 
 for (const filePath of sourceFiles) {
