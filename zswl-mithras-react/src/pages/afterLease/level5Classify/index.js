@@ -1,1 +1,1 @@
-export { default } from '@/components/AfterLease/Level5Classify'
+export { AfterLeaseLevel5Classify as default } from '@/components/AfterLease/RentCollectionEntries'

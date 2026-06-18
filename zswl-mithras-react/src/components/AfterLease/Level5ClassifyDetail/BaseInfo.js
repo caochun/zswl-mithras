@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import { ALL_COLUMNS } from '@/components/AfterLease/Level5ClassifyColumns'
+import { ALL_COLUMNS } from '../Level5ClassifyColumns'
 import { getDescColumns, isAssetJon } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Button } from '@zswl/components'

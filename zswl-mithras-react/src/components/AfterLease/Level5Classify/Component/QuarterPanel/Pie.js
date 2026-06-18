@@ -2,7 +2,7 @@ import * as echarts from 'echarts'
 import { useEffect } from 'react'
 import styles from './index.less'
 import classNames from 'classnames'
-import { levelColor, quaraterMap } from '@/components/AfterLease/Level5ClassifyConfig'
+import { levelColor, quaraterMap } from '../../../Level5ClassifyConfig'
 
 const getOptions = ({ data, total }) => {
   return {

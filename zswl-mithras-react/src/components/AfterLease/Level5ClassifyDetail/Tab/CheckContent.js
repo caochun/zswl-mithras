@@ -2,7 +2,7 @@ import DynamicDesc from '@/components/Table/DynamicDesc'
 import { useEffect, useState } from 'react'
 import Api from '@/api/afterLease/level5Classify'
 import { FileTable } from '@/components'
-import { FileCommonParams } from '@/components/AfterLease/Level5ClassifyConfig'
+import { FileCommonParams } from '../../Level5ClassifyConfig'
 import styles from '../index.less'
 
 const Index = ({ store, canEdit = true }) => {

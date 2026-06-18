@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
-import Level5Classify from '@/components/AfterLease/Level5Classify'
+import { AfterLeaseLevel5Classify as Level5Classify } from '@/components/AfterLease/RentCollectionEntries'
 
 const Index = ({ store }) => {
   return (

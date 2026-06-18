@@ -1,4 +1,4 @@
-import { InitProcessData } from '@/components/AfterLease/Level5ClassifyConfig'
+import { InitProcessData } from '../Level5ClassifyConfig'
 import { getKeyOptionsLabelMapPlus } from '@/utils'
 import { makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
