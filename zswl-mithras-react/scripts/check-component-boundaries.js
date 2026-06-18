@@ -70,6 +70,10 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/baseData/ftpQuarterlyGuidance',
     replacementPrefix: '@/api/budget/pricing/ftpQuarterlyGuidance',
   },
+  {
+    legacyPrefix: '@/api/common/workbenchApi',
+    replacementPrefix: '@/api/common/userCustomConfigApi or @/api/dashboard/feikongSsoApi',
+  },
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 

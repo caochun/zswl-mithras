@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { message } from 'antd'
-import workbenchApi from '@/api/common/workbenchApi'
+import feikongSsoApi from '@/api/dashboard/feikongSsoApi'
 import { getUserInfo } from './auth'
 
 export { getChartsTooltip } from '@/components/Chart/TooltipEntries'
@@ -36,7 +36,7 @@ export const handleFeikongJump = async () => {
     return
   }
   try {
-    const res = await workbenchApi.getOauthAuthorize()
+    const res = await feikongSsoApi.getOauthAuthorize()
     if (!res) {
       newTab.close()
       message.error('未获取到授权码')
