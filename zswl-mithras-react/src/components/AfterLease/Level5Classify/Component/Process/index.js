@@ -5,7 +5,7 @@ import { Button } from '@zswl/components'
 import { Spin, Steps } from 'antd'
 import FirstPartModal from './FirstPartModal'
 import ProcessDataModal from './ProcessDataModal'
-import TipsModal from './TipsModal'
+import TipsModal from '../../TipsModal'
 import styles from './index.less'
 
 const { Step } = Steps
