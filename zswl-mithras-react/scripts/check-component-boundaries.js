@@ -23,9 +23,7 @@ const nonEntryComponentSubpathPattern =
 const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 const stabilizedComponentRootImports = new Map([
-  ['BlackInfo', 'BlackInfo/BlackInfoEntries'],
   ['BpmnFlowChart', 'Process/ProcessEntries'],
-  ['ChangeLogLayout', 'Financial/ChangeLogEntries'],
   ['ClientFileTable', 'ClientFileTable/ClientFileTableEntries'],
   ['Dashboard', 'Dashboard/DashboardEntries'],
   ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
@@ -376,7 +374,7 @@ const legacyApiPrefixRules = [
   {
     legacyPrefix: '@/api/blackGray/queryExternalDataApi',
     replacementPrefix: '@/api/customerView/blackGrayApi or @/api/blackGray/queryExternalDataApi in BlackGray domain',
-    allowedSourceDomains: ['BlackGray', 'BlackInfo'],
+    allowedSourceDomains: ['BlackGray'],
     allowedSourcePathPrefixes: [
       'src/pages/blackListManage/',
     ],

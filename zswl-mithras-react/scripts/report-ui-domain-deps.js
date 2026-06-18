@@ -8,7 +8,6 @@ const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
 
 const domainAliases = new Map([
-  ['BlackInfo', 'blackGray'],
   ['blackListManage', 'blackGray'],
   ['BudgetManagement', 'budget'],
   ['budgetManagement', 'budget'],

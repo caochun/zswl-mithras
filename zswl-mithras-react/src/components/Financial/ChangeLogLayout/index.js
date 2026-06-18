@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Collapse, Divider, Skeleton, Badge } from 'antd'
 import { observer } from '@zswl/admin'
 import styles from './index.less'
-import { compareDetail, compareTableData } from '@/utils'
+import { compareTableData } from '@/utils'
 
 const { Panel } = Collapse
 

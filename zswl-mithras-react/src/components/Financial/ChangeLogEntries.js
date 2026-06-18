@@ -1,1 +1,1 @@
-export { default as FinancialChangeLogLayout } from '../ChangeLogLayout'
+export { default as FinancialChangeLogLayout } from './ChangeLogLayout'
