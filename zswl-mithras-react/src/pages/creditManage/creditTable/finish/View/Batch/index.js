@@ -1,1 +1,1 @@
-export { default } from '@/components/CreditManage/CreditTable/FinishView/Batch'
+export { CreditTableFinishBatch as default } from '@/components/CreditManage/CreditTable/entries'

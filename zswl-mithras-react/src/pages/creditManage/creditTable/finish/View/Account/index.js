@@ -1,1 +1,1 @@
-export { default } from '@/components/CreditManage/CreditTable/FinishView/Account'
+export { CreditTableFinishAccount as default } from '@/components/CreditManage/CreditTable/entries'

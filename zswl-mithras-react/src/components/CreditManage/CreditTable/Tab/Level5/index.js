@@ -4,7 +4,7 @@ import { observer, getSessionStorage } from '@zswl/admin'
 import { rules, getFormColumns } from '@/utils'
 import { DateColumn, DatePickerEditable, InputColumn, MatchOptionColumn } from '@/components/Format'
 import { COMMON_COLUMNS } from '@/components/CreditManage/CreditTableColumns'
-import CreateModal from '@/components/CreditManage/CreditTable/Tab/Level5/CreateModal'
+import { CreditTableLevel5CreateModal } from '@/components/CreditManage/CreditTable/entries'
 import { CREATETABLE_PARAMS } from '@/components/CreditManage/CreditTableConfig'
 import Store from './store'
 import EditButton from '../../Components/EditButton'
@@ -122,7 +122,7 @@ function Index(props = {}) {
           },
         ].filter(Boolean)}
       />
-      <CreateModal store={store}></CreateModal>
+      <CreditTableLevel5CreateModal store={store}></CreditTableLevel5CreateModal>
       <DeleteModal store={store} />
     </div>
   )

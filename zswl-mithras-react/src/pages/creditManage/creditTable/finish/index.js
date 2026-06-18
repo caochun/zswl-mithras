@@ -3,8 +3,10 @@ import { Page } from '@zswl/components'
 import { observer, setSessionStorage } from '@zswl/admin'
 import { Drawer, Radio } from 'antd'
 import Tab from '@/components/CreditManage/CreditTable/Tab'
-import BatchView from '@/components/CreditManage/CreditTable/FinishView/Batch'
-import AccountView from '@/components/CreditManage/CreditTable/FinishView/Account'
+import {
+  CreditTableFinishAccount as AccountView,
+  CreditTableFinishBatch as BatchView,
+} from '@/components/CreditManage/CreditTable/entries'
 import Store from './store'
 import { CREATETABLE_PARAMS } from '@/components/CreditManage/CreditTableConfig'
 import Export from '@/components/Actions/Export'

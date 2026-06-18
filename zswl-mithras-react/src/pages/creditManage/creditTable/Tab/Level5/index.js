@@ -1,1 +1,1 @@
-export { default } from '@/components/CreditManage/CreditTable/Tab/Level5'
+export { CreditTableLevel5 as default } from '@/components/CreditManage/CreditTable/entries'

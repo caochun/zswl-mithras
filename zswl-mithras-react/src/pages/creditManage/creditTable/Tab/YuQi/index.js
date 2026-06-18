@@ -1,1 +1,1 @@
-export { default } from '@/components/CreditManage/CreditTable/Tab/YuQi'
+export { CreditTableYuQi as default } from '@/components/CreditManage/CreditTable/entries'
