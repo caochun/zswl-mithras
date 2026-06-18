@@ -175,7 +175,6 @@ function getTargetScope(specifier) {
 }
 
 const edges = new Map()
-const targetFanIn = new Map()
 
 for (const filePath of walk(srcDir)) {
   const source = fs.readFileSync(filePath, 'utf8')
@@ -207,9 +206,6 @@ for (const filePath of walk(srcDir)) {
     edge.specifiers.add(specifier)
     edges.set(edgeKey, edge)
 
-    const fanIn = targetFanIn.get(edge.targetScope) || new Set()
-    fanIn.add(edge.sourceScope)
-    targetFanIn.set(edge.targetScope, fanIn)
   }
 }
 
@@ -257,12 +253,36 @@ function printEdges(title, edgesToPrint) {
   }
 }
 
+function printFanIn(title, edgesToPrint) {
+  const targetFanIn = new Map()
+
+  for (const edge of edgesToPrint) {
+    const fanIn = targetFanIn.get(edge.targetScope) || new Set()
+    fanIn.add(edge.sourceScope)
+    targetFanIn.set(edge.targetScope, fanIn)
+  }
+
+  console.log(title)
+
+  if (targetFanIn.size === 0) {
+    console.log('- none')
+    return
+  }
+
+  for (const [target, sources] of [...targetFanIn.entries()].sort(([a], [b]) =>
+    a.localeCompare(b)
+  )) {
+    console.log(`- ${target}: ${sources.size} scope(s) [${[...sources].sort().join(', ')}]`)
+  }
+}
+
 printEdges('Cross-domain UI dependencies from domain implementation code:', domainImplementationEdges)
 
 console.log('')
 printEdges('Cross-domain UI dependencies from page or orchestration code:', orchestrationEdges)
 
-console.log('\nUI target fan-in:')
-for (const [target, sources] of [...targetFanIn.entries()].sort(([a], [b]) => a.localeCompare(b))) {
-  console.log(`- ${target}: ${sources.size} scope(s) [${[...sources].sort().join(', ')}]`)
-}
+console.log('')
+printFanIn('UI target fan-in from domain implementation code:', domainImplementationEdges)
+
+console.log('')
+printFanIn('UI target fan-in from page or orchestration code:', orchestrationEdges)
