@@ -52,9 +52,10 @@
 - `Credit/CreditSearchEntries.js`
 - `CreditManage/CreditManageEntries.js`
 - `Customer/CustomerEntries.js`
+- `Customer/CustomerRatingEntries.js`
+- `Customer/DebtRatingEntries.js`
 - `Customer/FinancialReportEntries.js`
 - `Customer/PublicInfoEntries.js`
-- `Customer/RatingEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `Dashboard/MyAchievementEntries.js`
 - `Financial/FinancialEntries.js`

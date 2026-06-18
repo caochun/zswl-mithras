@@ -1,4 +1,4 @@
-import { CustomerDebtRat as DebtRat } from '@/components/Customer/RatingEntries'
+import { CustomerDebtRat as DebtRat } from '@/components/Customer/DebtRatingEntries'
 import { observer } from '@zswl/admin'
 import { Drawer } from '@zswl/components'
 
