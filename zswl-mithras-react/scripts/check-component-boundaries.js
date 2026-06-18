@@ -6,6 +6,8 @@ const srcDir = path.join(root, 'src')
 const readmePath = path.join(root, 'README.md')
 const scanDirs = [srcDir]
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
+const copiedSourceFilePattern =
+  /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx)$/i
 const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
@@ -571,6 +573,15 @@ function isAllowedLegacyApiPrefixSource(rule, relativeFilePath, sourceComponentD
 
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
+for (const filePath of sourceFiles) {
+  const relativeFilePath = path.relative(root, filePath)
+  if (copiedSourceFilePattern.test(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'copied or backup source file',
+    })
+  }
+}
 const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePath) => {
   const entryPath = normalizeEntryPath(filePath)
   return /(?:Entries|entries)\.js$/.test(filePath) && entryPath.split('/').length === 2
