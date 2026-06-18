@@ -3,7 +3,7 @@ import {
   DashboardArrowUp2 as ArrowUp2,
   DashboardBoardAssets as boradAssets,
   DashboardBoardInvestment as boardInvestment,
-} from '@/components/Dashboard/DashboardAssets'
+} from '@/components/Dashboard/DashboardEntries'
 import styles from './index.less'
 import { useEffect, useState } from 'react'
 import { Spin } from 'antd'

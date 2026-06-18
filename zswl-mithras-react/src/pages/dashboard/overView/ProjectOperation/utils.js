@@ -2,7 +2,7 @@ import {
   DashboardArrowDown as ArrowDown,
   DashboardArrowLeft as ArrowLeft,
   DashboardArrowRight as ArrowRight,
-} from '@/components/Dashboard/DashboardAssets'
+} from '@/components/Dashboard/DashboardEntries'
 
 export const stepConfig = [
   {

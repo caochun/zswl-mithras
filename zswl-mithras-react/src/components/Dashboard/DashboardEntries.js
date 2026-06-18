@@ -4,3 +4,15 @@ export { default as DashboardOperationAgingStatistics } from './OperationView/Ag
 export { default as DashboardOperationCapacityAnalysis } from './OperationView/CapacityAnalysis'
 export { default as DashboardOperationConversionRates } from './OperationView/ConversionRates'
 export { default as DashboardOperationLaunchComplete } from './OperationView/LaunchComplete'
+export {
+  DashboardArrowDown,
+  DashboardArrowDown2,
+  DashboardArrowLeft,
+  DashboardArrowRight,
+  DashboardArrowUp2,
+  DashboardBoardAssets,
+  DashboardBoardInvestment,
+  DashboardBoardTransform,
+  DashboardIconBellRed,
+  DashboardIconBellYellow,
+} from './DashboardAssets'
