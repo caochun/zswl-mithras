@@ -385,14 +385,6 @@ const legacyApiPrefixRules = [
     ],
   },
   {
-    legacyPrefix: '@/api/customer/customerOverview',
-    replacementPrefix: '@/api/customerView/customerOverviewApi or @/api/customer/customerOverview in Customer domain',
-    allowedSourcePathPrefixes: [
-      'src/api/customerView/customerOverviewApi.js',
-      'src/pages/customer/',
-    ],
-  },
-  {
     legacyPrefix: '@/api/blackGray/queryExternalDataApi',
     replacementPrefix: '@/api/customerView/blackGrayApi or @/api/blackGray/queryExternalDataApi in BlackGray domain',
     allowedSourceDomains: ['BlackGray', 'BlackInfo'],

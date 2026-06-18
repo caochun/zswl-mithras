@@ -1,5 +1,5 @@
 import { http } from '@zswl/admin'
-import customerOverviewApi from '@/api/customer/customerOverview'
+import customerOverviewApi from '@/api/dashboard/customerOverview'
 
 export default {
   postDashboardClientOverviewStatistics: customerOverviewApi.postDashboardClientOverviewStatistics,
