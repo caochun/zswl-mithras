@@ -151,7 +151,6 @@ const legacyApiPrefixRules = [
       'src/api/credit/approvalRemarkApi.js',
       'src/api/financial/approvalRemarkApi.js',
       'src/api/project/approvalRemarkApi.js',
-      'src/pages/process/',
     ],
   },
   {

@@ -5,7 +5,7 @@ import { observer, ErrorBoundary } from '@zswl/admin'
 import { useFlowData } from '@/utils/processFlow'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { ApprovalDetail } from '@/components/Table'
-import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
+import processModifyRemarkApi from '@/api/common/approvalRemarkApi'
 import styles from './index.less'
 
 // 变更说明配置
