@@ -1,6 +1,8 @@
 import { observer } from '@zswl/admin'
 import Lease from './Lease'
 
+export { Lease as LeaseItemListContent }
+
 const Index = ({ baseStore, canEditFlag = true, flowId, isLog, taskStatus, taskActivityId }) => {
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()
 
