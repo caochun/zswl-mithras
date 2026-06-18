@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import styles from './style.less'
+import styles from './Bifrost.less'
 import { App } from '@zswl/components'
 import { getQjtAc, getSalt } from '@/utils'
 import { Alert } from 'antd'

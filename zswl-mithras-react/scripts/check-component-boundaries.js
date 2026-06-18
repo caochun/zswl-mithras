@@ -63,7 +63,6 @@ const stableSelectRootImports = new Set([
 const stableDefaultComponentRootImports = new Map([
   ['Amount', 'Amount'],
   ['AmountNumber', 'AmountNumber'],
-  ['Bifrost', 'Bifrost'],
   ['Collapse', 'Collapse'],
   ['CommonTips', 'CommonTips'],
   ['CurrentSteps', 'CurrentSteps'],
@@ -76,7 +75,6 @@ const stableDefaultComponentRootImports = new Map([
   ['RadioTabs', 'RadioTabs'],
   ['ReadOnly', 'ReadOnly'],
   ['RegionCascader', 'RegionCascader'],
-  ['SelectDayPanel', 'SelectDayPanel'],
   ['ZInput', 'ZInput'],
 ])
 const publicComponentRootImports = new Set([
@@ -84,7 +82,6 @@ const publicComponentRootImports = new Set([
   'Amount',
   'AmountNumber',
   'AmountRange',
-  'Bifrost',
   'BreadLine',
   'Collapse',
   'CommonTips',
@@ -110,11 +107,9 @@ const publicComponentRootImports = new Set([
   'RenderColumn',
   'RepayCalcType',
   'Select',
-  'SelectDayPanel',
   'StarDom',
   'Table',
   'ZInput',
-  'ZText',
 ])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//

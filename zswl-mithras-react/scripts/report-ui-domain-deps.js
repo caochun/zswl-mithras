@@ -40,7 +40,6 @@ const publicComponentRoots = new Set([
   'Amount',
   'AmountNumber',
   'AmountRange',
-  'Bifrost',
   'BreadLine',
   'Chart',
   'ClientFileTable',
@@ -72,13 +71,11 @@ const publicComponentRoots = new Set([
   'RenderColumn',
   'RepayCalcType',
   'Select',
-  'SelectDayPanel',
   'StarDom',
   'Table',
   'UpdateRatingInfoButton',
   'ZhongDengButton',
   'ZInput',
-  'ZText',
 ])
 
 function normalizeDomain(domain) {
