@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/ProjectView/ProjectInfo'
+export { DashboardProjectInfo as default } from '@/components/Dashboard/DashboardEntries'

@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/OperationView/LaunchComplete'
+export { DashboardOperationLaunchComplete as default } from '@/components/Dashboard/DashboardEntries'

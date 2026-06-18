@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/OperationView/ConversionRates'
+export { DashboardOperationConversionRates as default } from '@/components/Dashboard/DashboardEntries'

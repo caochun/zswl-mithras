@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/OperationView/AgingStatistics'
+export { DashboardOperationAgingStatistics as default } from '@/components/Dashboard/DashboardEntries'

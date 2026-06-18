@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/ProjectView/ProjectStage'
+export { DashboardProjectStage as default } from '@/components/Dashboard/DashboardEntries'

@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/OperationView/CapacityAnalysis'
+export { DashboardOperationCapacityAnalysis as default } from '@/components/Dashboard/DashboardEntries'

@@ -5,7 +5,7 @@ import { ALL_COLUMNS } from './Column'
 import { operationViewColumnsFilterKey as columnsFilterKey } from '@/utils/dashboardFilterKeys'
 import { ExportBtn, TableSummary } from '@/components/Dashboard'
 import { initQueryDate } from '@/utils/dashboardOperation'
-import { COMMON_COLUMNS } from '@/components/Dashboard/OperationViewColumns'
+import { COMMON_COLUMNS } from '../../../OperationViewColumns'
 import { saveServer } from '@/utils'
 
 const groupName = '投放完成情况详情'
