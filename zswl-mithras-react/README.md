@@ -32,6 +32,7 @@
 当前已有领域入口：
 
 - `AfterLease/RentCollectionEntries.js`
+- `BlackGray/BlackGrayEntries.js`
 - `Budget/BudgetEntries.js`
 - `Contract/DetailEntries.js`
 - `Contract/PriceEntries.js`

@@ -1,7 +1,7 @@
 import { App, Button, Page, Table } from '@zswl/components'
 import { history, observer } from '@zswl/admin'
 import store from './store'
-import ALL_COLUMNS from '@/components/BlackGray/Columns'
+import { BlackGrayColumns as ALL_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
 import Select from 'antd/es/select'

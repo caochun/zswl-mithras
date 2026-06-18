@@ -8,7 +8,7 @@ import {
 } from '@/components/RiskActions'
 import { Card, Checkbox } from 'antd'
 import { getDescColumns } from '@/utils'
-import ALl_COLUMNS from '@/components/BlackGray/Columns'
+import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 
 function Id({ params, path, query }) {
   const { view } = query

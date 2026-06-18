@@ -1,7 +1,7 @@
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { Descriptions, Table } from '@zswl/components'
-import ALl_COLUMNS from '@/components/BlackGray/Columns'
+import ALl_COLUMNS from '../Columns'
 import { EnterTable } from './BreakDetail'
 
 const Index = ({ detail }) => {

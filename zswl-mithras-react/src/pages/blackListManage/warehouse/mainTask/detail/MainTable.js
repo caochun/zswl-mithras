@@ -1,6 +1,6 @@
 import { Table, Button } from '@zswl/components'
 import { getQuery, observer } from '@zswl/admin'
-import ALL_COLUMNS from '@/components/BlackGray/Columns'
+import { BlackGrayColumns as ALL_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { getTableColumns } from '@/utils'
 import { Card, message } from 'antd'
 import styles from './styles.less'

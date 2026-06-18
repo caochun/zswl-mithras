@@ -13,7 +13,7 @@ import {
 import { Card, Cascader, Col, DatePicker, InputNumber, Radio, Row, Space, TreeSelect } from 'antd'
 import { getTableColumns, options } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
-import ALl_COLUMNS from '@/components/BlackGray/Columns'
+import ALl_COLUMNS from '../Columns'
 import queryExternalDataApi from '@/api/blackList/queryExternalDataApi'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import moment from 'moment'

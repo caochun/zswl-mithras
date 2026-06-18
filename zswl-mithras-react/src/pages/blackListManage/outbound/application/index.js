@@ -1,6 +1,6 @@
 import { history, observer } from '@zswl/admin'
 import store from './store'
-import List from '@/components/BlackGray/Manage/List'
+import { BlackGrayList as List } from '@/components/BlackGray/BlackGrayEntries'
 
 function Index({ path }) {
   return <List store={store} path={path} />

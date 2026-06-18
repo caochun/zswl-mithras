@@ -2,7 +2,7 @@ import { getTableColumns } from '@/utils'
 import { Card } from 'antd'
 import { http, makeAutoObservable, observer } from '@zswl/admin'
 import { Table, Descriptions, Page } from '@zswl/components'
-import ALl_COLUMNS from '@/components/BlackGray/Columns'
+import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useMemo } from 'react'
 import { saveServer } from '@/utils'
 

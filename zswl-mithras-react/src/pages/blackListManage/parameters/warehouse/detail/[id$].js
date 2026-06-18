@@ -9,12 +9,12 @@ import {
   Descriptions,
 } from '@zswl/components'
 import { history, makeAutoObservable, observer } from '@zswl/admin'
-import LoginInfo from '@/components/BlackGray/Manage/LoginInfo'
+import { BlackGrayLoginInfo as LoginInfo } from '@/components/BlackGray/BlackGrayEntries'
 import { useMemo } from 'react'
 import { Col, Input, Row, TreeSelect, message } from 'antd'
 import warehouseRuleApi from '@/api/blackList/warehouseRuleApi'
 import { getDescColumns } from '@/utils'
-import ALL_COLUMNS from '@/components/BlackGray/Columns'
+import { BlackGrayColumns as ALL_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 
 const ColItem = ({ children, ...rest }) => {
   return (
