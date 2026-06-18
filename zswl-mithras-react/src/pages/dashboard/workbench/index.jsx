@@ -10,7 +10,7 @@ import MyAchievement from './MyAchievement'
 import AchievementRank from './AchievementRank'
 import FinancingView from './FinancingView'
 import OperationView from './OperationView'
-import AnchorScrollNav from '@/components/AnchorScrollNav'
+import { DashboardAnchorScrollNav as AnchorScrollNav } from '@/components/Dashboard/DashboardEntries'
 import {
   isLeader,
   isBaseinessDept,

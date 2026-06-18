@@ -61,7 +61,6 @@ const stableSelectRootImports = new Set([
   'getOrgList2',
 ])
 const stableDefaultComponentRootImports = new Map([
-  ['AnchorScrollNav', 'AnchorScrollNav'],
   ['Amount', 'Amount'],
   ['AmountNumber', 'AmountNumber'],
   ['Bifrost', 'Bifrost'],
@@ -86,7 +85,6 @@ const publicComponentRootImports = new Set([
   'Amount',
   'AmountNumber',
   'AmountRange',
-  'AnchorScrollNav',
   'BiView',
   'Bifrost',
   'BreadLine',

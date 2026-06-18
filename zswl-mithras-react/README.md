@@ -190,6 +190,7 @@
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
+- dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 页面通过 `src/components/Dashboard/DashboardEntries.js` 使用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
 - 流程准备详情页通过 `src/components/Process/PrepareDetailEntries.js` 装配业务域详情组件。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。

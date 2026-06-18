@@ -1,5 +1,6 @@
 export { default as DashboardProjectInfo } from './ProjectView/ProjectInfo'
 export { default as DashboardProjectStage } from './ProjectView/ProjectStage'
+export { default as DashboardAnchorScrollNav } from './AnchorScrollNav'
 export { default as DashboardTitle } from './Title'
 export { default as DashboardOverviewTitle } from './OverviewTitle'
 export { default as DashboardCardPanelFieldsFilter } from './CardPanelFieldsFilter'
