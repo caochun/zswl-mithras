@@ -2,7 +2,7 @@ import { observer, history } from '@zswl/admin'
 import { Button, Modal } from '@zswl/components'
 import leaseApi from '@/api/lease/maintainApi'
 import flowList from '@/api/common/flowList'
-import ocrInvoiceApi from '@/api/ocr/ocrInvoiceApi'
+import vatInvoiceApi from '@/api/lease/vatInvoiceApi'
 
 function Index({ onClick, params, isEffect, children, beforeClick, text, ...rest }) {
   const checkProcessStatus = async () => {
@@ -33,7 +33,7 @@ function Index({ onClick, params, isEffect, children, beforeClick, text, ...rest
       const res = await beforeClick?.()
       const isProj = params.taskActivityId === 'projManager'
       if (isProj) {
-        const check = await ocrInvoiceApi.postVatInvoiceAmountCheckout({
+        const check = await vatInvoiceApi.postVatInvoiceAmountCheckout({
           leaseholdId: params.id,
         })
         if (['大于', '小于'].includes(check)) {

@@ -67,6 +67,14 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/whiteList/assessmentWhitelistApi',
   },
   {
+    legacyPrefix: '@/api/ocr/ocrInvoiceApi',
+    replacementPrefix: '@/api/lease/vatInvoiceApi',
+    allowedSourcePathPrefixes: [
+      'src/api/lease/vatInvoiceApi.ts',
+      'src/pages/ocr/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/baseData/pricing/baseSet/ftpBaseSet',
     replacementPrefix: '@/api/budget/pricing/baseSet/ftpBaseSet',
   },

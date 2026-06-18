@@ -229,6 +229,7 @@
 - `afterLease/policyLedgerApi.getPaymentDetail`：付款详情接口历史挂在保单台账 API 中；付款核销详情组件优先使用 `src/api/cpm/payment/paymentDetailApi` 语义入口。
 - `lease/trackingApi`：跟踪事项接口历史落在租赁物目录；跟踪事项组件优先使用 `src/api/trackEvent/trackingApi` 语义入口。
 - `lease/evaluationAgencyApi`：评估机构接口历史落在租赁物目录；评估机构组件、租赁物维护和白名单页面优先使用 `src/api/evaluationAgency/evaluationAgencyApi` 语义入口。
+- `ocr/ocrInvoiceApi`：发票识别接口历史落在 OCR 目录，其中租赁物发票金额校验优先使用 `src/api/lease/vatInvoiceApi` 语义入口。
 - `afterLease/assessmentWhitelistApi`：评估机构白名单接口历史落在租后目录；白名单页面和评估机构组件优先使用 `src/api/whiteList/assessmentWhitelistApi` 语义入口。
 - `baseData/pricing/baseSet/ftpBaseSet`：FTP 参数设定接口历史落在基础数据目录；预算定价基础设置页面和组件优先使用 `src/api/budget/pricing/baseSet/ftpBaseSet` 语义入口。
 - `baseData/ftpMaterialsFile`、`baseData/ftpQuarterlyGuidance`：FTP 定价资料和季度指导接口历史落在基础数据目录；预算定价组件优先使用 `src/api/budget/pricing` 下的语义入口。
