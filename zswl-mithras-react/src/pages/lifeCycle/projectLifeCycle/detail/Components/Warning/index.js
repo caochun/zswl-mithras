@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { LifeCycleRiskStrategyCard as Card } from '@/components/LifeCycle/LifeCycleEntries'
 import styles from '../../index.less'
 import cardStyles from './card.less'
-import Api from '@/api/risk/publicMonitor'
+import Api from '@/api/lifeCycle/riskWarningApi'
 
 const Warning = ({ store }) => {
   const [riskCount, setRiskCount] = useState()

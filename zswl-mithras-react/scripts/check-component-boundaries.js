@@ -231,6 +231,16 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/risk/publicMonitor',
+    replacementPrefix: '@/api/lifeCycle/riskWarningApi or @/api/risk/publicMonitor in Risk domain',
+    allowedSourceDomains: ['Risk'],
+    allowedSourcePathPrefixes: [
+      'src/api/lifeCycle/riskWarningApi.js',
+      'src/pages/risk/',
+      'src/pages/process/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],
