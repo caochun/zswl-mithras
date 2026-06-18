@@ -1,0 +1,1 @@
+export { getFinancialUrl } from './financingUrl'

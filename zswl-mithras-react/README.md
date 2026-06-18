@@ -51,6 +51,7 @@
 - `Chart/TooltipEntries.js`
 - `Contract/BaseInfoEntries.js`
 - `Contract/DetailEntries.js`
+- `Contract/LeaseMaterialsEntries.js`
 - `Contract/MaterialsEntries.js`
 - `Contract/PriceEntries.js`
 - `Cpm/CpmEntries.js`
@@ -70,10 +71,13 @@
 - `Customer/PublicInfoEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `Dashboard/MyAchievementEntries.js`
+- `Financial/DirectDetailEntries.js`
+- `Financial/FinancingCarryInterestEntries.js`
+- `Financial/FinancingUrlEntries.js`
 - `Financial/FundDetailEntries.js`
-- `Financial/FinancialEntries.js`
 - `Financial/FundListEntries.js`
 - `Financial/FundProcessEntries.js`
+- `Financial/PaymentBatchApprovalEntries.js`
 - `Financial/PaymentDetailEntries.js`
 - `Financial/PaymentListEntries.js`
 - `FilingMaterials/FilingMaterialsEntries.js`

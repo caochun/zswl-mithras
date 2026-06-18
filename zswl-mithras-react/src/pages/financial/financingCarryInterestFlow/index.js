@@ -1,1 +1,1 @@
-export { FinancialFinancingCarryInterestFlow as default } from '@/components/Financial/FinancialEntries'
+export { FinancialFinancingCarryInterestFlow as default } from '@/components/Financial/FinancingCarryInterestEntries'
