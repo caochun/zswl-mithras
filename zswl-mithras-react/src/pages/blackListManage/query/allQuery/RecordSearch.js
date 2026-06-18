@@ -4,8 +4,8 @@ import { Select, Table, TableStore } from '@zswl/components'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useMemo } from 'react'
 import { ExportAction } from '@/components/RiskActions'
-import listLibraryApi from '@/api/blackList/listLibraryApi'
-import queryExternalDataApi from '@/api/blackList/queryExternalDataApi'
+import listLibraryApi from '@/api/blackGray/listLibraryApi'
+import queryExternalDataApi from '@/api/blackGray/queryExternalDataApi'
 import { saveServer } from '@/utils'
 
 export const getEnterpriseName = async (searchValue) => {

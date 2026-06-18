@@ -203,7 +203,7 @@
 - `ProfitDistribution`：项目分润路由壳，业务语义更接近 `budget/projProfit` 或 KPI/预算分润。
 - `overdueListSearch`：逾期列表查询路由壳，业务语义更接近 `risk`、`overdue` 或租后回款。
 - `workbench`：工作台兼容入口，实际能力应优先落在 `dashboard/workbench`。
-- `blackListManage`：页面目录仍沿用黑名单管理命名，组件目录已是 `BlackGray`；后续可考虑菜单路径稳定的前提下收敛命名。
+- `blackListManage`：页面目录仍沿用黑名单管理命名，组件目录已是 `BlackGray`；API 调用优先使用 `src/api/blackGray` 兼容入口，后续可考虑菜单路径稳定的前提下收敛命名。
 - `fillingMaterialsDetail`：拼写与业务命名都偏历史，语义接近归档/资料归集详情。
 - `rzy`、`implant`、`cvicse`、`student`、`visitorManage`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
 

@@ -5,7 +5,7 @@ import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGra
 import { useEffect, useMemo } from 'react'
 import { Radio, Space } from 'antd'
 import { ExportAction } from '@/components/RiskActions'
-import listLibraryApi from '@/api/blackList/listLibraryApi'
+import listLibraryApi from '@/api/blackGray/listLibraryApi'
 import cls from 'classnames'
 import styles from './style.less'
 import { getEnterpriseName } from './RecordSearch'

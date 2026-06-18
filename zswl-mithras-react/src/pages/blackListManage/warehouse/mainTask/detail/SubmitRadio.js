@@ -4,7 +4,7 @@ import { Input, Radio, Space, message } from 'antd'
 import { useEffect, useMemo, useState } from 'react'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { getTableColumns } from '@/utils'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import moment from 'moment'
 import { saveServer } from '@/utils'
 

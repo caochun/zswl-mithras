@@ -4,7 +4,7 @@ import { BlackGrayColumns as ALL_COLUMNS } from '@/components/BlackGray/BlackGra
 import { getTableColumns } from '@/utils'
 import { Card, message } from 'antd'
 import styles from './styles.less'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import { DeleteAction, ExportAction } from '@/components/RiskActions'
 import { saveServer } from '@/utils'
 

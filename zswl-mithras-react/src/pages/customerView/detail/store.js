@@ -1,6 +1,6 @@
 import { PageStore, TableStore } from '@zswl/components'
 import { http, makeAutoObservable } from '@zswl/admin'
-import blackListApi from '@/api/blackList/queryExternalDataApi'
+import blackListApi from '@/api/blackGray/queryExternalDataApi'
 import Api from './api'
 import { history } from '@zswl/admin'
 

@@ -1,6 +1,6 @@
 import { PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import manualOutboundFormApi from '@/api/blackList/manualOutboundFormApi'
+import manualOutboundFormApi from '@/api/blackGray/manualOutboundFormApi'
 
 class Store {
   constructor() {

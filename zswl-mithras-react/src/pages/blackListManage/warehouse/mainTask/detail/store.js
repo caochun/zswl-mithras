@@ -1,9 +1,9 @@
 import { App, FormStore, ModalStore, PageStore, TableStore, Upload } from '@zswl/components'
 import { getQuery, history, makeAutoObservable } from '@zswl/admin'
-import warehouseTaskApi from '@/api/blackList/warehouseTaskApi'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import warehouseTaskApi from '@/api/blackGray/warehouseTaskApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import { message } from 'antd'
-import approvalControlApi from '@/api/blackList/approvalControlApi'
+import approvalControlApi from '@/api/blackGray/approvalControlApi'
 import moment from 'moment'
 
 const Api = {}

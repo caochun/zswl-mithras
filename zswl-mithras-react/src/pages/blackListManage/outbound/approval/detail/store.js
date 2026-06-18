@@ -1,8 +1,8 @@
 import { FormStore, PageStore, TableStore } from '@zswl/components'
 import { history, makeAutoObservable } from '@zswl/admin'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import { message } from 'antd'
-import manualOutboundFormApi from '@/api/blackList/manualOutboundFormApi'
+import manualOutboundFormApi from '@/api/blackGray/manualOutboundFormApi'
 
 class Store {
   constructor() {

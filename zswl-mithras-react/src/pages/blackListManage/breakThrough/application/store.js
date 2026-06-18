@@ -1,6 +1,6 @@
 import { PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import approvalBreakthroughApi from '@/api/blackList/approvalBreakthroughApi'
+import approvalBreakthroughApi from '@/api/blackGray/approvalBreakthroughApi'
 
 class Store {
   constructor() {

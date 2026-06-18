@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
 import { ExportAction } from '@/components/RiskActions'
 import { Checkbox } from 'antd'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import { saveServer } from '@/utils'
 
 function Index({ path }) {

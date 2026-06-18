@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
 import useGetStatus from '@/utils/hooks/useGetStatus'
 import { DeleteAction, WithdrawAction } from '@/components/RiskActions'
-import manualOutboundFormApi from '@/api/blackList/manualOutboundFormApi'
+import manualOutboundFormApi from '@/api/blackGray/manualOutboundFormApi'
 import { saveServer } from '@/utils'
 
 function Index({ path, store, type = 'outbound' }) {

@@ -14,7 +14,7 @@ import { Card, Cascader, Col, DatePicker, InputNumber, Radio, Row, Space, TreeSe
 import { getTableColumns, options } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
 import ALl_COLUMNS from '../Columns'
-import queryExternalDataApi from '@/api/blackList/queryExternalDataApi'
+import queryExternalDataApi from '@/api/blackGray/queryExternalDataApi'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import moment from 'moment'
 import { saveServer } from '@/utils'

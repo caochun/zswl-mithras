@@ -4,7 +4,7 @@ import { App, Button, Page, PageStore, Table, TableStore, Tabs } from '@zswl/com
 import { useMemo } from 'react'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { DeleteAction, WithdrawAction } from '@/components/RiskActions'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import { saveServer } from '@/utils'
 
 class Store {

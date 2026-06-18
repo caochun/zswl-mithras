@@ -4,7 +4,7 @@ import { App, Button, Page, PageStore, Table, TableStore, Tabs } from '@zswl/com
 import { useMemo } from 'react'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { DeleteAction, WithdrawAction } from '@/components/RiskActions'
-import warehouseTaskApi from '@/api/blackList/warehouseTaskApi'
+import warehouseTaskApi from '@/api/blackGray/warehouseTaskApi'
 import _ from 'lodash-es'
 import { saveServer } from '@/utils'
 

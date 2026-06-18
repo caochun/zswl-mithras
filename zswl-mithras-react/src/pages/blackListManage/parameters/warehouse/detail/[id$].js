@@ -12,7 +12,7 @@ import { history, makeAutoObservable, observer } from '@zswl/admin'
 import { BlackGrayLoginInfo as LoginInfo } from '@/components/BlackGray/BlackGrayEntries'
 import { useMemo } from 'react'
 import { Col, Input, Row, TreeSelect, message } from 'antd'
-import warehouseRuleApi from '@/api/blackList/warehouseRuleApi'
+import warehouseRuleApi from '@/api/blackGray/warehouseRuleApi'
 import { getDescColumns } from '@/utils'
 import { BlackGrayColumns as ALL_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 

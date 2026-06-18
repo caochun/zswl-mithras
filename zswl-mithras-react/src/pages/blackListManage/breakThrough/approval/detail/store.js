@@ -1,10 +1,10 @@
 import { FormStore, PageStore, TableStore } from '@zswl/components'
 import { history, makeAutoObservable } from '@zswl/admin'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import { message } from 'antd'
-import queryExternalDataApi from '@/api/blackList/queryExternalDataApi'
-import approvalControlApi from '@/api/blackList/approvalControlApi'
-import approvalBreakthroughApi from '@/api/blackList/approvalBreakthroughApi'
+import queryExternalDataApi from '@/api/blackGray/queryExternalDataApi'
+import approvalControlApi from '@/api/blackGray/approvalControlApi'
+import approvalBreakthroughApi from '@/api/blackGray/approvalBreakthroughApi'
 
 class Store {
   constructor() {

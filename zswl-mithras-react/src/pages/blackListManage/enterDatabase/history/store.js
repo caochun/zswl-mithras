@@ -1,6 +1,6 @@
 import { PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/blackList/recordTableApi'
+import Api from '@/api/blackGray/recordTableApi'
 
 class Store {
   constructor() {

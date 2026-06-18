@@ -3,7 +3,7 @@ import { Page, Table, TableStore, Tabs } from '@zswl/components'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { observer } from '@zswl/admin'
 import { useMemo, useState } from 'react'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import { ImportAction } from '@/components/RiskActions'
 import { saveServer } from '@/utils'
 

@@ -4,13 +4,13 @@ import { SubmitAuditAction, ApprovalRecordAction } from '@/components/RiskAction
 import LoginInfo from './LoginInfo'
 import EnterForm from './EnterForm'
 import { useMemo } from 'react'
-import recordTableApi from '@/api/blackList/recordTableApi'
+import recordTableApi from '@/api/blackGray/recordTableApi'
 import { message } from 'antd'
-import queryExternalDataApi from '@/api/blackList/queryExternalDataApi'
-import approvalControlApi from '@/api/blackList/approvalControlApi'
+import queryExternalDataApi from '@/api/blackGray/queryExternalDataApi'
+import approvalControlApi from '@/api/blackGray/approvalControlApi'
 import { getDescColumns, isUnifiedCreditCode } from '@/utils'
 import moment from 'moment'
-import warehouseRuleApi from '@/api/blackList/warehouseRuleApi'
+import warehouseRuleApi from '@/api/blackGray/warehouseRuleApi'
 import ALl_COLUMNS from '../Columns'
 
 const columns = getDescColumns(

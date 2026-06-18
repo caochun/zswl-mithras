@@ -4,7 +4,7 @@ import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGra
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { ExportAction } from '@/components/RiskActions'
-import manualOutboundFormApi from '@/api/blackList/manualOutboundFormApi'
+import manualOutboundFormApi from '@/api/blackGray/manualOutboundFormApi'
 import { saveServer } from '@/utils'
 
 const ReportList = () => {

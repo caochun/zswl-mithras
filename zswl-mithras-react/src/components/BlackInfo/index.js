@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Tooltip } from 'antd'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import _ from 'lodash'
-import queryExternalDataApi from '@/api/blackList/queryExternalDataApi'
+import queryExternalDataApi from '@/api/blackGray/queryExternalDataApi'
 
 export const BlackInfo = ({ params, style = {} }) => {
   const clientId = _.isObject(params?.clientId) ? params?.clientId?.value : params?.clientId
