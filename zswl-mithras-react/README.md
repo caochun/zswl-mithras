@@ -40,10 +40,12 @@
 - `BudgetManagement/BudgetManagementEntries.js`
 - `Chart/ChartEntries.js`
 - `Contract/DetailEntries.js`
+- `Contract/InfoEntries.js`
 - `Contract/PriceEntries.js`
 - `Cpm/CpmEntries.js`
 - `Cpm/PaymentApplicationEntries.js`
 - `Credit/CreditEntries.js`
+- `Credit/CreditSearchEntries.js`
 - `CreditManage/CreditManageEntries.js`
 - `Customer/CustomerEntries.js`
 - `Customer/FinancialReportEntries.js`
