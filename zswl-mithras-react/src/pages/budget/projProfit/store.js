@@ -1,10 +1,10 @@
 import { TableStore, ModalStore, Modal } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/kpi/projProfit/projProfit'
+import Api from '@/api/budget/projectProfitApi'
 import localApi from './api'
 import { message } from 'antd'
-import setApi from '@/api/kpi/baseSet/parameterConfig'
-import kpiParameterConfigApi from '@/api/kpi/projProfit/kpiParameterConfigApi'
+import setApi from '@/api/budget/projectProfitBaseSetApi'
+import kpiParameterConfigApi from '@/api/budget/projectProfitParameterApi'
 
 class Store {
   constructor() {

@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Table, TableStore, Page } from '@zswl/components'
 import { getTableColumns, getFormColumns } from '@/utils'
 import { BudgetProjectProfitColumns as ALL_COLUMNS } from '@/components/Budget/ProjectProfitEntries'
-import Api from '@/api/kpi/projProfit/projProfit'
+import Api from '@/api/budget/projectProfitApi'
 import { saveServer } from '@/utils'
 
 const formNameColumns = ['业务部门', '主办人员', '合同编号']

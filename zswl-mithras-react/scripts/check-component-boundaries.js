@@ -166,6 +166,21 @@ const legacyApiPrefixRules = [
     allowedSourcePathPrefixes: ['src/api/layout/projProfitToolApi.ts'],
   },
   {
+    legacyPrefix: '@/api/kpi/projProfit/projProfit',
+    replacementPrefix: '@/api/budget/projectProfitApi',
+    allowedSourcePathPrefixes: ['src/api/budget/projectProfitApi.ts'],
+  },
+  {
+    legacyPrefix: '@/api/kpi/projProfit/kpiParameterConfigApi',
+    replacementPrefix: '@/api/budget/projectProfitParameterApi',
+    allowedSourcePathPrefixes: ['src/api/budget/projectProfitParameterApi.ts'],
+  },
+  {
+    legacyPrefix: '@/api/kpi/baseSet/parameterConfig',
+    replacementPrefix: '@/api/budget/projectProfitBaseSetApi',
+    allowedSourcePathPrefixes: ['src/api/budget/projectProfitBaseSetApi.js'],
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],

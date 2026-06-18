@@ -245,6 +245,7 @@
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时优先使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时优先使用 `src/api/trackEvent/contractInfoApi`。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件优先使用 `src/api/contract/lprApi` 语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；KPI 语义优先使用 `src/api/kpi/projProfit/profitCalculateTool`，全局 layout 入口优先使用 `src/api/layout/projProfitToolApi`。
+- `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权；保存/查询用户配置优先使用 `src/api/common/userCustomConfigApi`，费控 SSO 授权优先使用 `src/api/dashboard/feikongSsoApi` 兼容入口。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
