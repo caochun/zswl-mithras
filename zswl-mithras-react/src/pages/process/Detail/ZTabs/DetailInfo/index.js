@@ -1,4 +1,4 @@
-import ProfitDistribution from '@/components/Budget/ProfitDistribution'
+import { BudgetProfitDistribution as ProfitDistribution } from '@/components/Budget/BudgetEntries'
 import PolicyRemind from '@/components/AfterLease/PolicyManageRemind'
 import CreditReportSelectFlow from '@/components/CreditManage/SearchDetail'
 import ApplyPermission from '@/components/Customer/ApplyPermission'
