@@ -378,8 +378,6 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/message/messageNotification',
     replacementPrefix: '@/api/layout/messageApi, @/api/dashboard/workbenchMessageApi, or @/api/message/messageNotification in Message domain',
     allowedSourcePathPrefixes: [
-      'src/api/dashboard/workbenchMessageApi.js',
-      'src/api/layout/messageApi.js',
       'src/pages/msgNotification/',
     ],
   },
@@ -564,7 +562,6 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],
     allowedSourcePathPrefixes: [
-      'src/api/cpm/payment/writeOffFlowCenterApi.js',
       'src/pages/budget/flowCenter/',
     ],
   },
@@ -573,7 +570,6 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],
     allowedSourcePathPrefixes: [
-      'src/api/cpm/payment/writeOffFlowCenterApi.js',
       'src/pages/budget/flowCenter/',
     ],
   },

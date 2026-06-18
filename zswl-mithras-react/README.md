@@ -241,7 +241,7 @@
 - `liquidity`：金融流动性接口历史命名目录；金融域页面优先使用 `src/api/financial/liquidity` 下的兼容入口。
 - `financial/accountsReceivable`：应收账款接口历史落在财务目录；预算应收账款页面和组件优先使用 `src/api/budget/accountsReceivable` 下的语义入口。
 - `cpm/payment/contractPaymentFtp`：合同付款 FTP 接口历史落在付款目录；合同付款申请组件优先使用 `src/api/contract/payment/contractPaymentFtp` 语义入口。
-- `budget/flowCenter`：银行流水/付款流水中心接口历史落在预算目录；付款核销组件优先使用 `src/api/cpm/payment/writeOffFlowCenterApi` 语义入口。
+- `budget/flowCenter`：银行流水/付款流水中心接口历史落在预算目录；付款核销组件使用 `src/api/cpm/payment/writeOffFlowCenterApi` 语义入口，不再转发预算流水中心 API 文件。
 - `afterLease/policyLedgerApi.getPaymentDetail`：付款详情接口历史挂在保单台账 API 中；付款核销详情组件优先使用 `src/api/cpm/payment/paymentDetailApi` 语义入口。
 - `lease/trackingApi`：跟踪事项接口历史落在租赁物目录；跟踪事项组件优先使用 `src/api/trackEvent/trackingApi` 语义入口。
 - `trackEvent/trackingApi.getTrackEventClose`：关闭跟踪事项是横向动作；项目评审会议纪要内触发时优先使用 `src/api/project/projReviewMeetingMinute` 下的项目语义方法，组件不直接穿透到跟踪事项域。
@@ -296,7 +296,7 @@
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件使用 `src/api/contract/priceApi` 语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；真实承载在 `src/api/layout/projProfitToolApi`，历史 `header` 与 `kpi/projProfit/profitCalculateTool` 入口仅保留兼容转发。
 - `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
-- `message/messageNotification`：消息中心页面保留消息域 API；全局 layout 消息弹窗优先使用 `src/api/layout/messageApi`，dashboard 工作台消息列表优先使用 `src/api/dashboard/workbenchMessageApi`。
+- `message/messageNotification`：消息中心页面保留消息域 API；全局 layout 消息弹窗使用 `src/api/layout/messageApi`，dashboard 工作台消息列表使用 `src/api/dashboard/workbenchMessageApi`，不再转发消息中心 API 文件。
 - `permission/login`：登录页保留权限域登录 API；全局 layout 快速切换登录优先使用 `src/api/layout/fastLoginApi`。
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理；保存/查询用户配置使用 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
