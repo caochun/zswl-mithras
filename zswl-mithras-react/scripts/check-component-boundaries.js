@@ -44,9 +44,17 @@ const legacyApiDomains = new Map([
   ['riskControl', 'risk'],
   ['workbench', 'dashboard'],
 ])
-const legacyApiPrefixes = new Map([
-  ['@/api/financial/accountsReceivable', '@/api/budget/accountsReceivable'],
-])
+const legacyApiPrefixRules = [
+  {
+    legacyPrefix: '@/api/cpm/payment/contractPaymentFtp',
+    replacementPrefix: '@/api/contract/payment/contractPaymentFtp',
+    allowedSourceDomains: ['Cpm', 'cpm'],
+  },
+  {
+    legacyPrefix: '@/api/financial/accountsReceivable',
+    replacementPrefix: '@/api/budget/accountsReceivable',
+  },
+]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 
 function normalizeEntryPath(filePath) {
@@ -81,10 +89,11 @@ function walk(dir, files = []) {
   return files
 }
 
-function getLegacyApiPrefixReplacement(specifier) {
-  for (const [legacyPrefix, replacementPrefix] of legacyApiPrefixes) {
+function getLegacyApiPrefixRule(specifier) {
+  for (const rule of legacyApiPrefixRules) {
+    const { legacyPrefix } = rule
     if (specifier === legacyPrefix || specifier.startsWith(`${legacyPrefix}/`)) {
-      return replacementPrefix
+      return rule
     }
   }
 
@@ -109,7 +118,7 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
     const isComponentImport = specifier.startsWith('@/components/')
     const isPageImport = pageImportPattern.test(specifier)
     const [, legacyApiDomain] = specifier.match(legacyApiImportPattern) || []
-    const legacyApiPrefixReplacement = getLegacyApiPrefixReplacement(specifier)
+    const legacyApiPrefixRule = getLegacyApiPrefixRule(specifier)
     const [, componentRootImportDomain] = specifier.match(componentRootImportPattern) || []
 
     const [, targetComponentEntryDomain] = specifier.match(componentEntryPathPattern) || []
@@ -128,10 +137,13 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
         file: relativeFilePath,
         specifier: `${specifier} (use @/api/${legacyApiDomains.get(legacyApiDomain)} semantic entry)`,
       })
-    } else if (legacyApiPrefixReplacement) {
+    } else if (
+      legacyApiPrefixRule &&
+      !legacyApiPrefixRule.allowedSourceDomains?.includes(sourceComponentDomain)
+    ) {
       violations.push({
         file: relativeFilePath,
-        specifier: `${specifier} (use ${legacyApiPrefixReplacement} semantic entry)`,
+        specifier: `${specifier} (use ${legacyApiPrefixRule.replacementPrefix} semantic entry)`,
       })
     } else if (stabilizedComponentRootImports.has(componentRootImportDomain)) {
       violations.push({

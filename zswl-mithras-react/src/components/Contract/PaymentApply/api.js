@@ -1,1 +1,1 @@
-export { default } from '@/api/cpm/payment/contractPaymentFtp'
+export { default } from '@/api/contract/payment/contractPaymentFtp'
