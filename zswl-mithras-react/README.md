@@ -113,6 +113,7 @@
 - `Kpi/ProjectAllotDetailEntries.js`
 - `Kpi/ProjectAllotFormEntries.js`
 - `Kpi/ProjectAllotListEntries.js`
+- `Lease/ApprovalConfirmEntries.js`
 - `Lease/MaintainEntries.js`
 - `LifeCycle/LifeCycleEntries.js`
 - `LoginIframe/LoginIframeEntries.js`
