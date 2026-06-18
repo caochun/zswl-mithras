@@ -2,7 +2,6 @@ import { makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, TableStore } from '@zswl/components'
 import Api from './api'
 import { message } from 'antd'
-import creditReportApi from '@/api/credit/creditReportApi'
 
 class Store {
   constructor({
@@ -106,7 +105,7 @@ class Store {
     } else if (contractId) {
       res = await Api.contractClientBusinessCompare({ contractId, flowId })
     } else {
-      res = await creditReportApi.postCompareBusiness({ creditSearchId, flowId })
+      res = await Api.creditSearchClientBusinessCompare({ creditSearchId, flowId })
     }
 
     this.setCompareData(res)

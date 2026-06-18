@@ -229,6 +229,7 @@
 - `budget/flowCenter`：银行流水/付款流水中心接口历史落在预算目录；付款核销组件优先使用 `src/api/cpm/payment/writeOffFlowCenterApi` 语义入口。
 - `afterLease/policyLedgerApi.getPaymentDetail`：付款详情接口历史挂在保单台账 API 中；付款核销详情组件优先使用 `src/api/cpm/payment/paymentDetailApi` 语义入口。
 - `lease/trackingApi`：跟踪事项接口历史落在租赁物目录；跟踪事项组件优先使用 `src/api/trackEvent/trackingApi` 语义入口。
+- `trackEvent/trackingApi.getTrackEventClose`：关闭跟踪事项是横向动作；项目评审会议纪要内触发时优先使用 `src/api/project/projReviewMeetingMinute` 下的项目语义方法，组件不直接穿透到跟踪事项域。
 - `lease/evaluationAgencyApi`：评估机构接口历史落在租赁物目录；评估机构组件、租赁物维护和白名单页面优先使用 `src/api/evaluationAgency/evaluationAgencyApi` 语义入口。
 - `whiteList/assessmentWhitelistApi`：评估机构白名单本身保留在白名单域；评估机构组件内选择白名单机构时优先使用 `src/api/evaluationAgency/assessmentWhitelistApi` 语义入口。
 - `ocr/ocrInvoiceApi`：发票识别接口历史落在 OCR 目录，其中租赁物发票金额校验优先使用 `src/api/lease/vatInvoiceApi` 语义入口。
@@ -247,6 +248,7 @@
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
 - `utils/customerRat`：客户评级工具历史落在全局 utils；客户评级和流程操作优先使用 `src/customer/CustomerRatUtils`，旧路径仅保留兼容转发。
 - `customer/clientBasic`：客户维护基础信息 API 保留在客户域；行业、区域等 `/select` 字典优先使用 `src/api/common/selectApi`。
+- `credit/creditReportApi.postCompareBusiness`：征信查询下的工商信息比对接口可由共享 `CheckBusiness` 组件本地 `api.js` 聚合，调用方不应因此直接绑定征信域 API。
 - `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
 - `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件可直接使用，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时优先使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时优先使用 `src/api/trackEvent/contractInfoApi`。

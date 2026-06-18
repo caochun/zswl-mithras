@@ -9,6 +9,10 @@ export default {
   paymentClientBusinessCompare: (params) =>
     http.post('/payment/client/compare/business', params, {}),
 
+  // 征信查询比对承租人及担保人工商信息
+  creditSearchClientBusinessCompare: (params) =>
+    http.post('/creditreport/base/creditSearch/client/compare/business', params, {}),
+
   // 新增客户工商信息处理意见表
   clientBusinessOpinionAdd: (params) => http.post('/client/business/opinion/add', params, {}),
   // 客户工商信息处理意见表列表
