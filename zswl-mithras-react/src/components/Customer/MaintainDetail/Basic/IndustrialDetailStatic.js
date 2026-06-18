@@ -20,9 +20,8 @@ import { App } from '@zswl/components'
 import useGetRegion from './useGetRegion'
 import IconFont from '@/components/Icon'
 import { getIsClientDetailParams } from '@/utils/domains/customer/CustomerUtils'
-import { BlackInfo } from '@/components/BlackGray/BlackGrayEntries'
+import { BlackGrayHitInfo } from '@/components/BlackGray/BlackGrayHitEntries'
 
-export { BlackInfo }
 const IndustrialDetail = ({ id, save, num, startUserId, businessVersion, store }) => {
   const flag = getQuery('flag')
   const isFormApproval = getQuery('typeId') == 'approval'
@@ -118,7 +117,7 @@ const IndustrialDetail = ({ id, save, num, startUserId, businessVersion, store }
                 </span>
               </div>
             </Tooltip>
-            <BlackInfo params={{ unifiedSocialCreditCode: result.uscCode, clientId: id }} />
+            <BlackGrayHitInfo params={{ unifiedSocialCreditCode: result.uscCode, clientId: id }} />
           </Space>
         </Descriptions.Item>
         <Descriptions.Item

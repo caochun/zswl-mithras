@@ -1,6 +1,6 @@
 import { AmountColumn, CustomColumn, FiledFormat, MatchOptionColumn } from '@/components/Format'
 import { FounderSelect, OrgSelect } from '@/components/Select'
-import { BlackInfo } from '@/components/BlackGray/BlackGrayEntries'
+import { BlackGrayHitInfo } from '@/components/BlackGray/BlackGrayHitEntries'
 
 const ALL_COLUMNS = [
   CustomColumn({
@@ -10,7 +10,7 @@ const ALL_COLUMNS = [
     render: (val, { clientId, clientName }) => (
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <FiledFormat title={clientName} />
-        <BlackInfo params={{ clientId }} style={{ marginLeft: 4 }} />
+        <BlackGrayHitInfo params={{ clientId }} style={{ marginLeft: 4 }} />
       </div>
     ),
   }),

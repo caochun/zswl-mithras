@@ -4,7 +4,7 @@ import styles from '../index.less'
 import { amountFormat } from '@/utils'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
 import TransactionInfo from './TransactionInfo'
-import { BlackInfo } from '@/components/BlackGray/BlackGrayEntries'
+import { BlackGrayHitInfo } from '@/components/BlackGray/BlackGrayHitEntries'
 
 const BaseInfo = ({ store, id, goProcess = () => {} }) => {
   const [riskCount, setRiskCount] = useState()
@@ -54,7 +54,7 @@ const BaseInfo = ({ store, id, goProcess = () => {} }) => {
                 <a>{riskCount}条舆情未完成处理</a>
               </Tag>
             ) : null}
-            <BlackInfo params={{ clientId: data.clientId }} />
+            <BlackGrayHitInfo params={{ clientId: data.clientId }} />
           </Space>
         ),
       },

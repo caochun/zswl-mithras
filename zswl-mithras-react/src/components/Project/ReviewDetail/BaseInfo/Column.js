@@ -11,7 +11,7 @@ import RegionCascader from '@/components/RegionCascader'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'
 import { history } from '@zswl/admin'
-import { BlackInfo } from '@/components/BlackGray/BlackGrayEntries'
+import { BlackGrayHitInfo } from '@/components/BlackGray/BlackGrayHitEntries'
 
 import { PeopleListColumn, SupplierColumn } from '../../BaseInfoColumns'
 const ALL_COLUMNS = ({
@@ -154,7 +154,7 @@ const ALL_COLUMNS = ({
       render: (val, { evaluationSubjectName, evaluationSubjectId }) => (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <FiledFormat title={evaluationSubjectName} />
-          <BlackInfo
+          <BlackGrayHitInfo
             params={{ clientId: evaluationSubjectId?.value ?? evaluationSubjectId }}
             style={{ marginLeft: 4 }}
           />

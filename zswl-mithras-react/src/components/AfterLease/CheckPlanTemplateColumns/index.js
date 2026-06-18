@@ -12,7 +12,7 @@ import {
 import { history } from '@zswl/admin'
 import { amountFormat, rules } from '@/utils'
 import { Input, Space } from 'antd'
-import { BlackInfo } from '@/components/BlackGray/BlackGrayEntries'
+import { BlackGrayHitInfo } from '@/components/BlackGray/BlackGrayHitEntries'
 
 const ALL_COLUMNS = [
   {
@@ -55,7 +55,7 @@ const ALL_COLUMNS = [
     render: (val, { clientId }) => (
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <FiledFormat title={val} />
-        <BlackInfo params={{ clientId }} style={{ marginLeft: 4 }} />
+        <BlackGrayHitInfo params={{ clientId }} style={{ marginLeft: 4 }} />
       </div>
     ),
   },

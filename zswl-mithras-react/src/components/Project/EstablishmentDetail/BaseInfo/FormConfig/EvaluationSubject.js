@@ -2,7 +2,7 @@ import { Descriptions, Form, Select } from 'antd'
 import { observer } from '@zswl/admin'
 import FormItemContent from '@/components/FormItemContent'
 import StarDom from '@/components/StarDom'
-import { BlackInfo } from '@/components/BlackGray/BlackGrayEntries'
+import { BlackGrayHitInfo } from '@/components/BlackGray/BlackGrayHitEntries'
 import { uniqBy } from 'lodash'
 import { labelRed } from './utils'
 
@@ -58,7 +58,7 @@ const EvaluationSubject = ({
       value={
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {getDetailValue('evaluationSubjectName')}
-          <BlackInfo params={{ clientId: getDetailValue('evaluationSubjectId')?.value }} />
+          <BlackGrayHitInfo params={{ clientId: getDetailValue('evaluationSubjectId')?.value }} />
         </div>
       }
       showValue={showValue}
