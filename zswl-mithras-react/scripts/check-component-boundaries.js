@@ -26,9 +26,10 @@ const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 const stabilizedComponentRootImports = new Map([
   ['ClientFileTable', 'ClientFileTable/ClientFileTableEntries'],
+  ['ChangeLogDiff', 'ChangeLogDiff/ChangeLogDiffEntries'],
   ['Dashboard', 'Dashboard/DashboardEntries'],
   ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
-  ['FileDiff', 'FileDiff/FileDiffEntries'],
+  ['FileDiff', 'ChangeLogDiff/ChangeLogDiffEntries'],
   ['PaymentApplyColumns', 'PaymentApplyColumns/PaymentApplyColumnsEntries'],
   ['Policy', 'Policy/PolicyEntries'],
 ])
@@ -669,6 +670,7 @@ const compatibilityComponentEntries = new Set([
   'Chart/BarChartEntries.js',
   'Chart/LineChartEntries.js',
   'Chart/TooltipEntries.js',
+  'FileDiff/FileDiffEntries.js',
 ])
 
 for (const filePath of sourceFiles) {

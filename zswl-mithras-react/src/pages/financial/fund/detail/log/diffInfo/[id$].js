@@ -11,7 +11,7 @@ import {
   FinancialFundDetailScheme as Scheme,
 } from '@/components/Financial/FundDetailEntries'
 import Api from '@/api/financial/fundApi'
-import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
+import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 
 function Index(props) {
   const { id } = props.params ?? {}
@@ -29,7 +29,7 @@ function Index(props) {
       forceRender: true,
       render() {
         return (
-          <FileDiff
+          <ChangeLogDiff
             version={id}
             moduleType="FUND_FINANCING"
             options="fundFinancingMaterialsEnum"

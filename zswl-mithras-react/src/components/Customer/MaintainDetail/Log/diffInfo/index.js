@@ -13,7 +13,7 @@ import {
   relationshipTypeList,
 } from '../../general'
 import { formateCard, hasValue } from '@/utils'
-import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
+import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 import { saveServer } from '@/utils'
 
 const { Panel } = Collapse
@@ -432,7 +432,7 @@ function Index({ params: { id }, query: { clientId } }) {
               />
             </Panel>
             <Panel header="文件变更日志" key="file" forceRender>
-              <FileDiff
+              <ChangeLogDiff
                 version={id}
                 moduleType="CLIENT"
                 functionCode="filelistversioncompare"

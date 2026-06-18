@@ -13,7 +13,7 @@ import {
   FinancialPaymentDetailRepaymentPlan as RepaymentPlan,
 } from '@/components/Financial/PaymentDetailEntries'
 import paymentApprovalApi from '@/api/financial/paymentApprovalApi'
-import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
+import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 
 function Index({ params: { id }, query: { bizType } }) {
   const compareData = store.page.getData()
@@ -33,7 +33,7 @@ function Index({ params: { id }, query: { bizType } }) {
       forceRender: true,
       render() {
         return (
-          <FileDiff
+          <ChangeLogDiff
             version={id}
             moduleType="FUND_RECEIPT_REPAY"
             options="fundFinancingMaterialsEnum"

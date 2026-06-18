@@ -12,7 +12,7 @@ import ZuLinWu from './ZuLinWu'
 import DanBao from './DanBao'
 import DiYa from './DiYa'
 import ZhiYa from './ZhiYa'
-import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
+import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 import { observer } from '@zswl/admin'
 import styles from './index.less'
 import store from './store'
@@ -408,7 +408,7 @@ function Index({ params: { id }, query: { bizType, contractId, leaseLog } }) {
             )}
             {!leaseLog && (
               <Panel header="文件变更日志" key="file" forceRender>
-                <FileDiff
+                <ChangeLogDiff
                   version={id}
                   moduleType="CONTRACT"
                   options="contractTypeEnum"

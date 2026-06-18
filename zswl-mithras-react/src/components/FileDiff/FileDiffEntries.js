@@ -1,1 +1,1 @@
-export { default as FileDiff } from '.'
+export { ChangeLogDiff as FileDiff } from '../ChangeLogDiff/ChangeLogDiffEntries'

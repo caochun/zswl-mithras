@@ -6,7 +6,7 @@ import BaoJia from './BaoJia'
 import { observer } from '@zswl/admin'
 import styles from './index.less'
 import store from './store'
-import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
+import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 
 const { Panel } = Collapse
 
@@ -103,7 +103,7 @@ function Index({ params: { id }, query: { bizType } }) {
               </Panel>
             )}
             <Panel header="文件变更日志" key="file" forceRender>
-              <FileDiff
+              <ChangeLogDiff
                 version={id}
                 moduleType="PROJ_PRICING"
                 options="projPricingMaterialsEnum"
