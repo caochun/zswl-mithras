@@ -3,7 +3,7 @@ import { FormStore, ModalStore, PageStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import { compareDetail } from '@/utils'
 import Api from './api'
-import priceApi from '../Price/api'
+import priceApi from '@/api/contract/priceApi'
 import approvalRemarkApi from '@/api/contract/approvalRemarkApi'
 import { validateModal } from '@/utils/modal'
 class Store {
