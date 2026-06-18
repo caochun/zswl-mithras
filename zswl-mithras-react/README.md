@@ -176,7 +176,7 @@
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
 - 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `PageListDown`、`CommonTips`、`ReadOnly`、`DetailLayout`、`Collapse`、`RegionCascader` 应直接从对应 `@/components/<Component>` 导入。
-- 禁止业务代码继续从 `@/components` 根目录导入组件；根目录只保留历史兼容导出，新增和迁移代码必须依赖具体稳定入口。
+- 禁止业务代码继续从 `@/components` 根目录导入组件；历史兼容根导出已删除，新增和迁移代码必须依赖具体稳定入口。
 - 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`RenderColumn`、`FormItemContent`、`FormUpload`、`Excel`、`Amount`、`ReadOnly` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域的 `*Entries.js`。
 - 禁止业务代码直接引用 `blackList`、`postRentalInspection`、`riskControl`、`liquidity`、`pricing`、`newFtp`、`financialReport`、`manageReport`、`fillingMaterials`、`workbench`、`header` 等历史 API 目录，应使用对应语义领域入口。
 - 禁止页面和组件直接引用 `src/api/**/interface/**` 类型文件；接口类型应由对应的语义 API 包装文件承接，避免页面绑定接口实现层目录。
