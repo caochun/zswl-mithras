@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '@/components/Lease/Maintain/Column'
+import { LeaseMaintainColumns as ALL_COLUMNS } from '@/components/Lease/MaintainEntries'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 

@@ -1,1 +1,1 @@
-export { cardConfig } from '@/components/Dashboard/MyAchievement/Config'
+export { myAchievementCardConfig as cardConfig } from '@/components/Dashboard/MyAchievementEntries'

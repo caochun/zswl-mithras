@@ -1,6 +1,6 @@
 import EditDescription from '@/components/Table/EditDescription'
 import { observer } from '@zswl/admin'
-import ALL_COLUMNS from '@/components/Kpi/ProjectAllot/Column'
+import { ProjectAllotColumns as ALL_COLUMNS } from '@/components/Kpi/ProjectAllotEntries'
 import { getDescColumns } from '@/utils'
 
 const Index = ({ canEdit, editRef, store }) => {

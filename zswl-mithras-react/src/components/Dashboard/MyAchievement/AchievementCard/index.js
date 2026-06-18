@@ -2,7 +2,7 @@ import { AmountFormat } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Skeleton } from 'antd'
 import styles from './index.less'
-import { cardConfig } from '@/components/Dashboard/MyAchievement/Config'
+import { myAchievementCardConfig as cardConfig } from '@/components/Dashboard/MyAchievementEntries'
 
 const Card = (props) => {
   return (

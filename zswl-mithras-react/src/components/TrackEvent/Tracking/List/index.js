@@ -1,7 +1,7 @@
 import { Button, Form, Modal, ModalStore, Page, Table } from '@zswl/components'
 import { getLocalStorage, getQuery, observer } from '@zswl/admin'
 import { getTableColumns } from '@/utils'
-import ALL_COLUMNS from '@/components/TrackEvent/Tracking/Column'
+import { TrackingColumns as ALL_COLUMNS } from '@/components/TrackEvent/TrackingEntries'
 import Store from './store'
 import { useMemo, useState } from 'react'
 import AddModal from '@/components/TrackEvent/Tracking/AddModal'
