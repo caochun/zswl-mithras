@@ -9,6 +9,8 @@ const importPattern =
 const apiImportPattern = /^@\/api\/([^/'"]+)(?:\/[^'"]*)?$/
 const domainAliases = new Map([
   ['blackListManage', 'blackGray'],
+  ['BudgetManagement', 'budget'],
+  ['budgetManagement', 'budget'],
   ['FilingMaterials', 'filingMaterials'],
   ['fillingMaterialsDetail', 'filingMaterials'],
   ['financialReport', 'report'],
@@ -78,7 +80,8 @@ for (const filePath of walk(srcDir)) {
   let match
   while ((match = importPattern.exec(source))) {
     const specifier = match[1]
-    const [, targetApiDomain] = specifier.match(apiImportPattern) || []
+    const [, rawTargetApiDomain] = specifier.match(apiImportPattern) || []
+    const targetApiDomain = rawTargetApiDomain && normalizeDomain(rawTargetApiDomain)
 
     if (!targetApiDomain || targetApiDomain.toLowerCase() === sourceScope.domain.toLowerCase()) {
       continue
