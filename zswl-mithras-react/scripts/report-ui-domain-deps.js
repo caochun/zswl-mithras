@@ -58,7 +58,6 @@ const publicComponentRoots = new Set([
   'JumpClient',
   'PageListDown',
   'PaymentApplyColumns',
-  'PolicyColumns',
   'ReadOnly',
   'RegionCascader',
   'RenderColumn',
