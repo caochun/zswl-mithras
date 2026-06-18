@@ -56,7 +56,6 @@ const publicComponentRoots = new Set([
   'FormulaValueTip',
   'Icon',
   'JumpClient',
-  'MultilineText',
   'PageListDown',
   'PaymentApplyColumns',
   'PolicyColumns',

@@ -172,6 +172,7 @@
 - 权限页 Bifrost iframe、付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/pages/budget/flowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 金额输入已回收到 `src/components/Cpm/AmountNumber`，跨层使用应通过 `Cpm/CpmEntries.js`。
+- 项目多行文本展示已回收到 `src/components/Project/MultilineText`，项目页面跨层使用应通过 `Project/EstablishmentDetailEntries.js`。
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`Chart/tooltip`。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。

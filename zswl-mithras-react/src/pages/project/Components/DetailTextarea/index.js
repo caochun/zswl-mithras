@@ -1,1 +1,1 @@
-export { default } from '@/components/MultilineText'
+export { ProjectMultilineText as default } from '@/components/Project/EstablishmentDetailEntries'

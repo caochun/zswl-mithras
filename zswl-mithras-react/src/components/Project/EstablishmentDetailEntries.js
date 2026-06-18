@@ -3,3 +3,4 @@ export { default as ProjectEstablishmentDetailBaseInfo } from './EstablishmentDe
 export { default as ProjectEstablishmentDetailLog } from './EstablishmentDetail/Log'
 export { default as ProjectEstablishmentDetailLogDiff } from './EstablishmentDetail/LogDiff'
 export { default as ProjectEstablishmentDetailQuotationScheme } from './EstablishmentDetail/QuotationScheme'
+export { default as ProjectMultilineText } from './MultilineText'
