@@ -65,6 +65,53 @@
 - 流程准备详情页通过 `src/components/Process/PrepareDetailEntries.js` 装配业务域详情组件。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 
+## 目录语义
+
+前端目录同时受到业务域、菜单路由、历史兼容路径影响，不能简单按后端模块一比一拆分。
+
+当前较清晰的业务域目录：
+
+- `afterLease` / `AfterLease`：租后检查、租后调整、租后回款等。
+- `budget` / `Budget`：预算、定价、应收账款、印花税、计提等。
+- `budgetManagement` / `BudgetManagement`：预算管理、计划、目标、参数配置等。
+- `contract` / `Contract`：合同详情、起租、提前结清、合同材料等。
+- `cpm` / `Cpm`：付款申请、付款核销、保证金、合同付款管理等。
+- `credit`、`creditManage` / `Credit`、`CreditManage`：授信审批和授信查询/台账能力。
+- `customer` / `Customer`：客户维护、客户评级、债项评级、客户财报等。
+- `financial` / `Financial`：融资、资金、流动性、金融机构、应付利息等。
+- `kpi` / `Kpi`：绩效分配、绩效参数、绩效测算等。
+- `lease` / `Lease`：租赁物维护和租赁物跟踪。
+- `project` / `Project`：项目立项、项目定价、项目评审。
+- `risk` / `Risk`：风控指标、风险策略、公开监控、评分卡等。
+- `report` / `Report`：管理报表、运营报表、内部历史报表等。
+- `process` / `Process`：流程中心、流程详情、审批记录、流程准备详情装配。
+
+当前带有聚合或展示面语义的目录：
+
+- `dashboard` / `Dashboard`：工作台、总览、看板、SSO 入口，偏展示与聚合。
+- `customerView`：客户单一视图/客户画像聚合页，复用客户、财报、区域数据等能力。
+- `customerMonitoring`：客户监控大屏/可视化页，偏展示面。
+- `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
+- `monitorEarly`：预警监控展示。
+- `preview`：PDF、报表预览。
+- `financialReport`：财务报表待办/审批/完成列表，偏报表流程视图。
+
+当前历史或兼容壳目录：
+
+- `ProfitDistribution`：项目分润路由壳，业务语义更接近 `budget/projProfit` 或 KPI/预算分润。
+- `overdueListSearch`：逾期列表查询路由壳，业务语义更接近 `risk`、`overdue` 或租后回款。
+- `workbench`：工作台兼容入口，实际能力应优先落在 `dashboard/workbench`。
+- `blackListManage`：页面目录仍沿用黑名单管理命名，组件目录已是 `BlackGray`；后续可考虑菜单路径稳定的前提下收敛命名。
+- `fillingMaterialsDetail`：拼写与业务命名都偏历史，语义接近归档/资料归集详情。
+- `rzy`、`implant`、`cvicse`、`student`、`visitorManage`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
+
+目录整理原则：
+
+- 路由目录改名必须先确认菜单、权限、后端路由配置和外部链接，不做纯前端局部改名。
+- 小型兼容壳目录可以先保持路径，内部通过稳定入口引用真实业务能力。
+- 聚合页不要沉淀公共业务能力；一旦被其他业务域复用，应迁入业务域组件或领域入口。
+- 优先整理新增代码和高频复用能力，历史路由壳只在确认无外部依赖后逐步收敛。
+
 ## 整理优先级
 
 1. 先统计真实 import 关系，优先处理被跨域引用次数高的 `pages/**` 代码。
