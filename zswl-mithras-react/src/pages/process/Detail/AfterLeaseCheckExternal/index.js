@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { AfterLeaseExternalCheckDetail as ExternalDetail } from '@/components/AfterLease/CheckPlanEntries'
+import { AfterLeaseExternalCheckDetail as ExternalDetail } from '@/components/AfterLease/CheckPlanExternalEntries'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion } = props

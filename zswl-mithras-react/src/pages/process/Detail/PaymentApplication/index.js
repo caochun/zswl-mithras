@@ -1,4 +1,4 @@
-import { CpmPaymentApplicationDetail as PaymentApplicationDetail } from '@/components/Cpm/PaymentApplicationEntries'
+import { CpmPaymentApplicationDetail as PaymentApplicationDetail } from '@/components/Cpm/PaymentApplicationDetailEntries'
 import { CpmPaymentWriteOffDetail as PaymentWriteOffDetail } from '@/components/Cpm/CpmEntries'
 import { observer } from '@zswl/admin'
 

@@ -2,7 +2,7 @@ import { Collapse } from '@/components'
 import {
   CpmPaymentApplicationInformationList as InformationList,
   CpmPaymentApplicationLendingMaterials as LendingMaterials,
-} from '@/components/Cpm/PaymentApplicationEntries'
+} from '@/components/Cpm/PaymentApplicationMaterialsEntries'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { useEffect, useState } from 'react'

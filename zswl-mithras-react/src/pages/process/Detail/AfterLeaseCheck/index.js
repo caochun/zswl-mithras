@@ -1,10 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { observer } from '@zswl/admin'
-import {
-  AfterLeaseCheckPlanCreate as CreatePlan,
-  AfterLeaseCheckPlanDetail as PlanDetail,
-  AfterLeaseCheckPlanTemplate as PlanReport,
-} from '@/components/AfterLease/CheckPlanEntries'
+import { AfterLeaseCheckPlanCreate as CreatePlan } from '@/components/AfterLease/CheckPlanCreateEntries'
+import { AfterLeaseCheckPlanDetail as PlanDetail } from '@/components/AfterLease/CheckPlanDetailEntries'
+import { AfterLeaseCheckPlanTemplate as PlanReport } from '@/components/AfterLease/CheckPlanTemplateEntries'
 
 const AfterLeaseCheck = ({ modelKey, canEditFlag, id, businessVersion }) => {
   const renderContractType = useMemo(() => {

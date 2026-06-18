@@ -1,7 +1,7 @@
 import { FounderSelect } from '@/components'
 import Amount from '@/components/Amount'
 import { FormAmount } from '@/components/Form'
-import { CpmPaymentApplicationPublicInformation as PublicInformation } from '@/components/Cpm/PaymentApplicationEntries'
+import { CpmPaymentApplicationPublicInformation as PublicInformation } from '@/components/Cpm/PaymentApplicationPublicInfoEntries'
 import { useFlowData } from '@/utils/processFlow'
 import { rules } from '@/utils'
 import { observer } from '@zswl/admin'

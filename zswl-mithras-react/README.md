@@ -34,13 +34,17 @@
 当前已有领域入口：
 
 - `AfterLease/AdjustEntries.js`
-- `AfterLease/CheckPlanEntries.js`
 - `AfterLease/Level5ClassifyEntries.js`
 - `AfterLease/PolicyManageEntries.js`
 - `AfterLease/RentCollectionApiEntries.js`
 - `AfterLease/RentCollectionDetailEntries.js`
 - `AfterLease/RentCollectionListEntries.js`
 - `AfterLease/RentCollectionProcessEntries.js`
+- `AfterLease/CheckPlanCreateEntries.js`
+- `AfterLease/CheckPlanDetailEntries.js`
+- `AfterLease/CheckPlanExternalEntries.js`
+- `AfterLease/CheckPlanPrepareEntries.js`
+- `AfterLease/CheckPlanTemplateEntries.js`
 - `BlackGray/BlackGrayEntries.js`
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/AccountsReceivableEntries.js`
@@ -62,7 +66,10 @@
 - `Contract/MaterialsEntries.js`
 - `Contract/PriceEntries.js`
 - `Cpm/CpmEntries.js`
-- `Cpm/PaymentApplicationEntries.js`
+- `Cpm/PaymentApplicationDetailEntries.js`
+- `Cpm/PaymentApplicationMaterialsEntries.js`
+- `Cpm/PaymentApplicationPublicCheckEntries.js`
+- `Cpm/PaymentApplicationPublicInfoEntries.js`
 - `Credit/CreditListEntries.js`
 - `Credit/EstablishEntries.js`
 - `Credit/ReviewEntries.js`

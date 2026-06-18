@@ -1,5 +1,5 @@
-export { AfterLeaseCheckPlanPrepareProcess as PrepareAfterLeaseGeneralCheck } from '@/components/AfterLease/CheckPlanEntries'
-export { AfterLeaseCheckPlanTemplate as PrepareAfterLeaseCheckReportTemplate } from '@/components/AfterLease/CheckPlanEntries'
+export { AfterLeaseCheckPlanPrepareProcess as PrepareAfterLeaseGeneralCheck } from '@/components/AfterLease/CheckPlanPrepareEntries'
+export { AfterLeaseCheckPlanTemplate as PrepareAfterLeaseCheckReportTemplate } from '@/components/AfterLease/CheckPlanPrepareEntries'
 export { ContractDepositRefundNotification as PrepareContractDepositRefundNotification } from '@/components/Contract/DetailEntries'
 export { ContractSettlementDetail as PrepareContractEarlySettlement } from '@/components/Contract/DetailEntries'
 export { ContractStartRentDetail as PrepareContractStartRent } from '@/components/Contract/DetailEntries'
