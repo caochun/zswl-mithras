@@ -113,6 +113,16 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/contract/contractDetail',
+    replacementPrefix:
+      '@/api/process/detail/contractDetailApi or @/api/contract/contractDetail in Contract domain',
+    allowedSourceDomains: ['Contract'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/contractDetailApi.js',
+      'src/pages/contract/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/financial/fundApi',
     replacementPrefix: '@/api/contract/lprApi or @/api/financial/fundApi in Financial domain',
     allowedSourceDomains: ['Financial'],
@@ -263,6 +273,26 @@ const legacyApiPrefixRules = [
       'src/api/lifeCycle/riskWarningApi.js',
       'src/api/process/detail/publicMonitorApi.js',
       'src/pages/risk/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/overdue/collectionManagementApi',
+    replacementPrefix:
+      '@/api/process/detail/overdueCollectionApi or @/api/overdue/collectionManagementApi in Overdue domain',
+    allowedSourceDomains: ['Overdue'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/overdueCollectionApi.js',
+      'src/pages/overdue/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/overdue/sealForDocumentsApi',
+    replacementPrefix:
+      '@/api/process/detail/overdueSealDocumentApi or @/api/overdue/sealForDocumentsApi in Overdue domain',
+    allowedSourceDomains: ['Overdue'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/overdueSealDocumentApi.js',
+      'src/pages/overdue/',
     ],
   },
   {

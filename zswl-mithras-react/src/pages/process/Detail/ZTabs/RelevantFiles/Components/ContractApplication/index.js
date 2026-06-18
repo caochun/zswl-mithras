@@ -9,7 +9,7 @@ import {
   ContractStartRentMaterials as StartRentZiLiao,
   ContractText as HeTong,
 } from '@/components/Contract/MaterialsEntries'
-import Api from '@/api/contract/contractDetail'
+import Api from '@/api/process/detail/contractDetailApi'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { useEffect, useMemo, useState } from 'react'
 

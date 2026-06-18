@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { observer } from '@zswl/admin'
 import { OverdueCollectionModal as CollectionModal } from '@/components/Overdue/OverdueEntries'
 import { ModalStore } from '@zswl/components'
-import collectionManagementApi from '@/api/overdue/collectionManagementApi'
+import collectionManagementApi from '@/api/process/detail/overdueCollectionApi'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curTaskActivityIds, taskStatus } =

@@ -259,6 +259,8 @@
 - `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
 - `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件优先使用 `src/api/common/approvalRemarkApi`，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时优先使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时优先使用 `src/api/trackEvent/contractInfoApi`。
+- `contract/contractDetail`：合同详情接口保留在合同域；流程详情展示合同相关资料时优先使用 `src/api/process/detail/contractDetailApi` 聚合入口。
+- `overdue/collectionManagementApi`、`overdue/sealForDocumentsApi`：逾期催收和用印资料接口保留在逾期域；流程详情展示逾期催收或诉讼用印资料时优先使用 `src/api/process/detail` 下的聚合入口。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件优先使用 `src/api/contract/lprApi` 语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；KPI 语义优先使用 `src/api/kpi/projProfit/profitCalculateTool`，全局 layout 入口优先使用 `src/api/layout/projProfitToolApi`。
 - `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
