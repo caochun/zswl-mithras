@@ -75,6 +75,14 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/process/flowExecution',
+    replacementPrefix: '@/api/customer/customerRat/customerRatApprovalApi',
+    allowedSourcePathPrefixes: [
+      'src/api/customer/customerRat/customerRatApprovalApi.js',
+      'src/pages/process/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/baseData/pricing/baseSet/ftpBaseSet',
     replacementPrefix: '@/api/budget/pricing/baseSet/ftpBaseSet',
   },

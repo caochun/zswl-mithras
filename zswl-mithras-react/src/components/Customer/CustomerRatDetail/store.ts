@@ -4,7 +4,7 @@ import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 import { message } from 'antd'
 import moment from 'moment'
 import { scrollToAnchor } from '@/utils/document'
-import ProcessApi from '@/api/process/flowExecution'
+import customerRatApprovalApi from '@/api/customer/customerRat/customerRatApprovalApi'
 export { getApprovalText, indexCheck } from '@/utils/customerRat'
 
 const formatListJson = (data = {}) => {
@@ -133,7 +133,7 @@ class Store {
   submitApproval = async (params = {}) => {
     const { isFormApproval, taskId } = this.page.getParams()
     if (taskId) {
-      await ProcessApi.passProcess({
+      await customerRatApprovalApi.passProcess({
         message: params.adjustOpinion,
         buttonKey: 'SUBMIT',
         taskId,

@@ -239,6 +239,7 @@
 - `fillingMaterialsDetail`、`fillingMaterials`：归档资料接口和路由的历史拼写目录；资料归集页面和组件优先使用 `src/api/filingMaterials`、`src/components/FilingMaterials` 下的兼容入口。
 - `common/customerOverview`：客户总览接口的历史公共目录；dashboard 客户总览页面优先使用 `src/api/dashboard/customerOverview`，客户视图页面优先使用 `src/api/customer/customerOverview` 兼容入口。
 - `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
+- `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；业务语义优先使用 `src/api/kpi/projProfit/profitCalculateTool` 兼容入口。
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权；保存/查询用户配置优先使用 `src/api/common/userCustomConfigApi`，费控 SSO 授权优先使用 `src/api/dashboard/feikongSsoApi` 兼容入口。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
