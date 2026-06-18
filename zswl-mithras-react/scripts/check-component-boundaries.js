@@ -3,6 +3,7 @@ const path = require('path')
 
 const root = path.resolve(__dirname, '..')
 const srcDir = path.join(root, 'src')
+const readmePath = path.join(root, 'README.md')
 const scanDirs = [srcDir]
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const importPattern =
@@ -17,6 +18,21 @@ const nonEntryComponentSubpathPattern =
 const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 const pageImportPattern = /^@\/pages\//
+
+function normalizeEntryPath(filePath) {
+  return path.relative(path.join(srcDir, 'components'), filePath).split(path.sep).join('/')
+}
+
+function toDocumentedEntryPath(specifier) {
+  const [, domain, entry] =
+    specifier.match(/^@\/components\/([^/'"]+)\/([^/'"]*(?:Entries|entries)(?:\.js)?)$/) || []
+
+  if (!domain || !entry) {
+    return null
+  }
+
+  return `${domain}/${entry.endsWith('.js') ? entry : `${entry}.js`}`
+}
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) {
@@ -36,6 +52,11 @@ function walk(dir, files = []) {
 }
 
 const violations = []
+const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePath) => {
+  const entryPath = normalizeEntryPath(filePath)
+  return /(?:Entries|entries)\.js$/.test(filePath) && entryPath.split('/').length === 2
+})
+const componentEntryImports = new Set()
 
 for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
   const source = fs.readFileSync(filePath, 'utf8')
@@ -49,6 +70,11 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
     const isPageImport = pageImportPattern.test(specifier)
 
     const [, targetComponentEntryDomain] = specifier.match(componentEntryPathPattern) || []
+    const documentedEntryPath = toDocumentedEntryPath(specifier)
+    if (documentedEntryPath) {
+      componentEntryImports.add(documentedEntryPath)
+    }
+
     if (isPageImport) {
       violations.push({
         file: relativeFilePath,
@@ -69,6 +95,39 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
         specifier,
       })
     }
+  }
+}
+
+const actualComponentEntries = componentEntryFiles.map(normalizeEntryPath).sort()
+const actualComponentEntrySet = new Set(actualComponentEntries)
+const readme = fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : ''
+const documentedComponentEntries = [...readme.matchAll(/^- `([^`]+(?:Entries|entries)\.js)`/gm)]
+  .map((match) => match[1])
+  .sort()
+const documentedComponentEntrySet = new Set(documentedComponentEntries)
+
+for (const entryPath of actualComponentEntries) {
+  if (!componentEntryImports.has(entryPath)) {
+    violations.push({
+      file: `src/components/${entryPath}`,
+      specifier: 'unused component entry',
+    })
+  }
+
+  if (!documentedComponentEntrySet.has(entryPath)) {
+    violations.push({
+      file: 'README.md',
+      specifier: `missing component entry ${entryPath}`,
+    })
+  }
+}
+
+for (const entryPath of documentedComponentEntries) {
+  if (!actualComponentEntrySet.has(entryPath)) {
+    violations.push({
+      file: 'README.md',
+      specifier: `stale component entry ${entryPath}`,
+    })
   }
 }
 
