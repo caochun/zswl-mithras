@@ -14,6 +14,8 @@ const sharedComponentSubpathPattern =
   /^@\/components\/(?:Actions|Form|Format|Table)\/[^'"]+|^@\/components\/BreadLine\/config$|^@\/components\/Chart\/tooltip$/
 const nonEntryComponentSubpathPattern =
   /^@\/components\/[^/'"]+\/(?![^/'"]*(?:Entries|entries)(?:\.js)?$)[^/'"]+(?:\.js)?$/
+const componentEntryPathPattern =
+  /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) {
@@ -36,6 +38,9 @@ const violations = []
 
 for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
   const source = fs.readFileSync(filePath, 'utf8')
+  const relativeFilePath = path.relative(root, filePath)
+  const [, sourceComponentDomain] =
+    relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
   let match
   while ((match = importPattern.exec(source))) {
     const specifier = match[1]
@@ -43,14 +48,16 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
       continue
     }
 
+    const [, targetComponentEntryDomain] = specifier.match(componentEntryPathPattern) || []
     if (
       privateComponentPathPattern.test(specifier) ||
       deepComponentPathPattern.test(specifier) ||
       sharedComponentSubpathPattern.test(specifier) ||
-      nonEntryComponentSubpathPattern.test(specifier)
+      nonEntryComponentSubpathPattern.test(specifier) ||
+      (sourceComponentDomain && sourceComponentDomain === targetComponentEntryDomain)
     ) {
       violations.push({
-        file: path.relative(root, filePath),
+        file: relativeFilePath,
         specifier,
       })
     }
