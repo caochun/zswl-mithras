@@ -1,7 +1,7 @@
 import { history, observer } from '@zswl/admin'
 import { Button, Page, Table } from '@zswl/components'
 import Store from './store'
-import ALL_COLUMNS from './Column'
+import ALL_COLUMNS from '@/components/BudgetManagement/PlanColumns'
 import { getTableColumns } from '@/utils'
 import { useMemo } from 'react'
 import EditModal from './EditModal'
