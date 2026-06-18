@@ -44,7 +44,6 @@ const publicComponentRoots = new Set([
   'Bifrost',
   'BreadLine',
   'Chart',
-  'CheckCard',
   'ClientFileTable',
   'Collapse',
   'CommonTips',

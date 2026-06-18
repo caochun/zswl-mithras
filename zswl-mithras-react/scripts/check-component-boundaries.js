@@ -88,7 +88,6 @@ const publicComponentRootImports = new Set([
   'BiView',
   'Bifrost',
   'BreadLine',
-  'CheckCard',
   'Collapse',
   'CommonTips',
   'CurrentSteps',

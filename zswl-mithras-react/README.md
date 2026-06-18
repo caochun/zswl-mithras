@@ -45,6 +45,7 @@
 - `AfterLease/RentCollectionDetailEntries.js`
 - `AfterLease/RentCollectionListEntries.js`
 - `AfterLease/RentCollectionProcessEntries.js`
+- 租后回款选择卡片已归入 `src/components/AfterLease/RentCollection/CheckCard`，不再作为公共根组件使用。
 - `AfterLease/CheckPlanCreateEntries.js`
 - `AfterLease/CheckPlanDetailEntries.js`
 - `AfterLease/CheckPlanExternalEntries.js`
