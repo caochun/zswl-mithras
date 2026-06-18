@@ -4,7 +4,7 @@ import { http } from '@zswl/admin'
 import { message, Spin } from 'antd'
 // import { SVG } from '@svgdotjs/svg.js'
 import styles from './index.less'
-import IconFont from '../Icon'
+import IconFont from '@/components/Icon'
 const urls = {
   xmlGetUrl: '/flow/process/getProcessBpmnXml', // bpmn xml获取地址
   highLightGetUrl: '/flow/process/getProcessPictureData', // 高亮的节点线获取地址

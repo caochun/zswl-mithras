@@ -23,12 +23,10 @@ const nonEntryComponentSubpathPattern =
 const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 const stabilizedComponentRootImports = new Map([
-  ['BpmnFlowChart', 'Process/ProcessEntries'],
   ['ClientFileTable', 'ClientFileTable/ClientFileTableEntries'],
   ['Dashboard', 'Dashboard/DashboardEntries'],
   ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
   ['FileDiff', 'FileDiff/FileDiffEntries'],
-  ['FlowChart', 'Process/ProcessEntries'],
   ['JumpClient', 'JumpClient/JumpClientEntries'],
   ['PaymentApplyColumns', 'PaymentApplyColumns/PaymentApplyColumnsEntries'],
   ['Policy', 'Policy/PolicyEntries'],
