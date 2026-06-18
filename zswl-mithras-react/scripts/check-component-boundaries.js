@@ -20,6 +20,7 @@ const componentEntryPathPattern =
 const stabilizedComponentRootImports = new Map([
   ['BlackInfo', 'BlackInfo/BlackInfoEntries'],
   ['ClientFileTable', 'ClientFileTable/ClientFileTableEntries'],
+  ['Dashboard', 'Dashboard/DashboardEntries'],
   ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
   ['FileDiff', 'FileDiff/FileDiffEntries'],
   ['JumpClient', 'JumpClient/JumpClientEntries'],

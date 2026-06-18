@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Title } from '@/components/Dashboard'
+import { DashboardTitle as Title } from '@/components/Dashboard/DashboardEntries'
 import PlanExecute from './PlanExecute'
 import Investment from './Investment'
 import RentRecovery from './RentRecovery'

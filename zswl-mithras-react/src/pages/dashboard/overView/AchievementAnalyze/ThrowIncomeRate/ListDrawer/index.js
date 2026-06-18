@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Drawer, Table } from '@zswl/components'
 import { getTableColumns, getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
-import { ExportBtn, TableSummary } from '@/components/Dashboard'
+import { DashboardExportBtn as ExportBtn, DashboardTableSummary as TableSummary } from '@/components/Dashboard/DashboardEntries'
 import { saveServer } from '@/utils'
 
 const Index = ({ store }) => {

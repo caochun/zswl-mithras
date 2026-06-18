@@ -1,4 +1,4 @@
-import { CardPanelFieldsFilter } from '@/components/Dashboard'
+import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
 import { RiskPublicMonitor as PublicMonitor } from '@/components/Risk/PublicMonitorListEntries'
 import styles from './index.less'
 

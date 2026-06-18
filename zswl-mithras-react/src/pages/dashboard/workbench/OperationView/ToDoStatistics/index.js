@@ -1,7 +1,7 @@
 import { useMemo, useState, useRef, useEffect } from 'react'
 import { observer } from '@zswl/admin'
 import { Empty, Spin } from 'antd'
-import { CardPanelFieldsFilter } from '@/components/Dashboard'
+import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
 import Card from './components/Card'
 import Title from './components/Title'
 import Store from './Store'

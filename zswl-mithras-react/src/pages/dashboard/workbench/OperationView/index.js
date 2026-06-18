@@ -4,7 +4,7 @@ import LaunchComplete from './LaunchComplete'
 import CapacityAnalysis from './CapacityAnalysis'
 import ConversionRates from './ConversionRates'
 import AgingStatistics from './AgingStatistics'
-import { Title } from '@/components/Dashboard'
+import { DashboardTitle as Title } from '@/components/Dashboard/DashboardEntries'
 import styles from './index.less'
 
 const compList = [

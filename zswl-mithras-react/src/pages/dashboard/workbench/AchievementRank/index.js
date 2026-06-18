@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Title } from '@/components/Dashboard'
+import { DashboardTitle as Title } from '@/components/Dashboard/DashboardEntries'
 import { getUpdateDate } from '@/dashboard/DashboardUtils'
 import { Tabs, Spin } from 'antd'
 import { useEffect, useMemo } from 'react'

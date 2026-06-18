@@ -1,4 +1,4 @@
-import { OverviewTitle as Title } from '@/components/Dashboard'
+import { DashboardOverviewTitle as Title } from '@/components/Dashboard/DashboardEntries'
 import AssetsPie from './AssetsPie'
 import CustomerPie from './CustomerPie'
 import CountCard from './CountCard'

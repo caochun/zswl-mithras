@@ -1,9 +1,6 @@
 import { observer } from '@zswl/admin'
-import { Title } from '@/components/Dashboard'
-import {
-  DashboardProjectInfo as ProjectInfo,
-  DashboardProjectStage as ProjectStage,
-} from '@/components/Dashboard/DashboardEntries'
+import { DashboardTitle as Title } from '@/components/Dashboard/DashboardEntries'
+import { DashboardProjectInfo as ProjectInfo, DashboardProjectStage as ProjectStage } from '@/components/Dashboard/DashboardEntries'
 import ProjectView2 from '../ProjectView2'
 import { getUserInfo } from '@/utils'
 import AfterLease from './AfterLease'

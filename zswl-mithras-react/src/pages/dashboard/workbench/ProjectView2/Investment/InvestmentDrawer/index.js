@@ -3,7 +3,7 @@ import { Drawer, Table } from '@zswl/components'
 import { getTableColumns, getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import Api from '../api'
-import { ExportBtn, TableSummary } from '@/components/Dashboard'
+import { DashboardExportBtn as ExportBtn, DashboardTableSummary as TableSummary } from '@/components/Dashboard/DashboardEntries'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 

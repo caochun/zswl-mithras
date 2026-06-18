@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { Title } from '@/components/Dashboard'
+import { DashboardTitle as Title } from '@/components/Dashboard/DashboardEntries'
 import AfterLease from './AfterLease'
 
 const Index = ({ title, iconType }) => {

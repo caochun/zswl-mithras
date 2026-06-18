@@ -1,8 +1,4 @@
-import {
-  DashboardArrowDown as ArrowDown,
-  DashboardArrowLeft as ArrowLeft,
-  DashboardArrowRight as ArrowRight,
-} from '@/components/Dashboard/DashboardEntries'
+import { DashboardArrowDown as ArrowDown, DashboardArrowLeft as ArrowLeft, DashboardArrowRight as ArrowRight } from '@/components/Dashboard/DashboardEntries'
 
 export const stepConfig = [
   {

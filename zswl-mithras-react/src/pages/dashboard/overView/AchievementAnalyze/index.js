@@ -1,9 +1,6 @@
 import { Row, Col } from 'antd'
-import { OverviewTitle as Title } from '@/components/Dashboard'
-import {
-  DashboardOperationLaunchComplete as LaunchComplete,
-  DashboardProjectStage as ProjectStage,
-} from '@/components/Dashboard/DashboardEntries'
+import { DashboardOverviewTitle as Title } from '@/components/Dashboard/DashboardEntries'
+import { DashboardOperationLaunchComplete as LaunchComplete, DashboardProjectStage as ProjectStage } from '@/components/Dashboard/DashboardEntries'
 import { initYearQueryDate } from '@/dashboard/DashboardUtilsOperation'
 import DeptIncomeByMonthly from './DeptIncomeByMonthly'
 import ThrowIncomeRate from './ThrowIncomeRate'

@@ -4,7 +4,7 @@ import { getTableColumns, getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import { operationViewColumnsFilterKey as columnsFilterKey } from '@/dashboard/DashboardUtilsFilterKeys'
 import Api from '@/api/dashboard/contractAging'
-import { ExportBtn, TableSummary } from '@/components/Dashboard'
+import { DashboardExportBtn as ExportBtn, DashboardTableSummary as TableSummary } from '@/components/Dashboard/DashboardEntries'
 import { useEffect } from 'react'
 import { saveServer } from '@/utils'
 

@@ -1,9 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import {
-  DashboardArrowDown2 as ArrowDown2,
-  DashboardArrowUp2 as ArrowUp2,
-} from '@/components/Dashboard/DashboardEntries'
+import { DashboardArrowDown2 as ArrowDown2, DashboardArrowUp2 as ArrowUp2 } from '@/components/Dashboard/DashboardEntries'
 import styles from './index.less'
 
 // 字段块组件

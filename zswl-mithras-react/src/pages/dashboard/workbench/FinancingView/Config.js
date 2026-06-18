@@ -1,7 +1,4 @@
-import {
-  DashboardIconBellRed as BellRed,
-  DashboardIconBellYellow as BellYellow,
-} from '@/components/Dashboard/DashboardEntries'
+import { DashboardIconBellRed as BellRed, DashboardIconBellYellow as BellYellow } from '@/components/Dashboard/DashboardEntries'
 import RepayInterest from './ListDrawer/RepayInterest'
 import FundCase from './ListDrawer/FundCase'
 import CreditCase from './ListDrawer/CreditCase'

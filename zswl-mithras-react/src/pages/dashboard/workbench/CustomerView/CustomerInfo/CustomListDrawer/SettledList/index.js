@@ -5,7 +5,7 @@ import { ALL_COLUMNS } from './Column'
 import Api from '@/api/dashboard/customerOverview'
 import { columnsFilterKey } from '../../Config'
 import styles from './index.less'
-import { ExportBtn, TableSummary } from '@/components/Dashboard'
+import { DashboardExportBtn as ExportBtn, DashboardTableSummary as TableSummary } from '@/components/Dashboard/DashboardEntries'
 import { saveServer } from '@/utils'
 
 // 已结清客户

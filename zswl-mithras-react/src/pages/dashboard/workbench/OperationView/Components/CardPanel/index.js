@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { DatePicker } from 'antd'
-import { CardPanelFieldsFilter } from '@/components/Dashboard'
+import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
 import { UnorderedListOutlined } from '@ant-design/icons'
 import { RadioTabs } from '@/components'
 import { Form, SearchBar, Button } from '@zswl/components'

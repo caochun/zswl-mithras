@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from 'react'
 import { observer } from '@zswl/admin'
-import { CardPanelFieldsFilter } from '@/components/Dashboard'
+import CardPanelFieldsFilter from '../../CardPanelFieldsFilter'
 import { RadioTabs } from '@/components'
 import { DatePicker } from 'antd'
 import { Form, SearchBar, App, Button } from '@zswl/components'

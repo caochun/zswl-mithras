@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { CardPanelFieldsFilter } from '@/components/Dashboard'
+import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
 import { UnorderedListOutlined } from '@ant-design/icons'
 import { Button } from '@zswl/components'
 import BarCharts from './BarCharts'

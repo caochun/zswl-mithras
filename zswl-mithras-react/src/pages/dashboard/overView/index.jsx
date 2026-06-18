@@ -11,10 +11,7 @@ import OverdueProject from './OverdueProject'
 import AchievementAnalyze from './AchievementAnalyze'
 import DeptPerformanceSort from './DeptPerformanceSort'
 import ConversionRates from './ConversionRates'
-import {
-  DashboardOperationAgingStatistics as AgingStatistics,
-  DashboardOperationCapacityAnalysis as CapacityAnalysis,
-} from '@/components/Dashboard/DashboardEntries'
+import { DashboardOperationAgingStatistics as AgingStatistics, DashboardOperationCapacityAnalysis as CapacityAnalysis } from '@/components/Dashboard/DashboardEntries'
 import { AnchorScrollNav } from '@/components'
 import { getUserInfo } from '@/utils'
 import Store from './Store'
