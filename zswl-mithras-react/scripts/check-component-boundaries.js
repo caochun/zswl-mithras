@@ -63,6 +63,10 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/evaluationAgency/evaluationAgencyApi',
   },
   {
+    legacyPrefix: '@/api/afterLease/assessmentWhitelistApi',
+    replacementPrefix: '@/api/whiteList/assessmentWhitelistApi',
+  },
+  {
     legacyPrefix: '@/api/baseData/pricing/baseSet/ftpBaseSet',
     replacementPrefix: '@/api/budget/pricing/baseSet/ftpBaseSet',
   },

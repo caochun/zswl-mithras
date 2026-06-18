@@ -1,5 +1,5 @@
 import evaluationAgencyApi from '@/api/evaluationAgency/evaluationAgencyApi'
-import assessmentWhitelistApi from '@/api/afterLease/assessmentWhitelistApi'
+import assessmentWhitelistApi from '@/api/whiteList/assessmentWhitelistApi'
 import { ApiSelect, EditDescription, NoEnumFileTable } from '@/components'
 import { MatchOptionColumn } from '@/components/Format'
 import { PlusOutlined } from '@ant-design/icons'

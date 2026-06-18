@@ -1,6 +1,6 @@
 import { PageStore } from '@zswl/components'
 import { history, makeAutoObservable } from '@zswl/admin'
-import assessmentWhitelistApi from '@/api/afterLease/assessmentWhitelistApi'
+import assessmentWhitelistApi from '@/api/whiteList/assessmentWhitelistApi'
 import { message } from 'antd'
 
 /**

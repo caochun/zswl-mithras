@@ -1,7 +1,7 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { message } from 'antd'
-import assessmentWhitelistApi from '@/api/afterLease/assessmentWhitelistApi'
+import assessmentWhitelistApi from '@/api/whiteList/assessmentWhitelistApi'
 
 /**
  * 评估机构白名单管理数据存储类
