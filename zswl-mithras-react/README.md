@@ -84,6 +84,7 @@
 - `Project/ProjectEntries.js`
 - `Project/ReviewDetailEntries.js`
 - `Project/ReviewMeetingEntries.js`
+- `Project/ReviewProcessEntries.js`
 - `Project/ReviewSnapshotEntries.js`
 - `Report/FinancialReportEntries.js`
 - `Report/OperationEntries.js`

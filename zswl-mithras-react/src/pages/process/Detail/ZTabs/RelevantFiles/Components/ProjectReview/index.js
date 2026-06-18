@@ -1,7 +1,9 @@
 import { Collapse } from '@/components'
 import { getQuery } from '@zswl/admin'
-import { ReviewDetailReport as Report } from '@/components/Project/ReviewDetailEntries'
-import { ReviewDetailDataList as Data } from '@/components/Project/ReviewDetailEntries'
+import {
+  ReviewDetailDataList as Data,
+  ReviewDetailReport as Report,
+} from '@/components/Project/ReviewProcessEntries'
 import Api from '@/api/project/projReviewDetail'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { useEffect, useState } from 'react'
