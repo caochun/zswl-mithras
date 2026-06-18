@@ -25,7 +25,8 @@ const nonEntryComponentSubpathPattern =
 const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 const stabilizedComponentRootImports = new Map([
-  ['ClientFileTable', 'ClientFileTable/ClientFileTableEntries'],
+  ['ClientFileTable', 'ClientMaterialTable/ClientMaterialTableEntries'],
+  ['ClientMaterialTable', 'ClientMaterialTable/ClientMaterialTableEntries'],
   ['ChangeLogDiff', 'ChangeLogDiff/ChangeLogDiffEntries'],
   ['Dashboard', 'Dashboard/DashboardEntries'],
   ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
@@ -671,6 +672,7 @@ const compatibilityComponentEntries = new Set([
   'Chart/BarChartEntries.js',
   'Chart/LineChartEntries.js',
   'Chart/TooltipEntries.js',
+  'ClientFileTable/ClientFileTableEntries.js',
   'FileDiff/FileDiffEntries.js',
   'PaymentApplyColumns/PaymentApplyColumnsEntries.js',
 ])

@@ -1,1 +1,1 @@
-export { default as ClientFileTable } from '.'
+export { ClientMaterialTable as ClientFileTable } from '../ClientMaterialTable/ClientMaterialTableEntries'
