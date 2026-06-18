@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Table, TableStore } from '@zswl/components'
-import Api from '@/api/postRentalInspection/rentalinsepectionreport'
+import Api from '@/api/afterLease/rentalInspectionReport'
 import { useMemo, useState } from 'react'
 import { Button, Input, Radio, Select, Tooltip } from 'antd'
 import { saveServer } from '@/utils'

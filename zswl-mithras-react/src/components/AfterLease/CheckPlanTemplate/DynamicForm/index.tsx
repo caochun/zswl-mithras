@@ -4,7 +4,7 @@ import { Anchor, message, Tooltip } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import BaseInfo from './BaseInfo'
 import styles from './index.less'
-import Api from '@/api/postRentalInspection/rentalinsepectionreport'
+import Api from '@/api/afterLease/rentalInspectionReport'
 
 import CheckContent from './ContentDesc/CheckContent'
 import DetailLayout from '@/components/DetailLayout'

@@ -1,8 +1,8 @@
 import { message } from 'antd'
 import { history, makeAutoObservable } from '@zswl/admin'
 import { ModalStore, PageStore, Modal } from '@zswl/components'
-import Api from '@/api/postRentalInspection/rentalinsepectionreport'
-import planApi from '@/api/postRentalInspection/rentalInspectionPlan'
+import Api from '@/api/afterLease/rentalInspectionReport'
+import planApi from '@/api/afterLease/rentalInspectionPlan'
 import { TEMPLATE_LIST } from './enum'
 import { http } from '@zswl/admin'
 

@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import Api from '@/api/postRentalInspection/rentalinsepectionreport'
+import Api from '@/api/afterLease/rentalInspectionReport'
 import commonApi from '@/api/common/dataList'
 import { FileTable } from '@/components'
 

@@ -1,7 +1,7 @@
 import { TableStore, SearchBarStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import Api from './api'
-import reportApi from '@/api/postRentalInspection/rentalinsepectionreport'
+import reportApi from '@/api/afterLease/rentalInspectionReport'
 import moment from 'moment'
 import { message } from 'antd'
 

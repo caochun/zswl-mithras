@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore, PageStore } from '@zswl/components'
-import Api from '@/api/postRentalInspection/rentalinsepectionreport'
+import Api from '@/api/afterLease/rentalInspectionReport'
 import { TEMPLATE_LIST } from '../enum'
 
 class Store {
