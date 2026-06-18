@@ -1,4 +1,4 @@
-import evaluationAgencyApi from '@/api/lease/evaluationAgencyApi'
+import evaluationAgencyApi from '@/api/evaluationAgency/evaluationAgencyApi'
 import assessmentWhitelistApi from '@/api/afterLease/assessmentWhitelistApi'
 import { ApiSelect, EditDescription, NoEnumFileTable } from '@/components'
 import { MatchOptionColumn } from '@/components/Format'

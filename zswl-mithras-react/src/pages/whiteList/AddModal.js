@@ -1,4 +1,4 @@
-import evaluationAgencyApi from '@/api/lease/evaluationAgencyApi'
+import evaluationAgencyApi from '@/api/evaluationAgency/evaluationAgencyApi'
 import { observer } from '@zswl/admin'
 import { Modal, Form, Select, Input, DatePicker } from '@zswl/components'
 
