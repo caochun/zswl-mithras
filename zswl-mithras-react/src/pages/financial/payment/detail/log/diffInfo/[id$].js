@@ -1,15 +1,17 @@
 import { Page } from '@zswl/components'
-import BaseInfo from '@/components/Financial/PaymentDetail/BaseInfo'
 import { observer } from '@zswl/admin'
 import store from './store'
 import ChangeLogLayout from '@/components/ChangeLogLayout'
-import PledgeDetail from '@/components/Financial/PaymentDetail/PledgeDetail'
-import LoanIn from '@/components/Financial/PaymentDetail/LoanIn'
-import Interest from '@/components/Financial/PaymentDetail/Interest'
-import RepaymentPlan from '@/components/Financial/PaymentDetail/RepaymentPlan'
-import MarginDetail from '@/components/Financial/PaymentDetail/MarginDetail'
-import ReceiptAccount from '@/components/Financial/PaymentDetail/ReceiptAccount'
-import RefundAccount from '@/components/Financial/PaymentDetail/RefundAccount'
+import {
+  FinancialPaymentDetailBaseInfo as BaseInfo,
+  FinancialPaymentDetailInterest as Interest,
+  FinancialPaymentDetailLoanIn as LoanIn,
+  FinancialPaymentDetailMarginDetail as MarginDetail,
+  FinancialPaymentDetailPledgeDetail as PledgeDetail,
+  FinancialPaymentDetailReceiptAccount as ReceiptAccount,
+  FinancialPaymentDetailRefundAccount as RefundAccount,
+  FinancialPaymentDetailRepaymentPlan as RepaymentPlan,
+} from '@/components/Financial/PaymentEntries'
 import paymentApprovalApi from '@/api/financial/paymentApprovalApi'
 import FileDiff from '@/components/FileDiff'
 
