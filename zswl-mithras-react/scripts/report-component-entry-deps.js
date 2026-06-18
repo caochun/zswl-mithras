@@ -8,6 +8,16 @@ const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
 const componentPublicEntryPattern =
   /^@\/components\/([^/'"]+)\/([^/'"]*(?:Entries|entries)(?:\.js)?)$/
+const domainAliases = new Map([
+  ['blackListManage', 'BlackGray'],
+  ['fillingMaterialsDetail', 'FilingMaterials'],
+  ['financialReport', 'Report'],
+  ['ProfitDistribution', 'Budget'],
+])
+
+function normalizeDomain(domain) {
+  return domainAliases.get(domain) || domain
+}
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) {
@@ -31,7 +41,7 @@ function getSourceScope(relativeFilePath) {
   if (componentDomain) {
     return {
       key: `components/${componentDomain}`,
-      domain: componentDomain,
+      domain: normalizeDomain(componentDomain),
     }
   }
 
@@ -39,7 +49,7 @@ function getSourceScope(relativeFilePath) {
   if (pageDomain) {
     return {
       key: `pages/${pageDomain}`,
-      domain: pageDomain,
+      domain: normalizeDomain(pageDomain),
     }
   }
 
@@ -47,7 +57,7 @@ function getSourceScope(relativeFilePath) {
   if (sourceArea) {
     return {
       key: sourceArea,
-      domain: sourceArea,
+      domain: normalizeDomain(sourceArea),
     }
   }
 
@@ -71,7 +81,7 @@ for (const filePath of walk(srcDir)) {
     const specifier = match[1]
     const [, targetDomain, targetEntry] = specifier.match(componentPublicEntryPattern) || []
 
-    if (!targetDomain || targetDomain.toLowerCase() === sourceScope.domain.toLowerCase()) {
+    if (!targetDomain || normalizeDomain(targetDomain).toLowerCase() === sourceScope.domain.toLowerCase()) {
       continue
     }
 
