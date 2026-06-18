@@ -3,9 +3,9 @@ import { Page } from '@zswl/components'
 import { useMemo } from 'react'
 import Store from './store'
 import DetailLayout from '@/components/DetailLayout'
-import BaseInfo from '@/components/Lease/Tracking/detail/BaseInfo'
+import BaseInfo from '@/components/TrackEvent/Tracking/detail/BaseInfo'
 import DataList from './DataList'
-import TrackingTask from '@/components/Lease/Tracking/detail/TrackingTask'
+import TrackingTask from '@/components/TrackEvent/Tracking/detail/TrackingTask'
 import { Button } from 'antd'
 
 const Detail = ({ params: { id }, query: { newProject, canEditFlags = 'false' } }) => {

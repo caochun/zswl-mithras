@@ -1,6 +1,6 @@
 import { Button, Drawer } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import TrackList from '@/components/Lease/Tracking/List'
+import TrackList from '@/components/TrackEvent/Tracking/List'
 import { useState } from 'react'
 
 const Index = ({ projReviewMeetMinuteId ='',params }) => {

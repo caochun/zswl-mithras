@@ -3,7 +3,7 @@ import { Button, Col, Descriptions, Form, Input, Row, Space } from 'antd'
 import FormItemContent from '@/components/FormItemContent'
 import styles from './index.less'
 import IconFont from '@/components/Icon'
-import AddModal from '@/components/Lease/Tracking/AddModal'
+import AddModal from '@/components/TrackEvent/Tracking/AddModal'
 import FormList from '../FormList'
 
 function Index({ showValue, detail, businessKey, store, detailData, projName }) {

@@ -1,1 +1,1 @@
-export { default } from '@/components/Lease/Tracking/List'
+export { default } from '@/components/TrackEvent/Tracking/List'
