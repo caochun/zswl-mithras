@@ -38,6 +38,10 @@ function walk(dir, files = []) {
 }
 
 function getSourceScope(relativeFilePath) {
+  if (/^src[\\/]api[\\/]/.test(relativeFilePath)) {
+    return null
+  }
+
   const [, componentDomain] = relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
   if (componentDomain) {
     return {
