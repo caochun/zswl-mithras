@@ -10,6 +10,7 @@ export { default as ContractChangeMaterials } from './ChangeMaterials'
 export { default as ContractChangeProtocol } from './ChangeProtocol'
 export { default as ContractCreateReceiptDetail } from './CreateReceiptDetail'
 export { default as ContractDetailBaoJia } from './Detail/BaoJia'
+export { default as ContractDepositRefundNotification } from './DepositRefundNotification'
 export {
   default as ContractDetailLeaseItemList,
   LeaseItemListContent,
