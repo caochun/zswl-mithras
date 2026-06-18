@@ -8,7 +8,7 @@ import Store from './store'
 import { observer, getQuery } from '@zswl/admin'
 import EvaluationInfo from './EvaluationInfo'
 import CheckBusiness from '../CheckBusiness'
-import { CreditSearchModal as CreditModal } from '@/components/Credit/CreditSearchEntries'
+import { CreditSearchModal as CreditModal } from '@/components/Credit/SearchModalEntries'
 
 const { TabPane } = Tabs
 function Index({

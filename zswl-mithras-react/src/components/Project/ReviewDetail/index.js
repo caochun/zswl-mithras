@@ -15,7 +15,7 @@ import DetailLayout from '@/components/DetailLayout'
 import FinancialReportStatistics from '../FinancialReportStatistics'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/ModalEntries'
 import DebtDrawer from './DebtDrawer'
-import { CreditSearchModal as CreditModal } from '@/components/Credit/CreditSearchEntries'
+import { CreditSearchModal as CreditModal } from '@/components/Credit/SearchModalEntries'
 import MeetingModal from '../ReviewMeetingModal'
 
 const Index = ({

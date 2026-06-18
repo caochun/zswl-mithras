@@ -51,7 +51,8 @@
 - `Cpm/CpmEntries.js`
 - `Cpm/PaymentApplicationEntries.js`
 - `Credit/CreditEntries.js`
-- `Credit/CreditSearchEntries.js`
+- `Credit/SearchListEntries.js`
+- `Credit/SearchModalEntries.js`
 - `CreditManage/CreditManageEntries.js`
 - `Customer/CustomerEntries.js`
 - `Customer/CustomerRatingEntries.js`
