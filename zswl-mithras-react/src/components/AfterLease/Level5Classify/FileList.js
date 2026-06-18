@@ -6,7 +6,6 @@ import DataUpload from '@/components/DataUpload'
 import Api from '@/api/afterLease/level5Classify'
 import { Space, message } from 'antd'
 import { Button } from '@zswl/components'
-import commonApi from '@/api/common/fileList'
 
 function Index({ businessVersion, store, isFormApproval, modelKey, taskStatus }) {
   const ref = useRef()
@@ -31,10 +30,7 @@ function Index({ businessVersion, store, isFormApproval, modelKey, taskStatus })
       moduleType: 'ASSET_CLASSIFY',
     }
     const { fileList } = DataUpload.classify(values)
-    await commonApi.postFileUpload(
-      { materialsType: 'DEFAULT', ...params, file: fileList[0] },
-      'assetClassifyReviewFileUpload'
-    )
+    await Api.postReviewFileUpload({ materialsType: 'DEFAULT', ...params, file: fileList[0] })
     ref.current?.table.search()
   }
 

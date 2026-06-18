@@ -36,6 +36,16 @@ export default {
       timeout: 0,
       transformResult: (res) => res.data,
     }),
+  postPublicFinanceMaterialsUpload: (data: any): Promise<any> =>
+    http.post('/materials/upload', data, {
+      mock,
+      type: 'upload',
+      transformResult: (res) => res.data,
+      headers: {
+        functionCode: 'afterleasepublicfinancematerialsupload',
+      },
+      timeout: 0,
+    }),
 
   // 保存客户财务报表快照数据
   postSnapshotSave: (data: Types.SnapshotSaveRequest): Promise<Types.SnapshotSaveResponse> =>

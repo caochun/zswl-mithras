@@ -43,6 +43,15 @@ export default {
       timeout: 0,
       transformResult: (res) => res.data,
     }),
+  postReviewFileUpload: (data) =>
+    http.post('/file/upload', data, {
+      type: 'upload',
+      timeout: 0,
+      transformResult: (res) => res.data,
+      headers: {
+        functionCode: 'assetClassifyReviewFileUpload',
+      },
+    }),
   postFileDown: (data) =>
     http.post('/file/download', data, {
       type: 'download',
