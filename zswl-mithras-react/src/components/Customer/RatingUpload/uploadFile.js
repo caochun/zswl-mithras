@@ -1,4 +1,4 @@
-import commonApi from '@/api/common/fileList'
+import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 import DataUpload from '@/components/DataUpload'
 import { requestQueue, toHump } from '@/utils'
 
@@ -13,7 +13,7 @@ const uploadFile = async (files, uploadParams) => {
   for (let i = 0; i < fileList.length; i++) {
     requestManager.enqueue(
       async () =>
-        await commonApi.postFileUpload(
+        await customerRatApi.postClientSupplementFileUpload(
           { materialsType: 'DEFAULT', file: fileList[i], ...restParams },
           functionCode
         )

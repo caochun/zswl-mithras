@@ -106,6 +106,16 @@ export default {
   // 评级调整
   postClientAdjust: (data: Types.ClientAdjustRequest): Promise<Types.ClientAdjustResponse> =>
     http.post('/rating/client/adjust', data, { mock }),
+  postClientSupplementFileUpload: (data: any, functionCode: string): Promise<any> =>
+    http.post('/file/upload', data, {
+      mock,
+      type: 'upload',
+      transformResult: (res) => res.data,
+      timeout: 0,
+      headers: {
+        functionCode,
+      },
+    }),
 
   // 试算
   postClientExecute: (data: Types.ClientExecuteRequest): Promise<Types.ClientExecuteResponse> =>
