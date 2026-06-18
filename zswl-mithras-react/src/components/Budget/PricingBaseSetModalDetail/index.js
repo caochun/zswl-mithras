@@ -2,7 +2,7 @@ import { Input, Modal } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import ModalEditTable from './ModalEditTable'
 import ValuationFluctuations from './ValuationFluctuations'
-import { FormTable } from '@/components'
+import { FormTable } from '@/components/Form'
 
 const Index = ({ store }) => {
   const { typeInfo } = store

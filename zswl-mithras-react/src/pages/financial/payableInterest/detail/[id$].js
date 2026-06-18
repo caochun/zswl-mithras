@@ -8,7 +8,7 @@ import Store from './Store'
 import { saveServer } from '@/utils'
 import Api from '../api'
 import { message, Tabs } from 'antd'
-import { FormTable } from '@/components'
+import { FormTable } from '@/components/Form'
 
 const InterestTable = observer(({ dataSource, isSummary, getList }) => {
   const tableColumns = getTableColumns(ALL_COLUMNS, [

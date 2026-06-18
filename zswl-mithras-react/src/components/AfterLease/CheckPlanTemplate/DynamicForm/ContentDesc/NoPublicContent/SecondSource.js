@@ -9,7 +9,7 @@ import { TABLE_INITIAL_VALUES2 } from '../CheckContent'
 import RowSpan from '../RowSpan'
 import { useEffect } from 'react'
 import _ from 'lodash'
-import { FormTable } from '@/components'
+import { FormTable } from '@/components/Form'
 import { tableRequired, columns2 } from '../Utils'
 
 const { yesOrNoString: yesOrNo } = options
