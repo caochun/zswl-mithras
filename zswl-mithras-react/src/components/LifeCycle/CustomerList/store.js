@@ -3,7 +3,7 @@ import { makeAutoObservable, history, getSessionStorage, setSessionStorage } fro
 import { timeSecondFormat } from '@/utils'
 import _, { debounce as _debounce } from 'lodash'
 import customCycleApi from '@/api/lifeCycle/customCycleApi'
-import Api from '@/api/customer/clientBasic'
+import Api from '@/api/common/selectApi'
 
 class Store {
   constructor() {

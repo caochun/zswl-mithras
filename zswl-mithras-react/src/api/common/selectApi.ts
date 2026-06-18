@@ -36,4 +36,7 @@ export default {
         functionCode: functionCode || 'selectorgs-2',
       },
     }),
+
+  getAllIndustry: (params) => http.get('/select/industry/all', { params }),
+  getRegionList: (params) => http.get('/select/region/child', { params }),
 }

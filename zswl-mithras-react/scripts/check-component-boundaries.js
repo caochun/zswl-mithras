@@ -252,6 +252,14 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/customer/clientBasic',
+    replacementPrefix: '@/api/common/selectApi for select dictionaries or @/api/customer/clientBasic in Customer domain',
+    allowedSourceDomains: ['Customer'],
+    allowedSourcePathPrefixes: [
+      'src/pages/customer/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],

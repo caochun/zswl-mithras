@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getSessionStorage, setSessionStorage } from '@zswl/admin'
-import Api from '@/api/customer/clientBasic'
+import Api from '@/api/common/selectApi'
 
 export default function useGetIndustry() {
   const [industry, setIndustry] = useState([])
