@@ -108,6 +108,7 @@
 - `Financial/PaymentBatchApprovalEntries.js`
 - `Financial/PaymentDetailEntries.js`
 - `Financial/PaymentListEntries.js`
+- `Financial/SelectEntries.js`
 - `FilingMaterials/AfterApplyEntries.js`
 - `FilingMaterials/ApplyEntries.js`
 - `FilingMaterials/FundApplyEntries.js`
@@ -179,6 +180,7 @@
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
 - 流程准备详情页通过 `src/components/Process/PrepareDetailEntries.js` 装配业务域详情组件。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
+- 融资机构、融资银行选择器实现已收敛到 `src/components/Financial/Select.js`；`src/components/Select/financial.js` 暂时保留兼容转发，避免公共 Select 层直接绑定金融域 API。
 
 ## 目录语义
 
