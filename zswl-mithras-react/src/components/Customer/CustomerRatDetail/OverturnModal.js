@@ -3,7 +3,7 @@ import DataUpload from '@/components/DataUpload'
 import { observer } from '@zswl/admin'
 import { Button, Form, Input, Modal, ModalStore, Select } from '@zswl/components'
 import { useMemo } from 'react'
-import uploadFile from '@/components/Customer/RatingUpload/uploadFile'
+import uploadFile from '../RatingUpload/uploadFile'
 const Index = ({ uploadParams, afterSubmit }) => {
   const modal = useMemo(
     () =>
