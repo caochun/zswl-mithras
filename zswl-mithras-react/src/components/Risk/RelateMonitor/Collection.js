@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { Table, TableStore, Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { getTableColumns, getFormColumns } from '@/utils'
-import ALL_COLUMNS from '@/components/Risk/RelateMonitorColumns'
+import ALL_COLUMNS from '../RelateMonitorColumns'
 import Api from '@/api/risk/relatedTransaction'
 import { saveServer } from '@/utils'
 
