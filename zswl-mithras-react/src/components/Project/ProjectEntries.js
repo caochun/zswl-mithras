@@ -1,4 +1,5 @@
 export { default as ProjectFinancialReportStatistics } from './FinancialReportStatistics'
+export { default as ProjectClientSelect } from './ClientSelect'
 export { default as ProjectReviewDetail } from './ReviewDetail'
 export { default as ProjectReviewMeetingMinute } from './ReviewMeetingMinute'
 export { default as ProjectReviewMeetingModal } from './ReviewMeetingModal'
