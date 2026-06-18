@@ -1,4 +1,4 @@
-import Handover from '@/components/Customer/HandoverDetail'
+import { CustomerHandoverDetail as Handover } from '@/components/Customer/CustomerEntries'
 
 const ClientTransfer = ({ id, businessVersion, canEditFlag, processInstanceId }) => {
   return (
