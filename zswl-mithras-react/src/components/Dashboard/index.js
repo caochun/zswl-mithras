@@ -1,4 +1,5 @@
 export { default as Title } from './Title'
+export { default as OverviewTitle } from './OverviewTitle'
 export { default as CardPanelFieldsFilter } from './CardPanelFieldsFilter'
 export { default as ManagementFields } from './ManagementFields'
 export { default as Empty } from './Empty'

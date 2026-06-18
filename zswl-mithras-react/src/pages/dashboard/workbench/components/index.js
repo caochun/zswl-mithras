@@ -1,7 +1,9 @@
-export { default as Title } from '@/components/Dashboard/Title'
-export { default as CardPanelFieldsFilter } from '@/components/Dashboard/CardPanelFieldsFilter'
-export { default as ManagementFields } from '@/components/Dashboard/ManagementFields'
-export { default as Empty } from '@/components/Dashboard/Empty'
-export { default as StagePanel } from '@/components/Dashboard/StagePanel'
-export { default as TableSummary } from '@/components/Dashboard/TableSummary'
-export { default as ExportBtn } from '@/components/Dashboard/Export'
+export {
+  CardPanelFieldsFilter,
+  Empty,
+  ExportBtn,
+  ManagementFields,
+  StagePanel,
+  TableSummary,
+  Title,
+} from '@/components/Dashboard'

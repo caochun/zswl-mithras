@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/StagePanel'
+export { StagePanel as default } from '@/components/Dashboard'

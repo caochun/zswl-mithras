@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/Empty'
+export { Empty as default } from '@/components/Dashboard'

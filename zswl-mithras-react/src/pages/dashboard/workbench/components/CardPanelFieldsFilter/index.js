@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/CardPanelFieldsFilter'
+export { CardPanelFieldsFilter as default } from '@/components/Dashboard'

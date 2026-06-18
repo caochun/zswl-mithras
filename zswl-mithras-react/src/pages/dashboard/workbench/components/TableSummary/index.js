@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/TableSummary'
+export { TableSummary as default } from '@/components/Dashboard'

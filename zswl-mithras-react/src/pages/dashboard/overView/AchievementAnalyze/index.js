@@ -1,5 +1,5 @@
 import { Row, Col } from 'antd'
-import Title from '@/components/Dashboard/OverviewTitle'
+import { OverviewTitle as Title } from '@/components/Dashboard'
 import {
   DashboardOperationLaunchComplete as LaunchComplete,
   DashboardProjectStage as ProjectStage,

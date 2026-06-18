@@ -1,4 +1,4 @@
-import Title from '@/components/Dashboard/OverviewTitle'
+import { OverviewTitle as Title } from '@/components/Dashboard'
 import { Table, Button } from '@zswl/components'
 import { AmountFormat } from '@/components/Format'
 import { UnorderedListOutlined } from '@ant-design/icons'

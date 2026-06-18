@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/ManagementFields'
+export { ManagementFields as default } from '@/components/Dashboard'

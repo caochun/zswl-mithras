@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/Export'
+export { ExportBtn as default } from '@/components/Dashboard'

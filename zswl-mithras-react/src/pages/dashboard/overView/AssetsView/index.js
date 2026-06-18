@@ -1,4 +1,4 @@
-import Title from '@/components/Dashboard/OverviewTitle'
+import { OverviewTitle as Title } from '@/components/Dashboard'
 import { observer } from '@zswl/admin'
 import { AssetsBalance, AssetsLoan } from './OverviewPanel'
 import ChinaMap from './ChinaMap'

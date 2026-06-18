@@ -1,6 +1,6 @@
 import { Tabs } from 'antd'
 import { observer } from '@zswl/admin'
-import Title from '@/components/Dashboard/Title'
+import { Title } from '@/components/Dashboard'
 import ApprovalToDo from './ApprovalToDo'
 import ApprovalFormMe from './ApprovalFormMe'
 import ApprovalInTransaction from './ApprovalInTransaction'
