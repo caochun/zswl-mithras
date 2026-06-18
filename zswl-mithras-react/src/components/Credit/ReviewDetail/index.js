@@ -9,7 +9,7 @@ import DataStore from './store'
 import Approval from '@/components/Actions/Approval'
 import ApprovalDetail from '@/components/Table/ApprovalDetail'
 import DetailLayout from '@/components/DetailLayout'
-import MeetingModal from './MeetingModal'
+import MeetingModal from '@/components/Project/ReviewMeetingModal'
 import CreditModal from '@/components/Credit/CreditSearchModal'
 
 const { Link } = Anchor
@@ -40,7 +40,12 @@ const Index = ({
   }
   const baseExtra = [
     <CreditModal params={{ projectId: id, bizSource: 'GROUP_CREDIT_REVIEW' }} />,
-    <MeetingModal id={id} processInstanceId={processInstanceId} />,
+    <MeetingModal
+      id={id}
+      processInstanceId={processInstanceId}
+      projReviewType="GROUP_CREDIT_REVIEW"
+      functionCode="groupCreditReviewMeetMinuteBaseInfoDetail"
+    />,
   ]
   const anchorList = [
     {

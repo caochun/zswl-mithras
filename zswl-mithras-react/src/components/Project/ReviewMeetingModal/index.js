@@ -4,7 +4,12 @@ import { ModalStore, Modal, Button } from '@zswl/components'
 import Api from '@/api/project/projReviewMeetingMinute'
 import { message } from 'antd'
 
-const MeetingModal = ({ id, processInstanceId }) => {
+const MeetingModal = ({
+  id,
+  processInstanceId,
+  projReviewType = 'PROJ_REVIEW_BASE',
+  functionCode = 'projReviewMeetMinuteBaseInfoDetail',
+}) => {
   const modal = useMemo(() => {
     return new ModalStore()
   }, [])
@@ -14,9 +19,9 @@ const MeetingModal = ({ id, processInstanceId }) => {
         projReviewId: id,
         isEffect: 1,
         projFlowId: processInstanceId,
-        projReviewType: 'PROJ_REVIEW_BASE',
+        projReviewType,
       },
-      'projReviewMeetMinuteBaseInfoDetail'
+      functionCode
     )
     if (res) {
       modal.open()
@@ -34,7 +39,7 @@ const MeetingModal = ({ id, processInstanceId }) => {
         <MinutesOfReviewMeeting
           contentType="popo"
           detailData={{ businessKey: id, processInstanceId }}
-          projReviewType="PROJ_REVIEW_BASE"
+          projReviewType={projReviewType}
         />
       </Modal>
     </>
