@@ -1,1 +1,1 @@
-export { default } from '@/components/Risk/ConcentrationControl/Connect'
+export { RiskConcentrationConnect as default } from '@/components/Risk/RiskEntries'

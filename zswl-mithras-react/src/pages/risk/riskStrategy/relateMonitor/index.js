@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react'
 import { Page, Button } from '@zswl/components'
 import { Tabs, message } from 'antd'
 import DataUpload from '@/components/DataUpload'
-import PayMent from '@/components/Risk/RelateMonitor/PayMent'
-import Collection from '@/components/Risk/RelateMonitor/Collection'
+import {
+  RiskRelateMonitorCollection as Collection,
+  RiskRelateMonitorPayMent as PayMent,
+} from '@/components/Risk/RiskEntries'
 import Api from '@/api/risk/relatedTransaction'
 
 function Index() {

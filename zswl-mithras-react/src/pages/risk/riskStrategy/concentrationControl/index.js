@@ -1,9 +1,11 @@
 import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import { Tabs, Space } from 'antd'
-import Client from '@/components/Risk/ConcentrationControl/Client'
-import Group from '@/components/Risk/ConcentrationControl/Group'
-import Connect from '@/components/Risk/ConcentrationControl/Connect'
+import {
+  RiskConcentrationClient as Client,
+  RiskConcentrationConnect as Connect,
+  RiskConcentrationGroup as Group,
+} from '@/components/Risk/RiskEntries'
 import { useEffect, useState } from 'react'
 import Api from '@/api/risk/concentrationControl'
 

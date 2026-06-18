@@ -1,9 +1,11 @@
 import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import { Tabs, Space, Tooltip } from 'antd'
-import Target from '@/components/Risk/MetricValue/Target'
-import JinKon from '@/components/Risk/MetricValue/JinKon'
-import Control from '@/components/Risk/MetricValue/Control'
+import {
+  RiskMetricControl as Control,
+  RiskMetricJinKon as JinKon,
+  RiskMetricTarget as Target,
+} from '@/components/Risk/RiskEntries'
 import IconFont from '@/components/Icon'
 
 function Index() {
