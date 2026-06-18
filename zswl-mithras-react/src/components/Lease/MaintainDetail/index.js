@@ -9,9 +9,9 @@ import LeaseInfo from './LeaseInfo'
 import LeaseList from './LeaseList'
 import LeaseText from './LeaseText'
 import DataFileList from './DataFileList'
-import EvaluationAgency from '@/components/EvaluationAgency'
+import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
 import { jumpZhongDeng } from '@/utils'
-import ZhongDengButton from '@/components/ZhongDengButton'
+import { ZhongDengButton } from '@/components/ZhongDengButton/ZhongDengButtonEntries'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
 
 const Index = ({

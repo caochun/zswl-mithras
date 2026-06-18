@@ -3,7 +3,7 @@ import { Table, SearchBar } from '@zswl/components'
 import { getTableColumns } from '@/utils'
 // import { ALL_COLUMNS } from '../Column'
 import { Space, Input, Row, Col } from 'antd'
-import ALL_COLUMNS from '@/components/PolicyColumns'
+import { PolicyColumns as ALL_COLUMNS } from '@/components/PolicyColumns/PolicyColumnsEntries'
 import { FormDateRange } from '@/components/Form'
 import { saveServer } from '@/utils'
 

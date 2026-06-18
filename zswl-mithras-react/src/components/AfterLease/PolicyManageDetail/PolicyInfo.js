@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { EditDescription } from '@/components/Table'
-import ALL_COLUMNS from '@/components/PolicyColumns'
+import { PolicyColumns as ALL_COLUMNS } from '@/components/PolicyColumns/PolicyColumnsEntries'
 import { getDescColumns } from '@/utils'
 
 const nameColumns = [

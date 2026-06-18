@@ -2,7 +2,7 @@ import styles from './index.less'
 import DataTable from '../../ReviewMaterialTable'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo } from 'react'
-import ClientFileTable from '@/components/ClientFileTable'
+import { ClientFileTable } from '@/components/ClientFileTable/ClientFileTableEntries'
 import { Collapse } from 'antd'
 
 const Data = ({ id, canEdit = true, isProjSponsor, businessVersion, title, store, isRiskManagerProj, setMaterialObj }) => {

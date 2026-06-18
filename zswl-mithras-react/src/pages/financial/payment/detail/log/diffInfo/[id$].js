@@ -13,7 +13,7 @@ import {
   FinancialPaymentDetailRepaymentPlan as RepaymentPlan,
 } from '@/components/Financial/PaymentDetailEntries'
 import paymentApprovalApi from '@/api/financial/paymentApprovalApi'
-import FileDiff from '@/components/FileDiff'
+import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
 
 function Index({ params: { id }, query: { bizType } }) {
   const compareData = store.page.getData()

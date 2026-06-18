@@ -5,7 +5,7 @@ import ALL_COLUMNS from '../CreditColumns'
 import { getDescColumns, rules } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'
-import UpdateButton from '@/components/UpdateRatingInfoButton'
+import { UpdateRatingInfoButton as UpdateButton } from '@/components/UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'
 
 const nameColumns = [
   '授信名称',

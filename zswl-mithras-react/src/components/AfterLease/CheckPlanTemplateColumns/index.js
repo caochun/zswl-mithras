@@ -12,7 +12,7 @@ import {
 import { history } from '@zswl/admin'
 import { amountFormat, rules } from '@/utils'
 import { Input, Space } from 'antd'
-import { BlackInfo } from '@/components/BlackInfo'
+import { BlackInfo } from '@/components/BlackInfo/BlackInfoEntries'
 
 const ALL_COLUMNS = [
   {

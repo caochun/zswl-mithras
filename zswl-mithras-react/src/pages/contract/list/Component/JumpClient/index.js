@@ -1,1 +1,1 @@
-export { default } from '@/components/JumpClient'
+export { JumpClient as default } from '@/components/JumpClient/JumpClientEntries'

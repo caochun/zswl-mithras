@@ -6,7 +6,7 @@ import { observer } from '@zswl/admin'
 import styles from './index.less'
 import store from './store'
 import { compareDetail } from '@/utils'
-import FileDiff from '@/components/FileDiff'
+import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
 
 const { Panel } = Collapse
 

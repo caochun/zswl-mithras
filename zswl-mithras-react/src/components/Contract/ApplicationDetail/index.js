@@ -28,8 +28,8 @@ import { ApprovalAction as Approval } from '@/components/Actions'
 import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
 import LeaseZiLiao from '../LeaseMaterials'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/TrackingEntries'
-import ZhongDengButton from '@/components/ZhongDengButton'
-import EvaluationAgency from '@/components/EvaluationAgency'
+import { ZhongDengButton } from '@/components/ZhongDengButton/ZhongDengButtonEntries'
+import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
 
 const Index = ({

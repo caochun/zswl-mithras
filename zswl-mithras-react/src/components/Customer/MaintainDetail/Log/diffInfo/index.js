@@ -13,7 +13,7 @@ import {
   relationshipTypeList,
 } from '../../general'
 import { formateCard, hasValue } from '@/utils'
-import FileDiff from '@/components/FileDiff'
+import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
 import { saveServer } from '@/utils'
 
 const { Panel } = Collapse

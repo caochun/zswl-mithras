@@ -1,5 +1,5 @@
 import { useMemo, useEffect } from 'react'
-import JumpClient from '@/components/JumpClient'
+import { JumpClient } from '@/components/JumpClient/JumpClientEntries'
 import { Button, Table, App } from '@zswl/components'
 import { Tooltip, Space } from 'antd'
 import { observer } from '@zswl/admin'

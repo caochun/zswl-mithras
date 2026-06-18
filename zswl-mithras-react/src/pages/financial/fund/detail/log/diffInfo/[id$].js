@@ -11,7 +11,7 @@ import {
   FinancialFundDetailScheme as Scheme,
 } from '@/components/Financial/FundDetailEntries'
 import Api from '@/api/financial/fundApi'
-import FileDiff from '@/components/FileDiff'
+import { FileDiff } from '@/components/FileDiff/FileDiffEntries'
 
 function Index(props) {
   const { id } = props.params ?? {}

@@ -48,6 +48,7 @@
 - `AfterLease/CheckPlanExternalEntries.js`
 - `AfterLease/CheckPlanPrepareEntries.js`
 - `AfterLease/CheckPlanTemplateEntries.js`
+- `BlackInfo/BlackInfoEntries.js`
 - `BlackGray/BlackGrayEntries.js`
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/AccountsReceivableEntries.js`
@@ -64,6 +65,7 @@
 - `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
 - `CheckBusiness/CheckBusinessEntries.js`
+- `ClientFileTable/ClientFileTableEntries.js`
 - `Contract/ApplicationDetailEntries.js`
 - `Contract/BaseInfoEntries.js`
 - `Contract/ConfigEntries.js`
@@ -95,6 +97,8 @@
 - `Customer/SingleViewRiskEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `Dashboard/MyAchievementEntries.js`
+- `EvaluationAgency/EvaluationAgencyEntries.js`
+- `FileDiff/FileDiffEntries.js`
 - `Financial/DirectDetailEntries.js`
 - `Financial/FinancingCarryInterestEntries.js`
 - `Financial/FinancingUrlEntries.js`
@@ -118,7 +122,11 @@
 - `Lease/MaintainEntries.js`
 - `LifeCycle/LifeCycleEntries.js`
 - `LoginIframe/LoginIframeEntries.js`
+- `JumpClient/JumpClientEntries.js`
 - `Overdue/OverdueEntries.js`
+- `PaymentApplyColumns/PaymentApplyColumnsEntries.js`
+- `PolicyColumns/PolicyColumnsEntries.js`
+- `Policy/PolicyEntries.js`
 - `Process/PrepareDetailEntries.js`
 - `Process/ProcessEntries.js`
 - `Project/ClientSelectEntries.js`
@@ -142,7 +150,9 @@
 - `Risk/RelateMonitorEntries.js`
 - `Risk/SourceCardEntries.js`
 - `TrackEvent/TrackingEntries.js`
+- `UpdateRatingInfoButton/UpdateRatingInfoButtonEntries.js`
 - `WhiteList/WhiteListEntries.js`
+- `ZhongDengButton/ZhongDengButtonEntries.js`
 
 ## 依赖规则
 
