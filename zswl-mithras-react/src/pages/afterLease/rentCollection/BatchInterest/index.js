@@ -1,1 +1,1 @@
-export { default } from '@/components/AfterLease/RentCollection/BatchInterest'
+export { RentCollectionBatchInterest as default } from '@/components/AfterLease/RentCollectionEntries'

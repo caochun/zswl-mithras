@@ -1,4 +1,4 @@
-import ProjectDetail from '@/components/AfterLease/RentCollection/ProjectDetail'
+import { RentCollectionProjectDetail as ProjectDetail } from '@/components/AfterLease/RentCollectionEntries'
 import { useEffect, useState } from 'react'
 import Api from '../api'
 import styles from './index.less'
