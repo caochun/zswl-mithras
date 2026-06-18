@@ -67,6 +67,16 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/whiteList/assessmentWhitelistApi',
   },
   {
+    legacyPrefix: '@/api/whiteList/assessmentWhitelistApi',
+    replacementPrefix:
+      '@/api/evaluationAgency/assessmentWhitelistApi or @/api/whiteList/assessmentWhitelistApi in WhiteList domain',
+    allowedSourceDomains: ['WhiteList'],
+    allowedSourcePathPrefixes: [
+      'src/api/evaluationAgency/assessmentWhitelistApi.ts',
+      'src/pages/whiteList/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/ocr/ocrInvoiceApi',
     replacementPrefix: '@/api/lease/vatInvoiceApi',
     allowedSourcePathPrefixes: [
