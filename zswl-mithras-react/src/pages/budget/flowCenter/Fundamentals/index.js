@@ -11,7 +11,7 @@ import DetailModal from './DetailModal'
 import { PageListDown } from '@/components'
 import { saveServer } from '@/utils'
 import { ExportAction } from '@/components/RiskActions'
-import { getFinancialUrl } from '@/components/Financial/financingUrl'
+import { getFinancialUrl } from '@/components/Financial/FinancialEntries'
 
 const { fundReceiptRepayCashFlowState } = options
 

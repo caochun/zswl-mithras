@@ -1,1 +1,1 @@
-export { default } from '@/components/Financial/PaymentBatchApproval'
+export { FinancialPaymentBatchApproval as default } from '@/components/Financial/FinancialEntries'

@@ -4,10 +4,10 @@ import {
   FinancialFundChange as FundFinancingFundChange,
   FinancialFundDetail as FundFinancingFundDetail,
 } from '@/components/Financial/FundEntries'
-import FinancialDirect from '@/components/Financial/DirectDetail'
+import { FinancialDirectDetail as FinancialDirect } from '@/components/Financial/FinancialEntries'
 import FinancingRepayPlanConfirmFlow from '../../application/detail/PrepareDetail/Component/FinancingRepayPlanConfirmFlow'
 import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
-import FinancingCarryInterestFlow from '@/components/Financial/FinancingCarryInterestFlow'
+import { FinancialFinancingCarryInterestFlow as FinancingCarryInterestFlow } from '@/components/Financial/FinancialEntries'
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, modelKey, curAssigneeIds } = props
   const renderContractType = useMemo(() => {
