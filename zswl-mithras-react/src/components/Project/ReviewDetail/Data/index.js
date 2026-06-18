@@ -2,7 +2,7 @@ import styles from './index.less'
 import DataTable from '../../ReviewMaterialTable'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo } from 'react'
-import { ClientFileTable } from '@/components/ClientFileTable/ClientFileTableEntries'
+import { ClientMaterialTable } from '@/components/ClientMaterialTable/ClientMaterialTableEntries'
 import { Collapse } from 'antd'
 
 const Data = ({ id, canEdit = true, isProjSponsor, businessVersion, title, store, isRiskManagerProj, setMaterialObj }) => {
@@ -24,7 +24,7 @@ const Data = ({ id, canEdit = true, isProjSponsor, businessVersion, title, store
         {_projectDataDetail.map((item, index) => {
           if (item.businessType === 'PROJ_REVIEW_CLIENT')
             return (
-              <ClientFileTable
+              <ClientMaterialTable
                 uploadModule="PROJ_REVIEW"
                 mainId={id}
                 canEdit={canEdit}

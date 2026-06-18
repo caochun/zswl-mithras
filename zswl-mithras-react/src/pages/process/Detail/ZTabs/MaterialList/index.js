@@ -3,7 +3,7 @@ import Store from './store'
 import { Spin } from 'antd'
 import { observer, getQuery } from '@zswl/admin'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
-import { ClientFileTable } from '@/components/ClientFileTable/ClientFileTableEntries'
+import { ClientMaterialTable } from '@/components/ClientMaterialTable/ClientMaterialTableEntries'
 import { ProjectReviewMaterialTable as DataTable } from '@/components/Project/ReviewProcessEntries'
 
 //项目评审创建、项目评审更新资料清单选项卡
@@ -24,7 +24,7 @@ const MaterialList = () => {
             {dataObj.list.filter(fit => fit.businessType !== "PROJ_ESTABLISH").map((item, index) => {
                 if (item.businessType === 'PROJ_REVIEW_CLIENT')
                     return (
-                        <ClientFileTable
+                        <ClientMaterialTable
                             uploadModule="PROJ_REVIEW"
                             mainId={businessKey}
                             canEdit={canEdit}
