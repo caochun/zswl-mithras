@@ -1,1 +1,1 @@
-export * from '@/process/ProcessFlowContext'
+export * from '@/utils/domains/process/ProcessFlowContext'

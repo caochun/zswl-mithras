@@ -1,1 +1,1 @@
-export * from '@/dashboard/DashboardUtils'
+export * from '@/utils/domains/dashboard/DashboardUtils'

@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { MultiBar } from '@zswl/charts'
-import { getChartsTooltip } from '@/dashboard/DashboardUtils'
-import { formatDepartName } from '@/dashboard/DashboardUtilsOperation'
+import { getChartsTooltip } from '@/utils/domains/dashboard/DashboardUtils'
+import { formatDepartName } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 
 const Index = ({ store }) => {
   const { loading, chartsData } = store

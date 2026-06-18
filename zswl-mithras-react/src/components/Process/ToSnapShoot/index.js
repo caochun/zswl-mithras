@@ -1,7 +1,7 @@
 import { InstagramOutlined } from '@ant-design/icons'
 import { Button } from '@zswl/components'
 import { history } from '@zswl/admin'
-import { useFlowData } from '@/process/ProcessFlowContext'
+import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 
 const Index = () => {
   const { detailData } = useFlowData()

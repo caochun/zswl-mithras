@@ -1,4 +1,4 @@
-import { founderSelect, orgSelect, clientSelect } from '@/dashboard/DashboardUtilsColumns'
+import { founderSelect, orgSelect, clientSelect } from '@/utils/domains/dashboard/DashboardUtilsColumns'
 import { InputColumn, AmountColumn, DateColumn } from '@/components/Format'
 
 export const ALL_COLUMNS = [

@@ -1,1 +1,1 @@
-export * from '@/risk/RiskUtils'
+export * from '@/utils/domains/risk/RiskUtils'

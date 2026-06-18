@@ -3,7 +3,7 @@ import { ModalStore, TableStore, Modal } from '@zswl/components'
 import { message } from 'antd'
 import profitMeasurementApi from '@/api/budgetManagement/profitMeasurementApi'
 import moment from 'moment'
-import { refreshProvisionForecast } from '@/budgetManagement/BudgetManagementUtils'
+import { refreshProvisionForecast } from '@/utils/domains/budgetManagement/BudgetManagementUtils'
 
 class Store {
   constructor() {

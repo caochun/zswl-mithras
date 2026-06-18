@@ -1,1 +1,1 @@
-export * from '@/customer/CustomerRatUtils'
+export * from '@/utils/domains/customer/CustomerRatUtils'

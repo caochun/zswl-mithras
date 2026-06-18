@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import ModalEditTable from '../../ModalEditTable'
 
 import { FormulaValueTip } from '@/components'
-import { formulaData } from '@/kpi/KpiUtils'
+import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 import Api from './api'
 
 const VERSIBLE = 'P'

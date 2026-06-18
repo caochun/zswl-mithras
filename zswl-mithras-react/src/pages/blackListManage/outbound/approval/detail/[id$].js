@@ -5,7 +5,7 @@ import {
   SubmitAuditAction,
   ApprovalRecordAction,
   ApprovalOperation,
-} from '@/components/RiskActions'
+} from '@/components/BlackGray/BlackGrayEntries'
 import { BlackGrayEnterDesc as EnterDesc } from '@/components/BlackGray/BlackGrayEntries'
 import { Card } from 'antd'
 

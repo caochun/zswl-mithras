@@ -1,7 +1,7 @@
 import { DrawerStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { initFieldsConfig } from './Config'
-import { mergeArray } from '@/dashboard/DashboardUtils'
+import { mergeArray } from '@/utils/domains/dashboard/DashboardUtils'
 import Api from '@/api/dashboard/projectView'
 import { isFundDept, isRiskManager } from '@/utils'
 

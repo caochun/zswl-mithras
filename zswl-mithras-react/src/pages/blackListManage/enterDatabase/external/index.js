@@ -4,7 +4,7 @@ import store from './store'
 import { BlackGrayColumns as ALL_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
-import { useGetStatus } from '@/blackGray/BlackGrayStatusUtils'
+import { useGetStatus } from '@/utils/domains/blackGray/BlackGrayStatusUtils'
 import { saveServer } from '@/utils'
 
 function Index({ path }) {

@@ -10,7 +10,7 @@ import { useMemo } from 'react'
 import DetailModal from './DetailModal'
 import { PageListDown } from '@/components'
 import { saveServer } from '@/utils'
-import { ExportAction } from '@/components/RiskActions'
+import { StoreExportAction as ExportAction } from '@/components/Actions'
 import { getFinancialUrl } from '@/components/Financial/FinancingUrlEntries'
 
 const { fundReceiptRepayCashFlowState } = options

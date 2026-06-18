@@ -1,1 +1,1 @@
-export { AllocateEnum, AllocateTypeInfo, TagColor } from '@/kpi/KpiUtils'
+export { AllocateEnum, AllocateTypeInfo, TagColor } from '@/utils/domains/kpi/KpiUtils'

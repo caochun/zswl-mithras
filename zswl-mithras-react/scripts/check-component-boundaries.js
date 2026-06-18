@@ -27,6 +27,7 @@ const stabilizedComponentRootImports = new Map([
   ['PaymentApplyColumns', 'PaymentApplyColumns/PaymentApplyColumnsEntries'],
   ['Policy', 'Policy/PolicyEntries'],
   ['PolicyColumns', 'PolicyColumns/PolicyColumnsEntries'],
+  ['RiskActions', 'BlackGray/BlackGrayEntries or Actions'],
   ['UpdateRatingInfoButton', 'UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'],
   ['ZhongDengButton', 'ZhongDengButton/ZhongDengButtonEntries'],
 ])
@@ -35,27 +36,27 @@ const pageImportPattern = /^@\/pages\//
 const legacyUtilityPrefixRules = [
   {
     legacyPrefix: '@/utils/afterLease',
-    replacementPrefix: '@/afterLease/AfterLeaseUtils',
-    allowedSourcePathPrefixes: ['src/afterLease/AfterLeaseUtils.js'],
+    replacementPrefix: '@/utils/domains/afterLease/AfterLeaseUtils',
+    allowedSourcePathPrefixes: ['src/utils/domains/afterLease/AfterLeaseUtils.js'],
   },
   {
     legacyPrefix: '@/utils/budgetManagement',
-    replacementPrefix: '@/budgetManagement/BudgetManagementUtils',
-    allowedSourcePathPrefixes: ['src/budgetManagement/BudgetManagementUtils.js'],
+    replacementPrefix: '@/utils/domains/budgetManagement/BudgetManagementUtils',
+    allowedSourcePathPrefixes: ['src/utils/domains/budgetManagement/BudgetManagementUtils.js'],
   },
   {
     legacyPrefix: '@/utils/customer',
-    replacementPrefix: '@/customer/CustomerUtils',
-    allowedSourcePathPrefixes: ['src/customer/CustomerUtils.js'],
+    replacementPrefix: '@/utils/domains/customer/CustomerUtils',
+    allowedSourcePathPrefixes: ['src/utils/domains/customer/CustomerUtils.js'],
   },
   {
     legacyPrefix: '@/utils/customerRat',
-    replacementPrefix: '@/customer/CustomerRatUtils',
+    replacementPrefix: '@/utils/domains/customer/CustomerRatUtils',
     allowedSourcePathPrefixes: ['src/utils/customerRat.js'],
   },
   {
     legacyPrefix: '@/utils/dashboard',
-    replacementPrefix: '@/dashboard/DashboardUtils*',
+    replacementPrefix: '@/utils/domains/dashboard/DashboardUtils*',
     allowedSourcePathPrefixes: [
       'src/utils/dashboard.js',
       'src/utils/dashboardColumns.js',
@@ -65,38 +66,38 @@ const legacyUtilityPrefixRules = [
   },
   {
     legacyPrefix: '@/utils/kpi',
-    replacementPrefix: '@/kpi/KpiUtils',
-    allowedSourcePathPrefixes: ['src/kpi/KpiUtils.js'],
+    replacementPrefix: '@/utils/domains/kpi/KpiUtils',
+    allowedSourcePathPrefixes: ['src/utils/domains/kpi/KpiUtils.js'],
   },
   {
     legacyPrefix: '@/utils/paymentApplication',
-    replacementPrefix: '@/cpm/PaymentApplicationUtils',
+    replacementPrefix: '@/utils/domains/cpm/PaymentApplicationUtils',
     allowedSourcePathPrefixes: ['src/utils/paymentApplication.js'],
   },
   {
     legacyPrefix: '@/utils/processFlow',
-    replacementPrefix: '@/process/ProcessFlowContext',
-    allowedSourcePathPrefixes: ['src/process/ProcessFlowContext.js'],
+    replacementPrefix: '@/utils/domains/process/ProcessFlowContext',
+    allowedSourcePathPrefixes: ['src/utils/domains/process/ProcessFlowContext.js'],
   },
   {
     legacyPrefix: '@/utils/report',
-    replacementPrefix: '@/report/ReportUtils',
-    allowedSourcePathPrefixes: ['src/report/ReportUtils.js'],
+    replacementPrefix: '@/utils/domains/report/ReportUtils',
+    allowedSourcePathPrefixes: ['src/utils/domains/report/ReportUtils.js'],
   },
   {
     legacyPrefix: '@/utils/risk',
-    replacementPrefix: '@/risk/RiskUtils',
-    allowedSourcePathPrefixes: ['src/risk/RiskUtils.js'],
+    replacementPrefix: '@/utils/domains/risk/RiskUtils',
+    allowedSourcePathPrefixes: ['src/utils/domains/risk/RiskUtils.js'],
   },
   {
     legacyPrefix: '@/utils/rzyConfig',
-    replacementPrefix: '@/rzy/RzyConfig',
-    allowedSourcePathPrefixes: ['src/rzy/RzyConfig.js'],
+    replacementPrefix: '@/utils/domains/rzy/RzyConfig',
+    allowedSourcePathPrefixes: ['src/utils/domains/rzy/RzyConfig.js'],
   },
   {
     legacyPrefix: '@/utils/hooks/useGetStatus',
-    replacementPrefix: '@/blackGray/BlackGrayStatusUtils',
-    allowedSourcePathPrefixes: ['src/blackGray/BlackGrayStatusUtils.js'],
+    replacementPrefix: '@/utils/domains/blackGray/BlackGrayStatusUtils',
+    allowedSourcePathPrefixes: ['src/utils/domains/blackGray/BlackGrayStatusUtils.js'],
   },
 ]
 const legacyApiDomains = new Map([
@@ -380,7 +381,7 @@ const legacyApiPrefixRules = [
     allowedSourcePathPrefixes: [
       'src/api/process/detail/paymentApplicationDetailApi.js',
       'src/api/process/operation/paymentOperationApi.js',
-      'src/cpm/PaymentApplicationUtils.js',
+      'src/utils/domains/cpm/PaymentApplicationUtils.js',
       'src/pages/cpm/',
       'src/pages/process/Detail/ZTabs/Operation/',
     ],
@@ -447,7 +448,7 @@ const legacyApiPrefixRules = [
       'src/api/process/detail/customerRatingApi.js',
       'src/api/process/operation/customerRatingOperationApi.js',
       'src/api/project/ratingApi.js',
-      'src/customer/CustomerRatUtils.js',
+      'src/utils/domains/customer/CustomerRatUtils.js',
       'src/pages/customer/',
       'src/pages/process/',
       'src/utils/customerRat.js',

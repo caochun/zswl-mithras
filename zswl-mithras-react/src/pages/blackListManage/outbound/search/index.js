@@ -3,7 +3,7 @@ import { Page, Table, TableStore, Tabs } from '@zswl/components'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { ExportAction } from '@/components/RiskActions'
+import { ExportAction } from '@/components/BlackGray/BlackGrayEntries'
 import manualOutboundFormApi from '@/api/blackGray/manualOutboundFormApi'
 import { saveServer } from '@/utils'
 

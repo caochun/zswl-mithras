@@ -7,7 +7,7 @@ import {
   formatQueryDate,
   sameYearQueryDate,
   lineSeriesItem,
-} from '@/dashboard/DashboardUtilsOperation'
+} from '@/utils/domains/dashboard/DashboardUtilsOperation'
 import Api from './api'
 
 class Store {

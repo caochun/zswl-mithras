@@ -1,1 +1,1 @@
-export * from '@/report/ReportUtils'
+export * from '@/utils/domains/report/ReportUtils'

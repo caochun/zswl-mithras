@@ -4,7 +4,7 @@ import { Table, TableStore, Select, App, SearchBar } from '@zswl/components'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useEffect, useMemo } from 'react'
 import { Radio } from 'antd'
-import { ExportAction } from '@/components/RiskActions'
+import { ExportAction } from '@/components/BlackGray/BlackGrayEntries'
 import { getEnterpriseName } from './RecordSearch'
 import { saveServer } from '@/utils'
 

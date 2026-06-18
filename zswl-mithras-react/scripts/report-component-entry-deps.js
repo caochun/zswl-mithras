@@ -52,6 +52,15 @@ function walk(dir, files = []) {
 }
 
 function getSourceScope(relativeFilePath) {
+  const [, utilityDomain] =
+    relativeFilePath.match(/^src[\\/]utils[\\/]domains[\\/]([^\\/]+)/) || []
+  if (utilityDomain) {
+    return {
+      key: `utils/domains/${utilityDomain}`,
+      domain: normalizeDomain(utilityDomain),
+    }
+  }
+
   const [, componentDomain] = relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
   if (componentDomain) {
     return {

@@ -1,4 +1,4 @@
-import { orgSelect } from '@/dashboard/DashboardUtilsColumns'
+import { orgSelect } from '@/utils/domains/dashboard/DashboardUtilsColumns'
 import { AmountColumn } from '@/components/Format'
 
 export const ALL_COLUMNS = [

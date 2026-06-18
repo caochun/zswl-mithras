@@ -13,7 +13,7 @@ import {
   votingResultsList,
   fileKeyEnum,
   complementListExtra,
-} from '@/process/ProcessFlowContext'
+} from '@/utils/domains/process/ProcessFlowContext'
 import AbstractDesc from './Components/AbstractDesc'
 import { saveServer } from '@/utils'
 

@@ -8,7 +8,7 @@ export {
   checkCreditDate,
   postPayMentCheckApplyAmount,
   validateAgreen,
-} from '@/cpm/PaymentApplicationUtils'
+} from '@/utils/domains/cpm/PaymentApplicationUtils'
 
 const mathjs = create(all)
 

@@ -10,6 +10,7 @@ import { options } from '@/utils'
 import { DatePicker, Tooltip } from 'antd'
 import moment from 'moment'
 import { App, Select } from '@zswl/components'
+import { BlackGrayFormat } from '../format'
 
 
 const { periodUnderObservation } = options
@@ -222,7 +223,7 @@ const ALl_COLUMNS = [
     dataIndex: 'subTaskCount',
     width: 110,
     render: (val) => (
-      <Format.ProgressLine
+      <BlackGrayFormat.ProgressLine
         finishedCount={val?.finishedTaskCount || 0}
         totalCount={val?.totalTaskCount || 0}
       />

@@ -1,4 +1,4 @@
-import { founderSelect, orgSelect, provinceSelect } from '@/dashboard/DashboardUtilsColumns'
+import { founderSelect, orgSelect, provinceSelect } from '@/utils/domains/dashboard/DashboardUtilsColumns'
 import { MatchOptionColumn, InputColumn, AmountColumn, DateColumn } from '@/components/Format'
 import { Select, App } from '@zswl/components'
 

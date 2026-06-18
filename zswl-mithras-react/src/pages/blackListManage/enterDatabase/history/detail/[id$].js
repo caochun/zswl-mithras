@@ -1,7 +1,7 @@
 import { Page, Form, Descriptions, Select, Button, Upload, App, Table } from '@zswl/components'
 import store from './store'
 import { observer } from '@zswl/admin'
-import { SubmitAuditAction, ApprovalRecordAction } from '@/components/RiskActions'
+import { SubmitAuditAction, ApprovalRecordAction } from '@/components/BlackGray/BlackGrayEntries'
 import { BlackGrayLoginInfo as LoginInfo } from '@/components/BlackGray/BlackGrayEntries'
 import { BlackGrayEnterForm as EnterForm } from '@/components/BlackGray/BlackGrayEntries'
 import { BlackGrayEnterDesc as EnterDesc } from '@/components/BlackGray/BlackGrayEntries'

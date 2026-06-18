@@ -1,4 +1,4 @@
-import { SubmitAuditAction, ApprovalRecordAction } from '@/components/RiskActions'
+import { SubmitAuditAction, ApprovalRecordAction } from '../actions'
 import LoginInfo from './LoginInfo'
 import EnterDesc from './EnterDesc'
 import BreakForm from './BreakForm'

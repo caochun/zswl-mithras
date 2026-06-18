@@ -1,7 +1,7 @@
 import { MatchOptionColumn, DateColumn, InputColumn, FiledFormat } from '@/components/Format'
 import { FounderSelect } from '@/components/Select'
 import { DatePicker } from 'antd'
-import { formatQueryDate } from '@/report/ReportUtils'
+import { formatQueryDate } from '@/utils/domains/report/ReportUtils'
 import { orgSelect } from '@/components/Format'
 
 const { RangePicker } = DatePicker

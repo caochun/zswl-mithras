@@ -5,7 +5,7 @@ import {
   SubmitAuditAction,
   ApprovalRecordAction,
   ApprovalOperation,
-} from '@/components/RiskActions'
+} from '@/components/BlackGray/BlackGrayEntries'
 import { Card, Checkbox } from 'antd'
 import { getDescColumns } from '@/utils'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'

@@ -12,6 +12,7 @@
 - `src/components`：跨业务域复用的通用 UI、表格、表单、金额、文件、流程图、操作按钮等组件。
 - `src/api`：跨页面复用的接口封装。若某个 `pages/**/api.js` 被其他业务域引用，应迁入这里或对应稳定领域入口。
 - `src/utils`：无页面语义、无业务归属的工具函数、格式化、hooks、校验逻辑。
+- `src/utils/domains/<domain>`：构建器允许目录下的业务域工具稳定入口，用来承接历史 `utils/*` 中已有明确业务归属的小工具；它不是新的公共杂物区。
 - `src/utils` 中直接依赖 `src/api/common` 的文件应只承载公共前端基础能力，例如文件下载、表格列配置、通用字典 hook；若出现业务域 API 调用，应迁入对应业务域目录。
 - `src/layout`：应用壳能力，包括菜单、消息、登录、布局和全局导航交互。
 
@@ -175,6 +176,7 @@
 - 表格、文件表、描述表、审批详情等统一从 `src/components/Table` 稳定入口导入。
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
+- 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；历史 `RiskActions/Export` 只作为黑灰名单动作兼容实现。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
@@ -249,20 +251,21 @@
 - `common/customerOverview`：客户总览接口的历史公共目录；dashboard 客户总览页面优先使用 `src/api/dashboard/customerOverview`，客户视图页面优先使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时优先通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API。
 - `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
-- `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
-- `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件优先使用 `src/process/ProcessFlowContext`，旧路径仅保留兼容转发。
+- `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/utils/domains/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
+- `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件优先使用 `src/utils/domains/process/ProcessFlowContext`，旧路径仅保留兼容转发。
 - `utils/afterLease`、`utils/risk`、`utils/report`、`utils/kpi`、`utils/customer`、`utils/budgetManagement`：业务域小工具历史落在全局 utils；对应业务域页面和组件优先使用 `src/<domain>/*Utils` 语义入口，旧路径仅保留兼容转发。
-- `utils/rzyConfig`：RZY 厂商管理外部系统菜单和链接配置历史落在全局 utils；布局菜单和 RZY 页面优先使用 `src/rzy/RzyConfig`，旧路径仅保留兼容转发。
-- `utils/hooks/useGetStatus`：黑灰名单审批状态筛选和按钮可用性历史落在全局 hooks；黑灰名单页面和组件优先使用 `src/blackGray/BlackGrayStatusUtils`，旧路径仅保留兼容转发。
+- `utils/rzyConfig`：RZY 厂商管理外部系统菜单和链接配置历史落在全局 utils；布局菜单和 RZY 页面优先使用 `src/utils/domains/rzy/RzyConfig`，旧路径仅保留兼容转发。
+- `utils/hooks/useGetStatus`：黑灰名单审批状态筛选和按钮可用性历史落在全局 hooks；黑灰名单页面和组件优先使用 `src/utils/domains/blackGray/BlackGrayStatusUtils`，旧路径仅保留兼容转发。
+- `components/RiskActions`：历史名义上属于风险动作，实际主要服务黑灰名单审批动作；黑灰名单页面应通过 `src/components/BlackGray/BlackGrayEntries.js` 使用，其他业务域需要通用导出时使用 `src/components/Actions.StoreExportAction` 或其他公共 Actions。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
 - `customer/customerRat/customerRatApi`、`customer/customerRat/debtRatApi`：流程详情展示评级摘要时优先使用 `src/api/process/detail/customerRatingApi` 和 `src/api/process/detail/debtRatingApi` 聚合入口。
 - `customer/customerRat/customerRatApi`：流程操作中执行评级推翻等审批动作时优先使用 `src/api/process/operation/customerRatingOperationApi`。
 - `customer/maintainApi`：客户维护页和客户组件保留客户域 API；流程申请列表占用客户后跳转详情时优先使用 `src/api/process/application/customerMaintainApi`。
-- `utils/customerRat`：客户评级工具历史落在全局 utils；客户评级和流程操作优先使用 `src/customer/CustomerRatUtils`，旧路径仅保留兼容转发。
+- `utils/customerRat`：客户评级工具历史落在全局 utils；客户评级和流程操作优先使用 `src/utils/domains/customer/CustomerRatUtils`，旧路径仅保留兼容转发。
 - `customer/clientBasic`：客户维护基础信息 API 保留在客户域；行业、区域等 `/select` 字典优先使用 `src/api/common/selectApi`。
 - `credit/creditReportApi.postCompareBusiness`：征信查询下的工商信息比对接口可由共享 `CheckBusiness` 组件本地 `api.js` 聚合，调用方不应因此直接绑定征信域 API。
-- `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
+- `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/utils/domains/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
 - `cpm/payment/paymentApplicationDetail`：付款申请详情接口保留在付款域；流程详情展示付款资料时优先使用 `src/api/process/detail/paymentApplicationDetailApi` 聚合入口。
 - `cpm/payment/paymentApplicationDetail`、`cpm/payment/publicInfoApi_edited`：流程操作中执行付款申请前置校验或公开信息提交校验时优先使用 `src/api/process/operation` 下的聚合入口。
 - `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件优先使用 `src/api/common/approvalRemarkApi`，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。

@@ -7,7 +7,7 @@ import { isObject } from 'lodash'
 import styles from './index.less'
 import { observer, getQuery } from '@zswl/admin'
 import { FormAmount } from '@/components/Form'
-import { AllocateTypeInfo, TagColor } from '@/kpi/KpiUtils'
+import { AllocateTypeInfo, TagColor } from '@/utils/domains/kpi/KpiUtils'
 import { FiledFormat, PureAmountFormat } from '@/components/Format'
 
 const { Item } = Form

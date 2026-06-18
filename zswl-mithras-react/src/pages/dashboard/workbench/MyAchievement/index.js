@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { DashboardTitle as Title } from '@/components/Dashboard/DashboardEntries'
-import { getUpdateDate } from '@/dashboard/DashboardUtils'
+import { getUpdateDate } from '@/utils/domains/dashboard/DashboardUtils'
 import { Tabs, Spin } from 'antd'
 import { useEffect, useMemo } from 'react'
 import { MyAchievementDepartment as Department } from '@/components/Dashboard/MyAchievementEntries'

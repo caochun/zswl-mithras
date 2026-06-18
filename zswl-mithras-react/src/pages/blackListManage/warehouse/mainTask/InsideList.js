@@ -3,7 +3,7 @@ import { getRandomString, history, http, makeAutoObservable, observer } from '@z
 import { App, Button, Page, PageStore, Table, TableStore, Tabs } from '@zswl/components'
 import { useMemo } from 'react'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
-import { DeleteAction, WithdrawAction } from '@/components/RiskActions'
+import { DeleteAction, WithdrawAction } from '@/components/BlackGray/BlackGrayEntries'
 import warehouseTaskApi from '@/api/blackGray/warehouseTaskApi'
 import _ from 'lodash-es'
 import { saveServer } from '@/utils'

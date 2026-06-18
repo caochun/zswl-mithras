@@ -1,5 +1,5 @@
 import { InputColumn, AmountColumn } from '@/components/Format'
-import { orgSelect } from '@/dashboard/DashboardUtilsColumns'
+import { orgSelect } from '@/utils/domains/dashboard/DashboardUtilsColumns'
 
 export const ALL_COLUMNS = [
   orgSelect({

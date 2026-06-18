@@ -1,1 +1,1 @@
-export * from '@/afterLease/AfterLeaseUtils'
+export * from '@/utils/domains/afterLease/AfterLeaseUtils'

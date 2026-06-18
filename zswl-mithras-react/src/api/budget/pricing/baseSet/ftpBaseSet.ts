@@ -1,1 +1,1 @@
-export { default } from '../../../../baseData/pricing/baseSet/ftpBaseSet'
+export { default } from '../../../baseData/pricing/baseSet/ftpBaseSet'

@@ -1,1 +1,1 @@
-export * from '@/dashboard/DashboardUtilsColumns'
+export * from '@/utils/domains/dashboard/DashboardUtilsColumns'

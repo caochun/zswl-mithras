@@ -1,1 +1,1 @@
-export * from '@/cpm/PaymentApplicationUtils'
+export * from '@/utils/domains/cpm/PaymentApplicationUtils'

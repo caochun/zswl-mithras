@@ -1,6 +1,6 @@
 import { Table, Button, Upload } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import { Format } from '@/components/RiskActions'
+import { BlackGrayFormat as Format } from '@/components/BlackGray/BlackGrayEntries'
 import { Card, Popover } from 'antd'
 import RetractModal from './RetractModal'
 import styles from './styles.less'

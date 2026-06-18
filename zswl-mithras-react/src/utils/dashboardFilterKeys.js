@@ -1,1 +1,1 @@
-export * from '@/dashboard/DashboardUtilsFilterKeys'
+export * from '@/utils/domains/dashboard/DashboardUtilsFilterKeys'

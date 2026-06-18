@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import ContractApplication from './Components/ContractApplication'
 import PaymentApplication from './Components/PaymentApplication'
 import ProjectReview from './Components/ProjectReview'
-import { useFlowData } from '@/process/ProcessFlowContext'
+import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import styles from './index.less'
 
 const Index = () => {
