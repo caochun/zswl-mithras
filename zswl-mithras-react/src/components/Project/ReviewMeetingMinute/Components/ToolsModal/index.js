@@ -1,4 +1,4 @@
-import { AmountColumn, InputColumn } from '@/components/Format'
+
 import { observer } from '@zswl/admin'
 import { Button, Table, TableStore } from '@zswl/components'
 import { Dropdown, Menu, message } from 'antd'
@@ -8,7 +8,7 @@ import styles from './index.less'
 // import Api from '@/api/project/projMeetingApi'
 import Api from '../../api'
 import _ from 'lodash'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+
 
 const Index = ({ form,  detail, taskActivityId,showValue,store ,projReviewType,params }, ref) => {
   const table = useMemo(() => {

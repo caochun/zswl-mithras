@@ -6,7 +6,7 @@ import {
   DatePickerEditable,
 } from '@/components/Format'
 import { Space } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+
 import { Form, Select, App } from '@zswl/components'
 import mathjs from '@/utils/math'
 import { LossItem, PenaltyItem, EarnestMoneyItem, PenaltyRender, LossRender } from './RemitForm'

@@ -10,7 +10,7 @@ import { bizTypeMapText } from '../../bizTypeConfig'
 import Store from './store'
 import styles from './index.less'
 import GenerateModal from './GenerateModal'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+
 import { saveServer } from '@/utils'
 
 const { Item } = Form

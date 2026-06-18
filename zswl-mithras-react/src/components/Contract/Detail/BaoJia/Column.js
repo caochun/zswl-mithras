@@ -12,7 +12,7 @@ import { cloneElement } from 'react'
 import YearRate from './YearRate'
 import RepayCalcType from '@/components/RepayCalcType'
 import StructureInterest from './StructureInterest'
-import FormAmount from '@/components/Form/FormAmount'
+
 import { CommonTips } from '@/components'
 
 const Item = Form.Item

@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+
 import ALL_COLUMNS from './Column'
 import { getDescColumns, hasValue } from '@/utils'
 import { observer } from '@zswl/admin'

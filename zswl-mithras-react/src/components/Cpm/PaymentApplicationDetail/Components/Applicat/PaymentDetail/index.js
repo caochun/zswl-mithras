@@ -3,7 +3,7 @@ import PayMentDetailsModal from './ApplicationModal'
 import { Table, Button, App } from '@zswl/components'
 import { Space } from 'antd'
 import { useMemo } from 'react'
-import BankAccount from '@/components/Form/BankAccount'
+
 import { amountFormat } from '@/utils'
 import styles from '../index.less'
 import { saveServer } from '@/utils'

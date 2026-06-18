@@ -1,5 +1,5 @@
 import { FounderSelect, ClientSelect } from '@/components'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { FiledFormat } from '@/components/Format'
 import ALL_COLUMNS from '../CreditColumns'
 import { getDescColumns, rules } from '@/utils'

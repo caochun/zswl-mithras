@@ -1,11 +1,11 @@
-import FormItemContent from '@/components/FormItemContent'
+
 import { App } from '@zswl/components'
 import { Descriptions, Form, Input, InputNumber, Radio, Row, Col, Checkbox, Space } from 'antd'
 import StarDom from '@/components/StarDom'
 import FormListItem from './FormListItem'
 import styles from './index.less'
 import { observer } from '@zswl/admin'
-import FormAmount from '@/components/Form/FormAmount'
+
 import { getKeyOptionsLabelMap, projectFinancingRatio } from './utils'
 import {
   getInputNumberAmountProps,

@@ -6,7 +6,7 @@ import { Tooltip } from 'antd'
 import BankAccountModal from './BankAccountModal'
 import { useEffect, useMemo } from 'react'
 import { formateCard } from '@/utils'
-import BankAccount from '@/components/Form/BankAccount'
+
 import { saveServer } from '@/utils'
 
 const diffNode = (obj, type) => {

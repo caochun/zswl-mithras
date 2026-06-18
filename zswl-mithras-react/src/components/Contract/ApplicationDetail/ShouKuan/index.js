@@ -6,8 +6,8 @@ import CreateModal from './CreateModal'
 import Store from './store'
 import styles from './index.less'
 import { getKeyOptionsLabelMapPlus } from '@/utils'
-import { FiledFormat } from '@/components/Format'
-import BankAccount from '@/components/Form/BankAccount'
+
+
 import { saveServer } from '@/utils'
 
 const Index = ({ canEditFlag, baseStore }) => {

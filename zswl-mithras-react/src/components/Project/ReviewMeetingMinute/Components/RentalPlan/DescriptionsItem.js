@@ -1,4 +1,4 @@
-import FormItemContent from '@/components/FormItemContent'
+
 import { App } from '@zswl/components'
 import { Descriptions, Form, Input, Radio, Row, Col } from 'antd'
 import StarDom from '@/components/StarDom'
@@ -6,7 +6,7 @@ import FormListItem from './FormListItem'
 import styles from './index.less'
 import { observer } from '@zswl/admin'
 import { getInputNumberAmountProps, amountFormat, formatPercent, getInputNumberValueFromEvent } from '@/utils'
-import FormAmount from '@/components/Form/FormAmount'
+
 const IndexItem = ({ showValue, form, detail, businessKey }) => {
   const options = App.getData().optionsType
   const getKeyOptionsLabelMap = (key) => {

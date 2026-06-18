@@ -1,4 +1,4 @@
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import styles from './style.less'
 import { useEffect, useState } from 'react'
 

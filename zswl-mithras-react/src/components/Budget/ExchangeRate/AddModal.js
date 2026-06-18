@@ -1,7 +1,7 @@
 import { getQuery, observer } from '@zswl/admin'
 import { Modal, Form, Select, InputNumber, DatePicker } from '@zswl/components'
 import dayjs from 'dayjs'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 const { Item } = Form
 

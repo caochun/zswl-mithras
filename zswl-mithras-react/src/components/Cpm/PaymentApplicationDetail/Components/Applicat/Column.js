@@ -1,8 +1,8 @@
 import { Input, Tooltip, Space, Radio, Row, Col, InputNumber } from 'antd'
-import { AmountEditable, AmountFormat, FiledFormat, DatePickerEditable } from '@/components/Format'
+
 import { Form ,App } from '@zswl/components'
 import { cloneElement } from 'react'
-import FormAmount from '@/components/Form/FormAmount'
+
 import { Select } from '@zswl/components'
 
 import { useEffect } from 'react'

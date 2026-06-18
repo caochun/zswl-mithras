@@ -1,9 +1,9 @@
 import { observer } from '@zswl/admin'
-import { RadioReadOnly, TextAreaReadOnly } from '@/components/Form/FormRead'
+
 import styles from '../style.less'
 import { options } from '@/utils'
 import { Row, Col, Tooltip } from 'antd'
-import FormTable from '@/components/Form/Table'
+
 import { tableRequired, columns } from '../Utils'
 import RowSpan from '../RowSpan'
 import { Form } from '@zswl/components'

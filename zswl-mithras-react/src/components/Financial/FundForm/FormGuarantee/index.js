@@ -8,7 +8,7 @@ import _ from 'lodash'
 import Api from '@/api/financial/orgManage'
 import FundApi from '@/api/financial/fundApi'
 import { useEffect, useMemo, useState } from 'react'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 
 function Index(props) {
   const { listName, addText = '请添加担保方', value } = props

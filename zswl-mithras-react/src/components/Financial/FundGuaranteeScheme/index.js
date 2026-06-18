@@ -6,7 +6,7 @@ import _ from 'lodash'
 import Api from '@/api/financial/orgManage'
 import FundApi from '@/api/financial/fundApi'
 import { useEffect, useMemo, useState } from 'react'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import useForceUpdate from '@/utils/hooks/useForceUpdate'
 import styles from './index.less'
 

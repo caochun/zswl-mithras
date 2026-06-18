@@ -4,7 +4,7 @@ import {
   DateColumn,
   InputColumn,
   MatchOptionColumn,
-} from '@/components/Format/defaultColumn'
+} from '@/components/Format'
 
 const initFormat = 1
 const parentFormat = 1 / 100

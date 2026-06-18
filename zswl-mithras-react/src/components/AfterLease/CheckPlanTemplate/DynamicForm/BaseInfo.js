@@ -1,5 +1,5 @@
 import { AmountEditable, DatePickerEditable } from '@/components/Format'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from '../../CheckPlanTemplateColumns'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'

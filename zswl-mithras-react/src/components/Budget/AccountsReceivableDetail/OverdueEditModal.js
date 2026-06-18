@@ -1,7 +1,7 @@
 import { Input, DatePicker } from 'antd'
 import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { ClientSelect } from '@/components'
 
 /**

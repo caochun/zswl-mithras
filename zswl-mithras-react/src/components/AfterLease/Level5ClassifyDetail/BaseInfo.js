@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { ALL_COLUMNS } from '../Level5ClassifyColumns'
 import { getDescColumns, isAssetJon } from '@/utils'
 import { observer } from '@zswl/admin'

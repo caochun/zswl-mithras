@@ -2,7 +2,7 @@ import { App, Form, Modal } from '@zswl/components'
 import { Input, InputNumber, Select } from 'antd'
 import { observer } from '@zswl/admin'
 import { formateCard, getInputNumberAmountProps, validatorMax } from '@/utils'
-import BankAccount from '@/components/Form/BankAccount'
+import { BankAccount } from '@/components/Form'
 
 const PayMentDetailsModal = observer(({ activeData, store }) => {
   const [form] = Form.useForm()

@@ -10,7 +10,7 @@ import {
 } from 'react'
 import Api from '@/api/financial/fundApi'
 import { compareDetail, getDescColumns, hasValue } from '@/utils'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from './Column'
 import { create, all } from 'mathjs'
 import { message } from 'antd'

@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { useMemo, useRef, useState } from 'react'
 import { RESULT_COLUMNS } from '../../../Level5ClassifyColumns'
 import { isAssetJon } from '@/utils'

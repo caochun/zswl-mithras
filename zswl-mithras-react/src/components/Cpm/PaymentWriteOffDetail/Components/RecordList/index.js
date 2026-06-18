@@ -7,7 +7,7 @@ import styles from '../../index.less'
 import { useMemo, useState } from 'react'
 import { Tabs } from 'antd'
 import BillManage from '../../../BillManage'
-import BankAccount from '@/components/Form/BankAccount'
+import { BankAccount } from '@/components/Form'
 import WriteOffModal from './WriteOffModal'
 import { saveServer } from '@/utils'
 

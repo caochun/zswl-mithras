@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { observer } from '@zswl/admin'
 import { Table, Modal, Tabs, Page, App } from '@zswl/components'
-import { AmountColumn, MatchOptionColumn } from '@/components/Format/defaultColumn'
+import { AmountColumn, MatchOptionColumn } from '@/components/Format'
 import { EditDescription } from '@/components'
 import { Col, Row } from 'antd'
 import Store from './store'

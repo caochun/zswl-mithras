@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { TextAreaEditable } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { NoEnumFileTable } from '@/components'

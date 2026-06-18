@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from '@/components/PaymentApplyColumns'
 import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'

@@ -1,4 +1,4 @@
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { Table } from '@zswl/components'
 
 export default function Index({

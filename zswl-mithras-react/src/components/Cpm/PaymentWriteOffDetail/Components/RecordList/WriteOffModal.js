@@ -11,10 +11,10 @@ import {
   TableStore,
 } from '@zswl/components'
 import { Alert, Checkbox, DatePicker, Divider, Input, InputNumber, message, Space, Tag } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+
 import styles from './index.less'
 import { forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'react'
-import { AmountColumn, DateColumn, InputColumn, MatchOptionColumn } from '@/components/Format'
+
 import { getTableColumns, options } from '@/utils'
 import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
 import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcessingCenterApi'

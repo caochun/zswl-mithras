@@ -1,4 +1,4 @@
-import EditTable from '@/components/Table/EditDescription'
+import { EditDescription as EditTable } from '@/components/Table'
 import ALL_COLUMNS from '../PaymentColumns'
 import { getDescColumns, hasPermission } from '@/utils'
 import { observer } from '@zswl/admin'

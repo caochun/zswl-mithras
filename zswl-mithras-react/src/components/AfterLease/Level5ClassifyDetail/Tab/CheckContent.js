@@ -1,4 +1,4 @@
-import DynamicDesc from '@/components/Table/DynamicDesc'
+import { DynamicDesc } from '@/components/Table'
 import { useEffect, useState } from 'react'
 import Api from '@/api/afterLease/level5Classify'
 import { FileTable } from '@/components'

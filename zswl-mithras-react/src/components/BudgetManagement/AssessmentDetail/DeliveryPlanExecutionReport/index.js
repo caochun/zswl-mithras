@@ -1,7 +1,7 @@
 import { observer, getQuery } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import { Table, TableStore, Button, App } from '@zswl/components'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 import api from '@/api/budgetManagement/assessmentApi'
 import { AmountColumn, AmountEditable } from '@/components/Format'
 import { message, Tooltip } from 'antd'

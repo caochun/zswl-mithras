@@ -1,5 +1,5 @@
 import { Row, Col, Space } from 'antd'
-import { RadioReadOnly, TextAreaReadOnly } from '@/components/Form/FormRead'
+
 import { Button, Form } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import styles from '../style.less'

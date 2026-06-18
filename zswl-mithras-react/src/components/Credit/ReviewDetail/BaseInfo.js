@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from '../CreditColumns'
 import UpdateButton from '@/components/UpdateRatingInfoButton'
 import { getDescColumns } from '@/utils'

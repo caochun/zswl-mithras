@@ -1,6 +1,6 @@
 import { Row, Col, Space, Input, Tooltip } from 'antd'
 import { observer } from '@zswl/admin'
-import FormAmount from '@/components/Form/FormAmount'
+
 import { Form, Select, App } from '@zswl/components'
 import IconFont from '@/components/Icon'
 import { rules, hasValue } from '@/utils'

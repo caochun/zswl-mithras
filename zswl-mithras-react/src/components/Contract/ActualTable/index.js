@@ -1,4 +1,4 @@
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 import { bizTypeMapText } from '../bizTypeConfig'
 import FormIrr from '@/components/FormIrr'
 import { formatPercent, rules, saveServer } from '@/utils'

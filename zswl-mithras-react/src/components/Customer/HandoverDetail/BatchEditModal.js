@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { observer } from '@zswl/admin'
 import { Modal } from '@zswl/components'
 import { useMemo } from 'react'

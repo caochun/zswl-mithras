@@ -1,6 +1,6 @@
 import rentCollectionApi from '@/api/afterLease/rentCollectionApi'
 import { DetailLayout } from '@/components'
-import { TextAreaReadOnly } from '@/components/Form/FormRead'
+import { TextAreaReadOnly } from '@/components/Form'
 import { AmountColumn } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Button, Form, Table, TableStore } from '@zswl/components'

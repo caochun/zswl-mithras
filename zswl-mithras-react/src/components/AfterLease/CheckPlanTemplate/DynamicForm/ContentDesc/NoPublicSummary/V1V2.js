@@ -3,7 +3,7 @@ import styles from '../style.less'
 import { options } from '@/utils'
 import { Row, Col } from 'antd'
 import { Form } from '@zswl/components'
-import { RadioReadOnly, TextAreaReadOnly } from '@/components/Form/FormRead'
+
 import RowSpan from '../RowSpan'
 
 const { yesOrNoString, templateStatus } = options

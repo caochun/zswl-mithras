@@ -12,7 +12,7 @@ import irrGenerationApi from '@/api/common/irrGenerationApi'
 import mathjs from '@/utils/math'
 import mock from './mock'
 import _ from 'lodash'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+
 import { saveServer } from '@/utils'
 
 const CashFlowStatementTable = ({ tableStore, dataSource, radioValue }) => {

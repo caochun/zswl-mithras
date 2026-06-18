@@ -1,4 +1,4 @@
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { observer } from '@zswl/admin'
 import { Space } from 'antd'
 

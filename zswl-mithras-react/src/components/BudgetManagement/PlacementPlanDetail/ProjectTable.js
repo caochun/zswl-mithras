@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { AmountColumn, DateColumn, MatchOptionColumn } from '@/components/Format'
 import { App, Table, TableStore } from '@zswl/components'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { Space } from 'antd'
 import { saveServer } from '@/utils'
 

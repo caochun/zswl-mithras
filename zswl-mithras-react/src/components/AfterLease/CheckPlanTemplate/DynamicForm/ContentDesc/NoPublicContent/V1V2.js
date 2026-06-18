@@ -4,9 +4,9 @@ import styles from '../style.less'
 import { options } from '@/utils'
 import { Row, Col, Tooltip } from 'antd'
 import { Form } from '@zswl/components'
-import { RadioReadOnly, TextAreaReadOnly } from '@/components/Form/FormRead'
+
 import { QuestionCircleOutlined } from '@ant-design/icons'
-import FormTable from '@/components/Form/Table'
+
 import SecondSource from '../SecondSource'
 import RowSpan from '../RowSpan'
 import { tableRequired, columns2 } from '../Utils'

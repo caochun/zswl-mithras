@@ -1,5 +1,5 @@
 import { observer, getQuery } from '@zswl/admin'
-import EditDescription from '@/components/Table/EditDescription'
+
 import ALL_COLUMNS from './Column'
 import { getDescColumns } from '@/utils'
 import PaymentDetail from './PaymentDetail'

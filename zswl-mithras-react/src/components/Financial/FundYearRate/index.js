@@ -1,6 +1,6 @@
 import { Form, Select, App } from '@zswl/components'
 import { Col, Row } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import mathjs from '@/utils/math'
 import { hasValue } from '@/utils'
 import Api from '@/api/financial/fundApi'

@@ -8,10 +8,10 @@ import Report from './Report'
 import Store from './store'
 import CashFlowStatement from './CashFlowStatement'
 import FormIrr from '@/components/FormIrr'
-import ApprovalDetail from '@/components/Table/ApprovalDetail'
+import { ApprovalDetail } from '@/components/Table'
 import DetailLayout from '@/components/DetailLayout'
 import FinancialReportStatistics from '../FinancialReportStatistics'
-import Approval from '@/components/Actions/Approval'
+import { ApprovalAction as Approval } from '@/components/Actions'
 
 const Index = ({
   params: { id },

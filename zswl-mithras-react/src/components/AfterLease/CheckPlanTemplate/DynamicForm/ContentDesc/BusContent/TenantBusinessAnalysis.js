@@ -1,8 +1,8 @@
 import { observer } from '@zswl/admin'
-import { TextAreaReadOnly } from '@/components/Form/FormRead'
+
 import { Row, Col } from 'antd'
 import { Form } from '@zswl/components'
-import FormTable from '@/components/Form/Table'
+
 import styles from '../style.less'
 import RowSpan from '../RowSpan'
 import { tableRequired, columns2, columns } from '../Utils'

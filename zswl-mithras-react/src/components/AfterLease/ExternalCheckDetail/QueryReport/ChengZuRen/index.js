@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { getDescColumns, getKeyOptionsLabelMapPlus } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { observer } from '@zswl/admin'

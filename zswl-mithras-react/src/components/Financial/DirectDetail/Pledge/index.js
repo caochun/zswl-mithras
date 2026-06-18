@@ -1,4 +1,4 @@
-import BankAccount from '@/components/Form/BankAccount'
+import { BankAccount } from '@/components/Form'
 import { InputColumn } from '@/components/Format'
 import IconFont from '@/components/Icon'
 import RenderColumn from '@/components/RenderColumn'

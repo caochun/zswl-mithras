@@ -1,4 +1,4 @@
-import BankAccount from '@/components/Form/BankAccount'
+import { BankAccount } from '@/components/Form'
 import { InputColumn, MatchOptionColumn } from '@/components/Format'
 
 const ALL_COLUMNS = [

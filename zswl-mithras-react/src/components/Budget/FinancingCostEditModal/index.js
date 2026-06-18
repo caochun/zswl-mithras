@@ -1,7 +1,7 @@
 import { Form, Modal } from '@zswl/components'
 import { rules } from '@/utils'
 import { DatePicker } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import moment from 'moment'
 
 const FinancingCostEditModal = ({ store }) => {

@@ -1,4 +1,4 @@
-import EditDescription from '@/components/Table/EditDescription'
+
 import { observer } from '@zswl/admin'
 
 function Index({ detail }) {

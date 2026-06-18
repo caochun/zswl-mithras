@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { amountFormat, downFile, formatPercent } from '@/utils'
 import Api from '../api'
 import moment from 'moment'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { saveServer } from '@/utils'
 import { AmountColumn } from '@/components/Format'
 

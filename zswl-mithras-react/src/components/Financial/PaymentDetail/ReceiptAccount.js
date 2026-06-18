@@ -1,7 +1,7 @@
 import { getQuery, observer } from '@zswl/admin'
 import ALL_COLUMNS from '../PaymentColumns'
 import { getTableColumns, hasPermission } from '@/utils'
-import CRUDTable from '@/components/Table/CRUDTable'
+import { CRUDTable } from '@/components/Table'
 import fundReceiptAccountApi from '@/api/financial/fundReceiptAccountApi'
 
 const nameColumns = ['客户名称', '账户名称', '银行账号', '开户行']

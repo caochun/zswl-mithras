@@ -4,7 +4,7 @@ import { getTableColumns, rules } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { useMemo } from 'react'
 import { Card, DatePicker, Input, Tooltip, message } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+
 import moment from 'moment'
 import Api from '../api'
 import { saveServer } from '@/utils'

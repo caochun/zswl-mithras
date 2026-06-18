@@ -5,10 +5,10 @@ import { ExclamationCircleOutlined } from '@ant-design/icons'
 import BaseInfo from './BaseInfo'
 import styles from './index.less'
 import Api from '@/api/postRentalInspection/rentalinsepectionreport'
-import FileTable from '@/components/Table/FileTable'
+
 import CheckContent from './ContentDesc/CheckContent'
 import DetailLayout from '@/components/DetailLayout'
-import { InputColumn } from '@/components/Format'
+
 
 import { columns, columns2 } from './ContentDesc/Utils'
 

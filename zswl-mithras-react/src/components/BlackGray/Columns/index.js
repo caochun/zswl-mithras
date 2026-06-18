@@ -10,7 +10,7 @@ import { options } from '@/utils'
 import { DatePicker, Tooltip } from 'antd'
 import moment from 'moment'
 import { App, Select } from '@zswl/components'
-import { TimeOutFormat } from '@/components/Format/base'
+
 
 const { periodUnderObservation } = options
 

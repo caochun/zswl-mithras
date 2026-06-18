@@ -3,7 +3,7 @@ import Api from '../../api'
 import { NoEnumFileTable } from '@/components'
 import { Button } from '@zswl/components'
 import { message } from 'antd'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+
 import { useRef } from 'react'
 
 const MODULE_TYPE = 'PAYMENT'

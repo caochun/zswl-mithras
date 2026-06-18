@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from '@/components/PolicyColumns'
 import { getDescColumns } from '@/utils'
 

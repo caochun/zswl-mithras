@@ -5,7 +5,7 @@ import { Input, Radio, Tooltip } from 'antd'
 import { options } from '@/utils'
 import { useEffect, useMemo } from 'react'
 import styles from './styles.less'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { saveServer } from '@/utils'
 
 const { approvalStatus } = options

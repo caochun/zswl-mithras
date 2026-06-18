@@ -6,7 +6,7 @@ import styles from './index.less'
 import ClientSelect from './ClientSelect'
 import { App } from '@zswl/components'
 import React, { useEffect, useMemo, useState } from 'react'
-import FormAmount from '@/components/Form/FormAmount'
+
 import { amountFormat, formatPercent } from '@/utils'
 import Store from '../../store'
 import { Table, TableStore } from '@zswl/components'

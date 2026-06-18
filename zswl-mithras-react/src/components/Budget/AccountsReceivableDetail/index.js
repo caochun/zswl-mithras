@@ -6,7 +6,7 @@ import store from './store'
 import ALL_COLUMNS from './Columns'
 import EditModal from './DetailEditModal'
 import OverdueEditModal from './OverdueEditModal'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 import { RentCollectionTermDetail as TermDetail } from '@/components/AfterLease/RentCollectionEntries'
 
 /**

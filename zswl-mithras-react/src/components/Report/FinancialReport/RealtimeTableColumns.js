@@ -1,4 +1,4 @@
-import { AmountColumn, DateColumn, MatchOptionColumn } from '@/components/Format/defaultColumn'
+import { AmountColumn, DateColumn, MatchOptionColumn } from '@/components/Format'
 import { App } from '@zswl/components'
 import _ from 'lodash'
 

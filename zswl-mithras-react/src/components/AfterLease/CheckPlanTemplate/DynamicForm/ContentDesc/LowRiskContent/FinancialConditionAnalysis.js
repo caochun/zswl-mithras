@@ -1,4 +1,4 @@
-import FormTable from '@/components/Form/Table'
+
 import { observer } from '@zswl/admin'
 import { Row, Col } from 'antd'
 import styles from '../style.less'

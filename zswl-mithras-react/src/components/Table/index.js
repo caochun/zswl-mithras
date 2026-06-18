@@ -9,7 +9,7 @@ import EditTable from './EditTable'
 import CRUDTable from './CRUDTable'
 import Summary from './Summary'
 import DetailTable from './DetailTable'
-export { noEnumDownloadAll } from './NoEnumFileTable'
+export { batchDownloadFile, noEnumDownloadAll } from './NoEnumFileTable'
 
 export {
   VersionTable,

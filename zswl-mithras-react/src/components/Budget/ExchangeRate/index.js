@@ -6,7 +6,7 @@ import { getTableColumns } from '@/utils'
 import ALL_COLUMNS from './Column'
 import AddModal from './AddModal'
 import { saveServer } from '@/utils'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 
 /**
  * 汇率设置页面主组件

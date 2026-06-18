@@ -5,7 +5,7 @@ import { Col, Input, Row } from 'antd'
 import styles from './index.less'
 import { history, observer } from '@zswl/admin'
 import _ from 'lodash'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { OrgListSelect } from '@/components/Select'
 
 function Index(props) {

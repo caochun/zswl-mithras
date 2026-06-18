@@ -1,5 +1,5 @@
 import { observer, getQuery } from '@zswl/admin'
-import CRUDTable from '@/components/Table/CRUDTable'
+import { CRUDTable } from '@/components/Table'
 import Api from '@/api/financial/fundApi'
 
 const columns = [

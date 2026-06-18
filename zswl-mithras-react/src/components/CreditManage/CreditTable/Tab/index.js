@@ -9,7 +9,7 @@ import Api from '@/api/credit/creditTable'
 import { ReadOnly } from '@/components'
 import Reason from '../Components/Reason'
 import DataFileList from '../Components/DataFileList'
-import Export from '@/components/Actions/Export'
+import { ExportAction as Export } from '@/components/Actions'
 
 const Index = (props) => {
   const {

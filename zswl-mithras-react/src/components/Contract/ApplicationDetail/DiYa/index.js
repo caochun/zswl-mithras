@@ -8,7 +8,7 @@ import CreateModal from './CreateModal'
 import RenderColumn from '@/components/RenderColumn'
 import Store from './store'
 import styles from './index.less'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 import { saveServer } from '@/utils'
 
 const Index = ({ baseStore, canEditFlag }) => {

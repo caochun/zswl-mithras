@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { useState, useEffect } from 'react'
 import { debounce as _debounce } from 'lodash'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { OrgListSelect } from '@/components/Select'
 import Api from '@/api/financial/fundApi'
 

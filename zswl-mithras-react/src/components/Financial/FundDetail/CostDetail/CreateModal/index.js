@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { debounce as _debounce } from 'lodash'
 import { Input, DatePicker, Checkbox } from 'antd'
-import FormAmount from '@/components/Form/FormAmount'
+
 
 const { Item } = Form
 

@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import EditDescription from '@/components/Table/EditDescription'
+import { EditDescription } from '@/components/Table'
 import { Table, Modal, Button, Form, Select, TableStore, App } from '@zswl/components'
 import styles from './style.less'
 import { DetailLayout } from '@/components'
@@ -16,11 +16,11 @@ import {
 import deliveryPlanDetailApi from '@/api/budgetManagement/deliveryPlanDetailApi'
 import { Input, message, Space } from 'antd'
 import { rules } from '@/utils'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import BaseInfoComponent from './BaseInfo'
 import { ImportAction } from '@/components/Actions'
 import Api from './api'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 
 const amountCommonProps = {
   editable: true,

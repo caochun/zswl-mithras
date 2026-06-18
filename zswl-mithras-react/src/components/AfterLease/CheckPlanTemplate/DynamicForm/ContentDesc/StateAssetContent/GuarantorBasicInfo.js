@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { TextAreaReadOnly, RadioReadOnly } from '@/components/Form/FormRead'
+
 import { Row, Col, Space } from 'antd'
 import { Form, Button } from '@zswl/components'
 import RowSpan from '../RowSpan'

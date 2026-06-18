@@ -5,14 +5,14 @@ import { useEffect, useMemo } from 'react'
 import styles from './index.less'
 import IconFont from '@/components/Icon'
 import classNames from 'classnames'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { ClientSelect, FounderSelect, OrgSelect } from '@/components'
 import { DateColumn, FiledFormat, MatchOptionColumn } from '@/components/Format'
 import { Cascader, DatePicker, Tooltip } from 'antd'
 import useGetIndustry from '@/utils/hooks/useGetIndusty'
 import { dateRangeTransform, rangePresets } from '@/utils'
 import { saveServer } from '@/utils'
-import TableExport from '@/components/Actions/TableExport'
+import { TableExportAction as TableExport } from '@/components/Actions'
 
 const processTypeList = [
   { key: 'totalClient', name: '总客户数', params: 'TOTAL' },

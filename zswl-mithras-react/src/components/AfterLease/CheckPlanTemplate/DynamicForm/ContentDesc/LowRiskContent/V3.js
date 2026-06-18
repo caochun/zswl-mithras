@@ -4,7 +4,7 @@ import styles from '../style.less'
 import { options } from '@/utils'
 import { Row, Col, Tooltip } from 'antd'
 import { Form } from '@zswl/components'
-import { RadioReadOnly, TextAreaReadOnly } from '@/components/Form/FormRead'
+
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import SecondSource from './SecondSource'
 import FinancialConditionAnalysis from './FinancialConditionAnalysis'

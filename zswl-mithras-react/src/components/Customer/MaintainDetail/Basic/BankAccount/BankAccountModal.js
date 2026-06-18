@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { Input } from 'antd'
 import { formateCard } from '@/utils'
-import BankAccount from '@/components/Form/BankAccount'
+
 
 const { Item } = Form
 const selectData = [

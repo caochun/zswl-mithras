@@ -6,7 +6,7 @@ import { OrgSelect, FounderSelect } from '@/components'
 import { isObject } from 'lodash'
 import styles from './index.less'
 import { observer, getQuery } from '@zswl/admin'
-import FormAmount from '@/components/Form/FormAmount'
+import { FormAmount } from '@/components/Form'
 import { AllocateTypeInfo, TagColor } from '@/utils/kpi'
 import { FiledFormat, PureAmountFormat } from '@/components/Format'
 

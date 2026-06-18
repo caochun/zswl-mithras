@@ -4,7 +4,7 @@ import creditReportApi from '@/api/credit/creditReportApi'
 import creditSearchProjectApi from '@/api/credit/creditSearchProjectApi'
 import creditSearchClientApi from '@/api/credit/creditSearchClientApi'
 import { message } from 'antd'
-import { batchDownloadFile } from '@/components/Table/NoEnumFileTable'
+
 import { downLoadExcel } from '@/components/Excel'
 
 const MODULE_TYPE = 'CREDIT_REPORT_SELECT'

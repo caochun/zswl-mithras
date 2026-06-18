@@ -3,7 +3,7 @@ import { rules } from '@/utils'
 import IconFont from '@/components/Icon'
 import { Row, Select, Space } from 'antd'
 import { observer } from '@zswl/admin'
-import FormAmount from '@/components/Form/FormAmount'
+
 import styles from './index.less'
 
 const { Item } = Form

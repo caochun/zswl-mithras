@@ -1,6 +1,6 @@
 import { Table, Button } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import DownloadTemplate from '@/components/Actions/DownloadTemplate'
+import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 import DataUpload from '@/components/DataUpload'
 import Api from '../api'
 import { message } from 'antd'
