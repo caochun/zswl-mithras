@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { Descriptions } from '@zswl/components'
 import { AmountEditable, DatePickerEditable } from '@/components/Format'
 import { amountFormat, formatPercent } from '@/utils'
-import Api from '../api'
+import Api from '@/api/financial/directFinancingDetail'
 
 function Index({ id, disabled }) {
   const [editable, setEditable] = useState(false)

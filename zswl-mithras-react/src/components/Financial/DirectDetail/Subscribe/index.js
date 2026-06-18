@@ -4,7 +4,7 @@ import { Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { amountFormat, downFile, formatPercent } from '@/utils'
 import { SubscribeOrgSelect, SubscribeBondSelect } from '@/components/Select'
-import Api from '../api'
+import Api from '@/api/financial/directFinancingDetail'
 import { AmountEditable } from '@/components/Format'
 import { saveServer } from '@/utils'
 

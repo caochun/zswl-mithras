@@ -1,5 +1,5 @@
 import { FileTable } from '@/components'
-import Api from '../api'
+import Api from '@/api/financial/directFinancingDetail'
 const Index = (props) => {
   const { id: mainId, disabled, businessVersion } = props
 

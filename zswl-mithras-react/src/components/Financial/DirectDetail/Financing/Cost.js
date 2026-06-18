@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import Api from '../api'
+import Api from '@/api/financial/directFinancingDetail'
 import { message } from 'antd'
 import { amountFormat, formatPercent } from '@/utils'
 import { AmountColumn, AmountEditable, DateColumn, MatchOptionColumn } from '@/components/Format'

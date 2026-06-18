@@ -1,5 +1,5 @@
 import { PageStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/financial/directFinancingDetail'
 
 class Store {
   page = new PageStore({

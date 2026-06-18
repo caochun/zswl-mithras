@@ -3,7 +3,7 @@ import { TableStore, ModalStore } from '@zswl/components'
 import { timeFormat } from '@/utils'
 import moment from 'moment'
 import { message, Modal } from 'antd'
-import Api from '../api'
+import Api from '@/api/financial/directFinancingDetail'
 import { debounce as _debounce } from 'lodash'
 import ApiFund from '@/api/financial/fundApi'
 

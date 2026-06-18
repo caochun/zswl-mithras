@@ -13,7 +13,7 @@ import Product from './Product'
 import Property from './Property'
 import Repay from './Repay'
 import Subscribe from './Subscribe'
-import Api from './api'
+import Api from '@/api/financial/directFinancingDetail'
 import Store from './store'
 
 function Index({ params: { id }, query = {} }) {

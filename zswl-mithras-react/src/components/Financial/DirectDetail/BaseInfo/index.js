@@ -4,7 +4,7 @@ import { Descriptions } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { dateRangeTransform } from '@/utils/transform'
 import { rangePresets, amountFormat, formatPercent } from '@/utils'
-import Api from '../api'
+import Api from '@/api/financial/directFinancingDetail'
 import moment from 'moment'
 import { AmountEditable, FiledFormat } from '@/components/Format'
 
