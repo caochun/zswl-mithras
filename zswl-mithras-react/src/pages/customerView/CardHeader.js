@@ -1,7 +1,7 @@
 import { history, observer } from '@zswl/admin'
 import IconFont from '@/components/Icon'
 import styles from './index.less'
-import { LineChart } from '@/components/Chart/LineChartEntries'
+import { LineChart } from '@/components/Chart/ChartEntries'
 import { useEffect, useState } from 'react'
 import customerViewApi from '@/api/customerView/customerOverviewApi'
 import dayjs from 'dayjs'

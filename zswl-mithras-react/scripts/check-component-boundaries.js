@@ -560,6 +560,11 @@ const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePa
   return /(?:Entries|entries)\.js$/.test(filePath) && entryPath.split('/').length === 2
 })
 const componentEntryImports = new Set()
+const compatibilityComponentEntries = new Set([
+  'Chart/BarChartEntries.js',
+  'Chart/LineChartEntries.js',
+  'Chart/TooltipEntries.js',
+])
 
 for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
   const source = fs.readFileSync(filePath, 'utf8')
@@ -646,14 +651,14 @@ const documentedComponentEntries = [...readme.matchAll(/^- `([^`]+(?:Entries|ent
 const documentedComponentEntrySet = new Set(documentedComponentEntries)
 
 for (const entryPath of actualComponentEntries) {
-  if (!componentEntryImports.has(entryPath)) {
+  if (!componentEntryImports.has(entryPath) && !compatibilityComponentEntries.has(entryPath)) {
     violations.push({
       file: `src/components/${entryPath}`,
       specifier: 'unused component entry',
     })
   }
 
-  if (!documentedComponentEntrySet.has(entryPath)) {
+  if (!documentedComponentEntrySet.has(entryPath) && !compatibilityComponentEntries.has(entryPath)) {
     violations.push({
       file: 'README.md',
       specifier: `missing component entry ${entryPath}`,

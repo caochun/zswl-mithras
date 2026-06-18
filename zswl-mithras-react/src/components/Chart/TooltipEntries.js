@@ -1,1 +1,1 @@
-export { getChartsTooltip, RenderTooltip } from './tooltip'
+export { getChartsTooltip, RenderTooltip } from './ChartEntries'

@@ -1,1 +1,1 @@
-export { default as BarChart } from './BarChart'
+export { BarChart } from './ChartEntries'

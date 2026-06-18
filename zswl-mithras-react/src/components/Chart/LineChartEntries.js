@@ -1,1 +1,1 @@
-export { default as LineChart } from './LineChart'
+export { LineChart } from './ChartEntries'
