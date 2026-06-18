@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { hasValue } from '@/utils'
 import { FormStore, PageStore } from '@zswl/components'
 import mathjs from '@/utils/math'
-import Api from '@/api/baseData/ftpQuarterlyGuidance'
+import Api from '@/api/budget/pricing/ftpQuarterlyGuidance'
 import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 
 class Store {

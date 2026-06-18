@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import Api from '@/api/baseData/ftpMaterialsFile'
+import Api from '@/api/budget/pricing/ftpMaterialsFile'
 import { NoEnumFileTable } from '@/components/Table'
 import { useCallback } from 'react'
 

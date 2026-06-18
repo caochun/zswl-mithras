@@ -62,6 +62,14 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/baseData/pricing/baseSet/ftpBaseSet',
     replacementPrefix: '@/api/budget/pricing/baseSet/ftpBaseSet',
   },
+  {
+    legacyPrefix: '@/api/baseData/ftpMaterialsFile',
+    replacementPrefix: '@/api/budget/pricing/ftpMaterialsFile',
+  },
+  {
+    legacyPrefix: '@/api/baseData/ftpQuarterlyGuidance',
+    replacementPrefix: '@/api/budget/pricing/ftpQuarterlyGuidance',
+  },
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 
