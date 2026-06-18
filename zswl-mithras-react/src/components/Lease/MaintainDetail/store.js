@@ -1,7 +1,7 @@
 import { TableStore, Modal, ModalStore, PageStore, App } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import Api from '@/api/lease/maintainApi'
-import evaluationAgencyApi from '@/api/evaluationAgency/evaluationAgencyApi'
+import evaluationAgencyApi from '@/api/lease/evaluationAgencyMaintainApi'
 import { message } from 'antd'
 import { uniqueId } from 'lodash'
 
