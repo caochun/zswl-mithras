@@ -308,13 +308,25 @@ const legacyApiPrefixRules = [
   {
     legacyPrefix: '@/api/cpm/payment/paymentApplicationDetail',
     replacementPrefix:
-      '@/api/process/detail/paymentApplicationDetailApi or @/api/cpm/payment/paymentApplicationDetail in Cpm domain',
+      '@/api/process/detail/paymentApplicationDetailApi, @/api/process/operation/paymentOperationApi, or @/api/cpm/payment/paymentApplicationDetail in Cpm domain',
     allowedSourceDomains: ['Cpm', 'cpm'],
     allowedSourcePathPrefixes: [
       'src/api/process/detail/paymentApplicationDetailApi.js',
+      'src/api/process/operation/paymentOperationApi.js',
       'src/cpm/PaymentApplicationUtils.js',
       'src/pages/cpm/',
       'src/pages/process/Detail/ZTabs/Operation/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/cpm/payment/publicInfoApi_edited',
+    replacementPrefix:
+      '@/api/process/operation/paymentPublicInfoApi or @/api/cpm/payment/publicInfoApi_edited in Cpm domain',
+    allowedSourceDomains: ['Cpm', 'cpm'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/operation/paymentPublicInfoApi.ts',
+      'src/components/Cpm/',
+      'src/pages/cpm/',
     ],
   },
   {
@@ -324,6 +336,17 @@ const legacyApiPrefixRules = [
     allowedSourceDomains: ['Project'],
     allowedSourcePathPrefixes: [
       'src/api/process/detail/projectReviewDetailApi.js',
+      'src/pages/project/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/project/projReviewFinancialReport',
+    replacementPrefix:
+      '@/api/process/operation/projectReviewFinancialReportApi or @/api/project/projReviewFinancialReport in Project domain',
+    allowedSourceDomains: ['Project'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/operation/projectReviewFinancialReportApi.js',
+      'src/components/Project/',
       'src/pages/project/',
     ],
   },
@@ -355,6 +378,7 @@ const legacyApiPrefixRules = [
     allowedSourceDomains: ['Customer'],
     allowedSourcePathPrefixes: [
       'src/api/process/detail/customerRatingApi.js',
+      'src/api/process/operation/customerRatingOperationApi.js',
       'src/api/project/ratingApi.js',
       'src/customer/CustomerRatUtils.js',
       'src/pages/customer/',
@@ -367,6 +391,17 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/common/selectApi for select dictionaries or @/api/customer/clientBasic in Customer domain',
     allowedSourceDomains: ['Customer'],
     allowedSourcePathPrefixes: [
+      'src/pages/customer/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/customer/maintainApi',
+    replacementPrefix:
+      '@/api/process/application/customerMaintainApi or @/api/customer/maintainApi in Customer domain',
+    allowedSourceDomains: ['Customer'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/application/customerMaintainApi.js',
+      'src/components/Customer/',
       'src/pages/customer/',
     ],
   },

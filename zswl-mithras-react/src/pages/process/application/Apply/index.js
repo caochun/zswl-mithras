@@ -8,7 +8,7 @@ import {
   ProcessTypeTree,
 } from '@/components/Process/ProcessEntries'
 import { saveServer } from '@/utils'
-import customeApi from '@/api/customer/maintainApi'
+import customeApi from '@/api/process/application/customerMaintainApi'
 
 const { Item } = SearchBar
 
