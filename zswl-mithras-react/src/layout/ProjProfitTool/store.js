@@ -1,6 +1,6 @@
 import { TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/header/projProfitTool'
+import Api from '@/api/kpi/projProfit/profitCalculateTool'
 
 class Store {
   constructor() {
