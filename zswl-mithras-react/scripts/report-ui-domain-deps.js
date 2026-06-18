@@ -28,7 +28,6 @@ const ignoredSourcePathPatterns = [
 
 const orchestrationComponentRoots = new Set([
   'Process',
-  'ProcessInfoModal',
 ])
 
 const orchestrationTargetScopes = new Set([
@@ -64,7 +63,6 @@ const publicComponentRoots = new Set([
   'PageListDown',
   'PaymentApplyColumns',
   'PolicyColumns',
-  'ProcessInfoModal',
   'RadioTabs',
   'ReadOnly',
   'RegionCascader',

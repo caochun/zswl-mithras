@@ -1,8 +1,6 @@
 import { Modal, Button, ModalStore } from '@zswl/components'
-import {
-  ProcessApprovalHistory as ApprovalHistory,
-  ProcessBpmnFlowChart as BpmnFlowChart,
-} from '@/components/Process/ProcessEntries'
+import ApprovalHistory from '../ApprovalHistory'
+import BpmnFlowChart from '../BpmnFlowChart'
 import { Card } from 'antd'
 
 const ProcessInfoModal = ({ store, processInstanceId }) => {
