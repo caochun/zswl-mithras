@@ -1,10 +1,10 @@
 import { DrawerStore, FormStore, Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import accountsOverdueApi from '@/api/financial/accountsReceivable/accountsOverdueApi'
-import integrationApi from '@/api/financial/accountsReceivable/integrationApi'
+import accountsOverdueApi from '@/api/budget/accountsReceivable/accountsOverdueApi'
+import integrationApi from '@/api/budget/accountsReceivable/integrationApi'
 import { message } from 'antd'
 import moment from 'moment'
-import submitApi from '@/api/financial/accountsReceivable/submitApi'
+import submitApi from '@/api/budget/accountsReceivable/submitApi'
 
 /**
  * 应收账款详情页面的数据管理store

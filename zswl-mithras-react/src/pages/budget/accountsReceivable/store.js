@@ -1,8 +1,8 @@
 import { history, makeAutoObservable } from '@zswl/admin'
 import { ModalStore, TableStore, Modal } from '@zswl/components'
 import { message } from 'antd'
-import api from '@/api/financial/accountsReceivable/accountsOverdueApi'
-import reportPlanApi from '@/api/financial/accountsReceivable/reportPlanApi'
+import moment from 'moment'
+import reportPlanApi from '@/api/budget/accountsReceivable/reportPlanApi'
 
 /**
  * 应收账款页面的数据管理Store

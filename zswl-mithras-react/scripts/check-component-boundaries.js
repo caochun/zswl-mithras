@@ -44,6 +44,9 @@ const legacyApiDomains = new Map([
   ['riskControl', 'risk'],
   ['workbench', 'dashboard'],
 ])
+const legacyApiPrefixes = new Map([
+  ['@/api/financial/accountsReceivable', '@/api/budget/accountsReceivable'],
+])
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 
 function normalizeEntryPath(filePath) {
@@ -78,6 +81,16 @@ function walk(dir, files = []) {
   return files
 }
 
+function getLegacyApiPrefixReplacement(specifier) {
+  for (const [legacyPrefix, replacementPrefix] of legacyApiPrefixes) {
+    if (specifier === legacyPrefix || specifier.startsWith(`${legacyPrefix}/`)) {
+      return replacementPrefix
+    }
+  }
+
+  return null
+}
+
 const violations = []
 const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePath) => {
   const entryPath = normalizeEntryPath(filePath)
@@ -96,6 +109,7 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
     const isComponentImport = specifier.startsWith('@/components/')
     const isPageImport = pageImportPattern.test(specifier)
     const [, legacyApiDomain] = specifier.match(legacyApiImportPattern) || []
+    const legacyApiPrefixReplacement = getLegacyApiPrefixReplacement(specifier)
     const [, componentRootImportDomain] = specifier.match(componentRootImportPattern) || []
 
     const [, targetComponentEntryDomain] = specifier.match(componentEntryPathPattern) || []
@@ -113,6 +127,11 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
       violations.push({
         file: relativeFilePath,
         specifier: `${specifier} (use @/api/${legacyApiDomains.get(legacyApiDomain)} semantic entry)`,
+      })
+    } else if (legacyApiPrefixReplacement) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use ${legacyApiPrefixReplacement} semantic entry)`,
       })
     } else if (stabilizedComponentRootImports.has(componentRootImportDomain)) {
       violations.push({
