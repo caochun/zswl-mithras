@@ -93,7 +93,8 @@
 - `Risk/PublicMonitorEntries.js`
 - `Risk/RelateMonitorEntries.js`
 - `Risk/SourceCardEntries.js`
-- `TrackEvent/ModalEntries.js`
+- `TrackEvent/TrackAddModalEntries.js`
+- `TrackEvent/TrackModalEntries.js`
 - `TrackEvent/TrackingEntries.js`
 
 ## 依赖规则
