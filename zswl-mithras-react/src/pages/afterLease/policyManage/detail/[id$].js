@@ -2,11 +2,13 @@ import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import { useMemo } from 'react'
 import DetailLayout from '@/components/DetailLayout'
-import ContractInfo from '@/components/AfterLease/PolicyManageDetail/ContractInfo'
-import PolicyInfo from '@/components/AfterLease/PolicyManageDetail/PolicyInfo'
-import PolicyContract from '@/components/AfterLease/PolicyManageDetail/PolicyContract'
-import PolicyMaterial from '@/components/AfterLease/PolicyManageDetail/PolicyMaterial'
-import MaterialList from '@/components/AfterLease/PolicyManageDetail/MaterialList'
+import {
+  AfterLeasePolicyManageContractInfo as ContractInfo,
+  AfterLeasePolicyManageMaterialList as MaterialList,
+  AfterLeasePolicyManagePolicyContract as PolicyContract,
+  AfterLeasePolicyManagePolicyInfo as PolicyInfo,
+  AfterLeasePolicyManagePolicyMaterial as PolicyMaterial,
+} from '@/components/AfterLease/RentCollectionEntries'
 import Store from './store'
 
 const Index = ({ params: { id }, query: { dataSource } }) => {
