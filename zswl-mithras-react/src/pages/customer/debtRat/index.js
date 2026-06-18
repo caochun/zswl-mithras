@@ -1,1 +1,1 @@
-export { CustomerDebtRat as default } from '@/components/Customer/CustomerEntries'
+export { CustomerDebtRat as default } from '@/components/Customer/RatingEntries'

@@ -1,5 +1,5 @@
 import { getQuery, observer } from '@zswl/admin'
-import { CustomerSingleViewRisk as SingleViewRisk } from '@/components/Customer/CustomerEntries'
+import { CustomerSingleViewRisk as SingleViewRisk } from '@/components/Customer/PublicInfoEntries'
 
 function Index({ path, id, enterpriseName }) {
     return (
