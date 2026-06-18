@@ -1,7 +1,7 @@
 import styles from '../index.less'
 import { observer } from '@zswl/admin'
 import { FileTable } from '@/components/Table'
-import dataListApi from '@/api/common/dataList'
+import dataListApi from '@/api/common/materialsApi'
 import { App, Button } from '@zswl/components'
 import _ from 'lodash'
 

@@ -1,5 +1,5 @@
 /* prettier-ignore-start */
-import * as Types from './interface/dataList'
+import * as Types from './interface/materialsApi'
 import { http } from '@zswl/admin'
 
 const mock = false

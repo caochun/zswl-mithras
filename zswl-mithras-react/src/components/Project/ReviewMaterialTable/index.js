@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { FileTable } from '@/components/Table'
 import { App, Button } from '@zswl/components'
 import { history, getQuery } from '@zswl/admin'
-import dataListApi from '@/api/common/dataList'
+import dataListApi from '@/api/common/materialsApi'
 
 const nameMap = {
   PROJ_REVIEW: '项目评审资料',

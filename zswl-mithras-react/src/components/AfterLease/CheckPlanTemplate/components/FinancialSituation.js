@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Api from '@/api/afterLease/rentalInspectionReport'
-import commonApi from '@/api/common/dataList'
+import commonApi from '@/api/common/materialsApi'
 import { FileTable } from '@/components/Table'
 
 const enumType = [{ label: '财务数据', value: 'CHECK_REPORT_PUBLIC_FINANCE' }]

@@ -549,6 +549,10 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/common/fileCompareApi for file compare APIs',
   },
   {
+    legacyPrefix: '@/api/common/dataList',
+    replacementPrefix: '@/api/common/materialsApi',
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],

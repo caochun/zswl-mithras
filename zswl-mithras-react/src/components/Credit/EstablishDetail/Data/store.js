@@ -3,7 +3,7 @@ import { ModalStore } from '@zswl/components'
 import { message } from 'antd'
 import rootStore from '../store'
 import { downFile } from '@/utils'
-import Api from '@/api/common/dataList'
+import Api from '@/api/common/materialsApi'
 class Store {
   constructor() {
     makeAutoObservable(this)

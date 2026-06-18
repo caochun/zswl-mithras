@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import Api from './api'
-import commonApi from '@/api/common/dataList'
+import commonApi from '@/api/common/materialsApi'
 import { NoEnumFileTable } from '@/components/Table'
 import { downFile } from '@/utils/downFunction'
 
