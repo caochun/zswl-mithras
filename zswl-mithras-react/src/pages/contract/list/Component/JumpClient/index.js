@@ -1,1 +1,1 @@
-export { JumpClient as default } from '@/components/JumpClient/JumpClientEntries'
+export { ContractJumpClient as default } from '@/components/Contract/ListDetailEntries'

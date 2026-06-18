@@ -3,7 +3,6 @@ import { Button, Table, App } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { Space, Tooltip } from 'antd'
 import IconFont from '@/components/Icon'
-import { JumpClient } from '@/components/JumpClient/JumpClientEntries'
 import RenderColumn from '@/components/RenderColumn'
 import CreateModal from './CreateModal'
 import { hasValue } from '@/utils'
@@ -12,6 +11,7 @@ import mathjs from '@/utils/math'
 import styles from './index.less'
 import { MatchOptionColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
+import JumpClient from '../../JumpClient'
 
 const Index = ({ canEditFlag, baseStore, yuYingJingBanCanEdit }) => {
   const canEdit = canEditFlag || yuYingJingBanCanEdit

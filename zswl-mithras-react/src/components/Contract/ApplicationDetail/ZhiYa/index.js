@@ -4,12 +4,12 @@ import { Tooltip, Space } from 'antd'
 import { observer } from '@zswl/admin'
 import IconFont from '@/components/Icon'
 import CreateModal from './CreateModal'
-import { JumpClient } from '@/components/JumpClient/JumpClientEntries'
 import RenderColumn from '@/components/RenderColumn'
 import Store from './store'
 import styles from './index.less'
 import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 import { saveServer } from '@/utils'
+import JumpClient from '../../JumpClient'
 
 const Index = ({ baseStore, canEditFlag }) => {
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()

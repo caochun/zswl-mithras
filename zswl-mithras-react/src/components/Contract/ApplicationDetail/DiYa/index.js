@@ -1,5 +1,4 @@
 import { useMemo, useEffect } from 'react'
-import { JumpClient } from '@/components/JumpClient/JumpClientEntries'
 import { Button, Table, App } from '@zswl/components'
 import { Tooltip, Space } from 'antd'
 import { observer } from '@zswl/admin'
@@ -10,6 +9,7 @@ import Store from './store'
 import styles from './index.less'
 import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 import { saveServer } from '@/utils'
+import JumpClient from '../../JumpClient'
 
 const Index = ({ baseStore, canEditFlag }) => {
   const { isFormApproval, contractId, businessVersion } = baseStore.page.getParams()

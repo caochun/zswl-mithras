@@ -1,13 +1,13 @@
 import { useEffect, useMemo } from 'react'
 import { Table, App } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import { JumpClient } from '@/components/JumpClient/JumpClientEntries'
 import RenderColumn from '@/components/RenderColumn'
 import CreateModal from './CreateModal'
 import Store from './store'
 import styles from './index.less'
 import { MatchOptionColumn } from '@/components/Format'
 import { saveServer } from '@/utils'
+import JumpClient from '../../JumpClient'
 
 const Index = ({ canEditFlag, baseStore }) => {
   const { bizType } = baseStore

@@ -55,7 +55,6 @@ const publicComponentRoots = new Set([
   'Format',
   'FormulaValueTip',
   'Icon',
-  'JumpClient',
   'PageListDown',
   'PaymentApplyColumns',
   'ReadOnly',

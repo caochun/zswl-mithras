@@ -29,7 +29,6 @@ const stabilizedComponentRootImports = new Map([
   ['Dashboard', 'Dashboard/DashboardEntries'],
   ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
   ['FileDiff', 'FileDiff/FileDiffEntries'],
-  ['JumpClient', 'JumpClient/JumpClientEntries'],
   ['PaymentApplyColumns', 'PaymentApplyColumns/PaymentApplyColumnsEntries'],
   ['Policy', 'Policy/PolicyEntries'],
 ])
