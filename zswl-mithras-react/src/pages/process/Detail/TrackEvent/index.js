@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import { TrackingDetail as LeaseTrack } from '@/components/TrackEvent/TrackingEntries'
+import { TrackEventDetail as LeaseTrack } from '@/components/TrackEvent/TrackEventEntries'
 
 const Index = (props) => {
   const { id, businessVersion, modelKey, taskActivityId, taskStatus } = props

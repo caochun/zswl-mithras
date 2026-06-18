@@ -1,5 +1,7 @@
-export { default as TrackingAddModal } from './Tracking/AddModal'
-export { default as TrackingColumns } from './Tracking/Column'
-export { default as TrackingDetail } from './Tracking/detail'
-export { default as TrackingList } from './Tracking/List'
-export { default as TrackingModal } from './TrackModal'
+export {
+  TrackEventAddModal as TrackingAddModal,
+  TrackEventColumns as TrackingColumns,
+  TrackEventDetail as TrackingDetail,
+  TrackEventList as TrackingList,
+  TrackEventModal as TrackingModal,
+} from './TrackEventEntries'

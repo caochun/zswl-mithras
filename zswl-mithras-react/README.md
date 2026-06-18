@@ -152,7 +152,7 @@
 - `Risk/PublicMonitorListEntries.js`
 - `Risk/RelateMonitorEntries.js`
 - `Risk/SourceCardEntries.js`
-- `TrackEvent/TrackingEntries.js`
+- `TrackEvent/TrackEventEntries.js`
 - `WhiteList/WhiteListEntries.js`
 
 ## 依赖规则
@@ -172,6 +172,7 @@
 - `ClientFileTable/ClientFileTableEntries.js` 仅保留为历史兼容入口，新代码应使用 `ClientMaterialTable/ClientMaterialTableEntries.js`。
 - `CheckBusiness/CheckBusinessEntries.js` 仅保留为历史兼容入口，新代码应使用 `BusinessInfoCheck/BusinessInfoCheckEntries.js`。
 - `Policy/PolicyEntries.js` 仅保留为历史兼容入口，新代码应使用 `InsurancePolicy/InsurancePolicyEntries.js`。
+- `TrackEvent/TrackingEntries.js` 仅保留为历史兼容入口，新代码应使用 `TrackEvent/TrackEventEntries.js`。
 - 权限页 Bifrost iframe、付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/pages/budget/flowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 金额输入已回收到 `src/components/Cpm/AmountNumber`，跨层使用应通过 `Cpm/CpmEntries.js`。

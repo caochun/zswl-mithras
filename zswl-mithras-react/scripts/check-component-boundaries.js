@@ -36,6 +36,7 @@ const stabilizedComponentRootImports = new Map([
   ['PaymentApplyColumns', 'PaymentFtpColumns/PaymentFtpColumnsEntries'],
   ['PaymentFtpColumns', 'PaymentFtpColumns/PaymentFtpColumnsEntries'],
   ['Policy', 'InsurancePolicy/InsurancePolicyEntries'],
+  ['TrackEvent', 'TrackEvent/TrackEventEntries'],
 ])
 const stableTableRootImports = new Set([
   'ApprovalDetail',
@@ -679,6 +680,7 @@ const compatibilityComponentEntries = new Set([
   'FileDiff/FileDiffEntries.js',
   'PaymentApplyColumns/PaymentApplyColumnsEntries.js',
   'Policy/PolicyEntries.js',
+  'TrackEvent/TrackingEntries.js',
 ])
 
 for (const filePath of sourceFiles) {
