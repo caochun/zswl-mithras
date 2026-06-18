@@ -2,11 +2,11 @@ import { useMemo, useEffect } from 'react'
 import { Page } from '@zswl/components'
 import { observer, setSessionStorage } from '@zswl/admin'
 import { Drawer, Radio } from 'antd'
-import { CreditTableTab as Tab } from '@/components/CreditManage/CreditTable/entries'
+import { CreditTableTab as Tab } from '@/components/CreditManage/CreditManageEntries'
 import {
   CreditTableFinishAccount as AccountView,
   CreditTableFinishBatch as BatchView,
-} from '@/components/CreditManage/CreditTable/entries'
+} from '@/components/CreditManage/CreditManageEntries'
 import Store from './store'
 import { CREATETABLE_PARAMS } from '@/components/CreditManage/CreditTableConfig'
 import Export from '@/components/Actions/Export'

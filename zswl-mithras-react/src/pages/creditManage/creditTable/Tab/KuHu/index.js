@@ -1,1 +1,1 @@
-export { CreditTableKuHu as default } from '@/components/CreditManage/CreditTable/entries'
+export { CreditTableKuHu as default } from '@/components/CreditManage/CreditManageEntries'

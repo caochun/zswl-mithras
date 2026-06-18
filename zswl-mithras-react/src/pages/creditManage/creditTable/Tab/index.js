@@ -1,1 +1,1 @@
-export { CreditTableTab as default } from '@/components/CreditManage/CreditTable/entries'
+export { CreditTableTab as default } from '@/components/CreditManage/CreditManageEntries'

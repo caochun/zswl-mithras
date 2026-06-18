@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { CreditTableWait as CreditTable } from '@/components/CreditManage/CreditTable/entries'
+import { CreditTableWait as CreditTable } from '@/components/CreditManage/CreditManageEntries'
 
 const Index = (props) => {
   const { canEditFlag, businessKey, businessVersion, processInstanceId } = props

@@ -1,1 +1,1 @@
-export { CreditTableBaoZheng as default } from '@/components/CreditManage/CreditTable/entries'
+export { CreditTableBaoZheng as default } from '@/components/CreditManage/CreditManageEntries'
