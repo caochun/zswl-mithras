@@ -1,4 +1,4 @@
-import { LeaseItemListContent } from '@/components/Contract/Detail/LeaseItemList'
+import { LeaseItemListContent } from '@/components/Contract/DetailEntries'
 
 const Index = ({ businessVersion, contractId, isChange }) => {
   return (

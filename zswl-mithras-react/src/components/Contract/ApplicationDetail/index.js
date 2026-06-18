@@ -9,11 +9,14 @@ import ShiJiZuJin from './ShiJiZuJin'
 import ChengZuRen from './ChengZuRen' // 租赁、转租赁场景 - ZL、ZZ
 import HuiKuan from './HuiKuan' // 保理、债权转让场景- BL、ZR
 import ShouKuan from './ShouKuan'
-import ZuLinWu from '@/components/Contract/Detail/LeaseItemList'
+import {
+  ContractDetailBaoJia as BaoJia,
+  ContractDetailContext as Context,
+  ContractDetailLeaseItemList as ZuLinWu,
+} from '@/components/Contract/DetailEntries'
 import DanBao from './DanBao'
 import ZhiYa from './ZhiYa'
 import DiYa from './DiYa'
-import BaoJia from '@/components/Contract/Detail/BaoJia'
 import HeTong from '@/components/Contract/ContractText'
 import ZiLiao from '@/components/Contract/ContractMaterials'
 import ContractTextType from './ContractTextType'
@@ -30,7 +33,6 @@ import TrackModal from '@/components/TrackEvent/TrackModal'
 import ZhongDengButton from '@/components/ZhongDengButton'
 import EvaluationAgency from '@/components/EvaluationAgency'
 import MeetingModal from '@/components/Project/ReviewMeetingModal'
-import { Context } from '@/components/Contract/Detail/Context'
 
 const Index = ({
   params: { id },

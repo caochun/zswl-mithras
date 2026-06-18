@@ -1,7 +1,7 @@
 import ActualTable from '@/components/Contract/ActualTable'
 import PaymentApply from '@/components/Contract/PaymentApply'
 import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
-import CantractDetailBaoJia from '@/components/Contract/Detail/BaoJia'
+import { ContractDetailBaoJia as CantractDetailBaoJia } from '@/components/Contract/DetailEntries'
 import CantractDetailBaseInfo from '@/components/Contract/BaseInfo'
 import { formScrollToField, timeFormat } from '@/utils'
 import { getQuery, history, observer } from '@zswl/admin'
