@@ -1,1 +1,1 @@
-export { default } from '@/components/Project/ReviewDetail/Report'
+export { ReviewDetailReport as default } from '@/components/Project/ReviewDetailEntries'

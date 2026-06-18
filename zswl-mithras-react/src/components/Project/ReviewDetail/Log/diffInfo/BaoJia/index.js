@@ -3,7 +3,7 @@ import {
   ReviewAssignmentOfClaimsQuotationScheme,
   ReviewFactoringQuotationScheme,
   ReviewLeaseQuotationScheme,
-} from '@/components/Project/ReviewDetail/QuotationScheme'
+} from '../../../QuotationScheme'
 
 const Index = ({ bizType, detail, showValue, isLog }) => {
   const CurrentDom = useMemo(() => {

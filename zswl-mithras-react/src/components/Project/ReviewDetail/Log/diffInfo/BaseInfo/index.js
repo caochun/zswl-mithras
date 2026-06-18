@@ -4,7 +4,7 @@ import {
   ReviewFactoringBaseInfo,
   ReviewLeaseBaseInfo,
   ReviewTurnLeaseBaseInfo,
-} from '@/components/Project/ReviewDetail/BaseInfo'
+} from '../../../BaseInfo'
 
 const Index = ({ bizType, detail, isLog }) => {
   const CurrentDom = useMemo(() => {

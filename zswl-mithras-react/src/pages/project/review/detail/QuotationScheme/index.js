@@ -1,1 +1,1 @@
-export { default } from '@/components/Project/ReviewDetail/QuotationScheme'
+export { ReviewDetailQuotationScheme as default } from '@/components/Project/ReviewDetailEntries'
