@@ -23,6 +23,7 @@ const domainAliases = new Map([
   ['login', 'permission'],
   ['monitorEarly', 'risk'],
   ['msgNotification', 'message'],
+  ['utils', 'common'],
 ])
 const ignoredSourcePathPatterns = [
   /^src[\\/]api[\\/]/,
