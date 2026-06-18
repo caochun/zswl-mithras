@@ -1,5 +1,5 @@
 // 转换资产负债表数据的函数
-import financialReportApi from '@/api/financialReport/financialReportApi'
+import financialReportApi from '@/api/report/financialReportApi'
 
 // 资产负债表数据配置
 const balanceSheetColumns = [

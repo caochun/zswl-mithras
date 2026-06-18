@@ -1,7 +1,7 @@
 import { App, Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import Api from '@/api/common/fileList'
-import financialReportApi from '@/api/financialReport/financialReportApi'
+import financialReportApi from '@/api/report/financialReportApi'
 import { downFile, downUrl } from '@/utils'
 import { message } from 'antd'
 

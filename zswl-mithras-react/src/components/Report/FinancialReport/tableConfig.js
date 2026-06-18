@@ -1,4 +1,4 @@
-import financialReportApi from '@/api/financialReport/financialReportApi'
+import financialReportApi from '@/api/report/financialReportApi'
 import {
   transformProfitData,
   transformBusinessSituationData,

@@ -1,4 +1,4 @@
-import financialReportApi from '@/api/financialReport/financialReportApi'
+import financialReportApi from '@/api/report/financialReportApi'
 
 // 实体经济服务数据配置
 const entityEconomyServiceColumns = [

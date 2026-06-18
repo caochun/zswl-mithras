@@ -7,6 +7,14 @@ const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
 const apiImportPattern = /^@\/api\/([^/'"]+)(?:\/[^'"]*)?$/
+const domainAliases = new Map([
+  ['blackListManage', 'blackGray'],
+  ['financialReport', 'report'],
+])
+
+function normalizeDomain(domain) {
+  return domainAliases.get(domain) || domain
+}
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) {
@@ -30,7 +38,7 @@ function getSourceScope(relativeFilePath) {
   if (componentDomain) {
     return {
       key: `components/${componentDomain}`,
-      domain: componentDomain,
+      domain: normalizeDomain(componentDomain),
     }
   }
 
@@ -38,7 +46,7 @@ function getSourceScope(relativeFilePath) {
   if (pageDomain) {
     return {
       key: `pages/${pageDomain}`,
-      domain: pageDomain,
+      domain: normalizeDomain(pageDomain),
     }
   }
 
@@ -46,7 +54,7 @@ function getSourceScope(relativeFilePath) {
   if (sourceArea) {
     return {
       key: sourceArea,
-      domain: sourceArea,
+      domain: normalizeDomain(sourceArea),
     }
   }
 

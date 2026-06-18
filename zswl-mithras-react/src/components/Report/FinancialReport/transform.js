@@ -1,4 +1,4 @@
-import financialReportApi from '@/api/financialReport/financialReportApi'
+import financialReportApi from '@/api/report/financialReportApi'
 
 // 利润表数据配置
 const profitColumns = [
