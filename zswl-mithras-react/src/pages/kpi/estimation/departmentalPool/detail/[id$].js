@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Table, Button, Page } from '@zswl/components'
 import { getTableColumns } from '@/utils'
-import { PersonItem, DepartMentalItem } from '@/components/Kpi/EstimationFields'
+import { PersonItem, DepartMentalItem } from '@/components/Kpi/KpiEstimationEntries'
 import moduleColumns from '../Column'
 import moment from 'moment'
 import store from '../store'
