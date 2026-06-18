@@ -28,7 +28,7 @@ import CheckBusiness from '@/components/CheckBusiness'
 import LeaseZiLiao from '@/components/Contract/LeaseMaterials'
 import TrackModal from '@/components/TrackEvent/TrackModal'
 import ZhongDengButton from '@/components/ZhongDengButton'
-import EvaluationAgency from '@/components/Lease/EvaluationAgency'
+import EvaluationAgency from '@/components/EvaluationAgency'
 import MeetingModal from '@/components/Project/ReviewMeetingModal'
 import { Context } from '@/components/Contract/Detail/Context'
 

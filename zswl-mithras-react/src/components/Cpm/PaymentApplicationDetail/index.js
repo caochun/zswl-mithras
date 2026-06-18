@@ -17,7 +17,7 @@ import PublicInformation from '@/components/Cpm/PaymentApplication/PublicInforma
 import { jumpZhongDeng } from '@/utils'
 import ZhongDengButton from '@/components/ZhongDengButton'
 import PublicCheckModal from '@/components/Cpm/PaymentApplication/PublicCheckModal'
-import EvaluationAgency from '@/components/Lease/EvaluationAgency'
+import EvaluationAgency from '@/components/EvaluationAgency'
 import ZhongDengregistration from './ZhongDengregistration'
 import MeetingModal from '@/components/Project/ReviewMeetingModal'
 import CreditModal from '@/components/Credit/CreditSearchModal'
