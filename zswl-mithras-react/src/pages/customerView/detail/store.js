@@ -1,8 +1,7 @@
 import { PageStore, TableStore } from '@zswl/components'
 import { http, makeAutoObservable } from '@zswl/admin'
-import blackListApi from '@/api/blackGray/queryExternalDataApi'
+import blackListApi from '@/api/customerView/blackGrayApi'
 import Api from './api'
-import { history } from '@zswl/admin'
 
 class Store {
   constructor() {

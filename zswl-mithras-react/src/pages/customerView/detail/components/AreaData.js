@@ -8,7 +8,7 @@ import { AmountColumn } from '@/components/Format'
 import { Divider } from 'antd'
 import { saveServer } from '@/utils'
 
-import customerUnifiedViewController from '@/api/risk/customerUnifiedViewController'
+import customerUnifiedViewController from '@/api/customerView/riskAreaApi'
 // 评价详情弹窗组件
 const RatingDetailModal = observer(({ store }) => {
   const { rateDetail } = store.getInitialValues() ?? {}

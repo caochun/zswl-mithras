@@ -1,10 +1,9 @@
-import { history, http, observer } from '@zswl/admin'
+import { history, observer } from '@zswl/admin'
 import IconFont from '@/components/Icon'
 import styles from './index.less'
 import { LineChart } from '@/components/Chart/LineChartEntries'
-import { Space } from 'antd'
 import { useEffect, useState } from 'react'
-import customerViewApi from '@/api/customer/customerOverview'
+import customerViewApi from '@/api/customerView/customerOverviewApi'
 import dayjs from 'dayjs'
 
 const cardList = [
@@ -51,7 +50,7 @@ const Index = () => {
   const getCardData = async () => {
     const [statistics, trends] = await Promise.all([
       customerViewApi.postDashboardClientOverviewStatistics({}),
-      http.post('/client/unified/view/customer/trends', {}, { timeout: 0 }),
+      customerViewApi.postCustomerTrends({}),
     ])
 
     const cardData = cardList.map((card) => {

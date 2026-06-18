@@ -198,6 +198,39 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/customer/customerOverview',
+    replacementPrefix: '@/api/customerView/customerOverviewApi or @/api/customer/customerOverview in Customer domain',
+    allowedSourcePathPrefixes: [
+      'src/api/customerView/customerOverviewApi.js',
+      'src/pages/customer/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/blackGray/queryExternalDataApi',
+    replacementPrefix: '@/api/customerView/blackGrayApi or @/api/blackGray/queryExternalDataApi in BlackGray domain',
+    allowedSourceDomains: ['BlackGray', 'BlackInfo'],
+    allowedSourcePathPrefixes: [
+      'src/api/customerView/blackGrayApi.js',
+      'src/pages/blackListManage/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/risk/customerUnifiedViewController',
+    replacementPrefix: '@/api/customerView/riskAreaApi or @/api/risk/customerUnifiedViewController in Risk domain',
+    allowedSourcePathPrefixes: [
+      'src/api/customerView/riskAreaApi.js',
+      'src/pages/risk/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/risk/monitorEarly',
+    replacementPrefix: '@/api/customerView/riskWarningApi or @/api/risk/monitorEarly in Risk monitor pages',
+    allowedSourcePathPrefixes: [
+      'src/api/customerView/riskWarningApi.js',
+      'src/pages/monitorEarly/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],

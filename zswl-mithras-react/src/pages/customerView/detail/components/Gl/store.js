@@ -21,8 +21,6 @@ import {
   DloagDataSaveModify,
   DloagDeleted,
 } from './api'
-import customerRatApi from '@/api/customer/customerRat/customerRatApi'
-
 import { message } from 'antd'
 class Store {
   constructor() {
