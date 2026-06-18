@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, cloneElement } from 'react'
 import { observer } from '@zswl/admin'
-import ContractApplicationDetail from '@/components/Contract/ApplicationDetail'
+import { ContractApplicationDetail } from '@/components/Contract/DetailEntries'
 import KSQZstartRent from '@/components/Contract/StartRentDetail'
 import KSJJcreateReceipt from '@/components/Contract/CreateReceiptDetail'
 import LPRchange from '@/components/Contract/ChangeDetail'

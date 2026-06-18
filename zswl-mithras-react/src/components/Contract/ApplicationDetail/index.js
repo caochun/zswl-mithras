@@ -9,11 +9,9 @@ import ShiJiZuJin from './ShiJiZuJin'
 import ChengZuRen from './ChengZuRen' // 租赁、转租赁场景 - ZL、ZZ
 import HuiKuan from './HuiKuan' // 保理、债权转让场景- BL、ZR
 import ShouKuan from './ShouKuan'
-import {
-  ContractDetailBaoJia as BaoJia,
-  ContractDetailContext as Context,
-  ContractDetailLeaseItemList as ZuLinWu,
-} from '@/components/Contract/DetailEntries'
+import BaoJia from '../Detail/BaoJia'
+import { Context } from '../Detail/Context'
+import ZuLinWu from '../Detail/LeaseItemList'
 import DanBao from './DanBao'
 import ZhiYa from './ZhiYa'
 import DiYa from './DiYa'
