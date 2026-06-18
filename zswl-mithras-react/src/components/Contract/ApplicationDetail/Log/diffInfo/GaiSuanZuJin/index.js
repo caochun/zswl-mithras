@@ -2,7 +2,7 @@ import { Table, Form } from '@zswl/components'
 import { observer, getQuery } from '@zswl/admin'
 import { DatePicker, Space } from 'antd'
 import moment from 'moment'
-import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
+import { bizTypeMapText } from '../../../../bizTypeConfig'
 import RenderColumn from '@/components/RenderColumn'
 import { saveServer } from '@/utils'
 

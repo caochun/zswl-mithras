@@ -3,7 +3,7 @@ import { Form, Modal, Select } from '@zswl/components'
 import { DatePicker, Tooltip } from 'antd'
 import IconFont from '@/components/Icon'
 import DataUpload from '@/components/DataUpload'
-import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
+import { bizTypeMapText } from '../../bizTypeConfig'
 
 const { Item } = Form
 

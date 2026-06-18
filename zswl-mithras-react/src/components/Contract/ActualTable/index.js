@@ -1,5 +1,5 @@
 import DownloadTemplate from '@/components/Actions/DownloadTemplate'
-import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
+import { bizTypeMapText } from '../bizTypeConfig'
 import FormIrr from '@/components/FormIrr'
 import { formatPercent, rules, saveServer } from '@/utils'
 import { getQuery, observer } from '@zswl/admin'

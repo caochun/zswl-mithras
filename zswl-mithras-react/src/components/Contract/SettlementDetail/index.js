@@ -1,5 +1,5 @@
 import { DetailLayout } from '@/components'
-import ActualTable from '@/components/Contract/ActualTable'
+import ActualTable from '../ActualTable'
 import { bizTypeMapText } from '../bizTypeConfig'
 import CantractDetailBaseInfo from '../BaseInfo'
 import { getQuery, history, observer } from '@zswl/admin'

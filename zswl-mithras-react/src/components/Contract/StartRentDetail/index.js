@@ -1,4 +1,4 @@
-import ActualTable from '@/components/Contract/ActualTable'
+import ActualTable from '../ActualTable'
 import PaymentApply from '../PaymentApply'
 import { bizTypeMapText } from '../bizTypeConfig'
 import CantractDetailBaoJia from '../Detail/BaoJia'
