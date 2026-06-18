@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import KpiPorjectAllocation from '@/components/Kpi/ProjectAllot/Detail'
+import { KpiProjectAllotDetail as KpiPorjectAllocation } from '@/components/Kpi/ProjectAllotEntries'
 
 const Index = (props) => {
   const { id, businessVersion, canEditFlag, modelKey, curTaskActivityIds, taskStatus } = props

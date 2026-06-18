@@ -10,6 +10,6 @@ export { default as PrepareFinancialDirect } from '@/components/Financial/Direct
 export { default as PrepareFinancialFund } from '@/components/Financial/FundDetail'
 export { default as PrepareFinancialCarryInterest } from '@/components/Financial/FinancingCarryInterestFlow'
 export { FinancialReportApproval as PrepareFinancialReportApproval } from '@/components/Report/FinancialReportEntries'
-export { default as PrepareKpiProjectAllocation } from '@/components/Kpi/ProjectAllot/Detail'
+export { KpiProjectAllotDetail as PrepareKpiProjectAllocation } from '@/components/Kpi/ProjectAllotEntries'
 export { RiskOverdueListSearch as PrepareOverdueListSearch } from '@/components/Risk/RiskEntries'
 export { BudgetProfitDistribution as PrepareProfitDistribution } from '@/components/Budget/BudgetEntries'

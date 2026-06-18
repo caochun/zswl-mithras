@@ -5,7 +5,7 @@ import { Select, Form } from '@zswl/components'
 import { history } from '@zswl/admin'
 import { DatePicker, Input } from 'antd'
 import moment from 'moment'
-import ProjectAllocateList from '@/components/Kpi/ProjectAllot/ProjectAllocateList'
+import ProjectAllocateList from './ProjectAllocateList'
 
 const ALL_COLUMNS = ({ source, pathname } = {}) => {
   return [

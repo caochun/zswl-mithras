@@ -1,7 +1,7 @@
 import EditDescription from '@/components/Table/EditDescription'
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
-import { ProjectAllotColumns as ALL_COLUMNS } from '@/components/Kpi/ProjectAllotEntries'
+import ALL_COLUMNS from '../Column'
 import { Button } from '@zswl/components'
 import { getDescColumns } from '@/utils'
 import BeforeInfo from './BeforeInfo'
