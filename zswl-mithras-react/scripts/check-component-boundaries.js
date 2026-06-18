@@ -241,6 +241,17 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/customer/customerRat/customerRatApi',
+    replacementPrefix: '@/api/project/ratingApi or @/api/customer/customerRat/customerRatApi in Customer/process utilities',
+    allowedSourceDomains: ['Customer'],
+    allowedSourcePathPrefixes: [
+      'src/api/project/ratingApi.js',
+      'src/pages/customer/',
+      'src/pages/process/',
+      'src/utils/customerRat.js',
+    ],
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],

@@ -7,7 +7,7 @@ import cashApi from '@/api/project/projectCashflow'
 import approvalRemarkApi from '@/api/project/approvalRemarkApi'
 import mathjs from '@/utils/math'
 import FinancialReportStatisticsApi from '@/api/project/projReviewFinancialReport'
-import customerRatApi from '@/api/customer/customerRat/customerRatApi'
+import projectRatingApi from '@/api/project/ratingApi'
 
 class Store {
   constructor() {
@@ -299,7 +299,7 @@ class Store {
     const id = this.page.getParams().id
     const detail = this.page.getData()
     const { ratingClientId, ratingAmountId } = detail
-    const res = await customerRatApi.postReviewUpdate({ id, ratingClientId, ratingAmountId })
+    const res = await projectRatingApi.postReviewUpdate({ id, ratingClientId, ratingAmountId })
     message.success('更新成功')
     this.newDetail = res
   }

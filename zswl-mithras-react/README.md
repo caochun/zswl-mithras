@@ -243,6 +243,7 @@
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时优先通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API。
 - `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
+- `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
 - `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件可直接使用，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时优先使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时优先使用 `src/api/trackEvent/contractInfoApi`。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件优先使用 `src/api/contract/lprApi` 语义入口。

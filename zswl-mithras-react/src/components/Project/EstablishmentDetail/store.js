@@ -4,7 +4,7 @@ import { message } from 'antd'
 import Api from './api'
 import { compareDetail } from '@/utils'
 import { EstablishmentQuotationSchemeStore } from './QuotationScheme'
-import customerRatApi from '@/api/customer/customerRat/customerRatApi'
+import projectRatingApi from '@/api/project/ratingApi'
 class Store {
   constructor() {
     makeAutoObservable(this)
@@ -125,7 +125,7 @@ class Store {
     const id = this.page.getParams().id
     const detail = this.page.getData()
     const { ratingClientId } = detail
-    const res = await customerRatApi.postEstablishUpdate({ id, ratingClientId })
+    const res = await projectRatingApi.postEstablishUpdate({ id, ratingClientId })
     message.success('更新成功')
     this.newDetail = res
   }
