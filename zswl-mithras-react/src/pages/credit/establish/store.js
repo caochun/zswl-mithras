@@ -1,6 +1,6 @@
 import { TableStore, Modal, ModalStore, App } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from '@/api/groupCredit/projectApprovalBaseinfo'
+import Api from '@/api/credit/groupCreditEstablishApi'
 
 const { getData } = App
 class Store {

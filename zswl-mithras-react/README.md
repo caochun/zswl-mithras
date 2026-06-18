@@ -247,6 +247,7 @@
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；业务语义优先使用 `src/api/kpi/projProfit/profitCalculateTool` 兼容入口。
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权；保存/查询用户配置优先使用 `src/api/common/userCustomConfigApi`，费控 SSO 授权优先使用 `src/api/dashboard/feikongSsoApi` 兼容入口。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
+- `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
 - `rzy`、`implant`、`cvicse`、`student`、`visitorManage`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
 
 目录整理原则：

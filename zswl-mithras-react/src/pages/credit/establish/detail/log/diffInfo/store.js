@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { hasValue } from '@/utils'
 import { PageStore } from '@zswl/components'
 import mathjs from '@/utils/math'
-import Api from '@/api/groupCredit/projectApprovalVersion'
+import Api from '@/api/credit/groupCreditEstablishVersionApi'
 
 class Store {
   constructor() {

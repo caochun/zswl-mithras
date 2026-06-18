@@ -146,6 +146,21 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/common/selectApi',
   },
   {
+    legacyPrefix: '@/api/groupCredit/projectApprovalBaseinfo',
+    replacementPrefix: '@/api/credit/groupCreditEstablishApi',
+    allowedSourcePathPrefixes: ['src/api/credit/groupCreditEstablishApi.ts'],
+  },
+  {
+    legacyPrefix: '@/api/groupCredit/projectApprovalReport',
+    replacementPrefix: '@/api/credit/groupCreditEstablishReportApi',
+    allowedSourcePathPrefixes: ['src/api/credit/groupCreditEstablishReportApi.ts'],
+  },
+  {
+    legacyPrefix: '@/api/groupCredit/projectApprovalVersion',
+    replacementPrefix: '@/api/credit/groupCreditEstablishVersionApi',
+    allowedSourcePathPrefixes: ['src/api/credit/groupCreditEstablishVersionApi.ts'],
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],

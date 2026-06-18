@@ -1,7 +1,7 @@
 import { Table, Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
-import Api from '@/api/groupCredit/projectApprovalVersion'
+import Api from '@/api/credit/groupCreditEstablishVersionApi'
 import { VersionTable } from '@/components'
 
 function Index({ params: { id } }) {

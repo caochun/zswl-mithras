@@ -1,7 +1,7 @@
 import { App, Form, Modal, Table } from '@zswl/components'
 import styles from '../index.less'
 import { history, observer } from '@zswl/admin'
-import Api from '@/api/groupCredit/projectApprovalReport'
+import Api from '@/api/credit/groupCreditEstablishReportApi'
 import { FileTable } from '@/components'
 import { downFile } from '@/utils'
 import { useMemo } from 'react'
