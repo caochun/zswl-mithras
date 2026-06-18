@@ -21,9 +21,7 @@ class Store {
     onOpen: async (values) => {
       return values
     },
-    onFinish: async (values) => {
-      console.log(values)
-    },
+    onFinish: async () => {},
   })
   editItem = (record) => {
     this.typeInfo = record

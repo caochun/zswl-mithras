@@ -4,7 +4,7 @@ import { KpiBaseSetModalDetail as ModalDetail } from '@/components/Kpi/BaseSetMo
 import { isAdminAccount } from '@/utils'
 import FormListItem from './FormListItem'
 import styles from './index.less'
-import selectApi from '@/api/common/selectApi'
+import { getOrgList as getSelectOrgList } from '@/components/Select'
 import { useEffect, useState } from 'react'
 import contractInfoApi from '@/api/budget/contractInfoApi'
 import { saveServer } from '@/utils'
@@ -19,16 +19,7 @@ function Index({ store }) {
 
   const [orgList, setOrgList] = useState([])
   const getOrgList = async (val) => {
-    const res = await selectApi.getOrgList(
-      {
-        name: val,
-        type: 1, //1:业务部门，2:领导层
-      },
-      {
-        functionCode: 'selectorgs-groupCreditEstablish',
-      }
-    )
-    const data = res.map(({ label, value }) => ({ label, value: +value }))
+    const data = await getSelectOrgList({ name: val }, 'selectorgs-groupCreditEstablish', true)
     setOrgList(data)
     return data
   }

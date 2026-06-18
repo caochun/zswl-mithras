@@ -6,7 +6,6 @@ import styles from './index.less'
 import { App, Select } from '@zswl/components'
 
 const FormListItem = ({ fields, add, remove, orgList, contractList, required }) => {
-  console.log('orgList: ', orgList)
   const form = Form.useFormInstance()
 
   const { setFieldsValue, setFieldValue, getFieldValue: getValue } = form
