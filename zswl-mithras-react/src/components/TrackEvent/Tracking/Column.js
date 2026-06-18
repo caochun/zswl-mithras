@@ -8,7 +8,6 @@ import {
   TextAreaColumn,
 } from '@/components/Format'
 import { Input, InputNumber } from 'antd'
-import selectApi from '@/api/common/selectApi'
 import contractInfoApi from '@/api/trackEvent/contractInfoApi'
 import trackingApi from '@/api/trackEvent/trackingApi'
 import { App } from '@zswl/components'
@@ -99,10 +98,7 @@ const ALL_COLUMNS = [
     editable: true,
     search: true,
     options: async () => {
-      const res = await selectApi.getClientList(
-        { pageSize: 5000 },
-        { functionCode: 'clientlist-trackevent' }
-      )
+      const res = await contractInfoApi.getClientList({ pageSize: 5000 })
 
       return res.list.map((v) => ({ label: v.clientName, value: v.id }))
     },
