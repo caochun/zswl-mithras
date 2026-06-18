@@ -42,67 +42,50 @@ const legacyUtilityPrefixRules = [
   {
     legacyPrefix: '@/utils/afterLease',
     replacementPrefix: '@/utils/domains/afterLease/AfterLeaseUtils',
-    allowedSourcePathPrefixes: ['src/utils/domains/afterLease/AfterLeaseUtils.js'],
   },
   {
     legacyPrefix: '@/utils/budgetManagement',
     replacementPrefix: '@/utils/domains/budgetManagement/BudgetManagementUtils',
-    allowedSourcePathPrefixes: ['src/utils/domains/budgetManagement/BudgetManagementUtils.js'],
   },
   {
     legacyPrefix: '@/utils/customer',
     replacementPrefix: '@/utils/domains/customer/CustomerUtils',
-    allowedSourcePathPrefixes: ['src/utils/domains/customer/CustomerUtils.js'],
   },
   {
     legacyPrefix: '@/utils/customerRat',
     replacementPrefix: '@/utils/domains/customer/CustomerRatUtils',
-    allowedSourcePathPrefixes: ['src/utils/customerRat.js'],
   },
   {
     legacyPrefix: '@/utils/dashboard',
     replacementPrefix: '@/utils/domains/dashboard/DashboardUtils*',
-    allowedSourcePathPrefixes: [
-      'src/utils/dashboard.js',
-      'src/utils/dashboardColumns.js',
-      'src/utils/dashboardFilterKeys.js',
-      'src/utils/dashboardOperation.js',
-    ],
   },
   {
     legacyPrefix: '@/utils/kpi',
     replacementPrefix: '@/utils/domains/kpi/KpiUtils',
-    allowedSourcePathPrefixes: ['src/utils/domains/kpi/KpiUtils.js'],
   },
   {
     legacyPrefix: '@/utils/paymentApplication',
     replacementPrefix: '@/utils/domains/cpm/PaymentApplicationUtils',
-    allowedSourcePathPrefixes: ['src/utils/paymentApplication.js'],
   },
   {
     legacyPrefix: '@/utils/processFlow',
     replacementPrefix: '@/utils/domains/process/ProcessFlowContext',
-    allowedSourcePathPrefixes: ['src/utils/domains/process/ProcessFlowContext.js'],
   },
   {
     legacyPrefix: '@/utils/report',
     replacementPrefix: '@/utils/domains/report/ReportUtils',
-    allowedSourcePathPrefixes: ['src/utils/domains/report/ReportUtils.js'],
   },
   {
     legacyPrefix: '@/utils/risk',
     replacementPrefix: '@/utils/domains/risk/RiskUtils',
-    allowedSourcePathPrefixes: ['src/utils/domains/risk/RiskUtils.js'],
   },
   {
     legacyPrefix: '@/utils/rzyConfig',
     replacementPrefix: '@/utils/domains/rzy/RzyConfig',
-    allowedSourcePathPrefixes: ['src/utils/domains/rzy/RzyConfig.js'],
   },
   {
     legacyPrefix: '@/utils/hooks/useGetStatus',
     replacementPrefix: '@/utils/domains/blackGray/BlackGrayStatusUtils',
-    allowedSourcePathPrefixes: ['src/utils/domains/blackGray/BlackGrayStatusUtils.js'],
   },
 ]
 const legacyApiDomains = new Map([
@@ -632,7 +615,7 @@ for (const filePath of sourceFiles) {
       })
     } else if (
       legacyUtilityPrefixRule &&
-      !legacyUtilityPrefixRule.allowedSourcePathPrefixes.some((prefix) =>
+      !legacyUtilityPrefixRule.allowedSourcePathPrefixes?.some((prefix) =>
         relativeFilePath.startsWith(prefix)
       )
     ) {
