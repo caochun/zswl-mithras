@@ -1,5 +1,5 @@
 import { makeAutoObservable } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/filingMaterials/otherFilingMaterialsDetail'
 class Store {
   constructor() {
     makeAutoObservable(this)

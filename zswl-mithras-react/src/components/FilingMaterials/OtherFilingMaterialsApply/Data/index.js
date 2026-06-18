@@ -1,7 +1,7 @@
 import { FileTable } from '@/components'
 import { Form, Input } from 'antd'
 import { useEffect, useState } from 'react'
-import Api from '../api'
+import Api from '@/api/filingMaterials/otherFilingMaterialsDetail'
 const MODULE_TYPE = 'OTHER_FILING'
 
 const Index = (props) => {
