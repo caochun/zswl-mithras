@@ -17,6 +17,19 @@ const nonEntryComponentSubpathPattern =
   /^@\/components\/[^/'"]+\/(?![^/'"]*(?:Entries|entries)(?:\.js)?$)[^/'"]+(?:\.js)?$/
 const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
+const stabilizedComponentRootImports = new Map([
+  ['BlackInfo', 'BlackInfo/BlackInfoEntries'],
+  ['ClientFileTable', 'ClientFileTable/ClientFileTableEntries'],
+  ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
+  ['FileDiff', 'FileDiff/FileDiffEntries'],
+  ['JumpClient', 'JumpClient/JumpClientEntries'],
+  ['PaymentApplyColumns', 'PaymentApplyColumns/PaymentApplyColumnsEntries'],
+  ['Policy', 'Policy/PolicyEntries'],
+  ['PolicyColumns', 'PolicyColumns/PolicyColumnsEntries'],
+  ['UpdateRatingInfoButton', 'UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'],
+  ['ZhongDengButton', 'ZhongDengButton/ZhongDengButtonEntries'],
+])
+const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
 const legacyApiDomains = new Map([
   ['blackList', 'blackGray'],
@@ -83,6 +96,7 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
     const isComponentImport = specifier.startsWith('@/components/')
     const isPageImport = pageImportPattern.test(specifier)
     const [, legacyApiDomain] = specifier.match(legacyApiImportPattern) || []
+    const [, componentRootImportDomain] = specifier.match(componentRootImportPattern) || []
 
     const [, targetComponentEntryDomain] = specifier.match(componentEntryPathPattern) || []
     const documentedEntryPath = toDocumentedEntryPath(specifier)
@@ -99,6 +113,11 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
       violations.push({
         file: relativeFilePath,
         specifier: `${specifier} (use @/api/${legacyApiDomains.get(legacyApiDomain)} semantic entry)`,
+      })
+    } else if (stabilizedComponentRootImports.has(componentRootImportDomain)) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use @/components/${stabilizedComponentRootImports.get(componentRootImportDomain)})`,
       })
     } else if (
       isComponentImport &&

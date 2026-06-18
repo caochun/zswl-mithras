@@ -163,9 +163,10 @@
 - 通用组件应保持无业务名称、无菜单名称、无特定页面状态依赖。
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
+- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如 `BlackInfo`、`ClientFileTable`、`EvaluationAgency`、`FileDiff`、`JumpClient`、`PaymentApplyColumns`、`Policy`、`PolicyColumns`、`UpdateRatingInfoButton`、`ZhongDengButton` 应通过对应 `*Entries.js` 引入。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`BreadLine/config`、`Chart/tooltip`。
 - 禁止业务代码直接引用 `blackList`、`postRentalInspection`、`riskControl`、`liquidity`、`pricing`、`newFtp`、`financialReport`、`manageReport`、`fillingMaterials`、`workbench`、`header` 等历史 API 目录，应使用对应语义领域入口。
-- `npm run check:boundaries` 会扫描整个 `src`，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止组件域内部反向引用自身 `*Entries.js`，禁止通过 `@/pages/**` 复用页面私有代码，禁止直接引用历史 API 目录，并校验领域级入口已被代码使用且同步记录在 README。
+- `npm run check:boundaries` 会扫描整个 `src`，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止通过 `@/pages/**` 复用页面私有代码，禁止直接引用历史 API 目录，并校验领域级入口已被代码使用且同步记录在 README。
 
 ## 当前边界收敛
 
