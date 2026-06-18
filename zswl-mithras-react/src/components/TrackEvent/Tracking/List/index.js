@@ -7,7 +7,7 @@ import { useMemo, useState } from 'react'
 import AddModal from '../AddModal'
 import BaseInfo from '../BaseInfo'
 import TrackingTask from '../TrackingTask'
-import trackingApi from '@/api/lease/trackingApi'
+import trackingApi from '@/api/trackEvent/trackingApi'
 import { saveServer } from '@/utils'
 
 function Index({ path, type, defaultData,projReviewMeetMinuteId='' }) {

@@ -3,7 +3,7 @@ import ALL_COLUMNS from './Column'
 import { getDescColumns } from '@/utils'
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { App, Select } from '@zswl/components'
-import trackingApi from '@/api/lease/trackingApi'
+import trackingApi from '@/api/trackEvent/trackingApi'
 import { getLocalStorage } from '@zswl/admin'
 
 function Index({ dataSource, canEdit = true }, ref) {

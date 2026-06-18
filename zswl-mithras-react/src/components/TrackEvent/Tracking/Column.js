@@ -10,7 +10,7 @@ import {
 import { Input, InputNumber } from 'antd'
 import common from '@/api/groupCredit/common'
 import contractApi from '@/api/contract/baseInfo'
-import trackingApi from '@/api/lease/trackingApi'
+import trackingApi from '@/api/trackEvent/trackingApi'
 import { App } from '@zswl/components'
 
 const taskStatusEnum = [

@@ -1,6 +1,6 @@
 import { ModalStore, PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/lease/trackingApi'
+import Api from '@/api/trackEvent/trackingApi'
 import { message } from 'antd'
 
 class Store {

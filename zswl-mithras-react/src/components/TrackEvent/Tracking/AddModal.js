@@ -3,7 +3,7 @@ import BaseInfo from './BaseInfo'
 import TrackingTask from './TrackingTask'
 import { getLocalStorage, getQuery, observer } from '@zswl/admin'
 import { useMemo, useRef, useState } from 'react'
-import trackingApi from '@/api/lease/trackingApi'
+import trackingApi from '@/api/trackEvent/trackingApi'
 import { message } from 'antd'
 
 const Index = ({ projReviewMeetMinuteId, store, params, TrackModalChange }) => {

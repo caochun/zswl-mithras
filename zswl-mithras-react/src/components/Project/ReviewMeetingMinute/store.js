@@ -3,7 +3,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { userIsProjSponsor } from '@/utils'
 import { message } from 'antd'
 import Api from './api'
-import trackingApi from '@/api/lease/trackingApi'
+import trackingApi from '@/api/trackEvent/trackingApi'
 
 const TypeTextMap = {
   REPAYMENT: '调整方案',
