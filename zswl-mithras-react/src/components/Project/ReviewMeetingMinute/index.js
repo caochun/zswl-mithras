@@ -13,12 +13,17 @@ import ApprovalConditions from './Components/ApprovalConditions'
 import CreditStructure from './Components/CreditStructure'
 import Remark from './Components/Remark'
 import { Form, App } from '@zswl/components'
-import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import Store from './store'
 
-const Index = ({ detailData, projReviewType = 'PROJ_REVIEW_BASE', contentType = 'page' }) => {
+const Index = ({
+  detailData,
+  projReviewType = 'PROJ_REVIEW_BASE',
+  contentType = 'page',
+  moduleName,
+}) => {
   const options = App.getData().optionsType
-  const { pathname } = useFlowData()
+  const layoutModuleName =
+    moduleName || window.location.pathname.split('/detail')?.[0]?.split('/')?.join('')
   const componentDisabled = false
   const { projName, businessKey, processInstanceId, taskActivityId } = detailData
 
@@ -156,7 +161,7 @@ const Index = ({ detailData, projReviewType = 'PROJ_REVIEW_BASE', contentType = 
               <DetailLayout
                 anchorList={anchorList}
                 title={'项目名称：' + init.projName}
-                moduleName={pathname?.split('/')?.join('')}
+                moduleName={layoutModuleName}
                 anchorSwitch
                 extra={extra}
                 disabled={componentDisabled}
