@@ -1,7 +1,7 @@
 import { history, http, observer } from '@zswl/admin'
 import IconFont from '@/components/Icon'
 import styles from './index.less'
-import { LineChart } from '@/components/Chart/ChartEntries'
+import { LineChart } from '@/components/Chart/BasicChartEntries'
 import { Space } from 'antd'
 import { useEffect, useState } from 'react'
 import customerViewApi from '@/api/common/customerOverview'

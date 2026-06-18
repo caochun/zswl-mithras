@@ -3,7 +3,7 @@ import { message } from 'antd'
 import workbenchApi from '@/api/common/workbenchApi'
 import { getUserInfo } from './auth'
 
-export { getChartsTooltip } from '@/components/Chart/ChartEntries'
+export { getChartsTooltip } from '@/components/Chart/TooltipEntries'
 
 const FEIKONG_SSO_CALLBACK_URL = 'http://10.158.33.163/sso/callback'
 

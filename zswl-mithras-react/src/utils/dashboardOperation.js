@@ -3,7 +3,7 @@ import { App } from '@zswl/components'
 import { message } from 'antd'
 import { flatMapDeep } from 'lodash'
 
-export { RenderTooltip } from '@/components/Chart/ChartEntries'
+export { RenderTooltip } from '@/components/Chart/TooltipEntries'
 
 // x轴部门名称格式化
 export const formatDepartName = (value) => {

@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { MultiBar } from '@zswl/charts'
-import { getChartsTooltip } from '@/components/Chart/ChartEntries'
+import { getChartsTooltip } from '@/components/Chart/TooltipEntries'
 
 const colors = [
   '#85bffa',

@@ -44,7 +44,8 @@
 - `Budget/PricingEntries.js`
 - `Budget/ProvisioningEntries.js`
 - `BudgetManagement/BudgetManagementEntries.js`
-- `Chart/ChartEntries.js`
+- `Chart/BasicChartEntries.js`
+- `Chart/TooltipEntries.js`
 - `Contract/DetailEntries.js`
 - `Contract/InfoEntries.js`
 - `Contract/PriceEntries.js`
