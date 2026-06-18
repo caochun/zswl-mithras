@@ -1,5 +1,5 @@
 /* prettier-ignore-start */
-import * as Types from '@/api/groupCredit/interface/projectApprovalVersion'
+import * as Types from '@/api/credit/interface/groupCreditEstablishVersionApi'
 import { http } from '@zswl/admin'
 
 const mock = false
