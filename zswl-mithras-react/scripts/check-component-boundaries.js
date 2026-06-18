@@ -16,6 +16,7 @@ const nonEntryComponentSubpathPattern =
   /^@\/components\/[^/'"]+\/(?![^/'"]*(?:Entries|entries)(?:\.js)?$)[^/'"]+(?:\.js)?$/
 const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
+const pageImportPattern = /^@\/pages\//
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) {
@@ -44,17 +45,24 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
   let match
   while ((match = importPattern.exec(source))) {
     const specifier = match[1]
-    if (!specifier.startsWith('@/components/')) {
-      continue
-    }
+    const isComponentImport = specifier.startsWith('@/components/')
+    const isPageImport = pageImportPattern.test(specifier)
 
     const [, targetComponentEntryDomain] = specifier.match(componentEntryPathPattern) || []
-    if (
+    if (isPageImport) {
+      violations.push({
+        file: relativeFilePath,
+        specifier,
+      })
+    } else if (
+      isComponentImport &&
+      (
       privateComponentPathPattern.test(specifier) ||
       deepComponentPathPattern.test(specifier) ||
       sharedComponentSubpathPattern.test(specifier) ||
       nonEntryComponentSubpathPattern.test(specifier) ||
       (sourceComponentDomain && sourceComponentDomain === targetComponentEntryDomain)
+      )
     ) {
       violations.push({
         file: relativeFilePath,
@@ -65,11 +73,11 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
 }
 
 if (violations.length > 0) {
-  console.error('Component boundary violations found:')
+  console.error('Frontend boundary violations found:')
   for (const violation of violations) {
     console.error(`- ${violation.file}: ${violation.specifier}`)
   }
   process.exit(1)
 }
 
-console.log('Component boundary check passed.')
+console.log('Frontend boundary check passed.')

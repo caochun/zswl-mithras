@@ -82,7 +82,7 @@
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`BreadLine/config`、`Chart/tooltip`。
-- `npm run check:boundaries` 会扫描整个 `src`，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，并禁止组件域内部反向引用自身 `*Entries.js`。
+- `npm run check:boundaries` 会扫描整个 `src`，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止组件域内部反向引用自身 `*Entries.js`，并禁止通过 `@/pages/**` 复用页面私有代码。
 
 ## 当前边界收敛
 
@@ -157,7 +157,7 @@
 - `npm run buildAll`：执行多环境打包。
 - `npm run api`：根据 `admin.config.js` 中的 YApi 配置生成接口。
 - `npm run page`：生成页面脚手架。
-- `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`。
+- `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`、`@/pages/**` 页面私有代码复用。
 
 ## 项目约定
 
