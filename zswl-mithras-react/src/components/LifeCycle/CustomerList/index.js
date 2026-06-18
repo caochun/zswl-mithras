@@ -13,6 +13,7 @@ import useGetIndustry from '@/utils/hooks/useGetIndustry'
 import { dateRangeTransform, rangePresets } from '@/utils'
 import { saveServer } from '@/utils'
 import { TableExportAction as TableExport } from '@/components/Actions'
+import RegionCascader from '@/components/RegionCascader'
 
 const processTypeList = [
   { key: 'totalClient', name: '总客户数', params: 'TOTAL' },
@@ -25,12 +26,9 @@ function Custom({ query }) {
   const store = useMemo(() => {
     return new Store()
   }, [])
-  const { page, setSelectedType, selectedType, regionList } = store
+  const { page, setSelectedType, selectedType } = store
   const { industry, industryEnum } = useGetIndustry()
   const data = page.getData()
-  useEffect(() => {
-    store.initRegionList()
-  }, [])
   // 看板跳过来
   useEffect(() => {
     if (type) {
@@ -206,12 +204,9 @@ function Custom({ query }) {
                   label: '地区分类',
                   name: 'registerAddress',
                   element: (
-                    <Cascader
+                    <RegionCascader
                       getPopupContainer={() => document.body}
-                      options={regionList}
                       changeOnSelect
-                      placeholder="请选择"
-                      loadData={store.loadRegionListChild}
                     />
                   ),
                 },
