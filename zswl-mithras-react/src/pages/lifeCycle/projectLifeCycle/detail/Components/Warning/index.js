@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
-import Card from '@/components/LifeCycle/RiskStrategyCard'
+import { LifeCycleRiskStrategyCard as Card } from '@/components/LifeCycle/LifeCycleEntries'
 import styles from '../../index.less'
 import cardStyles from './card.less'
 import Api from '@/api/risk/publicMonitor'

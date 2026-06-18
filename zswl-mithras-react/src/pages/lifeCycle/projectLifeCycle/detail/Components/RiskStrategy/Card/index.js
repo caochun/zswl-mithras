@@ -1,1 +1,1 @@
-export { default } from '@/components/LifeCycle/RiskStrategyCard'
+export { LifeCycleRiskStrategyCard as default } from '@/components/LifeCycle/LifeCycleEntries'
