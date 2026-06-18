@@ -6,10 +6,11 @@ import { RiskSourceCardCalcModal as CalcModal } from '@/components/Risk/SourceCa
 import { observer } from '@zswl/admin'
 import { userIsProjSponsor } from '@/utils'
 import Store from './store'
+import defaultStyles from './index.less'
 
 const levelColor = ['#06EAB2', '#2D66FF', '#2EC5FF', '#FFCA69', '#FF5962']
 
-const Index = ({ styles, forceUpdateId, baseStore }) => {
+const Index = ({ styles = defaultStyles, forceUpdateId, baseStore }) => {
   const $CalcModalRef = useRef(null)
 
   const { optionsType } = App.getData()

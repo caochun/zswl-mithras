@@ -6,11 +6,13 @@ const srcDir = path.join(root, 'src')
 const readmePath = path.join(root, 'README.md')
 const scanDirs = [srcDir]
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
+const scannableFilePattern = /\.(js|jsx|ts|tsx|less)$/
 const copiedSourceFilePattern =
   /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx)$/i
 const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
+const styleImportPattern = /@import\s+(?:\([^)]*\)\s*)?['"]~?([^'"]+)['"]/g
 const componentApiForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
 
@@ -102,6 +104,7 @@ const publicComponentRootImports = new Set([
 ])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
+const publicStyleImports = new Set(['@/components/commonLess/animation.less'])
 const legacyUtilityPrefixRules = [
   {
     legacyPrefix: '@/utils/afterLease',
@@ -543,12 +546,27 @@ function walk(dir, files = []) {
     const filePath = path.join(dir, entry.name)
     if (entry.isDirectory()) {
       walk(filePath, files)
-    } else if (sourceFilePattern.test(entry.name)) {
+    } else if (scannableFilePattern.test(entry.name)) {
       files.push(filePath)
     }
   }
 
   return files
+}
+
+function extractSpecifiers(source, relativeFilePath) {
+  const specifiers = []
+  const pattern = /\.less$/.test(relativeFilePath) ? styleImportPattern : importPattern
+  let match
+
+  while ((match = pattern.exec(source))) {
+    specifiers.push({
+      importText: match[0],
+      specifier: match[1],
+    })
+  }
+
+  return specifiers
 }
 
 function resolveSourceImport(filePath, specifier) {
@@ -662,10 +680,11 @@ for (const filePath of sourceFiles) {
   const relativeFilePath = path.relative(root, filePath)
   const [, sourceComponentDomain] =
     relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
-  let match
-  while ((match = importPattern.exec(source))) {
-    const importText = match[0]
-    const specifier = match[1]
+  for (const { importText, specifier } of extractSpecifiers(source, relativeFilePath)) {
+    if (publicStyleImports.has(specifier)) {
+      continue
+    }
+
     const isComponentImport = specifier.startsWith('@/components/')
     const isPageImport = pageImportPattern.test(specifier)
     const [, sourceApiDomain] = relativeFilePath.match(/^src[\\/]api[\\/]([^\\/]+)/) || []
@@ -813,9 +832,9 @@ for (const entryPath of documentedComponentEntries) {
 const localSupportFileIncomingImports = new Map(sourceFiles.map((filePath) => [filePath, new Set()]))
 for (const filePath of sourceFiles) {
   const source = fs.readFileSync(filePath, 'utf8')
-  let match
-  while ((match = importPattern.exec(source))) {
-    const resolvedImport = resolveSourceImport(filePath, match[1])
+  const relativeFilePath = path.relative(root, filePath)
+  for (const { specifier } of extractSpecifiers(source, relativeFilePath)) {
+    const resolvedImport = resolveSourceImport(filePath, specifier)
     if (resolvedImport && localSupportFileIncomingImports.has(resolvedImport)) {
       localSupportFileIncomingImports.get(resolvedImport).add(filePath)
     }

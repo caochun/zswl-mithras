@@ -5,7 +5,6 @@ import { observer } from '@zswl/admin'
 import { LifeCycleRiskStrategyCard as Card } from '@/components/LifeCycle/LifeCycleEntries'
 import { RiskPublicMonitor as PublicMonitor } from '@/components/Risk/PublicMonitorListEntries'
 import styles from './index.less'
-import cardStyles from './Card/index.less'
 import { useMemo } from 'react'
 
 const Index = ({ store }) => {
@@ -91,7 +90,7 @@ const Index = ({ store }) => {
             </div>
           </div>
           <div className={styles.wrap_header_r}>
-            <Card styles={cardStyles} baseStore={store}></Card>
+            <Card baseStore={store}></Card>
           </div>
         </div>
         <div className={styles.tab}>
