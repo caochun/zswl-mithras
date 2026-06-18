@@ -6,7 +6,7 @@ import moment from 'moment'
 import shareholderStore from './Shareholders/store'
 import enterpriseStore from './Enterprises/store'
 import { changeURLArg } from '@/utils'
-import { getIsClientDetailParams } from '@/utils/customer'
+import { getIsClientDetailParams } from '@/customer/CustomerUtils'
 
 const dateFormat = 'yyyy-MM-DD'
 class Store {

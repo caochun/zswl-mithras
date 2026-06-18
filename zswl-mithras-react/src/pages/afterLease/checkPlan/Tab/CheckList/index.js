@@ -12,7 +12,7 @@ import {
 } from '@/utils'
 import CreateModal from './CreateModal'
 import store from './store'
-import { QuarterMap } from '@/utils/afterLease'
+import { QuarterMap } from '@/afterLease/AfterLeaseUtils'
 import { AmountColumn } from '@/components/Format'
 import { PageListDown } from '@/components'
 

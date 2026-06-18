@@ -1,1 +1,1 @@
-export * from '@/utils/kpi'
+export * from '@/kpi/KpiUtils'

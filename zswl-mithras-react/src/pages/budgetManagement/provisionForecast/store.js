@@ -3,7 +3,7 @@ import { makeAutoObservable, history } from '@zswl/admin'
 import dayjs from 'dayjs'
 import predictListApi from '@/api/budget/provisioning/predictListApi'
 import { message } from 'antd'
-import { registerProvisionForecastRefresh } from '@/utils/budgetManagement'
+import { registerProvisionForecastRefresh } from '@/budgetManagement/BudgetManagementUtils'
 
 const { getData } = App
 

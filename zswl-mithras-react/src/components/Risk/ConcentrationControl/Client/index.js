@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { getTableColumns, getFormColumns } from '@/utils'
 import ALL_COLUMNS from '../../ConcentrationControlColumns'
 import Api from '@/api/risk/concentrationControl'
-import { TIME_POINT } from '@/utils/risk'
+import { TIME_POINT } from '@/risk/RiskUtils'
 import { saveServer } from '@/utils'
 
 const nameColumns = [

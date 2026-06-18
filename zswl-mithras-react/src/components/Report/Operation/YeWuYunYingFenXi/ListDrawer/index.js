@@ -3,7 +3,7 @@ import { Drawer, Table } from '@zswl/components'
 import { getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import { COMMON_COLUMNS } from '../../../OperationColumns'
-import { initQueryDate, initYearQueryDate } from '@/utils/report'
+import { initQueryDate, initYearQueryDate } from '@/report/ReportUtils'
 import { reportTitle } from '../index'
 import { saveServer } from '@/utils'
 

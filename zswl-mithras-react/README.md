@@ -253,6 +253,7 @@
 - `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
 - `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件优先使用 `src/process/ProcessFlowContext`，旧路径仅保留兼容转发。
+- `utils/afterLease`、`utils/risk`、`utils/report`、`utils/kpi`、`utils/customer`、`utils/budgetManagement`：业务域小工具历史落在全局 utils；对应业务域页面和组件优先使用 `src/<domain>/*Utils` 语义入口，旧路径仅保留兼容转发。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
 - `customer/customerRat/customerRatApi`、`customer/customerRat/debtRatApi`：流程详情展示评级摘要时优先使用 `src/api/process/detail/customerRatingApi` 和 `src/api/process/detail/debtRatingApi` 聚合入口。
