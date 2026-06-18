@@ -24,6 +24,8 @@ const BreadLine = ({ breadcrumbList }) => {
 
 export default BreadLine
 
+export { breadPageBack, pathnameToPathInfo, setBreadList, getBreadList } from './config'
+
 BreadLine.breadPageBack = breadPageBack
 BreadLine.setBreadList = setBreadList
 BreadLine.getBreadList = getBreadList
