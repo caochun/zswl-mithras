@@ -1,1 +1,1 @@
-export { default } from '@/components/Credit/CreditSearchList'
+export { CreditSearchList as default } from '@/components/Credit/CreditEntries'

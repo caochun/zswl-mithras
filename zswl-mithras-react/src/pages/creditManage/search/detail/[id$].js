@@ -1,1 +1,1 @@
-export { default } from '@/components/CreditManage/SearchDetail'
+export { CreditManageSearchDetail as default } from '@/components/CreditManage/CreditManageEntries'
