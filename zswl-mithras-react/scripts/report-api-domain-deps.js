@@ -34,6 +34,20 @@ function normalizeDomain(domain) {
   return domainAliases.get(domain) || domain
 }
 
+const sourceAreaScopes = new Map([
+  ['afterLease', { key: 'components/AfterLease', domain: 'afterLease' }],
+  ['blackGray', { key: 'components/BlackGray', domain: 'blackGray' }],
+  ['budgetManagement', { key: 'components/BudgetManagement', domain: 'budget' }],
+  ['cpm', { key: 'components/Cpm', domain: 'cpm' }],
+  ['customer', { key: 'components/Customer', domain: 'customer' }],
+  ['dashboard', { key: 'components/Dashboard', domain: 'dashboard' }],
+  ['kpi', { key: 'components/Kpi', domain: 'kpi' }],
+  ['process', { key: 'components/Process', domain: 'process' }],
+  ['report', { key: 'components/Report', domain: 'report' }],
+  ['risk', { key: 'components/Risk', domain: 'risk' }],
+  ['rzy', { key: 'pages/rzy', domain: 'rzy' }],
+])
+
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) {
     return files
@@ -74,6 +88,11 @@ function getSourceScope(relativeFilePath) {
 
   const [, sourceArea] = relativeFilePath.match(/^src[\\/]([^\\/]+)/) || []
   if (sourceArea) {
+    const aliasedScope = sourceAreaScopes.get(sourceArea)
+    if (aliasedScope) {
+      return aliasedScope
+    }
+
     return {
       key: sourceArea,
       domain: normalizeDomain(sourceArea),
