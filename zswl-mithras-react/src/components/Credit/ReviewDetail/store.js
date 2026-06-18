@@ -3,7 +3,7 @@ import { ModalStore, PageStore } from '@zswl/components'
 import { message } from 'antd'
 import Api from './api'
 import { compareDetail } from '@/utils'
-import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
+import approvalRemarkApi from '@/api/credit/approvalRemarkApi'
 import { validateModal } from '@/utils/modal'
 
 class Store {
@@ -20,11 +20,8 @@ class Store {
     request: async (params) => {
       const { id, isFormApproval, businessVersion, approvalParams, reconsiderParams } = params
       const [approvalDetail, reconsiderDetail] = await Promise.all([
-        processModifyRemarkApi.postRemarkAll(approvalParams, 'processmodifyremarkallcreditreview'),
-        processModifyRemarkApi.postRemarkAll(
-          reconsiderParams,
-          'processmodifyremarkallcreditreview'
-        ),
+        approvalRemarkApi.postReviewRemarkAll(approvalParams),
+        approvalRemarkApi.postReviewRemarkAll(reconsiderParams),
       ])
         .then((res) => res)
         .catch((e) => {

@@ -4,7 +4,7 @@ import Api from '@/api/groupCredit/projectApprovalBaseinfo'
 import versionApi from '@/api/groupCredit/projectApprovalVersion'
 import { compareDetail } from '@/utils'
 import { message } from 'antd'
-import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
+import approvalRemarkApi from '@/api/credit/approvalRemarkApi'
 import { validateModal } from '@/utils/modal'
 import establishApi from './api'
 
@@ -34,8 +34,8 @@ class Store {
     request: async (params) => {
       const { id, isFormApproval, businessVersion, approvalParams } = params
       this.projectId = id
-      const approvalDetail = await processModifyRemarkApi
-        .postRemarkAll(approvalParams, 'processmodifyremarkallcreditestablish')
+      const approvalDetail = await approvalRemarkApi
+        .postEstablishRemarkAll(approvalParams)
         .then((res) => res)
         .catch((e) => {
           console.log(e)

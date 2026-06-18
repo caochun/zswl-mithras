@@ -113,6 +113,19 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/approval/processModifyRemarkApi',
+    replacementPrefix:
+      '@/api/<domain>/approvalRemarkApi or shared approval/detail components',
+    allowedSourceDomains: ['Actions', 'Table'],
+    allowedSourcePathPrefixes: [
+      'src/api/contract/approvalRemarkApi.js',
+      'src/api/credit/approvalRemarkApi.js',
+      'src/api/financial/approvalRemarkApi.js',
+      'src/api/project/approvalRemarkApi.js',
+      'src/pages/process/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/baseData/pricing/baseSet/ftpBaseSet',
     replacementPrefix: '@/api/budget/pricing/baseSet/ftpBaseSet',
   },

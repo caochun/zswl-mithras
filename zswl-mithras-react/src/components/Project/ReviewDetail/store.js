@@ -4,7 +4,7 @@ import { message } from 'antd'
 import Api from './api'
 import { compareDetail, formScrollToField, hasValue } from '@/utils'
 import cashApi from '@/api/project/projectCashflow'
-import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
+import approvalRemarkApi from '@/api/project/approvalRemarkApi'
 import mathjs from '@/utils/math'
 import FinancialReportStatisticsApi from '@/api/project/projReviewFinancialReport'
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
@@ -33,14 +33,8 @@ class Store {
       this.newDetail = {}
       if (params?.approvalParams && params?.reconsiderParams) {
         remarkArr = await Promise.all([
-          processModifyRemarkApi.postRemarkAll(
-            params.approvalParams,
-            'processmodifyremarkallprojreview'
-          ),
-          processModifyRemarkApi.postRemarkAll(
-            params.reconsiderParams,
-            'processmodifyremarkallprojreview'
-          ),
+          approvalRemarkApi.postReviewRemarkAll(params.approvalParams),
+          approvalRemarkApi.postReviewRemarkAll(params.reconsiderParams),
         ])
           .then((res) => res)
           .catch((e) => {

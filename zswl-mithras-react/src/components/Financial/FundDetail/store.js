@@ -3,7 +3,7 @@ import { PageStore, Modal } from '@zswl/components'
 import Api from '@/api/financial/fundApi'
 import { compareDetail, hasValue } from '@/utils'
 import { message } from 'antd'
-import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
+import approvalRemarkApi from '@/api/financial/approvalRemarkApi'
 
 class Store {
   constructor(data) {
@@ -15,8 +15,8 @@ class Store {
     request: async (params) => {
       let approvalDetail
       if (params?.approvalParams) {
-        approvalDetail = await processModifyRemarkApi
-          .postRemarkAll(params.approvalParams, 'processmodifyremarkallfundfinancing')
+        approvalDetail = await approvalRemarkApi
+          .postFundFinancingRemarkAll(params.approvalParams)
           .then((res) => res)
           .catch((e) => {
             console.log(e)

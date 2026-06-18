@@ -4,7 +4,7 @@ import { message, Modal } from 'antd'
 import { compareDetail } from '@/utils'
 import Api from './api'
 import priceApi from '../Price/api'
-import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
+import approvalRemarkApi from '@/api/contract/approvalRemarkApi'
 import { validateModal } from '@/utils/modal'
 class Store {
   constructor(data) {
@@ -40,8 +40,8 @@ class Store {
 
   page = new PageStore({
     request: async ({ contractId, isFormApproval, businessVersion, approvalParams }) => {
-      const approvalDetail = await processModifyRemarkApi
-        .postRemarkAll(approvalParams, 'processmodifyremarkallcontract')
+      const approvalDetail = await approvalRemarkApi
+        .postRemarkAll(approvalParams)
         .then((res) => res)
         .catch((e) => {
           console.log(e)
