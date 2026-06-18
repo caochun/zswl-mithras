@@ -1,7 +1,7 @@
 import styles from '../index.less'
 import { observer } from '@zswl/admin'
 import { FileTable } from '@/components/Table'
-import dataListApi from '@/api/common/materialsApi'
+import clientBasicApi from '@/api/customer/clientBasic'
 import { App, Button } from '@zswl/components'
 import _ from 'lodash'
 
@@ -82,16 +82,13 @@ const Report = ({ id, canEdit = true, businessVersion, type, processInstanceId }
         }
         listFormat={(res) => listFormat(res)}
         uploadApi={({ file, fileType, enumType: materialsType }) =>
-          dataListApi.postMaterialsUpload(
-            {
-              file,
-              belongId: id,
-              businessType: MODULE_TYPE,
-              materialsType,
-              materialsSubType: fileType,
-            },
-            'materialsupload'
-          )
+          clientBasicApi.postClientMaterialsUpload({
+            file,
+            belongId: id,
+            businessType: MODULE_TYPE,
+            materialsType,
+            materialsSubType: fileType,
+          })
         }
         params={{ ...params, materialsTypes: currentList.map((v) => v.value) }}
         title={

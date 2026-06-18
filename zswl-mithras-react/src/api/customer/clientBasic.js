@@ -32,6 +32,15 @@ export default {
       timeout: 0,
       type: 'upload',
     }),
+  postClientMaterialsUpload: (params) =>
+    http.post('/materials/upload', params, {
+      headers: {
+        functionCode: 'materialsupload',
+      },
+      transformResult: (res) => res.data,
+      timeout: 0,
+      type: 'upload',
+    }),
   deleteMaterialsUpload: (params) =>
     http.post('/materials/remove', params, {
       headers: {
