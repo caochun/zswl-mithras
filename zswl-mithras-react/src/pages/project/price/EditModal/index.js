@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { Input, Tabs } from 'antd'
 import { debounce as _debounce } from 'lodash'
-import ReviewApi from '../../review/api'
+import Api from '../api'
 
 const { Item } = Form
 
@@ -32,7 +32,7 @@ function EditModal({ store }) {
             allowClear
             style={{ maxWidth: '100%' }}
             options={async (projName) => {
-              const res = await ReviewApi.getList({ projName, projReviewStatus: 'TAKE_EFFECT' })
+              const res = await Api.getEffectiveReviewList({ projName, projReviewStatus: 'TAKE_EFFECT' })
               return res.list
             }}
             onChange={onProjectChang}

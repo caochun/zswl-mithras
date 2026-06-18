@@ -3,6 +3,7 @@ import { http } from '@zswl/admin'
 export default {
   getList: (params) => http.post('/proj/pricing/base/info/list', params),
   getProjectList: (params) => http.post('/proj/pricing/establish/query', params),
+  getEffectiveReviewList: (params) => http.post('/proj/review/base/info/list', params),
 
   postPricingCreate: (params) => http.post('/proj/pricing/create', params),
   postProjectReview: (params) =>
