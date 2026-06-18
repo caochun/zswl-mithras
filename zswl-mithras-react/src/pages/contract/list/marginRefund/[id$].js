@@ -1,1 +1,1 @@
-export { ContractMarginRefund as default } from '@/components/Contract/DetailEntries'
+export { ContractMarginRefund as default } from '@/components/Contract/ProcessDetailEntries'

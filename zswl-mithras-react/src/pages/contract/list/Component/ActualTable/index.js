@@ -1,1 +1,1 @@
-export { ContractActualTable as default } from '@/components/Contract/DetailEntries'
+export { ContractActualTable as default } from '@/components/Contract/ListDetailEntries'

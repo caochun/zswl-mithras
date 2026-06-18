@@ -1,1 +1,1 @@
-export { ContractCreateReceiptDetail as default } from '@/components/Contract/DetailEntries'
+export { ContractCreateReceiptDetail as default } from '@/components/Contract/ProcessDetailEntries'

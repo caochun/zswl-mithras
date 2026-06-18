@@ -1,1 +1,1 @@
-export { ContractSettlementDetail as default } from '@/components/Contract/DetailEntries'
+export { ContractSettlementDetail as default } from '@/components/Contract/ProcessDetailEntries'

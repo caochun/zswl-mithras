@@ -63,11 +63,15 @@
 - `Chart/BarChartEntries.js`
 - `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
+- `Contract/ApplicationDetailEntries.js`
 - `Contract/BaseInfoEntries.js`
+- `Contract/ConfigEntries.js`
 - `Contract/DetailEntries.js`
 - `Contract/LeaseMaterialsEntries.js`
+- `Contract/ListDetailEntries.js`
 - `Contract/MaterialsEntries.js`
 - `Contract/PriceEntries.js`
+- `Contract/ProcessDetailEntries.js`
 - `Cpm/CpmEntries.js`
 - `Cpm/PaymentApplicationDetailEntries.js`
 - `Cpm/PaymentApplicationMaterialsEntries.js`

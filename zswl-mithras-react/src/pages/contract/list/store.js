@@ -1,4 +1,4 @@
-import { ContractOperationMap as contractOperationMap } from '@/components/Contract/DetailEntries'
+import { ContractOperationMap as contractOperationMap } from '@/components/Contract/ConfigEntries'
 import { timeFormat, userIsProjSponsor } from '@/utils'
 import { history, makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'

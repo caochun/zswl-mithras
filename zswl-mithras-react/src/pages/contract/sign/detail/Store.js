@@ -6,7 +6,7 @@ import localApi from '../api'
 import {
   ContractBizTypePriceDetailMap as bizTypePriceDetailMap,
   ContractBizTypePriceModifyMap as bizTypePriceModifyMap,
-} from '@/components/Contract/DetailEntries'
+} from '@/components/Contract/ConfigEntries'
 import fileListApi from '@/api/common/fileList'
 import { downFile, downUrl, toHump } from '@/utils'
 

@@ -12,7 +12,7 @@ import { message } from 'antd'
 import BcxxStore from '../CompleteOperation/store'
 import Api from '@/api/process/flowExecution'
 import { getBackEndData } from './utils'
-import { contractCheckIrr as checkIrr } from '@/components/Contract/DetailEntries'
+import { contractCheckIrr as checkIrr } from '@/components/Contract/ProcessDetailEntries'
 class Store {
   constructor() {
     makeAutoObservable(this)

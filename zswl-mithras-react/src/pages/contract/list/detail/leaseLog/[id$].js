@@ -1,1 +1,1 @@
-export { ContractApplicationLeaseLog as default } from '@/components/Contract/DetailEntries'
+export { ContractApplicationLeaseLog as default } from '@/components/Contract/ApplicationDetailEntries'

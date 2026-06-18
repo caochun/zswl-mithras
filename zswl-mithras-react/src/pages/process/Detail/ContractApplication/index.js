@@ -2,11 +2,13 @@ import { useEffect, useMemo, useState, cloneElement } from 'react'
 import { observer } from '@zswl/admin'
 import {
   ContractApplicationDetail,
+} from '@/components/Contract/ApplicationDetailEntries'
+import {
   ContractChangeDetail as LPRchange,
   ContractCreateReceiptDetail as KSJJcreateReceipt,
   ContractSettlementDetail as JQsettlement,
   ContractStartRentDetail as KSQZstartRent,
-} from '@/components/Contract/DetailEntries'
+} from '@/components/Contract/ProcessDetailEntries'
 import Api from '../api'
 
 const ContractProcess = (props) => {
