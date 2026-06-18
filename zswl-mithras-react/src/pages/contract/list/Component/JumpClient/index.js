@@ -1,1 +1,1 @@
-export { default } from '@/components/Customer/JumpClient'
+export { default } from '@/components/JumpClient'
