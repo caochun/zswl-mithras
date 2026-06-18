@@ -2,7 +2,7 @@ import ReactECharts from 'echarts-for-react'
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
 import Api from '@/api/financial/liquidity/liquidityRiskApi'
-import { BarChart } from '@/components/Chart/ChartEntries'
+import { BarChart } from '@/components/Chart/BarChartEntries'
 import _, { flatMapDeep, set } from 'lodash'
 
 const divorcer = 10000 * 10000

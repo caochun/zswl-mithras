@@ -63,7 +63,9 @@
 - `Budget/ProjectProfitEntries.js`
 - `Budget/ProvisioningEntries.js`
 - `BudgetManagement/BudgetManagementEntries.js`
-- `Chart/ChartEntries.js`
+- `Chart/BarChartEntries.js`
+- `Chart/LineChartEntries.js`
+- `Chart/TooltipEntries.js`
 - `CheckBusiness/CheckBusinessEntries.js`
 - `ClientFileTable/ClientFileTableEntries.js`
 - `Contract/ApplicationDetailEntries.js`
