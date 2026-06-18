@@ -256,6 +256,7 @@
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
 - `rzy`、`implant`、`cvicse`、`student`、`visitorManage`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
+- `demo`：本地实验/脚手架目录，含注释示例和硬编码调试地址；不作为业务域边界判断输入。
 
 目录整理原则：
 
@@ -281,7 +282,7 @@
 - `npm run page`：生成页面脚手架。
 - `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`、`@/pages/**` 页面私有代码复用、未使用或未记录的领域级入口。
 - `node scripts/report-component-entry-deps.js`：输出 `src` 内页面、组件、工具等对组件领域稳定入口形成的依赖关系，并对已确认的历史路由壳目录做领域归一化，用于判断后续边界整理优先级。
-- `node scripts/report-api-domain-deps.js`：输出页面、组件、工具等业务使用方对跨域 API 的依赖关系；`src/api/**` 内的语义兼容入口作为实现细节跳过，用于识别需要收敛到领域组件、领域入口或 `src/api/<domain>` 的候选点。
+- `node scripts/report-api-domain-deps.js`：输出页面、组件、工具等业务使用方对跨域 API 的依赖关系；`src/api/**` 内的语义兼容入口和 `pages/demo` 等非业务实验页作为实现/调试细节跳过，用于识别需要收敛到领域组件、领域入口或 `src/api/<domain>` 的候选点。
 
 ## 项目约定
 

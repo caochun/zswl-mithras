@@ -15,6 +15,10 @@ const domainAliases = new Map([
   ['fillingMaterialsDetail', 'filingMaterials'],
   ['financialReport', 'report'],
 ])
+const ignoredSourcePathPatterns = [
+  /^src[\\/]api[\\/]/,
+  /^src[\\/]pages[\\/]demo[\\/]/,
+]
 
 function normalizeDomain(domain) {
   return domainAliases.get(domain) || domain
@@ -38,7 +42,7 @@ function walk(dir, files = []) {
 }
 
 function getSourceScope(relativeFilePath) {
-  if (/^src[\\/]api[\\/]/.test(relativeFilePath)) {
+  if (ignoredSourcePathPatterns.some((pattern) => pattern.test(relativeFilePath))) {
     return null
   }
 
