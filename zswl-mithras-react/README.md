@@ -16,6 +16,36 @@
 
 后续若新增 `src/features/<domain>`，它应承载某个业务域可复用的前端能力，例如领域组件、领域 hooks、领域配置和领域 API 包装；`pages` 只作为路由装配层使用。
 
+## 领域入口
+
+跨业务域复用组件时，调用方应优先依赖被调用领域暴露的稳定入口，而不是直接引用对方内部目录。
+
+- 推荐：`@/components/Contract/DetailEntries`
+- 推荐：`@/components/Project/ProjectEntries`
+- 推荐：`@/components/Credit/CreditEntries`
+- 避免：`@/components/Contract/Detail/BaoJia`
+- 避免：`@/components/Project/ReviewDetail/store`
+- 避免：`@/components/Kpi/ProjectAllot/Column`
+
+`*Entries.js` 的语义是“当前领域愿意暴露给外部复用的前端能力清单”。它只做 re-export，不承载业务逻辑；真正实现仍留在原领域目录内。
+
+当前已有领域入口：
+
+- `AfterLease/RentCollectionEntries.js`
+- `Contract/DetailEntries.js`
+- `Contract/PriceEntries.js`
+- `Credit/CreditEntries.js`
+- `Customer/CustomerEntries.js`
+- `Customer/FinancialReportEntries.js`
+- `Dashboard/MyAchievementEntries.js`
+- `Kpi/ProjectAllotEntries.js`
+- `Lease/MaintainEntries.js`
+- `Process/PrepareDetailEntries.js`
+- `Project/ProjectEntries.js`
+- `Project/ReviewDetailEntries.js`
+- `Risk/RiskEntries.js`
+- `TrackEvent/TrackingEntries.js`
+
 ## 依赖规则
 
 - 禁止一个业务页面长期直接复用另一个业务页面目录下的组件、配置或 API。
@@ -23,6 +53,8 @@
 - 工作台、报表、流程这类聚合页面可以编排多个业务域页面，但聚合逻辑应显式，不能让聚合页面变成公共组件库。
 - `process` 负责流程壳和审批交互；业务详情组件应尽量由业务域提供，再由流程页面进行装配。
 - 通用组件应保持无业务名称、无菜单名称、无特定页面状态依赖。
+- 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
+- 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
 
 ## 当前边界收敛
 
@@ -30,6 +62,8 @@
 - 文件导出按钮统一使用 `src/components/Actions/FileExport` 或 `src/components/Actions` 导出的 `FileExportAction`。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
+- 流程准备详情页通过 `src/components/Process/PrepareDetailEntries.js` 装配业务域详情组件。
+- 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 
 ## 整理优先级
 
@@ -46,6 +80,7 @@
 - `npm run buildAll`：执行多环境打包。
 - `npm run api`：根据 `admin.config.js` 中的 YApi 配置生成接口。
 - `npm run page`：生成页面脚手架。
+- `npm run check:boundaries`：检查是否存在跨域深层组件路径或组件私有文件引用。
 
 ## 项目约定
 
