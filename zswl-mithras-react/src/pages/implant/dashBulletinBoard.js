@@ -1,4 +1,4 @@
-import DashIframe from '@/components/LoginIframe/dashIframe'
+import { DashIframe } from '@/components/LoginIframe/LoginIframeEntries'
 
 const Index = () => {
   return <DashIframe path="dash/screen/lease" />
