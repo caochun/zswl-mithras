@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { NoEnumFileTable } from '@/components/Table'
-import commonApi from '@/api/common/fileList'
+import customerMaintainApi from '@/api/customer/maintainApi'
 import { getUserInfo } from '@/utils'
 
 const Report = ({ canEdit = true, store }) => {
@@ -38,7 +38,7 @@ const Report = ({ canEdit = true, store }) => {
         download: 'filedownload-clienttransfer',
         remove: 'filebatchremove-clienttransfer',
       }}
-      tableApi={() => commonApi.postFileList({ ...params }, 'filelist-clienttransform')}
+      tableApi={() => customerMaintainApi.postTransferFileList({ ...params })}
       canEditItem={false}
       canDelete={(record) => {
         return record.createBy == getUserInfo().id

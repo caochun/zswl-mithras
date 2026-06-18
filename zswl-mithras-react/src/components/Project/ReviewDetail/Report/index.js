@@ -4,7 +4,6 @@ import Api from './api'
 import { FileTable } from '@/components/Table'
 import { Button } from '@zswl/components'
 import { message } from 'antd'
-import fileListApi from '@/api/common/fileList'
 import { InputColumn } from '@/components/Format'
 
 const MODULE_TYPE = 'PROJ_REVIEW'
@@ -69,14 +68,11 @@ const Report = ({
         })
       }
       removeApi={({ id }, { businessType, belongId }) => {
-        return fileListApi.postBatchRemove(
-          {
-            ...params,
-            fileIds: [id],
-            mainId: businessType === 'VISIT_RECORD' ? belongId : mainId,
-          },
-          'projReviewFileBatchRemove'
-        )
+        return Api.postReviewFileBatchRemove({
+          ...params,
+          fileIds: [id],
+          mainId: businessType === 'VISIT_RECORD' ? belongId : mainId,
+        })
       }}
       extra={[
         <Button type="primary" disabled={!canEdit} key="generate" onClick={generate}>

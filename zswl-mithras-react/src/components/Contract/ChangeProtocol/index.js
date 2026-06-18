@@ -1,6 +1,5 @@
 import { observer } from '@zswl/admin'
 import Api from './api'
-import commonApi from '@/api/common/materialsApi'
 import { NoEnumFileTable } from '@/components/Table'
 import { downFile } from '@/utils/downFunction'
 
@@ -31,17 +30,11 @@ const Report = ({ id, canEdit = true, changeType, businessVersion, title }) => {
     }
   }
   const downloadApi = async ({ id }) => {
-    const res = await commonApi.postMaterialsDownload(
-      { ids: [id] },
-      'contractsettleextramaterialsdownload'
-    )
+    const res = await Api.postExtraMaterialsDownload({ ids: [id] })
     downFile(res)
   }
   const batchDownloadApi = async (ids) => {
-    const res = await commonApi.postMaterialsDownload(
-      { ids: ids },
-      'contractsettleextramaterialsdownload'
-    )
+    const res = await Api.postExtraMaterialsDownload({ ids })
     downFile(res)
   }
 

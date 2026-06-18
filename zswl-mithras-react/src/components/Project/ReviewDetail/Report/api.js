@@ -7,6 +7,13 @@ export default {
     http.post('/proj/review/report/remove', params, {
       transformResult: (res) => res.data,
     }),
+  postReviewFileBatchRemove: (params) =>
+    http.post('/file/batch/remove', params, {
+      headers: {
+        functionCode: 'projReviewFileBatchRemove',
+      },
+      transformResult: (res) => res.data,
+    }),
   postReportUpload: (params, config) =>
     http.post('/proj/review/report/upload', params, {
       headers: {

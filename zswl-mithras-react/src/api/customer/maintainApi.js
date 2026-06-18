@@ -31,6 +31,12 @@ export default {
   //获取客户是否可转移按钮状态
   getButtonStatus: (params) => http.post('/currentUser/button/status', params),
   getTransferDetail: (params) => http.post('/client/transfer/detail', params),
+  postTransferFileList: (params) =>
+    http.post('/file/list', params, {
+      headers: {
+        functionCode: 'filelist-clienttransform',
+      },
+    }),
 
   // 客户申办权限申请客户信息
   postClientApplyDetail: (data) => http.post('/client/apply/detail', data),
