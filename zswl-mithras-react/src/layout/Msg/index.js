@@ -1,7 +1,7 @@
 import { MyWebSocket } from '@/utils/ws'
 import { Button, notification, Space, Tag, Divider, message } from 'antd'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import api from '@/api/message/messageNotification'
+import api from '@/api/layout/messageApi'
 import styles from './index.less'
 import { App } from '@zswl/components'
 import { history } from '@zswl/admin'

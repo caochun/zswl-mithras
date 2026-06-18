@@ -3,7 +3,7 @@ import { observer, http } from '@zswl/admin'
 import { Space, Input, message } from 'antd'
 import JSEncrypt from 'jsencrypt'
 import store from './store'
-import Api from '@/api/permission/login'
+import Api from '@/api/layout/fastLoginApi'
 import { setQjtAc, setSalt } from '@/utils'
 const pubKey =
   'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNpMKIVmt0u5lx62tRD1O/15EyNLN0lNi3++ytnvLalkQNSrrqU2w3uD5NwdVE/v4OrDznTpBdTl6N1ryXAILU5GDu0bLATC46RKxDlH52LIvaRBU7BZkEGqllEqRJFmwtvtNCVeZD6ekJWc67MLUh4LNa1yMQ9V6Zsf64uY2lgwIDAQAB'

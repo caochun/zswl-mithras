@@ -181,6 +181,23 @@ const legacyApiPrefixRules = [
     allowedSourcePathPrefixes: ['src/api/budget/projectProfitBaseSetApi.js'],
   },
   {
+    legacyPrefix: '@/api/message/messageNotification',
+    replacementPrefix: '@/api/layout/messageApi or @/api/message/messageNotification in Message domain',
+    allowedSourcePathPrefixes: [
+      'src/api/layout/messageApi.js',
+      'src/pages/msgNotification/',
+      'src/pages/dashboard/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/permission/login',
+    replacementPrefix: '@/api/layout/fastLoginApi or @/api/permission/login in Login page',
+    allowedSourcePathPrefixes: [
+      'src/api/layout/fastLoginApi.js',
+      'src/pages/login/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],
