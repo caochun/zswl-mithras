@@ -1,1 +1,1 @@
-export { default } from '@/components/TrackEvent/Tracking/detail'
+export { TrackingDetail as default } from '@/components/TrackEvent/TrackingEntries'

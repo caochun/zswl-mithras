@@ -1,1 +1,5 @@
+export { default as TrackingAddModal } from './Tracking/AddModal'
 export { default as TrackingColumns } from './Tracking/Column'
+export { default as TrackingDetail } from './Tracking/detail'
+export { default as TrackingList } from './Tracking/List'
+export { default as TrackingModal } from './TrackModal'
