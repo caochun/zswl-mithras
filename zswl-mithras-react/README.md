@@ -141,8 +141,6 @@
 - `Risk/PublicMonitorListEntries.js`
 - `Risk/RelateMonitorEntries.js`
 - `Risk/SourceCardEntries.js`
-- `TrackEvent/TrackAddModalEntries.js`
-- `TrackEvent/TrackModalEntries.js`
 - `TrackEvent/TrackingEntries.js`
 - `WhiteList/WhiteListEntries.js`
 
