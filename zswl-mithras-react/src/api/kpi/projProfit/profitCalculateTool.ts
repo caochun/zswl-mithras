@@ -1,1 +1,1 @@
-export { default } from '../../header/projProfitTool'
+export { default } from '@/api/layout/projProfitToolApi'

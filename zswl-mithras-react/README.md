@@ -279,7 +279,7 @@
 - `project/projReviewDetail`、`project/projReviewMeetingMinute`：项目评审详情和会议纪要接口保留在项目域；流程详情展示项目评审资料或会议纪要时优先使用 `src/api/process/detail` 下的聚合入口。
 - `project/projReviewFinancialReport`：项目评审财务报表完整性接口保留在项目域；流程操作提交前校验时优先使用 `src/api/process/operation/projectReviewFinancialReportApi`。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件优先使用 `src/api/contract/lprApi` 语义入口。
-- `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；KPI 语义优先使用 `src/api/kpi/projProfit/profitCalculateTool`，全局 layout 入口优先使用 `src/api/layout/projProfitToolApi`。
+- `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；真实承载在 `src/api/layout/projProfitToolApi`，历史 `header` 与 `kpi/projProfit/profitCalculateTool` 入口仅保留兼容转发。
 - `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
 - `message/messageNotification`：消息中心页面保留消息域 API；全局 layout 消息弹窗优先使用 `src/api/layout/messageApi`，dashboard 工作台消息列表优先使用 `src/api/dashboard/workbenchMessageApi`。
 - `permission/login`：登录页保留权限域登录 API；全局 layout 快速切换登录优先使用 `src/api/layout/fastLoginApi`。
