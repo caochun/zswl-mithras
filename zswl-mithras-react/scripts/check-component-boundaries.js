@@ -18,6 +18,20 @@ const nonEntryComponentSubpathPattern =
 const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
 const pageImportPattern = /^@\/pages\//
+const legacyApiDomains = new Map([
+  ['blackList', 'blackGray'],
+  ['financialReport', 'report'],
+  ['fillingMaterials', 'filingMaterials'],
+  ['header', 'kpi/projProfit'],
+  ['liquidity', 'financial/liquidity'],
+  ['manageReport', 'report'],
+  ['newFtp', 'budget/pricing/ftp'],
+  ['postRentalInspection', 'afterLease'],
+  ['pricing', 'budget/pricing'],
+  ['riskControl', 'risk'],
+  ['workbench', 'dashboard'],
+])
+const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 
 function normalizeEntryPath(filePath) {
   return path.relative(path.join(srcDir, 'components'), filePath).split(path.sep).join('/')
@@ -68,6 +82,7 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
     const specifier = match[1]
     const isComponentImport = specifier.startsWith('@/components/')
     const isPageImport = pageImportPattern.test(specifier)
+    const [, legacyApiDomain] = specifier.match(legacyApiImportPattern) || []
 
     const [, targetComponentEntryDomain] = specifier.match(componentEntryPathPattern) || []
     const documentedEntryPath = toDocumentedEntryPath(specifier)
@@ -79,6 +94,11 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
       violations.push({
         file: relativeFilePath,
         specifier,
+      })
+    } else if (legacyApiDomains.has(legacyApiDomain)) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use @/api/${legacyApiDomains.get(legacyApiDomain)} semantic entry)`,
       })
     } else if (
       isComponentImport &&
