@@ -11,6 +11,8 @@ const copiedSourceFilePattern =
 const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
+const componentApiForwardingShellPattern =
+  /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
 
 const privateComponentPathPattern = /^@\/components\/[^'"]+\/(?:api|store|context|config|Config|Column|columns)(?:\.js)?$/
 const deepComponentPathPattern = /^@\/components\/[^'"]+\/[^'"]+\/[^'"]+\/[^'"]+/
@@ -579,6 +581,16 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'copied or backup source file',
+    })
+  }
+
+  if (
+    /^src[\\/]components[\\/].*[\\/]api\.(?:js|ts)$/.test(relativeFilePath) &&
+    componentApiForwardingShellPattern.test(fs.readFileSync(filePath, 'utf8').trim())
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'component api forwarding shell (import the semantic @/api entry directly)',
     })
   }
 }
