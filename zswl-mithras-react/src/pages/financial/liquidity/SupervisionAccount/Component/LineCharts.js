@@ -1,7 +1,7 @@
 import ReactECharts from 'echarts-for-react'
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
-import LineChart from '@/components/Chart/LineChart'
+import { LineChart } from '@/components/Chart/ChartEntries'
 import _, { flatMapDeep, set } from 'lodash'
 
 const divorcer = 10000

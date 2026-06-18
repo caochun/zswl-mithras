@@ -1,7 +1,6 @@
 import { observer } from '@zswl/admin'
 import { MultiBar } from '@zswl/charts'
-import { getChartsTooltip } from '@/components/Chart/tooltip'
-import { RenderTooltip } from '@/components/Chart/tooltip'
+import { getChartsTooltip, RenderTooltip } from '@/components/Chart/ChartEntries'
 import ReactDOMServer from 'react-dom/server'
 import classNames from 'classnames'
 
