@@ -5,7 +5,7 @@ import { message } from 'antd'
 import moment from 'moment'
 import { scrollToAnchor } from '@/utils/document'
 import customerRatApprovalApi from '@/api/customer/customerRat/customerRatApprovalApi'
-export { getApprovalText, indexCheck } from '@/utils/customerRat'
+export { getApprovalText, indexCheck } from '@/customer/CustomerRatUtils'
 
 const formatListJson = (data = {}) => {
   const { values, list } = data

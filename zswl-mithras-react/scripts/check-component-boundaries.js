@@ -246,6 +246,7 @@ const legacyApiPrefixRules = [
     allowedSourceDomains: ['Customer'],
     allowedSourcePathPrefixes: [
       'src/api/project/ratingApi.js',
+      'src/customer/CustomerRatUtils.js',
       'src/pages/customer/',
       'src/pages/process/',
       'src/utils/customerRat.js',

@@ -245,7 +245,9 @@
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
+- `utils/customerRat`：客户评级工具历史落在全局 utils；客户评级和流程操作优先使用 `src/customer/CustomerRatUtils`，旧路径仅保留兼容转发。
 - `customer/clientBasic`：客户维护基础信息 API 保留在客户域；行业、区域等 `/select` 字典优先使用 `src/api/common/selectApi`。
+- `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
 - `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件可直接使用，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时优先使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时优先使用 `src/api/trackEvent/contractInfoApi`。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件优先使用 `src/api/contract/lprApi` 语义入口。

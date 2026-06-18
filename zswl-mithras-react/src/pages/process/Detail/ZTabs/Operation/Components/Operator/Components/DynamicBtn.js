@@ -1,7 +1,7 @@
 import { ApprovalAction as Approval } from '@/components/Actions'
 import { LeaseApprovalConfirmAction as ApprovalConfirm } from '@/components/Lease/ApprovalConfirmEntries'
 import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
-import { checkCreditDate, postPayMentCheckApplyAmount, validateAgreen } from '@/utils/paymentApplication'
+import { checkCreditDate, postPayMentCheckApplyAmount, validateAgreen } from '@/cpm/PaymentApplicationUtils'
 import { useFlowData } from '@/utils/processFlow'
 import mathjs from '@/utils/math'
 import { observer } from '@zswl/admin'

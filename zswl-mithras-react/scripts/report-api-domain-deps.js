@@ -11,6 +11,8 @@ const domainAliases = new Map([
   ['blackListManage', 'blackGray'],
   ['BudgetManagement', 'budget'],
   ['budgetManagement', 'budget'],
+  ['cpm', 'cpm'],
+  ['customer', 'customer'],
   ['dashboard', 'dashboard'],
   ['FilingMaterials', 'filingMaterials'],
   ['fillingMaterialsDetail', 'filingMaterials'],
