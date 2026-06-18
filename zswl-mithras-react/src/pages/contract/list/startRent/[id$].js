@@ -1,1 +1,4 @@
-export { default, checkIrr } from '@/components/Contract/StartRentDetail'
+export {
+  ContractStartRentDetail as default,
+  contractCheckIrr as checkIrr,
+} from '@/components/Contract/DetailEntries'

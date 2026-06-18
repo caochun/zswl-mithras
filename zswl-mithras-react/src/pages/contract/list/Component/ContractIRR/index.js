@@ -1,1 +1,1 @@
-export { default } from '@/components/Contract/ContractIRR'
+export { ContractIRR as default } from '@/components/Contract/DetailEntries'

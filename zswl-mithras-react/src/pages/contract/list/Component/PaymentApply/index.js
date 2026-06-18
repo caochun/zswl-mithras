@@ -1,1 +1,1 @@
-export { default } from '@/components/Contract/PaymentApply'
+export { ContractPaymentApply as default } from '@/components/Contract/DetailEntries'

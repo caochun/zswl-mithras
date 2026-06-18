@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react'
 import { observer } from '@zswl/admin'
 import ActualTable from '@/components/Contract/ActualTable'
-import { bizTypeMapText } from '@/components/Contract/bizTypeConfig'
+import { bizTypeMapText } from '../../bizTypeConfig'
 import { DatePicker, Form } from 'antd'
 import moment from 'moment'
-import ContractIRR from '@/components/Contract/ContractIRR'
+import ContractIRR from '../../ContractIRR'
 import styles from './index.less'
 
 function Index({ canEditFlag = true, baseStore, isFormChangeType: _isFormChangeType }) {

@@ -1,13 +1,15 @@
 import { Collapse } from '@/components'
 import { Empty } from 'antd'
-import HeTong from '@/components/Contract/ContractText'
-import ZiLiao from '@/components/Contract/ContractMaterials'
-import CheckMaterial from '@/components/Contract/ChangeMaterials'
-import LeaseZiLiao from '@/components/Contract/LeaseMaterials'
+import {
+  ContractChangeMaterials as CheckMaterial,
+  ContractChangeProtocol as ChangeProtocol,
+  ContractLeaseMaterials as LeaseZiLiao,
+  ContractMaterials as ZiLiao,
+  ContractSettlementProtocol as SettlementProtocol,
+  ContractStartRentMaterials as StartRentZiLiao,
+  ContractText as HeTong,
+} from '@/components/Contract/DetailEntries'
 import Api from '@/api/contract/contractDetail'
-import StartRentZiLiao from '@/components/Contract/StartRentMaterials'
-import SettlementProtocol from '@/components/Contract/SettlementProtocol'
-import ChangeProtocol from '@/components/Contract/ChangeProtocol'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { useEffect, useMemo, useState } from 'react'
 
