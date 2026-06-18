@@ -40,6 +40,19 @@ const stabilizedComponentRootImports = new Map([
   ['UpdateRatingInfoButton', 'UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'],
   ['ZhongDengButton', 'ZhongDengButton/ZhongDengButtonEntries'],
 ])
+const stableTableRootImports = new Set([
+  'ApprovalDetail',
+  'CRUDTable',
+  'DetailTable',
+  'DynamicDesc',
+  'EditDescription',
+  'EditTable',
+  'FileTable',
+  'FileTableMe',
+  'NoEnumFileTable',
+  'Summary',
+  'VersionTable',
+])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
 const legacyUtilityPrefixRules = [
@@ -573,6 +586,18 @@ function isAllowedLegacyApiPrefixSource(rule, relativeFilePath, sourceComponentD
   )
 }
 
+function extractNamedImports(importText) {
+  const [, rawNamedImports] = importText.match(/\{([^}]+)\}/) || []
+  if (!rawNamedImports) {
+    return []
+  }
+
+  return rawNamedImports
+    .split(',')
+    .map((name) => name.trim().split(/\s+as\s+/)[0])
+    .filter(Boolean)
+}
+
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
 for (const filePath of sourceFiles) {
@@ -619,6 +644,7 @@ for (const filePath of sourceFiles) {
     relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
   let match
   while ((match = importPattern.exec(source))) {
+    const importText = match[0]
     const specifier = match[1]
     const isComponentImport = specifier.startsWith('@/components/')
     const isPageImport = pageImportPattern.test(specifier)
@@ -670,6 +696,15 @@ for (const filePath of sourceFiles) {
         file: relativeFilePath,
         specifier: `${specifier} (use @/components/${stabilizedComponentRootImports.get(componentRootImportDomain)})`,
       })
+    } else if (specifier === '@/components') {
+      for (const namedImport of extractNamedImports(importText)) {
+        if (stableTableRootImports.has(namedImport)) {
+          violations.push({
+            file: relativeFilePath,
+            specifier: `${namedImport} from ${specifier} (use @/components/Table)`,
+          })
+        }
+      }
     } else if (
       isComponentImport &&
       (
