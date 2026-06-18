@@ -1,9 +1,11 @@
 import { observer } from '@zswl/admin'
 import { App, Button } from '@zswl/components'
-import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
+import {
+  DashboardCardPanelFieldsFilter as CardPanelFieldsFilter,
+  DashboardRadioTabs,
+} from '@/components/Dashboard/DashboardEntries'
 import { UnorderedListOutlined } from '@ant-design/icons'
 import BarCharts from './BarCharts'
-import RadioTabs from '@/components/RadioTabs'
 import Store from './Store'
 import ListDrawer from './ListDrawer'
 import { useMemo, useEffect } from 'react'
@@ -41,14 +43,14 @@ const Index = () => {
           </Button>
         }
       >
-        <RadioTabs
+        <DashboardRadioTabs
           defaultActiveKey={activityKey}
           activityKey={activityKey}
           items={tabItems}
           onChange={(key) => {
             store.setActivityKey(key)
           }}
-        ></RadioTabs>
+        ></DashboardRadioTabs>
       </CardPanelFieldsFilter>
       <ListDrawer store={store}></ListDrawer>
     </div>

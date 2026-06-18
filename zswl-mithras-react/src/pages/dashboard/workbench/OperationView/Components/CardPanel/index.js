@@ -1,8 +1,10 @@
 import { observer } from '@zswl/admin'
 import { DatePicker } from 'antd'
-import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
+import {
+  DashboardCardPanelFieldsFilter as CardPanelFieldsFilter,
+  DashboardRadioTabs,
+} from '@/components/Dashboard/DashboardEntries'
 import { UnorderedListOutlined } from '@ant-design/icons'
-import RadioTabs from '@/components/RadioTabs'
 import { Form, SearchBar, Button } from '@zswl/components'
 import { useMemo, useState } from 'react'
 
@@ -25,7 +27,7 @@ const Index = ({ title, store, form, tabBarExtraContent = null, renderChildren =
         </Button>
       }
     >
-      <RadioTabs
+      <DashboardRadioTabs
         activityKey={activityKey}
         onChange={(key) => {
           store.setActivityKey(key)
@@ -51,7 +53,7 @@ const Index = ({ title, store, form, tabBarExtraContent = null, renderChildren =
             children: tabChildren,
           },
         ]}
-      ></RadioTabs>
+      ></DashboardRadioTabs>
     </CardPanelFieldsFilter>
   )
 }

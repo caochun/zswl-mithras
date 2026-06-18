@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { observer, history } from '@zswl/admin'
 import { Space, List, Tooltip, Modal, message, Divider } from 'antd'
 import Api from '@/api/dashboard/workbenchMessageApi'
-import RadioTabs from '@/components/RadioTabs'
+import { DashboardRadioTabs } from '@/components/Dashboard/DashboardEntries'
 import { CheckOutlined, RightOutlined } from '@ant-design/icons'
 import { sleep } from '@/utils'
 import styles from './index.less'
@@ -109,7 +109,7 @@ const Index = ({ store }) => {
 
   return (
     <div className={styles.content}>
-      <RadioTabs
+      <DashboardRadioTabs
         destroyInactiveTabPane
         tabBarExtraContent={
           <Space size={20}>
@@ -136,7 +136,7 @@ const Index = ({ store }) => {
             children: <MsgList data={msgData} init={init} />,
           },
         ]}
-      ></RadioTabs>
+      ></DashboardRadioTabs>
     </div>
   )
 }

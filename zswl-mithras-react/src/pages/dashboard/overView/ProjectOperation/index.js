@@ -1,10 +1,12 @@
 import { useEffect, useMemo } from 'react'
 import { Button } from '@zswl/components'
 import { Skeleton } from 'antd'
-import RadioTabs from '@/components/RadioTabs'
 import { UnorderedListOutlined } from '@ant-design/icons'
 import { observer } from '@zswl/admin'
-import { DashboardOverviewTitle as Title } from '@/components/Dashboard/DashboardEntries'
+import {
+  DashboardOverviewTitle as Title,
+  DashboardRadioTabs,
+} from '@/components/Dashboard/DashboardEntries'
 import DepartmentDrawer from './DepartmentDrawer'
 import CardBlock from './CardBlock'
 import Store from './Store'
@@ -69,7 +71,7 @@ const Index = ({ title, dataDate }) => {
         extra={dataDate && <div className={styles.extra}>数据截止时间：{dataDate}</div>}
       ></Title>
       <div className={styles.content}>
-        <RadioTabs
+        <DashboardRadioTabs
           defaultActiveKey="ALL"
           tabBarExtraContent={
             <Button icon={<UnorderedListOutlined />} onClick={store.departmentDrawer.open}>
@@ -96,7 +98,7 @@ const Index = ({ title, dataDate }) => {
               children: <TabContent key="INDUSTRY" store={store} />,
             },
           ]}
-        ></RadioTabs>
+        ></DashboardRadioTabs>
       </div>
       <DepartmentDrawer store={store} />
     </div>

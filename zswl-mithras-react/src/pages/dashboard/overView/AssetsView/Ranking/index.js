@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Button } from '@zswl/components'
 import { UnorderedListOutlined } from '@ant-design/icons'
-import RadioTabs from '@/components/RadioTabs'
+import { DashboardRadioTabs } from '@/components/Dashboard/DashboardEntries'
 import RankingDrawer from './RankingDrawer'
 import RankingTable from './RankingTable'
 
@@ -10,7 +10,7 @@ const Index = ({ store }) => {
 
   return (
     <div>
-      <RadioTabs
+      <DashboardRadioTabs
         tabBarExtraContent={
           currentTab === 'province' && (
             <Button icon={<UnorderedListOutlined />} onClick={allRankingDrawer.open}>
@@ -36,7 +36,7 @@ const Index = ({ store }) => {
             children: <RankingTable store={store.areaRankingTable} key={'area'} type="area" />,
           },
         ]}
-      ></RadioTabs>
+      ></DashboardRadioTabs>
       <RankingDrawer store={store}></RankingDrawer>
     </div>
   )
