@@ -251,7 +251,7 @@
 - `filingMaterials/otherFilingMaterialsDetail`：其他资料归集接口保留在资料归集域；流程提交前做资料说明校验时优先使用 `src/api/process/detail/filingMaterialsApi` 聚合入口。
 - `common/customerOverview`：客户总览接口的历史公共目录；dashboard 客户总览页面优先使用 `src/api/dashboard/customerOverview`，客户视图页面优先使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时优先通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API。
-- `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
+- `workbench`：工作台/看板相关接口历史生成目录；真实承载在 `src/api/dashboard/workbench`，dashboard 页面优先使用 `src/api/dashboard` 下的语义入口，历史 `workbench` 入口仅保留兼容转发。
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/utils/domains/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
 - `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件优先使用 `src/utils/domains/process/ProcessFlowContext`，旧路径仅保留兼容转发。
 - `utils/afterLease`、`utils/risk`、`utils/report`、`utils/kpi`、`utils/customer`、`utils/budgetManagement`：业务域小工具历史落在全局 utils；对应业务域页面和组件优先使用 `src/<domain>/*Utils` 语义入口，旧路径仅保留兼容转发。
