@@ -29,20 +29,42 @@
 
 `*Entries.js` 的语义是“当前领域愿意暴露给外部复用的前端能力清单”。它只做 re-export，不承载业务逻辑；真正实现仍留在原领域目录内。
 
+业务域内部实现文件不要从自己的 `*Entries.js` 反向导入；域内复用应使用相对路径。`*Entries.js` 只作为外部稳定入口使用。
+
 当前已有领域入口：
 
 - `AfterLease/RentCollectionEntries.js`
 - `BlackGray/BlackGrayEntries.js`
+- `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/BudgetEntries.js`
+- `BudgetManagement/BudgetManagementEntries.js`
+- `Chart/ChartEntries.js`
 - `Contract/DetailEntries.js`
 - `Contract/PriceEntries.js`
+- `Cpm/CpmEntries.js`
+- `Cpm/PaymentApplicationEntries.js`
 - `Credit/CreditEntries.js`
+- `CreditManage/CreditManageEntries.js`
 - `Customer/CustomerEntries.js`
 - `Customer/FinancialReportEntries.js`
+- `Dashboard/DashboardEntries.js`
 - `Dashboard/MyAchievementEntries.js`
+- `Financial/FinancialEntries.js`
+- `Financial/FundEntries.js`
+- `Financial/PaymentEntries.js`
+- `FilingMaterials/FilingMaterialsEntries.js`
+- `Kpi/BaseSetModalDetailEntries.js`
+- `Kpi/KpiEstimationEntries.js`
+- `Kpi/PmAssessEntries.js`
 - `Kpi/ProjectAllotEntries.js`
 - `Lease/MaintainEntries.js`
+- `LifeCycle/LifeCycleEntries.js`
+- `LoginIframe/LoginIframeEntries.js`
+- `Overdue/OverdueEntries.js`
 - `Process/PrepareDetailEntries.js`
+- `Process/ProcessEntries.js`
+- `Project/EstablishmentDetailEntries.js`
+- `Project/PriceDetailEntries.js`
 - `Project/ProjectEntries.js`
 - `Project/ReviewDetailEntries.js`
 - `Report/FinancialReportEntries.js`
@@ -59,11 +81,15 @@
 - 通用组件应保持无业务名称、无菜单名称、无特定页面状态依赖。
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
+- 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`BreadLine/config`、`Chart/tooltip`。
+- `npm run check:boundaries` 会扫描整个 `src`，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，并禁止组件域内部反向引用自身 `*Entries.js`。
 
 ## 当前边界收敛
 
-- 表格合计行统一使用 `src/components/Table/Summary`。
-- 文件导出按钮统一使用 `src/components/Actions/FileExport` 或 `src/components/Actions` 导出的 `FileExportAction`。
+- 表格、文件表、描述表、审批详情等统一从 `src/components/Table` 稳定入口导入。
+- 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
+- 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
+- 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
 - 流程准备详情页通过 `src/components/Process/PrepareDetailEntries.js` 装配业务域详情组件。
@@ -131,16 +157,16 @@
 - `npm run buildAll`：执行多环境打包。
 - `npm run api`：根据 `admin.config.js` 中的 YApi 配置生成接口。
 - `npm run page`：生成页面脚手架。
-- `npm run check:boundaries`：检查是否存在跨域深层组件路径或组件私有文件引用。
+- `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`。
 
 ## 项目约定
 
 1. 金额展示使用千分位并保留 2 位小数；表格列中的金额右对齐。
 2. 按钮权限根据后端返回的接口标识判断，没有权限时隐藏或禁用。
 3. 客户名称、项目主办、项目协办、业务部门、风控经理等公共下拉优先使用 `src/components/Select`。
-4. 描述组件使用 `src/components/Table/EditTable`。
-5. 文件分组列表使用 `src/components/Table/FileTable`；普通文件列表使用 `src/components/Table/NoEnumFileTable`。
-6. 表单编辑能力优先使用 `src/components/Format/editable.js`。
+4. 描述组件、文件表、合计表和审批详情优先从 `src/components/Table` 导入。
+5. 文件分组列表使用 `src/components/Table` 导出的 `FileTable`；普通文件列表使用 `NoEnumFileTable`。
+6. 表单编辑能力优先从 `src/components/Format` 导入。
 7. 详情页锚点布局优先使用 `src/components/DetailLayout`。
 
 ## 外部信息
