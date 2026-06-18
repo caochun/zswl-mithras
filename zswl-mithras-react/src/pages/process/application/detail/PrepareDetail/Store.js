@@ -2,7 +2,7 @@ import { history, makeAutoObservable } from '@zswl/admin'
 import { Modal, PageStore } from '@zswl/components'
 import { message } from 'antd'
 import Api from '../api'
-import { checkIrr } from '../../../../contract/list/startRent/[id$]'
+import { checkIrr } from '@/components/Contract/StartRentDetail'
 
 class Store {
   constructor(id) {

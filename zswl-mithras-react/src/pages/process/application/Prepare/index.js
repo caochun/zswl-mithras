@@ -5,7 +5,7 @@ import { message } from 'antd'
 import { useMemo } from 'react'
 import ALL_COLUMNS from './Column'
 import Api from './api'
-import { checkIrr } from '../../../contract/list/startRent/[id$]'
+import { checkIrr } from '@/components/Contract/StartRentDetail'
 
 const formNameColumns = ['表单名称', '流程类型']
 const nameColumns = [

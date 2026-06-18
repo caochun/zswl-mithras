@@ -2,8 +2,8 @@ import ProfitDistribution from '@/components/Budget/ProfitDistribution'
 import AfterLeaseGeneralCheck from '@/components/AfterLease/CheckPlanPrepareProcess' // 租后检查-一般检查
 import NewAfterLeaseCheckReportCommonlyFlow from '@/components/AfterLease/CheckPlanTemplate' // 租后检查模版
 import DepositRefundNotification from '@/components/Contract/DepositRefundNotification'
-import JQsettlement from '@/pages/contract/list/settlement/[id$]' //提前结清
-import KSQZstartRent from '@/pages/contract/list/startRent/[id$]' // 合同自动起租
+import JQsettlement from '@/components/Contract/SettlementDetail' //提前结清
+import KSQZstartRent from '@/components/Contract/StartRentDetail' // 合同自动起租
 import CustomerRat from '@/components/Customer/CustomerRatDetail' // 客户评级'
 import FilingMaterialsApply from '@/components/FilingMaterials/FilingMaterialsApply'
 import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'

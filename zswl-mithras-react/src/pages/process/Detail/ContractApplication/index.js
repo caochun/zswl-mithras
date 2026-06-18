@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState, cloneElement } from 'react'
 import { observer } from '@zswl/admin'
 import ContractApplicationDetail from '@/pages/contract/list/detail/[id$]'
-import KSQZstartRent from '@/pages/contract/list/startRent/[id$]'
-import KSJJcreateReceipt from '@/pages/contract/list/createReceipt/[id$]'
-import LPRchange from '@/pages/contract/list/change/[id$]'
-import JQsettlement from '@/pages/contract/list/settlement/[id$]'
+import KSQZstartRent from '@/components/Contract/StartRentDetail'
+import KSJJcreateReceipt from '@/components/Contract/CreateReceiptDetail'
+import LPRchange from '@/components/Contract/ChangeDetail'
+import JQsettlement from '@/components/Contract/SettlementDetail'
 import Api from '../api'
 
 const ContractProcess = (props) => {
