@@ -11,7 +11,7 @@ import { RegionCascader } from '@/components'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'
 import { history } from '@zswl/admin'
-import { BlackInfo } from '@/components/BlackGray/BlackInfo'
+import { BlackInfo } from '@/components/BlackInfo'
 
 import { PeopleListColumn, SupplierColumn } from '@/components/Project/BaseInfoColumns'
 const ALL_COLUMNS = ({
