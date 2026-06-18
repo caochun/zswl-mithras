@@ -3,7 +3,7 @@ import { ModalStore, PageStore, TableStore, DrawerStore, Modal, App } from '@zsw
 import { message } from 'antd'
 import moment from 'moment'
 import Api from './api'
-import policyLedgerApi from '@/api/afterLease/policyLedgerApi'
+import paymentDetailApi from '@/api/cpm/payment/paymentDetailApi'
 import { CloseOutlined } from '@ant-design/icons'
 class Store {
   constructor() {
@@ -15,7 +15,7 @@ class Store {
     request: async (params) => {
       const res = await Promise.all([
         Api.getPaymentWriteoffDetail(params),
-        policyLedgerApi.getPaymentDetail({ id: params.paymentId }),
+        paymentDetailApi.getPaymentDetail({ id: params.paymentId }),
       ])
       const [writeOffDetail = {}, detail = {}] = res
       return { ...writeOffDetail, ...detail }
