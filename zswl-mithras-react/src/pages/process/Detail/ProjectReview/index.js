@@ -1,4 +1,4 @@
-import ProjectReviewDetail from '@/pages/project/review/detail/[id$]'
+import ProjectReviewDetail from '@/components/Project/ReviewDetail'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '../api'
