@@ -34,6 +34,7 @@
 当前已有领域入口：
 
 - `AfterLease/RentCollectionEntries.js`
+- `AfterLease/CheckPlanEntries.js`
 - `BlackGray/BlackGrayEntries.js`
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/BudgetEntries.js`

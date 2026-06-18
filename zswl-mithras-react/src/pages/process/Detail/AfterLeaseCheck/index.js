@@ -4,7 +4,7 @@ import {
   AfterLeaseCheckPlanCreate as CreatePlan,
   AfterLeaseCheckPlanDetail as PlanDetail,
   AfterLeaseCheckPlanTemplate as PlanReport,
-} from '@/components/AfterLease/RentCollectionEntries'
+} from '@/components/AfterLease/CheckPlanEntries'
 
 const AfterLeaseCheck = ({ modelKey, canEditFlag, id, businessVersion }) => {
   const renderContractType = useMemo(() => {

@@ -1,1 +1,1 @@
-export { AfterLeaseCheckPlanTemplate as default } from '@/components/AfterLease/RentCollectionEntries'
+export { AfterLeaseCheckPlanTemplate as default } from '@/components/AfterLease/CheckPlanEntries'

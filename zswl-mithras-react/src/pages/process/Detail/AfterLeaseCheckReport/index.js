@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { AfterLeaseCheckPlanTemplate as PlanReport } from '@/components/AfterLease/RentCollectionEntries'
+import { AfterLeaseCheckPlanTemplate as PlanReport } from '@/components/AfterLease/CheckPlanEntries'
 
 const AfterLeaseCheck = ({ modelKey, canEditFlag, id, businessVersion, taskActivityId }) => {
   const renderContractType = useMemo(() => {
