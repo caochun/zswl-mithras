@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '../Column'
+import ALL_COLUMNS from './Column'
 import { getDescColumns } from '@/utils'
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { App, Select } from '@zswl/components'

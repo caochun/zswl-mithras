@@ -1,6 +1,6 @@
 import { Button, Form, Modal, ModalStore } from '@zswl/components'
-import BaseInfo from './detail/BaseInfo'
-import TrackingTask from './detail/TrackingTask'
+import BaseInfo from './BaseInfo'
+import TrackingTask from './TrackingTask'
 import { getLocalStorage, getQuery, observer } from '@zswl/admin'
 import { useMemo, useRef, useState } from 'react'
 import trackingApi from '@/api/lease/trackingApi'
