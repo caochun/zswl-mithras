@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Table, TableStore } from '@zswl/components'
-import { PolicyColumns as ALL_COLUMNS } from '@/components/Policy/PolicyEntries'
+import { InsurancePolicyColumns as ALL_COLUMNS } from '@/components/InsurancePolicy/InsurancePolicyEntries'
 import { getTableColumns } from '@/utils'
 import IconFont from '@/components/Icon'
 import { message, Space } from 'antd'

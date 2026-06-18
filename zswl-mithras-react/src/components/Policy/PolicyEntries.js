@@ -1,2 +1,4 @@
-export { default as Policy } from '.'
-export { default as PolicyColumns } from './Columns'
+export {
+  InsurancePolicy as Policy,
+  InsurancePolicyColumns as PolicyColumns,
+} from '../InsurancePolicy/InsurancePolicyEntries'

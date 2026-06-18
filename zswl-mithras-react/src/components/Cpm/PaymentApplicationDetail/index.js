@@ -8,7 +8,7 @@ import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCh
 import BaseInfo from './Components/BaseInfo'
 import LendingMaterials from '../PaymentApplication/LendingMaterials'
 import InformationList from '../PaymentApplication/InformationList'
-import { Policy } from '@/components/Policy/PolicyEntries'
+import { InsurancePolicy } from '@/components/InsurancePolicy/InsurancePolicyEntries'
 import Application from './Components/Applicat'
 import LeaseCheck from './Components/LeaseCheck'
 import Store from './store'
@@ -153,7 +153,7 @@ const PaymentApplicationDetail = ({
       >
         <BaseInfo id={id} store={store} goProcess={goProcess} />
         <Application store={store} canEditFlag={canEdit} />
-        <Policy
+        <InsurancePolicy
           canEditFlag={canEdit}
           mainId={id}
           businessVersion={businessVersion}

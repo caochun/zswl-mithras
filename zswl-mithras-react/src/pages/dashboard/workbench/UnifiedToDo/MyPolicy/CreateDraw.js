@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Drawer, Button } from '@zswl/components'
-import { Policy } from '@/components/Policy/PolicyEntries'
+import { InsurancePolicy } from '@/components/InsurancePolicy/InsurancePolicyEntries'
 import { Space } from 'antd'
 
 const Index = ({ store }) => {
@@ -23,7 +23,7 @@ const Index = ({ store }) => {
       title="保单信息"
       onClose={handleDrawerClose}
     >
-      <Policy
+      <InsurancePolicy
         mainId={policyRecord?.paymentId}
         paramsAsPolicy={{ pageSource: 'policy', policyRecord }}
         callBack={store.createDrawer.close}

@@ -38,6 +38,7 @@ const componentAliases = new Map([
   ['CheckBusiness', 'BusinessInfoCheck'],
   ['ClientFileTable', 'ClientMaterialTable'],
   ['FileDiff', 'ChangeLogDiff'],
+  ['Policy', 'InsurancePolicy'],
   ['PaymentApplyColumns', 'PaymentFtpColumns'],
 ])
 
