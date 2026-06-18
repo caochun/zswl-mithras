@@ -9,11 +9,11 @@ import AgentMaterials from './AgentMaterials'
 import CreditReport from './CreditReport'
 import ReportModal from './ReportModal'
 import { Button } from 'antd'
-import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
+import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCheckEntries'
 
 const Detail = ({ params: { id }, taskActivityId }) => {
-  const checkBusinessRef = useRef(null)
-  const store = useMemo(() => new Store({ id, checkBusinessRef }), [id, checkBusinessRef])
+  const businessInfoCheckRef = useRef(null)
+  const store = useMemo(() => new Store({ id, businessInfoCheckRef }), [id, businessInfoCheckRef])
 
   const detail = store.page.getData()
   const isFormApproval = getQuery('typeId') == 'approval'
@@ -49,13 +49,13 @@ const Detail = ({ params: { id }, taskActivityId }) => {
         <Button type="primary" onClick={handleScrollToReport} disabled={!canSearch}>
           客户征信报告
         </Button>,
-        <CheckBusiness creditSearchId={detail?.id} needOption={false} ref={checkBusinessRef} />,
+        <BusinessInfoCheck creditSearchId={detail?.id} needOption={false} ref={businessInfoCheckRef} />,
         !isFormApproval && (
           <Button
             type="primary"
             onClick={async () => {
-              checkBusinessRef.current.setSubmitFn(() => store.submit())
-              await checkBusinessRef.current.store.checkCompare()
+              businessInfoCheckRef.current.setSubmitFn(() => store.submit())
+              await businessInfoCheckRef.current.store.checkCompare()
             }}
             disabled={!canEdit}
           >

@@ -1,1 +1,1 @@
-export { default as BusinessInfoCheck } from '.'
+export { BusinessInfoCheck } from '../BusinessInfoCheck/BusinessInfoCheckEntries'

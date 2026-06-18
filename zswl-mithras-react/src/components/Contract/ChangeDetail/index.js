@@ -13,7 +13,7 @@ import Exhibi from './Exhibi'
 import Store from './store'
 import CantractDetailBaseInfo from '../BaseInfo'
 import styles from './index.less'
-import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
+import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCheckEntries'
 import { EditDescription } from '@/components/Table'
 import { TextAreaColumn } from '@/components/Format'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/TrackingEntries'
@@ -101,13 +101,13 @@ function Index({
                 <TrackModal
                   params={{ contractCode, curAssigneeIds, bizSource: 'CONTRACT', bizId: id }}
                 />
-                <CheckBusiness
+                <BusinessInfoCheck
                   taskStatus={taskStatus}
                   contractId={id}
                   flowId={processInstanceId}
                   modelKey={modelKey}
                   taskActivityId={taskActivityId}
-                ></CheckBusiness>
+                ></BusinessInfoCheck>
                 <Button onClick={goProcess} type="link">
                   查询历史流程
                 </Button>

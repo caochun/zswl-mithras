@@ -9,8 +9,8 @@ import payableLoansApi from '@/api/credit/payableLoansApi'
 import creditLimitApi from '@/api/credit/creditLimitApi'
 
 class Store {
-  constructor({ checkBusinessRef, ...params }) {
-    this.checkBusinessRef = checkBusinessRef
+  constructor({ businessInfoCheckRef, ...params }) {
+    this.businessInfoCheckRef = businessInfoCheckRef
     this.params = params || {}
     makeAutoObservable(this)
   }
@@ -22,7 +22,7 @@ class Store {
       return await creditReportApi.getBaseDetail({ id })
     },
   })
-  checkBusinessRef = null
+  businessInfoCheckRef = null
   /**
    * 打开征信报告Modal
    */

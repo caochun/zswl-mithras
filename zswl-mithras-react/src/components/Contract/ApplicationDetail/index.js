@@ -25,7 +25,7 @@ import Store from './store'
 import FormIrr from '@/components/FormIrr'
 import { ApprovalDetail } from '@/components/Table'
 import { ApprovalAction as Approval } from '@/components/Actions'
-import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
+import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCheckEntries'
 import LeaseZiLiao from '../LeaseMaterials'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/TrackingEntries'
 import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
@@ -133,7 +133,7 @@ const Index = ({
       中登网查询
     </Button>,
     <TrackModal params={{ contractCode, curAssigneeIds, bizSource: 'CONTRACT', bizId: id }} />,
-    <CheckBusiness
+    <BusinessInfoCheck
       contractId={id}
       taskStatus={taskStatus}
       flowId={processInstanceId}

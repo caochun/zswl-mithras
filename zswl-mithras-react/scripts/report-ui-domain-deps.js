@@ -35,6 +35,7 @@ const orchestrationTargetScopes = new Set([
 ])
 
 const componentAliases = new Map([
+  ['CheckBusiness', 'BusinessInfoCheck'],
   ['ClientFileTable', 'ClientMaterialTable'],
   ['FileDiff', 'ChangeLogDiff'],
   ['PaymentApplyColumns', 'PaymentFtpColumns'],

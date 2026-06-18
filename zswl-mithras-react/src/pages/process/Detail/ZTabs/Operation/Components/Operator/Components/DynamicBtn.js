@@ -1,6 +1,6 @@
 import { ApprovalAction as Approval } from '@/components/Actions'
 import { LeaseApprovalConfirmAction as ApprovalConfirm } from '@/components/Lease/ApprovalConfirmEntries'
-import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
+import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCheckEntries'
 import { checkCreditDate, postPayMentCheckApplyAmount, validateAgreen } from '@/utils/domains/cpm/PaymentApplicationUtils'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import mathjs from '@/utils/math'
@@ -18,7 +18,7 @@ const agreeList = ['AGREE', 'SUBMIT', 'VOTE_AGREE', 'VOTE_CONDITION_AGREE', 'VOT
 
 const Index = ({ store, backRef, setShow, isEditing }) => {
   const { detailData, isRiskManagerProj, triggerCallback } = useFlowData()
-  const checkBusinessRef = useRef(null)
+  const businessInfoCheckRef = useRef(null)
   const {
     businessKey,
     mainModule,
@@ -286,13 +286,13 @@ const Index = ({ store, backRef, setShow, isEditing }) => {
               <Button
                 {...defaultBtnProps}
                 onClick={async (e) => {
-                  checkBusinessRef.current.setSubmitFn(() => handleSubmit())
-                  await checkBusinessRef.current.store.checkCompare()
+                  businessInfoCheckRef.current.setSubmitFn(() => handleSubmit())
+                  await businessInfoCheckRef.current.store.checkCompare()
                 }}
               >
                 {v.buttonName}
               </Button>
-              <CheckBusiness creditSearchId={businessKey} needOption={false} needButton={false} ref={checkBusinessRef} />
+              <BusinessInfoCheck creditSearchId={businessKey} needOption={false} needButton={false} ref={businessInfoCheckRef} />
             </>
           )
         }

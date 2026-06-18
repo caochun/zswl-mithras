@@ -4,7 +4,7 @@ import { useEffect, useMemo } from 'react'
 import TipsModal from './Components/TipsModal'
 import { useRef } from 'react'
 import DetailLayout from '@/components/DetailLayout'
-import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
+import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCheckEntries'
 import BaseInfo from './Components/BaseInfo'
 import LendingMaterials from '../PaymentApplication/LendingMaterials'
 import InformationList from '../PaymentApplication/InformationList'
@@ -119,7 +119,7 @@ const PaymentApplicationDetail = ({
                   bizId: id,
                 }}
               />
-              <CheckBusiness
+              <BusinessInfoCheck
                 ref={businessRef}
                 paymentId={id}
                 flowId={processInstanceId}
