@@ -11,7 +11,6 @@ import LeaseText from './LeaseText'
 import DataFileList from './DataFileList'
 import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
 import { jumpZhongDeng } from '@/utils'
-import { ZhongDengButton } from '@/components/ZhongDengButton/ZhongDengButtonEntries'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
 
 const Index = ({
@@ -70,11 +69,16 @@ const Index = ({
         title="项目租赁物详情"
         extra={[
           <MeetingModal id={baseInfoData?.projReviewId} />,
-          <ZhongDengButton
-            params={{
-              userNames: store.getLessees(),
-            }}
-          />,
+          <Button
+            onClick={() =>
+              jumpZhongDeng({
+                userNames: store.getLessees(),
+              })
+            }
+            type="link"
+          >
+            中登网查询
+          </Button>,
 
           <Button
             onClick={() => {

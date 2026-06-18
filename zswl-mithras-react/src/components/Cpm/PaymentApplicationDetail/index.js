@@ -15,7 +15,6 @@ import Store from './store'
 import LoanReview from './Components/LoanReview'
 import PublicInformation from '../PaymentApplication/PublicInformation'
 import { jumpZhongDeng } from '@/utils'
-import { ZhongDengButton } from '@/components/ZhongDengButton/ZhongDengButtonEntries'
 import PublicCheckModal from '../PaymentApplication/PublicCheckModal'
 import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
 import ZhongDengregistration from './ZhongDengregistration'
@@ -129,11 +128,16 @@ const PaymentApplicationDetail = ({
                 taskActivityId={taskActivityId}
                 taskStatus={taskStatus}
               />
-              <ZhongDengButton
-                params={{
-                  userNames,
-                }}
-              />
+              <Button
+                onClick={() =>
+                  jumpZhongDeng({
+                    userNames,
+                  })
+                }
+                type="link"
+              >
+                中登网查询
+              </Button>
               <ZhongDengregistration detail={detail} userNames={userNames} />
               <Button onClick={goProcess} type="link">
                 查询历史流程

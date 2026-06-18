@@ -28,9 +28,9 @@ import { ApprovalAction as Approval } from '@/components/Actions'
 import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
 import LeaseZiLiao from '../LeaseMaterials'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/TrackingEntries'
-import { ZhongDengButton } from '@/components/ZhongDengButton/ZhongDengButtonEntries'
 import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
+import { jumpZhongDeng } from '@/utils'
 
 const Index = ({
   params: { id },
@@ -129,7 +129,9 @@ const Index = ({
     <Button onClick={goProcess} type="link">
       查询历史流程
     </Button>,
-    <ZhongDengButton />,
+    <Button onClick={() => jumpZhongDeng({})} type="link">
+      中登网查询
+    </Button>,
     <TrackModal params={{ contractCode, curAssigneeIds, bizSource: 'CONTRACT', bizId: id }} />,
     <CheckBusiness
       contractId={id}

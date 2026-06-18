@@ -155,7 +155,6 @@
 - `Risk/SourceCardEntries.js`
 - `TrackEvent/TrackingEntries.js`
 - `WhiteList/WhiteListEntries.js`
-- `ZhongDengButton/ZhongDengButtonEntries.js`
 
 ## 依赖规则
 
@@ -167,7 +166,7 @@
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
 - 禁止在 `.less` 中通过 `@/components/<domain>/...` 引用业务域组件内部样式；路由兼容壳应只做 JS 转发，样式由真实组件自己维护。
-- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单命中标识应通过 `BlackGray/BlackGrayEntries.js` 引入，`ClientFileTable`、`Dashboard`、`EvaluationAgency`、`FileDiff`、`JumpClient`、`PaymentApplyColumns`、`Policy`、`ZhongDengButton` 应通过对应 `*Entries.js` 引入。
+- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单命中标识应通过 `BlackGray/BlackGrayEntries.js` 引入，`ClientFileTable`、`Dashboard`、`EvaluationAgency`、`FileDiff`、`JumpClient`、`PaymentApplyColumns`、`Policy` 应通过对应 `*Entries.js` 引入。
 - 权限页 Bifrost iframe、付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/pages/budget/flowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 金额输入已回收到 `src/components/Cpm/AmountNumber`，跨层使用应通过 `Cpm/CpmEntries.js`。
