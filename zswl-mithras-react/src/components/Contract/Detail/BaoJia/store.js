@@ -3,7 +3,7 @@ import { message } from 'antd'
 import mathjs from '@/utils/math'
 import { compareDetail, formatPercent } from '@/utils'
 import { bizTypePriceDetailMap, bizTypePriceModifyMap } from '@/components/Contract/bizTypeConfig'
-import Api from './api'
+import Api from '../../Price/api'
 import baseInfoApi from '@/api/contract/contractDetail'
 
 class Store {

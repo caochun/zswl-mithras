@@ -3,7 +3,7 @@ import { FormStore, ModalStore, PageStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import { compareDetail } from '@/utils'
 import Api from './api'
-import cashApi from '@/components/Contract/Detail/BaoJia/api'
+import priceApi from '@/components/Contract/Price/api'
 import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
 import { validateModal } from '@/utils/modal'
 class Store {
@@ -71,7 +71,7 @@ class Store {
   baseForm = new FormStore({})
   handleOpen = async () => {
     const id = this.page.getParams().contractId
-    const data = await cashApi.postIRRCalculate({ id })
+    const data = await priceApi.postIRRCalculate({ id })
     return data
   }
   irrIsChange = false
