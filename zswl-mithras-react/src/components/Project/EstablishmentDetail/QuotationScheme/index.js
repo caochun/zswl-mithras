@@ -2,6 +2,15 @@ import { useEffect, useMemo } from 'react'
 import { observer, getQuery } from '@zswl/admin'
 import Store from './store'
 import Container from './Container'
+import Lease from './FormConfig/Lease'
+import Factoring from './FormConfig/Factoring'
+import AssignmentOfClaims from './FormConfig/AssignmentOfClaims'
+
+export {
+  Lease as EstablishmentLeaseQuotationScheme,
+  Factoring as EstablishmentFactoringQuotationScheme,
+  AssignmentOfClaims as EstablishmentAssignmentOfClaimsQuotationScheme,
+}
 
 const QuotationScheme = ({
   id,

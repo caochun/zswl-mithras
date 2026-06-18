@@ -1,7 +1,9 @@
 import { useMemo } from 'react'
-import Lease from '@/components/Project/PriceDetail/QuotationScheme/FormConfig/Lease'
-import Factoring from '@/components/Project/PriceDetail/QuotationScheme/FormConfig/Factoring'
-import AssignmentOfClaims from '@/components/Project/PriceDetail/QuotationScheme/FormConfig/AssignmentOfClaims'
+import {
+  PriceAssignmentOfClaimsQuotationScheme,
+  PriceFactoringQuotationScheme,
+  PriceLeaseQuotationScheme,
+} from '@/components/Project/PriceDetail/QuotationScheme'
 
 const Index = ({ bizType, detail, showValue, isLog }) => {
   const CurrentDom = useMemo(() => {
@@ -9,10 +11,10 @@ const Index = ({ bizType, detail, showValue, isLog }) => {
       return <div style={{ height: '200px' }}></div>
     }
     const Dom = {
-      ZL: <Lease showValue={showValue} detail={detail} isLog={isLog} />,
-      BL: <Factoring showValue={showValue} detail={detail} isLog={isLog} />,
-      ZZ: <Lease showValue={showValue} detail={detail} isLog={isLog} />,
-      ZR: <AssignmentOfClaims showValue={showValue} detail={detail} isLog={isLog} />,
+      ZL: <PriceLeaseQuotationScheme showValue={showValue} detail={detail} isLog={isLog} />,
+      BL: <PriceFactoringQuotationScheme showValue={showValue} detail={detail} isLog={isLog} />,
+      ZZ: <PriceLeaseQuotationScheme showValue={showValue} detail={detail} isLog={isLog} />,
+      ZR: <PriceAssignmentOfClaimsQuotationScheme showValue={showValue} detail={detail} isLog={isLog} />,
     }
     return Dom[bizType]
   }, [bizType, detail, showValue, isLog])

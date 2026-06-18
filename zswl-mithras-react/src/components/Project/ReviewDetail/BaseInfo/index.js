@@ -8,6 +8,13 @@ import { Skeleton } from 'antd'
 import styles from './index.less'
 import mathjs from '@/utils/math'
 
+export {
+  Lease as ReviewLeaseBaseInfo,
+  AssignmentOfClaims as ReviewAssignmentOfClaimsBaseInfo,
+  TurnLease as ReviewTurnLeaseBaseInfo,
+  Factoring as ReviewFactoringBaseInfo,
+}
+
 const Index = ({ id, detail, canEdit = true, rootStore: store, isFormAdjust }, ref) => {
   const { bizType, postProjectBaseInfoModify, page, newDetail } = store || {}
 

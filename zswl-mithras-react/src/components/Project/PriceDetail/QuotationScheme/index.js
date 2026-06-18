@@ -4,6 +4,15 @@ import { observer } from '@zswl/admin'
 import styles from './index.less'
 import Store from './store'
 import Container from './Container'
+import Lease from './FormConfig/Lease'
+import Factoring from './FormConfig/Factoring'
+import AssignmentOfClaims from './FormConfig/AssignmentOfClaims'
+
+export {
+  Lease as PriceLeaseQuotationScheme,
+  Factoring as PriceFactoringQuotationScheme,
+  AssignmentOfClaims as PriceAssignmentOfClaimsQuotationScheme,
+}
 
 const QuotationScheme = ({
   id,

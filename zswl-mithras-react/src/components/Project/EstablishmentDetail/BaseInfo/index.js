@@ -10,6 +10,13 @@ import AssignmentOfClaims from './FormConfig/AssignmentOfClaims'
 import { amountFormat, formatNull, hasValue } from '@/utils'
 import mathjs from '@/utils/math'
 
+export {
+  Lease as EstablishmentLeaseBaseInfo,
+  AssignmentOfClaims as EstablishmentAssignmentOfClaimsBaseInfo,
+  TurnLease as EstablishmentTurnLeaseBaseInfo,
+  Factoring as EstablishmentFactoringBaseInfo,
+}
+
 const BasicInformation = ({
   id,
   compareData = {},
