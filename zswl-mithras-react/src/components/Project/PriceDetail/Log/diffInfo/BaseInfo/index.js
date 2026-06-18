@@ -4,7 +4,7 @@ import {
   PriceFactoringBaseInfo,
   PriceLeaseBaseInfo,
   PriceTurnLeaseBaseInfo,
-} from '@/components/Project/PriceDetail/BaseInfo'
+} from '../../../BaseInfo'
 
 const Index = ({ bizType, detail, isLog }) => {
   const CurrentDom = useMemo(() => {

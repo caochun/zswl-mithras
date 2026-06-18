@@ -1,4 +1,4 @@
-import ProjectPricingDetail from '@/components/Project/PriceDetail'
+import { ProjectPriceDetail as ProjectPricingDetail } from '@/components/Project/PriceDetailEntries'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '../api'

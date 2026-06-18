@@ -1,1 +1,1 @@
-export { default } from '@/components/Project/EstablishmentDetail/BaseInfo'
+export { ProjectEstablishmentDetailBaseInfo as default } from '@/components/Project/EstablishmentDetailEntries'

@@ -1,1 +1,1 @@
-export { default } from '@/components/Project/PriceDetail/QuotationScheme'
+export { ProjectPriceDetailQuotationScheme as default } from '@/components/Project/PriceDetailEntries'

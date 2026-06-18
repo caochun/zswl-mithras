@@ -1,1 +1,1 @@
-export { default } from '@/components/Project/EstablishmentDetail/QuotationScheme'
+export { ProjectEstablishmentDetailQuotationScheme as default } from '@/components/Project/EstablishmentDetailEntries'

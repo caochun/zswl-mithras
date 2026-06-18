@@ -3,7 +3,7 @@ import { ModalStore, PageStore } from '@zswl/components'
 import { message } from 'antd'
 import Api from './api'
 import { compareDetail } from '@/utils'
-import { EstablishmentQuotationSchemeStore } from '@/components/Project/EstablishmentDetail/QuotationScheme'
+import { EstablishmentQuotationSchemeStore } from './QuotationScheme'
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 class Store {
   constructor() {
