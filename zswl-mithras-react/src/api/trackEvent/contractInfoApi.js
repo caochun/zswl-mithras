@@ -1,5 +1,10 @@
-import contractApi from '@/api/contract/baseInfo'
+import { http } from '@zswl/admin'
 
 export default {
-  postProjList: (params) => contractApi.postProjList(params, 'contractreviewquery_trackevent'),
+  postProjList: (params) =>
+    http.post('/contract/review/query', params, {
+      headers: {
+        functionCode: 'contractreviewquery_trackevent',
+      },
+    }),
 }

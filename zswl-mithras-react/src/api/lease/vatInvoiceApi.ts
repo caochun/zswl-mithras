@@ -1,5 +1,8 @@
-import ocrInvoiceApi from '@/api/ocr/ocrInvoiceApi'
+import { http } from '@zswl/admin'
+
+const mock = false
 
 export default {
-  postVatInvoiceAmountCheckout: ocrInvoiceApi.postVatInvoiceAmountCheckout,
+  postVatInvoiceAmountCheckout: (data: any): Promise<any> =>
+    http.post('/lease/vatInvoice/amountCheckout', data, { mock }),
 }

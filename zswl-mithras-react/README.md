@@ -245,11 +245,11 @@
 - `afterLease/policyLedgerApi.getPaymentDetail`：付款详情接口历史挂在保单台账 API 中；付款核销详情组件优先使用 `src/api/cpm/payment/paymentDetailApi` 语义入口。
 - `lease/trackingApi`：跟踪事项接口历史落在租赁物目录；跟踪事项组件优先使用 `src/api/trackEvent/trackingApi` 语义入口。
 - `trackEvent/trackingApi.getTrackEventClose`：关闭跟踪事项是横向动作；项目评审会议纪要内触发时优先使用 `src/api/project/projReviewMeetingMinute` 下的项目语义方法，组件不直接穿透到跟踪事项域。
-- `lease/evaluationAgencyApi`：评估机构接口历史落在租赁物目录；评估机构组件、租赁物维护和白名单页面优先使用 `src/api/evaluationAgency/evaluationAgencyApi` 语义入口。
-- `evaluationAgency/evaluationAgencyApi`：租赁物详情维护评估机构时优先使用 `src/api/lease/evaluationAgencyMaintainApi` 租赁物语义入口；评估机构共享组件内部可继续使用评估机构域 API。
-- `evaluationAgency/evaluationAgencyApi.postAppraisalQueryCompany`：白名单新增页查询评估机构候选时优先使用 `src/api/whiteList/appraisalCompanyApi` 语义入口；评估机构组件和租赁物维护可继续使用评估机构域 API。
-- `whiteList/assessmentWhitelistApi`：评估机构白名单本身保留在白名单域；评估机构组件内选择白名单机构时优先使用 `src/api/evaluationAgency/assessmentWhitelistApi` 语义入口。
-- `ocr/ocrInvoiceApi`：发票识别接口历史落在 OCR 目录，其中租赁物发票金额校验优先使用 `src/api/lease/vatInvoiceApi` 语义入口。
+- `lease/evaluationAgencyApi`：评估机构接口历史落在租赁物目录；评估机构组件、租赁物维护和白名单页面使用各自语义入口。
+- `evaluationAgency/evaluationAgencyApi`：租赁物详情维护评估机构时使用 `src/api/lease/evaluationAgencyMaintainApi` 租赁物语义入口，不再转发评估机构 API 文件；评估机构共享组件内部可继续使用评估机构域 API。
+- `evaluationAgency/evaluationAgencyApi.postAppraisalQueryCompany`：白名单新增页查询评估机构候选时使用 `src/api/whiteList/appraisalCompanyApi` 语义入口，不再转发评估机构 API 文件；评估机构组件和租赁物维护可继续使用评估机构域 API。
+- `whiteList/assessmentWhitelistApi`：评估机构白名单本身保留在白名单域；评估机构组件内选择白名单机构时使用 `src/api/evaluationAgency/assessmentWhitelistApi` 语义入口，不再转发白名单 API 文件。
+- `ocr/ocrInvoiceApi`：发票识别接口历史落在 OCR 目录，其中租赁物发票金额校验使用 `src/api/lease/vatInvoiceApi` 语义入口，不再转发 OCR 发票 API 文件。
 - `afterLease/assessmentWhitelistApi`：评估机构白名单接口历史落在租后目录；白名单页面和评估机构组件优先使用 `src/api/whiteList/assessmentWhitelistApi` 语义入口。
 - `baseData/pricing/baseSet/ftpBaseSet`：FTP 参数设定接口历史落在基础数据目录；预算定价基础设置页面和组件优先使用 `src/api/budget/pricing/baseSet/ftpBaseSet` 语义入口。
 - `baseData/ftpMaterialsFile`、`baseData/ftpQuarterlyGuidance`：FTP 定价资料和季度指导接口历史落在基础数据目录；预算定价组件优先使用 `src/api/budget/pricing` 下的语义入口。
@@ -287,8 +287,8 @@
 - `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/utils/domains/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
 - `cpm/payment/paymentApplicationDetail`：付款申请详情接口保留在付款域；流程详情展示付款资料时优先使用 `src/api/process/detail/paymentApplicationDetailApi` 聚合入口。
 - `cpm/payment/paymentApplicationDetail`、`cpm/payment/publicInfoApi_edited`：流程操作中执行付款申请前置校验或公开信息提交校验时优先使用 `src/api/process/operation` 下的聚合入口。
-- `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件优先使用 `src/api/common/approvalRemarkApi`，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。
-- `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时优先使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时优先使用 `src/api/trackEvent/contractInfoApi`。
+- `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件使用 `src/api/common/approvalRemarkApi`，业务详情组件使用本业务域的 `approvalRemarkApi` 固定权限码入口，不再转发公共审批备注 API 文件。
+- `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时使用 `src/api/trackEvent/contractInfoApi`，不再转发合同 API 文件。
 - `contract/contractDetail`：合同详情接口保留在合同域；流程详情展示合同相关资料时优先使用 `src/api/process/detail/contractDetailApi` 聚合入口。
 - `overdue/collectionManagementApi`、`overdue/sealForDocumentsApi`：逾期催收和用印资料接口保留在逾期域；流程详情展示逾期催收或诉讼用印资料时优先使用 `src/api/process/detail` 下的聚合入口。
 - `project/projReviewDetail`、`project/projReviewMeetingMinute`：项目评审详情和会议纪要接口保留在项目域；流程详情展示项目评审资料或会议纪要时优先使用 `src/api/process/detail` 下的聚合入口。
@@ -297,7 +297,7 @@
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；真实承载在 `src/api/layout/projProfitToolApi`，历史 `header` 与 `kpi/projProfit/profitCalculateTool` 入口仅保留兼容转发。
 - `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
 - `message/messageNotification`：消息中心页面保留消息域 API；全局 layout 消息弹窗使用 `src/api/layout/messageApi`，dashboard 工作台消息列表使用 `src/api/dashboard/workbenchMessageApi`，不再转发消息中心 API 文件。
-- `permission/login`：登录页保留权限域登录 API；全局 layout 快速切换登录优先使用 `src/api/layout/fastLoginApi`。
+- `permission/login`：登录页保留权限域登录 API；全局 layout 快速切换登录使用 `src/api/layout/fastLoginApi`，不再转发登录 API 文件。
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理；保存/查询用户配置使用 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。

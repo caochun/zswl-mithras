@@ -1,6 +1,12 @@
-import processModifyRemarkApi from '@/api/common/approvalRemarkApi'
+import { http } from '@zswl/admin'
+
+const postRemarkAll = (params, functionCode) =>
+  http.post('/process/modify/remark/all', params, {
+    headers: {
+      functionCode,
+    },
+  })
 
 export default {
-  postRemarkAll: (params) =>
-    processModifyRemarkApi.postRemarkAll(params, 'processmodifyremarkallcontract'),
+  postRemarkAll: (params) => postRemarkAll(params, 'processmodifyremarkallcontract'),
 }

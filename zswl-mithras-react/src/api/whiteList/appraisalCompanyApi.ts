@@ -1,5 +1,8 @@
-import evaluationAgencyApi from '@/api/evaluationAgency/evaluationAgencyApi'
+import { http } from '@zswl/admin'
+
+const mock = false
 
 export default {
-  queryCompany: evaluationAgencyApi.postAppraisalQueryCompany,
+  queryCompany: (data: any): Promise<any> =>
+    http.post('/ledger/appraisal/queryCompany', data, { mock }),
 }

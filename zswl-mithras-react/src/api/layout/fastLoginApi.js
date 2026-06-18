@@ -1,6 +1,6 @@
-import loginApi from '@/api/permission/login'
+import { http } from '@zswl/admin'
 
 export default {
-  getAuthCode: loginApi.getAuthCode,
-  login: loginApi.login,
+  getAuthCode: (data) => http.post('/user/getAuthCode', data, { type: 'formData' }),
+  login: (data) => http.post('/user/login', data, { type: 'formData' }),
 }

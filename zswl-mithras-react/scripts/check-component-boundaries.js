@@ -223,8 +223,6 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/whiteList/appraisalCompanyApi, @/api/lease/evaluationAgencyMaintainApi, or @/api/evaluationAgency/evaluationAgencyApi in EvaluationAgency domain',
     allowedSourceDomains: ['EvaluationAgency'],
     allowedSourcePathPrefixes: [
-      'src/api/lease/evaluationAgencyMaintainApi.ts',
-      'src/api/whiteList/appraisalCompanyApi.ts',
     ],
   },
   {
@@ -237,7 +235,6 @@ const legacyApiPrefixRules = [
       '@/api/evaluationAgency/assessmentWhitelistApi or @/api/whiteList/assessmentWhitelistApi in WhiteList domain',
     allowedSourceDomains: ['WhiteList'],
     allowedSourcePathPrefixes: [
-      'src/api/evaluationAgency/assessmentWhitelistApi.ts',
       'src/pages/whiteList/',
     ],
   },
@@ -245,7 +242,6 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/ocr/ocrInvoiceApi',
     replacementPrefix: '@/api/lease/vatInvoiceApi',
     allowedSourcePathPrefixes: [
-      'src/api/lease/vatInvoiceApi.ts',
       'src/pages/ocr/',
     ],
   },
@@ -262,8 +258,6 @@ const legacyApiPrefixRules = [
       '@/api/budget/contractInfoApi, @/api/trackEvent/contractInfoApi, or @/api/contract/baseInfo in Contract domain',
     allowedSourceDomains: ['Contract'],
     allowedSourcePathPrefixes: [
-      'src/api/budget/contractInfoApi.js',
-      'src/api/trackEvent/contractInfoApi.js',
       'src/pages/contract/',
     ],
   },
@@ -302,10 +296,6 @@ const legacyApiPrefixRules = [
       '@/api/<domain>/approvalRemarkApi or @/api/common/approvalRemarkApi for shared approval components',
     allowedSourcePathPrefixes: [
       'src/api/common/approvalRemarkApi.ts',
-      'src/api/contract/approvalRemarkApi.js',
-      'src/api/credit/approvalRemarkApi.js',
-      'src/api/financial/approvalRemarkApi.js',
-      'src/api/project/approvalRemarkApi.js',
     ],
   },
   {
@@ -385,7 +375,6 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/permission/login',
     replacementPrefix: '@/api/layout/fastLoginApi or @/api/permission/login in Login page',
     allowedSourcePathPrefixes: [
-      'src/api/layout/fastLoginApi.js',
       'src/pages/login/',
     ],
   },

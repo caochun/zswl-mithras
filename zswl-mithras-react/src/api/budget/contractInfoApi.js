@@ -1,7 +1,14 @@
-import contractApi from '@/api/contract/baseInfo'
+import { http } from '@zswl/admin'
+
+const postContractList = (params, functionCode = 'contractbaseinfolist') =>
+  http.post('/contract/base/info/list', params, {
+    headers: {
+      functionCode,
+    },
+  })
 
 export default {
-  postContractList: (params) => contractApi.postContractList(params),
+  postContractList,
   postFtpInterestContractList: (params) =>
-    contractApi.postContractList(params, 'ftpInterestContractBaseInfoList'),
+    postContractList(params, 'ftpInterestContractBaseInfoList'),
 }
