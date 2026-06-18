@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { downFile } from '@/utils'
-import Api from '@/api/common/materialsApi'
+import Api from '@/api/credit/groupCreditMaterialsApi'
 
 class Store {
   constructor() {
