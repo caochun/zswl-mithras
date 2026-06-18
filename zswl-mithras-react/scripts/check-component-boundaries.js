@@ -104,6 +104,15 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/financial/fundApi',
+    replacementPrefix: '@/api/contract/lprApi or @/api/financial/fundApi in Financial domain',
+    allowedSourceDomains: ['Financial'],
+    allowedSourcePathPrefixes: [
+      'src/api/contract/lprApi.js',
+      'src/pages/financial/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/baseData/pricing/baseSet/ftpBaseSet',
     replacementPrefix: '@/api/budget/pricing/baseSet/ftpBaseSet',
   },

@@ -3,7 +3,7 @@ import { Col, Row, Input } from 'antd'
 
 import mathjs from '@/utils/math'
 import { hasValue } from '@/utils'
-import Api from '@/api/financial/fundApi'
+import lprApi from '@/api/contract/lprApi'
 import styles from './index.less'
 import { useEffect } from 'react'
 
@@ -28,7 +28,7 @@ const Index = ({ data, config = YEARRETE, needUpdate = true }) => {
       ONE_YEAR: 'oneYear',
       FIVE_YEAR: 'fiveYear',
     }
-    const res = await Api.getLprLast()
+    const res = await lprApi.getLprLast()
     form.setFieldsValue({
       [name]: res[LPRMap[val]] * 10000,
     })
