@@ -5,6 +5,19 @@ import { http } from '@zswl/admin'
 const mock = false
 // const mock= { mode:2 }
 export default {
+  // 客户下拉列表
+  postClientList: (data: any, functionCode: string): Promise<any> =>
+    http.post(
+      '/client/list',
+      { scene: 'query', ...data },
+      {
+        timeout: 0,
+        headers: {
+          functionCode,
+        },
+      }
+    ),
+
   // 客户信息
   postClientInfo: (data: Types.ClientInfoRequest): Promise<Types.ClientInfoResponse> =>
     http.post('/rating/client/info', data, { mock }),

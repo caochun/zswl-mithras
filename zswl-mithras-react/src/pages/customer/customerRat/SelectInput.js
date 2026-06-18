@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { Select, Spin } from 'antd';
-import selectApi from '@/api/common/selectApi'
+import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 import './style.less'
 
 let timeout;
@@ -59,7 +59,7 @@ const SearchInput = ({
         onChange?.(val)
     };
     const getList = async (val) => {
-        const res = await selectApi.getClientList(
+        const res = await customerRatApi.postClientList(
         {
             clientName: val,
             effected: true, // 只选择已生效客户
@@ -67,9 +67,7 @@ const SearchInput = ({
             containHymx:isHymx,
             ...params,
         },
-        {
-            functionCode,
-        }
+        functionCode
         )
         const newRes = transformResult?.(res.list, val)
         if (!newRes || newRes.length === 0) {
