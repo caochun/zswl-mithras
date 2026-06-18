@@ -5,8 +5,10 @@ import { Steps, Card, Form, Input, DatePicker, Button, Row, Col, Space, message 
 import store from './store'
 import './index.less'
 import ParamsConfig from './ParamsConfig'
-import AddModal from '@/components/Budget/ProvisioningDataAddModal'
-import ALL_COLUMNS from '@/components/Budget/ProvisioningImpairmentColumns'
+import {
+  BudgetProvisioningDataAddModal as AddModal,
+  BudgetProvisioningImpairmentColumns as ALL_COLUMNS,
+} from '@/components/Budget/BudgetEntries'
 import { getTableColumns } from '@/utils'
 import { AmountColumn, DateColumn } from '@/components/Format'
 import TableExport from '@/components/Actions/TableExport'

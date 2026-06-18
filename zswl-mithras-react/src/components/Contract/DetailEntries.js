@@ -25,3 +25,9 @@ export { default as ContractSettlementProtocol } from './SettlementProtocol'
 export { default as ContractStartRentDetail, checkIrr as contractCheckIrr } from './StartRentDetail'
 export { default as ContractStartRentMaterials } from './StartRentMaterials'
 export { Context as ContractDetailContext } from './Detail/Context'
+export {
+  bizTypeMapText as ContractBizTypeMapText,
+  bizTypePriceDetailMap as ContractBizTypePriceDetailMap,
+  bizTypePriceModifyMap as ContractBizTypePriceModifyMap,
+  contractOperationMap as ContractOperationMap,
+} from './bizTypeConfig'

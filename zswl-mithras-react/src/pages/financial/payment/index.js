@@ -1,7 +1,7 @@
 import { Button, Page, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
-import ALL_COLUMNS from '@/components/Financial/PaymentColumns'
+import { FinancialPaymentColumns as ALL_COLUMNS } from '@/components/Financial/PaymentEntries'
 import { useMemo, useState } from 'react'
 import { getTableColumns, getFormColumns, getSearchColumns } from '@/utils'
 import AmountRange from '@/components/AmountRange'

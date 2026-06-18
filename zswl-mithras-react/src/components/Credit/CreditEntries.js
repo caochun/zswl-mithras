@@ -1,3 +1,4 @@
+export { default as CreditColumns } from './CreditColumns'
 export { default as CreditEstablishDetail } from './EstablishDetail'
 export { default as CreditEstablishDetailBaseInfo } from './EstablishDetail/BaseInfo'
 export { default as CreditReviewDetail } from './ReviewDetail'

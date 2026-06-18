@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Table, TableStore, Page, Button, Modal, Form } from '@zswl/components'
 import { getTableColumns } from '@/utils'
-import ALL_COLUMNS from '@/components/Budget/ProjectProfitColumns'
+import { BudgetProjectProfitColumns as ALL_COLUMNS } from '@/components/Budget/BudgetEntries'
 import { DatePicker, Space } from 'antd'
 import { useMemo, useEffect, useState } from 'react'
 import Store from './store'

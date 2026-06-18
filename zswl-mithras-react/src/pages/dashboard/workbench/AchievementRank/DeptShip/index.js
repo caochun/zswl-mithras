@@ -1,7 +1,7 @@
 import { Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { saveServer } from '@/utils'
-import { columns } from '@/components/Dashboard/AchievementColumns'
+import { DashboardAchievementColumns as columns } from '@/components/Dashboard/DashboardEntries'
 
 export { columns }
 

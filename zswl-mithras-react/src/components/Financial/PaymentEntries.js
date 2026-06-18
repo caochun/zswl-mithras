@@ -1,3 +1,4 @@
+export { default as FinancialPaymentColumns } from './PaymentColumns'
 export { default as FinancialPaymentDetail } from './PaymentDetail'
 export { default as FinancialPaymentDetailBaseInfo } from './PaymentDetail/BaseInfo'
 export { default as FinancialPaymentDetailInterest } from './PaymentDetail/Interest'

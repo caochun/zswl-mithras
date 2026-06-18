@@ -3,7 +3,7 @@ import EditDescription from '@/components/Table/EditDescription'
 import { AmountColumn, AmountFormatter } from '@/components/Format'
 import { compareDetail, getEnumFlatObjByType } from '@/utils'
 import { useEffect, useState } from 'react'
-import { bizTypePriceDetailMap } from '@/components/Contract/bizTypeConfig'
+import { ContractBizTypePriceDetailMap as bizTypePriceDetailMap } from '@/components/Contract/DetailEntries'
 import { useFlowData } from '@/utils/processFlow'
 import Api from './api'
 
