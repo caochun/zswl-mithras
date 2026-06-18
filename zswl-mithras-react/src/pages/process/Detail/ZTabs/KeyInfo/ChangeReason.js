@@ -5,7 +5,7 @@ import { observer, ErrorBoundary } from '@zswl/admin'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { ApprovalDetail } from '@/components/Table'
-import processModifyRemarkApi from '@/api/common/approvalRemarkApi'
+import Api from '../../api'
 import styles from './index.less'
 
 // 变更说明配置
@@ -55,11 +55,11 @@ const Index = () => {
   const getData = async () => {
     if (reconsiderParams) {
       const result = await Promise.all([
-        processModifyRemarkApi.postRemarkAll(
+        Api.postModifyRemarkAll(
           { ...approvalParams, mainId: businessKey },
           functionCode
         ),
-        processModifyRemarkApi.postRemarkAll(
+        Api.postModifyRemarkAll(
           { ...reconsiderParams, mainId: businessKey },
           functionCode
         ),
@@ -67,7 +67,7 @@ const Index = () => {
       setApprovalDetail(result[0])
       setReconsiderDetail(result[1])
     } else {
-      const result = await processModifyRemarkApi.postRemarkAll(
+      const result = await Api.postModifyRemarkAll(
         { ...approvalParams, mainId: businessKey },
         functionCode
       )

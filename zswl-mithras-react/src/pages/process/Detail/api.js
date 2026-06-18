@@ -38,4 +38,10 @@ export default {
   getContractIdByReduceId: (params) => http.post('/receipt/relation/contract', params),
   postFlowDownload: (params) => http.post('/archives/flow/download', params),
   archivesFlow: (params) => http.post('/archives/flow', params),
+  postModifyRemarkAll: (params, functionCode) =>
+    http.post('/process/modify/remark/all', params, {
+      headers: {
+        functionCode,
+      },
+    }),
 }
