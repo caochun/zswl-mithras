@@ -8,7 +8,7 @@ import styles from './index.less'
 import ClientSelect from '../ClientSelect'
 import { App } from '@zswl/components'
 import classNames from 'classnames'
-import { BlackInfo } from '@/components/BlackInfo/BlackInfoEntries'
+import { BlackInfo } from '@/components/BlackGray/BlackGrayEntries'
 
 export const toDetail = (id, clientType) => {
   if (id) {

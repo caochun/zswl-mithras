@@ -20,7 +20,7 @@ import { App } from '@zswl/components'
 import useGetRegion from './useGetRegion'
 import IconFont from '@/components/Icon'
 import { getIsClientDetailParams } from '@/utils/domains/customer/CustomerUtils'
-import { BlackInfo } from '@/components/BlackInfo/BlackInfoEntries'
+import { BlackInfo } from '@/components/BlackGray/BlackGrayEntries'
 
 export { BlackInfo }
 const IndustrialDetail = ({ id, save, num, startUserId, businessVersion, store }) => {

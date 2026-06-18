@@ -50,7 +50,6 @@
 - `AfterLease/CheckPlanExternalEntries.js`
 - `AfterLease/CheckPlanPrepareEntries.js`
 - `AfterLease/CheckPlanTemplateEntries.js`
-- `BlackInfo/BlackInfoEntries.js`
 - `BlackGray/BlackGrayEntries.js`
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/AccountsReceivableEntries.js`
@@ -169,7 +168,7 @@
 - 通用组件应保持无业务名称、无菜单名称、无特定页面状态依赖。
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
-- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如 `BlackInfo`、`ClientFileTable`、`Dashboard`、`EvaluationAgency`、`FileDiff`、`JumpClient`、`PaymentApplyColumns`、`Policy`、`PolicyColumns`、`UpdateRatingInfoButton`、`ZhongDengButton` 应通过对应 `*Entries.js` 引入。
+- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如 `BlackInfo` 应通过 `BlackGray/BlackGrayEntries.js` 引入，`ClientFileTable`、`Dashboard`、`EvaluationAgency`、`FileDiff`、`JumpClient`、`PaymentApplyColumns`、`Policy`、`PolicyColumns`、`UpdateRatingInfoButton`、`ZhongDengButton` 应通过对应 `*Entries.js` 引入。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`BreadLine/config`、`Chart/tooltip`。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
