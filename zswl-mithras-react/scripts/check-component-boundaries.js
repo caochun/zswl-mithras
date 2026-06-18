@@ -161,6 +161,11 @@ const legacyApiPrefixRules = [
     allowedSourcePathPrefixes: ['src/api/credit/groupCreditEstablishVersionApi.ts'],
   },
   {
+    legacyPrefix: '@/api/kpi/projProfit/profitCalculateTool',
+    replacementPrefix: '@/api/layout/projProfitToolApi',
+    allowedSourcePathPrefixes: ['src/api/layout/projProfitToolApi.ts'],
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],
