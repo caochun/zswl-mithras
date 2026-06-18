@@ -4,7 +4,6 @@ import { forwardRef, useImperativeHandle, useMemo } from 'react'
 import CompareInfo from './CompareInfo'
 import TipsConfirm from './TipsConfirm'
 import Store from './store'
-import { TrackingModal as TrackModal } from '@/components/TrackEvent/TrackModalEntries'
 
 const Index = (
   {
