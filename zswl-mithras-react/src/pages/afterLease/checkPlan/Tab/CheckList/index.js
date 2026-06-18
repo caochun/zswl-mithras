@@ -14,7 +14,7 @@ import CreateModal from './CreateModal'
 import store from './store'
 import { QuarterMap } from '@/utils/domains/afterLease/AfterLeaseUtils'
 import { AmountColumn } from '@/components/Format'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 
 function Index() {
   const { optionsType } = App.getData()

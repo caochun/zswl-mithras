@@ -19,7 +19,7 @@ import {
 import { validatorAmount, creditAmountLoopOptions } from './utils'
 import useGetMap from '@/utils/hooks/useGetMap'
 import { AmountAndCapitalization } from '@/components/Format'
-import { CommonTips } from '@/components'
+import CommonTips from '@/components/CommonTips'
 
 const creditAmountLoopOptionsKeyValue = ['否', '是']
 const Lease = ({ showValue, form, detail, noTitle, compareChangeList = [], isLog }) => {

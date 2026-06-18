@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { RadioTabs } from '@/components'
+import RadioTabs from '@/components/RadioTabs'
 import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
 import ComponyTotal from './ComponyTotal'
 import DeptTotal from './DeptTotal'

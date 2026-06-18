@@ -10,7 +10,7 @@ import ALL_COLUMNS from '../Columns'
 import { MatchOptionColumn } from '@/components/Format'
 import { useMemo } from 'react'
 import CheckLetter from './CheckLetter'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { saveServer } from '@/utils'
 
 const { collectionWriteOffStatusLocalEnum, paymentWriteOffStatusEnum } = options

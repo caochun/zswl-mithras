@@ -6,7 +6,7 @@ import {
   BudgetProvisioningDataAddModalStore as ModalStore,
   BudgetProvisioningImpairmentColumns as ALL_COLUMNS,
 } from '@/components/Budget/ProvisioningEntries'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { saveServer } from '@/utils'
 import Store from './store'
 import { useMemo } from 'react'

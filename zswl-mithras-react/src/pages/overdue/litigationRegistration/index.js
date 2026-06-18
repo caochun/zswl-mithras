@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 import { CustomColumn } from '@/components/Format'
 import { getTableColumns } from '@/utils'
 import ALL_COLUMNS from './Column'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import AddModal from './AddModal'
 import { saveServer } from '@/utils'
 

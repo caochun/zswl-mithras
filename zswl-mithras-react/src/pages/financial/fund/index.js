@@ -8,7 +8,7 @@ import {
   FinancialFundListCreateModal as CreateModal,
 } from '@/components/Financial/FundListEntries'
 import Store from './store'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { InputEditable, MatchOptionColumn } from '@/components/Format'
 import { Summary } from '@/components/Table'
 import { saveServer } from '@/utils'

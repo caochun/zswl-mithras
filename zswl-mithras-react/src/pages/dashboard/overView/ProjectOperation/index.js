@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { Button } from '@zswl/components'
 import { Skeleton } from 'antd'
-import { RadioTabs } from '@/components'
+import RadioTabs from '@/components/RadioTabs'
 import { UnorderedListOutlined } from '@ant-design/icons'
 import { observer } from '@zswl/admin'
 import { DashboardOverviewTitle as Title } from '@/components/Dashboard/DashboardEntries'

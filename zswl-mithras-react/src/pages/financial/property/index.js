@@ -1,6 +1,6 @@
 import { Page, Table, App, SearchBar } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { useMemo } from 'react'
 import { Button } from 'antd'
 import Store from './store'

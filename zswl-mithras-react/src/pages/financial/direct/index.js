@@ -16,7 +16,7 @@ import IconFont from '@/components/Icon'
 import { useState, useMemo, useCallback } from 'react'
 import { Summary } from '@/components/Table'
 import { ExportAction } from '@/components/Actions'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { saveServer } from '@/utils'
 function Index({ path }) {
   const [sumData, setSumData] = useState({})

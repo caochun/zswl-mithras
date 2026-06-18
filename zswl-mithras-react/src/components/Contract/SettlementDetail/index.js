@@ -1,4 +1,4 @@
-import { DetailLayout } from '@/components'
+import DetailLayout from '@/components/DetailLayout'
 import ActualTable from '../ActualTable'
 import { bizTypeMapText } from '../bizTypeConfig'
 import CantractDetailBaseInfo from '../BaseInfo'

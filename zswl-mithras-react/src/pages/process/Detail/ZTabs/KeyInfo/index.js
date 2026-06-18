@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer, ErrorBoundary } from '@zswl/admin'
-import { Collapse } from '@/components'
+import Collapse from '@/components/Collapse'
 import { Tag } from 'antd'
 import ContractApplication from './Components/ContractApplication'
 import ImportantResolutions from './ImportantResolutions'

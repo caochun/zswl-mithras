@@ -1,4 +1,4 @@
-import { BiView } from '@/components'
+import BiView from '@/components/BiView'
 import { observer, setSessionStorage, getSessionStorage } from '@zswl/admin'
 import { Row, Select, message } from 'antd'
 import { useEffect, useMemo, useState, useRef } from 'react'

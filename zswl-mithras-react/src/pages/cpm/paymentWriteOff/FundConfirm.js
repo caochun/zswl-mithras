@@ -1,7 +1,7 @@
 import { Modal, Form } from '@zswl/components'
 import { DatePicker } from 'antd'
 import Amount from '@/components/Amount'
-import { AmountNumber } from '@/components'
+import AmountNumber from '@/components/AmountNumber'
 import { rules } from '@/utils'
 
 const { Item } = Form

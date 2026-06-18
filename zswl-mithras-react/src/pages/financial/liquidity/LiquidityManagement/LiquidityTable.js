@@ -7,7 +7,7 @@ import { hasValue } from '@/utils'
 import { AmountColumn, PureAmountFormat } from '@/components/Format'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import { Summary as TableSummary } from '@/components/Table'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { saveServer } from '@/utils'
 
 const divorcer = 10000 * 10000

@@ -17,7 +17,7 @@ import {
 import { validatorAmount } from './utils'
 import moment from 'moment'
 import useGetMap from '@/utils/hooks/useGetMap'
-import { CommonTips } from '@/components'
+import CommonTips from '@/components/CommonTips'
 
 const creditAmountLoopOptions = [
   {

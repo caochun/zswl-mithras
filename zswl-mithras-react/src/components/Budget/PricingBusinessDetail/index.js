@@ -8,7 +8,7 @@ import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 import styles from './index.less'
 import { ExportAction as Export } from '@/components/Actions'
 import { isFinancialOfficer } from '@/utils'
-import { CurrentSteps } from '@/components'
+import CurrentSteps from '@/components/CurrentSteps'
 import BaseSet from './BaseSet'
 import DetailLayout from '@/components/DetailLayout'
 

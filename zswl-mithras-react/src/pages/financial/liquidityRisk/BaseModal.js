@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { App, Form, Modal } from '@zswl/components'
 import { FormAmount } from '@/components/Form'
-import { ReadOnly } from '@/components'
+import ReadOnly from '@/components/ReadOnly'
 import { FormTable } from '@/components/Form'
 import ALL_COLUMNS from './Column'
 import { getTableColumns } from '@/utils'

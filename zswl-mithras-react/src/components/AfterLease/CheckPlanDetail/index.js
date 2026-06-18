@@ -13,7 +13,7 @@ import Project from './Project'
 import Store from './store'
 import styles from './index.less'
 import { QuarterMap } from '@/utils/domains/afterLease/AfterLeaseUtils'
-import { DetailLayout } from '@/components'
+import DetailLayout from '@/components/DetailLayout'
 
 const Index = ({ params = {}, query: { canEditFlags = 'true', businessVersion } }) => {
   // 是否审批流页面

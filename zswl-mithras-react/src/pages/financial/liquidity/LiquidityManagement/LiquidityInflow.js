@@ -6,7 +6,7 @@ import liquidityRiskApi from '@/api/financial/liquidity/liquidityRiskApi'
 import { useEffect, useState } from 'react'
 import moment from 'moment'
 import { debounce } from 'lodash'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { saveServer } from '@/utils'
 
 const defaultTimes = {

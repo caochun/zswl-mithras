@@ -7,7 +7,7 @@ import {
 } from '@/components/Format'
 import { Select, App, Form, Button } from '@zswl/components'
 import { FounderSelect } from '@/components/Select'
-import { RegionCascader } from '@/components'
+import RegionCascader from '@/components/RegionCascader'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'
 import { history } from '@zswl/admin'

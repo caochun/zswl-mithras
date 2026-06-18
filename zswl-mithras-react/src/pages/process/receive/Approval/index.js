@@ -9,7 +9,7 @@ import { ClientSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 import { useEffect, useState } from 'react'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 const { Item } = SearchBar
 
 function Index({ curTab }) {

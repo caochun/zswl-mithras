@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import ModalEditTable from '../../ModalEditTable'
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 
-import { FormulaValueTip } from '@/components'
+import FormulaValueTip from '@/components/FormulaValueTip'
 import { Tooltip } from 'antd'
 import Api from './api'
 

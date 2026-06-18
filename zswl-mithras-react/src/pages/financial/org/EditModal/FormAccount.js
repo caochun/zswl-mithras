@@ -6,7 +6,7 @@ import styles from './index.less'
 import { history, observer } from '@zswl/admin'
 import _ from 'lodash'
 import { useCallback } from 'react'
-import { ReadOnly } from '@/components'
+import ReadOnly from '@/components/ReadOnly'
 
 export const toDetail = (id, clientType) => {
   if (id) {

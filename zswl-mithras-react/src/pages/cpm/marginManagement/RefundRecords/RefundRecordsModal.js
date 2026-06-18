@@ -5,7 +5,7 @@ import { UploadOutlined } from '@ant-design/icons'
 import FormUpload from '@/components/FormUpload'
 import { amountFormat, formateCard, getInputNumberAmountProps } from '@/utils'
 import store from './store'
-import { Amount } from '@/components'
+import Amount from '@/components/Amount'
 import { useEffect, useState } from 'react'
 
 //新增联系人弹窗

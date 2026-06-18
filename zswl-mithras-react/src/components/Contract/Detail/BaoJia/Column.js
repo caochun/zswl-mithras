@@ -13,7 +13,7 @@ import YearRate from './YearRate'
 import RepayCalcType from '@/components/RepayCalcType'
 import StructureInterest from './StructureInterest'
 
-import { CommonTips } from '@/components'
+import CommonTips from '@/components/CommonTips'
 
 const Item = Form.Item
 

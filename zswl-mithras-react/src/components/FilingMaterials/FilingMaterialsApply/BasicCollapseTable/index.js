@@ -1,4 +1,4 @@
-import { Collapse } from '@/components'
+import Collapse from '@/components/Collapse'
 import { FileTable, NoEnumFileTable } from '@/components/Table'
 import { getUserInfo } from '@/utils'
 import { getQuery, observer } from '@zswl/admin'

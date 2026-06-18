@@ -1,7 +1,7 @@
 import { FiledFormat, AmountFormat, AmountColumn } from '@/components/Format'
 import { Space } from 'antd'
 import { hasValue } from '@/utils'
-import { CommonTips } from '@/components'
+import CommonTips from '@/components/CommonTips'
 
 const ALL_COLUMNS = ({ isZhiZu }) => {
   return [

@@ -1,4 +1,4 @@
-import { Collapse } from '@/components'
+import Collapse from '@/components/Collapse'
 import { getQuery } from '@zswl/admin'
 import {
   ReviewDetailDataList as Data,

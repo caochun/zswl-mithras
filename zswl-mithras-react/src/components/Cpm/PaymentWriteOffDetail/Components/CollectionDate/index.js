@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Modal, Form } from '@zswl/components'
 import { rules } from '@/utils'
-import { SelectDayPanel } from '@/components'
+import SelectDayPanel from '@/components/SelectDayPanel'
 import { DatePicker } from 'antd'
 import { Select } from '@zswl/components'
 import { useState } from 'react'

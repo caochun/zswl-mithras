@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Button } from '@zswl/components'
 import { UnorderedListOutlined } from '@ant-design/icons'
-import { RadioTabs } from '@/components'
+import RadioTabs from '@/components/RadioTabs'
 import RankingDrawer from './RankingDrawer'
 import RankingTable from './RankingTable'
 

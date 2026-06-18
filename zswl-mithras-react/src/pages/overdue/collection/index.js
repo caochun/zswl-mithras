@@ -4,7 +4,7 @@ import store from './store'
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils'
 import ALL_COLUMNS from './Column'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { saveServer } from '@/utils'
 
 function Index({ path }) {

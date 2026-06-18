@@ -4,7 +4,7 @@ import { AmountColumn, DateColumn } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Summary as TableSummary } from '@/components/Table'
 import { useState } from 'react'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import fundTransferApi from '@/api/financial/fundTransfer'
 import { saveServer } from '@/utils'
 

@@ -18,7 +18,7 @@ import {
 import { validatorAmount, validatorBigZero } from './utils'
 import useGetMap from '@/utils/hooks/useGetMap'
 import { AmountAndCapitalization } from '@/components/Format'
-import { CommonTips } from '@/components'
+import CommonTips from '@/components/CommonTips'
 
 const creditAmountLoopOptions = [
   {

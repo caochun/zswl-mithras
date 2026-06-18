@@ -1,4 +1,4 @@
-import { Collapse } from '@/components'
+import Collapse from '@/components/Collapse'
 import {
   CpmPaymentApplicationInformationList as InformationList,
   CpmPaymentApplicationLendingMaterials as LendingMaterials,

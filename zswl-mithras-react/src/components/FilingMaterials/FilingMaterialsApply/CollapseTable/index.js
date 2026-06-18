@@ -1,4 +1,4 @@
-import { Collapse } from '@/components'
+import Collapse from '@/components/Collapse'
 import { FileTableMe, NoEnumFileTable } from '@/components/Table'
 import { getUserInfo } from '@/utils'
 import { downFile } from '@/utils/downFunction'

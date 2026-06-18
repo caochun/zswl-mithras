@@ -6,7 +6,7 @@ import styles from './index.less'
 import EditModal from './EditModal'
 import IconFont from '@/components/Icon'
 import { amountFormat } from '@/utils'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { ClientSelect, OrgSelect, FounderSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 

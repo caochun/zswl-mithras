@@ -1,4 +1,4 @@
-import { Collapse } from '@/components'
+import Collapse from '@/components/Collapse'
 import { Empty } from 'antd'
 import {
   ContractChangeMaterials as CheckMaterial,

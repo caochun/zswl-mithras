@@ -5,7 +5,7 @@ import { FinancialPaymentColumns as ALL_COLUMNS } from '@/components/Financial/P
 import { useMemo, useState } from 'react'
 import { getTableColumns, getFormColumns, getSearchColumns } from '@/utils'
 import AmountRange from '@/components/AmountRange'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { CreditOrgSelect } from '@/components/Financial/SelectEntries'
 import { Summary as TableSummary } from '@/components/Table'
 import { saveServer } from '@/utils'

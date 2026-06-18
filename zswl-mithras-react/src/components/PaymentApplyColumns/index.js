@@ -1,6 +1,6 @@
 import { AmountEditable, AmountColumn, TextAreaColumn, DateColumn } from '@/components/Format'
 import { formatPercent, amountFormat } from '@/utils'
-import { CommonTips } from '@/components'
+import CommonTips from '@/components/CommonTips'
 import { Select } from 'antd'
 import moment from 'moment'
 

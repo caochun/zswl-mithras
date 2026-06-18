@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { DatePicker } from 'antd'
 import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
 import { UnorderedListOutlined } from '@ant-design/icons'
-import { RadioTabs } from '@/components'
+import RadioTabs from '@/components/RadioTabs'
 import { Form, SearchBar, Button } from '@zswl/components'
 import { useMemo, useState } from 'react'
 

@@ -8,7 +8,7 @@ import { BpmnFlowChooseChartModal } from '@/components/BpmnFlowChooseChart/BpmnF
 import ForWardModal from './ForWardModal'
 import FastHandle from './FastHandle'
 import { ProcessTypeTree } from '@/components/Process/ProcessEntries'
-import { PageListDown } from '@/components'
+import PageListDown from '@/components/PageListDown'
 import { ApiSelect } from '@/components/Select'
 import Api from './api'
 import { saveServer } from '@/utils'
