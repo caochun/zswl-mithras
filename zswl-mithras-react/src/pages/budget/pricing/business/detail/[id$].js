@@ -1,1 +1,1 @@
-export { BudgetPricingBusinessDetail as default } from '@/components/Budget/PricingEntries'
+export { BudgetPricingBusinessDetail as default } from '@/components/Budget/PricingBusinessEntries'

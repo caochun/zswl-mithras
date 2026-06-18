@@ -7,7 +7,7 @@ import localApi from './priceDetail/api'
 import { PageListDown } from '@/components'
 import FtpRunModal from './FtpRunModal'
 import { message } from 'antd'
-import { BudgetFtpInterestPriceChangeModal as PriceChangeModal } from '@/components/Budget/PricingEntries'
+import { BudgetFtpInterestPriceChangeModal as PriceChangeModal } from '@/components/Budget/PricingFtpInterestEntries'
 import ftpInterestChangeApi from '@/api/budget/pricing/ftpInterestChangeApi'
 import { saveServer } from '@/utils'
 

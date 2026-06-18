@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { Table, Page, Access } from '@zswl/components'
-import { BudgetPricingBaseSetModalDetail as ModalDetail } from '@/components/Budget/PricingEntries'
+import { BudgetPricingBaseSetModalDetail as ModalDetail } from '@/components/Budget/PricingBaseSetEntries'
 import Store from './store'
 import { saveServer } from '@/utils'
 

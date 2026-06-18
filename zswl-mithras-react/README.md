@@ -45,7 +45,10 @@
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/AccountsReceivableEntries.js`
 - `Budget/ExchangeRateEntries.js`
-- `Budget/PricingEntries.js`
+- `Budget/PricingBaseDataEntries.js`
+- `Budget/PricingBaseSetEntries.js`
+- `Budget/PricingBusinessEntries.js`
+- `Budget/PricingFtpInterestEntries.js`
 - `Budget/ProfitDistributionEntries.js`
 - `Budget/ProjectProfitEntries.js`
 - `Budget/ProvisioningEntries.js`
@@ -85,7 +88,10 @@
 - `Financial/PaymentBatchApprovalEntries.js`
 - `Financial/PaymentDetailEntries.js`
 - `Financial/PaymentListEntries.js`
-- `FilingMaterials/FilingMaterialsEntries.js`
+- `FilingMaterials/AfterApplyEntries.js`
+- `FilingMaterials/ApplyEntries.js`
+- `FilingMaterials/FundApplyEntries.js`
+- `FilingMaterials/OtherApplyEntries.js`
 - `Kpi/BaseSetModalDetailEntries.js`
 - `Kpi/KpiEstimationEntries.js`
 - `Kpi/PmAssessEntries.js`
