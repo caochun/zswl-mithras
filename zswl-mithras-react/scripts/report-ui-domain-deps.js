@@ -226,13 +226,29 @@ if (sortedEdges.length === 0) {
   process.exit(0)
 }
 
-console.log('Cross-domain UI dependencies across src:')
-for (const edge of sortedEdges) {
-  console.log(`- ${edge.sourceScope} -> ${edge.targetScope}: ${edge.files.size} file(s)`)
-  for (const specifier of [...edge.specifiers].sort()) {
-    console.log(`  ${specifier}`)
+const domainImplementationEdges = sortedEdges.filter((edge) => !edge.sourceScope.startsWith('pages/'))
+const pageOrchestrationEdges = sortedEdges.filter((edge) => edge.sourceScope.startsWith('pages/'))
+
+function printEdges(title, edgesToPrint) {
+  console.log(title)
+
+  if (edgesToPrint.length === 0) {
+    console.log('- none')
+    return
+  }
+
+  for (const edge of edgesToPrint) {
+    console.log(`- ${edge.sourceScope} -> ${edge.targetScope}: ${edge.files.size} file(s)`)
+    for (const specifier of [...edge.specifiers].sort()) {
+      console.log(`  ${specifier}`)
+    }
   }
 }
+
+printEdges('Cross-domain UI dependencies from domain implementation code:', domainImplementationEdges)
+
+console.log('')
+printEdges('Cross-domain UI dependencies from page orchestration code:', pageOrchestrationEdges)
 
 console.log('\nUI target fan-in:')
 for (const [target, sources] of [...targetFanIn.entries()].sort(([a], [b]) => a.localeCompare(b))) {
