@@ -1,7 +1,7 @@
 import styles from '../index.less'
 import DataTable from './DataTable'
 import { observer } from '@zswl/admin'
-import ClientFileTable from '@/components/Project/ClientFileTable'
+import ClientFileTable from '@/components/ClientFileTable'
 import { useEffect } from 'react'
 
 const Data = ({ id, canEdit = true, isProjSponsor, businessVersion, title, store }) => {

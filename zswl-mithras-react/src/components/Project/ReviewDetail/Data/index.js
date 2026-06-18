@@ -2,7 +2,7 @@ import styles from './index.less'
 import DataTable from './DataTable'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo } from 'react'
-import ClientFileTable from '@/components/Project/ClientFileTable'
+import ClientFileTable from '@/components/ClientFileTable'
 import { Collapse } from 'antd'
 
 const Data = ({ id, canEdit = true, isProjSponsor, businessVersion, title, store, isRiskManagerProj, setMaterialObj }) => {
