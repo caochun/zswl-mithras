@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import ExchangeRate from '@/components/Budget/ExchangeRate'
+import { BudgetExchangeRate as ExchangeRate } from '@/components/Budget/BudgetEntries'
 import moment from 'moment'
 
 const Index = ({ params }) => {

@@ -5,7 +5,7 @@ import ALL_COLUMNS from './Column'
 import { useMemo } from 'react'
 import { Card, DatePicker, Input, Tooltip, message } from 'antd'
 import moment from 'moment'
-import EditModal from '@/components/Budget/FinancingCostEditModal'
+import EditModal from '../../FinancingCostEditModal'
 import { saveServer } from '@/utils'
 
 function Index({ path, canEdit, params }) {
