@@ -31,6 +31,63 @@ const stabilizedComponentRootImports = new Map([
 ])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
+const legacyUtilityPrefixRules = [
+  {
+    legacyPrefix: '@/utils/afterLease',
+    replacementPrefix: '@/afterLease/AfterLeaseUtils',
+    allowedSourcePathPrefixes: ['src/afterLease/AfterLeaseUtils.js'],
+  },
+  {
+    legacyPrefix: '@/utils/budgetManagement',
+    replacementPrefix: '@/budgetManagement/BudgetManagementUtils',
+    allowedSourcePathPrefixes: ['src/budgetManagement/BudgetManagementUtils.js'],
+  },
+  {
+    legacyPrefix: '@/utils/customer',
+    replacementPrefix: '@/customer/CustomerUtils',
+    allowedSourcePathPrefixes: ['src/customer/CustomerUtils.js'],
+  },
+  {
+    legacyPrefix: '@/utils/customerRat',
+    replacementPrefix: '@/customer/CustomerRatUtils',
+    allowedSourcePathPrefixes: ['src/utils/customerRat.js'],
+  },
+  {
+    legacyPrefix: '@/utils/dashboard',
+    replacementPrefix: '@/dashboard/DashboardUtils*',
+    allowedSourcePathPrefixes: [
+      'src/utils/dashboard.js',
+      'src/utils/dashboardColumns.js',
+      'src/utils/dashboardFilterKeys.js',
+      'src/utils/dashboardOperation.js',
+    ],
+  },
+  {
+    legacyPrefix: '@/utils/kpi',
+    replacementPrefix: '@/kpi/KpiUtils',
+    allowedSourcePathPrefixes: ['src/kpi/KpiUtils.js'],
+  },
+  {
+    legacyPrefix: '@/utils/paymentApplication',
+    replacementPrefix: '@/cpm/PaymentApplicationUtils',
+    allowedSourcePathPrefixes: ['src/utils/paymentApplication.js'],
+  },
+  {
+    legacyPrefix: '@/utils/processFlow',
+    replacementPrefix: '@/process/ProcessFlowContext',
+    allowedSourcePathPrefixes: ['src/process/ProcessFlowContext.js'],
+  },
+  {
+    legacyPrefix: '@/utils/report',
+    replacementPrefix: '@/report/ReportUtils',
+    allowedSourcePathPrefixes: ['src/report/ReportUtils.js'],
+  },
+  {
+    legacyPrefix: '@/utils/risk',
+    replacementPrefix: '@/risk/RiskUtils',
+    allowedSourcePathPrefixes: ['src/risk/RiskUtils.js'],
+  },
+]
 const legacyApiDomains = new Map([
   ['blackList', 'blackGray'],
   ['financialReport', 'report'],
@@ -468,6 +525,17 @@ function getLegacyApiPrefixRule(specifier) {
   return null
 }
 
+function getLegacyUtilityPrefixRule(specifier) {
+  for (const rule of legacyUtilityPrefixRules) {
+    const { legacyPrefix } = rule
+    if (specifier === legacyPrefix || specifier.startsWith(`${legacyPrefix}/`)) {
+      return rule
+    }
+  }
+
+  return null
+}
+
 function isAllowedLegacyApiPrefixSource(rule, relativeFilePath, sourceComponentDomain) {
   return (
     rule.allowedSourceDomains?.includes(sourceComponentDomain) ||
@@ -494,6 +562,7 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
     const isPageImport = pageImportPattern.test(specifier)
     const [, legacyApiDomain] = specifier.match(legacyApiImportPattern) || []
     const legacyApiPrefixRule = getLegacyApiPrefixRule(specifier)
+    const legacyUtilityPrefixRule = getLegacyUtilityPrefixRule(specifier)
     const [, componentRootImportDomain] = specifier.match(componentRootImportPattern) || []
 
     const [, targetComponentEntryDomain] = specifier.match(componentEntryPathPattern) || []
@@ -511,6 +580,16 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
       violations.push({
         file: relativeFilePath,
         specifier: `${specifier} (use @/api/${legacyApiDomains.get(legacyApiDomain)} semantic entry)`,
+      })
+    } else if (
+      legacyUtilityPrefixRule &&
+      !legacyUtilityPrefixRule.allowedSourcePathPrefixes.some((prefix) =>
+        relativeFilePath.startsWith(prefix)
+      )
+    ) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use ${legacyUtilityPrefixRule.replacementPrefix})`,
       })
     } else if (
       legacyApiPrefixRule &&
