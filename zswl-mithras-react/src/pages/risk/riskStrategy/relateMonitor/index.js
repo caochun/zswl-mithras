@@ -6,7 +6,7 @@ import DataUpload from '@/components/DataUpload'
 import {
   RiskRelateMonitorCollection as Collection,
   RiskRelateMonitorPayMent as PayMent,
-} from '@/components/Risk/RiskEntries'
+} from '@/components/Risk/RelateMonitorEntries'
 import Api from '@/api/risk/relatedTransaction'
 
 function Index() {

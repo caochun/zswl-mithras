@@ -5,7 +5,7 @@ import {
   RiskConcentrationClient as Client,
   RiskConcentrationConnect as Connect,
   RiskConcentrationGroup as Group,
-} from '@/components/Risk/RiskEntries'
+} from '@/components/Risk/ConcentrationControlEntries'
 import { useEffect, useState } from 'react'
 import Api from '@/api/risk/concentrationControl'
 

@@ -78,7 +78,10 @@
 - `Project/ReviewSupportEntries.js`
 - `Report/FinancialReportEntries.js`
 - `Report/OperationEntries.js`
+- `Risk/ConcentrationControlEntries.js`
+- `Risk/MetricValueEntries.js`
 - `Risk/PublicMonitorEntries.js`
+- `Risk/RelateMonitorEntries.js`
 - `Risk/RiskEntries.js`
 - `TrackEvent/ModalEntries.js`
 - `TrackEvent/TrackingEntries.js`

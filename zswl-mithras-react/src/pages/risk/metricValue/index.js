@@ -5,7 +5,7 @@ import {
   RiskMetricControl as Control,
   RiskMetricJinKon as JinKon,
   RiskMetricTarget as Target,
-} from '@/components/Risk/RiskEntries'
+} from '@/components/Risk/MetricValueEntries'
 import IconFont from '@/components/Icon'
 
 function Index() {

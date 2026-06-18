@@ -1,1 +1,1 @@
-export { RiskMetricControl as default } from '@/components/Risk/RiskEntries'
+export { RiskMetricControl as default } from '@/components/Risk/MetricValueEntries'

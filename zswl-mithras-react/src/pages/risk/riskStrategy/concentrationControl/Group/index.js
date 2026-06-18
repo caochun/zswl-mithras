@@ -1,1 +1,1 @@
-export { RiskConcentrationGroup as default } from '@/components/Risk/RiskEntries'
+export { RiskConcentrationGroup as default } from '@/components/Risk/ConcentrationControlEntries'
