@@ -1,6 +1,6 @@
 import { Table, Button, Modal, Form, DatePicker, SearchBar, Select } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import { COMMON_COLUMNS } from '@/components/Report/FinancialReport/Columns'
+import { FinancialReportCommonColumns as COMMON_COLUMNS } from '@/components/Report/FinancialReportEntries'
 
 const monthEnum = [
   { label: '1月', value: 1 },

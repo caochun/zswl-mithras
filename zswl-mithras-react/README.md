@@ -45,6 +45,7 @@
 - `Process/PrepareDetailEntries.js`
 - `Project/ProjectEntries.js`
 - `Project/ReviewDetailEntries.js`
+- `Report/FinancialReportEntries.js`
 - `Risk/RiskEntries.js`
 - `TrackEvent/TrackingEntries.js`
 

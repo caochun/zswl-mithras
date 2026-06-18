@@ -1,1 +1,1 @@
-export { default } from '@/components/Report/FinancialReportApproval'
+export { FinancialReportApproval as default } from '@/components/Report/FinancialReportEntries'
