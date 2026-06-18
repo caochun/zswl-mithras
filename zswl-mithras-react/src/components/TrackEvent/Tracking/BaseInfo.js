@@ -5,7 +5,7 @@ import { observer } from '@zswl/admin'
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { Form, Select } from '@zswl/components'
 import trackingApi from '@/api/trackEvent/trackingApi'
-import contractApi from '@/api/contract/baseInfo'
+import contractInfoApi from '@/api/trackEvent/contractInfoApi'
 import selectApi from '@/api/common/selectApi'
 import _ from 'lodash'
 
@@ -50,7 +50,7 @@ function Index({ dataSource, canEdit = true, params }, ref) {
   }
 
   const getProj = async () => {
-    const res = await contractApi.postProjList({ pageSize: 1000 }, 'contractreviewquery_trackevent')
+    const res = await contractInfoApi.postProjList({ pageSize: 1000 })
 
     return res.map((v) => ({ label: v.projName, value: v.projName }))
   }

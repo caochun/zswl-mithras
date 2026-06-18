@@ -93,6 +93,17 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/contract/baseInfo',
+    replacementPrefix:
+      '@/api/budget/contractInfoApi, @/api/trackEvent/contractInfoApi, or @/api/contract/baseInfo in Contract domain',
+    allowedSourceDomains: ['Contract'],
+    allowedSourcePathPrefixes: [
+      'src/api/budget/contractInfoApi.js',
+      'src/api/trackEvent/contractInfoApi.js',
+      'src/pages/contract/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/baseData/pricing/baseSet/ftpBaseSet',
     replacementPrefix: '@/api/budget/pricing/baseSet/ftpBaseSet',
   },

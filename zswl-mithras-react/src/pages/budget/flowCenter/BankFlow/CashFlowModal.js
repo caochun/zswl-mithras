@@ -5,7 +5,7 @@ import { FormAmount } from '@/components/Form'
 import { ClientSelect, OrgTreeSelect } from '@/components'
 import { useState } from 'react'
 import _ from 'lodash'
-import contractApi from '@/api/contract/baseInfo'
+import contractInfoApi from '@/api/budget/contractInfoApi'
 import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcessingCenterApi'
 import moment from 'moment'
 import { ExclamationCircleOutlined, InfoCircleFilled } from '@ant-design/icons'
@@ -43,7 +43,10 @@ function CashFlowModal({ store, writeOffType, sideType }) {
       })
     }
     const clientNameChange = async (client) => {
-      const res = await contractApi.postContractList({ clientId: client.value, pageSize: 9999 })
+      const res = await contractInfoApi.postContractList({
+        clientId: client.value,
+        pageSize: 9999,
+      })
       setContractList(res.list)
       modalForm.setFieldsValue({
         contract: undefined,

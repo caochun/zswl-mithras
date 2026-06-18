@@ -4,7 +4,7 @@ import { Button, Form, Modal, Select } from '@zswl/components'
 import { Tag, Space } from 'antd'
 import { FormAmount } from '@/components/Form'
 import { ClientSelect, OrgTreeSelect } from '@/components'
-import contractApi from '@/api/contract/baseInfo'
+import contractInfoApi from '@/api/budget/contractInfoApi'
 import { amountFormat, formatPercent } from '@/utils'
 import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcessingCenterApi'
 
@@ -27,7 +27,10 @@ function Index({ store }) {
     })
   }
   const clientNameChange = async (client) => {
-    const res = await contractApi.postContractList({ clientId: client.value, pageSize: 9999 })
+    const res = await contractInfoApi.postContractList({
+      clientId: client.value,
+      pageSize: 9999,
+    })
     setContractList(res.list)
     modalForm.setFieldsValue({
       contract: undefined,

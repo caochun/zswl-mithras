@@ -9,7 +9,7 @@ import {
 } from '@/components/Format'
 import { Input, InputNumber } from 'antd'
 import selectApi from '@/api/common/selectApi'
-import contractApi from '@/api/contract/baseInfo'
+import contractInfoApi from '@/api/trackEvent/contractInfoApi'
 import trackingApi from '@/api/trackEvent/trackingApi'
 import { App } from '@zswl/components'
 
@@ -121,10 +121,7 @@ const ALL_COLUMNS = [
     editable: true,
     search: true,
     options: async () => {
-      const res = await contractApi.postProjList(
-        { pageSize: 1000 },
-        'contractreviewquery_trackevent'
-      )
+      const res = await contractInfoApi.postProjList({ pageSize: 1000 })
       return res.map(({ projName }) => ({ label: projName, value: projName }))
     },
     width: 180,

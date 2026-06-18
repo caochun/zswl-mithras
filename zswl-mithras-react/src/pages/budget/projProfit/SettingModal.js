@@ -6,13 +6,13 @@ import FormListItem from './FormListItem'
 import styles from './index.less'
 import selectApi from '@/api/common/selectApi'
 import { useEffect, useState } from 'react'
-import contractApi from '@/api/contract/baseInfo'
+import contractInfoApi from '@/api/budget/contractInfoApi'
 import { saveServer } from '@/utils'
 
 function Index({ store }) {
   const [contractList, setContractList] = useState([])
   const getContractList = async (val) => {
-    const { list } = await contractApi.postContractList({ page: 1, pageSize: 9999 })
+    const { list } = await contractInfoApi.postContractList({ page: 1, pageSize: 9999 })
     const res = list.map(({ id, contractCode }) => ({ label: contractCode, value: id }))
     setContractList(res)
   }

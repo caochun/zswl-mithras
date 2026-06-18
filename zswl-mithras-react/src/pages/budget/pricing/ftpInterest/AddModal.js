@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { message } from 'antd'
 import { Button, Modal, Form, Select } from '@zswl/components'
-import contractApi from '@/api/contract/baseInfo'
+import contractInfoApi from '@/api/budget/contractInfoApi'
 import { ClientSelect } from '@/components'
 import ftpInterestChangeApi from '@/api/budget/pricing/ftpInterestChangeApi'
 import { observer } from '@zswl/admin'
@@ -28,10 +28,10 @@ const AddModal = ({ store, setDetailList, detailList }) => {
     }
   }
   const clientNameChange = async (client) => {
-    const res = await contractApi.postContractList(
-      { clientId: client.value, pageSize: 9999 },
-      'ftpInterestContractBaseInfoList'
-    )
+    const res = await contractInfoApi.postFtpInterestContractList({
+      clientId: client.value,
+      pageSize: 9999,
+    })
     setContractList(res.list)
     form.setFieldsValue({
       contract: undefined,
