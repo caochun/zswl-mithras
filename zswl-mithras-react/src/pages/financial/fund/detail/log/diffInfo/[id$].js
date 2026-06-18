@@ -1,13 +1,15 @@
 import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import ChangeLogLayout from '@/components/ChangeLogLayout'
-import BaseInfo from '@/components/Financial/FundDetail/BaseInfo'
-import Pledge from '@/components/Financial/FundDetail/Pledge'
-import Scheme from '@/components/Financial/FundDetail/Scheme'
-import EstimateTable from '@/components/Financial/FundDetail/EstimateTable'
-import ActualTable from '@/components/Financial/FundDetail/ActualTable'
-import OtherAccount from '@/components/Financial/FundDetail/OtherAccount'
-import RefundAccount from '@/components/Financial/FundDetail/RefundAccount'
+import {
+  FinancialFundDetailActualTable as ActualTable,
+  FinancialFundDetailBaseInfo as BaseInfo,
+  FinancialFundDetailEstimateTable as EstimateTable,
+  FinancialFundDetailOtherAccount as OtherAccount,
+  FinancialFundDetailPledge as Pledge,
+  FinancialFundDetailRefundAccount as RefundAccount,
+  FinancialFundDetailScheme as Scheme,
+} from '@/components/Financial/FundEntries'
 import Api from '@/api/financial/fundApi'
 import FileDiff from '@/components/FileDiff'
 

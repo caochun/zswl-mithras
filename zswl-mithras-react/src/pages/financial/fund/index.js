@@ -2,10 +2,12 @@ import { Button, Page, Select, Table } from '@zswl/components'
 import { getQuery, observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import { getTableColumns, getFormColumns, hasValue, getSearchColumns } from '@/utils'
-import ALL_COLUMNS from '@/components/Financial/FundColumns'
+import {
+  FinancialFundColumns as ALL_COLUMNS,
+  FinancialFundListChangeModal as ChangeModal,
+  FinancialFundListCreateModal as CreateModal,
+} from '@/components/Financial/FundEntries'
 import Store from './store'
-import ChangeModal from '@/components/Financial/FundList/ChangeModal'
-import CreateModal from '@/components/Financial/FundList/CreateModal'
 import { PageListDown } from '@/components'
 import { InputEditable, MatchOptionColumn } from '@/components/Format'
 import { Summary } from '@/components/Table'

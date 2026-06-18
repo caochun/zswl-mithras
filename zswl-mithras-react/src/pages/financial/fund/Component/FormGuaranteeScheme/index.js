@@ -1,1 +1,1 @@
-export { default } from '@/components/Financial/FundGuaranteeScheme'
+export { FinancialFundGuaranteeScheme as default } from '@/components/Financial/FundEntries'

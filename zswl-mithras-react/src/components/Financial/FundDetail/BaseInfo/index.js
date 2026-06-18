@@ -1,12 +1,12 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '@/components/Financial/FundColumns'
+import ALL_COLUMNS from '../../FundColumns'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useRef } from 'react'
-import FormOrg from '@/components/Financial/FundForm/FormOrg'
+import FormOrg from '../../FundForm/FormOrg'
 import { MatchOptionColumn } from '@/components/Format'
 import { App } from '@zswl/components'
-import FormGuarantee from '@/components/Financial/FundForm/FormGuarantee'
+import FormGuarantee from '../../FundForm/FormGuarantee'
 
 function Index({ detail, saveData, isLog, canEdit = true, initEdit, isOtherChange }) {
   const ref = useRef()

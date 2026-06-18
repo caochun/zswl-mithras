@@ -1,1 +1,1 @@
-export { default } from '@/components/Financial/FundDetail/RefundAccount'
+export { FinancialFundDetailRefundAccount as default } from '@/components/Financial/FundEntries'

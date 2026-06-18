@@ -1,1 +1,1 @@
-export { default } from '@/components/Financial/FundList/ChangeModal'
+export { FinancialFundListChangeModal as default } from '@/components/Financial/FundEntries'

@@ -1,1 +1,1 @@
-export { default } from '@/components/Financial/FundDetail/Pledge'
+export { FinancialFundDetailPledge as default } from '@/components/Financial/FundEntries'

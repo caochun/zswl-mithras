@@ -1,7 +1,9 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import FundFinancingFundDetail from '@/components/Financial/FundDetail'
-import FundFinancingFundChange from '@/components/Financial/FundChange'
+import {
+  FinancialFundChange as FundFinancingFundChange,
+  FinancialFundDetail as FundFinancingFundDetail,
+} from '@/components/Financial/FundEntries'
 import FinancialDirect from '@/components/Financial/DirectDetail'
 import FinancingRepayPlanConfirmFlow from '../../application/detail/PrepareDetail/Component/FinancingRepayPlanConfirmFlow'
 import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'

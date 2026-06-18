@@ -7,7 +7,7 @@ export { default as PrepareCustomerRating } from '@/components/Customer/Customer
 export { default as PrepareFilingMaterialsApply } from '@/components/FilingMaterials/FilingMaterialsApply'
 export { default as PrepareFundFilingMaterialsApply } from '@/components/FilingMaterials/FundFilingMaterialsApply'
 export { default as PrepareFinancialDirect } from '@/components/Financial/DirectDetail'
-export { default as PrepareFinancialFund } from '@/components/Financial/FundDetail'
+export { FinancialFundDetail as PrepareFinancialFund } from '@/components/Financial/FundEntries'
 export { default as PrepareFinancialCarryInterest } from '@/components/Financial/FinancingCarryInterestFlow'
 export { FinancialReportApproval as PrepareFinancialReportApproval } from '@/components/Report/FinancialReportEntries'
 export { KpiProjectAllotDetail as PrepareKpiProjectAllocation } from '@/components/Kpi/ProjectAllotEntries'
