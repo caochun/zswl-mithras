@@ -1,6 +1,6 @@
 import { EditDescription } from '@/components/Table'
 import ALL_COLUMNS from '../CreditColumns'
-import { UpdateRatingInfoButton as UpdateButton } from '@/components/UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'
+import { Button } from '@zswl/components'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 
@@ -37,7 +37,11 @@ function Index({ detail, saveData, isLog, canEdit = true, initEdit, updateInfo }
           value: detail?.clientId,
         },
       }}
-      cancelExtra={<UpdateButton updateInfo={updateInfo} />}
+      cancelExtra={
+        <Button type="primary" onClick={updateInfo} style={{ marginRight: 8 }}>
+          更新评级信息
+        </Button>
+      }
       saveData={saveData}
       canEdit={canEdit}
       isLog={isLog}

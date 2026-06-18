@@ -5,7 +5,7 @@ import ALL_COLUMNS from '../CreditColumns'
 import { getDescColumns, rules } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'
-import { UpdateRatingInfoButton as UpdateButton } from '@/components/UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'
+import { Button } from '@zswl/components'
 
 const nameColumns = [
   '授信名称',
@@ -52,7 +52,11 @@ function Index({ detail, saveData, isLog, canEdit = true, newProject, updateInfo
           value: detail?.clientId,
         },
       }}
-      cancelExtra={<UpdateButton updateInfo={updateInfo} />}
+      cancelExtra={
+        <Button type="primary" onClick={updateInfo} style={{ marginRight: 8 }}>
+          更新评级信息
+        </Button>
+      }
       saveData={saveData}
       canEdit={canEdit}
       isLog={isLog}

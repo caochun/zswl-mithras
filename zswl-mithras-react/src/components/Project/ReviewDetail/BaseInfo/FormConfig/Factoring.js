@@ -8,7 +8,7 @@ import {
   onRegionalClassifyChange,
   onEvaluateMainChange,
 } from './Context'
-import { UpdateRatingInfoButton as UpdateButton } from '@/components/UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'
+import { Button } from '@zswl/components'
 
 function Index({ detail, saveData, store, isLog, canEdit = true, initEdit }) {
   const editDescRef = useRef({})
@@ -74,7 +74,11 @@ function Index({ detail, saveData, store, isLog, canEdit = true, initEdit }) {
       isLog={isLog}
       initEdit={initEdit}
       columns={columns}
-      cancelExtra={<UpdateButton detail={detail} updateInfo={store?.updateInfo} />}
+      cancelExtra={
+        <Button type="primary" onClick={store?.updateInfo} style={{ marginRight: 8 }}>
+          更新评级信息
+        </Button>
+      }
     />
   )
 }

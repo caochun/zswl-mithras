@@ -65,7 +65,6 @@ const publicComponentRoots = new Set([
   'Select',
   'StarDom',
   'Table',
-  'UpdateRatingInfoButton',
   'ZhongDengButton',
   'ZInput',
 ])

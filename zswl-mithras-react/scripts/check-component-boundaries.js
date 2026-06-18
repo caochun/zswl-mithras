@@ -32,7 +32,6 @@ const stabilizedComponentRootImports = new Map([
   ['JumpClient', 'JumpClient/JumpClientEntries'],
   ['PaymentApplyColumns', 'PaymentApplyColumns/PaymentApplyColumnsEntries'],
   ['Policy', 'Policy/PolicyEntries'],
-  ['UpdateRatingInfoButton', 'UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'],
   ['ZhongDengButton', 'ZhongDengButton/ZhongDengButtonEntries'],
 ])
 const stableTableRootImports = new Set([
