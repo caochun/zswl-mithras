@@ -1,4 +1,4 @@
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { amountFormat, getInputNumberAmountProps } from '@/utils'
 import { observer } from '@zswl/admin'
 import { App, Form, Modal } from '@zswl/components'

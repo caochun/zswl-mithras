@@ -3,7 +3,7 @@ import { App, Form, Modal, Select } from '@zswl/components'
 import { Input } from 'antd'
 import { useEffect, useState } from 'react'
 import { debounce as _debounce } from 'lodash'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 
 const { Item } = Form
 function EditModal({ modalStore }) {

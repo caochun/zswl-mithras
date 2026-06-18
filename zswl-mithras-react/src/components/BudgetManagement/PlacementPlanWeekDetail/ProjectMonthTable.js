@@ -9,7 +9,7 @@ import {
   TextAreaEditable,
 } from '@/components/Format'
 import { Select, Table } from '@zswl/components'
-import { FounderSelect, OrgSelect } from '@/components'
+import { FounderSelect, OrgSelect } from '@/components/Select'
 
 const INIT_FORMAT = 10000 * 10000
 const PARENT_FORMAT = 10000

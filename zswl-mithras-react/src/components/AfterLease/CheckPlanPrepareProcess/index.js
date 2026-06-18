@@ -2,7 +2,7 @@
 import { EditDescription } from '@/components/Table'
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
-import { ApiSelect, FounderSelect } from '@/components'
+import { ApiSelect, FounderSelect } from '@/components/Select'
 import { FiledFormat, AmountFormat, MatchFormat, MatchOptionColumn } from '@/components/Format'
 import { Select, App, Page } from '@zswl/components'
 import { DatePicker, Input, Space, Tag } from 'antd'

@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Form, Modal, Select, App } from '@zswl/components'
 import { DatePicker, Input } from 'antd'
-import { ApiSelect } from '@/components'
+import { ApiSelect } from '@/components/Select'
 import Api from '@/api/afterLease/checkPlan'
 
 const { Item } = Form

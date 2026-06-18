@@ -8,7 +8,7 @@ import IconFont from '@/components/Icon'
 import { getKeyOptionsLabelMapPlus } from '@/utils'
 import classNames from 'classnames'
 import { FormAmount } from '@/components/Form'
-import { ClientSelect, OrgSelect, FounderSelect } from '@/components'
+import { ClientSelect, OrgSelect, FounderSelect } from '@/components/Select'
 import { processTypeList } from './Context'
 import { saveServer } from '@/utils'
 

@@ -1,6 +1,6 @@
 import { Form, Input, Modal, Select } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import { ClientSelect, ApiSelect } from '@/components'
+import { ClientSelect, ApiSelect } from '@/components/Select'
 import Api from '@/api/customer/maintainApi'
 
 const { Item } = Form

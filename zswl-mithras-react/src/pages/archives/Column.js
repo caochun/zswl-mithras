@@ -1,4 +1,4 @@
-import { ClientSelect, FounderSelect, OrgSelect } from '@/components'
+import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
 import { InputEditable } from '@/components/Format'
 import { rules } from '@/utils'
 import { App, Select } from '@zswl/components'

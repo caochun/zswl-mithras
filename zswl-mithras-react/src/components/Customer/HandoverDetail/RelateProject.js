@@ -1,4 +1,4 @@
-import { ApiSelect, FounderSelect } from '@/components'
+import { ApiSelect, FounderSelect } from '@/components/Select'
 import { AmountColumn, AmountEditable, FiledFormat, MatchOptionColumn } from '@/components/Format'
 import { isProjmanager, rules, saveServer } from '@/utils'
 import { observer } from '@zswl/admin'

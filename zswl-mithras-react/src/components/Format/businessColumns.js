@@ -1,4 +1,4 @@
-import { FounderSelect, ClientSelect, OrgSelect, ProvinceSelect } from '@/components'
+import { FounderSelect, ClientSelect, OrgSelect, ProvinceSelect } from '@/components/Select'
 import { FiledFormat, InputColumn } from './index'
 
 export const orgSelect = (props = {}, functionCode = 'dashboardWorkbenchSelectOrgs') => {

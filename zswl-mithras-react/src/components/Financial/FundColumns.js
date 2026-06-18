@@ -5,7 +5,7 @@ import { formatPercent, amountFormat, rangePresets, hasValue } from '@/utils'
 import AmountRange from '@/components/AmountRange'
 import { Form, Select, App } from '@zswl/components'
 import { OrgListSelect } from './Select'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import { DateColumn, AmountColumn } from '@/components/Format'
 
 const ALL_COLUMNS = [

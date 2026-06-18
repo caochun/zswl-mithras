@@ -4,7 +4,7 @@ import { App, Button, Select } from '@zswl/components'
 import GroupSource from './GroupSource'
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { InputNumberReadOnly, RadioReadOnly, SelectReadOnly } from '@/components/Form'
-import { ApiSelect } from '@/components'
+import { ApiSelect } from '@/components/Select'
 import riskCardTargetApi from '@/api/risk/riskCardTargetApi'
 import { rules } from '@/utils'
 

@@ -1,5 +1,5 @@
 import { FiledFormat } from '@/components/Format'
-import { FounderSelect, ClientSelect } from '@/components'
+import { FounderSelect, ClientSelect } from '@/components/Select'
 import { App } from '@zswl/components'
 import { Input, Tag, Space } from 'antd'
 

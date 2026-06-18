@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { Input } from 'antd'
-import { ApiSelect, FounderSelect } from '@/components'
+import { ApiSelect, FounderSelect } from '@/components/Select'
 import api from '../../api'
 
 const { Item } = Form

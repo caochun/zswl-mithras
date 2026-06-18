@@ -9,7 +9,7 @@ import { InputEditable } from '@/components/Format'
 import { saveServer } from '@/utils'
 
 import orgApi from '@/api/financial/orgManage'
-import { ApiSelect } from '@/components'
+import { ApiSelect } from '@/components/Select'
 
 const OrgSelect = (props) => {
   const { params, ...rest } = props

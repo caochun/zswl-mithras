@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Input, DatePicker, Upload, InputNumber } from 'antd'
 import { Modal, Form, Button, Select, App } from '@zswl/components'
 
-import { ClientSelect, OrgSelect, ApiSelect, ContractSelect } from '@/components'
+import { ClientSelect, OrgSelect, ApiSelect, ContractSelect } from '@/components/Select'
 
 import { useRef } from 'react'
 

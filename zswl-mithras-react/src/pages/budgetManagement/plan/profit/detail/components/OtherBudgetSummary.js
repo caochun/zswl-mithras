@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { observer } from '@zswl/admin'
 import { Table } from '@zswl/components'
 import { generateColumns, generateOtherColumns } from '../utils'
-import { OrgSelect } from '@/components'
+import { OrgSelect } from '@/components/Select'
 
 const OtherBudgetSummary = ({ store }) => {
   const [newColumns, setColumns] = useState([])

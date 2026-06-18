@@ -1,4 +1,4 @@
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { Select } from '@zswl/components'
 
 export const COMMON_COLUMNS = [

@@ -13,7 +13,7 @@ import DynamicBtn from './Components/DynamicBtn'
 import DynamicForm from './Components/DynamicForm'
 import { shouldShowCreditWithdrawalForm } from './utils'
 import Transfer from './Components/Transfer'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import store from './store'
 import MessageModal from './Components/MessageModal'
 

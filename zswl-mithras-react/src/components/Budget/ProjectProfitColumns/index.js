@@ -1,5 +1,5 @@
 import { hasValue, amountFormat, formatPercent } from '@/utils'
-import { FounderSelect, OrgSelect } from '@/components'
+import { FounderSelect, OrgSelect } from '@/components/Select'
 import { AmountColumn, FiledFormat, MatchOptionColumn } from '@/components/Format'
 import { history } from '@zswl/admin'
 

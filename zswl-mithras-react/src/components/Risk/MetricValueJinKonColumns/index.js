@@ -3,7 +3,7 @@ import AmountRange from '@/components/AmountRange'
 import { hasValue, amountFormat, formatPercent } from '@/utils'
 import { Select, App } from '@zswl/components'
 import { Tag } from 'antd'
-import { ApiSelect } from '@/components'
+import { ApiSelect } from '@/components/Select'
 import Api from '@/api/risk/metricValue/controlGliy'
 
 const reportStatusEnum = {

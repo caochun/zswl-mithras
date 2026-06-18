@@ -2,7 +2,7 @@ import { Button, Page, SearchBar, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
 import { JSONRender } from '@/components/Format'
-import { ClientSelect, FounderSelect } from '@/components'
+import { ClientSelect, FounderSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar

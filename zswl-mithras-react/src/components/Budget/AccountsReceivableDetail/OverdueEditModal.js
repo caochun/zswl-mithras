@@ -2,7 +2,7 @@ import { Input, DatePicker } from 'antd'
 import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { FormAmount } from '@/components/Form'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 
 /**
  * 应收逾期集成结算单编辑弹窗组件

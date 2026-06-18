@@ -3,7 +3,7 @@ import { dateRangeTransform } from '@/utils/transform'
 import { InputEditable } from '@/components/Format'
 import { rangePresets, rules } from '@/utils'
 import { FiledFormat } from '@/components/Format'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 const { TextArea } = Input
 
 const ALL_COLUMNS = [

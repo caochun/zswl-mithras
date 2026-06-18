@@ -5,7 +5,7 @@ import { Tooltip } from 'antd'
 import styles from './index.less'
 import store from './store'
 import { observer, history } from '@zswl/admin'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { amountFormat } from '@/utils'
 import { saveServer } from '@/utils'
 const { Item } = SearchBar

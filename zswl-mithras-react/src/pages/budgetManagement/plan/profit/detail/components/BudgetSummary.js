@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Select, Table } from '@zswl/components'
 import { AmountColumn } from '@/components/Format'
-import { OrgSelect } from '@/components'
+import { OrgSelect } from '@/components/Select'
 
 const INIT_FORMAT = 10000 * 10000
 const columns = [

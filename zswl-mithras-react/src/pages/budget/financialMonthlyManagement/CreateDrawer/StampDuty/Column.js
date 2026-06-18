@@ -1,4 +1,4 @@
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { FiledFormat, AmountFormat } from '@/components/Format'
 import { Tag } from 'antd'
 

@@ -1,5 +1,5 @@
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { getUserInfo, rules } from '@/utils'
 import { observer } from '@zswl/admin'
 import { App, Form, Modal, Select } from '@zswl/components'

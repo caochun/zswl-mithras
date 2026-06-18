@@ -1,4 +1,4 @@
-import { FounderSelect, ClientSelect } from '@/components'
+import { FounderSelect, ClientSelect } from '@/components/Select'
 import { EditDescription } from '@/components/Table'
 import { FiledFormat } from '@/components/Format'
 import ALL_COLUMNS from '../CreditColumns'

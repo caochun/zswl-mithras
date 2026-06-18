@@ -1,4 +1,4 @@
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { observer } from '@zswl/admin'
 import { Form, Modal } from '@zswl/components'
 import { Input } from 'antd'

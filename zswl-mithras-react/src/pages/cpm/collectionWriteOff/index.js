@@ -7,7 +7,7 @@ import styles from './index.less'
 import { amountFormat } from '@/utils'
 import AmountRange from '@/components/AmountRange'
 import moment from 'moment'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar

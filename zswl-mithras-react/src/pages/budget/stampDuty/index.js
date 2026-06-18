@@ -1,4 +1,4 @@
-import { ClientSelect, OrgSelect } from '@/components'
+import { ClientSelect, OrgSelect } from '@/components/Select'
 import { ImportAction } from '@/components/Actions'
 import IconFont from '@/components/Icon'
 import { OrgListSelect } from '@/components/Financial/SelectEntries'

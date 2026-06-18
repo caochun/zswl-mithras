@@ -4,7 +4,7 @@ import { Form, Modal, Select, Upload } from '@zswl/components'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { Input, InputNumber, Tooltip } from 'antd'
 import DataUpload from '@/components/DataUpload'
-import { ApiSelect } from '@/components'
+import { ApiSelect } from '@/components/Select'
 import Api from '../api'
 
 const { Item } = Form

@@ -1,4 +1,4 @@
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import { CreditOrgSelect } from '@/components/Financial/SelectEntries'
 import { MatchOptionColumn } from '@/components/Format'
 import { Select } from 'antd'

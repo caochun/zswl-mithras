@@ -1,7 +1,7 @@
 import { dateRangeTransform } from '@/utils/transform'
 import { rangePresets } from '@/utils'
 import { AmountColumn, FiledFormat, InputColumn } from '@/components/Format'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 
 const ALL_COLUMNS = [
   { title: '机构名称', dataIndex: 'organizationName', fixed: 'left', search: true },

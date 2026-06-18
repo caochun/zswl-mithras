@@ -3,7 +3,7 @@ import { Modal, Form, Select, Table, TableStore } from '@zswl/components'
 import { AmountColumn } from '@/components/Format'
 import { useEffect, useMemo, useState } from 'react'
 import litigationRegistrationApi from '@/api/overdue/litigationRegistrationApi'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { Col, Row } from 'antd'
 import { saveServer } from '@/utils'
 

@@ -1,4 +1,4 @@
-import { ClientSelect, FounderSelect, OrgSelect } from '@/components'
+import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
 import { MatchOptionColumn } from '@/components/Format'
 import { Select, Tooltip } from 'antd'
 import store from './store'

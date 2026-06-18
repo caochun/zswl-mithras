@@ -1,7 +1,7 @@
 import { dateRangeTransform } from '@/utils/transform'
 import { rangePresets, rules } from '@/utils'
 import { FiledFormat, MatchOptionColumn, TextAreaColumn } from '@/components/Format'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import { DatePicker, Input } from 'antd'
 import moment from 'moment'
 

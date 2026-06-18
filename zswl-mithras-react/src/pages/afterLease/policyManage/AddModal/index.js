@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
-import { ApiSelect } from '@/components'
+import { ApiSelect } from '@/components/Select'
 import Api from '../api'
 import policyManageApi from '@/api/afterLease/policyManageApi'
 import { useState } from 'react'

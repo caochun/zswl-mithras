@@ -1,4 +1,4 @@
-import { FounderSelect, ClientSelect, OrgSelect } from '@/components'
+import { FounderSelect, ClientSelect, OrgSelect } from '@/components/Select'
 import { FiledFormat, InputColumn, provinceSelect } from '@/components/Format'
 
 export { provinceSelect }

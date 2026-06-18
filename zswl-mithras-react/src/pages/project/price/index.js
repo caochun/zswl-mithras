@@ -6,7 +6,8 @@ import styles from './index.less'
 import EditModal from './EditModal'
 import IconFont from '@/components/Icon'
 import { amountFormat } from '@/utils'
-import { PageListDown, ClientSelect, OrgSelect, FounderSelect } from '@/components'
+import { PageListDown } from '@/components'
+import { ClientSelect, OrgSelect, FounderSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar

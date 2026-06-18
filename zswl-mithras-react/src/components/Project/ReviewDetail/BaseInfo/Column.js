@@ -6,7 +6,7 @@ import {
   TextAreaColumn,
 } from '@/components/Format'
 import { Select, App, Form, Button } from '@zswl/components'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import { RegionCascader } from '@/components'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'

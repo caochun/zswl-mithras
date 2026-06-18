@@ -1,4 +1,4 @@
-import { OrgSelect, FounderSelect } from '@/components'
+import { OrgSelect, FounderSelect } from '@/components/Select'
 import { Select, SearchBar } from '@zswl/components'
 import { DatePicker, Row, Col, Input } from 'antd'
 import moment from 'moment'

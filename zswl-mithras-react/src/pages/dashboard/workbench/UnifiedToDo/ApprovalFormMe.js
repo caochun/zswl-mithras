@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { Table, TableStore, SearchBar } from '@zswl/components'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import { getTableColumns } from '@/utils'
 import Api from './api'
 import { PRECESS_COLUMNS } from './Column'

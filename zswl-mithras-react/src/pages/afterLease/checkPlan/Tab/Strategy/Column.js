@@ -1,4 +1,4 @@
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { Select, App } from '@zswl/components'
 import { FiledFormat, PercentageRender, MatchFormat } from '@/components/Format'
 import { Input } from 'antd'

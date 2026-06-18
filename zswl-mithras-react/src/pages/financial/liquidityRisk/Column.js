@@ -8,7 +8,7 @@ import {
   TextAreaColumn,
 } from '@/components/Format'
 import { history } from '@zswl/admin'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import { FormAmount } from '@/components/Form'
 import { create, all, re } from 'mathjs'
 

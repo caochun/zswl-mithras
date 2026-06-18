@@ -7,7 +7,7 @@ import IconFont from '@/components/Icon'
 import { CreditColumns as ALL_COLUMNS } from '@/components/Credit/CreditListEntries'
 import { getTableColumns, getFormColumns } from '@/utils'
 import { FiledFormat, InputEditable } from '@/components/Format'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 const nameColumns = [

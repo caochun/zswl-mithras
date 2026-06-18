@@ -9,7 +9,8 @@ import { saveServer, getUserInfo, isProjmanager } from '@/utils'
 import { isTeamleader } from '@/utils/auth'
 import CreateModal from './CreateModal'
 import ChangeModal from './ChangeModal'
-import { PageListDown, ClientSelect, OrgSelect, FounderSelect } from '@/components'
+import { PageListDown } from '@/components'
+import { ClientSelect, OrgSelect, FounderSelect } from '@/components/Select'
 import { Button, Modal } from 'antd'
 
 const { Item } = SearchBar

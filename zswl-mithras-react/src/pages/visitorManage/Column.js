@@ -1,5 +1,5 @@
 import { FiledFormat, InputColumn, MatchOptionColumn } from '@/components/Format'
-import { FounderSelect, ApiSelect } from '@/components'
+import { FounderSelect, ApiSelect } from '@/components/Select'
 
 const ALL_COLUMNS = [
   {

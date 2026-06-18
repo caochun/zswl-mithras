@@ -1,4 +1,4 @@
-import { ClientSelect, FounderSelect } from '@/components'
+import { ClientSelect, FounderSelect } from '@/components/Select'
 import {
   FiledFormat,
   DatePickerEditable,

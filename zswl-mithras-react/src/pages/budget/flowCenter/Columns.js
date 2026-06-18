@@ -1,4 +1,4 @@
-import { ClientSelect, OrgSelect } from '@/components'
+import { ClientSelect, OrgSelect } from '@/components/Select'
 
 import {
   MatchOptionColumn,

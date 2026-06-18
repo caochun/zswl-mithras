@@ -4,7 +4,7 @@ import { Form, Modal, App, Select } from '@zswl/components'
 import { debounce as _debounce } from 'lodash'
 import { Input } from 'antd'
 import Api from '../../api'
-import { ApiSelect, FounderSelect } from '@/components'
+import { ApiSelect, FounderSelect } from '@/components/Select'
 
 const { Item } = Form
 

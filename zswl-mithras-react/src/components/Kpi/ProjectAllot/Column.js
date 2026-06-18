@@ -1,5 +1,5 @@
 import { rules } from '@/utils'
-import { FounderSelect, OrgSelect } from '@/components'
+import { FounderSelect, OrgSelect } from '@/components/Select'
 import { FiledFormat, TextAreaEditable } from '@/components/Format'
 import { Select, Form } from '@zswl/components'
 import { history } from '@zswl/admin'

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { App, Button, Form, Page } from '@zswl/components'
 import { observer, history, http } from '@zswl/admin'
 import { CheckGroup } from '@/components/Form'
-import { getOrgList2 } from '@/components'
+import { getOrgList2 } from '@/components/Select'
 import { AmountFormat, PercentageRender } from '@/components/Format'
 
 const { Search } = Input

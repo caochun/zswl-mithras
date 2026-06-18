@@ -1,5 +1,5 @@
 import { InputNumberEditable, AmountEditable } from '@/components/Format'
-import { OrgSelect } from '@/components'
+import { OrgSelect } from '@/components/Select'
 import { formatPercent, amountFormat, rules, hasValue } from '@/utils'
 import { ContractSelect, ProjSelect } from '.'
 import { Form, Select } from '@zswl/components'

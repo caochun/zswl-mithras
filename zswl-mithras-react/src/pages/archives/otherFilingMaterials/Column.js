@@ -1,4 +1,4 @@
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { FiledFormat } from '@/components/Format'
 import { getKeyOptionsLabelMapPlus, rules } from '@/utils'
 import { Select } from '@zswl/components'

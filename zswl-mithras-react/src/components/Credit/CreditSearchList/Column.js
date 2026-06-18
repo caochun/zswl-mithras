@@ -1,4 +1,4 @@
-import { FounderSelect, OrgSelect } from '@/components'
+import { FounderSelect, OrgSelect } from '@/components/Select'
 import { InputColumn, DateColumn, MatchOptionColumn, FiledFormat } from '@/components/Format'
 import { history } from '@zswl/admin'
 import { App } from '@zswl/components'

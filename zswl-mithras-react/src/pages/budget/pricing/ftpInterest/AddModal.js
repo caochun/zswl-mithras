@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { message } from 'antd'
 import { Button, Modal, Form, Select } from '@zswl/components'
 import contractInfoApi from '@/api/budget/contractInfoApi'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import ftpInterestChangeApi from '@/api/budget/pricing/ftpInterestChangeApi'
 import { observer } from '@zswl/admin'
 

@@ -1,4 +1,4 @@
-import { OrgSelect } from '@/components'
+import { OrgSelect } from '@/components/Select'
 import { observer } from '@zswl/admin'
 import { Modal, Select } from '@zswl/components'
 import { DatePicker, Form, Input, message } from 'antd'

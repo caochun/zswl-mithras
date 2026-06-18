@@ -3,7 +3,7 @@ import { Form } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import FormItemContent from '@/components/FormItemContent'
 import StarDom from '@/components/StarDom'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import styles from '../../index.less'
 
 const Index = ({ showValue, detail = {}, isLog, compareChangeList = [] }) => {

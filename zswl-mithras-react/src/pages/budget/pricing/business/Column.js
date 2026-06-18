@@ -1,5 +1,5 @@
 import { DateColumn, FiledFormat, MatchOptionColumn } from '@/components/Format'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import moment from 'moment'
 import { DatePicker } from 'antd'
 

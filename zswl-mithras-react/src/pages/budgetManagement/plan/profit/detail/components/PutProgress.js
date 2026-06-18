@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { observer } from '@zswl/admin'
 import { DatePicker, Table } from '@zswl/components'
 import { generateColumns } from '../utils'
-import { OrgSelect } from '@/components'
+import { OrgSelect } from '@/components/Select'
 import { dateRangeTransformV2, rangePresets } from '@/utils'
 
 const PutProgress = ({ store }) => {

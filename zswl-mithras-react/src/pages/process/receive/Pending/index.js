@@ -1,4 +1,4 @@
-import { FounderSelect, OrgSelect } from '@/components'
+import { FounderSelect, OrgSelect } from '@/components/Select'
 import { ClientSelect } from '@/components/Select'
 import {
   ProcessApprovalHistoryModal as ApprovalHistoryModal,

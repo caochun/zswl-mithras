@@ -13,7 +13,7 @@ import AmountRange from '@/components/AmountRange'
 import { App, Form, Select } from '@zswl/components'
 import FormGuarantee from './FormGuarantee'
 import moment from 'moment'
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 import { CreditOrgSelect } from '@/components/Financial/SelectEntries'
 import { getFinancialUrl } from '@/components/Financial/FinancingUrlEntries'
 

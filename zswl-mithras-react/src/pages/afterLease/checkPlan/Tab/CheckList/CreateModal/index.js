@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Form, Modal, Select, App } from '@zswl/components'
 import { Input, InputNumber, DatePicker } from 'antd'
-import { ClientSelect, ApiSelect, FounderSelect } from '@/components'
+import { ClientSelect, ApiSelect, FounderSelect } from '@/components/Select'
 import moment from 'moment'
 import Api from '@/api/afterLease/checkPlan'
 

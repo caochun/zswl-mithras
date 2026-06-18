@@ -4,7 +4,7 @@ import { Col, Form, Input, InputNumber, Row, Select, Tooltip } from 'antd'
 import { useRef } from 'react'
 import styles from './index.less'
 import { App } from '@zswl/components'
-import { OrgSelect } from '@/components'
+import { OrgSelect } from '@/components/Select'
 
 const FormListItem = ({ fields, add, remove, required, isEdit }) => {
   return (

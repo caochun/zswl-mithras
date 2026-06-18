@@ -8,7 +8,8 @@ import {
   MatchOptionColumn,
   TextAreaColumn,
 } from '@/components/Format'
-import { Amount, ClientSelect, OrgSelect } from '@/components'
+import { Amount } from '@/components'
+import { ClientSelect, OrgSelect } from '@/components/Select'
 import { Select } from '@zswl/components'
 import { history } from '@zswl/admin'
 import { DatePicker, Input } from 'antd'

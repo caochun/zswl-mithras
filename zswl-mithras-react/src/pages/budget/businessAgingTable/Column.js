@@ -2,7 +2,7 @@ import { AmountColumn, DateColumn, FiledFormat, MatchOptionColumn } from '@/comp
 import { dateRangeTransform } from '@/utils/transform'
 import { rules, formatPercent, amountFormat, rangePresets } from '@/utils'
 
-import { FounderSelect } from '@/components'
+import { FounderSelect } from '@/components/Select'
 
 export const accountancyOrganizationNameOptions = [
   { label: '浙江浙商融资租赁有限公司', value: '10000396' },

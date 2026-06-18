@@ -1,4 +1,4 @@
-import { ClientSelect, FounderSelect, OrgSelect } from '@/components'
+import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
 import AmountRange from '@/components/AmountRange'
 import {
   AmountEditable,

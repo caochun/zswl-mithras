@@ -1,4 +1,4 @@
-import { OrgSelect } from '@/components'
+import { OrgSelect } from '@/components/Select'
 import {
   FiledFormat,
   MatchOptionColumn,

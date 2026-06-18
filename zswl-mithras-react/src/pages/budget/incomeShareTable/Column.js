@@ -1,5 +1,5 @@
 import { AmountColumn, MatchOptionColumn, InputColumn, FiledFormat } from '@/components/Format'
-import { ClientSelect } from '@/components'
+import { ClientSelect } from '@/components/Select'
 import { Select } from '@zswl/components'
 import { Input } from 'antd'
 
