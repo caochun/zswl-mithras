@@ -1,7 +1,9 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import RadioTabs from '@/components/RadioTabs'
-import { DashboardCardPanelFieldsFilter as CardPanelFieldsFilter } from '@/components/Dashboard/DashboardEntries'
+import {
+  DashboardCardPanelFieldsFilter as CardPanelFieldsFilter,
+  DashboardRadioTabs,
+} from '@/components/Dashboard/DashboardEntries'
 import ComponyTotal from './ComponyTotal'
 import InvestmentDrawer from './InvestmentDrawer'
 import DeptTotal from './DeptTotal'
@@ -26,7 +28,7 @@ const Index = () => {
   return (
     <>
       <CardPanelFieldsFilter title="投放情况">
-        <RadioTabs
+        <DashboardRadioTabs
           active={activityKey}
           onChange={setActivityKey}
           items={[
@@ -41,7 +43,7 @@ const Index = () => {
               children: tabItem,
             },
           ]}
-        ></RadioTabs>
+        ></DashboardRadioTabs>
       </CardPanelFieldsFilter>
       <InvestmentDrawer store={store}></InvestmentDrawer>
     </>
