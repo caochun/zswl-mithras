@@ -1,4 +1,4 @@
-import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
+import processModifyRemarkApi from '@/api/common/approvalRemarkApi'
 
 export default {
   postEstablishRemarkAll: (params) =>
