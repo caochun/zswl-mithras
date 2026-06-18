@@ -8,7 +8,7 @@ import {
   onRegionalClassifyChange,
   onEvaluateMainChange,
 } from './Context'
-import UpdateButton from './UpdateButton'
+import UpdateButton from '@/components/UpdateRatingInfoButton'
 
 function Index({ detail, saveData, store, isLog, canEdit = true, initEdit }) {
   const editDescRef = useRef({})
