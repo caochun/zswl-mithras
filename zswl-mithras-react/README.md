@@ -237,7 +237,7 @@
 - `blackListManage`：页面目录仍沿用黑名单管理命名，组件目录已是 `BlackGray`；API 调用优先使用 `src/api/blackGray` 兼容入口，后续可考虑菜单路径稳定的前提下收敛命名。
 - `postRentalInspection`：租后检查 API 的历史命名目录；租后业务代码优先使用 `src/api/afterLease` 下的兼容入口。
 - `riskControl`：风控接口历史命名目录；风险域页面和组件优先使用 `src/api/risk` 下的兼容入口。
-- `risk/publicMonitor`：公开监控/舆情监控接口属于风险域；生命周期页只展示风险摘要时优先使用 `src/api/lifeCycle/riskWarningApi` 聚合入口，流程详情展示或处理舆情监控时优先使用 `src/api/process/detail/publicMonitorApi` 聚合入口。
+- `risk/publicMonitor`：公开监控/舆情监控接口属于风险域；生命周期页只展示风险摘要时使用 `src/api/lifeCycle/riskWarningApi` 聚合入口，流程详情展示或处理舆情监控时使用 `src/api/process/detail/publicMonitorApi` 聚合入口；这些入口只声明自身需要的 endpoint，不再转发风险域 API 文件。
 - `liquidity`：金融流动性接口历史命名目录；金融域页面优先使用 `src/api/financial/liquidity` 下的兼容入口。
 - `financial/accountsReceivable`：应收账款接口历史落在财务目录；预算应收账款页面和组件优先使用 `src/api/budget/accountsReceivable` 下的语义入口。
 - `cpm/payment/contractPaymentFtp`：合同付款 FTP 接口历史落在付款目录；合同付款申请组件优先使用 `src/api/contract/payment/contractPaymentFtp` 语义入口。
@@ -254,17 +254,17 @@
 - `baseData/pricing/baseSet/ftpBaseSet`：FTP 参数设定接口历史落在基础数据目录；预算定价基础设置页面和组件优先使用 `src/api/budget/pricing/baseSet/ftpBaseSet` 语义入口。
 - `baseData/ftpMaterialsFile`、`baseData/ftpQuarterlyGuidance`：FTP 定价资料和季度指导接口历史落在基础数据目录；预算定价组件优先使用 `src/api/budget/pricing` 下的语义入口。
 - `baseData/bankAccountApi`：我方银行账户接口历史落在基础数据目录；预算银行账户页面优先使用 `src/api/budget/bankAccountApi` 语义入口。
-- `budget/pricing/ftpInterestChangeApi`：FTP 计息变更属于预算定价域；流程详情展示 FTP 计息变更时优先使用 `src/api/process/detail/ftpInterestChangeApi` 聚合入口。
+- `budget/pricing/ftpInterestChangeApi`：FTP 计息变更属于预算定价域；流程详情展示 FTP 计息变更时使用 `src/api/process/detail/ftpInterestChangeApi` 聚合入口，不再转发预算定价 API 文件。
 - `pricing`：预算定价接口历史命名目录；预算定价页面优先使用 `src/api/budget/pricing` 下的兼容入口。
 - `newFtp`：新版 FTP 定价接口历史命名目录；预算定价页面和组件优先使用 `src/api/budget/pricing/ftp` 下的兼容入口。
 - `financialReport`、`manageReport`：报表接口历史命名目录；报表页面和组件优先使用 `src/api/report` 下的兼容入口。
 - `fillingMaterialsDetail`、`fillingMaterials`：归档资料接口和路由的历史拼写目录；资料归集页面和组件优先使用 `src/api/filingMaterials`、`src/components/FilingMaterials` 下的兼容入口。
-- `filingMaterials/otherFilingMaterialsDetail`：其他资料归集接口保留在资料归集域；流程提交前做资料说明校验时优先使用 `src/api/process/detail/filingMaterialsApi` 聚合入口。
+- `filingMaterials/otherFilingMaterialsDetail`：其他资料归集接口保留在资料归集域；流程提交前做资料说明校验时使用 `src/api/process/detail/filingMaterialsApi` 聚合入口，不再转发资料归集 API 文件。
 - `common/customerOverview`：历史公共实现已清理；dashboard 客户总览页面使用 `src/api/dashboard/customerOverview`，客户视图页面使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `common/flowList`：历史公共目录已清理；流程任务列表、流程详情、退回节点和随机退回等 `/flow/**` 接口使用 `src/api/process/flowTaskApi`。
 - `common/editableCompare`：历史上混合了 FTP、项目、付款和文件比对接口，当前已清理；文件表组件使用 `src/api/common/fileCompareApi`。
 - `common/dataList`：历史命名已清理；资料清单上传、下载、预览、项目资料和授信资料列表使用 `src/api/common/materialsApi`。
-- `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时优先通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API。
+- `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API；这些入口已收窄为 endpoint 壳，不再转发其他业务域 API 文件。
 - `workbench`：工作台/看板相关接口历史生成目录；真实承载在 `src/api/dashboard/workbench`，dashboard 页面优先使用 `src/api/dashboard` 下的语义入口，历史 `workbench` 入口仅保留兼容转发。
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/utils/domains/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
 - `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件优先使用 `src/utils/domains/process/ProcessFlowContext`，旧路径仅保留兼容转发。
@@ -278,21 +278,21 @@
 - `components/ChangeLogLayout`：版本变更日志布局历史落在根组件目录；财务付款/融资日志页面优先通过 `src/components/Financial/ChangeLogEntries.js` 使用。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`，不再转发流程 API 文件。
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息使用 `src/api/project/ratingApi`，项目接口实现不再挂在客户评级 API 内。
-- `customer/customerRat/customerRatApi`、`customer/customerRat/debtRatApi`：流程详情展示评级摘要时优先使用 `src/api/process/detail/customerRatingApi` 和 `src/api/process/detail/debtRatingApi` 聚合入口。
-- `customer/customerRat/customerRatApi`：流程操作中执行评级推翻等审批动作时优先使用 `src/api/process/operation/customerRatingOperationApi`。
-- `customer/maintainApi`：客户维护页和客户组件保留客户域 API；流程申请列表占用客户后跳转详情时优先使用 `src/api/process/application/customerMaintainApi`。
+- `customer/customerRat/customerRatApi`、`customer/customerRat/debtRatApi`：流程详情展示评级摘要时使用 `src/api/process/detail/customerRatingApi` 和 `src/api/process/detail/debtRatingApi` 聚合入口，不再转发客户评级 API 文件。
+- `customer/customerRat/customerRatApi`：流程操作中执行评级推翻等审批动作时使用 `src/api/process/operation/customerRatingOperationApi`，不再转发客户评级 API 文件。
+- `customer/maintainApi`：客户维护页和客户组件保留客户域 API；流程申请列表占用客户后跳转详情时使用 `src/api/process/application/customerMaintainApi`，不再转发客户维护 API 文件。
 - `utils/customerRat`：客户评级工具历史落在全局 utils；客户评级和流程操作优先使用 `src/utils/domains/customer/CustomerRatUtils`，旧路径仅保留兼容转发。
 - `customer/clientBasic`：客户维护基础信息 API 保留在客户域；行业、区域等 `/select` 字典优先使用 `src/api/common/selectApi`。
 - `credit/creditReportApi.postCompareBusiness`：征信查询下的工商信息比对接口可由共享 `CheckBusiness` 组件本地 `api.js` 聚合，调用方不应因此直接绑定征信域 API。
 - `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/utils/domains/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
-- `cpm/payment/paymentApplicationDetail`：付款申请详情接口保留在付款域；流程详情展示付款资料时优先使用 `src/api/process/detail/paymentApplicationDetailApi` 聚合入口。
-- `cpm/payment/paymentApplicationDetail`、`cpm/payment/publicInfoApi_edited`：流程操作中执行付款申请前置校验或公开信息提交校验时优先使用 `src/api/process/operation` 下的聚合入口。
+- `cpm/payment/paymentApplicationDetail`：付款申请详情接口保留在付款域；流程详情展示付款资料时使用 `src/api/process/detail/paymentApplicationDetailApi` 聚合入口，不再转发付款申请 API 文件。
+- `cpm/payment/paymentApplicationDetail`、`cpm/payment/publicInfoApi_edited`：流程操作中执行付款申请前置校验或公开信息提交校验时使用 `src/api/process/operation` 下的聚合入口，不再转发付款域 API 文件。
 - `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件使用 `src/api/common/approvalRemarkApi`，业务详情组件使用本业务域的 `approvalRemarkApi` 固定权限码入口，不再转发公共审批备注 API 文件。
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时使用 `src/api/trackEvent/contractInfoApi`，不再转发合同 API 文件。
-- `contract/contractDetail`：合同详情接口保留在合同域；流程详情展示合同相关资料时优先使用 `src/api/process/detail/contractDetailApi` 聚合入口。
-- `overdue/collectionManagementApi`、`overdue/sealForDocumentsApi`：逾期催收和用印资料接口保留在逾期域；流程详情展示逾期催收或诉讼用印资料时优先使用 `src/api/process/detail` 下的聚合入口。
-- `project/projReviewDetail`、`project/projReviewMeetingMinute`：项目评审详情和会议纪要接口保留在项目域；流程详情展示项目评审资料或会议纪要时优先使用 `src/api/process/detail` 下的聚合入口。
-- `project/projReviewFinancialReport`：项目评审财务报表完整性接口保留在项目域；流程操作提交前校验时优先使用 `src/api/process/operation/projectReviewFinancialReportApi`。
+- `contract/contractDetail`：合同详情接口保留在合同域；流程详情展示合同相关资料时使用 `src/api/process/detail/contractDetailApi` 聚合入口，不再转发合同详情 API 文件。
+- `overdue/collectionManagementApi`、`overdue/sealForDocumentsApi`：逾期催收和用印资料接口保留在逾期域；流程详情展示逾期催收或诉讼用印资料时使用 `src/api/process/detail` 下的聚合入口，不再转发逾期域 API 文件。
+- `project/projReviewDetail`、`project/projReviewMeetingMinute`：项目评审详情和会议纪要接口保留在项目域；流程详情展示项目评审资料或会议纪要时使用 `src/api/process/detail` 下的聚合入口，不再转发项目域 API 文件。
+- `project/projReviewFinancialReport`：项目评审财务报表完整性接口保留在项目域；流程操作提交前校验时使用 `src/api/process/operation/projectReviewFinancialReportApi`，不再转发项目域 API 文件。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件使用 `src/api/contract/priceApi` 语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；真实承载在 `src/api/layout/projProfitToolApi`，历史 `header` 与 `kpi/projProfit/profitCalculateTool` 入口仅保留兼容转发。
 - `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。

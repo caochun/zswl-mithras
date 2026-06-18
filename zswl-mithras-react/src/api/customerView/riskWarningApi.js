@@ -1,5 +1,10 @@
-import monitorEarlyApi from '@/api/risk/monitorEarly'
+import { http } from '@zswl/admin'
 
 export default {
-  postWarnlist: monitorEarlyApi.postWarnlist,
+  postWarnlist: (params, functionCode = 'riskWarnMonitorWarnList') =>
+    http.post('/risk/warn/monitor/warn/list', params, {
+      headers: {
+        functionCode,
+      },
+    }),
 }

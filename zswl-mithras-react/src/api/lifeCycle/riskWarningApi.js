@@ -1,5 +1,5 @@
-import publicMonitorApi from '@/api/risk/publicMonitor'
+import { http } from '@zswl/admin'
 
 export default {
-  postMonitorList: publicMonitorApi.postMonitorList,
+  postMonitorList: (params) => http.post('/risk/control/opinion/monitor/list', params),
 }

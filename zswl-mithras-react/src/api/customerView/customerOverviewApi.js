@@ -1,8 +1,14 @@
 import { http } from '@zswl/admin'
-import customerOverviewApi from '@/api/dashboard/customerOverview'
 
 export default {
-  postDashboardClientOverviewStatistics: customerOverviewApi.postDashboardClientOverviewStatistics,
+  postDashboardClientOverviewStatistics: (
+    data,
+    functionCode = 'dashboardclientoverviewstatistics'
+  ) =>
+    http.post('/dashboard/client/overview/statistics', data, {
+      headers: { functionCode },
+      timeout: 0,
+    }),
   postCustomerTrends: (data) =>
     http.post('/client/unified/view/customer/trends', data, { timeout: 0 }),
 }

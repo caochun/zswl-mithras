@@ -267,7 +267,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/contractDetailApi or @/api/contract/contractDetail in Contract domain',
     allowedSourceDomains: ['Contract'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/contractDetailApi.js',
       'src/pages/contract/',
     ],
   },
@@ -286,7 +285,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/filingMaterialsApi or @/api/filingMaterials/otherFilingMaterialsDetail in FilingMaterials domain',
     allowedSourceDomains: ['FilingMaterials'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/filingMaterialsApi.js',
       'src/pages/fillingMaterialsDetail/',
     ],
   },
@@ -321,7 +319,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/ftpInterestChangeApi or @/api/budget/pricing/ftpInterestChangeApi in Budget domain',
     allowedSourceDomains: ['Budget', 'budget'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/ftpInterestChangeApi.ts',
       'src/pages/budget/',
     ],
   },
@@ -383,7 +380,6 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/customerView/blackGrayApi or @/api/blackGray/queryExternalDataApi in BlackGray domain',
     allowedSourceDomains: ['BlackGray', 'BlackInfo'],
     allowedSourcePathPrefixes: [
-      'src/api/customerView/blackGrayApi.js',
       'src/pages/blackListManage/',
     ],
   },
@@ -391,7 +387,6 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/risk/customerUnifiedViewController',
     replacementPrefix: '@/api/customerView/riskAreaApi or @/api/risk/customerUnifiedViewController in Risk domain',
     allowedSourcePathPrefixes: [
-      'src/api/customerView/riskAreaApi.js',
       'src/pages/risk/',
     ],
   },
@@ -399,7 +394,6 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/risk/monitorEarly',
     replacementPrefix: '@/api/customerView/riskWarningApi or @/api/risk/monitorEarly in Risk monitor pages',
     allowedSourcePathPrefixes: [
-      'src/api/customerView/riskWarningApi.js',
       'src/pages/monitorEarly/',
     ],
   },
@@ -409,8 +403,6 @@ const legacyApiPrefixRules = [
       '@/api/lifeCycle/riskWarningApi, @/api/process/detail/publicMonitorApi, or @/api/risk/publicMonitor in Risk domain',
     allowedSourceDomains: ['Risk'],
     allowedSourcePathPrefixes: [
-      'src/api/lifeCycle/riskWarningApi.js',
-      'src/api/process/detail/publicMonitorApi.js',
       'src/pages/risk/',
     ],
   },
@@ -420,7 +412,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/overdueCollectionApi or @/api/overdue/collectionManagementApi in Overdue domain',
     allowedSourceDomains: ['Overdue'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/overdueCollectionApi.js',
       'src/pages/overdue/',
     ],
   },
@@ -430,7 +421,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/overdueSealDocumentApi or @/api/overdue/sealForDocumentsApi in Overdue domain',
     allowedSourceDomains: ['Overdue'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/overdueSealDocumentApi.js',
       'src/pages/overdue/',
     ],
   },
@@ -440,8 +430,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/paymentApplicationDetailApi, @/api/process/operation/paymentOperationApi, or @/api/cpm/payment/paymentApplicationDetail in Cpm domain',
     allowedSourceDomains: ['Cpm', 'cpm'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/paymentApplicationDetailApi.js',
-      'src/api/process/operation/paymentOperationApi.js',
       'src/utils/domains/cpm/PaymentApplicationUtils.js',
       'src/pages/cpm/',
       'src/pages/process/Detail/ZTabs/Operation/',
@@ -453,7 +441,6 @@ const legacyApiPrefixRules = [
       '@/api/process/operation/paymentPublicInfoApi or @/api/cpm/payment/publicInfoApi_edited in Cpm domain',
     allowedSourceDomains: ['Cpm', 'cpm'],
     allowedSourcePathPrefixes: [
-      'src/api/process/operation/paymentPublicInfoApi.ts',
       'src/components/Cpm/',
       'src/pages/cpm/',
     ],
@@ -464,7 +451,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/projectReviewDetailApi or @/api/project/projReviewDetail in Project domain',
     allowedSourceDomains: ['Project'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/projectReviewDetailApi.js',
       'src/pages/project/',
     ],
   },
@@ -474,7 +460,6 @@ const legacyApiPrefixRules = [
       '@/api/process/operation/projectReviewFinancialReportApi or @/api/project/projReviewFinancialReport in Project domain',
     allowedSourceDomains: ['Project'],
     allowedSourcePathPrefixes: [
-      'src/api/process/operation/projectReviewFinancialReportApi.js',
       'src/components/Project/',
       'src/pages/project/',
     ],
@@ -485,7 +470,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/projectReviewMeetingMinuteApi or @/api/project/projReviewMeetingMinute in Project domain',
     allowedSourceDomains: ['Project'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/projectReviewMeetingMinuteApi.js',
       'src/pages/project/',
     ],
   },
@@ -495,7 +479,6 @@ const legacyApiPrefixRules = [
       '@/api/process/detail/debtRatingApi or @/api/customer/customerRat/debtRatApi in Customer/process utilities',
     allowedSourceDomains: ['Customer'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/debtRatingApi.js',
       'src/pages/customer/',
       'src/pages/process/Detail/ZTabs/Operation/Components/Operator/',
     ],
@@ -506,8 +489,6 @@ const legacyApiPrefixRules = [
       '@/api/project/ratingApi for project rating updates, @/api/process/detail/customerRatingApi, or @/api/customer/customerRat/customerRatApi in Customer/process utilities',
     allowedSourceDomains: ['Customer'],
     allowedSourcePathPrefixes: [
-      'src/api/process/detail/customerRatingApi.js',
-      'src/api/process/operation/customerRatingOperationApi.js',
       'src/api/project/ratingApi.js',
       'src/utils/domains/customer/CustomerRatUtils.js',
       'src/pages/customer/',
@@ -529,7 +510,6 @@ const legacyApiPrefixRules = [
       '@/api/process/application/customerMaintainApi or @/api/customer/maintainApi in Customer domain',
     allowedSourceDomains: ['Customer'],
     allowedSourcePathPrefixes: [
-      'src/api/process/application/customerMaintainApi.js',
       'src/components/Customer/',
       'src/pages/customer/',
     ],

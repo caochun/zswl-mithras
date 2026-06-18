@@ -1,1 +1,5 @@
-export { default } from '@/api/customer/maintainApi'
+import { http } from '@zswl/admin'
+
+export default {
+  postClientApplyOccupy: (data) => http.post('/client/apply/occupy', data),
+}

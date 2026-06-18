@@ -1,1 +1,5 @@
-export { default } from '@/api/cpm/payment/paymentApplicationDetail'
+import { http } from '@zswl/admin'
+
+export default {
+  getPaymentDetail: (params) => http.post('/payment/detail', params),
+}
