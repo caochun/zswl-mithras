@@ -50,7 +50,8 @@
 - `Budget/ProjectProfitEntries.js`
 - `Budget/ProvisioningEntries.js`
 - `BudgetManagement/BudgetManagementEntries.js`
-- `Chart/BasicChartEntries.js`
+- `Chart/BarChartEntries.js`
+- `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
 - `Contract/BaseInfoEntries.js`
 - `Contract/DetailEntries.js`
@@ -68,10 +69,11 @@
 - `Customer/ApplyPermissionEntries.js`
 - `Customer/CustomerRatingEntries.js`
 - `Customer/DebtRatingEntries.js`
+- `Customer/ExternalPublicInfoEntries.js`
 - `Customer/FinancialReportEntries.js`
 - `Customer/HandoverEntries.js`
 - `Customer/MaintainEntries.js`
-- `Customer/PublicInfoEntries.js`
+- `Customer/SingleViewRiskEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `Dashboard/MyAchievementEntries.js`
 - `Financial/DirectDetailEntries.js`
@@ -109,7 +111,9 @@
 - `Risk/ConcentrationControlEntries.js`
 - `Risk/MetricValueEntries.js`
 - `Risk/OverdueEntries.js`
-- `Risk/PublicMonitorEntries.js`
+- `Risk/PublicMonitorColumnsEntries.js`
+- `Risk/PublicMonitorDetailEntries.js`
+- `Risk/PublicMonitorListEntries.js`
 - `Risk/RelateMonitorEntries.js`
 - `Risk/SourceCardEntries.js`
 - `TrackEvent/TrackAddModalEntries.js`

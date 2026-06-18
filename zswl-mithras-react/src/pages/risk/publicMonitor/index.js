@@ -1,1 +1,1 @@
-export { RiskPublicMonitor as default } from '@/components/Risk/PublicMonitorEntries'
+export { RiskPublicMonitor as default } from '@/components/Risk/PublicMonitorListEntries'

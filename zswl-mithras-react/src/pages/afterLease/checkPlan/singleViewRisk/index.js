@@ -1,1 +1,1 @@
-export { CustomerSingleViewRisk as default } from '@/components/Customer/PublicInfoEntries'
+export { CustomerSingleViewRisk as default } from '@/components/Customer/SingleViewRiskEntries'

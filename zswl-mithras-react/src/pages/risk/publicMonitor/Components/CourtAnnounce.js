@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Modal } from '@zswl/components'
 import { EditDescription } from '@/components/Table'
-import { RiskPublicMonitorColumns as ALL_COLUMNS } from '@/components/Risk/PublicMonitorEntries'
+import { RiskPublicMonitorColumns as ALL_COLUMNS } from '@/components/Risk/PublicMonitorColumnsEntries'
 import { getDescColumns } from '@/utils'
 
 const Index = ({ store }) => {
