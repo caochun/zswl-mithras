@@ -277,7 +277,7 @@
 - `components/BpmnFlowChart`、`components/FlowChart`：流程图组件历史落在根组件目录；流程详情、流程弹窗和审批记录优先通过 `src/components/Process/ProcessEntries.js` 使用。
 - `components/ChangeLogLayout`：版本变更日志布局历史落在根组件目录；财务付款/融资日志页面优先通过 `src/components/Financial/ChangeLogEntries.js` 使用。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
-- `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
+- `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息使用 `src/api/project/ratingApi`，项目接口实现不再挂在客户评级 API 内。
 - `customer/customerRat/customerRatApi`、`customer/customerRat/debtRatApi`：流程详情展示评级摘要时优先使用 `src/api/process/detail/customerRatingApi` 和 `src/api/process/detail/debtRatingApi` 聚合入口。
 - `customer/customerRat/customerRatApi`：流程操作中执行评级推翻等审批动作时优先使用 `src/api/process/operation/customerRatingOperationApi`。
 - `customer/maintainApi`：客户维护页和客户组件保留客户域 API；流程申请列表占用客户后跳转详情时优先使用 `src/api/process/application/customerMaintainApi`。

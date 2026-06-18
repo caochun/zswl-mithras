@@ -517,7 +517,7 @@ const legacyApiPrefixRules = [
   {
     legacyPrefix: '@/api/customer/customerRat/customerRatApi',
     replacementPrefix:
-      '@/api/project/ratingApi, @/api/process/detail/customerRatingApi, or @/api/customer/customerRat/customerRatApi in Customer/process utilities',
+      '@/api/project/ratingApi for project rating updates, @/api/process/detail/customerRatingApi, or @/api/customer/customerRat/customerRatApi in Customer/process utilities',
     allowedSourceDomains: ['Customer'],
     allowedSourcePathPrefixes: [
       'src/api/process/detail/customerRatingApi.js',

@@ -1,6 +1,6 @@
-import customerRatApi from '@/api/customer/customerRat/customerRatApi'
+import { http } from '@zswl/admin'
 
 export default {
-  postEstablishUpdate: customerRatApi.postEstablishUpdate,
-  postReviewUpdate: customerRatApi.postReviewUpdate,
+  postEstablishUpdate: (data) => http.post('/proj/establish/base/info/updateRating', data),
+  postReviewUpdate: (data) => http.post('/proj/review/base/info/updateRating', data),
 }

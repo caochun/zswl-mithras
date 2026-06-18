@@ -103,14 +103,6 @@ export default {
     data: Types.ClientParamInfoRequest
   ): Promise<Types.ClientParamInfoResponse> =>
     http.post('/rating/client/paramInfo', data, { mock }),
-  // 问卷修改  手动加的 勿覆盖
-  postReviewUpdate: (data) => {
-    return http.post('/proj/review/base/info/updateRating', data, { mock })
-  },
-  // 问卷提交
-  postEstablishUpdate: (data) => {
-    return http.post('/proj/establish/base/info/updateRating', data, { mock })
-  },
   // /rating/client/indexCheck
   postIndexCheck: (data) => {
     return http.post('/rating/client/indexCheck', data, { mock })
