@@ -158,6 +158,7 @@
 - `npm run api`：根据 `admin.config.js` 中的 YApi 配置生成接口。
 - `npm run page`：生成页面脚手架。
 - `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`、`@/pages/**` 页面私有代码复用。
+- `node scripts/report-component-entry-deps.js`：输出 `src/components` 各组件域之间通过稳定入口形成的依赖关系，用于判断后续边界整理优先级。
 
 ## 项目约定
 
