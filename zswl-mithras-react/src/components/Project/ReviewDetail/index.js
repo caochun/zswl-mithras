@@ -12,11 +12,11 @@ import FormIrr from '@/components/FormIrr'
 import ApprovalDetail from '@/components/Table/ApprovalDetail'
 import Approval from '@/components/Actions/Approval'
 import DetailLayout from '@/components/DetailLayout'
-import FinancialReportStatistics from '@/components/Project/FinancialReportStatistics'
+import FinancialReportStatistics from '../FinancialReportStatistics'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/TrackingEntries'
 import DebtDrawer from './DebtDrawer'
 import { CreditSearchModal as CreditModal } from '@/components/Credit/CreditEntries'
-import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ProjectEntries'
+import MeetingModal from '../ReviewMeetingModal'
 
 const Index = ({
   params: { id },
