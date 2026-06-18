@@ -1,7 +1,7 @@
 import { MatchOptionColumn, DateColumn } from '@/components/Format'
 import { DatePicker } from 'antd'
-import { formatQueryDate } from '@/utils/dashboardOperation'
-import { orgSelect } from '@/utils/dashboardColumns'
+import { formatQueryDate } from '@/dashboard/DashboardUtilsOperation'
+import { orgSelect } from '@/dashboard/DashboardUtilsColumns'
 
 const { RangePicker } = DatePicker
 

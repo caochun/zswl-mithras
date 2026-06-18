@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { amountFormat } from '@/utils'
 import { Spin, Skeleton } from 'antd'
 import styles from './index.less'
-import { canSeeDetailFn } from '@/utils/dashboard'
+import { canSeeDetailFn } from '@/dashboard/DashboardUtils'
 
 // 不小于0
 const getPlusMinusConfig = (num) => {

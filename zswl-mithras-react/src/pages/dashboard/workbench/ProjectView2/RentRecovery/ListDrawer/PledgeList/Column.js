@@ -1,4 +1,4 @@
-import { founderSelect, clientSelect, orgSelect } from '@/utils/dashboardColumns'
+import { founderSelect, clientSelect, orgSelect } from '@/dashboard/DashboardUtilsColumns'
 import { MatchOptionColumn, DateColumn, InputColumn, AmountColumn } from '@/components/Format'
 import { BankAccount } from '@/components/Form'
 

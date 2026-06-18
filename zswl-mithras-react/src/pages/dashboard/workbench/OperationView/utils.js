@@ -1,1 +1,1 @@
-export * from '@/utils/dashboardOperation'
+export * from '@/dashboard/DashboardUtilsOperation'

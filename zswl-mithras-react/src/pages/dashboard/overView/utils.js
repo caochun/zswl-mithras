@@ -1,1 +1,1 @@
-export { canSeeDetailFn } from '@/utils/dashboard'
+export { canSeeDetailFn } from '@/dashboard/DashboardUtils'

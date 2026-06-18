@@ -4,7 +4,7 @@ import {
   DashboardOperationLaunchComplete as LaunchComplete,
   DashboardProjectStage as ProjectStage,
 } from '@/components/Dashboard/DashboardEntries'
-import { initYearQueryDate } from '@/utils/dashboardOperation'
+import { initYearQueryDate } from '@/dashboard/DashboardUtilsOperation'
 import DeptIncomeByMonthly from './DeptIncomeByMonthly'
 import ThrowIncomeRate from './ThrowIncomeRate'
 

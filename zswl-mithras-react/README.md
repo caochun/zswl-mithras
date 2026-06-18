@@ -242,6 +242,7 @@
 - `common/customerOverview`：客户总览接口的历史公共目录；dashboard 客户总览页面优先使用 `src/api/dashboard/customerOverview`，客户视图页面优先使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时优先通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API。
 - `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
+- `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
 - `customer/clientBasic`：客户维护基础信息 API 保留在客户域；行业、区域等 `/select` 字典优先使用 `src/api/common/selectApi`。

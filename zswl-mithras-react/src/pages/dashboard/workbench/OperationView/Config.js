@@ -1,1 +1,1 @@
-export { operationViewColumnsFilterKey as columnsFilterKey } from '@/utils/dashboardFilterKeys'
+export { operationViewColumnsFilterKey as columnsFilterKey } from '@/dashboard/DashboardUtilsFilterKeys'

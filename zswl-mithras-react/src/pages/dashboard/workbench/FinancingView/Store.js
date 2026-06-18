@@ -1,6 +1,6 @@
 import { DrawerStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import { mergeArray } from '@/utils/dashboard'
+import { mergeArray } from '@/dashboard/DashboardUtils'
 import { initFieldsConfig } from './Config'
 import Api from './api'
 import moment from 'moment'

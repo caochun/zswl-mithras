@@ -1,5 +1,5 @@
 import { DashboardOperationConversionRates as ConversionRates } from '@/components/Dashboard/DashboardEntries'
-import { initYearQueryDate } from '@/utils/dashboardOperation'
+import { initYearQueryDate } from '@/dashboard/DashboardUtilsOperation'
 
 const Index = ({ title }) => {
   return (

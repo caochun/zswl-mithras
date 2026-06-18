@@ -1,4 +1,4 @@
-import { founderSelect, clientSelect, orgSelect } from '@/utils/dashboardColumns'
+import { founderSelect, clientSelect, orgSelect } from '@/dashboard/DashboardUtilsColumns'
 import {
   MatchOptionColumn,
   InputColumn,

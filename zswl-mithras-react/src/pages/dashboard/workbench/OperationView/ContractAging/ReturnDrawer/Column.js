@@ -1,5 +1,5 @@
 import { MatchOptionColumn, InputColumn, AmountColumn, DateColumn } from '@/components/Format'
-import { founderSelect, orgSelect, clientSelect } from '@/utils/dashboardColumns'
+import { founderSelect, orgSelect, clientSelect } from '@/dashboard/DashboardUtilsColumns'
 
 export const ALL_COLUMNS = [
   InputColumn({

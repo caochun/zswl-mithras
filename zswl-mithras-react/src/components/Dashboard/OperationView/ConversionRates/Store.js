@@ -7,7 +7,7 @@ import {
   formatQueryDate,
   sameYearQueryDate,
   getOperationStatisticStage,
-} from '@/utils/dashboardOperation'
+} from '@/dashboard/DashboardUtilsOperation'
 
 class Store {
   constructor() {
