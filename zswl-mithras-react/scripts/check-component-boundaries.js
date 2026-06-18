@@ -6,6 +6,7 @@ const srcDir = path.join(root, 'src')
 const readmePath = path.join(root, 'README.md')
 const scanDirs = [srcDir]
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
+const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
 
@@ -530,6 +531,32 @@ function walk(dir, files = []) {
   return files
 }
 
+function resolveSourceImport(filePath, specifier) {
+  let basePath
+
+  if (specifier.startsWith('@/')) {
+    basePath = path.join(srcDir, specifier.slice(2))
+  } else if (specifier.startsWith('.')) {
+    basePath = path.resolve(path.dirname(filePath), specifier)
+  } else {
+    return null
+  }
+
+  const candidates = []
+  if (path.extname(basePath)) {
+    candidates.push(basePath)
+  } else {
+    for (const extension of sourceExtensions) {
+      candidates.push(`${basePath}${extension}`)
+    }
+    for (const extension of sourceExtensions) {
+      candidates.push(path.join(basePath, `index${extension}`))
+    }
+  }
+
+  return candidates.find((candidate) => fs.existsSync(candidate)) || null
+}
+
 function getLegacyApiPrefixRule(specifier) {
   for (const rule of legacyApiPrefixRules) {
     const { legacyPrefix } = rule
@@ -560,6 +587,7 @@ function isAllowedLegacyApiPrefixSource(rule, relativeFilePath, sourceComponentD
 }
 
 const violations = []
+const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
 const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePath) => {
   const entryPath = normalizeEntryPath(filePath)
   return /(?:Entries|entries)\.js$/.test(filePath) && entryPath.split('/').length === 2
@@ -571,7 +599,7 @@ const compatibilityComponentEntries = new Set([
   'Chart/TooltipEntries.js',
 ])
 
-for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
+for (const filePath of sourceFiles) {
   const source = fs.readFileSync(filePath, 'utf8')
   const relativeFilePath = path.relative(root, filePath)
   const [, sourceComponentDomain] =
@@ -676,6 +704,33 @@ for (const entryPath of documentedComponentEntries) {
     violations.push({
       file: 'README.md',
       specifier: `stale component entry ${entryPath}`,
+    })
+  }
+}
+
+const localSupportFileIncomingImports = new Map(sourceFiles.map((filePath) => [filePath, new Set()]))
+for (const filePath of sourceFiles) {
+  const source = fs.readFileSync(filePath, 'utf8')
+  let match
+  while ((match = importPattern.exec(source))) {
+    const resolvedImport = resolveSourceImport(filePath, match[1])
+    if (resolvedImport && localSupportFileIncomingImports.has(resolvedImport)) {
+      localSupportFileIncomingImports.get(resolvedImport).add(filePath)
+    }
+  }
+}
+
+for (const filePath of sourceFiles) {
+  const relativeFilePath = path.relative(root, filePath)
+  const isLocalSupportFile =
+    /^src[\\/](?:components|pages)[\\/].*[\\/](?:api|store|Store)\.(?:js|ts)$/.test(
+      relativeFilePath
+    )
+
+  if (isLocalSupportFile && localSupportFileIncomingImports.get(filePath)?.size === 0) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'unused local support file',
     })
   }
 }
