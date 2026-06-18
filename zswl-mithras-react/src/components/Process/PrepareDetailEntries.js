@@ -1,5 +1,5 @@
-export { default as PrepareAfterLeaseGeneralCheck } from '@/components/AfterLease/CheckPlanPrepareProcess'
-export { default as PrepareAfterLeaseCheckReportTemplate } from '@/components/AfterLease/CheckPlanTemplate'
+export { AfterLeaseCheckPlanPrepareProcess as PrepareAfterLeaseGeneralCheck } from '@/components/AfterLease/RentCollectionEntries'
+export { AfterLeaseCheckPlanTemplate as PrepareAfterLeaseCheckReportTemplate } from '@/components/AfterLease/RentCollectionEntries'
 export { default as PrepareContractDepositRefundNotification } from '@/components/Contract/DepositRefundNotification'
 export { default as PrepareContractEarlySettlement } from '@/components/Contract/SettlementDetail'
 export { default as PrepareContractStartRent } from '@/components/Contract/StartRentDetail'

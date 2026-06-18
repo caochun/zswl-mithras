@@ -1,1 +1,1 @@
-export { default } from '@/components/AfterLease/PolicyManageRemind'
+export { AfterLeasePolicyManageRemind as default } from '@/components/AfterLease/RentCollectionEntries'
