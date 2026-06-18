@@ -254,14 +254,17 @@
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
+- `customer/customerRat/customerRatApi`、`customer/customerRat/debtRatApi`：流程详情展示评级摘要时优先使用 `src/api/process/detail/customerRatingApi` 和 `src/api/process/detail/debtRatingApi` 聚合入口。
 - `utils/customerRat`：客户评级工具历史落在全局 utils；客户评级和流程操作优先使用 `src/customer/CustomerRatUtils`，旧路径仅保留兼容转发。
 - `customer/clientBasic`：客户维护基础信息 API 保留在客户域；行业、区域等 `/select` 字典优先使用 `src/api/common/selectApi`。
 - `credit/creditReportApi.postCompareBusiness`：征信查询下的工商信息比对接口可由共享 `CheckBusiness` 组件本地 `api.js` 聚合，调用方不应因此直接绑定征信域 API。
 - `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
+- `cpm/payment/paymentApplicationDetail`：付款申请详情接口保留在付款域；流程详情展示付款资料时优先使用 `src/api/process/detail/paymentApplicationDetailApi` 聚合入口。
 - `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件优先使用 `src/api/common/approvalRemarkApi`，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时优先使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时优先使用 `src/api/trackEvent/contractInfoApi`。
 - `contract/contractDetail`：合同详情接口保留在合同域；流程详情展示合同相关资料时优先使用 `src/api/process/detail/contractDetailApi` 聚合入口。
 - `overdue/collectionManagementApi`、`overdue/sealForDocumentsApi`：逾期催收和用印资料接口保留在逾期域；流程详情展示逾期催收或诉讼用印资料时优先使用 `src/api/process/detail` 下的聚合入口。
+- `project/projReviewDetail`、`project/projReviewMeetingMinute`：项目评审详情和会议纪要接口保留在项目域；流程详情展示项目评审资料或会议纪要时优先使用 `src/api/process/detail` 下的聚合入口。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件优先使用 `src/api/contract/lprApi` 语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；KPI 语义优先使用 `src/api/kpi/projProfit/profitCalculateTool`，全局 layout 入口优先使用 `src/api/layout/projProfitToolApi`。
 - `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。

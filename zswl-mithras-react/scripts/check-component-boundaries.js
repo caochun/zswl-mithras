@@ -306,10 +306,55 @@ const legacyApiPrefixRules = [
     ],
   },
   {
-    legacyPrefix: '@/api/customer/customerRat/customerRatApi',
-    replacementPrefix: '@/api/project/ratingApi or @/api/customer/customerRat/customerRatApi in Customer/process utilities',
+    legacyPrefix: '@/api/cpm/payment/paymentApplicationDetail',
+    replacementPrefix:
+      '@/api/process/detail/paymentApplicationDetailApi or @/api/cpm/payment/paymentApplicationDetail in Cpm domain',
+    allowedSourceDomains: ['Cpm', 'cpm'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/paymentApplicationDetailApi.js',
+      'src/cpm/PaymentApplicationUtils.js',
+      'src/pages/cpm/',
+      'src/pages/process/Detail/ZTabs/Operation/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/project/projReviewDetail',
+    replacementPrefix:
+      '@/api/process/detail/projectReviewDetailApi or @/api/project/projReviewDetail in Project domain',
+    allowedSourceDomains: ['Project'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/projectReviewDetailApi.js',
+      'src/pages/project/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/project/projReviewMeetingMinute',
+    replacementPrefix:
+      '@/api/process/detail/projectReviewMeetingMinuteApi or @/api/project/projReviewMeetingMinute in Project domain',
+    allowedSourceDomains: ['Project'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/projectReviewMeetingMinuteApi.js',
+      'src/pages/project/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/customer/customerRat/debtRatApi',
+    replacementPrefix:
+      '@/api/process/detail/debtRatingApi or @/api/customer/customerRat/debtRatApi in Customer/process utilities',
     allowedSourceDomains: ['Customer'],
     allowedSourcePathPrefixes: [
+      'src/api/process/detail/debtRatingApi.js',
+      'src/pages/customer/',
+      'src/pages/process/Detail/ZTabs/Operation/Components/Operator/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/customer/customerRat/customerRatApi',
+    replacementPrefix:
+      '@/api/project/ratingApi, @/api/process/detail/customerRatingApi, or @/api/customer/customerRat/customerRatApi in Customer/process utilities',
+    allowedSourceDomains: ['Customer'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/customerRatingApi.js',
       'src/api/project/ratingApi.js',
       'src/customer/CustomerRatUtils.js',
       'src/pages/customer/',

@@ -1,5 +1,5 @@
-import customerRatApi from '@/api/customer/customerRat/customerRatApi'
-import debtRatApi from '@/api/customer/customerRat/debtRatApi'
+import customerRatApi from '@/api/process/detail/customerRatingApi'
+import debtRatApi from '@/api/process/detail/debtRatingApi'
 import { EditDescription } from '@/components'
 import { observer } from '@zswl/admin'
 import { DescStore, Descriptions } from '@zswl/components'

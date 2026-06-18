@@ -3,7 +3,7 @@ import {
   CpmPaymentApplicationInformationList as InformationList,
   CpmPaymentApplicationLendingMaterials as LendingMaterials,
 } from '@/components/Cpm/PaymentApplicationMaterialsEntries'
-import Api from '@/api/cpm/payment/paymentApplicationDetail'
+import Api from '@/api/process/detail/paymentApplicationDetailApi'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { useEffect, useState } from 'react'
 
