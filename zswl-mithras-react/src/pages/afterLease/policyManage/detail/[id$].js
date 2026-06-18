@@ -8,7 +8,7 @@ import {
   AfterLeasePolicyManagePolicyContract as PolicyContract,
   AfterLeasePolicyManagePolicyInfo as PolicyInfo,
   AfterLeasePolicyManagePolicyMaterial as PolicyMaterial,
-} from '@/components/AfterLease/RentCollectionEntries'
+} from '@/components/AfterLease/PolicyManageEntries'
 import Store from './store'
 
 const Index = ({ params: { id }, query: { dataSource } }) => {

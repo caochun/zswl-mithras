@@ -1,5 +1,5 @@
 import { BudgetProfitDistribution as ProfitDistribution } from '@/components/Budget/BudgetEntries'
-import { AfterLeasePolicyManageRemind as PolicyRemind } from '@/components/AfterLease/RentCollectionEntries'
+import { AfterLeasePolicyManageRemind as PolicyRemind } from '@/components/AfterLease/PolicyManageEntries'
 import { CreditManageSearchDetail as CreditReportSelectFlow } from '@/components/CreditManage/CreditManageEntries'
 import { CustomerApplyPermission as ApplyPermission } from '@/components/Customer/CustomerEntries'
 import { CustomerMaintainDetail as CustomerDetail } from '@/components/Customer/CustomerEntries'

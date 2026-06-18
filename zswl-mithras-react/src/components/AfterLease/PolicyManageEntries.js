@@ -1,0 +1,6 @@
+export { default as AfterLeasePolicyManageContractInfo } from './PolicyManageDetail/ContractInfo'
+export { default as AfterLeasePolicyManageMaterialList } from './PolicyManageDetail/MaterialList'
+export { default as AfterLeasePolicyManagePolicyContract } from './PolicyManageDetail/PolicyContract'
+export { default as AfterLeasePolicyManagePolicyInfo } from './PolicyManageDetail/PolicyInfo'
+export { default as AfterLeasePolicyManagePolicyMaterial } from './PolicyManageDetail/PolicyMaterial'
+export { default as AfterLeasePolicyManageRemind } from './PolicyManageRemind'
