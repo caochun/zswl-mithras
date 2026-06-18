@@ -20,7 +20,7 @@ import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgency
 import ZhongDengregistration from './ZhongDengregistration'
 import { CreditSearchModal as CreditModal } from '@/components/Credit/SearchModalEntries'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
-import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventEntries'
+import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventModalEntries'
 import { Space } from 'antd'
 
 const PaymentApplicationDetail = ({
