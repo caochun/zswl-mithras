@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import WhiteList from '@/components/WhiteList/Detail'
+import { WhiteListDetail as WhiteList } from '@/components/WhiteList/WhiteListEntries'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, type } = props

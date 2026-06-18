@@ -2,7 +2,7 @@ import { Page, Table, Button } from '@zswl/components'
 import { observer, history } from '@zswl/admin'
 import { useEffect, useMemo } from 'react'
 import Store from './store'
-import ALL_COLUMNS from '@/components/WhiteList/Columns'
+import { WhiteListColumns as ALL_COLUMNS } from '@/components/WhiteList/WhiteListEntries'
 import AddModal from './AddModal'
 import {
   getTableColumns,

@@ -1,1 +1,1 @@
-export { default } from '@/components/WhiteList/Detail'
+export { WhiteListDetail as default } from '@/components/WhiteList/WhiteListEntries'
