@@ -1,1 +1,1 @@
-export { KpiProjectAllotBeforeAllocateInfoModal as default } from '@/components/Kpi/ProjectAllotEntries'
+export { KpiProjectAllotBeforeAllocateInfoModal as default } from '@/components/Kpi/ProjectAllotFormEntries'

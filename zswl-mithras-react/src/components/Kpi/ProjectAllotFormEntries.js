@@ -1,7 +1,4 @@
 export { default as KpiProjectAllotAllocateInfo } from './ProjectAllot/AllocateInfo'
 export { default as KpiProjectAllotBaseInfo } from './ProjectAllot/BaseInfo'
 export { default as KpiProjectAllotBeforeAllocateInfoModal } from './ProjectAllot/BeforeAllocateInfoModal'
-export { default as KpiProjectAllotDetail } from './ProjectAllot/Detail'
 export { default as KpiProjectAllotExtarInfo } from './ProjectAllot/ExtarInfo'
-export { default as KpiProjectAllocateList } from './ProjectAllot/ProjectAllocateList'
-export { default as ProjectAllotColumns } from './ProjectAllot/Column'

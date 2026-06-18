@@ -37,7 +37,8 @@
 - `AfterLease/Level5ClassifyDetailEntries.js`
 - `AfterLease/Level5ClassifyListEntries.js`
 - `AfterLease/Level5ClassifyTipsEntries.js`
-- `AfterLease/PolicyManageEntries.js`
+- `AfterLease/PolicyManageDetailEntries.js`
+- `AfterLease/PolicyManageRemindEntries.js`
 - `AfterLease/RentCollectionApiEntries.js`
 - `AfterLease/RentCollectionDetailEntries.js`
 - `AfterLease/RentCollectionListEntries.js`
@@ -107,7 +108,9 @@
 - `Kpi/BaseSetModalDetailEntries.js`
 - `Kpi/KpiEstimationEntries.js`
 - `Kpi/PmAssessEntries.js`
-- `Kpi/ProjectAllotEntries.js`
+- `Kpi/ProjectAllotDetailEntries.js`
+- `Kpi/ProjectAllotFormEntries.js`
+- `Kpi/ProjectAllotListEntries.js`
 - `Lease/MaintainEntries.js`
 - `LifeCycle/LifeCycleEntries.js`
 - `LoginIframe/LoginIframeEntries.js`

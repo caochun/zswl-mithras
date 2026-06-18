@@ -3,4 +3,3 @@ export { default as AfterLeasePolicyManageMaterialList } from './PolicyManageDet
 export { default as AfterLeasePolicyManagePolicyContract } from './PolicyManageDetail/PolicyContract'
 export { default as AfterLeasePolicyManagePolicyInfo } from './PolicyManageDetail/PolicyInfo'
 export { default as AfterLeasePolicyManagePolicyMaterial } from './PolicyManageDetail/PolicyMaterial'
-export { default as AfterLeasePolicyManageRemind } from './PolicyManageRemind'

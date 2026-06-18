@@ -1,1 +1,1 @@
-export { KpiProjectAllocateList as default } from '@/components/Kpi/ProjectAllotEntries'
+export { KpiProjectAllocateList as default } from '@/components/Kpi/ProjectAllotListEntries'
