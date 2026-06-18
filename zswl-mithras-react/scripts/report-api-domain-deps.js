@@ -12,12 +12,17 @@ const domainAliases = new Map([
   ['blackListManage', 'blackGray'],
   ['BudgetManagement', 'budget'],
   ['budgetManagement', 'budget'],
+  ['CreditManage', 'credit'],
+  ['creditManage', 'credit'],
   ['cpm', 'cpm'],
   ['customer', 'customer'],
   ['dashboard', 'dashboard'],
   ['FilingMaterials', 'filingMaterials'],
   ['fillingMaterialsDetail', 'filingMaterials'],
   ['financialReport', 'report'],
+  ['login', 'permission'],
+  ['monitorEarly', 'risk'],
+  ['msgNotification', 'message'],
 ])
 const ignoredSourcePathPatterns = [
   /^src[\\/]api[\\/]/,

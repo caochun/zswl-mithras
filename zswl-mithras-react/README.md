@@ -211,6 +211,8 @@
 - `customerMonitoring`：客户监控大屏/可视化页，偏展示面。
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
 - `monitorEarly`：预警监控展示。
+- `login`：登录和初次登录改密页面，前端路由名保留 `login`，API 语义归属权限认证。
+- `msgNotification`：消息中心页面，前端路由名保留 `msgNotification`，API 语义归属消息域。
 - `preview`：PDF、报表预览。
 - `financialReport`：财务报表待办/审批/完成列表，偏报表流程视图。
 
