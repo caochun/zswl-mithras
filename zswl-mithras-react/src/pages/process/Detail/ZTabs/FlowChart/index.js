@@ -1,4 +1,4 @@
-import BpmnFlowChart from '@/components/BpmnFlowChart'
+import { ProcessBpmnFlowChart as BpmnFlowChart } from '@/components/Process/ProcessEntries'
 import { observer } from '@zswl/admin'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 

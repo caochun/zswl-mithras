@@ -1,6 +1,8 @@
 export { default as ProcessApprovalHistory } from './ApprovalHistory'
 export { default as ProcessApprovalHistoryModal } from './ApprovalHistoryModal'
+export { default as ProcessBpmnFlowChart } from '../BpmnFlowChart'
 export { default as ProcessBlankBlock } from './BlankBlock'
 export { default as ProcessSnapshoot } from './Snapshoot'
+export { default as ProcessTaskFlowChart } from '../FlowChart'
 export { default as ProcessToSnapShoot } from './ToSnapShoot'
 export { default as ProcessTypeTree } from './ProcessTypeTree'

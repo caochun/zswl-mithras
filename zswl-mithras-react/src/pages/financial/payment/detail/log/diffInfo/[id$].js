@@ -1,7 +1,7 @@
 import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
-import ChangeLogLayout from '@/components/ChangeLogLayout'
+import { FinancialChangeLogLayout as ChangeLogLayout } from '@/components/Financial/ChangeLogEntries'
 import {
   FinancialPaymentDetailBaseInfo as BaseInfo,
   FinancialPaymentDetailInterest as Interest,

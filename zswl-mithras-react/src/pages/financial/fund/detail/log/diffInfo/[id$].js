@@ -1,6 +1,6 @@
 import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import ChangeLogLayout from '@/components/ChangeLogLayout'
+import { FinancialChangeLogLayout as ChangeLogLayout } from '@/components/Financial/ChangeLogEntries'
 import {
   FinancialFundDetailActualTable as ActualTable,
   FinancialFundDetailBaseInfo as BaseInfo,
