@@ -42,6 +42,13 @@ const componentAliases = new Map([
   ['PaymentApplyColumns', 'PaymentFtpColumns'],
 ])
 
+const componentEntryScopeAliases = new Map([
+  ['BlackGray/BlackGrayHitEntries', 'BlackGrayHit'],
+  ['InsurancePolicy/InsurancePolicyColumnsEntries', 'InsurancePolicyColumns'],
+  ['TrackEvent/TrackEventModalEntries', 'TrackEventModal'],
+  ['TrackEvent/TrackEventTaskEntries', 'TrackEventTask'],
+])
+
 const publicComponentRoots = new Set([
   'Actions',
   'Amount',
@@ -78,6 +85,13 @@ function normalizeDomain(domain) {
 
 function normalizeComponentDomain(domain) {
   return componentAliases.get(domain) || domain
+}
+
+function normalizeComponentTarget(specifier, componentDomain) {
+  const [, componentEntryPath] =
+    specifier.match(/^@\/components\/([^/'"]+\/[^/'"]*(?:Entries|entries)(?:\.js)?)$/) || []
+  const normalizedEntryPath = componentEntryPath?.replace(/\.js$/, '')
+  return componentEntryScopeAliases.get(normalizedEntryPath) || normalizeComponentDomain(componentDomain)
 }
 
 function walk(dir, files = []) {
@@ -137,7 +151,7 @@ function getSourceScope(relativeFilePath) {
 function getTargetScope(specifier) {
   const [, componentDomain] = specifier.match(/^@\/components\/([^/'"]+)/) || []
   if (componentDomain) {
-    const normalizedComponentDomain = normalizeComponentDomain(componentDomain)
+    const normalizedComponentDomain = normalizeComponentTarget(specifier, componentDomain)
     if (publicComponentRoots.has(normalizedComponentDomain)) {
       return null
     }
