@@ -1,6 +1,6 @@
 import { observer, getQuery } from '@zswl/admin'
 import { Page, Button, Modal } from '@zswl/components'
-import DetailTitle from '@/components/Cpm/DetailTitle'
+import DetailTitle from '../DetailTitle'
 import Approval from './Components/Approval'
 import CashFlowInfo from './Components/CashFlowInfo'
 import Contract from './Components/Contract'

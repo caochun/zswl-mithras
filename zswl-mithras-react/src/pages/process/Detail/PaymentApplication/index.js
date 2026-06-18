@@ -1,5 +1,5 @@
 import { CpmPaymentApplicationDetail as PaymentApplicationDetail } from '@/components/Cpm/PaymentApplicationEntries'
-import PaymentWriteOffDetail from '@/components/Cpm/PaymentWriteOffDetail'
+import { CpmPaymentWriteOffDetail as PaymentWriteOffDetail } from '@/components/Cpm/CpmEntries'
 import { observer } from '@zswl/admin'
 
 const ProjectReview = (props) => {

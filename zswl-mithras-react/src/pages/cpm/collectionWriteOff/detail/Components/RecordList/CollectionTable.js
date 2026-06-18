@@ -5,7 +5,7 @@ import { Descriptions, Popconfirm, Tooltip } from 'antd'
 import CollectionModal from './CollectionModal'
 import styles from '../../index.less'
 import { useMemo, useState } from 'react'
-import BillManage from '@/components/Cpm/BillManage'
+import { CpmBillManage as BillManage } from '@/components/Cpm/CpmEntries'
 import { saveServer } from '@/utils'
 
 const CollectionTable = ({ store }) => {
