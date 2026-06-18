@@ -1,4 +1,2 @@
-export {
-  InsurancePolicy as Policy,
-  InsurancePolicyColumns as PolicyColumns,
-} from '../InsurancePolicy/InsurancePolicyEntries'
+export { InsurancePolicy as Policy } from '../InsurancePolicy/InsurancePolicyEntries'
+export { InsurancePolicyColumns as PolicyColumns } from '../InsurancePolicy/InsurancePolicyColumnsEntries'

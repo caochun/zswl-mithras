@@ -1,5 +1,5 @@
 import { EditDescription } from '@/components/Table'
-import { InsurancePolicyColumns as ALL_COLUMNS } from '@/components/InsurancePolicy/InsurancePolicyEntries'
+import { InsurancePolicyColumns as ALL_COLUMNS } from '@/components/InsurancePolicy/InsurancePolicyColumnsEntries'
 import { getDescColumns } from '@/utils'
 import { observer } from '@zswl/admin'
 import { useState, useEffect } from 'react'
