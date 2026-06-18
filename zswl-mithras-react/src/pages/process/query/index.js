@@ -4,7 +4,7 @@ import { Table, App, Page, SearchBar, Access } from '@zswl/components'
 import { useEffect, useState, useMemo } from 'react'
 import SendDuplicateModal from '../Detail/ZTabs/Operation/Components/SendDuplicateModal'
 import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
-import { BpmnFlowChooseChartModal } from '@/components/BpmnFlowChooseChart/BpmnFlowChooseChartEntries'
+import { ProcessBpmnFlowChooseChartModal } from '@/components/Process/ProcessEntries'
 import ForWardModal from './ForWardModal'
 import FastHandle from './FastHandle'
 import { ProcessTypeTree } from '@/components/Process/ProcessEntries'
@@ -296,7 +296,7 @@ function Index({ query }) {
           },
         ]}
       />
-      <BpmnFlowChooseChartModal
+      <ProcessBpmnFlowChooseChartModal
         visible={visible}
         setVisible={setVisible}
         processInstanceId={ids}

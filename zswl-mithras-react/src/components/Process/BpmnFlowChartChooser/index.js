@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { http } from '@zswl/admin';
 import { message, Spin } from 'antd';
 import styles from './index.less';
-import IconFont from '../Icon';
+import IconFont from '@/components/Icon';
 
 const urls = {
   xmlGetUrl: '/flow/process/getProcessBpmnXml',

@@ -51,7 +51,6 @@
 - `AfterLease/CheckPlanPrepareEntries.js`
 - `AfterLease/CheckPlanTemplateEntries.js`
 - `BlackGray/BlackGrayEntries.js`
-- `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/AccountsReceivableEntries.js`
 - `Budget/ExchangeRateEntries.js`
 - `Budget/IncomeShareTableEntries.js`
