@@ -1,1 +1,1 @@
-export { default } from '@/components/AfterLease/RentCollection/Components/TermDetail'
+export { default } from '@/components/AfterLease/RentCollection/TermDetail'
