@@ -2,10 +2,12 @@
 import React, { useMemo } from 'react'
 import { Tabs } from 'antd'
 import styles from '../style.less'
-import Debt from '@/components/Customer/FinancialReport/Debt'
-import Profit from '@/components/Customer/FinancialReport/Profit'
-import Cash from '@/components/Customer/FinancialReport/Cash'
-import Store from '@/components/Customer/FinancialReport/store'
+import {
+  FinancialReportCash as Cash,
+  FinancialReportDebt as Debt,
+  FinancialReportProfit as Profit,
+  FinancialReportStore as Store,
+} from '@/components/Customer/FinancialReportEntries'
 import { observer } from '@zswl/admin'
 
 const FinancialReport = ({ id }) => {
