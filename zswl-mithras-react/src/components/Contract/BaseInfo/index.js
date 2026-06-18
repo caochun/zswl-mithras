@@ -7,6 +7,13 @@ import Factoring from './FormConfig/Factoring'
 import Api from '@/api/contract/contractDetail'
 import { Skeleton } from 'antd'
 
+export {
+  Lease as LeaseBaseInfo,
+  AssignmentOfClaims as AssignmentOfClaimsBaseInfo,
+  TurnLease as TurnLeaseBaseInfo,
+  Factoring as FactoringBaseInfo,
+}
+
 const Index = (
   {
     contractId,

@@ -1,8 +1,10 @@
 import { useMemo } from 'react'
-import Lease from '@/components/Contract/BaseInfo/FormConfig/Lease'
-import AssignmentOfClaims from '@/components/Contract/BaseInfo/FormConfig/AssignmentOfClaims'
-import Factoring from '@/components/Contract/BaseInfo/FormConfig/Factoring'
-import TurnLease from '@/components/Contract/BaseInfo/FormConfig/TurnLease'
+import {
+  AssignmentOfClaimsBaseInfo,
+  FactoringBaseInfo,
+  LeaseBaseInfo,
+  TurnLeaseBaseInfo,
+} from '@/components/Contract/BaseInfo'
 
 const Index = ({ bizType, detail, isLog }) => {
   const CurrentDom = useMemo(() => {
@@ -15,10 +17,10 @@ const Index = ({ bizType, detail, isLog }) => {
       canEdit: false,
     }
     const Dom = {
-      ZL: <Lease {...commonProps} />,
-      BL: <Factoring {...commonProps} />,
-      ZZ: <TurnLease {...commonProps} />,
-      ZR: <AssignmentOfClaims {...commonProps} />,
+      ZL: <LeaseBaseInfo {...commonProps} />,
+      BL: <FactoringBaseInfo {...commonProps} />,
+      ZZ: <TurnLeaseBaseInfo {...commonProps} />,
+      ZR: <AssignmentOfClaimsBaseInfo {...commonProps} />,
     }
     return Dom[bizType]
   }, [bizType, detail, isLog])

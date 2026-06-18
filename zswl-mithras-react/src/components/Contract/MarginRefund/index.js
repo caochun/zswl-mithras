@@ -3,7 +3,7 @@ import { getQuery, observer } from '@zswl/admin'
 import { Button, Page } from '@zswl/components'
 import { message } from 'antd'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Lease from '@/components/Contract/BaseInfo/FormConfig/Lease'
+import { LeaseBaseInfo } from '@/components/Contract/BaseInfo'
 import Api from './api'
 import MaterialsList from './materialsList'
 import RefundScheme from './refundScheme'
@@ -99,7 +99,7 @@ const Index = ({
         }
         moduleName="establishment"
       >
-        <Lease detail={store.page?.data?.detail} canEdit={false} />
+        <LeaseBaseInfo detail={store.page?.data?.detail} canEdit={false} />
         <RefundScheme detail={store.page?.data?.depostInfo} store={store} canEdit={canEdit} setEditing={setEditing} />
         <RentDeduction
           retreatInfoId={store.page?.data?.retreatInfoId}
