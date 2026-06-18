@@ -1,4 +1,4 @@
-import { RentCollectionListRender as ListRender } from '@/components/AfterLease/RentCollectionEntries'
+import { RentCollectionListRender as ListRender } from '@/components/AfterLease/RentCollectionListEntries'
 import { observer } from '@zswl/admin'
 import styles from '../../index.less'
 import store from '../../store'

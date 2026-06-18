@@ -5,7 +5,7 @@ import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
 import { useEffect, useMemo, useState } from 'react'
 import { Pagination, Radio, Space } from 'antd'
 import { observer } from '@zswl/admin'
-import { RentCollectionListRender as ListRender } from '@/components/AfterLease/RentCollectionEntries'
+import { RentCollectionListRender as ListRender } from '@/components/AfterLease/RentCollectionListEntries'
 import { LifeCycleNoData as NoData } from '@/components/LifeCycle/LifeCycleEntries'
 import InterestModal from './InterestModal'
 

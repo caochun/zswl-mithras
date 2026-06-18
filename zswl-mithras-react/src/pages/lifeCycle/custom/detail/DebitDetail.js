@@ -1,4 +1,4 @@
-import { RentCollectionProjectDetail as ProjectDetail } from '@/components/AfterLease/RentCollectionEntries'
+import { RentCollectionProjectDetail as ProjectDetail } from '@/components/AfterLease/RentCollectionDetailEntries'
 import { observer } from '@zswl/admin'
 import { Table, TableStore } from '@zswl/components'
 import store from './store'

@@ -33,11 +33,14 @@
 
 当前已有领域入口：
 
-- `AfterLease/RentCollectionEntries.js`
 - `AfterLease/AdjustEntries.js`
 - `AfterLease/CheckPlanEntries.js`
 - `AfterLease/Level5ClassifyEntries.js`
 - `AfterLease/PolicyManageEntries.js`
+- `AfterLease/RentCollectionApiEntries.js`
+- `AfterLease/RentCollectionDetailEntries.js`
+- `AfterLease/RentCollectionListEntries.js`
+- `AfterLease/RentCollectionProcessEntries.js`
 - `BlackGray/BlackGrayEntries.js`
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/AccountsReceivableEntries.js`

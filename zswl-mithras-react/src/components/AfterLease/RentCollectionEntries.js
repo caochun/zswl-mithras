@@ -1,5 +1,0 @@
-export { default as RentCollectionBatchInterest } from './RentCollection/BatchInterest'
-export { default as RentCollectionListRender } from './RentCollection/ListRender'
-export { default as RentCollectionProjectDetail } from './RentCollection/ProjectDetail'
-export { default as rentCollectionComponentApi } from './RentCollection/api'
-export { default as RentCollectionTermDetail } from './RentCollection/TermDetail'

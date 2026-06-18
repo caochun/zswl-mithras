@@ -1,1 +1,1 @@
-export { RentCollectionProjectDetail as default } from '@/components/AfterLease/RentCollectionEntries'
+export { RentCollectionProjectDetail as default } from '@/components/AfterLease/RentCollectionDetailEntries'

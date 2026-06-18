@@ -7,7 +7,7 @@ import ALL_COLUMNS from './Columns'
 import EditModal from './DetailEditModal'
 import OverdueEditModal from './OverdueEditModal'
 import { TableExportAction as TableExport } from '@/components/Actions'
-import { RentCollectionTermDetail as TermDetail } from '@/components/AfterLease/RentCollectionEntries'
+import { RentCollectionTermDetail as TermDetail } from '@/components/AfterLease/RentCollectionDetailEntries'
 
 /**
  * 应收账款详情页面组件
