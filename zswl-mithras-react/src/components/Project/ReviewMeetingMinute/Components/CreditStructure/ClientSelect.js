@@ -1,7 +1,7 @@
 import { Select } from '@zswl/components'
 import { forwardRef, useEffect, useImperativeHandle,useMemo, useState } from 'react'
 import { debounce as _debounce } from 'lodash'
-import Api from '../../api'
+import Api from '@/api/project/projReviewMeetingMinute'
 import Store from '../../store'
 
 // http://localhost:3000/process/query/detail/10863394?typeId=approval&businessKey=4018&diff=processInstanceId&nav=myquery
@@ -57,4 +57,3 @@ const ClientSelect = ({ queryParams, referer, needInit = true, value ,id,...para
 }
 
 export default forwardRef(ClientSelect)
- 

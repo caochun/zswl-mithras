@@ -6,7 +6,7 @@ import { forwardRef, useMemo } from 'react'
 import DataUpload from '@/components/DataUpload'
 import styles from './index.less'
 // import Api from '@/api/project/projMeetingApi'
-import Api from '../../api'
+import Api from '@/api/project/projReviewMeetingMinute'
 import _ from 'lodash'
 
 
