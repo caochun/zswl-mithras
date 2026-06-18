@@ -1,1 +1,1 @@
-export { default } from '@/components/Kpi/BaseSetModalDetail/GongShiLiLun'
+export { KpiBaseSetGongShiLiLun as default } from '@/components/Kpi/BaseSetModalDetailEntries'

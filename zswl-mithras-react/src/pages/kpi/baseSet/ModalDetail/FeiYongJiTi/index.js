@@ -1,1 +1,1 @@
-export { default } from '@/components/Kpi/BaseSetModalDetail/FeiYongJiTi'
+export { KpiBaseSetFeiYongJiTi as default } from '@/components/Kpi/BaseSetModalDetailEntries'
