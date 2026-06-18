@@ -1,4 +1,4 @@
-import ProjectEstablishmentDetail from '@/pages/project/establishment/detail/[id$]'
+import ProjectEstablishmentDetail from '@/components/Project/EstablishmentDetail'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '../api'
