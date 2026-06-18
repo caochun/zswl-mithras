@@ -1,4 +1,4 @@
-import evaluationAgencyApi from '@/api/evaluationAgency/evaluationAgencyApi'
+import appraisalCompanyApi from '@/api/whiteList/appraisalCompanyApi'
 import { observer } from '@zswl/admin'
 import { Modal, Form, Select, Input, DatePicker } from '@zswl/components'
 
@@ -13,7 +13,7 @@ const AddModal = ({ store }) => {
   const [form] = Form.useForm()
 
   const getList = async (companyName) => {
-    const res = await evaluationAgencyApi.postAppraisalQueryCompany({ companyName, pageSize: 20 })
+    const res = await appraisalCompanyApi.queryCompany({ companyName, pageSize: 20 })
     return res
   }
   const companyChange = async (value, options) => {

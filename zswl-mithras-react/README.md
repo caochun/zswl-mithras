@@ -233,6 +233,7 @@
 - `lease/trackingApi`：跟踪事项接口历史落在租赁物目录；跟踪事项组件优先使用 `src/api/trackEvent/trackingApi` 语义入口。
 - `trackEvent/trackingApi.getTrackEventClose`：关闭跟踪事项是横向动作；项目评审会议纪要内触发时优先使用 `src/api/project/projReviewMeetingMinute` 下的项目语义方法，组件不直接穿透到跟踪事项域。
 - `lease/evaluationAgencyApi`：评估机构接口历史落在租赁物目录；评估机构组件、租赁物维护和白名单页面优先使用 `src/api/evaluationAgency/evaluationAgencyApi` 语义入口。
+- `evaluationAgency/evaluationAgencyApi.postAppraisalQueryCompany`：白名单新增页查询评估机构候选时优先使用 `src/api/whiteList/appraisalCompanyApi` 语义入口；评估机构组件和租赁物维护可继续使用评估机构域 API。
 - `whiteList/assessmentWhitelistApi`：评估机构白名单本身保留在白名单域；评估机构组件内选择白名单机构时优先使用 `src/api/evaluationAgency/assessmentWhitelistApi` 语义入口。
 - `ocr/ocrInvoiceApi`：发票识别接口历史落在 OCR 目录，其中租赁物发票金额校验优先使用 `src/api/lease/vatInvoiceApi` 语义入口。
 - `afterLease/assessmentWhitelistApi`：评估机构白名单接口历史落在租后目录；白名单页面和评估机构组件优先使用 `src/api/whiteList/assessmentWhitelistApi` 语义入口。
