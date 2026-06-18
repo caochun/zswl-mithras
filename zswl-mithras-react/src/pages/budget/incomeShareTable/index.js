@@ -4,7 +4,7 @@ import { getTableColumns, getFormColumns, mouthFormat } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { DatePicker } from 'antd'
 import moment from 'moment'
-import Api from './api'
+import Api from '@/api/budget/incomeShareTable'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar

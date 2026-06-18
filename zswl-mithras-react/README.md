@@ -55,6 +55,7 @@
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
 - `Budget/AccountsReceivableEntries.js`
 - `Budget/ExchangeRateEntries.js`
+- `Budget/IncomeShareTableEntries.js`
 - `Budget/PricingBaseDataEntries.js`
 - `Budget/PricingBaseSetEntries.js`
 - `Budget/PricingBusinessEntries.js`

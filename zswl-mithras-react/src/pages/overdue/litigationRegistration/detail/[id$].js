@@ -7,7 +7,7 @@ import ProgressTheCase from './ProgressTheCase'
 import TrialInformation from './TrialInformation'
 import DataList from './DataList'
 import { Col, Row } from 'antd'
-import { getContractList } from '../../collection/detail/[id$]'
+import { getOverdueCollectionContractList as getContractList } from '@/components/Overdue/OverdueEntries'
 
 const Detail = ({ params: { id }, query: { bizType, newProject, canEditFlags = 'true' } }) => {
   const store = useMemo(() => {

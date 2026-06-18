@@ -50,8 +50,3 @@ const Detail = ({ params: { id }, query: { bizType, newProject, canEditFlags = '
 }
 
 export default observer(Detail)
-
-export {
-  OverdueCollectionModal as CollectionModal,
-  getOverdueCollectionContractList as getContractList,
-} from '@/components/Overdue/OverdueEntries'
