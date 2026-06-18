@@ -71,6 +71,7 @@
 - `Project/PriceDetailEntries.js`
 - `Project/ProjectEntries.js`
 - `Project/ReviewDetailEntries.js`
+- `Project/ReviewSupportEntries.js`
 - `Report/FinancialReportEntries.js`
 - `Report/OperationEntries.js`
 - `Risk/RiskEntries.js`

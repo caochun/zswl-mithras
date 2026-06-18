@@ -20,7 +20,7 @@ import PublicCheckModal from '../PaymentApplication/PublicCheckModal'
 import EvaluationAgency from '@/components/EvaluationAgency'
 import ZhongDengregistration from './ZhongDengregistration'
 import { CreditSearchModal as CreditModal } from '@/components/Credit/CreditSearchEntries'
-import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewDetailEntries'
+import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewSupportEntries'
 import { TrackingModal as TrackModal } from '@/components/TrackEvent/ModalEntries'
 import { Space } from 'antd'
 

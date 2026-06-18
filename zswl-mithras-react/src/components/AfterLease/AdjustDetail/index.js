@@ -1,6 +1,6 @@
 import { observer, getQuery } from '@zswl/admin'
 import { Page, Button } from '@zswl/components'
-import { ProjectReviewSnapshot as ReviewSnapshot } from '@/components/Project/ReviewDetailEntries'
+import { ProjectReviewSnapshot as ReviewSnapshot } from '@/components/Project/ReviewSupportEntries'
 import Exhibi from './Exhibi'
 import Replay from './Replay'
 import ZiLiao from './ZiLiao'
