@@ -7,7 +7,7 @@ import {
   getHeaderWithFunctionCode,
 } from '../../../CreditTableConfig'
 import _ from 'lodash'
-import Api from './api'
+import Api from '@/api/credit/creditTableLevel5'
 
 class Store {
   constructor({ baseParams }) {

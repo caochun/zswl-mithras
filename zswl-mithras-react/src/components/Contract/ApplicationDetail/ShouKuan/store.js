@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, ModalStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import { compareDetail, compareTableData } from '@/utils'
-import Api from './api'
+import Api from '@/api/contract/contractAccount'
 
 class Store {
   constructor(data) {

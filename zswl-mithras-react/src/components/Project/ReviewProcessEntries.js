@@ -1,4 +1,4 @@
-export { default as ReviewDetailApi } from './ReviewDetail/api'
+export { default as ReviewDetailApi } from '@/api/project/projReviewDetail'
 export { default as ReviewDetailDataList } from './ReviewDetail/Data'
 export { default as ReviewDetailReport } from './ReviewDetail/Report'
 export { default as ProjectReviewDetail } from './ReviewDetail'

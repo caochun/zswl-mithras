@@ -1,4 +1,4 @@
-export { default as ReviewDetailApi } from './ReviewDetail/api'
+export { default as ReviewDetailApi } from '@/api/project/projReviewDetail'
 export { default as ReviewDetailStore } from './ReviewDetail/store'
 export { default as ReviewDetailBaseInfo } from './ReviewDetail/BaseInfo'
 export { default as ReviewDetailQuotationScheme } from './ReviewDetail/QuotationScheme'

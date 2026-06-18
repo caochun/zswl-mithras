@@ -1,7 +1,7 @@
 import { makeAutoObservable, history } from '@zswl/admin'
 import { ModalStore, PageStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/project/projectEstablishmentDetail'
 import { compareDetail } from '@/utils'
 import { EstablishmentQuotationSchemeStore } from './QuotationScheme'
 import projectRatingApi from '@/api/project/ratingApi'
