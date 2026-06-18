@@ -1,1 +1,1 @@
-export { default } from '@/components/Project/PriceDetail/Log/diffInfo'
+export { default } from '@/components/Project/PriceDetail/LogDiff'
