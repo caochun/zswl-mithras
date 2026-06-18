@@ -1,6 +1,5 @@
 import { ModalStore, PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/common/fileList'
 import sealForDocumentsApi from '@/api/overdue/sealForDocumentsApi'
 import { message } from 'antd'
 import { noEnumDownloadAll } from '@/components/Table'

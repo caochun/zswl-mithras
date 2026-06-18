@@ -1,6 +1,5 @@
-import { PageStore, TableStore } from '@zswl/components'
+import { PageStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/common/fileList'
 import trackingApi from '@/api/trackEvent/trackingApi'
 
 class Store {
@@ -10,11 +9,6 @@ class Store {
   page = new PageStore({
     request: async (params) => {
       return await trackingApi.getTrackEventDetail({ id: params?.id })
-    },
-  })
-  table = new TableStore({
-    request: (params) => {
-      return Api.getDetail({ id: params?.id })
     },
   })
 }

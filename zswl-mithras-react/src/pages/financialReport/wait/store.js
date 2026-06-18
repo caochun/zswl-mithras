@@ -1,8 +1,7 @@
-import { App, Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
+import { App, Modal, ModalStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/common/fileList'
 import financialReportApi from '@/api/report/financialReportApi'
-import { downFile, downUrl } from '@/utils'
+import { downFile } from '@/utils'
 import { message } from 'antd'
 
 class Store {
@@ -13,12 +12,6 @@ class Store {
     this.listType = listType
     makeAutoObservable(this)
   }
-  page = new PageStore({
-    request: (params) => {
-      return Api.getDetail({ id: params?.id })
-    },
-  })
-
   table = new TableStore({
     request: (params) => {
       const waitReportStatusList = params.reportStatusList?.length

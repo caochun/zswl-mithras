@@ -1,6 +1,5 @@
-import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
+import { Modal, ModalStore, TableStore } from '@zswl/components'
 import { history, makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/common/fileList'
 import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 import { message } from 'antd'
 
@@ -15,11 +14,6 @@ class Store {
   isUpdate = false
   modelName = ''
   clientId = ''
-  page = new PageStore({
-    request: (params) => {
-      return Api.getDetail({ id: params?.id })
-    },
-  })
   table = new TableStore({
     request: (params) => {
       return customerRatApi.postClientPage(params)

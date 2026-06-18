@@ -1,6 +1,5 @@
-import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
+import { Modal, ModalStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/common/fileList'
 import financialReportApi from '@/api/report/financialReportApi'
 import { downFile } from '@/utils'
 import { message } from 'antd'
@@ -15,12 +14,6 @@ class Store {
     this.businessVersion = businessVersion
     makeAutoObservable(this)
   }
-  page = new PageStore({
-    request: (params) => {
-      return Api.getDetail({ id: params?.id, version: businessVersion })
-    },
-  })
-
   detailModal = new ModalStore({})
 
   handleDetail = (record) => {

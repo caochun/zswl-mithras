@@ -1,5 +1,4 @@
 /* prettier-ignore-start */
-import { string } from 'mathjs'
 import * as Types from './interface/fileList'
 import { http } from '@zswl/admin'
 
