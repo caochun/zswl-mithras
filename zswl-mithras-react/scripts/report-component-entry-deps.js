@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const root = path.resolve(__dirname, '..')
-const componentsDir = path.join(root, 'src', 'components')
+const srcDir = path.join(root, 'src')
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
@@ -26,15 +26,43 @@ function walk(dir, files = []) {
   return files
 }
 
+function getSourceScope(relativeFilePath) {
+  const [, componentDomain] = relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
+  if (componentDomain) {
+    return {
+      key: `components/${componentDomain}`,
+      domain: componentDomain,
+    }
+  }
+
+  const [, pageDomain] = relativeFilePath.match(/^src[\\/]pages[\\/]([^\\/]+)/) || []
+  if (pageDomain) {
+    return {
+      key: `pages/${pageDomain}`,
+      domain: pageDomain,
+    }
+  }
+
+  const [, sourceArea] = relativeFilePath.match(/^src[\\/]([^\\/]+)/) || []
+  if (sourceArea) {
+    return {
+      key: sourceArea,
+      domain: sourceArea,
+    }
+  }
+
+  return null
+}
+
 const edges = new Map()
 const targetFanIn = new Map()
 
-for (const filePath of walk(componentsDir)) {
+for (const filePath of walk(srcDir)) {
   const source = fs.readFileSync(filePath, 'utf8')
   const relativeFilePath = path.relative(root, filePath)
-  const [, sourceDomain] = relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
+  const sourceScope = getSourceScope(relativeFilePath)
 
-  if (!sourceDomain) {
+  if (!sourceScope) {
     continue
   }
 
@@ -43,14 +71,14 @@ for (const filePath of walk(componentsDir)) {
     const specifier = match[1]
     const [, targetDomain, targetEntry] = specifier.match(componentPublicEntryPattern) || []
 
-    if (!targetDomain || targetDomain === sourceDomain) {
+    if (!targetDomain || targetDomain.toLowerCase() === sourceScope.domain.toLowerCase()) {
       continue
     }
 
     const target = targetEntry ? `${targetDomain}/${targetEntry}` : targetDomain
-    const edgeKey = `${sourceDomain} -> ${target}`
+    const edgeKey = `${sourceScope.key} -> ${target}`
     const edge = edges.get(edgeKey) || {
-      sourceDomain,
+      sourceScope: sourceScope.key,
       target,
       files: new Set(),
       specifiers: new Set(),
@@ -61,13 +89,13 @@ for (const filePath of walk(componentsDir)) {
     edges.set(edgeKey, edge)
 
     const fanIn = targetFanIn.get(target) || new Set()
-    fanIn.add(sourceDomain)
+    fanIn.add(sourceScope.key)
     targetFanIn.set(target, fanIn)
   }
 }
 
 const sortedEdges = [...edges.values()].sort((a, b) => {
-  const sourceCompare = a.sourceDomain.localeCompare(b.sourceDomain)
+  const sourceCompare = a.sourceScope.localeCompare(b.sourceScope)
   if (sourceCompare !== 0) {
     return sourceCompare
   }
@@ -75,13 +103,13 @@ const sortedEdges = [...edges.values()].sort((a, b) => {
 })
 
 if (sortedEdges.length === 0) {
-  console.log('No cross-domain component entry dependencies found.')
+  console.log('No cross-domain component entry dependencies found in src.')
   process.exit(0)
 }
 
-console.log('Component entry dependency edges:')
+console.log('Component entry dependency edges across src:')
 for (const edge of sortedEdges) {
-  console.log(`- ${edge.sourceDomain} -> ${edge.target}: ${edge.files.size} file(s)`)
+  console.log(`- ${edge.sourceScope} -> ${edge.target}: ${edge.files.size} file(s)`)
   for (const specifier of [...edge.specifiers].sort()) {
     console.log(`  ${specifier}`)
   }
@@ -89,5 +117,5 @@ for (const edge of sortedEdges) {
 
 console.log('\nEntry fan-in:')
 for (const [target, sources] of [...targetFanIn.entries()].sort(([a], [b]) => a.localeCompare(b))) {
-  console.log(`- ${target}: ${sources.size} domain(s) [${[...sources].sort().join(', ')}]`)
+  console.log(`- ${target}: ${sources.size} scope(s) [${[...sources].sort().join(', ')}]`)
 }
