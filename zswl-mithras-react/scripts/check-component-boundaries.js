@@ -329,10 +329,6 @@ const legacyApiPrefixRules = [
     ],
   },
   {
-    legacyPrefix: '@/api/common/workbenchApi',
-    replacementPrefix: '@/api/common/userCustomConfigApi or @/api/dashboard/feikongSsoApi',
-  },
-  {
     legacyPrefix: '@/api/groupCredit/common',
     replacementPrefix: '@/api/common/selectApi',
   },

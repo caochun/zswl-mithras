@@ -294,7 +294,7 @@
 - `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
 - `message/messageNotification`：消息中心页面保留消息域 API；全局 layout 消息弹窗优先使用 `src/api/layout/messageApi`，dashboard 工作台消息列表优先使用 `src/api/dashboard/workbenchMessageApi`。
 - `permission/login`：登录页保留权限域登录 API；全局 layout 快速切换登录优先使用 `src/api/layout/fastLoginApi`。
-- `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权；保存/查询用户配置优先使用 `src/api/common/userCustomConfigApi`，费控 SSO 授权优先使用 `src/api/dashboard/feikongSsoApi` 兼容入口。
+- `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理；保存/查询用户配置使用 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
 - `rzy`、`implant`、`cvicse`、`student`、`visitorManage`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
