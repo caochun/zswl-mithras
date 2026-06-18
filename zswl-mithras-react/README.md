@@ -225,7 +225,7 @@
 - `blackListManage`：页面目录仍沿用黑名单管理命名，组件目录已是 `BlackGray`；API 调用优先使用 `src/api/blackGray` 兼容入口，后续可考虑菜单路径稳定的前提下收敛命名。
 - `postRentalInspection`：租后检查 API 的历史命名目录；租后业务代码优先使用 `src/api/afterLease` 下的兼容入口。
 - `riskControl`：风控接口历史命名目录；风险域页面和组件优先使用 `src/api/risk` 下的兼容入口。
-- `risk/publicMonitor`：公开监控/舆情监控接口属于风险域；生命周期页只展示风险摘要时优先使用 `src/api/lifeCycle/riskWarningApi` 聚合入口。
+- `risk/publicMonitor`：公开监控/舆情监控接口属于风险域；生命周期页只展示风险摘要时优先使用 `src/api/lifeCycle/riskWarningApi` 聚合入口，流程详情展示或处理舆情监控时优先使用 `src/api/process/detail/publicMonitorApi` 聚合入口。
 - `liquidity`：金融流动性接口历史命名目录；金融域页面优先使用 `src/api/financial/liquidity` 下的兼容入口。
 - `financial/accountsReceivable`：应收账款接口历史落在财务目录；预算应收账款页面和组件优先使用 `src/api/budget/accountsReceivable` 下的语义入口。
 - `cpm/payment/contractPaymentFtp`：合同付款 FTP 接口历史落在付款目录；合同付款申请组件优先使用 `src/api/contract/payment/contractPaymentFtp` 语义入口。
@@ -242,6 +242,7 @@
 - `baseData/pricing/baseSet/ftpBaseSet`：FTP 参数设定接口历史落在基础数据目录；预算定价基础设置页面和组件优先使用 `src/api/budget/pricing/baseSet/ftpBaseSet` 语义入口。
 - `baseData/ftpMaterialsFile`、`baseData/ftpQuarterlyGuidance`：FTP 定价资料和季度指导接口历史落在基础数据目录；预算定价组件优先使用 `src/api/budget/pricing` 下的语义入口。
 - `baseData/bankAccountApi`：我方银行账户接口历史落在基础数据目录；预算银行账户页面优先使用 `src/api/budget/bankAccountApi` 语义入口。
+- `budget/pricing/ftpInterestChangeApi`：FTP 计息变更属于预算定价域；流程详情展示 FTP 计息变更时优先使用 `src/api/process/detail/ftpInterestChangeApi` 聚合入口。
 - `pricing`：预算定价接口历史命名目录；预算定价页面优先使用 `src/api/budget/pricing` 下的兼容入口。
 - `newFtp`：新版 FTP 定价接口历史命名目录；预算定价页面和组件优先使用 `src/api/budget/pricing/ftp` 下的兼容入口。
 - `financialReport`、`manageReport`：报表接口历史命名目录；报表页面和组件优先使用 `src/api/report` 下的兼容入口。

@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react'
 import { observer } from '@zswl/admin'
 import { BudgetFtpInterestPriceChangeModal as PriceChangeModal } from '@/components/Budget/PricingFtpInterestEntries'
 import { ModalStore } from '@zswl/components'
-import ftpInterestChangeApi from '@/api/budget/pricing/ftpInterestChangeApi'
+import ftpInterestChangeApi from '@/api/process/detail/ftpInterestChangeApi'
 
 const Index = (props) => {
   const { canEditFlag, subModule, id, businessVersion, tab } = props

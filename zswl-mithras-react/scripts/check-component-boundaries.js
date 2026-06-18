@@ -152,6 +152,16 @@ const legacyApiPrefixRules = [
     allowedSourcePathPrefixes: ['src/api/budget/bankAccountApi.ts'],
   },
   {
+    legacyPrefix: '@/api/budget/pricing/ftpInterestChangeApi',
+    replacementPrefix:
+      '@/api/process/detail/ftpInterestChangeApi or @/api/budget/pricing/ftpInterestChangeApi in Budget domain',
+    allowedSourceDomains: ['Budget', 'budget'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/ftpInterestChangeApi.ts',
+      'src/pages/budget/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/common/workbenchApi',
     replacementPrefix: '@/api/common/userCustomConfigApi or @/api/dashboard/feikongSsoApi',
   },
@@ -246,12 +256,13 @@ const legacyApiPrefixRules = [
   },
   {
     legacyPrefix: '@/api/risk/publicMonitor',
-    replacementPrefix: '@/api/lifeCycle/riskWarningApi or @/api/risk/publicMonitor in Risk domain',
+    replacementPrefix:
+      '@/api/lifeCycle/riskWarningApi, @/api/process/detail/publicMonitorApi, or @/api/risk/publicMonitor in Risk domain',
     allowedSourceDomains: ['Risk'],
     allowedSourcePathPrefixes: [
       'src/api/lifeCycle/riskWarningApi.js',
+      'src/api/process/detail/publicMonitorApi.js',
       'src/pages/risk/',
-      'src/pages/process/',
     ],
   },
   {
