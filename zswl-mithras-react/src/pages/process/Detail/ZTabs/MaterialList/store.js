@@ -1,5 +1,5 @@
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '../../../../project/review/detail/api'
+import Api from '@/components/Project/ReviewDetail/api'
 import LApi from './api'
 
 class Store {

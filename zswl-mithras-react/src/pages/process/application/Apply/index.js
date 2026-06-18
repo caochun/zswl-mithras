@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import ApprovalHistoryModal from '@/components/Process/ApprovalHistoryModal'
 import ProcessTypeTree from '@/components/Process/ProcessTypeTree'
 import { saveServer } from '@/utils'
-import customeApi from '../../../customer/maintain/api'
+import customeApi from '@/api/customer/maintainApi'
 
 const { Item } = SearchBar
 
