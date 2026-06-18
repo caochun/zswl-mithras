@@ -6,7 +6,7 @@ import moment from 'moment'
 import { useState, useEffect, useRef } from 'react'
 import { Rate, Tooltip, Button, message } from 'antd'
 import IconFont from '@/components/Icon'
-import Api from '../api'
+import Api from '@/api/risk/publicMonitor'
 
 function Index({ query, params }) {
   const canEditFlag = true
@@ -220,7 +220,7 @@ function Index({ query, params }) {
     }
   }
   const handleEditChange = (val) => setBaseEdit(val)
-  
+
   const handleBeforeUpload = () => {
     if (!isSave) {
       message.error('请先保存舆情信息')
@@ -228,7 +228,7 @@ function Index({ query, params }) {
     }
     return true
   }
-  
+
   return (
     <Page store={page} header={null} params={{ id }}>
       <EditDescription

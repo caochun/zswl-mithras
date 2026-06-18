@@ -16,7 +16,7 @@ import {
 import classNames from 'classnames'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import moment from 'moment'
-import api from '../api'
+import api from '@/api/message/messageNotification'
 import styles from './index.less'
 import { App } from '@zswl/components'
 import { history } from '@zswl/admin'

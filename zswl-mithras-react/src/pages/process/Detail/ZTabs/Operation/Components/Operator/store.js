@@ -10,7 +10,7 @@ import { history, makeAutoObservable } from '@zswl/admin'
 import { FormStore, Modal, ModalStore } from '@zswl/components'
 import { message } from 'antd'
 import BcxxStore from '../CompleteOperation/store'
-import Api from './api'
+import Api from '@/api/process/flowExecution'
 import { getBackEndData } from './utils'
 import { checkIrr } from '@/components/Contract/StartRentDetail'
 class Store {

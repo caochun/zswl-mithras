@@ -2,7 +2,7 @@ import { TableStore, ModalStore, Modal } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { timeFormat, yearFormat } from '@/utils'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/afterLease/checkPlan'
 
 class Store {
   constructor() {

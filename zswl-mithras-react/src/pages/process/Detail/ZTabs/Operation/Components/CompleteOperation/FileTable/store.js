@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
 import { message, Modal } from 'antd'
-import Api from '../api'
+import Api from '@/api/process/flowFile'
 import fileList from '@/api/common/fileList'
 import { downFile, toHump } from '@/utils'
 

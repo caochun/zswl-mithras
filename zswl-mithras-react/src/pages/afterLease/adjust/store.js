@@ -3,7 +3,7 @@ import { makeAutoObservable, history } from '@zswl/admin'
 import { timeFormat } from '@/utils'
 import { debounce as _debounce } from 'lodash'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/afterLease/adjust'
 
 class Store {
   constructor() {

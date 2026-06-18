@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
-import api from './api'
+import api from '@/api/message/messageNotification'
 import moment from 'moment'
 import { Modal, message } from 'antd'
 class Store {

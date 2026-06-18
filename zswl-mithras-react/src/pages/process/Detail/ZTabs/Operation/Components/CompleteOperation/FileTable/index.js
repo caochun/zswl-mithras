@@ -6,7 +6,7 @@ import _ from 'lodash'
 import { useEffect, useMemo } from 'react'
 import styles from './index.less'
 import Store from './store'
-import Api from '../api'
+import Api from '@/api/process/flowFile'
 import { saveServer } from '@/utils'
 
 function Index({ label, rules, params, materialsType, detail }) {

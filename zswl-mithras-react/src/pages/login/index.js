@@ -1,5 +1,5 @@
 import styles from './style.less'
-import Api from './api'
+import Api from '@/api/permission/login'
 import { App, Button } from '@zswl/components'
 import { Input, Form, message } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'

@@ -3,7 +3,7 @@ import { observer, toJS } from '@zswl/admin'
 import { Tooltip, Space, Tag } from 'antd'
 import store from './store'
 import { useMemo } from 'react'
-import api from './api'
+import api from '@/api/message/messageNotification'
 import styles from './index.less'
 import { saveServer } from '@/utils'
 

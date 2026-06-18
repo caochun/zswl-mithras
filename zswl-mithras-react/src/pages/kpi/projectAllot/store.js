@@ -3,7 +3,7 @@ import { TableStore } from '@zswl/components'
 import allotApi from '@/api/kpi/projectAllot/allot'
 import { message } from 'antd'
 import { isBusinesshead } from '@/utils'
-import Api from './api'
+import Api from '@/api/kpi/projectAllot'
 
 class Store {
   constructor() {

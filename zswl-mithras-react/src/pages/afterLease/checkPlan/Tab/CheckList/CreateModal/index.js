@@ -3,7 +3,7 @@ import { Form, Modal, Select, App } from '@zswl/components'
 import { Input, InputNumber, DatePicker } from 'antd'
 import { ClientSelect, ApiSelect, FounderSelect } from '@/components'
 import moment from 'moment'
-import Api from '../api'
+import Api from '@/api/afterLease/checkPlan'
 
 const { Item } = Form
 

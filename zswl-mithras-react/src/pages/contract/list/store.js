@@ -3,7 +3,7 @@ import { timeFormat, userIsProjSponsor } from '@/utils'
 import { history, makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/contract/baseInfo'
 
 class Store {
   constructor() {
