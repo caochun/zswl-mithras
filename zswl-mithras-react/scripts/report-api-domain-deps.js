@@ -9,6 +9,8 @@ const importPattern =
 const apiImportPattern = /^@\/api\/([^/'"]+)(?:\/[^'"]*)?$/
 const domainAliases = new Map([
   ['blackListManage', 'blackGray'],
+  ['FilingMaterials', 'filingMaterials'],
+  ['fillingMaterialsDetail', 'filingMaterials'],
   ['financialReport', 'report'],
 ])
 

@@ -1,1 +1,1 @@
-export { default } from '@/api/fillingMaterials/otherFilingMaterialsDetail'
+export { default } from '@/api/filingMaterials/otherFilingMaterialsDetail'
