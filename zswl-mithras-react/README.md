@@ -242,6 +242,7 @@
 - `liquidity`：金融流动性接口历史命名目录；金融域页面优先使用 `src/api/financial/liquidity` 下的兼容入口。
 - `financial/accountsReceivable`：应收账款接口历史落在财务目录；预算应收账款页面和组件优先使用 `src/api/budget/accountsReceivable` 下的语义入口。
 - `cpm/payment/contractPaymentFtp`：合同付款 FTP 接口历史落在付款目录；合同付款申请组件优先使用 `src/api/contract/payment/contractPaymentFtp` 语义入口。
+- `contract/payment/contractPaymentFtp.modifyContractPayment`：付款核销详情内修改付款 FTP 信息时使用 `src/api/cpm/payment/contractPaymentFtpApi` 付款语义入口，不直接绑定合同付款 API 文件。
 - `budget/flowCenter`：银行流水/付款流水中心接口历史落在预算目录；付款核销组件使用 `src/api/cpm/payment/writeOffFlowCenterApi` 语义入口，不再转发预算流水中心 API 文件。
 - `afterLease/policyLedgerApi.getPaymentDetail`：付款详情接口历史挂在保单台账 API 中；付款核销详情组件优先使用 `src/api/cpm/payment/paymentDetailApi` 语义入口。
 - `lease/trackingApi`：跟踪事项接口历史落在租赁物目录；跟踪事项组件优先使用 `src/api/trackEvent/trackingApi` 语义入口。
@@ -263,6 +264,7 @@
 - `filingMaterials/otherFilingMaterialsDetail`：其他资料归集接口保留在资料归集域；流程提交前做资料说明校验时使用 `src/api/process/detail/filingMaterialsApi` 聚合入口，不再转发资料归集 API 文件。
 - `common/customerOverview`：历史公共实现已清理；dashboard 客户总览页面使用 `src/api/dashboard/customerOverview`，客户视图页面使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `common/flowList`：历史公共目录已清理；流程任务列表、流程详情、退回节点和随机退回等 `/flow/**` 接口使用 `src/api/process/flowTaskApi`。
+- `process/flowTaskApi.getProcessDetail`：预算管理和租赁物组件只读取流程详情状态时，分别使用 `src/api/budgetManagement/processDetailApi`、`src/api/lease/processDetailApi` 本域语义入口，不直接绑定流程任务 API 文件。
 - `common/editableCompare`：历史上混合了 FTP、项目、付款和文件比对接口，当前已清理；文件表组件使用 `src/api/common/fileCompareApi`。
 - `common/dataList`：历史命名已清理；资料清单上传、下载、预览、项目资料和授信资料列表使用 `src/api/common/materialsApi`。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API；这些入口已收窄为 endpoint 壳，不再转发其他业务域 API 文件。

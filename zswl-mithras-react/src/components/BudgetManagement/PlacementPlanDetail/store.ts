@@ -1,6 +1,6 @@
 import deliveryPlanDetailApi from '@/api/budgetManagement/deliveryPlanDetailApi'
 import deliveryPlanListApi from '@/api/budgetManagement/deliveryPlanListApi'
-import flowListApi from '@/api/process/flowTaskApi'
+import processDetailApi from '@/api/budgetManagement/processDetailApi'
 import { formatPercent, highPrecisionMultiply } from '@/utils/base'
 import { makeAutoObservable } from '@zswl/admin'
 import { Access, ModalStore, PageStore, TableStore } from '@zswl/components'
@@ -23,7 +23,7 @@ class Store {
       let processDetail = {}
       if (res.processInstanceId) {
         try {
-          processDetail = await flowListApi.getProcessDetail({
+          processDetail = await processDetailApi.getProcessDetail({
             processInstanceId: res.processInstanceId,
           })
         } catch (error) {
