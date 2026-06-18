@@ -1,1 +1,1 @@
-export { default } from '@/components/Process/ApprovalHistoryModal'
+export { ProcessApprovalHistoryModal as default } from '@/components/Process/ProcessEntries'

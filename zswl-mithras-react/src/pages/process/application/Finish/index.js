@@ -1,11 +1,13 @@
 import { observer, history } from '@zswl/admin'
 import store from './store'
 import { Table, App, Page, SearchBar } from '@zswl/components'
-import ApprovalHistoryModal from '@/components/Process/ApprovalHistoryModal'
+import {
+  ProcessApprovalHistoryModal as ApprovalHistoryModal,
+  ProcessTypeTree,
+} from '@/components/Process/ProcessEntries'
 import { ClientSelect } from '@/components/Select'
 import { getKeyOptionsLabelMapPlus } from '@/utils'
 import { useEffect, useState } from 'react'
-import ProcessTypeTree from '@/components/Process/ProcessTypeTree'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar

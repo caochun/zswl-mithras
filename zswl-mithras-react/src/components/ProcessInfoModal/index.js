@@ -1,5 +1,5 @@
 import { Modal, Button, ModalStore } from '@zswl/components'
-import ApprovalHistory from '@/components/Process/ApprovalHistory'
+import { ProcessApprovalHistory as ApprovalHistory } from '@/components/Process/ProcessEntries'
 import BpmnFlowChart from '@/components/BpmnFlowChart'
 import { Card } from 'antd'
 

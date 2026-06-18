@@ -1,12 +1,14 @@
 import { FounderSelect, OrgSelect } from '@/components'
 import { ClientSelect } from '@/components/Select'
-import ProcessTypeTree from '@/components/Process/ProcessTypeTree'
+import {
+  ProcessApprovalHistoryModal as ApprovalHistoryModal,
+  ProcessTypeTree,
+} from '@/components/Process/ProcessEntries'
 import { saveServer } from '@/utils'
 import { observer } from '@zswl/admin'
 import { SearchBar, Table } from '@zswl/components'
 import { Space, Tag } from 'antd'
 import { useState } from 'react'
-import ApprovalHistoryModal from '@/components/Process/ApprovalHistoryModal'
 import styles from './index.less'
 import store from './store'
 

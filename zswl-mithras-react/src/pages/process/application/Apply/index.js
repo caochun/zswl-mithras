@@ -3,8 +3,10 @@ import store from './store'
 import { Table, App, Page, SearchBar } from '@zswl/components'
 import { ClientSelect } from '@/components/Select'
 import { useEffect, useState } from 'react'
-import ApprovalHistoryModal from '@/components/Process/ApprovalHistoryModal'
-import ProcessTypeTree from '@/components/Process/ProcessTypeTree'
+import {
+  ProcessApprovalHistoryModal as ApprovalHistoryModal,
+  ProcessTypeTree,
+} from '@/components/Process/ProcessEntries'
 import { saveServer } from '@/utils'
 import customeApi from '@/api/customer/maintainApi'
 

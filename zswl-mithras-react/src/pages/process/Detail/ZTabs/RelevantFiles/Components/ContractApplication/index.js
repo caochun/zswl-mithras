@@ -8,7 +8,7 @@ import Api from '@/api/contract/contractDetail'
 import StartRentZiLiao from '@/components/Contract/StartRentMaterials'
 import SettlementProtocol from '@/components/Contract/SettlementProtocol'
 import ChangeProtocol from '@/components/Contract/ChangeProtocol'
-import BlankBlock from '@/components/Process/BlankBlock'
+import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { useEffect, useMemo, useState } from 'react'
 
 const Index = ({ detailData, canEdit }) => {

@@ -10,8 +10,10 @@ import ProjectPricing from './Components/ProjectPricing'
 import { useFlowData } from '@/utils/processFlow'
 import ChangeReason from './ChangeReason'
 import styles from './index.less'
-import BlankBlock from '@/components/Process/BlankBlock'
-import ApprovalHistory from '@/components/Process/ApprovalHistory'
+import {
+  ProcessApprovalHistory as ApprovalHistory,
+  ProcessBlankBlock as BlankBlock,
+} from '@/components/Process/ProcessEntries'
 
 import CustomerRat from './Components/CustomerRat'
 

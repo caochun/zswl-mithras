@@ -1,1 +1,1 @@
-export { default } from '@/components/Process/Snapshoot'
+export { ProcessSnapshoot as default } from '@/components/Process/ProcessEntries'

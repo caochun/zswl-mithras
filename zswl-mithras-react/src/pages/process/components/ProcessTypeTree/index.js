@@ -1,1 +1,1 @@
-export { default } from '@/components/Process/ProcessTypeTree'
+export { ProcessTypeTree as default } from '@/components/Process/ProcessEntries'
