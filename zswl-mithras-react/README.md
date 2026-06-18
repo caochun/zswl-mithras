@@ -63,6 +63,7 @@
 - `Chart/BarChartEntries.js`
 - `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
+- `CheckBusiness/CheckBusinessEntries.js`
 - `Contract/ApplicationDetailEntries.js`
 - `Contract/BaseInfoEntries.js`
 - `Contract/ConfigEntries.js`

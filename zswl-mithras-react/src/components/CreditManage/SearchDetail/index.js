@@ -9,7 +9,7 @@ import AgentMaterials from './AgentMaterials'
 import CreditReport from './CreditReport'
 import ReportModal from './ReportModal'
 import { Button } from 'antd'
-import CheckBusiness from '@/components/CheckBusiness'
+import { BusinessInfoCheck as CheckBusiness } from '@/components/CheckBusiness/CheckBusinessEntries'
 
 const Detail = ({ params: { id }, taskActivityId }) => {
   const checkBusinessRef = useRef(null)
