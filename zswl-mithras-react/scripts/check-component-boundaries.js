@@ -731,6 +731,11 @@ for (const filePath of sourceFiles) {
         specifier: `${specifier} (use @/components/${stabilizedComponentRootImports.get(componentRootImportDomain)})`,
       })
     } else if (specifier === '@/components') {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use the concrete component entry)`,
+      })
+
       for (const namedImport of extractNamedImports(importText)) {
         if (stableTableRootImports.has(namedImport)) {
           violations.push({
