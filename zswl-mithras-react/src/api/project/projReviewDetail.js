@@ -20,4 +20,13 @@ export default {
   sourceSceneValidate: (params) => http.post('/proj/review/client/materials/check', params),
   ratingCheck: (params) => http.post('/proj/review/rating/check', params),
   postProjectDataDetail: (params) => http.post('/materials/proj/review/list', params),
+  postProjectReviewMaterialsUpload: (params) =>
+    http.post('/materials/upload', params, {
+      headers: {
+        functionCode: 'materialsupload',
+      },
+      transformResult: (res) => res.data,
+      timeout: 0,
+      type: 'upload',
+    }),
 }

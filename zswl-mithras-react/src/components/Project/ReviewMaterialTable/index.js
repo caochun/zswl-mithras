@@ -1,8 +1,7 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { FileTable } from '@/components/Table'
-import { App, Button } from '@zswl/components'
-import { history, getQuery } from '@zswl/admin'
-import dataListApi from '@/api/common/materialsApi'
+import { App } from '@zswl/components'
+import Api from '@/api/project/projReviewDetail'
 
 const nameMap = {
   PROJ_REVIEW: '项目评审资料',
@@ -22,15 +21,13 @@ const ProjectCreateData = (props) => {
     },
   ]
   const { optionsType } = App.getData()
-  const enumType = canEditFlag
-    ? canEditFlag
-    : [
-        { value: 'PROJ_INFORMATION', label: '基本信息' },
-        ...optionsType.normalMaterialsType,
-        ...optionsType.materialsType,
-        ...optionsType?.projEstablishMaterialsEnum,
-        ...optionsType?.projEstablishMaterialsApproveEnum,
-      ]
+  const enumType = [
+    { value: 'PROJ_INFORMATION', label: '基本信息' },
+    ...optionsType.normalMaterialsType,
+    ...optionsType.materialsType,
+    ...optionsType?.projEstablishMaterialsEnum,
+    ...optionsType?.projEstablishMaterialsApproveEnum,
+  ]
   const dataSource = useMemo(() => {
     return (
       businessMaterialList?.map((item, index) => {
@@ -64,17 +61,14 @@ const ProjectCreateData = (props) => {
           </div>
         }
         canEdit={canEditFlag}
-        uploadApi={({ file, fileType: materialsType }) =>
-          dataListApi.postMaterialsUpload(
-            {
-              file,
-              belongId: id,
-              businessType: MODULE_TYPE,
-              materialsType: v.value,
-              materialsSubType: materialsType,
-            },
-            'materialsupload'
-          )
+        uploadApi={({ file, fileType, enumType: materialsType }) =>
+          Api.postProjectReviewMaterialsUpload({
+            file,
+            belongId: mainId,
+            businessType,
+            materialsType,
+            materialsSubType: fileType,
+          })
         }
         columns={columns}
         tableApi={() => dataSource}
