@@ -34,6 +34,12 @@ const orchestrationTargetScopes = new Set([
   'components/Process',
 ])
 
+const componentAliases = new Map([
+  ['ClientFileTable', 'ClientMaterialTable'],
+  ['FileDiff', 'ChangeLogDiff'],
+  ['PaymentApplyColumns', 'PaymentFtpColumns'],
+])
+
 const publicComponentRoots = new Set([
   'Actions',
   'Amount',
@@ -66,6 +72,10 @@ const publicComponentRoots = new Set([
 
 function normalizeDomain(domain) {
   return domainAliases.get(domain) || domain
+}
+
+function normalizeComponentDomain(domain) {
+  return componentAliases.get(domain) || domain
 }
 
 function walk(dir, files = []) {
@@ -102,9 +112,10 @@ function getSourceScope(relativeFilePath) {
 
   const [, componentDomain] = relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
   if (componentDomain) {
+    const normalizedComponentDomain = normalizeComponentDomain(componentDomain)
     return {
-      key: `components/${componentDomain}`,
-      domain: normalizeDomain(componentDomain),
+      key: `components/${normalizedComponentDomain}`,
+      domain: normalizeDomain(normalizedComponentDomain),
       kind: 'components',
     }
   }
@@ -124,13 +135,14 @@ function getSourceScope(relativeFilePath) {
 function getTargetScope(specifier) {
   const [, componentDomain] = specifier.match(/^@\/components\/([^/'"]+)/) || []
   if (componentDomain) {
-    if (publicComponentRoots.has(componentDomain)) {
+    const normalizedComponentDomain = normalizeComponentDomain(componentDomain)
+    if (publicComponentRoots.has(normalizedComponentDomain)) {
       return null
     }
 
     return {
-      key: `components/${componentDomain}`,
-      domain: normalizeDomain(componentDomain),
+      key: `components/${normalizedComponentDomain}`,
+      domain: normalizeDomain(normalizedComponentDomain),
       kind: 'components',
     }
   }
