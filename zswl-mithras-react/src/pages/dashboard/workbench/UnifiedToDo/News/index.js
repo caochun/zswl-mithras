@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { observer, history } from '@zswl/admin'
 import { Space, List, Tooltip, Modal, message, Divider } from 'antd'
-import Api from '@/api/message/messageNotification'
+import Api from '@/api/dashboard/workbenchMessageApi'
 import { RadioTabs } from '@/components'
 import { CheckOutlined, RightOutlined } from '@ant-design/icons'
 import { sleep } from '@/utils'
