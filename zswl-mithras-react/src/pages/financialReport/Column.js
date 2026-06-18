@@ -1,1 +1,1 @@
-export { FinancialReportCommonColumns as COMMON_COLUMNS } from '@/components/Report/FinancialReportEntries'
+export { FinancialReportCommonColumns as COMMON_COLUMNS } from '@/components/Report/FinancialReportListEntries'

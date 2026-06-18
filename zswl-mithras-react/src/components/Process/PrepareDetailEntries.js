@@ -9,7 +9,7 @@ export { FilingMaterialsFundApply as PrepareFundFilingMaterialsApply } from '@/c
 export { FinancialDirectDetail as PrepareFinancialDirect } from '@/components/Financial/DirectDetailEntries'
 export { FinancialFundDetail as PrepareFinancialFund } from '@/components/Financial/FundProcessEntries'
 export { FinancialFinancingCarryInterestFlow as PrepareFinancialCarryInterest } from '@/components/Financial/FinancingCarryInterestEntries'
-export { FinancialReportApproval as PrepareFinancialReportApproval } from '@/components/Report/FinancialReportEntries'
+export { FinancialReportApproval as PrepareFinancialReportApproval } from '@/components/Report/FinancialReportApprovalEntries'
 export { KpiProjectAllotDetail as PrepareKpiProjectAllocation } from '@/components/Kpi/ProjectAllotEntries'
 export { RiskOverdueListSearch as PrepareOverdueListSearch } from '@/components/Risk/OverdueEntries'
 export { BudgetProfitDistribution as PrepareProfitDistribution } from '@/components/Budget/ProfitDistributionEntries'

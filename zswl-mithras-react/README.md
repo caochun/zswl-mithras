@@ -100,7 +100,8 @@
 - `Project/ReviewMeetingEntries.js`
 - `Project/ReviewProcessEntries.js`
 - `Project/ReviewSnapshotEntries.js`
-- `Report/FinancialReportEntries.js`
+- `Report/FinancialReportApprovalEntries.js`
+- `Report/FinancialReportListEntries.js`
 - `Report/OperationEntries.js`
 - `Risk/ConcentrationControlEntries.js`
 - `Risk/MetricValueEntries.js`

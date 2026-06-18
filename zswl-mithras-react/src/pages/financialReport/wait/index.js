@@ -1,9 +1,9 @@
 import { Table, Button, Modal, Form, Page, Select, App } from '@zswl/components'
 import { Space, DatePicker, Input } from 'antd'
-import { FinancialReportCommonColumns as COMMON_COLUMNS } from '@/components/Report/FinancialReportEntries'
+import { FinancialReportCommonColumns as COMMON_COLUMNS } from '@/components/Report/FinancialReportListEntries'
 import { useMemo } from 'react'
 import Store from './store'
-import { FinancialReportDetailModal as DetailModal } from '@/components/Report/FinancialReportEntries'
+import { FinancialReportDetailModal as DetailModal } from '@/components/Report/FinancialReportListEntries'
 import ReportModal from './ReportModal'
 import { observer } from '@zswl/admin'
 
