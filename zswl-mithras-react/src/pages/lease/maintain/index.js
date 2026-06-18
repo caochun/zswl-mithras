@@ -2,7 +2,7 @@ import { Button, Page, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { useMemo } from 'react'
 import { getTableColumns, getFormColumns } from '@/utils'
-import ALL_COLUMNS from './Column'
+import ALL_COLUMNS from '@/components/Lease/Maintain/Column'
 import Store from './store'
 import { saveServer } from '@/utils'
 

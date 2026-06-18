@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
 import { Checkbox, message } from 'antd'
 import { App } from '@zswl/components'
-import Api from '../api'
+import Api from '@/api/lease/maintainApi'
 import { hasPermission } from '@/utils'
 
 function Index({ id, canEdit = true, baseStore = {} }) {

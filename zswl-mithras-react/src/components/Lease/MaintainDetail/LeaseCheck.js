@@ -2,7 +2,7 @@ import EditDescription from '@/components/Table/EditDescription'
 import { DatePickerEditable } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
-import Api from '../api'
+import Api from '@/api/lease/maintainApi'
 import { hasPermission } from '@/utils'
 
 function Index({ id, canEdit = true, isLog }) {

@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { Modal, Button } from '@zswl/components'
 import { Switch, Space } from 'antd'
 import fileListApi from '@/api/common/fileList'
-import Api from '../api'
+import Api from '@/api/lease/maintainApi'
 import { downUrl, getUserInfo } from '@/utils'
 
 const modalTitleStyle = {
