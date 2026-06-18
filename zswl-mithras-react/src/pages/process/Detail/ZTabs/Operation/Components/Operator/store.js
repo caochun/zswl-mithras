@@ -4,7 +4,7 @@ import customerRatApi from '@/api/customer/customerRat/customerRatApi'
 import PaymentApplicationDetailApi from '@/api/cpm/payment/paymentApplicationDetail'
 import { customerRatingUploadFile as uploadFile } from '@/components/Customer/CustomerRatingUploadEntries'
 import { getApprovalText, indexCheck } from '@/customer/CustomerRatUtils'
-import OtherFilingMaterialsDetailApi from '@/api/filingMaterials/otherFilingMaterialsDetail'
+import FilingMaterialsApi from '@/api/process/detail/filingMaterialsApi'
 import FinancialReportStatisticsApi from '@/api/project/projReviewFinancialReport'
 import { history, makeAutoObservable } from '@zswl/admin'
 import { FormStore, Modal, ModalStore } from '@zswl/components'
@@ -133,7 +133,7 @@ class Store {
     ]
     const validateData = validateDataList.includes(curTaskActivityIds) || validateDataList.includes(taskActivityId)
     if (modelKey === 'OtherFilingMaterialsApplyFlow' && validateData) {
-      const result = await OtherFilingMaterialsDetailApi.checkMaterialsDesc({
+      const result = await FilingMaterialsApi.checkMaterialsDesc({
         id: businessKey,
       })
       if (!result) return

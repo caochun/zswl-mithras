@@ -132,6 +132,16 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/filingMaterials/otherFilingMaterialsDetail',
+    replacementPrefix:
+      '@/api/process/detail/filingMaterialsApi or @/api/filingMaterials/otherFilingMaterialsDetail in FilingMaterials domain',
+    allowedSourceDomains: ['FilingMaterials'],
+    allowedSourcePathPrefixes: [
+      'src/api/process/detail/filingMaterialsApi.js',
+      'src/pages/fillingMaterialsDetail/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/approval/processModifyRemarkApi',
     replacementPrefix:
       '@/api/<domain>/approvalRemarkApi or @/api/common/approvalRemarkApi for shared approval components',

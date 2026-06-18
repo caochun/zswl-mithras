@@ -247,6 +247,7 @@
 - `newFtp`：新版 FTP 定价接口历史命名目录；预算定价页面和组件优先使用 `src/api/budget/pricing/ftp` 下的兼容入口。
 - `financialReport`、`manageReport`：报表接口历史命名目录；报表页面和组件优先使用 `src/api/report` 下的兼容入口。
 - `fillingMaterialsDetail`、`fillingMaterials`：归档资料接口和路由的历史拼写目录；资料归集页面和组件优先使用 `src/api/filingMaterials`、`src/components/FilingMaterials` 下的兼容入口。
+- `filingMaterials/otherFilingMaterialsDetail`：其他资料归集接口保留在资料归集域；流程提交前做资料说明校验时优先使用 `src/api/process/detail/filingMaterialsApi` 聚合入口。
 - `common/customerOverview`：客户总览接口的历史公共目录；dashboard 客户总览页面优先使用 `src/api/dashboard/customerOverview`，客户视图页面优先使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时优先通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API。
 - `workbench`：工作台/看板相关接口历史生成目录；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
