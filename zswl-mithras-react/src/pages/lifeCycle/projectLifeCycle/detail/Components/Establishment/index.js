@@ -4,7 +4,7 @@ import styles from '../../index.less'
 import BaseModule from '../BaseModule'
 import store from '../../store'
 import { amountFormat } from '@/utils'
-import NoData from '@/components/LifeCycle/NoData'
+import { LifeCycleNoData as NoData } from '@/components/LifeCycle/LifeCycleEntries'
 const Establishment = () => {
   const { projEstablish } = store.page.getData()
   const {

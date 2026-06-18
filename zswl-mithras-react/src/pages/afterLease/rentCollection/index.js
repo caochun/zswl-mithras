@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Pagination, Radio, Space } from 'antd'
 import { observer } from '@zswl/admin'
 import { RentCollectionListRender as ListRender } from '@/components/AfterLease/RentCollectionEntries'
-import NoData from '@/components/LifeCycle/NoData'
+import { LifeCycleNoData as NoData } from '@/components/LifeCycle/LifeCycleEntries'
 import InterestModal from './InterestModal'
 
 const { Item } = Form

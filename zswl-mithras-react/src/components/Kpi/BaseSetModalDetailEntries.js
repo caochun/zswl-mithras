@@ -1,4 +1,6 @@
 export { default as KpiBaseSetModalDetail } from './BaseSetModalDetail'
+export { default as KpiBeautyTable } from './BeautyTable'
+export { default as KpiModalEditTable } from './ModalEditTable'
 export { default as KpiBaseSetBaBeiJiTi } from './BaseSetModalDetail/BaBeiJiTi'
 export { default as KpiBaseSetBuMenLiLun } from './BaseSetModalDetail/BuMenLiLun'
 export { default as KpiBaseSetFeiYongJiTi } from './BaseSetModalDetail/FeiYongJiTi'

@@ -6,7 +6,7 @@ import { history, observer } from '@zswl/admin'
 import { App } from '@zswl/components'
 import { amountFormat, hasValue } from '@/utils'
 import { Col, Row, Tooltip } from 'antd'
-import NoData from '@/components/LifeCycle/NoData'
+import { LifeCycleNoData as NoData } from '@/components/LifeCycle/LifeCycleEntries'
 const Review = () => {
   const { projReview } = store.page.getData()
 
