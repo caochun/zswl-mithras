@@ -17,7 +17,7 @@ const componentApiForwardingShellPattern =
 const privateComponentPathPattern = /^@\/components\/[^'"]+\/(?:api|store|context|config|Config|Column|columns)(?:\.js)?$/
 const deepComponentPathPattern = /^@\/components\/[^'"]+\/[^'"]+\/[^'"]+\/[^'"]+/
 const sharedComponentSubpathPattern =
-  /^@\/components\/(?:Actions|Form|Format|Table)\/[^'"]+|^@\/components\/BreadLine\/config$|^@\/components\/Chart\/tooltip$/
+  /^@\/components\/(?:Actions|Form|Format|Table)\/[^'"]+|^@\/components\/Chart\/tooltip$/
 const nonEntryComponentSubpathPattern =
   /^@\/components\/[^/'"]+\/(?![^/'"]*(?:Entries|entries)(?:\.js)?$)[^/'"]+(?:\.js)?$/
 const componentEntryPathPattern =
@@ -62,7 +62,6 @@ const stableSelectRootImports = new Set([
 ])
 const stableDefaultComponentRootImports = new Map([
   ['Amount', 'Amount'],
-  ['AmountNumber', 'AmountNumber'],
   ['Collapse', 'Collapse'],
   ['CommonTips', 'CommonTips'],
   ['CurrentSteps', 'CurrentSteps'],
@@ -78,9 +77,7 @@ const stableDefaultComponentRootImports = new Map([
 const publicComponentRootImports = new Set([
   'Actions',
   'Amount',
-  'AmountNumber',
   'AmountRange',
-  'BreadLine',
   'Collapse',
   'CommonTips',
   'CurrentSteps',

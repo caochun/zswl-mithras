@@ -1,7 +1,7 @@
 import { Modal, Form } from '@zswl/components'
 import { DatePicker } from 'antd'
 import Amount from '@/components/Amount'
-import AmountNumber from '@/components/AmountNumber'
+import { CpmAmountNumber } from '@/components/Cpm/CpmEntries'
 import { rules } from '@/utils'
 
 const { Item } = Form
@@ -12,7 +12,7 @@ const Index = ({ store }) => {
       <Form labelCol={{ span: 6 }} preserve={false}>
         <Item name="amount" label="交易金额" rules={[rules.required()]}>
           <Amount>
-            <AmountNumber />
+            <CpmAmountNumber />
           </Amount>
         </Item>
         <Item label={'评估日期'} name={'assessDate'} rules={[rules.required()]}>

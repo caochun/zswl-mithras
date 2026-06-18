@@ -5,7 +5,7 @@ import IconFont from '@/components/Icon'
 import { BackTop, Empty, message, Space } from 'antd'
 import { observer, getLatestPublishData, matchRoute, useAppContext, getQuery } from '@zswl/admin'
 import { useEffect } from 'react'
-import BreadLine from '@/components/BreadLine'
+import BreadLine from './components/BreadLine'
 import moment from 'moment'
 import BreadcrumbList, { getPurePath } from './BreadcrumbList'
 

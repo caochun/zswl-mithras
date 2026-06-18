@@ -9,4 +9,4 @@ export { default as EditAction } from './Edit' // 编辑按钮操作
 export { default as DistributeAction } from './Distribute' // 派发按钮操作
 export { default as TransmitAction } from './Transmit' // 转派按钮操作
 
-export { default as ApprovalOperation } from '../ApprovalOperation' // 审批意见，详情，操作人，时间等
+export { default as ApprovalOperation } from './ApprovalOperation' // 审批意见，详情，操作人，时间等

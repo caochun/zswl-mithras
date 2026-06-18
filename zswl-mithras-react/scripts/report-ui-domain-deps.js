@@ -37,9 +37,7 @@ const orchestrationTargetScopes = new Set([
 const publicComponentRoots = new Set([
   'Actions',
   'Amount',
-  'AmountNumber',
   'AmountRange',
-  'BreadLine',
   'Chart',
   'ClientFileTable',
   'Collapse',

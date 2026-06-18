@@ -4,7 +4,7 @@ import { App } from '@zswl/components'
 import { Breadcrumb } from 'antd'
 import { useMemo } from 'react'
 import _ from 'lodash'
-import { breadPageBack, pathnameToPathInfo } from '@/components/BreadLine'
+import { breadPageBack, pathnameToPathInfo } from './components/BreadLine'
 import SpecialPath from './SpecialPath'
 
 export const getPurePath = (pathname) => {
