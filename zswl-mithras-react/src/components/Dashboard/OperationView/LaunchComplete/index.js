@@ -1,7 +1,7 @@
 import { useMemo, useEffect } from 'react'
 import { observer } from '@zswl/admin'
 import CardPanelFieldsFilter from '../../CardPanelFieldsFilter'
-import RadioTabs from '@/components/RadioTabs'
+import RadioTabs from '../../RadioTabs'
 import { DatePicker } from 'antd'
 import { Form, SearchBar, App, Button } from '@zswl/components'
 import { UnorderedListOutlined } from '@ant-design/icons'
