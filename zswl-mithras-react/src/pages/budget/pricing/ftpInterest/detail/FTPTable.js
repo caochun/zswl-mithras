@@ -1,6 +1,6 @@
 import { Table, TableStore } from '@zswl/components'
 import { getTableColumns, getFormColumns } from '@/utils'
-import Api from '@/api/pricing/ftpInterest'
+import Api from '@/api/budget/pricing/ftpInterest'
 import { useMemo } from 'react'
 import ALL_COLUMNS from '../Column'
 import { saveServer } from '@/utils'

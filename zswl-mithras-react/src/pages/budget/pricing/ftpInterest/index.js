@@ -2,7 +2,7 @@ import { Page, Table, TableStore, ModalStore, PageStore } from '@zswl/components
 import { useMemo, useRef } from 'react'
 import { getTableColumns, getFormColumns } from '@/utils'
 import ALL_COLUMNS from './Column'
-import Api from '@/api/pricing/ftpInterest'
+import Api from '@/api/budget/pricing/ftpInterest'
 import localApi from './priceDetail/api'
 import { PageListDown } from '@/components'
 import FtpRunModal from './FtpRunModal'
