@@ -1,5 +1,5 @@
 import EditDescription from '@/components/Table/EditDescription'
-import ALL_COLUMNS from '@/components/Contract/PaymentApplyColumns'
+import ALL_COLUMNS from '@/components/PaymentApplyColumns'
 import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Space, Form, message } from 'antd'
