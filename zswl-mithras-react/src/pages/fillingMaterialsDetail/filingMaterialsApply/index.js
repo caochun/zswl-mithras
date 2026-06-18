@@ -1,1 +1,1 @@
-export { default } from '@/components/FilingMaterials/FilingMaterialsApply'
+export { FilingMaterialsApply as default } from '@/components/FilingMaterials/FilingMaterialsEntries'

@@ -1,4 +1,4 @@
-import AfterFilingMaterialsApplyFlowDetail from '@/components/FilingMaterials/AfterFilingMaterialsApply'
+import { FilingMaterialsAfterApply as AfterFilingMaterialsApplyFlowDetail } from '@/components/FilingMaterials/FilingMaterialsEntries'
 
 const AfterFilingMaterialsApply = ({ id, canEditFlag, taskActivityId }) => {
   return (

@@ -1,4 +1,4 @@
-import OtherFilingMaterialsApplyFlowDetail from '@/components/FilingMaterials/OtherFilingMaterialsApply'
+import { FilingMaterialsOtherApply as OtherFilingMaterialsApplyFlowDetail } from '@/components/FilingMaterials/FilingMaterialsEntries'
 
 const OtherFilingMaterialsApply = ({ id, taskActivityId, curTaskActivityIds }) => {
   return (

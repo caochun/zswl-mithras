@@ -3,7 +3,7 @@ import { AfterLeasePolicyManageRemind as PolicyRemind } from '@/components/After
 import CreditReportSelectFlow from '@/components/CreditManage/SearchDetail'
 import { CustomerApplyPermission as ApplyPermission } from '@/components/Customer/CustomerEntries'
 import { CustomerMaintainDetail as CustomerDetail } from '@/components/Customer/CustomerEntries'
-import FilingMaterialsApply from '@/components/FilingMaterials/FilingMaterialsApply'
+import { FilingMaterialsApply } from '@/components/FilingMaterials/FilingMaterialsEntries'
 import Adjust from '../../Adjust'
 import AfterLeaseCheck from '../../AfterLeaseCheck'
 import AfterLeaseCheckExternal from '../../AfterLeaseCheckExternal'
