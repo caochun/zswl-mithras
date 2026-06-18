@@ -30,6 +30,16 @@ export default {
   // 征信报告查询详情保存
   postBaseSave: (data: Types.BaseSaveRequest): Promise<Types.BaseSaveResponse> =>
     http.post('/creditreport/base/save', data, { mock }),
+  postCreditReportSelectFileUpload: (data: any): Promise<any> =>
+    http.post('/file/upload', data, {
+      mock,
+      type: 'upload',
+      transformResult: (res) => res.data,
+      timeout: 0,
+      headers: {
+        functionCode: 'creditReportSelectFileUpload',
+      },
+    }),
 
   // 征信查询删除
   getBaseDelete: (params: Types.BaseDeleteRequest): Promise<Types.BaseDeleteResponse> =>

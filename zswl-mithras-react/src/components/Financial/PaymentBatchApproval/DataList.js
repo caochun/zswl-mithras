@@ -1,5 +1,4 @@
 import { observer } from '@zswl/admin'
-import Api from '@/api/common/fileList'
 import { NoEnumFileTable } from '@/components/Table'
 
 const MODULE_TYPE = 'BATCH_FUND_RECEIPT_REPAY'

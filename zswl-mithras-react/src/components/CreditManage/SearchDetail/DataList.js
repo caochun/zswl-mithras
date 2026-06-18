@@ -1,6 +1,5 @@
-import fileList from '@/api/common/fileList'
+import creditReportApi from '@/api/credit/creditReportApi'
 import { FileTable } from '@/components/Table'
-import { toHump3 } from '@/utils'
 import { observer } from '@zswl/admin'
 import { message } from 'antd'
 
@@ -42,17 +41,14 @@ const Index = ({ mainId, canEdit = true, dataSource = [] }) => {
               <div style={{ fontSize: 12, color: '#ff4d4f' }}>只能上传 jpg 和 jpeg 格式的文件</div>
             }
             uploadApi={async ({ file, fileType }) =>
-              await fileList.postFileUpload(
-                {
-                  file,
-                  mainId: item.id,
-                  moduleType: MODULE_TYPE,
-                  materialsType: 'ENTERPRISE_CREDIT_REPORT',
-                  materialsSubType: fileType,
-                  sourceBusinessKey: item.clientId,
-                },
-                `${toHump3(MODULE_TYPE)}FileUpload`
-              )
+              await creditReportApi.postCreditReportSelectFileUpload({
+                file,
+                mainId: item.id,
+                moduleType: MODULE_TYPE,
+                materialsType: 'ENTERPRISE_CREDIT_REPORT',
+                materialsSubType: fileType,
+                sourceBusinessKey: item.clientId,
+              })
             }
             params={{
               mainId: item.id,

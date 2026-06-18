@@ -1,6 +1,6 @@
 import { FileTable } from '@/components/Table'
 import { getQuery, observer } from '@zswl/admin'
-import fileList from '@/api/common/fileList'
+import fundReceiptRepayBaseInfoApi from '@/api/financial/fundReceiptRepayBaseInfoApi'
 
 const Index = (props) => {
   const { id: mainId, canEdit = true, businessVersion } = props
@@ -24,7 +24,7 @@ const Index = (props) => {
       canEdit={false}
       columns={columns}
       tableApi={() =>
-        fileList.postFundReceiptReapyList({
+        fundReceiptRepayBaseInfoApi.postFundReceiptRepayMaterialsList({
           id: mainId,
           version: isFormApproval ? businessVersion : undefined,
         })

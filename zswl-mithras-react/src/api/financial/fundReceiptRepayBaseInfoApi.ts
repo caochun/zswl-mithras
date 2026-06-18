@@ -30,6 +30,8 @@ export default {
       },
       transformResult: (res) => res.data,
     }),
+  postFundReceiptRepayMaterialsList: (data: any): Promise<any> =>
+    http.post('/materials/fund/receipt/reapy/list', data, { mock }),
 
   // 收付款详情
   postInfoDetail: (data: Types.InfoDetailRequest): Promise<Types.InfoDetailResponse> =>

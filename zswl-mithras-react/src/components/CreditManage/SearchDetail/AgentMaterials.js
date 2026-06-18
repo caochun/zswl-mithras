@@ -1,6 +1,5 @@
-import fileList from '@/api/common/fileList'
+import creditReportApi from '@/api/credit/creditReportApi'
 import { FileTable } from '@/components/Table'
-import { toHump3 } from '@/utils'
 import { observer } from '@zswl/admin'
 import { message } from 'antd'
 
@@ -38,17 +37,14 @@ const Index = ({ mainId, canEdit = true, dataSource = [] }) => {
               },
             }}
             uploadApi={async ({ file, fileType }) =>
-              await fileList.postFileUpload(
-                {
-                  file,
-                  mainId: item.id,
-                  moduleType: MODULE_TYPE,
-                  materialsType: 'HANDLER_CREDIT_REPORT',
-                  materialsSubType: fileType,
-                  sourceBusinessKey: item.clientId,
-                },
-                `${toHump3(MODULE_TYPE)}FileUpload`
-              )
+              await creditReportApi.postCreditReportSelectFileUpload({
+                file,
+                mainId: item.id,
+                moduleType: MODULE_TYPE,
+                materialsType: 'HANDLER_CREDIT_REPORT',
+                materialsSubType: fileType,
+                sourceBusinessKey: item.clientId,
+              })
             }
             params={{
               mainId: item.id,
