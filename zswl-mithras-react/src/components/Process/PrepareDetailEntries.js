@@ -11,5 +11,5 @@ export { FinancialFundDetail as PrepareFinancialFund } from '@/components/Financ
 export { FinancialFinancingCarryInterestFlow as PrepareFinancialCarryInterest } from '@/components/Financial/FinancialEntries'
 export { FinancialReportApproval as PrepareFinancialReportApproval } from '@/components/Report/FinancialReportEntries'
 export { KpiProjectAllotDetail as PrepareKpiProjectAllocation } from '@/components/Kpi/ProjectAllotEntries'
-export { RiskOverdueListSearch as PrepareOverdueListSearch } from '@/components/Risk/RiskEntries'
+export { RiskOverdueListSearch as PrepareOverdueListSearch } from '@/components/Risk/OverdueEntries'
 export { BudgetProfitDistribution as PrepareProfitDistribution } from '@/components/Budget/BudgetEntries'

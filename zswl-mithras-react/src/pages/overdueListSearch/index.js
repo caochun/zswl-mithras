@@ -1,1 +1,1 @@
-export { RiskOverdueListSearch as default } from '@/components/Risk/RiskEntries'
+export { RiskOverdueListSearch as default } from '@/components/Risk/OverdueEntries'
