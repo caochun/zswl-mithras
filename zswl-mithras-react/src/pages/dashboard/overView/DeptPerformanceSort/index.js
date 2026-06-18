@@ -1,5 +1,5 @@
 import Title from '@/components/Dashboard/OverviewTitle'
-import ProjectStage from '@/components/Dashboard/MyAchievement/Department'
+import { MyAchievementDepartment as ProjectStage } from '@/components/Dashboard/MyAchievementEntries'
 
 const Index = ({ title }) => {
   return (

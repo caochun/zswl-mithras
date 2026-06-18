@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/MyAchievement/AchievementCard'
+export { MyAchievementCard as default } from '@/components/Dashboard/MyAchievementEntries'

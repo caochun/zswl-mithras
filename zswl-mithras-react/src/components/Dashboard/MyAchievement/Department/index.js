@@ -1,7 +1,7 @@
 import { Table } from '@zswl/components'
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import AchievementCard from '@/components/Dashboard/MyAchievement/AchievementCard'
+import AchievementCard from '../AchievementCard'
 import { columns } from '@/components/Dashboard/AchievementColumns'
 import Store from './Store'
 import { saveServer } from '@/utils'

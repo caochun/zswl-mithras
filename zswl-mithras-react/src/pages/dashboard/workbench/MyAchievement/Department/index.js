@@ -1,1 +1,1 @@
-export { default } from '@/components/Dashboard/MyAchievement/Department'
+export { MyAchievementDepartment as default } from '@/components/Dashboard/MyAchievementEntries'
