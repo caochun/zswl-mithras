@@ -57,4 +57,4 @@ export const tabList = [
   },
 ]
 
-export { CREATETABLE_PARAMS, AmountFormat, getHeaderWithFunctionCode } from '@/components/CreditManage/CreditTableConfig'
+export { CREATETABLE_PARAMS, AmountFormat, getHeaderWithFunctionCode } from '../../CreditTableConfig'
