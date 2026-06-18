@@ -1,6 +1,6 @@
 import { Button, Modal } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/cpm/payment/paymentApplicationDetail'
 import { getUserInfo, isYunYingGuanLi } from '@/utils'
 import { InfoCircleFilled, InfoCircleOutlined } from '@ant-design/icons'
 

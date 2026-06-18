@@ -3,7 +3,7 @@ import { http, makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
 import { all, create } from 'mathjs'
-import Api from './api'
+import Api from '@/api/cpm/payment/paymentApplicationDetail'
 export {
   checkCreditDate,
   postPayMentCheckApplyAmount,
@@ -126,8 +126,6 @@ class Store {
     },
   })
 
-  // 审批日志
-  journalTable = new TableStore({})
   publicModal = new ModalStore({})
   checkPublic = async (afterFunc) => {
     const paymentId = this.page.getParams().id
