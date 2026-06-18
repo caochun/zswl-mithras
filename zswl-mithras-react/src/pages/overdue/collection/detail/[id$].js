@@ -5,7 +5,7 @@ import Store from './store'
 import BaseInfo from './BaseInfo'
 import BaseInfoTable from './BaseInfoTable'
 import CollectionRecord from './CollectionRecord'
-import { CollectionModal } from '@/components/Overdue/CollectionModal'
+import { OverdueCollectionModal as CollectionModal } from '@/components/Overdue/OverdueEntries'
 
 const Detail = ({ params: { id }, query: { bizType, newProject, canEditFlags = 'true' } }) => {
   const store = useMemo(() => {
@@ -51,4 +51,7 @@ const Detail = ({ params: { id }, query: { bizType, newProject, canEditFlags = '
 
 export default observer(Detail)
 
-export { default as CollectionModal, getContractList } from '@/components/Overdue/CollectionModal'
+export {
+  OverdueCollectionModal as CollectionModal,
+  getOverdueCollectionContractList as getContractList,
+} from '@/components/Overdue/OverdueEntries'

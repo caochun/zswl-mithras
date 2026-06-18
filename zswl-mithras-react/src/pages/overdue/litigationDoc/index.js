@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import store from './store'
 import { MatchOptionColumn } from '@/components/Format'
 import { FounderSelect, PageListDown } from '@/components'
-import AddModal from '@/components/Overdue/LitigationDocAddModal'
+import { OverdueLitigationDocAddModal as AddModal } from '@/components/Overdue/OverdueEntries'
 import { saveServer } from '@/utils'
 
 function Index({ path }) {
