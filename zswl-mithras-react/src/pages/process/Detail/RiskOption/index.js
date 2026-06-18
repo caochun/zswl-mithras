@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { RiskPublicMonitorDetail as MonitorEarly } from '@/components/Risk/RiskEntries'
+import { RiskPublicMonitorDetail as MonitorEarly } from '@/components/Risk/PublicMonitorEntries'
 import PublicMonitor from '../PublicMonitor'
 
 const Index = (props) => {
