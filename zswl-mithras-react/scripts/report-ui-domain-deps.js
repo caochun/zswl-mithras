@@ -27,6 +27,12 @@ const ignoredSourcePathPatterns = [
   /^src[\\/]pages[\\/]demo[\\/]/,
 ]
 
+const orchestrationComponentRoots = new Set([
+  'Process',
+  'ProcessInfoModal',
+  'RiskActions',
+])
+
 const publicComponentRoots = new Set([
   'Actions',
   'Amount',
@@ -226,8 +232,14 @@ if (sortedEdges.length === 0) {
   process.exit(0)
 }
 
-const domainImplementationEdges = sortedEdges.filter((edge) => !edge.sourceScope.startsWith('pages/'))
-const pageOrchestrationEdges = sortedEdges.filter((edge) => edge.sourceScope.startsWith('pages/'))
+const orchestrationEdges = sortedEdges.filter(
+  (edge) =>
+    edge.sourceScope.startsWith('pages/') ||
+    [...orchestrationComponentRoots].some((root) => edge.sourceScope === `components/${root}`)
+)
+const domainImplementationEdges = sortedEdges.filter(
+  (edge) => !orchestrationEdges.includes(edge)
+)
 
 function printEdges(title, edgesToPrint) {
   console.log(title)
@@ -248,7 +260,7 @@ function printEdges(title, edgesToPrint) {
 printEdges('Cross-domain UI dependencies from domain implementation code:', domainImplementationEdges)
 
 console.log('')
-printEdges('Cross-domain UI dependencies from page orchestration code:', pageOrchestrationEdges)
+printEdges('Cross-domain UI dependencies from page or orchestration code:', orchestrationEdges)
 
 console.log('\nUI target fan-in:')
 for (const [target, sources] of [...targetFanIn.entries()].sort(([a], [b]) => a.localeCompare(b))) {
