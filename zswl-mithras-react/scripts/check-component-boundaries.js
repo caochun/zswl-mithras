@@ -175,6 +175,14 @@ const legacyUtilityPrefixRules = [
     replacementPrefix: '@/utils/domains/rzy/RzyConfig',
   },
   {
+    legacyPrefix: '@/utils/options/financialReport',
+    replacementPrefix: '@/utils/domains/report/* when report options are needed',
+  },
+  {
+    legacyPrefix: '@/utils/options/ftp',
+    replacementPrefix: '@/utils/domains/budget/* when FTP pricing options are needed',
+  },
+  {
     legacyPrefix: '@/utils/hooks/useGetStatus',
     replacementPrefix: '@/utils/domains/blackGray/BlackGrayStatusUtils',
   },
