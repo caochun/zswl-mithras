@@ -11,7 +11,7 @@ import {
   FinancialPaymentDetailReceiptAccount as ReceiptAccount,
   FinancialPaymentDetailRefundAccount as RefundAccount,
   FinancialPaymentDetailRepaymentPlan as RepaymentPlan,
-} from '@/components/Financial/PaymentEntries'
+} from '@/components/Financial/PaymentDetailEntries'
 import paymentApprovalApi from '@/api/financial/paymentApprovalApi'
 import FileDiff from '@/components/FileDiff'
 

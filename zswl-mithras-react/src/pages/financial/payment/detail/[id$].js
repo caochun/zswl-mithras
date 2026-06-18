@@ -1,1 +1,1 @@
-export { FinancialPaymentDetail as default } from '@/components/Financial/PaymentEntries'
+export { FinancialPaymentDetail as default } from '@/components/Financial/PaymentDetailEntries'

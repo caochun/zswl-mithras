@@ -72,7 +72,8 @@
 - `Financial/FinancialEntries.js`
 - `Financial/FundListEntries.js`
 - `Financial/FundProcessEntries.js`
-- `Financial/PaymentEntries.js`
+- `Financial/PaymentDetailEntries.js`
+- `Financial/PaymentListEntries.js`
 - `FilingMaterials/FilingMaterialsEntries.js`
 - `Kpi/BaseSetModalDetailEntries.js`
 - `Kpi/KpiEstimationEntries.js`
