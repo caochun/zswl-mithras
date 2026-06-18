@@ -280,10 +280,10 @@ const legacyApiPrefixRules = [
   },
   {
     legacyPrefix: '@/api/financial/fundApi',
-    replacementPrefix: '@/api/contract/lprApi or @/api/financial/fundApi in Financial domain',
+    replacementPrefix: '@/api/contract/priceApi or @/api/financial/fundApi in Financial domain',
     allowedSourceDomains: ['Financial'],
     allowedSourcePathPrefixes: [
-      'src/api/contract/lprApi.js',
+      'src/api/contract/priceApi.js',
       'src/pages/financial/',
     ],
   },
