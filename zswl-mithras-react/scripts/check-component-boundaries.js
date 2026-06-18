@@ -572,6 +572,7 @@ const legacyApiPrefixRules = [
   },
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
+const apiInterfaceImportPattern = /^@\/api\/[^'"]+\/interface\//
 
 function normalizeEntryPath(filePath) {
   return path.relative(path.join(srcDir, 'components'), filePath).split(path.sep).join('/')
@@ -742,6 +743,11 @@ for (const filePath of sourceFiles) {
       violations.push({
         file: relativeFilePath,
         specifier: `${specifier} (use @/api/${legacyApiDomains.get(legacyApiDomain)} semantic entry)`,
+      })
+    } else if (apiInterfaceImportPattern.test(specifier) && !relativeFilePath.startsWith('src/api/')) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use the semantic @/api wrapper instead of interface types directly)`,
       })
     } else if (
       legacyUtilityPrefixRule &&
