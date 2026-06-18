@@ -1,4 +1,4 @@
-import { JFIframe } from '@/components/LoginIframe/LoginIframeEntries'
+import JFIframe from './components/JFIframe'
 
 const Index = () => {
   return <JFIframe path="/bulletinBoard" />

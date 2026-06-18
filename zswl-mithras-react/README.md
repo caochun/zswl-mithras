@@ -125,7 +125,6 @@
 - `Lease/ApprovalConfirmEntries.js`
 - `Lease/MaintainEntries.js`
 - `LifeCycle/LifeCycleEntries.js`
-- `LoginIframe/LoginIframeEntries.js`
 - `JumpClient/JumpClientEntries.js`
 - `Overdue/OverdueEntries.js`
 - `PaymentApplyColumns/PaymentApplyColumnsEntries.js`

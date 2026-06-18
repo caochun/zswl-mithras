@@ -1,7 +1,7 @@
 import { http, makeAutoObservable, observer } from '@zswl/admin'
 import { Page, PageStore } from '@zswl/components'
 import JSEncrypt from 'jsencrypt'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 
 export const pubKey =
   'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNpMKIVmt0u5lx62tRD1O/15EyNLN0lNi3++ytnvLalkQNSrrqU2w3uD5NwdVE/v4OrDznTpBdTl6N1ryXAILU5GDu0bLATC46RKxDlH52LIvaRBU7BZkEGqllEqRJFmwtvtNCVeZD6ekJWc67MLUh4LNa1yMQ9V6Zsf64uY2lgwIDAQAB'
@@ -14,7 +14,7 @@ const infoMap = {
     account: 'zszl',
   },
 }
-const { frontend, backend, password, account } = infoMap[__ENV__] ?? infoMap.prod
+const { frontend, password, account } = infoMap[__ENV__] ?? infoMap.prod
 // 本来应该直接请求，但是需要处理跨域问题，所以请求租赁服务转发一下
 const getAuthCode = (data) => http.post(`/birdge/user/auth`, data)
 const login = (data) => http.post(`birdge/user/login`, data)
