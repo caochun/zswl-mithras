@@ -15,6 +15,14 @@ export default {
   getApprovalList: (params) => http.post('/flow/file/listApproval', params),
   uploadApprovalList: (params) => http.post('/flow/file/uploadApproval', params),
   removeApprovalList: (params) => http.post('/flow/file/removeApproval', params),
+  downloadFlowFile: (params, functionCode) =>
+    http.get('/file/download', {
+      params,
+      type: 'download',
+      headers: {
+        functionCode,
+      },
+    }),
 
   // deleteReport: (params) => http.post('/proj/review/report/remove', params),
   deleteReport: (params) => http.post('/proj/review/report/removeApproval', params),

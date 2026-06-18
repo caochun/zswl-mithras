@@ -6,7 +6,6 @@ import DataUpload from '@/components/DataUpload'
 import Api from './api'
 import policyManageApi from '@/api/afterLease/policyManageApi'
 import policyTemporaryStorageApi from '@/api/afterLease/policyTemporaryStorageApi'
-import fileList from '@/api/common/fileList'
 import { saveFile } from '@/utils'
 import policyLedgerApi from '@/api/afterLease/policyLedgerApi'
 

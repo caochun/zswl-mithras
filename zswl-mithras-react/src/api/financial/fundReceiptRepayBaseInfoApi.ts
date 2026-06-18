@@ -21,6 +21,15 @@ export default {
   // 收付款列表
   postInfoList: (data: Types.InfoListRequest): Promise<Types.InfoListResponse> =>
     http.post('/fund/receipt/repay/base/info/list', data, { mock }),
+  // 关闭还款
+  postRepayBatchClose: (data: any): Promise<any> =>
+    http.post('/file/batch/remove', data, {
+      mock,
+      headers: {
+        functionCode: undefined,
+      },
+      transformResult: (res) => res.data,
+    }),
 
   // 收付款详情
   postInfoDetail: (data: Types.InfoDetailRequest): Promise<Types.InfoDetailResponse> =>

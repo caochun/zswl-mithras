@@ -7,8 +7,7 @@ import {
   ContractBizTypePriceDetailMap as bizTypePriceDetailMap,
   ContractBizTypePriceModifyMap as bizTypePriceModifyMap,
 } from '@/components/Contract/ConfigEntries'
-import fileListApi from '@/api/common/fileList'
-import { downFile, downUrl, toHump } from '@/utils'
+import { downFile } from '@/utils'
 
 class Store {
   constructor() {
@@ -102,8 +101,7 @@ class Store {
   }
 
   downloadFile = async ({ fileId, modelType: moduleType, id }) => {
-    const functionCode = 'contractTextManageFileDownload'
-    const res = await fileListApi.getFileDownload({ fileId, mainId: id, moduleType }, functionCode)
+    const res = await localApi.getContractTextFileDownload({ fileId, mainId: id, moduleType })
     downFile(res)
   }
 

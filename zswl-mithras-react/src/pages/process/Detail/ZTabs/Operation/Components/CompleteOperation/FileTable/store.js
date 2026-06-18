@@ -2,7 +2,6 @@ import { makeAutoObservable } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import Api from '@/api/process/flowFile'
-import fileList from '@/api/common/fileList'
 import { downFile, toHump } from '@/utils'
 
 class Store {
@@ -41,10 +40,7 @@ class Store {
   postReportDownload = async (id, params) => {
     const functionCode = `${toHump(params.moduleType)}FileDownload`
     const { businessKey, ...rest } = params
-    const res = await fileList.getFileDownload(
-      { ...rest, mainId: businessKey, fileId: id },
-      functionCode
-    )
+    const res = await Api.downloadFlowFile({ ...rest, mainId: businessKey, fileId: id }, functionCode)
     downFile(res)
   }
 }

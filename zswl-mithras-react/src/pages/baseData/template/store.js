@@ -2,7 +2,6 @@ import { makeAutoObservable, http } from '@zswl/admin'
 import { TableStore, ModalStore, Modal, PageStore, FormStore } from '@zswl/components'
 import DataUpload from '@/components/DataUpload'
 import { message } from 'antd'
-import fileListApi from '@/api/common/fileList'
 import { downFile } from '@/utils'
 import Api from './api'
 
@@ -109,12 +108,7 @@ class Store {
   }
 
   download = async ({ id, fileId }) => {
-    console.log(333)
-    const res = await fileListApi.getFileDownload(
-      { mainId: id, fileId, moduleType: 'FILE_TEMPLATE' },
-      'filedownload'
-    )
-    console.log({ res })
+    const res = await Api.getFileDownload({ mainId: id, fileId, moduleType: 'FILE_TEMPLATE' })
     await downFile(res)
   }
 

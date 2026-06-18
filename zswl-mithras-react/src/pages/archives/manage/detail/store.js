@@ -2,8 +2,7 @@ import { makeAutoObservable, history, getQuery } from '@zswl/admin'
 import { PageStore, ModalStore, TableStore, FormStore, SearchBarStore } from '@zswl/components'
 import { message } from 'antd'
 import Api from '../api'
-import { downFile, toHump } from '@/utils'
-import fileListApi from '@/api/common/fileList'
+import { downFile } from '@/utils'
 class Store {
 	constructor() {
 		makeAutoObservable(this, { tableStores: true })

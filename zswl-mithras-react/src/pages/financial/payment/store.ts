@@ -1,5 +1,4 @@
 import { Modal, PageStore, TableStore } from '@zswl/components'
-import Api from '@/api/common/fileList'
 import { history, makeAutoObservable } from '@zswl/admin'
 import paymentApprovalApi from '@/api/financial/paymentApprovalApi'
 import fundReceiptRepayBaseInfoApi from '@/api/financial/fundReceiptRepayBaseInfoApi'
@@ -52,12 +51,12 @@ class Store {
       })
   }
   delete = () => {
-    const { keys, rows } = this.table.getSelected()
+    const { keys } = this.table.getSelected()
     Modal.confirm({
       title: '提示',
       content: '确定关闭还款吗？',
       onOk: () => {
-        Api.postBatchRemove({ ids: keys }).then(() => {
+        fundReceiptRepayBaseInfoApi.postRepayBatchClose({ ids: keys }).then(() => {
           this.table.search()
         })
       },
