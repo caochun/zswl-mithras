@@ -5,7 +5,7 @@ import { BlackGrayColumns as ALL_COLUMNS } from '@/components/BlackGray/BlackGra
 import { useMemo } from 'react'
 import { getTableColumns } from '@/utils/table'
 import Select from 'antd/es/select'
-import useGetStatus from '@/utils/hooks/useGetStatus'
+import { useGetStatus } from '@/blackGray/BlackGrayStatusUtils'
 import { saveServer } from '@/utils'
 
 function Index({ path }) {

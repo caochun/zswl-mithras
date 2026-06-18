@@ -255,6 +255,7 @@
 - `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件优先使用 `src/process/ProcessFlowContext`，旧路径仅保留兼容转发。
 - `utils/afterLease`、`utils/risk`、`utils/report`、`utils/kpi`、`utils/customer`、`utils/budgetManagement`：业务域小工具历史落在全局 utils；对应业务域页面和组件优先使用 `src/<domain>/*Utils` 语义入口，旧路径仅保留兼容转发。
 - `utils/rzyConfig`：RZY 厂商管理外部系统菜单和链接配置历史落在全局 utils；布局菜单和 RZY 页面优先使用 `src/rzy/RzyConfig`，旧路径仅保留兼容转发。
+- `utils/hooks/useGetStatus`：黑灰名单审批状态筛选和按钮可用性历史落在全局 hooks；黑灰名单页面和组件优先使用 `src/blackGray/BlackGrayStatusUtils`，旧路径仅保留兼容转发。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时优先使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`。
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息优先使用 `src/api/project/ratingApi`。
 - `customer/customerRat/customerRatApi`、`customer/customerRat/debtRatApi`：流程详情展示评级摘要时优先使用 `src/api/process/detail/customerRatingApi` 和 `src/api/process/detail/debtRatingApi` 聚合入口。

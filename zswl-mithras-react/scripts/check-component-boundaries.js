@@ -92,6 +92,11 @@ const legacyUtilityPrefixRules = [
     replacementPrefix: '@/rzy/RzyConfig',
     allowedSourcePathPrefixes: ['src/rzy/RzyConfig.js'],
   },
+  {
+    legacyPrefix: '@/utils/hooks/useGetStatus',
+    replacementPrefix: '@/blackGray/BlackGrayStatusUtils',
+    allowedSourcePathPrefixes: ['src/blackGray/BlackGrayStatusUtils.js'],
+  },
 ]
 const legacyApiDomains = new Map([
   ['blackList', 'blackGray'],
