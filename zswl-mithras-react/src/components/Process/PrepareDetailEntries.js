@@ -12,4 +12,4 @@ export { FinancialFinancingCarryInterestFlow as PrepareFinancialCarryInterest } 
 export { FinancialReportApproval as PrepareFinancialReportApproval } from '@/components/Report/FinancialReportEntries'
 export { KpiProjectAllotDetail as PrepareKpiProjectAllocation } from '@/components/Kpi/ProjectAllotEntries'
 export { RiskOverdueListSearch as PrepareOverdueListSearch } from '@/components/Risk/OverdueEntries'
-export { BudgetProfitDistribution as PrepareProfitDistribution } from '@/components/Budget/BudgetEntries'
+export { BudgetProfitDistribution as PrepareProfitDistribution } from '@/components/Budget/ProfitDistributionEntries'

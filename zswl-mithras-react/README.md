@@ -40,8 +40,11 @@
 - `AfterLease/PolicyManageEntries.js`
 - `BlackGray/BlackGrayEntries.js`
 - `BpmnFlowChooseChart/BpmnFlowChooseChartEntries.js`
-- `Budget/BudgetEntries.js`
+- `Budget/AccountsReceivableEntries.js`
+- `Budget/ExchangeRateEntries.js`
 - `Budget/PricingEntries.js`
+- `Budget/ProfitDistributionEntries.js`
+- `Budget/ProjectProfitEntries.js`
 - `Budget/ProvisioningEntries.js`
 - `BudgetManagement/BudgetManagementEntries.js`
 - `Chart/BasicChartEntries.js`

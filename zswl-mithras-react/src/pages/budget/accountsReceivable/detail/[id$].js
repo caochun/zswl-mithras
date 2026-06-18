@@ -1,1 +1,1 @@
-export { BudgetAccountsReceivableDetail as default } from '@/components/Budget/BudgetEntries'
+export { BudgetAccountsReceivableDetail as default } from '@/components/Budget/AccountsReceivableEntries'

@@ -1,1 +1,1 @@
-export { BudgetProfitDistribution as default } from '@/components/Budget/BudgetEntries'
+export { BudgetProfitDistribution as default } from '@/components/Budget/ProfitDistributionEntries'

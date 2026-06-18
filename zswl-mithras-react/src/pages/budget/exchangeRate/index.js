@@ -1,1 +1,1 @@
-export { BudgetExchangeRate as default } from '@/components/Budget/BudgetEntries'
+export { BudgetExchangeRate as default } from '@/components/Budget/ExchangeRateEntries'
