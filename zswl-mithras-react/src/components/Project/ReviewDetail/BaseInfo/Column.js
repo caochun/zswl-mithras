@@ -13,7 +13,7 @@ import { uniqBy } from 'lodash'
 import { history } from '@zswl/admin'
 import { BlackInfo } from '@/components/BlackInfo'
 
-import { PeopleListColumn, SupplierColumn } from '@/components/Project/BaseInfoColumns'
+import { PeopleListColumn, SupplierColumn } from '../../BaseInfoColumns'
 const ALL_COLUMNS = ({
   detail = {},
   store = {},

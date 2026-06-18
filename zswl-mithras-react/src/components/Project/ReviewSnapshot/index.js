@@ -1,12 +1,10 @@
 import { useMemo } from 'react'
-import {
-  ReviewDetailBaseInfo as BaseInfo,
-  ReviewDetailCashFlowStatement as CashFlowStatement,
-  ReviewDetailDataList as DataList,
-  ReviewDetailQuotationScheme as QuotationScheme,
-  ReviewDetailReport as ReviewData,
-  ReviewDetailStore as ReviewStore,
-} from '@/components/Project/ReviewDetailEntries'
+import BaseInfo from '../ReviewDetail/BaseInfo'
+import CashFlowStatement from '../ReviewDetail/CashFlowStatement'
+import DataList from '../ReviewDetail/Data'
+import QuotationScheme from '../ReviewDetail/QuotationScheme'
+import ReviewData from '../ReviewDetail/Report'
+import ReviewStore from '../ReviewDetail/store'
 
 const ReviewSnapshot = ({ id }) => {
   const reviewStore = useMemo(() => new ReviewStore({}), [])

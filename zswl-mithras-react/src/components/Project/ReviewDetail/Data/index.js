@@ -1,5 +1,5 @@
 import styles from './index.less'
-import DataTable from '@/components/Project/ReviewMaterialTable'
+import DataTable from '../../ReviewMaterialTable'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo } from 'react'
 import ClientFileTable from '@/components/ClientFileTable'
