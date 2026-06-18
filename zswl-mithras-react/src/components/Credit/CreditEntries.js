@@ -1,1 +1,5 @@
+export { default as CreditEstablishDetail } from './EstablishDetail'
+export { default as CreditEstablishDetailBaseInfo } from './EstablishDetail/BaseInfo'
+export { default as CreditReviewDetail } from './ReviewDetail'
+export { default as CreditReviewDetailBaseInfo } from './ReviewDetail/BaseInfo'
 export { default as CreditSearchModal } from './CreditSearchModal'
