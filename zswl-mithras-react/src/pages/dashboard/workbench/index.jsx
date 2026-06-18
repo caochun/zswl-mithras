@@ -27,7 +27,7 @@ import {
   TABLE_COLUMNS_FILTER,
 } from '@/utils'
 import styles from './index.less'
-import userCustomConfigApi from '@/api/common/userCustomConfigApi'
+import userCustomConfigApi from '@/api/dashboard/userCustomConfigApi'
 import { initData } from './initData'
 import { handleFeikongJump } from './utils'
 

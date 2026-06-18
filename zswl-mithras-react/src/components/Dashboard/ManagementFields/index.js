@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { chunk, isBoolean, isEmpty } from 'lodash'
 import { getLocalColumnsFilter, setLocalColumnsFilter } from '@/utils'
 import styles from './index.less'
-import userCustomConfigApi from '@/api/common/userCustomConfigApi'
+import userCustomConfigApi from '@/api/dashboard/userCustomConfigApi'
 
 /**
  * 字段本地存储面板
