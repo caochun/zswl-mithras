@@ -87,6 +87,46 @@ const stableDefaultComponentRootImports = new Map([
   ['SelectDayPanel', 'SelectDayPanel'],
   ['ZInput', 'ZInput'],
 ])
+const publicComponentRootImports = new Set([
+  'Actions',
+  'Amount',
+  'AmountNumber',
+  'AmountRange',
+  'AnchorScrollNav',
+  'BiView',
+  'Bifrost',
+  'BreadLine',
+  'CheckCard',
+  'Collapse',
+  'CommonTips',
+  'CurrentSteps',
+  'DataUpload',
+  'DetailLayout',
+  'Excel',
+  'FileList',
+  'Form',
+  'FormIrr',
+  'FormItemContent',
+  'FormUpload',
+  'Format',
+  'FormulaValueTip',
+  'Icon',
+  'MultilineText',
+  'OrgTreeSelect',
+  'PageListDown',
+  'ProcessInfoModal',
+  'RadioTabs',
+  'ReadOnly',
+  'RegionCascader',
+  'RenderColumn',
+  'RepayCalcType',
+  'Select',
+  'SelectDayPanel',
+  'StarDom',
+  'Table',
+  'ZInput',
+  'ZText',
+])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
 const legacyUtilityPrefixRules = [
@@ -729,6 +769,14 @@ for (const filePath of sourceFiles) {
       violations.push({
         file: relativeFilePath,
         specifier: `${specifier} (use @/components/${stabilizedComponentRootImports.get(componentRootImportDomain)})`,
+      })
+    } else if (
+      componentRootImportDomain &&
+      !publicComponentRootImports.has(componentRootImportDomain)
+    ) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use an existing public component root or a domain *Entries.js)`,
       })
     } else if (specifier === '@/components') {
       violations.push({
