@@ -1,7 +1,6 @@
-import RiskIframe from '@/components/RiskIframe'
-import { Page } from '@zswl/components'
+import { BlackGrayRiskIframe } from '@/components/BlackGray/BlackGrayEntries'
 
 const Index = ({ query }) => {
-  return <RiskIframe path="blackListManage/query/allQuery" query={query} />
+  return <BlackGrayRiskIframe path="blackListManage/query/allQuery" query={query} />
 }
 export default Index

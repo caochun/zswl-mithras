@@ -28,6 +28,7 @@ const stabilizedComponentRootImports = new Map([
   ['Policy', 'Policy/PolicyEntries'],
   ['PolicyColumns', 'PolicyColumns/PolicyColumnsEntries'],
   ['RiskActions', 'BlackGray/BlackGrayEntries or Actions'],
+  ['RiskIframe', 'BlackGray/BlackGrayEntries'],
   ['UpdateRatingInfoButton', 'UpdateRatingInfoButton/UpdateRatingInfoButtonEntries'],
   ['ZhongDengButton', 'ZhongDengButton/ZhongDengButtonEntries'],
 ])
