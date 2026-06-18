@@ -201,7 +201,7 @@
 当前历史或兼容壳目录：
 
 - `ProfitDistribution`：项目分润路由壳，业务语义更接近 `budget/projProfit` 或 KPI/预算分润。
-- `overdueListSearch`：逾期列表查询路由壳，业务语义更接近 `risk`、`overdue` 或租后回款。
+- `overdueListSearch`：逾期列表查询历史路由壳，当前实现已收敛到 `src/components/Risk/OverdueEntries.js`。
 - `workbench`：工作台兼容入口，实际能力应优先落在 `dashboard/workbench`。
 - `blackListManage`：页面目录仍沿用黑名单管理命名，组件目录已是 `BlackGray`；API 调用优先使用 `src/api/blackGray` 兼容入口，后续可考虑菜单路径稳定的前提下收敛命名。
 - `postRentalInspection`：租后检查 API 的历史命名目录；租后业务代码优先使用 `src/api/afterLease` 下的兼容入口。
