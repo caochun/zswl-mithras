@@ -255,7 +255,7 @@
 - `customer/clientBasic`：客户维护基础信息 API 保留在客户域；行业、区域等 `/select` 字典优先使用 `src/api/common/selectApi`。
 - `credit/creditReportApi.postCompareBusiness`：征信查询下的工商信息比对接口可由共享 `CheckBusiness` 组件本地 `api.js` 聚合，调用方不应因此直接绑定征信域 API。
 - `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
-- `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件可直接使用，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。
+- `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件优先使用 `src/api/common/approvalRemarkApi`，业务详情组件优先使用本业务域的 `approvalRemarkApi` 固定权限码入口。
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时优先使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时优先使用 `src/api/trackEvent/contractInfoApi`。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件优先使用 `src/api/contract/lprApi` 语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；KPI 语义优先使用 `src/api/kpi/projProfit/profitCalculateTool`，全局 layout 入口优先使用 `src/api/layout/projProfitToolApi`。

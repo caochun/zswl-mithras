@@ -3,7 +3,7 @@ import EditDescription from '../EditDescription'
 import { Collapse } from 'antd'
 import styles from './index.less'
 import { TextAreaColumn } from '@/components/Format'
-import processModifyRemarkApi from '@/api/approval/processModifyRemarkApi'
+import approvalRemarkApi from '@/api/common/approvalRemarkApi'
 import { useEffect, useState } from 'react'
 
 const { Panel } = Collapse
@@ -53,7 +53,7 @@ function Index({ data = {}, hasTitle = true, showLast = false, canEdit, params }
       PROJ_PRICING: 'projpricing',
       APPRAISAL_COMPANY_WHITELIST: 'whitelist',
     }
-    await processModifyRemarkApi.postRemarkModify(
+    await approvalRemarkApi.postRemarkModify(
       { ...rest, id, remarkJson: values },
       `processmodifyremarkmodify${functionCodeMap[params.moduleType]}`
     )

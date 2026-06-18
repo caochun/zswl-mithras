@@ -124,9 +124,9 @@ const legacyApiPrefixRules = [
   {
     legacyPrefix: '@/api/approval/processModifyRemarkApi',
     replacementPrefix:
-      '@/api/<domain>/approvalRemarkApi or shared approval/detail components',
-    allowedSourceDomains: ['Actions', 'Table'],
+      '@/api/<domain>/approvalRemarkApi or @/api/common/approvalRemarkApi for shared approval components',
     allowedSourcePathPrefixes: [
+      'src/api/common/approvalRemarkApi.ts',
       'src/api/contract/approvalRemarkApi.js',
       'src/api/credit/approvalRemarkApi.js',
       'src/api/financial/approvalRemarkApi.js',
