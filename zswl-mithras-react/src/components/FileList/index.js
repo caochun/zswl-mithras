@@ -1,7 +1,7 @@
 import { Space, Typography } from 'antd'
 import { useEffect, useState } from 'react'
 import { Button } from '@zswl/components'
-import fileListApi from '@/api/common/fileList'
+import fileListApi from '@/utils/api/fileApi'
 import { downFile, toHump, getFileType } from '@/utils'
 import _ from 'lodash'
 

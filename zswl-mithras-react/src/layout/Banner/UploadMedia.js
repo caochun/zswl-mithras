@@ -3,7 +3,7 @@ import { Upload, Modal, message, Image } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import { DataType } from '@/utils'
 import { observer } from '@zswl/admin'
-import commonApi from '@/api/common/fileList'
+import commonApi from '@/utils/api/fileApi'
 
 function optimizeValue(value) {
   let list = value

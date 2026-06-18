@@ -1,4 +1,4 @@
-import fileListApi from '@/api/common/fileList'
+import { fileApi as fileListApi } from '@/utils/api/tableFileApi'
 import { downFile, downUrl, toHump } from '@/utils'
 import { Modal } from '@zswl/components'
 import { message } from 'antd'

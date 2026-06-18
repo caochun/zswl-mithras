@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import userCustomConfigApi from '@/api/common/userCustomConfigApi'
+import userCustomConfigApi from '@/utils/api/userPreferenceApi'
 
 export const CARD_COLUMNS_FILTER = 'z-card-columns-filter'
 export const TABLE_COLUMNS_FILTER = 'z-table-columns-filter'

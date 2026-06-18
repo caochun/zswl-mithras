@@ -3,7 +3,7 @@ import EditDescription from '../EditDescription'
 import { Collapse } from 'antd'
 import styles from './index.less'
 import { TextAreaColumn } from '@/components/Format'
-import approvalRemarkApi from '@/api/common/approvalRemarkApi'
+import { approvalRemarkApi } from '@/utils/api/tableFileApi'
 import { useEffect, useState } from 'react'
 
 const { Panel } = Collapse

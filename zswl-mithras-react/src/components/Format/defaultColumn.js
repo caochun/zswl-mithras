@@ -11,7 +11,7 @@ import moment from 'moment'
 import { cloneElement } from 'react'
 import _ from 'lodash'
 import DataUpload from '../DataUpload'
-import commonApi from '@/api/common/fileList'
+import commonApi from '@/utils/api/fileApi'
 import FileList from '../FileList'
 import { create, all } from 'mathjs'
 const mathjs = create(all)

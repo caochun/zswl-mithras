@@ -1,4 +1,4 @@
-import selectApi from '@/api/common/selectApi'
+import selectApi from '@/utils/api/selectApi'
 import { history, http } from '@zswl/admin'
 import { App, Select } from '@zswl/components'
 import { message, Select as RoSelect } from 'antd'

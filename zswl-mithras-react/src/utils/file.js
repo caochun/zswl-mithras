@@ -3,7 +3,7 @@ import { FileTwoTone, FileImageTwoTone, FileWordTwoTone, FilePptTwoTone } from '
 import { message } from 'antd'
 import _ from 'lodash'
 import { baseURL, getQjtAc, getSalt } from './base'
-import fileListApi from '@/api/common/fileList'
+import fileListApi from '@/utils/api/fileApi'
 import { http } from '@zswl/admin'
 import DataUpload from '@/components/DataUpload'
 

@@ -1,5 +1,4 @@
-import compareApi from '@/api/common/fileCompareApi'
-import fileListApi from '@/api/common/fileList'
+import { fileApi as fileListApi, fileCompareApi as compareApi } from '@/utils/api/tableFileApi'
 import { FiledFormat } from '@/components/Format'
 import IconFont from '@/components/Icon'
 import UploadModal from './Upload'

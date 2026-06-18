@@ -3,7 +3,7 @@ import { FileTable } from '@/components/Table'
 import { App } from '@zswl/components'
 import { useEffect, useRef } from 'react'
 import { toHump3 } from '@/utils'
-import fileList from '@/api/common/fileList'
+import fileList from '@/utils/api/fileApi'
 import styles from './index.less'
 import { DateColumn } from '@/components/Format'
 

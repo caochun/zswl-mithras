@@ -1,6 +1,6 @@
 import { observer, http } from '@zswl/admin'
 import { App, Button } from '@zswl/components'
-import fileList from '@/api/common/fileList'
+import fileList from '@/utils/api/fileApi'
 import { downFile, toHump } from '@/utils'
 import { isFunction } from 'lodash'
 import { message } from 'antd'
