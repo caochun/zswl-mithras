@@ -1,7 +1,7 @@
 import { observer, history } from '@zswl/admin'
 import { Button, Modal } from '@zswl/components'
 import leaseApi from '@/api/lease/maintainApi'
-import flowList from '@/api/common/flowList'
+import flowList from '@/api/process/flowTaskApi'
 import vatInvoiceApi from '@/api/lease/vatInvoiceApi'
 
 function Index({ onClick, params, isEffect, children, beforeClick, text, ...rest }) {

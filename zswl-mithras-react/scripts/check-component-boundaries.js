@@ -541,6 +541,10 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/common/flowList',
+    replacementPrefix: '@/api/process/flowTaskApi',
+  },
+  {
     legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
     replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
     allowedSourceDomains: ['Budget'],

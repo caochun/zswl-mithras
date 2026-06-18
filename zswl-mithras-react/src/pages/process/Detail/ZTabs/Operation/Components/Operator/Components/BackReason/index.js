@@ -6,7 +6,7 @@ import leaseData from './leaseData.json'
 import { DynamicDesc } from '@/components/Table'
 import _ from 'lodash'
 import { rules } from '@/utils'
-import flowList from '@/api/common/flowList'
+import flowList from '@/api/process/flowTaskApi'
 
 const Index = (props, ref) => {
   const [form] = Form.useForm()

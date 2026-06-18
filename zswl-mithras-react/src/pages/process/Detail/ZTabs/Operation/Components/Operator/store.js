@@ -1,4 +1,4 @@
-import flowList from '@/api/common/flowList'
+import flowList from '@/api/process/flowTaskApi'
 import publicInfoApi_edited from '@/api/process/operation/paymentPublicInfoApi'
 import customerRatApi from '@/api/process/operation/customerRatingOperationApi'
 import PaymentApplicationDetailApi from '@/api/process/operation/paymentOperationApi'

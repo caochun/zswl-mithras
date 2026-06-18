@@ -1,6 +1,6 @@
 import deliveryPlanDetailApi from '@/api/budgetManagement/deliveryPlanDetailApi'
 import deliveryPlanListApi from '@/api/budgetManagement/deliveryPlanListApi'
-import flowListApi from '@/api/common/flowList'
+import flowListApi from '@/api/process/flowTaskApi'
 import { formatPercent, highPrecisionMultiply } from '@/utils/base'
 import { makeAutoObservable } from '@zswl/admin'
 import { Access, ModalStore, PageStore, TableStore } from '@zswl/components'
