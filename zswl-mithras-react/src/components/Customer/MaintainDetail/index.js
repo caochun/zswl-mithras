@@ -1,14 +1,14 @@
 import { Tabs, Result, Space, Input } from 'antd'
 import { useMemo, useState, useRef } from 'react'
 import { Page, Button, Modal, Form } from '@zswl/components'
-import Public from '@/components/Customer/ExternalPublicInfo'
+import { CustomerExternalPublicInfo as Public } from '@/components/Customer/CustomerEntries'
 import Financial from '@/components/Customer/FinancialReport'
 import Basic from './Basic'
 import Store from './store'
 import { observer, getQuery } from '@zswl/admin'
 import EvaluationInfo from './EvaluationInfo'
 import CheckBusiness from '@/components/Customer/CheckBusiness'
-import CreditModal from '@/components/Credit/CreditSearchModal'
+import { CreditSearchModal as CreditModal } from '@/components/Credit/CreditEntries'
 
 const { TabPane } = Tabs
 function Index({

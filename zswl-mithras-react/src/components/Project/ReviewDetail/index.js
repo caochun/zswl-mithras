@@ -15,8 +15,8 @@ import DetailLayout from '@/components/DetailLayout'
 import FinancialReportStatistics from '@/components/Project/FinancialReportStatistics'
 import TrackModal from '@/components/TrackEvent/TrackModal'
 import DebtDrawer from './DebtDrawer'
-import MeetingModal from '@/components/Project/ReviewMeetingModal'
-import CreditModal from '@/components/Credit/CreditSearchModal'
+import { CreditSearchModal as CreditModal } from '@/components/Credit/CreditEntries'
+import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ProjectEntries'
 
 const Index = ({
   params: { id },
