@@ -12,7 +12,8 @@
     "buildAll": "node build.js",
     "api": "admin api",
     "page": "admin page",
-    "clearBranch": "node clearInvalidBranch"
+    "clearBranch": "node clearInvalidBranch",
+    "check:boundaries": "node scripts/check-component-boundaries.js"
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
