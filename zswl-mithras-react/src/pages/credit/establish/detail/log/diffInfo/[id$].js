@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Page } from '@zswl/components'
 import { Collapse, Divider, Skeleton, Badge } from 'antd'
-import { CreditEstablishDetailBaseInfo as BaseInfo } from '@/components/Credit/CreditEntries'
+import { CreditEstablishDetailBaseInfo as BaseInfo } from '@/components/Credit/EstablishEntries'
 import { observer } from '@zswl/admin'
 import styles from './index.less'
 import store from './store'
