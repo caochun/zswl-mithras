@@ -16,8 +16,7 @@ import styles from './index.less'
 import { forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'react'
 
 import { getTableColumns, options } from '@/utils'
-import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
-import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcessingCenterApi'
+import writeOffFlowCenterApi from '@/api/cpm/payment/writeOffFlowCenterApi'
 import { saveServer } from '@/utils'
 
 const { financingFlowWriteOffStatusEnum } = options
@@ -69,7 +68,7 @@ const AddCashFlow = forwardRef(({}, ref) => {
   const modal = useMemo(() => new ModalStore({}), [])
   const table = useMemo(() => new TableStore({ request: async () => [] }), [])
   const pullFlow = async () => {
-    const res = await bankFlowProcessingCenterApi.postPullFlow({})
+    const res = await writeOffFlowCenterApi.postPullFlow({})
     if (res.length) {
       Modal.info({
         title: '提示',
@@ -120,7 +119,7 @@ const AddCashFlow = forwardRef(({}, ref) => {
     () =>
       new TableStore({
         request: async (params) => {
-          return bankFlowProcessingCenterApi.postCenterList({
+          return writeOffFlowCenterApi.postCenterList({
             ...params,
             collectionPaymentType: 'PAYMENT',
             tabType: 'PROCESSING_CENTER',
@@ -247,7 +246,7 @@ function WriteOffModal({ record, detail, actualDetail, store }) {
             ...rest
           } = values
           const res =
-            await bankFlowProcessingCenterApi.postCollectionFlowCenterBusinessPaymentManualCashFlowList(
+            await writeOffFlowCenterApi.postCollectionFlowCenterBusinessPaymentManualCashFlowList(
               { paymentId, paymentMethod, paymentActualDetailId }
             )
           setCashFlowCodeList(res)
@@ -285,7 +284,7 @@ function WriteOffModal({ record, detail, actualDetail, store }) {
             ])
 
             if (newList.length) {
-              await bankFlowProcessingCenterApi.postWriteOff({
+              await writeOffFlowCenterApi.postWriteOff({
                 financeFlowIds,
                 sideType: 'PROJ_SIDE',
                 writeOffType: 'PAYMENT',
@@ -312,7 +311,7 @@ function WriteOffModal({ record, detail, actualDetail, store }) {
             billType: 'PAYMENT',
           }
 
-          await flowCenterApi.postManualRecord({
+          await writeOffFlowCenterApi.postManualRecord({
             ...rest,
             billManagementAddREQ,
           })

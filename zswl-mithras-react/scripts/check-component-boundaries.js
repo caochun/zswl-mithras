@@ -86,6 +86,24 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/groupCredit/common',
     replacementPrefix: '@/api/common/selectApi',
   },
+  {
+    legacyPrefix: '@/api/budget/flowCenter/bankFlowProcessingCenterApi',
+    replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
+    allowedSourceDomains: ['Budget'],
+    allowedSourcePathPrefixes: [
+      'src/api/cpm/payment/writeOffFlowCenterApi.js',
+      'src/pages/budget/flowCenter/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/budget/flowCenter/flowCenterApi',
+    replacementPrefix: '@/api/cpm/payment/writeOffFlowCenterApi',
+    allowedSourceDomains: ['Budget'],
+    allowedSourcePathPrefixes: [
+      'src/api/cpm/payment/writeOffFlowCenterApi.js',
+      'src/pages/budget/flowCenter/',
+    ],
+  },
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 
@@ -132,6 +150,13 @@ function getLegacyApiPrefixRule(specifier) {
   return null
 }
 
+function isAllowedLegacyApiPrefixSource(rule, relativeFilePath, sourceComponentDomain) {
+  return (
+    rule.allowedSourceDomains?.includes(sourceComponentDomain) ||
+    rule.allowedSourcePathPrefixes?.some((prefix) => relativeFilePath.startsWith(prefix))
+  )
+}
+
 const violations = []
 const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePath) => {
   const entryPath = normalizeEntryPath(filePath)
@@ -171,7 +196,11 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
       })
     } else if (
       legacyApiPrefixRule &&
-      !legacyApiPrefixRule.allowedSourceDomains?.includes(sourceComponentDomain)
+      !isAllowedLegacyApiPrefixSource(
+        legacyApiPrefixRule,
+        relativeFilePath,
+        sourceComponentDomain
+      )
     ) {
       violations.push({
         file: relativeFilePath,
