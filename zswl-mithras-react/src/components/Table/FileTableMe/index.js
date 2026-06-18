@@ -1,4 +1,4 @@
-import compareApi from '@/api/common/editableCompare'
+import compareApi from '@/api/common/fileCompareApi'
 import fileListApi from '@/api/common/fileList'
 import { FiledFormat } from '@/components/Format'
 import IconFont from '@/components/Icon'

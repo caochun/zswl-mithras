@@ -262,6 +262,7 @@
 - `filingMaterials/otherFilingMaterialsDetail`：其他资料归集接口保留在资料归集域；流程提交前做资料说明校验时优先使用 `src/api/process/detail/filingMaterialsApi` 聚合入口。
 - `common/customerOverview`：历史公共实现已清理；dashboard 客户总览页面使用 `src/api/dashboard/customerOverview`，客户视图页面使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `common/flowList`：历史公共目录已清理；流程任务列表、流程详情、退回节点和随机退回等 `/flow/**` 接口使用 `src/api/process/flowTaskApi`。
+- `common/editableCompare`：历史上混合了 FTP、项目、付款和文件比对接口，当前已清理；文件表组件使用 `src/api/common/fileCompareApi`。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时优先通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API。
 - `workbench`：工作台/看板相关接口历史生成目录；真实承载在 `src/api/dashboard/workbench`，dashboard 页面优先使用 `src/api/dashboard` 下的语义入口，历史 `workbench` 入口仅保留兼容转发。
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件优先使用 `src/utils/domains/dashboard/DashboardUtils*`，旧路径仅保留兼容转发。
