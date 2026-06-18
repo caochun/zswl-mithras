@@ -1,1 +1,1 @@
-export { default } from '@/components/Report/Operation/YunYingDaiBan'
+export { ReportOperationPending as default } from '@/components/Report/OperationEntries'

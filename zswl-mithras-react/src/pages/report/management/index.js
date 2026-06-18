@@ -4,9 +4,11 @@ import { Empty, Tree, Divider } from 'antd'
 import { Button, Page, Flex } from '@zswl/components'
 import styles from './index.less'
 import { AlignRightOutlined, DoubleLeftOutlined } from '@ant-design/icons'
-import YeWuYunYingFenXi from '@/components/Report/Operation/YeWuYunYingFenXi'
-import YunYingDaiBan from '@/components/Report/Operation/YunYingDaiBan'
-import HeTongShiXiaoJianKong from '@/components/Report/Operation/HeTongShiXiaoJianKong'
+import {
+  ReportOperationAnalysis as YeWuYunYingFenXi,
+  ReportOperationContractMonitor as HeTongShiXiaoJianKong,
+  ReportOperationPending as YunYingDaiBan,
+} from '@/components/Report/OperationEntries'
 import classNames from 'classnames'
 import store from './Store'
 import { useMemo } from 'react'
