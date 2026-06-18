@@ -138,6 +138,11 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/budget/pricing/ftpQuarterlyGuidance',
   },
   {
+    legacyPrefix: '@/api/baseData/bankAccountApi',
+    replacementPrefix: '@/api/budget/bankAccountApi',
+    allowedSourcePathPrefixes: ['src/api/budget/bankAccountApi.ts'],
+  },
+  {
     legacyPrefix: '@/api/common/workbenchApi',
     replacementPrefix: '@/api/common/userCustomConfigApi or @/api/dashboard/feikongSsoApi',
   },

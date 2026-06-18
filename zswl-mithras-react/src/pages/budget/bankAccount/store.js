@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore, TableStore, Modal } from '@zswl/components'
 import { message } from 'antd'
-import bankAccountApi from '@/api/baseData/bankAccountApi'
+import bankAccountApi from '@/api/budget/bankAccountApi'
 import moment from 'moment'
 
 class Store {
