@@ -10,6 +10,8 @@ const importPattern =
 
 const privateComponentPathPattern = /^@\/components\/[^'"]+\/(?:api|store|context|config|Config|Column|columns)(?:\.js)?$/
 const deepComponentPathPattern = /^@\/components\/[^'"]+\/[^'"]+\/[^'"]+\/[^'"]+/
+const sharedComponentSubpathPattern =
+  /^@\/components\/(?:Actions|Form|Format|Table)\/[^'"]+|^@\/components\/BreadLine\/config$|^@\/components\/Chart\/tooltip$/
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) {
@@ -39,7 +41,11 @@ for (const filePath of scanDirs.flatMap((dir) => walk(dir))) {
       continue
     }
 
-    if (privateComponentPathPattern.test(specifier) || deepComponentPathPattern.test(specifier)) {
+    if (
+      privateComponentPathPattern.test(specifier) ||
+      deepComponentPathPattern.test(specifier) ||
+      sharedComponentSubpathPattern.test(specifier)
+    ) {
       violations.push({
         file: path.relative(root, filePath),
         specifier,
