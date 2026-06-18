@@ -1,18 +1,20 @@
-import ProfitDistribution from '@/components/Budget/ProfitDistribution'
-import AfterLeaseGeneralCheck from '@/components/AfterLease/CheckPlanPrepareProcess' // 租后检查-一般检查
-import NewAfterLeaseCheckReportCommonlyFlow from '@/components/AfterLease/CheckPlanTemplate' // 租后检查模版
-import DepositRefundNotification from '@/components/Contract/DepositRefundNotification'
-import JQsettlement from '@/components/Contract/SettlementDetail' //提前结清
-import KSQZstartRent from '@/components/Contract/StartRentDetail' // 合同自动起租
-import CustomerRat from '@/components/Customer/CustomerRatDetail' // 客户评级'
-import FilingMaterialsApply from '@/components/FilingMaterials/FilingMaterialsApply'
-import FundFilingMaterialsApply from '@/components/FilingMaterials/FundFilingMaterialsApply'
-import FinancialDirect from '@/components/Financial/DirectDetail'
-import FinancingCarryInterestFlow from '@/components/Financial/FinancingCarryInterestFlow'
-import FinancialFund from '@/components/Financial/FundDetail'
-import FinancialReportApprovalFlow from '@/components/Report/FinancialReportApproval'
-import KpiPorjectAllocation from '@/components/Kpi/ProjectAllot/Detail' // 绩效
-import OverdueListSearch from '@/components/Risk/OverdueListSearch'
+import {
+  PrepareAfterLeaseCheckReportTemplate,
+  PrepareAfterLeaseGeneralCheck,
+  PrepareContractDepositRefundNotification,
+  PrepareContractEarlySettlement,
+  PrepareContractStartRent,
+  PrepareCustomerRating,
+  PrepareFilingMaterialsApply,
+  PrepareFinancialCarryInterest,
+  PrepareFinancialDirect,
+  PrepareFinancialFund,
+  PrepareFinancialReportApproval,
+  PrepareFundFilingMaterialsApply,
+  PrepareKpiProjectAllocation,
+  PrepareOverdueListSearch,
+  PrepareProfitDistribution,
+} from '@/components/Process/PrepareDetailEntries'
 import RentPaymentNotice from '../../../Detail/RentPaymentNotice' // 租金催收，投放项⽬还款账⼾优化
 import { observer } from '@zswl/admin'
 import { Button, Page } from '@zswl/components'
@@ -29,42 +31,42 @@ const Index = ({ id }) => {
     const { businessId, processType, businessData } = detail
     const processComp = {
       // MarginFlowAuto: <DepositRefundNotification id={businessId}/>,
-      MarginBackNotice: <DepositRefundNotification id={businessId} />,
+      MarginBackNotice: <PrepareContractDepositRefundNotification id={businessId} />,
       RentPaymentNotifyFlow: <RentPaymentNotice id={businessId}></RentPaymentNotice>,
-      ContractStartRentAutoFlow: <KSQZstartRent params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
-      ContractEarlySettleConfirmFlow: <JQsettlement params={{ id: businessId }} query={{ canEditFlags: 'true', planType: 'SETTLE_IN_ADVANCE' }}></JQsettlement>,
+      ContractStartRentAutoFlow: <PrepareContractStartRent params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
+      ContractEarlySettleConfirmFlow: <PrepareContractEarlySettlement params={{ id: businessId }} query={{ canEditFlags: 'true', planType: 'SETTLE_IN_ADVANCE' }}></PrepareContractEarlySettlement>,
       KpiProjectDistributionTransferFlow: (
-        <KpiPorjectAllocation params={{ id: businessId }} query={{ canEditFlags: true, source: 'adjust' }}></KpiPorjectAllocation>
+        <PrepareKpiProjectAllocation params={{ id: businessId }} query={{ canEditFlags: true, source: 'adjust' }}></PrepareKpiProjectAllocation>
       ),
       NewAfterLeaseCheckPlanPublishCreateFlow: (
-        <AfterLeaseGeneralCheck params={{ id: businessId, commonId: id, businessData }} refresh={store.page.init}></AfterLeaseGeneralCheck>
+        <PrepareAfterLeaseGeneralCheck params={{ id: businessId, commonId: id, businessData }} refresh={store.page.init}></PrepareAfterLeaseGeneralCheck>
       ),
       NewAfterLeaseCheckReportCommonlyFlow: (
-        <NewAfterLeaseCheckReportCommonlyFlow
+        <PrepareAfterLeaseCheckReportTemplate
           params={{ id: businessId }}
           query={{
             canEditFlags: 'true',
           }}
-        ></NewAfterLeaseCheckReportCommonlyFlow>
+        ></PrepareAfterLeaseCheckReportTemplate>
       ),
-      RatingClientUpdateFlow: <CustomerRat params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
-      RatingClientCreateFlow: <CustomerRat params={{ id: businessId }} query={{ canEditFlags: 'false' }} />,
-      FinancingRecordFlow: <FinancialFund params={{ id: businessId }} query={{ canEditFlags: 'true', processType }} />,
-      DirectFinancingRecordFlow: <FinancialDirect params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
-      FinancingFloatRateAdjustFlow: <FinancialFund params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
+      RatingClientUpdateFlow: <PrepareCustomerRating params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
+      RatingClientCreateFlow: <PrepareCustomerRating params={{ id: businessId }} query={{ canEditFlags: 'false' }} />,
+      FinancingRecordFlow: <PrepareFinancialFund params={{ id: businessId }} query={{ canEditFlags: 'true', processType }} />,
+      DirectFinancingRecordFlow: <PrepareFinancialDirect params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
+      FinancingFloatRateAdjustFlow: <PrepareFinancialFund params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
       FinancingRepayPlanConfirmFlow: <FinancingRepayPlanConfirmFlow params={{ id: businessId }} query={{ processType: 'FinancingRepayPlanConfirmFlow' }} />,
       FinancingRepayWriteOffConfirmFlow: (
         <FinancingRepayPlanConfirmFlow params={{ id: businessId }} query={{ processType: 'FinancingRepayWriteOffConfirmFlow' }} />
       ),
       baseDataExchangeRateTodo: <ExchangeRateFlow params={{ id: businessId, detail }} query={{ canEditFlags: 'true', processType }} />,
-      AssociationReportQuarterMonthFlow: <FinancialReportApprovalFlow params={{ id: businessId }} query={{ canEditFlags: 'true', processType }} />,
-      AssociationReportMainBusinessFlow: <FinancialReportApprovalFlow params={{ id: businessId }} query={{ canEditFlags: 'true', processType }} />,
-      FilingMaterialsApplyFlow: <FilingMaterialsApply params={{ id: businessId, detail }} />,
-      ProjectProfitSharingFlow: <ProfitDistribution params={{ id: businessId, detail }} />,
-      overdueListTodo: <OverdueListSearch params={{ id: businessId, type: 'todoList' }} query={{ canEditFlags: 'true' }} />,
-      FundFilingMaterialsApplyFlow: <FundFilingMaterialsApply params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
-      IndirectFinancingCarryInterestFlow: <FinancingCarryInterestFlow params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
-      DirectFinancingCarryInterestFlow: <FinancingCarryInterestFlow params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
+      AssociationReportQuarterMonthFlow: <PrepareFinancialReportApproval params={{ id: businessId }} query={{ canEditFlags: 'true', processType }} />,
+      AssociationReportMainBusinessFlow: <PrepareFinancialReportApproval params={{ id: businessId }} query={{ canEditFlags: 'true', processType }} />,
+      FilingMaterialsApplyFlow: <PrepareFilingMaterialsApply params={{ id: businessId, detail }} />,
+      ProjectProfitSharingFlow: <PrepareProfitDistribution params={{ id: businessId, detail }} />,
+      overdueListTodo: <PrepareOverdueListSearch params={{ id: businessId, type: 'todoList' }} query={{ canEditFlags: 'true' }} />,
+      FundFilingMaterialsApplyFlow: <PrepareFundFilingMaterialsApply params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
+      IndirectFinancingCarryInterestFlow: <PrepareFinancialCarryInterest params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
+      DirectFinancingCarryInterestFlow: <PrepareFinancialCarryInterest params={{ id: businessId }} query={{ canEditFlags: 'true' }} />,
     }
     return processComp[processType] ?? null
   }, [JSON.stringify(detail), id])
