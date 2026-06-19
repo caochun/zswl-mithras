@@ -173,6 +173,7 @@
 - `Report/ManagementEntries.js`
 - `Report/OperationEntries.js`
 - `Risk/MetricValueEntries.js`
+- `Risk/MetricTimedEntries.js`
 - `Risk/MonitorEarlyEntries.js`
 - `Risk/OverdueEntries.js`
 - `Risk/PublicMonitorColumnsEntries.js`
