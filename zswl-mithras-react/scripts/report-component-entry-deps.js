@@ -8,6 +8,12 @@ const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
 const componentPublicEntryPattern =
   /^@\/components\/([^/'"]+)\/([^/'"]*(?:Entries|entries)(?:\.js)?)$/
+const ignoredSourcePathPatterns = [
+  /^src[\\/]pages[\\/]demo[\\/]/,
+]
+const publicComponentEntryRoots = new Set([
+  'Chart',
+])
 const domainAliases = new Map([
   ['blackListManage', 'BlackGray'],
   ['fillingMaterialsDetail', 'FilingMaterials'],
@@ -129,6 +135,11 @@ const targetFanIn = new Map()
 for (const filePath of walk(srcDir)) {
   const source = fs.readFileSync(filePath, 'utf8')
   const relativeFilePath = path.relative(root, filePath)
+
+  if (ignoredSourcePathPatterns.some((pattern) => pattern.test(relativeFilePath))) {
+    continue
+  }
+
   const sourceScope = getSourceScope(relativeFilePath)
 
   if (!sourceScope) {
@@ -139,6 +150,10 @@ for (const filePath of walk(srcDir)) {
   while ((match = importPattern.exec(source))) {
     const specifier = match[1]
     const [, targetDomain, targetEntry] = specifier.match(componentPublicEntryPattern) || []
+
+    if (publicComponentEntryRoots.has(targetDomain)) {
+      continue
+    }
 
     if (!targetDomain || normalizeDomain(targetDomain).toLowerCase() === sourceScope.domain.toLowerCase()) {
       continue
