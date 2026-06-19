@@ -8,7 +8,7 @@ import styles from './index.less'
 import ProcessLease from './ProcessLease'
 import { hasPermission, amountFormat } from '@/utils'
 import { saveServer } from '@/utils'
-import Api from './api'
+import Api from '@/api/contract/component/Detail/LeaseItemList/api'
 
 const Index = ({
   baseStore = {},

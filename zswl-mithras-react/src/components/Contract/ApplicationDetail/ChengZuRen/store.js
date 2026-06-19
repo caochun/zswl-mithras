@@ -3,7 +3,7 @@ import { TableStore, ModalStore, Upload } from '@zswl/components'
 import { message } from 'antd'
 import { debounce as _debounce } from 'lodash'
 import { compareDetail, compare } from '@/utils'
-import Api from './api'
+import Api from '@/api/contract/component/ApplicationDetail/ChengZuRen/api'
 import DataUpload from '@/components/DataUpload'
 
 class Store {

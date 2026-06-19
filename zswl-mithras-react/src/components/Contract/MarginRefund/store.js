@@ -1,7 +1,7 @@
 import { makeAutoObservable, history } from '@zswl/admin'
 import { message } from 'antd'
 import { PageStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/contract/component/MarginRefund/api'
 class Store {
   constructor(clientName, canEdit) {
     makeAutoObservable(this)

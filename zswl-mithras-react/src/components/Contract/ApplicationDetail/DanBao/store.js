@@ -3,7 +3,7 @@ import { TableStore, ModalStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import mathjs from '@/utils/math'
 import { debounce as _debounce } from 'lodash'
-import Api from './api'
+import Api from '@/api/contract/component/ApplicationDetail/DanBao/api'
 import { hasValue, compareDetail } from '@/utils'
 import DataUpload from '@/components/DataUpload'
 

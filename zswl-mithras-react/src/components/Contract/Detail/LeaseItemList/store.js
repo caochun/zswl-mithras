@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, ModalStore, Modal } from '@zswl/components'
 import { message } from 'antd'
 import DataUpload from '@/components/DataUpload'
-import Api from './api'
+import Api from '@/api/contract/component/Detail/LeaseItemList/api'
 import { downFile } from '@/utils'
 
 class Store {

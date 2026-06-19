@@ -2,8 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, ModalStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import { compareDetail } from '@/utils'
-import Api from './api'
-
+import Api from '@/api/contract/component/ApplicationDetail/HuiKuan/api'
 class Store {
   constructor(data) {
     this.isFormApproval = data?.isFormApproval

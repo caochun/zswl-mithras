@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Table, Page } from '@zswl/components'
 import { Tooltip } from 'antd'
 import { observer, history } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/contract/component/ApplicationDetail/LeaseLog/api'
 import { saveServer } from '@/utils'
 
 function Index({ params: { id }, query: { bizType } }) {

@@ -2,8 +2,7 @@ import { makeAutoObservable, history } from '@zswl/admin'
 import { message, Modal } from 'antd'
 import { PageStore } from '@zswl/components'
 import { timeFormat } from '@/utils'
-import Api from './api'
-
+import Api from '@/api/contract/component/SettlementDetail/api'
 class Store {
   constructor(data) {
     makeAutoObservable(this)

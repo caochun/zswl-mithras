@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/contract/component/ChangeMaterials/api'
 import { FileTable } from '@/components/Table'
 import { getUserInfo } from '@/utils'
 

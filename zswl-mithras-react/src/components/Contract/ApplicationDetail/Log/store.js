@@ -1,7 +1,6 @@
 import { TableStore, PageStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from './api'
-
+import Api from '@/api/contract/component/ApplicationDetail/Log/api'
 class Store {
   constructor() {
     makeAutoObservable(this)

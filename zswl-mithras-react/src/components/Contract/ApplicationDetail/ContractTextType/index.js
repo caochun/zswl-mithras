@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { useEffect, useState } from 'react'
 import { Checkbox, message } from 'antd'
 import { App } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/contract/component/ApplicationDetail/ContractTextType/api'
 import styles from './index.less'
 import { hasPermission } from '@/utils'
 

@@ -3,8 +3,7 @@ import { TableStore, ModalStore } from '@zswl/components'
 import DataUpload from '@/components/DataUpload'
 import { compareDetail, downFile } from '@/utils'
 import { message, Modal } from 'antd'
-import Api from './api'
-
+import Api from '@/api/contract/component/ApplicationDetail/ZhiYa/api'
 class Store {
   constructor(data) {
     this.contractId = data?.contractId

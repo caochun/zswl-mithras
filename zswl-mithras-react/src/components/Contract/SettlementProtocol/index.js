@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/contract/component/SettlementProtocol/api'
 import { NoEnumFileTable } from '@/components/Table'
 
 const Report = ({ id, canEdit = true, businessVersion, title }) => {

@@ -3,7 +3,7 @@ import { timeFormat } from '@/utils'
 import { makeAutoObservable } from '@zswl/admin'
 import { FormStore, ModalStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/contract/component/ActualTable/api'
 import DetailApi from '@/api/contract/contractDetail'
 
 class Store {

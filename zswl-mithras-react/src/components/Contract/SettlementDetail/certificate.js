@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/contract/component/SettlementDetail/api'
 import { NoEnumFileTable } from '@/components/Table'
 import { isYunYingBuFuZeRen, isYunYingGuanLi, isContractSettlement, getUserInfo } from '@/utils/auth'
 

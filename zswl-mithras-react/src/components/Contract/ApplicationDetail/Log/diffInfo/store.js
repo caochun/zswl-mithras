@@ -1,8 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { hasValue, compareDetail } from '@/utils'
 import { PageStore } from '@zswl/components'
-import Api from './api'
-
+import Api from '@/api/contract/component/ApplicationDetail/Log/diffInfo/api'
 class Store {
   constructor() {
     makeAutoObservable(this)

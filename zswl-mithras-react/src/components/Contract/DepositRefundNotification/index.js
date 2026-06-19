@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Form, Input, InputNumber, Descriptions, Button } from 'antd'
 import { formatPercent, amountFormat } from '@/utils'
-import Api from './api'
+import Api from '@/api/contract/component/DepositRefundNotification/api'
 import styles from './index.less'
 const Index = ({ id }) => {
     const [form] = Form.useForm()

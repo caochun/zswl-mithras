@@ -4,8 +4,7 @@ import DataUpload from '@/components/DataUpload'
 import moment from 'moment'
 import { timeFormat } from '@/utils'
 import { message } from 'antd'
-import Api from './api'
-
+import Api from '@/api/contract/component/ApplicationDetail/GaiSuanZuJin/api'
 class Store {
   constructor(data) {
     this.businessVersion = data?.businessVersion

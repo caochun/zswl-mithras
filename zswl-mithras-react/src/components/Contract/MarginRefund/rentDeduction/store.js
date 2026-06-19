@@ -1,5 +1,5 @@
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from '../api'
+import Api from '@/api/contract/component/MarginRefund/api'
 
 class Store {
   constructor(contractId) {

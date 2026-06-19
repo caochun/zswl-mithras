@@ -5,8 +5,7 @@ import { hasValue, timeFormat, amountStrToNumber, numToFixed } from '@/utils'
 import moment from 'moment'
 import mathjs from '@/utils/math'
 import { bizTypePriceDetailMap } from '../bizTypeConfig'
-import Api from './api'
-
+import Api from '@/api/contract/component/ChangeDetail/api'
 class Store {
   constructor(data) {
     this.bizType = data?.bizType

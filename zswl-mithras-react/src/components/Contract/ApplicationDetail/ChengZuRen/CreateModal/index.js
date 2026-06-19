@@ -5,8 +5,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons'
 import { Input, InputNumber, Tooltip } from 'antd'
 import DataUpload from '@/components/DataUpload'
 import { ApiSelect } from '@/components/Select'
-import Api from '../api'
-
+import Api from '@/api/contract/component/ApplicationDetail/ChengZuRen/api'
 const { Item } = Form
 
 function Index({ bizType, store, isChangYe }) {

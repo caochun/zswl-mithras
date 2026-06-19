@@ -4,7 +4,7 @@ import { TableStore, ModalStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import moment from 'moment'
 import { timeFormat, compareDetail, downFile } from '@/utils'
-import Api from './api'
+import Api from '@/api/contract/component/ApplicationDetail/DiYa/api'
 class Store {
   constructor(data) {
     this.businessVersion = data?.businessVersion

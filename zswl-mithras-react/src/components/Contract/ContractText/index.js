@@ -1,6 +1,6 @@
 import styles from './index.less'
 import { observer, getQuery } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/contract/component/ContractText/api'
 import { FileTable } from '@/components/Table'
 import { App, Button, Form, Modal, ModalStore } from '@zswl/components'
 import { Checkbox, Tooltip, message } from 'antd'

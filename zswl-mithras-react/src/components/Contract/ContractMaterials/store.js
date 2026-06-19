@@ -1,6 +1,5 @@
 import { makeAutoObservable } from '@zswl/admin'
-import Api from './api'
-
+import Api from '@/api/contract/component/ContractMaterials/api'
 class Store {
   constructor() {
     makeAutoObservable(this)

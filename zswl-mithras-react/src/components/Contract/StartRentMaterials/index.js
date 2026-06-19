@@ -3,8 +3,7 @@ import { observer } from '@zswl/admin'
 import { Modal } from '@zswl/components'
 import { message } from 'antd'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
-import Api from './api'
-
+import Api from '@/api/contract/component/StartRentMaterials/api'
 const enumType = [
   {
     label: '起租材料',

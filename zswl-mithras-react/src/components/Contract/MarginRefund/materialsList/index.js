@@ -3,7 +3,7 @@ import { observer } from '@zswl/admin'
 import { NoEnumFileTable } from '@/components/Table'
 import { Button } from '@zswl/components'
 import _ from 'lodash'
-import Api from '../api'
+import Api from '@/api/contract/component/MarginRefund/api'
 import { downFile } from '@/utils'
 
 const MODULE_TYPE = 'CONTARCT_DEPOSIT'
