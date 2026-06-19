@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import Bifrost from '../components/Bifrost'
+import { PermissionBifrost as Bifrost } from '@/components/Permission/BifrostEntries'
 
 function Index() {
   return <Bifrost path={'/permission/organization'} />

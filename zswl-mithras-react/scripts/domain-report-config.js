@@ -14,6 +14,7 @@ const domainAliasPairs = [
   ['msgNotification', 'message'],
   ['overdueListSearch', 'risk'],
   ['PageListDown', 'common'],
+  ['Permission', 'permission'],
   ['ProfitDistribution', 'budget'],
   ['rzy', 'externalEmbed'],
 ]
