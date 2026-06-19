@@ -1,7 +1,6 @@
 import { TableStore, ModalStore, Modal } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import Api from '@/api/budget/projectProfitApi'
-import localApi from './api'
 import { message } from 'antd'
 import setApi from '@/api/budget/projectProfitBaseSetApi'
 import kpiParameterConfigApi from '@/api/budget/projectProfitParameterApi'
@@ -67,7 +66,7 @@ class Store {
       title: '是否确认?',
       onOk: async () => {
         const { keys } = this.$table.getSelected()
-        await localApi.postFinanceProjectprofitConfirm({
+        await Api.postFinanceProjectprofitConfirm({
           projectProfitIdList: keys,
         })
         message.success('操作成功')

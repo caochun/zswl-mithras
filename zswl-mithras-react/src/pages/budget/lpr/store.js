@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/budget/lprApi'
 import moment from 'moment'
 import { downFile } from '@/utils'
 

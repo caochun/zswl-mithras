@@ -7,7 +7,7 @@ import { useMemo, useEffect, useState } from 'react'
 import Store from './store'
 import moment from 'moment'
 import SettingModal from './SettingModal'
-import Api from './api'
+import Api from '@/api/budget/projectProfitApi'
 import { saveServer } from '@/utils'
 
 const nameColumns = [
