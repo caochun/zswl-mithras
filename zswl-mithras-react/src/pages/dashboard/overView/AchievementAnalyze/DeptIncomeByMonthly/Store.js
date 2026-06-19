@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { DrawerStore, TableStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/dashboard/monthCollect'
 import { initType } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 
 class Store {
@@ -110,7 +110,7 @@ class Store {
 
   listDrawerTable = new TableStore({
     request: async (params) => {
-      return await Api.postList({
+      return await Api.postIncomeSharingList({
         ...params,
       })
     },
@@ -118,7 +118,7 @@ class Store {
 
   drawerDownloadExcel = async () => {
     const params = this.listDrawerTable.getParams()
-    await Api.postDownloadList({
+    await Api.postIncomeSharingListDownload({
       ...params,
       pageSize: 5000,
     })
