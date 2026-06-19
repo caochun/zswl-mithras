@@ -6,7 +6,7 @@ import { all, create } from 'mathjs'
 import Api from '@/api/cpm/payment/paymentApplicationDetail'
 export {
   checkCreditDate,
-  postPayMentCheckApplyAmount,
+  postPaymentCheckApplyAmount,
   validateAgreen,
 } from '@/utils/domains/cpm/PaymentApplicationUtils'
 

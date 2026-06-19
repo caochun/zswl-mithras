@@ -1,7 +1,11 @@
 import { ApprovalAction as Approval } from '@/components/Actions'
 import { LeaseApprovalConfirmAction as ApprovalConfirm } from '@/components/Lease/ApprovalConfirmEntries'
 import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCheckEntries'
-import { checkCreditDate, postPayMentCheckApplyAmount, validateAgreen } from '@/utils/domains/cpm/PaymentApplicationUtils'
+import {
+  checkCreditDate,
+  postPaymentCheckApplyAmount,
+  validateAgreen,
+} from '@/utils/domains/cpm/PaymentApplicationUtils'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import mathjs from '@/utils/math'
 import { observer } from '@zswl/admin'
@@ -246,7 +250,7 @@ const Index = ({ store, backRef, setShow, isEditing }) => {
             await checkCreditDate({ paymentId: businessKey })
           }
           if (modelKey === 'PaymentCreateFlow' && (taskActivityId === 'userTask_riskDeptMaster' || taskActivityId === 'userTask_startUser')) {
-            await postPayMentCheckApplyAmount({ paymentId: businessKey, activityId: taskActivityId })
+            await postPaymentCheckApplyAmount({ paymentId: businessKey, activityId: taskActivityId })
           }
           return store.beforePassProcess({
             buttonKey: v.buttonKey,
