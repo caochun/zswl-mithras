@@ -167,8 +167,8 @@
 - `Project/ReviewProcessEntries.js`
 - `Project/ReviewSnapshotEntries.js`
 - `Report/FinancialReportApprovalEntries.js`
-- `Report/BiViewEntries.js`
 - `Report/FinancialReportListEntries.js`
+- `Report/ManagementEntries.js`
 - `Report/OperationEntries.js`
 - `Risk/MetricValueEntries.js`
 - `Risk/MonitorEarlyEntries.js`
