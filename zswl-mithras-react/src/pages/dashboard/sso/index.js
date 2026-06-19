@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
-import { http, observer } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { App } from '@zswl/components'
 import { setSalt, setQjtAc } from '@/utils'
 import { message } from 'antd'
 import styles from './index.less'
+import ssoApi from '@/api/dashboard/ssoApi'
 
 function Index({ query: { ticket = '' } }) {
   useEffect(() => {
@@ -11,8 +12,8 @@ function Index({ query: { ticket = '' } }) {
       //   window.location.href = `http://10.10.48.50:8088/ssoserver/caslogin/agentlogin?service=${window.location.href}`
       message.error('缺少ticket参数')
     } else {
-      http
-        .post('/user/dashboard/ssoLogin', {
+      ssoApi
+        .postDashboardSsoLogin({
           ticket,
         })
         .then((res) => {

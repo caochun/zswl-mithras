@@ -1,18 +1,18 @@
 import { useEffect } from 'react'
-import { http, observer } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { App } from '@zswl/components'
 import { setQjtAc } from '@/utils'
 import qs from 'query-string'
 import styles from './index.less'
+import ssoApi from '@/api/dashboard/ssoApi'
 
 function Index({ query: { params = '{}', cbUrl = '/' } }) {
   const paramsObj = JSON.parse(params)
 
   useEffect(() => {
     const { secret, timestamp, random, mithrasClientId, userid, loginid, workcode } = paramsObj
-    http
-      .post(
-        '/message/oa/auth',
+    ssoApi
+      .postOaAuth(
         {
           secret,
           timestamp,
