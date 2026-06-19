@@ -83,6 +83,7 @@
 - `Contract/ListDetailEntries.js`
 - `Contract/MaterialsEntries.js`
 - `Contract/ProcessDetailEntries.js`
+- `Contract/SignEntries.js`
 - `Cpm/CpmEntries.js`
 - `Cpm/PaymentApplicationDetailEntries.js`
 - `Cpm/PaymentApplicationMaterialsEntries.js`
