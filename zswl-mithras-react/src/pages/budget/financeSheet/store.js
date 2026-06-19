@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, Modal, ModalStore } from '@zswl/components'
 import { message } from 'antd'
 import DataUpload from '@/components/DataUpload'
-import Api from './api'
+import Api from '@/api/risk/financeSheet'
 import moment from 'moment'
 
 class Store {
@@ -17,7 +17,7 @@ class Store {
           ? moment(params.sheetDate).format('yyyy-MM') + '-01'
           : undefined,
       }
-      return Api.list(currentData)
+      return Api.fileList(currentData)
     },
   })
 

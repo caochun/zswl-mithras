@@ -1,18 +1,16 @@
-import { makeAutoObservable, history } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import { PageStore, TableStore } from '@zswl/components'
 import DataUpload from '@/components/DataUpload'
-import Api from '../api'
-import { i } from 'mathjs'
+import Api from '@/api/kpi/performanceManage'
 
 class Store {
   constructor() {
     makeAutoObservable(this)
   }
-  page = new PageStore({
+    page = new PageStore({
     request: async (params) => {
       const { id } = params
       return await Api.postKpiPerformanceManageMainDetail({ id })
-       
     },
   })
 

@@ -17,6 +17,7 @@ const domainAliasPairs = [
 const extraApiDomainAliasPairs = [
   ['cpm', 'cpm'],
   ['customer', 'customer'],
+  ['customerView', 'customer'],
   ['dashboard', 'dashboard'],
   ['utils', 'common'],
 ]
@@ -31,6 +32,16 @@ const pageSourcePathDomainAliasDefs = [
     pattern: /^src[\\/]pages[\\/]budgetManagement[\\/]provisionForecast(?:[\\/]|$)/,
     key: 'pages/budgetManagement/provisionForecast',
     domain: 'budget',
+  },
+  {
+    pattern: /^src[\\/]pages[\\/]budget[\\/]financeSheet(?:[\\/]|$)/,
+    key: 'pages/budget/financeSheet',
+    domain: 'risk',
+  },
+  {
+    pattern: /^src[\\/]pages[\\/]budgetManagement[\\/]businessGoal(?:[\\/]|$)/,
+    key: 'pages/budgetManagement/businessGoal',
+    domain: 'kpi',
   },
   {
     pattern: /^src[\\/]pages[\\/]customerView(?:[\\/]|$)/,

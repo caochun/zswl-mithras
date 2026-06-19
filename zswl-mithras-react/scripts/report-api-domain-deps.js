@@ -7,9 +7,13 @@ const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
 const apiImportPattern = /^@\/api\/([^/'"]+)(?:\/[^'"]*)?$/
-const { createDomainAliases } = require('./domain-report-config')
+const {
+  createDomainAliases,
+  createPageSourcePathDomainAliases,
+} = require('./domain-report-config')
 
 const domainAliases = createDomainAliases({ includeApiExtras: true })
+const pageSourcePathDomainAliases = createPageSourcePathDomainAliases()
 const ignoredSourcePathPatterns = [
   /^src[\\/]api[\\/]/,
   /^src[\\/]pages[\\/]demo[\\/]/,
@@ -61,6 +65,16 @@ function getSourceScope(relativeFilePath) {
     return {
       key: `utils/domains/${utilityDomain}`,
       domain: normalizeDomain(utilityDomain),
+    }
+  }
+
+  const pagePathAlias = pageSourcePathDomainAliases.find(({ pattern }) =>
+    pattern.test(relativeFilePath)
+  )
+  if (pagePathAlias) {
+    return {
+      key: pagePathAlias.key,
+      domain: normalizeDomain(pagePathAlias.domain),
     }
   }
 

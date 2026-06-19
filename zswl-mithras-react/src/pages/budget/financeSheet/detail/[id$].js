@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Page, Table, TableStore } from '@zswl/components'
 import { amountFormat, formatPercent, hasValue } from '@/utils'
-import Api from '../api'
+import Api from '@/api/risk/financeSheet'
 import { saveServer } from '@/utils'
 
 const Index = ({ query: { factorDate, factorTable } }) => {
