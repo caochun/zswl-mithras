@@ -1,4 +1,4 @@
-import publicInfoApi from '@/api/cpm/payment/publicInfoApi_edited'
+import publicInfoApi from '@/api/cpm/payment/publicInfoApi'
 import { makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, TableStore } from '@zswl/components'
 import { message } from 'antd'

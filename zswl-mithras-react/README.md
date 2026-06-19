@@ -299,7 +299,6 @@
 - `common/customerOverview`：历史公共实现已清理；dashboard 客户总览页面使用 `src/api/dashboard/customerOverview`，客户视图页面使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `common/flowList`：历史公共目录已清理；流程任务列表、流程详情、退回节点和随机退回等 `/flow/**` 接口使用 `src/api/process/flowTaskApi`。
 - `process/flowTaskApi.getProcessDetail`：预算管理和租赁物组件只读取流程详情状态时，分别使用 `src/api/budgetManagement/processDetailApi`、`src/api/lease/processDetailApi` 本域语义入口，不直接绑定流程任务 API 文件。
-- `budgetManagement/costBudgetDetialApi`：成本预算明细 API 的历史拼写入口；新代码使用 `src/api/budgetManagement/costBudgetDetailApi`，旧入口仅兼容转发。
 - `common/editableCompare`：历史上混合了 FTP、项目、付款和文件比对接口，当前已清理；文件表组件使用 `src/api/common/fileCompareApi`。
 - `common/dataList`：历史命名已清理；资料清单上传、下载、预览、项目资料和授信资料列表使用 `src/api/common/materialsApi`。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API；这些入口已收窄为 endpoint 壳，不再转发其他业务域 API 文件。
@@ -325,7 +324,7 @@
 - `credit/creditReportApi.postCompareBusiness`：征信查询下的工商信息比对接口可由共享 `BusinessInfoCheck` 组件本地 `api.js` 聚合，调用方不应因此直接绑定征信域 API。
 - `utils/paymentApplication`：付款申请校验工具历史落在全局 utils；付款组件和流程操作优先使用 `src/utils/domains/cpm/PaymentApplicationUtils`，旧路径仅保留兼容转发。
 - `cpm/payment/paymentApplicationDetail`：付款申请详情接口保留在付款域；流程详情展示付款资料时使用 `src/api/process/detail/paymentApplicationDetailApi` 聚合入口，不再转发付款申请 API 文件。
-- `cpm/payment/paymentApplicationDetail`、`cpm/payment/publicInfoApi_edited`：流程操作中执行付款申请前置校验或公开信息提交校验时使用 `src/api/process/operation` 下的聚合入口，不再转发付款域 API 文件。
+- `cpm/payment/paymentApplicationDetail`、`cpm/payment/publicInfoApi`：流程操作中执行付款申请前置校验或公开信息提交校验时使用 `src/api/process/operation` 下的聚合入口，不直接绑定付款域 API 文件。
 - `approval/processModifyRemarkApi`：流程变更/复议说明是审批横向能力；共享审批组件使用 `src/api/common/approvalRemarkApi`，业务详情组件使用本业务域的 `approvalRemarkApi` 固定权限码入口，不再转发公共审批备注 API 文件。
 - `contract/baseInfo`：合同基础信息接口本身保留在合同域；预算域取合同候选信息时使用 `src/api/budget/contractInfoApi`，跟踪事项选择项目/合同候选信息时使用 `src/api/trackEvent/contractInfoApi`，不再转发合同 API 文件。
 - `contract/contractDetail`：合同详情接口保留在合同域；流程详情展示合同相关资料时使用 `src/api/process/detail/contractDetailApi` 聚合入口，不再转发合同详情 API 文件。

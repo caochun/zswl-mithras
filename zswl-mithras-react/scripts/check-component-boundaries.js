@@ -426,9 +426,9 @@ const legacyApiPrefixRules = [
     ],
   },
   {
-    legacyPrefix: '@/api/cpm/payment/publicInfoApi_edited',
+    legacyPrefix: '@/api/cpm/payment/publicInfoApi',
     replacementPrefix:
-      '@/api/process/operation/paymentPublicInfoApi or @/api/cpm/payment/publicInfoApi_edited in Cpm domain',
+      '@/api/process/operation/paymentPublicInfoApi or @/api/cpm/payment/publicInfoApi in Cpm domain',
     allowedSourceDomains: ['Cpm', 'cpm'],
     allowedSourcePathPrefixes: [
       'src/components/Cpm/',
@@ -531,11 +531,6 @@ const legacyApiPrefixRules = [
     allowedSourcePathPrefixes: [
       'src/pages/budget/flowCenter/',
     ],
-  },
-  {
-    legacyPrefix: '@/api/budgetManagement/costBudgetDetialApi',
-    replacementPrefix: '@/api/budgetManagement/costBudgetDetailApi',
-    allowedSourcePathPrefixes: ['src/api/budgetManagement/costBudgetDetialApi.ts'],
   },
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/

@@ -1,5 +1,5 @@
 import flowList from '@/api/process/flowTaskApi'
-import publicInfoApi_edited from '@/api/process/operation/paymentPublicInfoApi'
+import paymentPublicInfoApi from '@/api/process/operation/paymentPublicInfoApi'
 import customerRatApi from '@/api/process/operation/customerRatingOperationApi'
 import PaymentApplicationDetailApi from '@/api/process/operation/paymentOperationApi'
 import { customerRatingUploadFile as uploadFile } from '@/components/Customer/CustomerRatingUploadEntries'
@@ -222,7 +222,7 @@ class Store {
   validPublicInfo = async () => {
     const { processInstanceId, mainModule, taskActivityId } = this.detailData
     if (taskActivityId === 'userTask_projectmanager' && mainModule === 'PAYMENT') {
-      const res = await publicInfoApi_edited.postSubmitCheck({ processInstanceId })
+      const res = await paymentPublicInfoApi.postSubmitCheck({ processInstanceId })
       if (!res) {
         return new Promise((resolve, reject) => {
           Modal.confirm({
