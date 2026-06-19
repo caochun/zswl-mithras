@@ -15,6 +15,7 @@ export { default as BlackGrayEnterDatabaseExternalDetail } from './RouteShells/E
 export { default as BlackGrayOutboundApplicationDetail } from './RouteShells/OutboundApplicationDetail'
 export { default as BlackGrayWarehouseApprovalDetailRedirect } from './RouteShells/WarehouseApprovalDetailRedirect'
 export { default as BlackGrayWarehouseApproval } from './Warehouse/Approval'
+export { default as BlackGrayWarehouseApprovalOutDetail } from './Warehouse/Approval/OutDetail/[id$]'
 export { default as BlackGrayWarehouseMainTaskOutDetail } from './RouteShells/WarehouseMainTaskOutDetail'
 export { default as BlackGrayWarehouseSearch } from './Warehouse/Search'
 export { default as BlackGrayWarehouseSearchDetailRedirect } from './RouteShells/WarehouseSearchDetailRedirect'
