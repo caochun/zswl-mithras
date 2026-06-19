@@ -3,7 +3,7 @@ import { getQuery } from '@zswl/admin'
 import { Radio, Input } from 'antd'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './index.less'
-import SendDuplicateModal from '../SendDuplicateModal'
+import { ProcessSendDuplicateModal as SendDuplicateModal } from '@/components/Process/SendDuplicateModalEntries'
 import moment from 'moment'
 import BackReason from './Components/BackReason'
 import CheckCorpSubject from './Components/CheckCorpSubject'
@@ -253,6 +253,7 @@ export default function Index() {
         taskId={taskId}
         externalForm={store.operatorForm}
         detailData={{ ccTabReadOnlyFlag, ccUerList }}
+        onCollaborate={store.collaborate}
         visible={show}
         callBack={() => {
           setShow(false)

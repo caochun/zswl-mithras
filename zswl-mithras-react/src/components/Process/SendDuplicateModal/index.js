@@ -1,13 +1,12 @@
 import { observer } from '@zswl/admin'
 import store from './store'
-import OperatorStore from '../Operator/store'
 import { Select, App } from '@zswl/components'
 import { Modal, Form, message } from 'antd'
 import styles from './index.less'
 import { useState, useEffect } from 'react'
 import Api from '@/api/process/detail/flowDetailApi'
 
-function Index({ processInstanceId, visible, taskId, flag, externalForm, callBack, detailData }) {
+function Index({ processInstanceId, visible, taskId, flag, externalForm, callBack, detailData, onCollaborate }) {
   //flag="collaborate"
   const { founderList } = store
   const { ccTabReadOnlyFlag, ccUerList} = detailData
@@ -32,7 +31,7 @@ function Index({ processInstanceId, visible, taskId, flag, externalForm, callBac
   const handleOk = async () => {
     //console.log(form.getFieldValue().ccUserIdList, 999999999)
     if (flag == 'collaborate') {
-      OperatorStore.collaborate({
+      await onCollaborate?.({
         collaborateUserId: form.getFieldValue().ccUserIdList,
         taskId,
       })

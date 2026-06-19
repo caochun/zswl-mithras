@@ -149,6 +149,7 @@
 - `Process/PrepareDetailEntries.js`
 - `Process/ProcessInfoModalEntries.js`
 - `Process/ProcessEntries.js`
+- `Process/SendDuplicateModalEntries.js`
 - `Process/ProcessTaskFlowChartEntries.js`
 - `Project/ClientSelectEntries.js`
 - `Project/EstablishmentDetailEntries.js`
