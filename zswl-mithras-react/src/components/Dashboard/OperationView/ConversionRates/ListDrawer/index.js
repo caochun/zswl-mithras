@@ -9,7 +9,7 @@ import ExportBtn from '../../../Export'
 import TableSummary from '../../../TableSummary'
 import { initQueryDate } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 import { useState } from 'react'
-import Api from '../api'
+import Api from '@/api/dashboard/operationView/conversionRatesApi'
 import { saveServer } from '@/utils'
 
 const group = '转化率情况详情'

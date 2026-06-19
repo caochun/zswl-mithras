@@ -8,7 +8,7 @@ import {
   sameYearQueryDate,
   lineSeriesItem,
 } from '@/utils/domains/dashboard/DashboardUtilsOperation'
-import Api from './api'
+import Api from '@/api/dashboard/operationView/launchCompleteApi'
 
 class Store {
   constructor() {

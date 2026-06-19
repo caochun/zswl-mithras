@@ -7,7 +7,7 @@ import { operationViewColumnsFilterKey as columnsFilterKey } from '@/utils/domai
 import ExportBtn from '../../../Export'
 import TableSummary from '../../../TableSummary'
 import { COMMON_COLUMNS } from '../../../OperationViewColumns'
-import Api from '../api'
+import Api from '@/api/dashboard/operationView/capacityAnalysisApi'
 import { initQueryDate, initProjStage } from '@/utils/domains/dashboard/DashboardUtilsOperation'
 import { saveServer } from '@/utils'
 
