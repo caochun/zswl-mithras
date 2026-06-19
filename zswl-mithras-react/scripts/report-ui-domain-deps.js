@@ -44,6 +44,7 @@ const componentAliases = new Map([
 
 const componentEntryScopeAliases = new Map([
   ['BlackGray/BlackGrayHitEntries', 'BlackGrayHit'],
+  ['AfterLease/RentCollectionDetailEntries', 'RentCollectionDetail'],
   ['ClientMaterialTable/BusinessMaterialTableEntries', 'BusinessMaterialTable'],
   ['Credit/CreditReportSearchEntries', 'CreditReportSearch'],
   ['Customer/DebtRatingListEntries', 'CustomerDebtRatingList'],
@@ -53,6 +54,7 @@ const componentEntryScopeAliases = new Map([
   ['InsurancePolicy/InsurancePolicyColumnsEntries', 'InsurancePolicyColumns'],
   ['PaymentFtpColumns/FtpAssessmentColumnsEntries', 'FtpAssessmentColumns'],
   ['Project/ProjectReviewMeetingModalEntries', 'ProjectReviewMeetingModal'],
+  ['Risk/SourceCardEntries', 'RiskSourceCardCalcModal'],
   ['TrackEvent/TrackEventModalEntries', 'TrackEventModal'],
   ['TrackEvent/TrackEventTaskEntries', 'TrackEventTask'],
 ])
