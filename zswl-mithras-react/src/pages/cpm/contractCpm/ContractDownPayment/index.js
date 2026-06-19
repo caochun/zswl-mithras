@@ -5,7 +5,7 @@ import store from './store'
 import CashFlowTable from '../CashFlowTable'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
-import Api from './api'
+import Api from '@/api/cpm/contractCpmApi'
 import { saveServer } from '@/utils'
 
 const PaymentRecords = ({ id, contractDetailData }) => {

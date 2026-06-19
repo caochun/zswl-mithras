@@ -1,6 +1,6 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable, toJS } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/cpm/marginManagementApi'
 import { debounce as _debounce } from 'lodash'
 import moment from 'moment'
 import { message } from 'antd'
@@ -39,7 +39,7 @@ class Store {
     onOpen: async (value) => {
       if (value) {
         this.addOredit = 2
-        const data = await Api.marginRecordDetail({ id: value.id })
+        const data = await Api.marginCollectionDetail({ id: value.id })
         console.log(data, 'banknamebanknamebankname')
         data.bankAccountId = data.ourBankInfo?.accountNumber
         data.bankname = data.ourBankInfo?.accountBank

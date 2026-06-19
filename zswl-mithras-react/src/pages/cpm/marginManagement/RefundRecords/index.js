@@ -8,7 +8,6 @@ import styles from './index.less'
 import store from './store'
 import { amountFormat } from '@/utils'
 import { Button, Dropdown, Menu, Tooltip } from 'antd'
-import Api from './api'
 
 const PaymentRecords = ({ id, contractId, callback }) => {
   useEffect(() => {

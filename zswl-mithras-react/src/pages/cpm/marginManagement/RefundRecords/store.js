@@ -1,6 +1,6 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable, toJS } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/cpm/marginManagementApi'
 import { debounce as _debounce } from 'lodash'
 import { message } from 'antd'
 import DetailStore from '../detail/store'
@@ -123,7 +123,7 @@ class Store {
       //this.clientList = list
       return data
     } else {
-      const { list } = await Api.getList({ clientName: e, pageSize: 30 })
+      const { list } = await Api.getListClient({ clientName: e, pageSize: 30 })
       return list
     }
   }

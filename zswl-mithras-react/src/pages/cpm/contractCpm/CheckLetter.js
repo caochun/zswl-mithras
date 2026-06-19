@@ -5,7 +5,7 @@ import { hasValue, amountFormat, formatPercent, timeFormat } from '@/utils'
 import store from './store'
 import { message } from 'antd'
 import moment from 'moment'
-import Api from './api'
+import Api from '@/api/cpm/contractCpmApi'
 import { saveServer } from '@/utils'
 
 const { useStore } = Table

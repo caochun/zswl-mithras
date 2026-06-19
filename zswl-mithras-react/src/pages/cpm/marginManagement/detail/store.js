@@ -1,6 +1,6 @@
 import { PageStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/cpm/marginManagementApi'
 
 class Store {
   constructor() {

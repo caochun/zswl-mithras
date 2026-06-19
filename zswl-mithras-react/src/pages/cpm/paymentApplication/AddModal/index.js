@@ -4,7 +4,7 @@ import { observer } from '@zswl/admin'
 import { App, Form, Modal } from '@zswl/components'
 import { Input, Select } from 'antd'
 import { useEffect, useState } from 'react'
-import Api from '../api'
+import Api from '@/api/cpm/payment/paymentApplicationApi'
 import store from '../store'
 
 const AddModal = () => {

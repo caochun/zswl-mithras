@@ -1,7 +1,7 @@
 import { TableStore, App, ModalStore, Modal } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/cpm/payment/paymentApplicationApi'
 import { timeFormat } from '@/utils'
 import { debounce as _debounce } from 'lodash'
 import moment from 'moment'
@@ -32,7 +32,7 @@ class Store {
         paidInDateFrom: searchData.paidInDate ? timeFormat(searchData.paidInDate[0]) : undefined,
         paidInDateTo: searchData.paidInDate ? timeFormat(searchData.paidInDate[1]) : undefined,
       }
-      return Api.getList(currentData)
+      return Api.getWriteOffList(currentData)
     },
   })
 

@@ -5,7 +5,7 @@ import store from './store'
 import ContractDownPayment from '../ContractDownPayment'
 import { observer, getQuery } from '@zswl/admin'
 import styles from './index.less'
-import Api from './api'
+import Api from '@/api/cpm/contractCpmApi'
 import { UserOutlined } from '@ant-design/icons'
 
 const { TabPane } = Tabs
