@@ -3,11 +3,13 @@ import { observer } from '@zswl/admin'
 import store from './store'
 import styles from './index.less'
 import IconFont from '@/components/Icon'
-import ALL_COLUMNS from '../Column'
+import {
+  ArchivesBizTypeTags as Tags,
+  ArchivesColumns as ALL_COLUMNS,
+} from '@/components/Archives/ArchivesEntries'
 import { getTableColumns, getFormColumns } from '@/utils'
 import { FiledFormat, InputEditable } from '@/components/Format'
 import EditModal from './EditModal'
-import Tags from '../component/Tags'
 import { saveServer } from '@/utils'
 
 const nameColumns = [

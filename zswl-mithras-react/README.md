@@ -52,6 +52,7 @@
 - `AfterLease/CheckPlanExternalEntries.js`
 - `AfterLease/CheckPlanPrepareEntries.js`
 - `AfterLease/CheckPlanTemplateEntries.js`
+- `Archives/ArchivesEntries.js`
 - `BaseData/FileTemplateEntries.js`
 - `BaseData/LeaseholdPropertyEntries.js`
 - `BlackGray/BlackGrayEntries.js`
