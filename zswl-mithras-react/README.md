@@ -147,8 +147,6 @@
 - `Permission/BifrostEntries.js`
 - `InsurancePolicy/InsurancePolicyColumnsEntries.js`
 - `InsurancePolicy/InsurancePolicyEntries.js`
-- `Process/DetailEntries.js`
-- `Process/PrepareDetailPageEntries.js`
 - `Process/ProcessInfoModalEntries.js`
 - `Process/ProcessEntries.js`
 - `Process/ProcessTaskFlowChartEntries.js`
