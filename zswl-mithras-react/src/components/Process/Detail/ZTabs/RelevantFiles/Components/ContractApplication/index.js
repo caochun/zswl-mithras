@@ -10,7 +10,7 @@ import {
   ContractText as HeTong,
 } from '@/components/Contract/MaterialsEntries'
 import Api from '@/api/process/detail/contractDetailApi'
-import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
+import BlankBlock from '../../../../../BlankBlock'
 import { useEffect, useMemo, useState } from 'react'
 
 const Index = ({ detailData, canEdit }) => {

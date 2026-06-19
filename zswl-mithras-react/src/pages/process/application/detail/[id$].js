@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import PrepareDetail from './PrepareDetail'
-import Detail from '../../Detail/index'
+import { ProcessDetail as Detail } from '@/components/Process/DetailEntries'
 
 function Index(props) {
   const {

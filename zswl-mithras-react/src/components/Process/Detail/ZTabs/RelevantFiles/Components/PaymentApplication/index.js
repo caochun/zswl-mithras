@@ -4,7 +4,7 @@ import {
   CpmPaymentApplicationLendingMaterials as LendingMaterials,
 } from '@/components/Cpm/PaymentApplicationMaterialsEntries'
 import Api from '@/api/process/detail/paymentApplicationDetailApi'
-import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
+import BlankBlock from '../../../../../BlankBlock'
 import { useEffect, useState } from 'react'
 
 const Index = ({ detailData, canEdit }) => {

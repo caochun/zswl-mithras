@@ -1,4 +1,4 @@
-import Detail from '../../Detail/index'
+import { ProcessDetail as Detail } from '@/components/Process/DetailEntries'
 import { observer } from '@zswl/admin'
 
 function Index({ params: { id }, query, pathname }) {

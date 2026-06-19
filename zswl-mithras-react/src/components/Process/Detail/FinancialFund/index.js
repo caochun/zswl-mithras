@@ -5,7 +5,7 @@ import {
   FinancialFundDetail as FundFinancingFundDetail,
 } from '@/components/Financial/FundProcessEntries'
 import { FinancialDirectDetail as FinancialDirect } from '@/components/Financial/DirectDetailEntries'
-import { PrepareFinancingRepayPlanConfirmFlow as FinancingRepayPlanConfirmFlow } from '@/components/Process/PrepareDetailEntries'
+import FinancingRepayPlanConfirmFlow from '../../FinancingRepayPlanConfirmFlow'
 import { FilingMaterialsFundApply as FundFilingMaterialsApply } from '@/components/FilingMaterials/FundApplyEntries'
 import { FinancialFinancingCarryInterestFlow as FinancingCarryInterestFlow } from '@/components/Financial/FinancingCarryInterestEntries'
 const Index = (props) => {

@@ -5,7 +5,7 @@ import {
   ReviewDetailReport as Report,
 } from '@/components/Project/ReviewProcessEntries'
 import Api from '@/api/process/detail/projectReviewDetailApi'
-import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
+import BlankBlock from '../../../../../BlankBlock'
 import { useEffect, useState } from 'react'
 
 const Index = ({ detailData, canEdit }) => {

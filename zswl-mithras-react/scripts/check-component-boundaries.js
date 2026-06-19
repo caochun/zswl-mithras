@@ -241,6 +241,7 @@ const legacyApiPrefixRules = [
     replacementPrefix: '@/api/customer/customerRat/customerRatApprovalApi',
     allowedSourcePathPrefixes: [
       'src/pages/process/',
+      'src/components/Process/',
     ],
   },
   {
