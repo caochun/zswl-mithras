@@ -3,7 +3,7 @@ import { getInputNumberAmountProps, validatorAmount } from '@/utils'
 import { App, Form, Modal } from '@zswl/components'
 import { Button, DatePicker, Input, InputNumber, Select, Upload } from 'antd'
 import { useEffect, useState } from 'react'
-import api from '../../api'
+import api from '@/api/cpm/collectionWriteOffApi'
 
 const noList = ['服务费/咨询费/手续费', '首期租金', '名义价款']
 const CollectionModal = ({ activeData, store }) => {

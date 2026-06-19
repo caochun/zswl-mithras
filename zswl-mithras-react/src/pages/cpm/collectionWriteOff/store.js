@@ -1,6 +1,6 @@
 import { TableStore, App } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/cpm/collectionWriteOffApi'
 import { timeFormat } from '@/utils'
 import { debounce as _debounce } from 'lodash'
 import { message } from 'antd'

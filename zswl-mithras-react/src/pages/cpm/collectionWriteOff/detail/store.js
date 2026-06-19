@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { FormStore, ModalStore, PageStore, DrawerStore, TableStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/cpm/collectionWriteOffApi'
 import moment from 'moment'
 import { message } from 'antd'
 import mathjs from '@/utils/math'
