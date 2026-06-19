@@ -1,5 +1,5 @@
 import { getTableColumns } from '@/utils'
-import { makeAutoObservable, observer, http } from '@zswl/admin'
+import { makeAutoObservable, observer } from '@zswl/admin'
 import { Table, TableStore, Select, App } from '@zswl/components'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useEffect, useMemo } from 'react'
@@ -34,7 +34,7 @@ class Store {
    */
   typeList = []
   getTypeList = async () => {
-    const res = await http.get('/black/gray/singleEnt/businessType')
+    const res = await listLibraryApi.getSingleEntBusinessType()
     const { blackGrayBusinessTypeEnum } = App.getData().optionsType
     // this.typeList = res.map((value) => {
     //   return blackGrayBusinessTypeEnum.find((item) => item.value === value)
@@ -59,10 +59,8 @@ class Store {
   enterpriseList = []
   getEnterpriseList = async () => {
     const { activeType } = this
-    this.enterpriseList = await http.get('/black/gray/singleEnt/cardCount', {
-      params: {
-        businessType: activeType,
-      },
+    this.enterpriseList = await listLibraryApi.getSingleEntCardCount({
+      businessType: activeType,
     })
     if (!this.enterpriseList.find((item) => item.orgCode === this.activeEnterprise?.orgCode)) {
       this.setActiveEnterprise(this.enterpriseList[0])

@@ -1,5 +1,5 @@
 import { getTableColumns } from '@/utils'
-import { http, makeAutoObservable, observer } from '@zswl/admin'
+import { makeAutoObservable, observer } from '@zswl/admin'
 import { Table, TableStore, Select, App, SearchBar } from '@zswl/components'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useEffect, useMemo } from 'react'
@@ -7,6 +7,7 @@ import { Radio } from 'antd'
 import { ExportAction } from '@/components/BlackGray/BlackGrayEntries'
 import { getEnterpriseName } from './RecordSearch'
 import { saveServer } from '@/utils'
+import listLibraryApi from '@/api/blackGray/listLibraryApi'
 
 class Store {
   constructor() {
@@ -14,12 +15,12 @@ class Store {
   }
   table = new TableStore({
     request: (params) => {
-      return http.get('/black/gray/singleGroup/list', { params })
+      return listLibraryApi.getSingleGroupList(params)
     },
   })
   typeList = []
   getTypeList = async () => {
-    const res = await http.get('/black/gray/singleEnt/businessType')
+    const res = await listLibraryApi.getSingleEntBusinessType()
     const { blackGrayBusinessTypeEnum } = App.getData().optionsType
     this.typeList = res.map((value) => {
       return blackGrayBusinessTypeEnum.find((item) => item.value === value)
@@ -100,10 +101,7 @@ const Index = ({ path }) => {
         actions={[
           <ExportAction
             api={({ ids, ...rest }) =>
-              http.get('/black/gray/singleGroup/export', {
-                params: { exportGroupNames: ids, ...rest },
-                type: 'download',
-              })
+              listLibraryApi.getSingleGroupExport({ exportGroupNames: ids, ...rest })
             }
             store={store.table}
             key="export"

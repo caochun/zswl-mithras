@@ -62,6 +62,27 @@ export default {
   // 风控系统查询黑灰名单库详情
   postInfoDetail: (data: Types.InfoDetailRequest): Promise<Types.InfoDetailResponse> =>
     http.post('/black/gray/base/info/detail', data, { mock }),
+
+  getSingleEntBusinessType: (): Promise<any> =>
+    http.get('/black/gray/singleEnt/businessType', { mock }),
+
+  getSingleEntCardCount: (params: any): Promise<any> =>
+    http.get('/black/gray/singleEnt/cardCount', { params, mock }),
+
+  getSingleGroupList: (params: any): Promise<any> =>
+    http.get('/black/gray/singleGroup/list', { params, mock }),
+
+  getSingleGroupExport: (params: any): Promise<any> =>
+    http.get('/black/gray/singleGroup/export', { params, mock, type: 'download' }),
+
+  getSingleGroupDetail: (params: any): Promise<any> =>
+    http.get('/black/gray/singleGroup/detail', { params, mock }),
+
+  getSingleGroupStockList: (params: any): Promise<any> =>
+    http.get('/black/gray/singleGroup/groupStockList', { params, mock }),
+
+  getSingleGroupCompanyStockList: (params: any): Promise<any> =>
+    http.get('/black/gray/singleGroup/groupCompanyStockList', { params, mock }),
 }
 
 /* prettier-ignore-end */

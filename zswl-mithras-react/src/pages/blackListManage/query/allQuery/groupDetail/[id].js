@@ -1,10 +1,11 @@
 import { getTableColumns } from '@/utils'
 import { Card } from 'antd'
-import { http, makeAutoObservable, observer } from '@zswl/admin'
+import { makeAutoObservable, observer } from '@zswl/admin'
 import { Table, Descriptions, Page } from '@zswl/components'
 import { BlackGrayColumns as ALl_COLUMNS } from '@/components/BlackGray/BlackGrayEntries'
 import { useMemo } from 'react'
 import { saveServer } from '@/utils'
+import listLibraryApi from '@/api/blackGray/listLibraryApi'
 
 class Store {
   constructor() {
@@ -14,34 +15,28 @@ class Store {
   base = new Descriptions.Store({
     request: () => {
       const { id } = this.page.getParams()
-      return http.get('/black/gray/singleGroup/detail', {
-        params: {
-          groupName: id,
-        },
+      return listLibraryApi.getSingleGroupDetail({
+        groupName: id,
       })
     },
   })
   list = new Table.Store({
     request: (params) => {
       const { id, ...rest } = this.page.getParams()
-      return http.get('/black/gray/singleGroup/groupStockList', {
-        params: {
-          ...params,
-          groupName: id,
-          ...rest,
-        },
+      return listLibraryApi.getSingleGroupStockList({
+        ...params,
+        groupName: id,
+        ...rest,
       })
     },
   })
   company = new Table.Store({
     request: (params) => {
       const { id, ...rest } = this.page.getParams()
-      return http.get('/black/gray/singleGroup/groupCompanyStockList', {
-        params: {
-          ...params,
-          groupName: id,
-          ...rest,
-        },
+      return listLibraryApi.getSingleGroupCompanyStockList({
+        ...params,
+        groupName: id,
+        ...rest,
       })
     },
   })
