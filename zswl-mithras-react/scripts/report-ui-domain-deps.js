@@ -70,6 +70,7 @@ const stableSharedBusinessTargets = new Set([
   'components/FinancialUrl',
   'components/InsurancePolicyColumns',
   'components/InsurancePolicyInfo',
+  'components/KpiBaseSetModalDetail',
   'components/ProcessInfoModal',
   'components/ProcessTaskFlowChart',
   'components/ProjectReviewMeetingModal',
