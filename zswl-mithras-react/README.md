@@ -184,6 +184,7 @@
 - `npm run report:ui-domain-deps` 的输出会区分域实现、流程编排和普通页面聚合。`Stable shared business capabilities` 是已确认可复用的业务能力入口，`still need semantic review` 是仍需逐项判断的真实跨域嵌入，`workflow orchestration` 是流程壳对业务详情的装配，`page aggregation` 是工作台、看板、生命周期视图等普通聚合页面的跨域依赖。普通聚合页面也会继续分为稳定能力使用和待语义评审项；后续重构应优先处理待评审清单，而不是机械追求所有跨域项归零。
 - `npm run report:ui-domain-deps` 默认忽略同业务域页面路由壳到本域组件入口的引用，例如 `pages/project` 到 `components/Project`；报告中的 workflow/page aggregation 部分应主要用于观察流程、工作台、跨域页面编排。
 - 菜单路由和业务语义不一致时，依赖报告可以按真实语义归一。例如 `pages/lease/tracking` 是跟踪事项路由壳，`pages/customerView` 是客户视图，租后检查计划下的单一视图风险入口归入客户能力；这类归一只影响报告，不改变路由兼容。
+- `pages/budgetManagement/provisionForecast` 是预算管理下的历史菜单路径，但页面和接口语义归入预算拨备预测；依赖报告按 `budget` 归一，路由保持兼容。
 - `ClientMaterialTable`、`ChangeLogDiff`、`PaymentFtpColumns` 这类横向业务能力不再视为公共基础组件；依赖报告会保留它们的跨域使用关系，后续需要逐项判断是沉淀横向能力还是回收到具体业务域。
 - `FileDiff/FileDiffEntries.js` 仅保留为历史兼容入口，新代码应使用 `ChangeLogDiff/ChangeLogDiffEntries.js`。
 - `PaymentApplyColumns/PaymentApplyColumnsEntries.js`、`PaymentFtpColumns/PaymentFtpColumnsEntries.js` 仅保留为历史兼容入口，新代码应使用 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js`。

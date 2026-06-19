@@ -35,6 +35,11 @@ const pageSourcePathDomainAliases = [
     domain: 'Customer',
   },
   {
+    pattern: /^src[\\/]pages[\\/]budgetManagement[\\/]provisionForecast(?:[\\/]|$)/,
+    key: 'pages/budgetManagement/provisionForecast',
+    domain: 'Budget',
+  },
+  {
     pattern: /^src[\\/]pages[\\/]customerView(?:[\\/]|$)/,
     key: 'pages/customerView',
     domain: 'Customer',
