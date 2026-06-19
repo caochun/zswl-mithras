@@ -354,7 +354,7 @@
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理；dashboard 工作台保存/查询用户配置使用 `src/api/dashboard/userCustomConfigApi`，通用表格列配置工具保留 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
-- `cvicse`、`student`：外部系统或历史实验目录，重构前需先确认路由和菜单来源。
+- `cvicse`、`student`：当前代码树中已不存在；后续若恢复这些外部系统或实验路由，需先确认菜单、权限和外部链接来源。
 - `demo`：本地实验/脚手架目录，含注释示例和硬编码调试地址；不作为业务域边界判断输入。
 
 目录整理原则：

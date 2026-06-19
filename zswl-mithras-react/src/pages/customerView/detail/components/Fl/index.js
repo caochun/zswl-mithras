@@ -238,14 +238,6 @@ const RenderTable = observer(({ dataKey }) => {
 })
 // 卡片
 const CardContainer = observer(({ data }) => {
-  // const load = async () => {
-  //   await http.post('/customer/view/detail/queryCustomerViewInfo', {
-  //     enterpriseName: '恒生银行（中国）有限公司',
-  //   })
-  // }
-  // useEffect(() => {
-  //   load()
-  // })
   return (
     <>
       <div
