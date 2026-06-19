@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/lifeCycle/riskStrategyCardApi'
 
 class Store {
   constructor(data) {
