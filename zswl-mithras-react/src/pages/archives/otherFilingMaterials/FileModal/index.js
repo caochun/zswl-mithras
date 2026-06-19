@@ -2,7 +2,7 @@ import { history, observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { Input, message } from 'antd'
 import { useState } from 'react'
-import Api from '../api'
+import otherFilingMaterialsApi from '@/api/archives/otherFilingMaterials'
 import store from '../store'
 
 const { Item } = Form
@@ -14,7 +14,7 @@ function FileModal() {
   const loadProjects = async () => {
     setLoading(true)
     try {
-      const data = await Api.getReviewProject()
+      const data = await otherFilingMaterialsApi.getReviewProject()
       setOptions(
         data?.map((item) => ({
           label: item.projName,
@@ -53,7 +53,7 @@ function FileModal() {
       message.warning('请选择项目名称！')
       throw new Error('请选择项目名称')
     }
-    const id = await Api.confirmProject({ projReviewId: values.projReviewId })
+    const id = await otherFilingMaterialsApi.confirmProject({ projReviewId: values.projReviewId })
     message.success('发起归档成功！')
     store.table.search()
     store.fileModal.close()

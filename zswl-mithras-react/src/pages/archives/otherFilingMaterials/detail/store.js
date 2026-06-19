@@ -1,7 +1,7 @@
 import { makeAutoObservable, history } from '@zswl/admin'
 import { PageStore } from '@zswl/components'
 import { message, Modal } from 'antd'
-import Api from './api'
+import otherFilingMaterialsApi from '@/api/archives/otherFilingMaterials'
 import parentStore from '../store'
 class Store {
   constructor() {
@@ -11,14 +11,14 @@ class Store {
   page = new PageStore({
     request: (params) => {
       if (!params?.id) return {}
-      return Api.getOperationsDirDict(params.id)
+      return otherFilingMaterialsApi.getOperationsDirDict(params.id)
     },
   })
   cancel = (id) => {
     Modal.confirm({
       title: '是否取消操作？',
       onOk: async () => {
-        await Api.cancel({
+        await otherFilingMaterialsApi.cancel({
           id,
         })
         message.success('取消成功')
@@ -33,7 +33,7 @@ class Store {
     Modal.confirm({
       title: '确认提交吗？',
       onOk: async () => {
-        await Api.submit({
+        await otherFilingMaterialsApi.submit({
           id,
         })
         message.success('提交成功')

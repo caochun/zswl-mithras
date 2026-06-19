@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { FormStore, ModalStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import otherFilingMaterialsApi from '@/api/archives/otherFilingMaterials'
 
 class Store {
   constructor() {
@@ -18,7 +18,7 @@ class Store {
   table = new TableStore({
     pagination: { pageSize: 20 },
     request: async (searchData) => {
-      return await Api.getList(searchData)
+      return await otherFilingMaterialsApi.getList(searchData)
     },
   })
 
@@ -55,7 +55,7 @@ class Store {
         params = { ids: [] }
         message.loading('正在导出全部数据...', 0)
       }
-      await Api.export(params)
+      await otherFilingMaterialsApi.export(params)
       setTimeout(() => {
         message.destroy()
       }, 500)

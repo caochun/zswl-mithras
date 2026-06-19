@@ -1,6 +1,6 @@
 import { FileTable } from '@/components/Table'
 import { Form, Input } from 'antd'
-import Api from '../api'
+import otherFilingMaterialsApi from '@/api/archives/otherFilingMaterials'
 
 const MODULE_TYPE = 'OTHER_FILING'
 
@@ -29,7 +29,7 @@ const Index = (props) => {
   }
 
   const batchDownloadApi = async ({ fileIds }) => {
-    await Api.batchDownload({
+    await otherFilingMaterialsApi.batchDownload({
       id: mainId,
       moduleCode: MODULE_TYPE,
       fileIds,
@@ -50,7 +50,7 @@ const Index = (props) => {
       enumType={enumType}
       params={params}
       removeApi={({ id }) => {
-        return Api.remove({
+        return otherFilingMaterialsApi.remove({
           ...params,
           fileId: id,
         })

@@ -3,11 +3,11 @@ import { FiledFormat } from '@/components/Format'
 import { getKeyOptionsLabelMapPlus, rules } from '@/utils'
 import { Select } from '@zswl/components'
 
-import Api from './api'
+import otherFilingMaterialsApi from '@/api/archives/otherFilingMaterials'
 import store from './store'
 
 export const getOrgList = async (params, functionCode, isNumber) => {
-  const res = await Api.getOrgList(
+  const res = await otherFilingMaterialsApi.getOrgList(
     {
       type: 1, //1:业务部门，2:领导层
       ...params,
