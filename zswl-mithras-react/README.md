@@ -100,12 +100,12 @@
 - `Customer/DebtRatingDetailEntries.js`
 - `Customer/DebtRatingListEntries.js`
 - `Customer/ExternalPublicInfoEntries.js`
-- `Customer/FinancialReportEntries.js`
 - `Customer/HandoverEntries.js`
 - `Customer/MaintainEntries.js`
 - `Customer/MonitoringDetailEntries.js`
 - `Customer/MonitoringEntries.js`
 - `Customer/SingleViewRiskEntries.js`
+- `Customer/UnifiedViewDetailEntries.js`
 - `Customer/UnifiedViewEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `Dashboard/MyAchievementEntries.js`
@@ -274,7 +274,7 @@
 当前带有聚合或展示面语义的目录：
 
 - `dashboard` / `Dashboard`：工作台、总览、看板、SSO 入口，偏展示与聚合。
-- `customerView`：客户单一视图/客户画像聚合页，首页实现已收敛到 `src/components/Customer/UnifiedViewEntries.js`，详情复杂聚合仍保持路由兼容并待后续分批收敛。
+- `customerView`：客户单一视图/客户画像聚合页，首页与详情实现已收敛到 `src/components/Customer`，路由页仅保留入口装配。
 - `customerMonitoring`：客户监控历史路由壳，当前实现已收敛到 `src/components/Customer/MonitoringEntries.js` 和 `src/components/Customer/MonitoringDetailEntries.js`。
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`。
