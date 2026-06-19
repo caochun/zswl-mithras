@@ -1,6 +1,6 @@
 import appraisalCompanyApi from '@/api/whiteList/appraisalCompanyApi'
 import { observer } from '@zswl/admin'
-import { Modal, Form, Select, Input, DatePicker } from '@zswl/components'
+import { Modal, Form, Select, Input } from '@zswl/components'
 
 const { Item } = Form
 
