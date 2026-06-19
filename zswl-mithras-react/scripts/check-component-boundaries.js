@@ -18,7 +18,7 @@ const componentApiForwardingShellPattern =
 const uiLocalApiFilePattern =
   /^src[\\/](?:components|pages)[\\/].*[\\/]api\.(?:js|jsx|ts|tsx)$/
 const relativeApiImportPattern =
-  /^\.{1,2}[\\/].*(?:^|[\\/])api(?:\.(?:js|jsx|ts|tsx)|[\\/]index(?:\.(?:js|jsx|ts|tsx))?)?$/
+  /^\.{1,2}(?:\/[^'"]*)?\/api(?:\.(?:js|jsx|ts|tsx)|\/index(?:\.(?:js|jsx|ts|tsx))?)?$/
 
 const privateComponentPathPattern = /^@\/components\/[^'"]+\/(?:api|store|context|config|Config|Column|columns)(?:\.js)?$/
 const deepComponentPathPattern = /^@\/components\/[^'"]+\/[^'"]+\/[^'"]+\/[^'"]+/
