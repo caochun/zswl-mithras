@@ -1,6 +1,6 @@
 import { TableStore, Modal, ModalStore, App, PageStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/lifeCycle/projectLifeCycleApi'
 import { timeSecondFormat } from '@/utils'
 import { debounce as _debounce } from 'lodash'
 import { processTypeList } from './Context'

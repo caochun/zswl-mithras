@@ -1,7 +1,7 @@
 import { timeFormat } from '@/utils'
 import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore, PageStore, TableStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/lifeCycle/projectLifeCycleApi'
 class Store {
   constructor() {
     makeAutoObservable(this)
