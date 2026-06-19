@@ -34,6 +34,23 @@ const orchestrationTargetScopes = new Set([
   'components/Process',
 ])
 
+const stableSharedBusinessTargets = new Set([
+  'components/AppraisalAgency',
+  'components/BlackGrayHit',
+  'components/BusinessInfoCheck',
+  'components/BusinessMaterialTable',
+  'components/ChangeLogDiff',
+  'components/CreditReportSearch',
+  'components/FtpAssessmentColumns',
+  'components/InsurancePolicyColumns',
+  'components/InsurancePolicyInfo',
+  'components/ProcessInfoModal',
+  'components/ProcessTaskFlowChart',
+  'components/ProjectReviewMeetingModal',
+  'components/TrackEventModal',
+  'components/TrackEventTask',
+])
+
 const componentAliases = new Map([
   ['CheckBusiness', 'BusinessInfoCheck'],
   ['ClientFileTable', 'ClientMaterialTable'],
@@ -331,6 +348,12 @@ const orchestrationEdges = sortedEdges.filter(
 const domainImplementationEdges = sortedEdges.filter(
   (edge) => !orchestrationEdges.includes(edge)
 )
+const stableSharedBusinessEdges = domainImplementationEdges.filter((edge) =>
+  stableSharedBusinessTargets.has(edge.targetScope)
+)
+const businessEmbeddingEdges = domainImplementationEdges.filter(
+  (edge) => !stableSharedBusinessTargets.has(edge.targetScope)
+)
 
 function printEdges(title, edgesToPrint) {
   console.log(title)
@@ -371,13 +394,31 @@ function printFanIn(title, edgesToPrint) {
   }
 }
 
-printEdges('Cross-domain UI dependencies from domain implementation code:', domainImplementationEdges)
+printEdges(
+  'Stable shared business capabilities used by domain implementation code:',
+  stableSharedBusinessEdges
+)
+
+console.log('')
+printEdges(
+  'Cross-domain UI dependencies from domain implementation code that still need semantic review:',
+  businessEmbeddingEdges
+)
 
 console.log('')
 printEdges('Cross-domain UI dependencies from page or orchestration code:', orchestrationEdges)
 
 console.log('')
-printFanIn('UI target fan-in from domain implementation code:', domainImplementationEdges)
+printFanIn(
+  'Stable shared business capability fan-in from domain implementation code:',
+  stableSharedBusinessEdges
+)
+
+console.log('')
+printFanIn(
+  'Semantic-review target fan-in from domain implementation code:',
+  businessEmbeddingEdges
+)
 
 console.log('')
 printFanIn('UI target fan-in from page or orchestration code:', orchestrationEdges)
