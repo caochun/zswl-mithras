@@ -96,6 +96,14 @@ export default {
       },
     }),
 
+  postFileVersionCompare: (data: any, functionCode: string): Promise<any> =>
+    http.post('/file/list/version/compare', data, {
+      mock,
+      headers: {
+        functionCode,
+      },
+    }),
+
   // 获取文件分组信息
   postListGroup: (
     data: Types.ListGroupRequest,

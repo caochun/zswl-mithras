@@ -1,4 +1,5 @@
-import { observer, http } from '@zswl/admin'
+import fileApi from '@/utils/api/fileApi'
+import { observer } from '@zswl/admin'
 import { FileTable } from '../Table'
 import { Tooltip } from 'antd'
 import { useEffect, useRef } from 'react'
@@ -82,17 +83,12 @@ function Index({ version, moduleType, options, functionCode, functionCodeList })
           },
         ]}
         tableApi={() =>
-          http.post(
-            '/file/list/version/compare',
+          fileApi.postFileVersionCompare(
             {
               versionId: version,
               moduleType,
             },
-            {
-              headers: {
-                functionCode,
-              },
-            }
+            functionCode
           )
         }
       />

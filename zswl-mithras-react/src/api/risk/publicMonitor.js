@@ -4,6 +4,7 @@ import { http } from '@zswl/admin'
 export default {
   postMonitorList: (params) => http.post('/risk/control/opinion/monitor/list', params),
   postMonitorDetail: (params) => http.post('/risk/control/opinion/monitor/detail', params),
+  postMonitorWarnDetail: (params) => http.post('/risk/warn/monitor/warn/detail', params),
   postMonitorNotice: (params) => http.post('/risk/control/opinion/monitor/notice', params),
   postMonitorSend: (params) => http.post('/risk/control/opinion/monitor/send', params),
   postMonitorHandle: (params) => http.post('/risk/control/opinion/monitor/handle', params),

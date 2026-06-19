@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { http, observer } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { EditDescription } from '@/components/Table'
 import { NoEnumFileTable } from '@/components/Table'
 import Api from '@/api/risk/publicMonitor'
@@ -121,7 +121,7 @@ const Index = ({ params, query }) => {
     },
   ]
   const getDetail = async () => {
-    const res = await http.post('/risk/warn/monitor/warn/detail', { id })
+    const res = await Api.postMonitorWarnDetail({ id })
     setDetail(res ?? {})
   }
 
