@@ -1,5 +1,6 @@
-import { http, makeAutoObservable, observer } from '@zswl/admin'
+import { makeAutoObservable, observer } from '@zswl/admin'
 import { Page, PageStore } from '@zswl/components'
+import Api from '@/api/externalEmbed/bridgeAuthApi'
 import JSEncrypt from 'jsencrypt'
 import { useMemo } from 'react'
 
@@ -15,9 +16,6 @@ const infoMap = {
   },
 }
 const { frontend, password, account } = infoMap[__ENV__] ?? infoMap.prod
-// 本来应该直接请求，但是需要处理跨域问题，所以请求租赁服务转发一下
-const getAuthCode = (data) => http.post(`/birdge/user/auth`, data)
-const login = (data) => http.post(`birdge/user/login`, data)
 
 class Store {
   constructor() {
@@ -36,10 +34,10 @@ class Store {
     const params = { account, password: encrypt.encrypt(password) }
     let tempRandom = null
     try {
-      const res = await getAuthCode(params)
+      const res = await Api.getAuthCode(params)
       tempRandom = res.data
     } finally {
-      const { csrfToken, tdToken } = await login({ ...params, tempRandom })
+      const { csrfToken, tdToken } = await Api.login({ ...params, tempRandom })
 
       return { csrfToken, tdToken, tempRandom }
     }

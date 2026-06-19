@@ -1,7 +1,7 @@
 import Modeler from 'bpmn-js/lib/Modeler'; // Import Modeler instead of Viewer
 import { useEffect, useRef, useState } from 'react';
-import { http } from '@zswl/admin';
 import { message, Spin } from 'antd';
+import Api from '@/api/process/bpmnFlowChartApi';
 import styles from './index.less';
 import IconFont from '@/components/Icon';
 
@@ -26,12 +26,10 @@ const BpmnFlowChart = ({
   const getData = async () => {
     setLoading(true);
     try {
+      const params = { processInstanceId };
       const res = await Promise.all([
-        http.get(ApiUrls.xmlGetUrl, {
-          params: { processInstanceId },
-          transformResult: (r) => r.data,
-        }),
-        http.get(ApiUrls.highLightGetUrl, { params: { processInstanceId } }),
+        Api.getXml(ApiUrls.xmlGetUrl, params),
+        Api.getHighLight(ApiUrls.highLightGetUrl, params),
       ]);
       if (res) {
         setLoading(false);

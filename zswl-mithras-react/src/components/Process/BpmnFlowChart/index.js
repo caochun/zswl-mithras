@@ -1,7 +1,7 @@
 import BpmnViewer from 'bpmn-js/lib/NavigatedViewer'
 import { useEffect, useRef, useState } from 'react'
-import { http } from '@zswl/admin'
 import { message, Spin } from 'antd'
+import Api from '@/api/process/bpmnFlowChartApi'
 // import { SVG } from '@svgdotjs/svg.js'
 import styles from './index.less'
 import IconFont from '@/components/Icon'
@@ -22,12 +22,10 @@ const BpmnFlowChart = ({
   const getData = async () => {
     setLoading(true)
     try {
+      const params = { processInstanceId }
       const res = await Promise.all([
-        await http.get(ApiUrls.xmlGetUrl, {
-          params: { processInstanceId },
-          transformResult: (r) => r.data,
-        }),
-        await http.get(ApiUrls.highLightGetUrl, { params: { processInstanceId } }),
+        await Api.getXml(ApiUrls.xmlGetUrl, params),
+        await Api.getHighLight(ApiUrls.highLightGetUrl, params),
       ])
       if (res) {
         setLoading(false)

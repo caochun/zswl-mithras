@@ -1,5 +1,5 @@
 import { App, Select, Button, Form } from '@zswl/components'
-import { observer, http } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { Space, Input, message } from 'antd'
 import JSEncrypt from 'jsencrypt'
 import store from './store'
@@ -19,11 +19,9 @@ function Content() {
   const { getUserInfoData: user } = store
   const [form] = Form.useForm()
   const getList = async () => {
-    const { userList } = await http.get('/user/list', {
-      params: {
-        curPage: 1,
-        pageSize: 500,
-      },
+    const { userList } = await Api.getUserList({
+      curPage: 1,
+      pageSize: 500,
     })
     return userList
   }
