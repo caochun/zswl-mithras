@@ -3,7 +3,7 @@ import { Table, TableStore, Page, Button } from '@zswl/components'
 import { message } from 'antd'
 import DataUpload from '@/components/DataUpload'
 import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
-import Api from './api'
+import Api from '@/api/baseData/leaseholdProperty'
 import { saveServer } from '@/utils'
 
 const Index = ({ pathname }) => {
