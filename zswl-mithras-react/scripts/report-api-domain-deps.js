@@ -16,7 +16,6 @@ const domainAliases = createDomainAliases({ includeApiExtras: true })
 const pageSourcePathDomainAliases = createPageSourcePathDomainAliases()
 const ignoredSourcePathPatterns = [
   /^src[\\/]api[\\/]/,
-  /^src[\\/]pages[\\/]demo[\\/]/,
 ]
 
 function normalizeDomain(domain) {
