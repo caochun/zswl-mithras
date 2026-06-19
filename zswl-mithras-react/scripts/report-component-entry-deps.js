@@ -8,52 +8,23 @@ const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
 const componentPublicEntryPattern =
   /^@\/components\/([^/'"]+)\/([^/'"]*(?:Entries|entries)(?:\.js)?)$/
+const {
+  createDomainAliases,
+  createPageSourcePathDomainAliases,
+} = require('./domain-report-config')
 const ignoredSourcePathPatterns = [
   /^src[\\/]pages[\\/]demo[\\/]/,
 ]
 const publicComponentEntryRoots = new Set([
   'Chart',
 ])
-const domainAliases = new Map([
-  ['blackListManage', 'BlackGray'],
-  ['BudgetManagement', 'Budget'],
-  ['budgetManagement', 'Budget'],
-  ['CreditManage', 'Credit'],
-  ['creditManage', 'Credit'],
-  ['fillingMaterialsDetail', 'FilingMaterials'],
-  ['financialReport', 'Report'],
-  ['monitorEarly', 'Risk'],
-  ['msgNotification', 'Message'],
-  ['overdueListSearch', 'Risk'],
-  ['ProfitDistribution', 'Budget'],
-])
+const domainAliases = createDomainAliases({ pascalCase: true })
 
 function normalizeDomain(domain) {
   return domainAliases.get(domain) || domain
 }
 
-const pageSourcePathDomainAliases = [
-  {
-    pattern: /^src[\\/]pages[\\/]afterLease[\\/]checkPlan[\\/]singleViewRisk(?:[\\/]|$)/,
-    key: 'pages/afterLease/checkPlan/singleViewRisk',
-    domain: 'Customer',
-  },
-  {
-    pattern: /^src[\\/]pages[\\/]budgetManagement[\\/]provisionForecast(?:[\\/]|$)/,
-    key: 'pages/budgetManagement/provisionForecast',
-    domain: 'Budget',
-  },
-  {
-    pattern: /^src[\\/]pages[\\/]customerView(?:[\\/]|$)/,
-    key: 'pages/customerView',
-    domain: 'Customer',
-  },
-  {
-    pattern: /^src[\\/]pages[\\/]lease[\\/]tracking(?:[\\/]|$)/,
-    key: 'pages/lease/tracking',
-    domain: 'TrackEvent',
-  },
-]
+const pageSourcePathDomainAliases = createPageSourcePathDomainAliases({ pascalCase: true })
 
 const sourceAreaScopes = new Map([
   ['afterLease', { key: 'components/AfterLease', domain: 'AfterLease' }],

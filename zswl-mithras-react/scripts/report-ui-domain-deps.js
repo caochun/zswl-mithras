@@ -6,50 +6,19 @@ const srcDir = path.join(root, 'src')
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
+const {
+  createDomainAliases,
+  createPageSourcePathDomainAliases,
+} = require('./domain-report-config')
 
-const domainAliases = new Map([
-  ['blackListManage', 'blackGray'],
-  ['BudgetManagement', 'budget'],
-  ['budgetManagement', 'budget'],
-  ['CreditManage', 'credit'],
-  ['creditManage', 'credit'],
-  ['FilingMaterials', 'filingMaterials'],
-  ['fillingMaterialsDetail', 'filingMaterials'],
-  ['financialReport', 'report'],
-  ['login', 'permission'],
-  ['monitorEarly', 'risk'],
-  ['msgNotification', 'message'],
-  ['overdueListSearch', 'risk'],
-  ['ProfitDistribution', 'budget'],
-])
+const domainAliases = createDomainAliases()
 
 const ignoredSourcePathPatterns = [
   /^src[\\/]api[\\/]/,
   /^src[\\/]pages[\\/]demo[\\/]/,
 ]
 
-const pageSourcePathDomainAliases = [
-  {
-    pattern: /^src[\\/]pages[\\/]afterLease[\\/]checkPlan[\\/]singleViewRisk(?:[\\/]|$)/,
-    key: 'pages/afterLease/checkPlan/singleViewRisk',
-    domain: 'customer',
-  },
-  {
-    pattern: /^src[\\/]pages[\\/]budgetManagement[\\/]provisionForecast(?:[\\/]|$)/,
-    key: 'pages/budgetManagement/provisionForecast',
-    domain: 'budget',
-  },
-  {
-    pattern: /^src[\\/]pages[\\/]customerView(?:[\\/]|$)/,
-    key: 'pages/customerView',
-    domain: 'customer',
-  },
-  {
-    pattern: /^src[\\/]pages[\\/]lease[\\/]tracking(?:[\\/]|$)/,
-    key: 'pages/lease/tracking',
-    domain: 'trackEvent',
-  },
-]
+const pageSourcePathDomainAliases = createPageSourcePathDomainAliases()
 
 const orchestrationComponentRoots = new Set([
   'Process',

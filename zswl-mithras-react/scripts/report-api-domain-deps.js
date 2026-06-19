@@ -7,23 +7,9 @@ const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
 const apiImportPattern = /^@\/api\/([^/'"]+)(?:\/[^'"]*)?$/
-const domainAliases = new Map([
-  ['blackListManage', 'blackGray'],
-  ['BudgetManagement', 'budget'],
-  ['budgetManagement', 'budget'],
-  ['CreditManage', 'credit'],
-  ['creditManage', 'credit'],
-  ['cpm', 'cpm'],
-  ['customer', 'customer'],
-  ['dashboard', 'dashboard'],
-  ['FilingMaterials', 'filingMaterials'],
-  ['fillingMaterialsDetail', 'filingMaterials'],
-  ['financialReport', 'report'],
-  ['login', 'permission'],
-  ['monitorEarly', 'risk'],
-  ['msgNotification', 'message'],
-  ['utils', 'common'],
-])
+const { createDomainAliases } = require('./domain-report-config')
+
+const domainAliases = createDomainAliases({ includeApiExtras: true })
 const ignoredSourcePathPatterns = [
   /^src[\\/]api[\\/]/,
   /^src[\\/]pages[\\/]demo[\\/]/,
