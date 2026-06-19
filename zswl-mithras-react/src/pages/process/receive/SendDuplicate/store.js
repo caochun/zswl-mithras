@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/process/flowTaskApi'
 class Store {
   constructor() {
     makeAutoObservable(this, { clientId: false })
@@ -9,7 +9,7 @@ class Store {
   table = new TableStore({
     request: async (parameter) => {
       const { projName, projCode, contractCode, ...rest } = parameter
-      return await Api.getList({
+      return await Api.getCCList({
         ...rest,
         extra: {
           projName,

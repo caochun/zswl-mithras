@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, Modal } from '@zswl/components'
 
-import Api from './api'
+import Api from '@/api/process/flowTaskApi'
 import { message } from 'antd'
 class Store {
   constructor() {
@@ -11,7 +11,7 @@ class Store {
   table = new TableStore({
     request: async (parameter) => {
       const { projName, projCode, contractCode, ...rest } = parameter
-      return await Api.getList({
+      return await Api.getTodoList({
         ...rest,
         extra: {
           projName,
