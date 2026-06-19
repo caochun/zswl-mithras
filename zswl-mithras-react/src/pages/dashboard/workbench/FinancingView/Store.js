@@ -2,7 +2,7 @@ import { DrawerStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { mergeArray } from '@/utils/domains/dashboard/DashboardUtils'
 import { initFieldsConfig } from './Config'
-import Api from './api'
+import Api from '@/api/dashboard/finance'
 import moment from 'moment'
 class Store {
   constructor() {
