@@ -220,6 +220,7 @@
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`Chart/tooltip`。
 - 风险指标报送顶层 Tabs 页和子页均通过 `src/components/Risk/MetricValueEntries.js` 暴露，`src/pages/risk/metricValue/*` 只保留路由壳。
+- 风险评分卡列表页、详情页和试算弹窗通过 `src/components/Risk/SourceCardEntries.js` 暴露，`src/pages/risk/sourceCard/*` 只保留路由壳和历史兼容入口。
 - 租赁物维护列表页和详情页均通过 `src/components/Lease/MaintainEntries.js` 暴露，`src/pages/lease/maintain/*` 只保留路由壳。
 - 应收账款列表页和详情页均通过 `src/components/Budget/AccountsReceivableEntries.js` 暴露，`src/pages/budget/accountsReceivable/*` 只保留路由壳。
 - 收入分摊表列表页和详情页均通过 `src/components/Budget/IncomeShareTableEntries.js` 暴露，`src/pages/budget/incomeShareTable/*` 只保留路由壳。

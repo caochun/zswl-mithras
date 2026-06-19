@@ -1,9 +1,7 @@
 import { observer } from '@zswl/admin'
-import { getDescColumns, getTableColumns } from '@/utils'
+import { getDescColumns } from '@/utils'
 import ALL_COLUMNS from '../Column'
 import { EditDescription } from '@/components/Table'
-import riskCardInfoApi from '@/api/risk/riskCardInfoApi'
-import { useEffect, useState } from 'react'
 
 const labelStyle = {
   // color: 'red',
