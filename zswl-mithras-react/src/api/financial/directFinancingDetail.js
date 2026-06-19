@@ -1,6 +1,11 @@
 import { http } from '@zswl/admin'
 
 export default {
+  getBaseInfoSum: (params) => http.post('/fund/direct/financing/base/info/sum', params),
+  getBaseInfoList: (params) => http.post('/fund/direct/financing/base/info/list', params),
+  addBaseInfo: (params) => http.post('/fund/direct/financing/base/info/add', params),
+  obsoleteBaseInfo: (params) => http.post('/fund/direct/financing/base/info/obsolete', params),
+  deleteBaseInfo: (params) => http.post('/fund/direct/financing/base/info/delete', params),
   getBaseInfo: (params) => http.post('/fund/direct/financing/base/info/detail', params),
   editBaseInfo: (params) => http.post('/fund/direct/financing/base/info/modify', params),
   syncBaseInfo: (params) => http.post('/fund/direct/financing/base/info/sync', params),

@@ -1,5 +1,5 @@
 import { Page, Table, Modal, Form, Button, Select } from '@zswl/components'
-import { observer, http, history } from '@zswl/admin'
+import { observer, history } from '@zswl/admin'
 import AmountRange from '@/components/AmountRange'
 import { FormAmount } from '@/components/Form'
 import { formatPercent, amountFormat, rangePresets, hasValue } from '@/utils'
@@ -18,11 +18,12 @@ import { Summary } from '@/components/Table'
 import { ExportAction } from '@/components/Actions'
 import PageListDown from '@/components/PageListDown'
 import { saveServer } from '@/utils'
+import directFinancingApi from '@/api/financial/directFinancingDetail'
 function Index({ path }) {
   const [sumData, setSumData] = useState({})
   const [isClear, setClear] = useState(false)
   const getListSum = async (params) => {
-    const data = await http.post('/fund/direct/financing/base/info/sum', { ...params })
+    const data = await directFinancingApi.getBaseInfoSum({ ...params })
     setSumData(data)
   }
   const tableStore = Table.useStore({
@@ -35,7 +36,7 @@ function Index({ path }) {
         finalParams = {...rest, ...p1, ...p2 }
       }
       await getListSum(finalParams)
-      const data = await http.post('/fund/direct/financing/base/info/list', finalParams)
+      const data = await directFinancingApi.getBaseInfoList(finalParams)
       if(data.list === 0){
         message.warn('当前暂无新建/生效/起息状态的融资产品.可通过筛选条件查询历史数据。')
       }
@@ -44,7 +45,7 @@ function Index({ path }) {
   }, [isClear])
   const modalStore = Modal.useStore({
     onFinish: async (values) => {
-      const id = await http.post('/fund/direct/financing/base/info/add', values)
+      const id = await directFinancingApi.addBaseInfo(values)
       message.success('新增成功')
       modalStore.close()
       tableStore.search()
@@ -54,13 +55,13 @@ function Index({ path }) {
 
   // 作废
   const invalid = async (id) => {
-    await http.post('/fund/direct/financing/base/info/obsolete', { id })
+    await directFinancingApi.obsoleteBaseInfo({ id })
     message.success('作废成功')
     tableStore.search()
   }
 
   const deleteRow = async (id) => {
-    await http.post('/fund/direct/financing/base/info/delete', { id })
+    await directFinancingApi.deleteBaseInfo({ id })
     message.success('删除成功')
     tableStore.search()
   }
