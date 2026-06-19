@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
 
-import Api from './api'
+import Api from '@/api/process/processHistoryApi'
 class Store {
   constructor() {
     makeAutoObservable(this, { clientId: false })
