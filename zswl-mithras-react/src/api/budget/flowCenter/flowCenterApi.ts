@@ -44,6 +44,14 @@ export default {
   // 流水中心统计
   postCenterCount: (data: Types.CenterCountRequest): Promise<Types.CenterCountResponse> =>
     http.post('/collection/flow/center/count', data, { mock }),
+
+  // 查询客户合同保证金
+  postClientContractMargin: (data: { clientId: number }): Promise<any> =>
+    http.post('/collection/flow/center/client/contract/margin', data, { mock }),
+
+  // 查询保证金回收计划
+  postRecycleMarginPlan: (data: { collectionId: number }): Promise<any> =>
+    http.post('/collection/flow/center/recycle/margin/plan', data, { mock }),
 }
 
 /* prettier-ignore-end */

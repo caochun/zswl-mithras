@@ -1,5 +1,5 @@
 import { App, ModalStore, PageStore, TableStore, Modal } from '@zswl/components'
-import { http, makeAutoObservable } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import { message } from 'antd'
 import businessFundApi from '@/api/budget/flowCenter/businessFundApi'
 
@@ -20,11 +20,8 @@ class Store {
     },
   })
 
-  exportFile = async(rest) => {
-    await http.post('/business/flow/finance/list/export', { ...rest, flowType: this.flowType },{
-        type: 'download',
-        timeout: 0,
-    })
+  exportFile = async (rest) => {
+    await businessFundApi.postFinanceListExport({ ...rest, flowType: this.flowType })
   }
 
 

@@ -1,18 +1,18 @@
 import { Page, Tabs } from '@zswl/components'
 import { Badge, Empty } from 'antd'
-import { http } from '@zswl/admin'
 import { useCallback, useEffect, useState } from 'react'
 import BankFlow from './BankFlow'
 import Fundamentals from './Fundamentals'
 import ProjectSide from './ProjectSide'
 import businessFundApi from '@/api/budget/flowCenter/businessFundApi'
+import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
 import InterfaceManagementJs from './InterfaceManagement/index.js'
 
 const Index = () => {
   const [count, setCount] = useState(0)
   const [fundCount, setFuncCount] = useState(0)
   const getData = useCallback(async () => {
-    const res = await http.post('/collection/flow/center/count')
+    const res = await flowCenterApi.postCenterCount({})
     setCount(res.total)
   }, [])
   const getFundData = async () => {

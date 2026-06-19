@@ -1,4 +1,4 @@
-import { http, observer } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { App, Form, Modal, Select } from '@zswl/components'
 import { Checkbox, DatePicker, Divider, Input, InputNumber, Space } from 'antd'
 import { FormAmount } from '@/components/Form'
@@ -7,6 +7,7 @@ import { amountFormat, formatPercent } from '@/utils'
 import { useEffect, useState } from 'react'
 import moment from 'moment'
 import { isString } from 'lodash'
+import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
 
 const { Item } = Form
 function WriteOffModal({ store }) {
@@ -14,14 +15,14 @@ function WriteOffModal({ store }) {
   const [planCollectionDate, setPlanCollectionDate] = useState('')
   const { clientId,collectionId } = store?.receiptOffModal.getInitialValues?.() ?? {}
   const getContract = async (clientId) => {
-    const res = await http.post('/collection/flow/center/client/contract/margin', { clientId })
+    const res = await flowCenterApi.postClientContractMargin({ clientId })
     setContractList(res)
   }
   const onPaymentMethodChange = async (str) => {
     if (str !== '1') {
       return
     }
-    const res = await http.post('/collection/flow/center/recycle/margin/plan', { collectionId })
+    const res = await flowCenterApi.postRecycleMarginPlan({ collectionId })
     // 不存在日期时返回今日
     setPlanCollectionDate(res.planCollectionDate ? moment(res.planCollectionDate, 'YYYY-MM-DD') : moment())
   }

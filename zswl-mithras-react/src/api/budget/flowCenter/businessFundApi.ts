@@ -17,6 +17,10 @@ export default {
   postFinanceList: (data: Types.FinanceListRequest): Promise<Types.FinanceListResponse> =>
     http.post('/business/flow/finance/list', data, { mock }),
 
+  // 导出业务流水-资金端列表
+  postFinanceListExport: (data: Types.FinanceListRequest): Promise<any> =>
+    http.post('/business/flow/finance/list/export', data, { mock, type: 'download', timeout: 0 }),
+
   // 业务流水-资金端-人工核销完毕推送单据
   postManualPush: (data: Types.FinanceListRequest): Promise<Types.FinanceListResponse> =>
     http.post('/business/flow/finance/manual/push', data, { mock }),
