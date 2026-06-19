@@ -1,3 +1,1 @@
-import { ProcessApplication } from '@/components/Process/ProcessEntries'
-
-export default ProcessApplication
+export { ProcessApplication as default } from '@/components/Process/ProcessEntries'

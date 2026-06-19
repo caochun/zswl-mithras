@@ -1,3 +1,1 @@
-import { ProcessReceive } from '@/components/Process/ProcessEntries'
-
-export default ProcessReceive
+export { ProcessReceive as default } from '@/components/Process/ProcessEntries'
