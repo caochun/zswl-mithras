@@ -5,6 +5,15 @@ import { http } from '@zswl/admin'
 const mock = false
 // const mock= { mode:2 }
 export default {
+  postDraftPricingFlash: (data: any): Promise<any> =>
+    http.post('/new/ftp/financing/cost/pricing/draft/flash', data, { mock }),
+
+  postDraftDetail: (data: any): Promise<any> =>
+    http.post('/new/ftp/financing/cost/draft/detail', data, { mock }),
+
+  postDraftPricingModify: (data: any): Promise<any> =>
+    http.post('/new/ftp/financing/cost/pricing/draft/modify', data, { mock }),
+
   // 修改融资成本定价
   postPricingModify: (data: Types.PricingModifyRequest): Promise<Types.PricingModifyResponse> =>
     http.post('/new/ftp/financing/cost/pricing/modify', data, { mock }),

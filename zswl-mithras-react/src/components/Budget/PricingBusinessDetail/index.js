@@ -1,10 +1,12 @@
 import { Space } from 'antd'
-import { observer, getQuery, http } from '@zswl/admin'
+import { observer, getQuery } from '@zswl/admin'
 import { Page, Button, App, Form } from '@zswl/components'
 import { useMemo, useRef, useState } from 'react'
 import Store from './store'
 import MonthFTP, { MonthlyDeduction, MonthlyDeductionSupport } from './MonthFTP'
 import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
+import newFtpMonthlyDeductionApi from '@/api/budget/pricing/ftp/newFtpMonthlyDeductionApi'
+import newFtpMonthlyGuidanceApi from '@/api/budget/pricing/ftp/newFtpMonthlyGuidanceApi'
 import styles from './index.less'
 import { ExportAction as Export } from '@/components/Actions'
 import { isFinancialOfficer } from '@/utils'
@@ -70,13 +72,13 @@ const Index = ({
   const monthlyDeductionRef = useRef()
   const onNext = async (current) => {
     if (current === 0 && !store.calculateDeductionFlag) {
-      return await http.post('/new/ftp/monthly/deduction/add', { mainId: id }).then(async (res) => {
+      return await newFtpMonthlyDeductionApi.postDeductionAdd({ mainId: id }).then(async (res) => {
         await getDesc({ id })
         store.calculateDeductionFlag = 1
       })
     }
     if (current === 1 && !store.calculateGuidanceFlag) {
-      return await http.post('/new/ftp/monthly/guidance/add', { mainId: id }).then(async (res) => {
+      return await newFtpMonthlyGuidanceApi.postGuidanceAdd({ mainId: id }).then(async (res) => {
         await getDesc({ id })
         store.calculateGuidanceFlag = 1
       })

@@ -1,5 +1,5 @@
 import { Access, Button, Form, Modal, ModalStore, Page, Table, TableStore } from '@zswl/components'
-import { http, observer } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { getTableColumns, rules } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { useMemo } from 'react'
@@ -7,10 +7,11 @@ import { Card, DatePicker, Input, Tooltip, message } from 'antd'
 import moment from 'moment'
 import EditModal from '../../FinancingCostEditModal'
 import { saveServer } from '@/utils'
+import financingCostsApi from '@/api/budget/pricing/ftp/financingCostsApi'
 
 function Index({ path, canEdit, params }) {
   const reload = async () => {
-    await http.post('/new/ftp/financing/cost/pricing/draft/flash', params)
+    await financingCostsApi.postDraftPricingFlash(params)
     message.success('刷新成功')
     table.search()
   }
@@ -71,7 +72,7 @@ function Index({ path, canEdit, params }) {
     return new TableStore({
       request: async (restParams) => {
         const { list = [], ...rest } =
-          (await http.post('/new/ftp/financing/cost/draft/detail', {
+          (await financingCostsApi.postDraftDetail({
             ...restParams,
             ...params,
           })) ?? {}
@@ -123,7 +124,7 @@ function Index({ path, canEdit, params }) {
         }
       },
       onFinish: async (values) => {
-        await http.post('/new/ftp/financing/cost/pricing/draft/modify', { ...values, ...params })
+        await financingCostsApi.postDraftPricingModify({ ...values, ...params })
         message.success('修改成功')
         modal.close()
         table.search()
