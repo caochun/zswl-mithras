@@ -4,7 +4,7 @@ import { getDescColumns } from '@/utils'
 import { getQuery, observer } from '@zswl/admin'
 import { useEffect, useRef, useState } from 'react'
 import { message, Modal } from 'antd'
-import Api from '../../api'
+import Api from '@/api/cpm/payment/paymentWriteOffDetailApi'
 import { DatePicker } from 'antd'
 import moment from 'moment';
 

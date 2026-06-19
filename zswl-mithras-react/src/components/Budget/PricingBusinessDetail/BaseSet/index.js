@@ -5,7 +5,7 @@ import TenNationalDebt from './TenNationalDebt'
 import LPRTable from './LPRTable'
 import Financing from './Financing'
 import Guarantee from './Guarantee'
-import Api from '../api'
+import Api from '@/api/budget/pricing/ftp/pricingBusinessDetailApi'
 import newFtpTreasuryBondYieldApi from '@/api/budget/pricing/ftp/newFtpTreasuryBondYieldApi'
 import newFtpShiborInterestRateApi from '@/api/budget/pricing/ftp/newFtpShiborInterestRateApi'
 

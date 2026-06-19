@@ -5,7 +5,7 @@ import RegionCascader from '@/components/RegionCascader'
 import { getUserInfo, isProjmanager } from '@/utils'
 import { rules } from '@/utils/rules'
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef } from 'react'
-import Api from './api'
+import Api from '@/api/budgetManagement/placementPlanDetailModalApi'
 
 // 基本信息描述列表配置
 const BaseInfoComponent = forwardRef(({ detail, canEdit }, ref) => {

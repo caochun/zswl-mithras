@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 import { Card, DatePicker, Input, Tooltip, message } from 'antd'
 
 import moment from 'moment'
-import Api from '../api'
+import Api from '@/api/budget/pricing/ftp/pricingBusinessDetailApi'
 import { saveServer } from '@/utils'
 
 const EditModal = ({ store }) => {

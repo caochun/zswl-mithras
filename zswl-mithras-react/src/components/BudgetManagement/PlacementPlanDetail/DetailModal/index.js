@@ -19,7 +19,7 @@ import { rules } from '@/utils'
 import { FormAmount } from '@/components/Form'
 import BaseInfoComponent from './BaseInfo'
 import { ImportAction } from '@/components/Actions'
-import Api from './api'
+import Api from '@/api/budgetManagement/placementPlanDetailModalApi'
 import { DownloadTemplateAction as DownloadTemplate } from '@/components/Actions'
 
 const amountCommonProps = {

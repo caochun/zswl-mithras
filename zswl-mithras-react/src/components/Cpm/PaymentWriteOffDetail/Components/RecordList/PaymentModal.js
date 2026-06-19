@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import AmountNumber from '../../../AmountNumber'
 import Amount from '@/components/Amount'
 import { rules } from '@/utils'
-import api from '../../api'
+import api from '@/api/cpm/payment/paymentWriteOffDetailApi'
 
 const PaymentModal = ({ store }) => {
   const [ourBankList, setOurBankList] = useState()

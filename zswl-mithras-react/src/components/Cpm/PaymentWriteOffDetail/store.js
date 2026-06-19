@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore, PageStore, TableStore, DrawerStore, Modal, App } from '@zswl/components'
 import { message } from 'antd'
 import moment from 'moment'
-import Api from './api'
+import Api from '@/api/cpm/payment/paymentWriteOffDetailApi'
 import paymentDetailApi from '@/api/cpm/payment/paymentDetailApi'
 import { CloseOutlined } from '@ant-design/icons'
 class Store {

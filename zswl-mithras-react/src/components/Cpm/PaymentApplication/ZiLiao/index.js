@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/cpm/payment/paymentApplicationMaterialsApi'
 import { FileTable } from '@/components/Table'
 
 const MODULE_TYPE = 'PAYMENT'
