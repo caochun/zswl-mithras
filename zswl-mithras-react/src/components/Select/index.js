@@ -1,5 +1,5 @@
 import selectApi from '@/utils/api/selectApi'
-import { history, http } from '@zswl/admin'
+import { history } from '@zswl/admin'
 import { App, Select } from '@zswl/components'
 import { message, Select as RoSelect } from 'antd'
 import { useCallback, useEffect, useMemo, useState } from 'react'
@@ -59,14 +59,7 @@ export function ProvinceSelect(props) {
   return (
     <ApiSelect
       params={{ code: 156 }}
-      api={(params) =>
-        http.get('/select/region/child', {
-          params,
-          headers: {
-            functionCode: props.functionCode,
-          },
-        })
-      }
+      api={(params) => selectApi.getRegionChild(params, { functionCode: props.functionCode })}
       {...props}
     ></ApiSelect>
   )
@@ -79,7 +72,7 @@ export function RoleSelect({ orgId, ...props }) {
   const [options, setOptions] = useState([])
   useEffect(() => {
     if (orgId) {
-      http.get('/role/list', { params: { orgId } }).then((res) => {
+      selectApi.getRoleList({ orgId }).then((res) => {
         setOptions(res || [])
       })
     }
@@ -296,11 +289,8 @@ export function ClientSelect({
 
 export function ProjectReviewSelect({ mode, params = {}, ...rest }) {
   const getList = async (val) => {
-    const res = await http.post('/proj/review/base/info/list', {
+    const res = await selectApi.getProjectReviewList({
       projName: val,
-      page: 1,
-      pagesize: 9999,
-      projReviewStatus: 'TAKE_EFFECT',
       ...params,
     })
 
@@ -316,17 +306,12 @@ export function ProjectReviewSelect({ mode, params = {}, ...rest }) {
 
 export function ContractSelect({ functionCode = 'contractbaseinfo-list', value, ...rest } = {}) {
   const getList = async (val) => {
-    const res = await http.post(
-      '/contract/base/info/list',
+    const res = await selectApi.getContractList(
       {
-        page: 1,
-        pageSize: 9999,
         contractCode: val,
       },
       {
-        headers: {
-          functionCode,
-        },
+        functionCode,
       }
     )
 

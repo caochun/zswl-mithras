@@ -39,4 +39,37 @@ export default {
 
   getAllIndustry: (params) => http.get('/select/industry/all', { params }),
   getRegionList: (params) => http.get('/select/region/child', { params }),
+
+  getRegionChild: (params, { functionCode } = {}) =>
+    http.get('/select/region/child', {
+      params,
+      headers: {
+        functionCode,
+      },
+    }),
+
+  getRoleList: (params) => http.get('/role/list', { params }),
+
+  getProjectReviewList: (params) =>
+    http.post('/proj/review/base/info/list', {
+      page: 1,
+      pagesize: 9999,
+      projReviewStatus: 'TAKE_EFFECT',
+      ...params,
+    }),
+
+  getContractList: (params, { functionCode } = {}) =>
+    http.post(
+      '/contract/base/info/list',
+      {
+        page: 1,
+        pageSize: 9999,
+        ...params,
+      },
+      {
+        headers: {
+          functionCode,
+        },
+      }
+    ),
 }
