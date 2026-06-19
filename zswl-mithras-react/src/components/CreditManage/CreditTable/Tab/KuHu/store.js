@@ -3,7 +3,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { message } from 'antd'
 import { timeFormat } from '@/utils'
 import { getHeaderWithFunctionCode } from '../../../CreditTableConfig'
-import Api from './api'
+import { clientApi as Api } from '@/api/credit/creditTableTabApi'
 
 class Store {
   constructor({ baseParams }) {

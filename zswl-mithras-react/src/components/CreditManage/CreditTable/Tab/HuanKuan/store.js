@@ -6,7 +6,7 @@ import {
   CREATETABLE_PARAMS,
   getHeaderWithFunctionCode,
 } from '../../../CreditTableConfig'
-import Api from './api'
+import { repayApi as Api } from '@/api/credit/creditTableTabApi'
 
 class Store {
   constructor({ baseParams, baseStore }) {

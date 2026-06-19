@@ -6,7 +6,7 @@ import {
   CREATETABLE_PARAMS,
   getHeaderWithFunctionCode,
 } from '../../../CreditTableConfig'
-import Api from './api'
+import { accountApi as Api } from '@/api/credit/creditTableTabApi'
 import _ from 'lodash'
 
 class Store {

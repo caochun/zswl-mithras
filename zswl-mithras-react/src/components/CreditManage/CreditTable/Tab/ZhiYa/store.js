@@ -6,7 +6,7 @@ import {
   getHeaderWithFunctionCode,
 } from '../../../CreditTableConfig'
 import { timeFormat } from '@/utils'
-import Api from './api'
+import { pledgeApi as Api } from '@/api/credit/creditTableTabApi'
 import _ from 'lodash'
 
 class Store {
