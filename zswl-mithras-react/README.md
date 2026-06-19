@@ -50,6 +50,7 @@
 - `AfterLease/CheckPlanCreateEntries.js`
 - `AfterLease/CheckPlanDetailEntries.js`
 - `AfterLease/CheckPlanExternalEntries.js`
+- `AfterLease/CheckPlanListEntries.js`
 - `AfterLease/CheckPlanPrepareEntries.js`
 - `AfterLease/CheckPlanTemplateEntries.js`
 - `App/RootRedirectEntries.js`

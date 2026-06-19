@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react'
 import { Page, Access } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import CheckList from './Tab/CheckList'
-import OpenList from './Tab/OpenList'
-import Strategy from './Tab/Strategy'
+import {
+  AfterLeaseCheckPlanOpenList as OpenList,
+  AfterLeaseCheckPlanStrategy as Strategy,
+} from '@/components/AfterLease/CheckPlanListEntries'
 
 function Index({ query: { tab } }) {
   const [curTab, setCurTab] = useState('1')
