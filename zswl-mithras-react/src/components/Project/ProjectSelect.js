@@ -1,7 +1,7 @@
 import { Select } from '@zswl/components'
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
 import { debounce as _debounce } from 'lodash'
-import Api from './projectSelectApi'
+import Api from '@/api/project/projectSelectApi'
 
 const ProjectSelect = ({ queryParams, referer, ...params }, ref) => {
   const [projectList, setProjectList] = useState()
