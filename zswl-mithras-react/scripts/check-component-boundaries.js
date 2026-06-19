@@ -355,6 +355,7 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/message/messageNotification',
     replacementPrefix: '@/api/layout/messageApi, @/api/dashboard/workbenchMessageApi, or @/api/message/messageNotification in Message domain',
     allowedSourcePathPrefixes: [
+      'src/components/Message/',
       'src/pages/msgNotification/',
     ],
   },

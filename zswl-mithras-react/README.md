@@ -131,6 +131,7 @@
 - `Lease/ApprovalConfirmEntries.js`
 - `Lease/MaintainEntries.js`
 - `LifeCycle/LifeCycleEntries.js`
+- `Message/NotificationEntries.js`
 - `Overdue/OverdueEntries.js`
 - `PaymentFtpColumns/FtpAssessmentColumnsEntries.js`
 - `PaymentFtpColumns/PaymentFtpColumnsEntries.js`
@@ -263,7 +264,7 @@
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`。
 - `login`：登录和初次登录改密页面，前端路由名保留 `login`，API 语义归属权限认证。
-- `msgNotification`：消息中心页面，前端路由名保留 `msgNotification`，API 语义归属消息域。
+- `msgNotification`：消息中心历史路由壳，当前实现已收敛到 `src/components/Message/NotificationEntries.js`。
 - `preview`：PDF、报表预览。
 - `financialReport`：财务报表待办/审批/完成列表历史路由壳，当前列表实现已收敛到 `src/components/Report/FinancialReportListEntries.js`，审批详情入口使用 `src/components/Report/FinancialReportApprovalEntries.js`。
 
