@@ -6,7 +6,7 @@ import styles from './index.less'
 import Apply from './Apply'
 import Revocation from './Revocation'
 import Sendback from './Sendback'
-import Prepare from './Prepare'
+import { ProcessPrepareList as Prepare } from '@/components/Process/ProcessEntries'
 import Finish from './Finish'
 import { useEffect } from 'react'
 
