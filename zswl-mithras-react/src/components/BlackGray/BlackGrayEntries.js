@@ -19,6 +19,7 @@ export { default as BlackGrayWarehouseMainTaskOutDetail } from './RouteShells/Wa
 export { default as BlackGrayWarehouseSearch } from './Warehouse/Search'
 export { default as BlackGrayWarehouseSearchDetailRedirect } from './RouteShells/WarehouseSearchDetailRedirect'
 export { default as BlackGrayWarehouseSubTaskDetailRedirect } from './RouteShells/WarehouseSubTaskDetailRedirect'
+export { default as BlackGrayWarehouseRule } from './Warehouse/Rule'
 export { default as BlackGrayWarehouseMainTask } from './Warehouse/MainTask'
 export { default as BlackGrayWarehouseSubTask } from './Warehouse/SubTask'
 export { BlackGrayHitInfo as BlackInfo } from './BlackGrayHitEntries'
