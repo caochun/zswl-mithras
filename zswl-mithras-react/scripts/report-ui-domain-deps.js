@@ -233,6 +233,8 @@ function getTargetScope(specifier) {
   const [, componentDomain] = specifier.match(/^@\/components\/([^/'"]+)/) || []
   if (componentDomain) {
     const normalizedComponentDomain = normalizeComponentDomain(componentDomain)
+    // Display stable entry capabilities in the report, but keep the original component
+    // root as the domain used to filter same-domain page shells.
     const normalizedComponentTarget = normalizeComponentTarget(specifier, componentDomain)
     if (publicComponentRoots.has(normalizedComponentTarget)) {
       return null
