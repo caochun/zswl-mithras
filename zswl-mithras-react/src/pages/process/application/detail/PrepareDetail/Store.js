@@ -1,7 +1,7 @@
 import { history, makeAutoObservable } from '@zswl/admin'
 import { Modal, PageStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from '../api'
+import Api from '@/api/process/application/myProcessApi'
 import { contractCheckIrr as checkIrr } from '@/components/Contract/ProcessDetailEntries'
 
 class Store {
@@ -12,7 +12,7 @@ class Store {
   page = new PageStore({
     request: async ({ id }) => {
       this.id = id
-      const result = await Api.getDetail({ id })
+      const result = await Api.getPrepareDetail({ id })
       return result
     },
   })
@@ -24,7 +24,7 @@ class Store {
         title: '是否确认发布计划？',
         content: '确认后系统将于租后截止日前20天推送任务至项目经理。',
         onOk: async () => {
-          await Api.submitProcess({ id: this.page.getParams().id })
+          await Api.commitPrepare({ id: this.page.getParams().id })
           message.success('提交成功！')
           history.push(`/process/application?t=${Date.now()}`)
         },
@@ -33,13 +33,13 @@ class Store {
       Modal.confirm({
         title: '确认提交吗？',
         onOk: async () => {
-          await Api.postProjectdistributionSubmit({ projectDistributionId: businessId })
+          await Api.submitProjectDistribution({ projectDistributionId: businessId })
           message.success('提交成功！')
           history.push(`/process/application?t=${Date.now()}`)
         },
       })
     } else if (processType === 'FundFilingMaterialsApplyFlow') {
-      const validate = await Api.checkFile({ id: businessId })
+      const validate = await Api.checkFilingMaterialFile({ id: businessId })
       if (validate) {
         Modal.confirm({
           title: (
@@ -51,7 +51,7 @@ class Store {
           ),
           okText: '继续提交',
           onOk: async () => {
-            await Api.submitProcess({ id: this.page.getParams().id })
+            await Api.commitPrepare({ id: this.page.getParams().id })
             message.success('提交成功！')
             history.push(`/process/application?t=${Date.now()}`)
           },
@@ -61,7 +61,7 @@ class Store {
       Modal.confirm({
         title: '确认提交吗？',
         onOk: async () => {
-          await Api.noticeCommit(this.id)
+          await Api.noticeDepositCommit(this.id)
           message.success('提交成功！')
           history.push(`/process/application?t=${Date.now()}`)
         },
@@ -71,7 +71,7 @@ class Store {
       Modal.confirm({
         title: '确认提交吗？',
         onOk: async () => {
-          await Api.submitProcess({ id: this.page.getParams().id })
+          await Api.commitPrepare({ id: this.page.getParams().id })
           message.success('提交成功！')
           history.push(`/process/application?t=${Date.now()}`)
         },
@@ -80,7 +80,7 @@ class Store {
       Modal.confirm({
         title: '确认提交吗？',
         onOk: async () => {
-          await Api.submitProcess({ id: this.page.getParams().id })
+          await Api.commitPrepare({ id: this.page.getParams().id })
           message.success('提交成功！')
           history.push(`/process/application?t=${Date.now()}`)
         },

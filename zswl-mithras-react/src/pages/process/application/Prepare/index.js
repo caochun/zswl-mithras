@@ -4,7 +4,7 @@ import { Modal, Table, TableStore } from '@zswl/components'
 import { message } from 'antd'
 import { useMemo } from 'react'
 import ALL_COLUMNS from './Column'
-import Api from './api'
+import Api from '@/api/process/application/myProcessApi'
 import { contractCheckIrr as checkIrr } from '@/components/Contract/ProcessDetailEntries'
 
 const formNameColumns = ['表单名称', '流程类型']
@@ -26,7 +26,7 @@ const Index = () => {
   const $table = useMemo(() => {
     return new TableStore({
       request: async (params) => {
-        const data = await Api.getList(params)
+        const data = await Api.getPrepareList(params)
         return data
       },
     })
@@ -36,7 +36,7 @@ const Index = () => {
     Modal.confirm({
       title: '确认取消吗？',
       onOk: async () => {
-        await Api.cancelProcess({ id: record.id })
+        await Api.discardPrepare({ id: record.id })
         $table.search()
         message.success('取消成功！')
       },
@@ -53,7 +53,7 @@ const Index = () => {
         title: '确认提交吗？',
         onOk: async () => {
           console.log(record)
-          await Api.postProjectdistributionSubmit({ projectDistributionId: record.businessId })
+          await Api.submitProjectDistribution({ projectDistributionId: record.businessId })
           message.success('提交成功！')
           history.push(`/process/application?t=${Date.now()}`)
         },
@@ -61,7 +61,7 @@ const Index = () => {
       return
     }
     if (['FundFilingMaterialsApplyFlow'].includes(record.processType)) {
-      const validate = await Api.checkFile({ id: record.businessId })
+      const validate = await Api.checkFilingMaterialFile({ id: record.businessId })
       if (validate) {
         Modal.confirm({
           title: (
@@ -73,7 +73,7 @@ const Index = () => {
           ),
           okText: '继续提交',
           onOk: async () => {
-            await Api.submitProcess({ id: record.id })
+            await Api.commitPrepare({ id: record.id })
             message.success('提交成功！')
             history.push(`/process/application?t=${Date.now()}`)
           },
@@ -87,7 +87,7 @@ const Index = () => {
     Modal.confirm({
       title: '确认提交吗？',
       onOk: async () => {
-        await Api.submitProcess({ id: record.id })
+        await Api.commitPrepare({ id: record.id })
         $table.search()
         message.success('提交成功！')
       },

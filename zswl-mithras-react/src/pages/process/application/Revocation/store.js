@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, Modal } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/process/application/myProcessApi'
 import wrapStore from '../store'
 
 class Store {
@@ -12,7 +12,7 @@ class Store {
   table = new TableStore({
     request: async (parameter) => {
       const { projName, projCode, contractCode, ...rest } = parameter
-      return await Api.getList({
+      return await Api.getWithdrawList({
         ...rest,
         extra: {
           projName,
