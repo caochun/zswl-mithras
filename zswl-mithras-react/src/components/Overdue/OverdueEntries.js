@@ -4,4 +4,5 @@ export {
   CollectionModal as OverdueCollectionModal,
   getContractList as getOverdueCollectionContractList,
 } from './CollectionModal'
+export { default as OverdueLitigationDoc } from './LitigationDoc/List'
 export { default as OverdueLitigationDocAddModal } from './LitigationDocAddModal'
