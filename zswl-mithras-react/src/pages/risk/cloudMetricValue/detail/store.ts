@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { FormStore, PageStore } from '@zswl/components'
-import Api from '../api'
+import Api from '@/api/risk/cloudMetricValue'
 
 class Store {
   constructor() {

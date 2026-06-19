@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Api from './api'
+import Api from '@/api/risk/cloudMetricValue'
 
 export default function () {
   const [allSelect, setAllSelect] = useState({})

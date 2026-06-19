@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { Input, Tabs } from 'antd'
 import { debounce as _debounce } from 'lodash'
-import Api from '../api'
+import Api from '@/api/project/projectPricingApi'
 
 const { Item } = Form
 
