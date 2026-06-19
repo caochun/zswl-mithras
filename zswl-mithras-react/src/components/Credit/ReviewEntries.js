@@ -1,3 +1,5 @@
 export { default as CreditReview } from './Review'
 export { default as CreditReviewDetail } from './ReviewDetail'
 export { default as CreditReviewDetailBaseInfo } from './ReviewDetail/BaseInfo'
+export { default as CreditReviewDetailLog } from './ReviewDetail/Log'
+export { default as CreditReviewDetailLogDiff } from './ReviewDetail/Log/DiffInfo'
