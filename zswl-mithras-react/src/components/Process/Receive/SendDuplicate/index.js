@@ -1,10 +1,8 @@
-import { observer, history } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import store from './store'
 import { Table, App, SearchBar } from '@zswl/components'
-import {
-  ProcessApprovalHistoryModal as ApprovalHistoryModal,
-  ProcessTypeTree,
-} from '@/components/Process/ProcessEntries'
+import ApprovalHistoryModal from '../../ApprovalHistoryModal'
+import ProcessTypeTree from '../../ProcessTypeTree'
 import { Tag } from 'antd'
 import { ClientSelect } from '@/components/Select'
 import { useEffect, useState } from 'react'

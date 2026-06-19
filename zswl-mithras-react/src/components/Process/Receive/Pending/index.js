@@ -1,47 +1,55 @@
-import { observer, history } from '@zswl/admin'
-import store from './store'
-import { Table, App, Page, SearchBar } from '@zswl/components'
-import {
-  ProcessApprovalHistoryModal as ApprovalHistoryModal,
-  ProcessTypeTree,
-} from '@/components/Process/ProcessEntries'
+import { FounderSelect, OrgSelect } from '@/components/Select'
 import { ClientSelect } from '@/components/Select'
+import ApprovalHistoryModal from '../../ApprovalHistoryModal'
+import ProcessTypeTree from '../../ProcessTypeTree'
 import { saveServer } from '@/utils'
+import { observer } from '@zswl/admin'
+import { SearchBar, Table } from '@zswl/components'
+import { Space, Tag } from 'antd'
+import { useState } from 'react'
+import styles from './index.less'
+import store from './store'
 
-import { useEffect, useState } from 'react'
-import PageListDown from '@/components/PageListDown'
 const { Item } = SearchBar
 
-function Index({ curTab }) {
+function Index({ curTab, enterpriseName }) {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
-  useEffect(() => {
-    return () => {
-      App.resetStore(store)
-    }
-  }, [])
+
   const approvalHistory = ({ processInstanceId }) => {
     setId(processInstanceId)
     setShow(true)
   }
-  // render: (val, record) => {
-  //   return <span style={{ color: 'red' }}>{val}</span>
-  // },
+
   return (
     <>
       <Table
-        columnsFilter="processReceiveApproval"
-        onFilter={(key,val) => saveServer('processReceiveApproval',val)}
-        resizable
-        columnWidth={180}
-        store={store.table}
-        scroll={{
-          x: 2000,
+        scroll={{ x: 1500 }}
+        rowKey={'taskId'}
+        actions={[
+          {
+            name: '一键审批',
+            type: 'primary',
+            onClick: store.batchPass,
+            access: 'flowexecutionbatchpass',
+            fallback: null,
+            disabled: store.table.getSelected().keys?.length === 0,
+          },
+        ]}
+        selectable={{
+          type: 'checkbox',
         }}
-        extra={[<PageListDown key="1" module="receiveApproval" table={store.table} />]}
+        columnsFilter="processReceivePending"
+        onFilter={(key, val) => saveServer('processReceivePending', val)}
+        columnWidth={180}
+        resizable
+        store={store.table}
+        rowClassName={(record) => {
+          return record.overtimeFlag == 1 ? styles.overtime : undefined
+        }}
         searchbar={{
-          labelCol: { span: 6 },
           limit: 6,
+          labelCol: { span: 6 },
           items: [
             {
               label: '流程ID',
@@ -67,8 +75,14 @@ function Index({ curTab }) {
               label: '合同编号',
               name: 'contractCode',
             },
+            <Item label="客户所属部门" name="belongDeptId" key="belongDeptId">
+              <OrgSelect functionCode="selectorgs-3"></OrgSelect>
+            </Item>,
+            <Item label="发起人" name="startUserId" key="startUserId">
+              <FounderSelect functionCode="selectfounder-3" params={{ job: undefined }}></FounderSelect>
+            </Item>,
             <Item label="客户名称" name="clientId" key="clientId">
-              <ClientSelect functionCode={'clientlist-flow'} canJump={false}></ClientSelect>
+              <ClientSelect enterpriseName={enterpriseName} functionCode={'clientlist-flow'} canJump={false}></ClientSelect>
             </Item>,
           ],
         }}
@@ -76,23 +90,21 @@ function Index({ curTab }) {
           {
             title: '流程ID',
             dataIndex: 'processInstanceId',
-            width: 120,
+            width: 160,
             fixed: 'left',
+            tooltip: false,
             actions(value) {
               return [
                 {
-                  name: value.processInstanceId,
+                  name: (
+                    <Space>
+                      {value.processInstanceId}
+                      {value.overtimeFlag === 1 && <Tag color="red">已超时</Tag>}
+                    </Space>
+                  ),
                   to: `/process/receive/detail/${value.taskId}?typeId=approval&businessKey=${value.businessKey}&diff=taskId&curTab=${curTab}`,
                 },
               ]
-            },
-          },
-          {
-            title: '流程状态',
-            dataIndex: 'processStatus',
-            width: 100,
-            render: (v) => {
-              return App.matchOption('processStatus', v).label
             },
           },
           {
@@ -103,8 +115,12 @@ function Index({ curTab }) {
           {
             title: '表单名称',
             dataIndex: 'processName',
-            width: 300,
+            width: 350,
+            render: (val, record) => {
+              return <span style={{ color: record.overtimeFlag == 1 ? 'red' : undefined }}>{val}</span>
+            },
           },
+
           {
             title: '项目名称',
             dataIndex: 'projName',
@@ -124,6 +140,7 @@ function Index({ curTab }) {
             title: '客户名称',
             dataIndex: 'clientName',
             width: 220,
+            resizable: true,
             actions({ clientName, clientId }) {
               if (!clientName) return ''
               return [
@@ -139,38 +156,35 @@ function Index({ curTab }) {
           },
 
           {
+            title: '发起人',
+            dataIndex: 'startUserName',
+          },
+          {
             title: '当前节点',
             dataIndex: 'curTaskNames',
-            width: 150,
           },
           {
             title: '当前审批人',
             dataIndex: 'curAssigneeNames',
           },
           {
-            title: '发起人',
-            dataIndex: 'startUserName',
-            width: 160,
+            title: '客户所属部门',
+            dataIndex: 'belongDeptName',
           },
           {
             title: '申请部门',
             dataIndex: 'startUserDeptName',
-            width: 160,
           },
           {
             title: '申请时间',
             dataIndex: 'processStartTime',
           },
           {
-            title: '处理时间',
-            dataIndex: 'taskEndTime',
-          },
-          {
             title: '操作',
             width: 100,
             fixed: 'right',
-            dataIndex: 'updateTime',
             isAction: true,
+            dataIndex: 'updateTime',
             actions(value) {
               return [
                 {

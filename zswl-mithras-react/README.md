@@ -244,7 +244,7 @@
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 页面通过 `src/components/Dashboard/DashboardEntries.js` 使用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
-- 我的流程页签、准备列表页与准备详情页已收敛到 `src/components/Process`，路由页仅保留入口装配。
+- 我的流程页签、我的审批页签、准备列表页与准备详情页已收敛到 `src/components/Process`，路由页仅保留入口装配。
 - 白名单列表、详情、列定义已收敛到 `src/components/WhiteList`，路由页仅保留入口装配。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
