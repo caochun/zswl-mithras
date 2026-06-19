@@ -1,5 +1,5 @@
 export { TrackEventAddModal } from './TrackEventTaskEntries'
 export { default as TrackEventColumns } from './Tracking/Column'
-export { default as TrackEventDetail } from './Tracking/detail'
-export { default as TrackEventList } from './Tracking/List'
+export { TrackEventDetail } from './TrackEventDetailEntries'
+export { TrackEventList } from './TrackEventListEntries'
 export { TrackEventModal } from './TrackEventModalEntries'

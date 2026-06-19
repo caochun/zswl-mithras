@@ -59,6 +59,8 @@ const componentEntryScopeAliases = new Map([
   ['Process/ProcessInfoModalEntries', 'ProcessInfoModal'],
   ['Process/ProcessTaskFlowChartEntries', 'ProcessTaskFlowChart'],
   ['Risk/SourceCardEntries', 'RiskSourceCardCalcModal'],
+  ['TrackEvent/TrackEventDetailEntries', 'TrackEventDetail'],
+  ['TrackEvent/TrackEventListEntries', 'TrackEventList'],
   ['TrackEvent/TrackEventModalEntries', 'TrackEventModal'],
   ['TrackEvent/TrackEventTaskEntries', 'TrackEventTask'],
 ])

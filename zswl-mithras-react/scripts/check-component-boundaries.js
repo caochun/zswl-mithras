@@ -687,6 +687,7 @@ const compatibilityComponentEntries = new Set([
   'PaymentFtpColumns/PaymentFtpColumnsEntries.js',
   'Policy/PolicyEntries.js',
   'Project/ReviewMeetingEntries.js',
+  'TrackEvent/TrackEventEntries.js',
   'TrackEvent/TrackingEntries.js',
 ])
 

@@ -1,1 +1,1 @@
-export { TrackEventList as default } from '@/components/TrackEvent/TrackEventEntries'
+export { TrackEventList as default } from '@/components/TrackEvent/TrackEventListEntries'
