@@ -1,11 +1,6 @@
 import { http } from '@zswl/admin'
 
 export default {
-  // 业务工作台-项目视图-投放情况-按公司统计
-  postDashboardPayStatistics: (data) => http.post('/dashboard/pay/statistics', data),
-  // 业务工作台-项目视图-投放情况-按部门统计
-  postDashboardPayStatisticsByDept: (data) => http.post('/dashboard/pay/statistics/bydept', data),
-
   // 项目情况
   // 业务工作台-项目视图-项目情况-统计
   postProjectInfoStatisticsRentInfoList: (data) =>

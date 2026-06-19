@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { DrawerStore, TableStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/dashboard/pay'
 
 class Store {
   constructor() {
