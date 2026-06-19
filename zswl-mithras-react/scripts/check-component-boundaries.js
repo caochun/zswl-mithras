@@ -389,6 +389,7 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/permission/login',
     replacementPrefix: '@/api/layout/fastLoginApi or @/api/permission/login in Login page',
     allowedSourcePathPrefixes: [
+      'src/components/Permission/Auth/',
       'src/pages/login/',
     ],
   },

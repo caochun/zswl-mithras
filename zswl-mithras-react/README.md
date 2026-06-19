@@ -148,6 +148,7 @@
 - `Overdue/OverdueEntries.js`
 - `PaymentFtpColumns/FtpAssessmentColumnsEntries.js`
 - `PaymentFtpColumns/PaymentFtpColumnsEntries.js`
+- `Permission/AuthEntries.js`
 - `Permission/BifrostEntries.js`
 - `InsurancePolicy/InsurancePolicyColumnsEntries.js`
 - `InsurancePolicy/InsurancePolicyEntries.js`
@@ -306,7 +307,7 @@
 - `customerMonitoring`：客户监控历史路由壳，当前实现已收敛到 `src/components/Customer/MonitoringEntries.js` 和 `src/components/Customer/MonitoringDetailEntries.js`。
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`。
-- `login`：登录和初次登录改密页面，前端路由名保留 `login`，API 语义归属权限认证。
+- `login`：登录和初次登录改密历史路由壳，页面实现已收敛到 `src/components/Permission/AuthEntries.js`，API 语义归属权限认证。
 - `msgNotification`：消息中心历史路由壳，当前实现已收敛到 `src/components/Message/NotificationEntries.js`。
 - `preview`：PDF、报表预览。
 - `visitorManage`：拜访管理历史路由壳，当前实现已收敛到 `src/components/VisitorManage/VisitorManageEntries.js`。
