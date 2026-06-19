@@ -15,6 +15,7 @@ const domainAliasPairs = [
   ['overdueListSearch', 'risk'],
   ['PageListDown', 'common'],
   ['ProfitDistribution', 'budget'],
+  ['rzy', 'externalEmbed'],
 ]
 
 const extraApiDomainAliasPairs = [
