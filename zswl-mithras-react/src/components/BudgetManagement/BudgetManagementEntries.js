@@ -1,3 +1,4 @@
+export { default as BudgetManagementAssessment } from './Assessment'
 export { default as BudgetManagementAssessmentDetail } from './AssessmentDetail'
 export { default as BudgetManagementPlacementPlanDetail } from './PlacementPlanDetail'
 export { default as BudgetManagementPlacementPlanWeekDetail } from './PlacementPlanWeekDetail'
