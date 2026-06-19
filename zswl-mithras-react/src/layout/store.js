@@ -1,4 +1,4 @@
-import Api from './api'
+import Api from '@/api/layout/appShellApi'
 import { makeAutoObservable, toJS } from '@zswl/admin'
 import { ModalStore, FormStore, App } from '@zswl/components'
 import DataUpload from '@/components/DataUpload'
@@ -79,9 +79,22 @@ class Store {
   }
 
   init = async () => {
-    const [base, optionsType, countryList, allIndustry, associationDict] = await Api.init()
+    let initData
+    try {
+      initData = await Api.init()
+    } catch (err) {
+      this.logout()
+      throw err
+    }
+    const [base, optionsType, countryList, allIndustry, associationDict] = initData
 
     const { menuTree, user } = base
+    if (user.updatePwdStatus) {
+      message.warning('密码已过期，请修改密码')
+      setTimeout(() => {
+        window.location.href = '/login?isChangePwd=true'
+      }, 1000)
+    }
     const menu = this.loopMenu(menuTree)
     //  以下用户才能查看 “云贝”
     const allowSeeYuBeiAccount = ['admin', 'readonly', 'jifei', 'liyan', 'wujie', 'lusuping']

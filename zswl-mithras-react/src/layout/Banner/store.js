@@ -1,6 +1,6 @@
 import { ModalStore, Modal } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/layout/announcementApi'
 import { message } from 'antd'
 
 class Store {

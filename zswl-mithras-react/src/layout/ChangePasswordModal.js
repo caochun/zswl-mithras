@@ -3,7 +3,7 @@ import { Form, Modal } from '@zswl/components'
 import store from './store'
 import { Input, message, Tabs } from 'antd'
 import { useEffect, useState } from 'react'
-import Api from './api'
+import Api from '@/api/layout/appShellApi'
 import JSEncrypt from 'jsencrypt'
 
 const { Item } = Form

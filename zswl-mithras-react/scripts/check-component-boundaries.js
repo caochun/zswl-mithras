@@ -16,7 +16,7 @@ const styleImportPattern = /@import\s+(?:\([^)]*\)\s*)?['"]~?([^'"]+)['"]/g
 const componentApiForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
 const uiLocalApiFilePattern =
-  /^src[\\/](?:components|pages)[\\/].*[\\/]api\.(?:js|jsx|ts|tsx)$/
+  /^src[\\/](?:components|pages|layout)[\\/].*[\\/]api\.(?:js|jsx|ts|tsx)$/
 const rootApiFilePattern = /^src[\\/]api[\\/][^\\/]+\.(?:js|jsx|ts|tsx)$/
 const relativeApiImportPattern =
   /^\.{1,2}(?:\/[^'"]*)?\/api(?:\.(?:js|jsx|ts|tsx)|\/index(?:\.(?:js|jsx|ts|tsx))?)?$/
@@ -767,7 +767,7 @@ for (const filePath of sourceFiles) {
     }
 
     if (
-      /^src[\\/](?:components|pages)[\\/]/.test(relativeFilePath) &&
+      /^src[\\/](?:components|pages|layout)[\\/]/.test(relativeFilePath) &&
       specifier.startsWith('.') &&
       relativeApiImportPattern.test(specifier)
     ) {
