@@ -1,9 +1,8 @@
-import { ModalStore, PageStore, TableStore } from '@zswl/components'
+import { ModalStore, PageStore } from '@zswl/components'
 import Api from '@/api/permission/groupManage'
 import { message, Modal } from 'antd'
 import { makeAutoObservable } from '@zswl/admin'
 import _ from 'lodash'
-import Item from 'antd/lib/list/Item'
 
 const menuToTreeData = (data: any[], key?: string) => {
   return data.map((item, i) => {
