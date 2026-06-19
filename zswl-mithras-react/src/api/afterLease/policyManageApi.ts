@@ -40,6 +40,10 @@ export default {
   // 新增保单信息
   postInfoAdd: (data: Types.InfoAddRequest): Promise<Types.InfoAddResponse> =>
     http.post('/policy/info/add', data, { mock }),
+
+  // 修改保单信息勾选框
+  postChecked: (data: any): Promise<any> =>
+    http.post('/payment/policy/info/modify/flag', data, { mock }),
 }
 
 /* prettier-ignore-end */

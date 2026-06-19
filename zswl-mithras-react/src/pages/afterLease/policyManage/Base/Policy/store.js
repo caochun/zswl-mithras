@@ -3,7 +3,6 @@ import { ModalStore, TableStore, DrawerStore } from '@zswl/components'
 import { Modal, message } from 'antd'
 import moment from 'moment'
 import DataUpload from '@/components/DataUpload'
-import Api from './api'
 import policyManageApi from '@/api/afterLease/policyManageApi'
 import policyTemporaryStorageApi from '@/api/afterLease/policyTemporaryStorageApi'
 import { saveFile } from '@/utils'
@@ -200,7 +199,7 @@ class Store {
       id: this.mainId,
       flag: checked,
     }
-    await Api.postChecked(params)
+    await policyManageApi.postChecked(params)
   }
 
   //相关附件drawer

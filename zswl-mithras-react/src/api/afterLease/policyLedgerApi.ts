@@ -15,7 +15,7 @@ export default {
 
   // 保单台账-列表（excel导出）
   postListExport: (data: Types.ListExportRequest): Promise<Types.ListExportResponse> =>
-    http.post('/policy/ledger/list/export', data, { mock, type: 'download' }),
+    http.post('/policy/ledger/list/export', data, { mock, type: 'download', timeout: 0 }),
 
   // 保单台账-合同保单信息
   postContractPolicy: (data: Types.ContractPolicyRequest): Promise<Types.ContractPolicyResponse> =>
@@ -23,7 +23,11 @@ export default {
 
   // 保单台账-合同保单信息导出
   postPolicyExport: (data: Types.PolicyExportRequest): Promise<Types.PolicyExportResponse> =>
-    http.post('/policy/ledger/contract/policy/export', data, { mock, type: 'download' }),
+    http.post('/policy/ledger/contract/policy/export', data, {
+      mock,
+      type: 'download',
+      timeout: 0,
+    }),
 
   // 保单台账-合同信息
   postContractDetail: (data: Types.ContractDetailRequest): Promise<Types.ContractDetailResponse> =>
@@ -39,7 +43,7 @@ export default {
 
   // 待维护保单项目导出
   getProjExport: (params: Types.ProjExportRequest): Promise<Types.ProjExportResponse> =>
-    http.get('/maintenance/policy/proj/export', { params, mock, type: 'download' }),
+    http.get('/maintenance/policy/proj/export', { params, mock, type: 'download', timeout: 0 }),
 
   // 付款申请详情
   getPaymentDetail: (params: any): Promise<any> => http.post('/payment/detail', params, { mock }),

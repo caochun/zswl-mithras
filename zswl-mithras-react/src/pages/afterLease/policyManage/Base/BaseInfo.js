@@ -1,6 +1,4 @@
 import { Descriptions } from '@zswl/components'
-import { useMemo, useEffect, useState } from 'react'
-import Api from '../addDetail/api.js'
 import { AmountColumn } from '@/components/Format'
 
 const labelStyle = {

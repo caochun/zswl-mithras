@@ -1,8 +1,6 @@
 import { message } from 'antd'
 import { history, makeAutoObservable } from '@zswl/admin'
-import { TableStore, Modal, PageStore, ModalStore } from '@zswl/components'
-import Api from './api'
-import policyManageApi from '@/api/afterLease/policyManageApi'
+import { PageStore } from '@zswl/components'
 import policyLedgerApi from '@/api/afterLease/policyLedgerApi'
 
 class Store {

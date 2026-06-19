@@ -1,8 +1,7 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from './api'
 import { message } from 'antd'
-import policyManageApi from '@/api/afterLease/policyManageApi'
+import policyLedgerApi from '@/api/afterLease/policyLedgerApi'
 
 class Store {
   constructor() {
@@ -11,7 +10,7 @@ class Store {
 
   $table = new TableStore({
     request: async (params) => {
-      return Api.postList({ ...params, expires: this.expires })
+      return policyLedgerApi.postLedgerList({ ...params, expires: this.expires })
     },
   })
 
@@ -28,7 +27,7 @@ class Store {
         policyExportIds.push(item.id)
       }
     })
-    await Api.postListExport({
+    await policyLedgerApi.postListExport({
       ...params,
       expires: this.expires,
       policyExportIds,

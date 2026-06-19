@@ -1,6 +1,6 @@
 import { PageStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '../api'
+import policyLedgerApi from '@/api/afterLease/policyLedgerApi'
 
 class Store {
   constructor() {
@@ -9,7 +9,7 @@ class Store {
 
   page = new PageStore({
     request: async (params) => {
-      return await Api.postLengerDetail(params)
+      return await policyLedgerApi.postLedgerDetail(params)
     },
   })
 }
