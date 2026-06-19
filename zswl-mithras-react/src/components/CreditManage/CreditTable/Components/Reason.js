@@ -1,4 +1,5 @@
-import { http, observer } from '@zswl/admin'
+import Api from '@/api/credit/creditTable'
+import { observer } from '@zswl/admin'
 import { DescStore, Descriptions } from '@zswl/components'
 import { useMemo, useState } from 'react'
 import DataFileList from './DataFileList'
@@ -18,7 +19,7 @@ const Reason = ({ isFormApproval, processInstanceId }) => {
   const desc = useMemo(() => {
     return new DescStore({
       request: async () => {
-        const res = await http.post('/cr/batch/reason', { processInstanceId })
+        const res = await Api.getBatchReason({ processInstanceId })
         return res
       },
     })
