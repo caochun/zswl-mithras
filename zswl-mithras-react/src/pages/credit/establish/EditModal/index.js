@@ -4,7 +4,7 @@ import store from '../store'
 import { Input } from 'antd'
 import { useEffect, useState } from 'react'
 import { debounce as _debounce } from 'lodash'
-import Api from '../api'
+import groupCreditEstablishApi from '@/api/credit/groupCreditEstablishApi'
 
 const { Item } = Form
 function EditModal() {
@@ -12,7 +12,11 @@ function EditModal() {
   const [form] = Form.useForm()
   const [clientList, setClientList] = useState([])
   const searchClient = _debounce(async (e, clientType) => {
-    const { list } = await Api.getClientList({ clientName: e, clientType, effected: true })
+    const { list } = await groupCreditEstablishApi.getClientList({
+      clientName: e,
+      clientType,
+      effected: true,
+    })
     setClientList(list)
   }, 500)
 

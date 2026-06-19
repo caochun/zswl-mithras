@@ -1,6 +1,6 @@
 import { TableStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from './api'
+import groupCreditReviewVersionApi from '@/api/credit/groupCreditReviewVersionApi'
 class Store {
   constructor() {
     makeAutoObservable(this)
@@ -13,7 +13,7 @@ class Store {
   }
   tableLog = new TableStore({
     request: async () => {
-      return await Api.getVersionList({ mainId: this.projectId })
+      return await groupCreditReviewVersionApi.postVersionList({ mainId: this.projectId })
     },
   })
   //变更日志详情

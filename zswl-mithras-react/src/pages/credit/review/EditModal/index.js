@@ -5,7 +5,7 @@ import { debounce as _debounce } from 'lodash'
 import { formatPercent, amountFormat } from '@/utils'
 import { Input } from 'antd'
 import store from '../store'
-import Api from '../api'
+import groupCreditReviewApi from '@/api/credit/groupCreditReviewApi'
 
 const { Item } = Form
 
@@ -20,7 +20,7 @@ function CreateModal() {
   }, [store.$createModal.visible])
 
   const getProject = _debounce(async (val) => {
-    const res = await Api.getEstablishList({ projVagueName: val })
+    const res = await groupCreditReviewApi.postEstablishQuery({ projVagueName: val })
     setProjectList(res ?? [])
   }, 500)
 

@@ -27,6 +27,17 @@ export default {
   // 集团授信立项基本信息对比
   postInfoDetailCompare: (data: Types.InfoDetailRequest): Promise<any> =>
     http.post('/group/credit/establish/base/info/detail/compare', data, { mock }),
+
+  getClientList: (data?: any): Promise<any> =>
+    http.post(
+      '/client/list',
+      { scene: 'query', ...data },
+      {
+        headers: {
+          functionCode: 'clientlist-1',
+        },
+      }
+    ),
 }
 
 /* prettier-ignore-end */

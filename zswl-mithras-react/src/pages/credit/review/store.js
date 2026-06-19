@@ -1,6 +1,6 @@
 import { TableStore, Modal, ModalStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
-import Api from './api'
+import groupCreditReviewApi from '@/api/credit/groupCreditReviewApi'
 
 class Store {
   constructor() {
@@ -8,7 +8,7 @@ class Store {
   }
   $table = new TableStore({
     request: (searchData) => {
-      return Api.getList(searchData)
+      return groupCreditReviewApi.postInfoList(searchData)
     },
   })
 
@@ -18,7 +18,7 @@ class Store {
         title: '是否进行授信评审?',
         content: values.projectName.label,
         onOk: async () => {
-          const data = await Api.postProjectReview({
+          const data = await groupCreditReviewApi.postInfoAdd({
             groupCreditEstablishId: values.id,
           })
           this.$createModal.close()
@@ -30,7 +30,7 @@ class Store {
   })
 
   getClientList = async (e) => {
-    const { list } = await Api.getClientList({ clientName: e, effected: true })
+    const { list } = await groupCreditReviewApi.getClientList({ clientName: e, effected: true })
     return list
   }
 }

@@ -2,7 +2,6 @@ import { FormStore, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import agingDetailApi from '@/api/budget/aging/agingDetailApi'
 import businessAgingApi from '@/api/budget/aging/businessAgingApi'
-import Api from './api'
 import { message } from 'antd'
 import moment from 'moment'
 // import { downLoadExcel, downloadZip } from '@/components/Excel'
@@ -14,7 +13,7 @@ class Store {
   page = new PageStore({
     request: async (params) => {
       const res = await businessAgingApi.postInfoDetail(params)
-      const res2 = await Api.postBaseInfoCount(params)
+      const res2 = await agingDetailApi.postBaseInfoCount(params)
       setTimeout(() => {
         this.form.setFieldsValue({
           ...res,
@@ -70,7 +69,7 @@ class Store {
       if (this.isAddModal) {
         await agingDetailApi.postItemAdd({ ...values, accountAgeId })
       } else {
-        await Api.postAccountModify({
+        await agingDetailApi.postItemModify({
           ...values,
           accountAgeId,
           id: this.addModal.getInitialValues().id,

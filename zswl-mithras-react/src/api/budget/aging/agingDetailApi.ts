@@ -9,6 +9,10 @@ export default {
   postItemModify: (data: Types.ItemModifyRequest): Promise<Types.ItemModifyResponse> =>
     http.post('/finance/account/age/item/modify', data, { mock }),
 
+  // 帐龄基础信息统计
+  postBaseInfoCount: (data?: any): Promise<any> =>
+    http.post('/finance/account/age/base/info/count', data, { mock }),
+
   // 删除帐龄-详情表
   postItemRemove: (data: Types.ItemRemoveRequest): Promise<Types.ItemRemoveResponse> =>
     http.post('/finance/account/age/item/remove', data, { mock }),

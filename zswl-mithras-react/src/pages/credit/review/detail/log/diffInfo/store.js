@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { hasValue } from '@/utils'
 import { PageStore } from '@zswl/components'
-import Api from '../api'
+import groupCreditReviewVersionApi from '@/api/credit/groupCreditReviewVersionApi'
 
 class Store {
   constructor() {
@@ -13,7 +13,7 @@ class Store {
   compareData = {}
 
   init = async (id) => {
-    const res = await Api.compareVersionList({ id })
+    const res = await groupCreditReviewVersionApi.postComparePreVersion({ id })
     this.compareData = res
   }
 
