@@ -1,0 +1,13 @@
+import Template from '../CheckPlanTemplate'
+import { Page } from '@zswl/components'
+
+// 一般检查、为了解决面包屑问题
+const Index = ({ params: id }) => {
+  return (
+    <Page>
+      <Template params={id}></Template>
+    </Page>
+  )
+}
+
+export default Index
