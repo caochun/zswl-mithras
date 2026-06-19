@@ -1,6 +1,6 @@
 import { PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from '@/api/customerMonitoring/customerMonitoringApi'
+import Api from '@/api/customer/monitoringApi'
 import { uniqueId } from 'lodash'
 
 class Store {

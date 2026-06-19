@@ -4,6 +4,7 @@ const domainAliasPairs = [
   ['budgetManagement', 'budget'],
   ['CreditManage', 'credit'],
   ['creditManage', 'credit'],
+  ['customerMonitoring', 'customer'],
   ['FilingMaterials', 'filingMaterials'],
   ['fillingMaterialsDetail', 'filingMaterials'],
   ['financialReport', 'report'],
