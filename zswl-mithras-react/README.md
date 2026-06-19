@@ -239,10 +239,10 @@
 
 - `afterLease` / `AfterLease`：租后检查、租后调整、租后回款等。
 - `budget` / `Budget`：预算、定价、应收账款、印花税、计提等。
-- `budgetManagement` / `BudgetManagement`：预算管理、计划、目标、参数配置等。
+- `budgetManagement` / `BudgetManagement`：预算管理、计划、目标、参数配置等；依赖报告按预算域 `budget` / `Budget` 归一，路由和兼容入口保持不变。
 - `contract` / `Contract`：合同详情、起租、提前结清、合同材料等。
 - `cpm` / `Cpm`：付款申请、付款核销、保证金、合同付款管理等。
-- `credit`、`creditManage` / `Credit`、`CreditManage`：授信审批和授信查询/台账能力。
+- `credit`、`creditManage` / `Credit`、`CreditManage`：授信审批和授信查询/台账能力；依赖报告按征信/授信域 `credit` / `Credit` 归一，路由和兼容入口保持不变。
 - `customer` / `Customer`：客户维护、客户评级、债项评级、客户财报等。
 - `financial` / `Financial`：融资、资金、流动性、金融机构、应付利息等。
 - `kpi` / `Kpi`：绩效分配、绩效参数、绩效测算等。

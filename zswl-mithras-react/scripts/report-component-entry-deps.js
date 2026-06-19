@@ -16,6 +16,10 @@ const publicComponentEntryRoots = new Set([
 ])
 const domainAliases = new Map([
   ['blackListManage', 'BlackGray'],
+  ['BudgetManagement', 'Budget'],
+  ['budgetManagement', 'Budget'],
+  ['CreditManage', 'Credit'],
+  ['creditManage', 'Credit'],
   ['fillingMaterialsDetail', 'FilingMaterials'],
   ['financialReport', 'Report'],
   ['monitorEarly', 'Risk'],
