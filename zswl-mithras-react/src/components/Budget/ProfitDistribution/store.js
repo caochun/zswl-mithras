@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { PageStore } from '@zswl/components'
-import baseInfoApi from './baseInfo'
-import weightApi from './weight'
+import baseInfoApi from '@/api/budget/profitDistributionBaseInfo'
+import weightApi from '@/api/budget/profitDistributionWeight'
 import { hasValue } from '@/utils'
 
 class Store {
