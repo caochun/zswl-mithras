@@ -157,6 +157,7 @@
 - `Process/ProcessTaskFlowChartEntries.js`
 - `Preview/PreviewEntries.js`
 - `Project/ClientSelectEntries.js`
+- `Project/EstablishmentEntries.js`
 - `Project/EstablishmentDetailEntries.js`
 - `Project/FinancialReportStatisticsEntries.js`
 - `Project/FormListItemEntries.js`
@@ -250,6 +251,7 @@
 - 逾期催收列表页、详情页和催收弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
 - 逾期诉讼用印列表页和用印弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationDoc/*` 只保留路由壳。
 - 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。
+- 项目立项列表页和创建弹窗通过 `src/components/Project/EstablishmentEntries.js` 暴露，`src/pages/project/establishment/*` 只保留路由壳和详情子路由壳。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
 - 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `PageListDown`、`CommonTips`、`CommonNoData`、`ReadOnly`、`DetailLayout`、`Collapse`、`RegionCascader` 应直接从对应 `@/components/<Component>` 导入。
