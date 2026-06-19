@@ -156,6 +156,7 @@
 - `Process/ProcessEntries.js`
 - `Process/ProcessTaskFlowChartEntries.js`
 - `Preview/PreviewEntries.js`
+- `Project/DebtEvaluationEntries.js`
 - `Project/EstablishmentEntries.js`
 - `Project/EstablishmentDetailEntries.js`
 - `Project/FinancialReportStatisticsEntries.js`
