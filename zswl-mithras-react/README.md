@@ -177,6 +177,7 @@
 - `Risk/OverdueEntries.js`
 - `Risk/PublicMonitorColumnsEntries.js`
 - `Risk/PublicMonitorDetailEntries.js`
+- `Risk/PublicMonitorOpinionDetailEntries.js`
 - `Risk/PublicMonitorListEntries.js`
 - `Risk/RiskStrategyEntries.js`
 - `Risk/SourceCardEntries.js`
