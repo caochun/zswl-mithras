@@ -1,5 +1,5 @@
 import { FileTable } from '@/components/Table'
-import Api from '../api'
+import documentManagementLedgerApi from '@/api/archives/documentManagementLedger'
 
 const Index = (props) => {
   const { id: mainId, canEdit, enumType = [] } = props
@@ -17,11 +17,11 @@ const Index = (props) => {
   }
 
   const downloadApi = async ({ id }) => {
-    await Api.download({ fileId: id })
+    await documentManagementLedgerApi.detail.download({ fileId: id })
   }
 
   const batchDownloadApi = async ({ fileIds }) => {
-    await Api.batchDownload({
+    await documentManagementLedgerApi.detail.batchDownload({
       id: mainId,
       moduleCode: 'FUND_FILING',
       fileIds,

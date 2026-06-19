@@ -2,7 +2,7 @@ import { downLoadExcel } from '@/components/Excel'
 import { makeAutoObservable } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import documentManagementLedgerApi from '@/api/archives/documentManagementLedger'
 
 class Store {
   constructor() {
@@ -18,7 +18,7 @@ class Store {
     pagination: { pageSize: 20 },
     request: async (searchData) => {
       try {
-        const result = await Api.getList(searchData)
+        const result = await documentManagementLedgerApi.project.getList(searchData)
         this.hasPermission = true
         return result
       } catch (error) {
@@ -53,7 +53,7 @@ class Store {
         })
       } else {
         const params = { ...this.table.getParams(), pageSize: 10000, pageNum: 1 }
-        const result = await Api.getList(params)
+        const result = await documentManagementLedgerApi.project.getList(params)
         dataSource = result?.rows || result?.list || []
       }
       dataSource = dataSource.map((item, index) => ({ ...item, index: index + 1 }))

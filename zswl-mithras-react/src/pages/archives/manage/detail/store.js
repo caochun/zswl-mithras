@@ -1,7 +1,7 @@
 import { makeAutoObservable, history, getQuery } from '@zswl/admin'
 import { PageStore, ModalStore, TableStore, FormStore, SearchBarStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from '../api'
+import archivesManageApi from '@/api/archives/manage'
 import { downFile } from '@/utils'
 class Store {
 	constructor() {
@@ -18,7 +18,7 @@ class Store {
 		request: async (params) => {
 			const { id } = params
 			this.archiveId = id
-			const detail = await Api.detail({
+			const detail = await archivesManageApi.detail({
 				id: Number(id)
 			})
 			this.detail = detail
@@ -82,7 +82,7 @@ class Store {
 	// }
 	//页面搜索
 	pageSearch = async (val) => {
-		const fileSearch = await Api.fileSearch({
+		const fileSearch = await archivesManageApi.fileSearch({
 			id: this.archiveId,
 			content: val
 		})
@@ -93,7 +93,7 @@ class Store {
 	//页面搜索：受控组件
 	searchBar = new SearchBarStore({
 		onSearch: async (params) => {
-			const fileSearch = await Api.fileSearch({
+			const fileSearch = await archivesManageApi.fileSearch({
 				id: this.archiveId,
 				content: params.content
 			})
@@ -139,7 +139,7 @@ class Store {
 
 	//可借阅数据下载
 	downloadFile = async (params) => {
-		const res = await Api.getFileDownload(params)
+		const res = await archivesManageApi.getFileDownload(params)
 		if (res?.code === 200) {
 			downFile(res)
 			message.success('下载成功!')
@@ -164,7 +164,7 @@ class Store {
 			reason,
 			archivesIds: [this.archiveId]
 		}
-		await Api.downloadEffect(params)
+		await archivesManageApi.downloadEffect(params)
 		message.success('申请借阅成功！')
 		this.downloadModal.close()
 		this.pageSearch()
@@ -174,7 +174,7 @@ class Store {
 	form2 = new FormStore()
 
 	getFileUpload = async (id) => {
-		const uploadData = await Api.uploadInfo(id)
+		const uploadData = await archivesManageApi.uploadInfo(id)
 		this.uploadData = uploadData
 	}
 	//文件上传弹窗
@@ -190,7 +190,7 @@ class Store {
 	//文件删除
 	remove = async (params) => {
 		const functionCode = 'ARCHIVESFileRemove'
-		const { code, msg } = await Api.postFileRemove(
+		const { code, msg } = await archivesManageApi.postFileRemove(
 			params,
 			functionCode
 		)
@@ -210,7 +210,7 @@ class Store {
 		formData.append('mainId', this.archiveId)
 		formData.append('moduleType', 'ARCHIVES')
 		formData.append('materialsType', materialsType)
-		const { code, msg, data } = await Api.postUpload(formData)
+		const { code, msg, data } = await archivesManageApi.postUpload(formData)
 		if (code === 200) {
 			message.success('上传成功')
 			this.getFileUpload({ id: this.archiveId })
@@ -226,7 +226,7 @@ class Store {
 		const params = {
 			id: this.archiveId
 		}
-		await Api.remind(params)
+		await archivesManageApi.remind(params)
 		message.success('提醒催办成功！')
 	}
 
@@ -235,7 +235,7 @@ class Store {
 		const params = {
 			id: this.archiveId
 		}
-		await Api.effect(params)
+		await archivesManageApi.effect(params)
 		message.success('提交审批成功！')
 		this.uploadModal.close()
 		this.searchBar.reset()

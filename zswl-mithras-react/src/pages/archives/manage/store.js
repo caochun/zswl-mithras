@@ -2,7 +2,7 @@ import { TableStore, FormStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { downFile } from '@/utils'
 import { message } from 'antd'
-import Api from './api'
+import archivesManageApi from '@/api/archives/manage'
 class Store {
   constructor() {
     makeAutoObservable(this)
@@ -67,7 +67,7 @@ class Store {
   table = new TableStore({
     pagination: { pageSize: 20 },
     request: async (searchData) => {
-      const { list } = await Api.getList(searchData)
+      const { list } = await archivesManageApi.getList(searchData)
       const tempData = this.initLoop(list)
       const temp = this.loop(tempData)
       const changeKeys = this.changeKeys(temp)
@@ -96,7 +96,7 @@ class Store {
       reason,
       archivesIds: arr,
     }
-    await Api.downloadEffect(params)
+    await archivesManageApi.downloadEffect(params)
     message.success('申请下载成功！')
     this.createModal.close()
     this.table.search()
@@ -123,7 +123,7 @@ class Store {
       const params = {
         projId: data,
       }
-      const { id } = await Api.addFile(params)
+      const { id } = await archivesManageApi.addFile(params)
       message.success('发起归档成功！')
       this.fileModal.close()
       history.push(`/archives/manage/detail/${id}`)
@@ -135,7 +135,7 @@ class Store {
   //发起归档Modal搜索
   selectList = []
   getSelectList = async (val) => {
-    const data = await Api.search({
+    const data = await archivesManageApi.search({
       page: 1,
       pageSize: 5,
       projVagueName: val,
@@ -158,7 +158,7 @@ class Store {
 
   //列表文件下载
   downloadListFile = async (params) => {
-    const res = await Api.getFileDownload(params)
+    const res = await archivesManageApi.getFileDownload(params)
     if (res?.code === 200) {
       downFile(res)
       message.info('文件下载成功！')

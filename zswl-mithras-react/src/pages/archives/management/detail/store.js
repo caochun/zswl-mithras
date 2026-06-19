@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { PageStore } from '@zswl/components'
-import Api from './api'
+import documentManagementLedgerApi from '@/api/archives/documentManagementLedger'
 
 class Store {
   constructor() {
@@ -10,11 +10,11 @@ class Store {
   page = new PageStore({
     request: (params) => {
       if (!params?.id) return {}
-      return Api.getOperationsDirDict(params.id)
+      return documentManagementLedgerApi.detail.getOperationsDirDict(params.id)
     },
   })
   getEnumType = async (id) => {
-    const result = await Api.getOperationsDirDict(id)
+    const result = await documentManagementLedgerApi.detail.getOperationsDirDict(id)
     this.enumType = result
   }
 }

@@ -3,7 +3,7 @@ import { downFile } from '@/utils'
 import { makeAutoObservable } from '@zswl/admin'
 import { FormStore, ModalStore, TableStore } from '@zswl/components'
 import { Modal, message } from 'antd'
-import Api from './api'
+import documentManagementLedgerApi from '@/api/archives/documentManagementLedger'
 class Store {
   constructor() {
     makeAutoObservable(this)
@@ -25,7 +25,7 @@ class Store {
     pagination: { pageSize: 20 },
     request: async (searchData) => {
       try {
-        const result = await Api.getList(searchData)
+        const result = await documentManagementLedgerApi.fund.getList(searchData)
         this.hasPermission = true
         return result
       } catch (error) {
@@ -50,7 +50,7 @@ class Store {
   downloadListTable = new TableStore({
     pagination: { pageSize: 10 },
     request: async (searchData) => {
-      return await Api.downloadRecordsQuery(searchData)
+      return await documentManagementLedgerApi.fund.downloadRecordsQuery(searchData)
     },
   })
 
@@ -74,7 +74,7 @@ class Store {
         dataSource = tableList.filter((record) => selectedKeys.has(record.filingMaterialsId))
       } else {
         const params = { ...this.table.getParams(), pageSize: 10000, pageNum: 1 }
-        const result = await Api.getList(params)
+        const result = await documentManagementLedgerApi.fund.getList(params)
         dataSource = result?.rows || result?.list || []
       }
       dataSource = dataSource.map((item, index) => ({ ...item, index: index + 1 }))
@@ -103,7 +103,7 @@ class Store {
         // 如果没有选中，下载全部归档文件
         params = { filingMaterialsIds: [], ...this.table.getParams(), pageSize: 1000 }
       }
-      await Api.batchDownload(params)
+      await documentManagementLedgerApi.fund.batchDownload(params)
       // 弹窗提示
       Modal.info({
         title: '提示',
