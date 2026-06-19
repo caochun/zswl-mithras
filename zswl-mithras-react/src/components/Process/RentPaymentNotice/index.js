@@ -4,7 +4,7 @@ import { getTableColumns, getFormColumns } from '@/utils'
 import { Drawer, message } from 'antd'
 import ALL_COLUMNS from './Column'
 import { compareTableData } from '@/utils'
-import Api from './api'
+import Api from '@/api/process/prepare/rentPaymentNoticeApi'
 import { saveServer } from '@/utils'
 
 const formNameColumns = []

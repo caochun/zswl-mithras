@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import html2canvas from 'html2canvas'
 import moment from 'moment'
-import Api from './api'
+import Api from '@/api/process/detail/flowDetailApi'
 import { message } from 'antd'
 
 class Store {

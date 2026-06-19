@@ -3,7 +3,7 @@ import { history } from '@zswl/admin'
 import { AmountColumn, InputColumn, MatchOptionColumn, AmountFormat } from '@/components/Format'
 import { getTableColumns, getSearchColumns, amountFormat } from '@/utils'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/process/prepare/financingRepayPlanConfirmApi'
 import { saveServer } from '@/utils'
 
 const Index = ({ params: { id }, query: { processType, canEditFlag = 'true' } }) => {
