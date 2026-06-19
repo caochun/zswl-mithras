@@ -5,7 +5,7 @@ import { compareDetail, getEnumFlatObjByType } from '@/utils'
 import { useEffect, useState } from 'react'
 import { ContractBizTypePriceDetailMap as bizTypePriceDetailMap } from '@/components/Contract/ConfigEntries'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
-import Api from './api'
+import Api from '@/api/process/detail/keyInfoSnapshotApi'
 
 export const bizRender = (val, record) => {
   const {
@@ -53,7 +53,7 @@ const Index = ({}) => {
       moduleType: mainModule,
       businessVersion,
     }
-    const detail = await Api.getDetail({ id })
+    const detail = await Api.getContractDetail({ id })
     const { bizType } = detail
     let earlyDetail = {}
     const res = await Api.getContractQSDetailCompare(params)

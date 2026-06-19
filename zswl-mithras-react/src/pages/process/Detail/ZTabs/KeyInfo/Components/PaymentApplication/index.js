@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { AmountColumn, AmountFormatter, InputColumn } from '@/components/Format'
 import { EditDescription } from '@/components/Table'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
-import Api from './api'
+import Api from '@/api/process/detail/keyInfoSnapshotApi'
 import { bizRender } from '../ContractApplication'
 
 const columns = [
@@ -42,7 +42,7 @@ const Index = ({}) => {
   const [moduleData, setModuleData] = useState({})
 
   const getDetail = async () => {
-    const res = await Api.getDetail({ id })
+    const res = await Api.getPaymentDetail({ id })
     setModuleData(res)
   }
 

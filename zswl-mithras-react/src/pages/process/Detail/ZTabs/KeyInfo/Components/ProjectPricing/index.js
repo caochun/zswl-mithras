@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { compareDetail } from '@/utils'
 import { ProjectFormListItem as FormListItem } from '@/components/Project/FormListItemEntries'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
-import Api from './api'
+import Api from '@/api/process/detail/keyInfoSnapshotApi'
 import { bizRender } from '../ContractApplication'
 
 const detailMap = {
@@ -57,9 +57,13 @@ const Index = () => {
   const [moduleData, setModuleData] = useState({})
 
   const getDetail = async () => {
-    const baseInfo = await Api.reviewBaseInfoCompare({ id, processInstanceId, businessVersion })
+    const baseInfo = await Api.projectPricingBaseInfoCompare({
+      id,
+      processInstanceId,
+      businessVersion,
+    })
     const { bizType } = baseInfo
-    const res = await Api.reviewQSCompare({ projectId: id, processInstanceId, businessVersion })
+    const res = await Api.projectPricingQSCompare({ projectId: id, processInstanceId, businessVersion })
     const priceDetail = res[detailMap[bizType?.value ?? bizType]] ?? {}
     const data = { ...priceDetail, ...baseInfo }
     setModuleData(compareDetail(data).newDetail)
