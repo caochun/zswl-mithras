@@ -1,7 +1,7 @@
 import { Button } from '@zswl/components'
 import { isValidElement, useState } from 'react'
 import { toHump, timeFormat, yearFormat } from '@/utils'
-import Api from './api'
+import Api from '@/api/common/indexDownloadApi'
 import { message } from 'antd'
 import _ from 'lodash'
 

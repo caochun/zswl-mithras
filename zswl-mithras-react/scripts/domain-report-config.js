@@ -11,6 +11,7 @@ const domainAliasPairs = [
   ['monitorEarly', 'risk'],
   ['msgNotification', 'message'],
   ['overdueListSearch', 'risk'],
+  ['PageListDown', 'common'],
   ['ProfitDistribution', 'budget'],
 ]
 
