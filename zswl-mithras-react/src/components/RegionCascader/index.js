@@ -1,9 +1,10 @@
-import { http, observer } from '@zswl/admin'
+import selectApi from '@/utils/api/selectApi'
+import { observer } from '@zswl/admin'
 import { Cascader } from 'antd'
 import _ from 'lodash'
 import { useEffect, useState } from 'react'
 
-const getRegionListApi = (params) => http.get('/select/region/child', { params })
+const getRegionListApi = (params) => selectApi.getRegionChild(params)
 
 function RegionCascader({ value, ...rest }) {
   const [regionList, setRegionList] = useState([])
