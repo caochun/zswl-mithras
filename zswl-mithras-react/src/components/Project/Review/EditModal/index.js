@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react'
 import { debounce as _debounce } from 'lodash'
 import Api from '@/api/project/projectReviewApi'
 import { formatPercent, amountFormat } from '@/utils'
-import { ProjectSelect } from '@/components/Project/ProjectSelectEntries'
-import { ProjectClientSelect as ClientSelect } from '@/components/Project/ClientSelectEntries'
+import ProjectSelect from '../../ProjectSelect'
+import ClientSelect from '../../ClientSelect'
 
 const { Item } = Form
 

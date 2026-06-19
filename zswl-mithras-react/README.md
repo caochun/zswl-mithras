@@ -156,15 +156,14 @@
 - `Process/ProcessEntries.js`
 - `Process/ProcessTaskFlowChartEntries.js`
 - `Preview/PreviewEntries.js`
-- `Project/ClientSelectEntries.js`
 - `Project/EstablishmentEntries.js`
 - `Project/EstablishmentDetailEntries.js`
 - `Project/FinancialReportStatisticsEntries.js`
 - `Project/FormListItemEntries.js`
 - `Project/PriceEntries.js`
 - `Project/PriceDetailEntries.js`
-- `Project/ProjectSelectEntries.js`
 - `Project/ProjectReviewMeetingModalEntries.js`
+- `Project/ReviewEntries.js`
 - `Project/ReviewDetailEntries.js`
 - `Project/ReviewMeetingEntries.js`
 - `Project/ReviewProcessEntries.js`
@@ -207,6 +206,7 @@
 - 菜单路由和业务语义不一致时，依赖报告可以按真实语义归一。例如 `pages/lease/tracking` 是跟踪事项路由壳，`pages/customerView` 是客户视图，租后检查计划下的单一视图风险入口归入客户能力；这类归一只影响报告，不改变路由兼容。
 - `pages/budgetManagement/provisionForecast` 是预算管理下的历史菜单路径，但页面和接口语义归入预算拨备预测；依赖报告按 `budget` 归一，路由保持兼容。
 - 项目定价列表页和发起定价弹窗通过 `src/components/Project/PriceEntries.js` 暴露，`src/pages/project/price/*` 只保留路由壳、历史兼容壳和详情子路由壳。
+- 项目评审列表页和发起评审弹窗通过 `src/components/Project/ReviewEntries.js` 暴露，`src/pages/project/review/*` 只保留路由壳、历史兼容壳和详情子路由壳。
 - `ClientMaterialTable`、`ChangeLogDiff`、`PaymentFtpColumns` 这类横向业务能力不再视为公共基础组件；依赖报告会保留它们的跨域使用关系，后续需要逐项判断是沉淀横向能力还是回收到具体业务域。
 - `FileDiff/FileDiffEntries.js` 仅保留为历史兼容入口，新代码应使用 `ChangeLogDiff/ChangeLogDiffEntries.js`。
 - `PaymentApplyColumns/PaymentApplyColumnsEntries.js`、`PaymentFtpColumns/PaymentFtpColumnsEntries.js` 仅保留为历史兼容入口，新代码应使用 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js`。
