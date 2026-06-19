@@ -135,6 +135,7 @@
 - `FilingMaterials/ApplyEntries.js`
 - `FilingMaterials/FundApplyEntries.js`
 - `FilingMaterials/OtherApplyEntries.js`
+- `Kpi/BaseSetEntries.js`
 - `Kpi/BaseSetModalDetailEntries.js`
 - `Kpi/BusinessGoalEntries.js`
 - `Kpi/KpiEstimationEntries.js`
