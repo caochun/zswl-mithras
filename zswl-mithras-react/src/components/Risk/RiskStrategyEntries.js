@@ -1,0 +1,5 @@
+export { default as RiskStrategy } from './RiskStrategy'
+export { default as RiskStrategyIndicatorManage } from './RiskStrategy/IndicatorManage'
+export { default as RiskStrategyIndicatorManageDetail } from './RiskStrategy/IndicatorManage/Detail'
+export { default as RiskStrategyConcentrationControl } from './RiskStrategy/ConcentrationControl'
+export { default as RiskStrategyRelateMonitor } from './RiskStrategy/RelateMonitor'
