@@ -120,6 +120,10 @@ const legacyUtilityPrefixRules = [
     replacementPrefix: '@/utils/domains/budgetManagement/BudgetManagementUtils',
   },
   {
+    legacyPrefix: '@/utils/domains/budgetManagement/BudgetManagementUtils',
+    replacementPrefix: '@/utils/domains/budget/ProvisionForecastUtils',
+  },
+  {
     legacyPrefix: '@/utils/customer',
     replacementPrefix: '@/utils/domains/customer/CustomerUtils',
   },

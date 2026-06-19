@@ -1,9 +1,4 @@
-let refreshProvisionForecastList = null
-
-export const registerProvisionForecastRefresh = (refresh) => {
-  refreshProvisionForecastList = refresh
-}
-
-export const refreshProvisionForecast = () => {
-  refreshProvisionForecastList?.()
-}
+export {
+  refreshProvisionForecast,
+  registerProvisionForecastRefresh,
+} from '../budget/ProvisionForecastUtils'
