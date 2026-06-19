@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { useEffect } from 'react'
-import Api from '../api'
+import Api from '@/api/preview/reportPreview'
 import store from '../store'
 const ReportPreview = ({ id, editType = 1, businessVersion, idType, forceSave }) => {
   const { onlyOfficeParams } = store
