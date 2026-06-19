@@ -66,6 +66,8 @@ const stableSharedBusinessTargets = new Set([
   'components/CustomerDebtRatingList',
   'components/CustomerExternalPublicInfo',
   'components/FtpAssessmentColumns',
+  'components/FinancialSelect',
+  'components/FinancialUrl',
   'components/InsurancePolicyColumns',
   'components/InsurancePolicyInfo',
   'components/ProcessInfoModal',
@@ -391,6 +393,12 @@ const pageAggregationEdges = sortedEdges.filter(
   (edge) =>
     edge.sourceScope.startsWith('pages/') && !isWorkflowOrchestrationEdge(edge)
 )
+const pageStableSharedBusinessEdges = pageAggregationEdges.filter((edge) =>
+  stableSharedBusinessTargets.has(edge.targetScope)
+)
+const pageAggregationReviewEdges = pageAggregationEdges.filter(
+  (edge) => !stableSharedBusinessTargets.has(edge.targetScope)
+)
 const domainImplementationEdges = sortedEdges.filter(
   (edge) =>
     !workflowOrchestrationEdges.includes(edge) &&
@@ -457,7 +465,16 @@ console.log('')
 printEdges('Cross-domain UI dependencies from workflow orchestration code:', workflowOrchestrationEdges)
 
 console.log('')
-printEdges('Cross-domain UI dependencies from page aggregation code:', pageAggregationEdges)
+printEdges(
+  'Stable shared business capabilities used by page aggregation code:',
+  pageStableSharedBusinessEdges
+)
+
+console.log('')
+printEdges(
+  'Cross-domain UI dependencies from page aggregation code that still need semantic review:',
+  pageAggregationReviewEdges
+)
 
 console.log('')
 printFanIn(
@@ -475,4 +492,13 @@ console.log('')
 printFanIn('UI target fan-in from workflow orchestration code:', workflowOrchestrationEdges)
 
 console.log('')
-printFanIn('UI target fan-in from page aggregation code:', pageAggregationEdges)
+printFanIn(
+  'Stable shared business capability fan-in from page aggregation code:',
+  pageStableSharedBusinessEdges
+)
+
+console.log('')
+printFanIn(
+  'Semantic-review target fan-in from page aggregation code:',
+  pageAggregationReviewEdges
+)
