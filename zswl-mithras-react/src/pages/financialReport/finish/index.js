@@ -1,7 +1,7 @@
-import WaitReport from '../wait'
+import { FinancialReportList } from '@/components/Report/FinancialReportListEntries'
 
 const FinishedReport = () => {
-  return <WaitReport listType="finish" />
+  return <FinancialReportList listType="finish" />
 }
 
 export default FinishedReport

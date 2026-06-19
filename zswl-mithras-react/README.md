@@ -265,7 +265,7 @@
 - `login`：登录和初次登录改密页面，前端路由名保留 `login`，API 语义归属权限认证。
 - `msgNotification`：消息中心页面，前端路由名保留 `msgNotification`，API 语义归属消息域。
 - `preview`：PDF、报表预览。
-- `financialReport`：财务报表待办/审批/完成列表，偏报表流程视图。
+- `financialReport`：财务报表待办/审批/完成列表历史路由壳，当前列表实现已收敛到 `src/components/Report/FinancialReportListEntries.js`，审批详情入口使用 `src/components/Report/FinancialReportApprovalEntries.js`。
 
 当前历史或兼容壳目录：
 
