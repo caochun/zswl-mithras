@@ -155,6 +155,7 @@
 - `Report/OperationEntries.js`
 - `Risk/ConcentrationControlEntries.js`
 - `Risk/MetricValueEntries.js`
+- `Risk/MonitorEarlyEntries.js`
 - `Risk/OverdueEntries.js`
 - `Risk/PublicMonitorColumnsEntries.js`
 - `Risk/PublicMonitorDetailEntries.js`
@@ -258,7 +259,7 @@
 - `customerView`：客户单一视图/客户画像聚合页，复用客户、财报、区域数据等能力。
 - `customerMonitoring`：客户监控大屏/可视化页，偏展示面。
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
-- `monitorEarly`：预警监控展示。
+- `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`。
 - `login`：登录和初次登录改密页面，前端路由名保留 `login`，API 语义归属权限认证。
 - `msgNotification`：消息中心页面，前端路由名保留 `msgNotification`，API 语义归属消息域。
 - `preview`：PDF、报表预览。

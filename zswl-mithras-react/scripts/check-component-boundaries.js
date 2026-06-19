@@ -384,6 +384,7 @@ const legacyApiPrefixRules = [
     legacyPrefix: '@/api/risk/monitorEarly',
     replacementPrefix: '@/api/customerView/riskWarningApi or @/api/risk/monitorEarly in Risk monitor pages',
     allowedSourcePathPrefixes: [
+      'src/components/Risk/MonitorEarly/',
       'src/pages/monitorEarly/',
     ],
   },
