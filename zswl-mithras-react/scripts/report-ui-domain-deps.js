@@ -232,13 +232,14 @@ function getSourceScope(relativeFilePath) {
 function getTargetScope(specifier) {
   const [, componentDomain] = specifier.match(/^@\/components\/([^/'"]+)/) || []
   if (componentDomain) {
-    const normalizedComponentDomain = normalizeComponentTarget(specifier, componentDomain)
-    if (publicComponentRoots.has(normalizedComponentDomain)) {
+    const normalizedComponentDomain = normalizeComponentDomain(componentDomain)
+    const normalizedComponentTarget = normalizeComponentTarget(specifier, componentDomain)
+    if (publicComponentRoots.has(normalizedComponentTarget)) {
       return null
     }
 
     return {
-      key: `components/${normalizedComponentDomain}`,
+      key: `components/${normalizedComponentTarget}`,
       domain: normalizeDomain(normalizedComponentDomain),
       kind: 'components',
     }
