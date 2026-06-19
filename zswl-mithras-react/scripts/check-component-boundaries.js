@@ -679,6 +679,7 @@ const compatibilityComponentEntries = new Set([
   'BlackGray/BlackGrayEntries.js',
   'CheckBusiness/CheckBusinessEntries.js',
   'ClientFileTable/ClientFileTableEntries.js',
+  'ClientMaterialTable/ClientMaterialTableEntries.js',
   'FileDiff/FileDiffEntries.js',
   'PaymentApplyColumns/PaymentApplyColumnsEntries.js',
   'Policy/PolicyEntries.js',

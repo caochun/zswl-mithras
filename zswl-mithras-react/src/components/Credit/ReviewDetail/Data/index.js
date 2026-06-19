@@ -1,4 +1,4 @@
-import { ClientMaterialTable } from '@/components/ClientMaterialTable/ClientMaterialTableEntries'
+import { BusinessMaterialTable } from '@/components/ClientMaterialTable/BusinessMaterialTableEntries'
 import styles from '../index.less'
 import store from './store'
 import { observer } from '@zswl/admin'
@@ -17,7 +17,7 @@ const Data = ({ id, canEdit = true, businessVersion }) => {
       <div className={styles.title}>资料清单</div>
       {projectDataDetail.map((item, index) => {
         return (
-          <ClientMaterialTable
+          <BusinessMaterialTable
             uploadModule="GROUP_CREDIT_REVIEW"
             mainId={id}
             canEdit={

@@ -1,1 +1,1 @@
-export { ClientMaterialTable as ClientFileTable } from '../ClientMaterialTable/ClientMaterialTableEntries'
+export { BusinessMaterialTable as ClientFileTable } from '../ClientMaterialTable/BusinessMaterialTableEntries'

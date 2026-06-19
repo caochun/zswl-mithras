@@ -2,7 +2,7 @@ import styles from '../index.less'
 import store from './store'
 import { history, observer, getQuery } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
-import { ClientMaterialTable } from '@/components/ClientMaterialTable/ClientMaterialTableEntries'
+import { BusinessMaterialTable } from '@/components/ClientMaterialTable/BusinessMaterialTableEntries'
 
 const Data = ({ id, canEdit = true, isProjSponsor, businessVersion }) => {
   store.businessVersion = businessVersion
@@ -18,7 +18,7 @@ const Data = ({ id, canEdit = true, isProjSponsor, businessVersion }) => {
 
       {projectDataDetail.map((item, index) => {
         return (
-          <ClientMaterialTable
+          <BusinessMaterialTable
             uploadModule="GROUP_CREDIT_ESTABLISH"
             mainId={id}
             canEdit={

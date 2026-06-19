@@ -68,6 +68,7 @@
 - `Chart/BarChartEntries.js`
 - `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
+- `ClientMaterialTable/BusinessMaterialTableEntries.js`
 - `ClientMaterialTable/ClientMaterialTableEntries.js`
 - `Contract/ApplicationDetailEntries.js`
 - `Contract/BaseInfoEntries.js`
@@ -169,12 +170,12 @@
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
 - 禁止在 `.less` 中通过 `@/components/<domain>/...` 引用业务域组件内部样式；路由兼容壳应只做 JS 转发，样式由真实组件自己维护。
-- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单管理应通过 `BlackGray/BlackGrayEntries.js` 引入，黑灰名单命中标识应通过 `BlackGray/BlackGrayHitEntries.js` 引入，保单列配置应通过 `InsurancePolicy/InsurancePolicyColumnsEntries.js` 引入，跟踪事项弹窗应通过 `TrackEvent/TrackEventModalEntries.js` 引入，跟踪事项新增任务弹窗应通过 `TrackEvent/TrackEventTaskEntries.js` 引入，`BusinessInfoCheck`、`ClientMaterialTable`、`Dashboard`、`EvaluationAgency`、`ChangeLogDiff`、`InsurancePolicy`、`PaymentFtpColumns` 应通过对应 `*Entries.js` 引入。
+- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单管理应通过 `BlackGray/BlackGrayEntries.js` 引入，黑灰名单命中标识应通过 `BlackGray/BlackGrayHitEntries.js` 引入，保单列配置应通过 `InsurancePolicy/InsurancePolicyColumnsEntries.js` 引入，业务资料表应通过 `ClientMaterialTable/BusinessMaterialTableEntries.js` 引入，跟踪事项弹窗应通过 `TrackEvent/TrackEventModalEntries.js` 引入，跟踪事项新增任务弹窗应通过 `TrackEvent/TrackEventTaskEntries.js` 引入，`BusinessInfoCheck`、`ClientMaterialTable`、`Dashboard`、`EvaluationAgency`、`ChangeLogDiff`、`InsurancePolicy`、`PaymentFtpColumns` 应通过对应 `*Entries.js` 引入。
 - `npm run report:ui-domain-deps` 会把已拆出的窄入口按独立能力归类，例如 `BlackGrayHit`、`InsurancePolicyColumns`、`TrackEventModal`、`TrackEventTask`；这些报告项代表稳定共享能力，不等同于调用方依赖完整业务域。
 - `ClientMaterialTable`、`ChangeLogDiff`、`PaymentFtpColumns` 这类横向业务能力不再视为公共基础组件；依赖报告会保留它们的跨域使用关系，后续需要逐项判断是沉淀横向能力还是回收到具体业务域。
 - `FileDiff/FileDiffEntries.js` 仅保留为历史兼容入口，新代码应使用 `ChangeLogDiff/ChangeLogDiffEntries.js`。
 - `PaymentApplyColumns/PaymentApplyColumnsEntries.js` 仅保留为历史兼容入口，新代码应使用 `PaymentFtpColumns/PaymentFtpColumnsEntries.js`。
-- `ClientFileTable/ClientFileTableEntries.js` 仅保留为历史兼容入口，新代码应使用 `ClientMaterialTable/ClientMaterialTableEntries.js`。
+- `ClientFileTable/ClientFileTableEntries.js`、`ClientMaterialTable/ClientMaterialTableEntries.js` 仅保留为历史兼容入口，新代码应使用 `ClientMaterialTable/BusinessMaterialTableEntries.js`。
 - `CheckBusiness/CheckBusinessEntries.js` 仅保留为历史兼容入口，新代码应使用 `BusinessInfoCheck/BusinessInfoCheckEntries.js`。
 - `Policy/PolicyEntries.js` 仅保留为历史兼容入口，新代码应使用 `InsurancePolicy/InsurancePolicyEntries.js`。
 - `TrackEvent/TrackingEntries.js` 仅保留为历史兼容入口，新代码应使用 `TrackEvent/TrackEventEntries.js`。

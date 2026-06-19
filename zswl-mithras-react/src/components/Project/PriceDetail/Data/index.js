@@ -1,7 +1,7 @@
 import styles from '../index.less'
 import DataTable from './DataTable'
 import { observer } from '@zswl/admin'
-import { ClientMaterialTable } from '@/components/ClientMaterialTable/ClientMaterialTableEntries'
+import { BusinessMaterialTable } from '@/components/ClientMaterialTable/BusinessMaterialTableEntries'
 import { useEffect } from 'react'
 
 const Data = ({ id, canEdit = true, isProjSponsor, businessVersion, title, store }) => {
@@ -16,7 +16,7 @@ const Data = ({ id, canEdit = true, isProjSponsor, businessVersion, title, store
       {projectDataDetail.map((item, index) => {
         if (item.businessType === 'PROJ_REVIEW_CLIENT')
           return (
-            <ClientMaterialTable
+            <BusinessMaterialTable
               uploadModule="PROJ_PRICING"
               mainId={id}
               canEdit={false}
