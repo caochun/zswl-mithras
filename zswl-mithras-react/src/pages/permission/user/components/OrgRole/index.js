@@ -1,6 +1,7 @@
-import { observer, http } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { Select, TreeSelect, Row, Col, Space } from 'antd'
 import { useEffect, useState } from 'react'
+import Api from '@/api/permission/user'
 
 function filterTreeNode(value, node) {
   return node.name.toLowerCase().includes(value.toLowerCase())
@@ -8,7 +9,7 @@ function filterTreeNode(value, node) {
 function Index({ orgList = [], value = {}, extra, onChange }) {
   const [roleOptions, setRoleOptions] = useState([])
   const getRoleList = async (val) => {
-    const roleList = await http.get('/role/list', { params: { orgId: val } })
+    const roleList = await Api.getRoleList({ orgId: val })
     setRoleOptions(roleList)
   }
   const changeOrg = async (val) => {

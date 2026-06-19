@@ -1,7 +1,7 @@
-import { observer, http } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { Select, TreeSelect, Row, Col, Space } from 'antd'
 import { useEffect, useState } from 'react'
-import Api from '../../api'
+import Api from '@/api/permission/user'
 function filterTreeNode(value, node) {
   return node.name.toLowerCase().includes(value.toLowerCase())
 }

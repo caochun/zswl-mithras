@@ -1,6 +1,6 @@
 import { Select } from '@zswl/components'
-import { http } from '@zswl/admin'
 import { useEffect, useState } from 'react'
+import Api from '@/api/permission/user'
 
 /**
  * 角色下拉框
@@ -9,7 +9,7 @@ export function RoleSelect({ orgId, ...props }) {
   const [options, setOptions] = useState([])
   useEffect(() => {
     if (orgId) {
-      http.get('/role/list', { params: { orgId } }).then((res) => {
+      Api.getRoleList({ orgId }).then((res) => {
         setOptions(res || [])
       })
     }

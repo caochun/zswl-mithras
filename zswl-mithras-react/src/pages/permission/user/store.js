@@ -1,6 +1,6 @@
-import { http, makeAutoObservable } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore, TableStore, Modal } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/permission/user'
 import { message } from 'antd'
 import moment from 'moment'
 

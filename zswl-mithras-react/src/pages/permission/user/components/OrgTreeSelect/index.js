@@ -1,6 +1,6 @@
 import { TreeSelect } from 'antd'
-import { http } from '@zswl/admin'
 import { useEffect, useState } from 'react'
+import Api from '@/api/permission/user'
 
 function filterTreeNode(value, node) {
   return node.name.toLowerCase().includes(value.toLowerCase())
@@ -8,7 +8,7 @@ function filterTreeNode(value, node) {
 function Index(props) {
   const [options, setOptions] = useState([])
   useEffect(() => {
-    http.get('/org').then((res) => {
+    Api.getOrg().then((res) => {
       setOptions(res || [])
     })
   }, [])
