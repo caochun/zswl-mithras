@@ -15,6 +15,10 @@ const importPattern =
 const styleImportPattern = /@import\s+(?:\([^)]*\)\s*)?['"]~?([^'"]+)['"]/g
 const componentApiForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
+const uiLocalApiFilePattern =
+  /^src[\\/](?:components|pages)[\\/].*[\\/]api\.(?:js|jsx|ts|tsx)$/
+const relativeApiImportPattern =
+  /^\.{1,2}[\\/].*(?:^|[\\/])api(?:\.(?:js|jsx|ts|tsx)|[\\/]index(?:\.(?:js|jsx|ts|tsx))?)?$/
 
 const privateComponentPathPattern = /^@\/components\/[^'"]+\/(?:api|store|context|config|Config|Column|columns)(?:\.js)?$/
 const deepComponentPathPattern = /^@\/components\/[^'"]+\/[^'"]+\/[^'"]+\/[^'"]+/
@@ -668,6 +672,13 @@ for (const filePath of sourceFiles) {
     })
   }
 
+  if (uiLocalApiFilePattern.test(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'UI-local api file (move request wrappers to src/api/<domain>)',
+    })
+  }
+
   if (
     /^src[\\/]components[\\/].*[\\/]api\.(?:js|ts)$/.test(relativeFilePath) &&
     componentApiForwardingShellPattern.test(fs.readFileSync(filePath, 'utf8').trim())
@@ -723,6 +734,18 @@ for (const filePath of sourceFiles) {
     relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
   for (const { importText, specifier } of extractSpecifiers(source, relativeFilePath)) {
     if (publicStyleImports.has(specifier)) {
+      continue
+    }
+
+    if (
+      /^src[\\/](?:components|pages)[\\/]/.test(relativeFilePath) &&
+      specifier.startsWith('.') &&
+      relativeApiImportPattern.test(specifier)
+    ) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use the semantic @/api/<domain> entry)`,
+      })
       continue
     }
 
