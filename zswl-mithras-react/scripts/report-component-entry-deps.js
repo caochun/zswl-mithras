@@ -12,6 +12,8 @@ const domainAliases = new Map([
   ['blackListManage', 'BlackGray'],
   ['fillingMaterialsDetail', 'FilingMaterials'],
   ['financialReport', 'Report'],
+  ['monitorEarly', 'Risk'],
+  ['msgNotification', 'Message'],
   ['overdueListSearch', 'Risk'],
   ['ProfitDistribution', 'Budget'],
 ])
@@ -19,6 +21,24 @@ const domainAliases = new Map([
 function normalizeDomain(domain) {
   return domainAliases.get(domain) || domain
 }
+
+const pageSourcePathDomainAliases = [
+  {
+    pattern: /^src[\\/]pages[\\/]afterLease[\\/]checkPlan[\\/]singleViewRisk(?:[\\/]|$)/,
+    key: 'pages/afterLease/checkPlan/singleViewRisk',
+    domain: 'Customer',
+  },
+  {
+    pattern: /^src[\\/]pages[\\/]customerView(?:[\\/]|$)/,
+    key: 'pages/customerView',
+    domain: 'Customer',
+  },
+  {
+    pattern: /^src[\\/]pages[\\/]lease[\\/]tracking(?:[\\/]|$)/,
+    key: 'pages/lease/tracking',
+    domain: 'TrackEvent',
+  },
+]
 
 const sourceAreaScopes = new Map([
   ['afterLease', { key: 'components/AfterLease', domain: 'AfterLease' }],
@@ -58,6 +78,16 @@ function getSourceScope(relativeFilePath) {
     return {
       key: `utils/domains/${utilityDomain}`,
       domain: normalizeDomain(utilityDomain),
+    }
+  }
+
+  const pagePathAlias = pageSourcePathDomainAliases.find(({ pattern }) =>
+    pattern.test(relativeFilePath)
+  )
+  if (pagePathAlias) {
+    return {
+      key: pagePathAlias.key,
+      domain: normalizeDomain(pagePathAlias.domain),
     }
   }
 
