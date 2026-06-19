@@ -10,7 +10,7 @@ import InvoiceBatchModal from './BatchModal'
 import IconFont from '@/components/Icon'
 import { Card, InputNumber, Space, Tag, Tooltip } from 'antd'
 import CompareModal from './CompareModal'
-import { OcrFileUploadModal as FileUploadModal } from '@/components/Ocr/OcrEntries'
+import FileUploadModal from '../../FileUploadModal'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { saveServer } from '@/utils'
 
