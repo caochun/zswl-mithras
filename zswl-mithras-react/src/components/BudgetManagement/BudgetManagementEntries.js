@@ -1,6 +1,7 @@
 export { default as BudgetManagementAssessment } from './Assessment'
 export { default as BudgetManagementAssessmentDetail } from './AssessmentDetail'
 export { default as BudgetManagementParameterConfig } from './ParameterConfig'
+export { default as BudgetManagementParameterConfiguration } from './ParameterConfiguration'
 export { default as BudgetManagementPlacementPlanDetail } from './PlacementPlanDetail'
 export { default as BudgetManagementPlacementPlanWeekDetail } from './PlacementPlanWeekDetail'
 export { default as BudgetManagementPlanCost } from './PlanCost/List'

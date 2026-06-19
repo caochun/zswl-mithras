@@ -227,6 +227,7 @@
 - KPI 项目分配列表页、分配明细和表单片段通过 `src/components/Kpi/ProjectAllotListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
 - 预算考核列表页和详情页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
 - 预算管理参数配置页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/parameterConfig` 只保留路由壳。
+- 预算管理参数配置（历史定价基础配置路径）页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/parameterConfiguration` 只保留路由壳。
 - 预算管理成本计划列表页和详情页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/plan/cost/*` 只保留路由壳。
 - 预算管理利润计划列表页、详情页和业务明细页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/plan/profit/*` 只保留路由壳。
 - 金融产权列表页通过 `src/components/Financial/PropertyEntries.js` 暴露，`src/pages/financial/property` 只保留路由壳。
