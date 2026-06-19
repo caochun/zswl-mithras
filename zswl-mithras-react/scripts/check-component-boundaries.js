@@ -304,6 +304,22 @@ const legacyApiPrefixRules = [
     allowedSourcePathPrefixes: ['src/api/budget/bankAccountApi.ts'],
   },
   {
+    legacyPrefix: '@/api/baseData/fileTemplateApi',
+    replacementPrefix: '@/api/baseData/fileTemplateApi in BaseData domain',
+    allowedSourcePathPrefixes: [
+      'src/components/BaseData/',
+      'src/pages/baseData/',
+    ],
+  },
+  {
+    legacyPrefix: '@/api/baseData/leaseholdProperty',
+    replacementPrefix: '@/api/baseData/leaseholdProperty in BaseData domain',
+    allowedSourcePathPrefixes: [
+      'src/components/BaseData/',
+      'src/pages/baseData/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/budget/pricing/ftpInterestChangeApi',
     replacementPrefix:
       '@/api/process/detail/ftpInterestChangeApi or @/api/budget/pricing/ftpInterestChangeApi in Budget domain',

@@ -51,6 +51,8 @@
 - `AfterLease/CheckPlanExternalEntries.js`
 - `AfterLease/CheckPlanPrepareEntries.js`
 - `AfterLease/CheckPlanTemplateEntries.js`
+- `BaseData/FileTemplateEntries.js`
+- `BaseData/LeaseholdPropertyEntries.js`
 - `BlackGray/BlackGrayEntries.js`
 - `BlackGray/BlackGrayHitEntries.js`
 - `Budget/AccountsReceivableEntries.js`
@@ -252,6 +254,7 @@
 - `financial` / `Financial`：融资、资金、流动性、金融机构、应付利息等。
 - `kpi` / `Kpi`：绩效分配、绩效参数、绩效测算等。
 - `lease` / `Lease`：租赁物维护和租赁物跟踪。
+- `baseData` / `BaseData`：基础维护配置，包括文件模板维护、租赁物类型导入等；路由目录保留历史菜单路径，页面实现已收敛到 `src/components/BaseData/*Entries.js`。
 - `project` / `Project`：项目立项、项目定价、项目评审。
 - `risk` / `Risk`：风控指标、风险策略、公开监控、评分卡等。
 - `report` / `Report`：管理报表、运营报表、内部历史报表等。
