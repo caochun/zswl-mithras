@@ -1,6 +1,11 @@
-import { makeAutoObservable, http, getQuery } from '@zswl/admin'
+import { makeAutoObservable, getQuery } from '@zswl/admin'
 import { Modal, Table } from '@zswl/components'
-import { getDatabaseList } from './api'
+import {
+  judgementDocumentDetail,
+  judicialAssistanceDetail,
+  limitHighConsumeDetail,
+  queryLitigation,
+} from '@/api/customerView/customerDetailApi'
 import { uniqueId } from 'lodash'
 
 class Store {
@@ -70,7 +75,7 @@ class Store {
     }
 
     // 新的请求
-    const requestPromise = getDatabaseList({ ...params, uscc })
+    const requestPromise = queryLitigation({ ...params, uscc })
       .then((response) => {
         if (!response) return null
 
@@ -107,7 +112,7 @@ class Store {
 
   JudicialAidModuleStore = new Modal.Store({
     onOpen: async (id) => {
-      return await http.post('/customer/view/detail/judicialAssistanceDetail', { id })
+      return await judicialAssistanceDetail({ id })
     },
     onFinish: async () => {
       this.JudicialAidModuleStore.close()
@@ -116,7 +121,7 @@ class Store {
 
   InstrumentModuleStore = new Modal.Store({
     onOpen: async (id) => {
-      return await http.post('/customer/view/detail/judgementDocumentDetail', { id })
+      return await judgementDocumentDetail({ id })
     },
     onFinish: async () => {
       this.InstrumentModuleStore.close()
@@ -125,7 +130,7 @@ class Store {
 
   ImitHighModuleStore = new Modal.Store({
     onOpen: async (id) => {
-      return await http.post('/customer/view/detail/limitHighConsumeDetail', { id })
+      return await limitHighConsumeDetail({ id })
     },
     onFinish: async () => {
       this.ImitHighModuleStore.close()

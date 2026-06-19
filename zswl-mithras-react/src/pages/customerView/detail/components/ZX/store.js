@@ -1,18 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { Modal, Table } from '@zswl/components'
-import {
-  getDatabaseList,
-  getPublicEnums,
-  addData,
-  deleteDatabase,
-  saveModify,
-  dispatchExecute,
-  getDloagDataSourceList,
-  DloagDataSaveAdd,
-  DloagDataSaveModify,
-  DloagDeleted,
-  getInstanceList,
-} from './api'
+import { removeFileTask } from '@/api/customerView/customerDetailApi'
 import { message } from 'antd'
 class Store {
   constructor() {
@@ -22,7 +10,7 @@ class Store {
   writeTypeEnum = []
 
   async init(params) {
-    const { data } = await deleteDatabase()
+    const { data } = await removeFileTask()
     this.writeTypeEnum = data
   }
 

@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react'
 import { Tabs } from 'antd'
 import styles from './styles.less'
-import { history, http, observer } from '@zswl/admin'
+import { history, observer } from '@zswl/admin'
 import { Table, TableStore } from '@zswl/components'
+import { getOverdueRent } from '@/api/customerView/customerDetailApi'
 import xmzs from './imgs/xmzs.png'
 import spjd from './imgs/spjd.png'
 import spwtcct from './imgs/spwtcct.png'
@@ -171,7 +172,7 @@ const ProjectStage = ({ store, id, clientId }) => {
   const beOverdueTable = useMemo(() => {
     return new TableStore({
       request: async (params) => {
-        const res = await http.post('/client/unified/view/overdue/rent', {
+        const res = await getOverdueRent({
           ...params,
           clientId,
         })

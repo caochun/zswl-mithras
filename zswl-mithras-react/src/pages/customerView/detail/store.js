@@ -1,7 +1,7 @@
 import { PageStore, TableStore } from '@zswl/components'
-import { http, makeAutoObservable } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import blackListApi from '@/api/customerView/blackGrayApi'
-import Api from './api'
+import Api from '@/api/customerView/customerDetailApi'
 
 class Store {
   constructor() {
@@ -10,7 +10,7 @@ class Store {
   detail = {}
   getDetail = async () => {
     const { id, ...params } = this.page.getParams()
-    const res = await http.post('/customer/view/detail/headBody', params, { timeout: 0 })
+    const res = await Api.getHeadBody(params)
     this.detail = res
   }
   page = new PageStore({
@@ -22,7 +22,7 @@ class Store {
             { ...params, unifiedSocialCreditCode: params?.uscc, clientId: id },
             'riskControlBlackGrayBaseInfoLibrary'
           ),
-          id ? http.post('/client/unified/view/detail', { clientId: id }) : {},
+          id ? Api.getUnifiedViewDetail({ clientId: id }) : {},
         ])
 
         return {

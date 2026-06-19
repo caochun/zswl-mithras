@@ -1,5 +1,6 @@
 import { PageStore, TableStore } from '@zswl/components'
-import { makeAutoObservable, http, getQuery } from '@zswl/admin'
+import { makeAutoObservable, getQuery } from '@zswl/admin'
+import { getOpinionInfo, getOpinionStatistics } from '@/api/customerView/customerDetailApi'
 class Store {
   constructor() {
     makeAutoObservable(this)
@@ -9,11 +10,11 @@ class Store {
     request: async (params) => {
       try {
         const { uscc } = getQuery()
-        this.cardData = await http.post('/customer/view/detail/opiStatistc', {
+        this.cardData = await getOpinionStatistics({
           ...params,
           uscc: uscc,
         })
-        return await http.post('/customer/view/detail/opiInfo', {
+        return await getOpinionInfo({
           ...params,
           uscc: uscc,
         })

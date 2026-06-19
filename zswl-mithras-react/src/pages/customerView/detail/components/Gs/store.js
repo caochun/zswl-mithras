@@ -1,7 +1,12 @@
 import { makeAutoObservable, getQuery } from '@zswl/admin'
 import { Modal, Table } from '@zswl/components'
 import { DescStore } from '@zswl/components'
-import { queryCompanyBasicInfo, detailqueryStockHolders, deleteDatabase } from './api'
+import {
+  queryBondBasicInfo,
+  queryCompanyBasicInfo,
+  queryCustomerViewInfo,
+  queryStockHolders,
+} from '@/api/customerView/customerDetailApi'
 import { message } from 'antd'
 class Store {
   constructor() {
@@ -11,7 +16,7 @@ class Store {
   writeTypeEnum = []
 
   async init(params) {
-    const { data } = await queryCompanyBasicInfoByKeyword({})
+    const { data } = await queryCustomerViewInfo({})
     this.writeTypeEnum = data
   }
   uscc = ''
@@ -37,14 +42,14 @@ class Store {
     request: async (params) => {
       this.queryRfsh()
 
-      return await deleteDatabase({ uscc: this.uscc, ...params })
+      return await queryBondBasicInfo({ uscc: this.uscc, ...params })
     },
   })
   // 股东信息
   principalShareholderStore = new Table.Store({
     request: async (params) => {
       this.queryRfsh()
-      return await detailqueryStockHolders({ enterpriseName: this.enterpriseName, ...params })
+      return await queryStockHolders({ enterpriseName: this.enterpriseName, ...params })
     },
   })
 }

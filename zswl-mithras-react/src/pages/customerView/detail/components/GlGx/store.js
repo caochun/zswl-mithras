@@ -1,7 +1,8 @@
-import { makeAutoObservable, http, getQuery } from '@zswl/admin'
+import { makeAutoObservable, getQuery } from '@zswl/admin'
 import { Modal, Table } from '@zswl/components'
 import { DescStore } from '@zswl/components'
 import { message } from 'antd'
+import { getRelation } from '@/api/customerView/customerDetailApi'
 class Store {
   constructor() {
     makeAutoObservable(this)
@@ -10,7 +11,7 @@ class Store {
   table = new Table.Store({
     request: async (params) => {
       const { uscc, enterpriseName } = getQuery()
-      return await http.post('/customer/view/detail/relation', {
+      return await getRelation({
         enterpriseName: enterpriseName,
         uscc: uscc,
         ...params,

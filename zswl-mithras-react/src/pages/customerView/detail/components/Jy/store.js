@@ -1,6 +1,11 @@
-import { makeAutoObservable, http, getQuery } from '@zswl/admin'
+import { makeAutoObservable, getQuery } from '@zswl/admin'
 import { Modal, Table } from '@zswl/components'
-import { getDatabaseList } from './api'
+import {
+  chattelMortgageDetail,
+  guaranteeEventDetail,
+  majorTaxDetail,
+  queryBizRisk,
+} from '@/api/customerView/customerDetailApi'
 
 class Store {
   constructor() {
@@ -35,7 +40,7 @@ class Store {
     }
 
     // 新的请求
-    const requestPromise = getDatabaseList({ ...params, companyName: this.enterpriseName })
+    const requestPromise = queryBizRisk({ ...params, companyName: this.enterpriseName })
       .then((response) => {
         if (!response) return null
 
@@ -131,7 +136,7 @@ class Store {
   // 重大税收违法详情
   JudicialAidModuleStore = new Modal.Store({
     onOpen: async (id) => {
-      return await http.post('/customer/view/detail/majortax', { id })
+      return await majorTaxDetail({ id })
     },
     onFinish: () => {
       this.JudicialAidModuleStore.close()
@@ -141,7 +146,7 @@ class Store {
   //担保事件
   InstrumentModuleStore = new Modal.Store({
     onOpen: async (id) => {
-      return await http.post('/customer/view/detail/queryGuaranteeEventDetail', { id })
+      return await guaranteeEventDetail({ id })
     },
     onFinish: () => {
       this.InstrumentModuleStore.close()
@@ -151,7 +156,7 @@ class Store {
   // 动产抵押详情
   ImitHighModuleStore = new Modal.Store({
     onOpen: async (id) => {
-      return await http.post('/customer/view/detail/queryChattelMortageDetail', { id })
+      return await chattelMortgageDetail({ id })
     },
     onFinish: () => {
       this.ImitHighModuleStore.close()

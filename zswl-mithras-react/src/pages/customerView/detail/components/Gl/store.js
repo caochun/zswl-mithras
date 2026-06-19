@@ -1,7 +1,6 @@
-import { makeAutoObservable, http, getQuery } from '@zswl/admin'
+import { makeAutoObservable, getQuery } from '@zswl/admin'
 import { Modal, Table, PageStore, ModalStore, TableStore } from '@zswl/components'
 import {
-  getList,
   getCredit, //授信
   getClassic,
   getCreditHistory,
@@ -11,16 +10,8 @@ import {
   selectAll,
   getExternalList,
   getRatinghistory,
-  getDatabaseList,
-  getPublicEnums,
-  addData,
-  deleteDatabase,
-  saveModify,
-  getDloagDataSourceList,
-  DloagDataSaveAdd,
-  DloagDataSaveModify,
-  DloagDeleted,
-} from './api'
+  getAuthFieldList,
+} from '@/api/customerView/customerDetailApi'
 import { message } from 'antd'
 class Store {
   constructor() {
@@ -398,7 +389,7 @@ class Store {
   // 弹窗table
   unitTable = new Table.Store({
     request: async (params) => {
-      return await getDloagDataSourceList(params)
+      return await getAuthFieldList(params)
     },
   })
 
