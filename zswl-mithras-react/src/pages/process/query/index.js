@@ -10,7 +10,7 @@ import FastHandle from './FastHandle'
 import { ProcessTypeTree } from '@/components/Process/ProcessEntries'
 import PageListDown from '@/components/PageListDown'
 import { ApiSelect } from '@/components/Select'
-import Api from './api'
+import Api from '@/api/process/flowProcessQueryApi'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar

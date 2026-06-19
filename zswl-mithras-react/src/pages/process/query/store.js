@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore, TableStore, Modal } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/process/flowProcessQueryApi'
 import { message } from 'antd'
 class Store {
   constructor() {

@@ -4,7 +4,7 @@ import Store from './store'
 import { App, Page } from '@zswl/components'
 import { message, Spin } from 'antd'
 import styles from './index.less'
-import Api from './api'
+import Api from '@/api/process/flowModelApi'
 import { baseURL } from '@/utils'
 function Index({ params: { id } }) {
   const store = useMemo(() => new Store(), [])
