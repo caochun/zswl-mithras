@@ -68,6 +68,7 @@ const stableSelectRootImports = new Set([
 const stableDefaultComponentRootImports = new Map([
   ['Amount', 'Amount'],
   ['Collapse', 'Collapse'],
+  ['CommonNoData', 'CommonNoData'],
   ['CommonTips', 'CommonTips'],
   ['CurrentSteps', 'CurrentSteps'],
   ['DetailLayout', 'DetailLayout'],
@@ -82,6 +83,7 @@ const publicComponentRootImports = new Set([
   'Amount',
   'AmountRange',
   'Collapse',
+  'CommonNoData',
   'CommonTips',
   'CurrentSteps',
   'DataUpload',

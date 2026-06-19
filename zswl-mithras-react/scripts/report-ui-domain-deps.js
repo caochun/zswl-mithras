@@ -180,6 +180,7 @@ const publicComponentRoots = new Set([
   'AmountRange',
   'Chart',
   'Collapse',
+  'CommonNoData',
   'CommonTips',
   'CurrentSteps',
   'DataUpload',
