@@ -3,7 +3,7 @@ import { amountFormat, getInputNumberAmountProps, getKeyOptionsLabelMap, hasValu
 import { history, observer } from '@zswl/admin'
 import { Col, Form, Input, InputNumber, Row, Select, Tooltip } from 'antd'
 import { useRef } from 'react'
-import Api from '../api'
+import Api from '@/api/project/component/api'
 import styles from './index.less'
 import ClientSelect from '../ClientSelect'
 import { App } from '@zswl/components'

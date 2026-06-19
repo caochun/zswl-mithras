@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { hasValue, compareDetail } from '@/utils'
 import { PageStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/project/component/ReviewDetail/Log/diffInfo/api'
 import mathjs from '@/utils/math'
 
 class Store {

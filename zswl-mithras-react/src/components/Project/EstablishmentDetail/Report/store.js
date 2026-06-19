@@ -2,8 +2,8 @@ import { history, makeAutoObservable } from '@zswl/admin'
 import { App, ModalStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
 import QSStore from '../QuotationScheme/store'
-import DataApi from '../Data/api'
-import Api from './api'
+import DataApi from '@/api/project/component/EstablishmentDetail/Data/api'
+import Api from '@/api/project/component/EstablishmentDetail/Report/api'
 class Store {
   constructor({ rootStore }) {
     this.rootStore = rootStore

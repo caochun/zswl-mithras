@@ -2,7 +2,7 @@ import { makeAutoObservable, getQuery } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
 import { message } from 'antd'
 import { compareDetail, formatPercent } from '@/utils'
-import Api from './api'
+import Api from '@/api/project/component/PriceDetail/QuotationScheme/api'
 
 const detailMap = {
   ZL: 'leasePriceDetailRSP',

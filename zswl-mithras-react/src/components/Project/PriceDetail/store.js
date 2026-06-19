@@ -1,7 +1,7 @@
 import { makeAutoObservable, history, getQuery } from '@zswl/admin'
 import { FormStore, PageStore, Modal } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/project/component/PriceDetail/api'
 import { compareDetail, formScrollToField, hasValue } from '@/utils'
 import cashApi from '@/api/project/projectPriceCashflow'
 import approvalRemarkApi from '@/api/project/approvalRemarkApi'

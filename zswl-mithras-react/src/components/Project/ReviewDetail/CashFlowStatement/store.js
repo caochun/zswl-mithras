@@ -2,7 +2,7 @@ import { makeAutoObservable, getQuery } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
 import { message } from 'antd'
 import DataUpload from '@/components/DataUpload'
-import Api from './api'
+import Api from '@/api/project/component/ReviewDetail/CashFlowStatement/api'
 import cashApi from '@/api/project/projectCashflow'
 import { downFile } from '@/utils/downFunction'
 class Store {
