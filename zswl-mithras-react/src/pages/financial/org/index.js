@@ -7,9 +7,9 @@ import ALL_COLUMNS from './Column'
 import { AutoComplete, Input } from 'antd'
 import PageListDown from '@/components/PageListDown'
 import { saveServer } from '@/utils'
-import api from './api'
+import financialManageOrgApi from '@/api/financial/financialManageOrg'
 import { useCallback, useState } from 'react'
-import { debounce, throttle } from 'lodash'
+import { throttle } from 'lodash'
 
 const nameColumns = [
   {
@@ -38,8 +38,8 @@ function Index() {
   const canDelete = store.table.selectedRowKeys.length > 0
   const handleSearch = useCallback(
     throttle(async (val) => {
-      const list = await api
-        .searchAbbreviation({ abbreviation: val })
+      const list = await financialManageOrgApi
+        .postOrganizationAbbreviation({ abbreviation: val })
         .then((res) => res?.map((label) => ({ label, value: label })))
       setOptions(list)
     }, 600),

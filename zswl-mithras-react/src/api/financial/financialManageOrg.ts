@@ -5,6 +5,14 @@ import { http } from '@zswl/admin'
 const mock = false
 // const mock= { mode:2 }
 export default {
+  // 资金管理-机构简称查询
+  postOrganizationAbbreviation: (data: any): Promise<any> =>
+    http.post('/fund/organization/abbreviation', data, { mock }),
+
+  // 资金管理-机构代码查询
+  postInstitutionCode: (data: any): Promise<any> =>
+    http.post('/fund/institutionCode', data, { mock }),
+
   // 修改资金管理-机构表
   postOrganizationModify: (
     data: Types.OrganizationModifyRequest

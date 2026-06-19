@@ -8,7 +8,7 @@ import IconFont from '@/components/Icon'
 import styles from './index.less'
 import { rules } from '@/utils'
 import CountryCascader from './CountryCascader'
-import Api from './api'
+import financialManageOrgApi from '@/api/financial/financialManageOrg'
 import { FormAmount } from '@/components/Form'
 
 const { Item } = Form
@@ -67,7 +67,7 @@ function EditModal({ store }) {
     const organizationType = getFieldValue('organizationType')
     const uscCode = getFieldValue('uscCode')
     if (organizationType && uscCode) {
-      const res = await Api.getFundInstitutionCode({ uscCode })
+      const res = await financialManageOrgApi.postInstitutionCode({ uscCode })
       setFieldValue('institutionCode', res.institutionCode)
     } else {
       message.info('请填写机构类型、统一社会信用代码')
