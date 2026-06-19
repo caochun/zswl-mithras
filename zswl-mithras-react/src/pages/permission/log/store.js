@@ -1,6 +1,6 @@
 import { PageStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/permission/log'
 
 class Store {
   constructor() {

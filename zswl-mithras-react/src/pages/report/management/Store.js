@@ -1,7 +1,7 @@
-import { makeAutoObservable, history } from '@zswl/admin'
-import { PageStore, Modal } from '@zswl/components'
+import { makeAutoObservable } from '@zswl/admin'
+import { PageStore } from '@zswl/components'
 import { message } from 'antd'
-import localApi from './api'
+import reportManageApi from '@/api/report/reportManage'
 
 const loop = (data, parent = []) => {
   return data?.map((item) => {
@@ -32,7 +32,7 @@ class Store {
 
   pageStore = new PageStore({
     request: async () => {
-      const list = await localApi.getReportList()
+      const list = await reportManageApi.getGroupList()
       return {
         list: loop(list),
       }
@@ -51,7 +51,7 @@ class Store {
 
   handleRefresh = async () => {
     if (this.currentReport) {
-      await localApi.getRefresh({
+      await reportManageApi.getRefresh({
         reportName: this.currentReport.title,
       })
       message.success('更新成功')

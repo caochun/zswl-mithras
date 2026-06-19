@@ -3,7 +3,6 @@ import { observer, setSessionStorage, getSessionStorage } from '@zswl/admin'
 import { Row, Select, message } from 'antd'
 import { useEffect, useMemo, useState, useRef } from 'react'
 import Api from '@/api/report/reportManage'
-import localApi from './api'
 import { Button, Page } from '@zswl/components'
 import _ from 'lodash'
 
@@ -37,7 +36,7 @@ function InternalManage({ props }) {
   }, [value, options])
 
   const getRefreshBtnStatus = async (reportName) => {
-    const res = await localApi.showRefreshBtn({ reportName })
+    const res = await Api.showRefreshBtn({ reportName })
     setShowRefreshBtn(res)
   }
 
@@ -54,7 +53,7 @@ function InternalManage({ props }) {
 
   const refresh = async () => {
     if (currentLabel) {
-      await localApi.getRefresh({
+      await Api.getRefresh({
         reportName: currentLabel,
       })
       message.success('更新成功')
