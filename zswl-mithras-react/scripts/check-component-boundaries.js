@@ -527,6 +527,11 @@ const legacyApiPrefixRules = [
       'src/pages/budget/flowCenter/',
     ],
   },
+  {
+    legacyPrefix: '@/api/budgetManagement/costBudgetDetialApi',
+    replacementPrefix: '@/api/budgetManagement/costBudgetDetailApi',
+    allowedSourcePathPrefixes: ['src/api/budgetManagement/costBudgetDetialApi.ts'],
+  },
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 const apiInterfaceImportPattern = /^@\/api\/[^'"]+\/interface\//

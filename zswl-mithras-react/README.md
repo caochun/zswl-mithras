@@ -299,6 +299,7 @@
 - `common/customerOverview`：历史公共实现已清理；dashboard 客户总览页面使用 `src/api/dashboard/customerOverview`，客户视图页面使用 `src/api/customerView/customerOverviewApi` 聚合入口。
 - `common/flowList`：历史公共目录已清理；流程任务列表、流程详情、退回节点和随机退回等 `/flow/**` 接口使用 `src/api/process/flowTaskApi`。
 - `process/flowTaskApi.getProcessDetail`：预算管理和租赁物组件只读取流程详情状态时，分别使用 `src/api/budgetManagement/processDetailApi`、`src/api/lease/processDetailApi` 本域语义入口，不直接绑定流程任务 API 文件。
+- `budgetManagement/costBudgetDetialApi`：成本预算明细 API 的历史拼写入口；新代码使用 `src/api/budgetManagement/costBudgetDetailApi`，旧入口仅兼容转发。
 - `common/editableCompare`：历史上混合了 FTP、项目、付款和文件比对接口，当前已清理；文件表组件使用 `src/api/common/fileCompareApi`。
 - `common/dataList`：历史命名已清理；资料清单上传、下载、预览、项目资料和授信资料列表使用 `src/api/common/materialsApi`。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API；这些入口已收窄为 endpoint 壳，不再转发其他业务域 API 文件。

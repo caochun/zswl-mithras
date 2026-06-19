@@ -1,4 +1,4 @@
-import costBudgetDetialApi from '@/api/budgetManagement/costBudgetDetialApi'
+import costBudgetDetailApi from '@/api/budgetManagement/costBudgetDetailApi'
 import { AmountColumn } from '@/components/Format'
 import { makeAutoObservable } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
@@ -66,7 +66,7 @@ class Store {
   list = new TableStore({
     pagination: false,
     request: async (params) => {
-      const response = await costBudgetDetialApi.postDetailList({
+      const response = await costBudgetDetailApi.postDetailList({
         budgetPlanCostId: this.id,
         ...params,
       })
