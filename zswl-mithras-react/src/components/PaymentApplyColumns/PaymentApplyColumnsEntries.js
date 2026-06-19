@@ -1,1 +1,1 @@
-export { PaymentFtpColumns as PaymentApplyColumns } from '../PaymentFtpColumns/PaymentFtpColumnsEntries'
+export { FtpAssessmentColumns as PaymentApplyColumns } from '../PaymentFtpColumns/FtpAssessmentColumnsEntries'

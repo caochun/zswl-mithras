@@ -1,5 +1,5 @@
 import { EditDescription } from '@/components/Table'
-import { PaymentFtpColumns as ALL_COLUMNS } from '@/components/PaymentFtpColumns/PaymentFtpColumnsEntries'
+import { FtpAssessmentColumns as ALL_COLUMNS } from '@/components/PaymentFtpColumns/FtpAssessmentColumnsEntries'
 import { getDescColumns } from '@/utils'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Space, Form, message } from 'antd'
