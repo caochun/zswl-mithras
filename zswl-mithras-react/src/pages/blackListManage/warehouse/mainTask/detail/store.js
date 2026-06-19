@@ -71,7 +71,7 @@ class Store {
     if (!isSubmit) message.success('保存成功')
   }
   approvalForm = new FormStore({})
-  singeModalStore = new ModalStore({
+  singleModalStore = new ModalStore({
     onOpen: ({
       warehouseTime,
       blackGrayType,
@@ -102,7 +102,7 @@ class Store {
         source: 'INTERNAL_APPROVAL',
       })
       message.success(`${params.id ? '编辑' : '保存'}成功`)
-      this.singeModalStore.close()
+      this.singleModalStore.close()
       this.table.search()
       return { applyReasonType: [] }
     },

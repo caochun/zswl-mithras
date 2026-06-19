@@ -138,7 +138,7 @@ const Index = ({ value, onChange, store }) => {
         <Radio value={2}>批量导入</Radio>
       </Radio.Group>
       {value === 1 ? (
-        <Button.Add onClick={() => store.singeModalStore.open({})}>单个录入</Button.Add>
+        <Button.Add onClick={() => store.singleModalStore.open({})}>单个录入</Button.Add>
       ) : (
         <>
           <Upload beforeUpload={importTpl} key={'import'} showUploadList={false} accept=".xlsx">

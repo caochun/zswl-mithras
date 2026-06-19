@@ -98,7 +98,7 @@ const ColItem = ({ children, span = 12, ...rest }) => {
     </Col>
   )
 }
-const SingeModal = ({ modal }) => {
+const SingleModal = ({ modal }) => {
   const [form] = Form.useForm()
   const store = useMemo(() => new Store({ form }), [form])
   const [applyReasonOptions, setApplyReasonOptions] = useState([])
@@ -215,7 +215,7 @@ const SingeModal = ({ modal }) => {
                       name="applyReasonType"
                       label="入库原因"
                       rules={[{ required: true }]}
-                      className={styles.singeModal}
+                      className={styles.singleModal}
                       tooltip="需先选择业务类型和黑灰标识"
                       transform={(value) => ({
                         applyReasonType: [value],
@@ -286,4 +286,4 @@ const SingeModal = ({ modal }) => {
   )
 }
 
-export default observer(SingeModal)
+export default observer(SingleModal)

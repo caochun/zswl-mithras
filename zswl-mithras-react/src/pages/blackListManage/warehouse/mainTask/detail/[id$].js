@@ -9,7 +9,7 @@ import styles from './styles.less'
 import MainTable from './MainTable'
 import SubmitRadio from './SubmitRadio'
 import { Card } from 'antd'
-import SingeModal from './SingeModal'
+import SingleModal from './SingleModal'
 import DataUpload from '@/components/DataUpload'
 import { NoEnumFileTable } from '@/components/Table'
 
@@ -105,7 +105,7 @@ function Id({ params, query, path, props: { sub } }) {
           { title: '上传时间', dataIndex: 'createTime' },
         ]}
       />
-      <SingeModal modal={store.singeModalStore} />
+      <SingleModal modal={store.singleModalStore} />
     </Page>
   )
 }

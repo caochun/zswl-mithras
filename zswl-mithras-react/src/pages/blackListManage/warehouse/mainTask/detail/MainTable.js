@@ -57,7 +57,7 @@ function Index({ path, store }) {
           </ExportAction>,
           ['edit', 'add'].includes(type) && (
             <Button.Edit
-              onClick={() => store.singeModalStore.open(rows[0])}
+              onClick={() => store.singleModalStore.open(rows[0])}
               disabled={rows.length !== 1}
               key={'edit'}
             >
