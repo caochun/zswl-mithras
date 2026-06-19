@@ -4,7 +4,7 @@ import ModalEditTable from '../../ModalEditTable'
 
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 import FormulaValueTip from '@/components/FormulaValueTip'
-import Api from './api'
+import { profitAdjustApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
 const VERSIBLE = 'P'
 

@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import ModalEditTable from '../../ModalEditTable'
 
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
-import Api from './api'
+import { middleBackDeptAssessApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
 const Index = ({ baseStore, typeInfo }) => {
   const detailData = useRef({})

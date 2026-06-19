@@ -4,7 +4,7 @@ import ModalEditTable from '../../ModalEditTable'
 
 import FormulaValueTip from '@/components/FormulaValueTip'
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
-import Api from './api'
+import { financialMarketDeptAssessApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
 const VERSIBLE = 'P'
 const Index = ({ baseStore, typeInfo }) => {

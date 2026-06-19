@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { observer } from '@zswl/admin'
 import ModalEditTable from '../../ModalEditTable'
 import { InputNumberEditable } from '@/components/Format'
-import Api from './api'
+import { projectRatioApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
 const CONNECTOR = '_'
 const PROJECT_RATE_TITLE = '项目提奖比例'

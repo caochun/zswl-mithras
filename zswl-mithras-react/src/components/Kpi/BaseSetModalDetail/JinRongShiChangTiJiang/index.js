@@ -3,7 +3,7 @@ import { InputNumber } from 'antd'
 import classnames from 'classnames'
 import { hasValue } from '@/utils'
 import { useEffect, useState, useRef } from 'react'
-import Api from './api'
+import { financialMarketDeptRatioApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 import styles from './index.less'
 
 const columns = [

@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { InputNumberEditable } from '@/components/Format'
 import ModalEditTable from '../../ModalEditTable'
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
-import Api from './api'
+import { taxRateApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
 const TAX_TYPE_ENMU = {
   ZZS: '增值税',

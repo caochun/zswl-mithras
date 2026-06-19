@@ -5,7 +5,7 @@ import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 
 import FormulaValueTip from '@/components/FormulaValueTip'
 import { Tooltip } from 'antd'
-import Api from './api'
+import { provisionRatioApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 
 const TYPE_ENMU = {
   PUBLIC: '公用事业类',
