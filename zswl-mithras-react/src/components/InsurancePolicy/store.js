@@ -3,7 +3,7 @@ import { ModalStore, Modal, TableStore, DrawerStore } from '@zswl/components'
 import { message } from 'antd'
 import moment from 'moment'
 import DataUpload from '@/components/DataUpload'
-import Api from './api'
+import Api from '@/api/insurancePolicy/insurancePolicyApi'
 
 function isValidDate(dateStr) {
   const date = moment(dateStr, 'YYYY-MM-DD', true)
