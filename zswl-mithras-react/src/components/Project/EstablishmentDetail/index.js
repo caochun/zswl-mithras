@@ -9,7 +9,7 @@ import Report from './Report'
 import Store from './store'
 import TipsModal from './TipsModal'
 import DetailLayout from '@/components/DetailLayout'
-import { CreditSearchModal as CreditModal } from '@/components/Credit/SearchModalEntries'
+import { CreditReportSearchModal } from '@/components/Credit/CreditReportSearchEntries'
 
 const ProjectEstablishmentDetail = ({
   params: { id },
@@ -41,7 +41,7 @@ const ProjectEstablishmentDetail = ({
   ]
 
   const baseExtra = [
-    <CreditModal params={{ projectId: id, bizSource: 'PROJ_ESTABLISH' }} />,
+    <CreditReportSearchModal params={{ projectId: id, bizSource: 'PROJ_ESTABLISH' }} />,
     <Button type="link" onClick={() => store.goRat()}>
       客户评级
     </Button>,

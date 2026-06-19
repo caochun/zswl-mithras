@@ -15,7 +15,7 @@ import DetailLayout from '@/components/DetailLayout'
 import FinancialReportStatistics from '../FinancialReportStatistics'
 import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventModalEntries'
 import DebtDrawer from './DebtDrawer'
-import { CreditSearchModal as CreditModal } from '@/components/Credit/SearchModalEntries'
+import { CreditReportSearchModal } from '@/components/Credit/CreditReportSearchEntries'
 import MeetingModal from '../ReviewMeetingModal'
 
 const Index = ({
@@ -84,7 +84,7 @@ const Index = ({
   const baseExtra = [
     !isFormApproval && <MeetingModal id={id} processInstanceId={processInstanceId} />,
     <TrackModal params={{ projName, curAssigneeIds, bizSource: 'PROJ_REVIEW', bizId: id }} />,
-    <CreditModal params={{ projectId: id, bizSource: 'PROJ_REVIEW' }} />,
+    <CreditReportSearchModal params={{ projectId: id, bizSource: 'PROJ_REVIEW' }} />,
     <Button type="link" onClick={() => store.goRat()}>
       客户评级
     </Button>,

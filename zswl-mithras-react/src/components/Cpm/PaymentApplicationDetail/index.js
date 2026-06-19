@@ -18,7 +18,7 @@ import { jumpZhongDeng } from '@/utils'
 import PublicCheckModal from '../PaymentApplication/PublicCheckModal'
 import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
 import ZhongDengregistration from './ZhongDengregistration'
-import { CreditSearchModal as CreditModal } from '@/components/Credit/SearchModalEntries'
+import { CreditReportSearchModal } from '@/components/Credit/CreditReportSearchEntries'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
 import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventModalEntries'
 import { Space } from 'antd'
@@ -100,7 +100,7 @@ const PaymentApplicationDetail = ({
         extra={[
           <Space wrap={false}>
             <Space wrap={true}>
-              <CreditModal params={{ projectId: id, bizSource: 'PAYMENT' }} />
+              <CreditReportSearchModal params={{ projectId: id, bizSource: 'PAYMENT' }} />
               <MeetingModal id={projReviewId} processInstanceId={processInstanceId} />
               {publicShow && (
                 <PublicInformation

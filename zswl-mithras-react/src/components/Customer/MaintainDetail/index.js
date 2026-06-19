@@ -8,7 +8,7 @@ import Store from './store'
 import { observer, getQuery } from '@zswl/admin'
 import EvaluationInfo from './EvaluationInfo'
 import CheckBusiness from '../CheckBusiness'
-import { CreditSearchModal as CreditModal } from '@/components/Credit/SearchModalEntries'
+import { CreditReportSearchModal } from '@/components/Credit/CreditReportSearchEntries'
 
 const { TabPane } = Tabs
 function Index({
@@ -48,7 +48,7 @@ function Index({
 
   const commonExtra = (
     <Space>
-      <CreditModal
+      <CreditReportSearchModal
         params={{ bizSource: 'clientList', clientId: id, clientName: baseInfo?.clientName }}
       />
       {/* 如果只显示工商信息模块的话，那就不给展示版本日志按钮 */}
