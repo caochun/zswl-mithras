@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Table, Page, Button, SearchBar } from '@zswl/components'
-import { getTableColumns, getFormColumns, mouthFormat } from '@/utils'
+import { getTableColumns, getFormColumns, monthFormat } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { DatePicker } from 'antd'
 import moment from 'moment'
@@ -59,7 +59,7 @@ const Index = ({ path }) => {
             yearAndMonth: moment().year(year).month(mouth),
           },
           items: [
-            <Item label="月份" name="yearAndMonth" transform={(val) => val && mouthFormat(val)}>
+            <Item label="月份" name="yearAndMonth" transform={(val) => val && monthFormat(val)}>
               <DatePicker picker={'month'} allowClear={false} />
             </Item>,
             ...formColumns,

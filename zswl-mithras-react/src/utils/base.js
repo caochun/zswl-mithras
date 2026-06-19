@@ -88,9 +88,11 @@ export function yearFormat (time) {
   return moment(time).format('yyyy')
 }
 
-export function mouthFormat (time) {
+export function monthFormat (time) {
   return moment(time).format('yyyy-MM')
 }
+
+export const mouthFormat = monthFormat
 
 export function timeFormat (time) {
   return moment(time).format('yyyy-MM-DD')

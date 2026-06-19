@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { observer } from '@zswl/admin'
 import { Modal, Table } from '@zswl/components'
-import { hasValue, amountFormat, formatPercent, timeFormat, mouthFormat } from '@/utils'
+import { hasValue, amountFormat, formatPercent, timeFormat, monthFormat } from '@/utils'
 import { DatePicker, message } from 'antd'
 import moment from 'moment'
 import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
@@ -57,7 +57,7 @@ const Index = ({ store }) => {
               itemProps: {
                 rules: [{ required: true, message: '请选择日期' }],
                 transform: (val) => {
-                  return val ? mouthFormat(val) : undefined
+                  return val ? monthFormat(val) : undefined
                 },
               },
             },

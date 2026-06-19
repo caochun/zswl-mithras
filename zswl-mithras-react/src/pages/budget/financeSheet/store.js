@@ -3,7 +3,6 @@ import { TableStore, Modal, ModalStore } from '@zswl/components'
 import { message } from 'antd'
 import DataUpload from '@/components/DataUpload'
 import Api from './api'
-import { mouthFormat } from '@/utils'
 import moment from 'moment'
 
 class Store {
