@@ -56,6 +56,8 @@ const componentEntryScopeAliases = new Map([
   ['PaymentFtpColumns/FtpAssessmentColumnsEntries', 'FtpAssessmentColumns'],
   ['Project/ProjectReviewMeetingModalEntries', 'ProjectReviewMeetingModal'],
   ['Project/ReviewSnapshotEntries', 'ProjectReviewSnapshot'],
+  ['Process/ProcessInfoModalEntries', 'ProcessInfoModal'],
+  ['Process/ProcessTaskFlowChartEntries', 'ProcessTaskFlowChart'],
   ['Risk/SourceCardEntries', 'RiskSourceCardCalcModal'],
   ['TrackEvent/TrackEventModalEntries', 'TrackEventModal'],
   ['TrackEvent/TrackEventTaskEntries', 'TrackEventTask'],

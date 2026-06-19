@@ -8,7 +8,7 @@ import ExtarInfo from '../ExtarInfo'
 import BeforeAllocateInfoModal from '../BeforeAllocateInfoModal'
 import allotApi from '@/api/kpi/projectAllot/allot'
 import { message } from 'antd'
-import { ProcessInfoModal } from '@/components/Process/ProcessEntries'
+import { ProcessInfoModal } from '@/components/Process/ProcessInfoModalEntries'
 import { isBusinesshead } from '@/utils'
 import Store from './Store'
 

@@ -4,7 +4,7 @@ import styles from './style.less'
 import { useEffect, useState } from 'react'
 import { http } from '@zswl/admin'
 import moment from 'moment'
-import { ProcessTaskFlowChart as Flow } from '@/components/Process/ProcessEntries'
+import { ProcessTaskFlowChart as Flow } from '@/components/Process/ProcessTaskFlowChartEntries'
 
 /**
  * 审批记录，大部分情况下是用ApprovalAction组件即可，
