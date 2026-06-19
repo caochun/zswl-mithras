@@ -1,5 +1,5 @@
-import { http } from '@zswl/admin'
 import { Button } from '@zswl/components'
+import Api from '@/api/common/actionApi'
 
 const FileExport = ({
   tableStore,
@@ -20,8 +20,7 @@ const FileExport = ({
     })
 
     const newTableParams = transformParams?.(tableParams)
-    await http.post(
-      '/file/export',
+    await Api.exportFile(
       {
         businessType,
         ids,
@@ -30,12 +29,7 @@ const FileExport = ({
           ...extraParams,
         },
       },
-      {
-        type: 'download',
-        headers: {
-          functionCode: functionCode || 'dashboardFileExport',
-        },
-      }
+      functionCode
     )
   }
 

@@ -1,4 +1,5 @@
-import { observer, http } from '@zswl/admin'
+import { observer } from '@zswl/admin'
+import Api from '@/api/common/actionApi'
 import { Button } from '@zswl/components'
 import { message, Modal } from 'antd'
 
@@ -16,7 +17,7 @@ function Index({ store, api, ...rest }) {
         if (typeof api === 'function') {
           await api({ ids: keys })
         } else if (typeof api === 'string') {
-          await http.post(api, { ids: keys })
+          await Api.postDelete(api, { ids: keys })
         }
         message.success('删除成功')
         store.search()

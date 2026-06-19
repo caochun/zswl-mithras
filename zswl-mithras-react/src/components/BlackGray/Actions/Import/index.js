@@ -1,4 +1,5 @@
-import { observer, http } from '@zswl/admin'
+import { observer } from '@zswl/admin'
+import Api from '@/api/common/actionApi'
 import { Button, Form, Modal, Access } from '@zswl/components'
 import { Upload, message } from 'antd'
 import { useImperativeHandle, forwardRef } from 'react'
@@ -37,7 +38,7 @@ function Index(
         if (typeof api === 'function') {
           await api({ file })
         } else if (typeof api === 'string') {
-          await http.post(api, { file }, { type: 'upload' })
+          await Api.postUpload(api, { file })
         }
         needMessage && message.success(`${buttonName}成功`)
         modalStore.close()
@@ -53,7 +54,7 @@ function Index(
       return template()
     }
     if (typeof template === 'string') {
-      return http.get(template, { type: 'download', fileName: templateName })
+      return Api.downloadTemplate(template, templateName)
     }
   }
   useImperativeHandle(ref, () => {

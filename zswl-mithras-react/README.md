@@ -14,6 +14,7 @@
 - `src/utils`：无页面语义、无业务归属的工具函数、格式化、hooks、校验逻辑。
 - `src/utils/domains/<domain>`：构建器允许目录下的业务域工具稳定入口，用来承接历史 `utils/*` 中已有明确业务归属的小工具；它不是新的公共杂物区。
 - `src/utils` 中直接依赖 `src/api/common` 的文件应只承载公共前端基础能力，例如文件下载、表格列配置、通用字典 hook；若出现业务域 API 调用，应迁入对应业务域目录。
+- `src/components/Actions` 等通用动作组件若需要承接动态 URL 的删除、导入、导出，应使用 `src/api/common/actionApi`，不要在 UI 组件中直接调用请求库。
 - `src/layout`：应用壳能力，包括菜单、消息、登录、布局和全局导航交互。
 
 后续若新增 `src/features/<domain>`，它应承载某个业务域可复用的前端能力，例如领域组件、领域 hooks、领域配置和领域 API 包装；`pages` 只作为路由装配层使用。

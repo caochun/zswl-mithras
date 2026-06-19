@@ -17,6 +17,7 @@ const pageSourcePathDomainAliases = createPageSourcePathDomainAliases()
 const ignoredSourcePathPatterns = [
   /^src[\\/]api[\\/]/,
 ]
+const ignoredTargetApiDomains = new Set(['common'])
 
 function normalizeDomain(domain) {
   return domainAliases.get(domain) || domain
@@ -127,7 +128,11 @@ for (const filePath of walk(srcDir)) {
     const [, rawTargetApiDomain] = specifier.match(apiImportPattern) || []
     const targetApiDomain = rawTargetApiDomain && normalizeDomain(rawTargetApiDomain)
 
-    if (!targetApiDomain || targetApiDomain.toLowerCase() === sourceScope.domain.toLowerCase()) {
+    if (
+      !targetApiDomain ||
+      ignoredTargetApiDomains.has(targetApiDomain) ||
+      targetApiDomain.toLowerCase() === sourceScope.domain.toLowerCase()
+    ) {
       continue
     }
 
