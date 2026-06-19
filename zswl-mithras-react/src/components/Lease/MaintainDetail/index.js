@@ -11,7 +11,7 @@ import LeaseText from './LeaseText'
 import DataFileList from './DataFileList'
 import { AppraisalAgency } from '@/components/EvaluationAgency/AppraisalAgencyEntries'
 import { jumpZhongDeng } from '@/utils'
-import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
+import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ProjectReviewMeetingModalEntries'
 
 const Index = ({
   params: { id },

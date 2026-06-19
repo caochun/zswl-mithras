@@ -29,7 +29,7 @@ import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCh
 import LeaseZiLiao from '../LeaseMaterials'
 import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventModalEntries'
 import { AppraisalAgency } from '@/components/EvaluationAgency/AppraisalAgencyEntries'
-import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
+import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ProjectReviewMeetingModalEntries'
 import { jumpZhongDeng } from '@/utils'
 
 const Index = ({

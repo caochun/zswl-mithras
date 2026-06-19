@@ -1,1 +1,1 @@
-export { default as ProjectReviewMeetingModal } from './ReviewMeetingModal'
+export { ProjectReviewMeetingModal } from './ProjectReviewMeetingModalEntries'
