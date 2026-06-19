@@ -3,4 +3,6 @@ export { default as BudgetProvisioningDataAddModalStore } from './ProvisioningDa
 export { default as BudgetProvisioningImpairment } from './ProvisioningImpairment/List'
 export { default as BudgetProvisioningImpairmentColumns } from './ProvisioningImpairmentColumns'
 export { default as BudgetProvisioningImpairmentDetail } from './ProvisioningImpairment/Detail'
+export { default as BudgetProvisioningParamsConfig } from './ProvisioningParamsConfig/List'
 export { getColumnsByType as BudgetProvisioningParamsConfigColumnsByType } from './ProvisioningParamsConfigColumns'
+export { default as BudgetProvisioningParamsConfigDetail } from './ProvisioningParamsConfig/Detail'
