@@ -1,22 +1,24 @@
 import {
-  PrepareAfterLeaseCheckReportTemplate,
-  PrepareAfterLeaseGeneralCheck,
-  PrepareContractDepositRefundNotification,
-  PrepareContractEarlySettlement,
-  PrepareContractStartRent,
-  PrepareCustomerRating,
-  PrepareFilingMaterialsApply,
-  PrepareFinancialCarryInterest,
-  PrepareFinancialDirect,
-  PrepareFinancialFund,
-  PrepareFinancialReportApproval,
-  PrepareFinancingRepayPlanConfirmFlow,
-  PrepareFundFilingMaterialsApply,
-  PrepareKpiProjectAllocation,
-  PrepareOverdueListSearch,
-  PrepareProfitDistribution,
-  PrepareRentPaymentNotice,
-} from '@/components/Process/PrepareDetailEntries'
+  AfterLeaseCheckPlanPrepareProcess as PrepareAfterLeaseGeneralCheck,
+  AfterLeaseCheckPlanTemplate as PrepareAfterLeaseCheckReportTemplate,
+} from '@/components/AfterLease/CheckPlanPrepareEntries'
+import {
+  ContractDepositRefundNotification as PrepareContractDepositRefundNotification,
+  ContractSettlementDetail as PrepareContractEarlySettlement,
+  ContractStartRentDetail as PrepareContractStartRent,
+} from '@/components/Contract/ProcessDetailEntries'
+import { BudgetProfitDistribution as PrepareProfitDistribution } from '@/components/Budget/ProfitDistributionEntries'
+import { CustomerRatDetail as PrepareCustomerRating } from '@/components/Customer/CustomerRatingDetailEntries'
+import { FilingMaterialsApply as PrepareFilingMaterialsApply } from '@/components/FilingMaterials/ApplyEntries'
+import { FilingMaterialsFundApply as PrepareFundFilingMaterialsApply } from '@/components/FilingMaterials/FundApplyEntries'
+import { FinancialDirectDetail as PrepareFinancialDirect } from '@/components/Financial/DirectDetailEntries'
+import { FinancialFinancingCarryInterestFlow as PrepareFinancialCarryInterest } from '@/components/Financial/FinancingCarryInterestEntries'
+import { FinancialFundDetail as PrepareFinancialFund } from '@/components/Financial/FundProcessEntries'
+import { FinancialReportApproval as PrepareFinancialReportApproval } from '@/components/Report/FinancialReportApprovalEntries'
+import PrepareFinancingRepayPlanConfirmFlow from '../FinancingRepayPlanConfirmFlow'
+import { KpiProjectAllotDetail as PrepareKpiProjectAllocation } from '@/components/Kpi/ProjectAllotDetailEntries'
+import { RiskOverdueListSearch as PrepareOverdueListSearch } from '@/components/Risk/OverdueEntries'
+import PrepareRentPaymentNotice from '../RentPaymentNotice'
 import { observer } from '@zswl/admin'
 import { Button, Page } from '@zswl/components'
 import { useMemo } from 'react'

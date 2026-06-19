@@ -5,6 +5,7 @@ export { default as ProcessBpmnFlowChooseChartModal } from './BpmnFlowChartChoos
 export { default as ProcessBlankBlock } from './BlankBlock'
 export { ProcessDetail } from './DetailEntries'
 export { ProcessInfoModal } from './ProcessInfoModalEntries'
+export { ProcessPrepareDetail } from './PrepareDetailPageEntries'
 export { default as ProcessSnapshoot } from './Snapshoot'
 export { ProcessSendDuplicateModal } from './SendDuplicateModalEntries'
 export { ProcessTaskFlowChart } from './ProcessTaskFlowChartEntries'
