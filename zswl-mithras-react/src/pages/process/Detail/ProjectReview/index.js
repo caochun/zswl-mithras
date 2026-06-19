@@ -1,7 +1,7 @@
 import { ProjectReviewDetail } from '@/components/Project/ReviewProcessEntries'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
-import Api from '../api'
+import Api from '@/api/process/detail/flowDetailApi'
 const detailMap = {
   ZL: 'leasePriceDetailRSP',
   BL: 'factoringPriceDetailRSP',

@@ -5,7 +5,7 @@ import { Select, App } from '@zswl/components'
 import { Modal, Form, message } from 'antd'
 import styles from './index.less'
 import { useState, useEffect } from 'react'
-import Api from './api'
+import Api from '@/api/process/detail/flowDetailApi'
 
 function Index({ processInstanceId, visible, taskId, flag, externalForm, callBack, detailData }) {
   //flag="collaborate"

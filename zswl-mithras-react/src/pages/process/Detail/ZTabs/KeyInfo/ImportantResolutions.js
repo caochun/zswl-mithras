@@ -3,7 +3,7 @@ import { NoEnumFileTable as FileList } from '@/components/Table'
 import Collapse from '@/components/Collapse'
 import { ProcessBlankBlock as BlankBlock } from '@/components/Process/ProcessEntries'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
-import Api from './api'
+import Api from '@/api/process/detail/flowDetailApi'
 
 const IMPORTANT_TITLE_ENUM = {
   PROJ_REVIEW: {

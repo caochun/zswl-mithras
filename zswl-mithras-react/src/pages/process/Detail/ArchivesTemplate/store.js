@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { FormStore, PageStore } from '@zswl/components'
-import Api from '../api'
+import Api from '@/api/process/detail/flowDetailApi'
 class Store {
 	constructor() {
 		makeAutoObservable(this)

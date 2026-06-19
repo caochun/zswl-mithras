@@ -1,6 +1,6 @@
 import { RentCollectionProjectDetail as ProjectDetail } from '@/components/AfterLease/RentCollectionProcessEntries'
 import { useEffect, useState } from 'react'
-import Api from '../api'
+import Api from '@/api/process/detail/flowDetailApi'
 import styles from './index.less'
 import { RentCollectionBatchInterest as BatchInterest } from '@/components/AfterLease/RentCollectionProcessEntries'
 const AfterLeaseRentCollection = ({ id, canEditFlag, businessVersion, modelKey }) => {

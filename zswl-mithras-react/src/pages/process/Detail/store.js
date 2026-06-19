@@ -2,7 +2,7 @@ import { makeAutoObservable, getQuery, history } from '@zswl/admin'
 import { TableStore, PageStore } from '@zswl/components'
 import { debounce as _debounce } from 'lodash'
 import meetingApi from '@/api/process/detail/projectReviewMeetingMinuteApi'
-import Api from './api'
+import Api from '@/api/process/detail/flowDetailApi'
 import { Modal, message } from 'antd'
 
 const businessID = getQuery('businessKey')

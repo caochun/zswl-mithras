@@ -9,7 +9,7 @@ import {
   ContractSettlementDetail as JQsettlement,
   ContractStartRentDetail as KSQZstartRent,
 } from '@/components/Contract/ProcessDetailEntries'
-import Api from '../api'
+import Api from '@/api/process/detail/flowDetailApi'
 
 const ContractProcess = (props) => {
   const {

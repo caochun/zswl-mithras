@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { debounce as _debounce } from 'lodash'
-import Api from './api'
+import Api from '@/api/process/detail/flowDetailApi'
 class Store {
   constructor() {
     makeAutoObservable(this, { clientId: false })

@@ -3,7 +3,7 @@ import { Row, Col } from 'antd'
 import { ApiSelect } from '@/components/Select'
 import { observer } from '@zswl/admin'
 import { Modal, Form } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/process/detail/flowDetailApi'
 import { rules } from '@/utils'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 
