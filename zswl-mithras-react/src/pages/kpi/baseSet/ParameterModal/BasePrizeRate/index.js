@@ -2,8 +2,7 @@ import { useRef } from 'react'
 import { observer } from '@zswl/admin'
 import { KpiModalEditTable as ModalEditTable } from '@/components/Kpi/BaseSetModalDetailEntries'
 import { InputNumberEditable } from '@/components/Format'
-import Api from './api'
-import { message } from 'antd'
+import Api from '@/api/kpi/baseSet/baseSetApi'
 
 const CONNECTOR = '_'
 const PROJECT_RATE_TITLE = '基础提奖比例'
@@ -23,7 +22,7 @@ const Index = ({ typeInfo }) => {
   const detailData = useRef({})
 
   const getData = async () => {
-    const res = await Api.getList({ baseId: typeInfo.id })
+    const res = await Api.getBasePrizeRate({ baseId: typeInfo.id })
     detailData.current = res
     const data = {}
     res.configValue?.forEach(({ projectType, projectSource, projectRadio }) => {
@@ -47,7 +46,7 @@ const Index = ({ typeInfo }) => {
       }
     })
 
-    await Api.saveList({ ...detailData.current, configValue, id: typeInfo.id })
+    await Api.saveBasePrizeRate({ ...detailData.current, configValue, id: typeInfo.id })
   }
 
   return (
