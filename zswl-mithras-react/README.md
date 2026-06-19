@@ -40,6 +40,7 @@
 - `AfterLease/Level5ClassifyDetailEntries.js`
 - `AfterLease/Level5ClassifyListEntries.js`
 - `AfterLease/Level5ClassifyTipsEntries.js`
+- `AfterLease/ManageLedgerEntries.js`
 - `AfterLease/PolicyManageDetailEntries.js`
 - `AfterLease/PolicyManageRemindEntries.js`
 - `AfterLease/RentCollectionApiEntries.js`
