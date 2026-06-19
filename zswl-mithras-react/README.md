@@ -87,7 +87,6 @@
 - `Cpm/PaymentApplicationMaterialsEntries.js`
 - `Cpm/PaymentApplicationPublicCheckEntries.js`
 - `Cpm/PaymentApplicationPublicInfoEntries.js`
-- `Credit/CreditListEntries.js`
 - `Credit/CreditReportSearchEntries.js`
 - `Credit/EstablishEntries.js`
 - `Credit/ReviewEntries.js`
