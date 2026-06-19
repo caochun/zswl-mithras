@@ -2,7 +2,7 @@ import { DrawerStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { mergeArray } from '@/utils/domains/dashboard/DashboardUtils'
 import { initFieldsConfig } from './Config'
-import Api from './api'
+import Api from '@/api/dashboard/afterLeaseCheck'
 
 class Store {
   constructor() {
@@ -16,7 +16,7 @@ class Store {
   listDrawer = new DrawerStore({})
 
   getFieldsApi = async () => {
-    const res = await Api.checkStatistics()
+    const res = await Api.postDashboardAfterLeaseCheckStatistics()
     return mergeArray(res, initFieldsConfig)
   }
 }

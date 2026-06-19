@@ -4,7 +4,7 @@ import { getTableColumns, getSearchColumns } from '@/utils'
 import { ALL_COLUMNS } from './Column'
 import { columnsFilterKey } from '../../Config'
 import { downLoadExcel } from '@/components/Excel'
-import Api from '../../api'
+import Api from '@/api/dashboard/afterLeaseCheck'
 import { saveServer } from '@/utils'
 
 // 租后检查
@@ -14,7 +14,7 @@ const Index = ({ group }) => {
 
   const table = Table.useStore({
     request: (params) => {
-      return Api.checkList(params)
+      return Api.postDashboardAfterLeaseCheckList(params)
     },
   })
 
@@ -25,7 +25,7 @@ const Index = ({ group }) => {
       pageSize: 5000,
       page: 1,
     }
-    const res = await Api.checkList(postParams)
+    const res = await Api.postDashboardAfterLeaseCheckList(postParams)
     downLoadExcel({
       fileName: `租后管理详情`,
       dataSource: res,
