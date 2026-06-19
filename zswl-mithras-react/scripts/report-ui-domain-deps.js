@@ -19,6 +19,8 @@ const domainAliases = new Map([
   ['login', 'permission'],
   ['monitorEarly', 'risk'],
   ['msgNotification', 'message'],
+  ['overdueListSearch', 'risk'],
+  ['ProfitDistribution', 'budget'],
 ])
 
 const ignoredSourcePathPatterns = [
@@ -346,14 +348,23 @@ if (sortedEdges.length === 0) {
   process.exit(0)
 }
 
-const orchestrationEdges = sortedEdges.filter(
-  (edge) =>
-    edge.sourceScope.startsWith('pages/') ||
+function isWorkflowOrchestrationEdge(edge) {
+  return (
+    edge.sourceScope === 'pages/process' ||
     [...orchestrationComponentRoots].some((root) => edge.sourceScope === `components/${root}`) ||
     orchestrationTargetScopes.has(edge.targetScope)
+  )
+}
+
+const workflowOrchestrationEdges = sortedEdges.filter(isWorkflowOrchestrationEdge)
+const pageAggregationEdges = sortedEdges.filter(
+  (edge) =>
+    edge.sourceScope.startsWith('pages/') && !isWorkflowOrchestrationEdge(edge)
 )
 const domainImplementationEdges = sortedEdges.filter(
-  (edge) => !orchestrationEdges.includes(edge)
+  (edge) =>
+    !workflowOrchestrationEdges.includes(edge) &&
+    !pageAggregationEdges.includes(edge)
 )
 const stableSharedBusinessEdges = domainImplementationEdges.filter((edge) =>
   stableSharedBusinessTargets.has(edge.targetScope)
@@ -413,7 +424,10 @@ printEdges(
 )
 
 console.log('')
-printEdges('Cross-domain UI dependencies from page or orchestration code:', orchestrationEdges)
+printEdges('Cross-domain UI dependencies from workflow orchestration code:', workflowOrchestrationEdges)
+
+console.log('')
+printEdges('Cross-domain UI dependencies from page aggregation code:', pageAggregationEdges)
 
 console.log('')
 printFanIn(
@@ -428,4 +442,7 @@ printFanIn(
 )
 
 console.log('')
-printFanIn('UI target fan-in from page or orchestration code:', orchestrationEdges)
+printFanIn('UI target fan-in from workflow orchestration code:', workflowOrchestrationEdges)
+
+console.log('')
+printFanIn('UI target fan-in from page aggregation code:', pageAggregationEdges)
