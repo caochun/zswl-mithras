@@ -1,7 +1,7 @@
 import { Table } from '@zswl/components'
 import { observer, history } from '@zswl/admin'
 import { getTableColumns, getFormColumns } from '@/utils'
-import { ProjectAllotColumns as ALL_COLUMNS } from '@/components/Kpi/ProjectAllotListEntries'
+import ALL_COLUMNS from '../../Column'
 import { saveServer } from '@/utils'
 
 const formNameColumns = [
@@ -15,7 +15,7 @@ const formNameColumns = [
   '审批状态',
   '项目主办（人员分润比）',
   '项目协办（人员分润比）',
-  '业务部门（人员分润比）'
+  '业务部门（人员分润比）',
 ]
 const nameColumns = [
   '合同编号',
