@@ -1,7 +1,7 @@
 import { Button, Page, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
-import EditModal from './EditModal'
+import { FinancialOrgEditModal as EditModal } from '@/components/Financial/OrgEditModalEntries'
 import { getTableColumns, getFormColumns } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { AutoComplete, Input } from 'antd'

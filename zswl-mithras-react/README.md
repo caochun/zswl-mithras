@@ -120,6 +120,7 @@
 - `Financial/FundDetailEntries.js`
 - `Financial/FundListEntries.js`
 - `Financial/FundProcessEntries.js`
+- `Financial/OrgEditModalEntries.js`
 - `Financial/PaymentBatchApprovalEntries.js`
 - `Financial/PaymentDetailEntries.js`
 - `Financial/PaymentListEntries.js`
