@@ -1,4 +1,6 @@
 export { default as CpmBillManage } from './BillManage'
 export { default as CpmDetailTitle } from './DetailTitle'
+export { default as CpmMarginBelongContract } from './MarginManagementDetail/BelongContract'
+export { default as CpmMarginInfo } from './MarginManagementDetail/MarginInfo'
 export { default as CpmPaymentWriteOffDetail } from './PaymentWriteOffDetail'
 export { default as CpmAmountNumber } from './AmountNumber'

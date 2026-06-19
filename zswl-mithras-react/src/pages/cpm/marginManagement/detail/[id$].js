@@ -4,8 +4,10 @@ import { Page, App } from '@zswl/components'
 import store from './store'
 import { observer, getQuery, toJS } from '@zswl/admin'
 import styles from './index.less'
-import BelongContract from '../components/BelongContract'
-import MarginInfo from '../components/MarginInfo'
+import {
+  CpmMarginBelongContract as BelongContract,
+  CpmMarginInfo as MarginInfo,
+} from '@/components/Cpm/CpmEntries'
 import PaymentRecords from '../PaymentRecords'
 import RefundRecords from '../RefundRecords'
 import VerificationRecords from '../VerificationRecords'
