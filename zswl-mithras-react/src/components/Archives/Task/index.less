@@ -1,0 +1,141 @@
+.customerWrap {
+  .customerTitle {
+    text-align: left;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .clientCode {
+    width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.dragger {
+  position: relative;
+  width: 470px;
+  height: 30px;
+  text-align: center;
+  background: #fafafa;
+  border: 1px dashed #d9d9d9;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  margin-top: 3px;
+
+  .draggerItem {
+    margin-top: 3px;
+
+    .icon {
+      color: #BCBDC0;
+    }
+
+    .text {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.85);
+      margin-left: 5px;
+    }
+  }
+}
+
+.fileList {
+  position: relative;
+  height: 20px;
+
+  .fileTitle {
+    position: absolute;
+    // left: 20px;
+
+    .icon {
+      color: #2558E6;
+      font-size: 16px !important;
+      margin-right: 5px;
+    }
+
+    .title {
+      font-weight: 700px;
+      font-size: 16px;
+    }
+  }
+
+  .fileDelete {
+    position: absolute;
+    left: 320px;
+    cursor: pointer;
+
+    .iconDelete {
+      color: #58595C;
+    }
+
+    .textDelete {
+      margin-left: 5px;
+      color: #58595C;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  .fileAdd {
+    position: absolute;
+    left: 390px;
+    cursor: pointer;
+
+    .iconAdd {
+      color: #2558E6;
+    }
+
+    .textAdd {
+      margin-left: 5px;
+      color: #2558E6;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
+
+.uploadArea {
+  width: 470px;
+  background: #F1F2F5;
+  padding: 8px 12px;
+  border-radius: 5px;
+
+  .areaSwitch {
+    margin-bottom: 5px;
+
+    .switchItem {
+      :global {
+        .ant-row>.ant-col-6 {
+          flex: 0 0 16% !important;
+        }
+      }
+
+      margin-bottom: 0px;
+    }
+  }
+
+  .areaInput {
+    .inputType {
+      width: 78%;
+      margin-right: 5px;
+    }
+
+    // .inputSingle {
+    //   width: 39%;
+    // }
+  }
+}
+
+.listItemFold {
+  display: none !important;
+}
+
+.requireTag {
+  color: #ff4d4f;
+  margin: 0px 4px 0px 0px;
+  font-size: 14px;
+  font-family: SimSun, sans-serif;
+}
