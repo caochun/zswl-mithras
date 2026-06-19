@@ -1,7 +1,7 @@
 import { DrawerStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/dashboard/policyMaintenance'
 
 class Store {
   constructor() {
