@@ -1,6 +1,6 @@
 import { makeAutoObservable, setSessionStorage, getSessionStorage } from '@zswl/admin'
 import { TableStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/risk/metricTimed'
 import moment from 'moment'
 
 class Store {

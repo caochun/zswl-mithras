@@ -17,6 +17,22 @@ export default {
   postInterestPagelist: (
     data: Types.InterestPagelistRequest
   ): Promise<Types.InterestPagelistResponse> => http.post('/ftp/interest/pagelist', data, { mock }),
+
+  postFtpInterestRecalculate: (data?: any): Promise<any> =>
+    http.post('/ftp/interest/recalculate', data, { mock }),
+
+  postFtpInterestLastMonth: (data?: any): Promise<any> =>
+    http.post('/ftp/interest/latest/month', data, {
+      headers: {
+        functionCode: 'ftpInterestLatestMonth',
+      },
+    }),
+
+  postFtpPriceList: (data?: any): Promise<any> => http.post('/ftp/price/list', data, { mock }),
+
+  postFtpPriceUpdate: (data?: any): Promise<any> => http.post('/ftp/price/update', data, { mock }),
+
+  postFtpPriceCheck: (data?: any): Promise<any> => http.post('/ftp/price/check', data, { mock }),
 }
 
 /* prettier-ignore-end */

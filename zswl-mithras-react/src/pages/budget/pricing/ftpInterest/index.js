@@ -3,7 +3,6 @@ import { useMemo, useRef } from 'react'
 import { getTableColumns, getFormColumns } from '@/utils'
 import ALL_COLUMNS from './Column'
 import Api from '@/api/budget/pricing/ftpInterest'
-import localApi from './priceDetail/api'
 import PageListDown from '@/components/PageListDown'
 import FtpRunModal from './FtpRunModal'
 import { message } from 'antd'
@@ -45,7 +44,7 @@ const Index = ({ pathname }) => {
 
   const $editModal = new ModalStore({
     onFinish: async (values) => {
-      await localApi.postFtpInterestRecalculate({
+      await Api.postFtpInterestRecalculate({
         interestDate: values.interestDate,
       })
       message.success('操作成功')

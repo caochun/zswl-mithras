@@ -3,7 +3,7 @@ import { DatePicker, message } from 'antd'
 import { observer } from '@zswl/admin'
 import moment from 'moment'
 import { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
-import Api from './api'
+import Api from '@/api/budget/pricing/ftpInterest'
 
 const { Item } = Form
 

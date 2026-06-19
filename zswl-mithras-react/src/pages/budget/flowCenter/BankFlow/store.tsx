@@ -13,7 +13,6 @@ import { message } from 'antd'
 import _, { uniqueId } from 'lodash'
 import { calcThisAmount } from './WriteOffDrawer'
 import bankFlowCapitalApi from '@/api/budget/flowCenter/bankFlowCapitalApi'
-import Api from '../api'
 import moment from 'moment'
 import { isFundDept, isFinicalDept, timeFormat } from '@/utils'
 import thirdCanqiongApi from '@/api/budget/flowCenter/thirdCanqiongApi'
@@ -141,7 +140,7 @@ class Store {
       const bankFlowTableData = this.bankFlowTable.getList()
       const financingFlowIdList = bankFlowTableData.map((item) => item.id)
       if (!financingFlowIdList.length) return []
-      const res = await Api.postSubList({
+      const res = await bankFlowCapitalApi.postSubList({
         bankFlowIds: financingFlowIdList,
       })
       const newTableData = (res ?? []).map((v) => ({ ...v, isRemote: true, uuid: uniqueId() }))
@@ -154,7 +153,7 @@ class Store {
     pagination: false,
     request: async (values) => {
       const { list, shouldPayAmountSum, noPayAmountSum, remainingDetailList } =
-        await Api.postPaymentCashflowList({
+        await bankFlowCapitalApi.postCashFlowList({
           ...this.filterParams,
         })
       this.sumData = { shouldPayAmount: shouldPayAmountSum, noPayAmount: noPayAmountSum }
@@ -324,7 +323,7 @@ class Store {
       title: '还原',
       content: `还原选中的${financeFlowIds?.length}条记录`,
       onOk: async () => {
-        await Api.postBankCenterRestore({ ids: financeFlowIds })
+        await bankFlowProcessingCenterApi.postBankCenterRestore({ ids: financeFlowIds })
         message.success('操作成功')
         this.table.search()
       },

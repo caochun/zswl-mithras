@@ -1,8 +1,8 @@
 import bankFlowProcessingCenterApi from '@/api/budget/flowCenter/bankFlowProcessingCenterApi'
+import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
 import { makeAutoObservable } from '@zswl/admin'
 import { App, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from '../api'
 
 class Store {
   constructor({ getCount }) {
@@ -31,7 +31,7 @@ class Store {
     request: async (params) => {
       const isReceipt = this.radioValue === 'receipt'
       this.getCount()
-      return isReceipt ? Api.collectionList(params) : Api.paymentList(params)
+      return isReceipt ? flowCenterApi.postCollectionList(params) : flowCenterApi.postPaymentList(params)
     },
   })
 
@@ -63,7 +63,7 @@ class Store {
         billType: 'PAYMENT',
       }
 
-      await Api.manualRecord({
+      await flowCenterApi.postManualRecord({
         ...rest,
         paymentAmount,
         billManagementAddREQ,
@@ -127,8 +127,8 @@ class Store {
       const { collectionId, paymentId, cashFlowItem } = this.detailModal.getInitialValues()
       const isReceipt = this.radioValue === 'receipt'
       const res = isReceipt
-        ? await Api.collectionSettleDetail({ ...params, collectionId })
-        : await Api.paymentSettleDetail({ cashFlowItem, paymentId })
+        ? await flowCenterApi.postCollectionSettleDetail({ ...params, collectionId })
+        : await flowCenterApi.postSettleDetail({ cashFlowItem, paymentId })
       return res
     },
   })

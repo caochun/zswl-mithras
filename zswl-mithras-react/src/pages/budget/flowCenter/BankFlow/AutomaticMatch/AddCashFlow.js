@@ -5,7 +5,7 @@ import { forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'reac
 import { MatchOptionColumn } from '@/components/Format'
 import { getSearchColumns, getTableColumns, options } from '@/utils'
 import ALL_COLUMNS from '../../Columns'
-import api from '../../api'
+import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
 import { saveServer } from '@/utils'
 
 const { collectionWriteOffStatusLocalEnum, paymentWriteOffStatusEnum } = options
@@ -81,7 +81,7 @@ const Index = ({ modal, onFinish }) => {
     () =>
       new TableStore({
         request: async (params) => {
-          const res = await api.collectionList(params)
+          const res = await flowCenterApi.postCollectionList(params)
           setSelectedRows([])
           return res
         },
