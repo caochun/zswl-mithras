@@ -211,7 +211,7 @@
 - `Policy/PolicyEntries.js` 仅保留为历史兼容入口，新代码应使用 `InsurancePolicy/InsurancePolicyEntries.js`。
 - `TrackEvent/TrackingEntries.js` 仅保留为历史兼容入口，新代码应使用 `TrackEvent/TrackEventEntries.js`。
 - `npm run check:boundaries` 会阻止业务代码重新引用上述历史兼容入口；兼容文件可以保留，但新增和迁移代码必须使用语义入口或窄入口。
-- 权限页 Bifrost iframe、用户管理页、功能分组页和操作日志页已沉淀到 `src/components/Permission/BifrostEntries.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
+- 权限页 Bifrost iframe、用户管理页、字典/组织/角色 iframe 页、功能分组页和操作日志页已沉淀到 `src/components/Permission/BifrostEntries.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/pages/budget/flowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 金额输入已回收到 `src/components/Cpm/AmountNumber`，跨层使用应通过 `Cpm/CpmEntries.js`。
 - 项目多行文本展示已回收到 `src/components/Project/MultilineText`，项目页面跨层使用应通过 `Project/EstablishmentDetailEntries.js`。
