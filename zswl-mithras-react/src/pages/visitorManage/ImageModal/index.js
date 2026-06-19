@@ -5,7 +5,7 @@ import { Image, Carousel } from 'antd'
 import { useState, useRef, useEffect } from 'react'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import { downFile } from '@/utils'
-import Api from '@/api/visitorManage'
+import Api from '@/api/visitorManage/visitorManageApi'
 
 const Index = ({ store }) => {
   const [currentIndex, setCurrentIndex] = useState(0)

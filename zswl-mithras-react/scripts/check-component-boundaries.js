@@ -17,6 +17,7 @@ const componentApiForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
 const uiLocalApiFilePattern =
   /^src[\\/](?:components|pages)[\\/].*[\\/]api\.(?:js|jsx|ts|tsx)$/
+const rootApiFilePattern = /^src[\\/]api[\\/][^\\/]+\.(?:js|jsx|ts|tsx)$/
 const relativeApiImportPattern =
   /^\.{1,2}(?:\/[^'"]*)?\/api(?:\.(?:js|jsx|ts|tsx)|\/index(?:\.(?:js|jsx|ts|tsx))?)?$/
 
@@ -676,6 +677,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'UI-local api file (move request wrappers to src/api/<domain>)',
+    })
+  }
+
+  if (rootApiFilePattern.test(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'root api file (move request wrappers to src/api/<domain>)',
     })
   }
 
