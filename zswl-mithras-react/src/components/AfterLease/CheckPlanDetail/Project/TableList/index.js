@@ -7,7 +7,7 @@ import styles from '../index.less'
 import { getTableColumns, getUserInfo, isAssetJon, saveServer } from '@/utils'
 import EditCheckTime from './EditCheckTime'
 import EditCheckWay from './EditCheckWay'
-import api from '../../api'
+import api from '@/api/afterLease/checkPlanDetailApi'
 
 const Index = ({
   dataSource,

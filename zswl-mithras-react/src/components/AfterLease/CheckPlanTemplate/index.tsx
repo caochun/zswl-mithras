@@ -11,7 +11,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import FinancialSituation from './components/FinancialSituation'
 import GuarantorFinancial from './components/GuarantorFinancial'
 import { isAssetJon, userIsProjSponsor } from '@/utils'
-import Api from './api'
+import Api from '@/api/afterLease/checkPlanTemplateApi'
 import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventModalEntries'
 
 const Index = (props) => {

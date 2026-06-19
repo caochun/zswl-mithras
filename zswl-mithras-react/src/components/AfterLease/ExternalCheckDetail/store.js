@@ -1,7 +1,7 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { PageStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/afterLease/externalCheckDetailApi'
 
 class Store {
   constructor() {

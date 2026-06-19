@@ -1,7 +1,7 @@
 import { Button, Form, Select } from '@zswl/components'
 import { Col, Descriptions, Cascader, Input, Popconfirm, Row, Space, message } from 'antd'
 import { useEffect, useMemo, useState } from 'react'
-import api from '../../api'
+import api from '@/api/afterLease/rentCollectionDetailApi'
 import { observer } from '@zswl/admin'
 import { treeData } from './context'
 

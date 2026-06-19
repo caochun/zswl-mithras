@@ -2,7 +2,7 @@ import { PageStore, Modal } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { userIsProjSponsor } from '@/utils'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/afterLease/adjustDetailApi'
 
 const TypeTextMap = {
   REPAYMENT: '调整方案',

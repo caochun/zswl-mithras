@@ -1,1 +1,1 @@
-export { default as rentCollectionComponentApi } from './RentCollection/api'
+export { default as rentCollectionComponentApi } from '@/api/afterLease/rentCollectionDetailApi'

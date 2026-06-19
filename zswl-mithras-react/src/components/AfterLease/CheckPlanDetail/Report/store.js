@@ -3,7 +3,7 @@ import { message, Modal } from 'antd'
 import { TableStore } from '@zswl/components'
 import { downFile } from '@/utils'
 import DataUpload from '@/components/DataUpload'
-import Api from './api'
+import Api from '@/api/afterLease/checkPlanReportApi'
 
 const businessType = 'NEW_AFTER_LEASE_CHECK_PLAN'
 const materialsType = 'CHECK_PLAN_SUMMARY_REPORT'

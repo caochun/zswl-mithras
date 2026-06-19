@@ -1,7 +1,7 @@
 import { PageStore, Modal } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/afterLease/checkPlanCreateApi'
 
 class Store {
   constructor() {

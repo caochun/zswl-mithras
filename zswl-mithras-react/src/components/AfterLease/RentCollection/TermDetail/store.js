@@ -1,6 +1,6 @@
 import { TableStore, App, FormStore } from '@zswl/components'
 import { makeAutoObservable, history, http } from '@zswl/admin'
-import Api from '../api'
+import Api from '@/api/afterLease/rentCollectionDetailApi'
 import { message } from 'antd'
 import { getQjtAc, getSalt } from '@/utils'
 
