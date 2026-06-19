@@ -23,6 +23,7 @@ export { default as BlackGrayWarehouseSubTaskDetailRedirect } from './RouteShell
 export { default as BlackGrayWarehouseRule } from './Warehouse/Rule'
 export { default as BlackGrayWarehouseRuleDetail } from './Warehouse/Rule/Detail/[id$]'
 export { default as BlackGrayWarehouseMainTask } from './Warehouse/MainTask'
+export { default as BlackGrayWarehouseMainTaskDetail } from './Warehouse/MainTask/Detail/[id$]'
 export { default as BlackGrayWarehouseSubTask } from './Warehouse/SubTask'
 export { BlackGrayHitInfo as BlackInfo } from './BlackGrayHitEntries'
 export { BlackGrayFormat } from './format'
