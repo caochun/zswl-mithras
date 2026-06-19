@@ -6,6 +6,8 @@ export default {
   postCreate: (params) => http.post('/fund/financing/create', params),
   postList: (params) => http.post('/fund/financing/pagelist', params),
   postOrgList: (params) => http.post('/fund/organization/list', params),
+  postDirectFinancingProductSelect: (params) =>
+    http.post('/fund/direct/financing/product/select', params),
   postEffectList: (params) => http.post('/fund/credit/effect/list', params),
   postCancel: (params) => http.post('/fund/financing/close', params),
   postRemove: (params) => http.post('/fund/financing/delete', params),

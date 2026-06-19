@@ -1,7 +1,6 @@
 import { Select } from '@zswl/components'
 import { useEffect, useState } from 'react'
 import { debounce as _debounce } from 'lodash'
-import { http } from '@zswl/admin'
 import financialManageOrgApi from '@/api/financial/financialManageOrg'
 import fundApi from '@/api/financial/fundApi'
 
@@ -125,7 +124,7 @@ export function BankListSelect(params) {
 // 认购机构
 export function SubscribeOrgSelect({ mode, ...rest }) {
   const getOrgList = async () => {
-    const res = await http.post('/fund/organization/list', { page: 1, pagesize: 1000 })
+    const res = await fundApi.postOrgList({ page: 1, pagesize: 1000 })
     const data = res?.list.map(({ organizationName, id }) => ({
       label: organizationName,
       value: id,
@@ -139,7 +138,7 @@ export function SubscribeOrgSelect({ mode, ...rest }) {
 // 认购证券
 export function SubscribeBondSelect({ financingId, mode, ...rest }) {
   const getOrgList = async () => {
-    const res = await http.post('/fund/direct/financing/product/select', {
+    const res = await fundApi.postDirectFinancingProductSelect({
       financingId,
       page: 1,
       pagesize: 1000,
