@@ -9,7 +9,7 @@ import LeaseInfo from './LeaseInfo'
 import LeaseList from './LeaseList'
 import LeaseText from './LeaseText'
 import DataFileList from './DataFileList'
-import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
+import { AppraisalAgency } from '@/components/EvaluationAgency/AppraisalAgencyEntries'
 import { jumpZhongDeng } from '@/utils'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
 
@@ -98,7 +98,7 @@ const Index = ({
         <LeaseInfo {...commonParams} />
         <LeaseList {...commonParams} projCode={baseInfoData.projectCode} disable={type && type === 'manage'} />
         <LeaseText {...commonParams} fileListRef={fileListRef} />
-        <EvaluationAgency {...commonParams} />
+        <AppraisalAgency {...commonParams} />
         <DataFileList {...commonParams} />
       </DetailLayout>
     </Page>

@@ -681,6 +681,7 @@ const compatibilityComponentEntries = new Set([
   'ClientFileTable/ClientFileTableEntries.js',
   'ClientMaterialTable/ClientMaterialTableEntries.js',
   'Credit/SearchModalEntries.js',
+  'EvaluationAgency/EvaluationAgencyEntries.js',
   'FileDiff/FileDiffEntries.js',
   'PaymentApplyColumns/PaymentApplyColumnsEntries.js',
   'Policy/PolicyEntries.js',

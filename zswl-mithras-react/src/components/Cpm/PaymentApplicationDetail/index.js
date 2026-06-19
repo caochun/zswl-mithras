@@ -16,7 +16,7 @@ import LoanReview from './Components/LoanReview'
 import PublicInformation from '../PaymentApplication/PublicInformation'
 import { jumpZhongDeng } from '@/utils'
 import PublicCheckModal from '../PaymentApplication/PublicCheckModal'
-import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
+import { AppraisalAgency } from '@/components/EvaluationAgency/AppraisalAgencyEntries'
 import ZhongDengregistration from './ZhongDengregistration'
 import { CreditReportSearchModal } from '@/components/Credit/CreditReportSearchEntries'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
@@ -160,7 +160,7 @@ const PaymentApplicationDetail = ({
           baseDetailData={store.page.getData()}
         />
         <LeaseCheck id={id} canEditFlag={canEdit}></LeaseCheck>
-        <EvaluationAgency
+        <AppraisalAgency
           id={contractId}
           canEdit={false}
           notLease

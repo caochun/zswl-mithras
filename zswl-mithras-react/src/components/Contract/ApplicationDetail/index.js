@@ -28,7 +28,7 @@ import { ApprovalAction as Approval } from '@/components/Actions'
 import { BusinessInfoCheck } from '@/components/BusinessInfoCheck/BusinessInfoCheckEntries'
 import LeaseZiLiao from '../LeaseMaterials'
 import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventModalEntries'
-import { EvaluationAgency } from '@/components/EvaluationAgency/EvaluationAgencyEntries'
+import { AppraisalAgency } from '@/components/EvaluationAgency/AppraisalAgencyEntries'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ReviewMeetingEntries'
 import { jumpZhongDeng } from '@/utils'
 
@@ -261,7 +261,7 @@ const Index = ({
             taskStatus={taskStatus}
             taskActivityId={taskActivityId}
           />
-          <EvaluationAgency
+          <AppraisalAgency
             id={id}
             canEdit={false}
             notLease
