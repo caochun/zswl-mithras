@@ -24,4 +24,38 @@ export default {
       type: 'download',
       timeout: 0,
     }),
+
+  postReviewList: (data?: any): Promise<any> =>
+    http.post('/materials/group/credit/review/list', data, { mock }),
+
+  postReviewUpload: (data?: any): Promise<any> =>
+    http.post('/materials/upload', data, {
+      mock,
+      transformResult: (res) => res.data,
+      headers: {
+        functionCode: 'materialsupload-creditreview',
+      },
+      type: 'upload',
+      timeout: 0,
+    }),
+
+  postReviewRemove: (data?: any): Promise<any> =>
+    http.post('/materials/remove', data, {
+      mock,
+      transformResult: (res) => res.data,
+      headers: {
+        functionCode: 'materialsremove-creditreview',
+      },
+    }),
+
+  postReviewDownload: (params?: any): Promise<any> =>
+    http('/materials/download', {
+      params,
+      mock,
+      type: 'download',
+      headers: {
+        functionCode: 'materialsdownload-creditreview',
+      },
+      timeout: 0,
+    }),
 }

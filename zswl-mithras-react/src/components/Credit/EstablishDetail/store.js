@@ -6,7 +6,6 @@ import { compareDetail } from '@/utils'
 import { message } from 'antd'
 import approvalRemarkApi from '@/api/credit/approvalRemarkApi'
 import { validateModal } from '@/utils/modal'
-import establishApi from './api'
 
 class Store {
   constructor() {
@@ -100,12 +99,12 @@ class Store {
   newDetail = {}
   updateInfo = async () => {
     const id = this.page.getParams().id
-    const res = await establishApi.postBaseInfoUpdateRating({ id })
+    const res = await Api.postBaseInfoUpdateRating({ id })
     message.success('更新成功')
     this.newDetail = res
   }
   validateRat = async (id) => {
-    const { ratingClientIsDone } = await establishApi.ratingCheck({
+    const { ratingClientIsDone } = await Api.ratingCheck({
       id,
     })
     return validateModal(

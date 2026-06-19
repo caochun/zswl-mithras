@@ -12,6 +12,23 @@ export default {
   postEstablishQuery: (data?: any): Promise<any> =>
     http.post('/group/credit/review/establish/query', data, { mock }),
 
+  getBaseInfo: (data?: any): Promise<any> =>
+    http.post('/group/credit/review/base/info/detail', data, { mock }),
+
+  getBaseInfoCompare: (data?: any): Promise<any> =>
+    http.post('/group/credit/review/base/info/detail/compare', data, { mock }),
+
+  postBaseInfoModify: (data?: any): Promise<any> =>
+    http.post('/group/credit/review/base/info/modify', data, { mock }),
+
+  submit: (data?: any): Promise<any> => http.post('/group/credit/review/effect', data, { mock }),
+
+  postBaseInfoUpdateRating: (data?: any): Promise<any> =>
+    http.post('/group/credit/review/base/info/updateRating', data, { mock }),
+
+  ratingCheck: (data?: any): Promise<any> =>
+    http.post('/group/credit/review/rating/check', data, { mock }),
+
   getClientList: (data?: any): Promise<any> =>
     http.post(
       '/client/list',

@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { ModalStore } from '@zswl/components'
 import { message } from 'antd'
 import rootStore from '../store'
-import Api from './api'
+import Api from '@/api/credit/groupCreditMaterialsApi'
 import { downFile } from '@/utils/downFunction'
 class Store {
   constructor() {
@@ -12,7 +12,7 @@ class Store {
   projectDataDetail
   getProjectDataDetail = async (id) => {
     if (id) {
-      const res = await Api.postProjectDataDetail({
+      const res = await Api.postReviewList({
         groupCreditReviewId: id,
         businessVersion: this.businessVersion,
       })
@@ -23,11 +23,11 @@ class Store {
     }
   }
   download = async (ids, filename) => {
-    const res = await Api.postProjectDataDownload({ ids, filename })
+    const res = await Api.postReviewDownload({ ids, filename })
     downFile(res)
   }
   remove = async (ids, businessType, callback) => {
-    const { code, msg } = await Api.postProjectDataRemove({ ids, businessType })
+    const { code, msg } = await Api.postReviewRemove({ ids, businessType })
     if (code === 200) {
       message.info('删除成功')
       callback && callback()
@@ -44,7 +44,7 @@ class Store {
     formData.append('businessType', 'PROJ_REVIEW')
     formData.append('materialsType', 'PROJ_INFORMATION')
     formData.append('belongId', rootStore.page.getParams().id)
-    const { code, msg } = await Api.postProjectDataUpload(formData)
+    const { code, msg } = await Api.postReviewUpload(formData)
     if (code === 200) {
       message.success('上传成功！')
       this.getProjectDataDetail(rootStore.page.getParams().id)
@@ -63,7 +63,7 @@ class Store {
       formData.append('businessType', 'PROJ_ESTABLISH')
       formData.append('materialsType', values.materialsType)
       formData.append('belongId', rootStore.page.getParams().id)
-      const { code } = await Api.postProjectDataUpload(formData)
+      const { code } = await Api.postReviewUpload(formData)
       if (code === 200) {
         this.createModal.close()
         this.getProjectDataDetail(rootStore.page.getParams().id)

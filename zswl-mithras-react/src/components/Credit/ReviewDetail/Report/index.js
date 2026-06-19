@@ -1,6 +1,6 @@
 import styles from '../index.less'
 import { observer } from '@zswl/admin'
-import Api from './api'
+import Api from '@/api/credit/groupCreditReviewReportApi'
 import { FileTable } from '@/components/Table'
 
 const Report = ({ id, canEdit = true, businessVersion }) => {

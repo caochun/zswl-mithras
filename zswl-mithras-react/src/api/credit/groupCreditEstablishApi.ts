@@ -38,6 +38,12 @@ export default {
         },
       }
     ),
+
+  postBaseInfoUpdateRating: (data?: any): Promise<any> =>
+    http.post('/group/credit/establish/base/info/updateRating', data, { mock }),
+
+  ratingCheck: (data?: any): Promise<any> =>
+    http.post('/group/credit/establish/rating/check', data, { mock }),
 }
 
 /* prettier-ignore-end */

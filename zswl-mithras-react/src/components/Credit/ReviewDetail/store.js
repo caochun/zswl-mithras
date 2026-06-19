@@ -1,7 +1,7 @@
 import { makeAutoObservable, history, getQuery } from '@zswl/admin'
 import { ModalStore, PageStore } from '@zswl/components'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/credit/groupCreditReviewApi'
 import { compareDetail } from '@/utils'
 import approvalRemarkApi from '@/api/credit/approvalRemarkApi'
 import { validateModal } from '@/utils/modal'
