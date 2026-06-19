@@ -13,6 +13,7 @@ export { default as BlackGrayBreakApplicationDetail } from './RouteShells/BreakA
 export { default as BlackGrayEnterDatabaseApplicationDetail } from './RouteShells/EnterDatabaseApplicationDetail'
 export { default as BlackGrayEnterDatabaseExternalDetail } from './RouteShells/EnterDatabaseExternalDetail'
 export { default as BlackGrayOutboundApplicationDetail } from './RouteShells/OutboundApplicationDetail'
+export { default as BlackGrayOutboundSearch } from './Outbound/Search'
 export { default as BlackGrayWarehouseApprovalDetailRedirect } from './RouteShells/WarehouseApprovalDetailRedirect'
 export { default as BlackGrayWarehouseApproval } from './Warehouse/Approval'
 export { default as BlackGrayWarehouseApprovalOutDetail } from './Warehouse/Approval/OutDetail/[id$]'
