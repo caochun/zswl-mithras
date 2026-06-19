@@ -43,7 +43,6 @@
 - `AfterLease/ManageLedgerEntries.js`
 - `AfterLease/PolicyManageDetailEntries.js`
 - `AfterLease/PolicyManageRemindEntries.js`
-- `AfterLease/RentCollectionApiEntries.js`
 - `AfterLease/RentCollectionDetailEntries.js`
 - `AfterLease/RentCollectionListEntries.js`
 - `AfterLease/RentCollectionProcessEntries.js`
