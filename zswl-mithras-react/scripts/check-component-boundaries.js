@@ -231,6 +231,7 @@ const legacyApiPrefixRules = [
   {
     legacyPrefix: '@/api/ocr/ocrInvoiceApi',
     replacementPrefix: '@/api/lease/vatInvoiceApi',
+    allowedSourceDomains: ['Ocr'],
     allowedSourcePathPrefixes: [
       'src/pages/ocr/',
     ],

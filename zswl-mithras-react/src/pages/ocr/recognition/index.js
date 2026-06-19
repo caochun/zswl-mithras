@@ -1,7 +1,7 @@
 import { getQuery, history, observer } from '@zswl/admin'
 import { Button, Form, Modal, ModalStore, Page, Tabs } from '@zswl/components'
 import { useEffect, useMemo, useState } from 'react'
-import FileUploadModal from './FileUploadModal'
+import { OcrFileUploadModal as FileUploadModal } from '@/components/Ocr/OcrEntries'
 
 const Index = () => {
   const query = getQuery()
