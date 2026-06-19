@@ -1,6 +1,6 @@
 import { TableStore, Modal, ModalStore, App, FormStore } from '@zswl/components'
 import { makeAutoObservable, getRandomString } from '@zswl/admin'
-import Api from './api'
+import archiveTemplateApi from '@/api/archives/archiveTemplate'
 import { cloneDeep } from 'lodash'
 import { message } from 'antd'
 class Store {
@@ -17,14 +17,14 @@ class Store {
 
   table = new TableStore({
     request: async (searchData) => {
-      return await Api.getList(searchData)
+      return await archiveTemplateApi.getList(searchData)
     },
   })
 
   editModal = new ModalStore({
     onOpen: async (id) => {
       if (id) {
-        const dataModal = await Api.detail({ templateId: id })
+        const dataModal = await archiveTemplateApi.detail({ templateId: id })
         dataModal.groups?.map(item => { item.disabled = true })
         this.template = dataModal
         this.isDetail = true
@@ -172,7 +172,7 @@ class Store {
             bizType,
             status: status ? 'ENABLE' : 'DISABLED',
           }
-          await Api.update(params)
+          await archiveTemplateApi.update(params)
           message.success('更新成功！')
         }
       } else {
@@ -189,7 +189,7 @@ class Store {
           status: status ? 'ENABLE' : 'DISABLED',
           groups: tempData
         }
-        await Api.add(params)
+        await archiveTemplateApi.add(params)
         message.success('添加成功！')
       }
       this.editModal.close()
