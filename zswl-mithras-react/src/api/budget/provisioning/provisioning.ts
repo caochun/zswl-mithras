@@ -5,6 +5,10 @@ import { http } from '@zswl/admin'
 const mock = false
 // const mock = { mode: 2 }
 export default {
+  // 导出绩效-拨备详情
+  exportDetail: (params: any): Promise<any> =>
+    http.get('/kpi/provision/detail/export', { params, type: 'download', timeout: 0 }),
+
   // 修改绩效-拨备表
   postInfoModify: (data: Types.InfoModifyRequest): Promise<Types.InfoModifyResponse> =>
     http.post('/kpi/provision/base/info/modify', data, { mock }),

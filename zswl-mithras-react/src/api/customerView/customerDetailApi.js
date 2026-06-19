@@ -15,6 +15,27 @@ export const getUnifiedViewDetail = (params) =>
 
 export const getCustomerViewList = (params) => http.post('/client/unified/view/list', params)
 
+export const getCustomerViewSearchList = async ({ isAll, params }) => {
+  const data = isAll
+    ? await getCustomerViewList(params)
+    : await queryCustomerViewInfo(params)
+
+  if (isAll) {
+    return data
+  }
+
+  return {
+    ...data,
+    list: (data?.list ?? []).map((item) => ({
+      ...item,
+      clientName: item?.enterpriseName,
+      uscCode: item?.uniformCreditCode,
+      corpRepresent: item?.legalRepr,
+      registerCapital: item?.regcapital,
+    })),
+  }
+}
+
 export const getCredit = (data) => http.post('/client/unified/view/apply/credit', data)
 
 export const getClassic = (data) =>
@@ -122,6 +143,7 @@ export default {
   getHeadBody,
   getUnifiedViewDetail,
   getCustomerViewList,
+  getCustomerViewSearchList,
   getCredit,
   getClassic,
   getCreditHistory,

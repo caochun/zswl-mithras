@@ -1,15 +1,13 @@
 import { Page } from '@zswl/components'
 import { useState, useEffect } from 'react'
-import { http } from '@zswl/admin'
+import CustomerViewApi from '@/api/customerView/customerDetailApi'
 import BreadcrumbList from '@/layout/BreadcrumbList'
 
 const Index = ({ query }) => {
-    const { customerName, pathname } = query
+    const { customerName } = query
     const [url, setUrl] = useState('')
     useEffect(async() => {
-        const res = await http.post('/qccApi/generateToken', null, {
-            mock:false,
-        })
+        const res = await CustomerViewApi.generateToken(null)
         const returnUrl = `/company-gateway?keyword=${customerName}`
         const url = `https://pro-plugin.qcc.com/plugin-login?key=${encodeURIComponent(res.companyKey)}&token=${encodeURIComponent(res.token)}&returnUrl=${(returnUrl)}`
         setUrl(url)

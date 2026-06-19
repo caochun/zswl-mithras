@@ -3,7 +3,8 @@ import CardHeader from './CardHeader'
 import { Avatar, Card, Checkbox, Input, List, Pagination, Radio, Space, Tag } from 'antd'
 import { useEffect, useState } from 'react'
 import { App, Button, Form, Page } from '@zswl/components'
-import { observer, history, http } from '@zswl/admin'
+import { observer, history } from '@zswl/admin'
+import CustomerViewApi from '@/api/customerView/customerDetailApi'
 import { CheckGroup } from '@/components/Form'
 import { getOrgList2 } from '@/components/Select'
 import { AmountFormat, PercentageRender } from '@/components/Format'
@@ -25,7 +26,6 @@ const ContentList = ({ path, orgList, ...props }) => {
     const { type, ...params } = await form.validateFields()
     setCustomerType(type)
     const isAll = type === 'all'
-    const func = isAll ? '/client/unified/view/list' : '/customer/view/detail/queryCustomerViewInfo'
     if (!isAll && !params?.enterpriseName) {
       message.error('请输入客户名称')
       return
@@ -33,23 +33,14 @@ const ContentList = ({ path, orgList, ...props }) => {
     if (isAll) {
       params.clientName = params?.enterpriseName
     }
+    const requestParams = { ...params, ...page }
     setLoading(true)
     try {
-      const data = await http.post(func, { ...params, ...page })
-      if (isAll) {
-        setListData(data?.list ?? [])
-      } else {
-        const newData = (data?.list ?? [])?.map((item) => {
-          return {
-            ...item,
-            clientName: item?.enterpriseName,
-            uscCode: item?.uniformCreditCode,
-            corpRepresent: item?.legalRepr,
-            registerCapital: item?.regcapital,
-          }
-        })
-        setListData(newData)
-      }
+      const data = await CustomerViewApi.getCustomerViewSearchList({
+        isAll,
+        params: requestParams,
+      })
+      setListData(data?.list ?? [])
       setTotal(data?.total)
       setLoading(false)
     } catch {

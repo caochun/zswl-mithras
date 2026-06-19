@@ -1,5 +1,6 @@
-import { http, makeAutoObservable, observer } from '@zswl/admin'
+import { makeAutoObservable, observer } from '@zswl/admin'
 import { Page, PageStore } from '@zswl/components'
+import Api from '@/api/customer/externalPublicInfoApi'
 import JSEncrypt from 'jsencrypt'
 import { useMemo } from 'react'
 import BreadcrumbList from '@/layout/BreadcrumbList'
@@ -30,21 +31,6 @@ const infoMap = {
   },
 }
 const { jkUrl, password, account } = infoMap[__ENV__] ?? infoMap.prod
-const getAuthCode = (data, token) =>
-  http.post(`/gungnirApi/user/getAuthCode`, data, {
-    // type: 'formData',
-    headers: {
-      token: null,
-    },
-  })
-const login = (data, token) =>
-  http.post(`/gungnirApi/user/login`, data, {
-    // type: 'formData',
-    headers: {
-      token,
-      xCfRandom: null,
-    },
-  })
 
 class Store {
   constructor() {
@@ -63,10 +49,10 @@ class Store {
     const params = { account, password: encrypt.encrypt(password) }
     let _salt_ = null
     try {
-      const { _salt_: salt } = await getAuthCode(params)
+      const { _salt_: salt } = await Api.getSingleViewRiskAuthCode(params)
       _salt_ = salt
     } finally {
-      const { csrfToken, _qjt_ac_ } = await login(
+      const { csrfToken, _qjt_ac_ } = await Api.loginSingleViewRisk(
         params,
         JSON.stringify({ _salt_, _qjt_ac_: null })
       )

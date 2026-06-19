@@ -5,6 +5,23 @@ import { http } from '@zswl/admin'
 const mock = false
 // const mock= { mode:2 }
 export default {
+  getRiskIframeAuthCode: (baseUrl: string, data: any): Promise<any> =>
+    http.post(`${baseUrl}/user/getAuthCode`, data, {
+      type: 'formData',
+      headers: {
+        token: null,
+      },
+    }),
+
+  loginRiskIframe: (baseUrl: string, data: any, token: string): Promise<any> =>
+    http.post(`${baseUrl}/user/login`, data, {
+      type: 'formData',
+      headers: {
+        token,
+        xCfRandom: null,
+      },
+    }),
+
   // 所属企业
   postAffiliatedEnterprise: (
     data: Types.AffiliatedEnterpriseRequest,

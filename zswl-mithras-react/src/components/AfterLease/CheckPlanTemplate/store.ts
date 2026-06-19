@@ -4,7 +4,6 @@ import { ModalStore, PageStore, Modal } from '@zswl/components'
 import Api from '@/api/afterLease/rentalInspectionReport'
 import planApi from '@/api/afterLease/rentalInspectionPlan'
 import { TEMPLATE_LIST } from './enum'
-import { http } from '@zswl/admin'
 
 class Store {
   constructor() {
@@ -69,9 +68,7 @@ class Store {
       let timeDiff = currentTime - this.lastConnect
       if (timeDiff >= intervalMinutes) {
         this.lastConnect = currentTime
-        http.get(`/api/ok?type=${1}`, {
-          transformResult: (res) => res.data,
-        })
+        planApi.keepAlive()
       }
     }, intervalMinutes)
   }

@@ -1,6 +1,19 @@
 import { http } from '@zswl/admin'
 
 export default {
+  getSingleViewRiskAuthCode: (data) =>
+    http.post('/gungnirApi/user/getAuthCode', data, {
+      headers: {
+        token: null,
+      },
+    }),
+  loginSingleViewRisk: (data, token) =>
+    http.post('/gungnirApi/user/login', data, {
+      headers: {
+        token,
+        xCfRandom: null,
+      },
+    }),
   getMortgageInfoList: (params) => http.post('/tyc/mortgageInfo/list', params),
   getequityInfoList: (params) => http.post('/tyc/equityInfo/list', params),
   getPunishmentInfoList: (params) => http.post('/tyc/punishmentInfo/list', params),

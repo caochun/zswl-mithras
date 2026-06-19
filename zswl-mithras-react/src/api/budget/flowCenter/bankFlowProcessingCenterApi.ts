@@ -5,6 +5,8 @@ import { http } from '@zswl/admin'
 const mock = false
 // const mock= { mode:2 }
 export default {
+  getOrgTree: (): Promise<any> => http.get('/org'),
+
   // 业务流水-资金端列表
   postFinanceList: (data: Types.FinanceListRequest): Promise<Types.FinanceListResponse> =>
     http.post('/finance/list', data, { mock }),

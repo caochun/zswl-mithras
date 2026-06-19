@@ -1,4 +1,4 @@
-import { observer, http } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { Table, Page, Button } from '@zswl/components'
 import { getTableColumns, getFormColumns } from '@/utils'
 import {
@@ -7,6 +7,7 @@ import {
   BudgetProvisioningImpairmentColumns as ALL_COLUMNS,
 } from '@/components/Budget/ProvisioningEntries'
 import PageListDown from '@/components/PageListDown'
+import Api from '@/api/budget/provisioning/provisioning'
 import { saveServer } from '@/utils'
 import Store from './store'
 import { useMemo } from 'react'
@@ -64,9 +65,7 @@ const Index = ({ params: { id } }) => {
             module="provisioning"
             table={store.$table}
             extraParams={{ id }}
-            api={(params) =>
-              http.get('/kpi/provision/detail/export', { params, type: 'download', timeout: 0 })
-            }
+            api={Api.exportDetail}
           />,
         ]}
         actions={[

@@ -1,5 +1,6 @@
-import { http, makeAutoObservable, observer } from '@zswl/admin'
+import { makeAutoObservable, observer } from '@zswl/admin'
 import { Page, PageStore } from '@zswl/components'
+import Api from '@/api/blackGray/queryExternalDataApi'
 import JSEncrypt from 'jsencrypt'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -27,21 +28,6 @@ const infoMap = {
   // },
 }
 const { jkUrl, jkSeverUrl, password, account } = infoMap[__ENV__] ?? infoMap.pre
-const getAuthCode = (data, token) =>
-  http.post(`${jkSeverUrl}/user/getAuthCode`, data, {
-    type: 'formData',
-    headers: {
-      token: null,
-    },
-  })
-const login = (data, token) =>
-  http.post(`${jkSeverUrl}/user/login`, data, {
-    type: 'formData',
-    headers: {
-      token,
-      xCfRandom: null,
-    },
-  })
 
 class Store {
   constructor() {
@@ -60,10 +46,11 @@ class Store {
     const params = { account, password: encrypt.encrypt(password) }
     let _salt_ = null
     try {
-      const { _salt_: salt } = await getAuthCode(params)
+      const { _salt_: salt } = await Api.getRiskIframeAuthCode(jkSeverUrl, params)
       _salt_ = salt
     } finally {
-      const { csrfToken, _qjt_ac_ } = await login(
+      const { csrfToken, _qjt_ac_ } = await Api.loginRiskIframe(
+        jkSeverUrl,
         params,
         JSON.stringify({ _salt_, _qjt_ac_: null })
       )

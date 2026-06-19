@@ -5,6 +5,11 @@ import { http } from '@zswl/admin'
 const mock = false
 // const mock= { delay: 800 }
 export default {
+  keepAlive: (): Promise<any> =>
+    http.get('/api/ok?type=1', {
+      transformResult: (res) => res.data,
+    }),
+
   // 下载指定的项目报告
   postSpecificDownload: (
     data: Types.SpecificDownloadRequest,
