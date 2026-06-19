@@ -8,6 +8,7 @@ const domainAliasPairs = [
   ['FilingMaterials', 'filingMaterials'],
   ['fillingMaterialsDetail', 'filingMaterials'],
   ['financialReport', 'report'],
+  ['implant', 'externalEmbed'],
   ['login', 'permission'],
   ['monitorEarly', 'risk'],
   ['msgNotification', 'message'],
