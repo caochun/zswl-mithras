@@ -1,8 +1,9 @@
 import { Button, Modal, Form, Select } from '@zswl/components'
 import { SelectOutlined } from '@ant-design/icons'
 import { useState } from 'react'
-import { history, http } from '@zswl/admin'
+import { history } from '@zswl/admin'
 import { message } from 'antd'
+import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
 
 /**
  * @param {integer} taskId 审批流任务id，针对已经有审批流的情况
@@ -22,17 +23,13 @@ function Index({ taskId, onSuccess, ...rest }) {
 
   //转派给
   const getSelectList = async () => {
-    const res = await http.get('/audit/common/select/currentNodeAuditUsers', {
-      params: { taskId },
-    })
+    const res = await commonAuditActionApi.getCurrentNodeAuditUsers({ taskId })
     setList(res)
   }
 
   //审批节点,审批角色
   const getDetails = async () => {
-    const { nodeName, roleName } = await http.get('/audit/common/exec/currentNodeInfo', {
-      params: { taskId },
-    })
+    const { nodeName, roleName } = await commonAuditActionApi.getCurrentNodeInfo({ taskId })
     transmitForm.setFieldValue('tagName', nodeName)
     transmitForm.setFieldValue('roleName', roleName)
   }
@@ -45,7 +42,7 @@ function Index({ taskId, onSuccess, ...rest }) {
         newDealUser, //转派后新处理人
         suggest, // 转派备注
       }
-      await http.post('/audit/common/exec/transfer', data)
+      await commonAuditActionApi.postTransfer(data)
       message.success('转派成功')
       modalStore.close()
       onSuccess?.()

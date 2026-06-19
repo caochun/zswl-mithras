@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 import moment from 'moment'
 import styles from './style.less'
 import { Select, Form, App, Table, Button, Modal } from '@zswl/components'
-import { http } from '@zswl/admin'
 import { saveServer } from '@/utils'
+import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
 // onFilter={(key,val) => saveServer('components_ApprovalOperation_1',val)}
 
 const emojiRegex =
@@ -34,7 +34,7 @@ const Date = () => {
 function Index({ operation, form, style, showTitle = true, disabled }) {
   const { userName, orgRolesName, account } = App.useData().user
   const [tags, setTags] = useState([])
-  const getTags = () => http.get('/audit/common/comment/get', { params: { account } })
+  const getTags = () => commonAuditActionApi.getComments({ account })
   const listStore = Table.useStore({
     pagination: false,
     async request() {
@@ -46,7 +46,7 @@ function Index({ operation, form, style, showTitle = true, disabled }) {
   const handleOk = async () => {
     const { list } = await listStore.submit()
     const comments = list.map((item) => item.title)
-    await http.post('/audit/common/comment/save', {
+    await commonAuditActionApi.postSaveComments({
       account,
       comments,
     })

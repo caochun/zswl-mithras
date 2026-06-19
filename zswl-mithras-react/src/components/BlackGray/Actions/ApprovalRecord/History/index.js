@@ -2,9 +2,9 @@ import { Button, Card, Timeline, Modal } from 'antd'
 import { CheckCircleOutlined, PartitionOutlined, UserOutlined } from '@ant-design/icons'
 import styles from './style.less'
 import { useEffect, useState } from 'react'
-import { http } from '@zswl/admin'
 import moment from 'moment'
 import { ProcessTaskFlowChart as Flow } from '@/components/Process/ProcessTaskFlowChartEntries'
+import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
 
 /**
  * 审批记录，大部分情况下是用ApprovalAction组件即可，
@@ -28,12 +28,10 @@ function Index({ request, params, visible }) {
     } else if (params) {
       const { bizId, bizCode, taskId } = params
       if (bizId && taskId) {
-        const res = await http.get('/audit/common/record/get', {
-          params: {
-            bizId,
-            bizType: bizCode,
-            taskId,
-          },
+        const res = await commonAuditActionApi.getRecord({
+          bizId,
+          bizType: bizCode,
+          taskId,
         })
         setList(res)
       }

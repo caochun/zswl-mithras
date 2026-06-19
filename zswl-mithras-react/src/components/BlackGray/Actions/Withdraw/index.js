@@ -1,6 +1,7 @@
-import { observer, http } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { App, Button } from '@zswl/components'
 import { message, Modal } from 'antd'
+import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
 
 /**
  * 撤回操作，渲染一个撤回按钮
@@ -34,7 +35,7 @@ function Index({ store, taskIds, fieldNames, needPre = true, access }) {
           // 判断其中是否有taskId，有就用taskId
           ids = rows.some((item) => item.taskId) ? rows.map((item) => item.taskId) : keys
         }
-        await http.post('/audit/common/exec/withdraw', { taskIds: ids })
+        await commonAuditActionApi.postWithdraw({ taskIds: ids })
         message.success('已成功撤回')
         if (store) {
           store.search()

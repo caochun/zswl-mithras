@@ -1,24 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Select, Form } from '@zswl/components'
-import { http } from '@zswl/admin'
+import taskActionApi from '@/api/blackGray/taskActionApi'
 
 function OrgSelect({ form, name, subName, code, type, lineType, fieldNames }) {
   const [list, setList] = useState([])
 
   const getList = useCallback(async () => {
     if (type === 'role') {
-      const res = await http.get('/auth/getRoleByDeptCode', {
-        params: {
-          deptCode: code,
-          lineType,
-        },
+      const res = await taskActionApi.getRoleByDeptCode({
+        deptCode: code,
+        lineType,
       })
       setList(res)
     } else if (type === 'user') {
-      const res = await http.get('/auth/getUserByRoleCode', {
-        params: {
-          roleCode: code,
-        },
+      const res = await taskActionApi.getUserByRoleCode({
+        roleCode: code,
       })
       setList(res)
     }

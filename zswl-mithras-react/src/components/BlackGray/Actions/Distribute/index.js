@@ -4,8 +4,8 @@ import { DatePicker, message } from 'antd'
 import OrgTree from './OrgTree'
 import moment from 'moment'
 import OrgSelect from './OrgSelect'
-import { http } from '@zswl/admin'
 import { saveServer } from '@/utils'
+import taskActionApi from '@/api/blackGray/taskActionApi'
 
 /**
  * @param {object} props
@@ -53,7 +53,7 @@ function Index({
             deadline: time,
           }
         })
-        await http.post('/subtask/assign', data)
+        await taskActionApi.postAssignSubtask(data)
         modalStore.close()
         onSuccess?.()
         message.success('派发成功')

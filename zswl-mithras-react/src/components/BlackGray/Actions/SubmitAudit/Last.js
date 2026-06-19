@@ -1,6 +1,6 @@
 import { Modal, Select, Form } from 'antd'
 import { useEffect, useState } from 'react'
-import { http } from '@zswl/admin'
+import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
 
 const { Item } = Form
 function Index({ visible, onCancel, getParams, info, onFinish, loading }) {
@@ -20,7 +20,7 @@ function Index({ visible, onCancel, getParams, info, onFinish, loading }) {
   const onValuesChange = async (value) => {
     if (value.selectActivityId) {
       const params = getParams()
-      const res = await http.post('/audit/common/select/lastNodeSelect', {
+      const res = await commonAuditActionApi.postLastNodeSelect({
         // 如果是多个就取第一个
         taskIds: params.taskIds,
         currentActivityId,

@@ -1,9 +1,10 @@
 import { Button } from '@zswl/components'
 import { Modal } from 'antd'
-import { history, http } from '@zswl/admin'
+import { history } from '@zswl/admin'
 import { forwardRef, useRef, useState, useImperativeHandle } from 'react'
 import Next from './Next'
 import Last from './Last'
+import commonAuditActionApi from '@/api/blackGray/commonAuditActionApi'
 
 /**
  * @param params：
@@ -68,7 +69,7 @@ function SubmitAudit(
         await onSubmit(resValues)
       } else {
         const resParams = getParams()
-        await http.post('/audit/common/exec/audit', {
+        await commonAuditActionApi.postAudit({
           ...resValues,
           taskIds: resParams.taskIds,
         })
@@ -110,9 +111,7 @@ function SubmitAudit(
     } else {
       // nextNodeSelect为true，且有lastNodeSelectIds
       const resParams = getParams()
-      const res = await http.get('/audit/common/select/auditUsers', {
-        params: resParams,
-      })
+      const res = await commonAuditActionApi.getAuditUsers(resParams)
       setInfo(res)
       const { nextNodeSelect, lastNodeSelectIds } = res || {}
       if (nextNodeSelect) {

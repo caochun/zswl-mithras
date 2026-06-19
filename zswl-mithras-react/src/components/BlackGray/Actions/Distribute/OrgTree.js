@@ -1,6 +1,6 @@
 import { TreeSelect } from 'antd'
 import { useState, useEffect } from 'react'
-import { http } from '@zswl/admin'
+import taskActionApi from '@/api/blackGray/taskActionApi'
 
 function OrgTree(props) {
   const { ...rest } = props
@@ -8,7 +8,7 @@ function OrgTree(props) {
   const [orgTree, setOrgTree] = useState([])
 
   async function getOrgTree() {
-    const res = await http.get('/auth/getSameCompanyOrgTree')
+    const res = await taskActionApi.getSameCompanyOrgTree()
     setOrgTree(res)
   }
 
