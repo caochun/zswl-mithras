@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { NoEnumFileTable } from '@/components/Table'
-import Api from './api'
+import Api from '@/api/customer/applyPermissionFileApi'
 
 const Report = ({ id, canEdit = true, store }) => {
   const { batchNo, processInstanceId } = store.page.getParams()

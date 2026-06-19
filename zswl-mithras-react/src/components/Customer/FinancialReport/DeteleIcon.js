@@ -1,7 +1,7 @@
 import IconFont from '@/components/Icon'
 import { Modal } from '@zswl/components'
 import { SHEET_TABLE_NAME, subjectReportType } from './columns'
-import Api from './api'
+import Api from '@/api/customer/financialReportApi'
 import { message } from 'antd'
 
 const Index = ({ dataSource, index, store, handleRemove = () => {} }) => {

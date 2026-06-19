@@ -1,7 +1,7 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable, history } from '@zswl/admin'
 import { message, Modal } from 'antd'
-import Api from './api'
+import Api from '@/api/customer/externalPublicInfoApi'
 // import detailStore from '../store'
 import moment from 'moment'
 
