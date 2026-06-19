@@ -105,6 +105,7 @@
 - `Customer/MaintainEntries.js`
 - `Customer/MonitoringDetailEntries.js`
 - `Customer/MonitoringEntries.js`
+- `Customer/QccSingleViewEntries.js`
 - `Customer/SingleViewRiskEntries.js`
 - `Customer/UnifiedViewDetailEntries.js`
 - `Customer/UnifiedViewEntries.js`
