@@ -692,6 +692,20 @@ const compatibilityComponentEntries = new Set([
   'TrackEvent/TrackEventEntries.js',
   'TrackEvent/TrackingEntries.js',
 ])
+const legacyCompatibilityComponentEntries = new Map([
+  ['CheckBusiness/CheckBusinessEntries.js', 'BusinessInfoCheck/BusinessInfoCheckEntries.js'],
+  ['ClientFileTable/ClientFileTableEntries.js', 'ClientMaterialTable/BusinessMaterialTableEntries.js'],
+  ['ClientMaterialTable/ClientMaterialTableEntries.js', 'ClientMaterialTable/BusinessMaterialTableEntries.js'],
+  ['Credit/SearchModalEntries.js', 'Credit/CreditReportSearchEntries.js'],
+  ['EvaluationAgency/EvaluationAgencyEntries.js', 'EvaluationAgency/AppraisalAgencyEntries.js'],
+  ['FileDiff/FileDiffEntries.js', 'ChangeLogDiff/ChangeLogDiffEntries.js'],
+  ['PaymentApplyColumns/PaymentApplyColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
+  ['PaymentFtpColumns/PaymentFtpColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
+  ['Policy/PolicyEntries.js', 'InsurancePolicy/InsurancePolicyEntries.js'],
+  ['Project/ReviewMeetingEntries.js', 'Project/ProjectReviewMeetingModalEntries.js'],
+  ['TrackEvent/TrackEventEntries.js', 'TrackEvent/* narrow Entries.js'],
+  ['TrackEvent/TrackingEntries.js', 'TrackEvent/TrackEventEntries.js'],
+])
 
 for (const filePath of sourceFiles) {
   const source = fs.readFileSync(filePath, 'utf8')
@@ -716,6 +730,9 @@ for (const filePath of sourceFiles) {
     if (documentedEntryPath) {
       componentEntryImports.add(documentedEntryPath)
     }
+    const legacyCompatibilityReplacement = legacyCompatibilityComponentEntries.get(
+      documentedEntryPath
+    )
 
     if (isPageImport) {
       violations.push({
@@ -796,6 +813,14 @@ for (const filePath of sourceFiles) {
           })
         }
       }
+    } else if (
+      legacyCompatibilityReplacement &&
+      normalizeEntryPath(filePath) !== documentedEntryPath
+    ) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (legacy compatibility entry; use @/components/${legacyCompatibilityReplacement})`,
+      })
     } else if (
       isComponentImport &&
       (
