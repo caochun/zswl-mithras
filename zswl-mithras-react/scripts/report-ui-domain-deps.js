@@ -28,6 +28,24 @@ const ignoredSourcePathPatterns = [
   /^src[\\/]pages[\\/]demo[\\/]/,
 ]
 
+const pageSourcePathDomainAliases = [
+  {
+    pattern: /^src[\\/]pages[\\/]afterLease[\\/]checkPlan[\\/]singleViewRisk(?:[\\/]|$)/,
+    key: 'pages/afterLease/checkPlan/singleViewRisk',
+    domain: 'customer',
+  },
+  {
+    pattern: /^src[\\/]pages[\\/]customerView(?:[\\/]|$)/,
+    key: 'pages/customerView',
+    domain: 'customer',
+  },
+  {
+    pattern: /^src[\\/]pages[\\/]lease[\\/]tracking(?:[\\/]|$)/,
+    key: 'pages/lease/tracking',
+    domain: 'trackEvent',
+  },
+]
+
 const orchestrationComponentRoots = new Set([
   'Process',
 ])
@@ -230,6 +248,17 @@ function getSourceScope(relativeFilePath) {
       key: `utils/domains/${utilityDomain}`,
       domain: normalizeDomain(utilityDomain),
       kind: 'utils/domains',
+    }
+  }
+
+  const pagePathAlias = pageSourcePathDomainAliases.find(({ pattern }) =>
+    pattern.test(relativeFilePath)
+  )
+  if (pagePathAlias) {
+    return {
+      key: pagePathAlias.key,
+      domain: normalizeDomain(pagePathAlias.domain),
+      kind: 'pages',
     }
   }
 

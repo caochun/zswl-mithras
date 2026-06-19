@@ -182,6 +182,7 @@
 - `npm run report:ui-domain-deps` 会把已拆出的窄入口按独立能力归类，例如 `AfterLeaseCheckPlanCreate`、`BlackGrayHit`、`BudgetPricingBusinessDetail`、`ContractApplicationDetail`、`ContractBaseInfo`、`ContractLeaseMaterials`、`CustomerDebtRatingList`、`CustomerExternalPublicInfo`、`CustomerSingleViewRisk`、`FinancialSelect`、`InsurancePolicyInfo`、`InsurancePolicyColumns`、`ProcessInfoModal`、`ProcessTaskFlowChart`、`ProjectReviewMeetingModal`、`ProjectReviewSnapshot`、`RentCollectionDetail`、`RiskPublicMonitorList`、`RiskSourceCardCalcModal`、`TrackEventDetail`、`TrackEventList`、`TrackEventModal`、`TrackEventTask`；这些报告项代表稳定共享能力，不等同于调用方依赖完整业务域。
 - `npm run report:ui-domain-deps` 的输出分为四层：`Stable shared business capabilities` 是已确认可复用的业务能力入口，`still need semantic review` 是仍需逐项判断的真实跨域嵌入，`workflow orchestration` 是流程壳对业务详情的装配，`page aggregation` 是工作台、看板、生命周期视图等普通聚合页面的跨域依赖。后续重构应优先处理语义评审清单和普通聚合页面，而不是机械追求所有跨域项归零。
 - `npm run report:ui-domain-deps` 默认忽略同业务域页面路由壳到本域组件入口的引用，例如 `pages/project` 到 `components/Project`；报告中的 workflow/page aggregation 部分应主要用于观察流程、工作台、跨域页面编排。
+- 菜单路由和业务语义不一致时，依赖报告可以按真实语义归一。例如 `pages/lease/tracking` 是跟踪事项路由壳，`pages/customerView` 是客户视图，租后检查计划下的单一视图风险入口归入客户能力；这类归一只影响报告，不改变路由兼容。
 - `ClientMaterialTable`、`ChangeLogDiff`、`PaymentFtpColumns` 这类横向业务能力不再视为公共基础组件；依赖报告会保留它们的跨域使用关系，后续需要逐项判断是沉淀横向能力还是回收到具体业务域。
 - `FileDiff/FileDiffEntries.js` 仅保留为历史兼容入口，新代码应使用 `ChangeLogDiff/ChangeLogDiffEntries.js`。
 - `PaymentApplyColumns/PaymentApplyColumnsEntries.js`、`PaymentFtpColumns/PaymentFtpColumnsEntries.js` 仅保留为历史兼容入口，新代码应使用 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js`。
