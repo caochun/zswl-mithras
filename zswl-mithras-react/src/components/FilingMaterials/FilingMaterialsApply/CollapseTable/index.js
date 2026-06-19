@@ -8,7 +8,7 @@ import _ from 'lodash'
 import moment from 'moment'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useFillingMaterialContext } from '../Context'
-import Api from '../api'
+import Api from '@/api/filingMaterials/filingMaterialsApplyApi'
 import { tableEnum } from '../enum'
 
 const Index = ({

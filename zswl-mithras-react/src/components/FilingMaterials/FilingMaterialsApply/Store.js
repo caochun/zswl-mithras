@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { message } from 'antd'
-import Api from './api'
+import Api from '@/api/filingMaterials/filingMaterialsApplyApi'
 import { OPERATIONAL_REVIEW, REFERENCE_MATERIALS } from './enum'
 
 class Store {

@@ -1,5 +1,5 @@
 import { FileTable } from '@/components/Table'
-import Api from '../api'
+import Api from '@/api/filingMaterials/fundFilingMaterialsApplyApi'
 
 const Index = (props) => {
   const { id: mainId, canEdit, enumType = [] } = props

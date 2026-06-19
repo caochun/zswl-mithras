@@ -7,7 +7,7 @@ import { Button, Empty } from 'antd'
 import moment from 'moment'
 import { useRef, useState } from 'react'
 import { useFillingMaterialContext } from '../Context'
-import Api from '../api'
+import Api from '@/api/filingMaterials/filingMaterialsApplyApi'
 import { tableEnum } from '../enum'
 
 const Index = ({ id, canEdit, dataSource, name, businessType, moduleCode, canBatchDownload, canDownload, enableSelect, basic, folded }) => {
