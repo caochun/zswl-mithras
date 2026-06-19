@@ -1,9 +1,8 @@
 import { Page, Tabs, Table, Modal, ModalStore, Button } from '@zswl/components'
-import { http } from '@zswl/admin'
 import { getTableColumns, getFormColumns, download } from '@/utils'
 import ALL_COLUMNS from './Column'
 import { Card, message, Dropdown } from 'antd'
-import Api from './api'
+import Api from '@/api/visitorManage'
 import { useState } from 'react'
 import { saveServer } from '@/utils'
 import { DownloadOutlined } from '@ant-design/icons'
@@ -29,20 +28,12 @@ const VisitorDetail = () => {
   const imageModal = new ModalStore({
     onOpen: async (val) => {
       // console.log('val-image: ', val)
-      const res = await http.post(
-        '/file/list',
-        {
-          moduleType: 'VISIT_RECORD',
-          mainId: val?.id,
-          // mainId: 1057,
-          needPreviewUrl: true,
-        },
-        {
-          headers: {
-            functionCode: 'visitRecordFileList',
-          },
-        }
-      )
+      const res = await Api.getVisitRecordFileList({
+        moduleType: 'VISIT_RECORD',
+        mainId: val?.id,
+        // mainId: 1057,
+        needPreviewUrl: true,
+      })
       if (!res?.list || res?.list?.length === 0) {
         message.warning('暂无图片')
         return false
@@ -94,18 +85,10 @@ const VisitorDetail = () => {
       const { keys } = table.getSelected()
       const params = table.getParams()
 
-      const res = await http.post(
-        '/app/pc/visit/file/download',
-        {
-          ...params,
-          visitRecordIds: keys?.length ? keys : '',
-        },
-        {
-          fileName: '拜访照片.zip',
-          type: 'download',
-          timeout: 0,
-        }
-      )
+      const res = await Api.downloadVisitFiles({
+        ...params,
+        visitRecordIds: keys?.length ? keys : '',
+      })
       window.open(res)
     }
     await TaskFloatStore.executeTask({

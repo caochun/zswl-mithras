@@ -1,10 +1,11 @@
-import { observer, http } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { Button, Modal } from '@zswl/components'
 import styles from './index.less'
 import { Image, Carousel } from 'antd'
 import { useState, useRef, useEffect } from 'react'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import { downFile } from '@/utils'
+import Api from '@/api/visitorManage'
 
 const Index = ({ store }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -35,22 +36,10 @@ const Index = ({ store }) => {
   }
   const exportImage = async (record) => {
     // console.log('record: ', record)
-    const url = await http.post(
-      '/app/pc/visit/file/download',
-      {
-        visitRecordIds: [record?.id],
-        // visitRecordIds: [1057],
-      },
-      {
-        fileName: '拜访照片.zip',
-        type: 'download',
-      },
-      {
-        headers: {
-          functionCode: 'visitRecordFileList',
-        },
-      }
-    )
+    const url = await Api.downloadVisitRecordFiles({
+      visitRecordIds: [record?.id],
+      // visitRecordIds: [1057],
+    })
     downFile(url)
   }
 
