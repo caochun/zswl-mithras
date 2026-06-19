@@ -5,4 +5,7 @@ export { default as BudgetManagementPlacementPlanDetail } from './PlacementPlanD
 export { default as BudgetManagementPlacementPlanWeekDetail } from './PlacementPlanWeekDetail'
 export { default as BudgetManagementPlanCost } from './PlanCost/List'
 export { default as BudgetManagementPlanCostDetail } from './PlanCost/Detail'
+export { default as BudgetManagementPlanProfit } from './PlanProfit/List'
+export { default as BudgetManagementPlanProfitDetail } from './PlanProfit/Detail'
+export { default as BudgetManagementPlanProfitBusinessDetail } from './PlanProfit/BusinessDetail'
 export { default as BudgetManagementPlanColumns, statusRender as budgetManagementPlanStatusRender } from './PlanColumns'
