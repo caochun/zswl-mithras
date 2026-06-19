@@ -1,6 +1,6 @@
 import { makeAutoObservable } from '@zswl/admin'
 import { DrawerStore, TableStore } from '@zswl/components'
-import Api from './api'
+import Api from '@/api/report/operationView/contractTimeMonitorApi'
 import { barSeriesItem, lineSeriesItem } from '@/utils/domains/report/ReportUtils'
 import { downLoadExcel } from '@/components/Excel'
 import { hasValue } from '@/utils'

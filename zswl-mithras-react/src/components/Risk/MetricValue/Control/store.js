@@ -2,7 +2,7 @@ import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, Modal, ModalStore } from '@zswl/components'
 import { message } from 'antd'
 import moment from 'moment'
-import Api from './api'
+import Api from '@/api/risk/metricValue/controlReportApi'
 
 class Store {
   constructor() {
