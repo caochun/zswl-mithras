@@ -1,9 +1,9 @@
-import { TableStore, ModalStore, DrawerStore } from '@zswl/components'
+import { DrawerStore, ModalStore, TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { timeFormat } from '@/utils'
 import { message } from 'antd'
 import moment from 'moment'
-import Api from './api'
+import checkPlanApi from '@/api/afterLease/checkPlan'
 
 class Store {
   constructor() {
@@ -20,7 +20,7 @@ class Store {
 
   $table = new TableStore({
     request: (params) => {
-      return Api.postCheckPlanAssetStrategy(params)
+      return checkPlanApi.postCheckPlanAssetStrategy(params)
     },
   })
 
@@ -40,7 +40,7 @@ class Store {
         riskManagerId: riskManagerId?.value,
         deadLine: deadLine ? timeFormat(deadLine) : undefined,
       }
-      await Api.postCheckPlanAssetStrategyModify(data)
+      await checkPlanApi.postCheckPlanAssetStrategyModify(data)
       message.success('操作成功')
       this.$editModal.close()
       this.$table.search()
@@ -76,7 +76,7 @@ class Store {
 
   $updateTable = new TableStore({
     request: (params) => {
-      return Api.postCheckChangeRecordList({
+      return checkPlanApi.postCheckChangeRecordList({
         ...params,
       })
     },

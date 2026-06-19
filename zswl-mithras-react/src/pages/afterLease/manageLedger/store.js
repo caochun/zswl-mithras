@@ -1,6 +1,6 @@
 import { TableStore } from '@zswl/components'
-import { makeAutoObservable, history } from '@zswl/admin'
-import Api from './api'
+import { makeAutoObservable } from '@zswl/admin'
+import checkPlanApi from '@/api/afterLease/checkPlan'
 
 class Store {
   constructor() {
@@ -11,7 +11,7 @@ class Store {
 
   $table = new TableStore({
     request: async (params) => {
-      const res = await Api.postList({
+      const res = await checkPlanApi.postLedgerList({
         ...params,
         deadLineFrom: params.deadLineFrom ? params.deadLineFrom[0] : undefined,
         deadLineTo: params.deadLineFrom ? params.deadLineFrom[1] : undefined,

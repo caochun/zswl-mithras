@@ -1,9 +1,7 @@
-import { TableStore, ModalStore, PageStore, Modal } from '@zswl/components'
-import { makeAutoObservable, history } from '@zswl/admin'
-import { yearFormat } from '@/utils'
-import { message } from 'antd'
+import { TableStore } from '@zswl/components'
+import { makeAutoObservable } from '@zswl/admin'
 import moment from 'moment'
-import Api from './api'
+import checkPlanApi from '@/api/afterLease/checkPlan'
 
 class Store {
   constructor() {
@@ -11,7 +9,7 @@ class Store {
   }
   staticInfo = {}
   getStatistics = async (currentData) => {
-    const res = await Api.getStatistics(currentData)
+    const res = await checkPlanApi.getStatistics(currentData)
     this.staticInfo = res ?? {}
   }
 
@@ -24,7 +22,7 @@ class Store {
           : undefined,
       }
       this.getStatistics(currentData)
-      return Api.getExternalList(currentData)
+      return checkPlanApi.getExternalList(currentData)
     },
   })
 }
