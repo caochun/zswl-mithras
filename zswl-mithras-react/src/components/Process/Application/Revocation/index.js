@@ -1,12 +1,10 @@
 import { observer } from '@zswl/admin'
 import store from './store'
 import { Table, App, SearchBar } from '@zswl/components'
-import {
-  ProcessApprovalHistoryModal as ApprovalHistoryModal,
-  ProcessTypeTree,
-} from '@/components/Process/ProcessEntries'
-import { ClientSelect } from '@/components/Select'
+import ApprovalHistoryModal from '../../ApprovalHistoryModal'
+import ProcessTypeTree from '../../ProcessTypeTree'
 import { useEffect, useState } from 'react'
+import { ClientSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
@@ -14,27 +12,24 @@ const { Item } = SearchBar
 function Index() {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
-  const approvalHistory = ({ processInstanceId }) => {
-    setId(processInstanceId)
-    setShow(true)
-  }
   useEffect(() => {
     return () => {
       App.resetStore(store)
     }
   }, [])
-  //审批退回
+  const approvalHistory = ({ processInstanceId }) => {
+    console.log(3333)
+    setId(processInstanceId)
+    setShow(true)
+  }
   return (
     <>
       <Table
-        columnsFilter="processApplicationSendback"
-        onFilter={(key,val) => saveServer('processApplicationSendback',val)}
-
-        // scroll={{
-        //   x: 1500,
-        // }}
         columnWidth={180}
         resizable
+        columnsFilter="processApplicationRevocation"
+        onFilter={(key,val) => saveServer('processApplicationRevocation',val)}
+        // scroll={{ x: 2000 }}
         store={store.table}
         searchbar={{
           limit: 6,
@@ -79,7 +74,7 @@ function Index() {
               return [
                 {
                   name: value.processInstanceId,
-                  to: `/process/application/detail/${value.taskId}?typeId=approval&businessKey=${value.businessKey}&diff=taskId&tab=sendback`,
+                  to: `/process/application/detail/${value.taskId}?typeId=approval&businessKey=${value.businessKey}&diff=taskId&tab=revocation`,
                 },
               ]
             },
@@ -121,30 +116,18 @@ function Index() {
                   to: `/customer/maintain/detail/${clientId}?clientType=CORPORATION&flag=info&typeId=create`,
                   disabled: !clientName,
                   className: 'z-single-line',
-                  // style: { width: 160 },
+                  // style: { width: 180 },
                 },
               ]
             },
           },
-
           {
             title: '申请时间',
             dataIndex: 'processStartTime',
           },
           {
-            title: '退回节点',
-            dataIndex: 'backNodeName',
-            width: 140,
-          },
-          {
-            title: '退回人',
-            dataIndex: 'backUserName',
-            width: 140,
-          },
-          {
             title: '操作',
-            width: 160,
-            fixed: 'right',
+            width: 170,
             dataIndex: 'updateTime',
             isAction: true,
             actions(value) {

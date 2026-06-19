@@ -1,13 +1,12 @@
-import { observer } from '@zswl/admin'
+import { observer, history } from '@zswl/admin'
 import store from './store'
 import { Table, App, SearchBar } from '@zswl/components'
-import {
-  ProcessApprovalHistoryModal as ApprovalHistoryModal,
-  ProcessTypeTree,
-} from '@/components/Process/ProcessEntries'
-import { useEffect, useState } from 'react'
 import { ClientSelect } from '@/components/Select'
+import { useEffect, useState } from 'react'
+import ApprovalHistoryModal from '../../ApprovalHistoryModal'
+import ProcessTypeTree from '../../ProcessTypeTree'
 import { saveServer } from '@/utils'
+import customeApi from '@/api/process/application/customerMaintainApi'
 
 const { Item } = SearchBar
 
@@ -19,19 +18,21 @@ function Index() {
       App.resetStore(store)
     }
   }, [])
+
   const approvalHistory = ({ processInstanceId }) => {
-    console.log(3333)
     setId(processInstanceId)
     setShow(true)
   }
   return (
     <>
       <Table
+        scroll={{
+          x: 2000,
+        }}
         columnWidth={180}
         resizable
-        columnsFilter="processApplicationRevocation"
-        onFilter={(key,val) => saveServer('processApplicationRevocation',val)}
-        // scroll={{ x: 2000 }}
+        columnsFilter="processApplicationApply"
+        onFilter={(key, val) => saveServer('processApplicationApply', val)}
         store={store.table}
         searchbar={{
           limit: 6,
@@ -76,7 +77,7 @@ function Index() {
               return [
                 {
                   name: value.processInstanceId,
-                  to: `/process/application/detail/${value.taskId}?typeId=approval&businessKey=${value.businessKey}&diff=taskId&tab=revocation`,
+                  to: `/process/application/detail/${value.processInstanceId}?typeId=approval&businessKey=${value.businessKey}&diff=processInstanceId&tab=apply`,
                 },
               ]
             },
@@ -110,26 +111,49 @@ function Index() {
             title: '客户名称',
             dataIndex: 'clientName',
             width: 200,
-            actions({ clientName, clientId }) {
-              if (!clientName) return ''
-              return [
-                {
-                  name: clientName || '-',
-                  to: `/customer/maintain/detail/${clientId}?clientType=CORPORATION&flag=info&typeId=create`,
-                  disabled: !clientName,
-                  className: 'z-single-line',
-                  // style: { width: 180 },
-                },
-              ]
-            },
+            render:(val, { clientId }) => <a onClick={async() => {
+              if (!val) return ''
+              try {
+                const result = await customeApi.postClientApplyOccupy({clientId})
+                if(result.msg !== '所选客户为空'){
+                  history.push(`/customer/maintain/detail/${clientId}?clientType=CORPORATION&flag=info&typeId=create`)
+                }
+              } catch (error) {
+                
+              }
+            }}>{val || '-'}</a>
+            // actions: ({ clientName, clientId }) => {
+            //   if (!clientName) return ''
+            //   // const result =  customeApi.postClientApplyOccupy({clientId})
+            //   // if(result.msg === '所选客户为空'){
+            //   return [
+            //     {
+            //       name: clientName || '-',
+            //       to: `/customer/maintain/detail/${clientId}?clientType=CORPORATION&flag=info&typeId=create`,
+            //       disabled: !clientName,
+            //       className: 'z-single-line',
+            //       // style: { width: 160 },
+            //     },
+            //   ]
+            // },
+          },
+
+          {
+            title: '当前节点',
+            dataIndex: 'curTaskNames',
+          },
+          {
+            title: '当前审批人',
+            dataIndex: 'curAssigneeNames',
           },
           {
             title: '申请时间',
-            dataIndex: 'processStartTime',
+            dataIndex: 'startTime',
           },
           {
             title: '操作',
-            width: 170,
+            width: 200,
+            fixed: 'right',
             dataIndex: 'updateTime',
             isAction: true,
             actions(value) {
@@ -138,6 +162,12 @@ function Index() {
                   name: '审批历史',
                   onClick: () => {
                     approvalHistory(value)
+                  },
+                },
+                {
+                  name: '撤回',
+                  onClick: () => {
+                    store.withdrawToStartUse(value)
                   },
                 },
                 {

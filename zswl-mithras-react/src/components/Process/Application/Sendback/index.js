@@ -1,16 +1,14 @@
-import { observer, history } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import store from './store'
-import { Table, App, Page, SearchBar } from '@zswl/components'
-import {
-  ProcessApprovalHistoryModal as ApprovalHistoryModal,
-  ProcessTypeTree,
-} from '@/components/Process/ProcessEntries'
+import { Table, App, SearchBar } from '@zswl/components'
+import ApprovalHistoryModal from '../../ApprovalHistoryModal'
+import ProcessTypeTree from '../../ProcessTypeTree'
 import { ClientSelect } from '@/components/Select'
-import { getKeyOptionsLabelMapPlus } from '@/utils'
 import { useEffect, useState } from 'react'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar
+
 function Index() {
   const [show, setShow] = useState(false)
   const [ids, setId] = useState('')
@@ -27,13 +25,14 @@ function Index() {
   return (
     <>
       <Table
-        resizable
-        columnsFilter="processApplicationFinish"
-        onFilter={(key,val) => saveServer('processApplicationFinish',val)}
+        columnsFilter="processApplicationSendback"
+        onFilter={(key,val) => saveServer('processApplicationSendback',val)}
+
+        // scroll={{
+        //   x: 1500,
+        // }}
         columnWidth={180}
-        scroll={{
-          x: 2000,
-        }}
+        resizable
         store={store.table}
         searchbar={{
           limit: 6,
@@ -78,7 +77,7 @@ function Index() {
               return [
                 {
                   name: value.processInstanceId,
-                  to: `/process/application/detail/${value.processInstanceId}?typeId=approval&businessKey=${value.businessKey}&diff=processInstanceId&tab=finish&nav=myquery`,
+                  to: `/process/application/detail/${value.taskId}?typeId=approval&businessKey=${value.businessKey}&diff=taskId&tab=sendback`,
                 },
               ]
             },
@@ -125,27 +124,24 @@ function Index() {
               ]
             },
           },
-          {
-            title: '审批状态',
-            dataIndex: 'processStatus',
-            width: 120,
-            tooltip: true,
-            render: (v) => {
-              return getKeyOptionsLabelMapPlus('processStatus')[v]
-            },
-          },
 
           {
             title: '申请时间',
-            dataIndex: 'startTime',
+            dataIndex: 'processStartTime',
           },
           {
-            title: '结束时间',
-            dataIndex: 'endTime',
+            title: '退回节点',
+            dataIndex: 'backNodeName',
+            width: 140,
+          },
+          {
+            title: '退回人',
+            dataIndex: 'backUserName',
+            width: 140,
           },
           {
             title: '操作',
-            width: 100,
+            width: 160,
             fixed: 'right',
             dataIndex: 'updateTime',
             isAction: true,
@@ -155,6 +151,12 @@ function Index() {
                   name: '审批历史',
                   onClick: () => {
                     approvalHistory(value)
+                  },
+                },
+                {
+                  name: '关闭流程',
+                  onClick: () => {
+                    store.cancelProcess(value)
                   },
                 },
               ]
