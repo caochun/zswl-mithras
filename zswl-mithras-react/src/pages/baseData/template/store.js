@@ -1,9 +1,9 @@
-import { makeAutoObservable, http } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, ModalStore, Modal, PageStore, FormStore } from '@zswl/components'
 import DataUpload from '@/components/DataUpload'
 import { message } from 'antd'
 import { downFile } from '@/utils'
-import Api from './api'
+import fileTemplateApi from '@/api/baseData/fileTemplateApi'
 
 class Store {
   constructor() {
@@ -12,7 +12,7 @@ class Store {
 
   page = new PageStore({
     request: async () => {
-      const data = await http.post('/file/template/type/list')
+      const data = await fileTemplateApi.postTemplateTypeList()
       return { data }
     },
   })
@@ -20,7 +20,7 @@ class Store {
   list = new TableStore({
     request: async (params) => {
       const { data } = await this.page.getData()
-      return await http.post('/file/template/list', {
+      return await fileTemplateApi.postTemplateList({
         ...params,
         templateType: params?.templateType || data.templateTypes?.[0],
       })
@@ -30,11 +30,7 @@ class Store {
   newModal = new ModalStore({
     onFinish: async (values) => {
       const { fileList } = DataUpload.classify(values.file)
-      await http.post(
-        '/file/template/add',
-        { ...values, file: fileList[0] },
-        { type: 'upload', timeout: 0 }
-      )
+      await fileTemplateApi.postTemplateAdd({ ...values, file: fileList[0] })
       message.success('新增成功')
       this.newModal.close()
       this.list.search()
@@ -44,14 +40,10 @@ class Store {
   replaceModal = new ModalStore({
     onFinish: async (values, initialValues) => {
       const { fileList } = DataUpload.classify(values.file)
-      await http.post(
-        '/file/template/replace',
-        {
-          id: initialValues.id,
-          file: fileList[0],
-        },
-        { type: 'upload', timeout: 0 }
-      )
+      await fileTemplateApi.postTemplateReplace({
+        id: initialValues.id,
+        file: fileList[0],
+      })
       message.success('替换成功')
       this.replaceModal.close()
       this.list.search()
@@ -62,7 +54,7 @@ class Store {
     Modal.confirm({
       title: '确认回滚吗？',
       onOk: async () => {
-        await http.post('/file/template/history/rollback', { id })
+        await fileTemplateApi.postTemplateHistoryRollback({ id })
         message.success('回滚成功')
         this.list.search()
       },
@@ -78,7 +70,7 @@ class Store {
   historyList = new TableStore({
     pagination: false,
     request: async (params) => {
-      return await http.post('/file/template/history/list', params)
+      return await fileTemplateApi.postTemplateHistoryList(params)
     },
   })
 
@@ -90,7 +82,7 @@ class Store {
     if (!name.length) {
       return message.error('请先输入模版文件类型')
     }
-    await http.post('/file/template/type/add', { name })
+    await fileTemplateApi.postTemplateTypeAdd({ name })
     message.success('新增成功！')
     this.page.init()
     this.form.resetFields()
@@ -100,7 +92,7 @@ class Store {
     Modal.confirm({
       title: '确认删除吗？',
       onOk: async () => {
-        await http.post('/file/template/type/remove', { name })
+        await fileTemplateApi.postTemplateTypeRemove({ name })
         message.success('删除成功！')
         this.page.init()
       },
@@ -108,7 +100,11 @@ class Store {
   }
 
   download = async ({ id, fileId }) => {
-    const res = await Api.getFileDownload({ mainId: id, fileId, moduleType: 'FILE_TEMPLATE' })
+    const res = await fileTemplateApi.getFileDownload({
+      mainId: id,
+      fileId,
+      moduleType: 'FILE_TEMPLATE',
+    })
     await downFile(res)
   }
 
@@ -127,7 +123,7 @@ class Store {
   confirmEdit = async ({ record }) => {
     const { values } = await this.list.submit()
     const editData = values[record.id]
-    await Api.postFileTemplateUpdate({
+    await fileTemplateApi.postFileTemplateUpdate({
       id: record.id,
       faceSignShowFlag: editData?.faceSignShowFlag,
     })
