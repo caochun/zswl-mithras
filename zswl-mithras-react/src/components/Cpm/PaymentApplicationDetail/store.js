@@ -1,5 +1,5 @@
 import { hasValue } from '@/utils'
-import { http, makeAutoObservable } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
 import { message } from 'antd'
 import { all, create } from 'mathjs'
@@ -45,7 +45,7 @@ class Store {
   transactionTable = new TableStore({
     request: async () => {
       const data = { paymentId: this.page.getParams().id }
-      const res = await http.post('/payment/transactionStructureInfo', data)
+      const res = await Api.getTransactionStructureInfo(data)
       return res
     },
   })

@@ -3,6 +3,7 @@ import { http } from '@zswl/admin'
 export default {
   getPaymentDetail: (params) => http.post('/payment/detail', params),
   getPaymentPlanList: (params) => http.post('/payment/list/planeddetail', params),
+  getTransactionStructureInfo: (params) => http.post('/payment/transactionStructureInfo', params),
   getClientBankList: (params) =>
     http.post('/basedata/bankaccount/list', params, {
       headers: {
