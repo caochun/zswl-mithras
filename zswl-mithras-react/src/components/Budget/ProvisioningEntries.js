@@ -1,5 +1,6 @@
 export { default as BudgetProvisioningDataAddModal } from './ProvisioningDataAddModal'
 export { default as BudgetProvisioningDataAddModalStore } from './ProvisioningDataAddModal/store'
+export { default as BudgetProvisioningDataSearch } from './ProvisioningDataSearch/List'
 export { default as BudgetProvisioningImpairment } from './ProvisioningImpairment/List'
 export { default as BudgetProvisioningImpairmentColumns } from './ProvisioningImpairmentColumns'
 export { default as BudgetProvisioningImpairmentDetail } from './ProvisioningImpairment/Detail'
