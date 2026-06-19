@@ -67,6 +67,11 @@ export default {
   postVatInvoiceCount: (
     data: Types.VatInvoiceCountRequest
   ): Promise<Types.VatInvoiceCountResponse> => http.post('/lease/vatInvoice/count', data, { mock }),
+
+  // 增值税发票锁定/解锁
+  postVatInvoiceLocked: (data: any): Promise<any> =>
+    http.post('/lease/vatInvoice/locked', data, { mock }),
+
   //  /lease/ocr/fileNameComparison
   // 增值税发票文件名对比
   postVatInvoiceFileNameComparison: (data) =>

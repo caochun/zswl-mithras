@@ -3,8 +3,6 @@ import { makeAutoObservable } from '@zswl/admin'
 import ocrInvoiceApi from '@/api/ocr/ocrInvoiceApi'
 import { message } from 'antd'
 import DataUpload from '@/components/DataUpload'
-// yapi api 生成不了
-import Api from './api'
 
 class Store {
   constructor() {
@@ -80,7 +78,7 @@ class Store {
     Modal.confirm({
       title: `确认锁定？`,
       onOk: async () => {
-        await Api.postLeaseVatInvoiceLocked({
+        await ocrInvoiceApi.postVatInvoiceLocked({
           vatInvoiceIds: keys,
           isLocked: true,
         })
@@ -126,7 +124,7 @@ class Store {
     Modal.confirm({
       title: `确认解锁？`,
       onOk: async () => {
-        await Api.postLeaseVatInvoiceLocked({
+        await ocrInvoiceApi.postVatInvoiceLocked({
           isLocked: !item.locked,
           vatInvoiceIds: [item.id],
           leaseholdId,
