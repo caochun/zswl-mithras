@@ -1,6 +1,6 @@
 import { PageStore, TableStore } from '@zswl/components'
-import { getQuery, makeAutoObservable, http } from '@zswl/admin'
-import Api from './api'
+import { getQuery, makeAutoObservable } from '@zswl/admin'
+import Api from '@/api/customerMonitoring'
 
 class Store {
   constructor() {
@@ -18,7 +18,7 @@ class Store {
       const { enterpriseName, uscc } = getQuery()
       this.enterpriseName = enterpriseName
       this.uscc = uscc
-      const data = await http.post('/client/unified/view/detail', { clientId: params.id })
+      const data = await Api.postClientUnifiedViewDetail({ clientId: params.id })
       this.detail = data
 
       const { riskControlOpinionHandleStatus } = await Api.selectAll(params)

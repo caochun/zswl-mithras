@@ -1,0 +1,27 @@
+import { http } from '@zswl/admin'
+
+export default {
+  // 统计
+  postMonitorStatistics: (params) => http.post('/clientMonitor/statistic', params),
+  // 预警列表
+  postWarnlist: (params) => http.post('/clientMonitor/list', params),
+  // 客户监控预警列表
+  postClientMonitorWarnlist: (params) => http.post('/clientMonitor/warn/list', params),
+  // 客户监控舆情列表
+  postOpinionlist: (params) => http.post('/clientMonitor/opinion/list', params),
+  // right
+  postQuantityChange: (params) => http.post('/clientMonitor/risk/linechart', params),
+  // right Pie
+  postQuantityPie: (params) => http.post('/clientMonitor/risk/piechart', params),
+  // 舆情
+  postMonitorList: (params) => http.post('/risk/warn/monitor/opinion/list', params),
+  selectAll: (params) => http.get('/select/all', params),
+
+  // 客户统一视图详情
+  postClientUnifiedViewDetail: (params) => http.post('/client/unified/view/detail', params),
+  // 客户监控舆情详情
+  postclientMonitorOpinionDetail: (params) => http.post('/clientMonitor/detail/opinion', params),
+  // 客户监控预警详情
+  postclientMonitorRiskDetail: (params) => http.post('/clientMonitor/detail/warn', params),
+  postYjDetail: (params) => http.post('/clientMonitor/detail/warn', params),
+}
