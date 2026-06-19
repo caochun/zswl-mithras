@@ -4,7 +4,7 @@ import { getTableColumns } from '@/utils'
 import ALL_COLUMNS from './ColumnStat'
 import { useEffect, useMemo, useState } from 'react'
 import { Tag, message } from 'antd'
-import Api from './api'
+import liquidityRiskApi from '@/api/financial/liquidity/liquidityRiskApi'
 import EditModal from '../org/EditModal'
 import styles from './index.less'
 import { Checkbox } from 'antd'
@@ -24,7 +24,7 @@ function Index({ time = {}, store }) {
         request: async (searchData) => {
           try {
             if (!timeFrom || !timeTo) return
-            const res = await Api.postCashInOutStat({
+            const res = await liquidityRiskApi.postCashInOutStat({
               ...searchData,
               dateFrom: timeFrom,
               dateTo: timeTo,
@@ -101,7 +101,7 @@ function Index({ time = {}, store }) {
     const params = $table.getParams()
     setDownloadLoading(true)
 
-    return await Api.postCashInOutDownLoad({
+    return await liquidityRiskApi.postCashInOutDownLoad({
       ...params,
       dateFrom: timeFrom,
       dateTo: timeTo,

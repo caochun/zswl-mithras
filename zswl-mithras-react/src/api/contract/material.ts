@@ -60,6 +60,15 @@ export default {
     data: Types.ManageunSignedDetailRequest
   ): Promise<Types.ManageunSignedDetailResponse> =>
     http.post('/contract/text/manage/unSigned/detail', data, { mock }),
+
+  getContractTextFileDownload: (data?: any): Promise<any> =>
+    http.get('/file/download', {
+      params: data,
+      type: 'download',
+      headers: {
+        functionCode: 'contractTextManageFileDownload',
+      },
+    }),
 }
 
 /* prettier-ignore-end */

@@ -2,7 +2,8 @@ import { makeAutoObservable } from '@zswl/admin'
 import { TableStore, PageStore } from '@zswl/components'
 import { message, Modal } from 'antd'
 import Api from '@/api/contract/material'
-import localApi from '../api'
+import contractDetailApi from '@/api/contract/contractDetail'
+import contractPriceApi from '@/api/contract/priceApi'
 import {
   ContractBizTypePriceDetailMap as bizTypePriceDetailMap,
   ContractBizTypePriceModifyMap as bizTypePriceModifyMap,
@@ -19,8 +20,8 @@ class Store {
   }
   page = new PageStore({
     request: async ({ id, contractId }) => {
-      const baseInfo = await localApi.getBaseInfo({ id: contractId })
-      const priceInfo = await localApi.getContractQSDetail({ contractId })
+      const baseInfo = await contractDetailApi.getBaseInfo({ id: contractId })
+      const priceInfo = await contractPriceApi.getContractQSDetail({ contractId })
       const bizTypeData = priceInfo[bizTypePriceDetailMap[baseInfo.bizType]]
 
       const res = await Api.postManageList({ id })
@@ -101,7 +102,7 @@ class Store {
   }
 
   downloadFile = async ({ fileId, modelType: moduleType, id }) => {
-    const res = await localApi.getContractTextFileDownload({ fileId, mainId: id, moduleType })
+    const res = await Api.getContractTextFileDownload({ fileId, mainId: id, moduleType })
     downFile(res)
   }
 

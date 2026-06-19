@@ -24,6 +24,15 @@ export default {
   // 错配明细
   postManageMismatch: (data: Types.ManageMismatchRequest): Promise<Types.ManageMismatchResponse> =>
     http.post('/liquidity/manage/mismatch', data, { mock, timeout: 0 }),
+
+  // 流动性统计
+  postCashInOutStat: (data?: any): Promise<any> => http.post('/cash/inOut/stat', data, { mock }),
+
+  postCashInOutDownLoad: (data?: any): Promise<any> =>
+    http.post('/cash/inOut/stat/download', data, {
+      type: 'download',
+      timeout: 0,
+    }),
 }
 
 /* prettier-ignore-end */
