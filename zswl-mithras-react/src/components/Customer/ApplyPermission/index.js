@@ -5,7 +5,6 @@ import BaseInfo from './BaseInfo'
 import DataFileList from './DataFileList'
 import Store from './Store'
 import { useMemo } from 'react'
-import CheckBusiness from '../CheckBusiness'
 
 const Index = ({ params: { id }, query: { processInstanceId, canEditFlag = true, batchNo } }) => {
   const canEdit = canEditFlag
