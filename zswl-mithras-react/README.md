@@ -231,6 +231,7 @@
 - 预算拨备参数配置列表页和详情页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/paramsConfig/*` 只保留路由壳。
 - 预算定价基础数据维护页通过 `src/components/Budget/PricingBaseDataEntries.js` 暴露，`src/pages/budget/pricing/baseData/*` 只保留路由壳。
 - 预算定价基础参数设置列表页和弹窗通过 `src/components/Budget/PricingBaseSetEntries.js` 暴露，`src/pages/budget/pricing/baseSet/*` 只保留路由壳。
+- 预算定价业务列表页、创建弹窗和详情页通过 `src/components/Budget/PricingBusinessEntries.js` 暴露，`src/pages/budget/pricing/business/*` 只保留路由壳。
 - 预算定价 FTP 收益率列表页和详情页通过 `src/components/Budget/PricingFtpYieldEntries.js` 暴露，`src/pages/budget/pricing/ftpYield/*` 只保留路由壳。
 - KPI 项目分配列表页、分配明细和表单片段通过 `src/components/Kpi/ProjectAllotListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
 - 预算考核列表页和详情页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
