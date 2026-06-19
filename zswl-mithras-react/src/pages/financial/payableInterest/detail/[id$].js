@@ -6,7 +6,7 @@ import ALL_COLUMNS from '../Column'
 import { getDescColumns, getTableColumns } from '@/utils'
 import Store from './Store'
 import { saveServer } from '@/utils'
-import Api from '../api'
+import Api from '@/api/financial/payableInterestApi'
 import { message, Tabs } from 'antd'
 import { FormTable } from '@/components/Form'
 

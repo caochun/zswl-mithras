@@ -1,6 +1,6 @@
 import { Modal, PageStore, TableStore } from '@zswl/components'
 import { history, makeAutoObservable } from '@zswl/admin'
-import Api from '../api'
+import Api from '@/api/financial/payableInterestApi'
 
 class Store {
   constructor() {
