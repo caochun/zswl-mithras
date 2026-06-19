@@ -5,7 +5,7 @@ import { Space, message } from 'antd'
 import { create, all } from 'mathjs'
 import { hasValue, rules, numToFixed } from '@/utils'
 import styles from './index.less'
-import Api from '../api'
+import Api from '@/api/budgetManagement/parameterConfigApi'
 import { myInputEditable, myInputRender, IS_FU_XIANG_BO_DONG } from '../context'
 
 const mathjs = create(all)

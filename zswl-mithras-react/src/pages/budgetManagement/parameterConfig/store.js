@@ -1,7 +1,7 @@
 import { TableStore, ModalStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { message } from 'antd'
-import Api from './ModalDetail/api'
+import Api from '@/api/budgetManagement/parameterConfigApi'
 import { uniqueId } from 'lodash'
 
 class Store {
