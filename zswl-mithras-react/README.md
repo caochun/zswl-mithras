@@ -170,6 +170,7 @@
 - `TrackEvent/TrackEventListEntries.js`
 - `TrackEvent/TrackEventTaskEntries.js`
 - `TrackEvent/TrackEventEntries.js`
+- `VisitorManage/VisitorManageEntries.js`
 - `WhiteList/WhiteListEntries.js`
 
 ## 依赖规则
@@ -266,6 +267,7 @@
 - `login`：登录和初次登录改密页面，前端路由名保留 `login`，API 语义归属权限认证。
 - `msgNotification`：消息中心历史路由壳，当前实现已收敛到 `src/components/Message/NotificationEntries.js`。
 - `preview`：PDF、报表预览。
+- `visitorManage`：拜访管理历史路由壳，当前实现已收敛到 `src/components/VisitorManage/VisitorManageEntries.js`。
 - `financialReport`：财务报表待办/审批/完成列表历史路由壳，当前列表实现已收敛到 `src/components/Report/FinancialReportListEntries.js`，审批详情入口使用 `src/components/Report/FinancialReportApprovalEntries.js`。
 
 当前历史或兼容壳目录：
@@ -344,7 +346,7 @@
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理；dashboard 工作台保存/查询用户配置使用 `src/api/dashboard/userCustomConfigApi`，通用表格列配置工具保留 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
-- `rzy`、`implant`、`cvicse`、`student`、`visitorManage`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
+- `rzy`、`implant`、`cvicse`、`student`：外部系统、嵌入页或历史实验目录，重构前需先确认路由和菜单来源。
 - `demo`：本地实验/脚手架目录，含注释示例和硬编码调试地址；不作为业务域边界判断输入。
 
 目录整理原则：

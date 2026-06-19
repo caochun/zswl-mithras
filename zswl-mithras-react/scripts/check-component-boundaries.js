@@ -360,6 +360,14 @@ const legacyApiPrefixRules = [
     ],
   },
   {
+    legacyPrefix: '@/api/visitorManage/visitorManageApi',
+    replacementPrefix: '@/api/visitorManage/visitorManageApi in VisitorManage domain',
+    allowedSourcePathPrefixes: [
+      'src/components/VisitorManage/',
+      'src/pages/visitorManage/',
+    ],
+  },
+  {
     legacyPrefix: '@/api/permission/login',
     replacementPrefix: '@/api/layout/fastLoginApi or @/api/permission/login in Login page',
     allowedSourcePathPrefixes: [
