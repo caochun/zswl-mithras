@@ -172,6 +172,7 @@
 - `Report/FinancialReportListEntries.js`
 - `Report/ManagementEntries.js`
 - `Report/OperationEntries.js`
+- `Risk/FinanceSheetEntries.js`
 - `Risk/MetricValueEntries.js`
 - `Risk/MetricTimedEntries.js`
 - `Risk/MonitorEarlyEntries.js`
