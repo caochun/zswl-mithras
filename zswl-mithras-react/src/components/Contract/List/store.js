@@ -1,4 +1,4 @@
-import { ContractOperationMap as contractOperationMap } from '@/components/Contract/ConfigEntries'
+import { contractOperationMap } from '../bizTypeConfig'
 import { timeFormat, userIsProjSponsor } from '@/utils'
 import { history, makeAutoObservable } from '@zswl/admin'
 import { Modal, ModalStore, PageStore, TableStore } from '@zswl/components'
@@ -80,9 +80,7 @@ class Store {
         this.createModal.close()
         this.$table.search()
         history.push(`/contract/list/detail/${data.id}?bizType=${bizType}&isCreate=1`)
-      } catch (error) {
-        console.log({ error })
-      }
+      } catch (error) {}
     },
   })
 

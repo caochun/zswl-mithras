@@ -80,7 +80,7 @@
 - `Contract/BaseInfoEntries.js`
 - `Contract/ConfigEntries.js`
 - `Contract/LeaseMaterialsEntries.js`
-- `Contract/ListDetailEntries.js`
+- `Contract/ListEntries.js`
 - `Contract/MaterialsEntries.js`
 - `Contract/ProcessDetailEntries.js`
 - `Contract/SignEntries.js`
