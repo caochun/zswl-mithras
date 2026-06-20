@@ -208,6 +208,30 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/ProvisioningParamsConfigColumns/BudgetProvisioningParamsConfigColumns.js',
   ],
   [
+    'src/components/BudgetManagement/PlanCost/Detail/index.js',
+    'src/components/BudgetManagement/PlanCost/Detail/BudgetManagementPlanCostDetail.js',
+  ],
+  [
+    'src/components/BudgetManagement/PlanCost/List/index.js',
+    'src/components/BudgetManagement/PlanCost/List/BudgetManagementPlanCostList.js',
+  ],
+  [
+    'src/components/BudgetManagement/PlanProfit/BusinessDetail/index.js',
+    'src/components/BudgetManagement/PlanProfit/BusinessDetail/BudgetManagementPlanProfitBusinessDetail.js',
+  ],
+  [
+    'src/components/BudgetManagement/PlanProfit/List/index.js',
+    'src/components/BudgetManagement/PlanProfit/List/BudgetManagementPlanProfitList.js',
+  ],
+  [
+    'src/components/BudgetManagement/ProvisionForecast/ConfigDetail/index.js',
+    'src/components/BudgetManagement/ProvisionForecast/ConfigDetail/BudgetManagementProvisionForecastConfigDetail.js',
+  ],
+  [
+    'src/components/BudgetManagement/ProvisionForecast/List/index.js',
+    'src/components/BudgetManagement/ProvisionForecast/List/BudgetManagementProvisionForecastList.js',
+  ],
+  [
     'src/components/BusinessInfoCheck/index.js',
     'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
   ],

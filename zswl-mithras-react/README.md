@@ -488,6 +488,7 @@
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
 - 预算定价 FTP 收益、融资成本弹窗、计提减值列和计提参数列通过 `src/components/Budget/*Entries.js` 暴露，真实实现使用预算域语义文件名，不再依赖目录 `index.js`。
 - 预算收入分成、定价基础设置、定价参数编辑表、FTP 计息、FTP 计息变更、计提数据查询、计提减值详情、计提参数详情和计提数据导入弹窗通过 `src/components/Budget/*Entries.js` 暴露，域内复用也指向预算域语义文件名，不再依赖目录 `index.js`。
+- 预算管理成本计划、利润计划业务明细、利润计划列表、拨备预测列表和配置详情通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现使用预算管理域语义文件名，不再依赖目录 `index.js`。
 - 图表柱状图和折线图分别通过 `src/components/Chart/BarChartEntries.js`、`LineChartEntries.js` 暴露，真实实现命名为 `src/components/Chart/BarChart/BarChart.js` 和 `src/components/Chart/LineChart/LineChart.js`。
 - 黑灰名单命中标识通过 `src/components/BlackGray/BlackGrayHitEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Info/BlackGrayHitInfo.js`。
 - 黑灰名单突破申请、入库申请、入库外部入口、出库申请和仓库查询分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现使用 BlackGray 域语义文件名，不再依赖目录 `index.js`。
