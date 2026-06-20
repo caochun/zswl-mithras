@@ -1,1 +1,1 @@
-export { default as ChangeLogDiff } from '.'
+export { default as ChangeLogDiff } from './ChangeLogDiff'

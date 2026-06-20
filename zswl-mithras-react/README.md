@@ -485,6 +485,7 @@
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
+- 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
