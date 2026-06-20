@@ -229,6 +229,7 @@
 - `InsurancePolicy/InsurancePolicyColumnsEntries.js`
 - `InsurancePolicy/InsurancePolicyEntries.js`
 - `Kpi/BaseSetBaBeiJiTiEntries.js`
+- `Kpi/BaseSetBasePrizeRateEntries.js`
 - `Kpi/BaseSetCopyEntries.js`
 - `Kpi/BaseSetDepartmentTheoryEntries.js`
 - `Kpi/BaseSetExpenseAccrualEntries.js`
@@ -236,9 +237,11 @@
 - `Kpi/BaseSetJinRongShiChangEntries.js`
 - `Kpi/BaseSetListEntries.js`
 - `Kpi/BaseSetModalEntries.js`
-- `Kpi/BaseSetParameterDetailEntries.js`
 - `Kpi/BaseSetParameterModalEntries.js`
+- `Kpi/BaseSetProjectScaleFactorEntries.js`
 - `Kpi/BaseSetProjectExtractEntries.js`
+- `Kpi/BaseSetProjectTypeFactorEntries.js`
+- `Kpi/BaseSetPutPrizeFactorEntries.js`
 - `Kpi/BaseSetSuiLvWeiHuEntries.js`
 - `Kpi/BaseSetTableEntries.js`
 - `Kpi/BaseSetYeWuDeptEntries.js`

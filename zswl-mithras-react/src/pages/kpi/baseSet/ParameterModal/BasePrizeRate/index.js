@@ -1,1 +1,1 @@
-export { KpiBaseSetBasePrizeRate as default } from '@/components/Kpi/BaseSetParameterDetailEntries'
+export { KpiBaseSetBasePrizeRate as default } from '@/components/Kpi/BaseSetBasePrizeRateEntries'
