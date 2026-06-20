@@ -15,6 +15,8 @@ const importPattern =
 const styleImportPattern = /@import\s+(?:\([^)]*\)\s*)?['"]~?([^'"]+)['"]/g
 const componentApiForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
+const pageRouteShellPattern =
+  /^export\s+\{[\s\S]*\}\s+from\s+['"]@\/components\/[^'"]+['"]\s*;?\s*$/
 const uiLocalApiFilePattern =
   /^src[\\/](?:components|pages|layout)[\\/].*[\\/]api\.(?:js|jsx|ts|tsx)$/
 const rootApiFilePattern = /^src[\\/]api[\\/][^\\/]+\.(?:js|jsx|ts|tsx)$/
@@ -687,6 +689,16 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'copied or backup source file',
+    })
+  }
+
+  if (
+    /^src[\\/]pages[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) &&
+    !pageRouteShellPattern.test(fs.readFileSync(filePath, 'utf8').trim())
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'page route files must be thin shells that re-export from @/components/**',
     })
   }
 
