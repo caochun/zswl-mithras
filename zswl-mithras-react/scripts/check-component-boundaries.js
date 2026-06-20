@@ -76,6 +76,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/CheckPlan/List/Tab/CheckList/CreateModal/AfterLeaseCheckPlanCheckListCreateModal.js',
   ],
   [
+    'src/components/AfterLease/CheckPlan/List/Tab/OpenList/index.js',
+    'src/components/AfterLease/CheckPlan/List/Tab/OpenList/AfterLeaseCheckPlanOpenList.js',
+  ],
+  [
     'src/components/AfterLease/CheckPlan/List/Tab/Strategy/CreateModal/index.js',
     'src/components/AfterLease/CheckPlan/List/Tab/Strategy/CreateModal/AfterLeaseCheckPlanStrategyCreateModal.js',
   ],
@@ -98,6 +102,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/AfterLease/RentCollection/ListRender/index.js',
     'src/components/AfterLease/RentCollection/ListRender/RentCollectionListRender.js',
+  ],
+  [
+    'src/components/AfterLease/RentCollection/BatchInterest/index.js',
+    'src/components/AfterLease/RentCollection/BatchInterest/AfterLeaseRentCollectionBatchInterest.js',
   ],
   [
     'src/components/App/RootRedirect/index.js',
