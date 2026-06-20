@@ -813,6 +813,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Risk/RiskStrategyEntries.js', 'Risk/RiskStrategy*Entries.js'],
   ['TrackEvent/TrackEventEntries.js', 'TrackEvent/* narrow Entries.js'],
   ['TrackEvent/TrackingEntries.js', 'TrackEvent/* narrow Entries.js'],
+  ['WhiteList/WhiteListEntries.js', 'WhiteList/*Entries.js'],
 ])
 
 for (const filePath of sourceFiles) {

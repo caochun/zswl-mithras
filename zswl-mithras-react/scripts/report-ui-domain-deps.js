@@ -292,6 +292,8 @@ const componentEntryScopeAliases = new Map([
   ['TrackEvent/TrackEventListEntries', 'TrackEventList'],
   ['TrackEvent/TrackEventModalEntries', 'TrackEventModal'],
   ['TrackEvent/TrackEventTaskEntries', 'TrackEventTask'],
+  ['WhiteList/DetailEntries', 'WhiteListDetail'],
+  ['WhiteList/ListEntries', 'WhiteListList'],
 ])
 
 const publicComponentRoots = new Set([

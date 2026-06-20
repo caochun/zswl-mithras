@@ -341,7 +341,8 @@
 - `TrackEvent/TrackEventModalEntries.js`
 - `TrackEvent/TrackEventTaskEntries.js`
 - `VisitorManage/VisitorManageEntries.js`
-- `WhiteList/WhiteListEntries.js`
+- `WhiteList/DetailEntries.js`
+- `WhiteList/ListEntries.js`
 
 ## 依赖规则
 
@@ -446,7 +447,7 @@
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
 - 我的流程页签、我的审批页签、流程查询、流程设计、流程详情路由和历史组件路由已收敛到 `src/components/Process` 的窄 `*Entries.js`，路由页仅保留入口装配。
-- 白名单列表、详情、列定义已收敛到 `src/components/WhiteList`，路由页仅保留入口装配。
+- 白名单列表和详情分别通过 `src/components/WhiteList/ListEntries.js`、`DetailEntries.js` 暴露，列定义保留为白名单域内私有配置，路由页仅保留入口装配。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
 
