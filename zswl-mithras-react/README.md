@@ -85,7 +85,10 @@
 - `Budget/PricingFtpYieldEntries.js`
 - `Budget/ProfitDistributionEntries.js`
 - `Budget/ProjectProfitEntries.js`
-- `Budget/ProvisioningEntries.js`
+- `Budget/ProvisioningDataEntries.js`
+- `Budget/ProvisioningImpairmentEntries.js`
+- `Budget/ProvisioningParamsConfigEntries.js`
+- `Budget/ProvisioningSharedEntries.js`
 - `Budget/StampDutyEntries.js`
 - `BudgetManagement/AssessmentEntries.js`
 - `BudgetManagement/ParameterEntries.js`
@@ -289,9 +292,9 @@
 - 预算业务账龄表列表页和详情页通过 `src/components/Budget/BusinessAgingTableEntries.js` 暴露，`src/pages/budget/businessAgingTable/*` 只保留路由壳。
 - 预算历史路径下的财务报表导入实际归入风险指标财报域，通过 `src/components/Risk/FinanceSheetFileEntries.js` 暴露，`src/pages/budget/financeSheet/*` 只保留路由壳。
 - 预算财务月结管理页通过 `src/components/Budget/FinancialMonthlyManagementEntries.js` 暴露，`src/pages/budget/financialMonthlyManagement/*` 只保留路由壳。
-- 预算拨备数据查询页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/dataSearch/*` 只保留路由壳。
-- 预算拨备减值列表页和详情页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/impairment/*` 只保留路由壳。
-- 预算拨备参数配置列表页和详情页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/paramsConfig/*` 只保留路由壳。
+- 预算拨备数据查询页通过 `src/components/Budget/ProvisioningDataEntries.js` 暴露，`src/pages/budget/provisioning/dataSearch/*` 只保留路由壳。
+- 预算拨备减值列表页和详情页通过 `src/components/Budget/ProvisioningImpairmentEntries.js` 暴露，`src/pages/budget/provisioning/impairment/*` 只保留路由壳。
+- 预算拨备参数配置列表页和详情页通过 `src/components/Budget/ProvisioningParamsConfigEntries.js` 暴露，`src/pages/budget/provisioning/paramsConfig/*` 只保留路由壳；预算管理拨备预测复用的拨备弹窗和列配置通过 `src/components/Budget/ProvisioningSharedEntries.js` 暴露。
 - 预算定价基础数据维护页通过 `src/components/Budget/PricingBaseDataEntries.js` 暴露，`src/pages/budget/pricing/baseData/*` 只保留路由壳。
 - 预算定价基础参数设置列表页和弹窗通过 `src/components/Budget/PricingBaseSetEntries.js` 暴露，`src/pages/budget/pricing/baseSet/*` 只保留路由壳。
 - 预算定价业务列表页、创建弹窗和详情页通过 `src/components/Budget/PricingBusinessEntries.js` 暴露，`src/pages/budget/pricing/business/*` 只保留路由壳。

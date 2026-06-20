@@ -8,7 +8,7 @@ import ParamsConfig from './ParamsConfig'
 import {
   BudgetProvisioningDataAddModal as AddModal,
   BudgetProvisioningImpairmentColumns as ALL_COLUMNS,
-} from '@/components/Budget/ProvisioningEntries'
+} from '@/components/Budget/ProvisioningSharedEntries'
 import { getTableColumns } from '@/utils'
 import { AmountColumn, DateColumn } from '@/components/Format'
 import { TableExportAction as TableExport } from '@/components/Actions'

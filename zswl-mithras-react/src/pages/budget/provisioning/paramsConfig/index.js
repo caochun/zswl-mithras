@@ -1,1 +1,1 @@
-export { BudgetProvisioningParamsConfig as default } from '@/components/Budget/ProvisioningEntries'
+export { BudgetProvisioningParamsConfig as default } from '@/components/Budget/ProvisioningParamsConfigEntries'

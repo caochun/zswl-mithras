@@ -1,1 +1,1 @@
-export { BudgetProvisioningDataSearch as default } from '@/components/Budget/ProvisioningEntries'
+export { BudgetProvisioningDataSearch as default } from '@/components/Budget/ProvisioningDataEntries'
