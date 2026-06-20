@@ -908,8 +908,24 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Process/ToSnapShoot/ProcessToSnapShoot.js',
   ],
   [
+    'src/components/Process/Query/index.js',
+    'src/components/Process/Query/ProcessQuery.js',
+  ],
+  [
     'src/components/Project/FinancialReportStatistics/index.js',
     'src/components/Project/FinancialReportStatistics/ProjectFinancialReportStatistics.js',
+  ],
+  [
+    'src/components/Project/Establishment/index.js',
+    'src/components/Project/Establishment/ProjectEstablishment.js',
+  ],
+  [
+    'src/components/Project/Price/index.js',
+    'src/components/Project/Price/ProjectPrice.js',
+  ],
+  [
+    'src/components/Project/Review/index.js',
+    'src/components/Project/Review/ProjectReview.js',
   ],
   [
     'src/components/Project/DebtEvaluation/index.js',

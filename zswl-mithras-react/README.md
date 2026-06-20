@@ -539,13 +539,14 @@
 - 流程信息弹窗通过 `src/components/Process/ProcessInfoModalEntries.js` 暴露，真实实现命名为 `src/components/Process/InfoModal/ProcessInfoModal.js`。
 - 流程审批历史、审批历史弹窗和流程图通过 `src/components/Process/*Entries.js` 暴露，真实实现命名为 `src/components/Process/ApprovalHistory/ProcessApprovalHistory.js`、`ApprovalHistoryModal/ProcessApprovalHistoryModal.js` 和 `TaskFlowChart/ProcessTaskFlowChart.js`。
 - 流程空白块和流程类型树分别通过 `src/components/Process/BlankBlockEntries.js`、`ProcessTypeTreeEntries.js` 暴露，真实实现命名为 `src/components/Process/BlankBlock/ProcessBlankBlock.js` 和 `src/components/Process/ProcessTypeTree/ProcessTypeTree.js`。
-- 流程详情、流程快照和跳转快照动作通过 `src/components/Process/*Entries.js` 暴露，流程快照真实实现命名为 `src/components/Process/Snapshoot/ProcessSnapshot.js`，不再依赖目录 `index.js`。
+- 流程查询、流程详情、流程快照和跳转快照动作通过 `src/components/Process/*Entries.js` 暴露，流程查询和流程快照真实实现分别命名为 `src/components/Process/Query/ProcessQuery.js`、`src/components/Process/Snapshoot/ProcessSnapshot.js`，不再依赖目录 `index.js`。
 - 项目债项评级抽屉通过 `src/components/Project/DebtEvaluationEntries.js` 暴露，真实实现命名为 `src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js`。
 - 项目财报统计和评审材料表通过 `src/components/Project/*Entries.js` 暴露，评审材料真实实现命名为 `src/components/Project/ReviewDetail/Data/ProjectReviewDetailDataList.js` 和 `ReviewDetail/Report/ProjectReviewDetailReport.js`，不再依赖目录 `index.js`。
 - 项目评审现金流量表通过 `src/components/Project/ReviewDetailCashFlowEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewDetail/CashFlowStatement/ProjectReviewDetailCashFlowStatement.js`。
 - 项目基础信息动态客户表单项通过 `src/components/Project/FormListItemEntries.js` 暴露，真实实现命名为 `src/components/Project/FormListItem/ProjectFormListItem.js`，项目域内复用也直接指向该语义实现。
 - 项目评审会纪要弹窗通过 `src/components/Project/ProjectReviewMeetingModalEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js`。
 - 项目评审快照通过 `src/components/Project/ReviewSnapshotEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewSnapshot/ProjectReviewSnapshot.js`。
+- 项目立项、定价和评审列表页分别通过 `src/components/Project/EstablishmentEntries.js`、`PriceEntries.js`、`ReviewEntries.js` 暴露，真实实现命名为 `ProjectEstablishment.js`、`ProjectPrice.js` 和 `ProjectReview.js`，不再依赖目录 `index.js`。
 - 风险云指标详情通过 `src/components/Risk/CloudMetricValueEntries.js` 暴露，真实实现命名为 `src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js`。
 - 风险公开监控列配置通过 `src/components/Risk/PublicMonitorColumnsEntries.js` 暴露，真实实现命名为 `src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js`。
 - 风险公开监控详情、财报指标表、定时指标、目标指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskOverdueListSearch.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。

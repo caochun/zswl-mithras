@@ -1,1 +1,1 @@
-export { default as ProjectPrice } from './Price'
+export { default as ProjectPrice } from './Price/ProjectPrice'

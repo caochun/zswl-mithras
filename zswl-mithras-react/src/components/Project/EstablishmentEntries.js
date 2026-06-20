@@ -1,1 +1,1 @@
-export { default as ProjectEstablishment } from './Establishment'
+export { default as ProjectEstablishment } from './Establishment/ProjectEstablishment'

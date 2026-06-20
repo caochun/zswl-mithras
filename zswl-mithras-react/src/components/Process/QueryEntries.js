@@ -1,1 +1,1 @@
-export { default as ProcessQuery } from './Query'
+export { default as ProcessQuery } from './Query/ProcessQuery'

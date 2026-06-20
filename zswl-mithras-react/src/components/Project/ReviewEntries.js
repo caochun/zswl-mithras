@@ -1,1 +1,1 @@
-export { default as ProjectReview } from './Review'
+export { default as ProjectReview } from './Review/ProjectReview'
