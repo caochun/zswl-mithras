@@ -1,0 +1,1 @@
+export { default as KpiProjectAllotHistory } from './ProjectAllot/History/[id]'
