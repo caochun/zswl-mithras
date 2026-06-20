@@ -95,7 +95,6 @@ class Store {
         actualAmountReceive,
         ...rest
       } = values
-      console.log('collectionType: ', collectionType)
       const billManagementAddREQ = {
         billCode,
         billAmount,

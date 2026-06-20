@@ -154,7 +154,6 @@ class Store {
    * 编辑记录
    */
   editDetail = (record) => {
-    console.log('record: ', record)
     this.addModal.open(record)
   }
   /**

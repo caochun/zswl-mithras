@@ -38,7 +38,6 @@ function WriteOffModal({ store }) {
         paymentActualDetailId: res?.[0]?.paymentActualDetailId,
       })
     } catch (e) {
-      console.log(e)
       setCashFLowCodeList([])
       form.setFieldsValue({
         cashFlowCode: null,

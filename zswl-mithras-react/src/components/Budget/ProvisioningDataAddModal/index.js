@@ -26,7 +26,6 @@ const AddModal = observer(({ store }) => {
     min: -Infinity,
   }
   const ref = useRef(null)
-  console.log('ref: ', ref)
 
   return (
     <Modal title={title} store={store.addModal} width={600} destroyOnClose>

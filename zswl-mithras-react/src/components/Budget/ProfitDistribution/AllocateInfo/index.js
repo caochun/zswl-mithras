@@ -21,7 +21,6 @@ const Index = ({
     }),
     bmnameColumns
   )
-  console.log('bmBaseInfo_columns', bmBaseInfo_columns)
 
   useEffect(() => {
     projectDistributionId && store.getAllocateInfoDetail()

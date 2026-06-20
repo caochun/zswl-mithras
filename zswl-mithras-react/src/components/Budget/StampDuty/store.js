@@ -32,7 +32,6 @@ export default class DataStore{
         const _list = this.type === 'ht' ? 'contracts' : 'fundContracts'
         if(res?.[_list]?.list){
             this.constractList = res?.[_list]?.list.map(item => ({...item,label:item[_label],value:item.id}))
-            console.log(this.constractList)
         }
     }
     getClientItem = async(belongId) => {

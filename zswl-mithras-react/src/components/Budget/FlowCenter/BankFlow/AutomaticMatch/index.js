@@ -27,7 +27,6 @@ const modalValidate = (validator, modalParams) => {
         resolve(true)
       }
     } catch (e) {
-      console.log('e: ', e)
       reject(e)
     }
   })
