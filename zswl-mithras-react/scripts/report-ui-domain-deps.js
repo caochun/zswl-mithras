@@ -188,6 +188,8 @@ const componentEntryScopeAliases = new Map([
   ['Financial/LiquidityManagementEntries', 'FinancialLiquidityManagement'],
   ['Financial/LiquidityPredictionParametersEntries', 'FinancialLiquidityPredictionParameters'],
   ['Financial/LiquiditySupervisionAccountEntries', 'FinancialLiquiditySupervisionAccount'],
+  ['Financial/PaymentListPageEntries', 'FinancialPaymentListPage'],
+  ['Financial/PaymentLogEntries', 'FinancialPaymentLog'],
   ['Financial/FinancingUrlEntries', 'FinancialUrl'],
   ['Financial/SelectEntries', 'FinancialSelect'],
   ['Financial/DirectDetailEntries', 'FinancialDirectDetail'],

@@ -1,1 +1,1 @@
-export { FinancialPaymentChangeLog as default } from '@/components/Financial/PaymentListEntries'
+export { FinancialPaymentChangeLog as default } from '@/components/Financial/PaymentLogEntries'
