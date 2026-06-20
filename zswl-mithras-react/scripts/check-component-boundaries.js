@@ -189,6 +189,14 @@ const removedLegacyApiPathPrefixes = [
     replacement: 'src/api/risk',
   },
   {
+    pathPrefix: 'src/api/risk/customerUnifiedViewController',
+    replacement: 'src/api/customerView/riskAreaApi or src/api/customerView/customerDetailApi',
+  },
+  {
+    pathPrefix: 'src/api/risk/interface/customerUnifiedViewController',
+    replacement: 'src/api/customerView/riskAreaApi or src/api/customerView/customerDetailApi',
+  },
+  {
     pathPrefix: 'src/api/workbench',
     replacement: 'src/api/dashboard/workbench',
   },
@@ -591,10 +599,7 @@ const legacyApiPrefixRules = [
   },
   {
     legacyPrefix: '@/api/risk/customerUnifiedViewController',
-    replacementPrefix: '@/api/customerView/riskAreaApi or @/api/risk/customerUnifiedViewController in Risk domain',
-    allowedSourcePathPrefixes: [
-      'src/pages/risk/',
-    ],
+    replacementPrefix: '@/api/customerView/riskAreaApi or @/api/customerView/customerDetailApi',
   },
   {
     legacyPrefix: '@/api/risk/monitorEarly',
