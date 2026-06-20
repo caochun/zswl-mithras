@@ -1,1 +1,1 @@
-export { BudgetManagementProvisionForecastDetail as default } from '@/components/BudgetManagement/ProvisionForecastEntries'
+export { BudgetManagementProvisionForecastDetail as default } from '@/components/BudgetManagement/ProvisionForecastDetailEntries'
