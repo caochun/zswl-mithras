@@ -1,1 +1,1 @@
-export { BlackGrayBreakThroughApplication as default } from '@/components/BlackGray/BreakThroughEntries'
+export { BlackGrayBreakThroughApplication as default } from '@/components/BlackGray/BreakThroughApplicationEntries'

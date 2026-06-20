@@ -752,6 +752,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Archives/ArchivesEntries.js', 'Archives/* narrow Entries.js'],
   ['BlackGray/AllQueryEntries.js', 'BlackGray/AllQuery*Entries.js'],
   ['BlackGray/BlackGrayEntries.js', 'BlackGray/* narrow Entries.js'],
+  ['BlackGray/BreakThroughEntries.js', 'BlackGray/BreakThrough*Entries.js'],
   ['BlackGray/EnterDatabaseEntries.js', 'BlackGray/EnterDatabase*Entries.js'],
   ['BlackGray/OutboundEntries.js', 'BlackGray/Outbound*Entries.js'],
   ['BlackGray/QueryEntries.js', 'BlackGray/AllQuery*Entries.js or BlackGray/QueryIframeEntries.js'],

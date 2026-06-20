@@ -1,1 +1,1 @@
-export { BlackGrayBreakThroughApproval as default } from '@/components/BlackGray/BreakThroughEntries'
+export { BlackGrayBreakThroughApproval as default } from '@/components/BlackGray/BreakThroughApprovalEntries'

@@ -121,6 +121,8 @@ const componentEntryScopeAliases = new Map([
   ['Archives/ManagementEntries', 'ArchivesManagement'],
   ['Archives/OtherFilingMaterialsEntries', 'ArchivesOtherFilingMaterials'],
   ['Archives/TaskEntries', 'ArchivesTask'],
+  ['BlackGray/BreakThroughApplicationEntries', 'BlackGrayBreakThroughApplication'],
+  ['BlackGray/BreakThroughApprovalEntries', 'BlackGrayBreakThroughApproval'],
   ['ClientMaterialTable/BusinessMaterialTableEntries', 'BusinessMaterialTable'],
   ['Contract/ChangeDetailEntries', 'ContractChangeDetail'],
   ['Contract/ApplicationDetailLogEntries', 'ContractApplicationDetailLog'],
