@@ -1,1 +1,1 @@
-export { default as BudgetPricingFtpInterest } from './PricingFtpInterest/List'
+export { default as BudgetPricingFtpInterest } from './PricingFtpInterest/List/BudgetPricingFtpInterestList'

@@ -156,12 +156,52 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/FinancingCostEditModal/BudgetFinancingCostEditModal.js',
   ],
   [
+    'src/components/Budget/FtpInterestPriceChangeModal/index.js',
+    'src/components/Budget/FtpInterestPriceChangeModal/BudgetFtpInterestPriceChangeModal.js',
+  ],
+  [
+    'src/components/Budget/IncomeShareTable/index.js',
+    'src/components/Budget/IncomeShareTable/BudgetIncomeShareTable.js',
+  ],
+  [
+    'src/components/Budget/IncomeShareTableDetail/index.js',
+    'src/components/Budget/IncomeShareTableDetail/BudgetIncomeShareTableDetail.js',
+  ],
+  [
+    'src/components/Budget/PricingBaseSet/List/index.js',
+    'src/components/Budget/PricingBaseSet/List/BudgetPricingBaseSetList.js',
+  ],
+  [
+    'src/components/Budget/PricingBaseSetModalDetail/ModalEditTable/index.js',
+    'src/components/Budget/PricingBaseSetModalDetail/ModalEditTable/BudgetPricingBaseSetModalEditTable.js',
+  ],
+  [
+    'src/components/Budget/PricingFtpInterest/List/index.js',
+    'src/components/Budget/PricingFtpInterest/List/BudgetPricingFtpInterestList.js',
+  ],
+  [
     'src/components/Budget/PricingFtpYield/List/index.js',
     'src/components/Budget/PricingFtpYield/List/BudgetPricingFtpYieldList.js',
   ],
   [
+    'src/components/Budget/ProvisioningDataAddModal/index.js',
+    'src/components/Budget/ProvisioningDataAddModal/BudgetProvisioningDataAddModal.js',
+  ],
+  [
+    'src/components/Budget/ProvisioningDataSearch/List/index.js',
+    'src/components/Budget/ProvisioningDataSearch/List/BudgetProvisioningDataSearchList.js',
+  ],
+  [
+    'src/components/Budget/ProvisioningImpairment/Detail/index.js',
+    'src/components/Budget/ProvisioningImpairment/Detail/BudgetProvisioningImpairmentDetail.js',
+  ],
+  [
     'src/components/Budget/ProvisioningImpairmentColumns/index.js',
     'src/components/Budget/ProvisioningImpairmentColumns/BudgetProvisioningImpairmentColumns.js',
+  ],
+  [
+    'src/components/Budget/ProvisioningParamsConfig/Detail/index.js',
+    'src/components/Budget/ProvisioningParamsConfig/Detail/BudgetProvisioningParamsConfigDetail.js',
   ],
   [
     'src/components/Budget/ProvisioningParamsConfigColumns/index.js',

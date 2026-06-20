@@ -1,6 +1,6 @@
 import { Input, Modal } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import ModalEditTable from './ModalEditTable'
+import ModalEditTable from './ModalEditTable/BudgetPricingBaseSetModalEditTable'
 import ValuationFluctuations from './ValuationFluctuations'
 import { FormTable } from '@/components/Form'
 

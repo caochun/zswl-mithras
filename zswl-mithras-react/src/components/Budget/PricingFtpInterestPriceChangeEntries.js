@@ -1,1 +1,1 @@
-export { default as BudgetFtpInterestPriceChangeModal } from './FtpInterestPriceChangeModal'
+export { default as BudgetFtpInterestPriceChangeModal } from './FtpInterestPriceChangeModal/BudgetFtpInterestPriceChangeModal'

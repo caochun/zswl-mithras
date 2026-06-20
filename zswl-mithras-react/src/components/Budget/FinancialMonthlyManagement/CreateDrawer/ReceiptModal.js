@@ -1,5 +1,5 @@
 import { Modal } from '@zswl/components'
-import IncomeShareTableDetail from '../../IncomeShareTableDetail'
+import IncomeShareTableDetail from '../../IncomeShareTableDetail/BudgetIncomeShareTableDetail'
 import { observer } from '@zswl/admin'
 
 const Index = ({ store }) => {

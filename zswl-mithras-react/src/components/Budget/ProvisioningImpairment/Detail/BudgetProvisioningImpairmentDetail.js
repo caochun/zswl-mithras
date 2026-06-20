@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Table, Page, Button } from '@zswl/components'
 import { getFormColumns, getTableColumns, saveServer } from '@/utils'
-import AddModal from '../../ProvisioningDataAddModal'
+import AddModal from '../../ProvisioningDataAddModal/BudgetProvisioningDataAddModal'
 import ModalStore from '../../ProvisioningDataAddModal/store'
 import ALL_COLUMNS from '../../ProvisioningImpairmentColumns/BudgetProvisioningImpairmentColumns'
 import PageListDown from '@/components/PageListDown'

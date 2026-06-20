@@ -5,7 +5,7 @@ import ALL_COLUMNS from '../Column'
 import Api from '@/api/budget/pricing/ftpInterest'
 import PageListDown from '@/components/PageListDown'
 import FtpRunModal from './FtpRunModal'
-import PriceChangeModal from '../../FtpInterestPriceChangeModal'
+import PriceChangeModal from '../../FtpInterestPriceChangeModal/BudgetFtpInterestPriceChangeModal'
 import ftpInterestChangeApi from '@/api/budget/pricing/ftpInterestChangeApi'
 import { saveServer } from '@/utils'
 
