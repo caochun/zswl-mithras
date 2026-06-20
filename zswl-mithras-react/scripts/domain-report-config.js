@@ -18,6 +18,7 @@ const domainAliasPairs = [
   ['Permission', 'permission'],
   ['ProfitDistribution', 'budget'],
   ['rzy', 'externalEmbed'],
+  ['workbench', 'dashboard'],
 ]
 
 const extraApiDomainAliasPairs = [
