@@ -497,11 +497,14 @@
 - 合同申请日志、变更材料、变更协议、结清协议和起租材料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 客户企查查单一视图和客户风险单一视图分别通过 `src/components/Customer/QccSingleViewEntries.js`、`SingleViewRiskEntries.js` 暴露，真实实现命名为 `src/components/Customer/QccSingleView/CustomerQccSingleView.js` 和 `src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js`。
+- 客户评级列配置通过 `src/components/Customer/CustomerRatingListEntries.js` 暴露，真实实现命名为 `src/components/Customer/CustomerRatColumns/CustomerRatingColumns.js`。
 - 征信查询抽屉通过 `src/components/Credit/CreditReportSearchEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js`。
+- 授信管理五级分类创建弹窗、完成视图、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
 - 付款申请创建弹窗和公开信息提示弹窗分别通过 `src/components/Cpm/PaymentApplicationListEntries.js`、`PaymentApplicationPublicCheckEntries.js` 暴露，真实实现命名为 `src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js` 和 `src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js`。
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 厂商管理外部系统页面集合通过 `src/components/ExternalEmbed/RzyEntries.js` 暴露，真实实现命名为 `src/components/ExternalEmbed/RzyPages/RzyPages.js`。
 - 融资列表创建和变更弹窗分别通过 `src/components/Financial/FundListCreateModalEntries.js`、`FundListChangeModalEntries.js` 暴露，真实实现命名为 `src/components/Financial/FundList/CreateModal/FinancialFundListCreateModal.js` 和 `src/components/Financial/FundList/ChangeModal/FinancialFundListChangeModal.js`。
+- 融资计息流程通过 `src/components/Financial/FinancingCarryInterestEntries.js` 暴露，真实实现命名为 `src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
 - 租赁物审核确认动作通过 `src/components/Lease/ApprovalConfirmEntries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js`。

@@ -1,7 +1,7 @@
 import { observer, getQuery, setSessionStorage } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import Tab from '../Tab'
-import { CREATETABLE_PARAMS } from '../../CreditTableConfig'
+import { CREATETABLE_PARAMS } from '../../CreditTableConfig/CreditTableConfig'
 import { isRiskManager } from '@/utils'
 import { useEffect } from 'react'
 

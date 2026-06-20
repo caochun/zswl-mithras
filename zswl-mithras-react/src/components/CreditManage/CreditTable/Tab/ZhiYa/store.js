@@ -4,7 +4,7 @@ import { message } from 'antd'
 import {
   CREATETABLE_PARAMS,
   getHeaderWithFunctionCode,
-} from '../../../CreditTableConfig'
+} from '../../../CreditTableConfig/CreditTableConfig'
 import { timeFormat } from '@/utils'
 import { pledgeApi as Api } from '@/api/credit/creditTableTabApi'
 import _ from 'lodash'

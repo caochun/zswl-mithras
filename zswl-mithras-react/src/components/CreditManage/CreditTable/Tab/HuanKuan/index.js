@@ -10,7 +10,7 @@ import {
   MatchOptionColumn,
 } from '@/components/Format'
 import { COMMON_COLUMNS } from '../../../CreditTableColumns'
-import { CREATETABLE_PARAMS } from '../../../CreditTableConfig'
+import { CREATETABLE_PARAMS } from '../../../CreditTableConfig/CreditTableConfig'
 import Store from './store'
 import EditButton from '../../Components/EditButton'
 import statusRender from '../../../CreditTableStatusRender'

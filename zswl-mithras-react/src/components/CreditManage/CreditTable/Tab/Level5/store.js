@@ -5,7 +5,7 @@ import { timeFormat } from '@/utils'
 import {
   CREATETABLE_PARAMS,
   getHeaderWithFunctionCode,
-} from '../../../CreditTableConfig'
+} from '../../../CreditTableConfig/CreditTableConfig'
 import _ from 'lodash'
 import Api from '@/api/credit/creditTableLevel5'
 

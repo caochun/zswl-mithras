@@ -188,8 +188,32 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js',
   ],
   [
+    'src/components/Customer/CustomerRatColumns/index.js',
+    'src/components/Customer/CustomerRatColumns/CustomerRatingColumns.js',
+  ],
+  [
     'src/components/Credit/CreditSearchModal/index.js',
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/FinishView/Account/index.js',
+    'src/components/CreditManage/CreditTable/FinishView/Account/CreditTableFinishAccount.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/FinishView/Batch/index.js',
+    'src/components/CreditManage/CreditTable/FinishView/Batch/CreditTableFinishBatch.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/Level5/CreateModal/index.js',
+    'src/components/CreditManage/CreditTable/Tab/Level5/CreateModal/CreditTableLevel5CreateModal.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Wait/index.js',
+    'src/components/CreditManage/CreditTable/Wait/CreditTableWait.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTableConfig/index.js',
+    'src/components/CreditManage/CreditTableConfig/CreditTableConfig.js',
   ],
   [
     'src/components/Cpm/PaymentApplication/PublicCheckModal/index.js',
@@ -214,6 +238,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Financial/FundList/CreateModal/index.js',
     'src/components/Financial/FundList/CreateModal/FinancialFundListCreateModal.js',
+  ],
+  [
+    'src/components/Financial/FinancingCarryInterestFlow/index.js',
+    'src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js',
   ],
   [
     'src/components/InsurancePolicy/Columns/index.js',

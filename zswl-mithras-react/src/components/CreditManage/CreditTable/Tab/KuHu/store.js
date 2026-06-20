@@ -2,7 +2,7 @@ import { TableStore } from '@zswl/components'
 import { makeAutoObservable } from '@zswl/admin'
 import { message } from 'antd'
 import { timeFormat } from '@/utils'
-import { getHeaderWithFunctionCode } from '../../../CreditTableConfig'
+import { getHeaderWithFunctionCode } from '../../../CreditTableConfig/CreditTableConfig'
 import { clientApi as Api } from '@/api/credit/creditTableTabApi'
 
 class Store {

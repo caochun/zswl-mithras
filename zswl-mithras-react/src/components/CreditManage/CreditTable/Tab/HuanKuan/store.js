@@ -5,7 +5,7 @@ import { timeFormat } from '@/utils'
 import {
   CREATETABLE_PARAMS,
   getHeaderWithFunctionCode,
-} from '../../../CreditTableConfig'
+} from '../../../CreditTableConfig/CreditTableConfig'
 import { repayApi as Api } from '@/api/credit/creditTableTabApi'
 
 class Store {
