@@ -216,6 +216,7 @@
 - `npm run report:unused-component-candidates -- --include-index --include-entries` 应保持清零；`npm run check:boundaries` 已把这组候选纳入门禁，用于阻止无引用 `index`、样式文件和 `*Entries.js` 残留回潮。
 - `npm run report:ui-domain-deps` 会把已拆出的窄入口按独立能力归类，例如 `AfterLeaseCheckPlanCreate`、`BlackGrayHit`、`BudgetPricingBusinessDetail`、`ContractApplicationDetail`、`ContractBaseInfo`、`ContractLeaseMaterials`、`CustomerDebtRatingList`、`CustomerExternalPublicInfo`、`CustomerSingleViewRisk`、`FinancialSelect`、`InsurancePolicyInfo`、`InsurancePolicyColumns`、`KpiBaseSetModalDetail`、`ProcessInfoModal`、`ProcessTaskFlowChart`、`ProjectReviewMeetingModal`、`ProjectReviewSnapshot`、`RentCollectionDetail`、`RiskPublicMonitorList`、`RiskSourceCardCalcModal`、`TrackEventDetail`、`TrackEventList`、`TrackEventModal`、`TrackEventTask`；这些报告项代表稳定共享能力，不等同于调用方依赖完整业务域。
 - `npm run report:ui-domain-deps` 的输出会区分域实现、流程编排和普通页面聚合。`Stable shared business capabilities` 是已确认可复用的业务能力入口，`still need semantic review` 是仍需逐项判断的真实跨域嵌入，`workflow orchestration` 是流程壳对业务详情的装配，`page aggregation` 是工作台、看板、生命周期视图等普通聚合页面的跨域依赖。普通聚合页面也会继续分为稳定能力使用和待语义评审项；后续重构应优先处理待评审清单，而不是机械追求所有跨域项归零。
+- `npm run check:boundaries` 会阻止 `report:ui-domain-deps` 中新增的 `still need semantic review` 项；新增跨域复用必须先明确是稳定共享能力、流程编排、页面聚合，或回收到单一业务域。
 - `npm run report:ui-domain-deps` 默认忽略同业务域页面路由壳到本域组件入口的引用，例如 `pages/project` 到 `components/Project`；报告中的 workflow/page aggregation 部分应主要用于观察流程、工作台、跨域页面编排。
 - `pages/index` 到 `App/RootRedirectEntries.js`、`pages/workbench` 到 `Dashboard/DashboardEntries.js` 属于稳定页面聚合入口；它们是路由重定向/工作台入口，不代表业务域实现互相嵌入。
 - `npm run check:boundaries` 会强制 `src/pages/**/*.js|jsx|ts|tsx` 保持为从 `@/components/**` 转发的轻薄路由壳，真实页面实现、样式和局部组件应放在对应 `src/components/<Domain>` 下。
@@ -289,7 +290,7 @@
 - 禁止预算应收账款页面和组件直接引用 `financial/accountsReceivable` 历史 API 前缀，应使用 `budget/accountsReceivable` 语义入口。
 - 禁止通用选择器直接引用 `groupCredit/common` 历史 API 前缀，应使用 `common/selectApi` 语义入口。
 - 禁止在 `src/components/**/api.js` 中只做 `@/api/**` 的一行转发；组件内部应直接引用语义明确的 `src/api` 入口，避免制造假本地 API 边界。
-- `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和 `.less` 样式 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止通过 `@/pages/**` 复用页面私有代码，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零。
+- `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和 `.less` 样式 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止通过 `@/pages/**` 复用页面私有代码，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零、UI 跨域依赖无待语义评审项。
 
 ## 当前边界收敛
 

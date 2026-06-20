@@ -5,6 +5,7 @@ const root = path.resolve(__dirname, '..')
 const srcDir = path.join(root, 'src')
 const readmePath = path.join(root, 'README.md')
 const { findUnusedComponentCandidates } = require('./report-unused-component-candidates')
+const { analyzeUiDomainDeps } = require('./report-ui-domain-deps')
 const scanDirs = [srcDir]
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const scannableFilePattern = /\.(js|jsx|ts|tsx|less)$/
@@ -944,6 +945,17 @@ for (const candidate of findUnusedComponentCandidates({
   violations.push({
     file: candidate,
     specifier: 'unused component candidate',
+  })
+}
+
+const {
+  businessEmbeddingEdges,
+  pageAggregationReviewEdges,
+} = analyzeUiDomainDeps()
+for (const edge of [...businessEmbeddingEdges, ...pageAggregationReviewEdges]) {
+  violations.push({
+    file: [...edge.files].sort().join(', '),
+    specifier: `${edge.sourceScope} -> ${edge.targetScope} requires semantic review`,
   })
 }
 

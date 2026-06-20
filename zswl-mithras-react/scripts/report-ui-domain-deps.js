@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
+const args = new Set(process.argv.slice(2))
 const root = path.resolve(__dirname, '..')
 const srcDir = path.join(root, 'src')
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
@@ -311,58 +312,90 @@ function getTargetScope(specifier) {
   return null
 }
 
-const edges = new Map()
+function analyzeUiDomainDeps() {
+  const edges = new Map()
 
-for (const filePath of walk(srcDir)) {
-  const source = fs.readFileSync(filePath, 'utf8')
-  const relativeFilePath = path.relative(root, filePath).split(path.sep).join('/')
-  const sourceScope = getSourceScope(relativeFilePath)
+  for (const filePath of walk(srcDir)) {
+    const source = fs.readFileSync(filePath, 'utf8')
+    const relativeFilePath = path.relative(root, filePath).split(path.sep).join('/')
+    const sourceScope = getSourceScope(relativeFilePath)
 
-  if (!sourceScope) {
-    continue
-  }
-
-  let match
-  while ((match = importPattern.exec(source))) {
-    const specifier = match[1]
-    const targetScope = getTargetScope(specifier)
-
-    if (!targetScope || targetScope.domain.toLowerCase() === sourceScope.domain.toLowerCase()) {
+    if (!sourceScope) {
       continue
     }
 
-    const edgeKey = `${sourceScope.key} -> ${targetScope.key}`
-    const edge = edges.get(edgeKey) || {
-      sourceScope: sourceScope.key,
-      targetScope: targetScope.key,
-      files: new Set(),
-      specifiers: new Set(),
+    let match
+    while ((match = importPattern.exec(source))) {
+      const specifier = match[1]
+      const targetScope = getTargetScope(specifier)
+
+      if (!targetScope || targetScope.domain.toLowerCase() === sourceScope.domain.toLowerCase()) {
+        continue
+      }
+
+      const edgeKey = `${sourceScope.key} -> ${targetScope.key}`
+      const edge = edges.get(edgeKey) || {
+        sourceScope: sourceScope.key,
+        targetScope: targetScope.key,
+        files: new Set(),
+        specifiers: new Set(),
+      }
+
+      edge.files.add(relativeFilePath)
+      edge.specifiers.add(specifier)
+      edges.set(edgeKey, edge)
+
+    }
+  }
+
+  const sortedEdges = [...edges.values()].sort((a, b) => {
+    const fileCountCompare = b.files.size - a.files.size
+    if (fileCountCompare !== 0) {
+      return fileCountCompare
     }
 
-    edge.files.add(relativeFilePath)
-    edge.specifiers.add(specifier)
-    edges.set(edgeKey, edge)
+    const sourceCompare = a.sourceScope.localeCompare(b.sourceScope)
+    if (sourceCompare !== 0) {
+      return sourceCompare
+    }
 
+    return a.targetScope.localeCompare(b.targetScope)
+  })
+
+  const workflowOrchestrationEdges = sortedEdges.filter(isWorkflowOrchestrationEdge)
+  const pageAggregationEdges = sortedEdges.filter(
+    (edge) =>
+      edge.sourceScope.startsWith('pages/') && !isWorkflowOrchestrationEdge(edge)
+  )
+  const pageStableSharedBusinessEdges = pageAggregationEdges.filter((edge) =>
+    stableSharedBusinessTargets.has(edge.targetScope) ||
+    stablePageAggregationTargets.has(edge.targetScope)
+  )
+  const pageAggregationReviewEdges = pageAggregationEdges.filter(
+    (edge) =>
+      !stableSharedBusinessTargets.has(edge.targetScope) &&
+      !stablePageAggregationTargets.has(edge.targetScope)
+  )
+  const domainImplementationEdges = sortedEdges.filter(
+    (edge) =>
+      !workflowOrchestrationEdges.includes(edge) &&
+      !pageAggregationEdges.includes(edge)
+  )
+  const stableSharedBusinessEdges = domainImplementationEdges.filter((edge) =>
+    stableSharedBusinessTargets.has(edge.targetScope)
+  )
+  const businessEmbeddingEdges = domainImplementationEdges.filter(
+    (edge) => !stableSharedBusinessTargets.has(edge.targetScope)
+  )
+
+  return {
+    sortedEdges,
+    workflowOrchestrationEdges,
+    pageStableSharedBusinessEdges,
+    pageAggregationReviewEdges,
+    stableSharedBusinessEdges,
+    businessEmbeddingEdges,
   }
-}
-
-const sortedEdges = [...edges.values()].sort((a, b) => {
-  const fileCountCompare = b.files.size - a.files.size
-  if (fileCountCompare !== 0) {
-    return fileCountCompare
-  }
-
-  const sourceCompare = a.sourceScope.localeCompare(b.sourceScope)
-  if (sourceCompare !== 0) {
-    return sourceCompare
-  }
-
-  return a.targetScope.localeCompare(b.targetScope)
-})
-
-if (sortedEdges.length === 0) {
-  console.log('No cross-domain UI dependencies found in src.')
-  process.exit(0)
 }
 
 function isWorkflowOrchestrationEdge(edge) {
@@ -372,32 +405,6 @@ function isWorkflowOrchestrationEdge(edge) {
     orchestrationTargetScopes.has(edge.targetScope)
   )
 }
-
-const workflowOrchestrationEdges = sortedEdges.filter(isWorkflowOrchestrationEdge)
-const pageAggregationEdges = sortedEdges.filter(
-  (edge) =>
-    edge.sourceScope.startsWith('pages/') && !isWorkflowOrchestrationEdge(edge)
-)
-const pageStableSharedBusinessEdges = pageAggregationEdges.filter((edge) =>
-  stableSharedBusinessTargets.has(edge.targetScope) ||
-  stablePageAggregationTargets.has(edge.targetScope)
-)
-const pageAggregationReviewEdges = pageAggregationEdges.filter(
-  (edge) =>
-    !stableSharedBusinessTargets.has(edge.targetScope) &&
-    !stablePageAggregationTargets.has(edge.targetScope)
-)
-const domainImplementationEdges = sortedEdges.filter(
-  (edge) =>
-    !workflowOrchestrationEdges.includes(edge) &&
-    !pageAggregationEdges.includes(edge)
-)
-const stableSharedBusinessEdges = domainImplementationEdges.filter((edge) =>
-  stableSharedBusinessTargets.has(edge.targetScope)
-)
-const businessEmbeddingEdges = domainImplementationEdges.filter(
-  (edge) => !stableSharedBusinessTargets.has(edge.targetScope)
-)
 
 function printEdges(title, edgesToPrint) {
   console.log(title)
@@ -438,55 +445,99 @@ function printFanIn(title, edgesToPrint) {
   }
 }
 
-printEdges(
-  'Stable shared business capabilities used by domain implementation code:',
-  stableSharedBusinessEdges
-)
+function runCli() {
+  const {
+    sortedEdges,
+    workflowOrchestrationEdges,
+    pageStableSharedBusinessEdges,
+    pageAggregationReviewEdges,
+    stableSharedBusinessEdges,
+    businessEmbeddingEdges,
+  } = analyzeUiDomainDeps()
 
-console.log('')
-printEdges(
-  'Cross-domain UI dependencies from domain implementation code that still need semantic review:',
-  businessEmbeddingEdges
-)
+  if (args.has('--fail-on-review') && (
+    businessEmbeddingEdges.length > 0 ||
+    pageAggregationReviewEdges.length > 0
+  )) {
+    printEdges(
+      'Cross-domain UI dependencies from domain implementation code that still need semantic review:',
+      businessEmbeddingEdges
+    )
+    console.log('')
+    printEdges(
+      'Cross-domain UI dependencies from page aggregation code that still need semantic review:',
+      pageAggregationReviewEdges
+    )
+    process.exit(1)
+  }
+  if (args.has('--fail-on-review')) {
+    console.log('No unreviewed cross-domain UI dependencies found.')
+    return
+  }
 
-console.log('')
-printEdges('Cross-domain UI dependencies from workflow orchestration code:', workflowOrchestrationEdges)
+  if (sortedEdges.length === 0) {
+    console.log('No cross-domain UI dependencies found in src.')
+    return
+  }
 
-console.log('')
-printEdges(
-  'Stable shared business capabilities used by page aggregation code:',
-  pageStableSharedBusinessEdges
-)
+  printEdges(
+    'Stable shared business capabilities used by domain implementation code:',
+    stableSharedBusinessEdges
+  )
 
-console.log('')
-printEdges(
-  'Cross-domain UI dependencies from page aggregation code that still need semantic review:',
-  pageAggregationReviewEdges
-)
+  console.log('')
+  printEdges(
+    'Cross-domain UI dependencies from domain implementation code that still need semantic review:',
+    businessEmbeddingEdges
+  )
 
-console.log('')
-printFanIn(
-  'Stable shared business capability fan-in from domain implementation code:',
-  stableSharedBusinessEdges
-)
+  console.log('')
+  printEdges('Cross-domain UI dependencies from workflow orchestration code:', workflowOrchestrationEdges)
 
-console.log('')
-printFanIn(
-  'Semantic-review target fan-in from domain implementation code:',
-  businessEmbeddingEdges
-)
+  console.log('')
+  printEdges(
+    'Stable shared business capabilities used by page aggregation code:',
+    pageStableSharedBusinessEdges
+  )
 
-console.log('')
-printFanIn('UI target fan-in from workflow orchestration code:', workflowOrchestrationEdges)
+  console.log('')
+  printEdges(
+    'Cross-domain UI dependencies from page aggregation code that still need semantic review:',
+    pageAggregationReviewEdges
+  )
 
-console.log('')
-printFanIn(
-  'Stable shared business capability fan-in from page aggregation code:',
-  pageStableSharedBusinessEdges
-)
+  console.log('')
+  printFanIn(
+    'Stable shared business capability fan-in from domain implementation code:',
+    stableSharedBusinessEdges
+  )
 
-console.log('')
-printFanIn(
-  'Semantic-review target fan-in from page aggregation code:',
-  pageAggregationReviewEdges
-)
+  console.log('')
+  printFanIn(
+    'Semantic-review target fan-in from domain implementation code:',
+    businessEmbeddingEdges
+  )
+
+  console.log('')
+  printFanIn('UI target fan-in from workflow orchestration code:', workflowOrchestrationEdges)
+
+  console.log('')
+  printFanIn(
+    'Stable shared business capability fan-in from page aggregation code:',
+    pageStableSharedBusinessEdges
+  )
+
+  console.log('')
+  printFanIn(
+    'Semantic-review target fan-in from page aggregation code:',
+    pageAggregationReviewEdges
+  )
+}
+
+if (require.main === module) {
+  runCli()
+}
+
+module.exports = {
+  analyzeUiDomainDeps,
+}
