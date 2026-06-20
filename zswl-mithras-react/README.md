@@ -444,7 +444,7 @@
 - 预算管理业绩目标是历史菜单路径，实际归入 KPI 业绩目标组件域；列表页和详情页通过 `src/components/Kpi/BusinessGoalEntries.js` 暴露，详情真实实现命名为 `KpiBusinessGoalDetail.js`，`src/pages/budgetManagement/businessGoal/*` 只保留路由壳。
 - 预算管理参数配置页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，真实实现命名为 `BudgetManagementParameterConfiguration.js`，`src/pages/budgetManagement/parameterConfig` 只保留路由壳。
 - 预算管理参数配置（历史定价基础配置路径）页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，真实实现命名为 `BudgetManagementParameterConfiguration.js`，`src/pages/budgetManagement/parameterConfiguration` 只保留路由壳。
-- 预算管理投放计划列表页、详情页和周报详情页分别通过 `src/components/BudgetManagement/PlacementPlanListEntries.js`、`PlacementPlanDetailEntries.js`、`PlacementPlanWeekDetailEntries.js` 暴露，投放计划和周报详情真实实现命名为 `BudgetManagementPlacementPlan.js` 和 `BudgetManagementPlacementPlanWeekDetail.js`，`src/pages/budgetManagement/placementPlan/*` 只保留路由壳。
+- 预算管理投放计划列表页、详情页和周报详情页分别通过 `src/components/BudgetManagement/PlacementPlanListEntries.js`、`PlacementPlanDetailEntries.js`、`PlacementPlanWeekDetailEntries.js` 暴露，真实实现命名为 `BudgetManagementPlacementPlan.js`、`BudgetManagementPlacementPlanDetail.js` 和 `BudgetManagementPlacementPlanWeekDetail.js`，`src/pages/budgetManagement/placementPlan/*` 只保留路由壳。
 - 预算管理成本计划列表页和详情页通过 `src/components/BudgetManagement/PlanCostEntries.js` 暴露，`src/pages/budgetManagement/plan/cost/*` 只保留路由壳。
 - 预算管理利润计划列表页、详情页和业务明细页分别通过 `src/components/BudgetManagement/PlanProfitListEntries.js`、`PlanProfitDetailEntries.js`、`PlanProfitBusinessDetailEntries.js` 暴露，利润计划详情真实实现命名为 `BudgetManagementPlanProfitDetail.js`，`src/pages/budgetManagement/plan/profit/*` 只保留路由壳。
 - 预算管理拨备预测列表页、详情页和配置详情页分别通过 `src/components/BudgetManagement/ProvisionForecastListEntries.js`、`ProvisionForecastDetailEntries.js`、`ProvisionForecastConfigDetailEntries.js` 暴露，`src/pages/budgetManagement/provisionForecast/*` 只保留路由壳。
@@ -495,9 +495,9 @@
 - 预算管理成本计划、利润计划详情/业务明细/列表、拨备预测列表和配置详情通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现使用预算管理域语义文件名，不再依赖目录 `index.js`。
 - 图表柱状图和折线图分别通过 `src/components/Chart/BarChartEntries.js`、`LineChartEntries.js` 暴露，真实实现命名为 `src/components/Chart/BarChart/BarChart.js` 和 `src/components/Chart/LineChart/LineChart.js`。
 - 黑灰名单命中标识通过 `src/components/BlackGray/BlackGrayHitEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Info/BlackGrayHitInfo.js`。
-- 黑灰名单突破申请、入库申请、入库外部入口、出库申请和仓库查询分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现使用 BlackGray 域语义文件名，不再依赖目录 `index.js`。
+- 黑灰名单突破申请、入库申请、入库外部入口、出库申请、仓库查询和仓库主任务分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现使用 BlackGray 域语义文件名，不再依赖目录 `index.js`。
 - 黑灰名单参数规则页通过 `src/components/BlackGray/ParameterEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Warehouse/Rule/BlackGrayWarehouseRule.js`。
-- 档案详情和档案模板任务页分别通过 `src/components/Archives/ManageEntries.js`、`TaskEntries.js` 暴露，真实实现命名为 `src/components/Archives/Manage/detail/ArchivesManageDetail.js` 和 `src/components/Archives/Task/ArchivesTask.js`。
+- 档案管理页、档案详情和档案模板任务页分别通过 `src/components/Archives/ManageEntries.js`、`TaskEntries.js` 暴露，真实实现命名为 `src/components/Archives/Manage/ArchivesManage.js`、`src/components/Archives/Manage/detail/ArchivesManageDetail.js` 和 `src/components/Archives/Task/ArchivesTask.js`。
 - 黑灰名单突破审批、入库历史、出库审批、入库上传、出库查询、仓库审批和仓库子任务分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现命名为 `BlackGrayBreakThroughApproval.js`、`BlackGrayEnterDatabaseHistory.js`、`BlackGrayOutboundApproval.js`、`BlackGrayEnterDatabaseUpload.js`、`BlackGrayOutboundSearch.js`、`BlackGrayWarehouseApproval.js` 和 `BlackGrayWarehouseSubTask.js`，不再依赖目录 `index.js`。
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
@@ -596,7 +596,7 @@
 - `customerMonitoring`：客户监控历史路由壳，当前实现已收敛到 `src/components/Customer/MonitoringEntries.js` 和 `src/components/Customer/MonitoringDetailEntries.js`，列表真实实现命名为 `CustomerMonitoring.js`。
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`，真实实现命名为 `RiskMonitorEarly.js`。
-- `login`：登录和初次登录改密历史路由壳，页面实现已收敛到 `src/components/Permission/AuthEntries.js`，API 语义归属权限认证。
+- `login`：登录和初次登录改密历史路由壳，页面实现已收敛到 `src/components/Permission/AuthEntries.js`，登录真实实现命名为 `PermissionLogin.js`，API 语义归属权限认证。
 - `customer/customerRat`：客户评级列表历史路由壳，列表实现和列配置已收敛到 `src/components/Customer/CustomerRatingListEntries.js`。
 - `customer/maintain`：客户维护列表历史路由壳，列表、详情和日志分别通过 `src/components/Customer/MaintainListEntries.js`、`src/components/Customer/MaintainDetailEntries.js` 和 `src/components/Customer/MaintainLogEntries.js` 暴露，列表和日志真实实现命名为 `CustomerMaintain.js` 和 `CustomerMaintainDetailLog.js`。
 - `msgNotification`：消息中心历史路由壳，当前实现已收敛到 `src/components/Message/NotificationEntries.js`。

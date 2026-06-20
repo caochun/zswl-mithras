@@ -224,6 +224,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BlackGray/Warehouse/Rule/BlackGrayWarehouseRule.js',
   ],
   [
+    'src/components/BlackGray/Warehouse/MainTask/index.js',
+    'src/components/BlackGray/Warehouse/MainTask/BlackGrayWarehouseMainTask.js',
+  ],
+  [
     'src/components/BlackGray/Warehouse/SubTask/index.js',
     'src/components/BlackGray/Warehouse/SubTask/BlackGrayWarehouseSubTask.js',
   ],
@@ -392,6 +396,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BudgetManagement/PlacementPlan/BudgetManagementPlacementPlan.js',
   ],
   [
+    'src/components/BudgetManagement/PlacementPlanDetail/index.js',
+    'src/components/BudgetManagement/PlacementPlanDetail/BudgetManagementPlacementPlanDetail.js',
+  ],
+  [
     'src/components/BudgetManagement/PlacementPlanWeekDetail/index.js',
     'src/components/BudgetManagement/PlacementPlanWeekDetail/BudgetManagementPlacementPlanWeekDetail.js',
   ],
@@ -406,6 +414,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/BudgetManagement/ProvisionForecast/List/index.js',
     'src/components/BudgetManagement/ProvisionForecast/List/BudgetManagementProvisionForecastList.js',
+  ],
+  [
+    'src/components/Archives/Manage/index.js',
+    'src/components/Archives/Manage/ArchivesManage.js',
   ],
   [
     'src/components/Archives/Manage/detail/index.js',
@@ -1038,6 +1050,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Preview/PdfPreview/index.js',
     'src/components/Preview/PdfPreview/PdfPreview.js',
+  ],
+  [
+    'src/components/Permission/Auth/index.js',
+    'src/components/Permission/Auth/PermissionLogin.js',
   ],
   [
     'src/components/Permission/Log/index.js',

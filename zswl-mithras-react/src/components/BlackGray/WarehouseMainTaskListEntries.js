@@ -1,1 +1,1 @@
-export { default as BlackGrayWarehouseMainTask } from './Warehouse/MainTask'
+export { default as BlackGrayWarehouseMainTask } from './Warehouse/MainTask/BlackGrayWarehouseMainTask'
