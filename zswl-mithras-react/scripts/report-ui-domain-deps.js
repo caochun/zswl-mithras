@@ -149,7 +149,7 @@ const componentEntryScopeAliases = new Map([
   ['Financial/FinancingCarryInterestEntries', 'FinancialFinancingCarryInterest'],
   ['Financial/FundProcessEntries', 'FinancialFundProcess'],
   ['Financial/PaymentBatchApprovalEntries', 'FinancialPaymentBatchApproval'],
-  ['Financial/PaymentDetailEntries', 'FinancialPaymentDetail'],
+  ['Financial/PaymentDetailPageEntries', 'FinancialPaymentDetail'],
   ['InsurancePolicy/InsurancePolicyEntries', 'InsurancePolicyInfo'],
   ['InsurancePolicy/InsurancePolicyColumnsEntries', 'InsurancePolicyColumns'],
   ['Kpi/BaseSetDepartmentTheoryEntries', 'KpiBaseSetDepartmentTheory'],

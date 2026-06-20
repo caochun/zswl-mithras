@@ -160,7 +160,7 @@
 - `Financial/OrgEntries.js`
 - `Financial/PayableInterestEntries.js`
 - `Financial/PaymentBatchApprovalEntries.js`
-- `Financial/PaymentDetailEntries.js`
+- `Financial/PaymentDetailPageEntries.js`
 - `Financial/PaymentListEntries.js`
 - `Financial/PropertyEntries.js`
 - `Financial/SelectEntries.js`
