@@ -7,6 +7,7 @@ const readmePath = path.join(root, 'README.md')
 const { findUnusedComponentCandidates } = require('./report-unused-component-candidates')
 const { analyzeUiDomainDeps } = require('./report-ui-domain-deps')
 const scanDirs = [srcDir]
+const allFilePattern = /./
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const scannableFilePattern = /\.(js|jsx|ts|tsx|less)$/
 const styleFilePattern = /\.(less|css|scss|sass)$/
@@ -704,6 +705,17 @@ function extractNamedImports(importText) {
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
 const styleFiles = scanDirs.flatMap((dir) => walkMatchingFiles(dir, styleFilePattern))
+const pageFiles = walkMatchingFiles(path.join(srcDir, 'pages'), allFilePattern)
+
+for (const filePath of pageFiles) {
+  const relativeFilePath = path.relative(root, filePath)
+  if (!sourceFilePattern.test(filePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'non-route file in src/pages (move implementation, styles, and assets to src/components/<Domain>)',
+    })
+  }
+}
 
 for (const filePath of styleFiles) {
   if (fs.statSync(filePath).size === 0) {
