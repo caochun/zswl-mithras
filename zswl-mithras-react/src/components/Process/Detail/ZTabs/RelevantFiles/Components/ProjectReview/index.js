@@ -3,7 +3,7 @@ import { getQuery } from '@zswl/admin'
 import {
   ReviewDetailDataList as Data,
   ReviewDetailReport as Report,
-} from '@/components/Project/ReviewProcessMaterialEntries'
+} from '@/components/Project/ReviewDetailMaterialEntries'
 import Api from '@/api/process/detail/projectReviewDetailApi'
 import BlankBlock from '../../../../../BlankBlock'
 import { useEffect, useState } from 'react'

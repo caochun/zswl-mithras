@@ -333,8 +333,8 @@
 - `Project/ReviewDetailPageEntries.js`
 - `Project/ReviewDetailQuotationEntries.js`
 - `Project/ReviewEntries.js`
+- `Project/ReviewMaterialTableEntries.js`
 - `Project/ReviewProcessDetailEntries.js`
-- `Project/ReviewProcessMaterialEntries.js`
 - `Project/ReviewProcessMeetingEntries.js`
 - `Project/ReviewSnapshotEntries.js`
 - `Report/FinancialReportApprovalEntries.js`
