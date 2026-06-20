@@ -760,12 +760,36 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Report/FinancialReportApproval/ReportFinancialReportApproval.js',
   ],
   [
+    'src/components/Report/FinancialReportList/index.js',
+    'src/components/Report/FinancialReportList/ReportFinancialReportList.js',
+  ],
+  [
     'src/components/Report/Management/InternalHistory/index.js',
     'src/components/Report/Management/InternalHistory/ReportInternalHistory.js',
   ],
   [
+    'src/components/Report/Management/Management/index.js',
+    'src/components/Report/Management/Management/ReportManagement.js',
+  ],
+  [
     'src/components/Risk/PublicMonitorColumns/index.js',
     'src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js',
+  ],
+  [
+    'src/components/Risk/FinanceSheet/index.js',
+    'src/components/Risk/FinanceSheet/RiskFinanceSheet.js',
+  ],
+  [
+    'src/components/Risk/MetricTimed/index.js',
+    'src/components/Risk/MetricTimed/RiskMetricTimed.js',
+  ],
+  [
+    'src/components/Risk/MetricValue/Target/index.js',
+    'src/components/Risk/MetricValue/Target/RiskMetricValueTarget.js',
+  ],
+  [
+    'src/components/Risk/OverdueListSearch/index.js',
+    'src/components/Risk/OverdueListSearch/RiskOverdueListSearch.js',
   ],
   [
     'src/components/Risk/CloudMetricValue/Detail/index.js',
@@ -874,6 +898,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Risk/RiskStrategy/RelateMonitor/index.js',
     'src/components/Risk/RiskStrategy/RelateMonitor/RiskStrategyRelateMonitor.js',
+  ],
+  [
+    'src/components/TrackEvent/Tracking/detail/index.js',
+    'src/components/TrackEvent/Tracking/detail/TrackEventDetail.js',
   ],
   [
     'src/components/TrackEvent/TrackModal/index.js',

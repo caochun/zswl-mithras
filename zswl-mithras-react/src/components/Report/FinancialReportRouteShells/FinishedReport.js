@@ -1,4 +1,4 @@
-import FinancialReportList from '../FinancialReportList'
+import FinancialReportList from '../FinancialReportList/ReportFinancialReportList'
 
 const FinishedReport = () => {
   return <FinancialReportList listType="finish" />

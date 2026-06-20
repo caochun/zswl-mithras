@@ -3,7 +3,7 @@ import { Page } from '@zswl/components'
 import { Tabs, Space, Tooltip } from 'antd'
 import Control from './Control'
 import JinKon from './JinKon'
-import Target from './Target'
+import Target from './Target/RiskMetricValueTarget'
 import IconFont from '@/components/Icon'
 
 function Index() {

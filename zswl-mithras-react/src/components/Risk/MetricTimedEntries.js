@@ -1,1 +1,1 @@
-export { default as RiskMetricTimed } from './MetricTimed'
+export { default as RiskMetricTimed } from './MetricTimed/RiskMetricTimed'

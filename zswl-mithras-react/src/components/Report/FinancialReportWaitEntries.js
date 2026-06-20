@@ -1,1 +1,1 @@
-export { default as FinancialReportList } from './FinancialReportList'
+export { default as FinancialReportList } from './FinancialReportList/ReportFinancialReportList'

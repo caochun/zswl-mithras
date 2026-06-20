@@ -1,1 +1,1 @@
-export { default as TrackEventDetail } from './Tracking/detail'
+export { default as TrackEventDetail } from './Tracking/detail/TrackEventDetail'

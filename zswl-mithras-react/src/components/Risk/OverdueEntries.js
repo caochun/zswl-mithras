@@ -1,1 +1,1 @@
-export { default as RiskOverdueListSearch } from './OverdueListSearch'
+export { default as RiskOverdueListSearch } from './OverdueListSearch/RiskOverdueListSearch'

@@ -528,7 +528,8 @@
 - 逾期文书用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，真实实现命名为 `src/components/Overdue/LitigationDocAddModal/OverdueLitigationDocAddModal.js`。
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
 - PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
-- 管理报表内部历史页通过 `src/components/Report/ManagementEntries.js` 暴露，真实实现命名为 `src/components/Report/Management/InternalHistory/ReportInternalHistory.js`。
+- 管理报表主页和内部历史页通过 `src/components/Report/ManagementEntries.js` 暴露，真实实现命名为 `src/components/Report/Management/Management/ReportManagement.js` 和 `src/components/Report/Management/InternalHistory/ReportInternalHistory.js`。
+- 财务报表待办/完成列表通过 `src/components/Report/FinancialReportWaitEntries.js` 和 `FinancialReportFinishedEntries.js` 暴露，真实列表实现命名为 `src/components/Report/FinancialReportList/ReportFinancialReportList.js`。
 - 财务报表审批详情通过 `src/components/Report/FinancialReportApprovalEntries.js` 暴露，真实实现命名为 `src/components/Report/FinancialReportApproval/ReportFinancialReportApproval.js`。
 - 流程信息弹窗通过 `src/components/Process/ProcessInfoModalEntries.js` 暴露，真实实现命名为 `src/components/Process/InfoModal/ProcessInfoModal.js`。
 - 流程审批历史、审批历史弹窗和流程图通过 `src/components/Process/*Entries.js` 暴露，真实实现命名为 `src/components/Process/ApprovalHistory/ProcessApprovalHistory.js`、`ApprovalHistoryModal/ProcessApprovalHistoryModal.js` 和 `TaskFlowChart/ProcessTaskFlowChart.js`。
@@ -542,11 +543,12 @@
 - 项目评审快照通过 `src/components/Project/ReviewSnapshotEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewSnapshot/ProjectReviewSnapshot.js`。
 - 风险云指标详情通过 `src/components/Risk/CloudMetricValueEntries.js` 暴露，真实实现命名为 `src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js`。
 - 风险公开监控列配置通过 `src/components/Risk/PublicMonitorColumnsEntries.js` 暴露，真实实现命名为 `src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js`。
-- 风险公开监控详情和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
+- 风险公开监控详情、财报指标表、定时指标、目标指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskOverdueListSearch.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
 - 风险评分卡列表通过 `src/components/Risk/SourceCardListEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCard/List/RiskSourceCardList.js`。
 - 风险评分卡测算弹窗通过 `src/components/Risk/SourceCardCalcModalEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js`。
 - 跟踪事项抽屉通过 `src/components/TrackEvent/TrackEventModalEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/TrackModal/TrackEventModal.js`。
 - 跟踪事项列表通过 `src/components/TrackEvent/TrackEventListEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/Tracking/List/TrackEventList.js`。
+- 跟踪事项详情通过 `src/components/TrackEvent/TrackEventDetailEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/Tracking/detail/TrackEventDetail.js`。
 - 白名单列表和详情分别通过 `src/components/WhiteList/ListEntries.js`、`DetailEntries.js` 暴露，真实实现命名为 `src/components/WhiteList/List/WhiteListList.js` 和 `src/components/WhiteList/Detail/WhiteListDetail.js`，列定义保留为白名单域内私有配置。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。
