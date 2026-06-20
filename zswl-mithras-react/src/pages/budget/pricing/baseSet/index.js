@@ -1,1 +1,1 @@
-export { BudgetPricingBaseSet as default } from '@/components/Budget/PricingBaseSetEntries'
+export { BudgetPricingBaseSet as default } from '@/components/Budget/PricingBaseSetListEntries'
