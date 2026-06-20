@@ -1,5 +1,0 @@
-export { default as BlackGrayOutboundApplication } from './Outbound/Application'
-export { default as BlackGrayOutboundApplicationDetail } from './RouteShells/OutboundApplicationDetail'
-export { default as BlackGrayOutboundApproval } from './Outbound/Approval'
-export { default as BlackGrayOutboundApprovalDetail } from './Outbound/Approval/Detail/[id$]'
-export { default as BlackGrayOutboundSearch } from './Outbound/Search'

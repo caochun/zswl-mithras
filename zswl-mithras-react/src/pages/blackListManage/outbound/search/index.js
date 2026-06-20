@@ -1,1 +1,1 @@
-export { BlackGrayOutboundSearch as default } from '@/components/BlackGray/OutboundEntries'
+export { BlackGrayOutboundSearch as default } from '@/components/BlackGray/OutboundSearchEntries'
