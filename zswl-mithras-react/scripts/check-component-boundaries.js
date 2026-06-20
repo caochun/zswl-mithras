@@ -37,6 +37,9 @@ const nonEntryComponentSubpathPattern =
   /^@\/components\/[^/'"]+\/(?![^/'"]*(?:Entries|entries)(?:\.js)?$)[^/'"]+(?:\.js)?$/
 const componentEntryPathPattern =
   /^@\/components\/([^/'"]+)\/[^/'"]*(?:Entries|entries)(?:\.js)?$/
+const componentEntryReExportOnlyPattern =
+  /^\s*(?:export\s+\{[^}]+\}\s+from\s+['"][^'"]+['"]\s*;?\s*)+$/
+const componentEntryAbsoluteComponentImportPattern = /from\s+['"]@\/components\//
 const stabilizedComponentRootImports = new Map([
   ['BlackGrayHit', 'BlackGray/BlackGrayHitEntries'],
   ['BusinessInfoCheck', 'BusinessInfoCheck/BusinessInfoCheckEntries'],
@@ -845,6 +848,25 @@ const componentEntryFiles = walk(path.join(srcDir, 'components')).filter((filePa
   return /(?:Entries|entries)\.js$/.test(filePath) && entryPath.split('/').length === 2
 })
 const componentEntryImports = new Set()
+
+for (const filePath of componentEntryFiles) {
+  const relativeFilePath = path.relative(root, filePath)
+  const source = fs.readFileSync(filePath, 'utf8')
+  if (!componentEntryReExportOnlyPattern.test(source)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'component entry files must only contain re-export declarations',
+    })
+  }
+
+  if (componentEntryAbsoluteComponentImportPattern.test(source)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'component entry files must use relative re-export paths',
+    })
+  }
+}
+
 const compatibilityComponentEntries = new Set([
   'Chart/BarChartEntries.js',
   'Chart/LineChartEntries.js',
