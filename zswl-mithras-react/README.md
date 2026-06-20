@@ -569,6 +569,7 @@
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
 - 公式值说明提示作为预算和 KPI 共用的公共能力，通过 `src/components/FormulaValueTip/FormulaValueTipEntries.js` 暴露，真实实现命名为 `src/components/FormulaValueTip/FormulaValueTip.js`，业务组件不再直接引用 `@/components/FormulaValueTip` 根目录。
+- 文件上传历史列表展示已回收到 `src/components/Format/FileList.js`，外部如需使用仍通过 `DataUpload.List`，不再保留 `src/components/FileList` 公共根组件。
 
 ## 目录语义
 

@@ -4,7 +4,7 @@ import { http } from '@zswl/admin'
 import { isPlainObject, isEmpty } from 'lodash'
 import { Button } from '@zswl/components'
 import { getFileType } from '@/utils'
-import FileList from '@/components/FileList'
+import FileList from '../Format/FileList'
 import { useMemo, useState } from 'react'
 
 const Dragger = Upload.Dragger

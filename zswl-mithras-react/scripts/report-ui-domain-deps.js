@@ -341,7 +341,6 @@ const publicComponentRoots = new Set([
   'DataUpload',
   'DetailLayout',
   'Excel',
-  'FileList',
   'Form',
   'FormIrr',
   'FormItemContent',
