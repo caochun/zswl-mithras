@@ -788,6 +788,10 @@ const legacyApiPrefixRules = [
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 const apiInterfaceImportPattern = /^@\/api\/[^'"]+\/interface\//
+const allowedZeroIncomingApiFiles = new Set([
+  'src/api/budget/pricing/ftpMaterialsFile.ts',
+  'src/api/common/materialsApi.ts',
+])
 const routeDomainAliases = createDomainAliases()
 
 function normalizeEntryPath(filePath) {
@@ -1491,6 +1495,7 @@ for (const edge of [...businessEmbeddingEdges, ...pageAggregationReviewEdges]) {
 }
 
 const localSupportFileIncomingImports = new Map(sourceFiles.map((filePath) => [filePath, new Set()]))
+const sourceIncomingImports = new Map(sourceFiles.map((filePath) => [filePath, new Set()]))
 for (const filePath of sourceFiles) {
   const source = fs.readFileSync(filePath, 'utf8')
   const relativeFilePath = path.relative(root, filePath)
@@ -1498,6 +1503,7 @@ for (const filePath of sourceFiles) {
     const resolvedImport = resolveSourceImport(filePath, specifier)
     if (resolvedImport && localSupportFileIncomingImports.has(resolvedImport)) {
       localSupportFileIncomingImports.get(resolvedImport).add(filePath)
+      sourceIncomingImports.get(resolvedImport).add(filePath)
     }
   }
 }
@@ -1513,6 +1519,23 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'unused local support file',
+    })
+  }
+}
+
+for (const filePath of sourceFiles) {
+  const relativeFilePath = path.relative(root, filePath)
+  const isApiImplementationFile =
+    relativeFilePath.startsWith('src/api/') && !relativeFilePath.includes('/interface/')
+
+  if (
+    isApiImplementationFile &&
+    sourceIncomingImports.get(filePath)?.size === 0 &&
+    !allowedZeroIncomingApiFiles.has(relativeFilePath)
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'unused api implementation file',
     })
   }
 }
