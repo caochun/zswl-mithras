@@ -1,7 +1,7 @@
-import JFIframe from './components/JFIframe'
+import BridgeIframe from './BridgeIframe'
 
 const Index = () => {
-  return <JFIframe path="/bulletinBoard" />
+  return <BridgeIframe frontend="http://10.158.12.119" path="/bulletinBoard" />
 }
 
 export default Index

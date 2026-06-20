@@ -1,7 +1,7 @@
-import DashIframe from './components/DashIframe'
+import BridgeIframe from './BridgeIframe'
 
 const Index = () => {
-  return <DashIframe path="dash/screen/lease" />
+  return <BridgeIframe frontend="http://gljsc.zjzsfh.com" path="dash/screen/lease" />
 }
 
 export default Index
