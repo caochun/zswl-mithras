@@ -1,1 +1,1 @@
-export { KpiEstimationProjectManagerProfitDetail as default } from '@/components/Kpi/KpiEstimationEntries'
+export { KpiEstimationProjectManagerProfitDetail as default } from '@/components/Kpi/EstimationProjectManagerProfitEntries'

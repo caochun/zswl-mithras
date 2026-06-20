@@ -1,1 +1,1 @@
-export { KpiEstimationDepartmentalPoolDetail as default } from '@/components/Kpi/KpiEstimationEntries'
+export { KpiEstimationDepartmentalPoolDetail as default } from '@/components/Kpi/EstimationDepartmentalPoolEntries'

@@ -1,1 +1,1 @@
-export { KpiEstimation as default } from '@/components/Kpi/KpiEstimationEntries'
+export { KpiEstimation as default } from '@/components/Kpi/EstimationEntries'

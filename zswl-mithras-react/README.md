@@ -157,7 +157,11 @@
 - `Kpi/BaseSetEntries.js`
 - `Kpi/BaseSetModalDetailEntries.js`
 - `Kpi/BusinessGoalEntries.js`
-- `Kpi/KpiEstimationEntries.js`
+- `Kpi/EstimationContractEntries.js`
+- `Kpi/EstimationDepartmentalPoolEntries.js`
+- `Kpi/EstimationEntries.js`
+- `Kpi/EstimationProjectManagerPrizeEntries.js`
+- `Kpi/EstimationProjectManagerProfitEntries.js`
 - `Kpi/PmAssessEntries.js`
 - `Kpi/ProjectAllotDetailEntries.js`
 - `Kpi/ProjectAllotFormEntries.js`

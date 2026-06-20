@@ -1,1 +1,1 @@
-export { KpiEstimationContractDetail as default } from '@/components/Kpi/KpiEstimationEntries'
+export { KpiEstimationContractDetail as default } from '@/components/Kpi/EstimationContractEntries'
