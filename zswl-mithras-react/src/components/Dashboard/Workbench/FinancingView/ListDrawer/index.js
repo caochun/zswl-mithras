@@ -5,7 +5,6 @@ import { getItemConfigByGroupCode } from '../Config'
 
 const Index = ({ store }) => {
   const { curCardData } = store
-  console.log('curCardData: ', curCardData)
   const { group, groupCode } = curCardData
 
   const drawerComponent = getItemConfigByGroupCode(groupCode)?.component ?? <div></div>

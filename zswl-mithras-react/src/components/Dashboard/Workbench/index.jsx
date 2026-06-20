@@ -207,7 +207,6 @@ const App = () => {
       })
       .filter(Boolean)
     const feikong = allAnchorList.find((c) => c.isFeikongEntry)
-    console.log('Access', Access.validate('oauthAuthorize'));
     if (feikong) {
       list.push({
         ...feikong,

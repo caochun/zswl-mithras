@@ -60,9 +60,6 @@ const Index = () => {
         request: (tableParams) => {
           return Api.postDashboardToDoList({ ...tableParams })
         },
-        onChange: (val) => {
-          console.log('val', val)
-        },
       }),
     []
   )

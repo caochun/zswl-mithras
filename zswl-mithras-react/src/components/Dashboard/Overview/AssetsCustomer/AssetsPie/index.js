@@ -19,7 +19,6 @@ const pieColors = [
 
 const Index = ({ store }) => {
   const { assetIndustryDistribution, getAssetIndustryDistribution } = store
-  console.log({ assetIndustryDistribution })
 
   useEffect(() => {
     getAssetIndustryDistribution()

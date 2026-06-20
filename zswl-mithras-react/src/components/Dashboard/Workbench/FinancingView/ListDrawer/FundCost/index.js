@@ -11,14 +11,12 @@ import { saveServer } from '@/utils'
 
 // 资金成本
 const Index = ({ groupCode, curCardData }) => {
-  console.log('curCardData44: ', curCardData)
   const [sumData, setSumData] = useState({})
   const columns = getTableColumns(ALL_COLUMNS)
   const searchItem = getSearchColumns(ALL_COLUMNS, ['融资编号', '融资机构/产品名称', '融资类别'])
 
   const table = Table.useStore({
     request: async (params) => {
-      console.log('params14: ', params)
       const { records, sumData } = await Api.postDashboardFinanceFundsList(params)
       setSumData(sumData)
       return records

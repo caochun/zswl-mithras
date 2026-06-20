@@ -39,7 +39,7 @@ class Store {
     }
     const allCountFn = Object.values(allCountFn2)
       .filter(Boolean)
-      .map((promise) => promise.catch((e) => console.log('错误信息: ' + e)))
+      .map((promise) => promise.catch(() => undefined))
 
     Promise.all(allCountFn)
       .then((res) => {
@@ -52,9 +52,7 @@ class Store {
           msgCount: res[5]?.total,
         })
       })
-      .catch((err) => {
-        console.log({ err })
-      })
+      .catch(() => {})
 
     if (hasPermission('riskcontrolopinionmonitorunresolved-dashboard')) {
       const res = await Api.postMonitorUnresolved(pageParams)
