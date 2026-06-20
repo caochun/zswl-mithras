@@ -1,1 +1,1 @@
-export { default as BlackGrayOutboundSearch } from './Outbound/Search'
+export { default as BlackGrayOutboundSearch } from './Outbound/Search/BlackGrayOutboundSearch'

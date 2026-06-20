@@ -486,6 +486,7 @@
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
 - 黑灰名单命中标识通过 `src/components/BlackGray/BlackGrayHitEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Info/BlackGrayHitInfo.js`。
+- 黑灰名单入库上传、出库查询和仓库子任务分别通过 `src/components/BlackGray/EnterDatabaseUploadEntries.js`、`OutboundSearchEntries.js`、`WarehouseSubTaskEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/EnterDatabase/Upload/BlackGrayEnterDatabaseUpload.js`、`src/components/BlackGray/Outbound/Search/BlackGrayOutboundSearch.js` 和 `src/components/BlackGray/Warehouse/SubTask/BlackGrayWarehouseSubTask.js`。
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。

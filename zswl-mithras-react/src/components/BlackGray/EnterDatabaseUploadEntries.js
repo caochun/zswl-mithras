@@ -1,1 +1,1 @@
-export { default as BlackGrayEnterDatabaseUpload } from './EnterDatabase/Upload'
+export { default as BlackGrayEnterDatabaseUpload } from './EnterDatabase/Upload/BlackGrayEnterDatabaseUpload'
