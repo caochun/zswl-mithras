@@ -483,6 +483,7 @@
 - 表格、文件表、描述表、审批详情等统一从 `src/components/Table` 稳定入口导入。
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
+- 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。
@@ -491,12 +492,14 @@
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
+- OCR 识别页通过 `src/components/Ocr/RecognitionEntries.js` 暴露，真实实现命名为 `src/components/Ocr/Recognition/OcrRecognition.js`。
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
+- PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
+- 白名单列表和详情分别通过 `src/components/WhiteList/ListEntries.js`、`DetailEntries.js` 暴露，真实实现命名为 `src/components/WhiteList/List/WhiteListList.js` 和 `src/components/WhiteList/Detail/WhiteListDetail.js`，列定义保留为白名单域内私有配置。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
 - 我的流程页签、我的审批页签、流程查询、流程设计、流程详情路由和历史组件路由已收敛到 `src/components/Process` 的窄 `*Entries.js`，路由页仅保留入口装配。
-- 白名单列表和详情分别通过 `src/components/WhiteList/ListEntries.js`、`DetailEntries.js` 暴露，列定义保留为白名单域内私有配置，路由页仅保留入口装配。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
 

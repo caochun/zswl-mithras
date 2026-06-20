@@ -1,1 +1,1 @@
-export { default as WhiteListDetail } from './Detail'
+export { default as WhiteListDetail } from './Detail/WhiteListDetail'

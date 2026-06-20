@@ -1,1 +1,1 @@
-export { default as WhiteListList } from './List'
+export { default as WhiteListList } from './List/WhiteListList'

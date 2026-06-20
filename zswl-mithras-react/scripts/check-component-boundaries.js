@@ -68,6 +68,10 @@ const removedLegacyUtilityFiles = new Map([
 ])
 const removedLegacyComponentFiles = new Map([
   [
+    'src/components/App/RootRedirect/index.js',
+    'src/components/App/RootRedirect/RootRedirect.js',
+  ],
+  [
     'src/components/BusinessInfoCheck/index.js',
     'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
   ],
@@ -92,8 +96,16 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Message/Notification/MessageNotification.js',
   ],
   [
+    'src/components/Ocr/Recognition/index.js',
+    'src/components/Ocr/Recognition/OcrRecognition.js',
+  ],
+  [
     'src/components/PaymentFtpColumns/index.js',
     'src/components/PaymentFtpColumns/FtpAssessmentColumns.js',
+  ],
+  [
+    'src/components/Preview/PdfPreview/index.js',
+    'src/components/Preview/PdfPreview/PdfPreview.js',
   ],
   [
     'src/components/ChangeLogDiff/index.js',
@@ -102,6 +114,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/VisitorManage/index.js',
     'src/components/VisitorManage/VisitorManagePage.js',
+  ],
+  [
+    'src/components/WhiteList/Detail/index.js',
+    'src/components/WhiteList/Detail/WhiteListDetail.js',
+  ],
+  [
+    'src/components/WhiteList/List/index.js',
+    'src/components/WhiteList/List/WhiteListList.js',
   ],
 ])
 const removedLegacyStyleFiles = new Map([

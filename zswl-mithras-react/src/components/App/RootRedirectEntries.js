@@ -1,1 +1,1 @@
-export { default as RootRedirect } from './RootRedirect'
+export { default as RootRedirect } from './RootRedirect/RootRedirect'
