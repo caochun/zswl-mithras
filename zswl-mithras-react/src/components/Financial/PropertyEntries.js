@@ -1,1 +1,1 @@
-export { default as FinancialProperty } from './Property'
+export { default as FinancialProperty } from './Property/FinancialProperty'

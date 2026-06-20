@@ -1,1 +1,1 @@
-export { default as FinancialFundActualTable } from './FundActualTable'
+export { default as FinancialFundActualTable } from './FundActualTable/FinancialFundActualTable'

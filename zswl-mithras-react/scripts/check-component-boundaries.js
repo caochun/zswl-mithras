@@ -480,6 +480,18 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Financial/FundDetail/ActualTable/FinancialFundDetailActualTable.js',
   ],
   [
+    'src/components/Financial/FundActualTable/index.js',
+    'src/components/Financial/FundActualTable/FinancialFundActualTable.js',
+  ],
+  [
+    'src/components/Financial/FundChangeLog/index.js',
+    'src/components/Financial/FundChangeLog/FinancialFundChangeLog.js',
+  ],
+  [
+    'src/components/Financial/FundDetail/EstimateTable/index.js',
+    'src/components/Financial/FundDetail/EstimateTable/FinancialFundDetailEstimateTable.js',
+  ],
+  [
     'src/components/Financial/FundDetail/OtherAccount/index.js',
     'src/components/Financial/FundDetail/OtherAccount/FinancialFundDetailOtherAccount.js',
   ],
@@ -510,6 +522,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Financial/FinancingCarryInterestFlow/index.js',
     'src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js',
+  ],
+  [
+    'src/components/Financial/Org/index.js',
+    'src/components/Financial/Org/FinancialOrg.js',
+  ],
+  [
+    'src/components/Financial/Property/index.js',
+    'src/components/Financial/Property/FinancialProperty.js',
   ],
   [
     'src/components/InsurancePolicy/Columns/index.js',

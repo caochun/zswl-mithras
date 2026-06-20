@@ -1,1 +1,1 @@
-export { default as FinancialOrg } from './Org'
+export { default as FinancialOrg } from './Org/FinancialOrg'
