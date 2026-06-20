@@ -612,6 +612,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js',
   ],
   [
+    'src/components/Project/ReviewDetail/Data/index.js',
+    'src/components/Project/ReviewDetail/Data/ProjectReviewDetailDataList.js',
+  ],
+  [
+    'src/components/Project/ReviewDetail/Report/index.js',
+    'src/components/Project/ReviewDetail/Report/ProjectReviewDetailReport.js',
+  ],
+  [
     'src/components/Project/ReviewMaterialTable/index.js',
     'src/components/Project/ReviewMaterialTable/ProjectReviewMaterialTable.js',
   ],

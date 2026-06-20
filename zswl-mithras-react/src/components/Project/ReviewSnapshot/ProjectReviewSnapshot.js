@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
 import BaseInfo from '../ReviewDetail/BaseInfo'
 import CashFlowStatement from '../ReviewDetail/CashFlowStatement'
-import DataList from '../ReviewDetail/Data'
+import DataList from '../ReviewDetail/Data/ProjectReviewDetailDataList'
 import QuotationScheme from '../ReviewDetail/QuotationScheme'
-import ReviewData from '../ReviewDetail/Report'
+import ReviewData from '../ReviewDetail/Report/ProjectReviewDetailReport'
 import ReviewStore from '../ReviewDetail/store'
 
 const ReviewSnapshot = ({ id }) => {
