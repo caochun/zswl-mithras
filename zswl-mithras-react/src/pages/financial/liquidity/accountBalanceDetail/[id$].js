@@ -1,1 +1,1 @@
-export { FinancialLiquidityAccountBalanceDetail as default } from '@/components/Financial/LiquidityEntries'
+export { FinancialLiquidityAccountBalanceDetail as default } from '@/components/Financial/LiquidityAccountBalanceEntries'
