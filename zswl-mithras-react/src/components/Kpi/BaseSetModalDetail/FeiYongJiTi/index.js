@@ -44,8 +44,6 @@ const Index = ({ typeInfo }) => {
       if (prev.includes(assessDept)) return prev
       return [...prev, assessDept]
     }, [])
-
-    console.log('departmentList: ', departmentList)
     const hasRepeat = departmentList.length !== configValue.length
     if (hasRepeat) {
       message.error('部门不能重复')

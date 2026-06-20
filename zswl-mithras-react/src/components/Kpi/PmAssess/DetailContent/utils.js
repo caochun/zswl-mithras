@@ -97,7 +97,6 @@ const RenderTip = ({ title }) => {
 
 export const render = (value, record, rowIndex) => {
   if (rowIndex === 0) {
-    console.log({ value, rowIndex, record })
     return (
       <div>
         {value}

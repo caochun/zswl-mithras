@@ -237,7 +237,6 @@ const Content = ({ data, listName }) => {
   )
 }
 Index.Detail = ({ value, listName }) => {
-  console.log('value: ', value)
   if (!value || value?.length === 0) {
     return '-'
   }

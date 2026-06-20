@@ -21,9 +21,6 @@ class Store {
     onOpen: async (values) => {
       return values
     },
-    onFinish: async (values) => {
-      console.log(values)
-    },
   })
 
   isEdit = false
