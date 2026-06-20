@@ -2,7 +2,6 @@ import { Table, Select, App } from '@zswl/components'
 import PaymentRecordsModal from './PaymentRecordsModal'
 import { DownOutlined } from '@ant-design/icons'
 import { history } from '@zswl/admin'
-import styles from './index.less'
 import store from './store'
 import { useEffect } from 'react'
 import { Button, Dropdown, Menu, Tooltip } from 'antd'
@@ -63,7 +62,7 @@ const PaymentRecords = ({ id, callback }) => {
   }
   return (
     <div>
-      <div className={styles.customerWrap}>
+      <div>
         <Table
                 columnsFilter={'marginManagement_PaymentRecords_1'}
                 onFilter={(key,val) => saveServer('marginManagement_PaymentRecords_1',val)}

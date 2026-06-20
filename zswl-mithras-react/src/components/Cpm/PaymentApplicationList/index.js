@@ -2,7 +2,6 @@ import { Page, SearchBar, Table } from '@zswl/components'
 import { getQuery, observer } from '@zswl/admin'
 import store from './store'
 import { useEffect, useMemo } from 'react'
-import styles from './index.less'
 import IconFont from '@/components/Icon'
 import { amountFormat, saveServer } from '@/utils'
 import AmountRange from '@/components/AmountRange'
@@ -24,7 +23,7 @@ function Index() {
         actions({ paymentCode, id, paymentStatus, paymentProcessStatus }) {
           return [
             {
-              name: <div className={styles.customerTitle}>{paymentCode}</div>,
+              name: <div>{paymentCode}</div>,
               // disabled: paymentStatus === 'CLOSED',
               to: `/cpm/paymentApplication/detail/${id}?canEditFlag=${
                 paymentStatus !== 'CLOSED' &&
@@ -98,7 +97,7 @@ function Index() {
   }, [openModal])
   return (
     <Page>
-      <div className={styles.wrap}>
+      <div>
         <Table
           columnsFilter={'cpm_paymentApplication_1'}
           onFilter={(key, val) => saveServer('cpm_paymentApplication_1', val)}

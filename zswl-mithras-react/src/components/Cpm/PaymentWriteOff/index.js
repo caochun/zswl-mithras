@@ -2,7 +2,6 @@ import { App, Page, SearchBar, Table } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import store from './store'
 import { useMemo } from 'react'
-import styles from './index.less'
 import { amountFormat } from '@/utils'
 import AmountRange from '@/components/AmountRange'
 import CollectionDayModal from './CollectionDayModal'
@@ -101,7 +100,7 @@ function PaymentWriteOff() {
 
   return (
     <Page>
-      <div className={styles.customerWrap}>
+      <div>
         <Table
                 columnsFilter={'cpm_paymentWriteOff_1'}
                 onFilter={(key,val) => saveServer('cpm_paymentWriteOff_1',val)}

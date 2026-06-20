@@ -2,7 +2,6 @@ import { observer, getQuery, history } from '@zswl/admin'
 import Store from './store'
 import { Page, Table, Button } from '@zswl/components'
 import { Space } from 'antd'
-import styles from './style.less'
 import { useMemo } from 'react'
 import { getColumnsByType } from '../../ProvisioningParamsConfigColumns'
 
@@ -38,12 +37,11 @@ const Index = ({ params }) => {
   ].filter(Boolean)
   return (
     <Page
-      className={styles.index}
       current={detail?.configName}
       store={store.page}
       params={{ id }}
       extra={
-        <Space className={styles.extra}>
+        <Space>
           {readOnly && <span>版本时间：{detail?.versionTime || '-'}</span>}
           {!readOnly && needAddConfig && (
             <Button

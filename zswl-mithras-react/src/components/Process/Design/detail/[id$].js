@@ -3,7 +3,6 @@ import { useEffect, useState, useMemo } from 'react'
 import Store from './store'
 import { App, Page } from '@zswl/components'
 import { message, Spin } from 'antd'
-import styles from './index.less'
 import Api from '@/api/process/flowModelApi'
 import { baseURL } from '@/utils'
 function Index({ params: { id } }) {
@@ -64,7 +63,6 @@ function Index({ params: { id } }) {
       <Page store={store}>
         <div>
           <iframe
-            className={styles.iframe}
             src={`/public/approvalFlow/index.html?time=${new Date().getTime()}`}
             // src={'/public/approvalFlow/index.html'}
             id="myFrame"

@@ -1,12 +1,11 @@
 import { Table, Select } from '@zswl/components'
-import styles from './index.less'
 import store from './store'
 import { amountFormat } from '@/utils'
 import { saveServer } from '@/utils'
 const PaymentRecords = () => {
   return (
     <div>
-      <div className={styles.customerWrap}>
+      <div>
         <Table
                 columnsFilter={'marginManagement_VerificationRecords_1'}
                 onFilter={(key,val) => saveServer('marginManagement_VerificationRecords_1',val)}

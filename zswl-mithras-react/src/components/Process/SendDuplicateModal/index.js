@@ -2,7 +2,6 @@ import { observer } from '@zswl/admin'
 import store from './store'
 import { Select, App } from '@zswl/components'
 import { Modal, Form, message } from 'antd'
-import styles from './index.less'
 import { useState, useEffect } from 'react'
 import Api from '@/api/process/detail/flowDetailApi'
 
