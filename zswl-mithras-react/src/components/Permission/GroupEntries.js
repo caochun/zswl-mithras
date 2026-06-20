@@ -1,1 +1,1 @@
-export { default as PermissionGroup } from './Group'
+export { default as PermissionGroup } from './Group/PermissionGroup'

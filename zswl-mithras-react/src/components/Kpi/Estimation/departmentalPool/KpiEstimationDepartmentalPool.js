@@ -2,10 +2,8 @@ import { observer, history } from '@zswl/admin'
 import { Table, Button } from '@zswl/components'
 import { getTableColumns } from '@/utils'
 import moduleColumns from './Column'
-import { DepartMentalItem } from '../../EstimationFields'
 import moment from 'moment'
 import store from './store'
-import { render } from 'react-dom'
 import { saveServer } from '@/utils'
 
 const Index = ({ pathname }) => {

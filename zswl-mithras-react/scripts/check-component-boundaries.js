@@ -748,6 +748,18 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Kpi/PmAssess/List/KpiPmAssessList.js',
   ],
   [
+    'src/components/Kpi/Estimation/departmentalPool/index.js',
+    'src/components/Kpi/Estimation/departmentalPool/KpiEstimationDepartmentalPool.js',
+  ],
+  [
+    'src/components/Kpi/Estimation/projectManagerPrize/index.js',
+    'src/components/Kpi/Estimation/projectManagerPrize/KpiEstimationProjectManagerPrize.js',
+  ],
+  [
+    'src/components/Kpi/Estimation/projectManagerProfit/index.js',
+    'src/components/Kpi/Estimation/projectManagerProfit/KpiEstimationProjectManagerProfit.js',
+  ],
+  [
     'src/components/Kpi/ProjectAllot/AllocateInfo/index.js',
     'src/components/Kpi/ProjectAllot/AllocateInfo/KpiProjectAllotAllocateInfo.js',
   ],
@@ -770,6 +782,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Kpi/ProjectAllot/ExtarInfo/index.js',
     'src/components/Kpi/ProjectAllot/ExtarInfo/KpiProjectAllotExtarInfo.js',
+  ],
+  [
+    'src/components/Kpi/ProjectAllot/List/index.js',
+    'src/components/Kpi/ProjectAllot/List/KpiProjectAllotListPage.js',
   ],
   [
     'src/components/Lease/ApprovalConfirm/index.js',
@@ -822,6 +838,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Permission/Log/index.js',
     'src/components/Permission/Log/PermissionLog.js',
+  ],
+  [
+    'src/components/Permission/Group/index.js',
+    'src/components/Permission/Group/PermissionGroup.js',
   ],
   [
     'src/components/Report/FinancialReportApproval/index.js',

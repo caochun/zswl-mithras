@@ -524,7 +524,7 @@
 - 融资计息流程通过 `src/components/Financial/FinancingCarryInterestEntries.js` 暴露，真实实现命名为 `src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
-- KPI 基础设置的参数弹窗、费用计提明细、明细页、表格能力、业绩目标列表、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
+- KPI 基础设置的参数弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
 - 生命周期客户列表页通过 `src/components/LifeCycle/CustomerEntries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js`。
 - 租赁物审核确认动作通过 `src/components/Lease/ApprovalConfirmEntries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
@@ -533,6 +533,7 @@
 - 逾期文书用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，真实实现命名为 `src/components/Overdue/LitigationDocAddModal/OverdueLitigationDocAddModal.js`。
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
 - PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
+- 权限分组和权限日志通过 `src/components/Permission/*Entries.js` 暴露，真实实现命名为 `PermissionGroup.js` 和 `PermissionLog.js`，不再依赖目录 `index.js`。
 - 管理报表主页和内部历史页通过 `src/components/Report/ManagementEntries.js` 暴露，真实实现命名为 `src/components/Report/Management/Management/ReportManagement.js` 和 `src/components/Report/Management/InternalHistory/ReportInternalHistory.js`。
 - 财务报表待办/完成列表通过 `src/components/Report/FinancialReportWaitEntries.js` 和 `FinancialReportFinishedEntries.js` 暴露，真实列表实现命名为 `src/components/Report/FinancialReportList/ReportFinancialReportList.js`。
 - 财务报表审批详情通过 `src/components/Report/FinancialReportApprovalEntries.js` 暴露，真实实现命名为 `src/components/Report/FinancialReportApproval/ReportFinancialReportApproval.js`。
