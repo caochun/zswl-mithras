@@ -1,7 +1,7 @@
 import { Modal, Button } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { message } from 'antd'
-import Content from '../DetailContent'
+import Content from '../DetailContent/KpiPmAssessDetailContent'
 import Api from '@/api/kpi/pmAssess'
 import styles from './index.less'
 

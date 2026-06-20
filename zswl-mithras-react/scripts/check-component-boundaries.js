@@ -624,6 +624,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Kpi/BaseSetModalDetail/GongShiLiLun/KpiBaseSetGongShiLiLun.js',
   ],
   [
+    'src/components/Kpi/BaseSetModalDetail/FeiYongJiTi/index.js',
+    'src/components/Kpi/BaseSetModalDetail/FeiYongJiTi/KpiBaseSetExpenseAccrual.js',
+  ],
+  [
     'src/components/Kpi/BaseSetModalDetail/JinRongShiChangDept/index.js',
     'src/components/Kpi/BaseSetModalDetail/JinRongShiChangDept/KpiBaseSetJinRongShiChangDept.js',
   ],
@@ -656,12 +660,24 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Kpi/BeautyTable/KpiBeautyTable.js',
   ],
   [
+    'src/components/Kpi/BusinessGoal/List/index.js',
+    'src/components/Kpi/BusinessGoal/List/KpiBusinessGoalList.js',
+  ],
+  [
     'src/components/Kpi/ModalEditTable/index.js',
     'src/components/Kpi/ModalEditTable/KpiModalEditTable.js',
   ],
   [
+    'src/components/Kpi/PmAssess/DetailContent/index.js',
+    'src/components/Kpi/PmAssess/DetailContent/KpiPmAssessDetailContent.js',
+  ],
+  [
     'src/components/Kpi/PmAssess/EditModal/index.js',
     'src/components/Kpi/PmAssess/EditModal/KpiPmAssessEditModal.js',
+  ],
+  [
+    'src/components/Kpi/PmAssess/List/index.js',
+    'src/components/Kpi/PmAssess/List/KpiPmAssessList.js',
   ],
   [
     'src/components/Kpi/ProjectAllot/AllocateInfo/index.js',

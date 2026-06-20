@@ -1,1 +1,1 @@
-export { default as KpiPmAssess } from './PmAssess/List'
+export { default as KpiPmAssess } from './PmAssess/List/KpiPmAssessList'
