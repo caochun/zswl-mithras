@@ -516,7 +516,7 @@
 当前带有聚合或展示面语义的目录：
 
 - `dashboard` / `Dashboard`：工作台、总览、看板、SSO 入口，偏展示与聚合。
-- `customerView`：客户单一视图/客户画像聚合页，首页与详情实现已收敛到 `src/components/Customer`，路由页仅保留入口装配。
+- `customerView`：客户单一视图/客户画像聚合页，首页与详情实现已收敛到 `src/components/Customer`，路由页仅保留入口装配；企查查单一视图新入口使用 `customerView/singleView`，历史拼写 `customerView/singeView` 仅保留兼容路由壳。
 - `customerMonitoring`：客户监控历史路由壳，当前实现已收敛到 `src/components/Customer/MonitoringEntries.js` 和 `src/components/Customer/MonitoringDetailEntries.js`。
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`。

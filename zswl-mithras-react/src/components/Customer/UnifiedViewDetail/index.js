@@ -171,7 +171,7 @@ const CustomerDetail = ({ path, params: { id }, query, pathname }) => {
           {/* <Tag
             color="#1e69f7"
             style={{ cursor: 'pointer' }}
-            onClick={() => history.push(`/customer/singeView?customerName=${enterpriseName}`)}
+            onClick={() => history.push(`/customerView/singleView?customerName=${enterpriseName}`)}
           >
             客户风险单一视图
           </Tag> */}
@@ -179,12 +179,8 @@ const CustomerDetail = ({ path, params: { id }, query, pathname }) => {
             color="#1e69f7"
             style={{ cursor: 'pointer' }}
             onClick={() => {
-              history.push(`/customerView/singeView?customerName=${uscc||enterpriseName}`)
+              history.push(`/customerView/singleView?customerName=${uscc||enterpriseName}`)
             }}
-            // onClick={async() => {
-            //   const res = await store.checkQcc()
-            //   history.push(`/customer/singeView?keyword=${uscc||enterpriseName}&companyKey=${res.companyKey}&token=${res.token}`)
-            // }}
           >
             企查查
           </Tag>
