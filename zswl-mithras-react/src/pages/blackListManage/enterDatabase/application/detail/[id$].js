@@ -1,1 +1,1 @@
-export { BlackGrayEnterDatabaseApplicationDetail as default } from '@/components/BlackGray/EnterDatabaseEntries'
+export { BlackGrayEnterDatabaseApplicationDetail as default } from '@/components/BlackGray/EnterDatabaseApplicationEntries'

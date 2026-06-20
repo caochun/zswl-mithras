@@ -1,1 +1,1 @@
-export { BlackGrayRecognizeIframe as default } from '@/components/BlackGray/QueryEntries'
+export { BlackGrayRecognizeIframe as default } from '@/components/BlackGray/QueryIframeEntries'

@@ -1,1 +1,1 @@
-export { BlackGrayAllQueryIframe as default } from '@/components/BlackGray/QueryEntries'
+export { BlackGrayAllQueryIframe as default } from '@/components/BlackGray/QueryIframeEntries'

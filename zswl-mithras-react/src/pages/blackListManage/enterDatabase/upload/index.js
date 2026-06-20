@@ -1,1 +1,1 @@
-export { BlackGrayEnterDatabaseUpload as default } from '@/components/BlackGray/EnterDatabaseEntries'
+export { BlackGrayEnterDatabaseUpload as default } from '@/components/BlackGray/EnterDatabaseUploadEntries'

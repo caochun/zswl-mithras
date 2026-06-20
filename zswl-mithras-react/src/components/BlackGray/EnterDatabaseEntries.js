@@ -1,7 +1,0 @@
-export { default as BlackGrayEnterDatabaseApplication } from './EnterDatabase/Application'
-export { default as BlackGrayEnterDatabaseApplicationDetail } from './RouteShells/EnterDatabaseApplicationDetail'
-export { default as BlackGrayEnterDatabaseExternal } from './EnterDatabase/External'
-export { default as BlackGrayEnterDatabaseExternalDetail } from './RouteShells/EnterDatabaseExternalDetail'
-export { default as BlackGrayEnterDatabaseHistory } from './EnterDatabase/History'
-export { default as BlackGrayEnterDatabaseHistoryDetail } from './EnterDatabase/History/Detail/[id$]'
-export { default as BlackGrayEnterDatabaseUpload } from './EnterDatabase/Upload'
