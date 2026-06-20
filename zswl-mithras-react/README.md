@@ -242,7 +242,9 @@
 - `Project/ReviewDetailPageEntries.js`
 - `Project/ReviewDetailSectionEntries.js`
 - `Project/ReviewEntries.js`
-- `Project/ReviewProcessEntries.js`
+- `Project/ReviewProcessDetailEntries.js`
+- `Project/ReviewProcessMaterialEntries.js`
+- `Project/ReviewProcessMeetingEntries.js`
 - `Project/ReviewSnapshotEntries.js`
 - `Report/FinancialReportApprovalEntries.js`
 - `Report/FinancialReportListEntries.js`

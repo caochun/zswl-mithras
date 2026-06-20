@@ -1,4 +1,4 @@
-import { ProjectReviewDetail } from '@/components/Project/ReviewProcessEntries'
+import { ProjectReviewDetail } from '@/components/Project/ReviewProcessDetailEntries'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 import Api from '@/api/process/detail/flowDetailApi'

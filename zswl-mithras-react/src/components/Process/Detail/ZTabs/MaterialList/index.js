@@ -4,7 +4,7 @@ import { Spin } from 'antd'
 import { observer, getQuery } from '@zswl/admin'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import { BusinessMaterialTable } from '@/components/ClientMaterialTable/BusinessMaterialTableEntries'
-import { ProjectReviewMaterialTable as DataTable } from '@/components/Project/ReviewProcessEntries'
+import { ProjectReviewMaterialTable as DataTable } from '@/components/Project/ReviewProcessMaterialEntries'
 
 //项目评审创建、项目评审更新资料清单选项卡
 const MaterialList = () => {
