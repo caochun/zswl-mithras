@@ -486,6 +486,7 @@
 - 租后调整创建、检查计划创建、策略创建、检查准备流程、政策管理弹窗和回款列表渲染分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
+- 基础数据文件模板页通过 `src/components/BaseData/FileTemplateEntries.js` 暴露，真实实现命名为 `src/components/BaseData/FileTemplate/BaseDataFileTemplate.js`。
 - 预算定价 FTP 收益、融资成本弹窗、计提减值列和计提参数列通过 `src/components/Budget/*Entries.js` 暴露，真实实现使用预算域语义文件名，不再依赖目录 `index.js`。
 - 预算收入分成、定价基础设置、定价参数编辑表、FTP 计息、FTP 计息变更、计提数据查询、计提减值详情、计提参数详情和计提数据导入弹窗通过 `src/components/Budget/*Entries.js` 暴露，域内复用也指向预算域语义文件名，不再依赖目录 `index.js`。
 - 预算管理成本计划、利润计划业务明细、利润计划列表、拨备预测列表和配置详情通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现使用预算管理域语义文件名，不再依赖目录 `index.js`。
@@ -520,6 +521,7 @@
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
 - PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
 - 管理报表内部历史页通过 `src/components/Report/ManagementEntries.js` 暴露，真实实现命名为 `src/components/Report/Management/InternalHistory/ReportInternalHistory.js`。
+- 财务报表审批详情通过 `src/components/Report/FinancialReportApprovalEntries.js` 暴露，真实实现命名为 `src/components/Report/FinancialReportApproval/ReportFinancialReportApproval.js`。
 - 流程信息弹窗通过 `src/components/Process/ProcessInfoModalEntries.js` 暴露，真实实现命名为 `src/components/Process/InfoModal/ProcessInfoModal.js`。
 - 流程审批历史、审批历史弹窗和流程图通过 `src/components/Process/*Entries.js` 暴露，真实实现命名为 `src/components/Process/ApprovalHistory/ProcessApprovalHistory.js`、`ApprovalHistoryModal/ProcessApprovalHistoryModal.js` 和 `TaskFlowChart/ProcessTaskFlowChart.js`。
 - 流程空白块和流程类型树分别通过 `src/components/Process/BlankBlockEntries.js`、`ProcessTypeTreeEntries.js` 暴露，真实实现命名为 `src/components/Process/BlankBlock/ProcessBlankBlock.js` 和 `src/components/Process/ProcessTypeTree/ProcessTypeTree.js`。

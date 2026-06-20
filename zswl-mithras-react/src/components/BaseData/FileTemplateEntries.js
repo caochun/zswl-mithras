@@ -1,1 +1,1 @@
-export { default as BaseDataFileTemplate } from './FileTemplate'
+export { default as BaseDataFileTemplate } from './FileTemplate/BaseDataFileTemplate'

@@ -108,6 +108,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js',
   ],
   [
+    'src/components/BaseData/FileTemplate/index.js',
+    'src/components/BaseData/FileTemplate/BaseDataFileTemplate.js',
+  ],
+  [
     'src/components/Chart/BarChart/index.js',
     'src/components/Chart/BarChart/BarChart.js',
   ],
@@ -550,6 +554,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Permission/Log/index.js',
     'src/components/Permission/Log/PermissionLog.js',
+  ],
+  [
+    'src/components/Report/FinancialReportApproval/index.js',
+    'src/components/Report/FinancialReportApproval/ReportFinancialReportApproval.js',
   ],
   [
     'src/components/Report/Management/InternalHistory/index.js',

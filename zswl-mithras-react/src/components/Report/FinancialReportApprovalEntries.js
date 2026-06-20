@@ -1,1 +1,1 @@
-export { default as FinancialReportApproval } from './FinancialReportApproval'
+export { default as FinancialReportApproval } from './FinancialReportApproval/ReportFinancialReportApproval'
