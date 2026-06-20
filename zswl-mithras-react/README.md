@@ -144,7 +144,10 @@
 - `Contract/StartRentCheckEntries.js`
 - `Cpm/BillManageEntries.js`
 - `Cpm/CollectionWriteOffEntries.js`
-- `Cpm/ContractCpmEntries.js`
+- `Cpm/ContractCpmCashFlowEntries.js`
+- `Cpm/ContractCpmDetailEntries.js`
+- `Cpm/ContractCpmDownPaymentEntries.js`
+- `Cpm/ContractCpmListEntries.js`
 - `Cpm/MarginManagementPageEntries.js`
 - `Cpm/MarginManagementPaymentEntries.js`
 - `Cpm/MarginManagementRefundEntries.js`

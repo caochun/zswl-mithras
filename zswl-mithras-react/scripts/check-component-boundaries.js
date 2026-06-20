@@ -770,6 +770,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Contract/ProcessApprovalDetailEntries.js', 'Contract/*DetailEntries.js'],
   ['Contract/ProcessDetailEntries.js', 'Contract/*DetailEntries.js'],
   ['Contract/ProcessRouteDetailEntries.js', 'Contract/*DetailEntries.js'],
+  ['Cpm/ContractCpmEntries.js', 'Cpm/ContractCpm*Entries.js'],
   ['Cpm/CpmEntries.js', 'Cpm/* narrow Entries.js'],
   ['Cpm/MarginManagementEntries.js', 'Cpm/MarginManagement*Entries.js'],
   ['Credit/EstablishEntries.js', 'Credit/Establish*Entries.js'],

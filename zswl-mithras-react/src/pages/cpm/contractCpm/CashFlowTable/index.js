@@ -1,1 +1,1 @@
-export { CpmContractCpmCashFlowTable as default } from '@/components/Cpm/ContractCpmEntries'
+export { CpmContractCpmCashFlowTable as default } from '@/components/Cpm/ContractCpmCashFlowEntries'

@@ -1,1 +1,1 @@
-export { CpmContractCpmContractDownPayment as default } from '@/components/Cpm/ContractCpmEntries'
+export { CpmContractCpmContractDownPayment as default } from '@/components/Cpm/ContractCpmDownPaymentEntries'
