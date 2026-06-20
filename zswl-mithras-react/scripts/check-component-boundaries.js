@@ -296,6 +296,26 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BudgetManagement/ProvisionForecast/List/BudgetManagementProvisionForecastList.js',
   ],
   [
+    'src/components/Archives/Manage/detail/index.js',
+    'src/components/Archives/Manage/detail/ArchivesManageDetail.js',
+  ],
+  [
+    'src/components/Archives/Task/index.js',
+    'src/components/Archives/Task/ArchivesTask.js',
+  ],
+  [
+    'src/components/BlackGray/BreakThrough/Approval/index.js',
+    'src/components/BlackGray/BreakThrough/Approval/BlackGrayBreakThroughApproval.js',
+  ],
+  [
+    'src/components/BlackGray/EnterDatabase/History/index.js',
+    'src/components/BlackGray/EnterDatabase/History/BlackGrayEnterDatabaseHistory.js',
+  ],
+  [
+    'src/components/BlackGray/Outbound/Approval/index.js',
+    'src/components/BlackGray/Outbound/Approval/BlackGrayOutboundApproval.js',
+  ],
+  [
     'src/components/BusinessInfoCheck/index.js',
     'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
   ],

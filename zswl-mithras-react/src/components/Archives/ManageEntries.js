@@ -1,2 +1,2 @@
 export { default as ArchivesManage } from './Manage'
-export { default as ArchivesManageDetail } from './Manage/detail'
+export { default as ArchivesManageDetail } from './Manage/detail/ArchivesManageDetail'
