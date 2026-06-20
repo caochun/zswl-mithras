@@ -515,8 +515,8 @@
 - 客户移交详情通过 `src/components/Customer/HandoverEntries.js` 暴露，真实实现命名为 `src/components/Customer/HandoverDetail/CustomerHandoverDetail.js`。
 - 客户评级列表和列配置通过 `src/components/Customer/CustomerRatingListEntries.js` 暴露，真实实现命名为 `src/components/Customer/CustomerRat/CustomerRatingList.js` 和 `src/components/Customer/CustomerRatColumns/CustomerRatingColumns.js`。
 - 征信查询抽屉和查询列表通过 `src/components/Credit/CreditReportSearchEntries.js`、`SearchListEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js` 和 `CreditSearchList/CreditSearchList.js`。
-- 授信建立列表通过 `src/components/Credit/EstablishPageEntries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js`。
-- 授信评审列表、授信建立日志、授信评审日志及其差异页通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
+- 授信建立列表和详情通过 `src/components/Credit/Establish*Entries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js` 和 `src/components/Credit/EstablishDetail/CreditEstablishDetail.js`。
+- 授信评审列表、详情、授信建立日志、授信评审日志及其差异页通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
 - 授信管理账户、还款、交易、逾期、客户、保证、抵押、质押、五级分类和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
 - 付款申请创建弹窗和公开信息提示弹窗分别通过 `src/components/Cpm/PaymentApplicationListEntries.js`、`PaymentApplicationPublicCheckEntries.js` 暴露，真实实现命名为 `src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js` 和 `src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js`。
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
@@ -528,7 +528,7 @@
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
 - KPI 基础设置列表、参数弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算合同维度、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
 - 生命周期客户列表页和客户详情页通过 `src/components/LifeCycle/CustomerEntries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js` 和 `src/components/LifeCycle/CustomerDetail/LifeCycleCustomerDetail.js`。
-- 租赁物审核确认动作通过 `src/components/Lease/ApprovalConfirmEntries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js`。
+- 租赁物审核确认动作和租赁物维护详情通过 `src/components/Lease/*Entries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js` 和 `src/components/Lease/MaintainDetail/LeaseMaintainDetail.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
 - OCR 列表和识别页通过 `src/components/Ocr/ListEntries.js`、`RecognitionEntries.js` 暴露，真实实现命名为 `src/components/Ocr/List/OcrList.js` 和 `src/components/Ocr/Recognition/OcrRecognition.js`。
 - 逾期催收流程弹窗通过 `src/components/Overdue/CollectionModalEntries.js` 暴露，真实实现命名为 `src/components/Overdue/CollectionModal/OverdueCollectionModal.js`。
@@ -593,7 +593,7 @@
 
 - `dashboard` / `Dashboard`：工作台、总览、看板、SSO 入口，偏展示与聚合。
 - `customerView`：客户单一视图/客户画像聚合页，首页与详情实现已收敛到 `src/components/Customer`，路由页仅保留入口装配；企查查单一视图新入口使用 `customerView/singleView`，历史拼写 `customerView/singeView` 仅保留兼容路由壳。
-- `customerMonitoring`：客户监控历史路由壳，当前实现已收敛到 `src/components/Customer/MonitoringEntries.js` 和 `src/components/Customer/MonitoringDetailEntries.js`，列表真实实现命名为 `CustomerMonitoring.js`。
+- `customerMonitoring`：客户监控历史路由壳，当前实现已收敛到 `src/components/Customer/MonitoringEntries.js` 和 `src/components/Customer/MonitoringDetailEntries.js`，列表和详情真实实现命名为 `CustomerMonitoring.js` 和 `CustomerMonitoringDetail.js`。
 - `lifeCycle` / `LifeCycle`：项目或客户生命周期聚合展示。
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`，真实实现命名为 `RiskMonitorEarly.js`。
 - `login`：登录和初次登录改密历史路由壳，页面实现已收敛到 `src/components/Permission/AuthEntries.js`，登录真实实现命名为 `PermissionLogin.js`，API 语义归属权限认证。

@@ -1,1 +1,1 @@
-export { default as CustomerMonitoringDetail } from './MonitoringDetail'
+export { default as CustomerMonitoringDetail } from './MonitoringDetail/CustomerMonitoringDetail'

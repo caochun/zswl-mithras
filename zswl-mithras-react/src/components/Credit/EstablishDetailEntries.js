@@ -1,1 +1,1 @@
-export { default as CreditEstablishDetail } from './EstablishDetail'
+export { default as CreditEstablishDetail } from './EstablishDetail/CreditEstablishDetail'

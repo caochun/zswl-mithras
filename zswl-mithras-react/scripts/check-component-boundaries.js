@@ -568,12 +568,20 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/Monitoring/CustomerMonitoring.js',
   ],
   [
+    'src/components/Customer/MonitoringDetail/index.js',
+    'src/components/Customer/MonitoringDetail/CustomerMonitoringDetail.js',
+  ],
+  [
     'src/components/Credit/CreditSearchModal/index.js',
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
   ],
   [
     'src/components/Credit/Establish/index.js',
     'src/components/Credit/Establish/CreditEstablish.js',
+  ],
+  [
+    'src/components/Credit/EstablishDetail/index.js',
+    'src/components/Credit/EstablishDetail/CreditEstablishDetail.js',
   ],
   [
     'src/components/Credit/CreditSearchList/index.js',
@@ -590,6 +598,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Credit/Review/index.js',
     'src/components/Credit/Review/CreditReviewPage.js',
+  ],
+  [
+    'src/components/Credit/ReviewDetail/index.js',
+    'src/components/Credit/ReviewDetail/CreditReviewDetail.js',
   ],
   [
     'src/components/Credit/ReviewDetail/Log/DiffInfo/index.js',
@@ -994,6 +1006,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Lease/Maintain/index.js',
     'src/components/Lease/Maintain/LeaseMaintainList.js',
+  ],
+  [
+    'src/components/Lease/MaintainDetail/index.js',
+    'src/components/Lease/MaintainDetail/LeaseMaintainDetail.js',
   ],
   [
     'src/components/LifeCycle/CustomerList/index.js',
