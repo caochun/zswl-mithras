@@ -60,7 +60,6 @@ const Index = ({ paramInfo, auth, title, handleAdjust }) => {
               <Form.Item dependencies={[changeName]} noStyle>
                 {({ getFieldValue }) => {
                   const adjust = getFieldValue(changeName)
-                  console.log('adjust: ', adjust)
                   const hasAdjust = [null, undefined].includes(adjust)
                   return (
                     <Row

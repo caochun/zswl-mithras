@@ -114,7 +114,6 @@ function Index({ path, ...props }) {
       dataIndex: 'emotionImportance',
       key: 'emotionImportance',
       render: (text) => {
-        console.log(text, 'text')
 
         if (!text) return '-'
         /**

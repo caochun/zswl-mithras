@@ -61,7 +61,6 @@ class Store {
       const { year, ...rest } = params
       let yearFrom = year && moment(year[0]).format('yyyy')
       let yearTo = year && moment(year[1]).format('yyyy')
-      console.log(params, 'paramsparams11111')
       this.getFinanceList({
         unit: this.unitValue || '10000',
         decimalCount: this.precisionValue || '2',

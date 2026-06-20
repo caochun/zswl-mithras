@@ -127,7 +127,6 @@ class Store {
   mortgageList = new Table.Store({
     request: async (params) => {
       await this.fetchAllData(params)
-      console.log(this.allData, 'this.allData')
 
       return this.allData?.mortgage_list.mortgage_list || []
     },

@@ -17,7 +17,6 @@ const Detail = ({ params: { id }, query: { canEditFlags = 'true', canApproval, t
   const canApprovalStatus = canApproval === 'true' && !isApproval
   const isFormApproval = getQuery('typeId') == 'approval'
   const isPre = getQuery('tab') === 'prepare'
-  console.log('isPre: ', (isPre || !isFormApproval) );
 
   const store = useMemo(() => {
     return new Store({ model })

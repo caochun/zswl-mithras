@@ -236,7 +236,6 @@ const isOldOrNew = (v, s, t) => {
 
 function index(props) {
   const { detailData, flag } = props
-  console.log('detailData: ', detailData)
   const isDomestic = detailData.domesticOrAbroad === 'DOMESTIC'
   return (
     <Descriptions bordered column={2} labelStyle={{ background: '#F5F6FA' }}>

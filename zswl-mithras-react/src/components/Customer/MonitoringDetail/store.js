@@ -23,13 +23,10 @@ class Store {
 
       const { riskControlOpinionHandleStatus } = await Api.selectAll(params)
 
-      console.log(riskControlOpinionHandleStatus, 'riskControlOpinionHandleStatus')
-
       this.riskControlOpinionHandleStatus = riskControlOpinionHandleStatus
       const res = await Api.postclientMonitorOpinionDetail({ clientId: params.id })
       this.yqDetail = res
       this.yjDetail = await Api.postYjDetail({ clientId: params.id })
-      console.log(this.yjDetail, 'this.yjDetail')
 
       return data
     },

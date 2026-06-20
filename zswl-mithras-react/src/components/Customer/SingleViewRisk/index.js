@@ -87,8 +87,6 @@ const Index = ({ query, pathname }) => {
     customerName,
   }
   const url = `${jkUrl}/singleView/lease?${paramsToString(newQuery)}`
-
-  console.log('url: ', url)
   return (
     <Page
       store={store}

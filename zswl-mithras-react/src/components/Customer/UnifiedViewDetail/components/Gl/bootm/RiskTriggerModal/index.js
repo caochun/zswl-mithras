@@ -54,7 +54,6 @@ function Index({ store, isSingle, getRiskScore }) {
       dataIndex: 'triggerDescribe',
       width: 240,
       render(val, record) {
-        console.log(val)
 
         return (
           <div className={styles.renderValue}>

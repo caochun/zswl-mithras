@@ -22,20 +22,17 @@ class Store {
   })
   warningList = new TableStore({
     request: (params) => {
-      console.log(params, 'params')
       return Api.postWarnlist({ id: params?.id, ...params })
     },
   })
   clientMonitorWarnlist = new TableStore({
     request: async (params) => {
-      console.log(params, 'params')
       const { list, ...rest } = await Api.postClientMonitorWarnlist({ id: params?.id, ...params })
       return { list: list.map((item) => ({ ...item, id: uniqueId() })), ...rest }
     },
   })
   opinionlist = new TableStore({
     request: async (params) => {
-      console.log(params, 'params')
       const { list, ...rest } = await Api.postOpinionlist({ id: params?.id, ...params })
       return { list: list.map((item) => ({ ...item, id: uniqueId() })), ...rest }
     },

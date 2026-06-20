@@ -130,7 +130,6 @@ const Index = ({ auth, id, store, isZX, paramInfo }) => {
 
       result.push(...newValue)
     })
-    console.log('result: ', result)
     return result
   }
 

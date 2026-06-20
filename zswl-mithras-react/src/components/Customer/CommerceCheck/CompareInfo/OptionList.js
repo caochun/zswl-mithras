@@ -17,7 +17,6 @@ const Index = ({ store }) => {
     compareModal,
     canEditOpinion,
   } = store
-  console.log(canEditOpinion())
   const hasOption = optionList?.length > 0
 
   useEffect(() => {

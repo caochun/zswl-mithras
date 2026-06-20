@@ -30,7 +30,6 @@ class Store {
           ...(customerInfo ?? {}),
         }
       } catch (error) {
-        console.log('error: ', error)
         return {}
       }
     },

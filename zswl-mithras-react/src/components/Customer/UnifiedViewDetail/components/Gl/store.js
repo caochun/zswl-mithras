@@ -395,11 +395,7 @@ class Store {
 
   isSingle = null
   // 预警触发详情
-  riskTriggerModal = new ModalStore({
-    onOpen: async (params) => {
-      console.log(params)
-    },
-  })
+  riskTriggerModal = new ModalStore({})
 
   riskListSingle = []
   riskTriggerTableData = {
