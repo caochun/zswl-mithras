@@ -79,7 +79,6 @@ const Index = ({ detail: policyDetail }) => {
         expandable={{
           expandedRowKeys: expandKeys,
           onExpand: (expanded, record) => {
-            console.log('expanded: ', expanded)
             if (expanded) {
               setExpandKeys([...expandKeys, getId(record.id)])
             } else {

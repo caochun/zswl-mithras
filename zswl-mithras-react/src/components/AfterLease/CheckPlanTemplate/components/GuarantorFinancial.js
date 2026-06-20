@@ -49,7 +49,6 @@ function Index({
         <Radio.Group
           style={{ marginBottom: 16 }}
           onChange={(e) => {
-            console.log(e.target.value)
             setActive(e.target.value)
           }}
           value={active}

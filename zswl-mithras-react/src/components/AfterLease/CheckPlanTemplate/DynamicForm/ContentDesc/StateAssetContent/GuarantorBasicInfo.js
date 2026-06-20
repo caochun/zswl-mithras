@@ -95,7 +95,6 @@ const NaturalPerson = ({ isNaturalPerson, editable }) => {
   )
 }
 const GuarantorInfo = ({ editable, required, namePrefix, chiName, name, listName }) => {
-  console.log('listName: ', listName)
   return (
     <>
       <RowSpan

@@ -33,7 +33,6 @@ const Notice = ({ store }) => {
   const getOurBankList = async () => {
     const res = await api.getClientBankList({})
     if (res) {
-      console.log(treeData(res))
       setOurBankList(treeData(res))
     }
   }

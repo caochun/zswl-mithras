@@ -104,7 +104,6 @@ const Index = ({
 
   const handleTaskAdjust = () => {
     if (selectedList && selectedList.length === 1) {
-      console.log({ selectedList })
       editCheckWayStore.open(selectedList[0])
     } else {
       message.info('需选中单条记录来处理')

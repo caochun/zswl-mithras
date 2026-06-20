@@ -10,7 +10,6 @@ const ALL_COLUMNS = [
     width: 330,
     fixed: 'left',
     actions({ planName, checkPlanClientId, id, planType }) {
-      console.log()
       return [
         {
           name: planName,
