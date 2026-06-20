@@ -18,7 +18,6 @@ const { Text } = Typography
 const TaskFloat = observer(() => {
   const [visible, setVisible] = useState(false)
   const { taskList, runningTasksCount } = store
-  console.log('taskList: ', taskList)
 
   /**
    * 获取任务状态图标

@@ -53,7 +53,6 @@ function Index({ open, callBack }) {
 
   const onChange = (key) => {
     setFlag(key)
-    console.log(key)
   }
   let data = {}
   if (flag == 1) {

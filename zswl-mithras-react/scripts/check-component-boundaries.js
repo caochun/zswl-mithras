@@ -752,14 +752,10 @@ for (const filePath of sourceFiles) {
     })
   }
 
-  if (
-    (utilitySourceFilePattern.test(relativeFilePath) ||
-      isPublicComponentSourceFile(relativeFilePath)) &&
-    hasRuntimeConsoleLog(source)
-  ) {
+  if (hasRuntimeConsoleLog(source)) {
     violations.push({
       file: relativeFilePath,
-      specifier: 'runtime console.log in shared frontend foundation',
+      specifier: 'runtime console.log in frontend source',
     })
   }
 

@@ -46,8 +46,6 @@ export default {
   },
   // 链式调用开始
   chain(num) {
-    // console.log('num', num, transformValToNumber(0))
-    // console.log(math.bignumber(transformValToNumber(0)))
     return math.chain(math.bignumber(transformValToNumber(num ?? 0)))
   },
   // 链式调用结束

@@ -52,7 +52,6 @@ export class MyWebSocket {
   private keepReconnect = false // 是否断线后一直保持重连状态
   private token: string // token
   constructor(url: string, opt?: IWsOpt, token?: string) {
-    // console.log(url)
     this.opt = { ...defaults, ...opt }
     this.name = url
     this.token = token
@@ -165,7 +164,6 @@ export class MyWebSocket {
     if (funcList) {
       funcList.forEach((func) => func(data, time))
     } else {
-      // console.log("无法处理此类消息");
     }
   }
 
@@ -203,14 +201,11 @@ export class MyWebSocket {
 
       ws.onclose = () => {
         clearTimeout(this.timer)
-        // console.log('WebSocketClosed!')
         this.status = WSStatus.断线
         this.reconnect()
       }
 
       ws.onerror = () => {
-        // console.log('WebSocketError!')
-        // console.log(`${this.name}通讯失败!!!`);
         this.status = WSStatus.断线
         this.reconnect()
         reject && reject()
@@ -246,14 +241,11 @@ export class MyWebSocket {
     }
     if (this.reconnectNum === 0) {
       this.status = WSStatus.废弃
-      // console.log(`${this.name}已断线!!!请刷新`)
       return
     }
     if (!this.keepReconnect) {
       this.reconnectNum--
-      // console.log(this.name + '5s后开始第' + this.reconnectNum + '次重连')
     }
-    // console.log('ws断开，开始重连')
 
     this.timer = window.setTimeout(() => {
       this.open()
@@ -272,7 +264,6 @@ export class MyWebSocket {
         funcList.forEach((func) => func(data))
       }
     } catch (e) {
-      // console.log(e);
     }
   }
 }

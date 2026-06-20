@@ -109,7 +109,6 @@ class Store {
     })
 
     const associationDictData = transformDictToOptions(associationDict)
-    console.log('associationDictData: ', associationDictData)
     //获取登录信息
     this.getUserInfoData = await Api.getUserInfo()
     localStorage.setItem('userInfo', JSON.stringify(this.getUserInfoData))

@@ -101,7 +101,6 @@ function Application({ children }) {
 
 export default defineApp(Application, {
   keepAlive: (params) => {
-    console.log('params: ', params)
     const noCache = ['/budgetManagement/provisionForecast']
     return !!App.getToken()
 

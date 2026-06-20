@@ -81,7 +81,6 @@ const MyUpload = ({ onChange, store }) => {
   }
   // 图片预览
   const handlePreview = (file) => {
-    console.log({ file })
     setPreviewTitle(file.name)
     setPreviewUrl(file.url || file.thumbUrl)
     setPreviewVisible(true)
