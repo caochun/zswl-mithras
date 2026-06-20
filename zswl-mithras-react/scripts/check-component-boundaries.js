@@ -468,6 +468,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
   ],
   [
+    'src/components/Customer/CustomerRatDetail/index.js',
+    'src/components/Customer/CustomerRatDetail/CustomerRatingDetail.js',
+  ],
+  [
     'src/components/ClientMaterialTable/index.js',
     'src/components/ClientMaterialTable/BusinessMaterialTable.js',
   ],
@@ -930,6 +934,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Kpi/Estimation/contract/index.js',
     'src/components/Kpi/Estimation/contract/KpiEstimationContract.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/index.js',
+    'src/components/Kpi/BaseSetModalDetail/KpiBaseSetModalDetail.js',
   ],
   [
     'src/components/Kpi/BaseSetModalDetail/BaBeiJiTi/index.js',

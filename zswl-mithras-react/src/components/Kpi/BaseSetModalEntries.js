@@ -1,1 +1,1 @@
-export { default as KpiBaseSetModalDetail } from './BaseSetModalDetail'
+export { default as KpiBaseSetModalDetail } from './BaseSetModalDetail/KpiBaseSetModalDetail'

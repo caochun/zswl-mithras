@@ -513,7 +513,7 @@
 - 客户外部公开信息通过 `src/components/Customer/ExternalPublicInfoEntries.js` 暴露，真实实现命名为 `src/components/Customer/ExternalPublicInfo/CustomerExternalPublicInfo.js`。
 - 客户债项评级列表和详情通过 `src/components/Customer/DebtRating*Entries.js` 暴露，真实实现命名为 `src/components/Customer/DebtRat/CustomerDebtRat.js` 和 `src/components/Customer/DebtRatDetail/CustomerDebtRatDetail.js`。
 - 客户移交详情通过 `src/components/Customer/HandoverEntries.js` 暴露，真实实现命名为 `src/components/Customer/HandoverDetail/CustomerHandoverDetail.js`。
-- 客户评级列表和列配置通过 `src/components/Customer/CustomerRatingListEntries.js` 暴露，真实实现命名为 `src/components/Customer/CustomerRat/CustomerRatingList.js` 和 `src/components/Customer/CustomerRatColumns/CustomerRatingColumns.js`。
+- 客户评级列表、详情和列配置通过 `src/components/Customer/CustomerRating*Entries.js` 暴露，真实实现命名为 `src/components/Customer/CustomerRat/CustomerRatingList.js`、`CustomerRatDetail/CustomerRatingDetail.js` 和 `CustomerRatColumns/CustomerRatingColumns.js`。
 - 征信查询抽屉和查询列表通过 `src/components/Credit/CreditReportSearchEntries.js`、`SearchListEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js` 和 `CreditSearchList/CreditSearchList.js`。
 - 授信建立列表和详情通过 `src/components/Credit/Establish*Entries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js` 和 `src/components/Credit/EstablishDetail/CreditEstablishDetail.js`。
 - 授信评审列表、详情、授信建立日志、授信评审日志及其差异页通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
@@ -526,7 +526,7 @@
 - 融资计息流程通过 `src/components/Financial/FinancingCarryInterestEntries.js` 暴露，真实实现命名为 `src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
-- KPI 基础设置列表、参数弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算顶层页/合同维度、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
+- KPI 基础设置列表、参数弹窗、基础设置详情弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算顶层页/合同维度、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
 - 生命周期客户列表页和客户详情页通过 `src/components/LifeCycle/CustomerEntries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js` 和 `src/components/LifeCycle/CustomerDetail/LifeCycleCustomerDetail.js`。
 - 租赁物审核确认动作和租赁物维护详情通过 `src/components/Lease/*Entries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js` 和 `src/components/Lease/MaintainDetail/LeaseMaintainDetail.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
