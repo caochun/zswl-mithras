@@ -485,7 +485,7 @@
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
 - 租后调整列表/详情/创建、五级分类详情、检查计划检查清单、打开清单、策略页、策略创建、检查准备流程、管理台账、政策保单、政策管理弹窗、政策提醒、回款列表、回款借据卡、期项租金卡、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
-- 档案管理详情和其他资料归集列表/详情分别通过 `src/components/Archives/ManagementEntries.js`、`OtherFilingMaterialsEntries.js` 暴露，真实实现使用档案域语义文件名，不再依赖目录 `index.js`。
+- 档案管理列表/详情和其他资料归集列表/详情分别通过 `src/components/Archives/ManagementEntries.js`、`OtherFilingMaterialsEntries.js` 暴露，真实实现使用档案域语义文件名，不再依赖目录 `index.js`。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
 - 基础数据文件模板页通过 `src/components/BaseData/FileTemplateEntries.js` 暴露，真实实现命名为 `src/components/BaseData/FileTemplate/BaseDataFileTemplate.js`。
@@ -530,7 +530,7 @@
 - 生命周期客户列表页和客户详情页通过 `src/components/LifeCycle/CustomerEntries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js` 和 `src/components/LifeCycle/CustomerDetail/LifeCycleCustomerDetail.js`。
 - 租赁物审核确认动作通过 `src/components/Lease/ApprovalConfirmEntries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
-- OCR 识别页通过 `src/components/Ocr/RecognitionEntries.js` 暴露，真实实现命名为 `src/components/Ocr/Recognition/OcrRecognition.js`。
+- OCR 列表和识别页通过 `src/components/Ocr/ListEntries.js`、`RecognitionEntries.js` 暴露，真实实现命名为 `src/components/Ocr/List/OcrList.js` 和 `src/components/Ocr/Recognition/OcrRecognition.js`。
 - 逾期催收流程弹窗通过 `src/components/Overdue/CollectionModalEntries.js` 暴露，真实实现命名为 `src/components/Overdue/CollectionModal/OverdueCollectionModal.js`。
 - 逾期文书用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，真实实现命名为 `src/components/Overdue/LitigationDocAddModal/OverdueLitigationDocAddModal.js`。
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
@@ -563,7 +563,7 @@
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
-- 我的流程页签、我的审批页签、流程查询、流程设计、流程详情路由和历史组件路由已收敛到 `src/components/Process` 的窄 `*Entries.js`，路由页仅保留入口装配。
+- 我的流程页签、我的审批页签、流程查询、流程设计、流程详情路由和历史组件路由已收敛到 `src/components/Process` 的窄 `*Entries.js`，我的流程和我的审批真实实现命名为 `ProcessApplication.js` 和 `ProcessReceive.js`，路由页仅保留入口装配。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
 

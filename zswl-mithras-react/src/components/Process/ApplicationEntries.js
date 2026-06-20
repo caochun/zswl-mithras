@@ -1,1 +1,1 @@
-export { default as ProcessApplication } from './Application'
+export { default as ProcessApplication } from './Application/ProcessApplication'

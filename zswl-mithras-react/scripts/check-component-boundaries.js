@@ -152,6 +152,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/RentCollection/TermDetail/AfterLeaseRentCollectionTermDetail.js',
   ],
   [
+    'src/components/Archives/Management/index.js',
+    'src/components/Archives/Management/ArchivesManagement.js',
+  ],
+  [
     'src/components/Archives/Management/detail/index.js',
     'src/components/Archives/Management/detail/ArchivesManagementDetail.js',
   ],
@@ -992,6 +996,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Message/Notification/MessageNotification.js',
   ],
   [
+    'src/components/Ocr/List/index.js',
+    'src/components/Ocr/List/OcrList.js',
+  ],
+  [
     'src/components/Ocr/Recognition/index.js',
     'src/components/Ocr/Recognition/OcrRecognition.js',
   ],
@@ -1142,6 +1150,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Process/TaskFlowChart/index.js',
     'src/components/Process/TaskFlowChart/ProcessTaskFlowChart.js',
+  ],
+  [
+    'src/components/Process/Application/index.js',
+    'src/components/Process/Application/ProcessApplication.js',
+  ],
+  [
+    'src/components/Process/Receive/index.js',
+    'src/components/Process/Receive/ProcessReceive.js',
   ],
   [
     'src/components/Process/RouteDetail/index.js',
