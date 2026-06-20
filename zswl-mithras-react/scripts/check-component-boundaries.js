@@ -104,6 +104,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/CheckPlan/List/Tab/Strategy/AfterLeaseCheckPlanStrategyPage.js',
   ],
   [
+    'src/components/AfterLease/CheckPlanCreate/index.js',
+    'src/components/AfterLease/CheckPlanCreate/AfterLeaseCheckPlanCreate.js',
+  ],
+  [
+    'src/components/AfterLease/CheckPlanDetail/index.js',
+    'src/components/AfterLease/CheckPlanDetail/AfterLeaseCheckPlanDetail.js',
+  ],
+  [
     'src/components/AfterLease/CheckPlanPrepareProcess/index.js',
     'src/components/AfterLease/CheckPlanPrepareProcess/AfterLeaseCheckPlanPrepareProcess.js',
   ],
