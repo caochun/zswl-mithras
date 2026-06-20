@@ -1,1 +1,1 @@
-export { BudgetManagementPlacementPlan as default } from '@/components/BudgetManagement/PlacementPlanEntries'
+export { BudgetManagementPlacementPlan as default } from '@/components/BudgetManagement/PlacementPlanListEntries'

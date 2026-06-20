@@ -1,4 +1,4 @@
-import { BudgetManagementPlacementPlanDetail as MonthPlanEvent } from '@/components/BudgetManagement/PlacementPlanEntries'
+import { BudgetManagementPlacementPlanDetail as MonthPlanEvent } from '@/components/BudgetManagement/PlacementPlanDetailEntries'
 import { observer } from '@zswl/admin'
 
 const ProjectReview = (props) => {
