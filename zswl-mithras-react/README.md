@@ -62,6 +62,7 @@
 - `Budget/BankAccountEntries.js`
 - `Budget/BusinessAgingTableEntries.js`
 - `Budget/ExchangeRateEntries.js`
+- `Budget/FinancialMonthlyManagementEntries.js`
 - `Budget/IncomeShareTableEntries.js`
 - `Budget/LprEntries.js`
 - `Budget/PricingBaseDataEntries.js`
@@ -247,6 +248,7 @@
 - 预算银行账户维护页通过 `src/components/Budget/BankAccountEntries.js` 暴露，`src/pages/budget/bankAccount/*` 只保留路由壳。
 - 预算业务账龄表列表页和详情页通过 `src/components/Budget/BusinessAgingTableEntries.js` 暴露，`src/pages/budget/businessAgingTable/*` 只保留路由壳。
 - 预算历史路径下的财务报表导入实际归入风险指标财报域，通过 `src/components/Risk/FinanceSheetFileEntries.js` 暴露，`src/pages/budget/financeSheet/*` 只保留路由壳。
+- 预算财务月结管理页通过 `src/components/Budget/FinancialMonthlyManagementEntries.js` 暴露，`src/pages/budget/financialMonthlyManagement/*` 只保留路由壳。
 - 预算拨备数据查询页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/dataSearch/*` 只保留路由壳。
 - 预算拨备减值列表页和详情页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/impairment/*` 只保留路由壳。
 - 预算拨备参数配置列表页和详情页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/paramsConfig/*` 只保留路由壳。
