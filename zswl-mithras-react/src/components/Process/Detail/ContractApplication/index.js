@@ -8,7 +8,7 @@ import {
   ContractCreateReceiptDetail as KSJJcreateReceipt,
   ContractSettlementDetail as JQsettlement,
   ContractStartRentDetail as KSQZstartRent,
-} from '@/components/Contract/ProcessApprovalDetailEntries'
+} from '@/components/Contract/ProcessDetailEntries'
 import Api from '@/api/process/detail/flowDetailApi'
 
 const ContractProcess = (props) => {

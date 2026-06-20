@@ -124,9 +124,8 @@
 - `Contract/ContractTextEntries.js`
 - `Contract/LeaseMaterialsEntries.js`
 - `Contract/ListEntries.js`
-- `Contract/ProcessApprovalDetailEntries.js`
+- `Contract/ProcessDetailEntries.js`
 - `Contract/ProcessPrepareDetailEntries.js`
-- `Contract/ProcessRouteDetailEntries.js`
 - `Contract/SignEntries.js`
 - `Contract/StartRentCheckEntries.js`
 - `Cpm/BillManageEntries.js`

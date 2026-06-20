@@ -1,1 +1,1 @@
-export { ContractChangeDetail as default } from '@/components/Contract/ProcessRouteDetailEntries'
+export { ContractChangeDetail as default } from '@/components/Contract/ProcessDetailEntries'

@@ -1,5 +1,0 @@
-export { default as ContractChangeDetail } from './ChangeDetail'
-export { default as ContractCreateReceiptDetail } from './CreateReceiptDetail'
-export { default as ContractMarginRefund } from './MarginRefund'
-export { default as ContractSettlementDetail } from './SettlementDetail'
-export { default as ContractStartRentDetail } from './StartRentDetail'
