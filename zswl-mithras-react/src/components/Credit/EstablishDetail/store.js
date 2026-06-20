@@ -37,7 +37,6 @@ class Store {
         .postEstablishRemarkAll(approvalParams)
         .then((res) => res)
         .catch((e) => {
-          console.log(e)
           return {}
         })
 

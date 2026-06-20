@@ -46,7 +46,6 @@ function AddModal({ store }) {
     if (!clientId) return
     if (isProject) {
       const clientInfo = clientInfos.find((item) => item.value === clientId)
-      console.log('clientInfo: ', clientInfo)
       formStore.setFieldsValue?.({
         clientId: clientInfo?.value,
         clientName: clientInfo?.label,
@@ -92,12 +91,10 @@ function AddModal({ store }) {
       setClientInfos(
         clientInfos.map((item) => ({ ...item, value: item.clientId, label: item.clientName })) || []
       )
-      console.log('projectName: ', projectName)
       modal.open({ ...rest, projName: projectName, projIdDataType: bizSource })
       return
     }
     if (isClient) {
-      console.log('restParams: ', restParams)
       modal.open(restParams)
       onClientChange(restParams.clientId)
       return

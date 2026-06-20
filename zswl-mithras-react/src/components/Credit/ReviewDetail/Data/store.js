@@ -56,7 +56,6 @@ class Store {
   createModal = new ModalStore({
     onFinish: async (values) => {
       const formData = new FormData()
-      console.log(values)
       const file = new File(values.file, values.file[0].name)
 
       formData.append('file', file)

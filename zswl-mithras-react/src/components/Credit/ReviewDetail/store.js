@@ -25,7 +25,6 @@ class Store {
       ])
         .then((res) => res)
         .catch((e) => {
-          console.log(e)
           return [{}, {}]
         })
 

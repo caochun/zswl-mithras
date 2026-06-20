@@ -30,7 +30,6 @@ export default {
 
   // 集团授信立项报告文件-删除
   postReportRemove: (data: Types.ReportRemoveRequest): Promise<Types.ReportRemoveResponse> => {
-    console.log(data, 'data')
     return http.post('/group/credit/establish/report/remove', data, {
       mock,
       transformResult: (res) => res.data,
