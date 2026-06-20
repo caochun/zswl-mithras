@@ -1,1 +1,1 @@
-export { ProjectPriceDetailLog as default } from '@/components/Project/PriceDetailEntries'
+export { ProjectPriceDetailLog as default } from '@/components/Project/PriceDetailLogEntries'

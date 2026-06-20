@@ -274,7 +274,9 @@
 - `Project/EstablishmentEntries.js`
 - `Project/FinancialReportStatisticsEntries.js`
 - `Project/FormListItemEntries.js`
-- `Project/PriceDetailEntries.js`
+- `Project/PriceDetailLogEntries.js`
+- `Project/PriceDetailPageEntries.js`
+- `Project/PriceDetailQuotationEntries.js`
 - `Project/PriceEntries.js`
 - `Project/ProjectReviewMeetingModalEntries.js`
 - `Project/ReviewDetailBaseEntries.js`
