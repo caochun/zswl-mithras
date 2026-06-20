@@ -20,7 +20,7 @@ import styles from './index.less'
 import IndustryIndexComparison from './IndustryIndexComparison'
 import { Button } from 'antd'
 
-const App = () => {
+const DashboardOverview = () => {
   const is_wujie = getUserInfo().id === 49
   const allAnchorList = [
     { label: '资产总览', component: <AssetsView />, key: 'AssetsOverview' },
@@ -133,4 +133,4 @@ const App = () => {
   )
 }
 
-export default observer(App)
+export default observer(DashboardOverview)

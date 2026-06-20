@@ -51,6 +51,10 @@
     },
     {
       "sourceScope": "components/Budget",
+      "target": "FormulaValueTip/FormulaValueTipEntries"
+    },
+    {
+      "sourceScope": "components/Budget",
       "target": "Kpi/BaseSetModalEntries"
     },
     {
@@ -172,6 +176,10 @@
     {
       "sourceScope": "components/Financial",
       "target": "ChangeLogDiff/ChangeLogDiffEntries"
+    },
+    {
+      "sourceScope": "components/Kpi",
+      "target": "FormulaValueTip/FormulaValueTipEntries"
     },
     {
       "sourceScope": "components/Kpi",

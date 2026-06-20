@@ -255,6 +255,7 @@
 - `Financial/SelectEntries.js`
 - `InsurancePolicy/InsurancePolicyColumnsEntries.js`
 - `InsurancePolicy/InsurancePolicyEntries.js`
+- `FormulaValueTip/FormulaValueTipEntries.js`
 - `Kpi/BaseSetBaBeiJiTiEntries.js`
 - `Kpi/BaseSetBasePrizeRateEntries.js`
 - `Kpi/BaseSetCopyEntries.js`
@@ -394,7 +395,7 @@
 - 禁止保留 `0` 字节空样式文件；如果样式已经为空，应删除样式文件和对应的空 `styles` import / `className`。
 - 禁止在业务组件目录中保留只转发 `@/components/**` 的组件壳；调用方应直接引用目标公共组件或领域入口。
 - 禁止在 `src/components` 和 `src/pages` 下保留空目录；删除迁移残留文件时应同步清理空壳目录。
-- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单管理应通过 `BlackGray/AllQueryEnterpriseEntries.js`、`AllQueryGroupEntries.js`、`AllQueryRecordEntries.js`、`QueryIframeEntries.js`、`EnterDatabaseApplicationEntries.js`、`EnterDatabaseExternalEntries.js`、`EnterDatabaseHistoryEntries.js`、`EnterDatabaseUploadEntries.js`、`BreakThroughApplicationEntries.js`、`BreakThroughApprovalEntries.js`、`OutboundApplicationEntries.js`、`OutboundApprovalEntries.js`、`OutboundSearchEntries.js`、`WarehouseApprovalListEntries.js`、`WarehouseApprovalDetailEntries.js`、`WarehouseApprovalOutDetailEntries.js`、`WarehouseMainTaskListEntries.js`、`WarehouseMainTaskDetailEntries.js`、`WarehouseMainTaskOutDetailEntries.js`、`WarehouseSearchEntries.js`、`WarehouseSubTaskEntries.js`、`ParameterEntries.js` 等窄入口引入，黑灰名单命中标识应通过 `BlackGray/BlackGrayHitEntries.js` 引入，保单列配置应通过 `InsurancePolicy/InsurancePolicyColumnsEntries.js` 引入，业务资料表应通过 `ClientMaterialTable/BusinessMaterialTableEntries.js` 引入，征信查询抽屉应通过 `Credit/CreditReportSearchEntries.js` 引入，评估机构关系表应通过 `EvaluationAgency/AppraisalAgencyEntries.js` 引入，FTP考核列配置应通过 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 引入，跟踪事项弹窗应通过 `TrackEvent/TrackEventModalEntries.js` 引入，跟踪事项新增任务弹窗应通过 `TrackEvent/TrackEventTaskEntries.js` 引入，Dashboard 应通过 `Dashboard/OverviewEntries.js`、`Dashboard/SsoEntries.js`、`Dashboard/WorkbenchEntries.js` 等窄入口引入，`BusinessInfoCheck`、`ClientMaterialTable`、`EvaluationAgency`、`ChangeLogDiff`、`InsurancePolicy`、`PaymentFtpColumns` 应通过对应 `*Entries.js` 引入。
+- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单管理应通过 `BlackGray/AllQueryEnterpriseEntries.js`、`AllQueryGroupEntries.js`、`AllQueryRecordEntries.js`、`QueryIframeEntries.js`、`EnterDatabaseApplicationEntries.js`、`EnterDatabaseExternalEntries.js`、`EnterDatabaseHistoryEntries.js`、`EnterDatabaseUploadEntries.js`、`BreakThroughApplicationEntries.js`、`BreakThroughApprovalEntries.js`、`OutboundApplicationEntries.js`、`OutboundApprovalEntries.js`、`OutboundSearchEntries.js`、`WarehouseApprovalListEntries.js`、`WarehouseApprovalDetailEntries.js`、`WarehouseApprovalOutDetailEntries.js`、`WarehouseMainTaskListEntries.js`、`WarehouseMainTaskDetailEntries.js`、`WarehouseMainTaskOutDetailEntries.js`、`WarehouseSearchEntries.js`、`WarehouseSubTaskEntries.js`、`ParameterEntries.js` 等窄入口引入，黑灰名单命中标识应通过 `BlackGray/BlackGrayHitEntries.js` 引入，保单列配置应通过 `InsurancePolicy/InsurancePolicyColumnsEntries.js` 引入，业务资料表应通过 `ClientMaterialTable/BusinessMaterialTableEntries.js` 引入，征信查询抽屉应通过 `Credit/CreditReportSearchEntries.js` 引入，评估机构关系表应通过 `EvaluationAgency/AppraisalAgencyEntries.js` 引入，FTP考核列配置应通过 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 引入，公式值提示应通过 `FormulaValueTip/FormulaValueTipEntries.js` 引入，跟踪事项弹窗应通过 `TrackEvent/TrackEventModalEntries.js` 引入，跟踪事项新增任务弹窗应通过 `TrackEvent/TrackEventTaskEntries.js` 引入，Dashboard 应通过 `Dashboard/OverviewEntries.js`、`Dashboard/SsoEntries.js`、`Dashboard/WorkbenchEntries.js` 等窄入口引入，`BusinessInfoCheck`、`ClientMaterialTable`、`EvaluationAgency`、`ChangeLogDiff`、`InsurancePolicy`、`PaymentFtpColumns` 应通过对应 `*Entries.js` 引入。
 - `npm run report:unused-component-candidates` 只输出静态无入边候选，不代表可直接删除；删除前必须人工复核动态约定、配置导出和类型声明等情况。
 - `npm run report:unused-component-candidates -- --include-index --include-entries` 应保持清零；`npm run check:boundaries` 已把这组候选纳入门禁，用于阻止无引用 `index`、样式文件和 `*Entries.js` 残留回潮。
 - `npm run report:ui-domain-deps` 会把已拆出的窄入口按独立能力归类，例如 `AfterLeaseCheckPlanCreate`、`BlackGrayHit`、`BudgetPricingBusinessDetail`、`ContractApplicationDetail`、`ContractBaseInfo`、`ContractLeaseMaterials`、`CustomerDebtRatingList`、`CustomerExternalPublicInfo`、`CustomerSingleViewRisk`、`FinancialSelect`、`InsurancePolicyInfo`、`InsurancePolicyColumns`、`KpiBaseSetModalDetail`、`ProcessInfoModal`、`ProcessTaskFlowChart`、`ProjectReviewMeetingModal`、`ProjectReviewSnapshot`、`RentCollectionDetail`、`RiskPublicMonitorList`、`RiskSourceCardCalcModal`、`TrackEventDetail`、`TrackEventList`、`TrackEventModal`、`TrackEventTask`；这些报告项代表稳定共享能力，不等同于调用方依赖完整业务域。
@@ -442,7 +443,7 @@
 - KPI 项目分配列表页、历史页、项目分配列表子组件、分配明细和表单片段分别通过 `src/components/Kpi/ProjectAllotPageEntries.js`、`ProjectAllotHistoryEntries.js`、`ProjectAllotProjectAllocateListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，历史页真实实现命名为 `KpiProjectAllotHistory.js`，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
 - 预算考核列表页和详情页通过 `src/components/BudgetManagement/AssessmentEntries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js` 和 `BudgetManagementAssessmentDetail.js`，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
 - 预算管理业绩目标是历史菜单路径，实际归入 KPI 业绩目标组件域；列表页和详情页通过 `src/components/Kpi/BusinessGoalEntries.js` 暴露，详情真实实现命名为 `KpiBusinessGoalDetail.js`，`src/pages/budgetManagement/businessGoal/*` 只保留路由壳。
-- 预算管理参数配置页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，真实实现命名为 `BudgetManagementParameterConfiguration.js`，`src/pages/budgetManagement/parameterConfig` 只保留路由壳。
+- 预算管理参数配置页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，历史参数配置路径真实实现命名为 `BudgetManagementParameterConfig.tsx`，`src/pages/budgetManagement/parameterConfig` 只保留路由壳。
 - 预算管理参数配置（历史定价基础配置路径）页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，真实实现命名为 `BudgetManagementParameterConfiguration.js`，`src/pages/budgetManagement/parameterConfiguration` 只保留路由壳。
 - 预算管理投放计划列表页、详情页和周报详情页分别通过 `src/components/BudgetManagement/PlacementPlanListEntries.js`、`PlacementPlanDetailEntries.js`、`PlacementPlanWeekDetailEntries.js` 暴露，真实实现命名为 `BudgetManagementPlacementPlan.js`、`BudgetManagementPlacementPlanDetail.js` 和 `BudgetManagementPlacementPlanWeekDetail.js`，`src/pages/budgetManagement/placementPlan/*` 只保留路由壳。
 - 预算管理成本计划列表页和详情页通过 `src/components/BudgetManagement/PlanCostEntries.js` 暴露，`src/pages/budgetManagement/plan/cost/*` 只保留路由壳。
@@ -458,7 +459,7 @@
 - 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，真实实现命名为 `FinancialGuarantee.js`、`FinancialGuaranteeDetail.js`，`src/pages/financial/guarantee/*` 只保留路由壳。
 - 财务流动性管理、资金日报、监管户待转资金、账户余额明细和预测参数配置分别通过 `src/components/Financial/LiquidityManagementEntries.js`、`LiquidityFundDailyReportEntries.js`、`LiquiditySupervisionAccountEntries.js`、`LiquidityAccountBalanceEntries.js`、`LiquidityPredictionParametersEntries.js` 暴露，流动性管理、监管户待转资金、账户余额明细和预测参数真实实现命名为 `FinancialLiquidity.js`、`FinancialLiquiditySupervisionAccount.js`、`FinancialLiquidityAccountBalanceDetail.js`、`FinancialLiquidityPredictionParameters.js`，`src/pages/financial/liquidity/*` 只保留路由壳。
 - 金融流动性风险统计页通过 `src/components/Financial/LiquidityRiskEntries.js` 暴露，真实实现命名为 `FinancialLiquidityRisk.js`，`src/pages/financial/liquidityRisk/*` 只保留路由壳。
-- Dashboard 工作台、经营总览和 SSO 跳转页分别通过 `src/components/Dashboard/WorkbenchEntries.js`、`OverviewEntries.js`、`SsoEntries.js` 暴露；SSO 真实实现命名为 `src/components/Dashboard/Sso/DashboardSso.js` 和 `SsoFlow/DashboardSsoFlow.js`，`src/pages/dashboard/workbench`、`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
+- Dashboard 工作台、经营总览和 SSO 跳转页分别通过 `src/components/Dashboard/WorkbenchEntries.js`、`OverviewEntries.js`、`SsoEntries.js` 暴露；工作台和经营总览真实实现命名为 `src/components/Dashboard/Workbench/DashboardWorkbench.jsx` 和 `src/components/Dashboard/Overview/DashboardOverview.jsx`，SSO 真实实现命名为 `src/components/Dashboard/Sso/DashboardSso.js` 和 `SsoFlow/DashboardSsoFlow.js`，`src/pages/dashboard/workbench`、`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
 - 逾期催收列表页、详情页通过 `src/components/Overdue/CollectionEntries.js` 暴露，真实实现命名为 `src/components/Overdue/Collection/List/OverdueCollectionList.js` 和 `src/components/Overdue/Collection/Detail/OverdueCollectionDetail.js`，流程催收弹窗通过 `src/components/Overdue/CollectionModalEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
 - 逾期诉讼用印列表页和用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，列表真实实现命名为 `src/components/Overdue/LitigationDoc/List/OverdueLitigationDocList.js`，`src/pages/overdue/litigationDoc/*` 只保留路由壳。
 - 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/LitigationRegistrationEntries.js` 暴露，真实实现命名为 `src/components/Overdue/LitigationRegistration/List/OverdueLitigationRegistrationList.js` 和 `src/components/Overdue/LitigationRegistration/Detail/OverdueLitigationRegistrationDetail.js`，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。
@@ -467,7 +468,7 @@
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
 - 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `PageListDown`、`CommonTips`、`CommonNoData`、`ReadOnly`、`DetailLayout`、`Collapse`、`RegionCascader` 应直接从对应 `@/components/<Component>` 导入。
 - 禁止业务代码继续从 `@/components` 根目录导入组件；历史兼容根导出已删除，新增和迁移代码必须依赖具体稳定入口。
-- 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`RenderColumn`、`FormItemContent`、`FormUpload`、`Excel`、`Amount`、`CommonNoData`、`ReadOnly` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域的 `*Entries.js`。
+- 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`RenderColumn`、`FormItemContent`、`FormUpload`、`Excel`、`Amount`、`CommonNoData`、`ReadOnly` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域或公共能力的 `*Entries.js`。
 - 全局样式不放在 `src/components` 下伪装成组件域；当前全局动画样式已内聚到 `src/app.less`。
 - 禁止业务代码直接引用 `blackList`、`postRentalInspection`、`riskControl`、`liquidity`、`pricing`、`newFtp`、`financialReport`、`manageReport`、`fillingMaterials`、`workbench`、`header` 等历史 API 目录，应使用对应语义领域入口。
 - 禁止页面和组件直接引用 `src/api/**/interface/**` 类型文件；接口类型应由对应的语义 API 包装文件承接，避免页面绑定接口实现层目录。
@@ -484,7 +485,7 @@
 - 表格、文件表、描述表、审批详情等统一从 `src/components/Table` 稳定入口导入。
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
-- 租后调整列表/详情/创建、五级分类列表/详情、检查计划列表/检查清单、打开清单、检查计划创建/详情、外部检查详情、策略页、策略创建、检查准备流程、管理台账、政策保单列表、政策保单新增详情、政策保单详情、政策管理弹窗、政策提醒、回款列表、回款借据卡、期项租金卡、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，政策保单新增详情和保单详情命名为 `AfterLeasePolicyManageAddDetail.js`、`AfterLeasePolicyManageDetail.js`，不再依赖目录 `index.js` 或路由式 `[id]` 文件名。
+- 租后调整列表/详情/创建、五级分类列表/详情、检查计划列表/检查清单、打开清单、检查计划创建/详情、外部检查详情、策略页、策略创建、检查准备流程、检查模板、管理台账、政策保单列表、政策保单新增详情、政策保单详情、政策管理弹窗、政策提醒、回款列表、回款借据卡、期项租金卡、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，检查模板命名为 `AfterLeaseCheckPlanTemplate.tsx`，政策保单新增详情和保单详情命名为 `AfterLeasePolicyManageAddDetail.js`、`AfterLeasePolicyManageDetail.js`，不再依赖目录 `index.js` 或路由式 `[id]` 文件名。
 - 档案管理列表/详情和其他资料归集列表/详情分别通过 `src/components/Archives/ManagementEntries.js`、`OtherFilingMaterialsEntries.js` 暴露，真实实现使用档案域语义文件名，不再依赖目录 `index.js`。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
@@ -505,7 +506,7 @@
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。
 - 业务资料表能力通过 `src/components/ClientMaterialTable/BusinessMaterialTableEntries.js` 暴露，真实实现命名为 `src/components/ClientMaterialTable/BusinessMaterialTable.js`。
 - 预算域的应收款、银行账户、汇率和 FTP 利率价格详情页分别通过 `src/components/Budget/*Entries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js`、`BudgetBankAccount.js`、`BudgetExchangeRate.js` 和 `BudgetPricingFtpInterestPriceDetail.js`，不再依赖目录 `index.js`。
-- 预算管理考核页、参数配置、投放计划和拨备预测详情页分别通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js`、`BudgetManagementParameterConfiguration.js`、`BudgetManagementPlacementPlan.js` 和 `BudgetManagementProvisionForecastDetail.js`，不再依赖目录 `index.js`。
+- 预算管理考核页、参数配置、投放计划和拨备预测详情页分别通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js`、`BudgetManagementParameterConfig.tsx` / `BudgetManagementParameterConfiguration.js`、`BudgetManagementPlacementPlan.js` 和 `BudgetManagementProvisionForecastDetail.js`，不再依赖目录 `index.js`。
 - 合同列表、合同签约列表/详情、合同申请详情/日志、合同文本、合同资料、保证金退款通知、保证金退抵详情、合同起租详情、合同变更详情、结清详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，合同申请详情真实实现命名为 `src/components/Contract/ApplicationDetail/ContractApplicationDetail.js`，其它真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
 - 合同新增回执详情通过 `src/components/Contract/CreateReceiptDetailEntries.js` 暴露，真实实现命名为 `src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
@@ -567,6 +568,7 @@
 - 我的流程页签、我的审批页签、流程查询、流程设计、流程详情路由和历史组件路由已收敛到 `src/components/Process` 的窄 `*Entries.js`，我的流程和我的审批真实实现命名为 `ProcessApplication.js` 和 `ProcessReceive.js`，路由页仅保留入口装配。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
+- 公式值说明提示作为预算和 KPI 共用的公共能力，通过 `src/components/FormulaValueTip/FormulaValueTipEntries.js` 暴露，真实实现命名为 `src/components/FormulaValueTip/FormulaValueTip.js`，业务组件不再直接引用 `@/components/FormulaValueTip` 根目录。
 
 ## 目录语义
 

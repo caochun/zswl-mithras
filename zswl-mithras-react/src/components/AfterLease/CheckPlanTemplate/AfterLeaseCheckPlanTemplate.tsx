@@ -14,7 +14,7 @@ import { isAssetJon, userIsProjSponsor } from '@/utils'
 import Api from '@/api/afterLease/checkPlanTemplateApi'
 import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventModalEntries'
 
-const Index = (props) => {
+const AfterLeaseCheckPlanTemplate = (props) => {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -191,4 +191,4 @@ const Index = (props) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeaseCheckPlanTemplate)

@@ -120,6 +120,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/CheckPlanPrepareProcess/AfterLeaseCheckPlanPrepareProcess.js',
   ],
   [
+    'src/components/AfterLease/CheckPlanTemplate/index.tsx',
+    'src/components/AfterLease/CheckPlanTemplate/AfterLeaseCheckPlanTemplate.tsx',
+  ],
+  [
     'src/components/AfterLease/ExternalCheckDetail/index.js',
     'src/components/AfterLease/ExternalCheckDetail/AfterLeaseExternalCheckDetail.js',
   ],
@@ -430,6 +434,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/BudgetManagement/ParameterConfiguration/index.js',
     'src/components/BudgetManagement/ParameterConfiguration/BudgetManagementParameterConfiguration.js',
+  ],
+  [
+    'src/components/BudgetManagement/ParameterConfig/index.tsx',
+    'src/components/BudgetManagement/ParameterConfig/BudgetManagementParameterConfig.tsx',
   ],
   [
     'src/components/BudgetManagement/PlacementPlan/index.js',
@@ -844,6 +852,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Cpm/PaymentWriteOffDetail/CpmPaymentWriteOffDetail.js',
   ],
   [
+    'src/components/Dashboard/Overview/index.jsx',
+    'src/components/Dashboard/Overview/DashboardOverview.jsx',
+  ],
+  [
+    'src/components/Dashboard/Workbench/index.jsx',
+    'src/components/Dashboard/Workbench/DashboardWorkbench.jsx',
+  ],
+  [
     'src/components/Dashboard/Sso/index.js',
     'src/components/Dashboard/Sso/DashboardSso.js',
   ],
@@ -878,6 +894,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/FilingMaterials/OtherFilingMaterialsApply/index.js',
     'src/components/FilingMaterials/OtherFilingMaterialsApply/FilingMaterialsOtherApply.js',
+  ],
+  [
+    'src/components/FormulaValueTip/index.js',
+    'src/components/FormulaValueTip/FormulaValueTip.js',
   ],
   [
     'src/components/Financial/Credit/index.js',
@@ -1873,7 +1893,7 @@ const stableDefaultComponentRootImports = new Map([
   ['CommonTips', 'CommonTips'],
   ['CurrentSteps', 'CurrentSteps'],
   ['DetailLayout', 'DetailLayout'],
-  ['FormulaValueTip', 'FormulaValueTip'],
+  ['FormulaValueTip', 'FormulaValueTip/FormulaValueTipEntries'],
   ['PageListDown', 'PageListDown'],
   ['ReadOnly', 'ReadOnly'],
   ['RegionCascader', 'RegionCascader'],
@@ -1896,7 +1916,6 @@ const publicComponentRootImports = new Set([
   'FormItemContent',
   'FormUpload',
   'Format',
-  'FormulaValueTip',
   'Icon',
   'PageListDown',
   'ReadOnly',

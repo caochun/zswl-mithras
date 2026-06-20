@@ -7,7 +7,7 @@ import { myInputEditable, myInputRender } from './context'
 import styles from './ModalEditTable/index.less'
 import Api from '@/api/budget/pricing/baseSet/ftpBaseSet'
 import { Input, Space, message } from 'antd'
-import FormulaValueTip from '@/components/FormulaValueTip'
+import { FormulaValueTip } from '@/components/FormulaValueTip/FormulaValueTipEntries'
 
 const IS_WARE_OPTIONS = 'fluctuationValueEnum'
 const paramOtherNameEnum = [

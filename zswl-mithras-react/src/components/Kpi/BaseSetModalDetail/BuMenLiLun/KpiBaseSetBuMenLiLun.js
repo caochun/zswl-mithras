@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { useRef } from 'react'
 import ModalEditTable from '../../ModalEditTable/KpiModalEditTable'
 
-import FormulaValueTip from '@/components/FormulaValueTip'
+import { FormulaValueTip } from '@/components/FormulaValueTip/FormulaValueTipEntries'
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 import { deptProfitFinishRatioApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 

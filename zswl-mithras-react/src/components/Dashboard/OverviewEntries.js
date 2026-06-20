@@ -1,1 +1,1 @@
-export { default as DashboardOverview } from './Overview'
+export { default as DashboardOverview } from './Overview/DashboardOverview'

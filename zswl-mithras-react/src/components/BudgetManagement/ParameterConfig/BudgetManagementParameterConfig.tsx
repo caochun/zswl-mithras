@@ -4,7 +4,7 @@ import ALL_COLUMNS from './Column'
 import Store from './store'
 import ModalDetail from './ModalDetail'
 
-const ParameterConfig: React.FC = () => {
+const BudgetManagementParameterConfig: React.FC = () => {
   const store = useMemo(() => {
     return new Store()
   }, [])
@@ -52,4 +52,4 @@ const ParameterConfig: React.FC = () => {
   )
 }
 
-export default ParameterConfig
+export default BudgetManagementParameterConfig

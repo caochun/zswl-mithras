@@ -88,7 +88,7 @@ const getServerConfig = async () => {
     JSON.stringify(mergeObjects(newTableLocal, initData))
   )
 }
-const App = () => {
+const DashboardWorkbench = () => {
   const is_wujie = getUserInfo().id === 49
   const [show, setShow] = useState(false)
   const [feikongVisible, setFeikongVisible] = useState(false)
@@ -253,4 +253,4 @@ const App = () => {
   )
 }
 
-export default observer(App)
+export default observer(DashboardWorkbench)
