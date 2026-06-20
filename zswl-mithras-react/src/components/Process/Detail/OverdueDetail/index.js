@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { observer } from '@zswl/admin'
-import { OverdueCollectionModal as CollectionModal } from '@/components/Overdue/OverdueEntries'
+import { OverdueCollectionModal as CollectionModal } from '@/components/Overdue/CollectionModalEntries'
 import { ModalStore } from '@zswl/components'
 import collectionManagementApi from '@/api/process/detail/overdueCollectionApi'
 

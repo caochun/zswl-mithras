@@ -766,6 +766,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Financial/PaymentDetailEntries.js', 'Financial/PaymentDetailPageEntries.js'],
   ['Kpi/BaseSetModalDetailEntries.js', 'Kpi/BaseSet*Entries.js'],
   ['Kpi/KpiEstimationEntries.js', 'Kpi/Estimation*Entries.js'],
+  ['Overdue/OverdueEntries.js', 'Overdue/* narrow Entries.js'],
   ['PaymentApplyColumns/PaymentApplyColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
   ['PaymentFtpColumns/PaymentFtpColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
   ['Policy/PolicyEntries.js', 'InsurancePolicy/InsurancePolicyEntries.js'],

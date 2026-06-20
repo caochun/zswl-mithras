@@ -1,1 +1,1 @@
-export { OverdueCollectionDetail as default } from '@/components/Overdue/OverdueEntries'
+export { OverdueCollectionDetail as default } from '@/components/Overdue/CollectionEntries'

@@ -1,1 +1,1 @@
-export { OverdueLitigationDoc as default } from '@/components/Overdue/OverdueEntries'
+export { OverdueLitigationDoc as default } from '@/components/Overdue/LitigationDocEntries'
