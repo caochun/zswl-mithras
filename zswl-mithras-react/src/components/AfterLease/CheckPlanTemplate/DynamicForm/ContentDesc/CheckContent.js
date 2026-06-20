@@ -95,7 +95,6 @@ function Index(props, ref) {
       await saveApi?.(data, saveType)
       setEditable(false)
     } catch (err) {
-      // console.log(err)
       // message.info('请填写完整数据')
     } finally {
       setIsLoading(false)

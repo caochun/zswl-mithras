@@ -81,7 +81,6 @@ const BpmnFlowChart = ({
       } else {
         canvas.zoom('fit-viewport', 'auto')
         if (highLightData) {
-          // console.log('highLightData: ', highLightData);
           // const successIds = highLightData.highLine.concat(highLightData.highPoint);
           const processingIds = highLightData.waitingToDo;
           // const returnIds = highLightData.backNodeList;
@@ -92,7 +91,6 @@ const BpmnFlowChart = ({
       }
     });
     newBpmn.on('selection.changed', (event) => {
-      // console.log('event2: ', event);
       if (event.newSelection.length) {
         const elementRegistry = newBpmn.get('elementRegistry');
         const selectedIds = [event.newSelection[0].id];

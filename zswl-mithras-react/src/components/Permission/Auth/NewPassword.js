@@ -30,13 +30,9 @@ class PasswordInput extends React.Component {
     const isDeleteContentBackward = e.nativeEvent.inputType === 'deleteContentBackward'
     let newValue
     const value = e.target.value
-    // console.log('value', value)
     const currValue = value[value.length - 1] // 当前值
-    // console.log('currValue', currValue)
     const showValue = new Array(value.length + 1).join('•')
     const oldValue = this.state.value
-    // console.log('oldValue', oldValue)
-
     // 删除键
     if (isDeleteContentBackward) {
       if (this.state.showPassword) {

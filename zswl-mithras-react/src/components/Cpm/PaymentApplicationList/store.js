@@ -29,7 +29,6 @@ class Store {
           ? timeFormat(searchData.applyPaymentDate[1])
           : undefined,
       }
-      // console.log(currentData)
       return Api.getList(currentData)
     },
   })

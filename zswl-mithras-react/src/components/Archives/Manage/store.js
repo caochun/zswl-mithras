@@ -71,7 +71,6 @@ class Store {
       const tempData = this.initLoop(list)
       const temp = this.loop(tempData)
       const changeKeys = this.changeKeys(temp)
-      // console.log(temp, changeKeys)
       this.expandedRowKeys = [changeKeys[0]?.id]
       this.data = changeKeys
       return changeKeys

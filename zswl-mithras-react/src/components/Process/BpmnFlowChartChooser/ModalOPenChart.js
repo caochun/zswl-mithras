@@ -16,7 +16,6 @@ const ModalOPenChart = ({ processInstanceId, visible, setVisible, callBack }) =>
         dataRef.current = null
     }
     const childrenCallBack = (value) => {
-        // console.log('value: ', value);
         dataRef.current = value
     }
     return (

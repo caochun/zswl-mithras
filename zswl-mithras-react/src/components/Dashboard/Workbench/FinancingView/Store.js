@@ -19,7 +19,7 @@ class Store {
   listDrawer = new DrawerStore({})
 
   getFieldsApi = async (val) => {
-    // console.log('val: ', val) //下面这个接口可以改成传参的那种
+    // 下面这个接口可以改成传参的那种
     const res = await Api.postDashboardFinanceStatisticsList(
       val?.date ? { queryDate: val?.date } : {}
     )

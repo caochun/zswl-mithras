@@ -23,7 +23,6 @@ const FormUpload = (props) => {
       onChange(currentData)
     },
     beforeUpload: (file, fileLists) => {
-      // console.log(file)
       try {
         const tempFile = [...fileList]
         tempFile.push(file)

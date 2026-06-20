@@ -44,7 +44,6 @@ const BpmnFlowChart = ({
       if (elementRegistry._elements[item]) {
         const element = elementRegistry._elements[item].gfx
         element.classList.add(colorClass)
-        // console.log(elementRegistry, element)
       }
     })
   }
@@ -59,9 +58,7 @@ const BpmnFlowChart = ({
     const canvas = newBpmn.get('canvas')
 
     newBpmn.importXML(xmlData, (err) => {
-      //console.log(err, xmlData, JSON.stringify(err), 88899898)
       if (err) {
-        //console.log(err)
         // message.error(err)
         //return Promise.reject(new Error(err))
       } else {

@@ -48,7 +48,6 @@ function Index() {
       setFileList([])
     },
     onPreview: (file) => {
-      // console.log(file, 'file2222')
       window.open(`/preview/reportPreview/${file.id}`)
     },
     fileList,

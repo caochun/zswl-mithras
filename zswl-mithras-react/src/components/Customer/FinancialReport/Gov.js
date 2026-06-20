@@ -59,7 +59,6 @@ function Index({ store }) {
     </div>
   )
   const { financeList = {}, loading } = store
-  // console.log({ financeList })
   let firstList = []
   Object.keys(financeList).length > 0 &&
     financeList[0].itemList.forEach((m, z) => {

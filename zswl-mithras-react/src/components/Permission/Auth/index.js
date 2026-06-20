@@ -35,7 +35,6 @@ function Login() {
         window.location.href = '/'
       }
     } finally {
-      //console.log('111')
     }
   }
   const isChangePwd = getQuery('isChangePwd') === 'true'

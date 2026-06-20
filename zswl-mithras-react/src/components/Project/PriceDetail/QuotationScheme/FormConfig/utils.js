@@ -4,9 +4,7 @@ export const validatorAmount = ({ getFieldValue }) => ({
   validator(_, value) {
     const applyCreditAmountNumber = amountStrToNumber(getFieldValue('applyCreditAmount'))
     const valueNumber = amountStrToNumber(value)
-    // console.log(valueNumber)
     if (valueNumber < 0) {
-      // console.log(11111)
       return Promise.reject(new Error('金额不能小于0！'))
     }
     if (!hasValue(value)) {

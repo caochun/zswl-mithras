@@ -28,7 +28,6 @@ function Index({ processInstanceId, visible, taskId, flag, externalForm, callBac
     callBack && callBack()
   }
   const handleOk = async () => {
-    //console.log(form.getFieldValue().ccUserIdList, 999999999)
     if (flag == 'collaborate') {
       await onCollaborate?.({
         collaborateUserId: form.getFieldValue().ccUserIdList,

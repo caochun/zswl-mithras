@@ -27,7 +27,6 @@ const VisitorDetail = () => {
   const columns = getTableColumns(ALL_COLUMNS, nameColumns)
   const imageModal = new ModalStore({
     onOpen: async (val) => {
-      // console.log('val-image: ', val)
       const res = await Api.getVisitRecordFileList({
         moduleType: 'VISIT_RECORD',
         mainId: val?.id,

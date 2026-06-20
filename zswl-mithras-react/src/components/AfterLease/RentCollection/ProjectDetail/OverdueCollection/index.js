@@ -88,10 +88,6 @@ const OverdueCollection = ({ store }) => {
       return false
     },
     // onChange: (info, lists, event) => {
-    //   console.log('info:', info)
-    //   console.log('lists:', lists)
-    //   console.log('event:', event)
-
     //   // if (info?.fileList?.length) {
     //   //   setIsLoading(false)
     //   // }
@@ -108,7 +104,6 @@ const OverdueCollection = ({ store }) => {
       const res = await store.upload(fileList[0]).finally(() => {
         setIsLoading(false)
       })
-      // console.log('res32:', res)
     }
   }, [fileList])
   if (!collectionLevel) {

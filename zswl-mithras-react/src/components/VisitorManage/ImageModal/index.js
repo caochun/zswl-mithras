@@ -35,7 +35,6 @@ const Index = ({ store }) => {
     carouselRef.current?.next()
   }
   const exportImage = async (record) => {
-    // console.log('record: ', record)
     const url = await Api.downloadVisitRecordFiles({
       visitRecordIds: [record?.id],
       // visitRecordIds: [1057],

@@ -52,7 +52,6 @@ class Store {
         need: false,
       })
     }
-    // console.log('this.template', this.template)
     this.data?.map(item => {
       if (item.id === id) {
         item.disabled = false

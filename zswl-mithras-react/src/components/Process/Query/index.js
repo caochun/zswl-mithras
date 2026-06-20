@@ -301,8 +301,6 @@ function Index({ query }) {
         setVisible={setVisible}
         processInstanceId={ids}
         callBack={(value) => {
-          // console.log('value输出: ', value);
-          // console.log('processInstanceId输出: ', ids);
           setVisible(false)
           store.jump(value, ids)
         }}
