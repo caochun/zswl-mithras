@@ -6,7 +6,7 @@ import Fundamentals from './Fundamentals'
 import ProjectSide from './ProjectSide'
 import businessFundApi from '@/api/budget/flowCenter/businessFundApi'
 import flowCenterApi from '@/api/budget/flowCenter/flowCenterApi'
-import InterfaceManagementJs from './InterfaceManagement/index.js'
+import InterfaceManagementJs from './InterfaceManagement'
 
 const Index = () => {
   const [count, setCount] = useState(0)

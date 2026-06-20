@@ -484,6 +484,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
   ],
   [
+    'src/components/Budget/FlowCenter/index.js',
+    'src/components/Budget/FlowCenter/BudgetFlowCenter.js',
+  ],
+  [
     'src/components/Customer/CustomerRatDetail/index.js',
     'src/components/Customer/CustomerRatDetail/CustomerRatingDetail.js',
   ],

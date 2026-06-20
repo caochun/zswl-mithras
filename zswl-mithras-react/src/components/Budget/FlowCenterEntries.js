@@ -1,1 +1,1 @@
-export { default as BudgetFlowCenter } from './FlowCenter'
+export { default as BudgetFlowCenter } from './FlowCenter/BudgetFlowCenter'
