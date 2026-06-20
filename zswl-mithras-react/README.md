@@ -413,7 +413,7 @@
 - 权限页字典/组织/角色 iframe、用户管理页、功能分组页和操作日志页分别通过 `src/components/Permission/BifrostPageEntries.js`、`UserEntries.js`、`GroupEntries.js`、`LogEntries.js` 暴露；操作日志真实实现命名为 `src/components/Permission/Log/PermissionLog.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/components/Budget/FlowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰名单页面入口已拆分为查询、入库、突破、出库、仓库、参数等窄 `*Entries.js`，不再使用宽泛 `BlackGray/BlackGrayEntries.js`；CPM 页面入口已拆分为票据、付款申请、付款核销、合同付款、收款核销、保证金管理等窄 `*Entries.js`，不再使用宽泛 `Cpm/CpmEntries.js`。
-- CPM 票据管理、合同付款列表/现金流表/保证金、保证金付款记录、保证金退款记录、付款申请列表、付款申请公开信息、付款核销、收款核销和保证金核销记录通过 `src/components/Cpm/*Entries.js` 暴露，真实实现使用 CPM 域语义文件名，不再依赖目录 `index.js`。
+- CPM 票据管理、合同付款列表/现金流表/保证金、保证金管理、保证金付款记录、保证金退款记录、付款申请列表/详情、付款申请公开信息、付款核销、收款核销和保证金核销记录通过 `src/components/Cpm/*Entries.js` 暴露，真实实现使用 CPM 域语义文件名，不再依赖目录 `index.js`。
 - 项目多行文本展示已回收到 `src/components/Project/MultilineText`，当前仅作为项目立项详情域内私有组件使用。
 - Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应优先通过对应 Dashboard 窄入口或域内相对路径。
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。
@@ -522,7 +522,7 @@
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 厂商管理外部系统页面集合通过 `src/components/ExternalEmbed/RzyEntries.js` 暴露，真实实现命名为 `src/components/ExternalEmbed/RzyPages/RzyPages.js` 和 `RzyIframe/RzyIframe.js`。
 - 融资列表创建和变更弹窗分别通过 `src/components/Financial/FundListCreateModalEntries.js`、`FundListChangeModalEntries.js` 暴露，真实实现命名为 `src/components/Financial/FundList/CreateModal/FinancialFundListCreateModal.js` 和 `src/components/Financial/FundList/ChangeModal/FinancialFundListChangeModal.js`。
-- 融资列表、融资方案、融资变更、还款账户、实际放款表、明细计划放款表、明细实收表、变更日志、其他账号、保证信息、担保方案、融资机构、年化利率、金融机构、金融产权、资金日报和付款列表通过 `src/components/Financial/*Entries.js` 暴露，域内复用也指向财务域语义文件名，不再依赖目录 `index.js`。
+- 融资列表、融资方案、融资变更、还款账户、实际放款表、明细计划放款表、明细实收表、变更日志、其他账号、保证信息、担保方案、融资机构、年化利率、金融机构、金融产权、资金日报、付款列表和付款详情通过 `src/components/Financial/*Entries.js` 暴露，域内复用也指向财务域语义文件名，不再依赖目录 `index.js`。
 - 融资计息流程通过 `src/components/Financial/FinancingCarryInterestEntries.js` 暴露，真实实现命名为 `src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。

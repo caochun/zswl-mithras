@@ -724,6 +724,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Cpm/ContractCpm/ContractDownPayment/CpmContractDownPayment.js',
   ],
   [
+    'src/components/Cpm/MarginManagement/index.js',
+    'src/components/Cpm/MarginManagement/CpmMarginManagement.js',
+  ],
+  [
     'src/components/Cpm/MarginManagement/PaymentRecords/index.js',
     'src/components/Cpm/MarginManagement/PaymentRecords/CpmMarginPaymentRecords.js',
   ],
@@ -738,6 +742,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Cpm/PaymentApplication/PublicInformation/index.js',
     'src/components/Cpm/PaymentApplication/PublicInformation/CpmPaymentApplicationPublicInformation.js',
+  ],
+  [
+    'src/components/Cpm/PaymentApplicationDetail/index.js',
+    'src/components/Cpm/PaymentApplicationDetail/CpmPaymentApplicationDetail.js',
   ],
   [
     'src/components/Cpm/PaymentApplication/PublicCheckModal/index.js',
@@ -890,6 +898,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Financial/PaymentChangeLog/index.js',
     'src/components/Financial/PaymentChangeLog/FinancialPaymentChangeLog.js',
+  ],
+  [
+    'src/components/Financial/PaymentDetail/index.js',
+    'src/components/Financial/PaymentDetail/FinancialPaymentDetail.js',
   ],
   [
     'src/components/Financial/FinancingCarryInterestFlow/index.js',

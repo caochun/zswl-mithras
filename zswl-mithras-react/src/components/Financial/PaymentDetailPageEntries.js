@@ -1,1 +1,1 @@
-export { default as FinancialPaymentDetail } from './PaymentDetail'
+export { default as FinancialPaymentDetail } from './PaymentDetail/FinancialPaymentDetail'
