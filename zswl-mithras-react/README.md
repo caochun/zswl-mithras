@@ -410,7 +410,7 @@
 - `ClientMaterialTable`、`ChangeLogDiff`、`PaymentFtpColumns` 这类横向业务能力不再视为公共基础组件；依赖报告会保留它们的跨域使用关系，后续需要逐项判断是沉淀横向能力还是回收到具体业务域。
 - 已无入边的历史兼容入口已移除，例如旧的 `FileDiff`、`PaymentApplyColumns`、`Project/ReviewMeetingEntries.js`、`ClientFileTable`、`CheckBusiness`、`Credit/SearchModalEntries.js`、`EvaluationAgency/EvaluationAgencyEntries.js`、`Policy/PolicyEntries.js`、`TrackEvent/TrackEventEntries.js` 和 `TrackEvent/TrackingEntries.js`；新代码必须使用对应语义入口或更窄的场景入口。
 - `npm run check:boundaries` 会阻止业务代码重新引用上述已移除兼容入口；新增和迁移代码必须使用语义入口或窄入口。
-- 权限页字典/组织/角色 iframe、用户管理页、功能分组页和操作日志页分别通过 `src/components/Permission/BifrostPageEntries.js`、`UserEntries.js`、`GroupEntries.js`、`LogEntries.js` 暴露，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
+- 权限页字典/组织/角色 iframe、用户管理页、功能分组页和操作日志页分别通过 `src/components/Permission/BifrostPageEntries.js`、`UserEntries.js`、`GroupEntries.js`、`LogEntries.js` 暴露；操作日志真实实现命名为 `src/components/Permission/Log/PermissionLog.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/components/Budget/FlowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰名单页面入口已拆分为查询、入库、突破、出库、仓库、参数等窄 `*Entries.js`，不再使用宽泛 `BlackGray/BlackGrayEntries.js`；CPM 页面入口已拆分为票据、付款申请、付款核销、合同付款、收款核销、保证金管理等窄 `*Entries.js`，不再使用宽泛 `Cpm/CpmEntries.js`。
 - 项目多行文本展示已回收到 `src/components/Project/MultilineText`，当前仅作为项目立项详情域内私有组件使用。

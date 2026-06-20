@@ -1,1 +1,1 @@
-export { default as PermissionLog } from './Log'
+export { default as PermissionLog } from './Log/PermissionLog'

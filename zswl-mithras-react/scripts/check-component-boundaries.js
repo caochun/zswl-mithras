@@ -528,6 +528,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Preview/PdfPreview/PdfPreview.js',
   ],
   [
+    'src/components/Permission/Log/index.js',
+    'src/components/Permission/Log/PermissionLog.js',
+  ],
+  [
     'src/components/Report/Management/InternalHistory/index.js',
     'src/components/Report/Management/InternalHistory/ReportInternalHistory.js',
   ],
