@@ -389,8 +389,16 @@ const legacyUtilityPrefixRules = [
     replacementPrefix: '@/utils/domains/budget/* when FTP pricing options are needed',
   },
   {
+    legacyPrefix: '@/utils/hooks/useGetColumns',
+    replacementPrefix: 'domain component-local options helpers when needed',
+  },
+  {
     legacyPrefix: '@/utils/hooks/useGetStatus',
     replacementPrefix: '@/utils/domains/blackGray/BlackGrayStatusUtils',
+  },
+  {
+    legacyPrefix: '@/utils/hooks/useLayoutEffect',
+    replacementPrefix: 'React.useLayoutEffect or domain-local hooks when needed',
   },
 ]
 const legacyApiDomains = new Map([
