@@ -40,6 +40,8 @@ const uiLocalApiFilePattern =
 const rootApiFilePattern = /^src[\\/]api[\\/][^\\/]+\.(?:js|jsx|ts|tsx)$/
 const relativeApiImportPattern =
   /^\.{1,2}(?:\/[^'"]*)?\/api(?:\.(?:js|jsx|ts|tsx)|\/index(?:\.(?:js|jsx|ts|tsx))?)?$/
+const explicitRelativeIndexImportPattern =
+  /^\.{1,2}(?:\/[^'"]*)?\/index(?:\.(?:js|jsx|ts|tsx))?$/
 const utilitySourceFilePattern = /^src[\\/]utils[\\/].*\.(?:js|jsx|ts|tsx)$/
 const removedLegacyUtilityFiles = new Map([
   ['src/utils/afterLease.js', 'src/utils/domains/afterLease/AfterLeaseUtils.js'],
@@ -2753,6 +2755,14 @@ for (const filePath of sourceFiles) {
     relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)/) || []
   for (const { importText, specifier } of extractSpecifiers(source, relativeFilePath)) {
     if (publicStyleImports.has(specifier)) {
+      continue
+    }
+
+    if (explicitRelativeIndexImportPattern.test(specifier)) {
+      violations.push({
+        file: relativeFilePath,
+        specifier: `${specifier} (use the directory import or a named implementation file)`,
+      })
       continue
     }
 
