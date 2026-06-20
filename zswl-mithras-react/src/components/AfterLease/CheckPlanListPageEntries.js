@@ -1,1 +1,1 @@
-export { default as AfterLeaseCheckPlanList } from './CheckPlan/List'
+export { default as AfterLeaseCheckPlanList } from './CheckPlan/List/AfterLeaseCheckPlanList'

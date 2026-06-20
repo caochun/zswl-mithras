@@ -1,1 +1,1 @@
-export { default as AfterLeaseExternalCheckDetail } from './ExternalCheckDetail'
+export { default as AfterLeaseExternalCheckDetail } from './ExternalCheckDetail/AfterLeaseExternalCheckDetail'

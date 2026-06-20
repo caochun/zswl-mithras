@@ -80,6 +80,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/AdjustDetail/AfterLeaseAdjustDetail.js',
   ],
   [
+    'src/components/AfterLease/CheckPlan/List/index.js',
+    'src/components/AfterLease/CheckPlan/List/AfterLeaseCheckPlanList.js',
+  ],
+  [
     'src/components/AfterLease/CheckPlan/List/Tab/CheckList/index.js',
     'src/components/AfterLease/CheckPlan/List/Tab/CheckList/AfterLeaseCheckPlanCheckList.js',
   ],
@@ -102,6 +106,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/AfterLease/CheckPlanPrepareProcess/index.js',
     'src/components/AfterLease/CheckPlanPrepareProcess/AfterLeaseCheckPlanPrepareProcess.js',
+  ],
+  [
+    'src/components/AfterLease/ExternalCheckDetail/index.js',
+    'src/components/AfterLease/ExternalCheckDetail/AfterLeaseExternalCheckDetail.js',
   ],
   [
     'src/components/AfterLease/ManageLedger/index.js',
@@ -678,6 +686,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Cpm/BillManage/index.js',
     'src/components/Cpm/BillManage/CpmBillManage.js',
+  ],
+  [
+    'src/components/Cpm/CollectionWriteOff/index.js',
+    'src/components/Cpm/CollectionWriteOff/CpmCollectionWriteOff.js',
+  ],
+  [
+    'src/components/Cpm/ContractCpm/index.js',
+    'src/components/Cpm/ContractCpm/CpmContractCpm.js',
   ],
   [
     'src/components/Cpm/ContractCpm/CashFlowTable/index.js',

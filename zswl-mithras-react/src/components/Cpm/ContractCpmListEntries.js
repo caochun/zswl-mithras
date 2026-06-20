@@ -1,1 +1,1 @@
-export { default as CpmContractCpm } from './ContractCpm'
+export { default as CpmContractCpm } from './ContractCpm/CpmContractCpm'
