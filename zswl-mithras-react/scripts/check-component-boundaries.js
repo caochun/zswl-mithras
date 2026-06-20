@@ -318,7 +318,7 @@ const publicComponentRootImports = new Set([
 ])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
-const publicStyleImports = new Set(['@/components/commonLess/animation.less'])
+const publicStyleImports = new Set()
 const legacyUtilityPrefixRules = [
   {
     legacyPrefix: '@/utils/afterLease',

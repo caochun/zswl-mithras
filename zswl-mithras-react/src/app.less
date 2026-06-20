@@ -1,6 +1,54 @@
 @import '~antd/lib/style/themes/default.less';
 @import '~antd/dist/antd.less';
-@import '@/components/commonLess/animation.less';
+
+.friend-enter {
+  transform: translate(100%, 0);
+  opacity: 0;
+}
+
+.friend-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: all 500ms;
+}
+
+.friend-exit {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.friend-exit-active {
+  transform: translate(-100%, 0);
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.displacement-enter {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.displacement-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms;
+}
+.displacement-enter-done {
+  transform: translateX(0);
+  opacity: 1;
+}
+.displacement-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.displacement-exit-active {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 500ms;
+}
+.displacement-exit-done {
+  transform: translateX(-40px);
+  opacity: 0;
+}
 
 html,
 body,
