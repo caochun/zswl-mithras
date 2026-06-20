@@ -128,6 +128,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/RentCollection/BatchInterest/AfterLeaseRentCollectionBatchInterest.js',
   ],
   [
+    'src/components/Archives/Management/detail/index.js',
+    'src/components/Archives/Management/detail/ArchivesManagementDetail.js',
+  ],
+  [
+    'src/components/Archives/OtherFilingMaterials/detail/index.js',
+    'src/components/Archives/OtherFilingMaterials/detail/ArchivesOtherFilingMaterialsDetail.js',
+  ],
+  [
     'src/components/App/RootRedirect/index.js',
     'src/components/App/RootRedirect/RootRedirect.js',
   ],
