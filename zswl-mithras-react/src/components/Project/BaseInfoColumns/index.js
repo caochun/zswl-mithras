@@ -1,6 +1,6 @@
 import { getValue } from '@/components/Format'
 import IconFont from '@/components/Icon'
-import FormListItem from '../FormListItem'
+import FormListItem from '../FormListItem/ProjectFormListItem'
 import { rules } from '@/utils'
 import { Form } from '@zswl/components'
 import { Button, Input, Row, Space } from 'antd'
