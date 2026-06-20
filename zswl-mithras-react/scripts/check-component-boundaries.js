@@ -248,8 +248,20 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Contract/ApplicationDetail/LeaseLog/ContractApplicationLeaseLog.js',
   ],
   [
+    'src/components/Contract/ContractMaterials/index.js',
+    'src/components/Contract/ContractMaterials/ContractMaterials.js',
+  ],
+  [
+    'src/components/Contract/ContractText/index.js',
+    'src/components/Contract/ContractText/ContractText.js',
+  ],
+  [
     'src/components/Contract/ChangeMaterials/index.js',
     'src/components/Contract/ChangeMaterials/ContractChangeMaterials.js',
+  ],
+  [
+    'src/components/Contract/LeaseMaterials/index.js',
+    'src/components/Contract/LeaseMaterials/ContractLeaseMaterials.js',
   ],
   [
     'src/components/Contract/ChangeProtocol/index.js',

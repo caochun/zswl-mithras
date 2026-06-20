@@ -1,1 +1,1 @@
-export { default as ContractLeaseMaterials } from './LeaseMaterials'
+export { default as ContractLeaseMaterials } from './LeaseMaterials/ContractLeaseMaterials'

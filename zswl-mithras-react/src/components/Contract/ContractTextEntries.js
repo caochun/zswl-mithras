@@ -1,1 +1,1 @@
-export { default as ContractText } from './ContractText'
+export { default as ContractText } from './ContractText/ContractText'
