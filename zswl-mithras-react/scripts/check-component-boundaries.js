@@ -80,6 +80,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],
   [
+    'src/components/EvaluationAgency/index.js',
+    'src/components/EvaluationAgency/AppraisalAgency.js',
+  ],
+  [
     'src/components/InsurancePolicy/index.js',
     'src/components/InsurancePolicy/InsurancePolicy.js',
   ],

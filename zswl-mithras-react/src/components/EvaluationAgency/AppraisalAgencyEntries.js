@@ -1,1 +1,1 @@
-export { default as AppraisalAgency } from '.'
+export { default as AppraisalAgency } from './AppraisalAgency'
