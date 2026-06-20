@@ -1,1 +1,1 @@
-export { KpiBaseSetParameterModal as default } from '@/components/Kpi/BaseSetEntries'
+export { KpiBaseSetParameterModal as default } from '@/components/Kpi/BaseSetParameterModalEntries'

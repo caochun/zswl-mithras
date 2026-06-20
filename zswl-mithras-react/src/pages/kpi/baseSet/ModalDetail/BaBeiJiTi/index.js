@@ -1,1 +1,1 @@
-export { KpiBaseSetBaBeiJiTi as default } from '@/components/Kpi/BaseSetOtherConfigEntries'
+export { KpiBaseSetBaBeiJiTi as default } from '@/components/Kpi/BaseSetBaBeiJiTiEntries'

@@ -1,1 +1,1 @@
-export { KpiBaseSetProjectScaleFactor as default } from '@/components/Kpi/BaseSetEntries'
+export { KpiBaseSetProjectScaleFactor as default } from '@/components/Kpi/BaseSetParameterDetailEntries'

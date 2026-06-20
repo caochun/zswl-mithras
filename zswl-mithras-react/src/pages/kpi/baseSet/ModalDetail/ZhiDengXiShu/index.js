@@ -1,1 +1,1 @@
-export { KpiBaseSetZhiDengXiShu as default } from '@/components/Kpi/BaseSetOtherConfigEntries'
+export { KpiBaseSetZhiDengXiShu as default } from '@/components/Kpi/BaseSetZhiDengXiShuEntries'

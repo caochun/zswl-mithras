@@ -1,1 +1,1 @@
-export { KpiBaseSetProjectTypeFactor as default } from '@/components/Kpi/BaseSetEntries'
+export { KpiBaseSetProjectTypeFactor as default } from '@/components/Kpi/BaseSetParameterDetailEntries'

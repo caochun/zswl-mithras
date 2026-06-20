@@ -1,7 +1,0 @@
-export { default as KpiBaseSetBaBeiJiTi } from './BaseSetModalDetail/BaBeiJiTi'
-export { default as KpiBaseSetJinRongShiChangDept } from './BaseSetModalDetail/JinRongShiChangDept'
-export { default as KpiBaseSetJinRongShiChangTiJiang } from './BaseSetModalDetail/JinRongShiChangTiJiang'
-export { default as KpiBaseSetSuiLvWeiHu } from './BaseSetModalDetail/SuiLvWeiHu'
-export { default as KpiBaseSetYeWuDept } from './BaseSetModalDetail/YeWuDept'
-export { default as KpiBaseSetZhiDengXiShu } from './BaseSetModalDetail/ZhiDengXiShu'
-export { default as KpiBaseSetZhongHouTaiDept } from './BaseSetModalDetail/ZhongHouTaiDept'

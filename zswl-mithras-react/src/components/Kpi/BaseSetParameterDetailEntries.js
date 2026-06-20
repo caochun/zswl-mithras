@@ -1,6 +1,3 @@
-export { default as KpiBaseSet } from './BaseSet'
-export { default as KpiBaseSetCopyItemModal } from './BaseSet/CopyItemModal'
-export { default as KpiBaseSetParameterModal } from './BaseSet/ParameterModal'
 export { default as KpiBaseSetBasePrizeRate } from './BaseSet/ParameterModal/BasePrizeRate'
 export { default as KpiBaseSetProjectScaleFactor } from './BaseSet/ParameterModal/ProjectScaleFactor'
 export { default as KpiBaseSetProjectTypeFactor } from './BaseSet/ParameterModal/ProjectTypeFactor'

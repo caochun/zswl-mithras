@@ -1,1 +1,1 @@
-export { KpiBaseSetSuiLvWeiHu as default } from '@/components/Kpi/BaseSetOtherConfigEntries'
+export { KpiBaseSetSuiLvWeiHu as default } from '@/components/Kpi/BaseSetSuiLvWeiHuEntries'

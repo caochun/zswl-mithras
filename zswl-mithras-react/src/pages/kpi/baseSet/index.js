@@ -1,1 +1,1 @@
-export { KpiBaseSet as default } from '@/components/Kpi/BaseSetEntries'
+export { KpiBaseSet as default } from '@/components/Kpi/BaseSetListEntries'
