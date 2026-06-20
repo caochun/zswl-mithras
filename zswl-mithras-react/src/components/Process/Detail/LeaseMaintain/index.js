@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { observer } from '@zswl/admin'
-import { LeaseMaintainDetail as LeaseMaintain } from '@/components/Lease/MaintainEntries'
+import { LeaseMaintainDetail as LeaseMaintain } from '@/components/Lease/MaintainDetailEntries'
 
 const Index = (props) => {
   const { id, businessVersion, modelKey, curTab, taskActivityId, startUserId, taskStatus } = props

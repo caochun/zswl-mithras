@@ -1,1 +1,1 @@
-export { LeaseMaintainDetail as default } from '@/components/Lease/MaintainEntries'
+export { LeaseMaintainDetail as default } from '@/components/Lease/MaintainDetailEntries'
