@@ -1,1 +1,1 @@
-export { AfterLeaseAdjustCreateModal as default } from '@/components/AfterLease/AdjustEntries'
+export { AfterLeaseAdjustCreateModal as default } from '@/components/AfterLease/AdjustCreateEntries'

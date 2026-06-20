@@ -36,7 +36,9 @@
 
 当前已有领域入口：
 
-- `AfterLease/AdjustEntries.js`
+- `AfterLease/AdjustCreateEntries.js`
+- `AfterLease/AdjustDetailEntries.js`
+- `AfterLease/AdjustListEntries.js`
 - `AfterLease/CheckPlanCreateEntries.js`
 - `AfterLease/CheckPlanCheckListEntries.js`
 - `AfterLease/CheckPlanDetailEntries.js`

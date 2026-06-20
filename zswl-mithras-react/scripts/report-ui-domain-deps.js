@@ -76,7 +76,9 @@ const componentAliases = new Map([
 
 const componentEntryScopeAliases = new Map([
   ['BlackGray/BlackGrayHitEntries', 'BlackGrayHit'],
-  ['AfterLease/AdjustEntries', 'AfterLeaseAdjustDetail'],
+  ['AfterLease/AdjustCreateEntries', 'AfterLeaseAdjustCreate'],
+  ['AfterLease/AdjustDetailEntries', 'AfterLeaseAdjustDetail'],
+  ['AfterLease/AdjustListEntries', 'AfterLeaseAdjustList'],
   ['AfterLease/CheckPlanCheckListEntries', 'AfterLeaseCheckPlanCheckList'],
   ['AfterLease/CheckPlanCreateEntries', 'AfterLeaseCheckPlanCreate'],
   ['AfterLease/CheckPlanDetailEntries', 'AfterLeaseCheckPlanDetail'],
