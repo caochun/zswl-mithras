@@ -132,12 +132,48 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BlackGray/Warehouse/SubTask/BlackGrayWarehouseSubTask.js',
   ],
   [
+    'src/components/Budget/FinancingCostEditModal/index.js',
+    'src/components/Budget/FinancingCostEditModal/BudgetFinancingCostEditModal.js',
+  ],
+  [
+    'src/components/Budget/PricingFtpYield/List/index.js',
+    'src/components/Budget/PricingFtpYield/List/BudgetPricingFtpYieldList.js',
+  ],
+  [
+    'src/components/Budget/ProvisioningImpairmentColumns/index.js',
+    'src/components/Budget/ProvisioningImpairmentColumns/BudgetProvisioningImpairmentColumns.js',
+  ],
+  [
+    'src/components/Budget/ProvisioningParamsConfigColumns/index.js',
+    'src/components/Budget/ProvisioningParamsConfigColumns/BudgetProvisioningParamsConfigColumns.js',
+  ],
+  [
     'src/components/BusinessInfoCheck/index.js',
     'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
   ],
   [
     'src/components/ClientMaterialTable/index.js',
     'src/components/ClientMaterialTable/BusinessMaterialTable.js',
+  ],
+  [
+    'src/components/Contract/ApplicationDetail/LeaseLog/index.js',
+    'src/components/Contract/ApplicationDetail/LeaseLog/ContractApplicationLeaseLog.js',
+  ],
+  [
+    'src/components/Contract/ChangeMaterials/index.js',
+    'src/components/Contract/ChangeMaterials/ContractChangeMaterials.js',
+  ],
+  [
+    'src/components/Contract/ChangeProtocol/index.js',
+    'src/components/Contract/ChangeProtocol/ContractChangeProtocol.js',
+  ],
+  [
+    'src/components/Contract/SettlementProtocol/index.js',
+    'src/components/Contract/SettlementProtocol/ContractSettlementProtocol.js',
+  ],
+  [
+    'src/components/Contract/StartRentMaterials/index.js',
+    'src/components/Contract/StartRentMaterials/ContractStartRentMaterials.js',
   ],
   [
     'src/components/Customer/FinancialReport/DeteleIcon.js',

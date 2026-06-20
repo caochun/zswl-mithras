@@ -5,7 +5,7 @@ import ALL_COLUMNS from './Column'
 import { useMemo } from 'react'
 import { Card, DatePicker, Input, Tooltip, message } from 'antd'
 import moment from 'moment'
-import EditModal from '../../FinancingCostEditModal'
+import EditModal from '../../FinancingCostEditModal/BudgetFinancingCostEditModal'
 import { saveServer } from '@/utils'
 import financingCostsApi from '@/api/budget/pricing/ftp/financingCostsApi'
 

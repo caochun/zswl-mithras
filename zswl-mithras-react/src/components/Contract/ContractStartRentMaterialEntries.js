@@ -1,1 +1,1 @@
-export { default as ContractStartRentMaterials } from './StartRentMaterials'
+export { default as ContractStartRentMaterials } from './StartRentMaterials/ContractStartRentMaterials'

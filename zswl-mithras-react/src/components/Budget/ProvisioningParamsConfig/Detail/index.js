@@ -3,7 +3,7 @@ import Store from './store'
 import { Page, Table, Button } from '@zswl/components'
 import { Space } from 'antd'
 import { useMemo } from 'react'
-import { getColumnsByType } from '../../ProvisioningParamsConfigColumns'
+import { getColumnsByType } from '../../ProvisioningParamsConfigColumns/BudgetProvisioningParamsConfigColumns'
 
 const Index = ({ params }) => {
   const store = useMemo(() => new Store(), [])

@@ -486,6 +486,7 @@
 - 租后调整创建、检查计划创建、策略创建、检查准备流程、政策管理弹窗和回款列表渲染分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
+- 预算定价 FTP 收益、融资成本弹窗、计提减值列和计提参数列通过 `src/components/Budget/*Entries.js` 暴露，真实实现使用预算域语义文件名，不再依赖目录 `index.js`。
 - 图表柱状图和折线图分别通过 `src/components/Chart/BarChartEntries.js`、`LineChartEntries.js` 暴露，真实实现命名为 `src/components/Chart/BarChart/BarChart.js` 和 `src/components/Chart/LineChart/LineChart.js`。
 - 黑灰名单命中标识通过 `src/components/BlackGray/BlackGrayHitEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Info/BlackGrayHitInfo.js`。
 - 黑灰名单入库上传、出库查询和仓库子任务分别通过 `src/components/BlackGray/EnterDatabaseUploadEntries.js`、`OutboundSearchEntries.js`、`WarehouseSubTaskEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/EnterDatabase/Upload/BlackGrayEnterDatabaseUpload.js`、`src/components/BlackGray/Outbound/Search/BlackGrayOutboundSearch.js` 和 `src/components/BlackGray/Warehouse/SubTask/BlackGrayWarehouseSubTask.js`。
@@ -493,6 +494,7 @@
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。
 - 业务资料表能力通过 `src/components/ClientMaterialTable/BusinessMaterialTableEntries.js` 暴露，真实实现命名为 `src/components/ClientMaterialTable/BusinessMaterialTable.js`。
+- 合同申请日志、变更材料、变更协议、结清协议和起租材料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 客户企查查单一视图和客户风险单一视图分别通过 `src/components/Customer/QccSingleViewEntries.js`、`SingleViewRiskEntries.js` 暴露，真实实现命名为 `src/components/Customer/QccSingleView/CustomerQccSingleView.js` 和 `src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js`。
 - 征信查询抽屉通过 `src/components/Credit/CreditReportSearchEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js`。
