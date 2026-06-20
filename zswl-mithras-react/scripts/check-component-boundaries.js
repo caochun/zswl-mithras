@@ -63,6 +63,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],
 ])
+const legacyRouteStringRules = [
+  {
+    pattern: /customerView\/singeView|customer\/singeView/,
+    replacement: 'customerView/singleView',
+    allowedSourcePathPrefixes: ['src/pages/customerView/singeView/'],
+    allowedSourcePaths: ['src/layout/SpecialPath.js'],
+  },
+]
 const removedLegacyApiPathPrefixes = [
   {
     pathPrefix: 'src/api/afterLease/assessmentWhitelistApi',
@@ -1037,6 +1045,19 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: `removed legacy component file (use ${removedLegacyComponentFiles.get(relativeFilePath)})`,
+    })
+  }
+
+  const legacyRouteStringRule = legacyRouteStringRules.find(
+    (rule) =>
+      rule.pattern.test(source) &&
+      !rule.allowedSourcePaths?.includes(relativeFilePath) &&
+      !rule.allowedSourcePathPrefixes?.some((prefix) => relativeFilePath.startsWith(prefix))
+  )
+  if (legacyRouteStringRule) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: `legacy route string (use ${legacyRouteStringRule.replacement})`,
     })
   }
 

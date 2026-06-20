@@ -103,7 +103,12 @@ export default {
   '/customerView/singeView': [
     { key: '/customerView', title: '客户统一视图' },
     { key: '/customerView/detail/:id?', title: '客户详情' },
-    { key: '/customer/singeView', title: '企查查' },
+    { key: '/customerView/singleView', title: '企查查' },
+  ],
+  '/customerView/singleView': [
+    { key: '/customerView', title: '客户统一视图' },
+    { key: '/customerView/detail/:id?', title: '客户详情' },
+    { key: '/customerView/singleView', title: '企查查' },
   ],
   '/customerView/detail': [
     { key: '/customerView', title: '客户统一视图' },
