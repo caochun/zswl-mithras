@@ -1,1 +1,1 @@
-export { CpmPaymentWriteOff as default } from '@/components/Cpm/CpmEntries'
+export { CpmPaymentWriteOff as default } from '@/components/Cpm/PaymentWriteOffEntries'

@@ -37,6 +37,12 @@
 当前已有领域入口：
 
 - `AfterLease/AdjustEntries.js`
+- `AfterLease/CheckPlanCreateEntries.js`
+- `AfterLease/CheckPlanDetailEntries.js`
+- `AfterLease/CheckPlanExternalEntries.js`
+- `AfterLease/CheckPlanListEntries.js`
+- `AfterLease/CheckPlanPrepareEntries.js`
+- `AfterLease/CheckPlanTemplateEntries.js`
 - `AfterLease/Level5ClassifyDetailEntries.js`
 - `AfterLease/Level5ClassifyListEntries.js`
 - `AfterLease/ManageLedgerEntries.js`
@@ -45,13 +51,6 @@
 - `AfterLease/RentCollectionDetailEntries.js`
 - `AfterLease/RentCollectionListEntries.js`
 - `AfterLease/RentCollectionProcessEntries.js`
-- 租后回款选择卡片已归入 `src/components/AfterLease/RentCollection/CheckCard`，不再作为公共根组件使用。
-- `AfterLease/CheckPlanCreateEntries.js`
-- `AfterLease/CheckPlanDetailEntries.js`
-- `AfterLease/CheckPlanExternalEntries.js`
-- `AfterLease/CheckPlanListEntries.js`
-- `AfterLease/CheckPlanPrepareEntries.js`
-- `AfterLease/CheckPlanTemplateEntries.js`
 - `App/RootRedirectEntries.js`
 - `Archives/ArchivesEntries.js`
 - `BaseData/FileTemplateEntries.js`
@@ -77,6 +76,7 @@
 - `Budget/StampDutyEntries.js`
 - `BudgetManagement/BudgetManagementEntries.js`
 - `BusinessInfoCheck/BusinessInfoCheckEntries.js`
+- `ChangeLogDiff/ChangeLogDiffEntries.js`
 - `Chart/BarChartEntries.js`
 - `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
@@ -89,11 +89,16 @@
 - `Contract/MaterialsEntries.js`
 - `Contract/ProcessDetailEntries.js`
 - `Contract/SignEntries.js`
-- `Cpm/CpmEntries.js`
+- `Cpm/BillManageEntries.js`
+- `Cpm/CollectionWriteOffEntries.js`
+- `Cpm/ContractCpmEntries.js`
+- `Cpm/MarginManagementEntries.js`
 - `Cpm/PaymentApplicationDetailEntries.js`
+- `Cpm/PaymentApplicationListEntries.js`
 - `Cpm/PaymentApplicationMaterialsEntries.js`
 - `Cpm/PaymentApplicationPublicCheckEntries.js`
 - `Cpm/PaymentApplicationPublicInfoEntries.js`
+- `Cpm/PaymentWriteOffEntries.js`
 - `Credit/CreditReportSearchEntries.js`
 - `Credit/EstablishEntries.js`
 - `Credit/ReviewEntries.js`
@@ -116,9 +121,12 @@
 - `Customer/UnifiedViewEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `EvaluationAgency/AppraisalAgencyEntries.js`
-- `ChangeLogDiff/ChangeLogDiffEntries.js`
 - `ExternalEmbed/ExternalEmbedEntries.js`
 - `ExternalEmbed/RzyEntries.js`
+- `FilingMaterials/AfterApplyEntries.js`
+- `FilingMaterials/ApplyEntries.js`
+- `FilingMaterials/FundApplyEntries.js`
+- `FilingMaterials/OtherApplyEntries.js`
 - `Financial/CreditEntries.js`
 - `Financial/DirectDetailEntries.js`
 - `Financial/DirectListEntries.js`
@@ -137,11 +145,8 @@
 - `Financial/PaymentListEntries.js`
 - `Financial/PropertyEntries.js`
 - `Financial/SelectEntries.js`
-- `Ocr/OcrEntries.js`
-- `FilingMaterials/AfterApplyEntries.js`
-- `FilingMaterials/ApplyEntries.js`
-- `FilingMaterials/FundApplyEntries.js`
-- `FilingMaterials/OtherApplyEntries.js`
+- `InsurancePolicy/InsurancePolicyColumnsEntries.js`
+- `InsurancePolicy/InsurancePolicyEntries.js`
 - `Kpi/BaseSetEntries.js`
 - `Kpi/BaseSetModalDetailEntries.js`
 - `Kpi/BusinessGoalEntries.js`
@@ -154,26 +159,25 @@
 - `Lease/MaintainEntries.js`
 - `LifeCycle/LifeCycleEntries.js`
 - `Message/NotificationEntries.js`
+- `Ocr/OcrEntries.js`
 - `Overdue/OverdueEntries.js`
 - `PaymentFtpColumns/FtpAssessmentColumnsEntries.js`
 - `Permission/AuthEntries.js`
 - `Permission/BifrostEntries.js`
-- `InsurancePolicy/InsurancePolicyColumnsEntries.js`
-- `InsurancePolicy/InsurancePolicyEntries.js`
-- `Process/ProcessInfoModalEntries.js`
-- `Process/ProcessEntries.js`
-- `Process/ProcessTaskFlowChartEntries.js`
 - `Preview/PreviewEntries.js`
+- `Process/ProcessEntries.js`
+- `Process/ProcessInfoModalEntries.js`
+- `Process/ProcessTaskFlowChartEntries.js`
 - `Project/DebtEvaluationEntries.js`
-- `Project/EstablishmentEntries.js`
 - `Project/EstablishmentDetailEntries.js`
+- `Project/EstablishmentEntries.js`
 - `Project/FinancialReportStatisticsEntries.js`
 - `Project/FormListItemEntries.js`
-- `Project/PriceEntries.js`
 - `Project/PriceDetailEntries.js`
+- `Project/PriceEntries.js`
 - `Project/ProjectReviewMeetingModalEntries.js`
-- `Project/ReviewEntries.js`
 - `Project/ReviewDetailEntries.js`
+- `Project/ReviewEntries.js`
 - `Project/ReviewProcessEntries.js`
 - `Project/ReviewSnapshotEntries.js`
 - `Report/FinancialReportApprovalEntries.js`
@@ -183,19 +187,19 @@
 - `Risk/CloudMetricValueEntries.js`
 - `Risk/FinanceSheetEntries.js`
 - `Risk/FinanceSheetFileEntries.js`
-- `Risk/MetricValueEntries.js`
 - `Risk/MetricTimedEntries.js`
+- `Risk/MetricValueEntries.js`
 - `Risk/MonitorEarlyEntries.js`
 - `Risk/OverdueEntries.js`
 - `Risk/PublicMonitorColumnsEntries.js`
 - `Risk/PublicMonitorDetailEntries.js`
-- `Risk/PublicMonitorOpinionDetailEntries.js`
 - `Risk/PublicMonitorListEntries.js`
+- `Risk/PublicMonitorOpinionDetailEntries.js`
 - `Risk/RiskStrategyEntries.js`
 - `Risk/SourceCardEntries.js`
 - `TrackEvent/TrackEventDetailEntries.js`
-- `TrackEvent/TrackEventModalEntries.js`
 - `TrackEvent/TrackEventListEntries.js`
+- `TrackEvent/TrackEventModalEntries.js`
 - `TrackEvent/TrackEventTaskEntries.js`
 - `VisitorManage/VisitorManageEntries.js`
 - `WhiteList/WhiteListEntries.js`
@@ -229,7 +233,7 @@
 - `npm run check:boundaries` 会阻止业务代码重新引用上述已移除兼容入口；新增和迁移代码必须使用语义入口或窄入口。
 - 权限页 Bifrost iframe、用户管理页、字典/组织/角色 iframe 页、功能分组页和操作日志页已沉淀到 `src/components/Permission/BifrostEntries.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/components/Budget/FlowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
-- 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 金额输入已回收到 `src/components/Cpm/AmountNumber`，跨层使用应通过 `Cpm/CpmEntries.js`。
+- 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 页面入口已拆分为票据、付款申请、付款核销、合同付款、收款核销、保证金管理等窄 `*Entries.js`，不再使用宽泛 `Cpm/CpmEntries.js`。
 - 项目多行文本展示已回收到 `src/components/Project/MultilineText`，项目页面跨层使用应通过 `Project/EstablishmentDetailEntries.js`。
 - Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应通过 `Dashboard/DashboardEntries.js`。
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。

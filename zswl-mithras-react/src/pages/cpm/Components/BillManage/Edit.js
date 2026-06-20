@@ -1,1 +1,1 @@
-export { CpmBillManageEdit as default } from '@/components/Cpm/CpmEntries'
+export { CpmBillManageEdit as default } from '@/components/Cpm/BillManageEntries'

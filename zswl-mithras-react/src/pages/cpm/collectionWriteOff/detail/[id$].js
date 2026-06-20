@@ -1,1 +1,1 @@
-export { CpmCollectionWriteOffDetail as default } from '@/components/Cpm/CpmEntries'
+export { CpmCollectionWriteOffDetail as default } from '@/components/Cpm/CollectionWriteOffEntries'

@@ -101,7 +101,7 @@ const componentEntryScopeAliases = new Map([
   ['Contract/LeaseMaterialsEntries', 'ContractLeaseMaterials'],
   ['Contract/MaterialsEntries', 'ContractMaterials'],
   ['Contract/ProcessDetailEntries', 'ContractProcessDetail'],
-  ['Cpm/CpmEntries', 'CpmPaymentWriteOffDetail'],
+  ['Cpm/PaymentWriteOffEntries', 'CpmPaymentWriteOffDetail'],
   ['Cpm/PaymentApplicationDetailEntries', 'CpmPaymentApplicationDetail'],
   ['Cpm/PaymentApplicationMaterialsEntries', 'CpmPaymentApplicationMaterials'],
   ['Cpm/PaymentApplicationPublicCheckEntries', 'CpmPaymentApplicationPublicCheck'],

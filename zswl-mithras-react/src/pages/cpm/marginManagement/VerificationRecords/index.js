@@ -1,1 +1,1 @@
-export { CpmMarginManagementVerificationRecords as default } from '@/components/Cpm/CpmEntries'
+export { CpmMarginManagementVerificationRecords as default } from '@/components/Cpm/MarginManagementEntries'

@@ -1,1 +1,1 @@
-export { CpmMarginManagementDetail as default } from '@/components/Cpm/CpmEntries'
+export { CpmMarginManagementDetail as default } from '@/components/Cpm/MarginManagementEntries'

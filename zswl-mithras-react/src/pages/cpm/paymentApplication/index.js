@@ -1,1 +1,1 @@
-export { CpmPaymentApplicationList as default } from '@/components/Cpm/CpmEntries'
+export { CpmPaymentApplicationList as default } from '@/components/Cpm/PaymentApplicationListEntries'
