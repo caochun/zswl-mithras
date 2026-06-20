@@ -228,6 +228,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/PricingBaseSet/List/BudgetPricingBaseSetList.js',
   ],
   [
+    'src/components/Budget/PricingBaseData/index.js',
+    'src/components/Budget/PricingBaseData/BudgetPricingBaseData.js',
+  ],
+  [
     'src/components/Budget/PricingBaseSetModalDetail/index.js',
     'src/components/Budget/PricingBaseSetModalDetail/BudgetPricingBaseSetModalDetail.js',
   ],
@@ -820,6 +824,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Kpi/BusinessGoal/List/KpiBusinessGoalList.js',
   ],
   [
+    'src/components/Kpi/BusinessGoal/Detail/index.js',
+    'src/components/Kpi/BusinessGoal/Detail/KpiBusinessGoalDetail.js',
+  ],
+  [
     'src/components/Kpi/ModalEditTable/index.js',
     'src/components/Kpi/ModalEditTable/KpiModalEditTable.js',
   ],
@@ -920,6 +928,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Overdue/LitigationRegistration/List/OverdueLitigationRegistrationList.js',
   ],
   [
+    'src/components/Overdue/LitigationRegistration/Detail/index.js',
+    'src/components/Overdue/LitigationRegistration/Detail/OverdueLitigationRegistrationDetail.js',
+  ],
+  [
     'src/components/PaymentFtpColumns/index.js',
     'src/components/PaymentFtpColumns/FtpAssessmentColumns.js',
   ],
@@ -998,6 +1010,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Risk/CloudMetricValue/Detail/index.js',
     'src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js',
+  ],
+  [
+    'src/components/Risk/CloudMetricValue/index.js',
+    'src/components/Risk/CloudMetricValue/RiskCloudMetricValue.js',
   ],
   [
     'src/components/Risk/PublicMonitorDetail/index.js',
@@ -1118,6 +1134,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Risk/RiskStrategy/IndicatorManage/Detail/index.js',
     'src/components/Risk/RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js',
+  ],
+  [
+    'src/components/Risk/RiskStrategy/IndicatorManage/index.js',
+    'src/components/Risk/RiskStrategy/IndicatorManage/RiskStrategyIndicatorManage.js',
   ],
   [
     'src/components/Risk/RiskStrategy/ConcentrationControl/index.js',

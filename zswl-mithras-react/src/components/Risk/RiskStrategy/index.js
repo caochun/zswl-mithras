@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import { Tabs } from 'antd'
 import { useState } from 'react'
-import RiskStrategy from './IndicatorManage'
+import RiskStrategy from './IndicatorManage/RiskStrategyIndicatorManage'
 import RelateMonitor from './RelateMonitor/RiskStrategyRelateMonitor'
 import ConcentrationControl from './ConcentrationControl/RiskStrategyConcentrationControl'
 

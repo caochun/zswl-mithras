@@ -431,7 +431,7 @@
 - 预算拨备数据查询页通过 `src/components/Budget/ProvisioningDataEntries.js` 暴露，`src/pages/budget/provisioning/dataSearch/*` 只保留路由壳。
 - 预算拨备减值列表页和详情页通过 `src/components/Budget/ProvisioningImpairmentEntries.js` 暴露，`src/pages/budget/provisioning/impairment/*` 只保留路由壳。
 - 预算拨备参数配置列表页和详情页通过 `src/components/Budget/ProvisioningParamsConfigEntries.js` 暴露，`src/pages/budget/provisioning/paramsConfig/*` 只保留路由壳；预算管理拨备预测复用的拨备弹窗和列配置通过 `src/components/Budget/ProvisioningSharedEntries.js` 暴露。
-- 预算定价基础数据维护页通过 `src/components/Budget/PricingBaseDataEntries.js` 暴露，`src/pages/budget/pricing/baseData/*` 只保留路由壳。
+- 预算定价基础数据维护页通过 `src/components/Budget/PricingBaseDataEntries.js` 暴露，真实实现命名为 `BudgetPricingBaseData.js`，`src/pages/budget/pricing/baseData/*` 只保留路由壳。
 - 预算定价基础参数设置列表页、详情弹窗和编辑表格分别通过 `src/components/Budget/PricingBaseSetListEntries.js`、`PricingBaseSetModalDetailEntries.js`、`PricingBaseSetModalEditTableEntries.js` 暴露，真实实现命名为 `BudgetPricingBaseSetList.js`、`BudgetPricingBaseSetModalDetail.js` 和 `BudgetPricingBaseSetModalEditTable.js`，`src/pages/budget/pricing/baseSet/*` 只保留路由壳。
 - 预算定价业务通过 `src/components/Budget/PricingBusinessListEntries.js`、`src/components/Budget/PricingBusinessDetailEntries.js` 和 `src/components/Budget/PricingBusinessLogEntries.js` 分别暴露列表、详情和日志能力，列表和日志真实实现命名为 `BudgetPricingBusinessList.js`、`BudgetPricingBusinessDetailLog.js`，`src/pages/budget/pricing/business/*` 只保留路由壳。
 - 预算定价 FTP 计息列表页、详情页、价格明细页和价格变更弹窗分别通过 `src/components/Budget/PricingFtpInterestListEntries.js`、`PricingFtpInterestDetailEntries.js`、`PricingFtpInterestPriceDetailEntries.js` 和 `PricingFtpInterestPriceChangeEntries.js` 暴露，`src/pages/budget/pricing/ftpInterest/*` 只保留路由壳。
@@ -441,7 +441,7 @@
 - 预算印花税维护页通过 `src/components/Budget/StampDutyEntries.js` 暴露，真实实现命名为 `BudgetStampDuty.js`，`src/pages/budget/stampDuty/*` 只保留路由壳。
 - KPI 项目分配列表页、历史页、项目分配列表子组件、分配明细和表单片段分别通过 `src/components/Kpi/ProjectAllotPageEntries.js`、`ProjectAllotHistoryEntries.js`、`ProjectAllotProjectAllocateListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
 - 预算考核列表页和详情页通过 `src/components/BudgetManagement/AssessmentEntries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js` 和 `BudgetManagementAssessmentDetail.js`，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
-- 预算管理业绩目标是历史菜单路径，实际归入 KPI 业绩目标组件域；列表页和详情页通过 `src/components/Kpi/BusinessGoalEntries.js` 暴露，`src/pages/budgetManagement/businessGoal/*` 只保留路由壳。
+- 预算管理业绩目标是历史菜单路径，实际归入 KPI 业绩目标组件域；列表页和详情页通过 `src/components/Kpi/BusinessGoalEntries.js` 暴露，详情真实实现命名为 `KpiBusinessGoalDetail.js`，`src/pages/budgetManagement/businessGoal/*` 只保留路由壳。
 - 预算管理参数配置页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，`src/pages/budgetManagement/parameterConfig` 只保留路由壳。
 - 预算管理参数配置（历史定价基础配置路径）页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，`src/pages/budgetManagement/parameterConfiguration` 只保留路由壳。
 - 预算管理投放计划列表页、详情页和周报详情页分别通过 `src/components/BudgetManagement/PlacementPlanListEntries.js`、`PlacementPlanDetailEntries.js`、`PlacementPlanWeekDetailEntries.js` 暴露，周报详情真实实现命名为 `BudgetManagementPlacementPlanWeekDetail.js`，`src/pages/budgetManagement/placementPlan/*` 只保留路由壳。
@@ -461,7 +461,7 @@
 - Dashboard 工作台、经营总览和 SSO 跳转页分别通过 `src/components/Dashboard/WorkbenchEntries.js`、`OverviewEntries.js`、`SsoEntries.js` 暴露；SSO 真实实现命名为 `src/components/Dashboard/Sso/DashboardSso.js` 和 `SsoFlow/DashboardSsoFlow.js`，`src/pages/dashboard/workbench`、`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
 - 逾期催收列表页、详情页通过 `src/components/Overdue/CollectionEntries.js` 暴露，真实实现命名为 `src/components/Overdue/Collection/List/OverdueCollectionList.js` 和 `src/components/Overdue/Collection/Detail/OverdueCollectionDetail.js`，流程催收弹窗通过 `src/components/Overdue/CollectionModalEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
 - 逾期诉讼用印列表页和用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，列表真实实现命名为 `src/components/Overdue/LitigationDoc/List/OverdueLitigationDocList.js`，`src/pages/overdue/litigationDoc/*` 只保留路由壳。
-- 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/LitigationRegistrationEntries.js` 暴露，列表真实实现命名为 `src/components/Overdue/LitigationRegistration/List/OverdueLitigationRegistrationList.js`，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。
+- 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/LitigationRegistrationEntries.js` 暴露，真实实现命名为 `src/components/Overdue/LitigationRegistration/List/OverdueLitigationRegistrationList.js` 和 `src/components/Overdue/LitigationRegistration/Detail/OverdueLitigationRegistrationDetail.js`，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。
 - 项目立项列表页和创建弹窗通过 `src/components/Project/EstablishmentEntries.js` 暴露，`src/pages/project/establishment/*` 只保留路由壳和详情子路由壳。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
@@ -548,9 +548,9 @@
 - 项目评审会纪要弹窗通过 `src/components/Project/ProjectReviewMeetingModalEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js`。
 - 项目评审快照通过 `src/components/Project/ReviewSnapshotEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewSnapshot/ProjectReviewSnapshot.js`。
 - 项目立项、定价和评审列表页分别通过 `src/components/Project/EstablishmentEntries.js`、`PriceEntries.js`、`ReviewEntries.js` 暴露，真实实现命名为 `ProjectEstablishment.js`、`ProjectPrice.js` 和 `ProjectReview.js`，不再依赖目录 `index.js`。
-- 风险云指标详情通过 `src/components/Risk/CloudMetricValueEntries.js` 暴露，真实实现命名为 `src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js`。
+- 风险云指标列表和详情通过 `src/components/Risk/CloudMetricValueEntries.js` 暴露，真实实现命名为 `src/components/Risk/CloudMetricValue/RiskCloudMetricValue.js` 和 `src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js`。
 - 风险公开监控列配置通过 `src/components/Risk/PublicMonitorColumnsEntries.js` 暴露，真实实现命名为 `src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js`。
-- 风险公开监控详情、财报指标表、财报文件、定时指标、目标指标、集控指标、集中度指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskFinanceSheetFileList.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskMetricJinKon.js`、`RiskMetricControl.js`、`RiskOverdueListSearch.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
+- 风险公开监控详情、财报指标表、财报文件、定时指标、目标指标、集控指标、集中度指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskFinanceSheetFileList.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskMetricJinKon.js`、`RiskMetricControl.js`、`RiskOverdueListSearch.js`、`RiskStrategy/IndicatorManage/RiskStrategyIndicatorManage.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
 - 风险评分卡列表和详情通过 `src/components/Risk/SourceCardListEntries.js`、`SourceCardDetailEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCard/List/RiskSourceCardList.js` 和 `SourceCard/Detail/RiskSourceCardDetail.js`。
 - 风险评分卡测算弹窗通过 `src/components/Risk/SourceCardCalcModalEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js`。
 - 跟踪事项抽屉通过 `src/components/TrackEvent/TrackEventModalEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/TrackModal/TrackEventModal.js`。
