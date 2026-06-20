@@ -1,1 +1,1 @@
-export { BlackGrayOutboundApplicationDetail as default } from '@/components/BlackGray/BlackGrayEntries'
+export { BlackGrayOutboundApplicationDetail as default } from '@/components/BlackGray/OutboundEntries'

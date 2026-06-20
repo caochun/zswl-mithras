@@ -1,1 +1,1 @@
-export { BlackGrayAllQueryGroup as default } from '@/components/BlackGray/BlackGrayEntries'
+export { BlackGrayAllQueryGroup as default } from '@/components/BlackGray/QueryEntries'

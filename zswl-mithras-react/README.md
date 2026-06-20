@@ -55,8 +55,13 @@
 - `Archives/ArchivesEntries.js`
 - `BaseData/FileTemplateEntries.js`
 - `BaseData/LeaseholdPropertyEntries.js`
-- `BlackGray/BlackGrayEntries.js`
+- `BlackGray/BreakThroughEntries.js`
+- `BlackGray/EnterDatabaseEntries.js`
 - `BlackGray/BlackGrayHitEntries.js`
+- `BlackGray/OutboundEntries.js`
+- `BlackGray/ParameterEntries.js`
+- `BlackGray/QueryEntries.js`
+- `BlackGray/WarehouseEntries.js`
 - `Budget/AccountsReceivableEntries.js`
 - `Budget/BankAccountEntries.js`
 - `Budget/BusinessAgingTableEntries.js`
@@ -217,7 +222,7 @@
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
 - 禁止在 `.less` 中通过 `@/components/<domain>/...` 引用业务域组件内部样式；路由兼容壳应只做 JS 转发，样式由真实组件自己维护。
-- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单管理应通过 `BlackGray/BlackGrayEntries.js` 引入，黑灰名单命中标识应通过 `BlackGray/BlackGrayHitEntries.js` 引入，保单列配置应通过 `InsurancePolicy/InsurancePolicyColumnsEntries.js` 引入，业务资料表应通过 `ClientMaterialTable/BusinessMaterialTableEntries.js` 引入，征信查询抽屉应通过 `Credit/CreditReportSearchEntries.js` 引入，评估机构关系表应通过 `EvaluationAgency/AppraisalAgencyEntries.js` 引入，FTP考核列配置应通过 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 引入，跟踪事项弹窗应通过 `TrackEvent/TrackEventModalEntries.js` 引入，跟踪事项新增任务弹窗应通过 `TrackEvent/TrackEventTaskEntries.js` 引入，Dashboard 应通过 `Dashboard/OverviewEntries.js`、`Dashboard/SsoEntries.js`、`Dashboard/WorkbenchEntries.js` 等窄入口引入，`BusinessInfoCheck`、`ClientMaterialTable`、`EvaluationAgency`、`ChangeLogDiff`、`InsurancePolicy`、`PaymentFtpColumns` 应通过对应 `*Entries.js` 引入。
+- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单管理应通过 `BlackGray/QueryEntries.js`、`EnterDatabaseEntries.js`、`BreakThroughEntries.js`、`OutboundEntries.js`、`WarehouseEntries.js`、`ParameterEntries.js` 等窄入口引入，黑灰名单命中标识应通过 `BlackGray/BlackGrayHitEntries.js` 引入，保单列配置应通过 `InsurancePolicy/InsurancePolicyColumnsEntries.js` 引入，业务资料表应通过 `ClientMaterialTable/BusinessMaterialTableEntries.js` 引入，征信查询抽屉应通过 `Credit/CreditReportSearchEntries.js` 引入，评估机构关系表应通过 `EvaluationAgency/AppraisalAgencyEntries.js` 引入，FTP考核列配置应通过 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 引入，跟踪事项弹窗应通过 `TrackEvent/TrackEventModalEntries.js` 引入，跟踪事项新增任务弹窗应通过 `TrackEvent/TrackEventTaskEntries.js` 引入，Dashboard 应通过 `Dashboard/OverviewEntries.js`、`Dashboard/SsoEntries.js`、`Dashboard/WorkbenchEntries.js` 等窄入口引入，`BusinessInfoCheck`、`ClientMaterialTable`、`EvaluationAgency`、`ChangeLogDiff`、`InsurancePolicy`、`PaymentFtpColumns` 应通过对应 `*Entries.js` 引入。
 - `npm run report:unused-component-candidates` 只输出静态无入边候选，不代表可直接删除；删除前必须人工复核动态约定、配置导出和类型声明等情况。
 - `npm run report:unused-component-candidates -- --include-index --include-entries` 应保持清零；`npm run check:boundaries` 已把这组候选纳入门禁，用于阻止无引用 `index`、样式文件和 `*Entries.js` 残留回潮。
 - `npm run report:ui-domain-deps` 会把已拆出的窄入口按独立能力归类，例如 `AfterLeaseCheckPlanCreate`、`BlackGrayHit`、`BudgetPricingBusinessDetail`、`ContractApplicationDetail`、`ContractBaseInfo`、`ContractLeaseMaterials`、`CustomerDebtRatingList`、`CustomerExternalPublicInfo`、`CustomerSingleViewRisk`、`FinancialSelect`、`InsurancePolicyInfo`、`InsurancePolicyColumns`、`KpiBaseSetModalDetail`、`ProcessInfoModal`、`ProcessTaskFlowChart`、`ProjectReviewMeetingModal`、`ProjectReviewSnapshot`、`RentCollectionDetail`、`RiskPublicMonitorList`、`RiskSourceCardCalcModal`、`TrackEventDetail`、`TrackEventList`、`TrackEventModal`、`TrackEventTask`；这些报告项代表稳定共享能力，不等同于调用方依赖完整业务域。
@@ -235,7 +240,7 @@
 - `npm run check:boundaries` 会阻止业务代码重新引用上述已移除兼容入口；新增和迁移代码必须使用语义入口或窄入口。
 - 权限页 Bifrost iframe、用户管理页、字典/组织/角色 iframe 页、功能分组页和操作日志页已沉淀到 `src/components/Permission/BifrostEntries.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/components/Budget/FlowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
-- 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 页面入口已拆分为票据、付款申请、付款核销、合同付款、收款核销、保证金管理等窄 `*Entries.js`，不再使用宽泛 `Cpm/CpmEntries.js`。
+- 黑灰名单页面入口已拆分为查询、入库、突破、出库、仓库、参数等窄 `*Entries.js`，不再使用宽泛 `BlackGray/BlackGrayEntries.js`；CPM 页面入口已拆分为票据、付款申请、付款核销、合同付款、收款核销、保证金管理等窄 `*Entries.js`，不再使用宽泛 `Cpm/CpmEntries.js`。
 - 项目多行文本展示已回收到 `src/components/Project/MultilineText`，项目页面跨层使用应通过 `Project/EstablishmentDetailEntries.js`。
 - Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应优先通过对应 Dashboard 窄入口或域内相对路径。
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。
@@ -397,8 +402,8 @@
 - `utils/rzyConfig`：RZY 厂商管理外部系统菜单和链接配置历史落在全局 utils；布局菜单和 RZY 页面优先使用 `src/utils/domains/rzy/RzyConfig`，旧路径仅保留兼容转发。
 - `utils/options/financialReport`、`utils/options/ftp`：历史业务选项文件已清理；后续若需要报表或 FTP 定价选项，应放入对应 `src/utils/domains/<domain>` 语义目录。
 - `utils/hooks/useGetStatus`：黑灰名单审批状态筛选和按钮可用性历史落在全局 hooks；黑灰名单页面和组件优先使用 `src/utils/domains/blackGray/BlackGrayStatusUtils`，旧路径仅保留兼容转发。
-- `components/BlackGray/Actions`：黑灰名单审批动作集合；黑灰名单页面应通过 `src/components/BlackGray/BlackGrayEntries.js` 使用，其他业务域需要通用导出时使用 `src/components/Actions.StoreExportAction` 或其他公共 Actions。
-- `components/BlackGray/RiskIframe`：黑灰名单外部查询页面 iframe 适配；黑灰名单页面应通过 `src/components/BlackGray/BlackGrayEntries.js` 使用。
+- `components/BlackGray/Actions`：黑灰名单审批动作集合；黑灰名单页面应通过对应黑灰名单窄入口或域内相对路径使用，其他业务域需要通用导出时使用 `src/components/Actions.StoreExportAction` 或其他公共 Actions。
+- `components/BlackGray/RiskIframe`：黑灰名单外部查询页面 iframe 适配；黑灰名单查询页面应通过 `src/components/BlackGray/QueryEntries.js` 使用。
 - `components/BlackGray/Info`：黑灰名单命中标识组件；业务页面和组件应通过 `src/components/BlackGray/BlackGrayHitEntries.js` 使用。
 - `components/Process/BpmnFlowChart`、`components/Process/TaskFlowChart`：流程图组件；流程详情、流程弹窗和审批记录通过 `src/components/Process/ProcessEntries.js` 使用。
 - `components/Financial/ChangeLogLayout`：财务版本变更日志布局；财务付款/融资日志页面通过 `src/components/Financial/ChangeLogEntries.js` 使用。

@@ -1,1 +1,1 @@
-export { BlackGrayWarehouseRuleDetail as default } from '@/components/BlackGray/BlackGrayEntries'
+export { BlackGrayWarehouseRuleDetail as default } from '@/components/BlackGray/ParameterEntries'

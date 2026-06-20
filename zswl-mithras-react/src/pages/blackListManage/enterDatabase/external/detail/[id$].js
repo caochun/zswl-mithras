@@ -1,1 +1,1 @@
-export { BlackGrayEnterDatabaseExternalDetail as default } from '@/components/BlackGray/BlackGrayEntries'
+export { BlackGrayEnterDatabaseExternalDetail as default } from '@/components/BlackGray/EnterDatabaseEntries'
