@@ -1,1 +1,1 @@
-export { RentCollectionInterestModal as default } from '@/components/AfterLease/RentCollectionListEntries'
+export { RentCollectionInterestModal as default } from '@/components/AfterLease/RentCollectionInterestModalEntries'

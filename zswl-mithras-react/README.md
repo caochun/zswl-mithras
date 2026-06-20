@@ -61,7 +61,9 @@
 - `AfterLease/PolicyManageListEntries.js`
 - `AfterLease/PolicyManageRemindEntries.js`
 - `AfterLease/RentCollectionDetailEntries.js`
-- `AfterLease/RentCollectionListEntries.js`
+- `AfterLease/RentCollectionInterestModalEntries.js`
+- `AfterLease/RentCollectionListPageEntries.js`
+- `AfterLease/RentCollectionListRenderEntries.js`
 - `AfterLease/RentCollectionProcessEntries.js`
 - `App/RootRedirectEntries.js`
 - `Archives/ManageEntries.js`
