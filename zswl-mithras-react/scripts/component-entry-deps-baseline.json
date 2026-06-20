@@ -75,6 +75,10 @@
     },
     {
       "sourceScope": "components/Contract",
+      "target": "LeasePricing/FeeTipEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
       "target": "LeasePricing/FormIrrEntries"
     },
     {
@@ -112,6 +116,10 @@
     {
       "sourceScope": "components/Cpm",
       "target": "EvaluationAgency/AppraisalAgencyEntries"
+    },
+    {
+      "sourceScope": "components/Cpm",
+      "target": "LeasePricing/FeeTipEntries"
     },
     {
       "sourceScope": "components/Cpm",
@@ -502,6 +510,10 @@
       "target": "Project/ReviewProcessDetailEntries"
     },
     {
+      "sourceScope": "components/PaymentFtpColumns",
+      "target": "LeasePricing/FeeTipEntries"
+    },
+    {
       "sourceScope": "components/Process",
       "target": "Project/ReviewProcessMeetingEntries"
     },
@@ -551,6 +563,10 @@
     },
     {
       "sourceScope": "components/Project",
+      "target": "LeasePricing/FeeTipEntries"
+    },
+    {
+      "sourceScope": "components/Project",
       "target": "LeasePricing/FormIrrEntries"
     },
     {
@@ -564,6 +580,10 @@
     {
       "sourceScope": "layout",
       "target": "LeasePricing/FormIrrEntries"
+    },
+    {
+      "sourceScope": "layout",
+      "target": "LeasePricing/FeeTipEntries"
     },
     {
       "sourceScope": "layout",

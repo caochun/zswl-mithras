@@ -1,5 +1,5 @@
 import { AmountColumn } from '@/components/Format'
-import CommonTips from '@/components/CommonTips'
+import CommonTips from '@/components/LeasePricing/FeeTipEntries'
 
 const ALL_COLUMNS = ({ isZhiZu, retentionMoney }, flag) => {
   return [

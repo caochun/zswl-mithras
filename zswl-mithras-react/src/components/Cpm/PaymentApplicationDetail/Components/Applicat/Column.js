@@ -7,7 +7,7 @@ import { Select } from '@zswl/components'
 
 import { useEffect } from 'react'
 import { getInputNumberAmountProps, hasValue } from '@/utils'
-import CommonTips from '@/components/CommonTips'
+import CommonTips from '@/components/LeasePricing/FeeTipEntries'
 
 const { TextArea } = Input
 const { Item } = Form

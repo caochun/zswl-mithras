@@ -5,7 +5,7 @@ import { useMemo, useState, useRef } from 'react'
 import Project from './Project'
 import { AmountColumn, DateColumn, MatchOptionColumn } from '@/components/Format'
 import RepayCalcType from '@/components/LeasePricing/RepayCalcTypeEntries'
-import CommonTips from '@/components/CommonTips'
+import CommonTips from '@/components/LeasePricing/FeeTipEntries'
 
 const commonProps = {
   wrapItemProps: { required: true },

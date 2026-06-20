@@ -335,7 +335,6 @@ const publicComponentRoots = new Set([
   'Chart',
   'Collapse',
   'CommonNoData',
-  'CommonTips',
   'CurrentSteps',
   'DataUpload',
   'DetailLayout',

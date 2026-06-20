@@ -466,7 +466,7 @@
 - 项目立项列表页和创建弹窗通过 `src/components/Project/EstablishmentEntries.js` 暴露，`src/pages/project/establishment/*` 只保留路由壳和详情子路由壳。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
-- 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `CommonTips`、`CommonNoData`、`DetailLayout`、`Collapse` 应直接从对应 `@/components/<Component>` 导入。
+- 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `CommonNoData`、`DetailLayout`、`Collapse` 应直接从对应 `@/components/<Component>` 导入。
 - 禁止业务代码继续从 `@/components` 根目录导入组件；历史兼容根导出已删除，新增和迁移代码必须依赖具体稳定入口。
 - 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`Excel`、`CommonNoData` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域或公共能力的 `*Entries.js`。
 - 全局样式不放在 `src/components` 下伪装成组件域；当前全局动画样式已内聚到 `src/app.less`。
@@ -577,6 +577,7 @@
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
 - `LeasePricing/RepayCalcTypeEntries.js` 暴露租赁/保理定价场景共用的还款方式选择，真实实现命名为 `src/components/LeasePricing/RepayCalcType/LeasePricingRepayCalcType.js`；合同和全局测算工具通过窄入口复用，不再保留 `src/components/RepayCalcType` 公共根组件。
 - `LeasePricing/FormIrrEntries.js` 暴露租赁/保理定价场景共用的 IRR 测算表单项，真实实现命名为 `src/components/LeasePricing/FormIrr/LeasePricingFormIrr.js`；合同、项目和全局测算工具通过窄入口复用，不再保留 `src/components/FormIrr` 公共根组件。
+- `LeasePricing/FeeTipEntries.js` 暴露租赁/保理定价场景共用的费用/利息提示，真实实现命名为 `src/components/LeasePricing/FeeTip/LeasePricingFeeTip.js`；项目、合同、CPM、付款 FTP 列和全局测算工具通过窄入口复用，不再保留 `src/components/CommonTips` 公共根组件。
 - 公式值说明提示作为预算和 KPI 共用的公共能力，通过 `src/components/FormulaValueTip/FormulaValueTipEntries.js` 暴露，真实实现命名为 `src/components/FormulaValueTip/FormulaValueTip.js`，业务组件不再直接引用 `@/components/FormulaValueTip` 根目录。
 - 文件上传历史列表展示已回收到 `src/components/Format/FileList.js`，外部如需使用仍通过 `DataUpload.List`，不再保留 `src/components/FileList` 公共根组件。
 
