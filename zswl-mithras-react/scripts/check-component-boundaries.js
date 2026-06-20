@@ -1388,6 +1388,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Project/Establishment/ProjectEstablishment.js',
   ],
   [
+    'src/components/Project/EstablishmentDetail/index.js',
+    'src/components/Project/EstablishmentDetail/ProjectEstablishmentDetail.js',
+  ],
+  [
     'src/components/Project/EstablishmentDetail/Log/index.js',
     'src/components/Project/EstablishmentDetail/Log/ProjectEstablishmentDetailLog.js',
   ],
@@ -1396,12 +1400,20 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Project/Price/ProjectPrice.js',
   ],
   [
+    'src/components/Project/PriceDetail/index.js',
+    'src/components/Project/PriceDetail/ProjectPriceDetail.js',
+  ],
+  [
     'src/components/Project/PriceDetail/Log/index.js',
     'src/components/Project/PriceDetail/Log/ProjectPriceDetailLog.js',
   ],
   [
     'src/components/Project/Review/index.js',
     'src/components/Project/Review/ProjectReview.js',
+  ],
+  [
+    'src/components/Project/ReviewDetail/index.js',
+    'src/components/Project/ReviewDetail/ProjectReviewDetail.js',
   ],
   [
     'src/components/Project/ReviewDetail/Log/index.js',
