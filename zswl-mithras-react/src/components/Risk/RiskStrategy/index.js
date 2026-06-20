@@ -3,8 +3,8 @@ import { Page } from '@zswl/components'
 import { Tabs } from 'antd'
 import { useState } from 'react'
 import RiskStrategy from './IndicatorManage'
-import RelateMonitor from './RelateMonitor'
-import ConcentrationControl from './ConcentrationControl'
+import RelateMonitor from './RelateMonitor/RiskStrategyRelateMonitor'
+import ConcentrationControl from './ConcentrationControl/RiskStrategyConcentrationControl'
 
 const { TabPane } = Tabs
 function Index() {

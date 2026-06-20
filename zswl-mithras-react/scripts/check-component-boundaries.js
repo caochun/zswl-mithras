@@ -384,8 +384,16 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Process/ToSnapShoot/ProcessToSnapShoot.js',
   ],
   [
+    'src/components/Project/FinancialReportStatistics/index.js',
+    'src/components/Project/FinancialReportStatistics/ProjectFinancialReportStatistics.js',
+  ],
+  [
     'src/components/Project/DebtEvaluation/index.js',
     'src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js',
+  ],
+  [
+    'src/components/Project/ReviewMaterialTable/index.js',
+    'src/components/Project/ReviewMaterialTable/ProjectReviewMaterialTable.js',
   ],
   [
     'src/components/Project/ReviewMeetingModal/index.js',
@@ -398,6 +406,18 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Risk/SourceCardCalcModal/index.js',
     'src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js',
+  ],
+  [
+    'src/components/Risk/PublicMonitorOpinionDetail/index.js',
+    'src/components/Risk/PublicMonitorOpinionDetail/RiskPublicMonitorOpinionDetail.js',
+  ],
+  [
+    'src/components/Risk/RiskStrategy/ConcentrationControl/index.js',
+    'src/components/Risk/RiskStrategy/ConcentrationControl/RiskStrategyConcentrationControl.js',
+  ],
+  [
+    'src/components/Risk/RiskStrategy/RelateMonitor/index.js',
+    'src/components/Risk/RiskStrategy/RelateMonitor/RiskStrategyRelateMonitor.js',
   ],
   [
     'src/components/TrackEvent/TrackModal/index.js',

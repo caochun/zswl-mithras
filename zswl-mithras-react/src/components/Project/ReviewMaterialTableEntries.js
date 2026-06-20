@@ -1,1 +1,1 @@
-export { default as ProjectReviewMaterialTable } from './ReviewMaterialTable'
+export { default as ProjectReviewMaterialTable } from './ReviewMaterialTable/ProjectReviewMaterialTable'

@@ -1,1 +1,1 @@
-export { default as RiskStrategyRelateMonitor } from './RiskStrategy/RelateMonitor'
+export { default as RiskStrategyRelateMonitor } from './RiskStrategy/RelateMonitor/RiskStrategyRelateMonitor'

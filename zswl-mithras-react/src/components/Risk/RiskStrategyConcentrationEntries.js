@@ -1,1 +1,1 @@
-export { default as RiskStrategyConcentrationControl } from './RiskStrategy/ConcentrationControl'
+export { default as RiskStrategyConcentrationControl } from './RiskStrategy/ConcentrationControl/RiskStrategyConcentrationControl'

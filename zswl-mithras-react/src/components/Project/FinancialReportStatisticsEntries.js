@@ -1,1 +1,1 @@
-export { default as ProjectFinancialReportStatistics } from './FinancialReportStatistics'
+export { default as ProjectFinancialReportStatistics } from './FinancialReportStatistics/ProjectFinancialReportStatistics'
