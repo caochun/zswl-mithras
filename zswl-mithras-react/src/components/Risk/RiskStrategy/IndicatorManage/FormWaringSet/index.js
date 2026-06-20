@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Form, Input, InputNumber, Space } from 'antd'
 import { FormAmount } from '@/components/Form'
-import ReadOnly from '@/components/ReadOnly'
+import { ReadOnly } from '@/components/Form'
 
 function Index({ isEdit, name: listName, value, text = '限额值', ...rest }) {
   return (

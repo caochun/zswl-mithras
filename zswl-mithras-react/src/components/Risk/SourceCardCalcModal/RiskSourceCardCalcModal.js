@@ -1,5 +1,5 @@
 import riskCardTargetCalc from '@/api/risk/riskCardTargetCalc'
-import ReadOnly from '@/components/ReadOnly'
+import { ReadOnly } from '@/components/Form'
 import { observer } from '@zswl/admin'
 import { App, Form, Modal, Select, Table, TableStore } from '@zswl/components'
 import { Cascader, Col, Input, Row } from 'antd'

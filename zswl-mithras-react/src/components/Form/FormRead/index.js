@@ -1,4 +1,4 @@
-import ReadOnly from '@/components/ReadOnly'
+import ReadOnly from '../ReadOnly'
 import { App, Select } from '@zswl/components'
 import { Input, InputNumber, Radio } from 'antd'
 

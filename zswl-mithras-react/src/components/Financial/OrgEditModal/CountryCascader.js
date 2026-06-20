@@ -1,4 +1,4 @@
-import ReadOnly from '@/components/ReadOnly'
+import { ReadOnly } from '@/components/Form'
 import { http, observer } from '@zswl/admin'
 import { Select, Form, App } from '@zswl/components'
 import { Cascader, Input, Col, Row } from 'antd'

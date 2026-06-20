@@ -466,9 +466,9 @@
 - 项目立项列表页和创建弹窗通过 `src/components/Project/EstablishmentEntries.js` 暴露，`src/pages/project/establishment/*` 只保留路由壳和详情子路由壳。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
-- 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `CommonTips`、`CommonNoData`、`ReadOnly`、`DetailLayout`、`Collapse` 应直接从对应 `@/components/<Component>` 导入。
+- 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `CommonTips`、`CommonNoData`、`DetailLayout`、`Collapse` 应直接从对应 `@/components/<Component>` 导入。
 - 禁止业务代码继续从 `@/components` 根目录导入组件；历史兼容根导出已删除，新增和迁移代码必须依赖具体稳定入口。
-- 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`Excel`、`CommonNoData`、`ReadOnly` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域或公共能力的 `*Entries.js`。
+- 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`Excel`、`CommonNoData` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域或公共能力的 `*Entries.js`。
 - 全局样式不放在 `src/components` 下伪装成组件域；当前全局动画样式已内聚到 `src/app.less`。
 - 禁止业务代码直接引用 `blackList`、`postRentalInspection`、`riskControl`、`liquidity`、`pricing`、`newFtp`、`financialReport`、`manageReport`、`fillingMaterials`、`workbench`、`header` 等历史 API 目录，应使用对应语义领域入口。
 - 禁止页面和组件直接引用 `src/api/**/interface/**` 类型文件；接口类型应由对应的语义 API 包装文件承接，避免页面绑定接口实现层目录。
@@ -487,6 +487,7 @@
 - 表单/描述项的编辑态与只读态内容切换 `FormItemContent`、必填标签展示 `StarDom` 已归入 `src/components/Form` 稳定入口，不再保留 `src/components/FormItemContent`、`src/components/StarDom` 公共根组件。
 - 中文输入法 composition 兼容输入控件 `ZInput` 已归入 `src/components/Form/ZInput.js`，调用方统一从 `@/components/Form` 具名导入，不再保留 `src/components/ZInput` 公共根组件。
 - 本地表单文件选择控件 `FormUpload` 已归入 `src/components/Form/FormUpload.js`，调用方统一从 `@/components/Form` 具名导入，不再保留 `src/components/FormUpload` 公共根组件。
+- 基础只读值展示 `ReadOnly` 已归入 `src/components/Form/ReadOnly.js`，调用方统一从 `@/components/Form` 具名导入，不再保留 `src/components/ReadOnly` 公共根组件。
 - 文件导出、模板下载、审批操作、列表下载等统一从 `src/components/Actions` 稳定入口导入；列表下载动作使用 `Actions.PageListDownloadAction`，不再保留 `src/components/PageListDown` 公共根组件。
 - 区域级联选择器 `RegionCascader` 已归入 `src/components/Select/RegionCascader.js`，调用方统一从 `@/components/Select` 具名导入，不再保留 `src/components/RegionCascader` 公共根组件。
 - 租后调整列表/详情/创建、五级分类列表/详情、检查计划列表/检查清单、打开清单、检查计划创建/详情、外部检查详情、策略页、策略创建、检查准备流程、检查模板、管理台账、政策保单列表、政策保单新增详情、政策保单详情、政策管理弹窗、政策提醒、回款列表、回款借据卡、期项租金卡、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，检查模板命名为 `AfterLeaseCheckPlanTemplate.tsx`，政策保单新增详情和保单详情命名为 `AfterLeasePolicyManageAddDetail.js`、`AfterLeasePolicyManageDetail.js`，不再依赖目录 `index.js` 或路由式 `[id]` 文件名。
