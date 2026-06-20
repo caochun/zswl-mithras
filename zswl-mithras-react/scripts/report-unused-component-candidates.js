@@ -11,11 +11,6 @@ const styleExtensions = ['.less']
 const scannableExtensions = [...sourceExtensions, ...styleExtensions]
 const candidateExtensions = scannableExtensions
 
-const includeIndex = args.has('--include-index')
-const includeEntries = args.has('--include-entries')
-const includeDeclarations = args.has('--include-declarations')
-const jsonOutput = args.has('--json')
-
 const importPattern =
   /(?:import\s+['"]([^'"]+)['"]|import\s+[^'"]*?\s+from\s+['"]([^'"]+)['"]|export\s+[^'"]*?\s+from\s+['"]([^'"]+)['"]|import\s*\(\s*['"]([^'"]+)['"]|require\s*\(\s*['"]([^'"]+)['"])/g
 const styleImportPattern = /@import\s+(?:\([^)]*\)\s*)?['"]~?([^'"]+)['"]/g
@@ -88,7 +83,12 @@ function collectImports(file) {
   return imports
 }
 
-function isCandidate(file) {
+function isCandidate(file, options = {}) {
+  const {
+    includeIndex = false,
+    includeEntries = false,
+    includeDeclarations = false,
+  } = options
   const relative = toRelative(file)
   const extension = path.extname(file)
   const basename = path.basename(file)
@@ -112,38 +112,58 @@ function isCandidate(file) {
   return true
 }
 
-const scannableFiles = walk(srcDir).filter((file) =>
-  scannableExtensions.includes(path.extname(file)),
-)
-const inbound = new Map(scannableFiles.map((file) => [file, new Set()]))
+function findUnusedComponentCandidates(options = {}) {
+  const scannableFiles = walk(srcDir).filter((file) =>
+    scannableExtensions.includes(path.extname(file)),
+  )
+  const inbound = new Map(scannableFiles.map((file) => [file, new Set()]))
 
-for (const file of scannableFiles) {
-  for (const specifier of collectImports(file)) {
-    const resolved = resolveImport(file, specifier)
-    if (!resolved || !inbound.has(resolved)) {
-      continue
+  for (const file of scannableFiles) {
+    for (const specifier of collectImports(file)) {
+      const resolved = resolveImport(file, specifier)
+      if (!resolved || !inbound.has(resolved)) {
+        continue
+      }
+      inbound.get(resolved).add(file)
     }
-    inbound.get(resolved).add(file)
+  }
+
+  return scannableFiles
+    .filter((file) => isCandidate(file, options))
+    .filter((file) => inbound.get(file)?.size === 0)
+    .map((file) => toRelative(file))
+    .sort()
+}
+
+function runCli() {
+  const options = {
+    includeIndex: args.has('--include-index'),
+    includeEntries: args.has('--include-entries'),
+    includeDeclarations: args.has('--include-declarations'),
+  }
+  const candidates = findUnusedComponentCandidates(options)
+  const jsonOutput = args.has('--json')
+
+  if (jsonOutput) {
+    console.log(JSON.stringify({ count: candidates.length, candidates }, null, 2))
+  } else if (candidates.length) {
+    console.log('Unused component candidates:')
+    for (const candidate of candidates) {
+      console.log(`- ${candidate}`)
+    }
+    console.log(`\nCount: ${candidates.length}`)
+    console.log(
+      'Note: this is a static candidate report. Review each file before deleting; dynamic conventions may not be visible to the scanner.',
+    )
+  } else {
+    console.log('No unused component candidates found.')
   }
 }
 
-const candidates = scannableFiles
-  .filter(isCandidate)
-  .filter((file) => inbound.get(file)?.size === 0)
-  .map((file) => toRelative(file))
-  .sort()
+if (require.main === module) {
+  runCli()
+}
 
-if (jsonOutput) {
-  console.log(JSON.stringify({ count: candidates.length, candidates }, null, 2))
-} else if (candidates.length) {
-  console.log('Unused component candidates:')
-  for (const candidate of candidates) {
-    console.log(`- ${candidate}`)
-  }
-  console.log(`\nCount: ${candidates.length}`)
-  console.log(
-    'Note: this is a static candidate report. Review each file before deleting; dynamic conventions may not be visible to the scanner.',
-  )
-} else {
-  console.log('No unused component candidates found.')
+module.exports = {
+  findUnusedComponentCandidates,
 }

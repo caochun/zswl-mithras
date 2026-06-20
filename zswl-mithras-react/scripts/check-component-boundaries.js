@@ -4,6 +4,7 @@ const path = require('path')
 const root = path.resolve(__dirname, '..')
 const srcDir = path.join(root, 'src')
 const readmePath = path.join(root, 'README.md')
+const { findUnusedComponentCandidates } = require('./report-unused-component-candidates')
 const scanDirs = [srcDir]
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const scannableFilePattern = /\.(js|jsx|ts|tsx|less)$/
@@ -934,6 +935,16 @@ for (const entryPath of documentedComponentEntries) {
       specifier: `stale component entry ${entryPath}`,
     })
   }
+}
+
+for (const candidate of findUnusedComponentCandidates({
+  includeIndex: true,
+  includeEntries: true,
+})) {
+  violations.push({
+    file: candidate,
+    specifier: 'unused component candidate',
+  })
 }
 
 const localSupportFileIncomingImports = new Map(sourceFiles.map((filePath) => [filePath, new Set()]))
