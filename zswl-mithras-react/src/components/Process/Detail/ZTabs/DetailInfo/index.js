@@ -2,7 +2,7 @@ import { BudgetProfitDistribution as ProfitDistribution } from '@/components/Bud
 import { AfterLeasePolicyManageRemind as PolicyRemind } from '@/components/AfterLease/PolicyManageRemindEntries'
 import { CreditManageSearchDetail as CreditReportSelectFlow } from '@/components/CreditManage/CreditManageEntries'
 import { CustomerApplyPermission as ApplyPermission } from '@/components/Customer/ApplyPermissionEntries'
-import { CustomerMaintainDetail as CustomerDetail } from '@/components/Customer/MaintainEntries'
+import { CustomerMaintainDetail as CustomerDetail } from '@/components/Customer/MaintainDetailEntries'
 import { FilingMaterialsApply } from '@/components/FilingMaterials/ApplyEntries'
 import Adjust from '../../Adjust'
 import AfterLeaseCheck from '../../AfterLeaseCheck'

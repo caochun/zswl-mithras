@@ -1,1 +1,1 @@
-export { CustomerMaintain as default } from '@/components/Customer/MaintainEntries'
+export { CustomerMaintain as default } from '@/components/Customer/MaintainListEntries'
