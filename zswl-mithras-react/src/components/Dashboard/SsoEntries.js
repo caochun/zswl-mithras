@@ -1,2 +1,2 @@
-export { default as DashboardSso } from './Sso'
-export { default as DashboardSsoFlow } from './SsoFlow'
+export { default as DashboardSso } from './Sso/DashboardSso'
+export { default as DashboardSsoFlow } from './SsoFlow/DashboardSsoFlow'

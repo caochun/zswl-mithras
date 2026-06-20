@@ -1,4 +1,4 @@
-import RzyIframe from '../RzyIframe'
+import RzyIframe from '../RzyIframe/RzyIframe'
 
 const createRzyPage = (title) => {
   const RzyPage = () => <RzyIframe title={title} />

@@ -344,8 +344,20 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js',
   ],
   [
+    'src/components/Dashboard/Sso/index.js',
+    'src/components/Dashboard/Sso/DashboardSso.js',
+  ],
+  [
+    'src/components/Dashboard/SsoFlow/index.js',
+    'src/components/Dashboard/SsoFlow/DashboardSsoFlow.js',
+  ],
+  [
     'src/components/EvaluationAgency/index.js',
     'src/components/EvaluationAgency/AppraisalAgency.js',
+  ],
+  [
+    'src/components/ExternalEmbed/RzyIframe/index.js',
+    'src/components/ExternalEmbed/RzyIframe/RzyIframe.js',
   ],
   [
     'src/components/ExternalEmbed/RzyPages/index.js',
