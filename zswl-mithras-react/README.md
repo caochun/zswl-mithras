@@ -528,8 +528,10 @@
 - 项目财报统计和评审材料表通过 `src/components/Project/*Entries.js` 暴露，真实实现使用项目域语义文件名，不再依赖目录 `index.js`。
 - 项目评审会纪要弹窗通过 `src/components/Project/ProjectReviewMeetingModalEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js`。
 - 项目评审快照通过 `src/components/Project/ReviewSnapshotEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewSnapshot/ProjectReviewSnapshot.js`。
+- 风险云指标详情通过 `src/components/Risk/CloudMetricValueEntries.js` 暴露，真实实现命名为 `src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js`。
 - 风险公开监控列配置通过 `src/components/Risk/PublicMonitorColumnsEntries.js` 暴露，真实实现命名为 `src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js`。
-- 风险公开监控详情和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，不再依赖目录 `index.js`。
+- 风险公开监控详情和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
+- 风险评分卡列表通过 `src/components/Risk/SourceCardListEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCard/List/RiskSourceCardList.js`。
 - 风险评分卡测算弹窗通过 `src/components/Risk/SourceCardCalcModalEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js`。
 - 跟踪事项抽屉通过 `src/components/TrackEvent/TrackEventModalEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/TrackModal/TrackEventModal.js`。
 - 跟踪事项列表通过 `src/components/TrackEvent/TrackEventListEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/Tracking/List/TrackEventList.js`。

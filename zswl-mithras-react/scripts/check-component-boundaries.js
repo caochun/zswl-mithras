@@ -560,6 +560,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js',
   ],
   [
+    'src/components/Risk/CloudMetricValue/Detail/index.js',
+    'src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js',
+  ],
+  [
+    'src/components/Risk/PublicMonitorDetail/index.js',
+    'src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js',
+  ],
+  [
     'src/components/Process/BlankBlock/index.js',
     'src/components/Process/BlankBlock/ProcessBlankBlock.js',
   ],
@@ -620,8 +628,16 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js',
   ],
   [
+    'src/components/Risk/SourceCard/List/index.js',
+    'src/components/Risk/SourceCard/List/RiskSourceCardList.js',
+  ],
+  [
     'src/components/Risk/PublicMonitorOpinionDetail/index.js',
     'src/components/Risk/PublicMonitorOpinionDetail/RiskPublicMonitorOpinionDetail.js',
+  ],
+  [
+    'src/components/Risk/RiskStrategy/IndicatorManage/Detail/index.js',
+    'src/components/Risk/RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js',
   ],
   [
     'src/components/Risk/RiskStrategy/ConcentrationControl/index.js',
