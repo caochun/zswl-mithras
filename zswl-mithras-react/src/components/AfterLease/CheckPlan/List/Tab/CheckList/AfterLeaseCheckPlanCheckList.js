@@ -12,7 +12,7 @@ import CreateModal from './CreateModal/AfterLeaseCheckPlanCheckListCreateModal'
 import store from './store'
 import { QuarterMap } from '@/utils/domains/afterLease/AfterLeaseUtils'
 import { AmountColumn } from '@/components/Format'
-import PageListDown from '@/components/PageListDown'
+import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 
 function Index() {
   const { optionsType } = App.getData()

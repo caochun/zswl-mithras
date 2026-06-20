@@ -7,7 +7,7 @@ import { ClientSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 
 import { useEffect, useState } from 'react'
-import PageListDown from '@/components/PageListDown'
+import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 const { Item } = SearchBar
 
 function Index({ curTab }) {

@@ -9,7 +9,7 @@ import IconFont from '@/components/Icon'
 import { useState, useMemo, useCallback } from 'react'
 import { Summary } from '@/components/Table'
 import { ExportAction } from '@/components/Actions'
-import PageListDown from '@/components/PageListDown'
+import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 import { saveServer } from '@/utils'
 import directFinancingApi from '@/api/financial/directFinancingDetail'
 function Index({ path }) {

@@ -9,7 +9,7 @@ import { saveServer, getUserInfo } from '@/utils'
 import { isTeamleader } from '@/utils/auth'
 import CreateModal from './CreateModal'
 import ChangeModal from './ChangeModal'
-import PageListDown from '@/components/PageListDown'
+import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 import { ClientSelect, OrgSelect, FounderSelect } from '@/components/Select'
 
 const { Item } = SearchBar

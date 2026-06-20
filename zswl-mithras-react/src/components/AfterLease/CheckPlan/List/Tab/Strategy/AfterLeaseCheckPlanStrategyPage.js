@@ -4,7 +4,7 @@ import { getTableColumns, getFormColumns,saveServer } from '@/utils'
 import CreateModal from './CreateModal/AfterLeaseCheckPlanStrategyCreateModal'
 import Log from './Log'
 import ALL_COLUMNS from './Column'
-import PageListDown from '@/components/PageListDown'
+import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 import store from './store'
 
 function Index() {

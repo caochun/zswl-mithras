@@ -5,7 +5,7 @@ import { useEffect, useMemo } from 'react'
 import styles from './index.less'
 import EditModal from './EditModal'
 import IconFont from '@/components/Icon'
-import PageListDown from '@/components/PageListDown'
+import { PageListDownloadAction as PageListDown } from '@/components/Actions'
 import { ClientSelect, OrgSelect, FounderSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 

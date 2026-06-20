@@ -1894,7 +1894,6 @@ const stableDefaultComponentRootImports = new Map([
   ['CurrentSteps', 'CurrentSteps'],
   ['DetailLayout', 'DetailLayout'],
   ['FormulaValueTip', 'FormulaValueTip/FormulaValueTipEntries'],
-  ['PageListDown', 'PageListDown'],
   ['ReadOnly', 'ReadOnly'],
   ['RegionCascader', 'RegionCascader'],
 ])
@@ -1910,7 +1909,6 @@ const publicComponentRootImports = new Set([
   'Form',
   'Format',
   'Icon',
-  'PageListDown',
   'ReadOnly',
   'RegionCascader',
   'Select',
