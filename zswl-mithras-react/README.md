@@ -137,7 +137,9 @@
 - `Chart/TooltipEntries.js`
 - `ClientMaterialTable/BusinessMaterialTableEntries.js`
 - `Contract/ChangeDetailEntries.js`
-- `Contract/ApplicationDetailLogEntries.js`
+- `Contract/ApplicationLeaseLogEntries.js`
+- `Contract/ApplicationLogDiffEntries.js`
+- `Contract/ApplicationLogEntries.js`
 - `Contract/ApplicationDetailPageEntries.js`
 - `Contract/BaseInfoEntries.js`
 - `Contract/ConfigEntries.js`
