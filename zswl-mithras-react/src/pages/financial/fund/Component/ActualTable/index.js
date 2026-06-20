@@ -1,1 +1,1 @@
-export { FinancialFundActualTable as default } from '@/components/Financial/FundListEntries'
+export { FinancialFundActualTable as default } from '@/components/Financial/FundListComponentEntries'

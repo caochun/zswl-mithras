@@ -1,1 +1,1 @@
-export { FinancialFundEffect as default } from '@/components/Financial/FundListEntries'
+export { FinancialFundEffect as default } from '@/components/Financial/FundEffectEntries'
