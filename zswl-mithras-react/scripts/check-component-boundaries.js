@@ -806,6 +806,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Project/ReviewDetailSectionEntries.js', 'Project/ReviewDetail*Entries.js'],
   ['Project/ReviewMeetingEntries.js', 'Project/ProjectReviewMeetingModalEntries.js'],
   ['Project/ReviewProcessEntries.js', 'Project/ReviewProcess*Entries.js'],
+  ['Risk/MetricValueEntries.js', 'Risk/MetricValue*Entries.js'],
   ['Risk/RiskStrategyEntries.js', 'Risk/RiskStrategy*Entries.js'],
   ['TrackEvent/TrackEventEntries.js', 'TrackEvent/* narrow Entries.js'],
   ['TrackEvent/TrackingEntries.js', 'TrackEvent/* narrow Entries.js'],

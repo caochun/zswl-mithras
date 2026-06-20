@@ -1,1 +1,1 @@
-export { RiskMetricJinKon as default } from '@/components/Risk/MetricValueEntries'
+export { RiskMetricJinKon as default } from '@/components/Risk/MetricValueJinKonEntries'

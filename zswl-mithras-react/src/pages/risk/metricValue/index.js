@@ -1,1 +1,1 @@
-export { RiskMetricValue as default } from '@/components/Risk/MetricValueEntries'
+export { RiskMetricValue as default } from '@/components/Risk/MetricValuePageEntries'

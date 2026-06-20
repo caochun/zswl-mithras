@@ -314,7 +314,10 @@
 - `Risk/FinanceSheetEntries.js`
 - `Risk/FinanceSheetFileEntries.js`
 - `Risk/MetricTimedEntries.js`
-- `Risk/MetricValueEntries.js`
+- `Risk/MetricValueControlEntries.js`
+- `Risk/MetricValueJinKonEntries.js`
+- `Risk/MetricValuePageEntries.js`
+- `Risk/MetricValueTargetEntries.js`
 - `Risk/MonitorEarlyEntries.js`
 - `Risk/OverdueEntries.js`
 - `Risk/PublicMonitorColumnsEntries.js`
@@ -367,7 +370,7 @@
 - Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应优先通过对应 Dashboard 窄入口或域内相对路径。
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`Chart/tooltip`。
-- 风险指标报送顶层 Tabs 页和子页均通过 `src/components/Risk/MetricValueEntries.js` 暴露，`src/pages/risk/metricValue/*` 只保留路由壳。
+- 风险指标报送顶层 Tabs 页、控制指标、金控指标和目标指标分别通过 `src/components/Risk/MetricValuePageEntries.js`、`MetricValueControlEntries.js`、`MetricValueJinKonEntries.js`、`MetricValueTargetEntries.js` 暴露，`src/pages/risk/metricValue/*` 只保留路由壳。
 - 风险评分卡列表页、详情页和试算弹窗通过 `src/components/Risk/SourceCardEntries.js` 暴露，`src/pages/risk/sourceCard/*` 只保留路由壳和历史兼容入口。
 - 风控策略顶层页、指标管理、集中度管理和关联交易监测分别通过 `src/components/Risk/RiskStrategyPageEntries.js`、`RiskStrategyIndicatorEntries.js`、`RiskStrategyConcentrationEntries.js`、`RiskStrategyRelateMonitorEntries.js` 暴露，`src/pages/risk/riskStrategy/*` 只保留路由壳。
 - 租赁物维护列表页和详情页均通过 `src/components/Lease/MaintainEntries.js` 暴露，`src/pages/lease/maintain/*` 只保留路由壳。
