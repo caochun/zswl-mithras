@@ -437,7 +437,7 @@
 - 预算定价 FTP 计息列表页、详情页、价格明细页和价格变更弹窗分别通过 `src/components/Budget/PricingFtpInterestListEntries.js`、`PricingFtpInterestDetailEntries.js`、`PricingFtpInterestPriceDetailEntries.js` 和 `PricingFtpInterestPriceChangeEntries.js` 暴露，`src/pages/budget/pricing/ftpInterest/*` 只保留路由壳。
 - 预算定价 FTP 收益率列表页和详情页通过 `src/components/Budget/PricingFtpYieldEntries.js` 暴露，`src/pages/budget/pricing/ftpYield/*` 只保留路由壳。
 - 预算 LPR 维护页通过 `src/components/Budget/LprEntries.js` 暴露，`src/pages/budget/lpr/*` 只保留路由壳。
-- 预算项目利润列表页和详情页分别通过 `src/components/Budget/ProjectProfitListEntries.js`、`ProjectProfitDetailEntries.js` 暴露，列配置保留在预算项目利润组件内部，`src/pages/budget/projProfit/*` 只保留路由壳。
+- 预算项目利润列表页和详情页分别通过 `src/components/Budget/ProjectProfitListEntries.js`、`ProjectProfitDetailEntries.js` 暴露，列表真实实现命名为 `BudgetProjectProfit.js`，列配置保留在预算项目利润组件内部，`src/pages/budget/projProfit/*` 只保留路由壳。
 - 预算印花税维护页通过 `src/components/Budget/StampDutyEntries.js` 暴露，`src/pages/budget/stampDuty/*` 只保留路由壳。
 - KPI 项目分配列表页、历史页、项目分配列表子组件、分配明细和表单片段分别通过 `src/components/Kpi/ProjectAllotPageEntries.js`、`ProjectAllotHistoryEntries.js`、`ProjectAllotProjectAllocateListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
 - 预算考核列表页和详情页通过 `src/components/BudgetManagement/AssessmentEntries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js` 和 `BudgetManagementAssessmentDetail.js`，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
@@ -453,13 +453,13 @@
 - 金融机构管理页通过 `src/components/Financial/OrgEntries.js` 暴露，`src/pages/financial/org/*` 只保留路由壳。
 - 财务应付利息列表页和详情页通过 `src/components/Financial/PayableInterestEntries.js` 暴露，`src/pages/financial/payableInterest/*` 只保留路由壳。
 - 财务还本付息列表页、批量审批、变更日志和差异详情分别通过 `src/components/Financial/PaymentListPageEntries.js`、`PaymentBatchApprovalEntries.js` 和 `PaymentLogEntries.js` 暴露，付款批量审批和变更日志真实实现使用财务域语义文件名，`src/pages/financial/payment/*` 中对应子路由只保留路由壳。
-- 融资管理列表页、创建弹窗、变更弹窗、融资生效、变更日志、差异详情和历史组件子路由通过 `src/components/Financial/FundListMainEntries.js`、`FundListCreateModalEntries.js`、`FundListChangeModalEntries.js`、`FundActualTableEntries.js`、`FundGuaranteeEntries.js`、`FundOrgEntries.js`、`FundYearRateEntries.js`、`FundEffectEntries.js`、`FundDetailPageEntries.js`、`FundDetailActualTableEntries.js`、`FundDetailEstimateTableEntries.js`、`FundDetailSchemeEntries.js`、`FundDetailAccountEntries.js`、`FundDetailAssetEntries.js`、`FundDetailLogEntries.js` 暴露，`src/pages/financial/fund/*` 中对应路由只保留路由壳。
+- 融资管理列表页、创建弹窗、变更弹窗、融资生效、变更日志、差异详情和历史组件子路由通过 `src/components/Financial/FundListMainEntries.js`、`FundListCreateModalEntries.js`、`FundListChangeModalEntries.js`、`FundActualTableEntries.js`、`FundGuaranteeEntries.js`、`FundOrgEntries.js`、`FundYearRateEntries.js`、`FundEffectEntries.js`、`FundDetailPageEntries.js`、`FundDetailActualTableEntries.js`、`FundDetailEstimateTableEntries.js`、`FundDetailSchemeEntries.js`、`FundDetailAccountEntries.js`、`FundDetailAssetEntries.js`、`FundDetailLogEntries.js` 暴露，质押明细真实实现命名为 `FinancialFundDetailPledge.js`，`src/pages/financial/fund/*` 中对应路由只保留路由壳。
 - 金融授信额度列表页和详情页通过 `src/components/Financial/CreditEntries.js` 暴露，`src/pages/financial/credit/*` 只保留路由壳。
 - 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，`src/pages/financial/guarantee/*` 只保留路由壳。
 - 财务流动性管理、资金日报、监管户待转资金、账户余额明细和预测参数配置分别通过 `src/components/Financial/LiquidityManagementEntries.js`、`LiquidityFundDailyReportEntries.js`、`LiquiditySupervisionAccountEntries.js`、`LiquidityAccountBalanceEntries.js`、`LiquidityPredictionParametersEntries.js` 暴露，`src/pages/financial/liquidity/*` 只保留路由壳。
 - 金融流动性风险统计页通过 `src/components/Financial/LiquidityRiskEntries.js` 暴露，`src/pages/financial/liquidityRisk/*` 只保留路由壳。
 - Dashboard 工作台、经营总览和 SSO 跳转页分别通过 `src/components/Dashboard/WorkbenchEntries.js`、`OverviewEntries.js`、`SsoEntries.js` 暴露；SSO 真实实现命名为 `src/components/Dashboard/Sso/DashboardSso.js` 和 `SsoFlow/DashboardSsoFlow.js`，`src/pages/dashboard/workbench`、`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
-- 逾期催收列表页、详情页通过 `src/components/Overdue/CollectionEntries.js` 暴露，列表真实实现命名为 `src/components/Overdue/Collection/List/OverdueCollectionList.js`，流程催收弹窗通过 `src/components/Overdue/CollectionModalEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
+- 逾期催收列表页、详情页通过 `src/components/Overdue/CollectionEntries.js` 暴露，真实实现命名为 `src/components/Overdue/Collection/List/OverdueCollectionList.js` 和 `src/components/Overdue/Collection/Detail/OverdueCollectionDetail.js`，流程催收弹窗通过 `src/components/Overdue/CollectionModalEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
 - 逾期诉讼用印列表页和用印弹窗通过 `src/components/Overdue/LitigationDocEntries.js` 暴露，列表真实实现命名为 `src/components/Overdue/LitigationDoc/List/OverdueLitigationDocList.js`，`src/pages/overdue/litigationDoc/*` 只保留路由壳。
 - 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/LitigationRegistrationEntries.js` 暴露，列表真实实现命名为 `src/components/Overdue/LitigationRegistration/List/OverdueLitigationRegistrationList.js`，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。
 - 项目立项列表页和创建弹窗通过 `src/components/Project/EstablishmentEntries.js` 暴露，`src/pages/project/establishment/*` 只保留路由壳和详情子路由壳。
@@ -534,13 +534,13 @@
 - FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
 - PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
 - 权限分组和权限日志通过 `src/components/Permission/*Entries.js` 暴露，真实实现命名为 `PermissionGroup.js` 和 `PermissionLog.js`，不再依赖目录 `index.js`。
-- 管理报表主页和内部历史页通过 `src/components/Report/ManagementEntries.js` 暴露，真实实现命名为 `src/components/Report/Management/Management/ReportManagement.js` 和 `src/components/Report/Management/InternalHistory/ReportInternalHistory.js`。
+- 管理报表主页、内部历史页和运营待办报表通过 `src/components/Report/*Entries.js` 暴露，真实实现命名为 `src/components/Report/Management/Management/ReportManagement.js`、`src/components/Report/Management/InternalHistory/ReportInternalHistory.js` 和 `src/components/Report/Operation/YunYingDaiBan/ReportOperationPending.js`。
 - 财务报表待办/完成列表通过 `src/components/Report/FinancialReportWaitEntries.js` 和 `FinancialReportFinishedEntries.js` 暴露，真实列表实现命名为 `src/components/Report/FinancialReportList/ReportFinancialReportList.js`。
 - 财务报表审批详情通过 `src/components/Report/FinancialReportApprovalEntries.js` 暴露，真实实现命名为 `src/components/Report/FinancialReportApproval/ReportFinancialReportApproval.js`。
 - 流程信息弹窗通过 `src/components/Process/ProcessInfoModalEntries.js` 暴露，真实实现命名为 `src/components/Process/InfoModal/ProcessInfoModal.js`。
 - 流程审批历史、审批历史弹窗和流程图通过 `src/components/Process/*Entries.js` 暴露，真实实现命名为 `src/components/Process/ApprovalHistory/ProcessApprovalHistory.js`、`ApprovalHistoryModal/ProcessApprovalHistoryModal.js` 和 `TaskFlowChart/ProcessTaskFlowChart.js`。
 - 流程空白块和流程类型树分别通过 `src/components/Process/BlankBlockEntries.js`、`ProcessTypeTreeEntries.js` 暴露，真实实现命名为 `src/components/Process/BlankBlock/ProcessBlankBlock.js` 和 `src/components/Process/ProcessTypeTree/ProcessTypeTree.js`。
-- 流程查询、流程详情、流程快照和跳转快照动作通过 `src/components/Process/*Entries.js` 暴露，流程查询和流程快照真实实现分别命名为 `src/components/Process/Query/ProcessQuery.js`、`src/components/Process/Snapshoot/ProcessSnapshot.js`，不再依赖目录 `index.js`。
+- 流程查询、流程设计、流程详情、流程快照和跳转快照动作通过 `src/components/Process/*Entries.js` 暴露，流程查询、流程设计和流程快照真实实现分别命名为 `src/components/Process/Query/ProcessQuery.js`、`src/components/Process/Design/ProcessDesign.js`、`src/components/Process/Snapshoot/ProcessSnapshot.js`，不再依赖目录 `index.js`。
 - 项目债项评级抽屉通过 `src/components/Project/DebtEvaluationEntries.js` 暴露，真实实现命名为 `src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js`。
 - 项目财报统计和评审材料表通过 `src/components/Project/*Entries.js` 暴露，评审材料真实实现命名为 `src/components/Project/ReviewDetail/Data/ProjectReviewDetailDataList.js` 和 `ReviewDetail/Report/ProjectReviewDetailReport.js`，不再依赖目录 `index.js`。
 - 项目评审现金流量表通过 `src/components/Project/ReviewDetailCashFlowEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewDetail/CashFlowStatement/ProjectReviewDetailCashFlowStatement.js`。

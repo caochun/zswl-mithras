@@ -1,2 +1,2 @@
-export { default as ProcessDesign } from './Design'
+export { default as ProcessDesign } from './Design/ProcessDesign'
 export { default as ProcessDesignDetail } from './Design/detail/[id$]'

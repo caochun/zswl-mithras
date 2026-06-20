@@ -1,1 +1,1 @@
-export { default as BudgetProjectProfit } from './ProjectProfit'
+export { default as BudgetProjectProfit } from './ProjectProfit/BudgetProjectProfit'

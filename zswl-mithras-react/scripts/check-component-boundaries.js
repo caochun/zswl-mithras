@@ -312,6 +312,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/PricingFtpInterest/PriceDetail/BudgetPricingFtpInterestPriceDetail.js',
   ],
   [
+    'src/components/Budget/ProjectProfit/index.js',
+    'src/components/Budget/ProjectProfit/BudgetProjectProfit.js',
+  ],
+  [
     'src/components/BudgetManagement/PlanCost/Detail/index.js',
     'src/components/BudgetManagement/PlanCost/Detail/BudgetManagementPlanCostDetail.js',
   ],
@@ -652,6 +656,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Financial/FundDetail/EstimateTable/FinancialFundDetailEstimateTable.js',
   ],
   [
+    'src/components/Financial/FundDetail/Pledge/index.js',
+    'src/components/Financial/FundDetail/Pledge/FinancialFundDetailPledge.js',
+  ],
+  [
     'src/components/Financial/FundDetail/OtherAccount/index.js',
     'src/components/Financial/FundDetail/OtherAccount/FinancialFundDetailOtherAccount.js',
   ],
@@ -876,6 +884,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Overdue/Collection/List/OverdueCollectionList.js',
   ],
   [
+    'src/components/Overdue/Collection/Detail/index.js',
+    'src/components/Overdue/Collection/Detail/OverdueCollectionDetail.js',
+  ],
+  [
     'src/components/Overdue/CollectionModal/index.js',
     'src/components/Overdue/CollectionModal/OverdueCollectionModal.js',
   ],
@@ -924,6 +936,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Report/Management/Management/ReportManagement.js',
   ],
   [
+    'src/components/Report/Operation/YunYingDaiBan/index.js',
+    'src/components/Report/Operation/YunYingDaiBan/ReportOperationPending.js',
+  ],
+  [
     'src/components/Risk/PublicMonitorColumns/index.js',
     'src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js',
   ],
@@ -966,6 +982,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Process/BlankBlock/index.js',
     'src/components/Process/BlankBlock/ProcessBlankBlock.js',
+  ],
+  [
+    'src/components/Process/Design/index.js',
+    'src/components/Process/Design/ProcessDesign.js',
   ],
   [
     'src/components/Process/InfoModal/index.js',
