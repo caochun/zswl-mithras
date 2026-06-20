@@ -1,12 +1,12 @@
-import CreditTableBaoZheng from './BaoZheng'
-import CreditTableDiYa from './DiYa'
-import CreditTableHuanKuan from './HuanKuan'
-import CreditTableJiaoYi from './JiaoYi'
-import CreditTableKuHu from './KuHu'
+import CreditTableBaoZheng from './BaoZheng/CreditTableBaoZheng'
+import CreditTableDiYa from './DiYa/CreditTableDiYa'
+import CreditTableHuanKuan from './HuanKuan/CreditTableHuanKuan'
+import CreditTableJiaoYi from './JiaoYi/CreditTableJiaoYi'
+import CreditTableKuHu from './KuHu/CreditTableKuHu'
 import CreditTableLevel5 from './Level5'
-import CreditTableYuQi from './YuQi'
-import CreditTableZhangHu from './ZhangHu'
-import CreditTableZhiYa from './ZhiYa'
+import CreditTableYuQi from './YuQi/CreditTableYuQi'
+import CreditTableZhangHu from './ZhangHu/CreditTableZhangHu'
+import CreditTableZhiYa from './ZhiYa/CreditTableZhiYa'
 
 
 export const tabList = [

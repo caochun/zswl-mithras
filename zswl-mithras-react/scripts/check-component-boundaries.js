@@ -288,8 +288,44 @@ const removedLegacyComponentFiles = new Map([
     'src/components/CreditManage/CreditTable/FinishView/Batch/CreditTableFinishBatch.js',
   ],
   [
+    'src/components/CreditManage/CreditTable/Finish/index.js',
+    'src/components/CreditManage/CreditTable/Finish/CreditTableFinish.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/BaoZheng/index.js',
+    'src/components/CreditManage/CreditTable/Tab/BaoZheng/CreditTableBaoZheng.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/DiYa/index.js',
+    'src/components/CreditManage/CreditTable/Tab/DiYa/CreditTableDiYa.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/HuanKuan/index.js',
+    'src/components/CreditManage/CreditTable/Tab/HuanKuan/CreditTableHuanKuan.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/JiaoYi/index.js',
+    'src/components/CreditManage/CreditTable/Tab/JiaoYi/CreditTableJiaoYi.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/KuHu/index.js',
+    'src/components/CreditManage/CreditTable/Tab/KuHu/CreditTableKuHu.js',
+  ],
+  [
     'src/components/CreditManage/CreditTable/Tab/Level5/CreateModal/index.js',
     'src/components/CreditManage/CreditTable/Tab/Level5/CreateModal/CreditTableLevel5CreateModal.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/YuQi/index.js',
+    'src/components/CreditManage/CreditTable/Tab/YuQi/CreditTableYuQi.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/ZhangHu/index.js',
+    'src/components/CreditManage/CreditTable/Tab/ZhangHu/CreditTableZhangHu.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/ZhiYa/index.js',
+    'src/components/CreditManage/CreditTable/Tab/ZhiYa/CreditTableZhiYa.js',
   ],
   [
     'src/components/CreditManage/CreditTable/Wait/index.js',
