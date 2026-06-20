@@ -1,1 +1,1 @@
-export { checkIrr as contractCheckIrr } from './StartRentDetail'
+export { checkIrr as contractCheckIrr } from './StartRentDetail/ContractStartRentDetail'

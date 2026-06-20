@@ -16,7 +16,7 @@ import ImportRent from './ImportRent'
 import Api from '@/api/contract/component/CreateReceiptDetail/api'
 import styles from './index.less'
 import { validateModal } from '@/utils/modal'
-import { checkIrr } from '../StartRentDetail'
+import { checkIrr } from '../StartRentDetail/ContractStartRentDetail'
 
 const { Item } = Form
 

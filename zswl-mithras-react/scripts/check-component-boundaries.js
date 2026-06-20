@@ -264,6 +264,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Contract/ContractText/ContractText.js',
   ],
   [
+    'src/components/Contract/DepositRefundNotification/index.js',
+    'src/components/Contract/DepositRefundNotification/ContractDepositRefundNotification.js',
+  ],
+  [
     'src/components/Contract/ChangeMaterials/index.js',
     'src/components/Contract/ChangeMaterials/ContractChangeMaterials.js',
   ],
@@ -282,6 +286,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Contract/StartRentMaterials/index.js',
     'src/components/Contract/StartRentMaterials/ContractStartRentMaterials.js',
+  ],
+  [
+    'src/components/Contract/StartRentDetail/index.js',
+    'src/components/Contract/StartRentDetail/ContractStartRentDetail.js',
   ],
   [
     'src/components/Customer/FinancialReport/DeteleIcon.js',
