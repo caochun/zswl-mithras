@@ -1,2 +1,2 @@
-export { default as FinancialFundChange } from './FundChange'
+export { default as FinancialFundChange } from './FundChange/FinancialFundChange'
 export { default as FinancialFundDetail } from './FundDetail'

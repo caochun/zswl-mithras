@@ -505,7 +505,7 @@
 - 业务资料表能力通过 `src/components/ClientMaterialTable/BusinessMaterialTableEntries.js` 暴露，真实实现命名为 `src/components/ClientMaterialTable/BusinessMaterialTable.js`。
 - 预算域的应收款、银行账户、汇率和 FTP 利率价格详情页分别通过 `src/components/Budget/*Entries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js`、`BudgetBankAccount.js`、`BudgetExchangeRate.js` 和 `BudgetPricingFtpInterestPriceDetail.js`，不再依赖目录 `index.js`。
 - 预算管理考核页、参数配置、投放计划和拨备预测详情页分别通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js`、`BudgetManagementParameterConfiguration.js`、`BudgetManagementPlacementPlan.js` 和 `BudgetManagementProvisionForecastDetail.js`，不再依赖目录 `index.js`。
-- 合同列表、合同申请日志、合同文本、合同资料、保证金退款通知、合同起租详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
+- 合同列表、合同签约列表/详情、合同申请日志、合同文本、合同资料、保证金退款通知、合同起租详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
 - 合同新增回执详情通过 `src/components/Contract/CreateReceiptDetailEntries.js` 暴露，真实实现命名为 `src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 客户企查查单一视图和客户风险单一视图分别通过 `src/components/Customer/QccSingleViewEntries.js`、`SingleViewRiskEntries.js` 暴露，真实实现命名为 `src/components/Customer/QccSingleView/CustomerQccSingleView.js` 和 `src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js`。
@@ -521,7 +521,7 @@
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 厂商管理外部系统页面集合通过 `src/components/ExternalEmbed/RzyEntries.js` 暴露，真实实现命名为 `src/components/ExternalEmbed/RzyPages/RzyPages.js` 和 `RzyIframe/RzyIframe.js`。
 - 融资列表创建和变更弹窗分别通过 `src/components/Financial/FundListCreateModalEntries.js`、`FundListChangeModalEntries.js` 暴露，真实实现命名为 `src/components/Financial/FundList/CreateModal/FinancialFundListCreateModal.js` 和 `src/components/Financial/FundList/ChangeModal/FinancialFundListChangeModal.js`。
-- 融资列表、融资方案、还款账户、实际放款表、明细计划放款表、明细实收表、变更日志、其他账号、保证信息、担保方案、融资机构、年化利率、金融机构、金融产权、资金日报和付款列表通过 `src/components/Financial/*Entries.js` 暴露，域内复用也指向财务域语义文件名，不再依赖目录 `index.js`。
+- 融资列表、融资方案、融资变更、还款账户、实际放款表、明细计划放款表、明细实收表、变更日志、其他账号、保证信息、担保方案、融资机构、年化利率、金融机构、金融产权、资金日报和付款列表通过 `src/components/Financial/*Entries.js` 暴露，域内复用也指向财务域语义文件名，不再依赖目录 `index.js`。
 - 融资计息流程通过 `src/components/Financial/FinancingCarryInterestEntries.js` 暴露，真实实现命名为 `src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
