@@ -88,7 +88,6 @@ class Store {
       this.removeFileIds = []
       if (data) {
         const { insuranceEndDate, insuranceStartDate } = data
-        console.log({ data })
         // return data
         return {
           ...data,

@@ -21,7 +21,6 @@ const Index = ({
   callBack,
 }) => {
   const isPolicyPage = paramsAsPolicy.pageSource === 'policy'
-  console.log({ paramsAsPolicy })
 
   const store = useMemo(() => {
     return new Store({ mainId, businessVersion, paramsAsPolicy, baseDetailData })
