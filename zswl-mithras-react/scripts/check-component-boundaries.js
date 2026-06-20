@@ -32,17 +32,17 @@ const componentEntryPathPattern =
 const stabilizedComponentRootImports = new Map([
   ['BlackGrayHit', 'BlackGray/BlackGrayHitEntries'],
   ['BusinessInfoCheck', 'BusinessInfoCheck/BusinessInfoCheckEntries'],
-  ['ClientFileTable', 'ClientMaterialTable/ClientMaterialTableEntries'],
-  ['ClientMaterialTable', 'ClientMaterialTable/ClientMaterialTableEntries'],
+  ['ClientFileTable', 'ClientMaterialTable/BusinessMaterialTableEntries'],
+  ['ClientMaterialTable', 'ClientMaterialTable/BusinessMaterialTableEntries'],
   ['ChangeLogDiff', 'ChangeLogDiff/ChangeLogDiffEntries'],
   ['Dashboard', 'Dashboard/DashboardEntries'],
-  ['EvaluationAgency', 'EvaluationAgency/EvaluationAgencyEntries'],
+  ['EvaluationAgency', 'EvaluationAgency/AppraisalAgencyEntries'],
   ['FileDiff', 'ChangeLogDiff/ChangeLogDiffEntries'],
   ['InsurancePolicy', 'InsurancePolicy/InsurancePolicyEntries'],
-  ['PaymentApplyColumns', 'PaymentFtpColumns/PaymentFtpColumnsEntries'],
-  ['PaymentFtpColumns', 'PaymentFtpColumns/PaymentFtpColumnsEntries'],
+  ['PaymentApplyColumns', 'PaymentFtpColumns/FtpAssessmentColumnsEntries'],
+  ['PaymentFtpColumns', 'PaymentFtpColumns/FtpAssessmentColumnsEntries'],
   ['Policy', 'InsurancePolicy/InsurancePolicyEntries'],
-  ['TrackEvent', 'TrackEvent/TrackEventEntries'],
+  ['TrackEvent', 'TrackEvent/TrackEventListEntries'],
 ])
 const stableTableRootImports = new Set([
   'ApprovalDetail',
@@ -731,20 +731,8 @@ const compatibilityComponentEntries = new Set([
   'Chart/LineChartEntries.js',
   'Chart/TooltipEntries.js',
   'BlackGray/BlackGrayEntries.js',
-  'CheckBusiness/CheckBusinessEntries.js',
-  'ClientFileTable/ClientFileTableEntries.js',
-  'ClientMaterialTable/ClientMaterialTableEntries.js',
-  'Credit/SearchModalEntries.js',
-  'EvaluationAgency/EvaluationAgencyEntries.js',
-  'FileDiff/FileDiffEntries.js',
-  'PaymentApplyColumns/PaymentApplyColumnsEntries.js',
-  'PaymentFtpColumns/PaymentFtpColumnsEntries.js',
-  'Policy/PolicyEntries.js',
-  'Project/ReviewMeetingEntries.js',
-  'TrackEvent/TrackEventEntries.js',
-  'TrackEvent/TrackingEntries.js',
 ])
-const legacyCompatibilityComponentEntries = new Map([
+const removedCompatibilityComponentEntries = new Map([
   ['CheckBusiness/CheckBusinessEntries.js', 'BusinessInfoCheck/BusinessInfoCheckEntries.js'],
   ['ClientFileTable/ClientFileTableEntries.js', 'ClientMaterialTable/BusinessMaterialTableEntries.js'],
   ['ClientMaterialTable/ClientMaterialTableEntries.js', 'ClientMaterialTable/BusinessMaterialTableEntries.js'],
@@ -756,7 +744,7 @@ const legacyCompatibilityComponentEntries = new Map([
   ['Policy/PolicyEntries.js', 'InsurancePolicy/InsurancePolicyEntries.js'],
   ['Project/ReviewMeetingEntries.js', 'Project/ProjectReviewMeetingModalEntries.js'],
   ['TrackEvent/TrackEventEntries.js', 'TrackEvent/* narrow Entries.js'],
-  ['TrackEvent/TrackingEntries.js', 'TrackEvent/TrackEventEntries.js'],
+  ['TrackEvent/TrackingEntries.js', 'TrackEvent/* narrow Entries.js'],
 ])
 
 for (const filePath of sourceFiles) {
@@ -794,7 +782,7 @@ for (const filePath of sourceFiles) {
     if (documentedEntryPath) {
       componentEntryImports.add(documentedEntryPath)
     }
-    const legacyCompatibilityReplacement = legacyCompatibilityComponentEntries.get(
+    const removedCompatibilityReplacement = removedCompatibilityComponentEntries.get(
       documentedEntryPath
     )
 
@@ -878,12 +866,12 @@ for (const filePath of sourceFiles) {
         }
       }
     } else if (
-      legacyCompatibilityReplacement &&
+      removedCompatibilityReplacement &&
       normalizeEntryPath(filePath) !== documentedEntryPath
     ) {
       violations.push({
         file: relativeFilePath,
-        specifier: `${specifier} (legacy compatibility entry; use @/components/${legacyCompatibilityReplacement})`,
+        specifier: `${specifier} (removed compatibility entry; use @/components/${removedCompatibilityReplacement})`,
       })
     } else if (
       isComponentImport &&

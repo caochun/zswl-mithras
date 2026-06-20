@@ -81,7 +81,6 @@
 - `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
 - `ClientMaterialTable/BusinessMaterialTableEntries.js`
-- `ClientMaterialTable/ClientMaterialTableEntries.js`
 - `Contract/ApplicationDetailEntries.js`
 - `Contract/BaseInfoEntries.js`
 - `Contract/ConfigEntries.js`
@@ -99,7 +98,6 @@
 - `Credit/EstablishEntries.js`
 - `Credit/ReviewEntries.js`
 - `Credit/SearchListEntries.js`
-- `Credit/SearchModalEntries.js`
 - `CreditManage/CreditManageEntries.js`
 - `Customer/ApplyPermissionEntries.js`
 - `Customer/CustomerRatingDetailEntries.js`
@@ -118,7 +116,6 @@
 - `Customer/UnifiedViewEntries.js`
 - `Dashboard/DashboardEntries.js`
 - `EvaluationAgency/AppraisalAgencyEntries.js`
-- `EvaluationAgency/EvaluationAgencyEntries.js`
 - `ChangeLogDiff/ChangeLogDiffEntries.js`
 - `ExternalEmbed/ExternalEmbedEntries.js`
 - `ExternalEmbed/RzyEntries.js`
@@ -159,7 +156,6 @@
 - `Message/NotificationEntries.js`
 - `Overdue/OverdueEntries.js`
 - `PaymentFtpColumns/FtpAssessmentColumnsEntries.js`
-- `PaymentFtpColumns/PaymentFtpColumnsEntries.js`
 - `Permission/AuthEntries.js`
 - `Permission/BifrostEntries.js`
 - `InsurancePolicy/InsurancePolicyColumnsEntries.js`
@@ -178,7 +174,6 @@
 - `Project/ProjectReviewMeetingModalEntries.js`
 - `Project/ReviewEntries.js`
 - `Project/ReviewDetailEntries.js`
-- `Project/ReviewMeetingEntries.js`
 - `Project/ReviewProcessEntries.js`
 - `Project/ReviewSnapshotEntries.js`
 - `Report/FinancialReportApprovalEntries.js`
@@ -202,7 +197,6 @@
 - `TrackEvent/TrackEventModalEntries.js`
 - `TrackEvent/TrackEventListEntries.js`
 - `TrackEvent/TrackEventTaskEntries.js`
-- `TrackEvent/TrackEventEntries.js`
 - `VisitorManage/VisitorManageEntries.js`
 - `WhiteList/WhiteListEntries.js`
 
@@ -227,17 +221,8 @@
 - 项目定价列表页和发起定价弹窗通过 `src/components/Project/PriceEntries.js` 暴露，`src/pages/project/price/*` 只保留路由壳、历史兼容壳和详情子路由壳。
 - 项目评审列表页和发起评审弹窗通过 `src/components/Project/ReviewEntries.js` 暴露，`src/pages/project/review/*` 只保留路由壳、历史兼容壳和详情子路由壳。
 - `ClientMaterialTable`、`ChangeLogDiff`、`PaymentFtpColumns` 这类横向业务能力不再视为公共基础组件；依赖报告会保留它们的跨域使用关系，后续需要逐项判断是沉淀横向能力还是回收到具体业务域。
-- `FileDiff/FileDiffEntries.js` 仅保留为历史兼容入口，新代码应使用 `ChangeLogDiff/ChangeLogDiffEntries.js`。
-- `PaymentApplyColumns/PaymentApplyColumnsEntries.js`、`PaymentFtpColumns/PaymentFtpColumnsEntries.js` 仅保留为历史兼容入口，新代码应使用 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js`。
-- `Project/ReviewMeetingEntries.js` 仅保留为历史兼容入口，新代码应使用 `Project/ProjectReviewMeetingModalEntries.js`。
-- `TrackEvent/TrackEventEntries.js` 仅保留为历史兼容入口，新代码应按场景使用 `TrackEvent/TrackEventListEntries.js`、`TrackEvent/TrackEventDetailEntries.js`、`TrackEvent/TrackEventModalEntries.js` 或 `TrackEvent/TrackEventTaskEntries.js`。
-- `ClientFileTable/ClientFileTableEntries.js`、`ClientMaterialTable/ClientMaterialTableEntries.js` 仅保留为历史兼容入口，新代码应使用 `ClientMaterialTable/BusinessMaterialTableEntries.js`。
-- `CheckBusiness/CheckBusinessEntries.js` 仅保留为历史兼容入口，新代码应使用 `BusinessInfoCheck/BusinessInfoCheckEntries.js`。
-- `Credit/SearchModalEntries.js` 仅保留为历史兼容入口，新代码应使用 `Credit/CreditReportSearchEntries.js`。
-- `EvaluationAgency/EvaluationAgencyEntries.js` 仅保留为历史兼容入口，新代码应使用 `EvaluationAgency/AppraisalAgencyEntries.js`。
-- `Policy/PolicyEntries.js` 仅保留为历史兼容入口，新代码应使用 `InsurancePolicy/InsurancePolicyEntries.js`。
-- `TrackEvent/TrackingEntries.js` 仅保留为历史兼容入口，新代码应使用 `TrackEvent/TrackEventEntries.js`。
-- `npm run check:boundaries` 会阻止业务代码重新引用上述历史兼容入口；兼容文件可以保留，但新增和迁移代码必须使用语义入口或窄入口。
+- 已无入边的历史兼容入口已移除，例如旧的 `FileDiff`、`PaymentApplyColumns`、`Project/ReviewMeetingEntries.js`、`ClientFileTable`、`CheckBusiness`、`Credit/SearchModalEntries.js`、`EvaluationAgency/EvaluationAgencyEntries.js`、`Policy/PolicyEntries.js`、`TrackEvent/TrackEventEntries.js` 和 `TrackEvent/TrackingEntries.js`；新代码必须使用对应语义入口或更窄的场景入口。
+- `npm run check:boundaries` 会阻止业务代码重新引用上述已移除兼容入口；新增和迁移代码必须使用语义入口或窄入口。
 - 权限页 Bifrost iframe、用户管理页、字典/组织/角色 iframe 页、功能分组页和操作日志页已沉淀到 `src/components/Permission/BifrostEntries.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/components/Budget/FlowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 金额输入已回收到 `src/components/Cpm/AmountNumber`，跨层使用应通过 `Cpm/CpmEntries.js`。
