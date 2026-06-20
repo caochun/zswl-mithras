@@ -60,6 +60,11 @@ const stableSharedBusinessTargets = new Set([
   'components/TrackEventTask',
 ])
 
+const stablePageAggregationTargets = new Set([
+  'components/App',
+  'components/Dashboard',
+])
+
 const componentAliases = new Map([
   ['CheckBusiness', 'BusinessInfoCheck'],
   ['ClientFileTable', 'ClientMaterialTable'],
@@ -374,10 +379,13 @@ const pageAggregationEdges = sortedEdges.filter(
     edge.sourceScope.startsWith('pages/') && !isWorkflowOrchestrationEdge(edge)
 )
 const pageStableSharedBusinessEdges = pageAggregationEdges.filter((edge) =>
-  stableSharedBusinessTargets.has(edge.targetScope)
+  stableSharedBusinessTargets.has(edge.targetScope) ||
+  stablePageAggregationTargets.has(edge.targetScope)
 )
 const pageAggregationReviewEdges = pageAggregationEdges.filter(
-  (edge) => !stableSharedBusinessTargets.has(edge.targetScope)
+  (edge) =>
+    !stableSharedBusinessTargets.has(edge.targetScope) &&
+    !stablePageAggregationTargets.has(edge.targetScope)
 )
 const domainImplementationEdges = sortedEdges.filter(
   (edge) =>
