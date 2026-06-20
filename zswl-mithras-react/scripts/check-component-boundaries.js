@@ -352,6 +352,18 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
   ],
   [
+    'src/components/Credit/EstablishDetail/Log/DiffInfo/index.js',
+    'src/components/Credit/EstablishDetail/Log/DiffInfo/CreditEstablishLogDiff.js',
+  ],
+  [
+    'src/components/Credit/Review/index.js',
+    'src/components/Credit/Review/CreditReviewPage.js',
+  ],
+  [
+    'src/components/Credit/ReviewDetail/Log/DiffInfo/index.js',
+    'src/components/Credit/ReviewDetail/Log/DiffInfo/CreditReviewLogDiff.js',
+  ],
+  [
     'src/components/CreditManage/CreditTable/FinishView/Account/index.js',
     'src/components/CreditManage/CreditTable/FinishView/Account/CreditTableFinishAccount.js',
   ],

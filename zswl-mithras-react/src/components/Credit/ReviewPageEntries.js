@@ -1,1 +1,1 @@
-export { default as CreditReview } from './Review'
+export { default as CreditReview } from './Review/CreditReviewPage'
