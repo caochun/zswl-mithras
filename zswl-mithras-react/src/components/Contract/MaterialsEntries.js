@@ -1,7 +1,0 @@
-export { default as ContractChangeMaterials } from './ChangeMaterials'
-export { default as ContractChangeProtocol } from './ChangeProtocol'
-export { default as ContractLeaseMaterials } from './LeaseMaterials'
-export { default as ContractMaterials } from './ContractMaterials'
-export { default as ContractSettlementProtocol } from './SettlementProtocol'
-export { default as ContractStartRentMaterials } from './StartRentMaterials'
-export { default as ContractText } from './ContractText'

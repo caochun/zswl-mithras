@@ -112,9 +112,12 @@
 - `Contract/ApplicationDetailEntries.js`
 - `Contract/BaseInfoEntries.js`
 - `Contract/ConfigEntries.js`
+- `Contract/ContractMaterialListEntries.js`
+- `Contract/ContractProtocolEntries.js`
+- `Contract/ContractStartRentMaterialEntries.js`
+- `Contract/ContractTextEntries.js`
 - `Contract/LeaseMaterialsEntries.js`
 - `Contract/ListEntries.js`
-- `Contract/MaterialsEntries.js`
 - `Contract/ProcessApprovalDetailEntries.js`
 - `Contract/ProcessPrepareDetailEntries.js`
 - `Contract/ProcessRouteDetailEntries.js`

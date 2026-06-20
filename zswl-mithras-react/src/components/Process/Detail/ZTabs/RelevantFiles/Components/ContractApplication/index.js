@@ -2,13 +2,19 @@ import Collapse from '@/components/Collapse'
 import { Empty } from 'antd'
 import {
   ContractChangeMaterials as CheckMaterial,
-  ContractChangeProtocol as ChangeProtocol,
-  ContractLeaseMaterials as LeaseZiLiao,
   ContractMaterials as ZiLiao,
+} from '@/components/Contract/ContractMaterialListEntries'
+import {
+  ContractChangeProtocol as ChangeProtocol,
   ContractSettlementProtocol as SettlementProtocol,
-  ContractStartRentMaterials as StartRentZiLiao,
+} from '@/components/Contract/ContractProtocolEntries'
+import { ContractLeaseMaterials as LeaseZiLiao } from '@/components/Contract/LeaseMaterialsEntries'
+import {
   ContractText as HeTong,
-} from '@/components/Contract/MaterialsEntries'
+} from '@/components/Contract/ContractTextEntries'
+import {
+  ContractStartRentMaterials as StartRentZiLiao,
+} from '@/components/Contract/ContractStartRentMaterialEntries'
 import Api from '@/api/process/detail/contractDetailApi'
 import BlankBlock from '../../../../../BlankBlock'
 import { useEffect, useMemo, useState } from 'react'
