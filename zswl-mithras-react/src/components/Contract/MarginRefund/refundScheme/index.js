@@ -1,6 +1,6 @@
+import { Amount } from '@/components/Format'
 import { useEffect, useState } from 'react'
 import { Form, Input, Select, InputNumber, Descriptions, Button, Space } from 'antd'
-import Amount from '@/components/Amount'
 import ZText from './ZText'
 import styles from './style.less'
 import math from '@/utils/math'

@@ -1,8 +1,8 @@
+import { Amount } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Form, Modal } from '@zswl/components'
 import { Input, DatePicker, InputNumber } from 'antd'
 import moment from 'moment'
-import Amount from '@/components/Amount'
 
 const { Item } = Form
 const disabledDate = (current) => {

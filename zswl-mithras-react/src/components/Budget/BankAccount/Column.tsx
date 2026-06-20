@@ -1,10 +1,9 @@
 import { dateRangeTransform } from '@/utils/transform'
 import { rangePresets, rules } from '@/utils'
-import { FiledFormat } from '@/components/Format'
+import { FiledFormat, Amount, AmountRange } from '@/components/Format'
 import { FounderSelect } from '@/components/Select'
 import { BankAccount, FormAmount } from '@/components/Form'
 import { Columns } from '@zswl/components/es/Table'
-import AmountRange from '@/components/AmountRange'
 
 const ALL_COLUMNS: Columns<any> = [
   { title: '机构名称', dataIndex: 'organizationName', fixed: 'left' },

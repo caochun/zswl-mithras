@@ -1,6 +1,6 @@
 import { getInputNumberAmountProps } from '@/utils'
 import { Col, InputNumber, Row } from 'antd'
-import styles from './index.less'
+import styles from './AmountRange.less'
 const AmountRange = ({ value = [], onChange }) => {
   const onFromChange = (val) => {
     const nextValue = [...value]

@@ -1,5 +1,5 @@
+import { Amount } from '@/components/Format'
 import { FounderSelect } from '@/components/Select'
-import Amount from '@/components/Amount'
 import { FormAmount } from '@/components/Form'
 import { CpmPaymentApplicationPublicInformation as PublicInformation } from '@/components/Cpm/PaymentApplicationPublicInfoEntries'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'

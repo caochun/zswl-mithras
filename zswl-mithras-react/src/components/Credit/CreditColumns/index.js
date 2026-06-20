@@ -1,12 +1,5 @@
 import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
-import AmountRange from '@/components/AmountRange'
-import {
-  AmountEditable,
-  AmountFormat,
-  FiledFormat,
-  InputEditable,
-  MatchOptionColumn,
-} from '@/components/Format'
+import { AmountEditable, AmountFormat, FiledFormat, InputEditable, MatchOptionColumn, Amount, AmountRange } from '@/components/Format'
 import IconFont from '@/components/Icon'
 import { rules, formatPercent, amountFormat } from '@/utils'
 import { history } from '@zswl/admin'

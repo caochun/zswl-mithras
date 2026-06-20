@@ -1,3 +1,4 @@
+import { Amount } from '@/components/Format'
 import { Table, App } from '@zswl/components'
 import { observer, getQuery } from '@zswl/admin'
 import store from './store'
@@ -6,7 +7,6 @@ import { saveServer } from '@/utils'
 import { Tooltip } from 'antd'
 import EnterprisesModal from './EnterprisesModal'
 import { relationshipTypeList, continuousStatusList } from '../../general'
-import Amount from '@/components/Amount'
 import { amountFormat } from '@/utils'
 import { useEffect, useMemo } from 'react'
 const diffNode = (obj, type) => {

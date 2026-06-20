@@ -1,5 +1,5 @@
+import { Amount, AmountRange } from '@/components/Format'
 import { Table, Select, SearchBar, Page } from '@zswl/components'
-import AmountRange from '@/components/AmountRange'
 import IconFont from '@/components/Icon'
 import { Tooltip } from 'antd'
 import styles from './index.less'

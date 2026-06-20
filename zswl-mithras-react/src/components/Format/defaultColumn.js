@@ -1,6 +1,7 @@
+import Amount from './Amount'
+import AmountRange from './AmountRange'
 import { rangePresets, rules, amountFormat, formatPercent, toHump } from '@/utils'
 import { dateRangeTransform } from '@/utils/transform'
-import AmountRange from '@/components/AmountRange'
 
 import { ClientSelect, FounderSelect } from '@/components/Select'
 import { AmountEditable, TextAreaEditable } from './editable'

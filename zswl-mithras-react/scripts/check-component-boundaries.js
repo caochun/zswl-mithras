@@ -1888,7 +1888,6 @@ const stableSelectRootImports = new Set([
   'getOrgList2',
 ])
 const stableDefaultComponentRootImports = new Map([
-  ['Amount', 'Amount'],
   ['Collapse', 'Collapse'],
   ['CommonNoData', 'CommonNoData'],
   ['CommonTips', 'CommonTips'],
@@ -1901,8 +1900,6 @@ const stableDefaultComponentRootImports = new Map([
 ])
 const publicComponentRootImports = new Set([
   'Actions',
-  'Amount',
-  'AmountRange',
   'Collapse',
   'CommonNoData',
   'CommonTips',

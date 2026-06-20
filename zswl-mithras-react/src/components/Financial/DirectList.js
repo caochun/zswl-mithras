@@ -1,15 +1,8 @@
 import { Page, Table, Modal, Form, Button, Select } from '@zswl/components'
 import { observer, history } from '@zswl/admin'
-import AmountRange from '@/components/AmountRange'
 import { FormAmount } from '@/components/Form'
 import { formatPercent, amountFormat, rangePresets, hasValue } from '@/utils'
-import {
-  FounderColumn,
-  AmountColumn,
-  MatchOptionColumn,
-  DateColumn,
-  MatchFormat,
-} from '@/components/Format'
+import { FounderColumn, AmountColumn, MatchOptionColumn, DateColumn, MatchFormat, Amount, AmountRange } from '@/components/Format'
 import { dateRangeTransform } from '@/utils/transform'
 import { message } from 'antd'
 import IconFont from '@/components/Icon'

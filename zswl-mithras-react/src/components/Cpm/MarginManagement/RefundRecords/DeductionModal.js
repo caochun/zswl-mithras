@@ -1,8 +1,8 @@
+import { Amount } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Input, InputNumber, DatePicker } from 'antd'
 import { Modal, Form } from '@zswl/components'
 import store from './store'
-import Amount from '@/components/Amount'
 
 function Index() {
   const [form] = Form.useForm()

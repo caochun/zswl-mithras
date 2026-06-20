@@ -1,9 +1,9 @@
+import { Amount } from '@/components/Format'
 import { Form, Modal, Select } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { DatePicker, Input, InputNumber, Row, Col } from 'antd'
 import { rules } from '@/utils'
 import { disabledDate } from './util'
-import Amount from '@/components/Amount'
 
 const { Item } = Form
 

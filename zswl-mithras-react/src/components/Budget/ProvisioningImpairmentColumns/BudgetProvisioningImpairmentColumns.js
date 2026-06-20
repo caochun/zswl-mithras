@@ -1,14 +1,5 @@
 import { hasValue, amountFormat, formatPercent } from '@/utils'
-import {
-  AmountColumn,
-  AmountEditable,
-  DateColumn,
-  FiledFormat,
-  InputColumn,
-  MatchOptionColumn,
-  TextAreaColumn,
-} from '@/components/Format'
-import Amount from '@/components/Amount'
+import { AmountColumn, AmountEditable, DateColumn, FiledFormat, InputColumn, MatchOptionColumn, TextAreaColumn, Amount } from '@/components/Format'
 import { ClientSelect, OrgSelect } from '@/components/Select'
 import { Select } from '@zswl/components'
 import { history } from '@zswl/admin'

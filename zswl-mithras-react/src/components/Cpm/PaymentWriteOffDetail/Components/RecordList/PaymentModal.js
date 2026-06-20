@@ -1,9 +1,9 @@
+import { Amount } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Button, Form, Modal, Select } from '@zswl/components'
 import { DatePicker, Input } from 'antd'
 import { useEffect, useState } from 'react'
 import AmountNumber from '../../../AmountNumber'
-import Amount from '@/components/Amount'
 import { rules } from '@/utils'
 import api from '@/api/cpm/payment/paymentWriteOffDetailApi'
 

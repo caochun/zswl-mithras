@@ -1,10 +1,10 @@
+import { Amount, AmountRange } from '@/components/Format'
 import { Page, SearchBar, Table } from '@zswl/components'
 import { getQuery, observer } from '@zswl/admin'
 import store from './store'
 import { useEffect, useMemo } from 'react'
 import IconFont from '@/components/Icon'
 import { amountFormat, saveServer } from '@/utils'
-import AmountRange from '@/components/AmountRange'
 import { ClientSelect } from '@/components/Select'
 import AddModal from './AddModal/CpmPaymentApplicationAddModal'
 

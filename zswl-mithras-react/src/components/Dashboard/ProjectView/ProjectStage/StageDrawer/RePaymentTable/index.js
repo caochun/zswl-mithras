@@ -1,6 +1,6 @@
+import { Amount, AmountRange } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Table, SearchBar } from '@zswl/components'
-import AmountRange from '@/components/AmountRange'
 import { getTableColumns, getSearchColumns } from '@/utils'
 import { All_COLUMNS } from './Column'
 import Api from '@/api/dashboard/projectView'

@@ -1,6 +1,5 @@
 import { Input } from 'antd'
-import { FiledFormat } from '@/components/Format'
-import AmountRange from '@/components/AmountRange'
+import { FiledFormat, Amount, AmountRange } from '@/components/Format'
 import { Select } from '@zswl/components'
 import { formatPercent, amountFormat, getKeyOptionsLabelMap } from '@/utils'
 

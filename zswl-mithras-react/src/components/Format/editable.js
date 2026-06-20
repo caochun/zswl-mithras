@@ -1,7 +1,7 @@
 import { rangePresets, rules, hasValue } from '@/utils'
 import { DatePicker, Input, InputNumber, Mentions } from 'antd'
 import moment from 'moment'
-import Amount from '../Amount'
+import Amount from './Amount'
 import { ACCEPT_CODE } from './config'
 import numeral from 'numeral'
 import mathjs from '@/utils/math'

@@ -1,3 +1,4 @@
+import { Amount } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Button, DatePicker, Descriptions, Input, InputNumber, Upload } from 'antd'
 import { Modal, Select, Form, App } from '@zswl/components'
@@ -5,7 +6,6 @@ import { UploadOutlined } from '@ant-design/icons'
 import FormUpload from '@/components/FormUpload'
 import { amountFormat, formateCard, getInputNumberAmountProps } from '@/utils'
 import store from './store'
-import Amount from '@/components/Amount'
 import { useEffect, useState } from 'react'
 
 //新增联系人弹窗

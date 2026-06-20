@@ -1,3 +1,4 @@
+import { Amount } from '@/components/Format'
 import { Table, App } from '@zswl/components'
 import { observer, getQuery } from '@zswl/admin'
 import store from './store'
@@ -6,7 +7,6 @@ import IconFont from '@/components/Icon'
 import { useEffect, useMemo } from 'react'
 import { shareholderTypeList } from '../../general'
 import ShareholdersModal from './ShareholdersModal'
-import Amount from '@/components/Amount'
 import { amountFormat } from '@/utils'
 import { saveServer } from '@/utils'
 

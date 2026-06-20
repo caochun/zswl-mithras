@@ -1,15 +1,7 @@
 import { Input } from 'antd'
 import { dateRangeTransform } from '@/utils/transform'
-import {
-  InputEditable,
-  RangePickerEditable,
-  FiledFormat,
-  AmountEditable,
-  AmountColumn,
-  MatchOptionColumn,
-} from '@/components/Format'
+import { InputEditable, RangePickerEditable, FiledFormat, AmountEditable, AmountColumn, MatchOptionColumn, Amount, AmountRange } from '@/components/Format'
 import { formatPercent, amountFormat, rangePresets } from '@/utils'
-import AmountRange from '@/components/AmountRange'
 import { App, Form, Select } from '@zswl/components'
 import FormGuarantee from './FormGuarantee'
 import moment from 'moment'

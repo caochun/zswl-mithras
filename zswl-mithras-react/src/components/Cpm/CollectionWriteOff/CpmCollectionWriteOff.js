@@ -1,3 +1,4 @@
+import { Amount, AmountRange } from '@/components/Format'
 import { App, Page, SearchBar, Table } from '@zswl/components'
 import { history, observer } from '@zswl/admin'
 import store from './store'
@@ -5,7 +6,6 @@ import { useMemo } from 'react'
 import { Tooltip } from 'antd'
 import styles from './index.less'
 import { amountFormat, saveServer } from '@/utils'
-import AmountRange from '@/components/AmountRange'
 import moment from 'moment'
 import { ClientSelect } from '@/components/Select'
 

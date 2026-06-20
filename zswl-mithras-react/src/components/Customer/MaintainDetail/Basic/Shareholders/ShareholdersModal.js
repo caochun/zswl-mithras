@@ -1,7 +1,7 @@
+import { Amount } from '@/components/Format'
 import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { Input, InputNumber } from 'antd'
-import Amount from '@/components/Amount'
 const { Item } = Form
 const selectData = [
   { label: '是', value: true },

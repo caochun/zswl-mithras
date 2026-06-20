@@ -332,8 +332,6 @@ const componentEntryScopeAliases = new Map([
 
 const publicComponentRoots = new Set([
   'Actions',
-  'Amount',
-  'AmountRange',
   'Chart',
   'Collapse',
   'CommonNoData',

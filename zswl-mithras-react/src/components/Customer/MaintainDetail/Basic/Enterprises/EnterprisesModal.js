@@ -1,8 +1,8 @@
+import { Amount } from '@/components/Format'
 import { observer, getSessionStorage, setSessionStorage } from '@zswl/admin'
 import { App, Form, Modal, Select } from '@zswl/components'
 import { useEffect, useMemo, useState } from 'react'
 import { Input, DatePicker, Cascader, InputNumber } from 'antd'
-import Amount from '@/components/Amount'
 
 const { Item } = Form
 

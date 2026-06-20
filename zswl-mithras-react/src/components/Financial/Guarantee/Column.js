@@ -1,16 +1,6 @@
 import { Input, InputNumber, message, Tooltip } from 'antd'
-import {
-  DatePickerEditable,
-  AmountEditable,
-  AmountFormat,
-  FiledFormat,
-  InputEditable,
-  MatchFormat,
-  AmountColumn,
-  MatchOptionColumn,
-} from '@/components/Format'
+import { DatePickerEditable, AmountEditable, AmountFormat, FiledFormat, InputEditable, MatchFormat, AmountColumn, MatchOptionColumn, Amount, AmountRange } from '@/components/Format'
 import { dateRangeTransform } from '@/utils/transform'
-import AmountRange from '@/components/AmountRange'
 import { rules, formatPercent, amountFormat, rangePresets } from '@/utils'
 import { Select } from '@zswl/components'
 import { FounderSelect } from '@/components/Select'

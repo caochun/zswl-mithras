@@ -1,5 +1,4 @@
-import { AmountEditable, formatAmountWan } from '@/components/Format'
-import AmountRange from '@/components/AmountRange'
+import { AmountEditable, formatAmountWan, Amount, AmountRange } from '@/components/Format'
 import { hasValue, amountFormat, formatPercent } from '@/utils'
 import { Select, App } from '@zswl/components'
 import { Tag } from 'antd'
