@@ -109,6 +109,10 @@ const removedLegacyApiPathPrefixes = [
     replacement: 'src/api/dashboard/userCustomConfigApi or src/api/dashboard/feikongSsoApi',
   },
   {
+    pathPrefix: 'src/api/dashboard/workbench',
+    replacement: 'src/api/dashboard/userCustomConfigApi, src/api/dashboard/workbenchMessageApi, or dashboard semantic APIs',
+  },
+  {
     pathPrefix: 'src/api/cpm/payment/contractPaymentFtp',
     replacement: 'src/api/contract/payment/contractPaymentFtp',
   },

@@ -568,7 +568,8 @@
 - `common/editableCompare`：历史上混合了 FTP、项目、付款和文件比对接口，当前已清理，边界检查会阻止恢复；文件表组件使用 `src/api/common/fileCompareApi`。
 - `common/dataList`：历史命名已清理，边界检查会阻止恢复；资料清单上传、下载、预览、项目资料和授信资料列表使用 `src/api/common/materialsApi`。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API；这些入口已收窄为 endpoint 壳，不再转发其他业务域 API 文件。
-- `workbench`：工作台/看板相关接口历史生成目录已清理，边界检查会阻止恢复；真实承载在 `src/api/dashboard/workbench`，dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
+- `workbench`：工作台/看板相关接口历史生成目录已清理，边界检查会阻止恢复；dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
+- `dashboard/workbench`：旧工作台快捷功能和图表指标生成 API 当前无业务引用，已清理并由边界检查阻止恢复；工作台用户配置、消息和看板能力使用 `src/api/dashboard/userCustomConfigApi`、`workbenchMessageApi` 或其他 dashboard 语义 API。
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件必须使用 `src/utils/domains/dashboard/DashboardUtils*`，历史 `src/utils/dashboard*.js` 文件已清理，边界检查会阻止恢复。
 - `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件必须使用 `src/utils/domains/process/ProcessFlowContext`，历史 `src/utils/processFlow.js` 文件已清理，边界检查会阻止恢复。
 - `utils/afterLease`、`utils/risk`、`utils/report`、`utils/kpi`、`utils/customer`、`utils/customerRat`、`utils/paymentApplication`、`utils/budgetManagement`：业务域小工具历史落在全局 utils；对应业务域页面和组件必须使用 `src/utils/domains/<domain>/*Utils` 语义入口，历史全局文件已清理，边界检查会阻止恢复。预算拨备预测刷新入口使用 `src/utils/domains/budget/ProvisionForecastUtils`，历史 `src/utils/domains/budgetManagement/BudgetManagementUtils` 仅兼容转发。
