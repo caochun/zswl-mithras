@@ -8,7 +8,7 @@
 
 前端目录不需要和后端 Maven 模块一比一对应。前端更贴近菜单、路由和用户工作流，但代码复用关系必须清楚。
 
-- `src/pages`：路由入口。当前路由 JS/TS 文件应只做 `@/components/**` 转发，不承载真实实现；样式、资源和页面私有实现跟随真实组件目录维护，不能继续放在 `src/pages` 下。
+- `src/pages`：路由入口。当前路由 JS/TS 文件应只做 `@/components/<Domain>/*Entries` 转发，不承载真实实现；样式、资源和页面私有实现跟随真实组件目录维护，不能继续放在 `src/pages` 下。
 - `src/components`：跨业务域复用的通用 UI、表格、表单、金额、文件、流程图、操作按钮等组件。
 - `src/api`：跨页面复用的接口封装。若某个 `pages/**/api.js` 被其他业务域引用，应迁入这里或对应稳定领域入口。
 - `src/utils`：无页面语义、无业务归属的工具函数、格式化、hooks、校验逻辑。
@@ -271,6 +271,7 @@
 - `Kpi/BaseSetPutPrizeFactorEntries.js`
 - `Kpi/BaseSetSuiLvWeiHuEntries.js`
 - `Kpi/BaseSetTableEntries.js`
+- `Kpi/FormulaValueTipEntries.js`
 - `Kpi/BaseSetYeWuDeptEntries.js`
 - `Kpi/BaseSetZhiDengXiShuEntries.js`
 - `Kpi/BaseSetZhongHouTaiDeptEntries.js`
@@ -399,7 +400,7 @@
 - `npm run check:boundaries` 会阻止 `report:ui-domain-deps` 中新增的 `still need semantic review` 项；新增跨域复用必须先明确是稳定共享能力、流程编排、页面聚合，或回收到单一业务域。
 - `npm run report:ui-domain-deps` 默认忽略同业务域页面路由壳到本域组件入口的引用，例如 `pages/project` 到 `components/Project`；报告中的 workflow/page aggregation 部分应主要用于观察流程、工作台、跨域页面编排。
 - `pages/index` 到 `App/RootRedirectEntries.js`、`pages/workbench` 到 `Dashboard/WorkbenchEntries.js` 属于稳定页面聚合入口；它们是路由重定向/工作台入口，不代表业务域实现互相嵌入。
-- `npm run check:boundaries` 会强制 `src/pages/**/*.js|jsx|ts|tsx` 保持为从 `@/components/**` 转发的轻薄路由壳，真实页面实现、样式和局部组件应放在对应 `src/components/<Domain>` 下。
+- `npm run check:boundaries` 会强制 `src/pages/**/*.js|jsx|ts|tsx` 保持为从 `@/components/<Domain>/*Entries` 转发的轻薄路由壳，真实页面实现、样式和局部组件应放在对应 `src/components/<Domain>` 下。
 - 菜单路由和业务语义不一致时，依赖报告可以按真实语义归一。例如 `pages/lease/tracking` 是跟踪事项路由壳，`pages/customerView` 是客户视图，租后检查计划下的单一视图风险入口归入客户能力；这类归一只影响报告，不改变路由兼容。
 - `pages/budgetManagement/provisionForecast` 是预算管理下的历史菜单路径，但页面和接口语义归入预算拨备预测；依赖报告按 `budget` 归一，路由保持兼容。
 - 项目定价列表页和发起定价弹窗通过 `src/components/Project/PriceEntries.js` 暴露，`src/pages/project/price/*` 只保留路由壳、历史兼容壳和详情子路由壳。
