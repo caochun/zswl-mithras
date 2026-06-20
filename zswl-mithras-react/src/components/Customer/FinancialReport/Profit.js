@@ -7,7 +7,7 @@ import { saveServer } from '@/utils'
 import { DatePicker, Table, Tooltip, Empty, Spin, Checkbox, Radio, Space, Popover, Row } from 'antd'
 import { subjectQuarterType, subjectReportType } from './columns'
 import styles from './index.less'
-import DeteleIcon from './DeteleIcon'
+import DeleteIcon from './DeleteIcon'
 import CommonSearch, { defaultParams } from './CommonSearch'
 
 const { Item } = SearchBar
@@ -225,12 +225,12 @@ function Index({ store }) {
                     pagination={false}
                   />
                   <div className={styles.tableCell_remove}>
-                    <DeteleIcon
+                    <DeleteIcon
                       store={store}
                       dataSource={financeList}
                       index={0}
                       handleRemove={handleRemove}
-                    ></DeteleIcon>
+                    ></DeleteIcon>
                   </div>
                 </div>
               )}
@@ -301,12 +301,12 @@ function Index({ store }) {
                       dataSource={obj.itemList}
                     />
                     <div className={styles.tableCell_remove}>
-                      <DeteleIcon
+                      <DeleteIcon
                         store={store}
                         dataSource={financeList}
                         index={i + 1}
                         handleRemove={handleRemove}
-                      ></DeteleIcon>
+                      ></DeleteIcon>
                     </div>
                   </div>
                 )

@@ -581,6 +581,7 @@
 - `components/BlackGray/Actions`：黑灰名单审批动作集合；黑灰名单页面应通过对应黑灰名单窄入口或域内相对路径使用，其他业务域需要通用导出时使用 `src/components/Actions.StoreExportAction` 或其他公共 Actions。
 - `components/BlackGray/RiskIframe`：黑灰名单外部查询页面 iframe 适配；黑灰名单查询页面应通过 `src/components/BlackGray/QueryIframeEntries.js` 使用。
 - `components/BlackGray/Info`：黑灰名单命中标识组件；业务页面和组件应通过 `src/components/BlackGray/BlackGrayHitEntries.js` 使用。
+- `components/Customer/FinancialReport/DeteleIcon`：客户财报域内删除图标组件历史拼写错误，当前已重命名为 `DeleteIcon`，边界检查会阻止旧文件恢复。
 - `components/Process/BpmnFlowChart`、`components/Process/TaskFlowChart`：流程图组件；流程详情域内使用相对路径，外部审批记录通过 `src/components/Process/ProcessTaskFlowChartEntries.js` 使用。
 - `components/Financial/ChangeLogLayout`：财务版本变更日志布局；财务付款/融资日志页面通过 `src/components/Financial/ChangeLogEntries.js` 使用。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`，不再转发流程 API 文件。

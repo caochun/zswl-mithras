@@ -5,7 +5,7 @@ import { SettingOutlined } from '@ant-design/icons'
 import { DatePicker, Table, Tooltip, Empty, Spin, Checkbox, Radio, Space, Popover, Row } from 'antd'
 import { subjectQuarterType, subjectReportType } from './columns'
 import styles from './index.less'
-import DeteleIcon from './DeteleIcon'
+import DeleteIcon from './DeleteIcon'
 import CommonSearch, { defaultParams } from './CommonSearch'
 import { saveServer } from '@/utils'
 
@@ -227,12 +227,12 @@ function Index ({ store }) {
                     pagination={false}
                   />
                      <div className={styles.tableCell_remove}>
-                      <DeteleIcon
+                      <DeleteIcon
                         store={store}
                         dataSource={financeList}
                         index={0}
                         handleRemove={handleRemove}
-                      ></DeteleIcon>
+                      ></DeleteIcon>
                     </div>
                 </div>
               )}

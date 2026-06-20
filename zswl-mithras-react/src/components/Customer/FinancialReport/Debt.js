@@ -5,7 +5,7 @@ import { SettingOutlined } from '@ant-design/icons'
 import { DatePicker, Table, Tooltip, Empty, Checkbox, Spin, Radio, Space, Popover, Row } from 'antd'
 import { subjectReportType } from './columns'
 import styles from './index.less'
-import DeteleIcon from './DeteleIcon'
+import DeleteIcon from './DeleteIcon'
 import CommonSearch, { defaultParams } from './CommonSearch'
 import moment from 'moment'
 import { saveServer } from '@/utils'
@@ -233,12 +233,12 @@ function Index({ store }) {
                     pagination={false}
                   />
                   <div className={styles.tableCell_remove}>
-                    <DeteleIcon
+                    <DeleteIcon
                       store={store}
                       dataSource={financeList}
                       index={0}
                       handleRemove={handleRemove}
-                    ></DeteleIcon>
+                    ></DeleteIcon>
                   </div>
                 </div>
               )}
@@ -307,12 +307,12 @@ function Index({ store }) {
                       dataSource={obj.itemList}
                     />
                     <div className={styles.tableCell_remove}>
-                      <DeteleIcon
+                      <DeleteIcon
                         store={store}
                         dataSource={financeList}
                         index={i + 1}
                         handleRemove={handleRemove}
-                      ></DeteleIcon>
+                      ></DeleteIcon>
                     </div>
                   </div>
                 )

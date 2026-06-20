@@ -57,6 +57,12 @@ const removedLegacyUtilityFiles = new Map([
   ['src/utils/hooks/useGetStatus.js', 'src/utils/domains/blackGray/BlackGrayStatusUtils.js'],
   ['src/utils/hooks/useLayoutEffect.js', 'React.useLayoutEffect or domain-local hooks when needed'],
 ])
+const removedLegacyComponentFiles = new Map([
+  [
+    'src/components/Customer/FinancialReport/DeteleIcon.js',
+    'src/components/Customer/FinancialReport/DeleteIcon.js',
+  ],
+])
 const removedLegacyApiPathPrefixes = [
   {
     pathPrefix: 'src/api/afterLease/assessmentWhitelistApi',
@@ -1024,6 +1030,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: `removed legacy utility file (use ${removedLegacyUtilityFiles.get(relativeFilePath)})`,
+    })
+  }
+
+  if (removedLegacyComponentFiles.has(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: `removed legacy component file (use ${removedLegacyComponentFiles.get(relativeFilePath)})`,
     })
   }
 
