@@ -135,10 +135,8 @@ class Store {
         assess,
       } = values
       const { fileList, originalList } = DataUpload.classify(file)
-      console.log('file: ', file)
       const { fileList: mortgagePledgeFileList, originalList: mortgageOriginal } =
         DataUpload.classify(mortgageFile)
-      console.log('originalList: ', originalList)
       const mortgagePledgeFileIds = mortgageOriginal.map((v) => v.id ?? v.fileId) ?? []
       id
         ? await Api.updateItem({

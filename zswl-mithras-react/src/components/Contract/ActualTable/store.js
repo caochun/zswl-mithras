@@ -204,7 +204,7 @@ class Store {
       await Api.postUpdateActualIRR(params)
       await this.refreshIrrTips()
     } catch (err) {
-      console.log({ err })
+      message.error('更新失败')
     }
   }
 }

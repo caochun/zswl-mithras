@@ -28,8 +28,6 @@ const Report = ({
   const curTab = getQuery('curTab')
   const tab = getQuery('tab')
 
-  console.log({ taskActivityId })
-
   const modal = useMemo(
     () =>
       new ModalStore({

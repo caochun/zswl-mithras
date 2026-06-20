@@ -44,7 +44,6 @@ class Store {
         .postRemarkAll(approvalParams)
         .then((res) => res)
         .catch((e) => {
-          console.log(e)
           return [{}, {}]
         })
 
@@ -85,7 +84,6 @@ class Store {
     this.irr = irr
     const contractId = this.page.getParams().contractId
     const irrPercent = (irr * 10000).toFixed(0)
-    console.log('irrPercent: ', irrPercent)
     const params = {
       contractId,
       irrPercent,

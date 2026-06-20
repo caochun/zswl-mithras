@@ -25,7 +25,6 @@ const Index = ({
 }) => {
   const { priceData, leaseTypes, bizType } = baseStore
   const pageData = baseStore.page?.getData()
-  console.log('pageData: ', pageData)
   // 处理历史租赁物，引导用户
   const {
     stockContractFlag,

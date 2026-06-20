@@ -8,7 +8,6 @@ import Api from '@/api/contract/contractAccount'
 const { Item } = Form
 
 function Index({ store, leaseTypes, projCode }) {
-  console.log('projCode: ', projCode)
   const [form] = Form.useForm()
   const { isCreate } = store
   const [backList, setBankList] = useState([])
