@@ -14,7 +14,8 @@
     "page": "admin page",
     "clearBranch": "node clearInvalidBranch",
     "check:boundaries": "node scripts/check-component-boundaries.js",
-    "report:ui-domain-deps": "node scripts/report-ui-domain-deps.js"
+    "report:ui-domain-deps": "node scripts/report-ui-domain-deps.js",
+    "report:unused-component-candidates": "node scripts/report-unused-component-candidates.js"
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
