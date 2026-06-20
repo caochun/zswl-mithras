@@ -183,7 +183,6 @@ const CustomerDetail = ({ path, params: { id }, query, pathname }) => {
             }}
             // onClick={async() => {
             //   const res = await store.checkQcc()
-            //   debugger
             //   history.push(`/customer/singeView?keyword=${uscc||enterpriseName}&companyKey=${res.companyKey}&token=${res.token}`)
             // }}
           >

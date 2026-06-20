@@ -707,6 +707,10 @@ function hasConsoleLog(source) {
   return source.includes('console.log(')
 }
 
+function hasDebugger(source) {
+  return /\bdebugger\b/.test(source)
+}
+
 function isPublicComponentSourceFile(relativeFilePath) {
   const [, componentRoot] =
     relativeFilePath.match(/^src[\\/]components[\\/]([^\\/]+)[\\/].*\.(?:js|jsx|ts|tsx)$/) ||
@@ -754,6 +758,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'console.log debug residue in frontend source',
+    })
+  }
+
+  if (hasDebugger(source)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'debugger residue in frontend source',
     })
   }
 
