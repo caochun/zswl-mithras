@@ -80,6 +80,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/InsurancePolicy/InsurancePolicy.js',
   ],
   [
+    'src/components/PaymentFtpColumns/index.js',
+    'src/components/PaymentFtpColumns/FtpAssessmentColumns.js',
+  ],
+  [
     'src/components/ChangeLogDiff/index.js',
     'src/components/ChangeLogDiff/ChangeLogDiff.js',
   ],

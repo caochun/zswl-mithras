@@ -1,1 +1,1 @@
-export { default as FtpAssessmentColumns } from '.'
+export { default as FtpAssessmentColumns } from './FtpAssessmentColumns'

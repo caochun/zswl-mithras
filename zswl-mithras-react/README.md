@@ -488,6 +488,7 @@
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
+- FTP 考核列配置通过 `src/components/PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 暴露，真实实现命名为 `src/components/PaymentFtpColumns/FtpAssessmentColumns.js`。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
