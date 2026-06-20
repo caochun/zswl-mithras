@@ -1,1 +1,1 @@
-export { default as RiskMetricControl } from './MetricValue/Control'
+export { default as RiskMetricControl } from './MetricValue/Control/RiskMetricControl'

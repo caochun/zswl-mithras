@@ -515,7 +515,7 @@
 - 征信查询抽屉和查询列表通过 `src/components/Credit/CreditReportSearchEntries.js`、`SearchListEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js` 和 `CreditSearchList/CreditSearchList.js`。
 - 授信建立列表通过 `src/components/Credit/EstablishPageEntries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js`。
 - 授信评审列表、授信建立日志差异和授信评审日志差异通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
-- 授信管理账户、还款、交易、逾期、客户、保证、抵押、质押和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
+- 授信管理账户、还款、交易、逾期、客户、保证、抵押、质押、五级分类和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
 - 付款申请创建弹窗和公开信息提示弹窗分别通过 `src/components/Cpm/PaymentApplicationListEntries.js`、`PaymentApplicationPublicCheckEntries.js` 暴露，真实实现命名为 `src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js` 和 `src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js`。
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 厂商管理外部系统页面集合通过 `src/components/ExternalEmbed/RzyEntries.js` 暴露，真实实现命名为 `src/components/ExternalEmbed/RzyPages/RzyPages.js` 和 `RzyIframe/RzyIframe.js`。
@@ -550,8 +550,8 @@
 - 项目立项、定价和评审列表页分别通过 `src/components/Project/EstablishmentEntries.js`、`PriceEntries.js`、`ReviewEntries.js` 暴露，真实实现命名为 `ProjectEstablishment.js`、`ProjectPrice.js` 和 `ProjectReview.js`，不再依赖目录 `index.js`。
 - 风险云指标详情通过 `src/components/Risk/CloudMetricValueEntries.js` 暴露，真实实现命名为 `src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js`。
 - 风险公开监控列配置通过 `src/components/Risk/PublicMonitorColumnsEntries.js` 暴露，真实实现命名为 `src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js`。
-- 风险公开监控详情、财报指标表、定时指标、目标指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskOverdueListSearch.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
-- 风险评分卡列表通过 `src/components/Risk/SourceCardListEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCard/List/RiskSourceCardList.js`。
+- 风险公开监控详情、财报指标表、财报文件、定时指标、目标指标、集控指标、集中度指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskFinanceSheetFileList.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskMetricJinKon.js`、`RiskMetricControl.js`、`RiskOverdueListSearch.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
+- 风险评分卡列表和详情通过 `src/components/Risk/SourceCardListEntries.js`、`SourceCardDetailEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCard/List/RiskSourceCardList.js` 和 `SourceCard/Detail/RiskSourceCardDetail.js`。
 - 风险评分卡测算弹窗通过 `src/components/Risk/SourceCardCalcModalEntries.js` 暴露，真实实现命名为 `src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js`。
 - 跟踪事项抽屉通过 `src/components/TrackEvent/TrackEventModalEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/TrackModal/TrackEventModal.js`。
 - 跟踪事项列表通过 `src/components/TrackEvent/TrackEventListEntries.js` 暴露，真实实现命名为 `src/components/TrackEvent/Tracking/List/TrackEventList.js`。

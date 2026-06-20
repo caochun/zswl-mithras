@@ -1,8 +1,8 @@
 import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import { Tabs, Space, Tooltip } from 'antd'
-import Control from './Control'
-import JinKon from './JinKon'
+import Control from './Control/RiskMetricControl'
+import JinKon from './JinKon/RiskMetricJinKon'
 import Target from './Target/RiskMetricValueTarget'
 import IconFont from '@/components/Icon'
 

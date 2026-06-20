@@ -472,6 +472,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/CreditManage/CreditTable/Tab/KuHu/CreditTableKuHu.js',
   ],
   [
+    'src/components/CreditManage/CreditTable/Tab/Level5/index.js',
+    'src/components/CreditManage/CreditTable/Tab/Level5/CreditTableLevel5.js',
+  ],
+  [
     'src/components/CreditManage/CreditTable/Tab/Level5/CreateModal/index.js',
     'src/components/CreditManage/CreditTable/Tab/Level5/CreateModal/CreditTableLevel5CreateModal.js',
   ],
@@ -868,8 +872,20 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Risk/FinanceSheet/RiskFinanceSheet.js',
   ],
   [
+    'src/components/Risk/FinanceSheetFile/index.js',
+    'src/components/Risk/FinanceSheetFile/RiskFinanceSheetFileList.js',
+  ],
+  [
     'src/components/Risk/MetricTimed/index.js',
     'src/components/Risk/MetricTimed/RiskMetricTimed.js',
+  ],
+  [
+    'src/components/Risk/MetricValue/Control/index.js',
+    'src/components/Risk/MetricValue/Control/RiskMetricControl.js',
+  ],
+  [
+    'src/components/Risk/MetricValue/JinKon/index.js',
+    'src/components/Risk/MetricValue/JinKon/RiskMetricJinKon.js',
   ],
   [
     'src/components/Risk/MetricValue/Target/index.js',
@@ -986,6 +1002,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Risk/SourceCard/List/index.js',
     'src/components/Risk/SourceCard/List/RiskSourceCardList.js',
+  ],
+  [
+    'src/components/Risk/SourceCard/Detail/index.js',
+    'src/components/Risk/SourceCard/Detail/RiskSourceCardDetail.js',
   ],
   [
     'src/components/Risk/PublicMonitorOpinionDetail/index.js',

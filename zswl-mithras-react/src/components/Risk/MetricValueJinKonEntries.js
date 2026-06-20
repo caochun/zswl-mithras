@@ -1,1 +1,1 @@
-export { default as RiskMetricJinKon } from './MetricValue/JinKon'
+export { default as RiskMetricJinKon } from './MetricValue/JinKon/RiskMetricJinKon'

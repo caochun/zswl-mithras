@@ -1,1 +1,1 @@
-export { default as RiskSourceCardDetail } from './SourceCard/Detail'
+export { default as RiskSourceCardDetail } from './SourceCard/Detail/RiskSourceCardDetail'
