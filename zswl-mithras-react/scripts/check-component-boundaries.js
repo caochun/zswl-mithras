@@ -128,6 +128,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/PolicyManageRemind/AfterLeasePolicyManageRemind.js',
   ],
   [
+    'src/components/AfterLease/Level5ClassifyDetail/index.js',
+    'src/components/AfterLease/Level5ClassifyDetail/AfterLeaseLevel5ClassifyDetail.js',
+  ],
+  [
     'src/components/AfterLease/RentCollection/List/index.js',
     'src/components/AfterLease/RentCollection/List/AfterLeaseRentCollectionList.js',
   ],
@@ -138,6 +142,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/AfterLease/RentCollection/BatchInterest/index.js',
     'src/components/AfterLease/RentCollection/BatchInterest/AfterLeaseRentCollectionBatchInterest.js',
+  ],
+  [
+    'src/components/AfterLease/RentCollection/ProjectDetail/index.js',
+    'src/components/AfterLease/RentCollection/ProjectDetail/AfterLeaseRentCollectionProjectDetail.js',
+  ],
+  [
+    'src/components/AfterLease/RentCollection/TermDetail/index.js',
+    'src/components/AfterLease/RentCollection/TermDetail/AfterLeaseRentCollectionTermDetail.js',
   ],
   [
     'src/components/Archives/Management/detail/index.js',

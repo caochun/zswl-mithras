@@ -484,7 +484,7 @@
 - 表格、文件表、描述表、审批详情等统一从 `src/components/Table` 稳定入口导入。
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
-- 租后调整列表和创建、检查计划检查清单、打开清单、策略页、策略创建、检查准备流程、管理台账、政策保单、政策管理弹窗、政策提醒、回款列表、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
+- 租后调整列表/详情/创建、五级分类详情、检查计划检查清单、打开清单、策略页、策略创建、检查准备流程、管理台账、政策保单、政策管理弹窗、政策提醒、回款列表、回款借据卡、期项租金卡、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
 - 档案管理详情和其他资料归集详情分别通过 `src/components/Archives/ManagementEntries.js`、`OtherFilingMaterialsEntries.js` 暴露，真实实现使用档案域语义文件名，不再依赖目录 `index.js`。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
