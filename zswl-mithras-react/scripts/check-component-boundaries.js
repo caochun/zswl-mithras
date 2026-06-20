@@ -252,6 +252,54 @@ const removedLegacyComponentFiles = new Map([
     'src/components/InsurancePolicy/InsurancePolicy.js',
   ],
   [
+    'src/components/Kpi/BaseSet/CopyItemModal/index.js',
+    'src/components/Kpi/BaseSet/CopyItemModal/KpiBaseSetCopyItemModal.js',
+  ],
+  [
+    'src/components/Kpi/BaseSet/ParameterModal/BasePrizeRate/index.js',
+    'src/components/Kpi/BaseSet/ParameterModal/BasePrizeRate/KpiBaseSetBasePrizeRate.js',
+  ],
+  [
+    'src/components/Kpi/BaseSet/ParameterModal/ProjectScaleFactor/index.js',
+    'src/components/Kpi/BaseSet/ParameterModal/ProjectScaleFactor/KpiBaseSetProjectScaleFactor.js',
+  ],
+  [
+    'src/components/Kpi/BaseSet/ParameterModal/ProjectTypeFactor/index.js',
+    'src/components/Kpi/BaseSet/ParameterModal/ProjectTypeFactor/KpiBaseSetProjectTypeFactor.js',
+  ],
+  [
+    'src/components/Kpi/BaseSet/ParameterModal/PutPrizeFactor/index.js',
+    'src/components/Kpi/BaseSet/ParameterModal/PutPrizeFactor/KpiBaseSetPutPrizeFactor.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/BaBeiJiTi/index.js',
+    'src/components/Kpi/BaseSetModalDetail/BaBeiJiTi/KpiBaseSetBaBeiJiTi.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/BuMenLiLun/index.js',
+    'src/components/Kpi/BaseSetModalDetail/BuMenLiLun/KpiBaseSetBuMenLiLun.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/GongShiLiLun/index.js',
+    'src/components/Kpi/BaseSetModalDetail/GongShiLiLun/KpiBaseSetGongShiLiLun.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/JinRongShiChangDept/index.js',
+    'src/components/Kpi/BaseSetModalDetail/JinRongShiChangDept/KpiBaseSetJinRongShiChangDept.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/SuiLvWeiHu/index.js',
+    'src/components/Kpi/BaseSetModalDetail/SuiLvWeiHu/KpiBaseSetSuiLvWeiHu.js',
+  ],
+  [
+    'src/components/Kpi/BaseSetModalDetail/XiangMuTiJiang/index.js',
+    'src/components/Kpi/BaseSetModalDetail/XiangMuTiJiang/KpiBaseSetXiangMuTiJiang.js',
+  ],
+  [
+    'src/components/Kpi/BeautyTable/index.js',
+    'src/components/Kpi/BeautyTable/KpiBeautyTable.js',
+  ],
+  [
     'src/components/Lease/ApprovalConfirm/index.js',
     'src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js',
   ],

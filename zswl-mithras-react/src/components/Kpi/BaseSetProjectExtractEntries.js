@@ -1,1 +1,1 @@
-export { default as KpiBaseSetXiangMuTiJiang } from './BaseSetModalDetail/XiangMuTiJiang'
+export { default as KpiBaseSetXiangMuTiJiang } from './BaseSetModalDetail/XiangMuTiJiang/KpiBaseSetXiangMuTiJiang'

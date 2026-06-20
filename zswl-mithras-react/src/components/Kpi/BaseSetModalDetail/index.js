@@ -1,17 +1,17 @@
 import { cloneElement } from 'react'
 import { Modal } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import SuiLvWeiHu from './SuiLvWeiHu'
+import SuiLvWeiHu from './SuiLvWeiHu/KpiBaseSetSuiLvWeiHu'
 import FeiYongJiTi from './FeiYongJiTi'
-import BaBeiJiTi from './BaBeiJiTi'
-import BuMenLiLun from './BuMenLiLun'
-import GongShiLiLun from './GongShiLiLun'
-import JinRongShiChangDept from './JinRongShiChangDept'
+import BaBeiJiTi from './BaBeiJiTi/KpiBaseSetBaBeiJiTi'
+import BuMenLiLun from './BuMenLiLun/KpiBaseSetBuMenLiLun'
+import GongShiLiLun from './GongShiLiLun/KpiBaseSetGongShiLiLun'
+import JinRongShiChangDept from './JinRongShiChangDept/KpiBaseSetJinRongShiChangDept'
 import ZhongHouTaiDept from './ZhongHouTaiDept'
 import JinRongShiChangTiJiang from './JinRongShiChangTiJiang'
 import YeWuDept from './YeWuDept'
 import ZhiDengXiShu from './ZhiDengXiShu'
-import XiangMuTiJiang from './XiangMuTiJiang'
+import XiangMuTiJiang from './XiangMuTiJiang/KpiBaseSetXiangMuTiJiang'
 
 const Index = ({ store }) => {
   const { typeInfo } = store

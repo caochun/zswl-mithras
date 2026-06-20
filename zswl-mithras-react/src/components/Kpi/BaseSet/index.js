@@ -6,7 +6,7 @@ import ModalDetail from '../BaseSetModalDetail'
 import moment from 'moment'
 import { isAdminAccount } from '@/utils'
 import ParameterModal from './ParameterModal'
-import CopyItemModal from './CopyItemModal'
+import CopyItemModal from './CopyItemModal/KpiBaseSetCopyItemModal'
 import Store from './store'
 import { saveServer } from '@/utils'
 

@@ -2,10 +2,10 @@ import { Modal, Form } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import { Tabs, DatePicker } from 'antd'
 import { cloneElement } from 'react'
-import BasePrizeRate from './BasePrizeRate'
-import ProjectTypeFactor from './ProjectTypeFactor'
-import ProjectScaleFactor from './ProjectScaleFactor'
-import PutPrizeFactor from './PutPrizeFactor'
+import BasePrizeRate from './BasePrizeRate/KpiBaseSetBasePrizeRate'
+import ProjectTypeFactor from './ProjectTypeFactor/KpiBaseSetProjectTypeFactor'
+import ProjectScaleFactor from './ProjectScaleFactor/KpiBaseSetProjectScaleFactor'
+import PutPrizeFactor from './PutPrizeFactor/KpiBaseSetPutPrizeFactor'
 
 const Index = ({ store }) => {
   const { isEdit } = store

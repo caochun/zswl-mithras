@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { useMemo, useState, useEffect } from 'react'
 import { TableStore } from '@zswl/components'
-import BeautyTable from '../../BeautyTable'
+import BeautyTable from '../../BeautyTable/KpiBeautyTable'
 import { message } from 'antd'
 import mathjs from '@/utils/math'
 import Api from '@/api/kpi/pmAssess'

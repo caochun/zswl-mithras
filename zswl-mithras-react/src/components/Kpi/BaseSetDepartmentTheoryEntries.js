@@ -1,1 +1,1 @@
-export { default as KpiBaseSetBuMenLiLun } from './BaseSetModalDetail/BuMenLiLun'
+export { default as KpiBaseSetBuMenLiLun } from './BaseSetModalDetail/BuMenLiLun/KpiBaseSetBuMenLiLun'

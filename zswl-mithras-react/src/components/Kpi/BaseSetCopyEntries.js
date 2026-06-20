@@ -1,1 +1,1 @@
-export { default as KpiBaseSetCopyItemModal } from './BaseSet/CopyItemModal'
+export { default as KpiBaseSetCopyItemModal } from './BaseSet/CopyItemModal/KpiBaseSetCopyItemModal'
