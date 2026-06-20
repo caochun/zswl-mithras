@@ -344,6 +344,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Contract/StartRentDetail/ContractStartRentDetail.js',
   ],
   [
+    'src/components/Contract/CreateReceiptDetail/index.js',
+    'src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js',
+  ],
+  [
     'src/components/Customer/FinancialReport/DeteleIcon.js',
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],
@@ -354,6 +358,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Customer/SingleViewRisk/index.js',
     'src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js',
+  ],
+  [
+    'src/components/Customer/UnifiedView/index.js',
+    'src/components/Customer/UnifiedView/CustomerUnifiedView.js',
   ],
   [
     'src/components/Customer/CustomerRatColumns/index.js',

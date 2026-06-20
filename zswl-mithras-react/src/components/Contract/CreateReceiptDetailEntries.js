@@ -1,1 +1,1 @@
-export { default as ContractCreateReceiptDetail } from './CreateReceiptDetail'
+export { default as ContractCreateReceiptDetail } from './CreateReceiptDetail/ContractCreateReceiptDetail'

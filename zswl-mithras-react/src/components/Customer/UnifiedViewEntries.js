@@ -1,1 +1,1 @@
-export { default as CustomerUnifiedView } from './UnifiedView'
+export { default as CustomerUnifiedView } from './UnifiedView/CustomerUnifiedView'
