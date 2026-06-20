@@ -222,7 +222,6 @@ export class MyWebSocket {
 
   // 连接成功回调函数
   private onOpen = () => {
-    console.log('websocket 已连接', this.name)
     this.status = WSStatus.已连接
     // 注册相关信息
     for (const type in this.registerList) {
@@ -271,8 +270,6 @@ export class MyWebSocket {
       const funcList = this.messageList['default']
       if (funcList) {
         funcList.forEach((func) => func(data))
-      } else {
-        console.log('无法处理此类消息')
       }
     } catch (e) {
       // console.log(e);

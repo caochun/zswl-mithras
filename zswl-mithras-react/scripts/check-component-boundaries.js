@@ -26,6 +26,7 @@ const uiLocalApiFilePattern =
 const rootApiFilePattern = /^src[\\/]api[\\/][^\\/]+\.(?:js|jsx|ts|tsx)$/
 const relativeApiImportPattern =
   /^\.{1,2}(?:\/[^'"]*)?\/api(?:\.(?:js|jsx|ts|tsx)|\/index(?:\.(?:js|jsx|ts|tsx))?)?$/
+const utilitySourceFilePattern = /^src[\\/]utils[\\/].*\.(?:js|jsx|ts|tsx)$/
 
 const privateComponentPathPattern = /^@\/components\/[^'"]+\/(?:api|store|context|config|Config|Column|columns)(?:\.js)?$/
 const deepComponentPathPattern = /^@\/components\/[^'"]+\/[^'"]+\/[^'"]+\/[^'"]+/
@@ -702,6 +703,12 @@ function extractNamedImports(importText) {
     .filter(Boolean)
 }
 
+function hasRuntimeConsoleLog(source) {
+  return source
+    .split(/\r?\n/)
+    .some((line) => !line.trimStart().startsWith('//') && line.includes('console.log('))
+}
+
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
 const styleFiles = scanDirs.flatMap((dir) => walkMatchingFiles(dir, styleFilePattern))
@@ -728,6 +735,7 @@ for (const filePath of styleFiles) {
 
 for (const filePath of sourceFiles) {
   const relativeFilePath = path.relative(root, filePath)
+  const source = fs.readFileSync(filePath, 'utf8')
   if (copiedSourceFilePattern.test(relativeFilePath)) {
     violations.push({
       file: relativeFilePath,
@@ -735,9 +743,16 @@ for (const filePath of sourceFiles) {
     })
   }
 
+  if (utilitySourceFilePattern.test(relativeFilePath) && hasRuntimeConsoleLog(source)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'runtime console.log in src/utils',
+    })
+  }
+
   if (
     /^src[\\/]pages[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) &&
-    !pageRouteShellPattern.test(fs.readFileSync(filePath, 'utf8').trim())
+    !pageRouteShellPattern.test(source.trim())
   ) {
     violations.push({
       file: relativeFilePath,
@@ -768,7 +783,7 @@ for (const filePath of sourceFiles) {
 
   if (
     /^src[\\/]components[\\/].*[\\/]api\.(?:js|ts)$/.test(relativeFilePath) &&
-    componentApiForwardingShellPattern.test(fs.readFileSync(filePath, 'utf8').trim())
+    componentApiForwardingShellPattern.test(source.trim())
   ) {
     violations.push({
       file: relativeFilePath,
