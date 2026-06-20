@@ -156,6 +156,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Archives/Management/detail/ArchivesManagementDetail.js',
   ],
   [
+    'src/components/Archives/OtherFilingMaterials/index.js',
+    'src/components/Archives/OtherFilingMaterials/ArchivesOtherFilingMaterials.js',
+  ],
+  [
     'src/components/Archives/OtherFilingMaterials/detail/index.js',
     'src/components/Archives/OtherFilingMaterials/detail/ArchivesOtherFilingMaterialsDetail.js',
   ],
@@ -246,6 +250,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Budget/PricingBaseData/index.js',
     'src/components/Budget/PricingBaseData/BudgetPricingBaseData.js',
+  ],
+  [
+    'src/components/Budget/BusinessAgingTable/index.js',
+    'src/components/Budget/BusinessAgingTable/BudgetBusinessAgingTable.js',
+  ],
+  [
+    'src/components/Budget/ProfitDistribution/index.js',
+    'src/components/Budget/ProfitDistribution/BudgetProfitDistribution.js',
   ],
   [
     'src/components/Budget/PricingBaseSetModalDetail/index.js',

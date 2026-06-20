@@ -1,2 +1,2 @@
-export { default as ArchivesOtherFilingMaterials } from './OtherFilingMaterials'
+export { default as ArchivesOtherFilingMaterials } from './OtherFilingMaterials/ArchivesOtherFilingMaterials'
 export { default as ArchivesOtherFilingMaterialsDetail } from './OtherFilingMaterials/detail/ArchivesOtherFilingMaterialsDetail'

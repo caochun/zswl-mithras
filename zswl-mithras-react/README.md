@@ -425,7 +425,7 @@
 - 应收账款列表页和详情页均通过 `src/components/Budget/AccountsReceivableEntries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js` 和 `BudgetAccountsReceivableDetail.js`，`src/pages/budget/accountsReceivable/*` 只保留路由壳。
 - 收入分摊表列表页和详情页均通过 `src/components/Budget/IncomeShareTableEntries.js` 暴露，`src/pages/budget/incomeShareTable/*` 只保留路由壳。
 - 预算银行账户维护页通过 `src/components/Budget/BankAccountEntries.js` 暴露，`src/pages/budget/bankAccount/*` 只保留路由壳。
-- 预算业务账龄表列表页和详情页通过 `src/components/Budget/BusinessAgingTableEntries.js` 暴露，`src/pages/budget/businessAgingTable/*` 只保留路由壳。
+- 预算业务账龄表列表页和详情页通过 `src/components/Budget/BusinessAgingTableEntries.js` 暴露，列表真实实现命名为 `BudgetBusinessAgingTable.js`，`src/pages/budget/businessAgingTable/*` 只保留路由壳。
 - 预算历史路径下的财务报表导入实际归入风险指标财报域，通过 `src/components/Risk/FinanceSheetFileEntries.js` 暴露，`src/pages/budget/financeSheet/*` 只保留路由壳。
 - 预算财务月结管理页通过 `src/components/Budget/FinancialMonthlyManagementEntries.js` 暴露，`src/pages/budget/financialMonthlyManagement/*` 只保留路由壳。
 - 预算拨备数据查询页通过 `src/components/Budget/ProvisioningDataEntries.js` 暴露，`src/pages/budget/provisioning/dataSearch/*` 只保留路由壳。
@@ -485,12 +485,12 @@
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
 - 租后调整列表/详情/创建、五级分类详情、检查计划检查清单、打开清单、策略页、策略创建、检查准备流程、管理台账、政策保单、政策管理弹窗、政策提醒、回款列表、回款借据卡、期项租金卡、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
-- 档案管理详情和其他资料归集详情分别通过 `src/components/Archives/ManagementEntries.js`、`OtherFilingMaterialsEntries.js` 暴露，真实实现使用档案域语义文件名，不再依赖目录 `index.js`。
+- 档案管理详情和其他资料归集列表/详情分别通过 `src/components/Archives/ManagementEntries.js`、`OtherFilingMaterialsEntries.js` 暴露，真实实现使用档案域语义文件名，不再依赖目录 `index.js`。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。
 - 基础数据文件模板页通过 `src/components/BaseData/FileTemplateEntries.js` 暴露，真实实现命名为 `src/components/BaseData/FileTemplate/BaseDataFileTemplate.js`。
 - 租后、放款和其他资料归集申请通过 `src/components/FilingMaterials/*Entries.js` 暴露，真实实现使用资料归集域语义文件名，不再依赖目录 `index.js`。
-- 预算 LPR、FTP 收益、FTP 收益详情、融资成本弹窗、计提减值列和计提参数列通过 `src/components/Budget/*Entries.js` 暴露，真实实现使用预算域语义文件名，不再依赖目录 `index.js`。
+- 预算 LPR、FTP 收益、FTP 收益详情、融资成本弹窗、项目分润、计提减值列和计提参数列通过 `src/components/Budget/*Entries.js` 暴露，真实实现使用预算域语义文件名，不再依赖目录 `index.js`。
 - 预算收入分成、定价基础设置、定价参数编辑表、FTP 计息、FTP 计息详情、FTP 计息变更、计提数据查询、计提减值列表和详情、计提参数配置列表和详情、计提数据导入弹窗通过 `src/components/Budget/*Entries.js` 暴露，域内复用也指向预算域语义文件名，不再依赖目录 `index.js`。
 - 预算管理成本计划、利润计划详情/业务明细/列表、拨备预测列表和配置详情通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现使用预算管理域语义文件名，不再依赖目录 `index.js`。
 - 图表柱状图和折线图分别通过 `src/components/Chart/BarChartEntries.js`、`LineChartEntries.js` 暴露，真实实现命名为 `src/components/Chart/BarChart/BarChart.js` 和 `src/components/Chart/LineChart/LineChart.js`。
