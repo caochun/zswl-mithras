@@ -272,6 +272,22 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/ProvisioningParamsConfigColumns/BudgetProvisioningParamsConfigColumns.js',
   ],
   [
+    'src/components/Budget/AccountsReceivable/index.js',
+    'src/components/Budget/AccountsReceivable/BudgetAccountsReceivable.js',
+  ],
+  [
+    'src/components/Budget/BankAccount/index.js',
+    'src/components/Budget/BankAccount/BudgetBankAccount.js',
+  ],
+  [
+    'src/components/Budget/ExchangeRate/index.js',
+    'src/components/Budget/ExchangeRate/BudgetExchangeRate.js',
+  ],
+  [
+    'src/components/Budget/PricingFtpInterest/PriceDetail/index.js',
+    'src/components/Budget/PricingFtpInterest/PriceDetail/BudgetPricingFtpInterestPriceDetail.js',
+  ],
+  [
     'src/components/BudgetManagement/PlanCost/Detail/index.js',
     'src/components/BudgetManagement/PlanCost/Detail/BudgetManagementPlanCostDetail.js',
   ],

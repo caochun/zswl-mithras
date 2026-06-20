@@ -1,1 +1,1 @@
-export { default as BudgetExchangeRate } from './ExchangeRate'
+export { default as BudgetExchangeRate } from './ExchangeRate/BudgetExchangeRate'

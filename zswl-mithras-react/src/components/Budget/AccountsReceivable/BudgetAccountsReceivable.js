@@ -1,4 +1,4 @@
-import { history, observer } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { Button, Page, Table } from '@zswl/components'
 import Store from './store'
 import ALL_COLUMNS from './Column'

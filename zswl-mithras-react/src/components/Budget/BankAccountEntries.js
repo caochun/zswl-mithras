@@ -1,1 +1,1 @@
-export { default as BudgetBankAccount } from './BankAccount'
+export { default as BudgetBankAccount } from './BankAccount/BudgetBankAccount'
