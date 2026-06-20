@@ -1,1 +1,1 @@
-export { default as BlackGrayWarehouseApprovalDetailRedirect } from './RouteShells/WarehouseApprovalDetailRedirect'
+export { default as BlackGrayWarehouseApprovalDetailRedirect } from './RouteShells/WarehouseMainTaskDetailRedirect'
