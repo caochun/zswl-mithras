@@ -708,6 +708,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js',
   ],
   [
+    'src/components/Lease/Maintain/index.js',
+    'src/components/Lease/Maintain/LeaseMaintainList.js',
+  ],
+  [
+    'src/components/LifeCycle/CustomerList/index.js',
+    'src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js',
+  ],
+  [
     'src/components/Message/Notification/index.js',
     'src/components/Message/Notification/MessageNotification.js',
   ],
@@ -730,6 +738,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Overdue/LitigationDocAddModal/index.js',
     'src/components/Overdue/LitigationDocAddModal/OverdueLitigationDocAddModal.js',
+  ],
+  [
+    'src/components/Overdue/LitigationRegistration/List/index.js',
+    'src/components/Overdue/LitigationRegistration/List/OverdueLitigationRegistrationList.js',
   ],
   [
     'src/components/PaymentFtpColumns/index.js',
@@ -796,6 +808,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Process/RouteSnapshoot/ProcessRouteSnapshoot.js',
   ],
   [
+    'src/components/Process/Snapshoot/index.js',
+    'src/components/Process/Snapshoot/ProcessSnapshot.js',
+  ],
+  [
     'src/components/Process/ToSnapShoot/index.js',
     'src/components/Process/ToSnapShoot/ProcessToSnapShoot.js',
   ],
@@ -814,6 +830,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Project/ReviewDetail/Data/index.js',
     'src/components/Project/ReviewDetail/Data/ProjectReviewDetailDataList.js',
+  ],
+  [
+    'src/components/Project/ReviewDetail/CashFlowStatement/index.js',
+    'src/components/Project/ReviewDetail/CashFlowStatement/ProjectReviewDetailCashFlowStatement.js',
   ],
   [
     'src/components/Project/ReviewDetail/Report/index.js',

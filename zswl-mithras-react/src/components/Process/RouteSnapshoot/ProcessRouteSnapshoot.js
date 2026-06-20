@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
-import ProcessSnapshoot from '../Snapshoot'
+import ProcessSnapshoot from '../Snapshoot/ProcessSnapshot'
 
 function ProcessRouteSnapshoot({ params: { id } }) {
   return (

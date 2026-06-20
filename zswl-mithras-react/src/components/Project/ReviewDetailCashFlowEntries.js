@@ -1,1 +1,1 @@
-export { default as ReviewDetailCashFlowStatement } from './ReviewDetail/CashFlowStatement'
+export { default as ReviewDetailCashFlowStatement } from './ReviewDetail/CashFlowStatement/ProjectReviewDetailCashFlowStatement'

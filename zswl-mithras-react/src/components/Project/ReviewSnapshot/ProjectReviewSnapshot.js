@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import BaseInfo from '../ReviewDetail/BaseInfo'
-import CashFlowStatement from '../ReviewDetail/CashFlowStatement'
+import CashFlowStatement from '../ReviewDetail/CashFlowStatement/ProjectReviewDetailCashFlowStatement'
 import DataList from '../ReviewDetail/Data/ProjectReviewDetailDataList'
 import QuotationScheme from '../ReviewDetail/QuotationScheme'
 import ReviewData from '../ReviewDetail/Report/ProjectReviewDetailReport'
