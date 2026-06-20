@@ -4,7 +4,7 @@ import { Page, Access } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import CheckList from './Tab/CheckList/AfterLeaseCheckPlanCheckList'
 import OpenList from './Tab/OpenList/AfterLeaseCheckPlanOpenList'
-import Strategy from './Tab/Strategy'
+import Strategy from './Tab/Strategy/AfterLeaseCheckPlanStrategyPage'
 
 function Index({ query: { tab } }) {
   const [curTab, setCurTab] = useState('1')

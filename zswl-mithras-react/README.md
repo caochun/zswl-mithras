@@ -422,7 +422,7 @@
 - 风险评分卡列表页、详情页和试算弹窗分别通过 `src/components/Risk/SourceCardListEntries.js`、`SourceCardDetailEntries.js`、`SourceCardCalcModalEntries.js` 暴露，`src/pages/risk/sourceCard/*` 只保留路由壳和历史兼容入口。
 - 风控策略顶层页、指标管理、集中度管理和关联交易监测分别通过 `src/components/Risk/RiskStrategyPageEntries.js`、`RiskStrategyIndicatorEntries.js`、`RiskStrategyConcentrationEntries.js`、`RiskStrategyRelateMonitorEntries.js` 暴露，`src/pages/risk/riskStrategy/*` 只保留路由壳。
 - 租赁物维护列表页和详情页分别通过 `src/components/Lease/MaintainListEntries.js`、`MaintainDetailEntries.js` 暴露，列表真实实现命名为 `src/components/Lease/Maintain/LeaseMaintainList.js`，流程详情复用详情窄入口，`src/pages/lease/maintain/*` 只保留路由壳。
-- 应收账款列表页和详情页均通过 `src/components/Budget/AccountsReceivableEntries.js` 暴露，`src/pages/budget/accountsReceivable/*` 只保留路由壳。
+- 应收账款列表页和详情页均通过 `src/components/Budget/AccountsReceivableEntries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js` 和 `BudgetAccountsReceivableDetail.js`，`src/pages/budget/accountsReceivable/*` 只保留路由壳。
 - 收入分摊表列表页和详情页均通过 `src/components/Budget/IncomeShareTableEntries.js` 暴露，`src/pages/budget/incomeShareTable/*` 只保留路由壳。
 - 预算银行账户维护页通过 `src/components/Budget/BankAccountEntries.js` 暴露，`src/pages/budget/bankAccount/*` 只保留路由壳。
 - 预算业务账龄表列表页和详情页通过 `src/components/Budget/BusinessAgingTableEntries.js` 暴露，`src/pages/budget/businessAgingTable/*` 只保留路由壳。
@@ -432,8 +432,8 @@
 - 预算拨备减值列表页和详情页通过 `src/components/Budget/ProvisioningImpairmentEntries.js` 暴露，`src/pages/budget/provisioning/impairment/*` 只保留路由壳。
 - 预算拨备参数配置列表页和详情页通过 `src/components/Budget/ProvisioningParamsConfigEntries.js` 暴露，`src/pages/budget/provisioning/paramsConfig/*` 只保留路由壳；预算管理拨备预测复用的拨备弹窗和列配置通过 `src/components/Budget/ProvisioningSharedEntries.js` 暴露。
 - 预算定价基础数据维护页通过 `src/components/Budget/PricingBaseDataEntries.js` 暴露，`src/pages/budget/pricing/baseData/*` 只保留路由壳。
-- 预算定价基础参数设置列表页、详情弹窗和编辑表格分别通过 `src/components/Budget/PricingBaseSetListEntries.js`、`PricingBaseSetModalDetailEntries.js`、`PricingBaseSetModalEditTableEntries.js` 暴露，`src/pages/budget/pricing/baseSet/*` 只保留路由壳。
-- 预算定价业务通过 `src/components/Budget/PricingBusinessListEntries.js`、`src/components/Budget/PricingBusinessDetailEntries.js` 和 `src/components/Budget/PricingBusinessLogEntries.js` 分别暴露列表、详情和日志能力，`src/pages/budget/pricing/business/*` 只保留路由壳。
+- 预算定价基础参数设置列表页、详情弹窗和编辑表格分别通过 `src/components/Budget/PricingBaseSetListEntries.js`、`PricingBaseSetModalDetailEntries.js`、`PricingBaseSetModalEditTableEntries.js` 暴露，真实实现命名为 `BudgetPricingBaseSetList.js`、`BudgetPricingBaseSetModalDetail.js` 和 `BudgetPricingBaseSetModalEditTable.js`，`src/pages/budget/pricing/baseSet/*` 只保留路由壳。
+- 预算定价业务通过 `src/components/Budget/PricingBusinessListEntries.js`、`src/components/Budget/PricingBusinessDetailEntries.js` 和 `src/components/Budget/PricingBusinessLogEntries.js` 分别暴露列表、详情和日志能力，列表真实实现命名为 `BudgetPricingBusinessList.js`，`src/pages/budget/pricing/business/*` 只保留路由壳。
 - 预算定价 FTP 计息列表页、详情页、价格明细页和价格变更弹窗分别通过 `src/components/Budget/PricingFtpInterestListEntries.js`、`PricingFtpInterestDetailEntries.js`、`PricingFtpInterestPriceDetailEntries.js` 和 `PricingFtpInterestPriceChangeEntries.js` 暴露，`src/pages/budget/pricing/ftpInterest/*` 只保留路由壳。
 - 预算定价 FTP 收益率列表页和详情页通过 `src/components/Budget/PricingFtpYieldEntries.js` 暴露，`src/pages/budget/pricing/ftpYield/*` 只保留路由壳。
 - 预算 LPR 维护页通过 `src/components/Budget/LprEntries.js` 暴露，`src/pages/budget/lpr/*` 只保留路由壳。
@@ -484,7 +484,7 @@
 - 表格、文件表、描述表、审批详情等统一从 `src/components/Table` 稳定入口导入。
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
-- 租后调整列表和创建、检查计划检查清单和打开清单、策略创建、检查准备流程、管理台账、政策管理弹窗、政策提醒、回款列表、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
+- 租后调整列表和创建、检查计划检查清单、打开清单、策略页、策略创建、检查准备流程、管理台账、政策保单、政策管理弹窗、政策提醒、回款列表、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
 - 档案管理详情和其他资料归集详情分别通过 `src/components/Archives/ManagementEntries.js`、`OtherFilingMaterialsEntries.js` 暴露，真实实现使用档案域语义文件名，不再依赖目录 `index.js`。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。

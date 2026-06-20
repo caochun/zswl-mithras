@@ -1,7 +1,7 @@
 import { Button } from '@zswl/components'
 import BaseInfo from './BaseInfo'
 import { history, getQuery, observer } from '@zswl/admin'
-import Policy from './Policy'
+import Policy from './Policy/AfterLeasePolicyManagePolicy'
 import DetailLayout from '@/components/DetailLayout'
 
 const anchorList = [

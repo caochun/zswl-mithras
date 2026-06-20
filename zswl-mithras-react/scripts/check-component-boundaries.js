@@ -92,6 +92,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/CheckPlan/List/Tab/Strategy/CreateModal/AfterLeaseCheckPlanStrategyCreateModal.js',
   ],
   [
+    'src/components/AfterLease/CheckPlan/List/Tab/Strategy/index.js',
+    'src/components/AfterLease/CheckPlan/List/Tab/Strategy/AfterLeaseCheckPlanStrategyPage.js',
+  ],
+  [
     'src/components/AfterLease/CheckPlanPrepareProcess/index.js',
     'src/components/AfterLease/CheckPlanPrepareProcess/AfterLeaseCheckPlanPrepareProcess.js',
   ],
@@ -106,6 +110,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/AfterLease/PolicyManage/Base/Policy/FilesManageDraw/index.js',
     'src/components/AfterLease/PolicyManage/Base/Policy/FilesManageDraw/AfterLeasePolicyManagePolicyFilesManageDraw.js',
+  ],
+  [
+    'src/components/AfterLease/PolicyManage/Base/Policy/index.js',
+    'src/components/AfterLease/PolicyManage/Base/Policy/AfterLeasePolicyManagePolicy.js',
   ],
   [
     'src/components/AfterLease/PolicyManage/Base/Policy/PolicyModal/index.js',
@@ -220,8 +228,16 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/PricingBaseSet/List/BudgetPricingBaseSetList.js',
   ],
   [
+    'src/components/Budget/PricingBaseSetModalDetail/index.js',
+    'src/components/Budget/PricingBaseSetModalDetail/BudgetPricingBaseSetModalDetail.js',
+  ],
+  [
     'src/components/Budget/PricingBaseSetModalDetail/ModalEditTable/index.js',
     'src/components/Budget/PricingBaseSetModalDetail/ModalEditTable/BudgetPricingBaseSetModalEditTable.js',
+  ],
+  [
+    'src/components/Budget/PricingBusiness/List/index.js',
+    'src/components/Budget/PricingBusiness/List/BudgetPricingBusinessList.js',
   ],
   [
     'src/components/Budget/PricingFtpInterest/List/index.js',
@@ -274,6 +290,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Budget/AccountsReceivable/index.js',
     'src/components/Budget/AccountsReceivable/BudgetAccountsReceivable.js',
+  ],
+  [
+    'src/components/Budget/AccountsReceivableDetail/index.js',
+    'src/components/Budget/AccountsReceivableDetail/BudgetAccountsReceivableDetail.js',
   ],
   [
     'src/components/Budget/BankAccount/index.js',
