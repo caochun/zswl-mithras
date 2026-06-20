@@ -52,7 +52,10 @@
 - `AfterLease/RentCollectionListEntries.js`
 - `AfterLease/RentCollectionProcessEntries.js`
 - `App/RootRedirectEntries.js`
-- `Archives/ArchivesEntries.js`
+- `Archives/ManageEntries.js`
+- `Archives/ManagementEntries.js`
+- `Archives/OtherFilingMaterialsEntries.js`
+- `Archives/TaskEntries.js`
 - `BaseData/FileTemplateEntries.js`
 - `BaseData/LeaseholdPropertyEntries.js`
 - `BlackGray/BreakThroughEntries.js`

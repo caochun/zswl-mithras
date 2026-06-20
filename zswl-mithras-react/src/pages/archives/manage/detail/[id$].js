@@ -1,1 +1,1 @@
-export { ArchivesManageDetail as default } from '@/components/Archives/ArchivesEntries'
+export { ArchivesManageDetail as default } from '@/components/Archives/ManageEntries'

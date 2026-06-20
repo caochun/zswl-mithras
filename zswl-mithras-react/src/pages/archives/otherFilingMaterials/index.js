@@ -1,1 +1,1 @@
-export { ArchivesOtherFilingMaterials as default } from '@/components/Archives/ArchivesEntries'
+export { ArchivesOtherFilingMaterials as default } from '@/components/Archives/OtherFilingMaterialsEntries'
