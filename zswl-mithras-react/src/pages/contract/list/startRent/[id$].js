@@ -1,4 +1,4 @@
 export {
   ContractStartRentDetail as default,
-  contractCheckIrr as checkIrr,
-} from '@/components/Contract/ProcessDetailEntries'
+} from '@/components/Contract/ProcessRouteDetailEntries'
+export { contractCheckIrr as checkIrr } from '@/components/Contract/StartRentCheckEntries'

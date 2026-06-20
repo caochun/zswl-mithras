@@ -6,7 +6,7 @@ import {
   ContractDepositRefundNotification as PrepareContractDepositRefundNotification,
   ContractSettlementDetail as PrepareContractEarlySettlement,
   ContractStartRentDetail as PrepareContractStartRent,
-} from '@/components/Contract/ProcessDetailEntries'
+} from '@/components/Contract/ProcessPrepareDetailEntries'
 import { BudgetProfitDistribution as PrepareProfitDistribution } from '@/components/Budget/ProfitDistributionEntries'
 import { CustomerRatDetail as PrepareCustomerRating } from '@/components/Customer/CustomerRatingDetailEntries'
 import { FilingMaterialsApply as PrepareFilingMaterialsApply } from '@/components/FilingMaterials/ApplyEntries'
