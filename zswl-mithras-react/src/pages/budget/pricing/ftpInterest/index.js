@@ -1,1 +1,1 @@
-export { BudgetPricingFtpInterest as default } from '@/components/Budget/PricingFtpInterestEntries'
+export { BudgetPricingFtpInterest as default } from '@/components/Budget/PricingFtpInterestListEntries'

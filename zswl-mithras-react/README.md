@@ -96,7 +96,10 @@
 - `Budget/PricingBusinessDetailEntries.js`
 - `Budget/PricingBusinessListEntries.js`
 - `Budget/PricingBusinessLogEntries.js`
-- `Budget/PricingFtpInterestEntries.js`
+- `Budget/PricingFtpInterestDetailEntries.js`
+- `Budget/PricingFtpInterestListEntries.js`
+- `Budget/PricingFtpInterestPriceChangeEntries.js`
+- `Budget/PricingFtpInterestPriceDetailEntries.js`
 - `Budget/PricingFtpYieldEntries.js`
 - `Budget/ProfitDistributionEntries.js`
 - `Budget/ProjectProfitEntries.js`
@@ -372,7 +375,7 @@
 - 预算定价基础数据维护页通过 `src/components/Budget/PricingBaseDataEntries.js` 暴露，`src/pages/budget/pricing/baseData/*` 只保留路由壳。
 - 预算定价基础参数设置列表页和弹窗通过 `src/components/Budget/PricingBaseSetEntries.js` 暴露，`src/pages/budget/pricing/baseSet/*` 只保留路由壳。
 - 预算定价业务通过 `src/components/Budget/PricingBusinessListEntries.js`、`src/components/Budget/PricingBusinessDetailEntries.js` 和 `src/components/Budget/PricingBusinessLogEntries.js` 分别暴露列表、详情和日志能力，`src/pages/budget/pricing/business/*` 只保留路由壳。
-- 预算定价 FTP 计息列表页、详情页和价格明细页通过 `src/components/Budget/PricingFtpInterestEntries.js` 暴露，`src/pages/budget/pricing/ftpInterest/*` 只保留路由壳。
+- 预算定价 FTP 计息列表页、详情页、价格明细页和价格变更弹窗分别通过 `src/components/Budget/PricingFtpInterestListEntries.js`、`PricingFtpInterestDetailEntries.js`、`PricingFtpInterestPriceDetailEntries.js` 和 `PricingFtpInterestPriceChangeEntries.js` 暴露，`src/pages/budget/pricing/ftpInterest/*` 只保留路由壳。
 - 预算定价 FTP 收益率列表页和详情页通过 `src/components/Budget/PricingFtpYieldEntries.js` 暴露，`src/pages/budget/pricing/ftpYield/*` 只保留路由壳。
 - 预算 LPR 维护页通过 `src/components/Budget/LprEntries.js` 暴露，`src/pages/budget/lpr/*` 只保留路由壳。
 - 预算项目利润列表页、详情页和列配置通过 `src/components/Budget/ProjectProfitEntries.js` 暴露，`src/pages/budget/projProfit/*` 只保留路由壳。
