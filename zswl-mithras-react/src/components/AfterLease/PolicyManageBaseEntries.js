@@ -1,5 +1,0 @@
-export { default as AfterLeasePolicyManageBase } from './PolicyManage/Base'
-export { default as AfterLeasePolicyManageBaseInfo } from './PolicyManage/Base/BaseInfo'
-export { default as AfterLeasePolicyManagePolicy } from './PolicyManage/Base/Policy'
-export { default as AfterLeasePolicyManagePolicyFilesManageDraw } from './PolicyManage/Base/Policy/FilesManageDraw'
-export { default as AfterLeasePolicyManagePolicyModal } from './PolicyManage/Base/Policy/PolicyModal'

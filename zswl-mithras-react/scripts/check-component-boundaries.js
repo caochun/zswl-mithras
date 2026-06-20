@@ -748,6 +748,7 @@ const compatibilityComponentEntries = new Set([
 const removedCompatibilityComponentEntries = new Map([
   ['AfterLease/CheckPlanListEntries.js', 'AfterLease/CheckPlan*Entries.js'],
   ['AfterLease/PolicyManageEntries.js', 'AfterLease/PolicyManage*Entries.js'],
+  ['AfterLease/PolicyManageBaseEntries.js', 'AfterLease/PolicyManageBase*Entries.js'],
   ['Archives/ArchivesEntries.js', 'Archives/* narrow Entries.js'],
   ['BlackGray/AllQueryEntries.js', 'BlackGray/AllQuery*Entries.js'],
   ['BlackGray/BlackGrayEntries.js', 'BlackGray/* narrow Entries.js'],
