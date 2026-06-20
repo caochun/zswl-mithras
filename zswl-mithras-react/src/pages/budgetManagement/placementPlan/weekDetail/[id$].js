@@ -1,1 +1,1 @@
-export { BudgetManagementPlacementPlanWeekDetail as default } from '@/components/BudgetManagement/BudgetManagementEntries'
+export { BudgetManagementPlacementPlanWeekDetail as default } from '@/components/BudgetManagement/PlacementPlanEntries'

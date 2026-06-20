@@ -1,1 +1,1 @@
-export { BudgetManagementPlanProfitDetail as default } from '@/components/BudgetManagement/BudgetManagementEntries'
+export { BudgetManagementPlanProfitDetail as default } from '@/components/BudgetManagement/PlanProfitEntries'

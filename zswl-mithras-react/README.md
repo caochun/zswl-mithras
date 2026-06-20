@@ -79,7 +79,12 @@
 - `Budget/ProjectProfitEntries.js`
 - `Budget/ProvisioningEntries.js`
 - `Budget/StampDutyEntries.js`
-- `BudgetManagement/BudgetManagementEntries.js`
+- `BudgetManagement/AssessmentEntries.js`
+- `BudgetManagement/ParameterEntries.js`
+- `BudgetManagement/PlacementPlanEntries.js`
+- `BudgetManagement/PlanCostEntries.js`
+- `BudgetManagement/PlanProfitEntries.js`
+- `BudgetManagement/ProvisionForecastEntries.js`
 - `BusinessInfoCheck/BusinessInfoCheckEntries.js`
 - `ChangeLogDiff/ChangeLogDiffEntries.js`
 - `Chart/BarChartEntries.js`
@@ -276,14 +281,14 @@
 - 预算项目利润列表页、详情页和列配置通过 `src/components/Budget/ProjectProfitEntries.js` 暴露，`src/pages/budget/projProfit/*` 只保留路由壳。
 - 预算印花税维护页通过 `src/components/Budget/StampDutyEntries.js` 暴露，`src/pages/budget/stampDuty/*` 只保留路由壳。
 - KPI 项目分配列表页、分配明细和表单片段通过 `src/components/Kpi/ProjectAllotListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
-- 预算考核列表页和详情页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
+- 预算考核列表页和详情页通过 `src/components/BudgetManagement/AssessmentEntries.js` 暴露，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
 - 预算管理业绩目标是历史菜单路径，实际归入 KPI 业绩目标组件域；列表页和详情页通过 `src/components/Kpi/BusinessGoalEntries.js` 暴露，`src/pages/budgetManagement/businessGoal/*` 只保留路由壳。
-- 预算管理参数配置页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/parameterConfig` 只保留路由壳。
-- 预算管理参数配置（历史定价基础配置路径）页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/parameterConfiguration` 只保留路由壳。
-- 预算管理投放计划列表页、详情页和周报详情页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/placementPlan/*` 只保留路由壳。
-- 预算管理成本计划列表页和详情页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/plan/cost/*` 只保留路由壳。
-- 预算管理利润计划列表页、详情页和业务明细页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/plan/profit/*` 只保留路由壳。
-- 预算管理拨备预测列表页、详情页和配置详情页通过 `src/components/BudgetManagement/BudgetManagementEntries.js` 暴露，`src/pages/budgetManagement/provisionForecast/*` 只保留路由壳。
+- 预算管理参数配置页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，`src/pages/budgetManagement/parameterConfig` 只保留路由壳。
+- 预算管理参数配置（历史定价基础配置路径）页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，`src/pages/budgetManagement/parameterConfiguration` 只保留路由壳。
+- 预算管理投放计划列表页、详情页和周报详情页通过 `src/components/BudgetManagement/PlacementPlanEntries.js` 暴露，`src/pages/budgetManagement/placementPlan/*` 只保留路由壳。
+- 预算管理成本计划列表页和详情页通过 `src/components/BudgetManagement/PlanCostEntries.js` 暴露，`src/pages/budgetManagement/plan/cost/*` 只保留路由壳。
+- 预算管理利润计划列表页、详情页和业务明细页通过 `src/components/BudgetManagement/PlanProfitEntries.js` 暴露，`src/pages/budgetManagement/plan/profit/*` 只保留路由壳。
+- 预算管理拨备预测列表页、详情页和配置详情页通过 `src/components/BudgetManagement/ProvisionForecastEntries.js` 暴露，`src/pages/budgetManagement/provisionForecast/*` 只保留路由壳。
 - 金融产权列表页通过 `src/components/Financial/PropertyEntries.js` 暴露，`src/pages/financial/property` 只保留路由壳。
 - 直融产品列表页通过 `src/components/Financial/DirectListEntries.js` 暴露，`src/pages/financial/direct/index.js` 只保留路由壳；直融详情继续通过 `src/components/Financial/DirectDetailEntries.js` 暴露。
 - 金融机构管理页通过 `src/components/Financial/OrgEntries.js` 暴露，`src/pages/financial/org/*` 只保留路由壳。

@@ -1,1 +1,1 @@
-export { BudgetManagementParameterConfig as default } from '@/components/BudgetManagement/BudgetManagementEntries'
+export { BudgetManagementParameterConfig as default } from '@/components/BudgetManagement/ParameterEntries'
