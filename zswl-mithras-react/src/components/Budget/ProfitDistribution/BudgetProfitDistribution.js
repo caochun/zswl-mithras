@@ -2,8 +2,8 @@ import { useMemo, useRef } from 'react'
 import { observer, getQuery } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import Store from './store'
-import BaseInfo from './BaseInfo/index'
-import AllocateInfo from './AllocateInfo/index'
+import BaseInfo from './BaseInfo'
+import AllocateInfo from './AllocateInfo'
 const Index = ({ params }) => {
   const { id, detail, taskActivityId } = params
   const prepare = getQuery('tab') == 'prepare'

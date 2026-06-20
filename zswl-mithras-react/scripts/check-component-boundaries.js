@@ -1686,11 +1686,11 @@ const removedLegacyApiPathPrefixes = [
   },
   {
     pathPrefix: 'src/api/risk/customerUnifiedViewController',
-    replacement: 'src/api/customerView/riskAreaApi or src/api/customerView/customerDetailApi',
+    replacement: 'src/api/customerView/customerDetailApi',
   },
   {
     pathPrefix: 'src/api/risk/interface/customerUnifiedViewController',
-    replacement: 'src/api/customerView/riskAreaApi or src/api/customerView/customerDetailApi',
+    replacement: 'src/api/customerView/customerDetailApi',
   },
   {
     pathPrefix: 'src/api/workbench',
@@ -2103,11 +2103,11 @@ const legacyApiPrefixRules = [
   },
   {
     legacyPrefix: '@/api/risk/customerUnifiedViewController',
-    replacementPrefix: '@/api/customerView/riskAreaApi or @/api/customerView/customerDetailApi',
+    replacementPrefix: '@/api/customerView/customerDetailApi',
   },
   {
     legacyPrefix: '@/api/risk/monitorEarly',
-    replacementPrefix: '@/api/customerView/riskWarningApi or @/api/risk/monitorEarly in Risk monitor pages',
+    replacementPrefix: '@/api/lifeCycle/riskWarningApi or @/api/risk/monitorEarly in Risk monitor pages',
     allowedSourcePathPrefixes: [
       'src/components/Risk/MonitorEarly/',
       'src/pages/monitorEarly/',

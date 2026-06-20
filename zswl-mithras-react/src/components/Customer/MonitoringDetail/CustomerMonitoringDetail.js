@@ -3,7 +3,7 @@ import styles from './style.less'
 import { Page, App } from '@zswl/components'
 import { observer } from '@zswl/admin'
 import SafetyCertificateOutlined from './svgs/SafetyCertificateOutlined.svg'
-import Bootm from './components/Bootm/index'
+import Bootm from './components/Bootm'
 import store from './store'
 import BreadcrumbList from '@/layout/BreadcrumbList'
 

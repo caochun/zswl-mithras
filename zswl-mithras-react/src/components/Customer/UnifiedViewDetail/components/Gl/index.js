@@ -1,8 +1,8 @@
 import { getQuery, observer } from '@zswl/admin'
 import { Anchor, Row, Col, Space, Divider } from 'antd'
-import Creditinformation from './haders/index'
-import ProjectContract from './Content/index'
-import CreditRating from './CreditRating/index' // 信用评价
+import Creditinformation from './haders'
+import ProjectContract from './Content'
+import CreditRating from './CreditRating' // 信用评价
 import styles from '../styles.less'
 import { Page } from '@zswl/components'
 import store from './store'
