@@ -1,1 +1,1 @@
-export { ProcessApplication as default } from '@/components/Process/ProcessEntries'
+export { ProcessApplication as default } from '@/components/Process/ApplicationEntries'

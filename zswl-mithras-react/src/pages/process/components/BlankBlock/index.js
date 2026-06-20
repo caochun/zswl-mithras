@@ -1,1 +1,1 @@
-export { ProcessBlankBlock as default } from '@/components/Process/ProcessEntries'
+export { ProcessBlankBlock as default } from '@/components/Process/ComponentEntries'

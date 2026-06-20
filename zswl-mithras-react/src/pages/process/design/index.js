@@ -1,1 +1,1 @@
-export { ProcessDesign as default } from '@/components/Process/ProcessEntries'
+export { ProcessDesign as default } from '@/components/Process/DesignEntries'

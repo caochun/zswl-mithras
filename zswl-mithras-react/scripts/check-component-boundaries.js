@@ -758,6 +758,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['PaymentApplyColumns/PaymentApplyColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
   ['PaymentFtpColumns/PaymentFtpColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],
   ['Policy/PolicyEntries.js', 'InsurancePolicy/InsurancePolicyEntries.js'],
+  ['Process/ProcessEntries.js', 'Process/* narrow Entries.js'],
   ['Project/ReviewMeetingEntries.js', 'Project/ProjectReviewMeetingModalEntries.js'],
   ['TrackEvent/TrackEventEntries.js', 'TrackEvent/* narrow Entries.js'],
   ['TrackEvent/TrackingEntries.js', 'TrackEvent/* narrow Entries.js'],

@@ -172,7 +172,12 @@
 - `Permission/AuthEntries.js`
 - `Permission/BifrostEntries.js`
 - `Preview/PreviewEntries.js`
-- `Process/ProcessEntries.js`
+- `Process/ApplicationEntries.js`
+- `Process/ComponentEntries.js`
+- `Process/DesignEntries.js`
+- `Process/DetailEntries.js`
+- `Process/QueryEntries.js`
+- `Process/ReceiveEntries.js`
 - `Process/ProcessInfoModalEntries.js`
 - `Process/ProcessTaskFlowChartEntries.js`
 - `Project/DebtEvaluationEntries.js`
@@ -313,7 +318,7 @@
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
 - dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
-- 我的流程页签、我的审批页签、流程查询、流程设计、准备列表页与准备详情页已收敛到 `src/components/Process`，路由页仅保留入口装配。
+- 我的流程页签、我的审批页签、流程查询、流程设计、流程详情路由和历史组件路由已收敛到 `src/components/Process` 的窄 `*Entries.js`，路由页仅保留入口装配。
 - 白名单列表、详情、列定义已收敛到 `src/components/WhiteList`，路由页仅保留入口装配。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
@@ -405,7 +410,7 @@
 - `components/BlackGray/Actions`：黑灰名单审批动作集合；黑灰名单页面应通过对应黑灰名单窄入口或域内相对路径使用，其他业务域需要通用导出时使用 `src/components/Actions.StoreExportAction` 或其他公共 Actions。
 - `components/BlackGray/RiskIframe`：黑灰名单外部查询页面 iframe 适配；黑灰名单查询页面应通过 `src/components/BlackGray/QueryEntries.js` 使用。
 - `components/BlackGray/Info`：黑灰名单命中标识组件；业务页面和组件应通过 `src/components/BlackGray/BlackGrayHitEntries.js` 使用。
-- `components/Process/BpmnFlowChart`、`components/Process/TaskFlowChart`：流程图组件；流程详情、流程弹窗和审批记录通过 `src/components/Process/ProcessEntries.js` 使用。
+- `components/Process/BpmnFlowChart`、`components/Process/TaskFlowChart`：流程图组件；流程详情域内使用相对路径，外部审批记录通过 `src/components/Process/ProcessTaskFlowChartEntries.js` 使用。
 - `components/Financial/ChangeLogLayout`：财务版本变更日志布局；财务付款/融资日志页面通过 `src/components/Financial/ChangeLogEntries.js` 使用。
 - `process/flowExecution`：流程执行接口是流程中心通用能力；业务组件提交自身审批时使用本业务域的语义入口，例如客户评级使用 `src/api/customer/customerRat/customerRatApprovalApi`，不再转发流程 API 文件。
 - `customer/customerRat/customerRatApi`：客户评级页面和客户组件保留客户域 API；项目立项/评审更新评级信息使用 `src/api/project/ratingApi`，项目接口实现不再挂在客户评级 API 内。

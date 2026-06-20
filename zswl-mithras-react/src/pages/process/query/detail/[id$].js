@@ -1,1 +1,1 @@
-export { ProcessRouteDetail as default } from '@/components/Process/ProcessEntries'
+export { ProcessRouteDetail as default } from '@/components/Process/DetailEntries'

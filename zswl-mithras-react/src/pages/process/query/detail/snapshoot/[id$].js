@@ -1,1 +1,1 @@
-export { ProcessRouteSnapshoot as default } from '@/components/Process/ProcessEntries'
+export { ProcessRouteSnapshoot as default } from '@/components/Process/DetailEntries'
