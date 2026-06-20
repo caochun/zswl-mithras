@@ -179,6 +179,7 @@
 - `Report/OperationEntries.js`
 - `Risk/CloudMetricValueEntries.js`
 - `Risk/FinanceSheetEntries.js`
+- `Risk/FinanceSheetFileEntries.js`
 - `Risk/MetricValueEntries.js`
 - `Risk/MetricTimedEntries.js`
 - `Risk/MonitorEarlyEntries.js`
@@ -242,6 +243,7 @@
 - 应收账款列表页和详情页均通过 `src/components/Budget/AccountsReceivableEntries.js` 暴露，`src/pages/budget/accountsReceivable/*` 只保留路由壳。
 - 收入分摊表列表页和详情页均通过 `src/components/Budget/IncomeShareTableEntries.js` 暴露，`src/pages/budget/incomeShareTable/*` 只保留路由壳。
 - 预算银行账户维护页通过 `src/components/Budget/BankAccountEntries.js` 暴露，`src/pages/budget/bankAccount/*` 只保留路由壳。
+- 预算历史路径下的财务报表导入实际归入风险指标财报域，通过 `src/components/Risk/FinanceSheetFileEntries.js` 暴露，`src/pages/budget/financeSheet/*` 只保留路由壳。
 - 预算拨备数据查询页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/dataSearch/*` 只保留路由壳。
 - 预算拨备减值列表页和详情页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/impairment/*` 只保留路由壳。
 - 预算拨备参数配置列表页和详情页通过 `src/components/Budget/ProvisioningEntries.js` 暴露，`src/pages/budget/provisioning/paramsConfig/*` 只保留路由壳。
