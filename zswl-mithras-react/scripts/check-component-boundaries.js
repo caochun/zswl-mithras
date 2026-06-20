@@ -9,6 +9,7 @@ const { analyzeUiDomainDeps } = require('./report-ui-domain-deps')
 const scanDirs = [srcDir]
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
 const scannableFilePattern = /\.(js|jsx|ts|tsx|less)$/
+const styleFilePattern = /\.(less|css|scss|sass)$/
 const copiedSourceFilePattern =
   /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx)$/i
 const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
@@ -601,6 +602,23 @@ function walk(dir, files = []) {
   return files
 }
 
+function walkMatchingFiles(dir, pattern, files = []) {
+  if (!fs.existsSync(dir)) {
+    return files
+  }
+
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const filePath = path.join(dir, entry.name)
+    if (entry.isDirectory()) {
+      walkMatchingFiles(filePath, pattern, files)
+    } else if (pattern.test(entry.name)) {
+      files.push(filePath)
+    }
+  }
+
+  return files
+}
+
 function extractSpecifiers(source, relativeFilePath) {
   const specifiers = []
   const pattern = /\.less$/.test(relativeFilePath) ? styleImportPattern : importPattern
@@ -685,6 +703,17 @@ function extractNamedImports(importText) {
 
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
+const styleFiles = scanDirs.flatMap((dir) => walkMatchingFiles(dir, styleFilePattern))
+
+for (const filePath of styleFiles) {
+  if (fs.statSync(filePath).size === 0) {
+    violations.push({
+      file: path.relative(root, filePath),
+      specifier: 'empty style file',
+    })
+  }
+}
+
 for (const filePath of sourceFiles) {
   const relativeFilePath = path.relative(root, filePath)
   if (copiedSourceFilePattern.test(relativeFilePath)) {
