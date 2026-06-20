@@ -5,7 +5,7 @@ import {
   EstablishmentFactoringBaseInfo,
   EstablishmentLeaseBaseInfo,
   EstablishmentTurnLeaseBaseInfo,
-} from '../../../BaseInfo'
+} from '../../../BaseInfo/ProjectEstablishmentBaseInfo'
 
 const Index = ({ bizType, detail, showValue, isLog }) => {
   const CurrentDom = useMemo(() => {

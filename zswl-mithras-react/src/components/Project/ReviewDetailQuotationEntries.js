@@ -1,1 +1,1 @@
-export { default as ReviewDetailQuotationScheme } from './ReviewDetail/QuotationScheme'
+export { default as ReviewDetailQuotationScheme } from './ReviewDetail/QuotationScheme/ProjectReviewQuotationScheme'

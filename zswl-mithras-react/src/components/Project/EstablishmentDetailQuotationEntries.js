@@ -1,1 +1,1 @@
-export { default as ProjectEstablishmentDetailQuotationScheme } from './EstablishmentDetail/QuotationScheme'
+export { default as ProjectEstablishmentDetailQuotationScheme } from './EstablishmentDetail/QuotationScheme/ProjectEstablishmentQuotationScheme'

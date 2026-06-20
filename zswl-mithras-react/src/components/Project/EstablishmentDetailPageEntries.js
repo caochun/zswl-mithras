@@ -1,2 +1,2 @@
 export { default as ProjectEstablishmentDetail } from './EstablishmentDetail'
-export { default as ProjectEstablishmentDetailBaseInfo } from './EstablishmentDetail/BaseInfo'
+export { default as ProjectEstablishmentDetailBaseInfo } from './EstablishmentDetail/BaseInfo/ProjectEstablishmentBaseInfo'

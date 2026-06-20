@@ -568,6 +568,30 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Contract/ApplicationDetail/Log/ContractApplicationLog.js',
   ],
   [
+    'src/components/Project/EstablishmentDetail/BaseInfo/index.js',
+    'src/components/Project/EstablishmentDetail/BaseInfo/ProjectEstablishmentBaseInfo.js',
+  ],
+  [
+    'src/components/Project/EstablishmentDetail/QuotationScheme/index.js',
+    'src/components/Project/EstablishmentDetail/QuotationScheme/ProjectEstablishmentQuotationScheme.js',
+  ],
+  [
+    'src/components/Project/PriceDetail/BaseInfo/index.js',
+    'src/components/Project/PriceDetail/BaseInfo/ProjectPriceBaseInfo.js',
+  ],
+  [
+    'src/components/Project/PriceDetail/QuotationScheme/index.js',
+    'src/components/Project/PriceDetail/QuotationScheme/ProjectPriceQuotationScheme.js',
+  ],
+  [
+    'src/components/Project/ReviewDetail/BaseInfo/index.js',
+    'src/components/Project/ReviewDetail/BaseInfo/ProjectReviewBaseInfo.js',
+  ],
+  [
+    'src/components/Project/ReviewDetail/QuotationScheme/index.js',
+    'src/components/Project/ReviewDetail/QuotationScheme/ProjectReviewQuotationScheme.js',
+  ],
+  [
     'src/components/Customer/FinancialReport/DeteleIcon.js',
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],

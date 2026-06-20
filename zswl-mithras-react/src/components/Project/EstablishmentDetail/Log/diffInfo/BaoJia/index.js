@@ -3,7 +3,7 @@ import {
   EstablishmentAssignmentOfClaimsQuotationScheme,
   EstablishmentFactoringQuotationScheme,
   EstablishmentLeaseQuotationScheme,
-} from '../../../QuotationScheme'
+} from '../../../QuotationScheme/ProjectEstablishmentQuotationScheme'
 
 const Index = ({ bizType, detail, showValue, isLog }) => {
   const CurrentDom = useMemo(() => {
