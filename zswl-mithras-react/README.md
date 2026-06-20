@@ -608,7 +608,7 @@
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
 - `ocr/list`、`ocr/recognition`：OCR 发票/车证列表、比对和上传识别实现已收敛到 `src/components/Ocr`，列表和识别页分别通过 `src/components/Ocr/ListEntries.js`、`RecognitionEntries.js` 暴露，上传弹窗保留为 OCR 内部组件；发票/车证 API 仍保留在 OCR 生成入口，后续若拆分租赁物语义 API 需另行评估。
 - `cvicse`、`student`：当前代码树中已不存在；后续若恢复这些外部系统或实验路由，需先确认菜单、权限和外部链接来源。
-- `demo`：本地实验/脚手架目录，含注释示例和硬编码调试地址；不作为业务域边界判断输入。
+- `mock`、`demo`、`example`：源码目录下不保留本地实验或样例文件；需要示例时应进入 README 或正式文档，不作为业务域实现文件存在。
 
 目录整理原则：
 

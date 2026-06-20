@@ -14,6 +14,8 @@ const scannableFilePattern = /\.(js|jsx|ts|tsx|less)$/
 const styleFilePattern = /\.(less|css|scss|sass)$/
 const copiedSourceFilePattern =
   /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx)$/i
+const sampleSourceFilePattern =
+  /(?:^|[\\/])(?:mock|demo|example)[\\/]|(?:^|[\\/])(?:mock|demo|example)\.(?:js|jsx|ts|tsx)$/i
 const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
@@ -816,6 +818,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'copied or backup source file',
+    })
+  }
+
+  if (sampleSourceFilePattern.test(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'mock/demo/example source file',
     })
   }
 

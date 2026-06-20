@@ -10,7 +10,6 @@ import { PayCircleOutlined } from '@ant-design/icons'
 import FormIrr from '@/components/FormIrr'
 import irrGenerationApi from '@/api/layout/irrGenerationApi'
 import mathjs from '@/utils/math'
-import mock from './mock'
 import _ from 'lodash'
 
 import { saveServer } from '@/utils'
