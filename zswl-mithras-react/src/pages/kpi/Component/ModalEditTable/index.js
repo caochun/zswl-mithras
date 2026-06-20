@@ -1,1 +1,1 @@
-export { KpiModalEditTable as default } from '@/components/Kpi/BaseSetModalDetailEntries'
+export { KpiModalEditTable as default } from '@/components/Kpi/BaseSetTableEntries'

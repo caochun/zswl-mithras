@@ -1,1 +1,1 @@
-export { KpiBaseSetFeiYongJiTi as default } from '@/components/Kpi/BaseSetModalDetailEntries'
+export { KpiBaseSetFeiYongJiTi as default } from '@/components/Kpi/BaseSetExpenseAccrualEntries'

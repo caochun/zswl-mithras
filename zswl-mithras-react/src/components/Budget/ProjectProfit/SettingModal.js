@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Table, Page, Modal, Form } from '@zswl/components'
-import { KpiBaseSetModalDetail as ModalDetail } from '@/components/Kpi/BaseSetModalDetailEntries'
+import { KpiBaseSetModalDetail as ModalDetail } from '@/components/Kpi/BaseSetModalEntries'
 import { isAdminAccount, saveServer } from '@/utils'
 import FormListItem from './FormListItem'
 import styles from './index.less'

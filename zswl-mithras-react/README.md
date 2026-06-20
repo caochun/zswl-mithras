@@ -159,8 +159,14 @@
 - `Financial/SelectEntries.js`
 - `InsurancePolicy/InsurancePolicyColumnsEntries.js`
 - `InsurancePolicy/InsurancePolicyEntries.js`
+- `Kpi/BaseSetDepartmentTheoryEntries.js`
 - `Kpi/BaseSetEntries.js`
-- `Kpi/BaseSetModalDetailEntries.js`
+- `Kpi/BaseSetExpenseAccrualEntries.js`
+- `Kpi/BaseSetFormulaTheoryEntries.js`
+- `Kpi/BaseSetModalEntries.js`
+- `Kpi/BaseSetOtherConfigEntries.js`
+- `Kpi/BaseSetProjectExtractEntries.js`
+- `Kpi/BaseSetTableEntries.js`
 - `Kpi/BusinessGoalEntries.js`
 - `Kpi/EstimationContractEntries.js`
 - `Kpi/EstimationDepartmentalPoolEntries.js`

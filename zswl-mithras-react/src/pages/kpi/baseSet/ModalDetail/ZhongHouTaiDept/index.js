@@ -1,1 +1,1 @@
-export { KpiBaseSetZhongHouTaiDept as default } from '@/components/Kpi/BaseSetModalDetailEntries'
+export { KpiBaseSetZhongHouTaiDept as default } from '@/components/Kpi/BaseSetOtherConfigEntries'

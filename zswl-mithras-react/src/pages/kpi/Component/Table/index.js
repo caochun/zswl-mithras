@@ -1,1 +1,1 @@
-export { KpiBeautyTable as default } from '@/components/Kpi/BaseSetModalDetailEntries'
+export { KpiBeautyTable as default } from '@/components/Kpi/BaseSetTableEntries'

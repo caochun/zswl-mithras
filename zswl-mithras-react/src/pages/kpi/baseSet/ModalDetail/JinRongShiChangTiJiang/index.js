@@ -1,1 +1,1 @@
-export { KpiBaseSetJinRongShiChangTiJiang as default } from '@/components/Kpi/BaseSetModalDetailEntries'
+export { KpiBaseSetJinRongShiChangTiJiang as default } from '@/components/Kpi/BaseSetOtherConfigEntries'
