@@ -45,7 +45,7 @@ class Store {
   }
 }
 
-function Id({ params, query }) {
+function BlackGrayWarehouseRuleDetail({ params, query }) {
   const { view, source } = query
   const store = useMemo(() => new Store({ source }), [source])
   const detail = store.page.getData()
@@ -108,4 +108,4 @@ function Id({ params, query }) {
   )
 }
 
-export default observer(Id)
+export default observer(BlackGrayWarehouseRuleDetail)

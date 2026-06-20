@@ -1402,6 +1402,38 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Kpi/ProjectAllot/History/KpiProjectAllotHistory.js',
   ],
   [
+    'src/components/BlackGray/BreakThrough/Approval/Detail/[id$].js',
+    'src/components/BlackGray/BreakThrough/Approval/Detail/BlackGrayBreakThroughApprovalDetail.js',
+  ],
+  [
+    'src/components/BlackGray/EnterDatabase/History/Detail/[id$].js',
+    'src/components/BlackGray/EnterDatabase/History/Detail/BlackGrayEnterDatabaseHistoryDetail.js',
+  ],
+  [
+    'src/components/BlackGray/Outbound/Approval/Detail/[id$].js',
+    'src/components/BlackGray/Outbound/Approval/Detail/BlackGrayOutboundApprovalDetail.js',
+  ],
+  [
+    'src/components/BlackGray/Query/AllQuery/detail/[id$].js',
+    'src/components/BlackGray/Query/AllQuery/detail/BlackGrayAllQueryDetail.js',
+  ],
+  [
+    'src/components/BlackGray/Query/AllQuery/groupDetail/[id].js',
+    'src/components/BlackGray/Query/AllQuery/groupDetail/BlackGrayAllQueryGroupDetail.js',
+  ],
+  [
+    'src/components/BlackGray/Warehouse/Approval/OutDetail/[id$].js',
+    'src/components/BlackGray/Warehouse/Approval/OutDetail/BlackGrayWarehouseApprovalOutDetail.js',
+  ],
+  [
+    'src/components/BlackGray/Warehouse/MainTask/Detail/[id$].js',
+    'src/components/BlackGray/Warehouse/MainTask/Detail/BlackGrayWarehouseMainTaskDetail.js',
+  ],
+  [
+    'src/components/BlackGray/Warehouse/Rule/Detail/[id$].js',
+    'src/components/BlackGray/Warehouse/Rule/Detail/BlackGrayWarehouseRuleDetail.js',
+  ],
+  [
     'src/components/Preview/ReportPreview/[id$].js',
     'src/components/Preview/ReportPreview/PreviewReportPreview.js',
   ],

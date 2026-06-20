@@ -1,1 +1,1 @@
-export { default as BlackGrayWarehouseApprovalOutDetail } from './Warehouse/Approval/OutDetail/[id$]'
+export { default as BlackGrayWarehouseApprovalOutDetail } from './Warehouse/Approval/OutDetail/BlackGrayWarehouseApprovalOutDetail'

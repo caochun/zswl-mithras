@@ -6,7 +6,7 @@ import LoginInfo from '../../../Manage/LoginInfo'
 import EnterForm from '../../../Manage/EnterForm'
 import EnterDesc from '../../../Manage/EnterDesc'
 
-function Id({ params, path, query }) {
+function BlackGrayEnterDatabaseHistoryDetail({ params, path, query }) {
   const { view } = query
   const detail = store.page.getData()
   return (
@@ -49,4 +49,4 @@ function Id({ params, path, query }) {
   )
 }
 
-export default observer(Id)
+export default observer(BlackGrayEnterDatabaseHistoryDetail)

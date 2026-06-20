@@ -43,7 +43,7 @@ class Store {
 }
 const store = new Store()
 
-const Index = ({ params, query }) => {
+const BlackGrayAllQueryGroupDetail = ({ params, query }) => {
   const listColumns = useMemo(() => {
     return getTableColumns(ALl_COLUMNS, [
       { title: '所属机构', dataIndex: 'applyOrganization', matchOption: 'orgOptions' },
@@ -107,4 +107,4 @@ const Index = ({ params, query }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BlackGrayAllQueryGroupDetail)

@@ -495,10 +495,11 @@
 - 预算管理成本计划、利润计划详情/业务明细/列表、拨备预测列表和配置详情通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现使用预算管理域语义文件名，不再依赖目录 `index.js`。
 - 图表柱状图和折线图分别通过 `src/components/Chart/BarChartEntries.js`、`LineChartEntries.js` 暴露，真实实现命名为 `src/components/Chart/BarChart/BarChart.js` 和 `src/components/Chart/LineChart/LineChart.js`。
 - 黑灰名单命中标识通过 `src/components/BlackGray/BlackGrayHitEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Info/BlackGrayHitInfo.js`。
-- 黑灰名单突破申请、入库申请、入库外部入口、出库申请、仓库查询和仓库主任务分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现使用 BlackGray 域语义文件名，不再依赖目录 `index.js`。
-- 黑灰名单参数规则页通过 `src/components/BlackGray/ParameterEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Warehouse/Rule/BlackGrayWarehouseRule.js`。
+- 黑灰名单查询企业明细和集团明细通过 `src/components/BlackGray/AllQueryEnterpriseEntries.js`、`AllQueryGroupEntries.js` 暴露，真实实现命名为 `BlackGrayAllQueryDetail.js`、`BlackGrayAllQueryGroupDetail.js`。
+- 黑灰名单突破申请、入库申请、入库外部入口、出库申请、仓库查询和仓库主任务分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现使用 BlackGray 域语义文件名，不再依赖目录 `index.js` 或路由式 `[id]` 文件名。
+- 黑灰名单参数规则页通过 `src/components/BlackGray/ParameterEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Warehouse/Rule/BlackGrayWarehouseRule.js`，规则详情命名为 `BlackGrayWarehouseRuleDetail.js`。
 - 档案管理页、档案详情和档案模板任务页分别通过 `src/components/Archives/ManageEntries.js`、`TaskEntries.js` 暴露，真实实现命名为 `src/components/Archives/Manage/ArchivesManage.js`、`src/components/Archives/Manage/detail/ArchivesManageDetail.js` 和 `src/components/Archives/Task/ArchivesTask.js`。
-- 黑灰名单突破审批、入库历史、出库审批、入库上传、出库查询、仓库审批和仓库子任务分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现命名为 `BlackGrayBreakThroughApproval.js`、`BlackGrayEnterDatabaseHistory.js`、`BlackGrayOutboundApproval.js`、`BlackGrayEnterDatabaseUpload.js`、`BlackGrayOutboundSearch.js`、`BlackGrayWarehouseApproval.js` 和 `BlackGrayWarehouseSubTask.js`，不再依赖目录 `index.js`。
+- 黑灰名单突破审批、入库历史、出库审批、入库上传、出库查询、仓库审批和仓库子任务分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现命名为 `BlackGrayBreakThroughApproval.js`、`BlackGrayBreakThroughApprovalDetail.js`、`BlackGrayEnterDatabaseHistory.js`、`BlackGrayEnterDatabaseHistoryDetail.js`、`BlackGrayOutboundApproval.js`、`BlackGrayOutboundApprovalDetail.js`、`BlackGrayEnterDatabaseUpload.js`、`BlackGrayOutboundSearch.js`、`BlackGrayWarehouseApproval.js`、`BlackGrayWarehouseApprovalOutDetail.js`、`BlackGrayWarehouseMainTaskDetail.js` 和 `BlackGrayWarehouseSubTask.js`，不再依赖目录 `index.js` 或路由式 `[id]` 文件名。
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。

@@ -9,7 +9,7 @@ import {
 import EnterDesc from '../../../Manage/EnterDesc'
 import { Card } from 'antd'
 
-function Id({ params, path, query }) {
+function BlackGrayBreakThroughApprovalDetail({ params, path, query }) {
   const { view } = query
   const detail = store.page.getData()
   const { auditTaskId } = detail
@@ -53,4 +53,4 @@ function Id({ params, path, query }) {
   )
 }
 
-export default observer(Id)
+export default observer(BlackGrayBreakThroughApprovalDetail)

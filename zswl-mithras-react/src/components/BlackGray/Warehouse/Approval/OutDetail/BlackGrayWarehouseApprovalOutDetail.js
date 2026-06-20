@@ -10,7 +10,7 @@ import { Card } from 'antd'
 import { getDescColumns } from '@/utils'
 import ALL_COLUMNS from '../../../Columns'
 
-function Id({ params, path, query }) {
+function BlackGrayWarehouseApprovalOutDetail({ params, path, query }) {
   const { view } = query
 
   const columns = getDescColumns(ALL_COLUMNS, [
@@ -71,4 +71,4 @@ function Id({ params, path, query }) {
   )
 }
 
-export default observer(Id)
+export default observer(BlackGrayWarehouseApprovalOutDetail)

@@ -6,7 +6,7 @@ import ALl_COLUMNS from '../../../Columns'
 import { useMemo } from 'react'
 import { saveServer } from '@/utils'
 
-const Index = ({ params, query }) => {
+const BlackGrayAllQueryDetail = ({ params, query }) => {
   const detail = store.page.getData()
   const columns = useMemo(() => {
     const nameColumns = [
@@ -44,4 +44,4 @@ const Index = ({ params, query }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(BlackGrayAllQueryDetail)

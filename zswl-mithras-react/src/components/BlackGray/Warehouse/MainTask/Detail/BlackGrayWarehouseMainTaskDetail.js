@@ -12,7 +12,7 @@ import { Card } from 'antd'
 import SingleModal from './SingleModal'
 import { NoEnumFileTable } from '@/components/Table'
 
-function Id({ params, query, path, props: { sub } }) {
+function BlackGrayWarehouseMainTaskDetail({ params, query, path, props: { sub } }) {
   const store = useMemo(() => new Store(), [])
   const detail = store.page.getData()
   const { type, view } = query
@@ -108,4 +108,4 @@ function Id({ params, query, path, props: { sub } }) {
   )
 }
 
-export default observer(Id)
+export default observer(BlackGrayWarehouseMainTaskDetail)
