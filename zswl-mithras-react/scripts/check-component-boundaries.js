@@ -746,6 +746,7 @@ const compatibilityComponentEntries = new Set([
   'Chart/TooltipEntries.js',
 ])
 const removedCompatibilityComponentEntries = new Map([
+  ['AfterLease/PolicyManageEntries.js', 'AfterLease/PolicyManage*Entries.js'],
   ['Archives/ArchivesEntries.js', 'Archives/* narrow Entries.js'],
   ['BlackGray/BlackGrayEntries.js', 'BlackGray/* narrow Entries.js'],
   ['BlackGray/WarehouseEntries.js', 'BlackGray/Warehouse*Entries.js'],

@@ -1,1 +1,1 @@
-export { AfterLeasePolicyManageBase as default } from '@/components/AfterLease/PolicyManageEntries'
+export { AfterLeasePolicyManageBase as default } from '@/components/AfterLease/PolicyManageBaseEntries'

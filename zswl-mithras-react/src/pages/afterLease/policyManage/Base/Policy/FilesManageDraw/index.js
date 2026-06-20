@@ -1,1 +1,1 @@
-export { AfterLeasePolicyManagePolicyFilesManageDraw as default } from '@/components/AfterLease/PolicyManageEntries'
+export { AfterLeasePolicyManagePolicyFilesManageDraw as default } from '@/components/AfterLease/PolicyManageBaseEntries'
