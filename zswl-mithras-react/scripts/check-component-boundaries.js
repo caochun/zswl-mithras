@@ -672,6 +672,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/CreditManage/CreditTableConfig/CreditTableConfig.js',
   ],
   [
+    'src/components/CreditManage/SearchDetail/index.js',
+    'src/components/CreditManage/SearchDetail/CreditManageSearchDetail.js',
+  ],
+  [
     'src/components/Cpm/BillManage/index.js',
     'src/components/Cpm/BillManage/CpmBillManage.js',
   ],
@@ -750,6 +754,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/FilingMaterials/OtherFilingMaterialsApply/index.js',
     'src/components/FilingMaterials/OtherFilingMaterialsApply/FilingMaterialsOtherApply.js',
+  ],
+  [
+    'src/components/Financial/Credit/index.js',
+    'src/components/Financial/Credit/FinancialCredit.js',
+  ],
+  [
+    'src/components/Financial/Guarantee/index.js',
+    'src/components/Financial/Guarantee/FinancialGuarantee.js',
   ],
   [
     'src/components/Financial/FundList/ChangeModal/index.js',
@@ -1126,6 +1138,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Risk/MetricTimed/index.js',
     'src/components/Risk/MetricTimed/RiskMetricTimed.js',
+  ],
+  [
+    'src/components/Risk/MetricValue/index.js',
+    'src/components/Risk/MetricValue/RiskMetricValue.js',
   ],
   [
     'src/components/Risk/MetricValue/Control/index.js',

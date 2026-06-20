@@ -418,7 +418,7 @@
 - Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应优先通过对应 Dashboard 窄入口或域内相对路径。
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`Chart/tooltip`。
-- 风险指标报送顶层 Tabs 页、控制指标、金控指标和目标指标分别通过 `src/components/Risk/MetricValuePageEntries.js`、`MetricValueControlEntries.js`、`MetricValueJinKonEntries.js`、`MetricValueTargetEntries.js` 暴露，`src/pages/risk/metricValue/*` 只保留路由壳。
+- 风险指标报送顶层 Tabs 页、控制指标、金控指标和目标指标分别通过 `src/components/Risk/MetricValuePageEntries.js`、`MetricValueControlEntries.js`、`MetricValueJinKonEntries.js`、`MetricValueTargetEntries.js` 暴露，顶层页真实实现命名为 `RiskMetricValue.js`，`src/pages/risk/metricValue/*` 只保留路由壳。
 - 风险评分卡列表页、详情页和试算弹窗分别通过 `src/components/Risk/SourceCardListEntries.js`、`SourceCardDetailEntries.js`、`SourceCardCalcModalEntries.js` 暴露，`src/pages/risk/sourceCard/*` 只保留路由壳和历史兼容入口。
 - 风控策略顶层页、指标管理、集中度管理和关联交易监测分别通过 `src/components/Risk/RiskStrategyPageEntries.js`、`RiskStrategyIndicatorEntries.js`、`RiskStrategyConcentrationEntries.js`、`RiskStrategyRelateMonitorEntries.js` 暴露，`src/pages/risk/riskStrategy/*` 只保留路由壳。
 - 租赁物维护列表页和详情页分别通过 `src/components/Lease/MaintainListEntries.js`、`MaintainDetailEntries.js` 暴露，列表真实实现命名为 `src/components/Lease/Maintain/LeaseMaintainList.js`，流程详情复用详情窄入口，`src/pages/lease/maintain/*` 只保留路由壳。
@@ -454,8 +454,8 @@
 - 财务应付利息列表页和详情页通过 `src/components/Financial/PayableInterestEntries.js` 暴露，列表真实实现命名为 `FinancialPayableInterest.js`，`src/pages/financial/payableInterest/*` 只保留路由壳。
 - 财务还本付息列表页、批量审批、变更日志和差异详情分别通过 `src/components/Financial/PaymentListPageEntries.js`、`PaymentBatchApprovalEntries.js` 和 `PaymentLogEntries.js` 暴露，付款批量审批和变更日志真实实现使用财务域语义文件名，`src/pages/financial/payment/*` 中对应子路由只保留路由壳。
 - 融资管理列表页、创建弹窗、变更弹窗、融资生效、变更日志、差异详情和历史组件子路由通过 `src/components/Financial/FundListMainEntries.js`、`FundListCreateModalEntries.js`、`FundListChangeModalEntries.js`、`FundActualTableEntries.js`、`FundGuaranteeEntries.js`、`FundOrgEntries.js`、`FundYearRateEntries.js`、`FundEffectEntries.js`、`FundDetailPageEntries.js`、`FundDetailActualTableEntries.js`、`FundDetailEstimateTableEntries.js`、`FundDetailSchemeEntries.js`、`FundDetailAccountEntries.js`、`FundDetailAssetEntries.js`、`FundDetailLogEntries.js` 暴露，质押明细真实实现命名为 `FinancialFundDetailPledge.js`，`src/pages/financial/fund/*` 中对应路由只保留路由壳。
-- 金融授信额度列表页和详情页通过 `src/components/Financial/CreditEntries.js` 暴露，`src/pages/financial/credit/*` 只保留路由壳。
-- 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，`src/pages/financial/guarantee/*` 只保留路由壳。
+- 金融授信额度列表页和详情页通过 `src/components/Financial/CreditEntries.js` 暴露，列表真实实现命名为 `FinancialCredit.js`，`src/pages/financial/credit/*` 只保留路由壳。
+- 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，列表真实实现命名为 `FinancialGuarantee.js`，`src/pages/financial/guarantee/*` 只保留路由壳。
 - 财务流动性管理、资金日报、监管户待转资金、账户余额明细和预测参数配置分别通过 `src/components/Financial/LiquidityManagementEntries.js`、`LiquidityFundDailyReportEntries.js`、`LiquiditySupervisionAccountEntries.js`、`LiquidityAccountBalanceEntries.js`、`LiquidityPredictionParametersEntries.js` 暴露，`src/pages/financial/liquidity/*` 只保留路由壳。
 - 金融流动性风险统计页通过 `src/components/Financial/LiquidityRiskEntries.js` 暴露，`src/pages/financial/liquidityRisk/*` 只保留路由壳。
 - Dashboard 工作台、经营总览和 SSO 跳转页分别通过 `src/components/Dashboard/WorkbenchEntries.js`、`OverviewEntries.js`、`SsoEntries.js` 暴露；SSO 真实实现命名为 `src/components/Dashboard/Sso/DashboardSso.js` 和 `SsoFlow/DashboardSsoFlow.js`，`src/pages/dashboard/workbench`、`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
@@ -517,7 +517,7 @@
 - 征信查询抽屉和查询列表通过 `src/components/Credit/CreditReportSearchEntries.js`、`SearchListEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js` 和 `CreditSearchList/CreditSearchList.js`。
 - 授信建立列表和详情通过 `src/components/Credit/Establish*Entries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js` 和 `src/components/Credit/EstablishDetail/CreditEstablishDetail.js`。
 - 授信评审列表、详情、授信建立日志、授信评审日志及其差异页通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
-- 授信管理账户、还款、交易、逾期、客户、保证、抵押、质押、五级分类和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
+- 授信管理征信查询详情、账户、还款、交易、逾期、客户、保证、抵押、质押、五级分类和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
 - 付款申请创建弹窗和公开信息提示弹窗分别通过 `src/components/Cpm/PaymentApplicationListEntries.js`、`PaymentApplicationPublicCheckEntries.js` 暴露，真实实现命名为 `src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js` 和 `src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js`。
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 厂商管理外部系统页面集合通过 `src/components/ExternalEmbed/RzyEntries.js` 暴露，真实实现命名为 `src/components/ExternalEmbed/RzyPages/RzyPages.js` 和 `RzyIframe/RzyIframe.js`。

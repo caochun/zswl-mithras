@@ -14,4 +14,4 @@ export { default as CreditTableFinishBatch } from './CreditTable/FinishView/Batc
 export { default as CreditTableFinish } from './CreditTable/Finish/CreditTableFinish'
 export { default as CreditTableWait } from './CreditTable/Wait/CreditTableWait'
 export { CREATETABLE_PARAMS, getHeaderWithFunctionCode } from './CreditTableConfig/CreditTableConfig'
-export { default as CreditManageSearchDetail } from './SearchDetail'
+export { default as CreditManageSearchDetail } from './SearchDetail/CreditManageSearchDetail'
