@@ -1,5 +1,5 @@
 import { SearchBar } from '@zswl/components'
-import ProcessTypeTree from '../ProcessTypeTree'
+import ProcessTypeTree from '../ProcessTypeTree/ProcessTypeTree'
 import { Tag, Space } from 'antd'
 const { Item } = SearchBar
 

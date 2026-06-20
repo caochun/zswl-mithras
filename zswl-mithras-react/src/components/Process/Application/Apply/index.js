@@ -4,7 +4,7 @@ import { Table, App, SearchBar } from '@zswl/components'
 import { ClientSelect } from '@/components/Select'
 import { useEffect, useState } from 'react'
 import ApprovalHistoryModal from '../../ApprovalHistoryModal'
-import ProcessTypeTree from '../../ProcessTypeTree'
+import ProcessTypeTree from '../../ProcessTypeTree/ProcessTypeTree'
 import { saveServer } from '@/utils'
 import customeApi from '@/api/process/application/customerMaintainApi'
 

@@ -72,6 +72,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/App/RootRedirect/RootRedirect.js',
   ],
   [
+    'src/components/BaseData/LeaseholdProperty/index.js',
+    'src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js',
+  ],
+  [
     'src/components/BusinessInfoCheck/index.js',
     'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
   ],
@@ -92,6 +96,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/InsurancePolicy/InsurancePolicy.js',
   ],
   [
+    'src/components/Lease/ApprovalConfirm/index.js',
+    'src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js',
+  ],
+  [
     'src/components/Message/Notification/index.js',
     'src/components/Message/Notification/MessageNotification.js',
   ],
@@ -106,6 +114,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Preview/PdfPreview/index.js',
     'src/components/Preview/PdfPreview/PdfPreview.js',
+  ],
+  [
+    'src/components/Process/BlankBlock/index.js',
+    'src/components/Process/BlankBlock/ProcessBlankBlock.js',
+  ],
+  [
+    'src/components/Process/ProcessTypeTree/index.js',
+    'src/components/Process/ProcessTypeTree/ProcessTypeTree.js',
   ],
   [
     'src/components/ChangeLogDiff/index.js',

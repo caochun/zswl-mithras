@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import store from './store'
 import { Table, App, SearchBar } from '@zswl/components'
 import ApprovalHistoryModal from '../../ApprovalHistoryModal'
-import ProcessTypeTree from '../../ProcessTypeTree'
+import ProcessTypeTree from '../../ProcessTypeTree/ProcessTypeTree'
 import { ClientSelect } from '@/components/Select'
 import { saveServer } from '@/utils'
 

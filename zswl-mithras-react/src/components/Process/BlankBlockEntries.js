@@ -1,1 +1,1 @@
-export { default as ProcessBlankBlock } from './BlankBlock'
+export { default as ProcessBlankBlock } from './BlankBlock/ProcessBlankBlock'

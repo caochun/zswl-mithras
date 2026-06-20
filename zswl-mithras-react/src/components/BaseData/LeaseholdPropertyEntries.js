@@ -1,1 +1,1 @@
-export { default as BaseDataLeaseholdProperty } from './LeaseholdProperty'
+export { default as BaseDataLeaseholdProperty } from './LeaseholdProperty/BaseDataLeaseholdProperty'

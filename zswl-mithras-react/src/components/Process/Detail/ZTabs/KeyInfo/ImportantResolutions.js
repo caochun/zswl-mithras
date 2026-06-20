@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { NoEnumFileTable as FileList } from '@/components/Table'
 import Collapse from '@/components/Collapse'
-import BlankBlock from '../../../BlankBlock'
+import BlankBlock from '../../../BlankBlock/ProcessBlankBlock'
 import { useFlowData } from '@/utils/domains/process/ProcessFlowContext'
 import Api from '@/api/process/detail/flowDetailApi'
 

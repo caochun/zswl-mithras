@@ -1,1 +1,1 @@
-export { default as ProcessTypeTree } from './ProcessTypeTree'
+export { default as ProcessTypeTree } from './ProcessTypeTree/ProcessTypeTree'

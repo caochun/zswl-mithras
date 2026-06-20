@@ -16,7 +16,7 @@ import {
   ContractStartRentMaterials as StartRentZiLiao,
 } from '@/components/Contract/ContractStartRentMaterialEntries'
 import Api from '@/api/process/detail/contractDetailApi'
-import BlankBlock from '../../../../../BlankBlock'
+import BlankBlock from '../../../../../BlankBlock/ProcessBlankBlock'
 import { useEffect, useMemo, useState } from 'react'
 
 const Index = ({ detailData, canEdit }) => {

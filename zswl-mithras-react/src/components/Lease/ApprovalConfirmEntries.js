@@ -1,1 +1,1 @@
-export { default as LeaseApprovalConfirmAction } from './ApprovalConfirm'
+export { default as LeaseApprovalConfirmAction } from './ApprovalConfirm/LeaseApprovalConfirmAction'
