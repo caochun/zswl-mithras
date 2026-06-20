@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { Modal } from '@zswl/components'
-import ProjectAllocateList from '../ProjectAllocateList'
+import ProjectAllocateList from '../ProjectAllocateList/KpiProjectAllotProjectAllocateList'
 
 const Index = ({ store }) => {
   return (

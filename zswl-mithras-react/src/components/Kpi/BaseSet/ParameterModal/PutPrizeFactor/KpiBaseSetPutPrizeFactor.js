@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { observer } from '@zswl/admin'
-import ModalEditTable from '../../../ModalEditTable'
+import ModalEditTable from '../../../ModalEditTable/KpiModalEditTable'
 import { InputNumberEditable } from '@/components/Format'
 import Api from '@/api/kpi/baseSet/baseSetApi'
 import { uniqueId } from 'lodash'

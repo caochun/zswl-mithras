@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { useRef } from 'react'
 import { InputNumberEditable } from '@/components/Format'
-import ModalEditTable from '../../ModalEditTable'
+import ModalEditTable from '../../ModalEditTable/KpiModalEditTable'
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 import { taxRateApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
 

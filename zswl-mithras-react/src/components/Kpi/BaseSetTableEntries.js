@@ -1,2 +1,2 @@
 export { default as KpiBeautyTable } from './BeautyTable/KpiBeautyTable'
-export { default as KpiModalEditTable } from './ModalEditTable'
+export { default as KpiModalEditTable } from './ModalEditTable/KpiModalEditTable'

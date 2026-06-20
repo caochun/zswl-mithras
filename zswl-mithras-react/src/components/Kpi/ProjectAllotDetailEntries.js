@@ -1,1 +1,1 @@
-export { default as KpiProjectAllotDetail } from './ProjectAllot/Detail'
+export { default as KpiProjectAllotDetail } from './ProjectAllot/Detail/KpiProjectAllotDetail'

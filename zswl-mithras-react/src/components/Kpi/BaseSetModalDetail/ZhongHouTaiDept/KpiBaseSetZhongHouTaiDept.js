@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import { useRef } from 'react'
-import ModalEditTable from '../../ModalEditTable'
+import ModalEditTable from '../../ModalEditTable/KpiModalEditTable'
 
 import { formulaData } from '@/utils/domains/kpi/KpiUtils'
 import { middleBackDeptAssessApi as Api } from '@/api/kpi/baseSet/parameterConfigApi'
