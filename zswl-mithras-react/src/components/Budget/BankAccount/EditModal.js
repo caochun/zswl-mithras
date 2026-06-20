@@ -1,5 +1,4 @@
-import { BankAccount } from '@/components/Form'
-import { FormAmount } from '@/components/Form'
+import { BankAccount, FormAmount } from '@/components/Form'
 import { observer } from '@zswl/admin'
 import { Form, Modal, Select } from '@zswl/components'
 import { DatePicker, Input } from 'antd'
