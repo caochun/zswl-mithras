@@ -1,1 +1,1 @@
-export { default as ContractApplicationDetail } from './ApplicationDetail'
+export { default as ContractApplicationDetail } from './ApplicationDetail/ContractApplicationDetail'

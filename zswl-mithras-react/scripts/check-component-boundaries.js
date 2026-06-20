@@ -500,6 +500,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Contract/BaseInfo/ContractBaseInfo.js',
   ],
   [
+    'src/components/Contract/ApplicationDetail/index.js',
+    'src/components/Contract/ApplicationDetail/ContractApplicationDetail.js',
+  ],
+  [
     'src/components/Contract/ApplicationDetail/LeaseLog/index.js',
     'src/components/Contract/ApplicationDetail/LeaseLog/ContractApplicationLeaseLog.js',
   ],
