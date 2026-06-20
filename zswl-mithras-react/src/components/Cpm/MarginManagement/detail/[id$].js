@@ -6,7 +6,7 @@ import { observer, getQuery } from '@zswl/admin'
 import styles from './index.less'
 import BelongContract from '../../MarginManagementDetail/BelongContract'
 import MarginInfo from '../../MarginManagementDetail/MarginInfo'
-import PaymentRecords from '../PaymentRecords'
+import PaymentRecords from '../PaymentRecords/CpmMarginPaymentRecords'
 import RefundRecords from '../RefundRecords'
 import VerificationRecords from '../VerificationRecords/CpmMarginManagementVerificationRecords'
 const { TabPane } = Tabs

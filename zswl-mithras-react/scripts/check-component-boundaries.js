@@ -416,16 +416,36 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Cpm/ContractCpm/CashFlowTable/CpmContractCpmCashFlowTable.js',
   ],
   [
+    'src/components/Cpm/ContractCpm/ContractDownPayment/index.js',
+    'src/components/Cpm/ContractCpm/ContractDownPayment/CpmContractDownPayment.js',
+  ],
+  [
+    'src/components/Cpm/MarginManagement/PaymentRecords/index.js',
+    'src/components/Cpm/MarginManagement/PaymentRecords/CpmMarginPaymentRecords.js',
+  ],
+  [
     'src/components/Cpm/MarginManagement/VerificationRecords/index.js',
     'src/components/Cpm/MarginManagement/VerificationRecords/CpmMarginManagementVerificationRecords.js',
+  ],
+  [
+    'src/components/Cpm/PaymentApplication/PublicInformation/index.js',
+    'src/components/Cpm/PaymentApplication/PublicInformation/CpmPaymentApplicationPublicInformation.js',
   ],
   [
     'src/components/Cpm/PaymentApplication/PublicCheckModal/index.js',
     'src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js',
   ],
   [
+    'src/components/Cpm/PaymentApplicationList/index.js',
+    'src/components/Cpm/PaymentApplicationList/CpmPaymentApplicationList.js',
+  ],
+  [
     'src/components/Cpm/PaymentApplicationList/AddModal/index.js',
     'src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js',
+  ],
+  [
+    'src/components/Cpm/PaymentWriteOff/index.js',
+    'src/components/Cpm/PaymentWriteOff/CpmPaymentWriteOff.js',
   ],
   [
     'src/components/Dashboard/Sso/index.js',

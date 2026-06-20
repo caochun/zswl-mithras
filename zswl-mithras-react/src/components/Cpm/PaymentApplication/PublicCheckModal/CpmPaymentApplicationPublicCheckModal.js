@@ -1,4 +1,4 @@
-import PublicInformation from '../PublicInformation'
+import PublicInformation from '../PublicInformation/CpmPaymentApplicationPublicInformation'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import { observer } from '@zswl/admin'
 import { Button, Modal } from '@zswl/components'

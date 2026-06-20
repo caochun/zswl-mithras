@@ -1,1 +1,1 @@
-export { default as CpmMarginManagementPaymentRecords } from './MarginManagement/PaymentRecords'
+export { default as CpmMarginManagementPaymentRecords } from './MarginManagement/PaymentRecords/CpmMarginPaymentRecords'

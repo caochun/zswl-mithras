@@ -1,1 +1,1 @@
-export { default as CpmPaymentApplicationPublicInformation } from './PaymentApplication/PublicInformation'
+export { default as CpmPaymentApplicationPublicInformation } from './PaymentApplication/PublicInformation/CpmPaymentApplicationPublicInformation'
