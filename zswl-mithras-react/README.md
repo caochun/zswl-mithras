@@ -504,13 +504,15 @@
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。
 - 业务资料表能力通过 `src/components/ClientMaterialTable/BusinessMaterialTableEntries.js` 暴露，真实实现命名为 `src/components/ClientMaterialTable/BusinessMaterialTable.js`。
 - 预算域的应收款、银行账户、汇率和 FTP 利率价格详情页分别通过 `src/components/Budget/*Entries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js`、`BudgetBankAccount.js`、`BudgetExchangeRate.js` 和 `BudgetPricingFtpInterestPriceDetail.js`，不再依赖目录 `index.js`。
+- 预算管理考核页和拨备预测详情页分别通过 `src/components/BudgetManagement/AssessmentEntries.js`、`ProvisionForecastDetailEntries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js` 和 `BudgetManagementProvisionForecastDetail.js`，不再依赖目录 `index.js`。
 - 合同申请日志、合同文本、合同资料、保证金退款通知、合同起租详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
 - 合同新增回执详情通过 `src/components/Contract/CreateReceiptDetailEntries.js` 暴露，真实实现命名为 `src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 客户企查查单一视图和客户风险单一视图分别通过 `src/components/Customer/QccSingleViewEntries.js`、`SingleViewRiskEntries.js` 暴露，真实实现命名为 `src/components/Customer/QccSingleView/CustomerQccSingleView.js` 和 `src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js`。
 - 客户全景视图通过 `src/components/Customer/UnifiedViewEntries.js` 暴露，真实实现命名为 `src/components/Customer/UnifiedView/CustomerUnifiedView.js`。
 - 客户评级列配置通过 `src/components/Customer/CustomerRatingListEntries.js` 暴露，真实实现命名为 `src/components/Customer/CustomerRatColumns/CustomerRatingColumns.js`。
-- 征信查询抽屉通过 `src/components/Credit/CreditReportSearchEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js`。
+- 征信查询抽屉和查询列表通过 `src/components/Credit/CreditReportSearchEntries.js`、`SearchListEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js` 和 `CreditSearchList/CreditSearchList.js`。
+- 授信建立列表通过 `src/components/Credit/EstablishPageEntries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js`。
 - 授信评审列表、授信建立日志差异和授信评审日志差异通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
 - 授信管理账户、还款、交易、逾期、客户、保证、抵押、质押和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
 - 付款申请创建弹窗和公开信息提示弹窗分别通过 `src/components/Cpm/PaymentApplicationListEntries.js`、`PaymentApplicationPublicCheckEntries.js` 暴露，真实实现命名为 `src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js` 和 `src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js`。

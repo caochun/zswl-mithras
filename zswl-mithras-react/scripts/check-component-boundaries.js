@@ -304,6 +304,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BudgetManagement/PlanProfit/List/BudgetManagementPlanProfitList.js',
   ],
   [
+    'src/components/BudgetManagement/Assessment/index.js',
+    'src/components/BudgetManagement/Assessment/BudgetManagementAssessment.js',
+  ],
+  [
+    'src/components/BudgetManagement/ProvisionForecast/Detail/index.js',
+    'src/components/BudgetManagement/ProvisionForecast/Detail/BudgetManagementProvisionForecastDetail.js',
+  ],
+  [
     'src/components/BudgetManagement/ProvisionForecast/ConfigDetail/index.js',
     'src/components/BudgetManagement/ProvisionForecast/ConfigDetail/BudgetManagementProvisionForecastConfigDetail.js',
   ],
@@ -406,6 +414,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Credit/CreditSearchModal/index.js',
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
+  ],
+  [
+    'src/components/Credit/Establish/index.js',
+    'src/components/Credit/Establish/CreditEstablish.js',
+  ],
+  [
+    'src/components/Credit/CreditSearchList/index.js',
+    'src/components/Credit/CreditSearchList/CreditSearchList.js',
   ],
   [
     'src/components/Credit/EstablishDetail/Log/DiffInfo/index.js',

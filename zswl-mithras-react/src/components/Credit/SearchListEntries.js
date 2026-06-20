@@ -1,1 +1,1 @@
-export { default as CreditSearchList } from './CreditSearchList'
+export { default as CreditSearchList } from './CreditSearchList/CreditSearchList'
