@@ -1,1 +1,1 @@
-export { ReportOperationPending as default } from '@/components/Report/OperationEntries'
+export { ReportOperationPending as default } from '@/components/Report/OperationPendingEntries'

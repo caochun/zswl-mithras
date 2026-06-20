@@ -1,1 +1,1 @@
-export { ReportOperationAnalysis as default } from '@/components/Report/OperationEntries'
+export { ReportOperationAnalysis as default } from '@/components/Report/OperationAnalysisEntries'

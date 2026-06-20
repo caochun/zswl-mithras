@@ -1,1 +1,1 @@
-export { ReportOperationContractMonitor as default } from '@/components/Report/OperationEntries'
+export { ReportOperationContractMonitor as default } from '@/components/Report/OperationContractMonitorEntries'

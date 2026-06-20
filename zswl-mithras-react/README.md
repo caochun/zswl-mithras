@@ -314,7 +314,9 @@
 - `Report/FinancialReportFinishedEntries.js`
 - `Report/FinancialReportWaitEntries.js`
 - `Report/ManagementEntries.js`
-- `Report/OperationEntries.js`
+- `Report/OperationAnalysisEntries.js`
+- `Report/OperationContractMonitorEntries.js`
+- `Report/OperationPendingEntries.js`
 - `Risk/CloudMetricValueEntries.js`
 - `Risk/FinanceSheetEntries.js`
 - `Risk/FinanceSheetFileEntries.js`
