@@ -7,6 +7,8 @@ import IconFont from '../Icon'
 import ReadOnly from '../ReadOnly'
 import styles from './styles.less'
 
+export { default as RegionCascader } from './RegionCascader'
+
 export function ApiSelect({ api, params, formatList, value, onlyRead = false, searchField, transformResult = (v) => v, labelInValue, ...rest }) {
   const { onChange, ...otherRest } = rest ?? {}
   const [options, setOptions] = useState([])

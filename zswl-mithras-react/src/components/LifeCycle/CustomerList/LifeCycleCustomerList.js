@@ -13,7 +13,7 @@ import useGetIndustry from '@/utils/hooks/useGetIndustry'
 import { dateRangeTransform, rangePresets } from '@/utils'
 import { saveServer } from '@/utils'
 import { TableExportAction as TableExport } from '@/components/Actions'
-import RegionCascader from '@/components/RegionCascader'
+import { RegionCascader } from '@/components/Select'
 
 const processTypeList = [
   { key: 'totalClient', name: '总客户数', params: 'TOTAL' },

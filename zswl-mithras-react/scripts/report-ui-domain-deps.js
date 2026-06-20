@@ -345,7 +345,6 @@ const publicComponentRoots = new Set([
   'FormulaValueTip',
   'Icon',
   'ReadOnly',
-  'RegionCascader',
   'Select',
   'Table',
 ])

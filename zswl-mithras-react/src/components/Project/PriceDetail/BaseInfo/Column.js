@@ -8,7 +8,7 @@ import {
   FounderColumn,
 } from '@/components/Format'
 import { Select, App, Form } from '@zswl/components'
-import RegionCascader from '@/components/RegionCascader'
+import { RegionCascader } from '@/components/Select'
 import { rules } from '@/utils'
 import { uniqBy } from 'lodash'
 import { BlackGrayHitInfo } from '@/components/BlackGray/BlackGrayHitEntries'

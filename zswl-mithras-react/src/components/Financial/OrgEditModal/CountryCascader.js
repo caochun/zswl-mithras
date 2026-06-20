@@ -3,7 +3,7 @@ import { http, observer } from '@zswl/admin'
 import { Select, Form, App } from '@zswl/components'
 import { Cascader, Input, Col, Row } from 'antd'
 import { useState, useEffect, useCallback } from 'react'
-import RegionCascader from '@/components/RegionCascader'
+import { RegionCascader } from '@/components/Select'
 
 const { Item } = Form
 

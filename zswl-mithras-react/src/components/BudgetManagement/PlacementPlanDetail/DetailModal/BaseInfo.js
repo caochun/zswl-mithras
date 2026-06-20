@@ -1,7 +1,7 @@
 import { EditDescription } from '@/components/Table'
 import { InputColumn, MatchOptionColumn } from '@/components/Format'
 import { FounderSelect, OrgSelect } from '@/components/Select'
-import RegionCascader from '@/components/RegionCascader'
+import { RegionCascader } from '@/components/Select'
 import { getUserInfo, isProjmanager } from '@/utils'
 import { rules } from '@/utils/rules'
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef } from 'react'
