@@ -68,6 +68,38 @@ const removedLegacyUtilityFiles = new Map([
 ])
 const removedLegacyComponentFiles = new Map([
   [
+    'src/components/AfterLease/Adjust/List/CreateModal/index.js',
+    'src/components/AfterLease/Adjust/List/CreateModal/AfterLeaseAdjustCreateModal.js',
+  ],
+  [
+    'src/components/AfterLease/CheckPlan/List/Tab/CheckList/CreateModal/index.js',
+    'src/components/AfterLease/CheckPlan/List/Tab/CheckList/CreateModal/AfterLeaseCheckPlanCheckListCreateModal.js',
+  ],
+  [
+    'src/components/AfterLease/CheckPlan/List/Tab/Strategy/CreateModal/index.js',
+    'src/components/AfterLease/CheckPlan/List/Tab/Strategy/CreateModal/AfterLeaseCheckPlanStrategyCreateModal.js',
+  ],
+  [
+    'src/components/AfterLease/CheckPlanPrepareProcess/index.js',
+    'src/components/AfterLease/CheckPlanPrepareProcess/AfterLeaseCheckPlanPrepareProcess.js',
+  ],
+  [
+    'src/components/AfterLease/PolicyManage/AddModal/index.js',
+    'src/components/AfterLease/PolicyManage/AddModal/AfterLeasePolicyManageAddModal.js',
+  ],
+  [
+    'src/components/AfterLease/PolicyManage/Base/Policy/FilesManageDraw/index.js',
+    'src/components/AfterLease/PolicyManage/Base/Policy/FilesManageDraw/AfterLeasePolicyManagePolicyFilesManageDraw.js',
+  ],
+  [
+    'src/components/AfterLease/PolicyManage/Base/Policy/PolicyModal/index.js',
+    'src/components/AfterLease/PolicyManage/Base/Policy/PolicyModal/AfterLeasePolicyManagePolicyModal.js',
+  ],
+  [
+    'src/components/AfterLease/RentCollection/ListRender/index.js',
+    'src/components/AfterLease/RentCollection/ListRender/RentCollectionListRender.js',
+  ],
+  [
     'src/components/App/RootRedirect/index.js',
     'src/components/App/RootRedirect/RootRedirect.js',
   ],

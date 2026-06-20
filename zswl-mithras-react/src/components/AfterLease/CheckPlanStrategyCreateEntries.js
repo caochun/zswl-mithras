@@ -1,1 +1,1 @@
-export { default as AfterLeaseCheckPlanStrategyCreateModal } from './CheckPlan/List/Tab/Strategy/CreateModal'
+export { default as AfterLeaseCheckPlanStrategyCreateModal } from './CheckPlan/List/Tab/Strategy/CreateModal/AfterLeaseCheckPlanStrategyCreateModal'

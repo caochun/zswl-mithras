@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Table } from '@zswl/components'
 import { getTableColumns, getFormColumns,saveServer } from '@/utils'
-import CreateModal from './CreateModal'
+import CreateModal from './CreateModal/AfterLeaseCheckPlanStrategyCreateModal'
 import Log from './Log'
 import ALL_COLUMNS from './Column'
 import PageListDown from '@/components/PageListDown'

@@ -5,7 +5,7 @@ import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
 import { useEffect, useMemo, useState } from 'react'
 import { Pagination, Radio, Space } from 'antd'
 import { observer } from '@zswl/admin'
-import ListRender from '../ListRender'
+import ListRender from '../ListRender/RentCollectionListRender'
 import NoData from '@/components/CommonNoData'
 import InterestModal from './InterestModal'
 

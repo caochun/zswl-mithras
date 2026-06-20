@@ -4,7 +4,7 @@ import IconFont from '@/components/Icon'
 import { ClientSelect, FounderSelect, OrgSelect } from '@/components/Select'
 import { observer } from '@zswl/admin'
 import { amountFormat, getKeyOptionsLabelMapPlus, formatPercent, hasValue,saveServer } from '@/utils'
-import CreateModal from './CreateModal'
+import CreateModal from './CreateModal/AfterLeaseAdjustCreateModal'
 import Store from './store'
 
 const { Item } = SearchBar

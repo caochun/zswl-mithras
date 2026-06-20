@@ -4,7 +4,7 @@ import { useEffect, useMemo } from 'react'
 import Store from './store'
 import { InsurancePolicyColumns as ALL_COLUMNS } from '@/components/InsurancePolicy/InsurancePolicyColumnsEntries'
 import { getTableColumns, getFormColumns } from '@/utils'
-import AddModal from './AddModal'
+import AddModal from './AddModal/AfterLeasePolicyManageAddModal'
 import { Checkbox } from 'antd'
 import { saveServer } from '@/utils'
 

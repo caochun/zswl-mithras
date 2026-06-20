@@ -8,7 +8,7 @@ import {
   isAssetJonAndAdmin,
   saveServer,
 } from '@/utils'
-import CreateModal from './CreateModal'
+import CreateModal from './CreateModal/AfterLeaseCheckPlanCheckListCreateModal'
 import store from './store'
 import { QuarterMap } from '@/utils/domains/afterLease/AfterLeaseUtils'
 import { AmountColumn } from '@/components/Format'

@@ -1,1 +1,1 @@
-export { default as RentCollectionListRender } from './RentCollection/ListRender'
+export { default as RentCollectionListRender } from './RentCollection/ListRender/RentCollectionListRender'

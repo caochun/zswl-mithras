@@ -1,1 +1,1 @@
-export { default as AfterLeaseAdjustCreateModal } from './Adjust/List/CreateModal'
+export { default as AfterLeaseAdjustCreateModal } from './Adjust/List/CreateModal/AfterLeaseAdjustCreateModal'
