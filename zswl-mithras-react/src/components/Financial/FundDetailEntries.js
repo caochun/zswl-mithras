@@ -1,4 +1,6 @@
 export { default as FinancialFundChange } from './FundChange'
+export { default as FinancialFundChangeLog } from './FundChangeLog'
+export { default as FinancialFundChangeLogDiff } from './FundChangeLog/detail/log/diffInfo/[id$]'
 export { default as FinancialFundDetail } from './FundDetail'
 export { default as FinancialFundDetailActualTable } from './FundDetail/ActualTable'
 export { default as FinancialFundDetailBaseInfo } from './FundDetail/BaseInfo'
