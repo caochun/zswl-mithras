@@ -1,1 +1,1 @@
-export { LifeCycleProjectList as default } from '@/components/LifeCycle/LifeCycleEntries'
+export { LifeCycleProjectList as default } from '@/components/LifeCycle/ProjectEntries'

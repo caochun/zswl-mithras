@@ -211,7 +211,8 @@
 - `Kpi/ProjectAllotListEntries.js`
 - `Lease/ApprovalConfirmEntries.js`
 - `Lease/MaintainEntries.js`
-- `LifeCycle/LifeCycleEntries.js`
+- `LifeCycle/CustomerEntries.js`
+- `LifeCycle/ProjectEntries.js`
 - `Message/NotificationEntries.js`
 - `Ocr/OcrEntries.js`
 - `Overdue/CollectionEntries.js`

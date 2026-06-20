@@ -1,1 +1,1 @@
-export { LifeCycleCustomerDetail as default } from '@/components/LifeCycle/LifeCycleEntries'
+export { LifeCycleCustomerDetail as default } from '@/components/LifeCycle/CustomerEntries'

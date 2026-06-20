@@ -1,1 +1,1 @@
-export { LifeCycleProjectDetail as default } from '@/components/LifeCycle/LifeCycleEntries'
+export { LifeCycleProjectDetail as default } from '@/components/LifeCycle/ProjectEntries'

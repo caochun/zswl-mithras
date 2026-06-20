@@ -1,6 +1,0 @@
-export { default as LifeCycleCustomerList } from './CustomerList'
-export { default as LifeCycleCustomerDetail } from './CustomerDetail'
-export { default as LifeCycleNoData } from './NoData'
-export { default as LifeCycleProjectList } from './ProjectLifeCycle'
-export { default as LifeCycleProjectDetail } from './ProjectLifeCycle/detail'
-export { default as LifeCycleRiskStrategyCard } from './RiskStrategyCard'
