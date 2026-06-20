@@ -270,7 +270,9 @@
 - `Kpi/EstimationEntries.js`
 - `Kpi/EstimationProjectManagerPrizeEntries.js`
 - `Kpi/EstimationProjectManagerProfitEntries.js`
-- `Kpi/PmAssessEntries.js`
+- `Kpi/PmAssessDetailContentEntries.js`
+- `Kpi/PmAssessEditModalEntries.js`
+- `Kpi/PmAssessListEntries.js`
 - `Kpi/ProjectAllotDetailEntries.js`
 - `Kpi/ProjectAllotFormEntries.js`
 - `Kpi/ProjectAllotHistoryEntries.js`

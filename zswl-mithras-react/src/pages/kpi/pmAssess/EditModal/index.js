@@ -1,1 +1,1 @@
-export { KpiPmAssessEditModal as default } from '@/components/Kpi/PmAssessEntries'
+export { KpiPmAssessEditModal as default } from '@/components/Kpi/PmAssessEditModalEntries'
