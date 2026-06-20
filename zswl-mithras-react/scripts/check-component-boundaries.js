@@ -756,6 +756,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Dashboard/DashboardEntries.js', 'Dashboard/* narrow Entries.js'],
   ['EvaluationAgency/EvaluationAgencyEntries.js', 'EvaluationAgency/AppraisalAgencyEntries.js'],
   ['FileDiff/FileDiffEntries.js', 'ChangeLogDiff/ChangeLogDiffEntries.js'],
+  ['Financial/FundDetailEntries.js', 'Financial/FundDetail*Entries.js'],
   ['Kpi/BaseSetModalDetailEntries.js', 'Kpi/BaseSet*Entries.js'],
   ['Kpi/KpiEstimationEntries.js', 'Kpi/Estimation*Entries.js'],
   ['PaymentApplyColumns/PaymentApplyColumnsEntries.js', 'PaymentFtpColumns/FtpAssessmentColumnsEntries.js'],

@@ -1,1 +1,1 @@
-export { FinancialFundChangeLogDiff as default } from '@/components/Financial/FundDetailEntries'
+export { FinancialFundChangeLogDiff as default } from '@/components/Financial/FundDetailLogEntries'
