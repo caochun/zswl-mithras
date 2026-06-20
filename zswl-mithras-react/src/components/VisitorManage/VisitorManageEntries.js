@@ -1,1 +1,1 @@
-export { default as VisitorManagePage } from './index'
+export { default as VisitorManagePage } from './VisitorManagePage'

@@ -71,6 +71,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/FinancialReport/DeteleIcon.js',
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],
+  [
+    'src/components/VisitorManage/index.js',
+    'src/components/VisitorManage/VisitorManagePage.js',
+  ],
 ])
 const removedLegacyStyleFiles = new Map([
   ['src/components/commonLess/animation.less', 'src/app.less'],
