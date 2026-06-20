@@ -412,6 +412,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/CustomerRatColumns/CustomerRatingColumns.js',
   ],
   [
+    'src/components/Customer/DebtRat/index.js',
+    'src/components/Customer/DebtRat/CustomerDebtRat.js',
+  ],
+  [
     'src/components/Credit/CreditSearchModal/index.js',
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
   ],
@@ -572,6 +576,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Financial/FundList/CreateModal/FinancialFundListCreateModal.js',
   ],
   [
+    'src/components/Financial/FundList/index.js',
+    'src/components/Financial/FundList/FinancialFundList.js',
+  ],
+  [
     'src/components/Financial/FundDetail/ActualTable/index.js',
     'src/components/Financial/FundDetail/ActualTable/FinancialFundDetailActualTable.js',
   ],
@@ -590,6 +598,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Financial/FundDetail/OtherAccount/index.js',
     'src/components/Financial/FundDetail/OtherAccount/FinancialFundDetailOtherAccount.js',
+  ],
+  [
+    'src/components/Financial/FundDetail/RefundAccount/index.js',
+    'src/components/Financial/FundDetail/RefundAccount/FinancialFundDetailRefundAccount.js',
+  ],
+  [
+    'src/components/Financial/FundDetail/Scheme/index.js',
+    'src/components/Financial/FundDetail/Scheme/FinancialFundDetailScheme.js',
   ],
   [
     'src/components/Financial/FundForm/FormGuarantee/index.js',

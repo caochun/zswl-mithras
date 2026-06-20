@@ -5,8 +5,8 @@ import ActualTable from '../../../../FundDetail/ActualTable/FinancialFundDetailA
 import BaseInfo from '../../../../FundDetail/BaseInfo'
 import EstimateTable from '../../../../FundDetail/EstimateTable/FinancialFundDetailEstimateTable'
 import Pledge from '../../../../FundDetail/Pledge'
-import RefundAccount from '../../../../FundDetail/RefundAccount'
-import Scheme from '../../../../FundDetail/Scheme'
+import RefundAccount from '../../../../FundDetail/RefundAccount/FinancialFundDetailRefundAccount'
+import Scheme from '../../../../FundDetail/Scheme/FinancialFundDetailScheme'
 import Api from '@/api/financial/fundApi'
 import { ChangeLogDiff } from '@/components/ChangeLogDiff/ChangeLogDiffEntries'
 
