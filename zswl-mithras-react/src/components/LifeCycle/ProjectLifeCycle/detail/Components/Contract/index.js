@@ -11,7 +11,6 @@ import NoData from '../../../../NoData'
 const Panel = Collapse.Panel
 const Contract = () => {
   const { contract } = store.page.getData()
-  console.log(contract)
   return (
     <div className={styles.contractWrap}>
       <div className={styles.title}>{'项目合同'}</div>
@@ -21,7 +20,6 @@ const Contract = () => {
             ghost
             defaultActiveKey={contract?.map((item, index) => index)}
             expandIcon={(panelProps) => {
-              console.log(panelProps)
               const { isActive } = panelProps
               return (
                 <div className={styles.expandIcon}>

@@ -53,7 +53,6 @@ const Management = () => {
         <div
           className={styles.item}
           onClick={() => {
-            console.log(1111)
             setOpen(true)
           }}
         >

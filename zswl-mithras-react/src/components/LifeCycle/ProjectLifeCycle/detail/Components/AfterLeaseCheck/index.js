@@ -29,7 +29,6 @@ const AfterLeaseCheck = () => {
                     planTime,
                     canJump,
                   } = item
-                  console.log(checkPlanProjectId)
                   return (
                     <BaseModule
                       onClick={() => {
