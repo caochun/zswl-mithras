@@ -1,1 +1,1 @@
-export { default as BudgetLpr } from './Lpr'
+export { default as BudgetLpr } from './Lpr/BudgetLpr'

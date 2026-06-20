@@ -200,6 +200,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/IncomeShareTableDetail/BudgetIncomeShareTableDetail.js',
   ],
   [
+    'src/components/Budget/Lpr/index.js',
+    'src/components/Budget/Lpr/BudgetLpr.js',
+  ],
+  [
     'src/components/Budget/PricingBaseSet/List/index.js',
     'src/components/Budget/PricingBaseSet/List/BudgetPricingBaseSetList.js',
   ],
@@ -212,8 +216,16 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/PricingFtpInterest/List/BudgetPricingFtpInterestList.js',
   ],
   [
+    'src/components/Budget/PricingFtpInterest/Detail/index.js',
+    'src/components/Budget/PricingFtpInterest/Detail/BudgetPricingFtpInterestDetail.js',
+  ],
+  [
     'src/components/Budget/PricingFtpYield/List/index.js',
     'src/components/Budget/PricingFtpYield/List/BudgetPricingFtpYieldList.js',
+  ],
+  [
+    'src/components/Budget/PricingFtpYield/Detail/index.js',
+    'src/components/Budget/PricingFtpYield/Detail/BudgetPricingFtpYieldDetail.js',
   ],
   [
     'src/components/Budget/ProvisioningDataAddModal/index.js',
@@ -228,12 +240,20 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/ProvisioningImpairment/Detail/BudgetProvisioningImpairmentDetail.js',
   ],
   [
+    'src/components/Budget/ProvisioningImpairment/List/index.js',
+    'src/components/Budget/ProvisioningImpairment/List/BudgetProvisioningImpairmentList.js',
+  ],
+  [
     'src/components/Budget/ProvisioningImpairmentColumns/index.js',
     'src/components/Budget/ProvisioningImpairmentColumns/BudgetProvisioningImpairmentColumns.js',
   ],
   [
     'src/components/Budget/ProvisioningParamsConfig/Detail/index.js',
     'src/components/Budget/ProvisioningParamsConfig/Detail/BudgetProvisioningParamsConfigDetail.js',
+  ],
+  [
+    'src/components/Budget/ProvisioningParamsConfig/List/index.js',
+    'src/components/Budget/ProvisioningParamsConfig/List/BudgetProvisioningParamsConfigList.js',
   ],
   [
     'src/components/Budget/ProvisioningParamsConfigColumns/index.js',
