@@ -19,7 +19,6 @@ class Store {
           .postFundFinancingRemarkAll(params.approvalParams)
           .then((res) => res)
           .catch((e) => {
-            console.log(e)
           })
       }
       const { financingId, isFormApproval, businessVersion } = params

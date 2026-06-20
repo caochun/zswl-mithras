@@ -32,7 +32,6 @@ class Store {
   })
 
   importTable = async (files) => {
-    console.log('  this.baseStore: ', this.baseStore)
     const { fileList } = DataUpload.classify(files)
     const params = { file: fileList[0], financingId: this.financingId }
     const { interestDiff } = await Api.postEstimateImportTable({

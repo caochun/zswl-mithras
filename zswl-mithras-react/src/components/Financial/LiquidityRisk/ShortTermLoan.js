@@ -110,7 +110,6 @@ function Index({ day, store }) {
         setDownloadLoading(false)
       })
       .catch((err) => {
-        console.log('err: ', err)
         message.error(err || '下载失败')
         setDownloadLoading(false)
       })

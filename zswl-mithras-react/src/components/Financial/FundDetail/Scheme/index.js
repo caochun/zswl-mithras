@@ -85,7 +85,6 @@ function Index(
         setFieldValue('comprehensiveInterestRate', Number(result).toFixed(2))
       } catch (error) {
         // 错误处理逻辑
-        console.log(error)
       }
     } else {
       message.info('请先填写借款年利率、融资金额、融资期限')

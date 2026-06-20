@@ -71,7 +71,6 @@ function Index({ time = {}, store }) {
         setDownloadLoading(false)
       })
     } catch (error) {
-      console.log('error: ', error)
       setDownloadLoading(false)
     }
   }

@@ -14,7 +14,6 @@ class Store {
 
   page = new PageStore({
     request: async (params) => {
-      console.log("112",params,'columnsFilterKey')
       const { id, isFormApproval } = params
       setDefaultFilter(columnsFilterKey, {
         usedTotalCreditAmount: false,

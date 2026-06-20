@@ -59,7 +59,6 @@ function Index({ path }) {
   }, [path])
   const canBatch = store.table.selectedRowKeys.length > 0
   const { sumData } = store
-  console.log(' columns formColumns', columns, formColumns)
   return (
     <Page>
       <Table

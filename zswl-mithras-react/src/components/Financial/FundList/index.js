@@ -150,8 +150,6 @@ function Index() {
         selectable={{
           type: 'radio',
         }}
-        onChange={(a,b)=>console.log(a,b)}
-        onValuesChange={(a,b)=>console.log(a,b)}
         columnWidth={200}
         searchbar={{
           labelCol: { span: 6 },

@@ -111,7 +111,6 @@ class Store {
         contractStartDate: contractStartDate ? timeFormat(contractStartDate) : undefined,
         contractEndDate: contractEndDate ? timeFormat(contractEndDate) : undefined,
       }
-      console.log('params: ', params)
       id
         ? await Api.postPledgeModify({
             id,

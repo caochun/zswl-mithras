@@ -45,7 +45,6 @@ class Store {
   curItem = null
   $createModal = new ModalStore({
     onOpen: async (record) => {
-      console.log('record: ', record)
       if (record) {
         const id = record.id.value ?? record.id
         const res = await this.getDetail(id)
@@ -92,7 +91,6 @@ class Store {
       message.success(id ? '修改成功' : '新增成功')
       this.$createModal.close()
       this.$table.search({ financingId: this.financingId })
-      console.log('this.baseStore: ', this.baseStore)
       this.baseStore.repayRef?.current?.tableStore?.search?.()
     },
   })

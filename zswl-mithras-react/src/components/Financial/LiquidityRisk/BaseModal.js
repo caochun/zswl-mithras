@@ -144,7 +144,6 @@ function BaseModal({ store, time = {} }) {
             const sumAmountOut =
               +returnFinancingPrincipal + +returnFinancingInterest + +projEarnestMoney + +projOutSum
             setFieldValue(['sumAmountOut'], sumAmountOut)
-            console.log('sumAmountOut: ', sumAmountOut)
             return (
               <Form.Item label={'总计资金流出量'} name={'sumAmountOut'} {...layout} {...layout}>
                 <FormAmount initFormat={INIT_FORMAT} disabled />

@@ -57,7 +57,6 @@ const LiquidityChart = ({ time = {}, store, ...rest }) => {
   const [loading, setLoading] = useState(false)
   const getBarData = async () => {
     setLoading(true)
-    console.log('timeFrom: ', timeFrom)
     try {
       const data = await Api.postChartQuery({ timeFrom, timeTo, estimatedOverdueRate: overdueRate })
       const lineData = data.slice(0, 4).map((item) => ({

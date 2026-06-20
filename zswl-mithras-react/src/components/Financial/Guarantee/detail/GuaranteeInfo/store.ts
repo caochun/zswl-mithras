@@ -59,7 +59,6 @@ class Store {
   editMode = 0
   createModal = new ModalStore({
     onOpen: async (value) => {
-      console.log('value: ', value)
       if (value?.id) {
         this.editMode = 1
         const data = await Api.postInfoDetail({

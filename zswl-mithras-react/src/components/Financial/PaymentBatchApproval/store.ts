@@ -26,7 +26,6 @@ class Store {
         this.table.selectAll()
       }, 0)
       this.sumData = res.reduce((pre, cur) => {
-        console.log('pre: ', pre, cur)
         pre.financingAmount = (pre?.financingAmount ?? 0) + cur.financingAmount
         pre.paidInterest = (pre?.paidInterest ?? 0) + cur.paidInterest
         pre.paidPrincipal = (pre?.paidPrincipal ?? 0) + cur.paidPrincipal

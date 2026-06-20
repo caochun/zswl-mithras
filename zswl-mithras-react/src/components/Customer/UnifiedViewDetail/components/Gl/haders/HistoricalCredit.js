@@ -121,11 +121,7 @@ const VisualizationHistory = ({ store }) => {
         <span style={{ float: 'right', fontSize: '12px', color: '#666' }}>单位：万元</span>
       </div>
       <div className={styles['chart-content']}>
-        <EChartsReact
-          option={historyChartOption}
-          style={{ height: '180px', width: '100%' }}
-          onChartReady={() => console.log('ECharts 渲染成功')}
-        />
+        <EChartsReact option={historyChartOption} style={{ height: '180px', width: '100%' }} />
       </div>
     </div>
   )

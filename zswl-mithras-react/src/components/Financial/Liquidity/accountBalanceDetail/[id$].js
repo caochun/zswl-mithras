@@ -280,7 +280,6 @@ const AccountBalanceDetail = observer(() => {
         ),
       }
     })
-    console.log('allSumData: ', allSumData)
     return { allSumData, noSupervisionSumData, supervisionSumData }
   }
 

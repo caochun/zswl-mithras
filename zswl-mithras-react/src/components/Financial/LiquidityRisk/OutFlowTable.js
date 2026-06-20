@@ -35,7 +35,6 @@ function Index({ time = {}, store }) {
             setPageSum(res?.pageSum || {})
             return res?.records ?? []
           } catch (err) {
-            console.log(err)
             return []
           }
         },

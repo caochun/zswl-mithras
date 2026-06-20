@@ -188,7 +188,6 @@ const FormListItem = ({
           organizationName: baseInfoDetail?.organizationName?.[0],
         },
       ]
-  console.log('newOrgList: ', newOrgList)
 
   return (
     <div style={{ width: '100%' }}>

@@ -66,7 +66,6 @@ function Index({ id: financingId, disabled, detail, store }, ref) {
       const res = await Api.getRepayList({ ...params, financingId })
       if (isABS) {
         const splitRes = await Api.getSplitList({ financingId })
-        console.log('splitRes: ', splitRes)
         setSplitList(splitRes)
       }
       return res

@@ -109,7 +109,6 @@ class Store {
       message.success(id ? '修改成功' : '新增成功')
       this.$createModal.close()
       this.$table.search({ financingId: this.financingId })
-      console.log('this.baseStore: ', this.baseStore)
       this.baseStore.repayRef?.current?.tableStore?.search?.()
     },
   })

@@ -13,7 +13,6 @@ import store from './store'
 import fundTransferApi from '@/api/financial/fundTransfer'
 
 const SupervisionAccount = ({ detail }) => {
-  console.log('detail: ', detail)
   const [form] = Form.useForm()
 
   return (

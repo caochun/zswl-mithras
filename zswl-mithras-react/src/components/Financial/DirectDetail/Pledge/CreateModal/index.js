@@ -33,7 +33,6 @@ function Index({ store, financingId }) {
       settleTime,
       remainingUnpaidPrincipal,
     } = findCurr ?? {}
-    console.log('findCurr: ', findCurr)
 
     form.setFieldsValue({
       bizType,

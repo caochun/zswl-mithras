@@ -64,7 +64,6 @@ const Parameters = observer(() => {
         red: { sign: item.redSign, value: item.redValue },
         yellow: { sign: item.yellowSign, value: item.yellowValue },
       }))
-      console.log('newData: ', newData)
       return newData
     },
   })

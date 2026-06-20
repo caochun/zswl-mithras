@@ -48,9 +48,7 @@ const TeamAccount = observer(() => {
       }
       return acc
     }, [])
-    console.log('newBankOptions: ', newBankOptions)
     const flatBankOptions = newBankOptions.flatMap(({ children }) => children)
-    console.log('flatBankOptions: ', flatBankOptions)
     setFlatBankOptions(flatBankOptions)
     setBankOptions(newBankOptions)
   }
@@ -157,8 +155,6 @@ const TeamAccount = observer(() => {
 
   const save = async () => {
     const { list } = await table.submit()
-    console.log('list: ', list)
-    console.log('flatBankOptions: ', flatBankOptions)
     const isValidate = list.every((item) => {
       if (item.simulateSettle) {
         return item.settleTime && item.settleAmount
@@ -171,10 +167,6 @@ const TeamAccount = observer(() => {
     }
     await baseInfoApi.postAccountSettingModify({
       list: list.map(({ settleTime, settleAmount, accountNumber, ...item }) => {
-        console.log(
-          'flatBankOptions.find(({ value }) => value === accountNumber) ?? {}: ',
-          flatBankOptions.find(({ value }) => value === accountNumber) ?? {}
-        )
         const { bankAccountId: accountId, accountBank } =
           flatBankOptions.find(({ value }) => value === accountNumber) ?? {}
         return {
