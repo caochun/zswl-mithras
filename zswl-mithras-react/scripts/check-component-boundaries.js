@@ -63,6 +63,9 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],
 ])
+const removedLegacyStyleFiles = new Map([
+  ['src/components/commonLess/animation.less', 'src/app.less'],
+])
 const legacyRouteStringRules = [
   {
     pattern: /customerView\/singeView|customer\/singeView/,
@@ -1510,6 +1513,16 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'unused local support file',
+    })
+  }
+}
+
+for (const filePath of styleFiles) {
+  const relativeFilePath = path.relative(root, filePath)
+  if (removedLegacyStyleFiles.has(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: `removed legacy style file (use ${removedLegacyStyleFiles.get(relativeFilePath)})`,
     })
   }
 }
