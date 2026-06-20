@@ -15,14 +15,12 @@ class Store {
   currentTabData = []
   enumType = {}
   tagChange = (e) => {
-    console.log(e.target.value)
     this.activeTab = e.target.value
   }
   getTabs = async (id) => {
     const result = await Api.getTab({ id })
     this.tabs = result
     this.activeTab = result?.[0]?.tabCode
-    console.log('this.activeTab', this.activeTab)
   }
   getBasicMaterial = async ({ id, tabCode }) => {
     this.loading = true

@@ -57,7 +57,6 @@ const Index = ({ id, canEdit, dataSource, name, businessType, moduleCode, canBat
       .filter((item) => typeof item === 'number')
     await Api.batchDownload({ id, tabCode: activeTab, moduleCode, fileIds })
     setLoading(false)
-    console.log('批量下载')
   }
   const DownloadAll = showDownload && (
     <Button type="primary" size="small" onClick={handleDownload} loading={loading}>
