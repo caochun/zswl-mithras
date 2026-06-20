@@ -1,1 +1,1 @@
-export { ReviewDetailDataList as default } from '@/components/Project/ReviewDetailEntries'
+export { ReviewDetailDataList as default } from '@/components/Project/ReviewDetailSectionEntries'
