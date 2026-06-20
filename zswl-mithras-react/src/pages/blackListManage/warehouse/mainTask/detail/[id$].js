@@ -1,1 +1,1 @@
-export { BlackGrayWarehouseMainTaskDetail as default } from '@/components/BlackGray/WarehouseMainTaskEntries'
+export { BlackGrayWarehouseMainTaskDetail as default } from '@/components/BlackGray/WarehouseMainTaskDetailEntries'
