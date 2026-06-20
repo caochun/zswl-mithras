@@ -2,7 +2,7 @@ import { Tabs } from 'antd'
 import { useEffect, useState } from 'react'
 import { Page, Access } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import CheckList from './Tab/CheckList'
+import CheckList from './Tab/CheckList/AfterLeaseCheckPlanCheckList'
 import OpenList from './Tab/OpenList/AfterLeaseCheckPlanOpenList'
 import Strategy from './Tab/Strategy'
 

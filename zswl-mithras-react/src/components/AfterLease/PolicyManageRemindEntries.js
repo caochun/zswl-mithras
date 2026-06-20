@@ -1,1 +1,1 @@
-export { default as AfterLeasePolicyManageRemind } from './PolicyManageRemind'
+export { default as AfterLeasePolicyManageRemind } from './PolicyManageRemind/AfterLeasePolicyManageRemind'
