@@ -568,6 +568,8 @@
 - 我的流程页签、我的审批页签、流程查询、流程设计、流程详情路由和历史组件路由已收敛到 `src/components/Process` 的窄 `*Entries.js`，我的流程和我的审批真实实现命名为 `ProcessApplication.js` 和 `ProcessReceive.js`，路由页仅保留入口装配。
 - 组件域之间的跨域能力复用已收敛到领域入口，避免调用方绑定对方内部实现路径。
 - 融资机构、融资银行、直融认购选择器实现已收敛到 `src/components/Financial/Select.js`；外部调用统一走 `src/components/Financial/SelectEntries.js`，公共 `src/components/Select` 不再转发财务域选择器。
+- `LeasePricing/RepayCalcTypeEntries.js` 暴露租赁/保理定价场景共用的还款方式选择，真实实现命名为 `src/components/LeasePricing/RepayCalcType/LeasePricingRepayCalcType.js`；合同和全局测算工具通过窄入口复用，不再保留 `src/components/RepayCalcType` 公共根组件。
+- `LeasePricing/FormIrrEntries.js` 暴露租赁/保理定价场景共用的 IRR 测算表单项，真实实现命名为 `src/components/LeasePricing/FormIrr/LeasePricingFormIrr.js`；合同、项目和全局测算工具通过窄入口复用，不再保留 `src/components/FormIrr` 公共根组件。
 - 公式值说明提示作为预算和 KPI 共用的公共能力，通过 `src/components/FormulaValueTip/FormulaValueTipEntries.js` 暴露，真实实现命名为 `src/components/FormulaValueTip/FormulaValueTip.js`，业务组件不再直接引用 `@/components/FormulaValueTip` 根目录。
 - 文件上传历史列表展示已回收到 `src/components/Format/FileList.js`，外部如需使用仍通过 `DataUpload.List`，不再保留 `src/components/FileList` 公共根组件。
 

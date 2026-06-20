@@ -75,6 +75,14 @@
     },
     {
       "sourceScope": "components/Contract",
+      "target": "LeasePricing/FormIrrEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
+      "target": "LeasePricing/RepayCalcTypeEntries"
+    },
+    {
+      "sourceScope": "components/Contract",
       "target": "PaymentFtpColumns/FtpAssessmentColumnsEntries"
     },
     {
@@ -543,11 +551,23 @@
     },
     {
       "sourceScope": "components/Project",
+      "target": "LeasePricing/FormIrrEntries"
+    },
+    {
+      "sourceScope": "components/Project",
       "target": "TrackEvent/TrackEventModalEntries"
     },
     {
       "sourceScope": "components/Project",
       "target": "TrackEvent/TrackEventTaskEntries"
+    },
+    {
+      "sourceScope": "layout",
+      "target": "LeasePricing/FormIrrEntries"
+    },
+    {
+      "sourceScope": "layout",
+      "target": "LeasePricing/RepayCalcTypeEntries"
     },
     {
       "sourceScope": "pages/index.js",

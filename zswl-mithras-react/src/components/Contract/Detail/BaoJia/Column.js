@@ -10,7 +10,7 @@ import { Select, Form, App } from '@zswl/components'
 import IconFont from '@/components/Icon'
 import { cloneElement } from 'react'
 import YearRate from './YearRate'
-import RepayCalcType from '@/components/RepayCalcType'
+import RepayCalcType from '@/components/LeasePricing/RepayCalcTypeEntries'
 import StructureInterest from './StructureInterest'
 
 import CommonTips from '@/components/CommonTips'

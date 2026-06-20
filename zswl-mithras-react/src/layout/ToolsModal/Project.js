@@ -7,7 +7,7 @@ import { forwardRef, useImperativeHandle, useRef, useEffect, useMemo, useState }
 import DataUpload from '@/components/DataUpload'
 import styles from './index.less'
 import { PayCircleOutlined } from '@ant-design/icons'
-import FormIrr from '@/components/FormIrr'
+import FormIrr from '@/components/LeasePricing/FormIrrEntries'
 import irrGenerationApi from '@/api/layout/irrGenerationApi'
 import mathjs from '@/utils/math'
 import _ from 'lodash'
