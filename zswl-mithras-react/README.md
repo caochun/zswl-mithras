@@ -44,7 +44,10 @@
 - `AfterLease/CheckPlanListPageEntries.js`
 - `AfterLease/CheckPlanOpenListEntries.js`
 - `AfterLease/CheckPlanPrepareEntries.js`
-- `AfterLease/CheckPlanStrategyEntries.js`
+- `AfterLease/CheckPlanStrategyColumnEntries.js`
+- `AfterLease/CheckPlanStrategyCreateEntries.js`
+- `AfterLease/CheckPlanStrategyLogEntries.js`
+- `AfterLease/CheckPlanStrategyPageEntries.js`
 - `AfterLease/CheckPlanTemplateEntries.js`
 - `AfterLease/Level5ClassifyDetailEntries.js`
 - `AfterLease/Level5ClassifyListEntries.js`

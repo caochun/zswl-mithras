@@ -1,1 +1,1 @@
-export { AfterLeaseCheckPlanStrategyColumn as default } from '@/components/AfterLease/CheckPlanStrategyEntries'
+export { AfterLeaseCheckPlanStrategyColumn as default } from '@/components/AfterLease/CheckPlanStrategyColumnEntries'
