@@ -1,1 +1,1 @@
-export { CreditEstablishDetailLogDiff as default } from '@/components/Credit/EstablishEntries'
+export { CreditEstablishDetailLogDiff as default } from '@/components/Credit/EstablishLogEntries'

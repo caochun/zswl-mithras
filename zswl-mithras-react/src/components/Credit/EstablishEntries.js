@@ -1,5 +1,0 @@
-export { default as CreditEstablish } from './Establish'
-export { default as CreditEstablishDetail } from './EstablishDetail'
-export { default as CreditEstablishDetailBaseInfo } from './EstablishDetail/BaseInfo'
-export { default as CreditEstablishDetailLog } from './EstablishDetail/Log'
-export { default as CreditEstablishDetailLogDiff } from './EstablishDetail/Log/DiffInfo'

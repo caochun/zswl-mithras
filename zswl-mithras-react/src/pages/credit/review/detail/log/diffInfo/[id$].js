@@ -1,1 +1,1 @@
-export { CreditReviewDetailLogDiff as default } from '@/components/Credit/ReviewEntries'
+export { CreditReviewDetailLogDiff as default } from '@/components/Credit/ReviewLogEntries'

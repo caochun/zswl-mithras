@@ -1,1 +1,1 @@
-export { CreditEstablish as default } from '@/components/Credit/EstablishEntries'
+export { CreditEstablish as default } from '@/components/Credit/EstablishPageEntries'

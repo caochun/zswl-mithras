@@ -25,7 +25,7 @@
 
 - 推荐：`@/components/Contract/ApplicationDetailEntries`
 - 推荐：`@/components/Project/ReviewDetailPageEntries`
-- 推荐：`@/components/Credit/ReviewEntries`
+- 推荐：`@/components/Credit/ReviewDetailEntries`
 - 避免：`@/components/Contract/Detail/BaoJia`
 - 避免：`@/components/Project/ReviewDetail/store`
 - 避免：`@/components/Kpi/ProjectAllot/Column`
@@ -143,8 +143,12 @@
 - `Cpm/PaymentApplicationPublicInfoEntries.js`
 - `Cpm/PaymentWriteOffEntries.js`
 - `Credit/CreditReportSearchEntries.js`
-- `Credit/EstablishEntries.js`
-- `Credit/ReviewEntries.js`
+- `Credit/EstablishDetailEntries.js`
+- `Credit/EstablishLogEntries.js`
+- `Credit/EstablishPageEntries.js`
+- `Credit/ReviewDetailEntries.js`
+- `Credit/ReviewLogEntries.js`
+- `Credit/ReviewPageEntries.js`
 - `Credit/SearchListEntries.js`
 - `CreditManage/CreditManageEntries.js`
 - `Customer/ApplyPermissionEntries.js`

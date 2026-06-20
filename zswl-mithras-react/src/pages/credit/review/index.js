@@ -1,1 +1,1 @@
-export { CreditReview as default } from '@/components/Credit/ReviewEntries'
+export { CreditReview as default } from '@/components/Credit/ReviewPageEntries'
