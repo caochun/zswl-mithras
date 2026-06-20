@@ -5,6 +5,7 @@ const domainAliasPairs = [
   ['CreditManage', 'credit'],
   ['creditManage', 'credit'],
   ['customerMonitoring', 'customer'],
+  ['customerView', 'customer'],
   ['FilingMaterials', 'filingMaterials'],
   ['fillingMaterialsDetail', 'filingMaterials'],
   ['financialReport', 'report'],
@@ -22,7 +23,6 @@ const domainAliasPairs = [
 const extraApiDomainAliasPairs = [
   ['cpm', 'cpm'],
   ['customer', 'customer'],
-  ['customerView', 'customer'],
   ['dashboard', 'dashboard'],
   ['utils', 'common'],
 ]
