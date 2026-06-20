@@ -9,7 +9,7 @@ import PolicyInfo from '../../PolicyManageDetail/PolicyInfo'
 import PolicyMaterial from '../../PolicyManageDetail/PolicyMaterial'
 import Store from './store'
 
-const Index = ({ params: { id }, query: { dataSource } }) => {
+const AfterLeasePolicyManageDetail = ({ params: { id }, query: { dataSource } }) => {
   const store = useMemo(() => {
     return new Store({ id })
   }, [id])
@@ -39,4 +39,4 @@ const Index = ({ params: { id }, query: { dataSource } }) => {
   )
 }
 
-export default observer(Index)
+export default observer(AfterLeasePolicyManageDetail)

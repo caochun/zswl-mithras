@@ -413,7 +413,7 @@
 - 权限页字典/组织/角色 iframe、用户管理页、功能分组页和操作日志页分别通过 `src/components/Permission/BifrostPageEntries.js`、`UserEntries.js`、`GroupEntries.js`、`LogEntries.js` 暴露；操作日志真实实现命名为 `src/components/Permission/Log/PermissionLog.js`，付款核销收款日面板、合同保证金退款文本展示已回收到各自页面或业务组件私有目录，不再作为公共根组件使用。
 - 预算流水组织树选择器已回收到 `src/components/Budget/FlowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰名单页面入口已拆分为查询、入库、突破、出库、仓库、参数等窄 `*Entries.js`，不再使用宽泛 `BlackGray/BlackGrayEntries.js`；CPM 页面入口已拆分为票据、付款申请、付款核销、合同付款、收款核销、保证金管理等窄 `*Entries.js`，不再使用宽泛 `Cpm/CpmEntries.js`。
-- CPM 票据管理、合同付款列表/现金流表/保证金、保证金管理、保证金付款记录、保证金退款记录、付款申请列表/详情、付款申请公开信息、付款核销列表/详情、收款核销和保证金核销记录通过 `src/components/Cpm/*Entries.js` 暴露，真实实现使用 CPM 域语义文件名，不再依赖目录 `index.js`。
+- CPM 票据管理、合同付款列表/现金流表/保证金/详情、保证金管理/详情、保证金付款记录、保证金退款记录、付款申请列表/详情、付款申请公开信息、付款核销列表/详情、收款核销和保证金核销记录通过 `src/components/Cpm/*Entries.js` 暴露，真实实现使用 CPM 域语义文件名，合同付款详情、保证金详情和收款核销详情分别命名为 `CpmContractCpmDetail.js`、`CpmMarginManagementDetail.js`、`CpmCollectionWriteOffDetail.js`，不再依赖目录 `index.js` 或路由式 `[id]` 文件名。
 - 项目多行文本展示已回收到 `src/components/Project/MultilineText`，当前仅作为项目立项详情域内私有组件使用。
 - Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应优先通过对应 Dashboard 窄入口或域内相对路径。
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。
@@ -475,7 +475,7 @@
 - 禁止预算应收账款页面和组件直接引用 `financial/accountsReceivable` 历史 API 前缀，应使用 `budget/accountsReceivable` 语义入口。
 - 禁止通用选择器直接引用 `groupCredit/common` 历史 API 前缀，应使用 `common/selectApi` 语义入口。
 - 禁止在 `src/components/**/api.js` 中只做 `@/api/**` 的一行转发；组件内部应直接引用语义明确的 `src/api` 入口，避免制造假本地 API 边界。
-- `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和 `.less` 样式 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止相对路径显式导入 `./index`/`../index`，禁止领域入口文件承载非 re-export 内容或使用 `@/components/**` 绝对转发，禁止业务组件目录中的组件转发壳，禁止通过 `@/pages/**` 复用页面私有代码，禁止 `src/pages` 下出现非路由 JS/TS 文件，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零、无引用 API 实现清零、空样式文件清零、空目录清零、重复领域入口受控、跨域组件入口依赖基线受控、UI 跨域依赖无待语义评审项。
+- `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和 `.less` 样式 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止相对路径显式导入 `./index`/`../index`，禁止 `src/components` 下出现 `[id].js`、`[id$].js` 等路由式组件文件名，禁止领域入口文件承载非 re-export 内容或使用 `@/components/**` 绝对转发，禁止业务组件目录中的组件转发壳，禁止通过 `@/pages/**` 复用页面私有代码，禁止 `src/pages` 下出现非路由 JS/TS 文件，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零、无引用 API 实现清零、空样式文件清零、空目录清零、重复领域入口受控、跨域组件入口依赖基线受控、UI 跨域依赖无待语义评审项。
 - 跨业务域复用 `@/components/<Domain>/*Entries.js` 时，新增依赖边必须先确认语义，再更新 `scripts/component-entry-deps-baseline.json`；清理掉跨域复用后也要同步删除过期基线边。不要为了通过检查直接把内部实现路径或宽入口暴露给调用方。
 - `npm run check:boundaries` 会阻止 `src` 源码中的 `console.log` 和 `debugger` 调试残留，包括运行时代码和注释掉的旧调试语句；需要用户可见反馈时使用页面/组件层的提示能力，需要排错时应在具体业务域临时处理并随调试结束移除。
 
@@ -484,7 +484,7 @@
 - 表格、文件表、描述表、审批详情等统一从 `src/components/Table` 稳定入口导入。
 - 表单金额、只读表单、银行账号、日期范围等统一从 `src/components/Form` 稳定入口导入。
 - 文件导出、模板下载、审批操作等统一从 `src/components/Actions` 稳定入口导入。
-- 租后调整列表/详情/创建、五级分类列表/详情、检查计划列表/检查清单、打开清单、检查计划创建/详情、外部检查详情、策略页、策略创建、检查准备流程、管理台账、政策保单列表、政策保单、政策管理弹窗、政策提醒、回款列表、回款借据卡、期项租金卡、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，不再依赖目录 `index.js`。
+- 租后调整列表/详情/创建、五级分类列表/详情、检查计划列表/检查清单、打开清单、检查计划创建/详情、外部检查详情、策略页、策略创建、检查准备流程、管理台账、政策保单列表、政策保单新增详情、政策保单详情、政策管理弹窗、政策提醒、回款列表、回款借据卡、期项租金卡、回款列表渲染和罚息减免申请分别通过 `src/components/AfterLease/*Entries.js` 窄入口暴露，真实实现使用对应业务语义文件名，政策保单新增详情和保单详情命名为 `AfterLeasePolicyManageAddDetail.js`、`AfterLeasePolicyManageDetail.js`，不再依赖目录 `index.js` 或路由式 `[id]` 文件名。
 - 档案管理列表/详情和其他资料归集列表/详情分别通过 `src/components/Archives/ManagementEntries.js`、`OtherFilingMaterialsEntries.js` 暴露，真实实现使用档案域语义文件名，不再依赖目录 `index.js`。
 - 根路由重定向通过 `src/components/App/RootRedirectEntries.js` 暴露，真实实现命名为 `src/components/App/RootRedirect/RootRedirect.js`。
 - 基础数据租赁物类型导入页通过 `src/components/BaseData/LeaseholdPropertyEntries.js` 暴露，真实实现命名为 `src/components/BaseData/LeaseholdProperty/BaseDataLeaseholdProperty.js`。

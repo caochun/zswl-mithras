@@ -11,7 +11,7 @@ import RefundRecords from '../RefundRecords/CpmMarginManagementRefundRecords'
 import VerificationRecords from '../VerificationRecords/CpmMarginManagementVerificationRecords'
 const { TabPane } = Tabs
 
-function Index({ params: { id }, query: { contractId } }) {
+function CpmMarginManagementDetail({ params: { id }, query: { contractId } }) {
   store.setClientId(id)
   const { marginDetailData } = store
   useEffect(() => {
@@ -62,4 +62,4 @@ function Index({ params: { id }, query: { contractId } }) {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(CpmMarginManagementDetail)

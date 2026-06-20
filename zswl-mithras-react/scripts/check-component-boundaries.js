@@ -25,6 +25,8 @@ const copiedSourceFilePattern =
   /(?:^|[\\/])(?:copy|backup|bak)[\\/]|(?:^|[\\/])[^\\/]*(?: copy|副本|备份|backup|bak)\.(?:js|jsx|ts|tsx)$/i
 const sampleSourceFilePattern =
   /(?:^|[\\/])(?:mock|demo|example)[\\/]|(?:^|[\\/])(?:mock|demo|example)\.(?:js|jsx|ts|tsx)$/i
+const componentRouteParamFilePattern =
+  /^src[\\/]components[\\/].*[\\/]\[[^\]]+\]\.(?:js|jsx|ts|tsx)$/
 const sourceExtensions = ['.js', '.jsx', '.ts', '.tsx']
 const importPattern =
   /(?:import(?:[\s\S]*?from\s*)?|export(?:[\s\S]*?from\s*)?|import\s*\()\s*['"]([^'"]+)['"]/g
@@ -1434,6 +1436,26 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BlackGray/Warehouse/Rule/Detail/BlackGrayWarehouseRuleDetail.js',
   ],
   [
+    'src/components/AfterLease/PolicyManage/addDetail/[id$].js',
+    'src/components/AfterLease/PolicyManage/addDetail/AfterLeasePolicyManageAddDetail.js',
+  ],
+  [
+    'src/components/AfterLease/PolicyManage/detail/[id$].js',
+    'src/components/AfterLease/PolicyManage/detail/AfterLeasePolicyManageDetail.js',
+  ],
+  [
+    'src/components/Cpm/CollectionWriteOff/detail/[id$].js',
+    'src/components/Cpm/CollectionWriteOff/detail/CpmCollectionWriteOffDetail.js',
+  ],
+  [
+    'src/components/Cpm/ContractCpm/detail/[id$].js',
+    'src/components/Cpm/ContractCpm/detail/CpmContractCpmDetail.js',
+  ],
+  [
+    'src/components/Cpm/MarginManagement/detail/[id$].js',
+    'src/components/Cpm/MarginManagement/detail/CpmMarginManagementDetail.js',
+  ],
+  [
     'src/components/Preview/ReportPreview/[id$].js',
     'src/components/Preview/ReportPreview/PreviewReportPreview.js',
   ],
@@ -2613,6 +2635,13 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'mock/demo/example source file',
+    })
+  }
+
+  if (componentRouteParamFilePattern.test(relativeFilePath)) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'route-style component file name (use a semantic component implementation name)',
     })
   }
 

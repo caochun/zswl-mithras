@@ -6,7 +6,7 @@ import Store from './store'
 import TipsModal from '../../Level5Classify/TipsModal'
 import Base from '../Base/AfterLeasePolicyManageBase'
 
-const Index = ({ params: { id }, compareData }) => {
+const AfterLeasePolicyManageAddDetail = ({ params: { id }, compareData }) => {
   const store = useMemo(() => {
     return new Store({})
   }, [])
@@ -20,4 +20,4 @@ const Index = ({ params: { id }, compareData }) => {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(AfterLeasePolicyManageAddDetail)

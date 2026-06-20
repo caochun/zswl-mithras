@@ -10,7 +10,7 @@ import { UserOutlined } from '@ant-design/icons'
 
 const { TabPane } = Tabs
 
-function Index({ params: { id }, query: { projCode, rentActualCode } }) {
+function CpmContractCpmDetail({ params: { id }, query: { projCode, rentActualCode } }) {
   store.setContractD(id)
   const [cDetail, setcDetail] = useState({})
   const [loading, setLoading] = useState(false)
@@ -68,4 +68,4 @@ function Index({ params: { id }, query: { projCode, rentActualCode } }) {
     </Page>
   )
 }
-export default observer(Index)
+export default observer(CpmContractCpmDetail)

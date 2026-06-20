@@ -1,1 +1,1 @@
-export { default as CpmContractCpmDetail } from './ContractCpm/detail/[id$]'
+export { default as CpmContractCpmDetail } from './ContractCpm/detail/CpmContractCpmDetail'
