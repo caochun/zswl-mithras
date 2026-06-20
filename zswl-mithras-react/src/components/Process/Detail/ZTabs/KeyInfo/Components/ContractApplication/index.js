@@ -19,8 +19,6 @@ export const bizRender = (val, record) => {
     leaseTypeCode,
   } = record
 
-  console.log({ record })
-
   const bizTypeVal = bizType?.value ?? bizType ?? bizTypeCode
   const bizName = getEnumFlatObjByType('projEstablishBizType')[bizTypeVal]
   const lesseeInfo =

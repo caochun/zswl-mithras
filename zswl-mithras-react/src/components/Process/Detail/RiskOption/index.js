@@ -14,7 +14,6 @@ const Index = (props) => {
     processInstanceId,
     businessKey,
   } = props
-  console.log('props: ', props)
   const isWarning = ['RiskControlWarnNotPaymentFlow', 'RiskControlWarnPaymentFlow'].includes(
     modelKey
   )

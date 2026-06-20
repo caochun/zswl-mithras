@@ -34,7 +34,6 @@ const BpmnFlowChart = ({
       }
     } catch (e) {
       setLoading(false)
-      console.log(e)
     }
   }
   // 设置节点颜色
@@ -55,7 +54,6 @@ const BpmnFlowChart = ({
   }
   const createDiagram = () => {
     bpmnModule && bpmnModule.destroy && bpmnModule.destroy()
-    console.log(highLightData)
     const newBpmn = new BpmnViewer({
       container: bpmnRef.current,
       height,
@@ -97,7 +95,6 @@ const BpmnFlowChart = ({
         createDiagram()
       }
     } catch (e) {
-      console.log(e)
     }
   }, [xmlData, highLightData])
   const processList = [

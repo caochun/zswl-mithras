@@ -19,7 +19,6 @@ const Index = (props) => {
   useEffect(() => {
     setTimeout(() => {
       priceChangeModal.open()
-      console.log('priceChangeModal: ', priceChangeModal)
     }, 40)
   }, [priceChangeModal])
 

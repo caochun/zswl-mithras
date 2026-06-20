@@ -40,7 +40,6 @@ class Store {
     // 绑定在某个点击事件
     const dom = document.getElementById(node)
     const t = new Date().getTime()
-    console.log({ t })
     html2canvas(dom, {
       width: dom.offsetWidth,
       height: dom.offsetHeight,

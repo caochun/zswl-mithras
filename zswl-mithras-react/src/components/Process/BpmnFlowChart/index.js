@@ -34,7 +34,6 @@ const BpmnFlowChart = ({
       }
     } catch (e) {
       setLoading(false)
-      console.log(e)
     }
   }
   // 设置节点颜色
@@ -93,7 +92,6 @@ const BpmnFlowChart = ({
         createDiagram()
       }
     } catch (e) {
-      console.log(e)
     }
   }, [xmlData, highLightData])
   const processList = [

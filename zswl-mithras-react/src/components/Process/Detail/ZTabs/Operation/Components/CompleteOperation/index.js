@@ -27,7 +27,6 @@ function Index() {
 
   const fileKeyList = Object.keys(fileKeyEnum)
   const dynamicForm = (key) => {
-    console.log('key: ', key)
     // 立项创建，审批节点有变动，其实projEstablish_setRiskManager已废弃，暂不删除了
     if (['projEstablish_setRiskManager'].includes(key)) {
       return (

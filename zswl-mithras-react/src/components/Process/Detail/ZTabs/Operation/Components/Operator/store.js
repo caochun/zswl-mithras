@@ -52,7 +52,6 @@ class Store {
   }
   messageModal = new ModalStore({
     onFinish: async (values) => {
-      console.log('values: ', values)
       const params = this.messageModal.getInitialValues()
       const { message } = values
       this.passProcess({ ...params, needConfirm: false, extParams: { message } })

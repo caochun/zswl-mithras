@@ -21,7 +21,6 @@ class Store {
     }
   }
   commentGuideLine = async (params) => {
-    console.log(params)
     const res = await LApi.commentGuideLine(params)
     return res
   }

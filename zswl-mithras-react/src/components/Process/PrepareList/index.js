@@ -52,7 +52,6 @@ const Index = () => {
       Modal.confirm({
         title: '确认提交吗？',
         onOk: async () => {
-          console.log(record)
           await Api.submitProjectDistribution({ projectDistributionId: record.businessId })
           message.success('提交成功！')
           history.push(`/process/application?t=${Date.now()}`)

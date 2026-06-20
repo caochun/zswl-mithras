@@ -98,7 +98,6 @@ export const getBackEndData = ({ dynamicFormKeyList, formData, backEndData, bcxx
     backEndData.dynamicFormData.handleResult = formData.handleResult
   }
   if (dynamicFormKeyList.includes('follow_up_rental_inspection_form')) {
-    console.log('bcxxFormData: ', bcxxFormData)
     backEndData.dynamicFormData.follow_up_rental_inspection_form = {
       nextCheckWay: bcxxFormData.nextCheckWay,
       nextDeadline: bcxxFormData.nextDeadline ? moment(bcxxFormData.nextDeadline).format('YYYY-MM-DD') : undefined,

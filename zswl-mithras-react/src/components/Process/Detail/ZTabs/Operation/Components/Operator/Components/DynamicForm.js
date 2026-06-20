@@ -20,7 +20,6 @@ const disabledDate = (current) => {
 }
 
 const Index = ({ onAssetClassifyQualitativeAdjust, assetClassifyDisabled, store }) => {
-  console.log(98)
 
   const publicInfoRef = useRef()
   store.publicInfoRef = publicInfoRef
@@ -32,9 +31,7 @@ const Index = ({ onAssetClassifyQualitativeAdjust, assetClassifyDisabled, store 
 
   const form = Form.useFormInstance()
   const renderDynamicFormItem = (list) => {
-    console.log('list: ', list)
     const result = list?.map((key) => {
-      console.log('key: ', key)
       return {
         // 合同印花税财务经理节点
         contract_updateStampDuty: (

@@ -38,7 +38,6 @@ const BpmnFlowChart = ({
       }
     } catch (e) {
       setLoading(false);
-      console.log(e);
     }
   };
 
@@ -126,7 +125,6 @@ const BpmnFlowChart = ({
         createDiagram();
       }
     } catch (e) {
-      console.log(e);
     }
   }, [highLightData]);
 
