@@ -1,7 +1,0 @@
-export { default as FinancialFundDetailActualTable } from './FundDetail/ActualTable'
-export { default as FinancialFundDetailBaseInfo } from './FundDetail/BaseInfo'
-export { default as FinancialFundDetailEstimateTable } from './FundDetail/EstimateTable'
-export { default as FinancialFundDetailOtherAccount } from './FundDetail/OtherAccount'
-export { default as FinancialFundDetailPledge } from './FundDetail/Pledge'
-export { default as FinancialFundDetailRefundAccount } from './FundDetail/RefundAccount'
-export { default as FinancialFundDetailScheme } from './FundDetail/Scheme'
