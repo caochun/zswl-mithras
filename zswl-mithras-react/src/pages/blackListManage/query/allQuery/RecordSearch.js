@@ -1,1 +1,1 @@
-export { BlackGrayAllQueryRecordSearch as default } from '@/components/BlackGray/AllQueryEntries'
+export { BlackGrayAllQueryRecordSearch as default } from '@/components/BlackGray/AllQueryRecordEntries'
