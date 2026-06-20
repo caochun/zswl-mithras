@@ -1,1 +1,1 @@
-export { default as FinancialPaymentBatchApproval } from './PaymentBatchApproval'
+export { default as FinancialPaymentBatchApproval } from './PaymentBatchApproval/FinancialPaymentBatchApproval'

@@ -452,7 +452,7 @@
 - 直融产品列表页通过 `src/components/Financial/DirectListEntries.js` 暴露，`src/pages/financial/direct/index.js` 只保留路由壳；直融详情继续通过 `src/components/Financial/DirectDetailEntries.js` 暴露。
 - 金融机构管理页通过 `src/components/Financial/OrgEntries.js` 暴露，`src/pages/financial/org/*` 只保留路由壳。
 - 财务应付利息列表页和详情页通过 `src/components/Financial/PayableInterestEntries.js` 暴露，`src/pages/financial/payableInterest/*` 只保留路由壳。
-- 财务还本付息列表页、变更日志和差异详情分别通过 `src/components/Financial/PaymentListPageEntries.js` 和 `src/components/Financial/PaymentLogEntries.js` 暴露，`src/pages/financial/payment/*` 中列表和日志子路由只保留路由壳。
+- 财务还本付息列表页、批量审批、变更日志和差异详情分别通过 `src/components/Financial/PaymentListPageEntries.js`、`PaymentBatchApprovalEntries.js` 和 `PaymentLogEntries.js` 暴露，付款批量审批和变更日志真实实现使用财务域语义文件名，`src/pages/financial/payment/*` 中对应子路由只保留路由壳。
 - 融资管理列表页、创建弹窗、变更弹窗、融资生效、变更日志、差异详情和历史组件子路由通过 `src/components/Financial/FundListMainEntries.js`、`FundListCreateModalEntries.js`、`FundListChangeModalEntries.js`、`FundActualTableEntries.js`、`FundGuaranteeEntries.js`、`FundOrgEntries.js`、`FundYearRateEntries.js`、`FundEffectEntries.js`、`FundDetailPageEntries.js`、`FundDetailActualTableEntries.js`、`FundDetailEstimateTableEntries.js`、`FundDetailSchemeEntries.js`、`FundDetailAccountEntries.js`、`FundDetailAssetEntries.js`、`FundDetailLogEntries.js` 暴露，`src/pages/financial/fund/*` 中对应路由只保留路由壳。
 - 金融授信额度列表页和详情页通过 `src/components/Financial/CreditEntries.js` 暴露，`src/pages/financial/credit/*` 只保留路由壳。
 - 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，`src/pages/financial/guarantee/*` 只保留路由壳。

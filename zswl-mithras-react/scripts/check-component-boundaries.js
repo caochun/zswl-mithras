@@ -564,6 +564,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Financial/PaymentList/FinancialPaymentList.js',
   ],
   [
+    'src/components/Financial/PaymentBatchApproval/index.js',
+    'src/components/Financial/PaymentBatchApproval/FinancialPaymentBatchApproval.js',
+  ],
+  [
+    'src/components/Financial/PaymentChangeLog/index.js',
+    'src/components/Financial/PaymentChangeLog/FinancialPaymentChangeLog.js',
+  ],
+  [
     'src/components/Financial/FinancingCarryInterestFlow/index.js',
     'src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js',
   ],
