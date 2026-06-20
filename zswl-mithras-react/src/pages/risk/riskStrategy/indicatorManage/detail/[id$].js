@@ -1,1 +1,1 @@
-export { RiskStrategyIndicatorManageDetail as default } from '@/components/Risk/RiskStrategyEntries'
+export { RiskStrategyIndicatorManageDetail as default } from '@/components/Risk/RiskStrategyIndicatorEntries'

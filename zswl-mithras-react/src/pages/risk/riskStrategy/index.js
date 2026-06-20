@@ -1,1 +1,1 @@
-export { RiskStrategy as default } from '@/components/Risk/RiskStrategyEntries'
+export { RiskStrategy as default } from '@/components/Risk/RiskStrategyPageEntries'

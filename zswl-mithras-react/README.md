@@ -275,7 +275,10 @@
 - `Risk/PublicMonitorDetailEntries.js`
 - `Risk/PublicMonitorListEntries.js`
 - `Risk/PublicMonitorOpinionDetailEntries.js`
-- `Risk/RiskStrategyEntries.js`
+- `Risk/RiskStrategyConcentrationEntries.js`
+- `Risk/RiskStrategyIndicatorEntries.js`
+- `Risk/RiskStrategyPageEntries.js`
+- `Risk/RiskStrategyRelateMonitorEntries.js`
 - `Risk/SourceCardEntries.js`
 - `TrackEvent/TrackEventDetailEntries.js`
 - `TrackEvent/TrackEventListEntries.js`
@@ -320,7 +323,7 @@
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`Chart/tooltip`。
 - 风险指标报送顶层 Tabs 页和子页均通过 `src/components/Risk/MetricValueEntries.js` 暴露，`src/pages/risk/metricValue/*` 只保留路由壳。
 - 风险评分卡列表页、详情页和试算弹窗通过 `src/components/Risk/SourceCardEntries.js` 暴露，`src/pages/risk/sourceCard/*` 只保留路由壳和历史兼容入口。
-- 风控策略顶层页、指标管理、集中度管理和关联交易监测通过 `src/components/Risk/RiskStrategyEntries.js` 暴露，`src/pages/risk/riskStrategy/*` 只保留路由壳。
+- 风控策略顶层页、指标管理、集中度管理和关联交易监测分别通过 `src/components/Risk/RiskStrategyPageEntries.js`、`RiskStrategyIndicatorEntries.js`、`RiskStrategyConcentrationEntries.js`、`RiskStrategyRelateMonitorEntries.js` 暴露，`src/pages/risk/riskStrategy/*` 只保留路由壳。
 - 租赁物维护列表页和详情页均通过 `src/components/Lease/MaintainEntries.js` 暴露，`src/pages/lease/maintain/*` 只保留路由壳。
 - 应收账款列表页和详情页均通过 `src/components/Budget/AccountsReceivableEntries.js` 暴露，`src/pages/budget/accountsReceivable/*` 只保留路由壳。
 - 收入分摊表列表页和详情页均通过 `src/components/Budget/IncomeShareTableEntries.js` 暴露，`src/pages/budget/incomeShareTable/*` 只保留路由壳。
