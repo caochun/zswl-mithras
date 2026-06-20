@@ -1,1 +1,1 @@
-export { default as CustomerSingleViewRisk } from './SingleViewRisk'
+export { default as CustomerSingleViewRisk } from './SingleViewRisk/CustomerSingleViewRisk'

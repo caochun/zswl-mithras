@@ -5,7 +5,7 @@ import Store from './store'
 import FormCard from './FormCard'
 import BaseInfo from './BaseInfo'
 import { Space } from 'antd'
-import CalcModal from '../../SourceCardCalcModal'
+import CalcModal from '../../SourceCardCalcModal/RiskSourceCardCalcModal'
 
 const Detail = ({ params: { id }, query: { bizType, newProject, canEditFlags = 'true' } }) => {
   const store = useMemo(() => {

@@ -1,1 +1,1 @@
-export { default as CustomerQccSingleView } from './QccSingleView'
+export { default as CustomerQccSingleView } from './QccSingleView/CustomerQccSingleView'

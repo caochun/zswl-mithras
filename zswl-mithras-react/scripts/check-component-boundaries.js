@@ -88,6 +88,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],
   [
+    'src/components/Customer/QccSingleView/index.js',
+    'src/components/Customer/QccSingleView/CustomerQccSingleView.js',
+  ],
+  [
+    'src/components/Customer/SingleViewRisk/index.js',
+    'src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js',
+  ],
+  [
     'src/components/EvaluationAgency/index.js',
     'src/components/EvaluationAgency/AppraisalAgency.js',
   ],
@@ -122,6 +130,14 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Process/ProcessTypeTree/index.js',
     'src/components/Process/ProcessTypeTree/ProcessTypeTree.js',
+  ],
+  [
+    'src/components/Project/DebtEvaluation/index.js',
+    'src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js',
+  ],
+  [
+    'src/components/Risk/SourceCardCalcModal/index.js',
+    'src/components/Risk/SourceCardCalcModal/RiskSourceCardCalcModal.js',
   ],
   [
     'src/components/ChangeLogDiff/index.js',

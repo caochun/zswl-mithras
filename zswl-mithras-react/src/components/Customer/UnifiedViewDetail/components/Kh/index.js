@@ -1,5 +1,5 @@
 import { observer } from '@zswl/admin'
-import SingleViewRisk from '../../../SingleViewRisk'
+import SingleViewRisk from '../../../SingleViewRisk/CustomerSingleViewRisk'
 
 function Index({ path, id, enterpriseName }) {
     return (
