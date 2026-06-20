@@ -1,6 +1,6 @@
 import { FounderSelect, OrgSelect } from '@/components/Select'
 import { ClientSelect } from '@/components/Select'
-import ApprovalHistoryModal from '../../ApprovalHistoryModal'
+import ApprovalHistoryModal from '../../ApprovalHistoryModal/ProcessApprovalHistoryModal'
 import ProcessTypeTree from '../../ProcessTypeTree/ProcessTypeTree'
 import { saveServer } from '@/utils'
 import { observer } from '@zswl/admin'

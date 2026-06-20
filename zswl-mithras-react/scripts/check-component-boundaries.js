@@ -544,8 +544,20 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Process/InfoModal/ProcessInfoModal.js',
   ],
   [
+    'src/components/Process/ApprovalHistory/index.js',
+    'src/components/Process/ApprovalHistory/ProcessApprovalHistory.js',
+  ],
+  [
+    'src/components/Process/ApprovalHistoryModal/index.js',
+    'src/components/Process/ApprovalHistoryModal/ProcessApprovalHistoryModal.js',
+  ],
+  [
     'src/components/Process/ProcessTypeTree/index.js',
     'src/components/Process/ProcessTypeTree/ProcessTypeTree.js',
+  ],
+  [
+    'src/components/Process/TaskFlowChart/index.js',
+    'src/components/Process/TaskFlowChart/ProcessTaskFlowChart.js',
   ],
   [
     'src/components/Process/RouteDetail/index.js',

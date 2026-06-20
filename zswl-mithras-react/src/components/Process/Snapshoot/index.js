@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react'
 import { Button, Descriptions } from 'antd'
 import styles from './index.less'
 import { observer } from '@zswl/admin'
-import ApprovalHistory from '../ApprovalHistory'
+import ApprovalHistory from '../ApprovalHistory/ProcessApprovalHistory'
 import DetailLayout from '@/components/DetailLayout'
 import Store from './store'
 

@@ -1,6 +1,6 @@
 import { observer } from '@zswl/admin'
 import store from './store'
-import ApprovalHistory from '../ApprovalHistory'
+import ApprovalHistory from '../ApprovalHistory/ProcessApprovalHistory'
 import { Modal } from 'antd'
 import { App } from '@zswl/components'
 import { useState, useEffect } from 'react'

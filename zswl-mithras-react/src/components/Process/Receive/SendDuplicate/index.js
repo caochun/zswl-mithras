@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import store from './store'
 import { Table, App, SearchBar } from '@zswl/components'
-import ApprovalHistoryModal from '../../ApprovalHistoryModal'
+import ApprovalHistoryModal from '../../ApprovalHistoryModal/ProcessApprovalHistoryModal'
 import ProcessTypeTree from '../../ProcessTypeTree/ProcessTypeTree'
 import { Tag } from 'antd'
 import { ClientSelect } from '@/components/Select'

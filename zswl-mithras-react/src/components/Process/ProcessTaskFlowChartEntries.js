@@ -1,1 +1,1 @@
-export { default as ProcessTaskFlowChart } from './TaskFlowChart'
+export { default as ProcessTaskFlowChart } from './TaskFlowChart/ProcessTaskFlowChart'

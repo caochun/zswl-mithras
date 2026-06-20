@@ -521,6 +521,7 @@
 - PDF 预览页通过 `src/components/Preview/PreviewEntries.js` 暴露，真实实现命名为 `src/components/Preview/PdfPreview/PdfPreview.js`。
 - 管理报表内部历史页通过 `src/components/Report/ManagementEntries.js` 暴露，真实实现命名为 `src/components/Report/Management/InternalHistory/ReportInternalHistory.js`。
 - 流程信息弹窗通过 `src/components/Process/ProcessInfoModalEntries.js` 暴露，真实实现命名为 `src/components/Process/InfoModal/ProcessInfoModal.js`。
+- 流程审批历史、审批历史弹窗和流程图通过 `src/components/Process/*Entries.js` 暴露，真实实现命名为 `src/components/Process/ApprovalHistory/ProcessApprovalHistory.js`、`ApprovalHistoryModal/ProcessApprovalHistoryModal.js` 和 `TaskFlowChart/ProcessTaskFlowChart.js`。
 - 流程空白块和流程类型树分别通过 `src/components/Process/BlankBlockEntries.js`、`ProcessTypeTreeEntries.js` 暴露，真实实现命名为 `src/components/Process/BlankBlock/ProcessBlankBlock.js` 和 `src/components/Process/ProcessTypeTree/ProcessTypeTree.js`。
 - 流程详情、流程快照和跳转快照动作通过 `src/components/Process/*Entries.js` 暴露，真实实现使用流程域语义文件名，不再依赖目录 `index.js`。
 - 项目债项评级抽屉通过 `src/components/Project/DebtEvaluationEntries.js` 暴露，真实实现命名为 `src/components/Project/DebtEvaluation/ProjectDebtEvaluation.js`。
