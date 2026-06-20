@@ -1,1 +1,1 @@
-export { BlackGrayWarehouseApprovalOutDetail as default } from '@/components/BlackGray/WarehouseEntries'
+export { BlackGrayWarehouseApprovalOutDetail as default } from '@/components/BlackGray/WarehouseApprovalEntries'

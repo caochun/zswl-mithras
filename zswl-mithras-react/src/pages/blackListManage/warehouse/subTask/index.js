@@ -1,1 +1,1 @@
-export { BlackGrayWarehouseSubTask as default } from '@/components/BlackGray/WarehouseEntries'
+export { BlackGrayWarehouseSubTask as default } from '@/components/BlackGray/WarehouseSubTaskEntries'

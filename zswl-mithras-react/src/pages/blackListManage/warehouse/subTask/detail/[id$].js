@@ -1,1 +1,1 @@
-export { BlackGrayWarehouseSubTaskDetailRedirect as default } from '@/components/BlackGray/WarehouseEntries'
+export { BlackGrayWarehouseSubTaskDetailRedirect as default } from '@/components/BlackGray/WarehouseSubTaskEntries'

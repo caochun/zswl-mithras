@@ -1,1 +1,1 @@
-export { BlackGrayWarehouseSearchDetailRedirect as default } from '@/components/BlackGray/WarehouseEntries'
+export { BlackGrayWarehouseSearchDetailRedirect as default } from '@/components/BlackGray/WarehouseSearchEntries'
