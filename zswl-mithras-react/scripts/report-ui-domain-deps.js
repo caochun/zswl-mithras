@@ -192,7 +192,6 @@ const componentEntryScopeAliases = new Map([
   ['Customer/DebtRatingListEntries', 'CustomerDebtRatingList'],
   ['Customer/DebtRatingDetailEntries', 'CustomerDebtRatingDetail'],
   ['Customer/ExternalPublicInfoEntries', 'CustomerExternalPublicInfo'],
-  ['Customer/FinancialReportEntries', 'CustomerFinancialReport'],
   ['Customer/HandoverEntries', 'CustomerHandover'],
   ['Customer/MaintainDetailEntries', 'CustomerMaintainDetail'],
   ['Customer/MaintainListEntries', 'CustomerMaintainList'],
