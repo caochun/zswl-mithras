@@ -132,8 +132,8 @@
 - `Financial/FundListEntries.js`
 - `Financial/FundProcessEntries.js`
 - `Financial/GuaranteeEntries.js`
+- `Financial/LiquidityRiskEntries.js`
 - `Financial/OrgEntries.js`
-- `Financial/OrgEditModalEntries.js`
 - `Financial/PayableInterestEntries.js`
 - `Financial/PaymentBatchApprovalEntries.js`
 - `Financial/PaymentDetailEntries.js`
@@ -282,6 +282,7 @@
 - 融资管理列表页、融资生效、变更日志和差异详情通过 `src/components/Financial/FundListEntries.js`、`src/components/Financial/FundDetailEntries.js` 暴露，`src/pages/financial/fund/*` 中对应路由只保留路由壳。
 - 金融授信额度列表页和详情页通过 `src/components/Financial/CreditEntries.js` 暴露，`src/pages/financial/credit/*` 只保留路由壳。
 - 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，`src/pages/financial/guarantee/*` 只保留路由壳。
+- 金融流动性风险统计页通过 `src/components/Financial/LiquidityRiskEntries.js` 暴露，`src/pages/financial/liquidityRisk/*` 只保留路由壳。
 - 逾期催收列表页、详情页和催收弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
 - 逾期诉讼用印列表页和用印弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationDoc/*` 只保留路由壳。
 - 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。
