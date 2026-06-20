@@ -1,5 +1,6 @@
 export { default as BankAccount } from './BankAccount'
 export { default as CheckGroup } from './CheckGroup'
+export { default as CurrentSteps } from './CurrentSteps'
 export { default as FormAmount } from './FormAmount'
 export { default as FormDateRange } from './FormDateRange'
 export { default as FormItemContent } from './FormItemContent'

@@ -10,7 +10,7 @@ import newFtpMonthlyGuidanceApi from '@/api/budget/pricing/ftp/newFtpMonthlyGuid
 import styles from './index.less'
 import { ExportAction as Export } from '@/components/Actions'
 import { isFinancialOfficer } from '@/utils'
-import CurrentSteps from '@/components/CurrentSteps'
+import { CurrentSteps } from '@/components/Form'
 import BaseSet from './BaseSet'
 import DetailLayout from '@/components/DetailLayout'
 

@@ -1889,14 +1889,12 @@ const stableSelectRootImports = new Set([
 ])
 const stableDefaultComponentRootImports = new Map([
   ['Collapse', 'Collapse'],
-  ['CurrentSteps', 'CurrentSteps'],
   ['DetailLayout', 'DetailLayout'],
   ['FormulaValueTip', 'FormulaValueTip/FormulaValueTipEntries'],
 ])
 const publicComponentRootImports = new Set([
   'Actions',
   'Collapse',
-  'CurrentSteps',
   'DataUpload',
   'DetailLayout',
   'Excel',
