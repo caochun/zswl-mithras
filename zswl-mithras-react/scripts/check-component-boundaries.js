@@ -811,6 +811,7 @@ const removedCompatibilityComponentEntries = new Map([
   ['Report/OperationEntries.js', 'Report/Operation*Entries.js'],
   ['Risk/MetricValueEntries.js', 'Risk/MetricValue*Entries.js'],
   ['Risk/RiskStrategyEntries.js', 'Risk/RiskStrategy*Entries.js'],
+  ['Risk/SourceCardEntries.js', 'Risk/SourceCard*Entries.js'],
   ['TrackEvent/TrackEventEntries.js', 'TrackEvent/* narrow Entries.js'],
   ['TrackEvent/TrackingEntries.js', 'TrackEvent/* narrow Entries.js'],
   ['WhiteList/WhiteListEntries.js', 'WhiteList/*Entries.js'],

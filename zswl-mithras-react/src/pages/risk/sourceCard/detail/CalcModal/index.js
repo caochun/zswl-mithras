@@ -1,1 +1,1 @@
-export { RiskSourceCardCalcModal as default } from '@/components/Risk/SourceCardEntries'
+export { RiskSourceCardCalcModal as default } from '@/components/Risk/SourceCardCalcModalEntries'

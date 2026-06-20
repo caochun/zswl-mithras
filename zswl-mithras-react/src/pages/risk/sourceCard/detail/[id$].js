@@ -1,1 +1,1 @@
-export { RiskSourceCardDetail as default } from '@/components/Risk/SourceCardEntries'
+export { RiskSourceCardDetail as default } from '@/components/Risk/SourceCardDetailEntries'
