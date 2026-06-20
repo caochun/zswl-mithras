@@ -387,6 +387,7 @@
 - 通用组件应保持无业务名称、无菜单名称、无特定页面状态依赖。
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止在 `src/pages` 下保留样式、图片、JSON 或其它非路由 JS/TS 文件；页面层只保留路由壳。
+- `src/pages` 顶层路由目录必须能对应到真实 `src/components/<Domain>`，历史菜单路径或兼容路径需要在 `scripts/domain-report-config.js` 显式登记业务语义归属。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
 - 禁止在 `.less` 中通过 `@/components/<domain>/...` 引用业务域组件内部样式；路由兼容壳应只做 JS 转发，样式由真实组件自己维护。
 - 禁止保留 `0` 字节空样式文件；如果样式已经为空，应删除样式文件和对应的空 `styles` import / `className`。
@@ -629,7 +630,7 @@
 - `npm run buildAll`：执行多环境打包。
 - `npm run api`：根据 `admin.config.js` 中的 YApi 配置生成接口。
 - `npm run page`：生成页面脚手架。
-- `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`、`@/pages/**` 页面私有代码复用、`src/api` 内部跨业务域引用、未使用或未记录的领域级入口。
+- `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`、`@/pages/**` 页面私有代码复用、未登记真实业务语义的顶层页面路由目录、`src/api` 内部跨业务域引用、未使用或未记录的领域级入口。
 - `node scripts/report-component-entry-deps.js`：输出 `src` 内页面、组件、工具等对组件领域稳定入口形成的依赖关系，并对已确认的历史路由壳目录做领域归一化，用于判断后续边界整理优先级。
 - `node scripts/report-api-domain-deps.js`：输出页面、组件、工具等业务使用方对跨域 API 的依赖关系；`src/api/**` 内的语义兼容入口作为实现细节跳过，用于识别需要收敛到领域组件、领域入口或 `src/api/<domain>` 的候选点。
 

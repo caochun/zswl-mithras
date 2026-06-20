@@ -6,6 +6,7 @@ const srcDir = path.join(root, 'src')
 const readmePath = path.join(root, 'README.md')
 const { findUnusedComponentCandidates } = require('./report-unused-component-candidates')
 const { analyzeUiDomainDeps } = require('./report-ui-domain-deps')
+const { createDomainAliases } = require('./domain-report-config')
 const scanDirs = [srcDir]
 const allFilePattern = /./
 const sourceFilePattern = /\.(js|jsx|ts|tsx)$/
@@ -571,6 +572,7 @@ const legacyApiPrefixRules = [
 ]
 const legacyApiImportPattern = /^@\/api\/([^/'"]+)(?:\/|$)/
 const apiInterfaceImportPattern = /^@\/api\/[^'"]+\/interface\//
+const routeDomainAliases = createDomainAliases()
 
 function normalizeEntryPath(filePath) {
   return path.relative(path.join(srcDir, 'components'), filePath).split(path.sep).join('/')
@@ -720,10 +722,39 @@ function isPublicComponentSourceFile(relativeFilePath) {
   return publicComponentRootImports.has(componentRoot)
 }
 
+function upperFirst(value) {
+  return value ? `${value[0].toUpperCase()}${value.slice(1)}` : value
+}
+
 const violations = []
 const sourceFiles = scanDirs.flatMap((dir) => walk(dir))
 const styleFiles = scanDirs.flatMap((dir) => walkMatchingFiles(dir, styleFilePattern))
 const pageFiles = walkMatchingFiles(path.join(srcDir, 'pages'), allFilePattern)
+const componentDomains = new Set(
+  fs
+    .readdirSync(path.join(srcDir, 'components'), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+)
+const componentDomainKeys = new Set(
+  [...componentDomains].map((domain) => `${domain[0].toLowerCase()}${domain.slice(1)}`)
+)
+const pageRouteDomains = fs
+  .readdirSync(path.join(srcDir, 'pages'), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name)
+
+for (const routeDomain of pageRouteDomains) {
+  const aliasedDomain = routeDomainAliases.get(routeDomain)
+  const aliasedComponentDomain = upperFirst(aliasedDomain)
+  if (!componentDomainKeys.has(routeDomain) && !componentDomains.has(aliasedComponentDomain)) {
+    violations.push({
+      file: `src/pages/${routeDomain}`,
+      specifier:
+        'page route domain must match src/components/<Domain> or be declared in scripts/domain-report-config.js',
+    })
+  }
+}
 
 for (const filePath of pageFiles) {
   const relativeFilePath = path.relative(root, filePath)
