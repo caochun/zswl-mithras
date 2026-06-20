@@ -8,7 +8,7 @@ import moment from 'moment'
 import { useRef, useState } from 'react'
 import FundDailyReport from './FundDailyReport/FinancialLiquidityFundDailyReport'
 import LiquidityManagement from './LiquidityManagement'
-import SupervisionAccount from './SupervisionAccount'
+import SupervisionAccount from './SupervisionAccount/FinancialLiquiditySupervisionAccount'
 import './style.less'
 
 export const defaultTimes = {

@@ -1,1 +1,1 @@
-export { default as FinancialLiquidityRisk } from './LiquidityRisk'
+export { default as FinancialLiquidityRisk } from './LiquidityRisk/FinancialLiquidityRisk'
