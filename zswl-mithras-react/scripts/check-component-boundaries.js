@@ -140,6 +140,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/PolicyManage/Base/Policy/AfterLeasePolicyManagePolicy.js',
   ],
   [
+    'src/components/AfterLease/PolicyManage/Base/index.js',
+    'src/components/AfterLease/PolicyManage/Base/AfterLeasePolicyManageBase.js',
+  ],
+  [
     'src/components/AfterLease/PolicyManage/Base/Policy/PolicyModal/index.js',
     'src/components/AfterLease/PolicyManage/Base/Policy/PolicyModal/AfterLeasePolicyManagePolicyModal.js',
   ],
@@ -548,6 +552,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Contract/Sign/Detail/ContractSignDetail.js',
   ],
   [
+    'src/components/Contract/MarginRefund/index.js',
+    'src/components/Contract/MarginRefund/ContractMarginRefund.js',
+  ],
+  [
     'src/components/Customer/FinancialReport/DeteleIcon.js',
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],
@@ -698,6 +706,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/CreditManage/CreditTable/Tab/ZhiYa/index.js',
     'src/components/CreditManage/CreditTable/Tab/ZhiYa/CreditTableZhiYa.js',
+  ],
+  [
+    'src/components/CreditManage/CreditTable/Tab/index.js',
+    'src/components/CreditManage/CreditTable/Tab/CreditTableTab.js',
   ],
   [
     'src/components/CreditManage/CreditTable/Wait/index.js',
@@ -1102,6 +1114,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Lease/MaintainDetail/index.js',
     'src/components/Lease/MaintainDetail/LeaseMaintainDetail.js',
+  ],
+  [
+    'src/components/LifeCycle/ProjectLifeCycle/detail/index.js',
+    'src/components/LifeCycle/ProjectLifeCycle/detail/LifeCycleProjectDetail.js',
   ],
   [
     'src/components/LifeCycle/CustomerList/index.js',

@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import styles from './index.less'
 import Store from './store'
 import TipsModal from '../../Level5Classify/TipsModal'
-import Base from '../Base'
+import Base from '../Base/AfterLeasePolicyManageBase'
 
 const Index = ({ params: { id }, compareData }) => {
   const store = useMemo(() => {

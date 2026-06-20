@@ -1,1 +1,1 @@
-export { default as ContractMarginRefund } from './MarginRefund'
+export { default as ContractMarginRefund } from './MarginRefund/ContractMarginRefund'

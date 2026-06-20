@@ -1,5 +1,5 @@
 export { default as CreditTableZhangHu } from './CreditTable/Tab/ZhangHu/CreditTableZhangHu'
-export { default as CreditTableTab } from './CreditTable/Tab'
+export { default as CreditTableTab } from './CreditTable/Tab/CreditTableTab'
 export { default as CreditTableHuanKuan } from './CreditTable/Tab/HuanKuan/CreditTableHuanKuan'
 export { default as CreditTableJiaoYi } from './CreditTable/Tab/JiaoYi/CreditTableJiaoYi'
 export { default as CreditTableYuQi } from './CreditTable/Tab/YuQi/CreditTableYuQi'

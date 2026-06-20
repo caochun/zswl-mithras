@@ -505,7 +505,7 @@
 - 业务资料表能力通过 `src/components/ClientMaterialTable/BusinessMaterialTableEntries.js` 暴露，真实实现命名为 `src/components/ClientMaterialTable/BusinessMaterialTable.js`。
 - 预算域的应收款、银行账户、汇率和 FTP 利率价格详情页分别通过 `src/components/Budget/*Entries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js`、`BudgetBankAccount.js`、`BudgetExchangeRate.js` 和 `BudgetPricingFtpInterestPriceDetail.js`，不再依赖目录 `index.js`。
 - 预算管理考核页、参数配置、投放计划和拨备预测详情页分别通过 `src/components/BudgetManagement/*Entries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js`、`BudgetManagementParameterConfiguration.js`、`BudgetManagementPlacementPlan.js` 和 `BudgetManagementProvisionForecastDetail.js`，不再依赖目录 `index.js`。
-- 合同列表、合同签约列表/详情、合同申请日志、合同文本、合同资料、保证金退款通知、合同起租详情、合同变更详情、结清详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
+- 合同列表、合同签约列表/详情、合同申请日志、合同文本、合同资料、保证金退款通知、保证金退抵详情、合同起租详情、合同变更详情、结清详情、变更材料、变更协议、结清协议和起租资料通过 `src/components/Contract/*Entries.js` 暴露，真实实现使用合同域语义文件名，不再依赖目录 `index.js`。
 - 合同新增回执详情通过 `src/components/Contract/CreateReceiptDetailEntries.js` 暴露，真实实现命名为 `src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 客户企查查单一视图和客户风险单一视图分别通过 `src/components/Customer/QccSingleViewEntries.js`、`SingleViewRiskEntries.js` 暴露，真实实现命名为 `src/components/Customer/QccSingleView/CustomerQccSingleView.js` 和 `src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js`。
@@ -517,7 +517,7 @@
 - 征信查询抽屉和查询列表通过 `src/components/Credit/CreditReportSearchEntries.js`、`SearchListEntries.js` 暴露，真实实现命名为 `src/components/Credit/CreditSearchModal/CreditReportSearchModal.js` 和 `CreditSearchList/CreditSearchList.js`。
 - 授信建立列表和详情通过 `src/components/Credit/Establish*Entries.js` 暴露，真实实现命名为 `src/components/Credit/Establish/CreditEstablish.js` 和 `src/components/Credit/EstablishDetail/CreditEstablishDetail.js`。
 - 授信评审列表、详情、授信建立日志、授信评审日志及其差异页通过 `src/components/Credit/*Entries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
-- 授信管理征信查询详情、账户、还款、交易、逾期、客户、保证、抵押、质押、五级分类和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
+- 授信管理征信查询详情、征信报送 Tab、账户、还款、交易、逾期、客户、保证、抵押、质押、五级分类和完成视图，以及五级分类创建弹窗、待处理视图和表格配置通过 `src/components/CreditManage/CreditManageEntries.js` 暴露，真实实现使用授信域语义文件名，不再依赖目录 `index.js`。
 - 付款申请创建弹窗和公开信息提示弹窗分别通过 `src/components/Cpm/PaymentApplicationListEntries.js`、`PaymentApplicationPublicCheckEntries.js` 暴露，真实实现命名为 `src/components/Cpm/PaymentApplicationList/AddModal/CpmPaymentApplicationAddModal.js` 和 `src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js`。
 - 评估机构关系表能力通过 `src/components/EvaluationAgency/AppraisalAgencyEntries.js` 暴露，真实实现命名为 `src/components/EvaluationAgency/AppraisalAgency.js`。
 - 厂商管理外部系统页面集合通过 `src/components/ExternalEmbed/RzyEntries.js` 暴露，真实实现命名为 `src/components/ExternalEmbed/RzyPages/RzyPages.js` 和 `RzyIframe/RzyIframe.js`。
@@ -527,7 +527,7 @@
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
 - KPI 基础设置列表、参数弹窗、基础设置详情弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算顶层页/合同维度、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
-- 生命周期客户列表页和客户详情页通过 `src/components/LifeCycle/CustomerEntries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js` 和 `src/components/LifeCycle/CustomerDetail/LifeCycleCustomerDetail.js`。
+- 生命周期客户列表页/详情页和项目详情页通过 `src/components/LifeCycle/*Entries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js`、`CustomerDetail/LifeCycleCustomerDetail.js` 和 `ProjectLifeCycle/detail/LifeCycleProjectDetail.js`。
 - 租赁物审核确认动作和租赁物维护详情通过 `src/components/Lease/*Entries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js` 和 `src/components/Lease/MaintainDetail/LeaseMaintainDetail.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
 - OCR 列表和识别页通过 `src/components/Ocr/ListEntries.js`、`RecognitionEntries.js` 暴露，真实实现命名为 `src/components/Ocr/List/OcrList.js` 和 `src/components/Ocr/Recognition/OcrRecognition.js`。
