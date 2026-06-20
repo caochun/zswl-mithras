@@ -35,6 +35,10 @@ const utilitySourceFilePattern = /^src[\\/]utils[\\/].*\.(?:js|jsx|ts|tsx)$/
 const removedLegacyUtilityFiles = new Map([
   ['src/utils/afterLease.js', 'src/utils/domains/afterLease/AfterLeaseUtils.js'],
   ['src/utils/budgetManagement.js', 'src/utils/domains/budget/ProvisionForecastUtils.js'],
+  [
+    'src/utils/domains/budgetManagement/BudgetManagementUtils.js',
+    'src/utils/domains/budget/ProvisionForecastUtils.js',
+  ],
   ['src/utils/customer.js', 'src/utils/domains/customer/CustomerUtils.js'],
   ['src/utils/customerRat.js', 'src/utils/domains/customer/CustomerRatUtils.js'],
   ['src/utils/dashboard.js', 'src/utils/domains/dashboard/DashboardUtils*.js'],
@@ -49,7 +53,9 @@ const removedLegacyUtilityFiles = new Map([
   ['src/utils/rzyConfig.js', 'src/utils/domains/rzy/RzyConfig.js'],
   ['src/utils/options/financialReport.js', 'src/utils/domains/report/* when report options are needed'],
   ['src/utils/options/ftp.js', 'src/utils/domains/budget/* when FTP pricing options are needed'],
+  ['src/utils/hooks/useGetColumns.js', 'domain component-local options helpers when needed'],
   ['src/utils/hooks/useGetStatus.js', 'src/utils/domains/blackGray/BlackGrayStatusUtils.js'],
+  ['src/utils/hooks/useLayoutEffect.js', 'React.useLayoutEffect or domain-local hooks when needed'],
 ])
 const removedLegacyApiPathPrefixes = [
   {

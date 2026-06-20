@@ -573,7 +573,8 @@
 - `dashboard/workbench`：旧工作台快捷功能和图表指标生成 API 当前无业务引用，已清理并由边界检查阻止恢复；工作台用户配置、消息和看板能力使用 `src/api/dashboard/userCustomConfigApi`、`workbenchMessageApi` 或其他 dashboard 语义 API。
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件必须使用 `src/utils/domains/dashboard/DashboardUtils*`，历史 `src/utils/dashboard*.js` 文件已清理，边界检查会阻止恢复。
 - `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件必须使用 `src/utils/domains/process/ProcessFlowContext`，历史 `src/utils/processFlow.js` 文件已清理，边界检查会阻止恢复。
-- `utils/afterLease`、`utils/risk`、`utils/report`、`utils/kpi`、`utils/customer`、`utils/customerRat`、`utils/paymentApplication`、`utils/budgetManagement`：业务域小工具历史落在全局 utils；对应业务域页面和组件必须使用 `src/utils/domains/<domain>/*Utils` 语义入口，历史全局文件已清理，边界检查会阻止恢复。预算拨备预测刷新入口使用 `src/utils/domains/budget/ProvisionForecastUtils`，历史 `src/utils/domains/budgetManagement/BudgetManagementUtils` 仅兼容转发。
+- `utils/afterLease`、`utils/risk`、`utils/report`、`utils/kpi`、`utils/customer`、`utils/customerRat`、`utils/paymentApplication`、`utils/budgetManagement`：业务域小工具历史落在全局 utils；对应业务域页面和组件必须使用 `src/utils/domains/<domain>/*Utils` 语义入口，历史全局文件已清理，边界检查会阻止恢复。预算拨备预测刷新入口使用 `src/utils/domains/budget/ProvisionForecastUtils`，历史 `src/utils/domains/budgetManagement/BudgetManagementUtils` 兼容转发已清理。
+- `utils/hooks/useGetColumns`、`utils/hooks/useLayoutEffect`：历史通用 hook 当前无业务引用且未从全局 utils 导出，已清理并由边界检查阻止恢复；后续如需类似能力，应放在实际业务域组件本地或明确的领域工具目录。
 - `utils/rzyConfig`：RZY 厂商管理外部系统菜单和链接配置历史落在全局 utils；布局菜单和 RZY 页面必须使用 `src/utils/domains/rzy/RzyConfig`，历史 `src/utils/rzyConfig.js` 文件已清理，边界检查会阻止恢复。
 - `utils/options/financialReport`、`utils/options/ftp`：历史业务选项文件已清理；后续若需要报表或 FTP 定价选项，应放入对应 `src/utils/domains/<domain>` 语义目录。
 - `utils/hooks/useGetStatus`：黑灰名单审批状态筛选和按钮可用性历史落在全局 hooks；黑灰名单页面和组件必须使用 `src/utils/domains/blackGray/BlackGrayStatusUtils`，历史 `src/utils/hooks/useGetStatus.js` 文件已清理，边界检查会阻止恢复。
