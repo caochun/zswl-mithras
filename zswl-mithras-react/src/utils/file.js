@@ -151,8 +151,6 @@ export const blobToJson = (blob) => {
 }
 
 const uploadMinIO = async (urls, files) => {
-  console.log('files: ', files)
-  console.log('urls: ', urls)
   const uploadList = Object.entries(urls).map(async ([key, url]) => {
     const file = files.find((v) => v.name === key)
     return await fileListApi.postFileUpload()
@@ -200,7 +198,6 @@ export const compare = (beforeArr, afterArr) => {
     if (!cenObj[afterArr[j]]) {
       resObj.add.push(afterArr[j])
     } else {
-      console.log('afterArr[j]: ', afterArr[j])
       resObj.res.push(afterArr[j])
       delete cenObj[afterArr[j]]
     }
@@ -208,6 +205,5 @@ export const compare = (beforeArr, afterArr) => {
   for (let k in cenObj) {
     resObj.del.push(k)
   }
-  console.log('resObj: ', resObj)
   return resObj
 }

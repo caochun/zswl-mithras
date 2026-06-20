@@ -7,8 +7,6 @@ export const downLoadImg = async (node, name) => {
     message.error('未找到要截图的元素')
     return Promise.reject(new Error('未找到要截图的元素'))
   }
-  const t = new Date().getTime()
-  console.log({ t })
   return html2canvas(dom, {
     width: dom.offsetWidth,
     height: dom.offsetHeight,

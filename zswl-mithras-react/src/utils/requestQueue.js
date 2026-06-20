@@ -9,7 +9,6 @@ const requestQueue = (maxNum = 6) => {
       const currentPromise = queue.shift()
       currentPromise()
         .then(() => {
-          console.log('请求执行成功')
           resolvedCount++
           current--
           checkQueue()
