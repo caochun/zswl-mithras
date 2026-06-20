@@ -475,7 +475,7 @@
 - 禁止通用选择器直接引用 `groupCredit/common` 历史 API 前缀，应使用 `common/selectApi` 语义入口。
 - 禁止在 `src/components/**/api.js` 中只做 `@/api/**` 的一行转发；组件内部应直接引用语义明确的 `src/api` 入口，避免制造假本地 API 边界。
 - `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和 `.less` 样式 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止领域入口文件承载非 re-export 内容或使用 `@/components/**` 绝对转发，禁止业务组件目录中的组件转发壳，禁止通过 `@/pages/**` 复用页面私有代码，禁止 `src/pages` 下出现非路由 JS/TS 文件，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零、无引用 API 实现清零、空样式文件清零、空目录清零、重复领域入口受控、跨域组件入口依赖基线受控、UI 跨域依赖无待语义评审项。
-- 跨业务域复用 `@/components/<Domain>/*Entries.js` 时，新增依赖边必须先确认语义，再更新 `scripts/component-entry-deps-baseline.json`；不要为了通过检查直接把内部实现路径或宽入口暴露给调用方。
+- 跨业务域复用 `@/components/<Domain>/*Entries.js` 时，新增依赖边必须先确认语义，再更新 `scripts/component-entry-deps-baseline.json`；清理掉跨域复用后也要同步删除过期基线边。不要为了通过检查直接把内部实现路径或宽入口暴露给调用方。
 - `npm run check:boundaries` 会阻止 `src` 源码中的 `console.log` 和 `debugger` 调试残留，包括运行时代码和注释掉的旧调试语句；需要用户可见反馈时使用页面/组件层的提示能力，需要排错时应在具体业务域临时处理并随调试结束移除。
 
 ## 当前边界收敛
@@ -640,7 +640,7 @@
 - `npm run api`：根据 `admin.config.js` 中的 YApi 配置生成接口。
 - `npm run page`：生成页面脚手架。
 - `npm run check:boundaries`：检查是否存在跨域深层组件路径、组件私有文件引用、公共组件子路径引用、组件域自引用 `*Entries.js`、`@/pages/**` 页面私有代码复用、未登记真实业务语义的顶层页面路由目录、`src/api` 内部跨业务域引用、未使用或未记录的领域级入口、未登记的跨域组件入口依赖边。
-- `npm run report:component-entry-deps`：输出 `src` 内页面、组件、工具等对组件领域稳定入口形成的依赖关系，并对已确认的历史路由壳目录做领域归一化，用于判断后续边界整理优先级；`--write-baseline` 可在人工确认后刷新跨域入口依赖基线。
+- `npm run report:component-entry-deps`：输出 `src` 内页面、组件、工具等对组件领域稳定入口形成的依赖关系，并对已确认的历史路由壳目录做领域归一化，用于判断后续边界整理优先级；`--write-baseline` 可在人工确认后刷新跨域入口依赖基线，`--fail-on-unlisted` 会同时检查新增未登记边和已过期基线边。
 - `node scripts/report-api-domain-deps.js`：输出页面、组件、工具等业务使用方对跨域 API 的依赖关系；`src/api/**` 内的语义兼容入口作为实现细节跳过，用于识别需要收敛到领域组件、领域入口或 `src/api/<domain>` 的候选点。
 
 ## 项目约定

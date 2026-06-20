@@ -8,6 +8,7 @@ const { findUnusedComponentCandidates } = require('./report-unused-component-can
 const { analyzeUiDomainDeps } = require('./report-ui-domain-deps')
 const {
   analyzeComponentEntryDeps,
+  findStaleBaselineEdges,
   findUnlistedEdges,
 } = require('./report-component-entry-deps')
 const { createDomainAliases } = require('./domain-report-config')
@@ -1505,8 +1506,13 @@ for (const edge of [...businessEmbeddingEdges, ...pageAggregationReviewEdges]) {
 const componentEntryDepsBaseline = fs.existsSync(componentEntryDepsBaselinePath)
   ? JSON.parse(fs.readFileSync(componentEntryDepsBaselinePath, 'utf8'))
   : null
+const componentEntryDepsAnalysis = analyzeComponentEntryDeps()
 const unlistedComponentEntryEdges = findUnlistedEdges(
-  analyzeComponentEntryDeps().edges,
+  componentEntryDepsAnalysis.edges,
+  componentEntryDepsBaseline
+)
+const staleComponentEntryBaselineEdges = findStaleBaselineEdges(
+  componentEntryDepsAnalysis.edges,
   componentEntryDepsBaseline
 )
 
@@ -1521,6 +1527,13 @@ for (const edge of unlistedComponentEntryEdges) {
   violations.push({
     file: edge.files.join(', '),
     specifier: `${edge.sourceScope} -> ${edge.target} unlisted cross-domain component entry dependency`,
+  })
+}
+
+for (const edge of staleComponentEntryBaselineEdges) {
+  violations.push({
+    file: path.relative(root, componentEntryDepsBaselinePath),
+    specifier: `${edge.sourceScope} -> ${edge.target} stale cross-domain component entry dependency baseline entry`,
   })
 }
 

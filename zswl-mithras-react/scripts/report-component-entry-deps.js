@@ -209,6 +209,11 @@ function findUnlistedEdges(edges, baseline) {
   return edges.filter((edge) => !baselineEdges.has(getEdgeKey(edge)))
 }
 
+function findStaleBaselineEdges(edges, baseline) {
+  const actualEdges = new Set(edges.map(getEdgeKey))
+  return (baseline?.edges || []).filter((edge) => !actualEdges.has(getEdgeKey(edge)))
+}
+
 function printReport({ edges, fanIn }) {
   if (edges.length === 0) {
     console.log('No cross-domain component entry dependencies found in src.')
@@ -259,6 +264,7 @@ function main() {
   if (args.has('--fail-on-unlisted')) {
     const baseline = loadBaseline()
     const unlistedEdges = findUnlistedEdges(analysis.edges, baseline)
+    const staleBaselineEdges = findStaleBaselineEdges(analysis.edges, baseline)
 
     if (!baseline) {
       console.error(`Missing ${path.relative(root, baselinePath)}.`)
@@ -268,6 +274,14 @@ function main() {
     if (unlistedEdges.length > 0) {
       console.error('Unlisted cross-domain component entry dependencies found:')
       for (const edge of unlistedEdges) {
+        console.error(`- ${getEdgeKey(edge)}`)
+      }
+      process.exit(1)
+    }
+
+    if (staleBaselineEdges.length > 0) {
+      console.error('Stale cross-domain component entry dependency baseline entries found:')
+      for (const edge of staleBaselineEdges) {
         console.error(`- ${getEdgeKey(edge)}`)
       }
       process.exit(1)
@@ -286,5 +300,6 @@ if (require.main === module) {
 
 module.exports = {
   analyzeComponentEntryDeps,
+  findStaleBaselineEdges,
   findUnlistedEdges,
 }
