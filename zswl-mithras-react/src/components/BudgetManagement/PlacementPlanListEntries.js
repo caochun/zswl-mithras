@@ -1,1 +1,1 @@
-export { default as BudgetManagementPlacementPlan } from './PlacementPlan'
+export { default as BudgetManagementPlacementPlan } from './PlacementPlan/BudgetManagementPlacementPlan'

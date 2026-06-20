@@ -1,1 +1,1 @@
-export { default as CustomerExternalPublicInfo } from './ExternalPublicInfo'
+export { default as CustomerExternalPublicInfo } from './ExternalPublicInfo/CustomerExternalPublicInfo'

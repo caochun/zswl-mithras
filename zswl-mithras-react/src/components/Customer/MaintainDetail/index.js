@@ -1,7 +1,7 @@
 import { Tabs, Result, Space, Input } from 'antd'
 import { useMemo, useState, useRef } from 'react'
 import { Page, Button, Modal, Form } from '@zswl/components'
-import Public from '../ExternalPublicInfo'
+import Public from '../ExternalPublicInfo/CustomerExternalPublicInfo'
 import Financial from '../FinancialReport'
 import Basic from './Basic'
 import Store from './store'

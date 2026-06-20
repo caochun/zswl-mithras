@@ -1,2 +1,2 @@
 export { default as BudgetManagementParameterConfig } from './ParameterConfig'
-export { default as BudgetManagementParameterConfiguration } from './ParameterConfiguration'
+export { default as BudgetManagementParameterConfiguration } from './ParameterConfiguration/BudgetManagementParameterConfiguration'

@@ -348,6 +348,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BudgetManagement/AssessmentDetail/BudgetManagementAssessmentDetail.js',
   ],
   [
+    'src/components/BudgetManagement/ParameterConfiguration/index.js',
+    'src/components/BudgetManagement/ParameterConfiguration/BudgetManagementParameterConfiguration.js',
+  ],
+  [
+    'src/components/BudgetManagement/PlacementPlan/index.js',
+    'src/components/BudgetManagement/PlacementPlan/BudgetManagementPlacementPlan.js',
+  ],
+  [
     'src/components/BudgetManagement/PlacementPlanWeekDetail/index.js',
     'src/components/BudgetManagement/PlacementPlanWeekDetail/BudgetManagementPlacementPlanWeekDetail.js',
   ],
@@ -440,8 +448,16 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js',
   ],
   [
+    'src/components/Contract/List/index.js',
+    'src/components/Contract/List/ContractList.js',
+  ],
+  [
     'src/components/Customer/FinancialReport/DeteleIcon.js',
     'src/components/Customer/FinancialReport/DeleteIcon.js',
+  ],
+  [
+    'src/components/Customer/ExternalPublicInfo/index.js',
+    'src/components/Customer/ExternalPublicInfo/CustomerExternalPublicInfo.js',
   ],
   [
     'src/components/Customer/QccSingleView/index.js',
