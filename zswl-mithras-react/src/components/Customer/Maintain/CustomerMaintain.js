@@ -12,7 +12,7 @@ import ApplyPermissionModal from './ApplyPermissionModal'
 import { MatchOptionColumn, InputColumn, AmountColumn } from '@/components/Format'
 import { FounderSelect } from '@/components/Select'
 import { transformClientStatus } from './utils'
-import ZInput from '@/components/ZInput'
+import { ZInput } from '@/components/Form'
 import { saveServer } from '@/utils'
 
 const { Item } = SearchBar

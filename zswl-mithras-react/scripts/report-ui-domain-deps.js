@@ -352,7 +352,6 @@ const publicComponentRoots = new Set([
   'RegionCascader',
   'Select',
   'Table',
-  'ZInput',
 ])
 
 function normalizeDomain(domain) {

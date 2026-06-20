@@ -1898,7 +1898,6 @@ const stableDefaultComponentRootImports = new Map([
   ['PageListDown', 'PageListDown'],
   ['ReadOnly', 'ReadOnly'],
   ['RegionCascader', 'RegionCascader'],
-  ['ZInput', 'ZInput'],
 ])
 const publicComponentRootImports = new Set([
   'Actions',
@@ -1920,7 +1919,6 @@ const publicComponentRootImports = new Set([
   'RegionCascader',
   'Select',
   'Table',
-  'ZInput',
 ])
 const componentRootImportPattern = /^@\/components\/([^/'"]+)$/
 const pageImportPattern = /^@\/pages\//
