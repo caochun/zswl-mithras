@@ -1382,6 +1382,26 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Financial/PaymentChangeLog/detail/log/diffInfo/FinancialPaymentChangeLogDiff.js',
   ],
   [
+    'src/components/Kpi/Estimation/contract/detail/[id$].js',
+    'src/components/Kpi/Estimation/contract/detail/KpiEstimationContractDetail.js',
+  ],
+  [
+    'src/components/Kpi/Estimation/departmentalPool/detail/[id$].js',
+    'src/components/Kpi/Estimation/departmentalPool/detail/KpiEstimationDepartmentalPoolDetail.js',
+  ],
+  [
+    'src/components/Kpi/Estimation/projectManagerPrize/detail/[id$].js',
+    'src/components/Kpi/Estimation/projectManagerPrize/detail/KpiEstimationProjectManagerPrizeDetail.js',
+  ],
+  [
+    'src/components/Kpi/Estimation/projectManagerProfit/detail/[id$].js',
+    'src/components/Kpi/Estimation/projectManagerProfit/detail/KpiEstimationProjectManagerProfitDetail.js',
+  ],
+  [
+    'src/components/Kpi/ProjectAllot/History/[id].js',
+    'src/components/Kpi/ProjectAllot/History/KpiProjectAllotHistory.js',
+  ],
+  [
     'src/components/Preview/ReportPreview/[id$].js',
     'src/components/Preview/ReportPreview/PreviewReportPreview.js',
   ],

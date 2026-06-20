@@ -439,7 +439,7 @@
 - 预算 LPR 维护页通过 `src/components/Budget/LprEntries.js` 暴露，`src/pages/budget/lpr/*` 只保留路由壳。
 - 预算项目利润列表页和详情页分别通过 `src/components/Budget/ProjectProfitListEntries.js`、`ProjectProfitDetailEntries.js` 暴露，列表真实实现命名为 `BudgetProjectProfit.js`，列配置保留在预算项目利润组件内部，`src/pages/budget/projProfit/*` 只保留路由壳。
 - 预算印花税维护页通过 `src/components/Budget/StampDutyEntries.js` 暴露，真实实现命名为 `BudgetStampDuty.js`，`src/pages/budget/stampDuty/*` 只保留路由壳。
-- KPI 项目分配列表页、历史页、项目分配列表子组件、分配明细和表单片段分别通过 `src/components/Kpi/ProjectAllotPageEntries.js`、`ProjectAllotHistoryEntries.js`、`ProjectAllotProjectAllocateListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
+- KPI 项目分配列表页、历史页、项目分配列表子组件、分配明细和表单片段分别通过 `src/components/Kpi/ProjectAllotPageEntries.js`、`ProjectAllotHistoryEntries.js`、`ProjectAllotProjectAllocateListEntries.js`、`ProjectAllotDetailEntries.js`、`ProjectAllotFormEntries.js` 暴露，历史页真实实现命名为 `KpiProjectAllotHistory.js`，`src/pages/kpi/projectAllot/*` 保留路由壳和历史兼容入口。
 - 预算考核列表页和详情页通过 `src/components/BudgetManagement/AssessmentEntries.js` 暴露，真实实现命名为 `BudgetManagementAssessment.js` 和 `BudgetManagementAssessmentDetail.js`，`src/pages/budgetManagement/assessment/*` 只保留路由壳。
 - 预算管理业绩目标是历史菜单路径，实际归入 KPI 业绩目标组件域；列表页和详情页通过 `src/components/Kpi/BusinessGoalEntries.js` 暴露，详情真实实现命名为 `KpiBusinessGoalDetail.js`，`src/pages/budgetManagement/businessGoal/*` 只保留路由壳。
 - 预算管理参数配置页通过 `src/components/BudgetManagement/ParameterEntries.js` 暴露，真实实现命名为 `BudgetManagementParameterConfiguration.js`，`src/pages/budgetManagement/parameterConfig` 只保留路由壳。
@@ -526,7 +526,7 @@
 - 融资计息流程通过 `src/components/Financial/FinancingCarryInterestEntries.js` 暴露，真实实现命名为 `src/components/Financial/FinancingCarryInterestFlow/FinancialFinancingCarryInterestFlow.js`。
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
-- KPI 基础设置列表、参数弹窗、基础设置详情弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算顶层页/合同维度、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
+- KPI 基础设置列表、参数弹窗、基础设置详情弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算顶层页/合同维度/部门池/项目经理奖金/项目经理利润、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，绩效测算详情分别命名为 `KpiEstimationContractDetail.js`、`KpiEstimationDepartmentalPoolDetail.js`、`KpiEstimationProjectManagerPrizeDetail.js`、`KpiEstimationProjectManagerProfitDetail.js`，不再依赖目录 `index.js` 或路由式 `[id]` 文件名。
 - 生命周期客户列表页/详情页和项目列表页/详情页通过 `src/components/LifeCycle/*Entries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js`、`CustomerDetail/LifeCycleCustomerDetail.js`、`ProjectLifeCycle/LifeCycleProjectList.js` 和 `ProjectLifeCycle/detail/LifeCycleProjectDetail.js`。
 - 租赁物审核确认动作和租赁物维护详情通过 `src/components/Lease/*Entries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js` 和 `src/components/Lease/MaintainDetail/LeaseMaintainDetail.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
