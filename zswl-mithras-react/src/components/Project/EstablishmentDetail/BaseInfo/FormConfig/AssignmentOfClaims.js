@@ -1,7 +1,6 @@
-import FormItemContent from '@/components/FormItemContent'
+import { FormItemContent, StarDom } from '@/components/Form'
 import { Descriptions, Form, Input, InputNumber, Row, Col } from 'antd'
 import { App, Button, Select } from '@zswl/components'
-import StarDom from '@/components/StarDom'
 import FormListItem, { toDetail } from '../../../FormListItem/ProjectFormListItem'
 import styles from '../index.less'
 import { history, observer } from '@zswl/admin'

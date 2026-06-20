@@ -1,6 +1,6 @@
+import { FormItemContent } from '@/components/Form'
 import { observer } from '@zswl/admin'
 import { Button, Col, Descriptions, Form, Input, Row, Space } from 'antd'
-import FormItemContent from '@/components/FormItemContent'
 import styles from './index.less'
 import IconFont from '@/components/Icon'
 import { TrackEventAddModal as AddModal } from '@/components/TrackEvent/TrackEventTaskEntries'

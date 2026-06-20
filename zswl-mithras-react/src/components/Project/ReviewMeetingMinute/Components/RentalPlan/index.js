@@ -1,7 +1,7 @@
+import { StarDom } from '@/components/Form'
 
 import { App } from '@zswl/components'
 import { Descriptions, Form, Input, InputNumber, Radio, Row, Col, Checkbox, Space } from 'antd'
-import StarDom from '@/components/StarDom'
 import FormListItem from './FormListItem'
 import styles from './index.less'
 import { observer } from '@zswl/admin'

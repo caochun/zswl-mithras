@@ -343,7 +343,6 @@ const publicComponentRoots = new Set([
   'DetailLayout',
   'Excel',
   'Form',
-  'FormItemContent',
   'FormUpload',
   'Format',
   'FormulaValueTip',
@@ -352,7 +351,6 @@ const publicComponentRoots = new Set([
   'ReadOnly',
   'RegionCascader',
   'Select',
-  'StarDom',
   'Table',
   'ZInput',
 ])

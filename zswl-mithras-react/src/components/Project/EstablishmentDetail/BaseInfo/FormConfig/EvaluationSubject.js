@@ -1,7 +1,6 @@
+import { FormItemContent, StarDom } from '@/components/Form'
 import { Descriptions, Form, Select } from 'antd'
 import { observer } from '@zswl/admin'
-import FormItemContent from '@/components/FormItemContent'
-import StarDom from '@/components/StarDom'
 import { BlackGrayHitInfo } from '@/components/BlackGray/BlackGrayHitEntries'
 import { uniqBy } from 'lodash'
 import { labelRed } from './utils'

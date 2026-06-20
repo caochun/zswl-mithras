@@ -1,6 +1,6 @@
+import { FormItemContent } from '@/components/Form'
 import { observer } from '@zswl/admin'
 import { Descriptions,Input,Form } from 'antd'
-import FormItemContent from '@/components/FormItemContent'
 import styles from './index.less'
 
 function Index({ showValue, form, detail, businessKey }) {

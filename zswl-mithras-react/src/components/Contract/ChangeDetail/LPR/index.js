@@ -1,9 +1,9 @@
+import { StarDom } from '@/components/Form'
 import { useEffect } from 'react'
 import { Select, Form, App } from '@zswl/components'
 import { Descriptions, Input } from 'antd'
 import { amountStrToNumber, getInputNumberValueFromEvent } from '@/utils'
 import mathjs from '@/utils/math'
-import StarDom from '@/components/StarDom'
 import { bizTypeMap } from './bizTypeConfig'
 import styles from './index.less'
 

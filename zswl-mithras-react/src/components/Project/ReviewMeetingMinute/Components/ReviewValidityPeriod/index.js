@@ -1,10 +1,9 @@
+import { FormItemContent, StarDom } from '@/components/Form'
 import { observer } from '@zswl/admin'
 import { Descriptions, Form, Radio,Input  } from 'antd'
-import FormItemContent from '@/components/FormItemContent'
 import dayjs from 'dayjs';
 import styles from './index.less'
 import { App } from '@zswl/components'
-import StarDom from '@/components/StarDom'
 
 function Index({ showValue,detail }) {
     const options = App.getData().optionsType

@@ -1,6 +1,5 @@
-import FormItemContent from '@/components/FormItemContent'
+import { FormItemContent, StarDom } from '@/components/Form'
 import { Descriptions, Form, Input, InputNumber, Empty, Tooltip } from 'antd'
-import StarDom from '@/components/StarDom'
 import styles from '../index.less'
 import { Table, Select, App } from '@zswl/components'
 import { useCallback, useMemo } from 'react'

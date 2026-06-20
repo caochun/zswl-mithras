@@ -1912,7 +1912,6 @@ const publicComponentRootImports = new Set([
   'DetailLayout',
   'Excel',
   'Form',
-  'FormItemContent',
   'FormUpload',
   'Format',
   'Icon',
@@ -1920,7 +1919,6 @@ const publicComponentRootImports = new Set([
   'ReadOnly',
   'RegionCascader',
   'Select',
-  'StarDom',
   'Table',
   'ZInput',
 ])

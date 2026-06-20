@@ -1,11 +1,10 @@
+import { FormItemContent, StarDom } from '@/components/Form'
 import { useEffect } from 'react'
 import { observer } from '@zswl/admin'
 import { Form } from '@zswl/components'
 import { Descriptions, Input, InputNumber } from 'antd'
-import StarDom from '@/components/StarDom'
 import { amountStrToNumber, getInputNumberValueFromEvent, getInputNumberMonthProps } from '@/utils'
 import mathjs from '@/utils/math'
-import FormItemContent from '@/components/FormItemContent'
 import { bizTypeMap } from './bizTypeConfig'
 import styles from './index.less'
 

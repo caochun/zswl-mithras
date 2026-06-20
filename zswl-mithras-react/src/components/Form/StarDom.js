@@ -1,4 +1,4 @@
-import styles from './index.less'
+import styles from './StarDom.less'
 const StarDom = ({ name }) => {
   return (
     <span className={styles.colorsWrap}>

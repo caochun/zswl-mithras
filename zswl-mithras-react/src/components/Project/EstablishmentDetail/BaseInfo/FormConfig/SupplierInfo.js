@@ -1,4 +1,4 @@
-import FormItemContent from '@/components/FormItemContent'
+import { FormItemContent } from '@/components/Form'
 import { Descriptions, Form, Input, Row, Space } from 'antd'
 import { Button } from '@zswl/components'
 import { rules } from '@/utils'
