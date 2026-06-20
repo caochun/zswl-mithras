@@ -272,9 +272,12 @@
 - `Project/PriceDetailEntries.js`
 - `Project/PriceEntries.js`
 - `Project/ProjectReviewMeetingModalEntries.js`
+- `Project/ReviewDetailBaseEntries.js`
+- `Project/ReviewDetailCashFlowEntries.js`
 - `Project/ReviewDetailLogEntries.js`
+- `Project/ReviewDetailMaterialEntries.js`
 - `Project/ReviewDetailPageEntries.js`
-- `Project/ReviewDetailSectionEntries.js`
+- `Project/ReviewDetailQuotationEntries.js`
 - `Project/ReviewEntries.js`
 - `Project/ReviewProcessDetailEntries.js`
 - `Project/ReviewProcessMaterialEntries.js`
