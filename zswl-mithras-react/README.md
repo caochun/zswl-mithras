@@ -496,6 +496,7 @@
 - 图表柱状图和折线图分别通过 `src/components/Chart/BarChartEntries.js`、`LineChartEntries.js` 暴露，真实实现命名为 `src/components/Chart/BarChart/BarChart.js` 和 `src/components/Chart/LineChart/LineChart.js`。
 - 黑灰名单命中标识通过 `src/components/BlackGray/BlackGrayHitEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Info/BlackGrayHitInfo.js`。
 - 黑灰名单突破申请、入库申请、入库外部入口、出库申请和仓库查询分别通过 `src/components/BlackGray/*Entries.js` 暴露，真实实现使用 BlackGray 域语义文件名，不再依赖目录 `index.js`。
+- 黑灰名单参数规则页通过 `src/components/BlackGray/ParameterEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/Warehouse/Rule/BlackGrayWarehouseRule.js`。
 - 黑灰名单入库上传、出库查询和仓库子任务分别通过 `src/components/BlackGray/EnterDatabaseUploadEntries.js`、`OutboundSearchEntries.js`、`WarehouseSubTaskEntries.js` 暴露，真实实现命名为 `src/components/BlackGray/EnterDatabase/Upload/BlackGrayEnterDatabaseUpload.js`、`src/components/BlackGray/Outbound/Search/BlackGrayOutboundSearch.js` 和 `src/components/BlackGray/Warehouse/SubTask/BlackGrayWarehouseSubTask.js`。
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。

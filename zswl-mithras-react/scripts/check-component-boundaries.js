@@ -188,6 +188,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/BlackGray/Warehouse/Search/BlackGrayWarehouseSearch.js',
   ],
   [
+    'src/components/BlackGray/Warehouse/Rule/index.js',
+    'src/components/BlackGray/Warehouse/Rule/BlackGrayWarehouseRule.js',
+  ],
+  [
     'src/components/BlackGray/Warehouse/SubTask/index.js',
     'src/components/BlackGray/Warehouse/SubTask/BlackGrayWarehouseSubTask.js',
   ],
