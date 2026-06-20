@@ -20,6 +20,8 @@ const importPattern =
 const styleImportPattern = /@import\s+(?:\([^)]*\)\s*)?['"]~?([^'"]+)['"]/g
 const componentApiForwardingShellPattern =
   /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/api\/[^'"]+['"]\s*;?\s*$/
+const componentForwardingShellPattern =
+  /^export\s+\{\s*default\s*\}\s+from\s+['"]@\/components\/[^'"]+['"]\s*;?\s*$/
 const pageRouteShellPattern =
   /^export\s+\{[\s\S]*\}\s+from\s+['"]@\/components\/[^/'"]+\/[^/'"]*(?:Entries|entries)(?:\.js)?['"]\s*;?\s*$/
 const uiLocalApiFilePattern =
@@ -626,6 +628,25 @@ function walkMatchingFiles(dir, pattern, files = []) {
   return files
 }
 
+function findEmptyDirs(dir, emptyDirs = []) {
+  if (!fs.existsSync(dir)) {
+    return emptyDirs
+  }
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true })
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      findEmptyDirs(path.join(dir, entry.name), emptyDirs)
+    }
+  }
+
+  if (entries.length === 0) {
+    emptyDirs.push(dir)
+  }
+
+  return emptyDirs
+}
+
 function extractSpecifiers(source, relativeFilePath) {
   const specifiers = []
   const pattern = /\.less$/.test(relativeFilePath) ? styleImportPattern : importPattern
@@ -778,6 +799,16 @@ for (const filePath of styleFiles) {
   }
 }
 
+for (const dirPath of [
+  ...findEmptyDirs(path.join(srcDir, 'components')),
+  ...findEmptyDirs(path.join(srcDir, 'pages')),
+]) {
+  violations.push({
+    file: path.relative(root, dirPath),
+    specifier: 'empty source directory',
+  })
+}
+
 for (const filePath of sourceFiles) {
   const relativeFilePath = path.relative(root, filePath)
   const source = fs.readFileSync(filePath, 'utf8')
@@ -840,6 +871,17 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: 'component api forwarding shell (import the semantic @/api entry directly)',
+    })
+  }
+
+  if (
+    /^src[\\/]components[\\/].*\.(?:js|jsx|ts|tsx)$/.test(relativeFilePath) &&
+    !/(?:Entries|entries)\.js$/.test(relativeFilePath) &&
+    componentForwardingShellPattern.test(source.trim())
+  ) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: 'component forwarding shell (import the target component directly)',
     })
   }
 }
