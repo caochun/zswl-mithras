@@ -34,6 +34,8 @@
 
 `*Entries.js` 默认应按页面、弹窗、表格或明确复用场景保持窄入口；但同一页面的表单片段、同一流程详情的互斥展示片段、同一共享配置组可以保留为一个内聚入口，不需要为了减少 export 数量机械拆分。
 
+禁止无语义地区复制出内容完全相同的 `*Entries.js`；只有页面入口和流程装配入口等消费者语义明确不同的场景，才可以保留显式登记的重复入口。
+
 业务域内部实现文件不要从自己的 `*Entries.js` 反向导入；域内复用应使用相对路径。`*Entries.js` 只作为外部稳定入口使用。
 
 当前已有领域入口：
@@ -467,7 +469,7 @@
 - 禁止预算应收账款页面和组件直接引用 `financial/accountsReceivable` 历史 API 前缀，应使用 `budget/accountsReceivable` 语义入口。
 - 禁止通用选择器直接引用 `groupCredit/common` 历史 API 前缀，应使用 `common/selectApi` 语义入口。
 - 禁止在 `src/components/**/api.js` 中只做 `@/api/**` 的一行转发；组件内部应直接引用语义明确的 `src/api` 入口，避免制造假本地 API 边界。
-- `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和 `.less` 样式 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止通过 `@/pages/**` 复用页面私有代码，禁止 `src/pages` 下出现非路由 JS/TS 文件，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零、空样式文件清零、UI 跨域依赖无待语义评审项。
+- `npm run check:boundaries` 会扫描整个 `src` 的 JS/TS 源码和 `.less` 样式 import，禁止非 `Entries/entries` 的 `@/components/<domain>/<subpath>` 导入，禁止未登记的组件根目录直连，禁止已收敛共享业务组件的根目录直连，禁止组件域内部反向引用自身 `*Entries.js`，禁止通过 `@/pages/**` 复用页面私有代码，禁止 `src/pages` 下出现非路由 JS/TS 文件，禁止直接引用历史 API 目录，禁止页面和组件直接引用 API interface 类型目录，禁止 `src/api` 内部跨业务域引用，并校验领域级入口已被代码使用且同步记录在 README，同时校验无引用组件候选清零、空样式文件清零、重复领域入口受控、UI 跨域依赖无待语义评审项。
 
 ## 当前边界收敛
 

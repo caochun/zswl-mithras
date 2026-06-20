@@ -786,6 +786,10 @@ const compatibilityComponentEntries = new Set([
   'Chart/LineChartEntries.js',
   'Chart/TooltipEntries.js',
 ])
+const allowedDuplicateComponentEntries = new Set([
+  'Financial/FundDetailPageEntries.js|Financial/FundProcessEntries.js',
+  'Project/ReviewDetailPageEntries.js|Project/ReviewProcessDetailEntries.js',
+])
 const removedCompatibilityComponentEntries = new Map([
   ['AfterLease/AdjustEntries.js', 'AfterLease/Adjust*Entries.js'],
   ['AfterLease/CheckPlanListEntries.js', 'AfterLease/CheckPlan*Entries.js'],
@@ -1020,11 +1024,34 @@ for (const filePath of sourceFiles) {
 
 const actualComponentEntries = componentEntryFiles.map(normalizeEntryPath).sort()
 const actualComponentEntrySet = new Set(actualComponentEntries)
+const componentEntryHashes = new Map()
 const readme = fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : ''
 const documentedComponentEntries = [...readme.matchAll(/^- `([^`]+(?:Entries|entries)\.js)`/gm)]
   .map((match) => match[1])
   .sort()
 const documentedComponentEntrySet = new Set(documentedComponentEntries)
+
+for (const filePath of componentEntryFiles) {
+  const entryPath = normalizeEntryPath(filePath)
+  const content = fs.readFileSync(filePath, 'utf8')
+  const entries = componentEntryHashes.get(content) || []
+  entries.push(entryPath)
+  componentEntryHashes.set(content, entries)
+}
+
+for (const entries of componentEntryHashes.values()) {
+  if (entries.length <= 1) {
+    continue
+  }
+
+  const duplicateKey = entries.sort().join('|')
+  if (!allowedDuplicateComponentEntries.has(duplicateKey)) {
+    violations.push({
+      file: entries.map((entryPath) => `src/components/${entryPath}`).join(', '),
+      specifier: 'duplicate component entries',
+    })
+  }
+}
 
 for (const entryPath of actualComponentEntries) {
   if (!componentEntryImports.has(entryPath) && !compatibilityComponentEntries.has(entryPath)) {
