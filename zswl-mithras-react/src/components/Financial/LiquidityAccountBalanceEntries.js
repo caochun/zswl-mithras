@@ -1,1 +1,1 @@
-export { default as FinancialLiquidityAccountBalanceDetail } from './Liquidity/accountBalanceDetail/[id$]'
+export { default as FinancialLiquidityAccountBalanceDetail } from './Liquidity/accountBalanceDetail/FinancialLiquidityAccountBalanceDetail'

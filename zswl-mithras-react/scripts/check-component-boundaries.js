@@ -1354,6 +1354,34 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Financial/FundEffect/FinancialFundEffect.js',
   ],
   [
+    'src/components/Financial/Credit/detail/[id$].js',
+    'src/components/Financial/Credit/detail/FinancialCreditDetail.js',
+  ],
+  [
+    'src/components/Financial/Guarantee/detail/[id$].js',
+    'src/components/Financial/Guarantee/detail/FinancialGuaranteeDetail.js',
+  ],
+  [
+    'src/components/Financial/PayableInterest/detail/[id$].js',
+    'src/components/Financial/PayableInterest/detail/FinancialPayableInterestDetail.js',
+  ],
+  [
+    'src/components/Financial/Liquidity/accountBalanceDetail/[id$].js',
+    'src/components/Financial/Liquidity/accountBalanceDetail/FinancialLiquidityAccountBalanceDetail.js',
+  ],
+  [
+    'src/components/Financial/Liquidity/predictionParameters/[id$].js',
+    'src/components/Financial/Liquidity/predictionParameters/FinancialLiquidityPredictionParameters.js',
+  ],
+  [
+    'src/components/Financial/FundChangeLog/detail/log/diffInfo/[id$].js',
+    'src/components/Financial/FundChangeLog/detail/log/diffInfo/FinancialFundChangeLogDiff.js',
+  ],
+  [
+    'src/components/Financial/PaymentChangeLog/detail/log/diffInfo/[id$].js',
+    'src/components/Financial/PaymentChangeLog/detail/log/diffInfo/FinancialPaymentChangeLogDiff.js',
+  ],
+  [
     'src/components/Preview/ReportPreview/[id$].js',
     'src/components/Preview/ReportPreview/PreviewReportPreview.js',
   ],

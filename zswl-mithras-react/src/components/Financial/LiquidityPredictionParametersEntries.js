@@ -1,1 +1,1 @@
-export { default as FinancialLiquidityPredictionParameters } from './Liquidity/predictionParameters/[id$]'
+export { default as FinancialLiquidityPredictionParameters } from './Liquidity/predictionParameters/FinancialLiquidityPredictionParameters'
