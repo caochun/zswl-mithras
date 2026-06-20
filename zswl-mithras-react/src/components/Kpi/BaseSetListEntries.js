@@ -1,1 +1,1 @@
-export { default as KpiBaseSet } from './BaseSet'
+export { default as KpiBaseSet } from './BaseSet/KpiBaseSet'

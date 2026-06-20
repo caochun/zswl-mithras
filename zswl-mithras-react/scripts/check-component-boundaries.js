@@ -540,6 +540,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/MaintainDetail/Log/CustomerMaintainDetailLog.js',
   ],
   [
+    'src/components/Customer/Monitoring/index.js',
+    'src/components/Customer/Monitoring/CustomerMonitoring.js',
+  ],
+  [
     'src/components/Credit/CreditSearchModal/index.js',
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
   ],
@@ -814,6 +818,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Kpi/BaseSet/CopyItemModal/index.js',
     'src/components/Kpi/BaseSet/CopyItemModal/KpiBaseSetCopyItemModal.js',
+  ],
+  [
+    'src/components/Kpi/BaseSet/index.js',
+    'src/components/Kpi/BaseSet/KpiBaseSet.js',
   ],
   [
     'src/components/Kpi/BaseSet/ParameterModal/index.js',
@@ -1214,6 +1222,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Risk/PublicMonitorOpinionDetail/index.js',
     'src/components/Risk/PublicMonitorOpinionDetail/RiskPublicMonitorOpinionDetail.js',
+  ],
+  [
+    'src/components/Risk/MonitorEarly/index.js',
+    'src/components/Risk/MonitorEarly/RiskMonitorEarly.js',
   ],
   [
     'src/components/Risk/RiskStrategy/IndicatorManage/Detail/index.js',
