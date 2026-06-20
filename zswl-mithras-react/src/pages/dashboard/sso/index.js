@@ -1,1 +1,1 @@
-export { DashboardSso as default } from '@/components/Dashboard/DashboardEntries'
+export { DashboardSso as default } from '@/components/Dashboard/SsoEntries'

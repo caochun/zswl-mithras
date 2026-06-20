@@ -1,1 +1,1 @@
-export { DashboardWorkbench as default } from '@/components/Dashboard/DashboardEntries'
+export { DashboardWorkbench as default } from '@/components/Dashboard/WorkbenchEntries'

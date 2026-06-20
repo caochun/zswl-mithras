@@ -1,1 +1,1 @@
-export { DashboardWorkbenchRedirect as default } from '@/components/Dashboard/DashboardEntries'
+export { DashboardWorkbenchRedirect as default } from '@/components/Dashboard/WorkbenchEntries'

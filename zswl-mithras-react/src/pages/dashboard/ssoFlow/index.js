@@ -1,1 +1,1 @@
-export { DashboardSsoFlow as default } from '@/components/Dashboard/DashboardEntries'
+export { DashboardSsoFlow as default } from '@/components/Dashboard/SsoEntries'

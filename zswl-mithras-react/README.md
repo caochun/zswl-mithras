@@ -119,7 +119,9 @@
 - `Customer/SingleViewRiskEntries.js`
 - `Customer/UnifiedViewDetailEntries.js`
 - `Customer/UnifiedViewEntries.js`
-- `Dashboard/DashboardEntries.js`
+- `Dashboard/OverviewEntries.js`
+- `Dashboard/SsoEntries.js`
+- `Dashboard/WorkbenchEntries.js`
 - `EvaluationAgency/AppraisalAgencyEntries.js`
 - `ExternalEmbed/ExternalEmbedEntries.js`
 - `ExternalEmbed/RzyEntries.js`
@@ -215,14 +217,14 @@
 - 若确实需要跨业务域复用能力，先在被调用领域新增或复用 `*Entries.js`，再由调用方引入。
 - 禁止直接跨域引用组件内部的 `api`、`store`、`Column`、`Config`、`context` 等私有文件。
 - 禁止在 `.less` 中通过 `@/components/<domain>/...` 引用业务域组件内部样式；路由兼容壳应只做 JS 转发，样式由真实组件自己维护。
-- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单管理应通过 `BlackGray/BlackGrayEntries.js` 引入，黑灰名单命中标识应通过 `BlackGray/BlackGrayHitEntries.js` 引入，保单列配置应通过 `InsurancePolicy/InsurancePolicyColumnsEntries.js` 引入，业务资料表应通过 `ClientMaterialTable/BusinessMaterialTableEntries.js` 引入，征信查询抽屉应通过 `Credit/CreditReportSearchEntries.js` 引入，评估机构关系表应通过 `EvaluationAgency/AppraisalAgencyEntries.js` 引入，FTP考核列配置应通过 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 引入，跟踪事项弹窗应通过 `TrackEvent/TrackEventModalEntries.js` 引入，跟踪事项新增任务弹窗应通过 `TrackEvent/TrackEventTaskEntries.js` 引入，`BusinessInfoCheck`、`ClientMaterialTable`、`Dashboard`、`EvaluationAgency`、`ChangeLogDiff`、`InsurancePolicy`、`PaymentFtpColumns` 应通过对应 `*Entries.js` 引入。
+- 已收敛到领域入口的共享业务组件禁止再通过组件根目录直连，例如黑灰名单管理应通过 `BlackGray/BlackGrayEntries.js` 引入，黑灰名单命中标识应通过 `BlackGray/BlackGrayHitEntries.js` 引入，保单列配置应通过 `InsurancePolicy/InsurancePolicyColumnsEntries.js` 引入，业务资料表应通过 `ClientMaterialTable/BusinessMaterialTableEntries.js` 引入，征信查询抽屉应通过 `Credit/CreditReportSearchEntries.js` 引入，评估机构关系表应通过 `EvaluationAgency/AppraisalAgencyEntries.js` 引入，FTP考核列配置应通过 `PaymentFtpColumns/FtpAssessmentColumnsEntries.js` 引入，跟踪事项弹窗应通过 `TrackEvent/TrackEventModalEntries.js` 引入，跟踪事项新增任务弹窗应通过 `TrackEvent/TrackEventTaskEntries.js` 引入，Dashboard 应通过 `Dashboard/OverviewEntries.js`、`Dashboard/SsoEntries.js`、`Dashboard/WorkbenchEntries.js` 等窄入口引入，`BusinessInfoCheck`、`ClientMaterialTable`、`EvaluationAgency`、`ChangeLogDiff`、`InsurancePolicy`、`PaymentFtpColumns` 应通过对应 `*Entries.js` 引入。
 - `npm run report:unused-component-candidates` 只输出静态无入边候选，不代表可直接删除；删除前必须人工复核动态约定、配置导出和类型声明等情况。
 - `npm run report:unused-component-candidates -- --include-index --include-entries` 应保持清零；`npm run check:boundaries` 已把这组候选纳入门禁，用于阻止无引用 `index`、样式文件和 `*Entries.js` 残留回潮。
 - `npm run report:ui-domain-deps` 会把已拆出的窄入口按独立能力归类，例如 `AfterLeaseCheckPlanCreate`、`BlackGrayHit`、`BudgetPricingBusinessDetail`、`ContractApplicationDetail`、`ContractBaseInfo`、`ContractLeaseMaterials`、`CustomerDebtRatingList`、`CustomerExternalPublicInfo`、`CustomerSingleViewRisk`、`FinancialSelect`、`InsurancePolicyInfo`、`InsurancePolicyColumns`、`KpiBaseSetModalDetail`、`ProcessInfoModal`、`ProcessTaskFlowChart`、`ProjectReviewMeetingModal`、`ProjectReviewSnapshot`、`RentCollectionDetail`、`RiskPublicMonitorList`、`RiskSourceCardCalcModal`、`TrackEventDetail`、`TrackEventList`、`TrackEventModal`、`TrackEventTask`；这些报告项代表稳定共享能力，不等同于调用方依赖完整业务域。
 - `npm run report:ui-domain-deps` 的输出会区分域实现、流程编排和普通页面聚合。`Stable shared business capabilities` 是已确认可复用的业务能力入口，`still need semantic review` 是仍需逐项判断的真实跨域嵌入，`workflow orchestration` 是流程壳对业务详情的装配，`page aggregation` 是工作台、看板、生命周期视图等普通聚合页面的跨域依赖。普通聚合页面也会继续分为稳定能力使用和待语义评审项；后续重构应优先处理待评审清单，而不是机械追求所有跨域项归零。
 - `npm run check:boundaries` 会阻止 `report:ui-domain-deps` 中新增的 `still need semantic review` 项；新增跨域复用必须先明确是稳定共享能力、流程编排、页面聚合，或回收到单一业务域。
 - `npm run report:ui-domain-deps` 默认忽略同业务域页面路由壳到本域组件入口的引用，例如 `pages/project` 到 `components/Project`；报告中的 workflow/page aggregation 部分应主要用于观察流程、工作台、跨域页面编排。
-- `pages/index` 到 `App/RootRedirectEntries.js`、`pages/workbench` 到 `Dashboard/DashboardEntries.js` 属于稳定页面聚合入口；它们是路由重定向/工作台入口，不代表业务域实现互相嵌入。
+- `pages/index` 到 `App/RootRedirectEntries.js`、`pages/workbench` 到 `Dashboard/WorkbenchEntries.js` 属于稳定页面聚合入口；它们是路由重定向/工作台入口，不代表业务域实现互相嵌入。
 - `npm run check:boundaries` 会强制 `src/pages/**/*.js|jsx|ts|tsx` 保持为从 `@/components/**` 转发的轻薄路由壳，真实页面实现、样式和局部组件应放在对应 `src/components/<Domain>` 下。
 - 菜单路由和业务语义不一致时，依赖报告可以按真实语义归一。例如 `pages/lease/tracking` 是跟踪事项路由壳，`pages/customerView` 是客户视图，租后检查计划下的单一视图风险入口归入客户能力；这类归一只影响报告，不改变路由兼容。
 - `pages/budgetManagement/provisionForecast` 是预算管理下的历史菜单路径，但页面和接口语义归入预算拨备预测；依赖报告按 `budget` 归一，路由保持兼容。
@@ -235,7 +237,7 @@
 - 预算流水组织树选择器已回收到 `src/components/Budget/FlowCenter/BankFlow/OrgTreeSelect`，不再作为公共根组件使用。
 - 黑灰审批操作信息已回收到 `src/components/BlackGray/Actions/ApprovalOperation`，仍通过 `BlackGray/BlackGrayEntries.js` 对页面暴露；CPM 页面入口已拆分为票据、付款申请、付款核销、合同付款、收款核销、保证金管理等窄 `*Entries.js`，不再使用宽泛 `Cpm/CpmEntries.js`。
 - 项目多行文本展示已回收到 `src/components/Project/MultilineText`，项目页面跨层使用应通过 `Project/EstablishmentDetailEntries.js`。
-- Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应通过 `Dashboard/DashboardEntries.js`。
+- Dashboard 分段标签样式组件已回收到 `src/components/Dashboard/RadioTabs`，跨层使用应优先通过对应 Dashboard 窄入口或域内相对路径。
 - 布局面包屑状态工具已回收到 `src/layout/components/BreadLine`，不再作为公共根组件使用。
 - 禁止绕过公共组件稳定入口引用 `Actions/*`、`Form/*`、`Format/*`、`Table/*`、`Chart/tooltip`。
 - 风险指标报送顶层 Tabs 页和子页均通过 `src/components/Risk/MetricValueEntries.js` 暴露，`src/pages/risk/metricValue/*` 只保留路由壳。
@@ -278,7 +280,7 @@
 - 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，`src/pages/financial/guarantee/*` 只保留路由壳。
 - 财务流动性管理、资金日报、监管户待转资金、账户余额明细和预测参数配置通过 `src/components/Financial/LiquidityEntries.js` 暴露，`src/pages/financial/liquidity/*` 只保留路由壳。
 - 金融流动性风险统计页通过 `src/components/Financial/LiquidityRiskEntries.js` 暴露，`src/pages/financial/liquidityRisk/*` 只保留路由壳。
-- Dashboard 工作台、经营总览、总览共用组件和 SSO 跳转页通过 `src/components/Dashboard/DashboardEntries.js` 暴露，`src/pages/dashboard/workbench`、`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
+- Dashboard 工作台、经营总览和 SSO 跳转页分别通过 `src/components/Dashboard/WorkbenchEntries.js`、`OverviewEntries.js`、`SsoEntries.js` 暴露，`src/pages/dashboard/workbench`、`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
 - 逾期催收列表页、详情页和催收弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
 - 逾期诉讼用印列表页和用印弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationDoc/*` 只保留路由壳。
 - 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。
@@ -304,7 +306,7 @@
 - 基于 `TableStore` 当前筛选条件或选中行的导出按钮统一从 `src/components/Actions.StoreExportAction` 使用；黑灰名单动作实现位于 `src/components/BlackGray/Actions`。
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 财务、预算等外部页面不再从 `dashboard/workbench/components` 取通用表格合计和文件导出能力。
-- dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 页面通过 `src/components/Dashboard/DashboardEntries.js` 使用。
+- dashboard 锚点滚动导航已归入 `src/components/Dashboard/AnchorScrollNav`，dashboard 域内页面使用相对路径复用。
 - `dashboard/workbench/components` 暂时保留工作台内部私有组件；后续只处理确实跨业务域复用的部分。
 - 我的流程页签、我的审批页签、流程查询、流程设计、准备列表页与准备详情页已收敛到 `src/components/Process`，路由页仅保留入口装配。
 - 白名单列表、详情、列定义已收敛到 `src/components/WhiteList`，路由页仅保留入口装配。
