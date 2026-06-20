@@ -37,7 +37,6 @@ function Index({ params: { id } }) {
         xml: dataXMl.bpmnXml,
         baseURL: baseURL(),
       }
-      console.log('parentData: ', parentData)
       myFrame.contentWindow.postMessage(parentData, '*')
       setLoading(false)
     }

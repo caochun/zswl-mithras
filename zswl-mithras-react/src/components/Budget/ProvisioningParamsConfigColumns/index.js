@@ -13,7 +13,6 @@ export const getColumnsByType = ({ enums, detail, formStore }) => {
       },
     },
   }
-  console.log('enums: ', enums)
   // 判断类型：根据配置名称关键字生成不同表头
   if (['RATING_MAPPING'].includes(detail?.configCode)) {
     // 内部/国内评级 与 穆迪评级映射

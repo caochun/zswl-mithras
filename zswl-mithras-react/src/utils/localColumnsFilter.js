@@ -31,7 +31,6 @@ export const saveServer = async (columnsFilterKey,value) => {
     configKey: columnsFilterKey,
     configValue: JSON.stringify(value),
   })
-  console.log(columnsFilterKey, JSON.stringify(value))
   setLocalColumnsFilter(columnsFilterKey, JSON.stringify(value))
 }
 export function setDefaultFilter(
@@ -40,7 +39,6 @@ export function setDefaultFilter(
   filterName = 'z-table-columns-filter'
 ) {
   const local = getLocalColumnsFilter(columnsFilterKey, filterName)
-  console.log('local: ', local)
   if (_.isEmpty(local)) {
     setLocalColumnsFilter(columnsFilterKey, defaultValue, filterName)
   }

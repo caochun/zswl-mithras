@@ -18,7 +18,6 @@ function Index() {
     }
   }, [])
   const approvalHistory = ({ processInstanceId }) => {
-    console.log(3333)
     setId(processInstanceId)
     setShow(true)
   }
