@@ -1,1 +1,1 @@
-export { default as ContractApplicationLog } from './ApplicationDetail/Log'
+export { default as ContractApplicationLog } from './ApplicationDetail/Log/ContractApplicationLog'

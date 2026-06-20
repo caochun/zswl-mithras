@@ -6,7 +6,7 @@ import newFtpBaseInfoApi from '@/api/budget/pricing/ftp/newFtpBaseInfoApi'
 import { useContext, useEffect, useState } from 'react'
 import { Form } from '@zswl/components'
 import TextAreaEditable from './components/TextAreaEditable'
-import { FTPContext } from './index'
+import { FTPContext } from './BudgetPricingBusinessDetail'
 import _ from 'lodash'
 
 function Index({ canEdit = false, descChange, setSubmitDisabled }) {
