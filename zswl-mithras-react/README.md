@@ -562,13 +562,13 @@
 - `financialReport`、`manageReport`：报表接口历史命名目录；报表页面和组件优先使用 `src/api/report` 下的兼容入口。
 - `fillingMaterialsDetail`、`fillingMaterials`：归档资料接口和路由的历史拼写目录；资料归集页面和组件优先使用 `src/api/filingMaterials`、`src/components/FilingMaterials` 下的兼容入口。
 - `filingMaterials/otherFilingMaterialsDetail`：其他资料归集接口保留在资料归集域；流程提交前做资料说明校验时使用 `src/api/process/detail/filingMaterialsApi` 聚合入口，不再转发资料归集 API 文件。
-- `common/customerOverview`：历史公共实现已清理；dashboard 客户总览页面使用 `src/api/dashboard/customerOverview`，客户视图页面使用 `src/api/customerView/customerOverviewApi` 聚合入口。
-- `common/flowList`：历史公共目录已清理；流程任务列表、流程详情、退回节点和随机退回等 `/flow/**` 接口使用 `src/api/process/flowTaskApi`。
+- `common/customerOverview`：历史公共实现已清理，边界检查会阻止恢复；dashboard 客户总览页面使用 `src/api/dashboard/customerOverview`，客户视图页面使用 `src/api/customerView/customerOverviewApi` 聚合入口。
+- `common/flowList`：历史公共目录已清理，边界检查会阻止恢复；流程任务列表、流程详情、退回节点和随机退回等 `/flow/**` 接口使用 `src/api/process/flowTaskApi`。
 - `process/flowTaskApi.getProcessDetail`：预算管理和租赁物组件只读取流程详情状态时，分别使用 `src/api/budgetManagement/processDetailApi`、`src/api/lease/processDetailApi` 本域语义入口，不直接绑定流程任务 API 文件。
-- `common/editableCompare`：历史上混合了 FTP、项目、付款和文件比对接口，当前已清理；文件表组件使用 `src/api/common/fileCompareApi`。
-- `common/dataList`：历史命名已清理；资料清单上传、下载、预览、项目资料和授信资料列表使用 `src/api/common/materialsApi`。
+- `common/editableCompare`：历史上混合了 FTP、项目、付款和文件比对接口，当前已清理，边界检查会阻止恢复；文件表组件使用 `src/api/common/fileCompareApi`。
+- `common/dataList`：历史命名已清理，边界检查会阻止恢复；资料清单上传、下载、预览、项目资料和授信资料列表使用 `src/api/common/materialsApi`。
 - `customerView`：客户全景页是聚合展示面；从黑灰、风险预警、区域经济、客户总览读取数据时通过 `src/api/customerView` 下的语义入口，不直接穿透到各业务域生成 API；这些入口已收窄为 endpoint 壳，不再转发其他业务域 API 文件。
-- `workbench`：工作台/看板相关接口历史生成目录；真实承载在 `src/api/dashboard/workbench`，dashboard 页面优先使用 `src/api/dashboard` 下的语义入口，历史 `workbench` 入口仅保留兼容转发。
+- `workbench`：工作台/看板相关接口历史生成目录已清理，边界检查会阻止恢复；真实承载在 `src/api/dashboard/workbench`，dashboard 页面优先使用 `src/api/dashboard` 下的语义入口。
 - `utils/dashboard*`：dashboard 专用工具历史落在全局 utils；dashboard 页面和组件必须使用 `src/utils/domains/dashboard/DashboardUtils*`，历史 `src/utils/dashboard*.js` 文件已清理，边界检查会阻止恢复。
 - `utils/processFlow`：流程详情上下文和动态表单配置历史落在全局 utils；流程页面和流程详情复用组件必须使用 `src/utils/domains/process/ProcessFlowContext`，历史 `src/utils/processFlow.js` 文件已清理，边界检查会阻止恢复。
 - `utils/afterLease`、`utils/risk`、`utils/report`、`utils/kpi`、`utils/customer`、`utils/customerRat`、`utils/paymentApplication`、`utils/budgetManagement`：业务域小工具历史落在全局 utils；对应业务域页面和组件必须使用 `src/utils/domains/<domain>/*Utils` 语义入口，历史全局文件已清理，边界检查会阻止恢复。预算拨备预测刷新入口使用 `src/utils/domains/budget/ProvisionForecastUtils`，历史 `src/utils/domains/budgetManagement/BudgetManagementUtils` 仅兼容转发。
@@ -598,12 +598,12 @@
 - `project/projReviewDetail`、`project/projReviewMeetingMinute`：项目评审详情和会议纪要接口保留在项目域；流程详情展示项目评审资料或会议纪要时使用 `src/api/process/detail` 下的聚合入口，不再转发项目域 API 文件。
 - `project/projReviewFinancialReport`：项目评审财务报表完整性接口保留在项目域；流程操作提交前校验时使用 `src/api/process/operation/projectReviewFinancialReportApi`，不再转发项目域 API 文件。
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件使用 `src/api/contract/priceApi` 语义入口。
-- `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录；真实承载在 `src/api/layout/projProfitToolApi`，历史 `header` 与 `kpi/projProfit/profitCalculateTool` 入口仅保留兼容转发。
-- `common/irrGenerationApi`：IRR/现金流生成工具是全局 layout 工具弹窗能力；工具弹窗使用 `src/api/layout/irrGenerationApi` 语义入口，不直接绑定 common API 文件。
-- `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
+- `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录已清理，边界检查会阻止恢复；真实承载在 `src/api/layout/projProfitToolApi`。
+- `common/irrGenerationApi`：IRR/现金流生成工具是全局 layout 工具弹窗能力，历史 common 入口已清理，边界检查会阻止恢复；工具弹窗使用 `src/api/layout/irrGenerationApi` 语义入口，不直接绑定 common API 文件。
+- `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；`src/api/kpi/projProfit` 历史目录已清理，边界检查会阻止恢复，预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
 - `message/messageNotification`：消息中心页面保留消息域 API；全局 layout 消息弹窗使用 `src/api/layout/messageApi`，dashboard 工作台消息列表使用 `src/api/dashboard/workbenchMessageApi`，不再转发消息中心 API 文件。
 - `permission/login`：登录页保留权限域登录 API；全局 layout 快速切换登录使用 `src/api/layout/fastLoginApi`，不再转发登录 API 文件。
-- `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理；dashboard 工作台保存/查询用户配置使用 `src/api/dashboard/userCustomConfigApi`，通用表格列配置工具保留 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
+- `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理，边界检查会阻止恢复；dashboard 工作台保存/查询用户配置使用 `src/api/dashboard/userCustomConfigApi`，通用表格列配置工具保留 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
 - `groupCredit/common`：历史上承载了创建人、组织、客户等通用选择接口；通用选择器优先使用 `src/api/common/selectApi` 语义入口。
 - `groupCredit/projectApproval*`：集团授信立项接口历史生成目录；授信域页面和组件优先使用 `src/api/credit/groupCreditEstablish*` 语义入口。
 - `ocr/list`、`ocr/recognition`：OCR 发票/车证列表、比对和上传识别实现已收敛到 `src/components/Ocr`，列表和识别页分别通过 `src/components/Ocr/ListEntries.js`、`RecognitionEntries.js` 暴露，上传弹窗保留为 OCR 内部组件；发票/车证 API 仍保留在 OCR 生成入口，后续若拆分租赁物语义 API 需另行评估。

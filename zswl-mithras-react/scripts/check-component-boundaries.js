@@ -51,6 +51,44 @@ const removedLegacyUtilityFiles = new Map([
   ['src/utils/options/ftp.js', 'src/utils/domains/budget/* when FTP pricing options are needed'],
   ['src/utils/hooks/useGetStatus.js', 'src/utils/domains/blackGray/BlackGrayStatusUtils.js'],
 ])
+const removedLegacyApiPathPrefixes = [
+  {
+    pathPrefix: 'src/api/common/customerOverview',
+    replacement: 'src/api/dashboard/customerOverview or src/api/customerView/customerOverviewApi',
+  },
+  {
+    pathPrefix: 'src/api/common/flowList',
+    replacement: 'src/api/process/flowTaskApi',
+  },
+  {
+    pathPrefix: 'src/api/common/editableCompare',
+    replacement: 'src/api/common/fileCompareApi',
+  },
+  {
+    pathPrefix: 'src/api/common/dataList',
+    replacement: 'src/api/common/materialsApi',
+  },
+  {
+    pathPrefix: 'src/api/common/irrGenerationApi',
+    replacement: 'src/api/layout/irrGenerationApi',
+  },
+  {
+    pathPrefix: 'src/api/common/workbenchApi',
+    replacement: 'src/api/dashboard/userCustomConfigApi or src/api/dashboard/feikongSsoApi',
+  },
+  {
+    pathPrefix: 'src/api/header/projProfitTool',
+    replacement: 'src/api/layout/projProfitToolApi',
+  },
+  {
+    pathPrefix: 'src/api/kpi/projProfit',
+    replacement: 'src/api/budget/projectProfit* or src/api/layout/projProfitToolApi',
+  },
+  {
+    pathPrefix: 'src/api/workbench',
+    replacement: 'src/api/dashboard/workbench',
+  },
+]
 
 const privateComponentPathPattern = /^@\/components\/[^'"]+\/(?:api|store|context|config|Config|Column|columns)(?:\.js)?$/
 const deepComponentPathPattern = /^@\/components\/[^'"]+\/[^'"]+\/[^'"]+\/[^'"]+/
@@ -863,6 +901,17 @@ for (const filePath of sourceFiles) {
     violations.push({
       file: relativeFilePath,
       specifier: `removed legacy utility file (use ${removedLegacyUtilityFiles.get(relativeFilePath)})`,
+    })
+  }
+
+  const removedLegacyApiPath = removedLegacyApiPathPrefixes.find(
+    ({ pathPrefix }) =>
+      relativeFilePath === pathPrefix || relativeFilePath.startsWith(`${pathPrefix}/`)
+  )
+  if (removedLegacyApiPath) {
+    violations.push({
+      file: relativeFilePath,
+      specifier: `removed legacy api path (use ${removedLegacyApiPath.replacement})`,
     })
   }
 
