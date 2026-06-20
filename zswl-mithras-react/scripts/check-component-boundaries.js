@@ -664,6 +664,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/MonitoringDetail/CustomerMonitoringDetail.js',
   ],
   [
+    'src/components/Customer/UnifiedViewDetail/index.js',
+    'src/components/Customer/UnifiedViewDetail/CustomerUnifiedViewDetail.js',
+  ],
+  [
     'src/components/Credit/CreditSearchModal/index.js',
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
   ],

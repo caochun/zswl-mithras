@@ -509,7 +509,7 @@
 - 合同新增回执详情通过 `src/components/Contract/CreateReceiptDetailEntries.js` 暴露，真实实现命名为 `src/components/Contract/CreateReceiptDetail/ContractCreateReceiptDetail.js`。
 - 变更日志文件比对能力通过 `src/components/ChangeLogDiff/ChangeLogDiffEntries.js` 暴露，真实实现命名为 `src/components/ChangeLogDiff/ChangeLogDiff.js`。
 - 客户企查查单一视图和客户风险单一视图分别通过 `src/components/Customer/QccSingleViewEntries.js`、`SingleViewRiskEntries.js` 暴露，真实实现命名为 `src/components/Customer/QccSingleView/CustomerQccSingleView.js` 和 `src/components/Customer/SingleViewRisk/CustomerSingleViewRisk.js`。
-- 客户全景视图和客户申办权限申请分别通过 `src/components/Customer/UnifiedViewEntries.js`、`ApplyPermissionEntries.js` 暴露，真实实现命名为 `src/components/Customer/UnifiedView/CustomerUnifiedView.js` 和 `src/components/Customer/ApplyPermission/CustomerApplyPermission.js`。
+- 客户全景视图、客户全景详情和客户申办权限申请分别通过 `src/components/Customer/UnifiedViewEntries.js`、`UnifiedViewDetailEntries.js`、`ApplyPermissionEntries.js` 暴露，真实实现命名为 `src/components/Customer/UnifiedView/CustomerUnifiedView.js`、`src/components/Customer/UnifiedViewDetail/CustomerUnifiedViewDetail.js` 和 `src/components/Customer/ApplyPermission/CustomerApplyPermission.js`。
 - 客户外部公开信息通过 `src/components/Customer/ExternalPublicInfoEntries.js` 暴露，真实实现命名为 `src/components/Customer/ExternalPublicInfo/CustomerExternalPublicInfo.js`。
 - 客户债项评级列表和详情通过 `src/components/Customer/DebtRating*Entries.js` 暴露，真实实现命名为 `src/components/Customer/DebtRat/CustomerDebtRat.js` 和 `src/components/Customer/DebtRatDetail/CustomerDebtRatDetail.js`。
 - 客户移交详情通过 `src/components/Customer/HandoverEntries.js` 暴露，真实实现命名为 `src/components/Customer/HandoverDetail/CustomerHandoverDetail.js`。
