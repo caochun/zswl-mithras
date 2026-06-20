@@ -2,7 +2,7 @@ import { Tabs } from 'antd'
 import { useEffect, useMemo } from 'react'
 import { Page, App } from '@zswl/components'
 import store from './store'
-import { observer, getQuery, toJS } from '@zswl/admin'
+import { observer, getQuery } from '@zswl/admin'
 import styles from './index.less'
 import BelongContract from '../../MarginManagementDetail/BelongContract'
 import MarginInfo from '../../MarginManagementDetail/MarginInfo'
@@ -14,7 +14,6 @@ const { TabPane } = Tabs
 function Index({ params: { id }, query: { contractId } }) {
   store.setClientId(id)
   const { marginDetailData } = store
-  console.log(toJS(marginDetailData), 888)
   useEffect(() => {
     return () => {
       App.resetStore(store)
@@ -24,9 +23,6 @@ function Index({ params: { id }, query: { contractId } }) {
   useEffect(() => {
     store.marginDetail(id)
   }, [id])
-  const onChange = (key) => {
-    console.log(key)
-  }
   return (
     <Page store={store} current="详情" header={null}>
       <div className={styles.marginDetil}>
@@ -46,7 +42,7 @@ function Index({ params: { id }, query: { contractId } }) {
             totalReceivableAmount={marginDetailData?.totalReceivableAmount}
             notReceivableAmount={marginDetailData?.notReceivableAmount}
           />
-          <Tabs onChange={onChange}>
+          <Tabs>
             <TabPane tab="收款记录" key="1">
               <PaymentRecords id={id} callback={() => store.marginDetail(id)} />
             </TabPane>

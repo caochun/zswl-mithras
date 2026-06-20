@@ -19,10 +19,6 @@ function Index({ params: { id }, query: { projCode, rentActualCode } }) {
       App.resetStore(store)
     }
   }, [])
-  const onChange = (key) => {
-    console.log(key)
-  }
-
   const contractDetail = async (contractId) => {
     setLoading(true)
     const data = await Api.contractDetail({ contractId })
@@ -55,7 +51,7 @@ function Index({ params: { id }, query: { projCode, rentActualCode } }) {
         </div>
 
         <div>
-          <Tabs onChange={onChange}>
+          <Tabs>
             {/* <TabPane tab="客户信息" key="1"></TabPane>
             <TabPane tab="项目立项" key="2"></TabPane>
             <TabPane tab="项目评审" key="4"></TabPane>

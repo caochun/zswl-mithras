@@ -75,7 +75,6 @@ class Store {
         )
       )
       const noList = ['服务费/咨询费/手续费', '首期租金', '名义价款']
-      console.log({ sum, collectionAmountNumber })
       if (
         Number(sum) !== Number(collectionAmountNumber) &&
         !noList.find((item) => item === this.page.getData().cashFlowItem)
@@ -184,7 +183,6 @@ class Store {
 
         noEdit,
       }
-      console.log(callback)
       callback && callback(data)
       this.collectionModal.open(data)
     }
@@ -223,7 +221,6 @@ class Store {
         ...params,
         id: this.page.getParams().id,
       })
-      console.log(res)
       if (res) {
         return res
       }

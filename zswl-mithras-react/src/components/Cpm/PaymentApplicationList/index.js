@@ -174,7 +174,6 @@ function Index() {
             {
               name: '关闭付款申请',
               onClick: () => {
-                console.log(store.table.getSelected())
                 if (store.table.getSelected().keys.length === 0) {
                   return
                 }

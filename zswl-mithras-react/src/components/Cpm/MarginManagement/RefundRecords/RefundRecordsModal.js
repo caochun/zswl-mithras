@@ -1,4 +1,4 @@
-import { observer, toJS } from '@zswl/admin'
+import { observer } from '@zswl/admin'
 import { Button, DatePicker, Descriptions, Input, InputNumber, Upload } from 'antd'
 import { Modal, Select, Form, App } from '@zswl/components'
 import { UploadOutlined } from '@ant-design/icons'
@@ -29,7 +29,6 @@ function Index() {
     })
   }, [ourBankInfoData])
   const { clientList, backList, clientListOther, backListOther } = store
-  console.log(toJS(backList), 9999999)
   const [form] = Form.useForm()
 
   const bankNumChange = (e, s, f) => {

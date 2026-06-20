@@ -1,5 +1,5 @@
 import { TableStore, ModalStore } from '@zswl/components'
-import { makeAutoObservable, toJS } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import Api from '@/api/cpm/marginManagementApi'
 import { debounce as _debounce } from 'lodash'
 import { message } from 'antd'
@@ -53,49 +53,47 @@ class Store {
     },
     onFinish: async (values, { id } = {}) => {
       if (id) {
-        console.log(values, 'valuesvaluesvalues111')
-      } else {
-        const {
-          collectionAmount,
-          collectionDate,
-          collectionType,
-          otherBankAccountId,
-          file,
-          ourBankAccountIdName,
-          otherBankAccountIdName,
-          ourBankAccountId,
-          postscript,
-          name2,
-        } = values
-        console.log(collectionAmount, DetailStore?.marginDetailData?.canBackAmount, '比较111')
-        if (!(Number(collectionAmount) <= DetailStore?.marginDetailData?.canBackAmount)) {
-          message.info('实付金额需小于等于保证金可退金额！')
-          return
-        }
-        let formdata = new FormData()
-        if (file) {
-          const fileObj = new File(file, file[0].name)
-          file && formdata.append('file', fileObj)
-        }
-        formdata.append('ourAccountId', this.ourBankInfoData?.id)
-        formdata.append('ourAccountName', this.ourBankInfoData?.accountName)
-        formdata.append('ourAccountNumber', this.ourBankInfoData?.accountNumber)
-        formdata.append('ourAccountBank', this.ourBankInfoData?.accountBank)
-        formdata.append('otherAccountName', otherBankAccountId)
-        formdata.append('otherAccountNumber', otherBankAccountIdName)
-        formdata.append('otherAccountBank', name2)
-        formdata.append('collectionType', 'REFUND_MARGIN')
-        formdata.append('collectionAmount', collectionAmount)
-        formdata.append('collectionDate', moment(collectionDate).format('yyyy-MM-DD'))
-        if (postscript) {
-          formdata.append('postscript', postscript)
-        }
-        formdata.append('marginId', DetailStore.getClientId())
-        await Api.addBackRecord(formdata)
-        this.table.search()
-        this.refundModal.close()
-        message.success('提交成功！')
+        return
       }
+      const {
+        collectionAmount,
+        collectionDate,
+        collectionType,
+        otherBankAccountId,
+        file,
+        ourBankAccountIdName,
+        otherBankAccountIdName,
+        ourBankAccountId,
+        postscript,
+        name2,
+      } = values
+      if (!(Number(collectionAmount) <= DetailStore?.marginDetailData?.canBackAmount)) {
+        message.info('实付金额需小于等于保证金可退金额！')
+        return
+      }
+      let formdata = new FormData()
+      if (file) {
+        const fileObj = new File(file, file[0].name)
+        file && formdata.append('file', fileObj)
+      }
+      formdata.append('ourAccountId', this.ourBankInfoData?.id)
+      formdata.append('ourAccountName', this.ourBankInfoData?.accountName)
+      formdata.append('ourAccountNumber', this.ourBankInfoData?.accountNumber)
+      formdata.append('ourAccountBank', this.ourBankInfoData?.accountBank)
+      formdata.append('otherAccountName', otherBankAccountId)
+      formdata.append('otherAccountNumber', otherBankAccountIdName)
+      formdata.append('otherAccountBank', name2)
+      formdata.append('collectionType', 'REFUND_MARGIN')
+      formdata.append('collectionAmount', collectionAmount)
+      formdata.append('collectionDate', moment(collectionDate).format('yyyy-MM-DD'))
+      if (postscript) {
+        formdata.append('postscript', postscript)
+      }
+      formdata.append('marginId', DetailStore.getClientId())
+      await Api.addBackRecord(formdata)
+      this.table.search()
+      this.refundModal.close()
+      message.success('提交成功！')
     },
   })
 
@@ -131,7 +129,6 @@ class Store {
   clientSelectIdOther = ''
   ourBankInfoData = {}
   bankChanges = (e, s, f) => {
-    console.log(e, s, 'sssss')
     if (f == 1) {
       this.ourBankInfoData = s
       // this.searchBackNum(e, s.clientType, f)
@@ -159,7 +156,6 @@ class Store {
       } else {
         data = await Api.getNormalBankAccountList({ clientId })
       }
-      console.log(toJS(data), 2000)
       this.backListOther = data.list
     }
   }, 500)

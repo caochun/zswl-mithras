@@ -27,7 +27,6 @@ const CollectionModal = ({ activeData, store }) => {
   }
   const bankChange = (val, list) => {
     const data = list.find((item) => item.id === val.value)
-    console.log(val, list, data)
     if (data) {
       const { accountBank, accountNumber } = data
 
@@ -37,7 +36,6 @@ const CollectionModal = ({ activeData, store }) => {
       })
     }
   }
-  console.log(ourBankList)
   return (
     <Modal
       propsBy={(data) => {

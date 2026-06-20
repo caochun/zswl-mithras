@@ -1,5 +1,5 @@
 import { TableStore, ModalStore } from '@zswl/components'
-import { makeAutoObservable, toJS } from '@zswl/admin'
+import { makeAutoObservable } from '@zswl/admin'
 import Api from '@/api/cpm/marginManagementApi'
 import { debounce as _debounce } from 'lodash'
 import moment from 'moment'
@@ -40,7 +40,6 @@ class Store {
       if (value) {
         this.addOredit = 2
         const data = await Api.marginCollectionDetail({ id: value.id })
-        console.log(data, 'banknamebanknamebankname')
         data.bankAccountId = data.ourBankInfo?.accountNumber
         data.bankname = data.ourBankInfo?.accountBank
         data.ourBankAccountId = data.ourBankInfo?.accountName
@@ -70,7 +69,6 @@ class Store {
           postscript,
         } = values
 
-        console.log(collectionAmount, 'collectionAmount111')
         if (collectionAmount == 0) {
           message.info('实收金额不能为零！')
           return
@@ -111,7 +109,6 @@ class Store {
   clientSelectId = ''
   currentBankInfo = {}
   bankChange = (e, s) => {
-    console.log(e, s, 'sssss')
     this.currentBankInfo = s
     //this.searchBackNum(e, s.clientType)
     this.clientSelectId = s.id
@@ -124,7 +121,6 @@ class Store {
     } else {
       data = await Api.getNormalBankAccountList({ clientId })
     }
-    console.log(toJS(data), 2000)
     this.backList = data.list
   }, 500)
 }

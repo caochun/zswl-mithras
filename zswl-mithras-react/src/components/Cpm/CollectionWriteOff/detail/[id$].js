@@ -9,7 +9,6 @@ import Store from './store'
 import { useMemo } from 'react'
 
 const CollectionWriteOffDetail = ({ params: { id } }) => {
-  console.log('打印：', { id })
   const store = useMemo(() => new Store(), [])
   return (
     <Page store={store} params={{ id }} current="详情" header={null}>

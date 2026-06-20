@@ -49,7 +49,6 @@ class Store {
     pagination: false,
     request: async (params) => {
       const { clientId, paymentId, id } = this.getParams()
-      console.log('id: ', id)
       if (!id) {
         this.currentInfo = {}
         return []
