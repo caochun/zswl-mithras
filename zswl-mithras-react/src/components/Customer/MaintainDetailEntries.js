@@ -1,1 +1,1 @@
-export { default as CustomerMaintainDetail } from './MaintainDetail'
+export { default as CustomerMaintainDetail } from './MaintainDetail/CustomerMaintainDetail'

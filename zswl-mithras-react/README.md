@@ -598,7 +598,7 @@
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`，真实实现命名为 `RiskMonitorEarly.js`。
 - `login`：登录和初次登录改密历史路由壳，页面实现已收敛到 `src/components/Permission/AuthEntries.js`，登录真实实现命名为 `PermissionLogin.js`，API 语义归属权限认证。
 - `customer/customerRat`：客户评级列表历史路由壳，列表实现和列配置已收敛到 `src/components/Customer/CustomerRatingListEntries.js`。
-- `customer/maintain`：客户维护列表历史路由壳，列表、详情和日志分别通过 `src/components/Customer/MaintainListEntries.js`、`src/components/Customer/MaintainDetailEntries.js` 和 `src/components/Customer/MaintainLogEntries.js` 暴露，列表和日志真实实现命名为 `CustomerMaintain.js` 和 `CustomerMaintainDetailLog.js`。
+- `customer/maintain`：客户维护列表历史路由壳，列表、详情和日志分别通过 `src/components/Customer/MaintainListEntries.js`、`src/components/Customer/MaintainDetailEntries.js` 和 `src/components/Customer/MaintainLogEntries.js` 暴露，真实实现命名为 `CustomerMaintain.js`、`CustomerMaintainDetail.js` 和 `CustomerMaintainDetailLog.js`。
 - `msgNotification`：消息中心历史路由壳，当前实现已收敛到 `src/components/Message/NotificationEntries.js`。
 - `preview`：PDF、报表预览。
 - `visitorManage`：拜访管理历史路由壳，当前入口收敛到 `src/components/VisitorManage/VisitorManageEntries.js`，页面实现命名为 `src/components/VisitorManage/VisitorManagePage.js`。

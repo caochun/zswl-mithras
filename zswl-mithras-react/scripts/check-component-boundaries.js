@@ -644,6 +644,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/Maintain/CustomerMaintain.js',
   ],
   [
+    'src/components/Customer/MaintainDetail/index.js',
+    'src/components/Customer/MaintainDetail/CustomerMaintainDetail.js',
+  ],
+  [
     'src/components/Customer/MaintainDetail/Log/index.js',
     'src/components/Customer/MaintainDetail/Log/CustomerMaintainDetailLog.js',
   ],
