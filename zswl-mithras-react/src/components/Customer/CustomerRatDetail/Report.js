@@ -1,7 +1,7 @@
 import { getQuery, observer } from '@zswl/admin'
 import BaseInfo from './BaseInfo'
 import { useEffect, useMemo } from 'react'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import { NoEnumFileTable } from '@/components/Table'
 import HistoryRat from './HistoryRat'
 import QuantitativeReport from './QuantitativeReport'

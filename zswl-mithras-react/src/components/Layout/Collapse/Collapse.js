@@ -1,6 +1,6 @@
 import { Collapse } from 'antd'
 import { DownOutlined, UpOutlined } from '@ant-design/icons'
-import styles from './index.less'
+import styles from './Collapse.less'
 
 const { Panel } = Collapse
 

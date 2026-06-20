@@ -7,7 +7,7 @@ import Operator from './Components/Operator'
 import CompleteOperation from './Components/CompleteOperation'
 import ApprovalHistory from '../../../ApprovalHistory/ProcessApprovalHistory'
 import FlowChart from '../FlowChart'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import {
   useFlowData,
   votingResultsList,

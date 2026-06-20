@@ -8,7 +8,7 @@ import QuotationScheme from './QuotationScheme/ProjectEstablishmentQuotationSche
 import Report from './Report'
 import Store from './store'
 import TipsModal from './TipsModal'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import { CreditReportSearchModal } from '@/components/Credit/CreditReportSearchEntries'
 
 const ProjectEstablishmentDetail = ({

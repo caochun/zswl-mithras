@@ -5,7 +5,7 @@ import Store from './store'
 import BaseInfo from './BaseInfo'
 import { NoEnumFileTable } from '@/components/Table'
 import Api from '@/api/financial/creditManage'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import UserDetail from './UserDetail'
 const Detail = ({ params: { id }, query: { bizType, newProject, canEditFlags = 'true' } }) => {
   const store = useMemo(() => {

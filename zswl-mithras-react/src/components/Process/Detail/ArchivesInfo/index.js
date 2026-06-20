@@ -5,7 +5,7 @@ import Store from './store'
 import { PlusSquareOutlined, MinusSquareOutlined } from '@ant-design/icons'
 import { Button, Input, Tree } from 'antd'
 import { Form, Page } from '@zswl/components'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 
 const { Item } = Form
 const { TextArea } = Input

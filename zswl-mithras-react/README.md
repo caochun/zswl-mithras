@@ -466,7 +466,7 @@
 - 项目立项列表页和创建弹窗通过 `src/components/Project/EstablishmentEntries.js` 暴露，`src/pages/project/establishment/*` 只保留路由壳和详情子路由壳。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
-- 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `DetailLayout`、`Collapse` 应直接从对应 `@/components/<Component>` 导入。
+- 布局容器类公共能力统一从 `src/components/Layout` 稳定入口导入，详情页锚点布局使用 `Layout.DetailLayout`，折叠内容块使用 `Layout.Collapse`，不再保留 `src/components/DetailLayout`、`src/components/Collapse` 公共根组件。
 - 禁止业务代码继续从 `@/components` 根目录导入组件；历史兼容根导出已删除，新增和迁移代码必须依赖具体稳定入口。
 - 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`Excel` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域或公共能力的 `*Entries.js`。
 - 全局样式不放在 `src/components` 下伪装成组件域；当前全局动画样式已内聚到 `src/app.less`。
@@ -741,7 +741,7 @@
 4. 描述组件、文件表、合计表和审批详情优先从 `src/components/Table` 导入。
 5. 文件分组列表使用 `src/components/Table` 导出的 `FileTable`；普通文件列表使用 `NoEnumFileTable`。
 6. 表单编辑能力优先从 `src/components/Format` 导入。
-7. 详情页锚点布局优先使用 `src/components/DetailLayout`。
+7. 详情页锚点布局优先使用 `src/components/Layout.DetailLayout`。
 
 ## 外部信息
 

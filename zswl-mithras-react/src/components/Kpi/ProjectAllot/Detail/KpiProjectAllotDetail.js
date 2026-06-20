@@ -1,7 +1,7 @@
 import { observer, getQuery } from '@zswl/admin'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Button, Page } from '@zswl/components'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import BaseInfo from '../BaseInfo/KpiProjectAllotBaseInfo'
 import AllocateInfo from '../AllocateInfo/KpiProjectAllotAllocateInfo'
 import ExtarInfo from '../ExtarInfo/KpiProjectAllotExtarInfo'

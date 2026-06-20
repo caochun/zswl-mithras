@@ -1,4 +1,4 @@
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import { Page, Button, Form } from '@zswl/components'
 import { observer, getQuery } from '@zswl/admin'
 import BaseInfo from './BaseInfo'

@@ -7,7 +7,7 @@ import store from './store'
 import { observer, getQuery } from '@zswl/admin'
 import EnvironmentModal from './EnvironmentModal'
 import ZdwModal from './ZdwModal'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import { anchorList } from './utils'
 import { saveServer } from '@/utils'
 

@@ -1,6 +1,6 @@
 import { Page } from '@zswl/components'
 import { observer } from '@zswl/admin'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import PolicyInfo from './PolicyInfo'
 import ContractInfo from './ContractInfo'
 import { InsurancePolicy } from '@/components/InsurancePolicy/InsurancePolicyEntries'

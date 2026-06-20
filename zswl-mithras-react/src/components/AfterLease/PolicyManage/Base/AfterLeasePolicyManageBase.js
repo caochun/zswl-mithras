@@ -2,7 +2,7 @@ import { Button } from '@zswl/components'
 import BaseInfo from './BaseInfo'
 import { history, getQuery, observer } from '@zswl/admin'
 import Policy from './Policy/AfterLeasePolicyManagePolicy'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 
 const anchorList = [
   { label: '合同信息', href: 'baseInfo' },

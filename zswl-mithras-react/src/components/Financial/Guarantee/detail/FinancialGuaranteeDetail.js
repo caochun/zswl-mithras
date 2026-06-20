@@ -6,7 +6,7 @@ import GuaranteeInfo from './GuaranteeInfo'
 import AsyncModal from './AsyncModal'
 import { EditDescription } from '@/components/Table'
 import columns from '../InfoColumn'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import UserDetail from './UserDetail'
 
 const Detail = ({ params: { id }, query: { bizType, newProject, canEditFlags = 'true' } }) => {

@@ -1,7 +1,7 @@
 import { observer } from '@zswl/admin'
 import { Page } from '@zswl/components'
 import { useMemo } from 'react'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import ContractInfo from '../../PolicyManageDetail/ContractInfo'
 import MaterialList from '../../PolicyManageDetail/MaterialList'
 import PolicyContract from '../../PolicyManageDetail/PolicyContract'

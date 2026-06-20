@@ -7,7 +7,7 @@ import styles from './index.less'
 import Api from '@/api/afterLease/rentalInspectionReport'
 
 import CheckContent from './ContentDesc/CheckContent'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 
 
 import { columns, columns2 } from './ContentDesc/Utils'

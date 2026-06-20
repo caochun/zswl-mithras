@@ -1,4 +1,4 @@
-import Collapse from '@/components/Collapse'
+import { Collapse } from '@/components/Layout'
 import { useEffect, useMemo, useState } from 'react'
 import { Tag } from 'antd'
 import { observer, ErrorBoundary } from '@zswl/admin'

@@ -9,7 +9,7 @@ import Store from './store'
 import CashFlowStatement from './CashFlowStatement'
 import FormIrr from '@/components/LeasePricing/FormIrrEntries'
 import { ApprovalDetail } from '@/components/Table'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import FinancialReportStatistics from '../FinancialReportStatistics/ProjectFinancialReportStatistics'
 import { ApprovalAction as Approval } from '@/components/Actions'
 

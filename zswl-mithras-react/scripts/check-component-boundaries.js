@@ -1888,19 +1888,16 @@ const stableSelectRootImports = new Set([
   'getOrgList2',
 ])
 const stableDefaultComponentRootImports = new Map([
-  ['Collapse', 'Collapse'],
-  ['DetailLayout', 'DetailLayout'],
   ['FormulaValueTip', 'FormulaValueTip/FormulaValueTipEntries'],
 ])
 const publicComponentRootImports = new Set([
   'Actions',
-  'Collapse',
   'DataUpload',
-  'DetailLayout',
   'Excel',
   'Form',
   'Format',
   'Icon',
+  'Layout',
   'Select',
   'Table',
 ])

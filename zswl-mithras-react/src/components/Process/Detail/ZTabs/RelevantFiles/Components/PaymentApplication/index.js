@@ -1,4 +1,4 @@
-import Collapse from '@/components/Collapse'
+import { Collapse } from '@/components/Layout'
 import {
   CpmPaymentApplicationInformationList as InformationList,
   CpmPaymentApplicationLendingMaterials as LendingMaterials,

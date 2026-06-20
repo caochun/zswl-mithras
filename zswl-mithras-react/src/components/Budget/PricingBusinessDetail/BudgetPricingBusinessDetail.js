@@ -12,7 +12,7 @@ import { ExportAction as Export } from '@/components/Actions'
 import { isFinancialOfficer } from '@/utils'
 import { CurrentSteps } from '@/components/Form'
 import BaseSet from './BaseSet'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 
 export const FTPContext = React.createContext({})
 

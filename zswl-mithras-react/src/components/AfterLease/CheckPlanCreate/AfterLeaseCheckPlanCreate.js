@@ -5,7 +5,7 @@ import { isAssetJonAndAdmin } from '@/utils'
 import QuarterPlan from './QuarterPlan'
 import OtherPlan from './OtherPlan'
 import BaseInfo from './BaseInfo'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import Store from './store'
 
 const Index = ({ params: { id }, query: { canEditFlags = 'true', businessVersion } }) => {

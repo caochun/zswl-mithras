@@ -3,7 +3,7 @@ import { Button, Descriptions } from 'antd'
 import styles from './index.less'
 import { observer } from '@zswl/admin'
 import ApprovalHistory from '../ApprovalHistory/ProcessApprovalHistory'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import Store from './store'
 
 const Public = ({ id }) => {

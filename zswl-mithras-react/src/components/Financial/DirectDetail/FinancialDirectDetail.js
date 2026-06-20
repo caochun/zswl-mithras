@@ -1,4 +1,4 @@
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import { getQuery, observer } from '@zswl/admin'
 import { Button, Modal, Page } from '@zswl/components'
 import { message } from 'antd'

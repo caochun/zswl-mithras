@@ -8,7 +8,7 @@ import Data from './Data'
 import Report from './Report'
 import { ApprovalAction as Approval } from '@/components/Actions'
 import { ApprovalDetail } from '@/components/Table'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import CreditModal from '../CreditSearchModal/CreditReportSearchModal'
 
 const Index = ({

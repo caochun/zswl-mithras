@@ -1,7 +1,7 @@
 import { getQuery, observer } from '@zswl/admin'
 import BaseInfo from './BaseInfo'
 import { useEffect } from 'react'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import HistoryRat from './HistoryRat'
 import ScoreReport from './ScoreReport'
 import { Space } from 'antd'

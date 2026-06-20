@@ -1,7 +1,7 @@
 import { observer, getQuery, history } from '@zswl/admin'
 import { Page, Button } from '@zswl/components'
 import { useMemo, useRef } from 'react'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import Store from './store'
 import BaseInfo from './BaseInfo'
 import LeaseCheck from './LeaseCheck'

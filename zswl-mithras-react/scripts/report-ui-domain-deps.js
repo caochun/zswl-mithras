@@ -333,14 +333,13 @@ const componentEntryScopeAliases = new Map([
 const publicComponentRoots = new Set([
   'Actions',
   'Chart',
-  'Collapse',
   'DataUpload',
-  'DetailLayout',
   'Excel',
   'Form',
   'Format',
   'FormulaValueTip',
   'Icon',
+  'Layout',
   'Select',
   'Table',
 ])

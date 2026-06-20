@@ -6,7 +6,7 @@ import Replay from './Replay'
 import ZiLiao from './ZiLiao'
 import Store from './store'
 import { useEffect, useMemo } from 'react'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 
 const Index = ({ params: { id }, query: { canEditFlags = 'true', isCreate, businessVersion } }) => {
   // 是否审批流页面

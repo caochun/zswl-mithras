@@ -1,4 +1,4 @@
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import { getQuery, observer } from '@zswl/admin'
 import { Button, Page } from '@zswl/components'
 import { useMemo, useRef } from 'react'

@@ -8,7 +8,7 @@ import Report from './Report'
 import DataStore from './store'
 import { ApprovalAction as Approval } from '@/components/Actions'
 import { ApprovalDetail } from '@/components/Table'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import CreditModal from '../CreditSearchModal/CreditReportSearchModal'
 import { ProjectReviewMeetingModal as MeetingModal } from '@/components/Project/ProjectReviewMeetingModalEntries'
 

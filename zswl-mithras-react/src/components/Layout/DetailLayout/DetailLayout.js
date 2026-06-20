@@ -1,7 +1,7 @@
 import { observer, getQuery } from '@zswl/admin'
 import { Space, Anchor, Tooltip, Affix } from 'antd'
 import { Children, useEffect, useState } from 'react'
-import styles from './index.less'
+import styles from './DetailLayout.less'
 import { AlignRightOutlined, DoubleLeftOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
 

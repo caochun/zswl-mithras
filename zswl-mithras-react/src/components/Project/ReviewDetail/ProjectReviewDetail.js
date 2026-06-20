@@ -11,7 +11,7 @@ import CashFlowStatement from './CashFlowStatement/ProjectReviewDetailCashFlowSt
 import FormIrr from '@/components/LeasePricing/FormIrrEntries'
 import { ApprovalDetail } from '@/components/Table'
 import { ApprovalAction as Approval } from '@/components/Actions'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import FinancialReportStatistics from '../FinancialReportStatistics/ProjectFinancialReportStatistics'
 import { TrackEventModal as TrackModal } from '@/components/TrackEvent/TrackEventModalEntries'
 import DebtDrawer from './DebtDrawer'

@@ -2,7 +2,7 @@ import { observer } from '@zswl/admin'
 import { EditDescription } from '@/components/Table'
 import { Table, Modal, Button, Form, Select, TableStore, App } from '@zswl/components'
 import styles from './style.less'
-import DetailLayout from '@/components/DetailLayout'
+import { DetailLayout } from '@/components/Layout'
 import { MatchOptionColumn, DateColumn, AmountColumn } from '@/components/Format'
 import {
   forwardRef,
