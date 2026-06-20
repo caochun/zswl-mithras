@@ -1,4 +1,4 @@
-import { ContractMarginRefund as MarginRefund } from '@/components/Contract/ProcessDetailEntries'
+import { ContractMarginRefund as MarginRefund } from '@/components/Contract/MarginRefundDetailEntries'
 import { observer } from '@zswl/admin'
 import { useEffect, useMemo, useState } from 'react'
 

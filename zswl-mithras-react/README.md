@@ -115,6 +115,7 @@
 - `Chart/LineChartEntries.js`
 - `Chart/TooltipEntries.js`
 - `ClientMaterialTable/BusinessMaterialTableEntries.js`
+- `Contract/ChangeDetailEntries.js`
 - `Contract/ApplicationDetailLogEntries.js`
 - `Contract/ApplicationDetailPageEntries.js`
 - `Contract/BaseInfoEntries.js`
@@ -123,11 +124,14 @@
 - `Contract/ContractProtocolEntries.js`
 - `Contract/ContractStartRentMaterialEntries.js`
 - `Contract/ContractTextEntries.js`
+- `Contract/CreateReceiptDetailEntries.js`
 - `Contract/LeaseMaterialsEntries.js`
 - `Contract/ListEntries.js`
-- `Contract/ProcessDetailEntries.js`
+- `Contract/MarginRefundDetailEntries.js`
 - `Contract/ProcessPrepareDetailEntries.js`
+- `Contract/SettlementDetailEntries.js`
 - `Contract/SignEntries.js`
+- `Contract/StartRentDetailEntries.js`
 - `Contract/StartRentCheckEntries.js`
 - `Cpm/BillManageEntries.js`
 - `Cpm/CollectionWriteOffEntries.js`

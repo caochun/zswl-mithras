@@ -5,10 +5,16 @@ import {
 } from '@/components/Contract/ApplicationDetailPageEntries'
 import {
   ContractChangeDetail as LPRchange,
+} from '@/components/Contract/ChangeDetailEntries'
+import {
   ContractCreateReceiptDetail as KSJJcreateReceipt,
+} from '@/components/Contract/CreateReceiptDetailEntries'
+import {
   ContractSettlementDetail as JQsettlement,
+} from '@/components/Contract/SettlementDetailEntries'
+import {
   ContractStartRentDetail as KSQZstartRent,
-} from '@/components/Contract/ProcessDetailEntries'
+} from '@/components/Contract/StartRentDetailEntries'
 import Api from '@/api/process/detail/flowDetailApi'
 
 const ContractProcess = (props) => {
