@@ -68,6 +68,10 @@ const removedLegacyUtilityFiles = new Map([
 ])
 const removedLegacyComponentFiles = new Map([
   [
+    'src/components/BusinessInfoCheck/index.js',
+    'src/components/BusinessInfoCheck/BusinessInfoCheck.js',
+  ],
+  [
     'src/components/Customer/FinancialReport/DeteleIcon.js',
     'src/components/Customer/FinancialReport/DeleteIcon.js',
   ],
