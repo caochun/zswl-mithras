@@ -528,6 +528,14 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/DebtRat/CustomerDebtRat.js',
   ],
   [
+    'src/components/Customer/DebtRatDetail/index.js',
+    'src/components/Customer/DebtRatDetail/CustomerDebtRatDetail.js',
+  ],
+  [
+    'src/components/Customer/HandoverDetail/index.js',
+    'src/components/Customer/HandoverDetail/CustomerHandoverDetail.js',
+  ],
+  [
     'src/components/Customer/ApplyPermission/index.js',
     'src/components/Customer/ApplyPermission/CustomerApplyPermission.js',
   ],
@@ -702,6 +710,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/FilingMaterials/AfterFilingMaterialsApply/index.js',
     'src/components/FilingMaterials/AfterFilingMaterialsApply/FilingMaterialsAfterApply.js',
+  ],
+  [
+    'src/components/FilingMaterials/FilingMaterialsApply/index.js',
+    'src/components/FilingMaterials/FilingMaterialsApply/FilingMaterialsApply.js',
   ],
   [
     'src/components/FilingMaterials/FundFilingMaterialsApply/index.js',
@@ -1026,6 +1038,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Permission/Group/index.js',
     'src/components/Permission/Group/PermissionGroup.js',
+  ],
+  [
+    'src/components/Permission/User/index.js',
+    'src/components/Permission/User/PermissionUser.js',
   ],
   [
     'src/components/Report/FinancialReportApproval/index.js',
