@@ -149,6 +149,10 @@ const removedLegacyApiPathPrefixes = [
     replacement: 'src/api/budget/projectProfit* or src/api/layout/projProfitToolApi',
   },
   {
+    pathPrefix: 'src/api/kpi/baseSet/parameterConfig',
+    replacement: 'src/api/budget/projectProfitBaseSetApi',
+  },
+  {
     pathPrefix: 'src/api/lease/evaluationAgencyApi',
     replacement: 'src/api/evaluationAgency/evaluationAgencyApi',
   },

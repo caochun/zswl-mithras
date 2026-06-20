@@ -600,7 +600,7 @@
 - `financial/fundApi.getLprLast`：最新 LPR 接口历史挂在融资 API；合同报价利率组件使用 `src/api/contract/priceApi` 语义入口。
 - `header/projProfitTool`：全局入口触发的利润测算工具接口历史目录已清理，边界检查会阻止恢复；真实承载在 `src/api/layout/projProfitToolApi`。
 - `common/irrGenerationApi`：IRR/现金流生成工具是全局 layout 工具弹窗能力，历史 common 入口和 interface 文件已清理，边界检查会阻止恢复；工具弹窗使用 `src/api/layout/irrGenerationApi` 语义入口，不直接绑定 common API 文件。
-- `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；`src/api/kpi/projProfit` 历史目录已清理，边界检查会阻止恢复，预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口。
+- `kpi/projProfit`、`kpi/baseSet/parameterConfig`：项目分润接口历史落在 KPI 目录；`src/api/kpi/projProfit` 和 `src/api/kpi/baseSet/parameterConfig` 历史路径已清理，边界检查会阻止恢复，预算分润页面优先使用 `src/api/budget/projectProfit*` 语义入口；KPI 自域仍保留 `src/api/kpi/baseSet/parameterConfigApi`。
 - `message/messageNotification`：消息中心页面保留消息域 API；全局 layout 消息弹窗使用 `src/api/layout/messageApi`，dashboard 工作台消息列表使用 `src/api/dashboard/workbenchMessageApi`，不再转发消息中心 API 文件。
 - `permission/login`：登录页保留权限域登录 API；全局 layout 快速切换登录使用 `src/api/layout/fastLoginApi`，不再转发登录 API 文件。
 - `common/workbenchApi`：历史上混合了用户自定义配置和费控 SSO 授权，当前已清理，边界检查会阻止恢复；dashboard 工作台保存/查询用户配置使用 `src/api/dashboard/userCustomConfigApi`，通用表格列配置工具保留 `src/api/common/userCustomConfigApi`，费控 SSO 授权使用 `src/api/dashboard/feikongSsoApi`。
