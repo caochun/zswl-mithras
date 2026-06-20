@@ -524,8 +524,16 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Ocr/Recognition/OcrRecognition.js',
   ],
   [
+    'src/components/Overdue/Collection/List/index.js',
+    'src/components/Overdue/Collection/List/OverdueCollectionList.js',
+  ],
+  [
     'src/components/Overdue/CollectionModal/index.js',
     'src/components/Overdue/CollectionModal/OverdueCollectionModal.js',
+  ],
+  [
+    'src/components/Overdue/LitigationDoc/List/index.js',
+    'src/components/Overdue/LitigationDoc/List/OverdueLitigationDocList.js',
   ],
   [
     'src/components/Overdue/LitigationDocAddModal/index.js',
@@ -626,6 +634,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/TrackEvent/TrackModal/index.js',
     'src/components/TrackEvent/TrackModal/TrackEventModal.js',
+  ],
+  [
+    'src/components/TrackEvent/Tracking/List/index.js',
+    'src/components/TrackEvent/Tracking/List/TrackEventList.js',
   ],
   [
     'src/components/ChangeLogDiff/index.js',
