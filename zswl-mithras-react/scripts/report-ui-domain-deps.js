@@ -341,7 +341,6 @@ const publicComponentRoots = new Set([
   'DetailLayout',
   'Excel',
   'Form',
-  'FormUpload',
   'Format',
   'FormulaValueTip',
   'Icon',

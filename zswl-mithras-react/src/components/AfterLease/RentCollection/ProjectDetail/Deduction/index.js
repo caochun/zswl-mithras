@@ -1,7 +1,7 @@
 import { App, Button, Form, Modal, ModalStore, Table } from '@zswl/components'
 import { Descriptions, Input, InputNumber, Tooltip } from 'antd'
 import styles from '../index.less'
-import FormUpload from '@/components/FormUpload'
+import { FormUpload } from '@/components/Form'
 import { amountFormat, getInputNumberAmountProps, validatorBigZero, validatorNoZero } from '@/utils'
 import { observer } from '@zswl/admin'
 import NoOverdue from '../../Components/NoOverdue'

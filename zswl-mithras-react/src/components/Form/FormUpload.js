@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Upload, Button } from 'antd'
-import IconFont from '../Icon'
+import IconFont from '@/components/Icon'
 import { observer } from '@zswl/admin'
 
 //这个地方没必要加进度条，因为他只是本地上传没有接口

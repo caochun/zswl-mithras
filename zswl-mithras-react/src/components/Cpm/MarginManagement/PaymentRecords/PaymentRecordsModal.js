@@ -1,6 +1,6 @@
 import { Amount } from '@/components/Format'
 import { observer, toJS } from '@zswl/admin'
-import FormUpload from '@/components/FormUpload'
+import { FormUpload } from '@/components/Form'
 import { Button, DatePicker, Descriptions, Input, InputNumber, Upload } from 'antd'
 import { Modal, Select, Form, App } from '@zswl/components'
 import { UploadOutlined } from '@ant-design/icons'

@@ -1908,7 +1908,6 @@ const publicComponentRootImports = new Set([
   'DetailLayout',
   'Excel',
   'Form',
-  'FormUpload',
   'Format',
   'Icon',
   'PageListDown',

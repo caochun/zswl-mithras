@@ -1,4 +1,4 @@
-import FormUpload from '@/components/FormUpload'
+import { FormUpload } from '@/components/Form'
 import { getInputNumberAmountProps, validatorAmount } from '@/utils'
 import { App, Form, Modal } from '@zswl/components'
 import { Button, DatePicker, Input, InputNumber, Select, Upload } from 'antd'
