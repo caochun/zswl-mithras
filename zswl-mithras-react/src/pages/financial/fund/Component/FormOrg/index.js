@@ -1,1 +1,1 @@
-export { FinancialFundFormOrg as default } from '@/components/Financial/FundListComponentEntries'
+export { FinancialFundFormOrg as default } from '@/components/Financial/FundOrgEntries'

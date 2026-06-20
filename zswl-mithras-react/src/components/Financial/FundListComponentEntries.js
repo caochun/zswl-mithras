@@ -1,5 +1,0 @@
-export { default as FinancialFundActualTable } from './FundActualTable'
-export { default as FinancialFundFormGuarantee } from './FundForm/FormGuarantee'
-export { default as FinancialFundFormOrg } from './FundForm/FormOrg'
-export { default as FinancialFundGuaranteeScheme } from './FundGuaranteeScheme'
-export { default as FinancialFundYearRate } from './FundYearRate'
