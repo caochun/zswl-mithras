@@ -240,6 +240,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Budget/PricingBusiness/List/BudgetPricingBusinessList.js',
   ],
   [
+    'src/components/Budget/PricingBusinessDetail/Log/index.js',
+    'src/components/Budget/PricingBusinessDetail/Log/BudgetPricingBusinessDetailLog.js',
+  ],
+  [
     'src/components/Budget/PricingFtpInterest/List/index.js',
     'src/components/Budget/PricingFtpInterest/List/BudgetPricingFtpInterestList.js',
   ],
@@ -436,6 +440,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/DebtRat/CustomerDebtRat.js',
   ],
   [
+    'src/components/Customer/ApplyPermission/index.js',
+    'src/components/Customer/ApplyPermission/CustomerApplyPermission.js',
+  ],
+  [
     'src/components/Credit/CreditSearchModal/index.js',
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
   ],
@@ -452,12 +460,20 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Credit/EstablishDetail/Log/DiffInfo/CreditEstablishLogDiff.js',
   ],
   [
+    'src/components/Credit/EstablishDetail/Log/index.js',
+    'src/components/Credit/EstablishDetail/Log/CreditEstablishDetailLog.js',
+  ],
+  [
     'src/components/Credit/Review/index.js',
     'src/components/Credit/Review/CreditReviewPage.js',
   ],
   [
     'src/components/Credit/ReviewDetail/Log/DiffInfo/index.js',
     'src/components/Credit/ReviewDetail/Log/DiffInfo/CreditReviewLogDiff.js',
+  ],
+  [
+    'src/components/Credit/ReviewDetail/Log/index.js',
+    'src/components/Credit/ReviewDetail/Log/CreditReviewDetailLog.js',
   ],
   [
     'src/components/CreditManage/CreditTable/FinishView/Account/index.js',
@@ -534,6 +550,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Cpm/MarginManagement/PaymentRecords/index.js',
     'src/components/Cpm/MarginManagement/PaymentRecords/CpmMarginPaymentRecords.js',
+  ],
+  [
+    'src/components/Cpm/MarginManagement/RefundRecords/index.js',
+    'src/components/Cpm/MarginManagement/RefundRecords/CpmMarginManagementRefundRecords.js',
   ],
   [
     'src/components/Cpm/MarginManagement/VerificationRecords/index.js',

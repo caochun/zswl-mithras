@@ -1,1 +1,1 @@
-export { default as CustomerApplyPermission } from './ApplyPermission'
+export { default as CustomerApplyPermission } from './ApplyPermission/CustomerApplyPermission'
