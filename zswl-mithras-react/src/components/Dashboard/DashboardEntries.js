@@ -14,6 +14,7 @@ export { default as DashboardWorkbenchRedirect } from './RouteShells/WorkbenchRe
 export { default as DashboardSso } from './Sso'
 export { default as DashboardSsoFlow } from './SsoFlow'
 export { default as DashboardOverview } from './Overview'
+export { default as DashboardWorkbench } from './Workbench'
 export { columns as DashboardAchievementColumns } from './AchievementColumns'
 export { default as DashboardOperationAgingStatistics } from './OperationView/AgingStatistics'
 export { default as DashboardOperationCapacityAnalysis } from './OperationView/CapacityAnalysis'

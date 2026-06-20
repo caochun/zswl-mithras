@@ -117,7 +117,6 @@
 - `Customer/UnifiedViewDetailEntries.js`
 - `Customer/UnifiedViewEntries.js`
 - `Dashboard/DashboardEntries.js`
-- `Dashboard/MyAchievementEntries.js`
 - `EvaluationAgency/AppraisalAgencyEntries.js`
 - `EvaluationAgency/EvaluationAgencyEntries.js`
 - `ChangeLogDiff/ChangeLogDiffEntries.js`
@@ -285,7 +284,7 @@
 - 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，`src/pages/financial/guarantee/*` 只保留路由壳。
 - 财务流动性管理、资金日报、监管户待转资金、账户余额明细和预测参数配置通过 `src/components/Financial/LiquidityEntries.js` 暴露，`src/pages/financial/liquidity/*` 只保留路由壳。
 - 金融流动性风险统计页通过 `src/components/Financial/LiquidityRiskEntries.js` 暴露，`src/pages/financial/liquidityRisk/*` 只保留路由壳。
-- Dashboard 工作台、经营总览、总览共用组件和 SSO 跳转页通过 `src/components/Dashboard/DashboardEntries.js` 暴露，`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
+- Dashboard 工作台、经营总览、总览共用组件和 SSO 跳转页通过 `src/components/Dashboard/DashboardEntries.js` 暴露，`src/pages/dashboard/workbench`、`src/pages/dashboard/overView`、`src/pages/dashboard/sso*` 只保留路由壳。
 - 逾期催收列表页、详情页和催收弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
 - 逾期诉讼用印列表页和用印弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationDoc/*` 只保留路由壳。
 - 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。

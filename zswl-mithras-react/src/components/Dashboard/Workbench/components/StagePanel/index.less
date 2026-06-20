@@ -1,0 +1,64 @@
+.wrap {
+  border-radius: 10px;
+  background-color: #f6f7f9;
+  padding: 15px;
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+
+    .specialRow {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+
+      &:not(:first-child) {
+        justify-content: space-between; // 其他行两端对齐
+      }
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+
+      &_value {
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+      }
+
+      &_label {
+        font-size: 12px;
+      }
+
+      .symbolIcon {
+        margin-left: 2px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_icon {
+    font-size: 24px;
+    margin-right: 5px;
+  }
+
+  &_title {
+    font-size: 14px;
+    color: #17181a;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+}
