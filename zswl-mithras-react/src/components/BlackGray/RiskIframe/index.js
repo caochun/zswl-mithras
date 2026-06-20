@@ -84,8 +84,6 @@ const Index = ({ path, query }) => {
     ...query,
   }
   const url = `${jkUrl}/${path}?${paramsToString(newQuery)}`
-
-  console.log('url: ', url)
   return (
     <Page
       store={store}

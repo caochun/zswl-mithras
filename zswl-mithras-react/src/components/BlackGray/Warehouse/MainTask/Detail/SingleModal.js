@@ -46,7 +46,6 @@ class Store {
   enterpriseName
   tableList = []
   enterpriseNameChange = async (params) => {
-    console.log('params: ', params)
     if (!params) {
       this.form.setFieldsValue({
         unifiedSocialCreditCode: undefined,
