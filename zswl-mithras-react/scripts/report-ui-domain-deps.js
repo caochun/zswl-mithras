@@ -265,6 +265,8 @@ const componentEntryScopeAliases = new Map([
   ['Process/ProcessTaskFlowChartEntries', 'ProcessTaskFlowChart'],
   ['Process/ProcessTypeTreeEntries', 'ProcessTypeTree'],
   ['Report/FinancialReportApprovalEntries', 'FinancialReportApproval'],
+  ['Report/FinancialReportFinishedEntries', 'FinancialReportFinished'],
+  ['Report/FinancialReportWaitEntries', 'FinancialReportWait'],
   ['Risk/OverdueEntries', 'RiskOverdueListSearch'],
   ['Risk/PublicMonitorColumnsEntries', 'RiskPublicMonitorColumns'],
   ['Risk/PublicMonitorListEntries', 'RiskPublicMonitorList'],

@@ -1,1 +1,1 @@
-export { FinancialReportList as default } from '@/components/Report/FinancialReportListEntries'
+export { FinancialReportList as default } from '@/components/Report/FinancialReportWaitEntries'
