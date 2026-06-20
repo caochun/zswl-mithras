@@ -1,1 +1,1 @@
-export { default as FinancialFundEffect } from './FundEffect/[id$]'
+export { default as FinancialFundEffect } from './FundEffect/FinancialFundEffect'

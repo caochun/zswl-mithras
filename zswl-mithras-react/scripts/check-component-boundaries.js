@@ -1346,6 +1346,18 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Process/Design/ProcessDesign.js',
   ],
   [
+    'src/components/Process/Design/detail/[id$].js',
+    'src/components/Process/Design/detail/ProcessDesignDetail.js',
+  ],
+  [
+    'src/components/Financial/FundEffect/[id$].js',
+    'src/components/Financial/FundEffect/FinancialFundEffect.js',
+  ],
+  [
+    'src/components/Preview/ReportPreview/[id$].js',
+    'src/components/Preview/ReportPreview/PreviewReportPreview.js',
+  ],
+  [
     'src/components/Process/InfoModal/index.js',
     'src/components/Process/InfoModal/ProcessInfoModal.js',
   ],
