@@ -1,4 +1,4 @@
-import DirectDetail from '../DirectDetail'
+import DirectDetail from '../DirectDetail/FinancialDirectDetail'
 import FundDetail from '../FundDetail'
 import { observer } from '@zswl/admin'
 

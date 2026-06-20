@@ -1,1 +1,1 @@
-export { default as FinancialDirectDetail } from './DirectDetail'
+export { default as FinancialDirectDetail } from './DirectDetail/FinancialDirectDetail'

@@ -124,6 +124,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/AfterLease/ManageLedger/AfterLeaseManageLedger.js',
   ],
   [
+    'src/components/AfterLease/PolicyManage/index.js',
+    'src/components/AfterLease/PolicyManage/AfterLeasePolicyManageList.js',
+  ],
+  [
     'src/components/AfterLease/PolicyManage/AddModal/index.js',
     'src/components/AfterLease/PolicyManage/AddModal/AfterLeasePolicyManageAddModal.js',
   ],
@@ -142,6 +146,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/AfterLease/PolicyManageRemind/index.js',
     'src/components/AfterLease/PolicyManageRemind/AfterLeasePolicyManageRemind.js',
+  ],
+  [
+    'src/components/AfterLease/Level5Classify/index.js',
+    'src/components/AfterLease/Level5Classify/AfterLeaseLevel5Classify.js',
   ],
   [
     'src/components/AfterLease/Level5ClassifyDetail/index.js',
@@ -764,6 +772,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Cpm/PaymentWriteOff/CpmPaymentWriteOff.js',
   ],
   [
+    'src/components/Cpm/PaymentWriteOffDetail/index.js',
+    'src/components/Cpm/PaymentWriteOffDetail/CpmPaymentWriteOffDetail.js',
+  ],
+  [
     'src/components/Dashboard/Sso/index.js',
     'src/components/Dashboard/Sso/DashboardSso.js',
   ],
@@ -902,6 +914,10 @@ const removedLegacyComponentFiles = new Map([
   [
     'src/components/Financial/PaymentDetail/index.js',
     'src/components/Financial/PaymentDetail/FinancialPaymentDetail.js',
+  ],
+  [
+    'src/components/Financial/DirectDetail/index.js',
+    'src/components/Financial/DirectDetail/FinancialDirectDetail.js',
   ],
   [
     'src/components/Financial/FinancingCarryInterestFlow/index.js',
