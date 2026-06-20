@@ -133,6 +133,7 @@
 - `Financial/FundProcessEntries.js`
 - `Financial/OrgEntries.js`
 - `Financial/OrgEditModalEntries.js`
+- `Financial/PayableInterestEntries.js`
 - `Financial/PaymentBatchApprovalEntries.js`
 - `Financial/PaymentDetailEntries.js`
 - `Financial/PaymentListEntries.js`
@@ -275,6 +276,7 @@
 - 金融产权列表页通过 `src/components/Financial/PropertyEntries.js` 暴露，`src/pages/financial/property` 只保留路由壳。
 - 直融产品列表页通过 `src/components/Financial/DirectListEntries.js` 暴露，`src/pages/financial/direct/index.js` 只保留路由壳；直融详情继续通过 `src/components/Financial/DirectDetailEntries.js` 暴露。
 - 金融机构管理页通过 `src/components/Financial/OrgEntries.js` 暴露，`src/pages/financial/org/*` 只保留路由壳。
+- 财务应付利息列表页和详情页通过 `src/components/Financial/PayableInterestEntries.js` 暴露，`src/pages/financial/payableInterest/*` 只保留路由壳。
 - 逾期催收列表页、详情页和催收弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/collection/*` 只保留路由壳。
 - 逾期诉讼用印列表页和用印弹窗通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationDoc/*` 只保留路由壳。
 - 逾期诉讼登记列表页和详情页通过 `src/components/Overdue/OverdueEntries.js` 暴露，`src/pages/overdue/litigationRegistration/*` 只保留路由壳。
