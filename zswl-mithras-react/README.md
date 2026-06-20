@@ -466,9 +466,9 @@
 - 项目立项列表页和创建弹窗通过 `src/components/Project/EstablishmentEntries.js` 暴露，`src/pages/project/establishment/*` 只保留路由壳和详情子路由壳。
 - 禁止从 `@/components` 根目录导入表格族组件，例如 `FileTable`、`NoEnumFileTable`、`VersionTable`、`EditTable`、`EditDescription`、`Summary` 应从 `@/components/Table` 导入。
 - 禁止从 `@/components` 根目录导入公共选择器，例如 `ClientSelect`、`FounderSelect`、`OrgSelect`、`ApiSelect`、`ProjectReviewSelect` 应从 `@/components/Select` 导入。
-- 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `CommonNoData`、`DetailLayout`、`Collapse` 应直接从对应 `@/components/<Component>` 导入。
+- 禁止从 `@/components` 根目录导入已具备独立入口的默认组件，例如 `DetailLayout`、`Collapse` 应直接从对应 `@/components/<Component>` 导入。
 - 禁止业务代码继续从 `@/components` 根目录导入组件；历史兼容根导出已删除，新增和迁移代码必须依赖具体稳定入口。
-- 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`Excel`、`CommonNoData` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域或公共能力的 `*Entries.js`。
+- 允许直接从 `@/components/<Component>` 引入的根组件必须是已确认的公共基础组件，例如 `Icon`、`DataUpload`、`Excel` 等；新增跨域根组件直连时，应先判断它是公共基础组件，还是应改成某个业务域或公共能力的 `*Entries.js`。
 - 全局样式不放在 `src/components` 下伪装成组件域；当前全局动画样式已内聚到 `src/app.less`。
 - 禁止业务代码直接引用 `blackList`、`postRentalInspection`、`riskControl`、`liquidity`、`pricing`、`newFtp`、`financialReport`、`manageReport`、`fillingMaterials`、`workbench`、`header` 等历史 API 目录，应使用对应语义领域入口。
 - 禁止页面和组件直接引用 `src/api/**/interface/**` 类型文件；接口类型应由对应的语义 API 包装文件承接，避免页面绑定接口实现层目录。
@@ -510,6 +510,7 @@
 - 格式化列、可编辑列、超时展示等统一从 `src/components/Format` 稳定入口导入。
 - 金额展示/输入换算控件 `Amount` 和金额区间输入 `AmountRange` 已归入 `src/components/Format` 稳定入口，不再保留 `src/components/Amount`、`src/components/AmountRange` 公共根组件。
 - 审批比对和日志表格里的单元格展示能力 `RenderColumn` 已归入 `src/components/Format/RenderColumn.js`，调用方统一从 `@/components/Format` 具名导入，不再保留 `src/components/RenderColumn` 公共根组件。
+- 空状态展示 `EmptyState` 已归入 `src/components/Format/EmptyState.js`，调用方统一从 `@/components/Format` 具名导入，不再保留 `src/components/CommonNoData` 公共根组件。
 - 工商信息校验能力通过 `src/components/BusinessInfoCheck/BusinessInfoCheckEntries.js` 暴露，真实实现命名为 `src/components/BusinessInfoCheck/BusinessInfoCheck.js`。
 - 业务资料表能力通过 `src/components/ClientMaterialTable/BusinessMaterialTableEntries.js` 暴露，真实实现命名为 `src/components/ClientMaterialTable/BusinessMaterialTable.js`。
 - 预算域的应收款、银行账户、汇率和 FTP 利率价格详情页分别通过 `src/components/Budget/*Entries.js` 暴露，真实实现命名为 `BudgetAccountsReceivable.js`、`BudgetBankAccount.js`、`BudgetExchangeRate.js` 和 `BudgetPricingFtpInterestPriceDetail.js`，不再依赖目录 `index.js`。

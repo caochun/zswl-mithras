@@ -4,7 +4,7 @@ import styles from '../../index.less'
 import BaseModule from '../BaseModule'
 import store from '../../store'
 import { amountFormat } from '@/utils'
-import NoData from '@/components/CommonNoData'
+import { EmptyState as NoData } from '@/components/Format'
 const Establishment = () => {
   const { projEstablish } = store.page.getData()
   const {
