@@ -1,1 +1,1 @@
-export { FinancialFundList as default } from '@/components/Financial/FundListPageEntries'
+export { FinancialFundList as default } from '@/components/Financial/FundListMainEntries'

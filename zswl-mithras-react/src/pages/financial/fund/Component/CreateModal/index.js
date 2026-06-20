@@ -1,1 +1,1 @@
-export { FinancialFundListCreateModal as default } from '@/components/Financial/FundListPageEntries'
+export { FinancialFundListCreateModal as default } from '@/components/Financial/FundListCreateModalEntries'

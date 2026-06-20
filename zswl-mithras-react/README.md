@@ -222,7 +222,9 @@
 - `Financial/FundEffectEntries.js`
 - `Financial/FundActualTableEntries.js`
 - `Financial/FundGuaranteeEntries.js`
-- `Financial/FundListPageEntries.js`
+- `Financial/FundListChangeModalEntries.js`
+- `Financial/FundListCreateModalEntries.js`
+- `Financial/FundListMainEntries.js`
 - `Financial/FundOrgEntries.js`
 - `Financial/FundProcessEntries.js`
 - `Financial/FundYearRateEntries.js`
@@ -432,7 +434,7 @@
 - 金融机构管理页通过 `src/components/Financial/OrgEntries.js` 暴露，`src/pages/financial/org/*` 只保留路由壳。
 - 财务应付利息列表页和详情页通过 `src/components/Financial/PayableInterestEntries.js` 暴露，`src/pages/financial/payableInterest/*` 只保留路由壳。
 - 财务还本付息列表页、变更日志和差异详情分别通过 `src/components/Financial/PaymentListPageEntries.js` 和 `src/components/Financial/PaymentLogEntries.js` 暴露，`src/pages/financial/payment/*` 中列表和日志子路由只保留路由壳。
-- 融资管理列表页、融资生效、变更日志、差异详情和历史组件子路由通过 `src/components/Financial/FundListPageEntries.js`、`FundActualTableEntries.js`、`FundGuaranteeEntries.js`、`FundOrgEntries.js`、`FundYearRateEntries.js`、`FundEffectEntries.js`、`FundDetailPageEntries.js`、`FundDetailRepaymentEntries.js`、`FundDetailAccountEntries.js`、`FundDetailAssetEntries.js`、`FundDetailLogEntries.js` 暴露，`src/pages/financial/fund/*` 中对应路由只保留路由壳。
+- 融资管理列表页、创建弹窗、变更弹窗、融资生效、变更日志、差异详情和历史组件子路由通过 `src/components/Financial/FundListMainEntries.js`、`FundListCreateModalEntries.js`、`FundListChangeModalEntries.js`、`FundActualTableEntries.js`、`FundGuaranteeEntries.js`、`FundOrgEntries.js`、`FundYearRateEntries.js`、`FundEffectEntries.js`、`FundDetailPageEntries.js`、`FundDetailRepaymentEntries.js`、`FundDetailAccountEntries.js`、`FundDetailAssetEntries.js`、`FundDetailLogEntries.js` 暴露，`src/pages/financial/fund/*` 中对应路由只保留路由壳。
 - 金融授信额度列表页和详情页通过 `src/components/Financial/CreditEntries.js` 暴露，`src/pages/financial/credit/*` 只保留路由壳。
 - 金融担保额度列表页和详情页通过 `src/components/Financial/GuaranteeEntries.js` 暴露，`src/pages/financial/guarantee/*` 只保留路由壳。
 - 财务流动性管理、资金日报、监管户待转资金、账户余额明细和预测参数配置分别通过 `src/components/Financial/LiquidityManagementEntries.js`、`LiquidityFundDailyReportEntries.js`、`LiquiditySupervisionAccountEntries.js`、`LiquidityAccountBalanceEntries.js`、`LiquidityPredictionParametersEntries.js` 暴露，`src/pages/financial/liquidity/*` 只保留路由壳。
