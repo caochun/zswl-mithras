@@ -8,7 +8,7 @@ import BelongContract from '../../MarginManagementDetail/BelongContract'
 import MarginInfo from '../../MarginManagementDetail/MarginInfo'
 import PaymentRecords from '../PaymentRecords'
 import RefundRecords from '../RefundRecords'
-import VerificationRecords from '../VerificationRecords'
+import VerificationRecords from '../VerificationRecords/CpmMarginManagementVerificationRecords'
 const { TabPane } = Tabs
 
 function Index({ params: { id }, query: { contractId } }) {

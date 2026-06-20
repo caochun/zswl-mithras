@@ -340,6 +340,18 @@ const removedLegacyComponentFiles = new Map([
     'src/components/CreditManage/CreditTableConfig/CreditTableConfig.js',
   ],
   [
+    'src/components/Cpm/BillManage/index.js',
+    'src/components/Cpm/BillManage/CpmBillManage.js',
+  ],
+  [
+    'src/components/Cpm/ContractCpm/CashFlowTable/index.js',
+    'src/components/Cpm/ContractCpm/CashFlowTable/CpmContractCpmCashFlowTable.js',
+  ],
+  [
+    'src/components/Cpm/MarginManagement/VerificationRecords/index.js',
+    'src/components/Cpm/MarginManagement/VerificationRecords/CpmMarginManagementVerificationRecords.js',
+  ],
+  [
     'src/components/Cpm/PaymentApplication/PublicCheckModal/index.js',
     'src/components/Cpm/PaymentApplication/PublicCheckModal/CpmPaymentApplicationPublicCheckModal.js',
   ],

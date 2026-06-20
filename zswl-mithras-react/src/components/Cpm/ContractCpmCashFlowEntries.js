@@ -1,1 +1,1 @@
-export { default as CpmContractCpmCashFlowTable } from './ContractCpm/CashFlowTable'
+export { default as CpmContractCpmCashFlowTable } from './ContractCpm/CashFlowTable/CpmContractCpmCashFlowTable'
