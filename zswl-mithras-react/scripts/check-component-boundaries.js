@@ -703,10 +703,8 @@ function extractNamedImports(importText) {
     .filter(Boolean)
 }
 
-function hasRuntimeConsoleLog(source) {
-  return source
-    .split(/\r?\n/)
-    .some((line) => !line.trimStart().startsWith('//') && line.includes('console.log('))
+function hasConsoleLog(source) {
+  return source.includes('console.log(')
 }
 
 function isPublicComponentSourceFile(relativeFilePath) {
@@ -752,10 +750,10 @@ for (const filePath of sourceFiles) {
     })
   }
 
-  if (hasRuntimeConsoleLog(source)) {
+  if (hasConsoleLog(source)) {
     violations.push({
       file: relativeFilePath,
-      specifier: 'runtime console.log in frontend source',
+      specifier: 'console.log debug residue in frontend source',
     })
   }
 
