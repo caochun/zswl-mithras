@@ -525,7 +525,7 @@
 - 保单信息能力通过 `src/components/InsurancePolicy/InsurancePolicyEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/InsurancePolicy.js`。
 - 保单列配置通过 `src/components/InsurancePolicy/InsurancePolicyColumnsEntries.js` 暴露，真实实现命名为 `src/components/InsurancePolicy/Columns/InsurancePolicyColumns.js`。
 - KPI 基础设置的参数弹窗、费用计提明细、明细页、表格能力、业绩目标列表、绩效测算合同维度、PM 考核列表/详情内容/编辑弹窗和项目分配详情/分配信息/分配列表通过 `src/components/Kpi/*Entries.js` 窄入口暴露，真实实现使用 KPI 域语义文件名，不再依赖目录 `index.js`。
-- 生命周期客户列表页通过 `src/components/LifeCycle/CustomerEntries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js`。
+- 生命周期客户列表页和客户详情页通过 `src/components/LifeCycle/CustomerEntries.js` 暴露，真实实现命名为 `src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js` 和 `src/components/LifeCycle/CustomerDetail/LifeCycleCustomerDetail.js`。
 - 租赁物审核确认动作通过 `src/components/Lease/ApprovalConfirmEntries.js` 暴露，真实实现命名为 `src/components/Lease/ApprovalConfirm/LeaseApprovalConfirmAction.js`。
 - 消息通知页通过 `src/components/Message/NotificationEntries.js` 暴露，真实实现命名为 `src/components/Message/Notification/MessageNotification.js`。
 - OCR 识别页通过 `src/components/Ocr/RecognitionEntries.js` 暴露，真实实现命名为 `src/components/Ocr/Recognition/OcrRecognition.js`。
@@ -548,6 +548,7 @@
 - 项目评审会纪要弹窗通过 `src/components/Project/ProjectReviewMeetingModalEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewMeetingModal/ProjectReviewMeetingModal.js`。
 - 项目评审快照通过 `src/components/Project/ReviewSnapshotEntries.js` 暴露，真实实现命名为 `src/components/Project/ReviewSnapshot/ProjectReviewSnapshot.js`。
 - 项目立项、定价和评审列表页分别通过 `src/components/Project/EstablishmentEntries.js`、`PriceEntries.js`、`ReviewEntries.js` 暴露，真实实现命名为 `ProjectEstablishment.js`、`ProjectPrice.js` 和 `ProjectReview.js`，不再依赖目录 `index.js`。
+- 项目立项、定价和评审日志页分别通过 `src/components/Project/EstablishmentDetailLogEntries.js`、`PriceDetailLogEntries.js`、`ReviewDetailLogEntries.js` 暴露，真实实现命名为 `ProjectEstablishmentDetailLog.js`、`ProjectPriceDetailLog.js` 和 `ProjectReviewDetailLog.js`，不再依赖目录 `index.js`。
 - 风险云指标列表和详情通过 `src/components/Risk/CloudMetricValueEntries.js` 暴露，真实实现命名为 `src/components/Risk/CloudMetricValue/RiskCloudMetricValue.js` 和 `src/components/Risk/CloudMetricValue/Detail/RiskCloudMetricValueDetail.js`。
 - 风险公开监控列配置通过 `src/components/Risk/PublicMonitorColumnsEntries.js` 暴露，真实实现命名为 `src/components/Risk/PublicMonitorColumns/RiskPublicMonitorColumns.js`。
 - 风险公开监控详情、财报指标表、财报文件、定时指标、目标指标、集控指标、集中度指标、逾期查询和风险策略页通过 `src/components/Risk/*Entries.js` 暴露，真实实现使用风险域语义文件名，例如 `src/components/Risk/PublicMonitorDetail/RiskPublicMonitorDetail.js`、`RiskFinanceSheet.js`、`RiskFinanceSheetFileList.js`、`RiskMetricTimed.js`、`RiskMetricValueTarget.js`、`RiskMetricJinKon.js`、`RiskMetricControl.js`、`RiskOverdueListSearch.js`、`RiskStrategy/IndicatorManage/RiskStrategyIndicatorManage.js` 和 `RiskStrategy/IndicatorManage/Detail/RiskStrategyIndicatorDetail.js`，不再依赖目录 `index.js`。
@@ -595,7 +596,7 @@
 - `monitorEarly`：预警监控历史路由壳，当前实现已收敛到 `src/components/Risk/MonitorEarlyEntries.js`。
 - `login`：登录和初次登录改密历史路由壳，页面实现已收敛到 `src/components/Permission/AuthEntries.js`，API 语义归属权限认证。
 - `customer/customerRat`：客户评级列表历史路由壳，列表实现和列配置已收敛到 `src/components/Customer/CustomerRatingListEntries.js`。
-- `customer/maintain`：客户维护列表历史路由壳，列表、详情和日志分别通过 `src/components/Customer/MaintainListEntries.js`、`src/components/Customer/MaintainDetailEntries.js` 和 `src/components/Customer/MaintainLogEntries.js` 暴露，列表真实实现命名为 `CustomerMaintain.js`。
+- `customer/maintain`：客户维护列表历史路由壳，列表、详情和日志分别通过 `src/components/Customer/MaintainListEntries.js`、`src/components/Customer/MaintainDetailEntries.js` 和 `src/components/Customer/MaintainLogEntries.js` 暴露，列表和日志真实实现命名为 `CustomerMaintain.js` 和 `CustomerMaintainDetailLog.js`。
 - `msgNotification`：消息中心历史路由壳，当前实现已收敛到 `src/components/Message/NotificationEntries.js`。
 - `preview`：PDF、报表预览。
 - `visitorManage`：拜访管理历史路由壳，当前入口收敛到 `src/components/VisitorManage/VisitorManageEntries.js`，页面实现命名为 `src/components/VisitorManage/VisitorManagePage.js`。

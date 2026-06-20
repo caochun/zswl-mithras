@@ -476,6 +476,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Customer/Maintain/CustomerMaintain.js',
   ],
   [
+    'src/components/Customer/MaintainDetail/Log/index.js',
+    'src/components/Customer/MaintainDetail/Log/CustomerMaintainDetailLog.js',
+  ],
+  [
     'src/components/Credit/CreditSearchModal/index.js',
     'src/components/Credit/CreditSearchModal/CreditReportSearchModal.js',
   ],
@@ -896,6 +900,10 @@ const removedLegacyComponentFiles = new Map([
     'src/components/LifeCycle/CustomerList/LifeCycleCustomerList.js',
   ],
   [
+    'src/components/LifeCycle/CustomerDetail/index.js',
+    'src/components/LifeCycle/CustomerDetail/LifeCycleCustomerDetail.js',
+  ],
+  [
     'src/components/Message/Notification/index.js',
     'src/components/Message/Notification/MessageNotification.js',
   ],
@@ -1076,12 +1084,24 @@ const removedLegacyComponentFiles = new Map([
     'src/components/Project/Establishment/ProjectEstablishment.js',
   ],
   [
+    'src/components/Project/EstablishmentDetail/Log/index.js',
+    'src/components/Project/EstablishmentDetail/Log/ProjectEstablishmentDetailLog.js',
+  ],
+  [
     'src/components/Project/Price/index.js',
     'src/components/Project/Price/ProjectPrice.js',
   ],
   [
+    'src/components/Project/PriceDetail/Log/index.js',
+    'src/components/Project/PriceDetail/Log/ProjectPriceDetailLog.js',
+  ],
+  [
     'src/components/Project/Review/index.js',
     'src/components/Project/Review/ProjectReview.js',
+  ],
+  [
+    'src/components/Project/ReviewDetail/Log/index.js',
+    'src/components/Project/ReviewDetail/Log/ProjectReviewDetailLog.js',
   ],
   [
     'src/components/Project/DebtEvaluation/index.js',
